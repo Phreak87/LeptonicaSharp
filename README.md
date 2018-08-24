@@ -1,9 +1,6 @@
 # LeptonicaSharp
 Full featured wrapper for leptonica 1.76.0
 
-special thanks to: https://github.com/tvn-cosine/leptonica.net
-for the first library for leptonica. 
-
 # Functions:
 
 - VB.Net 4.0 Library

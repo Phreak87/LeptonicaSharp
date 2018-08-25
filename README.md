@@ -1,5 +1,6 @@
-# LeptonicaSharp
+# LeptonicaSharp Alpha
 Full featured wrapper for leptonica 1.76.0
+This is a alpha Version - Bugs are inclusive
 
 # Functions:
 

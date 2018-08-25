@@ -1,6 +1,7 @@
 # LeptonicaSharp Alpha
-Full featured wrapper for leptonica 1.76.0
-This is a alpha Version - Bugs are inclusive
+
+- Full featured wrapper for leptonica 1.76.0
+- This is a alpha Version - Bugs are inclusive
 
 # Functions:
 
@@ -53,3 +54,9 @@ Partial Class Pix
 - Dim Pix as Pix = New LeptonicaSharp.Pix("Test.jpg")
 - PictureBox1.Backgroundimage = Pix.toBitmap
 - Pix.SaveAutoFormat ("Test.jp2", JP2)
+
+# Special thanks
+- Leptonica for this great c-library
+- Leptonica.Net for inspiration and implementation comparison
+- Clang for the great tool 
+- NClang for the wrapper around clang

@@ -1,5 +1,10 @@
 ﻿Imports System.Runtime.InteropServices
+Public Class CQCELL
+    Property Pointer As IntPtr
+    Sub New(ByVal IntPTR As IntPtr)
 
+    End Sub
+End Class
 Public Class FILE
     Property Pointer As IntPtr
     Sub New(ByVal IntPTR As IntPtr)
@@ -7,6 +12,12 @@ Public Class FILE
     End Sub
 End Class
 Public Class L_ASET
+    Property Pointer As IntPtr
+    Sub New(ByVal IntPTR As IntPtr)
+
+    End Sub
+End Class
+Public Class Node
     Property Pointer As IntPtr
     Sub New(ByVal IntPTR As IntPtr)
 

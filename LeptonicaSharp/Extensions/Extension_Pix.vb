@@ -52,5 +52,6 @@ Partial Public Class pix
                 bmp.unlockbits(dat)
                 Return bmp
         End Select
+        Return Nothing
     End Function
 End Class

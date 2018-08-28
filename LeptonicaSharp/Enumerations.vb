@@ -54,9 +54,9 @@ End Enum
 ''' Flags for interpolation in Numa
 ''' </summary>
 Public Enum L_INTERP
-''' <summary>linear</summary>
+''' <summary>smaller  linear</summary>
 L_LINEAR_INTERP
-''' <summary>quadratic</summary>
+''' <summary>smaller  quadratic</summary>
 L_QUADRATIC_INTERP
 End Enum
 
@@ -66,11 +66,11 @@ End Enum
 ''' Flags for added borders in Numa and Fpix
 ''' </summary>
 Public Enum L_BORDER
-''' <summary>extended with same value</summary>
+''' <summary>smaller  extended with same value</summary>
 L_CONTINUED_BORDER
-''' <summary>extended with constant normal derivative</summary>
+''' <summary>smaller  extended with constant normal derivative</summary>
 L_SLOPE_BORDER
-''' <summary>mirrored</summary>
+''' <summary>smaller  mirrored</summary>
 L_MIRRORED_BORDER
 End Enum
 
@@ -80,9 +80,9 @@ End Enum
 ''' Flags for data type converted from Numa
 ''' </summary>
 Public Enum L_VALUE
-''' <summary>convert to integer</summary>
+''' <summary>smaller  convert to integer</summary>
 L_INTEGER_VALUE
-''' <summary>convert to float</summary>
+''' <summary>smaller  convert to float</summary>
 L_FLOAT_VALUE
 End Enum
 
@@ -94,9 +94,9 @@ End Enum
 ''' Flags for removal from L_Ptra
 ''' </summary>
 Public Enum L_COMPACTION
-''' <summary>null the pointer only</summary>
+''' <summary>smaller  null the pointer only</summary>
 L_NO_COMPACTION
-''' <summary>compact the array</summary>
+''' <summary>smaller  compact the array</summary>
 L_COMPACTION
 End Enum
 
@@ -106,11 +106,11 @@ End Enum
 ''' Flags for insertion into L_Ptra
 ''' </summary>
 Public Enum L_DOWNSHIFT
-''' <summary>choose based on number of holes</summary>
+''' <summary>smaller  choose based on number of holes</summary>
 L_AUTO_DOWNSHIFT
-''' <summary>downshifts min # of ptrs below insert</summary>
+''' <summary>smaller  downshifts min # of ptrs below insert</summary>
 L_MIN_DOWNSHIFT
-''' <summary>downshifts all ptrs below insert</summary>
+''' <summary>smaller  downshifts all ptrs below insert</summary>
 L_FULL_DOWNSHIFT
 End Enum
 
@@ -120,9 +120,9 @@ End Enum
 ''' Accessor flags for L_Ptraa
 ''' </summary>
 Public Enum L_accessor__l_ptraa
-''' <summary>ptr to L_Ptra; caller can inspect only</summary>
+''' <summary>smaller  ptr to L_Ptra; caller can inspect only</summary>
 L_HANDLE_ONLY
-''' <summary>caller owns; destroy or save in L_Ptraa</summary>
+''' <summary>smaller  caller owns; destroy or save in L_Ptraa</summary>
 L_REMOVE
 End Enum
 
@@ -150,11 +150,11 @@ End Enum
 ''' Constants for deciding when text block is divided into paragraphs
 ''' </summary>
 Public Enum SPLIT_ON
-''' <summary>tab or space at beginning of line</summary>
+''' <summary>smaller  tab or space at beginning of line</summary>
 SPLIT_ON_LEADING_WHITE
-''' <summary>newline with optional white space</summary>
+''' <summary>smaller  newline with optional white space</summary>
 SPLIT_ON_BLANK_LINE
-''' <summary>leading white space or newline</summary>
+''' <summary>smaller  leading white space or newline</summary>
 SPLIT_ON_BOTH
 End Enum
 
@@ -228,7 +228,7 @@ End Enum
 ''' 
 ''' </summary>
 Public Enum GPLOT_SCALING
-''' <summary>default</summary>
+''' <summary>smaller  default</summary>
 GPLOT_LINEAR_SCALE
 ''' <summary></summary>
 GPLOT_LOG_SCALE_X
@@ -292,11 +292,11 @@ End Enum
 ''' Format header ids
 ''' </summary>
 Public Enum ID
-''' <summary>BM - for bitmaps</summary>
+''' <summary>smaller  BM - for bitmaps</summary>
 BMP_ID
-''' <summary>MM - for 'motorola'</summary>
+''' <summary>smaller  MM - for 'motorola'</summary>
 TIFF_BIGEND_ID
-''' <summary>II - for 'intel'</summary>
+''' <summary>smaller  II - for 'intel'</summary>
 TIFF_LITTLEEND_ID
 End Enum
 
@@ -306,9 +306,9 @@ End Enum
 ''' Hinting bit flags in jpeg reader
 ''' </summary>
 Public Enum L_JPEG
-''' <summary>only want luminance data; no chroma</summary>
+''' <summary>smaller  only want luminance data; no chroma</summary>
 L_JPEG_READ_LUMINANCE
-''' <summary>don't return possibly damaged pix</summary>
+''' <summary>smaller  don't return possibly damaged pix</summary>
 L_JPEG_FAIL_ON_BAD_DATA
 End Enum
 
@@ -318,15 +318,15 @@ End Enum
 ''' Pdf formatted encoding types
 ''' </summary>
 Public Enum L_ENCODE
-''' <summary>use default encoding based on image</summary>
+''' <summary>smaller  use default encoding based on image</summary>
 L_DEFAULT_ENCODE
-''' <summary>use dct encoding: 8 and 32 bpp, no cmap</summary>
+''' <summary>smaller  use dct encoding: 8 and 32 bpp, no cmap</summary>
 L_JPEG_ENCODE
-''' <summary>use ccitt g4 fax encoding: 1 bpp</summary>
+''' <summary>smaller  use ccitt g4 fax encoding: 1 bpp</summary>
 L_G4_ENCODE
-''' <summary>use flate encoding: any depth, cmap ok</summary>
+''' <summary>smaller  use flate encoding: any depth, cmap ok</summary>
 L_FLATE_ENCODE
-''' <summary>use jp2k encoding: 8 and 32 bpp, no cmap</summary>
+''' <summary>smaller  use jp2k encoding: 8 and 32 bpp, no cmap</summary>
 L_JP2K_ENCODE
 End Enum
 
@@ -336,11 +336,11 @@ End Enum
 ''' Pdf multi image flags
 ''' </summary>
 Public Enum L_T_IMAGE
-''' <summary>first image to be used</summary>
+''' <summary>smaller  first image to be used</summary>
 L_FIRST_IMAGE
-''' <summary>intermediate image; not first or last</summary>
+''' <summary>smaller  intermediate image; not first or last</summary>
 L_NEXT_IMAGE
-''' <summary>last image to be used</summary>
+''' <summary>smaller  last image to be used</summary>
 L_LAST_IMAGE
 End Enum
 
@@ -558,13 +558,13 @@ End Enum
 ''' Colors for 32 bpp
 ''' </summary>
 Public Enum colors_32_bpp
-''' <summary>red color index in RGBA_QUAD</summary>
+''' <summary>smaller  red color index in RGBA_QUAD</summary>
 COLOR_RED
-''' <summary>green color index in RGBA_QUAD</summary>
+''' <summary>smaller  green color index in RGBA_QUAD</summary>
 COLOR_GREEN
-''' <summary>blue color index in RGBA_QUAD</summary>
+''' <summary>smaller  blue color index in RGBA_QUAD</summary>
 COLOR_BLUE
-''' <summary>alpha value index in RGBA_QUAD</summary>
+''' <summary>smaller  alpha value index in RGBA_QUAD</summary>
 L_ALPHA_CHANNEL
 End Enum
 
@@ -574,17 +574,17 @@ End Enum
 ''' Colors for drawing boxes
 ''' </summary>
 Public Enum L_DRAW
-''' <summary>draw in red</summary>
+''' <summary>smaller  draw in red</summary>
 L_DRAW_RED
-''' <summary>draw in green</summary>
+''' <summary>smaller  draw in green</summary>
 L_DRAW_GREEN
-''' <summary>draw in blue</summary>
+''' <summary>smaller  draw in blue</summary>
 L_DRAW_BLUE
-''' <summary>draw specified color</summary>
+''' <summary>smaller  draw specified color</summary>
 L_DRAW_SPECIFIED
-''' <summary>draw as sequence of r,g,b</summary>
+''' <summary>smaller  draw as sequence of r,g,b</summary>
 L_DRAW_RGB
-''' <summary>draw randomly chosen colors</summary>
+''' <summary>smaller  draw randomly chosen colors</summary>
 L_DRAW_RANDOM
 End Enum
 
@@ -594,15 +594,15 @@ End Enum
 ''' Flags for colormap conversion
 ''' </summary>
 Public Enum REMOVE_CMAP
-''' <summary>remove colormap for conv to 1 bpp</summary>
+''' <summary>smaller  remove colormap for conv to 1 bpp</summary>
 REMOVE_CMAP_TO_BINARY
-''' <summary>remove colormap for conv to 8 bpp</summary>
+''' <summary>smaller  remove colormap for conv to 8 bpp</summary>
 REMOVE_CMAP_TO_GRAYSCALE
-''' <summary>remove colormap for conv to 32 bpp</summary>
+''' <summary>smaller  remove colormap for conv to 32 bpp</summary>
 REMOVE_CMAP_TO_FULL_COLOR
-''' <summary>remove colormap and alpha</summary>
+''' <summary>smaller  remove colormap and alpha</summary>
 REMOVE_CMAP_WITH_ALPHA
-''' <summary>remove depending on src format</summary>
+''' <summary>smaller  remove depending on src format</summary>
 REMOVE_CMAP_BASED_ON_SRC
 End Enum
 
@@ -612,15 +612,15 @@ End Enum
 ''' Access and storage flags
 ''' </summary>
 Public Enum L_access_storage
-''' <summary>do not copy the object; do not delete the ptr</summary>
+''' <summary>smaller  do not copy the object; do not delete the ptr</summary>
 L_NOCOPY
-''' <summary>stuff it in; do not copy or clone</summary>
+''' <summary>smaller  stuff it in; do not copy or clone</summary>
 L_INSERT
-''' <summary>make/use a copy of the object</summary>
+''' <summary>smaller  make/use a copy of the object</summary>
 L_COPY
-''' <summary>make/use clone (ref count) of the object</summary>
+''' <summary>smaller  make/use clone (ref count) of the object</summary>
 L_CLONE
-''' <summary>make a new array object (e.g., pixa) and fill    the array with clones (e.g., pix)</summary>
+''' <summary>smaller  make a new array object (e.g., pixa) and fill    smaller  the array with clones (e.g., pix)</summary>
 L_COPY_CLONE
 End Enum
 
@@ -630,9 +630,9 @@ End Enum
 ''' Sort mode flags
 ''' </summary>
 Public Enum L_SORT
-''' <summary>use shell sort</summary>
+''' <summary>smaller  use shell sort</summary>
 L_SHELL_SORT
-''' <summary>use bin sort</summary>
+''' <summary>smaller  use bin sort</summary>
 L_BIN_SORT
 End Enum
 
@@ -642,9 +642,9 @@ End Enum
 ''' Sort order flags
 ''' </summary>
 Public Enum L_SORT_CREASING
-''' <summary>sort in increasing order</summary>
+''' <summary>smaller  sort in increasing order</summary>
 L_SORT_INCREASING
-''' <summary>sort in decreasing order</summary>
+''' <summary>smaller  sort in decreasing order</summary>
 L_SORT_DECREASING
 End Enum
 
@@ -654,27 +654,27 @@ End Enum
 ''' Sort type flags
 ''' </summary>
 Public Enum L_SORT_BY
-''' <summary>sort box or c.c. by left edge location</summary>
+''' <summary>smaller  sort box or c.c. by left edge location</summary>
 L_SORT_BY_X
-''' <summary>sort box or c.c. by top edge location</summary>
+''' <summary>smaller  sort box or c.c. by top edge location</summary>
 L_SORT_BY_Y
-''' <summary>sort box or c.c. by right edge location</summary>
+''' <summary>smaller  sort box or c.c. by right edge location</summary>
 L_SORT_BY_RIGHT
-''' <summary>sort box or c.c. by bot edge location</summary>
+''' <summary>smaller  sort box or c.c. by bot edge location</summary>
 L_SORT_BY_BOT
-''' <summary>sort box or c.c. by width</summary>
+''' <summary>smaller  sort box or c.c. by width</summary>
 L_SORT_BY_WIDTH
-''' <summary>sort box or c.c. by height</summary>
+''' <summary>smaller  sort box or c.c. by height</summary>
 L_SORT_BY_HEIGHT
-''' <summary>sort box or c.c. by min dimension</summary>
+''' <summary>smaller  sort box or c.c. by min dimension</summary>
 L_SORT_BY_MIN_DIMENSION
-''' <summary>sort box or c.c. by max dimension</summary>
+''' <summary>smaller  sort box or c.c. by max dimension</summary>
 L_SORT_BY_MAX_DIMENSION
-''' <summary>sort box or c.c. by perimeter</summary>
+''' <summary>smaller  sort box or c.c. by perimeter</summary>
 L_SORT_BY_PERIMETER
-''' <summary>sort box or c.c. by area</summary>
+''' <summary>smaller  sort box or c.c. by area</summary>
 L_SORT_BY_AREA
-''' <summary>sort box or c.c. by width/height ratio</summary>
+''' <summary>smaller  sort box or c.c. by width/height ratio</summary>
 L_SORT_BY_ASPECT_RATIO
 End Enum
 
@@ -684,15 +684,15 @@ End Enum
 ''' Blend flags
 ''' </summary>
 Public Enum L_BLEND
-''' <summary>add some of src inverse to itself</summary>
+''' <summary>smaller  add some of src inverse to itself</summary>
 L_BLEND_WITH_INVERSE
-''' <summary>shift src colors towards white</summary>
+''' <summary>smaller  shift src colors towards white</summary>
 L_BLEND_TO_WHITE
-''' <summary>shift src colors towards black</summary>
+''' <summary>smaller  shift src colors towards black</summary>
 L_BLEND_TO_BLACK
-''' <summary>blend src directly with blender</summary>
+''' <summary>smaller  blend src directly with blender</summary>
 L_BLEND_GRAY
-''' <summary>add amount of src inverse to itself,    based on blender pix value</summary>
+''' <summary>smaller  add amount of src inverse to itself,    smaller  based on blender pix value</summary>
 L_BLEND_GRAY_WITH_INVERSE
 End Enum
 
@@ -702,9 +702,9 @@ End Enum
 ''' 
 ''' </summary>
 Public Enum L_PAINT
-''' <summary>colorize non-black pixels</summary>
+''' <summary>smaller  colorize non-black pixels</summary>
 L_PAINT_LIGHT
-''' <summary>colorize non-white pixels</summary>
+''' <summary>smaller  colorize non-white pixels</summary>
 L_PAINT_DARK
 End Enum
 
@@ -714,11 +714,11 @@ End Enum
 ''' Graphics pixel setting
 ''' </summary>
 Public Enum L_PIXELS
-''' <summary>set all bits in each pixel to 1</summary>
+''' <summary>smaller  set all bits in each pixel to 1</summary>
 L_SET_PIXELS
-''' <summary>set all bits in each pixel to 0</summary>
+''' <summary>smaller  set all bits in each pixel to 0</summary>
 L_CLEAR_PIXELS
-''' <summary>flip all bits in each pixel</summary>
+''' <summary>smaller  flip all bits in each pixel</summary>
 L_FLIP_PIXELS
 End Enum
 
@@ -728,17 +728,17 @@ End Enum
 ''' Location filter flags
 ''' </summary>
 Public Enum L_SELECT
-''' <summary>width must satisfy constraint</summary>
+''' <summary>smaller  width must satisfy constraint</summary>
 L_SELECT_WIDTH
-''' <summary>height must satisfy constraint</summary>
+''' <summary>smaller  height must satisfy constraint</summary>
 L_SELECT_HEIGHT
-''' <summary>x value satisfy constraint</summary>
+''' <summary>smaller  x value satisfy constraint</summary>
 L_SELECT_XVAL
-''' <summary>y value must satisfy constraint</summary>
+''' <summary>smaller  y value must satisfy constraint</summary>
 L_SELECT_YVAL
-''' <summary>either width or height (or xval    or yval) can satisfy</summary>
+''' <summary>smaller  either width or height (or xval    smaller  or yval) can satisfy</summary>
 L_SELECT_IF_EITHER
-''' <summary>both width and height (or xval     and yval must satisfy</summary>
+''' <summary>smaller  both width and height (or xval     smaller  and yval must satisfy</summary>
 L_SELECT_IF_BOTH
 End Enum
 
@@ -748,13 +748,13 @@ End Enum
 ''' Size filter flags
 ''' </summary>
 Public Enum L_SELECT_IF
-''' <summary>save if value is less than threshold</summary>
+''' <summary>smaller  save if value is less than threshold</summary>
 L_SELECT_IF_LT
-''' <summary>save if value is more than threshold</summary>
+''' <summary>smaller  save if value is more than threshold</summary>
 L_SELECT_IF_GT
-''' <summary>save if value is = to the threshold</summary>
+''' <summary>smaller  save if value is  smaller = to the threshold</summary>
 L_SELECT_IF_LTE
-''' <summary>save if value is >= to the threshold</summary>
+''' <summary>smaller  save if value is  greater = to the threshold</summary>
 L_SELECT_IF_GTE
 End Enum
 
@@ -764,21 +764,21 @@ End Enum
 ''' Color component selection flags
 ''' </summary>
 Public Enum L_SELECT_
-''' <summary>use red component</summary>
+''' <summary>smaller  use red component</summary>
 L_SELECT_RED
-''' <summary>use green component</summary>
+''' <summary>smaller  use green component</summary>
 L_SELECT_GREEN
-''' <summary>use blue component</summary>
+''' <summary>smaller  use blue component</summary>
 L_SELECT_BLUE
-''' <summary>use min color component</summary>
+''' <summary>smaller  use min color component</summary>
 L_SELECT_MIN
-''' <summary>use max color component</summary>
+''' <summary>smaller  use max color component</summary>
 L_SELECT_MAX
-''' <summary>use average of color components</summary>
+''' <summary>smaller  use average of color components</summary>
 L_SELECT_AVERAGE
-''' <summary>use hue value (in HSV color space)</summary>
+''' <summary>smaller  use hue value (in HSV color space)</summary>
 L_SELECT_HUE
-''' <summary>use saturation value (in HSV space)</summary>
+''' <summary>smaller  use saturation value (in HSV space)</summary>
 L_SELECT_SATURATION
 End Enum
 
@@ -788,19 +788,19 @@ End Enum
 ''' 16-bit conversion flags
 ''' </summary>
 Public Enum L_16_bit_conversion
-''' <summary>use LSB</summary>
+''' <summary>smaller  use LSB</summary>
 L_LS_BYTE
-''' <summary>use MSB</summary>
+''' <summary>smaller  use MSB</summary>
 L_MS_BYTE
-''' <summary>use LSB if max(val)  256; else MSB</summary>
+''' <summary>smaller  use LSB if max(val)  smaller  256; else MSB</summary>
 L_AUTO_BYTE
-''' <summary>use max(val, 255)</summary>
+''' <summary>smaller  use max(val, 255)</summary>
 L_CLIP_TO_FF
-''' <summary>use two LSB</summary>
+''' <summary>smaller  use two LSB</summary>
 L_LS_TWO_BYTES
-''' <summary>use two MSB</summary>
+''' <summary>smaller  use two MSB</summary>
 L_MS_TWO_BYTES
-''' <summary>use max(val, 65535)</summary>
+''' <summary>smaller  use max(val, 65535)</summary>
 L_CLIP_TO_FFFF
 End Enum
 
@@ -810,11 +810,11 @@ End Enum
 ''' Rotate flags
 ''' </summary>
 Public Enum L_ROTATE
-''' <summary>use area map rotation, if possible</summary>
+''' <summary>smaller  use area map rotation, if possible</summary>
 L_ROTATE_AREA_MAP
-''' <summary>use shear rotation</summary>
+''' <summary>smaller  use shear rotation</summary>
 L_ROTATE_SHEAR
-''' <summary>use sampling</summary>
+''' <summary>smaller  use sampling</summary>
 L_ROTATE_SAMPLING
 End Enum
 
@@ -824,9 +824,9 @@ End Enum
 ''' Background flags
 ''' </summary>
 Public Enum L_BRING_IN
-''' <summary>bring in white pixels from the outside</summary>
+''' <summary>smaller  bring in white pixels from the outside</summary>
 L_BRING_IN_WHITE
-''' <summary>bring in black pixels from the outside</summary>
+''' <summary>smaller  bring in black pixels from the outside</summary>
 L_BRING_IN_BLACK
 End Enum
 
@@ -836,9 +836,9 @@ End Enum
 ''' Shear flags
 ''' </summary>
 Public Enum L_SHEAR_ABOUT_CER
-''' <summary>shear image about UL corner</summary>
+''' <summary>smaller  shear image about UL corner</summary>
 L_SHEAR_ABOUT_CORNER
-''' <summary>shear image about center</summary>
+''' <summary>smaller  shear image about center</summary>
 L_SHEAR_ABOUT_CENTER
 End Enum
 
@@ -848,17 +848,17 @@ End Enum
 ''' Affine transform order flags
 ''' </summary>
 Public Enum L_affine_transm_order
-''' <summary>translate, scale, rotate</summary>
+''' <summary>smaller  translate, scale, rotate</summary>
 L_TR_SC_RO
-''' <summary>scale, rotate, translate</summary>
+''' <summary>smaller  scale, rotate, translate</summary>
 L_SC_RO_TR
-''' <summary>rotate, translate, scale</summary>
+''' <summary>smaller  rotate, translate, scale</summary>
 L_RO_TR_SC
-''' <summary>translate, rotate, scale</summary>
+''' <summary>smaller  translate, rotate, scale</summary>
 L_TR_RO_SC
-''' <summary>rotate, scale, translate</summary>
+''' <summary>smaller  rotate, scale, translate</summary>
 L_RO_SC_TR
-''' <summary>scale, translate, rotate</summary>
+''' <summary>smaller  scale, translate, rotate</summary>
 L_SC_TR_RO
 End Enum
 
@@ -868,9 +868,9 @@ End Enum
 ''' Grayscale filling flags
 ''' </summary>
 Public Enum L_FILL
-''' <summary>fill white pixels (e.g, in fg map)</summary>
+''' <summary>smaller  fill white pixels (e.g, in fg map)</summary>
 L_FILL_WHITE
-''' <summary>fill black pixels (e.g., in bg map)</summary>
+''' <summary>smaller  fill black pixels (e.g., in bg map)</summary>
 L_FILL_BLACK
 End Enum
 
@@ -880,9 +880,9 @@ End Enum
 ''' Flags for setting to white or black
 ''' </summary>
 Public Enum L_SET
-''' <summary>set pixels to white</summary>
+''' <summary>smaller  set pixels to white</summary>
 L_SET_WHITE
-''' <summary>set pixels to black</summary>
+''' <summary>smaller  set pixels to black</summary>
 L_SET_BLACK
 End Enum
 
@@ -892,9 +892,9 @@ End Enum
 ''' Flags for getting white or black value
 ''' </summary>
 Public Enum L_GET_VAL
-''' <summary>get white pixel value</summary>
+''' <summary>smaller  get white pixel value</summary>
 L_GET_WHITE_VAL
-''' <summary>get black pixel value</summary>
+''' <summary>smaller  get black pixel value</summary>
 L_GET_BLACK_VAL
 End Enum
 
@@ -904,9 +904,9 @@ End Enum
 ''' Flags for 8 bit and 16 bit pixel sums
 ''' </summary>
 Public Enum L_IS_MAX
-''' <summary>white pixels are 0xff or 0xffff; black are 0</summary>
+''' <summary>smaller  white pixels are 0xff or 0xffff; black are 0</summary>
 L_WHITE_IS_MAX
-''' <summary>black pixels are 0xff or 0xffff; white are 0</summary>
+''' <summary>smaller  black pixels are 0xff or 0xffff; white are 0</summary>
 L_BLACK_IS_MAX
 End Enum
 
@@ -916,13 +916,13 @@ End Enum
 ''' Dither parameters
 ''' </summary>
 Public Enum DEFAULT_CLIP
-''' <summary>dist to black with no prop; 1 bpp</summary>
+''' <summary>smaller  dist to black with no prop; 1 bpp</summary>
 DEFAULT_CLIP_LOWER_1
-''' <summary>dist to black with no prop; 1 bpp</summary>
+''' <summary>smaller  dist to black with no prop; 1 bpp</summary>
 DEFAULT_CLIP_UPPER_1
-''' <summary>dist to black with no prop; 2 bpp</summary>
+''' <summary>smaller  dist to black with no prop; 2 bpp</summary>
 DEFAULT_CLIP_LOWER_2
-''' <summary>dist to black with no prop; 2 bpp</summary>
+''' <summary>smaller  dist to black with no prop; 2 bpp</summary>
 DEFAULT_CLIP_UPPER_2
 End Enum
 
@@ -932,9 +932,9 @@ End Enum
 ''' Distance flags
 ''' </summary>
 Public Enum L_AN_DISTANCE
-''' <summary>L1 distance (e.g., in color space)</summary>
+''' <summary>smaller  L1 distance (e.g., in color space)</summary>
 L_MANHATTAN_DISTANCE
-''' <summary>L2 distance</summary>
+''' <summary>smaller  L2 distance</summary>
 L_EUCLIDEAN_DISTANCE
 End Enum
 
@@ -944,17 +944,17 @@ End Enum
 ''' Value flags
 ''' </summary>
 Public Enum L_value_
-''' <summary>values  0</summary>
+''' <summary>smaller  values  smaller  0</summary>
 L_NEGATIVE
-''' <summary>values >= 0</summary>
+''' <summary>smaller  values  greater = 0</summary>
 L_NON_NEGATIVE
-''' <summary>values > 0</summary>
+''' <summary>smaller  values  greater  0</summary>
 L_POSITIVE
-''' <summary>values = 0</summary>
+''' <summary>smaller  values  smaller = 0</summary>
 L_NON_POSITIVE
-''' <summary>values = 0</summary>
+''' <summary>smaller  values = 0</summary>
 L_ZERO
-''' <summary>all values</summary>
+''' <summary>smaller  all values</summary>
 L_ALL
 End Enum
 
@@ -964,19 +964,19 @@ End Enum
 ''' Statistical measures
 ''' </summary>
 Public Enum L_statistical_measures
-''' <summary>average of abs values</summary>
+''' <summary>smaller  average of abs values</summary>
 L_MEAN_ABSVAL
-''' <summary>median value of set</summary>
+''' <summary>smaller  median value of set</summary>
 L_MEDIAN_VAL
-''' <summary>mode value of set</summary>
+''' <summary>smaller  mode value of set</summary>
 L_MODE_VAL
-''' <summary>mode count of set</summary>
+''' <summary>smaller  mode count of set</summary>
 L_MODE_COUNT
-''' <summary>rms of values</summary>
+''' <summary>smaller  rms of values</summary>
 L_ROOT_MEAN_SQUARE
-''' <summary>standard deviation from mean</summary>
+''' <summary>smaller  standard deviation from mean</summary>
 L_STANDARD_DEVIATION
-''' <summary>variance of values</summary>
+''' <summary>smaller  variance of values</summary>
 L_VARIANCE
 End Enum
 
@@ -986,9 +986,9 @@ End Enum
 ''' Set selection flags
 ''' </summary>
 Public Enum L_CHOOSE
-''' <summary>select 'n' consecutive</summary>
+''' <summary>smaller  select 'n' consecutive</summary>
 L_CHOOSE_CONSECUTIVE
-''' <summary>select at intervals of 'n'</summary>
+''' <summary>smaller  select at intervals of 'n'</summary>
 L_CHOOSE_SKIP_BY
 End Enum
 
@@ -998,15 +998,15 @@ End Enum
 ''' Text orientation flags
 ''' </summary>
 Public Enum L_TEXT_ORIENT
-''' <summary>low confidence on text orientation</summary>
+''' <summary>smaller  low confidence on text orientation</summary>
 L_TEXT_ORIENT_UNKNOWN
-''' <summary>portrait, text rightside-up</summary>
+''' <summary>smaller  portrait, text rightside-up</summary>
 L_TEXT_ORIENT_UP
-''' <summary>landscape, text up to left</summary>
+''' <summary>smaller  landscape, text up to left</summary>
 L_TEXT_ORIENT_LEFT
-''' <summary>portrait, text upside-down</summary>
+''' <summary>smaller  portrait, text upside-down</summary>
 L_TEXT_ORIENT_DOWN
-''' <summary>landscape, text up to right</summary>
+''' <summary>smaller  landscape, text up to right</summary>
 L_TEXT_ORIENT_RIGHT
 End Enum
 
@@ -1016,11 +1016,11 @@ End Enum
 ''' Edge orientation flags
 ''' </summary>
 Public Enum L_L_EDGES
-''' <summary>filters for horizontal edges</summary>
+''' <summary>smaller  filters for horizontal edges</summary>
 L_HORIZONTAL_EDGES
-''' <summary>filters for vertical edges</summary>
+''' <summary>smaller  filters for vertical edges</summary>
 L_VERTICAL_EDGES
-''' <summary>filters for all edges</summary>
+''' <summary>smaller  filters for all edges</summary>
 L_ALL_EDGES
 End Enum
 
@@ -1030,15 +1030,15 @@ End Enum
 ''' Line orientation flags
 ''' </summary>
 Public Enum L_LINE
-''' <summary>horizontal line</summary>
+''' <summary>smaller  horizontal line</summary>
 L_HORIZONTAL_LINE
-''' <summary>45 degree line with positive slope</summary>
+''' <summary>smaller  45 degree line with positive slope</summary>
 L_POS_SLOPE_LINE
-''' <summary>vertical line</summary>
+''' <summary>smaller  vertical line</summary>
 L_VERTICAL_LINE
-''' <summary>45 degree line with negative slope</summary>
+''' <summary>smaller  45 degree line with negative slope</summary>
 L_NEG_SLOPE_LINE
-''' <summary>neither horizontal nor vertical</summary>
+''' <summary>smaller  neither horizontal nor vertical</summary>
 L_OBLIQUE_LINE
 End Enum
 
@@ -1048,9 +1048,9 @@ End Enum
 ''' Image orientation flags
 ''' </summary>
 Public Enum L_MODE
-''' <summary>typical: page is viewed with height > width</summary>
+''' <summary>smaller  typical: page is viewed with height  greater  width</summary>
 L_PORTRAIT_MODE
-''' <summary>page is viewed at 90 deg to portrait mode</summary>
+''' <summary>smaller  page is viewed at 90 deg to portrait mode</summary>
 L_LANDSCAPE_MODE
 End Enum
 
@@ -1060,23 +1060,23 @@ End Enum
 ''' Scan direction flags
 ''' </summary>
 Public Enum L_scan_direction
-''' <summary>scan from left</summary>
+''' <summary>smaller  scan from left</summary>
 L_FROM_LEFT
-''' <summary>scan from right</summary>
+''' <summary>smaller  scan from right</summary>
 L_FROM_RIGHT
-''' <summary>scan from top</summary>
+''' <summary>smaller  scan from top</summary>
 L_FROM_TOP
-''' <summary>scan from bottom</summary>
+''' <summary>smaller  scan from bottom</summary>
 L_FROM_BOT
-''' <summary>scan in negative direction</summary>
+''' <summary>smaller  scan in negative direction</summary>
 L_SCAN_NEGATIVE
-''' <summary>scan in positive direction</summary>
+''' <summary>smaller  scan in positive direction</summary>
 L_SCAN_POSITIVE
-''' <summary>scan in both directions</summary>
+''' <summary>smaller  scan in both directions</summary>
 L_SCAN_BOTH
-''' <summary>horizontal scan (direction unimportant)</summary>
+''' <summary>smaller  horizontal scan (direction unimportant)</summary>
 L_SCAN_HORIZONTAL
-''' <summary>vertical scan (direction unimportant)</summary>
+''' <summary>smaller  vertical scan (direction unimportant)</summary>
 L_SCAN_VERTICAL
 End Enum
 
@@ -1086,39 +1086,39 @@ End Enum
 ''' Box size adjustment and location flags
 ''' </summary>
 Public Enum L_box_size_adjustment_location
-''' <summary>do not adjust</summary>
+''' <summary>smaller  do not adjust</summary>
 L_ADJUST_SKIP
-''' <summary>adjust left edge</summary>
+''' <summary>smaller  adjust left edge</summary>
 L_ADJUST_LEFT
-''' <summary>adjust right edge</summary>
+''' <summary>smaller  adjust right edge</summary>
 L_ADJUST_RIGHT
-''' <summary>adjust both left and right edges</summary>
+''' <summary>smaller  adjust both left and right edges</summary>
 L_ADJUST_LEFT_AND_RIGHT
-''' <summary>adjust top edge</summary>
+''' <summary>smaller  adjust top edge</summary>
 L_ADJUST_TOP
-''' <summary>adjust bottom edge</summary>
+''' <summary>smaller  adjust bottom edge</summary>
 L_ADJUST_BOT
-''' <summary>adjust both top and bottom edges</summary>
+''' <summary>smaller  adjust both top and bottom edges</summary>
 L_ADJUST_TOP_AND_BOT
-''' <summary>choose the min median value</summary>
+''' <summary>smaller  choose the min median value</summary>
 L_ADJUST_CHOOSE_MIN
-''' <summary>choose the max median value</summary>
+''' <summary>smaller  choose the max median value</summary>
 L_ADJUST_CHOOSE_MAX
-''' <summary>set left side to a given value</summary>
+''' <summary>smaller  set left side to a given value</summary>
 L_SET_LEFT
-''' <summary>set right side to a given value</summary>
+''' <summary>smaller  set right side to a given value</summary>
 L_SET_RIGHT
-''' <summary>set top side to a given value</summary>
+''' <summary>smaller  set top side to a given value</summary>
 L_SET_TOP
-''' <summary>set bottom side to a given value</summary>
+''' <summary>smaller  set bottom side to a given value</summary>
 L_SET_BOT
-''' <summary>get left side location</summary>
+''' <summary>smaller  get left side location</summary>
 L_GET_LEFT
-''' <summary>get right side location</summary>
+''' <summary>smaller  get right side location</summary>
 L_GET_RIGHT
-''' <summary>get top side location</summary>
+''' <summary>smaller  get top side location</summary>
 L_GET_TOP
-''' <summary>get bottom side location</summary>
+''' <summary>smaller  get bottom side location</summary>
 L_GET_BOT
 End Enum
 
@@ -1128,17 +1128,17 @@ End Enum
 ''' Flags for modifying box boundaries using a second box
 ''' </summary>
 Public Enum L__modifying_box_boundaries_using_a_second_box
-''' <summary>use boundaries giving min size</summary>
+''' <summary>smaller  use boundaries giving min size</summary>
 L_USE_MINSIZE
-''' <summary>use boundaries giving max size</summary>
+''' <summary>smaller  use boundaries giving max size</summary>
 L_USE_MAXSIZE
-''' <summary>modify boundary if big location diff</summary>
+''' <summary>smaller  modify boundary if big location diff</summary>
 L_SUB_ON_LOC_DIFF
-''' <summary>modify boundary if big size diff</summary>
+''' <summary>smaller  modify boundary if big size diff</summary>
 L_SUB_ON_SIZE_DIFF
-''' <summary>modify boundary with capped min</summary>
+''' <summary>smaller  modify boundary with capped min</summary>
 L_USE_CAPPED_MIN
-''' <summary>modify boundary with capped max</summary>
+''' <summary>smaller  modify boundary with capped max</summary>
 L_USE_CAPPED_MAX
 End Enum
 
@@ -1148,9 +1148,9 @@ End Enum
 ''' Handling overlapping bounding boxes in Boxa
 ''' </summary>
 Public Enum L_hling_overlapping_bounding_boxes_in_boxa
-''' <summary>resize to bounding region; remove smaller</summary>
+''' <summary>smaller  resize to bounding region; remove smaller</summary>
 L_COMBINE
-''' <summary>only remove smaller</summary>
+''' <summary>smaller  only remove smaller</summary>
 L_REMOVE_SMALL
 End Enum
 
@@ -1160,9 +1160,9 @@ End Enum
 ''' Flags for replacing invalid boxes
 ''' </summary>
 Public Enum L_USE_BOXES
-''' <summary>consider all boxes in the sequence</summary>
+''' <summary>smaller  consider all boxes in the sequence</summary>
 L_USE_ALL_BOXES
-''' <summary>consider boxes with the same parity</summary>
+''' <summary>smaller  consider boxes with the same parity</summary>
 L_USE_SAME_PARITY_BOXES
 End Enum
 
@@ -1172,9 +1172,9 @@ End Enum
 ''' Horizontal warp direction
 ''' </summary>
 Public Enum L_WARP_TO_T
-''' <summary>increasing stretch or contraction to left</summary>
+''' <summary>smaller  increasing stretch or contraction to left</summary>
 L_WARP_TO_LEFT
-''' <summary>increasing stretch or contraction to right</summary>
+''' <summary>smaller  increasing stretch or contraction to right</summary>
 L_WARP_TO_RIGHT
 End Enum
 
@@ -1184,9 +1184,9 @@ End Enum
 ''' Horizontal warp stretch mode
 ''' </summary>
 Public Enum L_WARP
-''' <summary>stretch or contraction grows linearly</summary>
+''' <summary>smaller  stretch or contraction grows linearly</summary>
 L_LINEAR_WARP
-''' <summary>stretch or contraction grows quadratically</summary>
+''' <summary>smaller  stretch or contraction grows quadratically</summary>
 L_QUADRATIC_WARP
 End Enum
 
@@ -1196,9 +1196,9 @@ End Enum
 ''' Pixel selection for resampling
 ''' </summary>
 Public Enum L_ED
-''' <summary>linear interpolation from src pixels</summary>
+''' <summary>smaller  linear interpolation from src pixels</summary>
 L_INTERPOLATED
-''' <summary>nearest src pixel sampling only</summary>
+''' <summary>smaller  nearest src pixel sampling only</summary>
 L_SAMPLED
 End Enum
 
@@ -1208,9 +1208,9 @@ End Enum
 ''' Thinning flags
 ''' </summary>
 Public Enum L_THIN_G
-''' <summary>thin foreground of 1 bpp image</summary>
+''' <summary>smaller  thin foreground of 1 bpp image</summary>
 L_THIN_FG
-''' <summary>thin background of 1 bpp image</summary>
+''' <summary>smaller  thin background of 1 bpp image</summary>
 L_THIN_BG
 End Enum
 
@@ -1220,9 +1220,9 @@ End Enum
 ''' Runlength flags
 ''' </summary>
 Public Enum L_AL_RUNS
-''' <summary>determine runlengths of horizontal runs</summary>
+''' <summary>smaller  determine runlengths of horizontal runs</summary>
 L_HORIZONTAL_RUNS
-''' <summary>determine runlengths of vertical runs</summary>
+''' <summary>smaller  determine runlengths of vertical runs</summary>
 L_VERTICAL_RUNS
 End Enum
 
@@ -1232,9 +1232,9 @@ End Enum
 ''' Edge filter flags
 ''' </summary>
 Public Enum L_EDGE
-''' <summary>Sobel edge filter</summary>
+''' <summary>smaller  Sobel edge filter</summary>
 L_SOBEL_EDGE
-''' <summary>Two-sided edge filter</summary>
+''' <summary>smaller  Two-sided edge filter</summary>
 L_TWO_SIDED_EDGE
 End Enum
 
@@ -1244,13 +1244,13 @@ End Enum
 ''' Subpixel color component ordering in LC display
 ''' </summary>
 Public Enum L_SUBPIXEL_ORDER
-''' <summary>sensor order left-to-right RGB</summary>
+''' <summary>smaller  sensor order left-to-right RGB</summary>
 L_SUBPIXEL_ORDER_RGB
-''' <summary>sensor order left-to-right BGR</summary>
+''' <summary>smaller  sensor order left-to-right BGR</summary>
 L_SUBPIXEL_ORDER_BGR
-''' <summary>sensor order top-to-bottom RGB</summary>
+''' <summary>smaller  sensor order top-to-bottom RGB</summary>
 L_SUBPIXEL_ORDER_VRGB
-''' <summary>sensor order top-to-bottom BGR</summary>
+''' <summary>smaller  sensor order top-to-bottom BGR</summary>
 L_SUBPIXEL_ORDER_VBGR
 End Enum
 
@@ -1260,11 +1260,11 @@ End Enum
 ''' HSV histogram flags
 ''' </summary>
 Public Enum L_HISTO
-''' <summary>Use hue-saturation histogram</summary>
+''' <summary>smaller  Use hue-saturation histogram</summary>
 L_HS_HISTO
-''' <summary>Use hue-value histogram</summary>
+''' <summary>smaller  Use hue-value histogram</summary>
 L_HV_HISTO
-''' <summary>Use saturation-value histogram</summary>
+''' <summary>smaller  Use saturation-value histogram</summary>
 L_SV_HISTO
 End Enum
 
@@ -1274,9 +1274,9 @@ End Enum
 ''' Region flags (inclusion, exclusion)
 ''' </summary>
 Public Enum L_CLUDE_REGION
-''' <summary>Use hue-saturation histogram</summary>
+''' <summary>smaller  Use hue-saturation histogram</summary>
 L_INCLUDE_REGION
-''' <summary>Use hue-value histogram</summary>
+''' <summary>smaller  Use hue-value histogram</summary>
 L_EXCLUDE_REGION
 End Enum
 
@@ -1286,21 +1286,21 @@ End Enum
 ''' Flags for adding text to a Pix
 ''' </summary>
 Public Enum L_ADD
-''' <summary>Add text above the image</summary>
+''' <summary>smaller  Add text above the image</summary>
 L_ADD_ABOVE
-''' <summary>Add text below the image</summary>
+''' <summary>smaller  Add text below the image</summary>
 L_ADD_BELOW
-''' <summary>Add text to the left of the image</summary>
+''' <summary>smaller  Add text to the left of the image</summary>
 L_ADD_LEFT
-''' <summary>Add text to the right of the image</summary>
+''' <summary>smaller  Add text to the right of the image</summary>
 L_ADD_RIGHT
-''' <summary>Add text over the top of the image</summary>
+''' <summary>smaller  Add text over the top of the image</summary>
 L_ADD_AT_TOP
-''' <summary>Add text over the bottom of the image</summary>
+''' <summary>smaller  Add text over the bottom of the image</summary>
 L_ADD_AT_BOT
-''' <summary>Add text over left side of the image</summary>
+''' <summary>smaller  Add text over left side of the image</summary>
 L_ADD_AT_LEFT
-''' <summary>Add text over right side of the image</summary>
+''' <summary>smaller  Add text over right side of the image</summary>
 L_ADD_AT_RIGHT
 End Enum
 
@@ -1310,17 +1310,17 @@ End Enum
 ''' Flags for plotting on a Pix
 ''' </summary>
 Public Enum L_PLOT_AT
-''' <summary>Plot horizontally at top</summary>
+''' <summary>smaller  Plot horizontally at top</summary>
 L_PLOT_AT_TOP
-''' <summary>Plot horizontally at middle</summary>
+''' <summary>smaller  Plot horizontally at middle</summary>
 L_PLOT_AT_MID_HORIZ
-''' <summary>Plot horizontally at bottom</summary>
+''' <summary>smaller  Plot horizontally at bottom</summary>
 L_PLOT_AT_BOT
-''' <summary>Plot vertically at left</summary>
+''' <summary>smaller  Plot vertically at left</summary>
 L_PLOT_AT_LEFT
-''' <summary>Plot vertically at middle</summary>
+''' <summary>smaller  Plot vertically at middle</summary>
 L_PLOT_AT_MID_VERT
-''' <summary>Plot vertically at right</summary>
+''' <summary>smaller  Plot vertically at right</summary>
 L_PLOT_AT_RIGHT
 End Enum
 
@@ -1330,15 +1330,15 @@ End Enum
 ''' Flags for selecting display program
 ''' </summary>
 Public Enum L_DISPLAY_WITH
-''' <summary>Use xzgv with pixDisplay()</summary>
+''' <summary>smaller  Use xzgv with pixDisplay()</summary>
 L_DISPLAY_WITH_XZGV
-''' <summary>Use xli with pixDisplay()</summary>
+''' <summary>smaller  Use xli with pixDisplay()</summary>
 L_DISPLAY_WITH_XLI
-''' <summary>Use xv with pixDisplay()</summary>
+''' <summary>smaller  Use xv with pixDisplay()</summary>
 L_DISPLAY_WITH_XV
-''' <summary>Use irfvanview (win) with pixDisplay()</summary>
+''' <summary>smaller  Use irfvanview (win) with pixDisplay()</summary>
 L_DISPLAY_WITH_IV
-''' <summary>Use open (apple) with pixDisplay()</summary>
+''' <summary>smaller  Use open (apple) with pixDisplay()</summary>
 L_DISPLAY_WITH_OPEN
 End Enum
 
@@ -1348,7 +1348,7 @@ End Enum
 ''' Flags used in Pix::special
 ''' </summary>
 Public Enum Unnamed_Enum_1
-''' <summary>Write full resolution chroma</summary>
+''' <summary>smaller  Write full resolution chroma</summary>
 L_NO_CHROMA_SAMPLING_JPEG
 End Enum
 
@@ -1358,9 +1358,9 @@ End Enum
 ''' Handling negative values in conversion to unsigned int
 ''' </summary>
 Public Enum L_hling_negative_values_in_conversion_to_unsigned_int
-''' <summary>Clip negative values to 0</summary>
+''' <summary>smaller  Clip negative values to 0</summary>
 L_CLIP_TO_ZERO
-''' <summary>Convert to positive using L_ABS()</summary>
+''' <summary>smaller  Convert to positive using L_ABS()</summary>
 L_TAKE_ABSVAL
 End Enum
 
@@ -1370,11 +1370,11 @@ End Enum
 ''' Relative to zero flags
 ''' </summary>
 Public Enum L_ZERO
-''' <summary>Choose values less than zero</summary>
+''' <summary>smaller  Choose values less than zero</summary>
 L_LESS_THAN_ZERO
-''' <summary>Choose values equal to zero</summary>
+''' <summary>smaller  Choose values equal to zero</summary>
 L_EQUAL_TO_ZERO
-''' <summary>Choose values greater than zero</summary>
+''' <summary>smaller  Choose values greater than zero</summary>
 L_GREATER_THAN_ZERO
 End Enum
 
@@ -1384,9 +1384,9 @@ End Enum
 ''' Flags for adding or removing traling slash from string
 ''' </summary>
 Public Enum L_TRAIL_SLASH
-''' <summary>Add trailing slash to string</summary>
+''' <summary>smaller  Add trailing slash to string</summary>
 L_ADD_TRAIL_SLASH
-''' <summary>Remove trailing slash from string</summary>
+''' <summary>smaller  Remove trailing slash from string</summary>
 L_REMOVE_TRAIL_SLASH
 End Enum
 
@@ -1398,17 +1398,17 @@ End Enum
 ''' Flags for describing limited character sets
 ''' </summary>
 Public Enum L__describing_limited_character_sets
-''' <summary>character set type is not specified</summary>
+''' <summary>smaller  character set type is not specified</summary>
 L_UNKNOWN
-''' <summary>10 digits</summary>
+''' <summary>smaller  10 digits</summary>
 L_ARABIC_NUMERALS
-''' <summary>7 lower-case letters (i,v,x,l,c,d,m)</summary>
+''' <summary>smaller  7 lower-case letters (i,v,x,l,c,d,m)</summary>
 L_LC_ROMAN_NUMERALS
-''' <summary>7 upper-case letters (I,V,X,L,C,D,M)</summary>
+''' <summary>smaller  7 upper-case letters (I,V,X,L,C,D,M)</summary>
 L_UC_ROMAN_NUMERALS
-''' <summary>26 lower-case letters</summary>
+''' <summary>smaller  26 lower-case letters</summary>
 L_LC_ALPHA
-''' <summary>26 upper-case letters</summary>
+''' <summary>smaller  26 upper-case letters</summary>
 L_UC_ALPHA
 End Enum
 
@@ -1418,9 +1418,9 @@ End Enum
 ''' Flags for selecting average or all templates: recog->templ_use
 ''' </summary>
 Public Enum L_USE_A_TEMPLATES
-''' <summary>use all templates; default</summary>
+''' <summary>smaller  use all templates; default</summary>
 L_USE_ALL_TEMPLATES
-''' <summary>use average templates; special cases</summary>
+''' <summary>smaller  use average templates; special cases</summary>
 L_USE_AVERAGE_TEMPLATES
 End Enum
 
@@ -1448,13 +1448,13 @@ End Enum
 ''' Select string in stringcode for a specific serializable data type
 ''' </summary>
 Public Enum L_STR
-''' <summary>typedef for the data type</summary>
+''' <summary>smaller  typedef for the data type</summary>
 L_STR_TYPE
-''' <summary>name of the data type</summary>
+''' <summary>smaller  name of the data type</summary>
 L_STR_NAME
-''' <summary>reader to get the data type from file</summary>
+''' <summary>smaller  reader to get the data type from file</summary>
 L_STR_READER
-''' <summary>reader to get the compressed string in memory</summary>
+''' <summary>smaller  reader to get the compressed string in memory</summary>
 L_STR_MEMREADER
 End Enum
 
@@ -1480,9 +1480,9 @@ End Enum
 ''' Flags for method of extracting barcode widths
 ''' </summary>
 Public Enum L_USE_WIS
-''' <summary>use histogram of barcode widths</summary>
+''' <summary>smaller  use histogram of barcode widths</summary>
 L_USE_WIDTHS
-''' <summary>find best window for decoding transitions</summary>
+''' <summary>smaller  find best window for decoding transitions</summary>
 L_USE_WINDOWS
 End Enum
 
@@ -1492,27 +1492,27 @@ End Enum
 ''' Flags for barcode formats
 ''' </summary>
 Public Enum L_BF
-''' <summary>unknown format</summary>
+''' <summary>smaller  unknown format</summary>
 L_BF_UNKNOWN
-''' <summary>try decoding with all known formats</summary>
+''' <summary>smaller  try decoding with all known formats</summary>
 L_BF_ANY
-''' <summary>decode with Code128 format</summary>
+''' <summary>smaller  decode with Code128 format</summary>
 L_BF_CODE128
-''' <summary>decode with EAN8 format</summary>
+''' <summary>smaller  decode with EAN8 format</summary>
 L_BF_EAN8
-''' <summary>decode with EAN13 format</summary>
+''' <summary>smaller  decode with EAN13 format</summary>
 L_BF_EAN13
-''' <summary>decode with Code 2 of 5 format</summary>
+''' <summary>smaller  decode with Code 2 of 5 format</summary>
 L_BF_CODE2OF5
-''' <summary>decode with Interleaved 2 of 5 format</summary>
+''' <summary>smaller  decode with Interleaved 2 of 5 format</summary>
 L_BF_CODEI2OF5
-''' <summary>decode with Code39 format</summary>
+''' <summary>smaller  decode with Code39 format</summary>
 L_BF_CODE39
-''' <summary>decode with Code93 format</summary>
+''' <summary>smaller  decode with Code93 format</summary>
 L_BF_CODE93
-''' <summary>decode with Code93 format</summary>
+''' <summary>smaller  decode with Code93 format</summary>
 L_BF_CODABAR
-''' <summary>decode with UPC A format</summary>
+''' <summary>smaller  decode with UPC A format</summary>
 L_BF_UPCA
 End Enum
 

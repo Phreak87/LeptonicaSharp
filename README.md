@@ -1,7 +1,8 @@
-# LeptonicaSharp Alpha
+# LeptonicaSharp Beta
+Full featured wrapper for leptonica 1.76.0
 
-- Full featured wrapper for leptonica 1.76.0
-- This is a alpha Version - Bugs are inclusive
+special thanks to: https://github.com/tvn-cosine/leptonica.net
+for the first great library for leptonica  
 
 # Functions:
 
@@ -13,20 +14,20 @@
 # Todo:
 
 - Functions are only checks if parameter is not nothing, but not the format, e.g. 8 Bit depth.
-- move array marshalers to the back of the parameter-copy.
-- define marshal arrays with the right size (hopefully always 'nalloc')
-- Updates for Property values.
-- implement void return types as objects
-- check byVal and byRef Values.
+- define marshal arrays with the right size - Needs external parameters from config.
 
 # Info:
-- Optional parameters moved to the back of the parameters, this differs from C-Source definition
-  and maybe the comments.
+- Optional parameters moved to the back of the parameters list, this differs from C-Source definition.
+  Examples for the C-File may not work until you move the optional Parameters to the back!
+- Marshaling of Arrays needs a fixed array Size. If Parameter n oder nalloc exists, i use this one,
+  else i use "1" instead. e.g. Pix needs to be initialized with ((w*h)*(d/8))-1 (Byte).
+- UInteger is not supported by the marshaller. I use Byte instead. (4 Bytes = 1 UInteger). 
+  For Picture arrays this is a good thing, for other parts convert it manually to UInteger.
 
 # How to Implement
 
 1. Copy the files from the Dll-folder into your project and add
-   a link to LeptonicaSharp. (X32)
+   a link to LeptonicaSharp. (x32)
 
 # How to extend predefined classes:
 

@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enumerations.vb" />
+    <Compile Include="Extensions\ExtensionEnumerations.vb" />
     <Compile Include="Extensions\Extension_Box.vb" />
     <Compile Include="Functions.vb" />
     <Compile Include="Extensions\MissingClass.vb" />

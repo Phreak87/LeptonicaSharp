@@ -754,7 +754,7 @@ L_SELECT_IF_LT
 L_SELECT_IF_GT
 ''' <summary>smaller  save if value is  smaller = to the threshold</summary>
 L_SELECT_IF_LTE
-''' <summary>smaller  save if value is  greater = to the threshold</summary>
+''' <summary>smaller  save if value is  bigger = to the threshold</summary>
 L_SELECT_IF_GTE
 End Enum
 
@@ -946,9 +946,9 @@ End Enum
 Public Enum L_value_
 ''' <summary>smaller  values  smaller  0</summary>
 L_NEGATIVE
-''' <summary>smaller  values  greater = 0</summary>
+''' <summary>smaller  values  bigger = 0</summary>
 L_NON_NEGATIVE
-''' <summary>smaller  values  greater  0</summary>
+''' <summary>smaller  values  bigger  0</summary>
 L_POSITIVE
 ''' <summary>smaller  values  smaller = 0</summary>
 L_NON_POSITIVE
@@ -1048,7 +1048,7 @@ End Enum
 ''' Image orientation flags
 ''' </summary>
 Public Enum L_MODE
-''' <summary>smaller  typical: page is viewed with height  greater  width</summary>
+''' <summary>smaller  typical: page is viewed with height  bigger  width</summary>
 L_PORTRAIT_MODE
 ''' <summary>smaller  page is viewed at 90 deg to portrait mode</summary>
 L_LANDSCAPE_MODE

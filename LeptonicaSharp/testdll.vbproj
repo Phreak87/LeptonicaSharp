@@ -49,10 +49,10 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -66,8 +66,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enumerations.vb" />
+    <Compile Include="Extensions\BetterPictureBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Extensions\ExtensionEnumerations.vb" />
     <Compile Include="Extensions\Extension_Box.vb" />
+    <Compile Include="Extensions\Extension_RGBA_QUAD.vb" />
+    <Compile Include="Extensions\Extension_Sel.vb" />
+    <Compile Include="Extensions\ShowPix.Designer.vb">
+      <DependentUpon>ShowPix.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\ShowPix.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Functions.vb" />
     <Compile Include="Extensions\MissingClass.vb" />
     <Compile Include="Natives.vb" />
@@ -76,6 +87,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="My Project\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Extensions\ShowPix.resx">
+      <DependentUpon>ShowPix.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

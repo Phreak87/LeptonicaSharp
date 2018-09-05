@@ -1,19 +1,17 @@
 # LeptonicaSharp Beta
 Full featured wrapper for leptonica 1.76.0
 
-special thanks to: https://github.com/tvn-cosine/leptonica.net
-for the first great library for leptonica  
-
 # Functions:
 
 - VB.Net 4.0 Library
-- supports all Leptonica-Functions
+- supports all (3299) Leptonica-Functions
+- Included extension to view Pix directly
 - included all propertys from Leptonica structs via Marshaler
 - complete documentation and debug-informations from C-Files included
 
 # Todo:
 
-- Functions are only checks if parameter is not nothing, but not the format, e.g. 8 Bit depth.
+- more detailed checks of input parameters (e.g. specific pix depths)
 - define marshal arrays with the right size - Needs external parameters from config.
 
 # Info:
@@ -46,7 +44,7 @@ Partial Class Pix
 1. Download the latest version of CMake from https://cmake.org/ and install
 2. Download the latest version of cppan from https://cppan.org/ and copy to CMake\Bin folder
 3. Open Cmd and switch to Leptonica C-Source folder. (Or shift-right click and select "CommandPrompt here")
-4. Type: "Set Path="Path to CMake-Bin"
+4. Type: "set PATH=%PATH%;C:\cmake\bin" - Change Folder to your CMake Bin Files
 5. Type: "cppan --build pvt.cppan.demo.danbloomberg.leptonica"
 
 # Example
@@ -59,5 +57,6 @@ Partial Class Pix
 # Special thanks
 - Leptonica for this great c-library
 - Leptonica.Net for inspiration and implementation comparison
+- SharpDevelop to convert C# snippets to VB.Net
 - Clang for the great tool 
 - NClang for the wrapper around clang

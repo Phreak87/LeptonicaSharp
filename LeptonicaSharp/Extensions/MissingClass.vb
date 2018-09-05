@@ -1,4 +1,5 @@
 ﻿Imports System.Runtime.InteropServices
+
 Public Class CQCELL
     Property Pointer As IntPtr
     Sub New(ByVal IntPTR As IntPtr)
@@ -11,87 +12,44 @@ Public Class FILE
 
     End Sub
 End Class
-Public Class L_ASET
-    Property Pointer As IntPtr
-    Sub New(ByVal IntPTR As IntPtr)
 
+Public Class UnknownClass
+    Property _Pointer As IntPtr
+    Public Overrides Function ToString() As String
+        Return _Pointer
+    End Function
+    Sub New(ByVal Pointer As IntPtr)
+        _Pointer = Pointer
     End Sub
-End Class
-Public Class Node
-    Property Pointer As IntPtr
-    Sub New(ByVal IntPTR As IntPtr)
-
-    End Sub
-End Class
-Public Class L_AMAP_NODE
-    Property Pointer As IntPtr
-    Sub New(ByVal IntPTR As IntPtr)
-
-    End Sub
-End Class
-Public Class L_AMAP
-    Property Pointer As IntPtr
-    Sub New(ByVal IntPTR As IntPtr)
-
-    End Sub
-End Class
-Public Class L_ASET_NODE
-    Property Pointer As IntPtr
-    Sub New(ByVal IntPTR As IntPtr)
-
-    End Sub
-End Class
-Public Class DLLIST
-    Property Pointer As IntPtr
-    Sub New(ByVal IntPTR As IntPtr)
-
-    End Sub
-End Class
-Public Class L_COMP_DATA
-    Property Pointer As IntPtr
-    Sub New(ByVal IntPTR As IntPtr)
-
-    End Sub
-End Class
-Public Class PIXAC
-    Property Pointer As IntPtr
-    Sub New(ByVal IntPTR As IntPtr)
-
-    End Sub
-End Class
-Public Class PIXC
-    Property Pointer As IntPtr
-    Sub New(ByVal IntPTR As IntPtr)
-
-    End Sub
-End Class
-Public Class L_BBUFFER
-    Property Pointer As IntPtr
-    Sub New(ByVal IntPTR As IntPtr)
-
-    End Sub
-End Class
-Public Class PIXCMAP
-    Property Pointer As IntPtr
-    Sub New(ByVal IntPTR As IntPtr)
-
-    End Sub
-End Class
-Public Class PARTEL
-    Property Pointer As IntPtr
-    Sub New(ByVal IntPTR As IntPtr)
-
-    End Sub
-End Class
-Public Class MAZEEL
-    Property Pointer As IntPtr
-    Sub New(ByVal IntPTR As IntPtr)
-
-    End Sub
-End Class
-Public Class JBFINDCTX
-    Property Pointer As IntPtr
-    Sub New(ByVal IntPTR As IntPtr)
-
-    End Sub
+    ReadOnly Property TryAs_Pix
+        Get
+            Return New pix(_Pointer)
+        End Get
+    End Property
+    ReadOnly Property TryAs_Pixa
+        Get
+            Return New Pixa(_Pointer)
+        End Get
+    End Property
+    ReadOnly Property TryAs_Pixaa
+        Get
+            Return New Pixaa(_Pointer)
+        End Get
+    End Property
+    ReadOnly Property TryAs_RGBA_Quad
+        Get
+            Return New RGBA_Quad(_Pointer)
+        End Get
+    End Property
+    ReadOnly Property TryAs_Array_IntPTR
+        Get
+            Dim N(100) As IntPtr
+            Dim UKL As New List(Of UnknownClass)
+            Marshal.Copy(_Pointer, N, 0, N.Length)
+            For Each eintrag In N
+                UKL.Add(New UnknownClass(eintrag))
+            Next
+            Return UKL
+        End Get
+    End Property
 End Class

@@ -12,7 +12,12 @@ Full featured wrapper for leptonica 1.76.0
 # Todo:
 
 - more detailed checks of input parameters (e.g. specific pix depths)
+- bitmap to pix converter
 - define marshal arrays with the right size - Needs external parameters from config.
+- provide examples
+- define more optional parameters
+- extend classes
+- define more enumerations instead of integer
 
 # Info:
 - Optional parameters moved to the back of the parameters list, this differs from C-Source definition.

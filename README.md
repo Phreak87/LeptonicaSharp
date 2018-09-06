@@ -43,6 +43,9 @@ Partial Class Pix
   End Function
  End Class
  2. Compile again.
+dont extend the main classes. it will be overwritten
+from the generator next build.
+
 
 # How to compile the C-DLL
 

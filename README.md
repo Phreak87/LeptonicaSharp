@@ -63,8 +63,9 @@ from the generator next build.
 - Pix.SaveAutoFormat ("Test.jp2", JP2)
 
 # Special thanks
-- Leptonica for this great c-library
-- Leptonica.Net for inspiration and implementation comparison
-- SharpDevelop to convert C# snippets to VB.Net
-- Clang for the great tool 
-- NClang for the wrapper around clang
+- (http://www.leptonica.org/) Leptonica for this great c-library
+- (https://github.com/tvn-cosine/leptonica.net) Leptonica.Net for inspiration and implementation comparison
+- (https://github.com/charlesw/tesseract) for a few snippets from tesseract (works with leptonica)
+- (http://www.icsharpcode.net/) SharpDevelop to convert C# snippets to VB.Net (Use Version 4.4)
+- (https://clang.llvm.org/) Clang for the great tool 
+- (https://github.com/atsushieno/nclang) NClang for the wrapper around clang

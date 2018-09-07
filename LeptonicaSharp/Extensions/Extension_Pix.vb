@@ -2,11 +2,12 @@
 Imports System.Drawing
 Imports System.Drawing.Imaging
 
-Partial Public Class pix
+Partial Public Class Pix
+
+#Region "Redirects"
     Sub New(ByVal filename As String)
         Me.new(LeptonicaSharp.Natives.pixRead(filename))
     End Sub
-
     Public Sub save_jpg(ByVal filename As String, Optional ByVal quality As Integer = 95, Optional ByVal progressive As Integer = 0)
         LeptonicaSharp.Natives.pixWriteJpeg(filename, Pointer, quality, progressive)
     End Sub
@@ -22,13 +23,26 @@ Partial Public Class pix
     Public Function save_autoformat(ByVal filename As String, ByVal format As LeptonicaSharp.Enumerations.IFF) As Boolean
         Return LeptonicaSharp.Natives.pixWriteAutoFormat(filename, Pointer)
     End Function
+#End Region
 
-    Public Function tobitmap() As Image
+#Region "Functions"
+    Sub Display()
+        Dim n As New ShowPix(Me)
+        n.ShowDialog()
+    End Sub
+    Sub New(ByVal Bitmap As Bitmap)
+        ' Funktioniert nur teilweise > Überarbeiten
+        Me.New(LeptonicaSharp.Natives.pixCreate(Bitmap.Width, Bitmap.Height, GetBPP(Bitmap)))
+        Dim BMPDAT As BitmapData = Bitmap.LockBits(New Rectangle(0, 0, Bitmap.Width, Bitmap.Height), ImageLockMode.WriteOnly, Bitmap.PixelFormat)
+        Dim BMPBYT((BMPDAT.Height * BMPDAT.Stride) - 1) As Byte : Marshal.Copy(BMPDAT.Scan0, BMPBYT, 0, BMPBYT.Length)
+        Marshal.Copy(BMPBYT, 0, Me.Values.data, BMPBYT.Length) : Bitmap.UnlockBits(BMPDAT)
+    End Sub
+    Public Function ToBitmap() As Image
         If Me.Pointer = IntPtr.Zero Then Return Nothing
         If w = 0 And h = 0 Then Return New Bitmap(1, 1)
         If w = -1 And h = -1 Then Return New Bitmap(1, 1)
         Dim bmp As New Bitmap(w, h, PixelFormat.Format32bppArgb)
-        Dim wpl As pix = LeptonicaSharp._AllFunctions.pixConvertTo32(Me)
+        Dim wpl As Pix = LeptonicaSharp._AllFunctions.pixConvertTo32(Me)
         Dim dat As Imaging.BitmapData = bmp.LockBits(New Rectangle(0, 0, w, h), _
                                                      ImageLockMode.ReadWrite, _
                                                      PixelFormat.Format32bppArgb)
@@ -50,4 +64,26 @@ Partial Public Class pix
         bmp.UnlockBits(dat)
         Return bmp
     End Function
+
+    Public Shared Function GetBPP(ByVal bitmap As System.Drawing.Bitmap) As Integer
+        Select Case bitmap.PixelFormat
+            Case System.Drawing.Imaging.PixelFormat.Format1bppIndexed : Return 1
+            Case System.Drawing.Imaging.PixelFormat.Format4bppIndexed : Return 4
+            Case System.Drawing.Imaging.PixelFormat.Format8bppIndexed : Return 8
+            Case System.Drawing.Imaging.PixelFormat.Format16bppArgb1555,
+                System.Drawing.Imaging.PixelFormat.Format16bppGrayScale,
+                System.Drawing.Imaging.PixelFormat.Format16bppRgb555,
+                System.Drawing.Imaging.PixelFormat.Format16bppRgb565 : Return 16
+            Case System.Drawing.Imaging.PixelFormat.Format24bppRgb : Return 24
+            Case System.Drawing.Imaging.PixelFormat.Format32bppArgb,
+                System.Drawing.Imaging.PixelFormat.Format32bppPArgb,
+                System.Drawing.Imaging.PixelFormat.Format32bppRgb : Return 32
+            Case System.Drawing.Imaging.PixelFormat.Format48bppRgb : Return 48
+            Case System.Drawing.Imaging.PixelFormat.Format64bppArgb,
+                System.Drawing.Imaging.PixelFormat.Format64bppPArgb : Return 64
+            Case Else : Throw New ArgumentException([String].Format("The bitmap's pixel format of {0} was not recognised.", bitmap.PixelFormat), "bitmap")
+        End Select
+    End Function
+#End Region
+
 End Class

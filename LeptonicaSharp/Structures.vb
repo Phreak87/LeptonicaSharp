@@ -4716,7 +4716,7 @@ End Property
 ''' </summary>
 ReadOnly Property data as Byte()
 	Get
-            Dim _data((w * h * (d / 8)) - 1) As Byte
+		Dim _data((w * h / (d/8)) -1) as Byte
 Marshal.Copy(Values.data, _data, 0, _data.Length)
 Return _data
 		Return Nothing
@@ -4763,16 +4763,14 @@ Public Class PixColormap
 '''  Org: [void * array]
 '''  Msh: void * | 2:Void | IntPTR ... Pointer auf Object = IntPTR
 ''' </summary>
-    ReadOnly Property array As List(Of RGBA_Quad)
-        Get
-            If Values.array <> IntPtr.Zero Then
-                Dim LST((n * 4) - 1) As Byte
-                Marshal.Copy(Values.array, LST, 0, LST.Length)
-                Return New RGBA_Quad(LST).QuadList
-            End If
-            Return Nothing
-        End Get
-    End Property
+ReadOnly Property array as IntPTR
+	Get
+		If Values.array <> IntPtr.Zero Then
+	Return  Values.array
+End if
+		Return Nothing
+	End Get
+End Property
 
 ''' <summary>
 ''' Brf: of pix (1, 2, 4 or 8 bpp)
@@ -4844,11 +4842,12 @@ Public Class RGBA_Quad
 '''  Org: [l_uint8 blue]
 '''  Msh: l_uint8 = bigger  1:*
 ''' </summary>
-    ReadOnly Property blue As Byte
-        Get
-            Return Values.blue
-        End Get
-    End Property
+ReadOnly Property blue as Byte
+	Get
+				Return Values.blue
+		Return Nothing
+	End Get
+End Property
 
 ''' <summary>
 ''' Brf: green value

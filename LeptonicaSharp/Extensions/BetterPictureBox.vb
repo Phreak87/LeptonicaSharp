@@ -4,7 +4,7 @@ Imports System.Drawing
 Imports System.IO
 
 
-' <DebuggerStepThrough()>
+<DebuggerStepThrough()>
 Public Class BetterPictureBox
     Inherits PictureBox
 
@@ -155,7 +155,6 @@ Public Class BetterPictureBox
             Dim OrgImage As Image = Me.BackgroundImage
             Dim Overlay As New Bitmap(OrgImage.Width, OrgImage.Height, Imaging.PixelFormat.Format32bppArgb)
             Overlay.SetResolution(OrgImage.HorizontalResolution, OrgImage.VerticalResolution)
-            Me.Image = Overlay : If DrawSegments > 0 Then Gitter(DrawSegments)
         Catch : End Try
     End Sub
 
@@ -226,51 +225,6 @@ Public Class BetterPictureBox
         If MPosY = 0 Then Exit Sub
         Me.Top = Me.Top - (MPosY - e.Y)
         Me.Left = Me.Left - (MPosX - e.X)
-    End Sub
-#End Region
-
-#Region "Gitter"
-    Class Line
-        Public PT1 As Point
-        Public PT2 As Point
-        Sub New(ByVal Point1 As Point, ByVal Point2 As Point)
-            PT1 = Point1
-            PT2 = Point2
-        End Sub
-    End Class
-    Sub Gitter(ByVal Segmente As Integer)
-        If Segmente = 0 Then Exit Sub
-        Dim GFX As Graphics = Graphics.FromImage(Me.Image)
-        GFX.Clear(Color.Transparent)
-        Dim Pen As Drawing.Pen = New Drawing.Pen(Brushes.LightGreen, 2)
-        Dim PTWith5 As Integer = Me.Image.Width / Segmente
-        Dim PTHeight5 As Integer = Me.Image.Height / Segmente
-        Dim SEGS As New List(Of Line)
-
-        ' Stift
-        ' Von Links 
-        ' Von Oben
-        ' Bis Rechts
-        ' Bis Oben
-
-        For i As Integer = 0 To Segmente
-            If i < Segmente Then
-                SEGS.Add(New Line(New Point(0, (PTHeight5 * i) + 10), New Point(PTWith5 * Segmente, (PTHeight5 * i) + 10)))
-                SEGS.Add(New Line(New Point((PTWith5 * i) + 10, 0), New Point((PTWith5 * i) + 10, PTHeight5 * Segmente)))
-            Else
-                SEGS.Add(New Line(New Point(0, (PTHeight5 * i) - 10), New Point(PTWith5 * Segmente, (PTHeight5 * i) - 10)))
-                SEGS.Add(New Line(New Point((PTWith5 * i) - 10, 0), New Point((PTWith5 * i) - 10, PTHeight5 * Segmente)))
-            End If
-        Next
-
-        For Each eintrag In SEGS
-            GFX.DrawLine(Pen, eintrag.PT1, eintrag.PT2)
-        Next
-
-        GFX.DrawEllipse(New Pen(Brushes.Green, 5), 0, 0, 20, 20)
-        GFX.DrawEllipse(New Pen(Brushes.Green, 5), (PTWith5 * Segmente) - 10, 0, 20, 20)
-
-        Me.Refresh()
     End Sub
 #End Region
 

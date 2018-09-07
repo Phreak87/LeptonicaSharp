@@ -70,9 +70,8 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Extensions\ExtensionEnumerations.vb" />
-    <Compile Include="Extensions\Extension_Box.vb" />
-    <Compile Include="Extensions\Extension_RGBA_QUAD.vb" />
-    <Compile Include="Extensions\Extension_Sel.vb" />
+    <Compile Include="Extensions\Extension_ColorMap_RGBAQuad.vb" />
+    <Compile Include="Extensions\Extension_Sel_Box_Numa.vb" />
     <Compile Include="Extensions\ShowPix.Designer.vb">
       <DependentUpon>ShowPix.vb</DependentUpon>
     </Compile>

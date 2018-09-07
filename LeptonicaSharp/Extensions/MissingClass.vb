@@ -41,6 +41,13 @@ Public Class UnknownClass
             Return New RGBA_Quad(_Pointer)
         End Get
     End Property
+    ReadOnly Property TryAs_Array_Bytes
+        Get
+            Dim N(100) As Byte
+            Marshal.Copy(_Pointer, N, 0, N.Length)
+            Return N
+        End Get
+    End Property
     ReadOnly Property TryAs_Array_IntPTR
         Get
             Dim N(100) As IntPtr

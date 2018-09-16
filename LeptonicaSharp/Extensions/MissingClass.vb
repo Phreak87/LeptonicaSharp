@@ -13,6 +13,67 @@ Public Class FILE
     End Sub
 End Class
 
+Public Class PIXCMAP
+    Property Pointer As IntPtr
+    Sub New(ByVal IntPTR As IntPtr)
+
+    End Sub
+End Class
+Public Class PIXAC
+    Property Pointer As IntPtr
+    Sub New(ByVal IntPTR As IntPtr)
+
+    End Sub
+End Class
+Public Class DLList
+    Property Pointer As IntPtr
+    Sub New(ByVal IntPTR As IntPtr)
+
+    End Sub
+End Class
+Public Class L_AMap
+    Property Pointer As IntPtr
+    Sub New(ByVal IntPTR As IntPtr)
+
+    End Sub
+End Class
+Public Class L_AMap_Node
+    Property Pointer As IntPtr
+    Sub New(ByVal IntPTR As IntPtr)
+
+    End Sub
+End Class
+Public Class L_Aset
+    Property Pointer As IntPtr
+    Sub New(ByVal IntPTR As IntPtr)
+
+    End Sub
+End Class
+Public Class L_Aset_Node
+    Property Pointer As IntPtr
+    Sub New(ByVal IntPTR As IntPtr)
+
+    End Sub
+End Class
+Public Class L_BBuffer
+    Property Pointer As IntPtr
+    Sub New(ByVal IntPTR As IntPtr)
+
+    End Sub
+End Class
+Public Class L_Comp_Data
+    Property Pointer As IntPtr
+    Sub New(ByVal IntPTR As IntPtr)
+
+    End Sub
+End Class
+Public Class PIXC
+    Property Pointer As IntPtr
+    Sub New(ByVal IntPTR As IntPtr)
+
+    End Sub
+End Class
+
 Public Class UnknownClass
     Property _Pointer As IntPtr
     Public Overrides Function ToString() As String

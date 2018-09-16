@@ -13,7 +13,7 @@ Public Class L_WallTimer
 ''' Brf: 
 '''  Loc: SRC/environ.h (309, 14)
 '''  Org: [l_int32 start_sec]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property start_sec as Integer
 	Get
@@ -26,7 +26,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC/environ.h (310, 14)
 '''  Org: [l_int32 start_usec]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property start_usec as Integer
 	Get
@@ -39,7 +39,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC/environ.h (311, 14)
 '''  Org: [l_int32 stop_sec]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property stop_sec as Integer
 	Get
@@ -52,7 +52,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC/environ.h (312, 14)
 '''  Org: [l_int32 stop_usec]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property stop_usec as Integer
 	Get
@@ -62,6 +62,9 @@ ReadOnly Property stop_usec as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_WallTimer
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -92,7 +95,7 @@ Public Class Numa
 ''' Brf: size of allocated number array
 '''  Loc: SRC/array.h (61, 22)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -105,7 +108,7 @@ End Property
 ''' Brf: number of numbers saved
 '''  Loc: SRC/array.h (62, 22)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -118,7 +121,7 @@ End Property
 ''' Brf: reference count (1 if no clones)
 '''  Loc: SRC/array.h (63, 22)
 '''  Org: [l_int32 refcount]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property refcount as Integer
 	Get
@@ -131,7 +134,7 @@ End Property
 ''' Brf: x value assigned to array[0]
 '''  Loc: SRC/array.h (64, 22)
 '''  Org: [l_float32 startx]
-'''  Msh: l_float32 = bigger  1:*
+'''  Msh: l_float32 | 1:Float |
 ''' </summary>
 ReadOnly Property startx as Single
 	Get
@@ -144,7 +147,7 @@ End Property
 ''' Brf: change in x value as i -- bigger  i + 1
 '''  Loc: SRC/array.h (65, 22)
 '''  Org: [l_float32 delx]
-'''  Msh: l_float32 = bigger  1:*
+'''  Msh: l_float32 | 1:Float |
 ''' </summary>
 ReadOnly Property delx as Single
 	Get
@@ -157,7 +160,7 @@ End Property
 ''' Brf: number array
 '''  Loc: SRC/array.h (66, 22)
 '''  Org: [l_float32 * array]
-'''  Msh: l_float32 * | 2:Float | Single() ... = Single
+'''  Msh: l_float32 * | 2:Float |  ... = Single
 ''' </summary>
 ReadOnly Property array as Single()
 	Get
@@ -171,6 +174,9 @@ End if
 End Property
 
 	Sub New ()
+	Values = New Marshal_Numa
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -201,7 +207,7 @@ Public Class Numaa
 ''' Brf: size of allocated ptr array
 '''  Loc: SRC/array.h (73, 22)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -214,7 +220,7 @@ End Property
 ''' Brf: number of Numa saved
 '''  Loc: SRC/array.h (74, 22)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -227,7 +233,7 @@ End Property
 ''' Brf: array of Numa
 '''  Loc: SRC/array.h (75, 22)
 '''  Org: [struct Numa ** numa]
-'''  Msh: struct Numa ** | 3:Struct | List (of Numa) Typedef: Numa = Numa
+'''  Msh: struct Numa ** | 3:StructDeclaration |  ... Marshal List of Class to PTR Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property numa as List (of Numa)
 	Get
@@ -245,6 +251,9 @@ End If
 End Property
 
 	Sub New ()
+	Values = New Marshal_Numaa
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -272,7 +281,7 @@ Public Class L_Dna
 ''' Brf: size of allocated number array
 '''  Loc: SRC/array.h (85, 22)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -285,7 +294,7 @@ End Property
 ''' Brf: number of numbers saved
 '''  Loc: SRC/array.h (86, 22)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -298,7 +307,7 @@ End Property
 ''' Brf: reference count (1 if no clones)
 '''  Loc: SRC/array.h (87, 22)
 '''  Org: [l_int32 refcount]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property refcount as Integer
 	Get
@@ -311,7 +320,7 @@ End Property
 ''' Brf: x value assigned to array[0]
 '''  Loc: SRC/array.h (88, 22)
 '''  Org: [l_float64 startx]
-'''  Msh: l_float64 = bigger  1:*
+'''  Msh: l_float64 | 1:Double |
 ''' </summary>
 ReadOnly Property startx as Double
 	Get
@@ -324,7 +333,7 @@ End Property
 ''' Brf: change in x value as i -- bigger  i + 1
 '''  Loc: SRC/array.h (89, 22)
 '''  Org: [l_float64 delx]
-'''  Msh: l_float64 = bigger  1:*
+'''  Msh: l_float64 | 1:Double |
 ''' </summary>
 ReadOnly Property delx as Double
 	Get
@@ -337,7 +346,7 @@ End Property
 ''' Brf: number array
 '''  Loc: SRC/array.h (90, 22)
 '''  Org: [l_float64 * array]
-'''  Msh: l_float64 * | 2:Double | Double()
+'''  Msh: l_float64 * | 2:Double |
 ''' </summary>
 ReadOnly Property array as Double()
 	Get
@@ -351,6 +360,9 @@ End if
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Dna
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -381,7 +393,7 @@ Public Class L_Dnaa
 ''' Brf: size of allocated ptr array
 '''  Loc: SRC/array.h (97, 22)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -394,7 +406,7 @@ End Property
 ''' Brf: number of L_Dna saved
 '''  Loc: SRC/array.h (98, 22)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -407,7 +419,7 @@ End Property
 ''' Brf: array of L_Dna
 '''  Loc: SRC/array.h (99, 22)
 '''  Org: [struct L_Dna ** dna]
-'''  Msh: struct L_Dna ** | 3:Struct | List (of L_Dna) Typedef: L_Dna = L_Dna
+'''  Msh: struct L_Dna ** | 3:StructDeclaration |  ... Marshal List of Class to PTR Typedef: L_Dna = L_Dna
 ''' </summary>
 ReadOnly Property dna as List (of L_Dna)
 	Get
@@ -425,6 +437,9 @@ End If
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Dnaa
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -452,7 +467,7 @@ Public Class L_DnaHash
 ''' Brf: 
 '''  Loc: SRC/array.h (106, 22)
 '''  Org: [l_int32 nbuckets]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nbuckets as Integer
 	Get
@@ -465,7 +480,7 @@ End Property
 ''' Brf: initial size of each dna that is made
 '''  Loc: SRC/array.h (107, 22)
 '''  Org: [l_int32 initsize]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property initsize as Integer
 	Get
@@ -478,7 +493,7 @@ End Property
 ''' Brf: array of L_Dna
 '''  Loc: SRC/array.h (108, 22)
 '''  Org: [struct L_Dna ** dna]
-'''  Msh: struct L_Dna ** | 3:Struct | List (of L_Dna) Typedef: L_Dna = L_Dna
+'''  Msh: struct L_Dna ** | 3:StructDeclaration |  ... Marshal List of Class to PTR Typedef: L_Dna = L_Dna
 ''' </summary>
 ReadOnly Property dna as List (of L_Dna)
 	Get
@@ -496,6 +511,9 @@ End If
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_DnaHash
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -523,7 +541,7 @@ Public Class Sarray
 ''' Brf: size of allocated ptr array
 '''  Loc: SRC/array.h (118, 22)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -536,7 +554,7 @@ End Property
 ''' Brf: number of strings allocated
 '''  Loc: SRC/array.h (119, 22)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -549,7 +567,7 @@ End Property
 ''' Brf: reference count (1 if no clones)
 '''  Loc: SRC/array.h (120, 22)
 '''  Org: [l_int32 refcount]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property refcount as Integer
 	Get
@@ -562,22 +580,22 @@ End Property
 ''' Brf: string array
 '''  Loc: SRC/array.h (121, 22)
 '''  Org: [char ** array]
-'''  Msh: char ** | 3:CharS | List (of String)
+'''  Msh: char ** | 3:CharS | String()
 ''' </summary>
-ReadOnly Property array as List (of String)
+ReadOnly Property array as String()
 	Get
-		Dim Marshal_array(values.n -1) as IntPTR
-Dim Values_array as new List (of String)
-Marshal.Copy(Values.array, Marshal_array, 0, Marshal_array.Length)
-For Each Marshal_Value In Marshal_array
-	Values_array.Add(Marshal.PtrToStringAnsi(Marshal_Value))
-Next
-Return Values_array
+		Dim LSTRET As New List(Of String)
+Dim LSTPTR(Values.n - 1) As IntPtr: Marshal.Copy(Values.array, LSTPTR, 0, values.n)
+For Each Entry As IntPtr In LSTPTR: LSTRET.Add(Marshal.PtrToStringAnsi(Entry)): Next
+Return LSTRET.ToArray
 		Return Nothing
 	End Get
 End Property
 
 	Sub New ()
+	Values = New Marshal_Sarray
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -606,7 +624,7 @@ Public Class L_Bytea
 ''' Brf: number of bytes allocated in data array
 '''  Loc: SRC/array.h (128, 22)
 '''  Org: [size_t nalloc]
-'''  Msh: size_t = bigger  1:*
+'''  Msh: size_t | 1:UInt |
 ''' </summary>
 ReadOnly Property nalloc as UInteger
 	Get
@@ -619,7 +637,7 @@ End Property
 ''' Brf: number of bytes presently used
 '''  Loc: SRC/array.h (129, 22)
 '''  Org: [size_t size]
-'''  Msh: size_t = bigger  1:*
+'''  Msh: size_t | 1:UInt |
 ''' </summary>
 ReadOnly Property size as UInteger
 	Get
@@ -632,7 +650,7 @@ End Property
 ''' Brf: reference count (1 if no clones)
 '''  Loc: SRC/array.h (130, 22)
 '''  Org: [l_int32 refcount]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property refcount as Integer
 	Get
@@ -659,6 +677,9 @@ End if
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Bytea
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -689,7 +710,7 @@ Public Class L_ByteBuffer
 ''' Brf: size of allocated byte array
 '''  Loc: SRC/bbuffer.h (52, 18)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -702,7 +723,7 @@ End Property
 ''' Brf: number of bytes read into to the array
 '''  Loc: SRC/bbuffer.h (53, 18)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -715,7 +736,7 @@ End Property
 ''' Brf: number of bytes written from the array
 '''  Loc: SRC/bbuffer.h (54, 18)
 '''  Org: [l_int32 nwritten]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nwritten as Integer
 	Get
@@ -742,6 +763,9 @@ End if
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_ByteBuffer
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -772,7 +796,7 @@ Public Class L_Heap
 ''' Brf: size of allocated ptr array
 '''  Loc: SRC/heap.h (79, 18)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -785,7 +809,7 @@ End Property
 ''' Brf: number of elements stored in the heap
 '''  Loc: SRC/heap.h (80, 18)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -815,7 +839,7 @@ End Property
 ''' Brf: L_SORT_INCREASING or L_SORT_DECREASING
 '''  Loc: SRC/heap.h (82, 18)
 '''  Org: [l_int32 direction]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property direction as Integer
 	Get
@@ -825,6 +849,9 @@ ReadOnly Property direction as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Heap
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -855,7 +882,7 @@ Public Class DoubleLinkedList
 ''' Brf: 
 '''  Loc: SRC/list.h (63, 33)
 '''  Org: [struct DoubleLinkedList * prev]
-'''  Msh: struct DoubleLinkedList * | 2:Struct | DoubleLinkedList
+'''  Msh: struct DoubleLinkedList * | 2:Struct |
 ''' </summary>
 ReadOnly Property prev as DoubleLinkedList
 	Get
@@ -870,7 +897,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC/list.h (64, 33)
 '''  Org: [struct DoubleLinkedList * next]
-'''  Msh: struct DoubleLinkedList * | 2:Struct | DoubleLinkedList
+'''  Msh: struct DoubleLinkedList * | 2:Struct |
 ''' </summary>
 ReadOnly Property _next_ as DoubleLinkedList
 	Get
@@ -885,7 +912,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC/list.h (65, 33)
 '''  Org: [void * data]
-'''  Msh: void * | 2:Void | IntPTR ... Pointer auf Object = IntPTR
+'''  Msh: void * | 2:Void |  ... Pointer auf Object = IntPTR
 ''' </summary>
 ReadOnly Property data as IntPTR
 	Get
@@ -897,6 +924,9 @@ End if
 End Property
 
 	Sub New ()
+	Values = New Marshal_DoubleLinkedList
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -926,7 +956,7 @@ Public Class L_Ptra
 ''' Brf: size of allocated ptr array
 '''  Loc: SRC/ptra.h (53, 22)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -939,7 +969,7 @@ End Property
 ''' Brf: greatest valid index
 '''  Loc: SRC/ptra.h (54, 22)
 '''  Org: [l_int32 imax]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property imax as Integer
 	Get
@@ -952,7 +982,7 @@ End Property
 ''' Brf: actual number of stored elements
 '''  Loc: SRC/ptra.h (55, 22)
 '''  Org: [l_int32 nactual]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nactual as Integer
 	Get
@@ -979,6 +1009,7 @@ ReadOnly Property array as IntPTR()
 End Property
 
 	Sub New ()
+        Pointer = LeptonicaSharp._AllFunctions.ptraCreate(10).Pointer
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -1007,7 +1038,7 @@ Public Class L_Ptraa
 ''' Brf: size of allocated ptr array
 '''  Loc: SRC/ptra.h (64, 22)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -1020,7 +1051,7 @@ End Property
 ''' Brf: array of ptra
 '''  Loc: SRC/ptra.h (65, 22)
 '''  Org: [struct L_Ptra ** ptra]
-'''  Msh: struct L_Ptra ** | 3:Struct | List (of L_Ptra) Typedef: L_Ptra = L_Ptra
+'''  Msh: struct L_Ptra ** | 3:StructDeclaration |  ... Marshal List of Class to PTR Typedef: L_Ptra = L_Ptra
 ''' </summary>
 ReadOnly Property ptra as List (of L_Ptra)
 	Get
@@ -1038,6 +1069,9 @@ End If
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Ptraa
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -1066,7 +1100,7 @@ Public Class L_Queue
 ''' Brf: size of allocated ptr array
 '''  Loc: SRC/queue.h (66, 22)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -1079,7 +1113,7 @@ End Property
 ''' Brf: location of head (in ptrs) from the
 '''  Loc: SRC/queue.h (67, 22)
 '''  Org: [l_int32 nhead]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nhead as Integer
 	Get
@@ -1092,7 +1126,7 @@ End Property
 ''' Brf: number of elements stored in the queue
 '''  Loc: SRC/queue.h (69, 22)
 '''  Org: [l_int32 nelem]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nelem as Integer
 	Get
@@ -1122,7 +1156,7 @@ End Property
 ''' Brf: auxiliary stack
 '''  Loc: SRC/queue.h (71, 22)
 '''  Org: [struct L_Stack * stack]
-'''  Msh: struct L_Stack * | 2:Struct | L_Stack
+'''  Msh: struct L_Stack * | 2:Struct |
 ''' </summary>
 ReadOnly Property stack as L_Stack
 	Get
@@ -1134,6 +1168,9 @@ ReadOnly Property stack as L_Stack
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Queue
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -1165,7 +1202,7 @@ Public Class Rb_Type
 ''' Brf: 
 '''  Loc: SRC/rbtree.h (62, 16)
 '''  Org: [l_int64 itype]
-'''  Msh: l_int64 = bigger  1:*
+'''  Msh: l_int64 | 1:LongLong |
 ''' </summary>
 ReadOnly Property itype as Long
 	Get
@@ -1178,7 +1215,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC/rbtree.h (63, 16)
 '''  Org: [l_uint64 utype]
-'''  Msh: l_uint64 = bigger  1:*
+'''  Msh: l_uint64 | 1:ULongLong |
 ''' </summary>
 ReadOnly Property utype as ULong
 	Get
@@ -1191,7 +1228,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC/rbtree.h (64, 16)
 '''  Org: [l_float64 ftype]
-'''  Msh: l_float64 = bigger  1:*
+'''  Msh: l_float64 | 1:Double |
 ''' </summary>
 ReadOnly Property ftype as Double
 	Get
@@ -1204,7 +1241,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC/rbtree.h (65, 16)
 '''  Org: [void * ptype]
-'''  Msh: void * | 2:Void | IntPTR ... Pointer auf Object = IntPTR
+'''  Msh: void * | 2:Void |  ... Pointer auf Object = IntPTR
 ''' </summary>
 ReadOnly Property ptype as IntPTR
 	Get
@@ -1216,6 +1253,9 @@ End if
 End Property
 
 	Sub New ()
+	Values = New Marshal_Rb_Type
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -1244,7 +1284,7 @@ Public Class L_Rbtree
 ''' Brf: 
 '''  Loc: SRC/rbtree.h (70, 28)
 '''  Org: [struct L_Rbtree_Node * root]
-'''  Msh: struct L_Rbtree_Node * | 2:Struct | L_Rbtree_Node
+'''  Msh: struct L_Rbtree_Node * | 2:Struct |
 ''' </summary>
 ReadOnly Property root as L_Rbtree_Node
 	Get
@@ -1259,7 +1299,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC/rbtree.h (71, 28)
 '''  Org: [l_int32 keytype]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property keytype as Integer
 	Get
@@ -1269,6 +1309,9 @@ ReadOnly Property keytype as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Rbtree
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -1295,7 +1338,7 @@ Public Class L_Rbtree_Node
 ''' Brf: 
 '''  Loc: SRC/rbtree.h (78, 28)
 '''  Org: [union Rb_Type key]
-'''  Msh: Rb_Type = bigger  1:* Typedef: Rb_Type = Rb_Type
+'''  Msh: Rb_Type | 1:UnionDeclaration |  Typedef: Rb_Type = Rb_Type
 ''' </summary>
 ReadOnly Property key as Rb_Type
 	Get
@@ -1308,7 +1351,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC/rbtree.h (79, 28)
 '''  Org: [union Rb_Type value]
-'''  Msh: Rb_Type = bigger  1:* Typedef: Rb_Type = Rb_Type
+'''  Msh: Rb_Type | 1:UnionDeclaration |  Typedef: Rb_Type = Rb_Type
 ''' </summary>
 ReadOnly Property value as Rb_Type
 	Get
@@ -1321,7 +1364,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC/rbtree.h (80, 28)
 '''  Org: [struct L_Rbtree_Node * left]
-'''  Msh: struct L_Rbtree_Node * | 2:Struct | L_Rbtree_Node
+'''  Msh: struct L_Rbtree_Node * | 2:Struct |
 ''' </summary>
 ReadOnly Property left as L_Rbtree_Node
 	Get
@@ -1336,7 +1379,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC/rbtree.h (81, 28)
 '''  Org: [struct L_Rbtree_Node * right]
-'''  Msh: struct L_Rbtree_Node * | 2:Struct | L_Rbtree_Node
+'''  Msh: struct L_Rbtree_Node * | 2:Struct |
 ''' </summary>
 ReadOnly Property right as L_Rbtree_Node
 	Get
@@ -1351,7 +1394,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC/rbtree.h (82, 28)
 '''  Org: [struct L_Rbtree_Node * parent]
-'''  Msh: struct L_Rbtree_Node * | 2:Struct | L_Rbtree_Node
+'''  Msh: struct L_Rbtree_Node * | 2:Struct |
 ''' </summary>
 ReadOnly Property parent as L_Rbtree_Node
 	Get
@@ -1366,7 +1409,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC/rbtree.h (83, 28)
 '''  Org: [l_int32 color]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property color as Integer
 	Get
@@ -1376,6 +1419,9 @@ ReadOnly Property color as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Rbtree_Node
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -1408,7 +1454,7 @@ Public Class L_Stack
 ''' Brf: size of ptr array
 '''  Loc: SRC/stack.h (61, 22)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -1421,7 +1467,7 @@ End Property
 ''' Brf: number of stored elements
 '''  Loc: SRC/stack.h (62, 22)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -1451,7 +1497,7 @@ End Property
 ''' Brf: auxiliary stack
 '''  Loc: SRC/stack.h (64, 22)
 '''  Org: [struct L_Stack * auxstack]
-'''  Msh: struct L_Stack * | 2:Struct | L_Stack
+'''  Msh: struct L_Stack * | 2:Struct |
 ''' </summary>
 ReadOnly Property auxstack as L_Stack
 	Get
@@ -1463,6 +1509,9 @@ ReadOnly Property auxstack as L_Stack
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Stack
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -1493,7 +1542,7 @@ Public Class L_Bmf
 ''' Brf: pixa of bitmaps for 93 characters
 '''  Loc: SRC/bmf.h (47, 19)
 '''  Org: [struct Pixa * pixa]
-'''  Msh: struct Pixa * | 2:Struct | Pixa
+'''  Msh: struct Pixa * | 2:Struct |
 ''' </summary>
 ReadOnly Property pixa as Pixa
 	Get
@@ -1508,7 +1557,7 @@ End Property
 ''' Brf: font size (in points at 300 ppi)
 '''  Loc: SRC/bmf.h (48, 19)
 '''  Org: [l_int32 size]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property size as Integer
 	Get
@@ -1521,7 +1570,7 @@ End Property
 ''' Brf: directory containing font bitmaps
 '''  Loc: SRC/bmf.h (49, 19)
 '''  Org: [char * directory]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property directory as String
 	Get
@@ -1536,7 +1585,7 @@ End Property
 ''' Brf: baseline offset for ascii 33 - 57
 '''  Loc: SRC/bmf.h (50, 19)
 '''  Org: [l_int32 baseline1]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property baseline1 as Integer
 	Get
@@ -1549,7 +1598,7 @@ End Property
 ''' Brf: baseline offset for ascii 58 - 91
 '''  Loc: SRC/bmf.h (51, 19)
 '''  Org: [l_int32 baseline2]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property baseline2 as Integer
 	Get
@@ -1562,7 +1611,7 @@ End Property
 ''' Brf: baseline offset for ascii 93 - 126
 '''  Loc: SRC/bmf.h (52, 19)
 '''  Org: [l_int32 baseline3]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property baseline3 as Integer
 	Get
@@ -1575,7 +1624,7 @@ End Property
 ''' Brf: max height of line of chars
 '''  Loc: SRC/bmf.h (53, 19)
 '''  Org: [l_int32 lineheight]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property lineheight as Integer
 	Get
@@ -1588,7 +1637,7 @@ End Property
 ''' Brf: pixel dist between char bitmaps
 '''  Loc: SRC/bmf.h (54, 19)
 '''  Org: [l_int32 kernwidth]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property kernwidth as Integer
 	Get
@@ -1601,7 +1650,7 @@ End Property
 ''' Brf: pixel dist between word bitmaps
 '''  Loc: SRC/bmf.h (55, 19)
 '''  Org: [l_int32 spacewidth]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property spacewidth as Integer
 	Get
@@ -1614,7 +1663,7 @@ End Property
 ''' Brf: extra vertical space between text lines
 '''  Loc: SRC/bmf.h (56, 19)
 '''  Org: [l_int32 vertlinesep]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property vertlinesep as Integer
 	Get
@@ -1627,7 +1676,7 @@ End Property
 ''' Brf: table mapping ascii -- bigger  font index
 '''  Loc: SRC/bmf.h (57, 19)
 '''  Org: [l_int32 * fonttab]
-'''  Msh: l_int32 * | 2:Int | Integer()
+'''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
 ''' </summary>
 ReadOnly Property fonttab as Integer()
 	Get
@@ -1644,7 +1693,7 @@ End Property
 ''' Brf: table mapping ascii -- bigger  baseline offset
 '''  Loc: SRC/bmf.h (58, 19)
 '''  Org: [l_int32 * baselinetab]
-'''  Msh: l_int32 * | 2:Int | Integer()
+'''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
 ''' </summary>
 ReadOnly Property baselinetab as Integer()
 	Get
@@ -1661,7 +1710,7 @@ End Property
 ''' Brf: table mapping ascii -- bigger  char width
 '''  Loc: SRC/bmf.h (59, 19)
 '''  Org: [l_int32 * widthtab]
-'''  Msh: l_int32 * | 2:Int | Integer()
+'''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
 ''' </summary>
 ReadOnly Property widthtab as Integer()
 	Get
@@ -1675,6 +1724,9 @@ End if
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Bmf
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -1714,7 +1766,7 @@ Public Class CCBord
 ''' Brf: component bitmap (min size)
 '''  Loc: SRC/ccbord.h (93, 26)
 '''  Org: [struct Pix * pix]
-'''  Msh: struct Pix * | 2:Struct | Pix
+'''  Msh: struct Pix * | 2:Struct |
 ''' </summary>
 ReadOnly Property pix as Pix
 	Get
@@ -1729,7 +1781,7 @@ End Property
 ''' Brf: regions of each closed curve
 '''  Loc: SRC/ccbord.h (94, 26)
 '''  Org: [struct Boxa * boxa]
-'''  Msh: struct Boxa * | 2:Struct | Boxa
+'''  Msh: struct Boxa * | 2:Struct |
 ''' </summary>
 ReadOnly Property boxa as Boxa
 	Get
@@ -1744,7 +1796,7 @@ End Property
 ''' Brf: initial border pixel locations
 '''  Loc: SRC/ccbord.h (95, 26)
 '''  Org: [struct Pta * start]
-'''  Msh: struct Pta * | 2:Struct | Pta
+'''  Msh: struct Pta * | 2:Struct |
 ''' </summary>
 ReadOnly Property start as Pta
 	Get
@@ -1759,7 +1811,7 @@ End Property
 ''' Brf: number of handles; start at 1
 '''  Loc: SRC/ccbord.h (96, 26)
 '''  Org: [l_int32 refcount]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property refcount as Integer
 	Get
@@ -1772,7 +1824,7 @@ End Property
 ''' Brf: ptaa of chain pixels (local)
 '''  Loc: SRC/ccbord.h (97, 26)
 '''  Org: [struct Ptaa * local]
-'''  Msh: struct Ptaa * | 2:Struct | Ptaa
+'''  Msh: struct Ptaa * | 2:Struct |
 ''' </summary>
 ReadOnly Property local as Ptaa
 	Get
@@ -1787,7 +1839,7 @@ End Property
 ''' Brf: ptaa of chain pixels (global)
 '''  Loc: SRC/ccbord.h (98, 26)
 '''  Org: [struct Ptaa * global]
-'''  Msh: struct Ptaa * | 2:Struct | Ptaa
+'''  Msh: struct Ptaa * | 2:Struct |
 ''' </summary>
 ReadOnly Property _global_ as Ptaa
 	Get
@@ -1802,7 +1854,7 @@ End Property
 ''' Brf: numaa of chain code (step dir)
 '''  Loc: SRC/ccbord.h (99, 26)
 '''  Org: [struct Numaa * step]
-'''  Msh: struct Numaa * | 2:Struct | Numaa Typedef: Numaa = Numaa
+'''  Msh: struct Numaa * | 2:Struct |  Typedef: Numaa = Numaa
 ''' </summary>
 ReadOnly Property _step_ as Numaa
 	Get
@@ -1817,7 +1869,7 @@ End Property
 ''' Brf: pta of single chain (local)
 '''  Loc: SRC/ccbord.h (100, 26)
 '''  Org: [struct Pta * splocal]
-'''  Msh: struct Pta * | 2:Struct | Pta
+'''  Msh: struct Pta * | 2:Struct |
 ''' </summary>
 ReadOnly Property splocal as Pta
 	Get
@@ -1832,7 +1884,7 @@ End Property
 ''' Brf: pta of single chain (global)
 '''  Loc: SRC/ccbord.h (101, 26)
 '''  Org: [struct Pta * spglobal]
-'''  Msh: struct Pta * | 2:Struct | Pta
+'''  Msh: struct Pta * | 2:Struct |
 ''' </summary>
 ReadOnly Property spglobal as Pta
 	Get
@@ -1844,6 +1896,9 @@ ReadOnly Property spglobal as Pta
 End Property
 
 	Sub New ()
+	Values = New Marshal_CCBord
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -1877,7 +1932,7 @@ Public Class CCBorda
 ''' Brf: input pix (may be null)
 '''  Loc: SRC/ccbord.h (108, 26)
 '''  Org: [struct Pix * pix]
-'''  Msh: struct Pix * | 2:Struct | Pix
+'''  Msh: struct Pix * | 2:Struct |
 ''' </summary>
 ReadOnly Property pix as Pix
 	Get
@@ -1892,7 +1947,7 @@ End Property
 ''' Brf: width of pix
 '''  Loc: SRC/ccbord.h (109, 26)
 '''  Org: [l_int32 w]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
@@ -1905,7 +1960,7 @@ End Property
 ''' Brf: height of pix
 '''  Loc: SRC/ccbord.h (110, 26)
 '''  Org: [l_int32 h]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
@@ -1918,7 +1973,7 @@ End Property
 ''' Brf: number of ccbord in ptr array
 '''  Loc: SRC/ccbord.h (111, 26)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -1931,7 +1986,7 @@ End Property
 ''' Brf: number of ccbord ptrs allocated
 '''  Loc: SRC/ccbord.h (112, 26)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -1944,7 +1999,7 @@ End Property
 ''' Brf: ccb ptr array
 '''  Loc: SRC/ccbord.h (113, 26)
 '''  Org: [struct CCBord ** ccb]
-'''  Msh: struct CCBord ** | 3:Struct | List (of CCBord) Typedef: CCBord = CCBord
+'''  Msh: struct CCBord ** | 3:StructDeclaration |  ... Marshal List of Class to PTR Typedef: CCBord = CCBord
 ''' </summary>
 ReadOnly Property ccb as List (of CCBord)
 	Get
@@ -1962,6 +2017,9 @@ End If
 End Property
 
 	Sub New ()
+	Values = New Marshal_CCBorda
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -1994,7 +2052,7 @@ Public Class L_Dewarpa
 ''' Brf: size of dewarp ptr array
 '''  Loc: SRC/dewarp.h (115, 24)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -2007,7 +2065,7 @@ End Property
 ''' Brf: maximum page number in array
 '''  Loc: SRC/dewarp.h (116, 24)
 '''  Org: [l_int32 maxpage]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property maxpage as Integer
 	Get
@@ -2020,7 +2078,7 @@ End Property
 ''' Brf: array of ptrs to page dewarp
 '''  Loc: SRC/dewarp.h (117, 24)
 '''  Org: [struct L_Dewarp ** dewarp]
-'''  Msh: struct L_Dewarp ** | 3:Struct | List (of L_Dewarp)
+'''  Msh: struct L_Dewarp ** | 3:StructDeclaration |  ... Marshal List of Class to PTR
 ''' </summary>
 ReadOnly Property dewarp as List (of L_Dewarp)
 	Get
@@ -2041,7 +2099,7 @@ End Property
 ''' Brf: array of ptrs to cached dewarps
 '''  Loc: SRC/dewarp.h (118, 24)
 '''  Org: [struct L_Dewarp ** dewarpcache]
-'''  Msh: struct L_Dewarp ** | 3:Struct | List (of L_Dewarp)
+'''  Msh: struct L_Dewarp ** | 3:StructDeclaration |  ... Marshal List of Class to PTR
 ''' </summary>
 ReadOnly Property dewarpcache as List (of L_Dewarp)
 	Get
@@ -2062,7 +2120,7 @@ End Property
 ''' Brf: list of page numbers for pages
 '''  Loc: SRC/dewarp.h (119, 24)
 '''  Org: [struct Numa * namodels]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property namodels as Numa
 	Get
@@ -2077,7 +2135,7 @@ End Property
 ''' Brf: list of page numbers with either
 '''  Loc: SRC/dewarp.h (121, 24)
 '''  Org: [struct Numa * napages]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property napages as Numa
 	Get
@@ -2092,7 +2150,7 @@ End Property
 ''' Brf: reduction factor of input: 1 or 2
 '''  Loc: SRC/dewarp.h (123, 24)
 '''  Org: [l_int32 redfactor]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property redfactor as Integer
 	Get
@@ -2105,7 +2163,7 @@ End Property
 ''' Brf: disparity arrays sampling factor
 '''  Loc: SRC/dewarp.h (124, 24)
 '''  Org: [l_int32 sampling]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property sampling as Integer
 	Get
@@ -2118,7 +2176,7 @@ End Property
 ''' Brf: min number of long lines required
 '''  Loc: SRC/dewarp.h (125, 24)
 '''  Org: [l_int32 minlines]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property minlines as Integer
 	Get
@@ -2131,7 +2189,7 @@ End Property
 ''' Brf: max distance for getting ref page
 '''  Loc: SRC/dewarp.h (126, 24)
 '''  Org: [l_int32 maxdist]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property maxdist as Integer
 	Get
@@ -2144,7 +2202,7 @@ End Property
 ''' Brf: maximum abs line curvature,
 '''  Loc: SRC/dewarp.h (127, 24)
 '''  Org: [l_int32 max_linecurv]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property max_linecurv as Integer
 	Get
@@ -2157,7 +2215,7 @@ End Property
 ''' Brf: minimum abs diff line
 '''  Loc: SRC/dewarp.h (129, 24)
 '''  Org: [l_int32 min_diff_linecurv]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property min_diff_linecurv as Integer
 	Get
@@ -2170,7 +2228,7 @@ End Property
 ''' Brf: maximum abs diff line
 '''  Loc: SRC/dewarp.h (131, 24)
 '''  Org: [l_int32 max_diff_linecurv]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property max_diff_linecurv as Integer
 	Get
@@ -2183,7 +2241,7 @@ End Property
 ''' Brf: maximum abs left or right edge
 '''  Loc: SRC/dewarp.h (133, 24)
 '''  Org: [l_int32 max_edgeslope]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property max_edgeslope as Integer
 	Get
@@ -2196,7 +2254,7 @@ End Property
 ''' Brf: maximum abs left or right edge
 '''  Loc: SRC/dewarp.h (135, 24)
 '''  Org: [l_int32 max_edgecurv]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property max_edgecurv as Integer
 	Get
@@ -2209,7 +2267,7 @@ End Property
 ''' Brf: maximum abs diff left-right
 '''  Loc: SRC/dewarp.h (137, 24)
 '''  Org: [l_int32 max_diff_edgecurv]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property max_diff_edgecurv as Integer
 	Get
@@ -2222,7 +2280,7 @@ End Property
 ''' Brf: use both disparity arrays if
 '''  Loc: SRC/dewarp.h (139, 24)
 '''  Org: [l_int32 useboth]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property useboth as Integer
 	Get
@@ -2235,7 +2293,7 @@ End Property
 ''' Brf: if there are multiple columns,
 '''  Loc: SRC/dewarp.h (141, 24)
 '''  Org: [l_int32 check_columns]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property check_columns as Integer
 	Get
@@ -2248,7 +2306,7 @@ End Property
 ''' Brf: invalid models have been removed
 '''  Loc: SRC/dewarp.h (144, 24)
 '''  Org: [l_int32 modelsready]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property modelsready as Integer
 	Get
@@ -2258,6 +2316,9 @@ ReadOnly Property modelsready as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Dewarpa
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -2301,7 +2362,7 @@ Public Class L_Dewarp
 ''' Brf: ptr to parent (not owned)
 '''  Loc: SRC/dewarp.h (153, 24)
 '''  Org: [struct L_Dewarpa * dewa]
-'''  Msh: struct L_Dewarpa * | 2:Struct | L_Dewarpa Typedef: L_Dewarpa = L_Dewarpa
+'''  Msh: struct L_Dewarpa * | 2:Struct |  Typedef: L_Dewarpa = L_Dewarpa
 ''' </summary>
 ReadOnly Property dewa as L_Dewarpa
 	Get
@@ -2316,7 +2377,7 @@ End Property
 ''' Brf: source pix, 1 bpp
 '''  Loc: SRC/dewarp.h (154, 24)
 '''  Org: [struct Pix * pixs]
-'''  Msh: struct Pix * | 2:Struct | Pix
+'''  Msh: struct Pix * | 2:Struct |
 ''' </summary>
 ReadOnly Property pixs as Pix
 	Get
@@ -2331,7 +2392,7 @@ End Property
 ''' Brf: sampled vert disparity array
 '''  Loc: SRC/dewarp.h (155, 24)
 '''  Org: [struct FPix * sampvdispar]
-'''  Msh: struct FPix * | 2:Struct | FPix
+'''  Msh: struct FPix * | 2:Struct |
 ''' </summary>
 ReadOnly Property sampvdispar as FPix
 	Get
@@ -2346,7 +2407,7 @@ End Property
 ''' Brf: sampled horiz disparity array
 '''  Loc: SRC/dewarp.h (156, 24)
 '''  Org: [struct FPix * samphdispar]
-'''  Msh: struct FPix * | 2:Struct | FPix
+'''  Msh: struct FPix * | 2:Struct |
 ''' </summary>
 ReadOnly Property samphdispar as FPix
 	Get
@@ -2361,7 +2422,7 @@ End Property
 ''' Brf: sampled slope h-disparity array
 '''  Loc: SRC/dewarp.h (157, 24)
 '''  Org: [struct FPix * sampydispar]
-'''  Msh: struct FPix * | 2:Struct | FPix
+'''  Msh: struct FPix * | 2:Struct |
 ''' </summary>
 ReadOnly Property sampydispar as FPix
 	Get
@@ -2376,7 +2437,7 @@ End Property
 ''' Brf: full vert disparity array
 '''  Loc: SRC/dewarp.h (158, 24)
 '''  Org: [struct FPix * fullvdispar]
-'''  Msh: struct FPix * | 2:Struct | FPix
+'''  Msh: struct FPix * | 2:Struct |
 ''' </summary>
 ReadOnly Property fullvdispar as FPix
 	Get
@@ -2391,7 +2452,7 @@ End Property
 ''' Brf: full horiz disparity array
 '''  Loc: SRC/dewarp.h (159, 24)
 '''  Org: [struct FPix * fullhdispar]
-'''  Msh: struct FPix * | 2:Struct | FPix
+'''  Msh: struct FPix * | 2:Struct |
 ''' </summary>
 ReadOnly Property fullhdispar as FPix
 	Get
@@ -2406,7 +2467,7 @@ End Property
 ''' Brf: full slope h-disparity array
 '''  Loc: SRC/dewarp.h (160, 24)
 '''  Org: [struct FPix * fullydispar]
-'''  Msh: struct FPix * | 2:Struct | FPix
+'''  Msh: struct FPix * | 2:Struct |
 ''' </summary>
 ReadOnly Property fullydispar as FPix
 	Get
@@ -2421,7 +2482,7 @@ End Property
 ''' Brf: sorted y val of midpoint each line
 '''  Loc: SRC/dewarp.h (161, 24)
 '''  Org: [struct Numa * namidys]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property namidys as Numa
 	Get
@@ -2436,7 +2497,7 @@ End Property
 ''' Brf: sorted curvature of each line
 '''  Loc: SRC/dewarp.h (162, 24)
 '''  Org: [struct Numa * nacurves]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property nacurves as Numa
 	Get
@@ -2451,7 +2512,7 @@ End Property
 ''' Brf: width of source image
 '''  Loc: SRC/dewarp.h (163, 24)
 '''  Org: [l_int32 w]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
@@ -2464,7 +2525,7 @@ End Property
 ''' Brf: height of source image
 '''  Loc: SRC/dewarp.h (164, 24)
 '''  Org: [l_int32 h]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
@@ -2477,7 +2538,7 @@ End Property
 ''' Brf: page number; important for reuse
 '''  Loc: SRC/dewarp.h (165, 24)
 '''  Org: [l_int32 pageno]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property pageno as Integer
 	Get
@@ -2490,7 +2551,7 @@ End Property
 ''' Brf: sampling factor of disparity arrays
 '''  Loc: SRC/dewarp.h (166, 24)
 '''  Org: [l_int32 sampling]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property sampling as Integer
 	Get
@@ -2503,7 +2564,7 @@ End Property
 ''' Brf: reduction factor of pixs: 1 or 2
 '''  Loc: SRC/dewarp.h (167, 24)
 '''  Org: [l_int32 redfactor]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property redfactor as Integer
 	Get
@@ -2516,7 +2577,7 @@ End Property
 ''' Brf: min number of long lines required
 '''  Loc: SRC/dewarp.h (168, 24)
 '''  Org: [l_int32 minlines]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property minlines as Integer
 	Get
@@ -2529,7 +2590,7 @@ End Property
 ''' Brf: number of long lines found
 '''  Loc: SRC/dewarp.h (169, 24)
 '''  Org: [l_int32 nlines]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nlines as Integer
 	Get
@@ -2542,7 +2603,7 @@ End Property
 ''' Brf: min line curvature in micro-units
 '''  Loc: SRC/dewarp.h (170, 24)
 '''  Org: [l_int32 mincurv]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property mincurv as Integer
 	Get
@@ -2555,7 +2616,7 @@ End Property
 ''' Brf: max line curvature in micro-units
 '''  Loc: SRC/dewarp.h (171, 24)
 '''  Org: [l_int32 maxcurv]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property maxcurv as Integer
 	Get
@@ -2568,7 +2629,7 @@ End Property
 ''' Brf: left edge slope in milli-units
 '''  Loc: SRC/dewarp.h (172, 24)
 '''  Org: [l_int32 leftslope]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property leftslope as Integer
 	Get
@@ -2581,7 +2642,7 @@ End Property
 ''' Brf: right edge slope in milli-units
 '''  Loc: SRC/dewarp.h (173, 24)
 '''  Org: [l_int32 rightslope]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property rightslope as Integer
 	Get
@@ -2594,7 +2655,7 @@ End Property
 ''' Brf: left edge curvature in micro-units
 '''  Loc: SRC/dewarp.h (174, 24)
 '''  Org: [l_int32 leftcurv]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property leftcurv as Integer
 	Get
@@ -2607,7 +2668,7 @@ End Property
 ''' Brf: right edge curvature in micro-units
 '''  Loc: SRC/dewarp.h (175, 24)
 '''  Org: [l_int32 rightcurv]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property rightcurv as Integer
 	Get
@@ -2620,7 +2681,7 @@ End Property
 ''' Brf: number of sampling pts in x-dir
 '''  Loc: SRC/dewarp.h (176, 24)
 '''  Org: [l_int32 nx]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nx as Integer
 	Get
@@ -2633,7 +2694,7 @@ End Property
 ''' Brf: number of sampling pts in y-dir
 '''  Loc: SRC/dewarp.h (177, 24)
 '''  Org: [l_int32 ny]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property ny as Integer
 	Get
@@ -2646,7 +2707,7 @@ End Property
 ''' Brf: 0 if normal; 1 if has a refpage
 '''  Loc: SRC/dewarp.h (178, 24)
 '''  Org: [l_int32 hasref]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property hasref as Integer
 	Get
@@ -2659,7 +2720,7 @@ End Property
 ''' Brf: page with disparity model to use
 '''  Loc: SRC/dewarp.h (179, 24)
 '''  Org: [l_int32 refpage]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property refpage as Integer
 	Get
@@ -2672,7 +2733,7 @@ End Property
 ''' Brf: sets to 1 if vert disparity builds
 '''  Loc: SRC/dewarp.h (180, 24)
 '''  Org: [l_int32 vsuccess]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property vsuccess as Integer
 	Get
@@ -2685,7 +2746,7 @@ End Property
 ''' Brf: sets to 1 if horiz disparity builds
 '''  Loc: SRC/dewarp.h (181, 24)
 '''  Org: [l_int32 hsuccess]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property hsuccess as Integer
 	Get
@@ -2698,7 +2759,7 @@ End Property
 ''' Brf: sets to 1 if slope disparity builds
 '''  Loc: SRC/dewarp.h (182, 24)
 '''  Org: [l_int32 ysuccess]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property ysuccess as Integer
 	Get
@@ -2711,7 +2772,7 @@ End Property
 ''' Brf: sets to 1 if valid vert disparity
 '''  Loc: SRC/dewarp.h (183, 24)
 '''  Org: [l_int32 vvalid]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property vvalid as Integer
 	Get
@@ -2724,7 +2785,7 @@ End Property
 ''' Brf: sets to 1 if valid horiz disparity
 '''  Loc: SRC/dewarp.h (184, 24)
 '''  Org: [l_int32 hvalid]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property hvalid as Integer
 	Get
@@ -2737,7 +2798,7 @@ End Property
 ''' Brf: if 1, skip horiz disparity
 '''  Loc: SRC/dewarp.h (185, 24)
 '''  Org: [l_int32 skip_horiz]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property skip_horiz as Integer
 	Get
@@ -2750,7 +2811,7 @@ End Property
 ''' Brf: set to 1 if debug output requested
 '''  Loc: SRC/dewarp.h (187, 24)
 '''  Org: [l_int32 debug]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property debug as Integer
 	Get
@@ -2760,6 +2821,9 @@ ReadOnly Property debug as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Dewarp
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -2820,7 +2884,7 @@ Public Class GPlot
 ''' Brf: for cmd, data, output
 '''  Loc: SRC/gplot.h (77, 20)
 '''  Org: [char * rootname]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property rootname as String
 	Get
@@ -2835,7 +2899,7 @@ End Property
 ''' Brf: command file name
 '''  Loc: SRC/gplot.h (78, 20)
 '''  Org: [char * cmdname]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property cmdname as String
 	Get
@@ -2850,7 +2914,7 @@ End Property
 ''' Brf: command file contents
 '''  Loc: SRC/gplot.h (79, 20)
 '''  Org: [struct Sarray * cmddata]
-'''  Msh: struct Sarray * | 2:Struct | Sarray Typedef: Sarray = Sarray
+'''  Msh: struct Sarray * | 2:Struct |  Typedef: Sarray = Sarray
 ''' </summary>
 ReadOnly Property cmddata as Sarray
 	Get
@@ -2865,7 +2929,7 @@ End Property
 ''' Brf: data file names
 '''  Loc: SRC/gplot.h (80, 20)
 '''  Org: [struct Sarray * datanames]
-'''  Msh: struct Sarray * | 2:Struct | Sarray Typedef: Sarray = Sarray
+'''  Msh: struct Sarray * | 2:Struct |  Typedef: Sarray = Sarray
 ''' </summary>
 ReadOnly Property datanames as Sarray
 	Get
@@ -2880,7 +2944,7 @@ End Property
 ''' Brf: plot data (1 string/file)
 '''  Loc: SRC/gplot.h (81, 20)
 '''  Org: [struct Sarray * plotdata]
-'''  Msh: struct Sarray * | 2:Struct | Sarray Typedef: Sarray = Sarray
+'''  Msh: struct Sarray * | 2:Struct |  Typedef: Sarray = Sarray
 ''' </summary>
 ReadOnly Property plotdata as Sarray
 	Get
@@ -2895,7 +2959,7 @@ End Property
 ''' Brf: title for each individual plot
 '''  Loc: SRC/gplot.h (82, 20)
 '''  Org: [struct Sarray * plottitles]
-'''  Msh: struct Sarray * | 2:Struct | Sarray Typedef: Sarray = Sarray
+'''  Msh: struct Sarray * | 2:Struct |  Typedef: Sarray = Sarray
 ''' </summary>
 ReadOnly Property plottitles as Sarray
 	Get
@@ -2910,7 +2974,7 @@ End Property
 ''' Brf: plot style for individual plots
 '''  Loc: SRC/gplot.h (83, 20)
 '''  Org: [struct Numa * plotstyles]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property plotstyles as Numa
 	Get
@@ -2925,7 +2989,7 @@ End Property
 ''' Brf: current number of plots
 '''  Loc: SRC/gplot.h (84, 20)
 '''  Org: [l_int32 nplots]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nplots as Integer
 	Get
@@ -2938,7 +3002,7 @@ End Property
 ''' Brf: output file name
 '''  Loc: SRC/gplot.h (85, 20)
 '''  Org: [char * outname]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property outname as String
 	Get
@@ -2953,7 +3017,7 @@ End Property
 ''' Brf: GPLOT_OUTPUT values
 '''  Loc: SRC/gplot.h (86, 20)
 '''  Org: [l_int32 outformat]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property outformat as Integer
 	Get
@@ -2966,7 +3030,7 @@ End Property
 ''' Brf: GPLOT_SCALING values
 '''  Loc: SRC/gplot.h (87, 20)
 '''  Org: [l_int32 scaling]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property scaling as Integer
 	Get
@@ -2979,7 +3043,7 @@ End Property
 ''' Brf: optional
 '''  Loc: SRC/gplot.h (88, 20)
 '''  Org: [char * title]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property title as String
 	Get
@@ -2994,7 +3058,7 @@ End Property
 ''' Brf: optional x axis label
 '''  Loc: SRC/gplot.h (89, 20)
 '''  Org: [char * xlabel]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property xlabel as String
 	Get
@@ -3009,7 +3073,7 @@ End Property
 ''' Brf: optional y axis label
 '''  Loc: SRC/gplot.h (90, 20)
 '''  Org: [char * ylabel]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property ylabel as String
 	Get
@@ -3021,6 +3085,9 @@ End if
 End Property
 
 	Sub New ()
+	Values = New Marshal_GPlot
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -3061,7 +3128,7 @@ Public Class L_Compressed_Data
 ''' Brf: encoding type: L_JPEG_ENCODE, etc
 '''  Loc: SRC/imageio.h (168, 24)
 '''  Org: [l_int32 type]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property type as Integer
 	Get
@@ -3091,7 +3158,7 @@ End Property
 ''' Brf: number of compressed bytes
 '''  Loc: SRC/imageio.h (170, 24)
 '''  Org: [size_t nbytescomp]
-'''  Msh: size_t = bigger  1:*
+'''  Msh: size_t | 1:UInt |
 ''' </summary>
 ReadOnly Property nbytescomp as UInteger
 	Get
@@ -3104,7 +3171,7 @@ End Property
 ''' Brf: ascii85-encoded gzipped raster data
 '''  Loc: SRC/imageio.h (171, 24)
 '''  Org: [char * data85]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property data85 as String
 	Get
@@ -3119,7 +3186,7 @@ End Property
 ''' Brf: number of ascii85 encoded bytes
 '''  Loc: SRC/imageio.h (172, 24)
 '''  Org: [size_t nbytes85]
-'''  Msh: size_t = bigger  1:*
+'''  Msh: size_t | 1:UInt |
 ''' </summary>
 ReadOnly Property nbytes85 as UInteger
 	Get
@@ -3132,7 +3199,7 @@ End Property
 ''' Brf: ascii85-encoded uncompressed cmap
 '''  Loc: SRC/imageio.h (173, 24)
 '''  Org: [char * cmapdata85]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property cmapdata85 as String
 	Get
@@ -3147,7 +3214,7 @@ End Property
 ''' Brf: hex pdf array for the cmap
 '''  Loc: SRC/imageio.h (174, 24)
 '''  Org: [char * cmapdatahex]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property cmapdatahex as String
 	Get
@@ -3162,7 +3229,7 @@ End Property
 ''' Brf: number of colors in cmap
 '''  Loc: SRC/imageio.h (175, 24)
 '''  Org: [l_int32 ncolors]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property ncolors as Integer
 	Get
@@ -3175,7 +3242,7 @@ End Property
 ''' Brf: image width
 '''  Loc: SRC/imageio.h (176, 24)
 '''  Org: [l_int32 w]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
@@ -3188,7 +3255,7 @@ End Property
 ''' Brf: image height
 '''  Loc: SRC/imageio.h (177, 24)
 '''  Org: [l_int32 h]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
@@ -3201,7 +3268,7 @@ End Property
 ''' Brf: bits/sample; typ. 1, 2, 4 or 8
 '''  Loc: SRC/imageio.h (178, 24)
 '''  Org: [l_int32 bps]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property bps as Integer
 	Get
@@ -3214,7 +3281,7 @@ End Property
 ''' Brf: samples/pixel; typ. 1 or 3
 '''  Loc: SRC/imageio.h (179, 24)
 '''  Org: [l_int32 spp]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property spp as Integer
 	Get
@@ -3227,7 +3294,7 @@ End Property
 ''' Brf: tiff g4 photometry
 '''  Loc: SRC/imageio.h (180, 24)
 '''  Org: [l_int32 minisblack]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property minisblack as Integer
 	Get
@@ -3240,7 +3307,7 @@ End Property
 ''' Brf: flate data has PNG predictors
 '''  Loc: SRC/imageio.h (181, 24)
 '''  Org: [l_int32 predictor]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property predictor as Integer
 	Get
@@ -3253,7 +3320,7 @@ End Property
 ''' Brf: number of uncompressed raster bytes
 '''  Loc: SRC/imageio.h (182, 24)
 '''  Org: [size_t nbytes]
-'''  Msh: size_t = bigger  1:*
+'''  Msh: size_t | 1:UInt |
 ''' </summary>
 ReadOnly Property nbytes as UInteger
 	Get
@@ -3266,7 +3333,7 @@ End Property
 ''' Brf: resolution (ppi)
 '''  Loc: SRC/imageio.h (183, 24)
 '''  Org: [l_int32 res]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property res as Integer
 	Get
@@ -3276,6 +3343,9 @@ ReadOnly Property res as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Compressed_Data
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -3316,7 +3386,7 @@ Public Class L_Pdf_Data
 ''' Brf: optional title for pdf
 '''  Loc: SRC/imageio.h (213, 24)
 '''  Org: [char * title]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property title as String
 	Get
@@ -3331,7 +3401,7 @@ End Property
 ''' Brf: number of images
 '''  Loc: SRC/imageio.h (214, 24)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -3344,7 +3414,7 @@ End Property
 ''' Brf: number of colormaps
 '''  Loc: SRC/imageio.h (215, 24)
 '''  Org: [l_int32 ncmap]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property ncmap as Integer
 	Get
@@ -3357,7 +3427,7 @@ End Property
 ''' Brf: array of compressed image data
 '''  Loc: SRC/imageio.h (216, 24)
 '''  Org: [struct L_Ptra * cida]
-'''  Msh: struct L_Ptra * | 2:Struct | L_Ptra Typedef: L_Ptra = L_Ptra
+'''  Msh: struct L_Ptra * | 2:Struct |  Typedef: L_Ptra = L_Ptra
 ''' </summary>
 ReadOnly Property cida as L_Ptra
 	Get
@@ -3372,7 +3442,7 @@ End Property
 ''' Brf: %PDF-1.2 id string
 '''  Loc: SRC/imageio.h (217, 24)
 '''  Org: [char * id]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property id as String
 	Get
@@ -3387,7 +3457,7 @@ End Property
 ''' Brf: catalog string
 '''  Loc: SRC/imageio.h (218, 24)
 '''  Org: [char * obj1]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property obj1 as String
 	Get
@@ -3402,7 +3472,7 @@ End Property
 ''' Brf: metadata string
 '''  Loc: SRC/imageio.h (219, 24)
 '''  Org: [char * obj2]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property obj2 as String
 	Get
@@ -3417,7 +3487,7 @@ End Property
 ''' Brf: pages string
 '''  Loc: SRC/imageio.h (220, 24)
 '''  Org: [char * obj3]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property obj3 as String
 	Get
@@ -3432,7 +3502,7 @@ End Property
 ''' Brf: page string (variable data)
 '''  Loc: SRC/imageio.h (221, 24)
 '''  Org: [char * obj4]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property obj4 as String
 	Get
@@ -3447,7 +3517,7 @@ End Property
 ''' Brf: content string (variable data)
 '''  Loc: SRC/imageio.h (222, 24)
 '''  Org: [char * obj5]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property obj5 as String
 	Get
@@ -3462,7 +3532,7 @@ End Property
 ''' Brf: post-binary-stream string
 '''  Loc: SRC/imageio.h (223, 24)
 '''  Org: [char * poststream]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property poststream as String
 	Get
@@ -3477,7 +3547,7 @@ End Property
 ''' Brf: trailer string (variable data)
 '''  Loc: SRC/imageio.h (224, 24)
 '''  Org: [char * trailer]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property trailer as String
 	Get
@@ -3492,7 +3562,7 @@ End Property
 ''' Brf: store (xpt, ypt) array
 '''  Loc: SRC/imageio.h (225, 24)
 '''  Org: [struct Pta * xy]
-'''  Msh: struct Pta * | 2:Struct | Pta
+'''  Msh: struct Pta * | 2:Struct |
 ''' </summary>
 ReadOnly Property xy as Pta
 	Get
@@ -3507,7 +3577,7 @@ End Property
 ''' Brf: store (wpt, hpt) array
 '''  Loc: SRC/imageio.h (226, 24)
 '''  Org: [struct Pta * wh]
-'''  Msh: struct Pta * | 2:Struct | Pta
+'''  Msh: struct Pta * | 2:Struct |
 ''' </summary>
 ReadOnly Property wh as Pta
 	Get
@@ -3522,7 +3592,7 @@ End Property
 ''' Brf: bounding region for all images
 '''  Loc: SRC/imageio.h (227, 24)
 '''  Org: [struct Box * mediabox]
-'''  Msh: struct Box * | 2:Struct | Box
+'''  Msh: struct Box * | 2:Struct |
 ''' </summary>
 ReadOnly Property mediabox as Box
 	Get
@@ -3537,7 +3607,7 @@ End Property
 ''' Brf: pre-binary-stream xobject strings
 '''  Loc: SRC/imageio.h (228, 24)
 '''  Org: [struct Sarray * saprex]
-'''  Msh: struct Sarray * | 2:Struct | Sarray Typedef: Sarray = Sarray
+'''  Msh: struct Sarray * | 2:Struct |  Typedef: Sarray = Sarray
 ''' </summary>
 ReadOnly Property saprex as Sarray
 	Get
@@ -3552,7 +3622,7 @@ End Property
 ''' Brf: colormap pdf object strings
 '''  Loc: SRC/imageio.h (229, 24)
 '''  Org: [struct Sarray * sacmap]
-'''  Msh: struct Sarray * | 2:Struct | Sarray Typedef: Sarray = Sarray
+'''  Msh: struct Sarray * | 2:Struct |  Typedef: Sarray = Sarray
 ''' </summary>
 ReadOnly Property sacmap as Sarray
 	Get
@@ -3567,7 +3637,7 @@ End Property
 ''' Brf: sizes of each pdf string object
 '''  Loc: SRC/imageio.h (230, 24)
 '''  Org: [struct L_Dna * objsize]
-'''  Msh: struct L_Dna * | 2:Struct | L_Dna Typedef: L_Dna = L_Dna
+'''  Msh: struct L_Dna * | 2:Struct |  Typedef: L_Dna = L_Dna
 ''' </summary>
 ReadOnly Property objsize as L_Dna
 	Get
@@ -3582,7 +3652,7 @@ End Property
 ''' Brf: location of each pdf string object
 '''  Loc: SRC/imageio.h (231, 24)
 '''  Org: [struct L_Dna * objloc]
-'''  Msh: struct L_Dna * | 2:Struct | L_Dna Typedef: L_Dna = L_Dna
+'''  Msh: struct L_Dna * | 2:Struct |  Typedef: L_Dna = L_Dna
 ''' </summary>
 ReadOnly Property objloc as L_Dna
 	Get
@@ -3597,7 +3667,7 @@ End Property
 ''' Brf: location of xref
 '''  Loc: SRC/imageio.h (232, 24)
 '''  Org: [l_int32 xrefloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property xrefloc as Integer
 	Get
@@ -3607,6 +3677,13 @@ ReadOnly Property xrefloc as Integer
 End Property
 
 	Sub New ()
+        Values = New Marshal_L_Pdf_Data
+        Values.cida = New L_Ptra().Pointer
+        Values.wh = New Pta().Pointer
+        Values.xy = New Pta().Pointer
+
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -3653,7 +3730,7 @@ Public Class JbClasser
 ''' Brf: input page image file names
 '''  Loc: SRC/jbclass.h (49, 22)
 '''  Org: [struct Sarray * safiles]
-'''  Msh: struct Sarray * | 2:Struct | Sarray Typedef: Sarray = Sarray
+'''  Msh: struct Sarray * | 2:Struct |  Typedef: Sarray = Sarray
 ''' </summary>
 ReadOnly Property safiles as Sarray
 	Get
@@ -3668,7 +3745,7 @@ End Property
 ''' Brf: JB_RANKHAUS, JB_CORRELATION
 '''  Loc: SRC/jbclass.h (50, 22)
 '''  Org: [l_int32 method]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property method as Integer
 	Get
@@ -3681,7 +3758,7 @@ End Property
 ''' Brf: JB_CONN_COMPS, JB_CHARACTERS or
 '''  Loc: SRC/jbclass.h (51, 22)
 '''  Org: [l_int32 components]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property components as Integer
 	Get
@@ -3694,7 +3771,7 @@ End Property
 ''' Brf: max component width allowed
 '''  Loc: SRC/jbclass.h (53, 22)
 '''  Org: [l_int32 maxwidth]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property maxwidth as Integer
 	Get
@@ -3707,7 +3784,7 @@ End Property
 ''' Brf: max component height allowed
 '''  Loc: SRC/jbclass.h (54, 22)
 '''  Org: [l_int32 maxheight]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property maxheight as Integer
 	Get
@@ -3720,7 +3797,7 @@ End Property
 ''' Brf: number of pages already processed
 '''  Loc: SRC/jbclass.h (55, 22)
 '''  Org: [l_int32 npages]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property npages as Integer
 	Get
@@ -3733,7 +3810,7 @@ End Property
 ''' Brf: number components already processed
 '''  Loc: SRC/jbclass.h (56, 22)
 '''  Org: [l_int32 baseindex]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property baseindex as Integer
 	Get
@@ -3746,7 +3823,7 @@ End Property
 ''' Brf: number of components on each page
 '''  Loc: SRC/jbclass.h (58, 22)
 '''  Org: [struct Numa * nacomps]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property nacomps as Numa
 	Get
@@ -3761,7 +3838,7 @@ End Property
 ''' Brf: size of square struct elem for haus
 '''  Loc: SRC/jbclass.h (59, 22)
 '''  Org: [l_int32 sizehaus]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property sizehaus as Integer
 	Get
@@ -3774,7 +3851,7 @@ End Property
 ''' Brf: rank val of haus match, each way
 '''  Loc: SRC/jbclass.h (60, 22)
 '''  Org: [l_float32 rankhaus]
-'''  Msh: l_float32 = bigger  1:*
+'''  Msh: l_float32 | 1:Float |
 ''' </summary>
 ReadOnly Property rankhaus as Single
 	Get
@@ -3787,7 +3864,7 @@ End Property
 ''' Brf: thresh value for correlation score
 '''  Loc: SRC/jbclass.h (61, 22)
 '''  Org: [l_float32 thresh]
-'''  Msh: l_float32 = bigger  1:*
+'''  Msh: l_float32 | 1:Float |
 ''' </summary>
 ReadOnly Property thresh as Single
 	Get
@@ -3800,7 +3877,7 @@ End Property
 ''' Brf: corrects thresh value for heaver
 '''  Loc: SRC/jbclass.h (62, 22)
 '''  Org: [l_float32 weightfactor]
-'''  Msh: l_float32 = bigger  1:*
+'''  Msh: l_float32 | 1:Float |
 ''' </summary>
 ReadOnly Property weightfactor as Single
 	Get
@@ -3813,7 +3890,7 @@ End Property
 ''' Brf: w * h of each template, without
 '''  Loc: SRC/jbclass.h (64, 22)
 '''  Org: [struct Numa * naarea]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property naarea as Numa
 	Get
@@ -3828,7 +3905,7 @@ End Property
 ''' Brf: max width of original src images
 '''  Loc: SRC/jbclass.h (66, 22)
 '''  Org: [l_int32 w]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
@@ -3841,7 +3918,7 @@ End Property
 ''' Brf: max height of original src images
 '''  Loc: SRC/jbclass.h (67, 22)
 '''  Org: [l_int32 h]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
@@ -3854,7 +3931,7 @@ End Property
 ''' Brf: current number of classes
 '''  Loc: SRC/jbclass.h (68, 22)
 '''  Org: [l_int32 nclass]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nclass as Integer
 	Get
@@ -3867,7 +3944,7 @@ End Property
 ''' Brf: If zero, pixaa isn't filled
 '''  Loc: SRC/jbclass.h (69, 22)
 '''  Org: [l_int32 keep_pixaa]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property keep_pixaa as Integer
 	Get
@@ -3880,7 +3957,7 @@ End Property
 ''' Brf: instances for each class; unbordered
 '''  Loc: SRC/jbclass.h (70, 22)
 '''  Org: [struct Pixaa * pixaa]
-'''  Msh: struct Pixaa * | 2:Struct | Pixaa
+'''  Msh: struct Pixaa * | 2:Struct |
 ''' </summary>
 ReadOnly Property pixaa as Pixaa
 	Get
@@ -3895,7 +3972,7 @@ End Property
 ''' Brf: templates for each class; bordered
 '''  Loc: SRC/jbclass.h (71, 22)
 '''  Org: [struct Pixa * pixat]
-'''  Msh: struct Pixa * | 2:Struct | Pixa
+'''  Msh: struct Pixa * | 2:Struct |
 ''' </summary>
 ReadOnly Property pixat as Pixa
 	Get
@@ -3910,7 +3987,7 @@ End Property
 ''' Brf: templates for each class; bordered
 '''  Loc: SRC/jbclass.h (73, 22)
 '''  Org: [struct Pixa * pixatd]
-'''  Msh: struct Pixa * | 2:Struct | Pixa
+'''  Msh: struct Pixa * | 2:Struct |
 ''' </summary>
 ReadOnly Property pixatd as Pixa
 	Get
@@ -3925,7 +4002,7 @@ End Property
 ''' Brf: Hash table to find templates by size
 '''  Loc: SRC/jbclass.h (75, 23)
 '''  Org: [struct L_DnaHash * dahash]
-'''  Msh: struct L_DnaHash * | 2:Struct | L_DnaHash Typedef: L_DnaHash = L_DnaHash
+'''  Msh: struct L_DnaHash * | 2:Struct |  Typedef: L_DnaHash = L_DnaHash
 ''' </summary>
 ReadOnly Property dahash as L_DnaHash
 	Get
@@ -3940,7 +4017,7 @@ End Property
 ''' Brf: fg areas of undilated templates;
 '''  Loc: SRC/jbclass.h (76, 22)
 '''  Org: [struct Numa * nafgt]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property nafgt as Numa
 	Get
@@ -3955,7 +4032,7 @@ End Property
 ''' Brf: centroids of all bordered cc
 '''  Loc: SRC/jbclass.h (78, 22)
 '''  Org: [struct Pta * ptac]
-'''  Msh: struct Pta * | 2:Struct | Pta
+'''  Msh: struct Pta * | 2:Struct |
 ''' </summary>
 ReadOnly Property ptac as Pta
 	Get
@@ -3970,7 +4047,7 @@ End Property
 ''' Brf: centroids of all bordered template cc
 '''  Loc: SRC/jbclass.h (79, 22)
 '''  Org: [struct Pta * ptact]
-'''  Msh: struct Pta * | 2:Struct | Pta
+'''  Msh: struct Pta * | 2:Struct |
 ''' </summary>
 ReadOnly Property ptact as Pta
 	Get
@@ -3985,7 +4062,7 @@ End Property
 ''' Brf: array of class ids for each component
 '''  Loc: SRC/jbclass.h (80, 22)
 '''  Org: [struct Numa * naclass]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property naclass as Numa
 	Get
@@ -4000,7 +4077,7 @@ End Property
 ''' Brf: array of page nums for each component
 '''  Loc: SRC/jbclass.h (81, 22)
 '''  Org: [struct Numa * napage]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property napage as Numa
 	Get
@@ -4015,7 +4092,7 @@ End Property
 ''' Brf: array of UL corners at which the
 '''  Loc: SRC/jbclass.h (82, 22)
 '''  Org: [struct Pta * ptaul]
-'''  Msh: struct Pta * | 2:Struct | Pta
+'''  Msh: struct Pta * | 2:Struct |
 ''' </summary>
 ReadOnly Property ptaul as Pta
 	Get
@@ -4030,7 +4107,7 @@ End Property
 ''' Brf: similar to ptaul, but for LL corners
 '''  Loc: SRC/jbclass.h (85, 22)
 '''  Org: [struct Pta * ptall]
-'''  Msh: struct Pta * | 2:Struct | Pta
+'''  Msh: struct Pta * | 2:Struct |
 ''' </summary>
 ReadOnly Property ptall as Pta
 	Get
@@ -4042,6 +4119,9 @@ ReadOnly Property ptall as Pta
 End Property
 
 	Sub New ()
+	Values = New Marshal_JbClasser
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -4094,7 +4174,7 @@ Public Class JbData
 ''' Brf: template composite for all classes
 '''  Loc: SRC/jbclass.h (106, 22)
 '''  Org: [struct Pix * pix]
-'''  Msh: struct Pix * | 2:Struct | Pix
+'''  Msh: struct Pix * | 2:Struct |
 ''' </summary>
 ReadOnly Property pix as Pix
 	Get
@@ -4109,7 +4189,7 @@ End Property
 ''' Brf: number of pages
 '''  Loc: SRC/jbclass.h (107, 22)
 '''  Org: [l_int32 npages]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property npages as Integer
 	Get
@@ -4122,7 +4202,7 @@ End Property
 ''' Brf: max width of original page images
 '''  Loc: SRC/jbclass.h (108, 22)
 '''  Org: [l_int32 w]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
@@ -4135,7 +4215,7 @@ End Property
 ''' Brf: max height of original page images
 '''  Loc: SRC/jbclass.h (109, 22)
 '''  Org: [l_int32 h]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
@@ -4148,7 +4228,7 @@ End Property
 ''' Brf: number of classes
 '''  Loc: SRC/jbclass.h (110, 22)
 '''  Org: [l_int32 nclass]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nclass as Integer
 	Get
@@ -4161,7 +4241,7 @@ End Property
 ''' Brf: lattice width for template composite
 '''  Loc: SRC/jbclass.h (111, 22)
 '''  Org: [l_int32 latticew]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property latticew as Integer
 	Get
@@ -4174,7 +4254,7 @@ End Property
 ''' Brf: lattice height for template composite
 '''  Loc: SRC/jbclass.h (112, 22)
 '''  Org: [l_int32 latticeh]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property latticeh as Integer
 	Get
@@ -4187,7 +4267,7 @@ End Property
 ''' Brf: array of class ids for each component
 '''  Loc: SRC/jbclass.h (113, 22)
 '''  Org: [struct Numa * naclass]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property naclass as Numa
 	Get
@@ -4202,7 +4282,7 @@ End Property
 ''' Brf: array of page nums for each component
 '''  Loc: SRC/jbclass.h (114, 22)
 '''  Org: [struct Numa * napage]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property napage as Numa
 	Get
@@ -4217,7 +4297,7 @@ End Property
 ''' Brf: array of UL corners at which the
 '''  Loc: SRC/jbclass.h (115, 22)
 '''  Org: [struct Pta * ptaul]
-'''  Msh: struct Pta * | 2:Struct | Pta
+'''  Msh: struct Pta * | 2:Struct |
 ''' </summary>
 ReadOnly Property ptaul as Pta
 	Get
@@ -4229,6 +4309,9 @@ ReadOnly Property ptaul as Pta
 End Property
 
 	Sub New ()
+	Values = New Marshal_JbData
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -4265,7 +4348,7 @@ Public Class Sel
 ''' Brf: sel height
 '''  Loc: SRC/morph.h (64, 19)
 '''  Org: [l_int32 sy]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property sy as Integer
 	Get
@@ -4278,7 +4361,7 @@ End Property
 ''' Brf: sel width
 '''  Loc: SRC/morph.h (65, 19)
 '''  Org: [l_int32 sx]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property sx as Integer
 	Get
@@ -4291,7 +4374,7 @@ End Property
 ''' Brf: y location of sel origin
 '''  Loc: SRC/morph.h (66, 19)
 '''  Org: [l_int32 cy]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property cy as Integer
 	Get
@@ -4304,7 +4387,7 @@ End Property
 ''' Brf: x location of sel origin
 '''  Loc: SRC/morph.h (67, 19)
 '''  Org: [l_int32 cx]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property cx as Integer
 	Get
@@ -4338,7 +4421,7 @@ End Property
 ''' Brf: used to find sel by name
 '''  Loc: SRC/morph.h (69, 19)
 '''  Org: [char * name]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property name as String
 	Get
@@ -4350,6 +4433,9 @@ End if
 End Property
 
 	Sub New ()
+	Values = New Marshal_Sel
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -4380,7 +4466,7 @@ Public Class Sela
 ''' Brf: number of sel actually stored
 '''  Loc: SRC/morph.h (76, 22)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -4393,7 +4479,7 @@ End Property
 ''' Brf: size of allocated ptr array
 '''  Loc: SRC/morph.h (77, 22)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -4406,7 +4492,7 @@ End Property
 ''' Brf: sel ptr array
 '''  Loc: SRC/morph.h (78, 22)
 '''  Org: [struct Sel ** sel]
-'''  Msh: struct Sel ** | 3:Struct | List (of Sel) Typedef: Sel = Sel
+'''  Msh: struct Sel ** | 3:StructDeclaration |  ... Marshal List of Class to PTR Typedef: Sel = Sel
 ''' </summary>
 ReadOnly Property sel as List (of Sel)
 	Get
@@ -4424,6 +4510,9 @@ End If
 End Property
 
 	Sub New ()
+	Values = New Marshal_Sela
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -4451,7 +4540,7 @@ Public Class L_Kernel
 ''' Brf: kernel height
 '''  Loc: SRC/morph.h (91, 19)
 '''  Org: [l_int32 sy]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property sy as Integer
 	Get
@@ -4464,7 +4553,7 @@ End Property
 ''' Brf: kernel width
 '''  Loc: SRC/morph.h (92, 19)
 '''  Org: [l_int32 sx]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property sx as Integer
 	Get
@@ -4477,7 +4566,7 @@ End Property
 ''' Brf: y location of kernel origin
 '''  Loc: SRC/morph.h (93, 19)
 '''  Org: [l_int32 cy]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property cy as Integer
 	Get
@@ -4490,7 +4579,7 @@ End Property
 ''' Brf: x location of kernel origin
 '''  Loc: SRC/morph.h (94, 19)
 '''  Org: [l_int32 cx]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property cx as Integer
 	Get
@@ -4505,7 +4594,7 @@ End Property
 '''  Org: [l_float32 ** data]
 '''  Msh: l_float32 ** | 3:Float | List (of Single())
 ''' </summary>
-ReadOnly Property data as List (of Single())
+ReadOnly Property data as List(Of Single())
 	Get
 		Dim _Data1(1 - 1) As Single
 Dim _DataFin As New List(Of Single())
@@ -4521,6 +4610,9 @@ Return _DataFin
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Kernel
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -4552,7 +4644,7 @@ Public Class Pix
 ''' Brf: width in pixels
 '''  Loc: SRC/pix.h (136, 26)
 '''  Org: [l_uint32 w]
-'''  Msh: l_uint32 = bigger  1:*
+'''  Msh: l_uint32 | 1:UInt |
 ''' </summary>
 ReadOnly Property w as UInteger
 	Get
@@ -4565,7 +4657,7 @@ End Property
 ''' Brf: height in pixels
 '''  Loc: SRC/pix.h (137, 26)
 '''  Org: [l_uint32 h]
-'''  Msh: l_uint32 = bigger  1:*
+'''  Msh: l_uint32 | 1:UInt |
 ''' </summary>
 ReadOnly Property h as UInteger
 	Get
@@ -4578,7 +4670,7 @@ End Property
 ''' Brf: depth in bits (bpp)
 '''  Loc: SRC/pix.h (138, 26)
 '''  Org: [l_uint32 d]
-'''  Msh: l_uint32 = bigger  1:*
+'''  Msh: l_uint32 | 1:UInt |
 ''' </summary>
 ReadOnly Property d as UInteger
 	Get
@@ -4591,7 +4683,7 @@ End Property
 ''' Brf: number of samples per pixel
 '''  Loc: SRC/pix.h (139, 26)
 '''  Org: [l_uint32 spp]
-'''  Msh: l_uint32 = bigger  1:*
+'''  Msh: l_uint32 | 1:UInt |
 ''' </summary>
 ReadOnly Property spp as UInteger
 	Get
@@ -4604,7 +4696,7 @@ End Property
 ''' Brf: 32-bit words/line
 '''  Loc: SRC/pix.h (140, 26)
 '''  Org: [l_uint32 wpl]
-'''  Msh: l_uint32 = bigger  1:*
+'''  Msh: l_uint32 | 1:UInt |
 ''' </summary>
 ReadOnly Property wpl as UInteger
 	Get
@@ -4617,7 +4709,7 @@ End Property
 ''' Brf: reference count (1 if no clones)
 '''  Loc: SRC/pix.h (141, 26)
 '''  Org: [l_uint32 refcount]
-'''  Msh: l_uint32 = bigger  1:*
+'''  Msh: l_uint32 | 1:UInt |
 ''' </summary>
 ReadOnly Property refcount as UInteger
 	Get
@@ -4630,7 +4722,7 @@ End Property
 ''' Brf: image res (ppi) in x direction
 '''  Loc: SRC/pix.h (142, 26)
 '''  Org: [l_int32 xres]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property xres as Integer
 	Get
@@ -4643,7 +4735,7 @@ End Property
 ''' Brf: image res (ppi) in y direction
 '''  Loc: SRC/pix.h (144, 26)
 '''  Org: [l_int32 yres]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property yres as Integer
 	Get
@@ -4656,7 +4748,7 @@ End Property
 ''' Brf: input file format, IFF_*
 '''  Loc: SRC/pix.h (146, 26)
 '''  Org: [l_int32 informat]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property informat as IFF
 	Get
@@ -4669,7 +4761,7 @@ End Property
 ''' Brf: special instructions for I/O, etc
 '''  Loc: SRC/pix.h (147, 26)
 '''  Org: [l_int32 special]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property special as Integer
 	Get
@@ -4682,7 +4774,7 @@ End Property
 ''' Brf: text string associated with pix
 '''  Loc: SRC/pix.h (148, 26)
 '''  Org: [char * text]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property text as String
 	Get
@@ -4697,7 +4789,7 @@ End Property
 ''' Brf: colormap (may be null)
 '''  Loc: SRC/pix.h (149, 26)
 '''  Org: [struct PixColormap * colormap]
-'''  Msh: struct PixColormap * | 2:Struct | PixColormap
+'''  Msh: struct PixColormap * | 2:Struct |
 ''' </summary>
 ReadOnly Property colormap as PixColormap
 	Get
@@ -4712,7 +4804,7 @@ End Property
 ''' Brf: the image data
 '''  Loc: SRC/pix.h (150, 26)
 '''  Org: [l_uint32 * data]
-'''  Msh: l_uint32 * | 2:UInt | Byte() ... UInt = 4 Byte * Len)
+'''  Msh: l_uint32 * | 2:UInt |  ... UInt = 4 Byte * Len)
 ''' </summary>
 ReadOnly Property data as Byte()
 	Get
@@ -4724,6 +4816,9 @@ Return _data
 End Property
 
 	Sub New ()
+	Values = New Marshal_Pix
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -4761,7 +4856,7 @@ Public Class PixColormap
 ''' Brf: colormap table (array of RGBA_QUAD)
 '''  Loc: SRC/pix.h (157, 22)
 '''  Org: [void * array]
-'''  Msh: void * | 2:Void | IntPTR ... Pointer auf Object = IntPTR
+'''  Msh: void * | 2:Void |  ... Pointer auf Object = IntPTR
 ''' </summary>
 ReadOnly Property array as IntPTR
 	Get
@@ -4776,7 +4871,7 @@ End Property
 ''' Brf: of pix (1, 2, 4 or 8 bpp)
 '''  Loc: SRC/pix.h (158, 22)
 '''  Org: [l_int32 depth]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property depth as Integer
 	Get
@@ -4789,7 +4884,7 @@ End Property
 ''' Brf: number of color entries allocated
 '''  Loc: SRC/pix.h (159, 22)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -4802,7 +4897,7 @@ End Property
 ''' Brf: number of color entries used
 '''  Loc: SRC/pix.h (160, 22)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -4812,6 +4907,9 @@ ReadOnly Property n as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_PixColormap
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -4840,7 +4938,7 @@ Public Class RGBA_Quad
 ''' Brf: blue value
 '''  Loc: SRC/pix.h (171, 17)
 '''  Org: [l_uint8 blue]
-'''  Msh: l_uint8 = bigger  1:*
+'''  Msh: l_uint8 | 1:UChar |
 ''' </summary>
 ReadOnly Property blue as Byte
 	Get
@@ -4853,7 +4951,7 @@ End Property
 ''' Brf: green value
 '''  Loc: SRC/pix.h (172, 17)
 '''  Org: [l_uint8 green]
-'''  Msh: l_uint8 = bigger  1:*
+'''  Msh: l_uint8 | 1:UChar |
 ''' </summary>
 ReadOnly Property green as Byte
 	Get
@@ -4866,7 +4964,7 @@ End Property
 ''' Brf: red value
 '''  Loc: SRC/pix.h (173, 17)
 '''  Org: [l_uint8 red]
-'''  Msh: l_uint8 = bigger  1:*
+'''  Msh: l_uint8 | 1:UChar |
 ''' </summary>
 ReadOnly Property red as Byte
 	Get
@@ -4879,7 +4977,7 @@ End Property
 ''' Brf: alpha value
 '''  Loc: SRC/pix.h (174, 17)
 '''  Org: [l_uint8 alpha]
-'''  Msh: l_uint8 = bigger  1:*
+'''  Msh: l_uint8 | 1:UChar |
 ''' </summary>
 ReadOnly Property alpha as Byte
 	Get
@@ -4889,6 +4987,9 @@ ReadOnly Property alpha as Byte
 End Property
 
 	Sub New ()
+	Values = New Marshal_RGBA_Quad
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -4917,7 +5018,7 @@ Public Class Pixa
 ''' Brf: number of Pix in ptr array
 '''  Loc: SRC/pix.h (456, 25)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -4930,7 +5031,7 @@ End Property
 ''' Brf: number of Pix ptrs allocated
 '''  Loc: SRC/pix.h (457, 25)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -4943,7 +5044,7 @@ End Property
 ''' Brf: reference count (1 if no clones)
 '''  Loc: SRC/pix.h (458, 25)
 '''  Org: [l_uint32 refcount]
-'''  Msh: l_uint32 = bigger  1:*
+'''  Msh: l_uint32 | 1:UInt |
 ''' </summary>
 ReadOnly Property refcount as UInteger
 	Get
@@ -4956,7 +5057,7 @@ End Property
 ''' Brf: the array of ptrs to pix
 '''  Loc: SRC/pix.h (459, 25)
 '''  Org: [struct Pix ** pix]
-'''  Msh: struct Pix ** | 3:Struct | List (of Pix) Typedef: Pix = Pix
+'''  Msh: struct Pix ** | 3:StructDeclaration |  ... Marshal List of Class to PTR Typedef: Pix = Pix
 ''' </summary>
 ReadOnly Property pix as List (of Pix)
 	Get
@@ -4977,7 +5078,7 @@ End Property
 ''' Brf: array of boxes
 '''  Loc: SRC/pix.h (460, 25)
 '''  Org: [struct Boxa * boxa]
-'''  Msh: struct Boxa * | 2:Struct | Boxa
+'''  Msh: struct Boxa * | 2:Struct |
 ''' </summary>
 ReadOnly Property boxa as Boxa
 	Get
@@ -4989,6 +5090,9 @@ ReadOnly Property boxa as Boxa
 End Property
 
 	Sub New ()
+	Values = New Marshal_Pixa
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -5018,7 +5122,7 @@ Public Class Pixaa
 ''' Brf: number of Pixa in ptr array
 '''  Loc: SRC/pix.h (467, 25)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -5031,7 +5135,7 @@ End Property
 ''' Brf: number of Pixa ptrs allocated
 '''  Loc: SRC/pix.h (468, 25)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -5044,7 +5148,7 @@ End Property
 ''' Brf: array of ptrs to pixa
 '''  Loc: SRC/pix.h (469, 25)
 '''  Org: [struct Pixa ** pixa]
-'''  Msh: struct Pixa ** | 3:Struct | List (of Pixa) Typedef: Pixa = Pixa
+'''  Msh: struct Pixa ** | 3:StructDeclaration |  ... Marshal List of Class to PTR Typedef: Pixa = Pixa
 ''' </summary>
 ReadOnly Property pixa as List (of Pixa)
 	Get
@@ -5065,7 +5169,7 @@ End Property
 ''' Brf: array of boxes
 '''  Loc: SRC/pix.h (470, 25)
 '''  Org: [struct Boxa * boxa]
-'''  Msh: struct Boxa * | 2:Struct | Boxa
+'''  Msh: struct Boxa * | 2:Struct |
 ''' </summary>
 ReadOnly Property boxa as Boxa
 	Get
@@ -5077,6 +5181,9 @@ ReadOnly Property boxa as Boxa
 End Property
 
 	Sub New ()
+	Values = New Marshal_Pixaa
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -5105,7 +5212,7 @@ Public Class Box
 ''' Brf: left coordinate
 '''  Loc: SRC/pix.h (482, 24)
 '''  Org: [l_int32 x]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property x as Integer
 	Get
@@ -5118,7 +5225,7 @@ End Property
 ''' Brf: top coordinate
 '''  Loc: SRC/pix.h (483, 24)
 '''  Org: [l_int32 y]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property y as Integer
 	Get
@@ -5131,7 +5238,7 @@ End Property
 ''' Brf: box width
 '''  Loc: SRC/pix.h (484, 24)
 '''  Org: [l_int32 w]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
@@ -5144,7 +5251,7 @@ End Property
 ''' Brf: box height
 '''  Loc: SRC/pix.h (485, 24)
 '''  Org: [l_int32 h]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
@@ -5157,7 +5264,7 @@ End Property
 ''' Brf: reference count (1 if no clones)
 '''  Loc: SRC/pix.h (486, 24)
 '''  Org: [l_uint32 refcount]
-'''  Msh: l_uint32 = bigger  1:*
+'''  Msh: l_uint32 | 1:UInt |
 ''' </summary>
 ReadOnly Property refcount as UInteger
 	Get
@@ -5167,6 +5274,9 @@ ReadOnly Property refcount as UInteger
 End Property
 
 	Sub New ()
+	Values = New Marshal_Box
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -5196,7 +5306,7 @@ Public Class Boxa
 ''' Brf: number of box in ptr array
 '''  Loc: SRC/pix.h (494, 24)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -5209,7 +5319,7 @@ End Property
 ''' Brf: number of box ptrs allocated
 '''  Loc: SRC/pix.h (495, 24)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -5222,7 +5332,7 @@ End Property
 ''' Brf: reference count (1 if no clones)
 '''  Loc: SRC/pix.h (496, 24)
 '''  Org: [l_uint32 refcount]
-'''  Msh: l_uint32 = bigger  1:*
+'''  Msh: l_uint32 | 1:UInt |
 ''' </summary>
 ReadOnly Property refcount as UInteger
 	Get
@@ -5235,7 +5345,7 @@ End Property
 ''' Brf: box ptr array
 '''  Loc: SRC/pix.h (497, 24)
 '''  Org: [struct Box ** box]
-'''  Msh: struct Box ** | 3:Struct | List (of Box) Typedef: Box = Box
+'''  Msh: struct Box ** | 3:StructDeclaration |  ... Marshal List of Class to PTR Typedef: Box = Box
 ''' </summary>
 ReadOnly Property box as List (of Box)
 	Get
@@ -5253,6 +5363,9 @@ End If
 End Property
 
 	Sub New ()
+	Values = New Marshal_Boxa
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -5281,7 +5394,7 @@ Public Class Boxaa
 ''' Brf: number of boxa in ptr array
 '''  Loc: SRC/pix.h (504, 24)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -5294,7 +5407,7 @@ End Property
 ''' Brf: number of boxa ptrs allocated
 '''  Loc: SRC/pix.h (505, 24)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -5307,7 +5420,7 @@ End Property
 ''' Brf: boxa ptr array
 '''  Loc: SRC/pix.h (506, 24)
 '''  Org: [struct Boxa ** boxa]
-'''  Msh: struct Boxa ** | 3:Struct | List (of Boxa) Typedef: Boxa = Boxa
+'''  Msh: struct Boxa ** | 3:StructDeclaration |  ... Marshal List of Class to PTR Typedef: Boxa = Boxa
 ''' </summary>
 ReadOnly Property boxa as List (of Boxa)
 	Get
@@ -5325,6 +5438,9 @@ End If
 End Property
 
 	Sub New ()
+	Values = New Marshal_Boxaa
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -5352,7 +5468,7 @@ Public Class Pta
 ''' Brf: actual number of pts
 '''  Loc: SRC/pix.h (519, 24)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -5365,7 +5481,7 @@ End Property
 ''' Brf: size of allocated arrays
 '''  Loc: SRC/pix.h (520, 24)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -5378,7 +5494,7 @@ End Property
 ''' Brf: reference count (1 if no clones)
 '''  Loc: SRC/pix.h (521, 24)
 '''  Org: [l_uint32 refcount]
-'''  Msh: l_uint32 = bigger  1:*
+'''  Msh: l_uint32 | 1:UInt |
 ''' </summary>
 ReadOnly Property refcount as UInteger
 	Get
@@ -5391,7 +5507,7 @@ End Property
 ''' Brf: arrays of floats
 '''  Loc: SRC/pix.h (522, 24)
 '''  Org: [l_float32 * x]
-'''  Msh: l_float32 * | 2:Float | Single() ... = Single
+'''  Msh: l_float32 * | 2:Float |  ... = Single
 ''' </summary>
 ReadOnly Property x as Single()
 	Get
@@ -5408,7 +5524,7 @@ End Property
 ''' Brf: arrays of floats
 '''  Loc: SRC/pix.h (522, 28)
 '''  Org: [l_float32 * y]
-'''  Msh: l_float32 * | 2:Float | Single() ... = Single
+'''  Msh: l_float32 * | 2:Float |  ... = Single
 ''' </summary>
 ReadOnly Property y as Single()
 	Get
@@ -5422,6 +5538,7 @@ End if
 End Property
 
 	Sub New ()
+        Pointer = LeptonicaSharp._AllFunctions.ptaCreate(10).Pointer
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -5451,7 +5568,7 @@ Public Class Ptaa
 ''' Brf: number of pta in ptr array
 '''  Loc: SRC/pix.h (534, 26)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -5464,7 +5581,7 @@ End Property
 ''' Brf: number of pta ptrs allocated
 '''  Loc: SRC/pix.h (535, 26)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -5477,7 +5594,7 @@ End Property
 ''' Brf: pta ptr array
 '''  Loc: SRC/pix.h (536, 26)
 '''  Org: [struct Pta ** pta]
-'''  Msh: struct Pta ** | 3:Struct | List (of Pta) Typedef: Pta = Pta
+'''  Msh: struct Pta ** | 3:StructDeclaration |  ... Marshal List of Class to PTR Typedef: Pta = Pta
 ''' </summary>
 ReadOnly Property pta as List (of Pta)
 	Get
@@ -5495,6 +5612,9 @@ End If
 End Property
 
 	Sub New ()
+	Values = New Marshal_Ptaa
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -5522,7 +5642,7 @@ Public Class Pixacc
 ''' Brf: array width
 '''  Loc: SRC/pix.h (548, 25)
 '''  Org: [l_int32 w]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
@@ -5535,7 +5655,7 @@ End Property
 ''' Brf: array height
 '''  Loc: SRC/pix.h (549, 25)
 '''  Org: [l_int32 h]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
@@ -5548,7 +5668,7 @@ End Property
 ''' Brf: used to allow negative
 '''  Loc: SRC/pix.h (550, 25)
 '''  Org: [l_int32 offset]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property offset as Integer
 	Get
@@ -5561,7 +5681,7 @@ End Property
 ''' Brf: the 32 bit accumulator pix
 '''  Loc: SRC/pix.h (552, 25)
 '''  Org: [struct Pix * pix]
-'''  Msh: struct Pix * | 2:Struct | Pix Typedef: Pix = Pix
+'''  Msh: struct Pix * | 2:Struct |  Typedef: Pix = Pix
 ''' </summary>
 ReadOnly Property pix as Pix
 	Get
@@ -5573,6 +5693,9 @@ ReadOnly Property pix as Pix
 End Property
 
 	Sub New ()
+	Values = New Marshal_Pixacc
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -5601,7 +5724,7 @@ Public Class PixTiling
 ''' Brf: input pix (a clone)
 '''  Loc: SRC/pix.h (564, 26)
 '''  Org: [struct Pix * pix]
-'''  Msh: struct Pix * | 2:Struct | Pix Typedef: Pix = Pix
+'''  Msh: struct Pix * | 2:Struct |  Typedef: Pix = Pix
 ''' </summary>
 ReadOnly Property pix as Pix
 	Get
@@ -5616,7 +5739,7 @@ End Property
 ''' Brf: number of tiles horizontally
 '''  Loc: SRC/pix.h (565, 26)
 '''  Org: [l_int32 nx]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nx as Integer
 	Get
@@ -5629,7 +5752,7 @@ End Property
 ''' Brf: number of tiles vertically
 '''  Loc: SRC/pix.h (566, 26)
 '''  Org: [l_int32 ny]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property ny as Integer
 	Get
@@ -5642,7 +5765,7 @@ End Property
 ''' Brf: tile width
 '''  Loc: SRC/pix.h (567, 26)
 '''  Org: [l_int32 w]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
@@ -5655,7 +5778,7 @@ End Property
 ''' Brf: tile height
 '''  Loc: SRC/pix.h (568, 26)
 '''  Org: [l_int32 h]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
@@ -5668,7 +5791,7 @@ End Property
 ''' Brf: overlap on left and right
 '''  Loc: SRC/pix.h (569, 26)
 '''  Org: [l_int32 xoverlap]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property xoverlap as Integer
 	Get
@@ -5681,7 +5804,7 @@ End Property
 ''' Brf: overlap on top and bottom
 '''  Loc: SRC/pix.h (570, 26)
 '''  Org: [l_int32 yoverlap]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property yoverlap as Integer
 	Get
@@ -5694,7 +5817,7 @@ End Property
 ''' Brf: strip for paint; default is TRUE
 '''  Loc: SRC/pix.h (571, 26)
 '''  Org: [l_int32 strip]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property strip as Integer
 	Get
@@ -5704,6 +5827,9 @@ ReadOnly Property strip as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_PixTiling
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -5736,7 +5862,7 @@ Public Class FPix
 ''' Brf: width in pixels
 '''  Loc: SRC/pix.h (584, 26)
 '''  Org: [l_int32 w]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
@@ -5749,7 +5875,7 @@ End Property
 ''' Brf: height in pixels
 '''  Loc: SRC/pix.h (585, 26)
 '''  Org: [l_int32 h]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
@@ -5762,7 +5888,7 @@ End Property
 ''' Brf: 32-bit words/line
 '''  Loc: SRC/pix.h (586, 26)
 '''  Org: [l_int32 wpl]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property wpl as Integer
 	Get
@@ -5775,7 +5901,7 @@ End Property
 ''' Brf: reference count (1 if no clones)
 '''  Loc: SRC/pix.h (587, 26)
 '''  Org: [l_uint32 refcount]
-'''  Msh: l_uint32 = bigger  1:*
+'''  Msh: l_uint32 | 1:UInt |
 ''' </summary>
 ReadOnly Property refcount as UInteger
 	Get
@@ -5788,7 +5914,7 @@ End Property
 ''' Brf: image res (ppi) in x direction
 '''  Loc: SRC/pix.h (588, 26)
 '''  Org: [l_int32 xres]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property xres as Integer
 	Get
@@ -5801,7 +5927,7 @@ End Property
 ''' Brf: image res (ppi) in y direction
 '''  Loc: SRC/pix.h (590, 26)
 '''  Org: [l_int32 yres]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property yres as Integer
 	Get
@@ -5814,7 +5940,7 @@ End Property
 ''' Brf: the float image data
 '''  Loc: SRC/pix.h (592, 26)
 '''  Org: [l_float32 * data]
-'''  Msh: l_float32 * | 2:Float | Single() ... = Single
+'''  Msh: l_float32 * | 2:Float |  ... = Single
 ''' </summary>
 ReadOnly Property data as Single()
 	Get
@@ -5828,6 +5954,9 @@ End if
 End Property
 
 	Sub New ()
+	Values = New Marshal_FPix
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -5859,7 +5988,7 @@ Public Class FPixa
 ''' Brf: number of fpix in ptr array
 '''  Loc: SRC/pix.h (599, 25)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -5872,7 +6001,7 @@ End Property
 ''' Brf: number of fpix ptrs allocated
 '''  Loc: SRC/pix.h (600, 25)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -5885,7 +6014,7 @@ End Property
 ''' Brf: reference count (1 if no clones)
 '''  Loc: SRC/pix.h (601, 25)
 '''  Org: [l_uint32 refcount]
-'''  Msh: l_uint32 = bigger  1:*
+'''  Msh: l_uint32 | 1:UInt |
 ''' </summary>
 ReadOnly Property refcount as UInteger
 	Get
@@ -5898,7 +6027,7 @@ End Property
 ''' Brf: the array of ptrs to fpix
 '''  Loc: SRC/pix.h (602, 25)
 '''  Org: [struct FPix ** fpix]
-'''  Msh: struct FPix ** | 3:Struct | List (of FPix) Typedef: FPix = FPix
+'''  Msh: struct FPix ** | 3:StructDeclaration |  ... Marshal List of Class to PTR Typedef: FPix = FPix
 ''' </summary>
 ReadOnly Property fpix as List (of FPix)
 	Get
@@ -5916,6 +6045,9 @@ End If
 End Property
 
 	Sub New ()
+	Values = New Marshal_FPixa
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -5944,7 +6076,7 @@ Public Class DPix
 ''' Brf: width in pixels
 '''  Loc: SRC/pix.h (615, 26)
 '''  Org: [l_int32 w]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
@@ -5957,7 +6089,7 @@ End Property
 ''' Brf: height in pixels
 '''  Loc: SRC/pix.h (616, 26)
 '''  Org: [l_int32 h]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
@@ -5970,7 +6102,7 @@ End Property
 ''' Brf: 32-bit words/line
 '''  Loc: SRC/pix.h (617, 26)
 '''  Org: [l_int32 wpl]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property wpl as Integer
 	Get
@@ -5983,7 +6115,7 @@ End Property
 ''' Brf: reference count (1 if no clones)
 '''  Loc: SRC/pix.h (618, 26)
 '''  Org: [l_uint32 refcount]
-'''  Msh: l_uint32 = bigger  1:*
+'''  Msh: l_uint32 | 1:UInt |
 ''' </summary>
 ReadOnly Property refcount as UInteger
 	Get
@@ -5996,7 +6128,7 @@ End Property
 ''' Brf: image res (ppi) in x direction
 '''  Loc: SRC/pix.h (619, 26)
 '''  Org: [l_int32 xres]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property xres as Integer
 	Get
@@ -6009,7 +6141,7 @@ End Property
 ''' Brf: image res (ppi) in y direction
 '''  Loc: SRC/pix.h (621, 26)
 '''  Org: [l_int32 yres]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property yres as Integer
 	Get
@@ -6022,7 +6154,7 @@ End Property
 ''' Brf: the double image data
 '''  Loc: SRC/pix.h (623, 26)
 '''  Org: [l_float64 * data]
-'''  Msh: l_float64 * | 2:Double | Double()
+'''  Msh: l_float64 * | 2:Double |
 ''' </summary>
 ReadOnly Property data as Double()
 	Get
@@ -6036,6 +6168,9 @@ End if
 End Property
 
 	Sub New ()
+	Values = New Marshal_DPix
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -6067,7 +6202,7 @@ Public Class PixComp
 ''' Brf: width in pixels
 '''  Loc: SRC/pix.h (635, 26)
 '''  Org: [l_int32 w]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
@@ -6080,7 +6215,7 @@ End Property
 ''' Brf: height in pixels
 '''  Loc: SRC/pix.h (636, 26)
 '''  Org: [l_int32 h]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
@@ -6093,7 +6228,7 @@ End Property
 ''' Brf: depth in bits
 '''  Loc: SRC/pix.h (637, 26)
 '''  Org: [l_int32 d]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property d as Integer
 	Get
@@ -6106,7 +6241,7 @@ End Property
 ''' Brf: image res (ppi) in x direction
 '''  Loc: SRC/pix.h (638, 26)
 '''  Org: [l_int32 xres]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property xres as Integer
 	Get
@@ -6119,7 +6254,7 @@ End Property
 ''' Brf: image res (ppi) in y direction
 '''  Loc: SRC/pix.h (640, 26)
 '''  Org: [l_int32 yres]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property yres as Integer
 	Get
@@ -6132,7 +6267,7 @@ End Property
 ''' Brf: compressed format (IFF_TIFF_G4,
 '''  Loc: SRC/pix.h (642, 26)
 '''  Org: [l_int32 comptype]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property comptype as Integer
 	Get
@@ -6145,7 +6280,7 @@ End Property
 ''' Brf: text string associated with pix
 '''  Loc: SRC/pix.h (644, 26)
 '''  Org: [char * text]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property text as String
 	Get
@@ -6160,7 +6295,7 @@ End Property
 ''' Brf: flag (1 for cmap, 0 otherwise)
 '''  Loc: SRC/pix.h (645, 26)
 '''  Org: [l_int32 cmapflag]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property cmapflag as Integer
 	Get
@@ -6190,7 +6325,7 @@ End Property
 ''' Brf: size of the data array
 '''  Loc: SRC/pix.h (647, 26)
 '''  Org: [size_t size]
-'''  Msh: size_t = bigger  1:*
+'''  Msh: size_t | 1:UInt |
 ''' </summary>
 ReadOnly Property size as UInteger
 	Get
@@ -6200,6 +6335,9 @@ ReadOnly Property size as UInteger
 End Property
 
 	Sub New ()
+	Values = New Marshal_PixComp
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -6234,7 +6372,7 @@ Public Class PixaComp
 ''' Brf: number of PixComp in ptr array
 '''  Loc: SRC/pix.h (660, 26)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -6247,7 +6385,7 @@ End Property
 ''' Brf: number of PixComp ptrs allocated
 '''  Loc: SRC/pix.h (661, 26)
 '''  Org: [l_int32 nalloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
@@ -6260,7 +6398,7 @@ End Property
 ''' Brf: indexing offset into ptr array
 '''  Loc: SRC/pix.h (662, 26)
 '''  Org: [l_int32 offset]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property offset as Integer
 	Get
@@ -6273,7 +6411,7 @@ End Property
 ''' Brf: the array of ptrs to PixComp
 '''  Loc: SRC/pix.h (663, 26)
 '''  Org: [struct PixComp ** pixc]
-'''  Msh: struct PixComp ** | 3:Struct | List (of PixComp)
+'''  Msh: struct PixComp ** | 3:StructDeclaration |  ... Marshal List of Class to PTR
 ''' </summary>
 ReadOnly Property pixc as List (of PixComp)
 	Get
@@ -6294,7 +6432,7 @@ End Property
 ''' Brf: array of boxes
 '''  Loc: SRC/pix.h (664, 26)
 '''  Org: [struct Boxa * boxa]
-'''  Msh: struct Boxa * | 2:Struct | Boxa Typedef: Boxa = Boxa
+'''  Msh: struct Boxa * | 2:Struct |  Typedef: Boxa = Boxa
 ''' </summary>
 ReadOnly Property boxa as Boxa
 	Get
@@ -6306,6 +6444,9 @@ ReadOnly Property boxa as Boxa
 End Property
 
 	Sub New ()
+	Values = New Marshal_PixaComp
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -6337,7 +6478,7 @@ Public Class L_Recog
 ''' Brf: scale all examples to this width;
 '''  Loc: SRC/recog.h (117, 20)
 '''  Org: [l_int32 scalew]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property scalew as Integer
 	Get
@@ -6350,7 +6491,7 @@ End Property
 ''' Brf: scale all examples to this height;
 '''  Loc: SRC/recog.h (119, 20)
 '''  Org: [l_int32 scaleh]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property scaleh as Integer
 	Get
@@ -6363,7 +6504,7 @@ End Property
 ''' Brf: use a value  bigger  0 to convert the bitmap
 '''  Loc: SRC/recog.h (121, 20)
 '''  Org: [l_int32 linew]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property linew as Integer
 	Get
@@ -6376,7 +6517,7 @@ End Property
 ''' Brf: template use: use either the average
 '''  Loc: SRC/recog.h (123, 20)
 '''  Org: [l_int32 templ_use]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property templ_use as Integer
 	Get
@@ -6389,7 +6530,7 @@ End Property
 ''' Brf: initialize container arrays to this
 '''  Loc: SRC/recog.h (126, 20)
 '''  Org: [l_int32 maxarraysize]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property maxarraysize as Integer
 	Get
@@ -6402,7 +6543,7 @@ End Property
 ''' Brf: size of character set
 '''  Loc: SRC/recog.h (127, 20)
 '''  Org: [l_int32 setsize]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property setsize as Integer
 	Get
@@ -6415,7 +6556,7 @@ End Property
 ''' Brf: for binarizing if depth  bigger  1
 '''  Loc: SRC/recog.h (128, 20)
 '''  Org: [l_int32 threshold]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property threshold as Integer
 	Get
@@ -6428,7 +6569,7 @@ End Property
 ''' Brf: vertical jiggle on nominal centroid
 '''  Loc: SRC/recog.h (129, 20)
 '''  Org: [l_int32 maxyshift]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property maxyshift as Integer
 	Get
@@ -6441,7 +6582,7 @@ End Property
 ''' Brf: one of L_ARABIC_NUMERALS, etc.
 '''  Loc: SRC/recog.h (131, 20)
 '''  Org: [l_int32 charset_type]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property charset_type as Integer
 	Get
@@ -6454,7 +6595,7 @@ End Property
 ''' Brf: expected number of classes in charset
 '''  Loc: SRC/recog.h (132, 20)
 '''  Org: [l_int32 charset_size]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property charset_size as Integer
 	Get
@@ -6467,7 +6608,7 @@ End Property
 ''' Brf: min number of samples without padding
 '''  Loc: SRC/recog.h (133, 20)
 '''  Org: [l_int32 min_nopad]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property min_nopad as Integer
 	Get
@@ -6480,7 +6621,7 @@ End Property
 ''' Brf: number of training samples
 '''  Loc: SRC/recog.h (134, 20)
 '''  Org: [l_int32 num_samples]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property num_samples as Integer
 	Get
@@ -6493,7 +6634,7 @@ End Property
 ''' Brf: min width averaged unscaled templates
 '''  Loc: SRC/recog.h (135, 20)
 '''  Org: [l_int32 minwidth_u]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property minwidth_u as Integer
 	Get
@@ -6506,7 +6647,7 @@ End Property
 ''' Brf: max width averaged unscaled templates
 '''  Loc: SRC/recog.h (136, 20)
 '''  Org: [l_int32 maxwidth_u]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property maxwidth_u as Integer
 	Get
@@ -6519,7 +6660,7 @@ End Property
 ''' Brf: min height averaged unscaled templates
 '''  Loc: SRC/recog.h (137, 20)
 '''  Org: [l_int32 minheight_u]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property minheight_u as Integer
 	Get
@@ -6532,7 +6673,7 @@ End Property
 ''' Brf: max height averaged unscaled templates
 '''  Loc: SRC/recog.h (138, 20)
 '''  Org: [l_int32 maxheight_u]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property maxheight_u as Integer
 	Get
@@ -6545,7 +6686,7 @@ End Property
 ''' Brf: min width averaged scaled templates
 '''  Loc: SRC/recog.h (139, 20)
 '''  Org: [l_int32 minwidth]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property minwidth as Integer
 	Get
@@ -6558,7 +6699,7 @@ End Property
 ''' Brf: max width averaged scaled templates
 '''  Loc: SRC/recog.h (140, 20)
 '''  Org: [l_int32 maxwidth]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property maxwidth as Integer
 	Get
@@ -6571,7 +6712,7 @@ End Property
 ''' Brf: set to 1 when averaged bitmaps are made
 '''  Loc: SRC/recog.h (141, 20)
 '''  Org: [l_int32 ave_done]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property ave_done as Integer
 	Get
@@ -6584,7 +6725,7 @@ End Property
 ''' Brf: set to 1 when training is complete or
 '''  Loc: SRC/recog.h (142, 20)
 '''  Org: [l_int32 train_done]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property train_done as Integer
 	Get
@@ -6597,7 +6738,7 @@ End Property
 ''' Brf: max width/height ratio to split
 '''  Loc: SRC/recog.h (144, 20)
 '''  Org: [l_float32 max_wh_ratio]
-'''  Msh: l_float32 = bigger  1:*
+'''  Msh: l_float32 | 1:Float |
 ''' </summary>
 ReadOnly Property max_wh_ratio as Single
 	Get
@@ -6610,7 +6751,7 @@ End Property
 ''' Brf: max of max/min template height ratio
 '''  Loc: SRC/recog.h (145, 20)
 '''  Org: [l_float32 max_ht_ratio]
-'''  Msh: l_float32 = bigger  1:*
+'''  Msh: l_float32 | 1:Float |
 ''' </summary>
 ReadOnly Property max_ht_ratio as Single
 	Get
@@ -6623,7 +6764,7 @@ End Property
 ''' Brf: min component width kept in splitting
 '''  Loc: SRC/recog.h (146, 20)
 '''  Org: [l_int32 min_splitw]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property min_splitw as Integer
 	Get
@@ -6636,7 +6777,7 @@ End Property
 ''' Brf: max component height kept in splitting
 '''  Loc: SRC/recog.h (147, 20)
 '''  Org: [l_int32 max_splith]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property max_splith as Integer
 	Get
@@ -6649,7 +6790,7 @@ End Property
 ''' Brf: text array for arbitrary char set
 '''  Loc: SRC/recog.h (148, 20)
 '''  Org: [struct Sarray * sa_text]
-'''  Msh: struct Sarray * | 2:Struct | Sarray Typedef: Sarray = Sarray
+'''  Msh: struct Sarray * | 2:Struct |  Typedef: Sarray = Sarray
 ''' </summary>
 ReadOnly Property sa_text as Sarray
 	Get
@@ -6664,7 +6805,7 @@ End Property
 ''' Brf: index-to-char lut for arbitrary charset
 '''  Loc: SRC/recog.h (149, 20)
 '''  Org: [struct L_Dna * dna_tochar]
-'''  Msh: struct L_Dna * | 2:Struct | L_Dna Typedef: L_Dna = L_Dna
+'''  Msh: struct L_Dna * | 2:Struct |  Typedef: L_Dna = L_Dna
 ''' </summary>
 ReadOnly Property dna_tochar as L_Dna
 	Get
@@ -6679,7 +6820,7 @@ End Property
 ''' Brf: table for finding centroids
 '''  Loc: SRC/recog.h (150, 20)
 '''  Org: [l_int32 * centtab]
-'''  Msh: l_int32 * | 2:Int | Integer()
+'''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
 ''' </summary>
 ReadOnly Property centtab as Integer()
 	Get
@@ -6696,7 +6837,7 @@ End Property
 ''' Brf: table for finding pixel sums
 '''  Loc: SRC/recog.h (151, 20)
 '''  Org: [l_int32 * sumtab]
-'''  Msh: l_int32 * | 2:Int | Integer()
+'''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
 ''' </summary>
 ReadOnly Property sumtab as Integer()
 	Get
@@ -6713,7 +6854,7 @@ End Property
 ''' Brf: all unscaled templates for each class
 '''  Loc: SRC/recog.h (152, 20)
 '''  Org: [struct Pixaa * pixaa_u]
-'''  Msh: struct Pixaa * | 2:Struct | Pixaa Typedef: Pixaa = Pixaa
+'''  Msh: struct Pixaa * | 2:Struct |  Typedef: Pixaa = Pixaa
 ''' </summary>
 ReadOnly Property pixaa_u as Pixaa
 	Get
@@ -6728,7 +6869,7 @@ End Property
 ''' Brf: centroids of all unscaled templates
 '''  Loc: SRC/recog.h (153, 20)
 '''  Org: [struct Ptaa * ptaa_u]
-'''  Msh: struct Ptaa * | 2:Struct | Ptaa Typedef: Ptaa = Ptaa
+'''  Msh: struct Ptaa * | 2:Struct |  Typedef: Ptaa = Ptaa
 ''' </summary>
 ReadOnly Property ptaa_u as Ptaa
 	Get
@@ -6743,7 +6884,7 @@ End Property
 ''' Brf: area of all unscaled templates
 '''  Loc: SRC/recog.h (154, 20)
 '''  Org: [struct Numaa * naasum_u]
-'''  Msh: struct Numaa * | 2:Struct | Numaa Typedef: Numaa = Numaa
+'''  Msh: struct Numaa * | 2:Struct |  Typedef: Numaa = Numaa
 ''' </summary>
 ReadOnly Property naasum_u as Numaa
 	Get
@@ -6758,7 +6899,7 @@ End Property
 ''' Brf: all (scaled) templates for each class
 '''  Loc: SRC/recog.h (155, 20)
 '''  Org: [struct Pixaa * pixaa]
-'''  Msh: struct Pixaa * | 2:Struct | Pixaa Typedef: Pixaa = Pixaa
+'''  Msh: struct Pixaa * | 2:Struct |  Typedef: Pixaa = Pixaa
 ''' </summary>
 ReadOnly Property pixaa as Pixaa
 	Get
@@ -6773,7 +6914,7 @@ End Property
 ''' Brf: centroids of all (scaledl) templates
 '''  Loc: SRC/recog.h (156, 20)
 '''  Org: [struct Ptaa * ptaa]
-'''  Msh: struct Ptaa * | 2:Struct | Ptaa Typedef: Ptaa = Ptaa
+'''  Msh: struct Ptaa * | 2:Struct |  Typedef: Ptaa = Ptaa
 ''' </summary>
 ReadOnly Property ptaa as Ptaa
 	Get
@@ -6788,7 +6929,7 @@ End Property
 ''' Brf: area of all (scaled) templates
 '''  Loc: SRC/recog.h (157, 20)
 '''  Org: [struct Numaa * naasum]
-'''  Msh: struct Numaa * | 2:Struct | Numaa Typedef: Numaa = Numaa
+'''  Msh: struct Numaa * | 2:Struct |  Typedef: Numaa = Numaa
 ''' </summary>
 ReadOnly Property naasum as Numaa
 	Get
@@ -6803,7 +6944,7 @@ End Property
 ''' Brf: averaged unscaled templates per class
 '''  Loc: SRC/recog.h (158, 20)
 '''  Org: [struct Pixa * pixa_u]
-'''  Msh: struct Pixa * | 2:Struct | Pixa Typedef: Pixa = Pixa
+'''  Msh: struct Pixa * | 2:Struct |  Typedef: Pixa = Pixa
 ''' </summary>
 ReadOnly Property pixa_u as Pixa
 	Get
@@ -6818,7 +6959,7 @@ End Property
 ''' Brf: centroids of unscaled ave. templates
 '''  Loc: SRC/recog.h (159, 20)
 '''  Org: [struct Pta * pta_u]
-'''  Msh: struct Pta * | 2:Struct | Pta Typedef: Pta = Pta
+'''  Msh: struct Pta * | 2:Struct |  Typedef: Pta = Pta
 ''' </summary>
 ReadOnly Property pta_u as Pta
 	Get
@@ -6833,7 +6974,7 @@ End Property
 ''' Brf: area of unscaled averaged templates
 '''  Loc: SRC/recog.h (160, 20)
 '''  Org: [struct Numa * nasum_u]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property nasum_u as Numa
 	Get
@@ -6848,7 +6989,7 @@ End Property
 ''' Brf: averaged (scaled) templates per class
 '''  Loc: SRC/recog.h (161, 20)
 '''  Org: [struct Pixa * pixa]
-'''  Msh: struct Pixa * | 2:Struct | Pixa Typedef: Pixa = Pixa
+'''  Msh: struct Pixa * | 2:Struct |  Typedef: Pixa = Pixa
 ''' </summary>
 ReadOnly Property pixa as Pixa
 	Get
@@ -6863,7 +7004,7 @@ End Property
 ''' Brf: centroids of (scaled) ave. templates
 '''  Loc: SRC/recog.h (162, 20)
 '''  Org: [struct Pta * pta]
-'''  Msh: struct Pta * | 2:Struct | Pta Typedef: Pta = Pta
+'''  Msh: struct Pta * | 2:Struct |  Typedef: Pta = Pta
 ''' </summary>
 ReadOnly Property pta as Pta
 	Get
@@ -6878,7 +7019,7 @@ End Property
 ''' Brf: area of (scaled) averaged templates
 '''  Loc: SRC/recog.h (163, 20)
 '''  Org: [struct Numa * nasum]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property nasum as Numa
 	Get
@@ -6893,7 +7034,7 @@ End Property
 ''' Brf: all input training images
 '''  Loc: SRC/recog.h (164, 20)
 '''  Org: [struct Pixa * pixa_tr]
-'''  Msh: struct Pixa * | 2:Struct | Pixa Typedef: Pixa = Pixa
+'''  Msh: struct Pixa * | 2:Struct |  Typedef: Pixa = Pixa
 ''' </summary>
 ReadOnly Property pixa_tr as Pixa
 	Get
@@ -6908,7 +7049,7 @@ End Property
 ''' Brf: unscaled and scaled averaged bitmaps
 '''  Loc: SRC/recog.h (165, 20)
 '''  Org: [struct Pixa * pixadb_ave]
-'''  Msh: struct Pixa * | 2:Struct | Pixa Typedef: Pixa = Pixa
+'''  Msh: struct Pixa * | 2:Struct |  Typedef: Pixa = Pixa
 ''' </summary>
 ReadOnly Property pixadb_ave as Pixa
 	Get
@@ -6923,7 +7064,7 @@ End Property
 ''' Brf: input images for identifying
 '''  Loc: SRC/recog.h (166, 20)
 '''  Org: [struct Pixa * pixa_id]
-'''  Msh: struct Pixa * | 2:Struct | Pixa Typedef: Pixa = Pixa
+'''  Msh: struct Pixa * | 2:Struct |  Typedef: Pixa = Pixa
 ''' </summary>
 ReadOnly Property pixa_id as Pixa
 	Get
@@ -6938,7 +7079,7 @@ End Property
 ''' Brf: debug: best match of input against ave.
 '''  Loc: SRC/recog.h (167, 20)
 '''  Org: [struct Pix * pixdb_ave]
-'''  Msh: struct Pix * | 2:Struct | Pix Typedef: Pix = Pix
+'''  Msh: struct Pix * | 2:Struct |  Typedef: Pix = Pix
 ''' </summary>
 ReadOnly Property pixdb_ave as Pix
 	Get
@@ -6953,7 +7094,7 @@ End Property
 ''' Brf: debug: best matches within range
 '''  Loc: SRC/recog.h (168, 20)
 '''  Org: [struct Pix * pixdb_range]
-'''  Msh: struct Pix * | 2:Struct | Pix Typedef: Pix = Pix
+'''  Msh: struct Pix * | 2:Struct |  Typedef: Pix = Pix
 ''' </summary>
 ReadOnly Property pixdb_range as Pix
 	Get
@@ -6968,7 +7109,7 @@ End Property
 ''' Brf: debug: bootstrap training results
 '''  Loc: SRC/recog.h (169, 20)
 '''  Org: [struct Pixa * pixadb_boot]
-'''  Msh: struct Pixa * | 2:Struct | Pixa Typedef: Pixa = Pixa
+'''  Msh: struct Pixa * | 2:Struct |  Typedef: Pixa = Pixa
 ''' </summary>
 ReadOnly Property pixadb_boot as Pixa
 	Get
@@ -6983,7 +7124,7 @@ End Property
 ''' Brf: debug: splitting results
 '''  Loc: SRC/recog.h (170, 20)
 '''  Org: [struct Pixa * pixadb_split]
-'''  Msh: struct Pixa * | 2:Struct | Pixa Typedef: Pixa = Pixa
+'''  Msh: struct Pixa * | 2:Struct |  Typedef: Pixa = Pixa
 ''' </summary>
 ReadOnly Property pixadb_split as Pixa
 	Get
@@ -6998,7 +7139,7 @@ End Property
 ''' Brf: bmf fonts
 '''  Loc: SRC/recog.h (171, 20)
 '''  Org: [struct L_Bmf * bmf]
-'''  Msh: struct L_Bmf * | 2:Struct | L_Bmf Typedef: L_Bmf = L_Bmf
+'''  Msh: struct L_Bmf * | 2:Struct |  Typedef: L_Bmf = L_Bmf
 ''' </summary>
 ReadOnly Property bmf as L_Bmf
 	Get
@@ -7013,7 +7154,7 @@ End Property
 ''' Brf: font size of bmf; default is 6 pt
 '''  Loc: SRC/recog.h (172, 20)
 '''  Org: [l_int32 bmf_size]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property bmf_size as Integer
 	Get
@@ -7026,7 +7167,7 @@ End Property
 ''' Brf: temp data used for image decoding
 '''  Loc: SRC/recog.h (173, 20)
 '''  Org: [struct L_Rdid * did]
-'''  Msh: struct L_Rdid * | 2:Struct | L_Rdid
+'''  Msh: struct L_Rdid * | 2:Struct |
 ''' </summary>
 ReadOnly Property did as L_Rdid
 	Get
@@ -7041,7 +7182,7 @@ End Property
 ''' Brf: temp data used for holding best char
 '''  Loc: SRC/recog.h (174, 20)
 '''  Org: [struct L_Rch * rch]
-'''  Msh: struct L_Rch * | 2:Struct | L_Rch
+'''  Msh: struct L_Rch * | 2:Struct |
 ''' </summary>
 ReadOnly Property rch as L_Rch
 	Get
@@ -7056,7 +7197,7 @@ End Property
 ''' Brf: temp data used for array of best chars
 '''  Loc: SRC/recog.h (175, 20)
 '''  Org: [struct L_Rcha * rcha]
-'''  Msh: struct L_Rcha * | 2:Struct | L_Rcha
+'''  Msh: struct L_Rcha * | 2:Struct |
 ''' </summary>
 ReadOnly Property rcha as L_Rcha
 	Get
@@ -7068,6 +7209,9 @@ ReadOnly Property rcha as L_Rcha
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Recog
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -7144,7 +7288,7 @@ Public Class L_Rch
 ''' Brf: index of best template
 '''  Loc: SRC/recog.h (183, 20)
 '''  Org: [l_int32 index]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property index as Integer
 	Get
@@ -7157,7 +7301,7 @@ End Property
 ''' Brf: correlation score of best template
 '''  Loc: SRC/recog.h (184, 20)
 '''  Org: [l_float32 score]
-'''  Msh: l_float32 = bigger  1:*
+'''  Msh: l_float32 | 1:Float |
 ''' </summary>
 ReadOnly Property score as Single
 	Get
@@ -7170,7 +7314,7 @@ End Property
 ''' Brf: character string of best template
 '''  Loc: SRC/recog.h (185, 20)
 '''  Org: [char * text]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property text as String
 	Get
@@ -7185,7 +7329,7 @@ End Property
 ''' Brf: index of best sample (within the best
 '''  Loc: SRC/recog.h (186, 20)
 '''  Org: [l_int32 sample]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property sample as Integer
 	Get
@@ -7198,7 +7342,7 @@ End Property
 ''' Brf: x-location of template (delx + shiftx)
 '''  Loc: SRC/recog.h (188, 20)
 '''  Org: [l_int32 xloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property xloc as Integer
 	Get
@@ -7211,7 +7355,7 @@ End Property
 ''' Brf: y-location of template (dely + shifty)
 '''  Loc: SRC/recog.h (189, 20)
 '''  Org: [l_int32 yloc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property yloc as Integer
 	Get
@@ -7224,7 +7368,7 @@ End Property
 ''' Brf: width of best template
 '''  Loc: SRC/recog.h (190, 20)
 '''  Org: [l_int32 width]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property width as Integer
 	Get
@@ -7234,6 +7378,9 @@ ReadOnly Property width as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Rch
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -7265,7 +7412,7 @@ Public Class L_Rcha
 ''' Brf: indices of best templates
 '''  Loc: SRC/recog.h (198, 20)
 '''  Org: [struct Numa * naindex]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property naindex as Numa
 	Get
@@ -7280,7 +7427,7 @@ End Property
 ''' Brf: correlation scores of best templates
 '''  Loc: SRC/recog.h (199, 20)
 '''  Org: [struct Numa * nascore]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property nascore as Numa
 	Get
@@ -7295,7 +7442,7 @@ End Property
 ''' Brf: character strings of best templates
 '''  Loc: SRC/recog.h (200, 20)
 '''  Org: [struct Sarray * satext]
-'''  Msh: struct Sarray * | 2:Struct | Sarray Typedef: Sarray = Sarray
+'''  Msh: struct Sarray * | 2:Struct |  Typedef: Sarray = Sarray
 ''' </summary>
 ReadOnly Property satext as Sarray
 	Get
@@ -7310,7 +7457,7 @@ End Property
 ''' Brf: indices of best samples
 '''  Loc: SRC/recog.h (201, 20)
 '''  Org: [struct Numa * nasample]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property nasample as Numa
 	Get
@@ -7325,7 +7472,7 @@ End Property
 ''' Brf: x-locations of templates (delx + shiftx)
 '''  Loc: SRC/recog.h (202, 20)
 '''  Org: [struct Numa * naxloc]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property naxloc as Numa
 	Get
@@ -7340,7 +7487,7 @@ End Property
 ''' Brf: y-locations of templates (dely + shifty)
 '''  Loc: SRC/recog.h (203, 20)
 '''  Org: [struct Numa * nayloc]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property nayloc as Numa
 	Get
@@ -7355,7 +7502,7 @@ End Property
 ''' Brf: widths of best templates
 '''  Loc: SRC/recog.h (204, 20)
 '''  Org: [struct Numa * nawidth]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property nawidth as Numa
 	Get
@@ -7367,6 +7514,9 @@ ReadOnly Property nawidth as Numa
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Rcha
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -7398,7 +7548,7 @@ Public Class L_Rdid
 ''' Brf: clone of pix to be decoded
 '''  Loc: SRC/recog.h (212, 20)
 '''  Org: [struct Pix * pixs]
-'''  Msh: struct Pix * | 2:Struct | Pix Typedef: Pix = Pix
+'''  Msh: struct Pix * | 2:Struct |  Typedef: Pix = Pix
 ''' </summary>
 ReadOnly Property pixs as Pix
 	Get
@@ -7455,7 +7605,7 @@ End Property
 ''' Brf: number of averaged templates
 '''  Loc: SRC/recog.h (215, 20)
 '''  Org: [l_int32 narray]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property narray as Integer
 	Get
@@ -7468,7 +7618,7 @@ End Property
 ''' Brf: size of count array (width of pixs)
 '''  Loc: SRC/recog.h (216, 20)
 '''  Org: [l_int32 size]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property size as Integer
 	Get
@@ -7481,7 +7631,7 @@ End Property
 ''' Brf: setwidths for each template
 '''  Loc: SRC/recog.h (217, 20)
 '''  Org: [l_int32 * setwidth]
-'''  Msh: l_int32 * | 2:Int | Integer()
+'''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
 ''' </summary>
 ReadOnly Property setwidth as Integer()
 	Get
@@ -7498,7 +7648,7 @@ End Property
 ''' Brf: pixel count in pixs by column
 '''  Loc: SRC/recog.h (218, 20)
 '''  Org: [struct Numa * nasum]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property nasum as Numa
 	Get
@@ -7513,7 +7663,7 @@ End Property
 ''' Brf: first moment of pixels in pixs by cols
 '''  Loc: SRC/recog.h (219, 20)
 '''  Org: [struct Numa * namoment]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property namoment as Numa
 	Get
@@ -7528,7 +7678,7 @@ End Property
 ''' Brf: 1 if full arrays are made; 0 otherwise
 '''  Loc: SRC/recog.h (220, 20)
 '''  Org: [l_int32 fullarrays]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property fullarrays as Integer
 	Get
@@ -7541,7 +7691,7 @@ End Property
 ''' Brf: channel coeffs for template fg term
 '''  Loc: SRC/recog.h (221, 20)
 '''  Org: [l_float32 * beta]
-'''  Msh: l_float32 * | 2:Float | Single() ... = Single
+'''  Msh: l_float32 * | 2:Float |  ... = Single
 ''' </summary>
 ReadOnly Property beta as Single()
 	Get
@@ -7558,7 +7708,7 @@ End Property
 ''' Brf: channel coeffs for bit-and term
 '''  Loc: SRC/recog.h (222, 20)
 '''  Org: [l_float32 * gamma]
-'''  Msh: l_float32 * | 2:Float | Single() ... = Single
+'''  Msh: l_float32 * | 2:Float |  ... = Single
 ''' </summary>
 ReadOnly Property gamma as Single()
 	Get
@@ -7575,7 +7725,7 @@ End Property
 ''' Brf: score on trellis
 '''  Loc: SRC/recog.h (223, 20)
 '''  Org: [l_float32 * trellisscore]
-'''  Msh: l_float32 * | 2:Float | Single() ... = Single
+'''  Msh: l_float32 * | 2:Float |  ... = Single
 ''' </summary>
 ReadOnly Property trellisscore as Single()
 	Get
@@ -7592,7 +7742,7 @@ End Property
 ''' Brf: template on trellis (for backtrack)
 '''  Loc: SRC/recog.h (224, 20)
 '''  Org: [l_int32 * trellistempl]
-'''  Msh: l_int32 * | 2:Int | Integer()
+'''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
 ''' </summary>
 ReadOnly Property trellistempl as Integer()
 	Get
@@ -7609,7 +7759,7 @@ End Property
 ''' Brf: indices of best path templates
 '''  Loc: SRC/recog.h (225, 20)
 '''  Org: [struct Numa * natempl]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property natempl as Numa
 	Get
@@ -7624,7 +7774,7 @@ End Property
 ''' Brf: x locations of best path templates
 '''  Loc: SRC/recog.h (226, 20)
 '''  Org: [struct Numa * naxloc]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property naxloc as Numa
 	Get
@@ -7639,7 +7789,7 @@ End Property
 ''' Brf: y locations of best path templates
 '''  Loc: SRC/recog.h (227, 20)
 '''  Org: [struct Numa * nadely]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property nadely as Numa
 	Get
@@ -7654,7 +7804,7 @@ End Property
 ''' Brf: widths of best path templates
 '''  Loc: SRC/recog.h (228, 20)
 '''  Org: [struct Numa * nawidth]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property nawidth as Numa
 	Get
@@ -7669,7 +7819,7 @@ End Property
 ''' Brf: Viterbi result for splitting input pixs
 '''  Loc: SRC/recog.h (229, 20)
 '''  Org: [struct Boxa * boxa]
-'''  Msh: struct Boxa * | 2:Struct | Boxa Typedef: Boxa = Boxa
+'''  Msh: struct Boxa * | 2:Struct |  Typedef: Boxa = Boxa
 ''' </summary>
 ReadOnly Property boxa as Boxa
 	Get
@@ -7684,7 +7834,7 @@ End Property
 ''' Brf: correlation scores: best path templates
 '''  Loc: SRC/recog.h (230, 20)
 '''  Org: [struct Numa * nascore]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property nascore as Numa
 	Get
@@ -7699,7 +7849,7 @@ End Property
 ''' Brf: indices of best rescored templates
 '''  Loc: SRC/recog.h (231, 20)
 '''  Org: [struct Numa * natempl_r]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property natempl_r as Numa
 	Get
@@ -7714,7 +7864,7 @@ End Property
 ''' Brf: samples of best scored templates
 '''  Loc: SRC/recog.h (232, 20)
 '''  Org: [struct Numa * nasample_r]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property nasample_r as Numa
 	Get
@@ -7729,7 +7879,7 @@ End Property
 ''' Brf: x locations of best rescoredtemplates
 '''  Loc: SRC/recog.h (233, 20)
 '''  Org: [struct Numa * naxloc_r]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property naxloc_r as Numa
 	Get
@@ -7744,7 +7894,7 @@ End Property
 ''' Brf: y locations of best rescoredtemplates
 '''  Loc: SRC/recog.h (234, 20)
 '''  Org: [struct Numa * nadely_r]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property nadely_r as Numa
 	Get
@@ -7759,7 +7909,7 @@ End Property
 ''' Brf: widths of best rescoredtemplates
 '''  Loc: SRC/recog.h (235, 20)
 '''  Org: [struct Numa * nawidth_r]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property nawidth_r as Numa
 	Get
@@ -7774,7 +7924,7 @@ End Property
 ''' Brf: correlation scores: rescored templates
 '''  Loc: SRC/recog.h (236, 20)
 '''  Org: [struct Numa * nascore_r]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property nascore_r as Numa
 	Get
@@ -7786,6 +7936,9 @@ ReadOnly Property nascore_r as Numa
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Rdid
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -7837,7 +7990,7 @@ Public Class L_RegParams
 ''' Brf: stream to temporary output file for compare mode
 '''  Loc: SRC/regutils.h (119, 14)
 '''  Org: [FILE * fp]
-'''  Msh: FILE * | 2:Struct | FILE
+'''  Msh: FILE * | 2:Struct |
 ''' </summary>
 ReadOnly Property fp as FILE
 	Get
@@ -7852,7 +8005,7 @@ End Property
 ''' Brf: name of test, without '_reg'
 '''  Loc: SRC/regutils.h (120, 14)
 '''  Org: [char * testname]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property testname as String
 	Get
@@ -7867,7 +8020,7 @@ End Property
 ''' Brf: name of temp file for compare mode output
 '''  Loc: SRC/regutils.h (121, 14)
 '''  Org: [char * tempfile]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property tempfile as String
 	Get
@@ -7882,7 +8035,7 @@ End Property
 ''' Brf: generate, compare or display
 '''  Loc: SRC/regutils.h (122, 14)
 '''  Org: [l_int32 mode]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property mode as Integer
 	Get
@@ -7895,7 +8048,7 @@ End Property
 ''' Brf: index into saved files for this test; 0-based
 '''  Loc: SRC/regutils.h (123, 14)
 '''  Org: [l_int32 index]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property index as Integer
 	Get
@@ -7908,7 +8061,7 @@ End Property
 ''' Brf: overall result of the test
 '''  Loc: SRC/regutils.h (124, 14)
 '''  Org: [l_int32 success]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property success as Integer
 	Get
@@ -7921,7 +8074,7 @@ End Property
 ''' Brf: 1 if in display mode; 0 otherwise
 '''  Loc: SRC/regutils.h (125, 14)
 '''  Org: [l_int32 display]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property display as Integer
 	Get
@@ -7934,7 +8087,7 @@ End Property
 ''' Brf: marks beginning of the reg test
 '''  Loc: SRC/regutils.h (126, 14)
 '''  Org: [L_TIMER tstart]
-'''  Msh: L_TIMER = bigger  1:*
+'''  Msh: L_TIMER | 1:Pointer |
 ''' </summary>
 ReadOnly Property tstart as IntPTR
 	Get
@@ -7944,6 +8097,9 @@ ReadOnly Property tstart as IntPTR
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_RegParams
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -7978,7 +8134,7 @@ Public Class L_StrCode
 ''' Brf: index for function and output file names
 '''  Loc: SRC/stringcode.h (42, 19)
 '''  Org: [l_int32 fileno]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property fileno as Integer
 	Get
@@ -7991,7 +8147,7 @@ End Property
 ''' Brf: index into struct currently being stored
 '''  Loc: SRC/stringcode.h (43, 19)
 '''  Org: [l_int32 ifunc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property ifunc as Integer
 	Get
@@ -8004,7 +8160,7 @@ End Property
 ''' Brf: store case code for extraction
 '''  Loc: SRC/stringcode.h (44, 19)
 '''  Org: [SARRAY * function]
-'''  Msh: SARRAY * | 2:Struct | SARRAY Typedef: Sarray = Sarray
+'''  Msh: SARRAY * | 2:Struct |  Typedef: Sarray = Sarray
 ''' </summary>
 ReadOnly Property _function_ as SARRAY
 	Get
@@ -8019,7 +8175,7 @@ End Property
 ''' Brf: store base64 encoded data as strings
 '''  Loc: SRC/stringcode.h (45, 19)
 '''  Org: [SARRAY * data]
-'''  Msh: SARRAY * | 2:Struct | SARRAY Typedef: Sarray = Sarray
+'''  Msh: SARRAY * | 2:Struct |  Typedef: Sarray = Sarray
 ''' </summary>
 ReadOnly Property data as SARRAY
 	Get
@@ -8034,7 +8190,7 @@ End Property
 ''' Brf: store line in description table
 '''  Loc: SRC/stringcode.h (46, 19)
 '''  Org: [SARRAY * descr]
-'''  Msh: SARRAY * | 2:Struct | SARRAY Typedef: Sarray = Sarray
+'''  Msh: SARRAY * | 2:Struct |  Typedef: Sarray = Sarray
 ''' </summary>
 ReadOnly Property descr as SARRAY
 	Get
@@ -8049,7 +8205,7 @@ End Property
 ''' Brf: number of data strings
 '''  Loc: SRC/stringcode.h (47, 19)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -8059,6 +8215,9 @@ ReadOnly Property n as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_StrCode
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -8091,7 +8250,7 @@ Public Class L_Sudoku
 ''' Brf: number of unknowns
 '''  Loc: SRC/sudoku.h (54, 20)
 '''  Org: [l_int32 num]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property num as Integer
 	Get
@@ -8104,7 +8263,7 @@ End Property
 ''' Brf: location of unknowns
 '''  Loc: SRC/sudoku.h (55, 20)
 '''  Org: [l_int32 * locs]
-'''  Msh: l_int32 * | 2:Int | Integer()
+'''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
 ''' </summary>
 ReadOnly Property locs as Integer()
 	Get
@@ -8121,7 +8280,7 @@ End Property
 ''' Brf: index into %locs of current location
 '''  Loc: SRC/sudoku.h (56, 20)
 '''  Org: [l_int32 current]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property current as Integer
 	Get
@@ -8134,7 +8293,7 @@ End Property
 ''' Brf: initial state, with 0 representing
 '''  Loc: SRC/sudoku.h (57, 20)
 '''  Org: [l_int32 * init]
-'''  Msh: l_int32 * | 2:Int | Integer()
+'''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
 ''' </summary>
 ReadOnly Property init as Integer()
 	Get
@@ -8151,7 +8310,7 @@ End Property
 ''' Brf: present state, including inits and
 '''  Loc: SRC/sudoku.h (59, 20)
 '''  Org: [l_int32 * state]
-'''  Msh: l_int32 * | 2:Int | Integer()
+'''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
 ''' </summary>
 ReadOnly Property state as Integer()
 	Get
@@ -8168,7 +8327,7 @@ End Property
 ''' Brf: shows current number of guesses
 '''  Loc: SRC/sudoku.h (61, 20)
 '''  Org: [l_int32 nguess]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nguess as Integer
 	Get
@@ -8181,7 +8340,7 @@ End Property
 ''' Brf: set to 1 when solved
 '''  Loc: SRC/sudoku.h (62, 20)
 '''  Org: [l_int32 finished]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property finished as Integer
 	Get
@@ -8194,7 +8353,7 @@ End Property
 ''' Brf: set to 1 if no solution is possible
 '''  Loc: SRC/sudoku.h (63, 20)
 '''  Org: [l_int32 failure]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property failure as Integer
 	Get
@@ -8204,6 +8363,9 @@ ReadOnly Property failure as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Sudoku
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -8238,7 +8400,7 @@ Public Class L_WShed
 ''' Brf: clone of input 8 bpp pixs
 '''  Loc: SRC/watershed.h (40, 20)
 '''  Org: [struct Pix * pixs]
-'''  Msh: struct Pix * | 2:Struct | Pix Typedef: Pix = Pix
+'''  Msh: struct Pix * | 2:Struct |  Typedef: Pix = Pix
 ''' </summary>
 ReadOnly Property pixs as Pix
 	Get
@@ -8253,7 +8415,7 @@ End Property
 ''' Brf: clone of input 1 bpp seed (marker) pixm
 '''  Loc: SRC/watershed.h (41, 20)
 '''  Org: [struct Pix * pixm]
-'''  Msh: struct Pix * | 2:Struct | Pix Typedef: Pix = Pix
+'''  Msh: struct Pix * | 2:Struct |  Typedef: Pix = Pix
 ''' </summary>
 ReadOnly Property pixm as Pix
 	Get
@@ -8268,7 +8430,7 @@ End Property
 ''' Brf: minimum depth allowed for a watershed
 '''  Loc: SRC/watershed.h (42, 20)
 '''  Org: [l_int32 mindepth]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property mindepth as Integer
 	Get
@@ -8281,7 +8443,7 @@ End Property
 ''' Brf: 16 bpp label pix
 '''  Loc: SRC/watershed.h (43, 20)
 '''  Org: [struct Pix * pixlab]
-'''  Msh: struct Pix * | 2:Struct | Pix Typedef: Pix = Pix
+'''  Msh: struct Pix * | 2:Struct |  Typedef: Pix = Pix
 ''' </summary>
 ReadOnly Property pixlab as Pix
 	Get
@@ -8296,7 +8458,7 @@ End Property
 ''' Brf: scratch pix for computing wshed regions
 '''  Loc: SRC/watershed.h (44, 20)
 '''  Org: [struct Pix * pixt]
-'''  Msh: struct Pix * | 2:Struct | Pix Typedef: Pix = Pix
+'''  Msh: struct Pix * | 2:Struct |  Typedef: Pix = Pix
 ''' </summary>
 ReadOnly Property pixt as Pix
 	Get
@@ -8379,7 +8541,7 @@ End Property
 ''' Brf: result: 1 bpp pixa of watersheds
 '''  Loc: SRC/watershed.h (49, 20)
 '''  Org: [struct Pixa * pixad]
-'''  Msh: struct Pixa * | 2:Struct | Pixa Typedef: Pixa = Pixa
+'''  Msh: struct Pixa * | 2:Struct |  Typedef: Pixa = Pixa
 ''' </summary>
 ReadOnly Property pixad as Pixa
 	Get
@@ -8394,7 +8556,7 @@ End Property
 ''' Brf: pta of initial seed pixels
 '''  Loc: SRC/watershed.h (50, 20)
 '''  Org: [struct Pta * ptas]
-'''  Msh: struct Pta * | 2:Struct | Pta Typedef: Pta = Pta
+'''  Msh: struct Pta * | 2:Struct |  Typedef: Pta = Pta
 ''' </summary>
 ReadOnly Property ptas as Pta
 	Get
@@ -8409,7 +8571,7 @@ End Property
 ''' Brf: numa of seed indicators; 0 if completed
 '''  Loc: SRC/watershed.h (51, 20)
 '''  Org: [struct Numa * nasi]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property nasi as Numa
 	Get
@@ -8424,7 +8586,7 @@ End Property
 ''' Brf: numa of initial seed heights
 '''  Loc: SRC/watershed.h (52, 20)
 '''  Org: [struct Numa * nash]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property nash as Numa
 	Get
@@ -8439,7 +8601,7 @@ End Property
 ''' Brf: numa of initial minima heights
 '''  Loc: SRC/watershed.h (53, 20)
 '''  Org: [struct Numa * namh]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property namh as Numa
 	Get
@@ -8454,7 +8616,7 @@ End Property
 ''' Brf: result: numa of watershed levels
 '''  Loc: SRC/watershed.h (54, 20)
 '''  Org: [struct Numa * nalevels]
-'''  Msh: struct Numa * | 2:Struct | Numa Typedef: Numa = Numa
+'''  Msh: struct Numa * | 2:Struct |  Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property nalevels as Numa
 	Get
@@ -8469,7 +8631,7 @@ End Property
 ''' Brf: number of seeds (markers)
 '''  Loc: SRC/watershed.h (55, 20)
 '''  Org: [l_int32 nseeds]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nseeds as Integer
 	Get
@@ -8482,7 +8644,7 @@ End Property
 ''' Brf: number of minima different from seeds
 '''  Loc: SRC/watershed.h (56, 20)
 '''  Org: [l_int32 nother]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nother as Integer
 	Get
@@ -8495,7 +8657,7 @@ End Property
 ''' Brf: lut for pixel indices
 '''  Loc: SRC/watershed.h (57, 20)
 '''  Org: [l_int32 * lut]
-'''  Msh: l_int32 * | 2:Int | Integer()
+'''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
 ''' </summary>
 ReadOnly Property lut as Integer()
 	Get
@@ -8512,7 +8674,7 @@ End Property
 ''' Brf: back-links into lut, for updates
 '''  Loc: SRC/watershed.h (58, 20)
 '''  Org: [struct Numa ** links]
-'''  Msh: struct Numa ** | 3:Struct | List (of Numa) Typedef: Numa = Numa
+'''  Msh: struct Numa ** | 3:StructDeclaration |  ... Marshal List of Class to PTR Typedef: Numa = Numa
 ''' </summary>
 ReadOnly Property links as List (of Numa)
 	Get
@@ -8533,7 +8695,7 @@ End Property
 ''' Brf: size of links array
 '''  Loc: SRC/watershed.h (59, 20)
 '''  Org: [l_int32 arraysize]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property arraysize as Integer
 	Get
@@ -8546,7 +8708,7 @@ End Property
 ''' Brf: set to 1 for debug output
 '''  Loc: SRC/watershed.h (60, 20)
 '''  Org: [l_int32 debug]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property debug as Integer
 	Get
@@ -8556,6 +8718,9 @@ ReadOnly Property debug as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_WShed
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -8603,7 +8768,7 @@ Public Class L_Bilateral
 ''' Brf: clone of source pix
 '''  Loc: SRC/bilateral.h (117, 21)
 '''  Org: [struct Pix * pixs]
-'''  Msh: struct Pix * | 2:Struct | Pix Typedef: Pix = Pix
+'''  Msh: struct Pix * | 2:Struct |  Typedef: Pix = Pix
 ''' </summary>
 ReadOnly Property pixs as Pix
 	Get
@@ -8618,7 +8783,7 @@ End Property
 ''' Brf: downscaled pix with mirrored border
 '''  Loc: SRC/bilateral.h (118, 21)
 '''  Org: [struct Pix * pixsc]
-'''  Msh: struct Pix * | 2:Struct | Pix Typedef: Pix = Pix
+'''  Msh: struct Pix * | 2:Struct |  Typedef: Pix = Pix
 ''' </summary>
 ReadOnly Property pixsc as Pix
 	Get
@@ -8633,7 +8798,7 @@ End Property
 ''' Brf: 1, 2 or 4x for intermediates
 '''  Loc: SRC/bilateral.h (119, 21)
 '''  Org: [l_int32 reduction]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property reduction as Integer
 	Get
@@ -8646,7 +8811,7 @@ End Property
 ''' Brf: stdev of spatial gaussian
 '''  Loc: SRC/bilateral.h (120, 21)
 '''  Org: [l_float32 spatial_stdev]
-'''  Msh: l_float32 = bigger  1:*
+'''  Msh: l_float32 | 1:Float |
 ''' </summary>
 ReadOnly Property spatial_stdev as Single
 	Get
@@ -8659,7 +8824,7 @@ End Property
 ''' Brf: stdev of range gaussian
 '''  Loc: SRC/bilateral.h (121, 21)
 '''  Org: [l_float32 range_stdev]
-'''  Msh: l_float32 = bigger  1:*
+'''  Msh: l_float32 | 1:Float |
 ''' </summary>
 ReadOnly Property range_stdev as Single
 	Get
@@ -8672,7 +8837,7 @@ End Property
 ''' Brf: 1D gaussian spatial kernel
 '''  Loc: SRC/bilateral.h (122, 21)
 '''  Org: [l_float32 * spatial]
-'''  Msh: l_float32 * | 2:Float | Single() ... = Single
+'''  Msh: l_float32 * | 2:Float |  ... = Single
 ''' </summary>
 ReadOnly Property spatial as Single()
 	Get
@@ -8689,7 +8854,7 @@ End Property
 ''' Brf: one-sided gaussian range kernel
 '''  Loc: SRC/bilateral.h (123, 21)
 '''  Org: [l_float32 * range]
-'''  Msh: l_float32 * | 2:Float | Single() ... = Single
+'''  Msh: l_float32 * | 2:Float |  ... = Single
 ''' </summary>
 ReadOnly Property range as Single()
 	Get
@@ -8706,7 +8871,7 @@ End Property
 ''' Brf: min value in 8 bpp pix
 '''  Loc: SRC/bilateral.h (124, 21)
 '''  Org: [l_int32 minval]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property minval as Integer
 	Get
@@ -8719,7 +8884,7 @@ End Property
 ''' Brf: max value in 8 bpp pix
 '''  Loc: SRC/bilateral.h (125, 21)
 '''  Org: [l_int32 maxval]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property maxval as Integer
 	Get
@@ -8732,7 +8897,7 @@ End Property
 ''' Brf: number of intermediate results
 '''  Loc: SRC/bilateral.h (126, 21)
 '''  Org: [l_int32 ncomps]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property ncomps as Integer
 	Get
@@ -8745,7 +8910,7 @@ End Property
 ''' Brf: set of k values (size ncomps)
 '''  Loc: SRC/bilateral.h (127, 21)
 '''  Org: [l_int32 * nc]
-'''  Msh: l_int32 * | 2:Int | Integer()
+'''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
 ''' </summary>
 ReadOnly Property nc as Integer()
 	Get
@@ -8762,7 +8927,7 @@ End Property
 ''' Brf: mapping from intensity to lower k
 '''  Loc: SRC/bilateral.h (128, 21)
 '''  Org: [l_int32 * kindex]
-'''  Msh: l_int32 * | 2:Int | Integer()
+'''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
 ''' </summary>
 ReadOnly Property kindex as Integer()
 	Get
@@ -8779,7 +8944,7 @@ End Property
 ''' Brf: mapping from intensity to fract k
 '''  Loc: SRC/bilateral.h (129, 21)
 '''  Org: [l_float32 * kfract]
-'''  Msh: l_float32 * | 2:Float | Single() ... = Single
+'''  Msh: l_float32 * | 2:Float |  ... = Single
 ''' </summary>
 ReadOnly Property kfract as Single()
 	Get
@@ -8796,7 +8961,7 @@ End Property
 ''' Brf: intermediate result images (PBC)
 '''  Loc: SRC/bilateral.h (130, 21)
 '''  Org: [struct Pixa * pixac]
-'''  Msh: struct Pixa * | 2:Struct | Pixa Typedef: Pixa = Pixa
+'''  Msh: struct Pixa * | 2:Struct |  Typedef: Pixa = Pixa
 ''' </summary>
 ReadOnly Property pixac as Pixa
 	Get
@@ -8813,7 +8978,7 @@ End Property
 '''  Org: [l_uint32 *** lineset]
 '''  Msh: l_uint32 *** | 3:UInt | List (of List ( of List (of Byte()))) ... UInt = bigger  Byte[4]
 ''' </summary>
-ReadOnly Property lineset as List (of List ( of List (of Byte())))
+ReadOnly Property lineset as List (of List (of List (of Byte())))
 	Get
 		Dim _Data1(4 - 1) As Byte
 Dim _DataFin As new List (of List ( of List (of Byte())))
@@ -8829,6 +8994,9 @@ Return _DataFin
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Bilateral
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -8870,7 +9038,7 @@ Public Class BMP_FileHeader
 ''' Brf: file type; must be "BM"
 '''  Loc: SRC/bmp.h (52, 20)
 '''  Org: [l_int16 bfType]
-'''  Msh: l_int16 = bigger  1:*
+'''  Msh: l_int16 | 1:Short |
 ''' </summary>
 ReadOnly Property bfType as Short
 	Get
@@ -8883,7 +9051,7 @@ End Property
 ''' Brf: length of the file; sizeof(BMP_FileHeader) + sizeof(BMP_InfoHeader) + size of color table + size of DIB bits
 '''  Loc: SRC/bmp.h (53, 20)
 '''  Org: [l_int16 bfSize]
-'''  Msh: l_int16 = bigger  1:*
+'''  Msh: l_int16 | 1:Short |
 ''' </summary>
 ReadOnly Property bfSize as Short
 	Get
@@ -8896,7 +9064,7 @@ End Property
 ''' Brf: remainder of the bfSize field
 '''  Loc: SRC/bmp.h (58, 20)
 '''  Org: [l_int16 bfFill1]
-'''  Msh: l_int16 = bigger  1:*
+'''  Msh: l_int16 | 1:Short |
 ''' </summary>
 ReadOnly Property bfFill1 as Short
 	Get
@@ -8909,7 +9077,7 @@ End Property
 ''' Brf: don't care (set to 0)
 '''  Loc: SRC/bmp.h (59, 20)
 '''  Org: [l_int16 bfReserved1]
-'''  Msh: l_int16 = bigger  1:*
+'''  Msh: l_int16 | 1:Short |
 ''' </summary>
 ReadOnly Property bfReserved1 as Short
 	Get
@@ -8922,7 +9090,7 @@ End Property
 ''' Brf: don't care (set to 0)
 '''  Loc: SRC/bmp.h (60, 20)
 '''  Org: [l_int16 bfReserved2]
-'''  Msh: l_int16 = bigger  1:*
+'''  Msh: l_int16 | 1:Short |
 ''' </summary>
 ReadOnly Property bfReserved2 as Short
 	Get
@@ -8935,7 +9103,7 @@ End Property
 ''' Brf: offset from beginning of file
 '''  Loc: SRC/bmp.h (61, 20)
 '''  Org: [l_int16 bfOffBits]
-'''  Msh: l_int16 = bigger  1:*
+'''  Msh: l_int16 | 1:Short |
 ''' </summary>
 ReadOnly Property bfOffBits as Short
 	Get
@@ -8948,7 +9116,7 @@ End Property
 ''' Brf: remainder of the bfOffBits field
 '''  Loc: SRC/bmp.h (62, 20)
 '''  Org: [l_int16 bfFill2]
-'''  Msh: l_int16 = bigger  1:*
+'''  Msh: l_int16 | 1:Short |
 ''' </summary>
 ReadOnly Property bfFill2 as Short
 	Get
@@ -8958,6 +9126,9 @@ ReadOnly Property bfFill2 as Short
 End Property
 
 	Sub New ()
+	Values = New Marshal_BMP_FileHeader
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -8989,7 +9160,7 @@ Public Class BMP_InfoHeader
 ''' Brf: size of the BMP_InfoHeader struct
 '''  Loc: SRC/bmp.h (77, 20)
 '''  Org: [l_int32 biSize]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property biSize as Integer
 	Get
@@ -9002,7 +9173,7 @@ End Property
 ''' Brf: bitmap width in pixels
 '''  Loc: SRC/bmp.h (78, 20)
 '''  Org: [l_int32 biWidth]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property biWidth as Integer
 	Get
@@ -9015,7 +9186,7 @@ End Property
 ''' Brf: bitmap height in pixels
 '''  Loc: SRC/bmp.h (79, 20)
 '''  Org: [l_int32 biHeight]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property biHeight as Integer
 	Get
@@ -9028,7 +9199,7 @@ End Property
 ''' Brf: number of bitmap planes
 '''  Loc: SRC/bmp.h (80, 20)
 '''  Org: [l_int16 biPlanes]
-'''  Msh: l_int16 = bigger  1:*
+'''  Msh: l_int16 | 1:Short |
 ''' </summary>
 ReadOnly Property biPlanes as Short
 	Get
@@ -9041,7 +9212,7 @@ End Property
 ''' Brf: number of bits per pixel
 '''  Loc: SRC/bmp.h (81, 20)
 '''  Org: [l_int16 biBitCount]
-'''  Msh: l_int16 = bigger  1:*
+'''  Msh: l_int16 | 1:Short |
 ''' </summary>
 ReadOnly Property biBitCount as Short
 	Get
@@ -9054,7 +9225,7 @@ End Property
 ''' Brf: compress format (0 == uncompressed)
 '''  Loc: SRC/bmp.h (82, 20)
 '''  Org: [l_int32 biCompression]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property biCompression as Integer
 	Get
@@ -9067,7 +9238,7 @@ End Property
 ''' Brf: size of image in bytes
 '''  Loc: SRC/bmp.h (83, 20)
 '''  Org: [l_int32 biSizeImage]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property biSizeImage as Integer
 	Get
@@ -9080,7 +9251,7 @@ End Property
 ''' Brf: pixels per meter in x direction
 '''  Loc: SRC/bmp.h (84, 20)
 '''  Org: [l_int32 biXPelsPerMeter]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property biXPelsPerMeter as Integer
 	Get
@@ -9093,7 +9264,7 @@ End Property
 ''' Brf: pixels per meter in y direction
 '''  Loc: SRC/bmp.h (85, 20)
 '''  Org: [l_int32 biYPelsPerMeter]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property biYPelsPerMeter as Integer
 	Get
@@ -9106,7 +9277,7 @@ End Property
 ''' Brf: number of colors used
 '''  Loc: SRC/bmp.h (86, 20)
 '''  Org: [l_int32 biClrUsed]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property biClrUsed as Integer
 	Get
@@ -9119,7 +9290,7 @@ End Property
 ''' Brf: number of important colors used
 '''  Loc: SRC/bmp.h (87, 20)
 '''  Org: [l_int32 biClrImportant]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property biClrImportant as Integer
 	Get
@@ -9129,6 +9300,9 @@ ReadOnly Property biClrImportant as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_BMP_InfoHeader
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -9166,7 +9340,7 @@ Public Class ColorQuantCell
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (160, 17)
 '''  Org: [l_int32 rc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property rc as Integer
 	Get
@@ -9179,7 +9353,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (160, 21)
 '''  Org: [l_int32 gc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property gc as Integer
 	Get
@@ -9192,7 +9366,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (160, 25)
 '''  Org: [l_int32 bc]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property bc as Integer
 	Get
@@ -9205,7 +9379,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (161, 17)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -9218,7 +9392,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (162, 17)
 '''  Org: [l_int32 index]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property index as Integer
 	Get
@@ -9231,7 +9405,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (163, 17)
 '''  Org: [l_int32 nleaves]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nleaves as Integer
 	Get
@@ -9244,7 +9418,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (164, 17)
 '''  Org: [l_int32 bleaf]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property bleaf as Integer
 	Get
@@ -9254,6 +9428,9 @@ ReadOnly Property bleaf as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_ColorQuantCell
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -9285,7 +9462,7 @@ Public Class OctcubeQuantCell
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (192, 16)
 '''  Org: [l_float32 n]
-'''  Msh: l_float32 = bigger  1:*
+'''  Msh: l_float32 | 1:Float |
 ''' </summary>
 ReadOnly Property n as Single
 	Get
@@ -9298,7 +9475,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (193, 16)
 '''  Org: [l_int32 octindex]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property octindex as Integer
 	Get
@@ -9311,7 +9488,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (194, 16)
 '''  Org: [l_int32 rcum]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property rcum as Integer
 	Get
@@ -9324,7 +9501,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (194, 22)
 '''  Org: [l_int32 gcum]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property gcum as Integer
 	Get
@@ -9337,7 +9514,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (194, 28)
 '''  Org: [l_int32 bcum]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property bcum as Integer
 	Get
@@ -9350,7 +9527,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (195, 16)
 '''  Org: [l_int32 rval]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property rval as Integer
 	Get
@@ -9363,7 +9540,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (195, 22)
 '''  Org: [l_int32 gval]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property gval as Integer
 	Get
@@ -9376,7 +9553,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (195, 28)
 '''  Org: [l_int32 bval]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property bval as Integer
 	Get
@@ -9386,6 +9563,9 @@ ReadOnly Property bval as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_OctcubeQuantCell
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -9418,7 +9598,7 @@ Public Class L_OctcubePop
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (208, 22)
 '''  Org: [l_float32 npix]
-'''  Msh: l_float32 = bigger  1:*
+'''  Msh: l_float32 | 1:Float |
 ''' </summary>
 ReadOnly Property npix as Single
 	Get
@@ -9431,7 +9611,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (209, 22)
 '''  Org: [l_int32 index]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property index as Integer
 	Get
@@ -9444,7 +9624,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (210, 22)
 '''  Org: [l_int32 rval]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property rval as Integer
 	Get
@@ -9457,7 +9637,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (211, 22)
 '''  Org: [l_int32 gval]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property gval as Integer
 	Get
@@ -9470,7 +9650,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (212, 22)
 '''  Org: [l_int32 bval]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property bval as Integer
 	Get
@@ -9480,6 +9660,9 @@ ReadOnly Property bval as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_OctcubePop
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -9511,7 +9694,7 @@ Public Class L_Box3d
 ''' Brf: 
 '''  Loc: SRC\colorquant2.c (180, 22)
 '''  Org: [l_float32 sortparam]
-'''  Msh: l_float32 = bigger  1:*
+'''  Msh: l_float32 | 1:Float |
 ''' </summary>
 ReadOnly Property sortparam as Single
 	Get
@@ -9524,7 +9707,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant2.c (181, 22)
 '''  Org: [l_int32 npix]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property npix as Integer
 	Get
@@ -9537,7 +9720,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant2.c (182, 22)
 '''  Org: [l_int32 vol]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property vol as Integer
 	Get
@@ -9550,7 +9733,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant2.c (183, 22)
 '''  Org: [l_int32 r1]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property r1 as Integer
 	Get
@@ -9563,7 +9746,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant2.c (184, 22)
 '''  Org: [l_int32 r2]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property r2 as Integer
 	Get
@@ -9576,7 +9759,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant2.c (185, 22)
 '''  Org: [l_int32 g1]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property g1 as Integer
 	Get
@@ -9589,7 +9772,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant2.c (186, 22)
 '''  Org: [l_int32 g2]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property g2 as Integer
 	Get
@@ -9602,7 +9785,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant2.c (187, 22)
 '''  Org: [l_int32 b1]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property b1 as Integer
 	Get
@@ -9615,7 +9798,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\colorquant2.c (188, 22)
 '''  Org: [l_int32 b2]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property b2 as Integer
 	Get
@@ -9625,6 +9808,9 @@ ReadOnly Property b2 as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Box3d
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -9660,7 +9846,7 @@ Public Class FillSeg
 ''' Brf: left edge of run
 '''  Loc: SRC\conncomp.c (101, 16)
 '''  Org: [l_int32 xleft]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property xleft as Integer
 	Get
@@ -9673,7 +9859,7 @@ End Property
 ''' Brf: right edge of run
 '''  Loc: SRC\conncomp.c (102, 16)
 '''  Org: [l_int32 xright]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property xright as Integer
 	Get
@@ -9686,7 +9872,7 @@ End Property
 ''' Brf: run y
 '''  Loc: SRC\conncomp.c (103, 16)
 '''  Org: [l_int32 y]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property y as Integer
 	Get
@@ -9699,7 +9885,7 @@ End Property
 ''' Brf: parent segment direction: 1 above, -1 below)
 '''  Loc: SRC\conncomp.c (104, 16)
 '''  Org: [l_int32 dy]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property dy as Integer
 	Get
@@ -9709,6 +9895,9 @@ ReadOnly Property dy as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_FillSeg
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -9739,7 +9928,7 @@ Public Class JbFindTemplatesState
 ''' Brf: 
 '''  Loc: SRC\jbclass.c (238, 22)
 '''  Org: [JBCLASSER * classer]
-'''  Msh: JBCLASSER * | 2:Struct | JBCLASSER Typedef: JbClasser = JbClasser
+'''  Msh: JBCLASSER * | 2:Struct |  Typedef: JbClasser = JbClasser
 ''' </summary>
 ReadOnly Property classer as JBCLASSER
 	Get
@@ -9754,7 +9943,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\jbclass.c (239, 22)
 '''  Org: [l_int32 w]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
@@ -9767,7 +9956,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\jbclass.c (240, 22)
 '''  Org: [l_int32 h]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
@@ -9780,7 +9969,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\jbclass.c (241, 22)
 '''  Org: [l_int32 i]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property i as Integer
 	Get
@@ -9793,7 +9982,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\jbclass.c (242, 22)
 '''  Org: [L_DNA * dna]
-'''  Msh: L_DNA * | 2:Struct | L_DNA Typedef: L_Dna = L_Dna
+'''  Msh: L_DNA * | 2:Struct |  Typedef: L_Dna = L_Dna
 ''' </summary>
 ReadOnly Property dna as L_DNA
 	Get
@@ -9808,7 +9997,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\jbclass.c (243, 22)
 '''  Org: [l_int32 n]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
@@ -9818,6 +10007,9 @@ ReadOnly Property n as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_JbFindTemplatesState
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -9850,7 +10042,7 @@ Public Class callback_data
 ''' Brf: 
 '''  Loc: SRC\jpegio.c (165, 15)
 '''  Org: [jmp_buf jmpbuf]
-'''  Msh: jmp_buf = bigger  1:*
+'''  Msh: jmp_buf | 1:ConstantArray |
 ''' </summary>
 ReadOnly Property jmpbuf as Char
 	Get
@@ -9877,6 +10069,9 @@ End if
 End Property
 
 	Sub New ()
+	Values = New Marshal_callback_data
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -9905,7 +10100,7 @@ Public Class MazeElement
 ''' Brf: 
 '''  Loc: SRC\maze.c (77, 16)
 '''  Org: [l_float32 distance]
-'''  Msh: l_float32 = bigger  1:*
+'''  Msh: l_float32 | 1:Float |
 ''' </summary>
 ReadOnly Property distance as Single
 	Get
@@ -9918,7 +10113,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\maze.c (78, 16)
 '''  Org: [l_int32 x]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property x as Integer
 	Get
@@ -9931,7 +10126,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\maze.c (79, 16)
 '''  Org: [l_int32 y]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property y as Integer
 	Get
@@ -9944,7 +10139,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\maze.c (80, 16)
 '''  Org: [l_uint32 val]
-'''  Msh: l_uint32 = bigger  1:*
+'''  Msh: l_uint32 | 1:UInt |
 ''' </summary>
 ReadOnly Property val as UInteger
 	Get
@@ -9957,7 +10152,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\maze.c (81, 16)
 '''  Org: [l_int32 dir]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property dir as Integer
 	Get
@@ -9967,6 +10162,9 @@ ReadOnly Property dir as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_MazeElement
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -9998,7 +10196,7 @@ Public Class PartitionElement
 ''' Brf: 
 '''  Loc: SRC\partition.c (49, 16)
 '''  Org: [l_float32 size]
-'''  Msh: l_float32 = bigger  1:*
+'''  Msh: l_float32 | 1:Float |
 ''' </summary>
 ReadOnly Property size as Single
 	Get
@@ -10011,7 +10209,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\partition.c (50, 16)
 '''  Org: [BOX * box]
-'''  Msh: BOX * | 2:Struct | BOX Typedef: Box = Box
+'''  Msh: BOX * | 2:Struct |  Typedef: Box = Box
 ''' </summary>
 ReadOnly Property box as BOX
 	Get
@@ -10026,7 +10224,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\partition.c (51, 16)
 '''  Org: [BOXA * boxa]
-'''  Msh: BOXA * | 2:Struct | BOXA Typedef: Boxa = Boxa
+'''  Msh: BOXA * | 2:Struct |  Typedef: Boxa = Boxa
 ''' </summary>
 ReadOnly Property boxa as BOXA
 	Get
@@ -10038,6 +10236,9 @@ ReadOnly Property boxa as BOXA
 End Property
 
 	Sub New ()
+	Values = New Marshal_PartitionElement
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -10067,7 +10268,7 @@ Public Class PixMemoryManager
 ''' Brf: 
 '''  Loc: SRC\pix1.c (220, 17)
 '''  Org: [alloc_fn allocator]
-'''  Msh: alloc_fn = bigger  1:*
+'''  Msh: alloc_fn | 1:Pointer |
 ''' </summary>
 ReadOnly Property allocator as IntPTR
 	Get
@@ -10080,7 +10281,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\pix1.c (221, 17)
 '''  Org: [dealloc_fn deallocator]
-'''  Msh: dealloc_fn = bigger  1:*
+'''  Msh: dealloc_fn | 1:Pointer |
 ''' </summary>
 ReadOnly Property deallocator as IntPTR
 	Get
@@ -10090,6 +10291,9 @@ ReadOnly Property deallocator as IntPTR
 End Property
 
 	Sub New ()
+	Values = New Marshal_PixMemoryManager
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -10118,7 +10322,7 @@ Public Class PixMemoryStore
 ''' Brf: Holds ptrs to allocated memory
 '''  Loc: SRC\pixalloc.c (115, 22)
 '''  Org: [struct L_Ptraa * paa]
-'''  Msh: struct L_Ptraa * | 2:Struct | L_Ptraa Typedef: L_Ptraa = L_Ptraa
+'''  Msh: struct L_Ptraa * | 2:Struct |  Typedef: L_Ptraa = L_Ptraa
 ''' </summary>
 ReadOnly Property paa as L_Ptraa
 	Get
@@ -10133,7 +10337,7 @@ End Property
 ''' Brf: Pix smaller than this (in bytes)
 '''  Loc: SRC\pixalloc.c (116, 22)
 '''  Org: [size_t minsize]
-'''  Msh: size_t = bigger  1:*
+'''  Msh: size_t | 1:UInt |
 ''' </summary>
 ReadOnly Property minsize as UInteger
 	Get
@@ -10146,7 +10350,7 @@ End Property
 ''' Brf: Smallest mem (in bytes) alloc'd
 '''  Loc: SRC\pixalloc.c (118, 22)
 '''  Org: [size_t smallest]
-'''  Msh: size_t = bigger  1:*
+'''  Msh: size_t | 1:UInt |
 ''' </summary>
 ReadOnly Property smallest as UInteger
 	Get
@@ -10159,7 +10363,7 @@ End Property
 ''' Brf: Larest mem (in bytes) alloc'd
 '''  Loc: SRC\pixalloc.c (119, 22)
 '''  Org: [size_t largest]
-'''  Msh: size_t = bigger  1:*
+'''  Msh: size_t | 1:UInt |
 ''' </summary>
 ReadOnly Property largest as UInteger
 	Get
@@ -10172,7 +10376,7 @@ End Property
 ''' Brf: Size of allocated block w/ all chunks
 '''  Loc: SRC\pixalloc.c (120, 22)
 '''  Org: [size_t nbytes]
-'''  Msh: size_t = bigger  1:*
+'''  Msh: size_t | 1:UInt |
 ''' </summary>
 ReadOnly Property nbytes as UInteger
 	Get
@@ -10185,7 +10389,7 @@ End Property
 ''' Brf: Num of power-of-2 sizes pre-alloc'd
 '''  Loc: SRC\pixalloc.c (121, 22)
 '''  Org: [l_int32 nlevels]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property nlevels as Integer
 	Get
@@ -10198,7 +10402,7 @@ End Property
 ''' Brf: Mem sizes at each power-of-2 level
 '''  Loc: SRC\pixalloc.c (122, 22)
 '''  Org: [size_t * sizes]
-'''  Msh: size_t * | 2:UInt | Byte() ... UInt = 4 Byte * Len)
+'''  Msh: size_t * | 2:UInt |  ... UInt = 4 Byte * Len)
 ''' </summary>
 ReadOnly Property sizes as Byte()
 	Get
@@ -10213,7 +10417,7 @@ End Property
 ''' Brf: Number of mem alloc'd at each size
 '''  Loc: SRC\pixalloc.c (123, 22)
 '''  Org: [l_int32 * allocarray]
-'''  Msh: l_int32 * | 2:Int | Integer()
+'''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
 ''' </summary>
 ReadOnly Property allocarray as Integer()
 	Get
@@ -10230,7 +10434,7 @@ End Property
 ''' Brf: ptr to allocated array
 '''  Loc: SRC\pixalloc.c (124, 22)
 '''  Org: [l_uint32 * baseptr]
-'''  Msh: l_uint32 * | 2:UInt | Byte() ... UInt = 4 Byte * Len)
+'''  Msh: l_uint32 * | 2:UInt |  ... UInt = 4 Byte * Len)
 ''' </summary>
 ReadOnly Property baseptr as Byte()
 	Get
@@ -10245,7 +10449,7 @@ End Property
 ''' Brf: ptr just beyond allocated memory
 '''  Loc: SRC\pixalloc.c (125, 22)
 '''  Org: [l_uint32 * maxptr]
-'''  Msh: l_uint32 * | 2:UInt | Byte() ... UInt = 4 Byte * Len)
+'''  Msh: l_uint32 * | 2:UInt |  ... UInt = 4 Byte * Len)
 ''' </summary>
 ReadOnly Property maxptr as Byte()
 	Get
@@ -10262,7 +10466,7 @@ End Property
 '''  Org: [l_uint32 ** firstptr]
 '''  Msh: l_uint32 ** | 3:UInt | List (of Byte()) ... UInt nicht Marshalbar. Verwende 4 Bytes
 ''' </summary>
-ReadOnly Property firstptr as List (of Byte())
+ReadOnly Property firstptr as IntPTR
 	Get
 		Dim _Data1(4 - 1) As Byte
 Dim _DataFin As New List(Of Byte())
@@ -10272,7 +10476,7 @@ For Each eintrag In _Data1
 	Marshal.Copy(eintrag, _Data2, 0, _Data2.Length)
 	 _DataFin.Add(_Data2)
 Next
-Return _DataFin
+            'Return _DataFin
 		Return Nothing
 	End Get
 End Property
@@ -10281,7 +10485,7 @@ End Property
 ''' Brf: log: total # of pix used (by level)
 '''  Loc: SRC\pixalloc.c (127, 22)
 '''  Org: [l_int32 * memused]
-'''  Msh: l_int32 * | 2:Int | Integer()
+'''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
 ''' </summary>
 ReadOnly Property memused as Integer()
 	Get
@@ -10298,7 +10502,7 @@ End Property
 ''' Brf: log: # of pix in use (by level)
 '''  Loc: SRC\pixalloc.c (128, 22)
 '''  Org: [l_int32 * meminuse]
-'''  Msh: l_int32 * | 2:Int | Integer()
+'''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
 ''' </summary>
 ReadOnly Property meminuse as Integer()
 	Get
@@ -10315,7 +10519,7 @@ End Property
 ''' Brf: log: max # of pix in use (by level)
 '''  Loc: SRC\pixalloc.c (129, 22)
 '''  Org: [l_int32 * memmax]
-'''  Msh: l_int32 * | 2:Int | Integer()
+'''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
 ''' </summary>
 ReadOnly Property memmax as Integer()
 	Get
@@ -10332,7 +10536,7 @@ End Property
 ''' Brf: log: # of pix alloc'd because
 '''  Loc: SRC\pixalloc.c (130, 22)
 '''  Org: [l_int32 * memempty]
-'''  Msh: l_int32 * | 2:Int | Integer()
+'''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
 ''' </summary>
 ReadOnly Property memempty as Integer()
 	Get
@@ -10349,7 +10553,7 @@ End Property
 ''' Brf: log: set to null if no logging
 '''  Loc: SRC\pixalloc.c (132, 22)
 '''  Org: [char * logfile]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property logfile as String
 	Get
@@ -10361,6 +10565,9 @@ End if
 End Property
 
 	Sub New ()
+	Values = New Marshal_PixMemoryStore
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -10403,7 +10610,7 @@ Public Class MemIOData
 ''' Brf: pointer to this node's I/O content
 '''  Loc: SRC\pngio.c (1295, 17)
 '''  Org: [char * m_Buffer]
-'''  Msh: char * | 2:CharS | String
+'''  Msh: char * | 2:CharS |
 ''' </summary>
 ReadOnly Property m_Buffer as String
 	Get
@@ -10418,7 +10625,7 @@ End Property
 ''' Brf: number of I/O content bytes read or written
 '''  Loc: SRC\pngio.c (1296, 17)
 '''  Org: [l_int32 m_Count]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property m_Count as Integer
 	Get
@@ -10431,7 +10638,7 @@ End Property
 ''' Brf: allocated size of m_buffer
 '''  Loc: SRC\pngio.c (1297, 17)
 '''  Org: [l_int32 m_Size]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property m_Size as Integer
 	Get
@@ -10444,7 +10651,7 @@ End Property
 ''' Brf: pointer to the next node in the list;
 '''  Loc: SRC\pngio.c (1298, 24)
 '''  Org: [struct MemIOData * m_Next]
-'''  Msh: struct MemIOData * | 2:Struct | MemIOData
+'''  Msh: struct MemIOData * | 2:Struct |
 ''' </summary>
 ReadOnly Property m_Next as MemIOData
 	Get
@@ -10459,7 +10666,7 @@ End Property
 ''' Brf: pointer to the last node in the linked
 '''  Loc: SRC\pngio.c (1300, 24)
 '''  Org: [struct MemIOData * m_Last]
-'''  Msh: struct MemIOData * | 2:Struct | MemIOData
+'''  Msh: struct MemIOData * | 2:Struct |
 ''' </summary>
 ReadOnly Property m_Last as MemIOData
 	Get
@@ -10471,6 +10678,9 @@ ReadOnly Property m_Last as MemIOData
 End Property
 
 	Sub New ()
+	Values = New Marshal_MemIOData
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -10502,7 +10712,7 @@ Public Class L_Pixel
 ''' Brf: 
 '''  Loc: SRC\seedfill.c (172, 16)
 '''  Org: [l_int32 x]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property x as Integer
 	Get
@@ -10515,7 +10725,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\seedfill.c (173, 16)
 '''  Org: [l_int32 y]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property y as Integer
 	Get
@@ -10525,6 +10735,9 @@ ReadOnly Property y as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Pixel
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -10553,7 +10766,7 @@ Public Class CompParameterMap
 ''' Brf: 
 '''  Loc: SRC\sel1.c (154, 14)
 '''  Org: [l_int32 size]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property size as Integer
 	Get
@@ -10566,7 +10779,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\sel1.c (155, 14)
 '''  Org: [l_int32 size1]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property size1 as Integer
 	Get
@@ -10579,7 +10792,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\sel1.c (156, 14)
 '''  Org: [l_int32 size2]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property size2 as Integer
 	Get
@@ -10592,7 +10805,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\sel1.c (157, 14)
 '''  Org: [char [20] selnameh1]
-'''  Msh: char [20] = bigger  1:*
+'''  Msh: char [20] | 1:ConstantArray |
 ''' </summary>
 ReadOnly Property selnameh1 as Char
 	Get
@@ -10605,7 +10818,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\sel1.c (158, 14)
 '''  Org: [char [20] selnameh2]
-'''  Msh: char [20] = bigger  1:*
+'''  Msh: char [20] | 1:ConstantArray |
 ''' </summary>
 ReadOnly Property selnameh2 as Char
 	Get
@@ -10618,7 +10831,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\sel1.c (159, 14)
 '''  Org: [char [20] selnamev1]
-'''  Msh: char [20] = bigger  1:*
+'''  Msh: char [20] | 1:ConstantArray |
 ''' </summary>
 ReadOnly Property selnamev1 as Char
 	Get
@@ -10631,7 +10844,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\sel1.c (160, 14)
 '''  Org: [char [20] selnamev2]
-'''  Msh: char [20] = bigger  1:*
+'''  Msh: char [20] | 1:ConstantArray |
 ''' </summary>
 ReadOnly Property selnamev2 as Char
 	Get
@@ -10641,6 +10854,9 @@ ReadOnly Property selnamev2 as Char
 End Property
 
 	Sub New ()
+	Values = New Marshal_CompParameterMap
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -10674,7 +10890,7 @@ Public Class L_GenAssoc
 ''' Brf: 
 '''  Loc: SRC\stringcode.c (97, 14)
 '''  Org: [l_int32 index]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property index as Integer
 	Get
@@ -10687,7 +10903,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\stringcode.c (98, 14)
 '''  Org: [char [16] type]
-'''  Msh: char [16] = bigger  1:*
+'''  Msh: char [16] | 1:ConstantArray |
 ''' </summary>
 ReadOnly Property type as Char
 	Get
@@ -10700,7 +10916,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\stringcode.c (99, 14)
 '''  Org: [char [16] structname]
-'''  Msh: char [16] = bigger  1:*
+'''  Msh: char [16] | 1:ConstantArray |
 ''' </summary>
 ReadOnly Property structname as Char
 	Get
@@ -10713,7 +10929,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\stringcode.c (100, 14)
 '''  Org: [char [16] reader]
-'''  Msh: char [16] = bigger  1:*
+'''  Msh: char [16] | 1:ConstantArray |
 ''' </summary>
 ReadOnly Property reader as Char
 	Get
@@ -10726,7 +10942,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\stringcode.c (101, 14)
 '''  Org: [char [20] memreader]
-'''  Msh: char [20] = bigger  1:*
+'''  Msh: char [20] | 1:ConstantArray |
 ''' </summary>
 ReadOnly Property memreader as Char
 	Get
@@ -10736,6 +10952,9 @@ ReadOnly Property memreader as Char
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_GenAssoc
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -10767,7 +10986,7 @@ Public Class tiff_transform
 ''' Brf: 
 '''  Loc: SRC\tiffio.c (156, 9)
 '''  Org: [int vflip]
-'''  Msh: int = bigger  1:*
+'''  Msh: int | 1:Int |
 ''' </summary>
 ReadOnly Property vflip as Integer
 	Get
@@ -10780,7 +10999,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\tiffio.c (157, 9)
 '''  Org: [int hflip]
-'''  Msh: int = bigger  1:*
+'''  Msh: int | 1:Int |
 ''' </summary>
 ReadOnly Property hflip as Integer
 	Get
@@ -10793,7 +11012,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\tiffio.c (158, 9)
 '''  Org: [int rotate]
-'''  Msh: int = bigger  1:*
+'''  Msh: int | 1:Int |
 ''' </summary>
 ReadOnly Property rotate as Integer
 	Get
@@ -10803,6 +11022,9 @@ ReadOnly Property rotate as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_tiff_transform
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -10847,7 +11069,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\tiffio.c (2178, 16)
 '''  Org: [size_t bufsize]
-'''  Msh: size_t = bigger  1:*
+'''  Msh: size_t | 1:UInt |
 ''' </summary>
 ReadOnly Property bufsize as UInteger
 	Get
@@ -10860,7 +11082,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\tiffio.c (2180, 16)
 '''  Org: [size_t offset]
-'''  Msh: size_t = bigger  1:*
+'''  Msh: size_t | 1:UInt |
 ''' </summary>
 ReadOnly Property offset as UInteger
 	Get
@@ -10873,7 +11095,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\tiffio.c (2181, 16)
 '''  Org: [size_t hw]
-'''  Msh: size_t = bigger  1:*
+'''  Msh: size_t | 1:UInt |
 ''' </summary>
 ReadOnly Property hw as UInteger
 	Get
@@ -10886,7 +11108,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\tiffio.c (2182, 16)
 '''  Org: [l_uint8 ** poutdata]
-'''  Msh: l_uint8 ** | 3:Else | List(Of Byte())
+'''  Msh: l_uint8 ** | 3:UChar | Byte() ... Pointer auf ein Byte-Array
 ''' </summary>
 ReadOnly Property poutdata as List(Of Byte())
 	Get
@@ -10907,7 +11129,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\tiffio.c (2183, 16)
 '''  Org: [size_t * poutsize]
-'''  Msh: size_t * | 2:UInt | Byte() ... UInt = 4 Byte * Len)
+'''  Msh: size_t * | 2:UInt |  ... UInt = 4 Byte * Len)
 ''' </summary>
 ReadOnly Property poutsize as Byte()
 	Get
@@ -10919,6 +11141,9 @@ Return _poutsize
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_Memstream
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -10951,7 +11176,7 @@ Public Class L_NewPixel
 ''' Brf: x coordinate
 '''  Loc: SRC\watershed.c (126, 16)
 '''  Org: [l_int32 x]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property x as Integer
 	Get
@@ -10964,7 +11189,7 @@ End Property
 ''' Brf: y coordinate
 '''  Loc: SRC\watershed.c (127, 16)
 '''  Org: [l_int32 y]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property y as Integer
 	Get
@@ -10974,6 +11199,9 @@ ReadOnly Property y as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_NewPixel
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -11000,7 +11228,7 @@ Public Class L_WSPixel
 ''' Brf: pixel value
 '''  Loc: SRC\watershed.c (134, 16)
 '''  Org: [l_float32 val]
-'''  Msh: l_float32 = bigger  1:*
+'''  Msh: l_float32 | 1:Float |
 ''' </summary>
 ReadOnly Property val as Single
 	Get
@@ -11013,7 +11241,7 @@ End Property
 ''' Brf: x coordinate
 '''  Loc: SRC\watershed.c (135, 16)
 '''  Org: [l_int32 x]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property x as Integer
 	Get
@@ -11026,7 +11254,7 @@ End Property
 ''' Brf: y coordinate
 '''  Loc: SRC\watershed.c (136, 16)
 '''  Org: [l_int32 y]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property y as Integer
 	Get
@@ -11039,7 +11267,7 @@ End Property
 ''' Brf: label for set to which pixel belongs
 '''  Loc: SRC\watershed.c (137, 16)
 '''  Org: [l_int32 index]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property index as Integer
 	Get
@@ -11049,6 +11277,9 @@ ReadOnly Property index as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_L_WSPixel
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub
@@ -11079,7 +11310,7 @@ Public Class ExtensionMap
 ''' Brf: 
 '''  Loc: SRC\writefile.c (141, 14)
 '''  Org: [char [8] extension]
-'''  Msh: char [8] = bigger  1:*
+'''  Msh: char [8] | 1:ConstantArray |
 ''' </summary>
 ReadOnly Property extension as Char
 	Get
@@ -11092,7 +11323,7 @@ End Property
 ''' Brf: 
 '''  Loc: SRC\writefile.c (142, 14)
 '''  Org: [l_int32 format]
-'''  Msh: l_int32 = bigger  1:*
+'''  Msh: l_int32 | 1:Int |
 ''' </summary>
 ReadOnly Property format as Integer
 	Get
@@ -11102,6 +11333,9 @@ ReadOnly Property format as Integer
 End Property
 
 	Sub New ()
+	Values = New Marshal_ExtensionMap
+	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
+	Marshal.StructureToPtr(values, Pointer, True)
 	End Sub
 	Sub New (PTR as IntPTR)
 		If PTR = IntPtr.Zero Then Exit Sub

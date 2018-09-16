@@ -2,7 +2,7 @@
     WithEvents PicBox As New BetterPictureBox
     Sub New(Pix As pix)
         InitializeComponent()
-        PicBox.LoadImage(Pix.tobitmap)
+        'PicBox.LoadImage(Pix.tobitmap)
     End Sub
     Private Sub ShowPix_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         PicBox.Left = 0

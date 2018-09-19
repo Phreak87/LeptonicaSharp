@@ -6,36 +6,36 @@ Imports System.Drawing.Imaging
 Partial Public Class Pix
 
 #Region "Redirects"
-    ReadOnly Property Data4 As List(Of Byte())
-        Get
-            Dim Sep4 As New List(Of Byte())
-            For i As Integer = 0 To data.Count - 1 Step 4
-                Dim B(3) As Byte : Array.Copy(data, i, B, 0, B.Length)
-                Sep4.Add(B)
-            Next
-            Return Sep4
-        End Get
-    End Property
-    ReadOnly Property Data3 As List(Of Byte())
-        Get
-            Dim Sep3 As New List(Of Byte())
-            For i As Integer = 0 To data.Count - 1 Step 3
-                Dim B(2) As Byte : Array.Copy(data, i, B, 0, B.Length)
-                Sep3.Add(B)
-            Next
-            Return Sep3
-        End Get
-    End Property
-    ReadOnly Property Data2 As List(Of Byte())
-        Get
-            Dim Sep2 As New List(Of Byte())
-            For i As Integer = 0 To data.Count - 1 Step 2
-                Dim B(1) As Byte : Array.Copy(data, i, B, 0, B.Length)
-                Sep2.Add(B)
-            Next
-            Return Sep2
-        End Get
-    End Property
+    'ReadOnly Property Data4 As List(Of Byte())
+    '    Get
+    '        Dim Sep4 As New List(Of Byte())
+    '        For i As Integer = 0 To data.Count - 1 Step 4
+    '            Dim B(3) As Byte : Array.Copy(data, i, B, 0, B.Length)
+    '            Sep4.Add(B)
+    '        Next
+    '        Return Sep4
+    '    End Get
+    'End Property
+    'ReadOnly Property Data3 As List(Of Byte())
+    '    Get
+    '        Dim Sep3 As New List(Of Byte())
+    '        For i As Integer = 0 To data.Count - 1 Step 3
+    '            Dim B(2) As Byte : Array.Copy(data, i, B, 0, B.Length)
+    '            Sep3.Add(B)
+    '        Next
+    '        Return Sep3
+    '    End Get
+    'End Property
+    'ReadOnly Property Data2 As List(Of Byte())
+    '    Get
+    '        Dim Sep2 As New List(Of Byte())
+    '        For i As Integer = 0 To data.Count - 1 Step 2
+    '            Dim B(1) As Byte : Array.Copy(data, i, B, 0, B.Length)
+    '            Sep2.Add(B)
+    '        Next
+    '        Return Sep2
+    '    End Get
+    'End Property
 
     Sub New()
         Pointer = LeptonicaSharp._AllFunctions.pixCreate(1, 1, 32).Pointer

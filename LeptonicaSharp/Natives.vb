@@ -1,6 +1,6 @@
 Imports System.Runtime.InteropServices
 Public Class Natives
-Const DllPath as String = "pvt.cppan.demo.danbloomberg.leptonica-1.76.0.dll"
+    Const DllPath As String = "leptonica-1.77.0.dll"
 Const CConv as CallingConvention = CallingConvention.Cdecl
 
 #Region "SRC\adaptmap.c"

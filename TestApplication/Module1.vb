@@ -8,7 +8,7 @@ Module Module1
 
     Sub Main()
 
-        'TestPDF()
+        TestPDF()
         'TestPix()
         'TestColorMap()
         'TestMem()

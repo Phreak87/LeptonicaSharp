@@ -4,7 +4,7 @@ Full featured wrapper for leptonica 1.76.0
 # Functions:
 
 - VB.Net 4.0 Library
-- supports all (3299) Leptonica-Functions
+- supports all (2677) Leptonica-Functions
 - Included extension to view Pix directly
 - included all propertys from Leptonica structs via Marshaler
 - complete documentation and debug-informations from C-Files included

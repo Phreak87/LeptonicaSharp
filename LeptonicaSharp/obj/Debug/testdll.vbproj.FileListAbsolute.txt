@@ -1,8 +1,0 @@
-C:\Users\Phreak\Desktop\Github_LeptonicaSharp\trunk\LeptonicaSharp\bin\Debug\LeptonicaSharp.dll
-C:\Users\Phreak\Desktop\Github_LeptonicaSharp\trunk\LeptonicaSharp\bin\Debug\LeptonicaSharp.pdb
-C:\Users\Phreak\Desktop\Github_LeptonicaSharp\trunk\LeptonicaSharp\bin\Debug\LeptonicaSharp.xml
-C:\Users\Phreak\Desktop\Github_LeptonicaSharp\trunk\LeptonicaSharp\obj\Debug\LeptonicaSharp.ShowPix.resources
-C:\Users\Phreak\Desktop\Github_LeptonicaSharp\trunk\LeptonicaSharp\obj\Debug\testdll.vbproj.GenerateResource.Cache
-C:\Users\Phreak\Desktop\Github_LeptonicaSharp\trunk\LeptonicaSharp\obj\Debug\LeptonicaSharp.dll
-C:\Users\Phreak\Desktop\Github_LeptonicaSharp\trunk\LeptonicaSharp\obj\Debug\LeptonicaSharp.xml
-C:\Users\Phreak\Desktop\Github_LeptonicaSharp\trunk\LeptonicaSharp\obj\Debug\LeptonicaSharp.pdb

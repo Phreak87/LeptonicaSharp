@@ -1,10 +1,46 @@
 ﻿Imports System.Runtime.InteropServices
 Imports System.Drawing
+Imports System.Reflection
 Imports System.Drawing.Imaging
 
 Partial Public Class Pix
 
 #Region "Redirects"
+    ReadOnly Property Data4 As List(Of Byte())
+        Get
+            Dim Sep4 As New List(Of Byte())
+            For i As Integer = 0 To data.Count - 1 Step 4
+                Dim B(3) As Byte : Array.Copy(data, i, B, 0, B.Length)
+                Sep4.Add(B)
+            Next
+            Return Sep4
+        End Get
+    End Property
+    ReadOnly Property Data3 As List(Of Byte())
+        Get
+            Dim Sep3 As New List(Of Byte())
+            For i As Integer = 0 To data.Count - 1 Step 3
+                Dim B(2) As Byte : Array.Copy(data, i, B, 0, B.Length)
+                Sep3.Add(B)
+            Next
+            Return Sep3
+        End Get
+    End Property
+    ReadOnly Property Data2 As List(Of Byte())
+        Get
+            Dim Sep2 As New List(Of Byte())
+            For i As Integer = 0 To data.Count - 1 Step 2
+                Dim B(1) As Byte : Array.Copy(data, i, B, 0, B.Length)
+                Sep2.Add(B)
+            Next
+            Return Sep2
+        End Get
+    End Property
+
+    Sub New()
+        Pointer = LeptonicaSharp._AllFunctions.pixCreate(1, 1, 32).Pointer
+        Values = New Marshal_Pix : Marshal.PtrToStructure(Pointer, Values)
+    End Sub
     Sub New(ByVal filename As String)
         Me.new(LeptonicaSharp.Natives.pixRead(filename))
     End Sub
@@ -53,14 +89,15 @@ Partial Public Class Pix
         If Me.Pointer = IntPtr.Zero Then Return Nothing
         If w = 0 And h = 0 Then Return New Bitmap(1, 1)
         If w = -1 And h = -1 Then Return New Bitmap(1, 1)
-        Dim bmp As New Bitmap(w, h, GetBPP(Me.d))
-        Dim dat As Imaging.BitmapData = bmp.LockBits(New Rectangle(0, 0, w, h), _
+        Dim BPPIDX As Integer = (d / 8)
+        Dim BMP As New Bitmap(w, h, GetBPP(Me.d))
+        Dim BMPDAT As Imaging.BitmapData = BMP.LockBits(New Rectangle(0, 0, w, h), _
                                                      ImageLockMode.ReadWrite, _
                                                      GetBPP(d))
 
-        Dim cnt As Integer = ((w * h * (d / 8)) - 2)
-        Dim BMPBYT(cnt) As Byte 'Marshal.Copy(LeptonicaSharp.Natives.pixGetData(Pointer), BMPBYT, 0, cnt)
-        Dim BPPIDX As Integer = (d / 8)
+        Dim CNT As Integer = (BMPDAT.Height * BMPDAT.Width * BPPIDX) - 1
+
+        Dim BMPBYT(CNT) As Byte : Marshal.Copy(LeptonicaSharp.Natives.pixGetData(Pointer), BMPBYT, 0, BMPBYT.Count)
         Select Case BPPIDX
             Case 1 : Throw New NotImplementedException
             Case 2 : Throw New NotImplementedException
@@ -69,8 +106,8 @@ Partial Public Class Pix
             Case 5 : Throw New NotImplementedException
             Case 6 : Throw New NotImplementedException
         End Select
-        Marshal.Copy(BMPBYT, 0, dat.Scan0, BMPBYT.Length)
-        bmp.UnlockBits(dat)
+        Marshal.Copy(BMPBYT, 0, BMPDAT.Scan0, BMPBYT.Length)
+        BMP.UnlockBits(BMPDAT)
         Return bmp
     End Function
 
@@ -109,7 +146,7 @@ Partial Public Class Pix
             'End If
             'If Source = "ARGB" And Target = "RGBA" Then
             '    Dim C As Integer = BitConverter.ToInt32(ValS, 0)
-            '    C = RotateCircularRight(C, 8): ValT = BitConverter.GetBytes(C)
+            '    C = RotateCircularRight(C, 8) : ValT = BitConverter.GetBytes(C)
             '    System.Array.Copy(ValT, 0, BDST, BNXT, ValT.Length)
             '    BNXT += ValT.Length : Continue For
             'End If
@@ -131,6 +168,7 @@ Partial Public Class Pix
     Public Function RotateCircularRight(ByVal n As Int32, ByVal nBits As Byte) As Int32
         Return (n << (32 - nBits)) Or ((n >> nBits) And (Not (-1 << (32 - nBits))))
     End Function
+
     Public Shared Function GetBPP(ByVal bitmap As System.Drawing.Bitmap) As Integer
         Dim BPP As Integer = System.Text.RegularExpressions.Regex.Match(bitmap.PixelFormat.ToString, "Format([0-9]*)").Groups(1).Value
         Return BPP
@@ -146,6 +184,7 @@ Partial Public Class Pix
             Case Else : Return PixelFormat.Undefined
         End Select
     End Function
+
 #End Region
 
 End Class

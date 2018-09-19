@@ -5,7 +5,7 @@
 		<Parameter Name ="data">		<Size>sy;sx</Size>				</Parameter>
 	</Class>
 	<Class Name="PIX">
-		<Parameter Name ="data">		<Size>(w * h / (d/8))</Size>	</Parameter>
+		<Parameter Name ="data">		<Size>(w * h * (d/8))</Size>	</Parameter>
 		<Parameter Name ="informat">	<Enum>IFF</Enum>				</Parameter>
 	</Class>
 	
@@ -16,6 +16,25 @@
 		<Parameter Name="factor"><Default>0.35</Default></Parameter>
 		<Parameter Name="addborder"><Default>0</Default></Parameter>
 	</Function>
+	<Function Name="pixConvertToPdf">
+		<Parameter Name="x"><Default>0</Default></Parameter>
+		<Parameter Name="y"><Default>0</Default></Parameter>
+		<Parameter Name="res"><Default>0</Default></Parameter>
+		<Parameter Name="quality"><Default>0</Default></Parameter>
+	</Function>
+	<Function Name="convertToPdfData">
+		<Parameter Name="x"><Default>0</Default></Parameter>
+		<Parameter Name="y"><Default>0</Default></Parameter>
+		<Parameter Name="res"><Default>0</Default></Parameter>
+		<Parameter Name="quality"><Default>0</Default></Parameter>
+	</Function>
+	<Function Name="pixConvertToPdfData">
+		<Parameter Name="x"><Default>0</Default></Parameter>
+		<Parameter Name="y"><Default>0</Default></Parameter>
+		<Parameter Name="res"><Default>0</Default></Parameter>
+		<Parameter Name="quality"><Default>0</Default></Parameter>
+	</Function>
+
 	
 	<!-- Gilt für ALLE Funktionen -->
 	<Function Name="">
@@ -67,6 +86,12 @@
 		<Parameter Name="redsweep"> 		
 			<Default>0</Default>
 			<CheckArray>{0,1,2,4,8}</CheckArray>
+		</Parameter>
+		<Parameter Name="scalex"> 		
+			<Default>1</Default>
+		</Parameter>
+		<Parameter Name="scaley"> 		
+			<Default>1</Default>
 		</Parameter>
 
 		

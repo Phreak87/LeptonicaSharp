@@ -11,7 +11,7 @@ Public Class BetterPictureBox
     Property SavedPic As Boolean = True
     Property LoadedPic As String = ""
     Property DrawSegments As Integer = 0
-    Private _interpolationMode As Drawing2D.InterpolationMode = Drawing2D.InterpolationMode.Default
+    Private _interpolationMode As Drawing2D.InterpolationMode = Drawing2D.InterpolationMode.Low
 
     Event ImageMouseClick(ByVal PT As MouseEventArgs)
     Event ImageMouseMove(ByVal PT As MouseEventArgs)

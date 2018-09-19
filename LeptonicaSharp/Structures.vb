@@ -9,6 +9,13 @@ Public Class L_WallTimer
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_WallTimer
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_WallTimer
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC/environ.h (309, 14)
@@ -61,17 +68,6 @@ ReadOnly Property stop_usec as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_WallTimer
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_WallTimer
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_WallTimer
@@ -91,6 +87,13 @@ Public Class Numa
 	Property Pointer as IntPTR
 	Private Values as Marshal_Numa
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_Numa
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: size of allocated number array
 '''  Loc: SRC/array.h (61, 22)
@@ -173,17 +176,6 @@ End if
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_Numa
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_Numa
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_Numa
@@ -203,6 +195,13 @@ Public Class Numaa
 	Property Pointer as IntPTR
 	Private Values as Marshal_Numaa
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_Numaa
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: size of allocated ptr array
 '''  Loc: SRC/array.h (73, 22)
@@ -250,17 +249,6 @@ End If
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_Numaa
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_Numaa
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_Numaa
@@ -277,6 +265,13 @@ Public Class L_Dna
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Dna
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Dna
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: size of allocated number array
 '''  Loc: SRC/array.h (85, 22)
@@ -359,17 +354,6 @@ End if
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Dna
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Dna
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Dna
@@ -389,6 +373,13 @@ Public Class L_Dnaa
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Dnaa
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Dnaa
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: size of allocated ptr array
 '''  Loc: SRC/array.h (97, 22)
@@ -436,17 +427,6 @@ End If
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Dnaa
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Dnaa
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Dnaa
@@ -463,6 +443,13 @@ Public Class L_DnaHash
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_DnaHash
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_DnaHash
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC/array.h (106, 22)
@@ -510,17 +497,6 @@ End If
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_DnaHash
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_DnaHash
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_DnaHash
@@ -537,6 +513,13 @@ Public Class Sarray
 	Property Pointer as IntPTR
 	Private Values as Marshal_Sarray
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_Sarray
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: size of allocated ptr array
 '''  Loc: SRC/array.h (118, 22)
@@ -592,17 +575,6 @@ Return LSTRET.ToArray
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_Sarray
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_Sarray
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_Sarray
@@ -620,6 +592,13 @@ Public Class L_Bytea
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Bytea
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Bytea
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: number of bytes allocated in data array
 '''  Loc: SRC/array.h (128, 22)
@@ -676,17 +655,6 @@ End if
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Bytea
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Bytea
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Bytea
@@ -706,6 +674,13 @@ Public Class L_ByteBuffer
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_ByteBuffer
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_ByteBuffer
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: size of allocated byte array
 '''  Loc: SRC/bbuffer.h (52, 18)
@@ -762,17 +737,6 @@ End if
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_ByteBuffer
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_ByteBuffer
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_ByteBuffer
@@ -792,6 +756,13 @@ Public Class L_Heap
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Heap
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Heap
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: size of allocated ptr array
 '''  Loc: SRC/heap.h (79, 18)
@@ -848,17 +819,6 @@ ReadOnly Property direction as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Heap
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Heap
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Heap
@@ -878,6 +838,13 @@ Public Class DoubleLinkedList
 	Property Pointer as IntPTR
 	Private Values as Marshal_DoubleLinkedList
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_DoubleLinkedList
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC/list.h (63, 33)
@@ -923,17 +890,6 @@ End if
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_DoubleLinkedList
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_DoubleLinkedList
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_DoubleLinkedList
@@ -952,6 +908,13 @@ Public Class L_Ptra
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Ptra
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Ptra
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: size of allocated ptr array
 '''  Loc: SRC/ptra.h (53, 22)
@@ -1000,23 +963,14 @@ End Property
 ReadOnly Property array as IntPTR()
 	Get
 			If Values.array <> IntPtr.Zero Then 
-		Dim _array(values.nalloc) as IntPTR
-		Marshal.Copy(Values.array, _array, 0, values.nalloc)
+		Dim _array(values.nactual) as IntPTR
+		Marshal.Copy(Values.array, _array, 0, values.nactual)
 		Return _array
 	End if
 		Return Nothing
 	End Get
 End Property
 
-	Sub New ()
-        Pointer = LeptonicaSharp._AllFunctions.ptraCreate(10).Pointer
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Ptra
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Ptra
@@ -1034,6 +988,13 @@ Public Class L_Ptraa
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Ptraa
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Ptraa
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: size of allocated ptr array
 '''  Loc: SRC/ptra.h (64, 22)
@@ -1068,17 +1029,6 @@ End If
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Ptraa
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Ptraa
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Ptraa
@@ -1096,6 +1046,13 @@ Public Class L_Queue
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Queue
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Queue
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: size of allocated ptr array
 '''  Loc: SRC/queue.h (66, 22)
@@ -1144,8 +1101,8 @@ End Property
 ReadOnly Property array as IntPTR()
 	Get
 			If Values.array <> IntPtr.Zero Then 
-		Dim _array(values.nalloc) as IntPTR
-		Marshal.Copy(Values.array, _array, 0, values.nalloc)
+		Dim _array(values.nelem) as IntPTR
+		Marshal.Copy(Values.array, _array, 0, values.nelem)
 		Return _array
 	End if
 		Return Nothing
@@ -1167,17 +1124,6 @@ ReadOnly Property stack as L_Stack
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Queue
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Queue
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Queue
@@ -1198,6 +1144,13 @@ Public Class Rb_Type
 	Property Pointer as IntPTR
 	Private Values as Marshal_Rb_Type
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_Rb_Type
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC/rbtree.h (62, 16)
@@ -1252,17 +1205,6 @@ End if
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_Rb_Type
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_Rb_Type
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_Rb_Type
@@ -1280,6 +1222,13 @@ Public Class L_Rbtree
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Rbtree
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Rbtree
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC/rbtree.h (70, 28)
@@ -1308,17 +1257,6 @@ ReadOnly Property keytype as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Rbtree
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Rbtree
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Rbtree
@@ -1334,6 +1272,13 @@ Public Class L_Rbtree_Node
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Rbtree_Node
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Rbtree_Node
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC/rbtree.h (78, 28)
@@ -1418,17 +1363,6 @@ ReadOnly Property color as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Rbtree_Node
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Rbtree_Node
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Rbtree_Node
@@ -1450,6 +1384,13 @@ Public Class L_Stack
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Stack
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Stack
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: size of ptr array
 '''  Loc: SRC/stack.h (61, 22)
@@ -1508,17 +1449,6 @@ ReadOnly Property auxstack as L_Stack
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Stack
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Stack
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Stack
@@ -1538,6 +1468,13 @@ Public Class L_Bmf
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Bmf
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Bmf
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: pixa of bitmaps for 93 characters
 '''  Loc: SRC/bmf.h (47, 19)
@@ -1723,17 +1660,6 @@ End if
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Bmf
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Bmf
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Bmf
@@ -1762,6 +1688,13 @@ Public Class CCBord
 	Property Pointer as IntPTR
 	Private Values as Marshal_CCBord
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_CCBord
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: component bitmap (min size)
 '''  Loc: SRC/ccbord.h (93, 26)
@@ -1895,17 +1828,6 @@ ReadOnly Property spglobal as Pta
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_CCBord
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_CCBord
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_CCBord
@@ -1928,6 +1850,13 @@ Public Class CCBorda
 	Property Pointer as IntPTR
 	Private Values as Marshal_CCBorda
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_CCBorda
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: input pix (may be null)
 '''  Loc: SRC/ccbord.h (108, 26)
@@ -2016,17 +1945,6 @@ End If
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_CCBorda
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_CCBorda
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_CCBorda
@@ -2048,6 +1966,13 @@ Public Class L_Dewarpa
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Dewarpa
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Dewarpa
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: size of dewarp ptr array
 '''  Loc: SRC/dewarp.h (115, 24)
@@ -2315,17 +2240,6 @@ ReadOnly Property modelsready as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Dewarpa
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Dewarpa
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Dewarpa
@@ -2358,6 +2272,13 @@ Public Class L_Dewarp
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Dewarp
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Dewarp
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: ptr to parent (not owned)
 '''  Loc: SRC/dewarp.h (153, 24)
@@ -2820,17 +2741,6 @@ ReadOnly Property debug as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Dewarp
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Dewarp
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Dewarp
@@ -2880,6 +2790,13 @@ Public Class GPlot
 	Property Pointer as IntPTR
 	Private Values as Marshal_GPlot
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_GPlot
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: for cmd, data, output
 '''  Loc: SRC/gplot.h (77, 20)
@@ -3084,17 +3001,6 @@ End if
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_GPlot
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_GPlot
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_GPlot
@@ -3124,6 +3030,13 @@ Public Class L_Compressed_Data
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Compressed_Data
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Compressed_Data
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: encoding type: L_JPEG_ENCODE, etc
 '''  Loc: SRC/imageio.h (168, 24)
@@ -3342,17 +3255,6 @@ ReadOnly Property res as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Compressed_Data
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Compressed_Data
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Compressed_Data
@@ -3382,6 +3284,13 @@ Public Class L_Pdf_Data
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Pdf_Data
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Pdf_Data
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: optional title for pdf
 '''  Loc: SRC/imageio.h (213, 24)
@@ -3676,21 +3585,6 @@ ReadOnly Property xrefloc as Integer
 	End Get
 End Property
 
-	Sub New ()
-        Values = New Marshal_L_Pdf_Data
-        Values.cida = New L_Ptra().Pointer
-        Values.wh = New Pta().Pointer
-        Values.xy = New Pta().Pointer
-
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Pdf_Data
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Pdf_Data
@@ -3726,6 +3620,13 @@ Public Class JbClasser
 	Property Pointer as IntPTR
 	Private Values as Marshal_JbClasser
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_JbClasser
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: input page image file names
 '''  Loc: SRC/jbclass.h (49, 22)
@@ -4118,17 +4019,6 @@ ReadOnly Property ptall as Pta
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_JbClasser
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_JbClasser
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_JbClasser
@@ -4170,6 +4060,13 @@ Public Class JbData
 	Property Pointer as IntPTR
 	Private Values as Marshal_JbData
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_JbData
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: template composite for all classes
 '''  Loc: SRC/jbclass.h (106, 22)
@@ -4308,17 +4205,6 @@ ReadOnly Property ptaul as Pta
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_JbData
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_JbData
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_JbData
@@ -4344,6 +4230,13 @@ Public Class Sel
 	Property Pointer as IntPTR
 	Private Values as Marshal_Sel
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_Sel
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: sel height
 '''  Loc: SRC/morph.h (64, 19)
@@ -4432,17 +4325,6 @@ End if
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_Sel
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_Sel
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_Sel
@@ -4462,6 +4344,13 @@ Public Class Sela
 	Property Pointer as IntPTR
 	Private Values as Marshal_Sela
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_Sela
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: number of sel actually stored
 '''  Loc: SRC/morph.h (76, 22)
@@ -4509,17 +4398,6 @@ End If
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_Sela
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_Sela
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_Sela
@@ -4536,6 +4414,13 @@ Public Class L_Kernel
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Kernel
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Kernel
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: kernel height
 '''  Loc: SRC/morph.h (91, 19)
@@ -4609,17 +4494,6 @@ Return _DataFin
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Kernel
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Kernel
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Kernel
@@ -4640,6 +4514,13 @@ Public Class Pix
 	Property Pointer as IntPTR
 	Private Values as Marshal_Pix
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_Pix
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: width in pixels
 '''  Loc: SRC/pix.h (136, 26)
@@ -4808,24 +4689,13 @@ End Property
 ''' </summary>
 ReadOnly Property data as Byte()
 	Get
-		Dim _data((w * h / (d/8)) -1) as Byte
+		Dim _data((w * h * (d/8)) -1) as Byte
 Marshal.Copy(Values.data, _data, 0, _data.Length)
 Return _data
 		Return Nothing
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_Pix
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_Pix
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_Pix
@@ -4852,6 +4722,13 @@ Public Class PixColormap
 	Property Pointer as IntPTR
 	Private Values as Marshal_PixColormap
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_PixColormap
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: colormap table (array of RGBA_QUAD)
 '''  Loc: SRC/pix.h (157, 22)
@@ -4906,17 +4783,6 @@ ReadOnly Property n as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_PixColormap
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_PixColormap
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_PixColormap
@@ -4934,6 +4800,13 @@ Public Class RGBA_Quad
 	Property Pointer as IntPTR
 	Private Values as Marshal_RGBA_Quad
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_RGBA_Quad
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: blue value
 '''  Loc: SRC/pix.h (171, 17)
@@ -4986,17 +4859,6 @@ ReadOnly Property alpha as Byte
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_RGBA_Quad
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_RGBA_Quad
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_RGBA_Quad
@@ -5014,6 +4876,13 @@ Public Class Pixa
 	Property Pointer as IntPTR
 	Private Values as Marshal_Pixa
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_Pixa
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: number of Pix in ptr array
 '''  Loc: SRC/pix.h (456, 25)
@@ -5089,17 +4958,6 @@ ReadOnly Property boxa as Boxa
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_Pixa
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_Pixa
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_Pixa
@@ -5118,6 +4976,13 @@ Public Class Pixaa
 	Property Pointer as IntPTR
 	Private Values as Marshal_Pixaa
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_Pixaa
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: number of Pixa in ptr array
 '''  Loc: SRC/pix.h (467, 25)
@@ -5180,17 +5045,6 @@ ReadOnly Property boxa as Boxa
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_Pixaa
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_Pixaa
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_Pixaa
@@ -5208,6 +5062,13 @@ Public Class Box
 	Property Pointer as IntPTR
 	Private Values as Marshal_Box
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_Box
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: left coordinate
 '''  Loc: SRC/pix.h (482, 24)
@@ -5273,17 +5134,6 @@ ReadOnly Property refcount as UInteger
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_Box
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_Box
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_Box
@@ -5302,6 +5152,13 @@ Public Class Boxa
 	Property Pointer as IntPTR
 	Private Values as Marshal_Boxa
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_Boxa
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: number of box in ptr array
 '''  Loc: SRC/pix.h (494, 24)
@@ -5362,17 +5219,6 @@ End If
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_Boxa
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_Boxa
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_Boxa
@@ -5390,6 +5236,13 @@ Public Class Boxaa
 	Property Pointer as IntPTR
 	Private Values as Marshal_Boxaa
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_Boxaa
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: number of boxa in ptr array
 '''  Loc: SRC/pix.h (504, 24)
@@ -5437,17 +5290,6 @@ End If
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_Boxaa
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_Boxaa
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_Boxaa
@@ -5464,6 +5306,13 @@ Public Class Pta
 	Property Pointer as IntPTR
 	Private Values as Marshal_Pta
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_Pta
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: actual number of pts
 '''  Loc: SRC/pix.h (519, 24)
@@ -5537,15 +5386,6 @@ End if
 	End Get
 End Property
 
-	Sub New ()
-        Pointer = LeptonicaSharp._AllFunctions.ptaCreate(10).Pointer
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_Pta
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_Pta
@@ -5564,6 +5404,13 @@ Public Class Ptaa
 	Property Pointer as IntPTR
 	Private Values as Marshal_Ptaa
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_Ptaa
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: number of pta in ptr array
 '''  Loc: SRC/pix.h (534, 26)
@@ -5611,17 +5458,6 @@ End If
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_Ptaa
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_Ptaa
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_Ptaa
@@ -5638,6 +5474,13 @@ Public Class Pixacc
 	Property Pointer as IntPTR
 	Private Values as Marshal_Pixacc
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_Pixacc
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: array width
 '''  Loc: SRC/pix.h (548, 25)
@@ -5692,17 +5535,6 @@ ReadOnly Property pix as Pix
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_Pixacc
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_Pixacc
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_Pixacc
@@ -5720,6 +5552,13 @@ Public Class PixTiling
 	Property Pointer as IntPTR
 	Private Values as Marshal_PixTiling
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_PixTiling
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: input pix (a clone)
 '''  Loc: SRC/pix.h (564, 26)
@@ -5826,17 +5665,6 @@ ReadOnly Property strip as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_PixTiling
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_PixTiling
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_PixTiling
@@ -5858,6 +5686,13 @@ Public Class FPix
 	Property Pointer as IntPTR
 	Private Values as Marshal_FPix
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_FPix
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: width in pixels
 '''  Loc: SRC/pix.h (584, 26)
@@ -5953,17 +5788,6 @@ End if
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_FPix
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_FPix
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_FPix
@@ -5984,6 +5808,13 @@ Public Class FPixa
 	Property Pointer as IntPTR
 	Private Values as Marshal_FPixa
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_FPixa
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: number of fpix in ptr array
 '''  Loc: SRC/pix.h (599, 25)
@@ -6044,17 +5875,6 @@ End If
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_FPixa
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_FPixa
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_FPixa
@@ -6072,6 +5892,13 @@ Public Class DPix
 	Property Pointer as IntPTR
 	Private Values as Marshal_DPix
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_DPix
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: width in pixels
 '''  Loc: SRC/pix.h (615, 26)
@@ -6167,17 +5994,6 @@ End if
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_DPix
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_DPix
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_DPix
@@ -6198,6 +6014,13 @@ Public Class PixComp
 	Property Pointer as IntPTR
 	Private Values as Marshal_PixComp
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_PixComp
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: width in pixels
 '''  Loc: SRC/pix.h (635, 26)
@@ -6334,17 +6157,6 @@ ReadOnly Property size as UInteger
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_PixComp
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_PixComp
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_PixComp
@@ -6368,6 +6180,13 @@ Public Class PixaComp
 	Property Pointer as IntPTR
 	Private Values as Marshal_PixaComp
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_PixaComp
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: number of PixComp in ptr array
 '''  Loc: SRC/pix.h (660, 26)
@@ -6443,17 +6262,6 @@ ReadOnly Property boxa as Boxa
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_PixaComp
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_PixaComp
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_PixaComp
@@ -6474,6 +6282,13 @@ Public Class L_Recog
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Recog
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Recog
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: scale all examples to this width;
 '''  Loc: SRC/recog.h (117, 20)
@@ -7208,17 +7023,6 @@ ReadOnly Property rcha as L_Rcha
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Recog
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Recog
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Recog
@@ -7284,6 +7088,13 @@ Public Class L_Rch
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Rch
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Rch
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: index of best template
 '''  Loc: SRC/recog.h (183, 20)
@@ -7377,17 +7188,6 @@ ReadOnly Property width as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Rch
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Rch
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Rch
@@ -7408,6 +7208,13 @@ Public Class L_Rcha
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Rcha
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Rcha
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: indices of best templates
 '''  Loc: SRC/recog.h (198, 20)
@@ -7513,17 +7320,6 @@ ReadOnly Property nawidth as Numa
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Rcha
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Rcha
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Rcha
@@ -7544,6 +7340,13 @@ Public Class L_Rdid
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Rdid
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Rdid
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: clone of pix to be decoded
 '''  Loc: SRC/recog.h (212, 20)
@@ -7935,17 +7738,6 @@ ReadOnly Property nascore_r as Numa
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Rdid
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Rdid
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Rdid
@@ -7986,6 +7778,13 @@ Public Class L_RegParams
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_RegParams
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_RegParams
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: stream to temporary output file for compare mode
 '''  Loc: SRC/regutils.h (119, 14)
@@ -8096,17 +7895,6 @@ ReadOnly Property tstart as IntPTR
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_RegParams
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_RegParams
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_RegParams
@@ -8130,6 +7918,13 @@ Public Class L_StrCode
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_StrCode
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_StrCode
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: index for function and output file names
 '''  Loc: SRC/stringcode.h (42, 19)
@@ -8162,7 +7957,7 @@ End Property
 '''  Org: [SARRAY * function]
 '''  Msh: SARRAY * | 2:Struct |  Typedef: Sarray = Sarray
 ''' </summary>
-ReadOnly Property _function_ as SARRAY
+ReadOnly Property _function_ as Sarray
 	Get
 			If Values._function_ <> IntPtr.Zero Then 
 		Return New Sarray(Values._function_)
@@ -8177,7 +7972,7 @@ End Property
 '''  Org: [SARRAY * data]
 '''  Msh: SARRAY * | 2:Struct |  Typedef: Sarray = Sarray
 ''' </summary>
-ReadOnly Property data as SARRAY
+ReadOnly Property data as Sarray
 	Get
 			If Values.data <> IntPtr.Zero Then 
 		Return New Sarray(Values.data)
@@ -8192,7 +7987,7 @@ End Property
 '''  Org: [SARRAY * descr]
 '''  Msh: SARRAY * | 2:Struct |  Typedef: Sarray = Sarray
 ''' </summary>
-ReadOnly Property descr as SARRAY
+ReadOnly Property descr as Sarray
 	Get
 			If Values.descr <> IntPtr.Zero Then 
 		Return New Sarray(Values.descr)
@@ -8214,17 +8009,6 @@ ReadOnly Property n as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_StrCode
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_StrCode
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_StrCode
@@ -8246,6 +8030,13 @@ Public Class L_Sudoku
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Sudoku
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Sudoku
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: number of unknowns
 '''  Loc: SRC/sudoku.h (54, 20)
@@ -8362,17 +8153,6 @@ ReadOnly Property failure as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Sudoku
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Sudoku
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Sudoku
@@ -8396,6 +8176,13 @@ Public Class L_WShed
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_WShed
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_WShed
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: clone of input 8 bpp pixs
 '''  Loc: SRC/watershed.h (40, 20)
@@ -8717,17 +8504,6 @@ ReadOnly Property debug as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_WShed
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_WShed
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_WShed
@@ -8764,6 +8540,13 @@ Public Class L_Bilateral
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Bilateral
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Bilateral
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: clone of source pix
 '''  Loc: SRC/bilateral.h (117, 21)
@@ -8993,17 +8776,6 @@ Return _DataFin
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Bilateral
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Bilateral
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Bilateral
@@ -9034,6 +8806,13 @@ Public Class BMP_FileHeader
 	Property Pointer as IntPTR
 	Private Values as Marshal_BMP_FileHeader
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_BMP_FileHeader
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: file type; must be "BM"
 '''  Loc: SRC/bmp.h (52, 20)
@@ -9125,17 +8904,6 @@ ReadOnly Property bfFill2 as Short
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_BMP_FileHeader
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_BMP_FileHeader
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_BMP_FileHeader
@@ -9156,6 +8924,13 @@ Public Class BMP_InfoHeader
 	Property Pointer as IntPTR
 	Private Values as Marshal_BMP_InfoHeader
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_BMP_InfoHeader
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: size of the BMP_InfoHeader struct
 '''  Loc: SRC/bmp.h (77, 20)
@@ -9299,17 +9074,6 @@ ReadOnly Property biClrImportant as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_BMP_InfoHeader
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_BMP_InfoHeader
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_BMP_InfoHeader
@@ -9336,6 +9100,13 @@ Public Class ColorQuantCell
 	Property Pointer as IntPTR
 	Private Values as Marshal_ColorQuantCell
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_ColorQuantCell
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (160, 17)
@@ -9427,17 +9198,6 @@ ReadOnly Property bleaf as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_ColorQuantCell
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_ColorQuantCell
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_ColorQuantCell
@@ -9458,6 +9218,13 @@ Public Class OctcubeQuantCell
 	Property Pointer as IntPTR
 	Private Values as Marshal_OctcubeQuantCell
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_OctcubeQuantCell
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (192, 16)
@@ -9562,17 +9329,6 @@ ReadOnly Property bval as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_OctcubeQuantCell
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_OctcubeQuantCell
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_OctcubeQuantCell
@@ -9594,6 +9350,13 @@ Public Class L_OctcubePop
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_OctcubePop
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_OctcubePop
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC\colorquant1.c (208, 22)
@@ -9659,17 +9422,6 @@ ReadOnly Property bval as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_OctcubePop
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_OctcubePop
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_OctcubePop
@@ -9690,6 +9442,13 @@ Public Class L_Box3d
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Box3d
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Box3d
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC\colorquant2.c (180, 22)
@@ -9807,17 +9566,6 @@ ReadOnly Property b2 as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Box3d
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Box3d
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Box3d
@@ -9842,6 +9590,13 @@ Public Class FillSeg
 	Property Pointer as IntPTR
 	Private Values as Marshal_FillSeg
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_FillSeg
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: left edge of run
 '''  Loc: SRC\conncomp.c (101, 16)
@@ -9894,17 +9649,6 @@ ReadOnly Property dy as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_FillSeg
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_FillSeg
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_FillSeg
@@ -9924,13 +9668,20 @@ Public Class JbFindTemplatesState
 	Property Pointer as IntPTR
 	Private Values as Marshal_JbFindTemplatesState
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_JbFindTemplatesState
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC\jbclass.c (238, 22)
 '''  Org: [JBCLASSER * classer]
 '''  Msh: JBCLASSER * | 2:Struct |  Typedef: JbClasser = JbClasser
 ''' </summary>
-ReadOnly Property classer as JBCLASSER
+ReadOnly Property classer as JbClasser
 	Get
 			If Values.classer <> IntPtr.Zero Then 
 		Return New JbClasser(Values.classer)
@@ -9984,7 +9735,7 @@ End Property
 '''  Org: [L_DNA * dna]
 '''  Msh: L_DNA * | 2:Struct |  Typedef: L_Dna = L_Dna
 ''' </summary>
-ReadOnly Property dna as L_DNA
+ReadOnly Property dna as L_Dna
 	Get
 			If Values.dna <> IntPtr.Zero Then 
 		Return New L_Dna(Values.dna)
@@ -10006,17 +9757,6 @@ ReadOnly Property n as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_JbFindTemplatesState
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_JbFindTemplatesState
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_JbFindTemplatesState
@@ -10038,6 +9778,13 @@ Public Class callback_data
 	Property Pointer as IntPTR
 	Private Values as Marshal_callback_data
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_callback_data
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC\jpegio.c (165, 15)
@@ -10068,17 +9815,6 @@ End if
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_callback_data
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_callback_data
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_callback_data
@@ -10096,6 +9832,13 @@ Public Class MazeElement
 	Property Pointer as IntPTR
 	Private Values as Marshal_MazeElement
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_MazeElement
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC\maze.c (77, 16)
@@ -10161,17 +9904,6 @@ ReadOnly Property dir as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_MazeElement
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_MazeElement
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_MazeElement
@@ -10192,6 +9924,13 @@ Public Class PartitionElement
 	Property Pointer as IntPTR
 	Private Values as Marshal_PartitionElement
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_PartitionElement
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC\partition.c (49, 16)
@@ -10211,7 +9950,7 @@ End Property
 '''  Org: [BOX * box]
 '''  Msh: BOX * | 2:Struct |  Typedef: Box = Box
 ''' </summary>
-ReadOnly Property box as BOX
+ReadOnly Property box as Box
 	Get
 			If Values.box <> IntPtr.Zero Then 
 		Return New Box(Values.box)
@@ -10226,7 +9965,7 @@ End Property
 '''  Org: [BOXA * boxa]
 '''  Msh: BOXA * | 2:Struct |  Typedef: Boxa = Boxa
 ''' </summary>
-ReadOnly Property boxa as BOXA
+ReadOnly Property boxa as Boxa
 	Get
 			If Values.boxa <> IntPtr.Zero Then 
 		Return New Boxa(Values.boxa)
@@ -10235,17 +9974,6 @@ ReadOnly Property boxa as BOXA
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_PartitionElement
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_PartitionElement
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_PartitionElement
@@ -10264,6 +9992,13 @@ Public Class PixMemoryManager
 	Property Pointer as IntPTR
 	Private Values as Marshal_PixMemoryManager
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_PixMemoryManager
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC\pix1.c (220, 17)
@@ -10290,17 +10025,6 @@ ReadOnly Property deallocator as IntPTR
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_PixMemoryManager
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_PixMemoryManager
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_PixMemoryManager
@@ -10318,6 +10042,13 @@ Public Class PixMemoryStore
 	Property Pointer as IntPTR
 	Private Values as Marshal_PixMemoryStore
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_PixMemoryStore
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: Holds ptrs to allocated memory
 '''  Loc: SRC\pixalloc.c (115, 22)
@@ -10466,7 +10197,7 @@ End Property
 '''  Org: [l_uint32 ** firstptr]
 '''  Msh: l_uint32 ** | 3:UInt | List (of Byte()) ... UInt nicht Marshalbar. Verwende 4 Bytes
 ''' </summary>
-ReadOnly Property firstptr as IntPTR
+ReadOnly Property firstptr as List(Of Byte())
 	Get
 		Dim _Data1(4 - 1) As Byte
 Dim _DataFin As New List(Of Byte())
@@ -10476,7 +10207,7 @@ For Each eintrag In _Data1
 	Marshal.Copy(eintrag, _Data2, 0, _Data2.Length)
 	 _DataFin.Add(_Data2)
 Next
-            'Return _DataFin
+Return _DataFin
 		Return Nothing
 	End Get
 End Property
@@ -10564,17 +10295,6 @@ End if
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_PixMemoryStore
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_PixMemoryStore
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_PixMemoryStore
@@ -10606,6 +10326,13 @@ Public Class MemIOData
 	Property Pointer as IntPTR
 	Private Values as Marshal_MemIOData
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_MemIOData
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: pointer to this node's I/O content
 '''  Loc: SRC\pngio.c (1295, 17)
@@ -10677,17 +10404,6 @@ ReadOnly Property m_Last as MemIOData
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_MemIOData
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_MemIOData
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_MemIOData
@@ -10708,6 +10424,13 @@ Public Class L_Pixel
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Pixel
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Pixel
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC\seedfill.c (172, 16)
@@ -10734,17 +10457,6 @@ ReadOnly Property y as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Pixel
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Pixel
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Pixel
@@ -10762,6 +10474,13 @@ Public Class CompParameterMap
 	Property Pointer as IntPTR
 	Private Values as Marshal_CompParameterMap
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_CompParameterMap
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC\sel1.c (154, 14)
@@ -10853,17 +10572,6 @@ ReadOnly Property selnamev2 as Char
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_CompParameterMap
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_CompParameterMap
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_CompParameterMap
@@ -10886,6 +10594,13 @@ Public Class L_GenAssoc
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_GenAssoc
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_GenAssoc
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC\stringcode.c (97, 14)
@@ -10951,17 +10666,6 @@ ReadOnly Property memreader as Char
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_GenAssoc
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_GenAssoc
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_GenAssoc
@@ -10982,6 +10686,13 @@ Public Class tiff_transform
 	Property Pointer as IntPTR
 	Private Values as Marshal_tiff_transform
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_tiff_transform
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC\tiffio.c (156, 9)
@@ -11021,17 +10732,6 @@ ReadOnly Property rotate as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_tiff_transform
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_tiff_transform
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_tiff_transform
@@ -11048,6 +10748,13 @@ Public Class L_Memstream
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_Memstream
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_Memstream
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC\tiffio.c (2176, 16)
@@ -11140,17 +10847,6 @@ Return _poutsize
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_Memstream
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_Memstream
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Memstream
@@ -11172,6 +10868,13 @@ Public Class L_NewPixel
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_NewPixel
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_NewPixel
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: x coordinate
 '''  Loc: SRC\watershed.c (126, 16)
@@ -11198,17 +10901,6 @@ ReadOnly Property y as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_NewPixel
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_NewPixel
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_NewPixel
@@ -11224,6 +10916,13 @@ Public Class L_WSPixel
 	Property Pointer as IntPTR
 	Private Values as Marshal_L_WSPixel
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_L_WSPixel
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: pixel value
 '''  Loc: SRC\watershed.c (134, 16)
@@ -11276,17 +10975,6 @@ ReadOnly Property index as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_L_WSPixel
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_L_WSPixel
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_WSPixel
@@ -11306,6 +10994,13 @@ Public Class ExtensionMap
 	Property Pointer as IntPTR
 	Private Values as Marshal_ExtensionMap
 
+
+	Sub New (PTR as IntPTR)
+		If PTR = IntPtr.Zero Then Exit Sub
+		Pointer = PTR
+		Values = New  Marshal_ExtensionMap
+		Marshal.PtrToStructure (Pointer, Values)
+	End Sub
 ''' <summary>
 ''' Brf: 
 '''  Loc: SRC\writefile.c (141, 14)
@@ -11332,17 +11027,6 @@ ReadOnly Property format as Integer
 	End Get
 End Property
 
-	Sub New ()
-	Values = New Marshal_ExtensionMap
-	Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
-	Marshal.StructureToPtr(values, Pointer, True)
-	End Sub
-	Sub New (PTR as IntPTR)
-		If PTR = IntPtr.Zero Then Exit Sub
-		Pointer = PTR
-		Values = New  Marshal_ExtensionMap
-		Marshal.PtrToStructure (Pointer, Values)
-	End Sub
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_ExtensionMap

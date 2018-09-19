@@ -47,7 +47,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -59,7 +58,6 @@
     <Import Include="System" />
     <Import Include="System.Collections" />
     <Import Include="System.Collections.Generic" />
-    <Import Include="System.Data" />
     <Import Include="System.Diagnostics" />
     <Import Include="System.Linq" />
     <Import Include="System.Xml.Linq" />
@@ -71,7 +69,7 @@
     </Compile>
     <Compile Include="Extensions\ExtensionEnumerations.vb" />
     <Compile Include="Extensions\Extension_ColorMap_RGBAQuad.vb" />
-    <Compile Include="Extensions\Extension_Sel_Box_Numa.vb" />
+    <Compile Include="Extensions\Konstruktoren.vb" />
     <Compile Include="Extensions\ShowPix.Designer.vb">
       <DependentUpon>ShowPix.vb</DependentUpon>
     </Compile>

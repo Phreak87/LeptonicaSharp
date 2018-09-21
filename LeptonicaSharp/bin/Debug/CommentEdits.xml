@@ -47,6 +47,7 @@
 			<CheckComment Text="8 bpp" 											Prop="d">{8}</CheckComment>
 			<CheckComment Text="8 bpp grayscale" 								Prop="d">{8}</CheckComment>
 			<CheckComment Text="8 bpp; colormap OK" 							Prop="d">{8}</CheckComment>
+			<CheckComment Text="8 bpp; no colormap" 							Prop="d">{8}</CheckComment>
 			<CheckComment Text="8 bpp grayscale; not colormapped" 				Prop="d">{8}</CheckComment>
 			
 			<CheckComment Text="16 bpp" 										Prop="d">{16}</CheckComment>

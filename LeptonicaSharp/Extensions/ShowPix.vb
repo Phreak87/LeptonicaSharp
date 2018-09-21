@@ -1,12 +1,16 @@
 ﻿Public Class ShowPix
     WithEvents PicBox As New BetterPictureBox
-    Sub New(Pix As pix)
+    Sub New(ByVal Pix As Pix)
         InitializeComponent()
 
-        ' Zuerst zu d32 konvertieren, Fehler aber einzige Lösung bis Dato
-        Dim Pix32 As Pix = LeptonicaSharp._AllFunctions.pixConvertTo32(Pix)
+        If IsNothing(Pix) Then Exit Sub
 
-        PicBox.LoadImage(Pix32.ToBitmap)
+        Dim Pix32 As Pix = LeptonicaSharp._AllFunctions.pixConvertTo32(Pix)
+        If IsNothing(Pix32) Then Exit Sub
+
+        Dim BMP As System.Drawing.Image = Pix32.ToBitmap32
+        PicBox.LoadImage(BMP) : Pix32.Dispose()
+        Me.ShowDialog() : BMP.Dispose()
     End Sub
     Private Sub ShowPix_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         PicBox.Left = 0

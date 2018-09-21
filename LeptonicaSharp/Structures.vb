@@ -6,11 +6,12 @@ Imports LeptonicaSharp.Enumerations
 ' SRC/environ.h (308, 8)
 ' Timing struct
 Public Class L_WallTimer
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_WallTimer
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_WallTimer
@@ -24,6 +25,7 @@ Public Class L_WallTimer
 ''' </summary>
 ReadOnly Property start_sec as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.start_sec
 		Return Nothing
 	End Get
@@ -37,6 +39,7 @@ End Property
 ''' </summary>
 ReadOnly Property start_usec as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.start_usec
 		Return Nothing
 	End Get
@@ -50,6 +53,7 @@ End Property
 ''' </summary>
 ReadOnly Property stop_sec as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.stop_sec
 		Return Nothing
 	End Get
@@ -63,6 +67,7 @@ End Property
 ''' </summary>
 ReadOnly Property stop_usec as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.stop_usec
 		Return Nothing
 	End Get
@@ -84,11 +89,25 @@ End Class
 ' SRC/array.h (59, 8)
 ' Number array: an array of floats
 Public Class Numa
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_Numa
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.NumaDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_Numa
@@ -102,6 +121,7 @@ Public Class Numa
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -115,6 +135,7 @@ End Property
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -128,6 +149,7 @@ End Property
 ''' </summary>
 ReadOnly Property refcount as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.refcount
 		Return Nothing
 	End Get
@@ -141,6 +163,7 @@ End Property
 ''' </summary>
 ReadOnly Property startx as Single
 	Get
+	if isnothing(values) then return nothing
 				Return Values.startx
 		Return Nothing
 	End Get
@@ -154,6 +177,7 @@ End Property
 ''' </summary>
 ReadOnly Property delx as Single
 	Get
+	if isnothing(values) then return nothing
 				Return Values.delx
 		Return Nothing
 	End Get
@@ -167,6 +191,7 @@ End Property
 ''' </summary>
 ReadOnly Property array as Single()
 	Get
+	if isnothing(values) then return nothing
 		If Values.array <> IntPtr.Zero Then 
 	Dim _array(values.n -1) as Single
 	Marshal.Copy(Values.array, _array, 0, _array.Length)
@@ -184,7 +209,7 @@ End Property
 		Public refcount as Integer
 		Public startx as Single
 		Public delx as Single
-		Public array as IntPTR
+		Public array as IntPtr
 	End Class
 End Class
 
@@ -192,11 +217,25 @@ End Class
 ' SRC/array.h (71, 8)
 ' Array of number arrays
 Public Class Numaa
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_Numaa
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.NumaaDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_Numaa
@@ -210,6 +249,7 @@ Public Class Numaa
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -223,6 +263,7 @@ End Property
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -236,6 +277,7 @@ End Property
 ''' </summary>
 ReadOnly Property numa as List (of Numa)
 	Get
+	if isnothing(values) then return nothing
 		If Values.numa <> IntPtr.Zero Then
 		Dim LST_numa As New List(Of Numa)
 		Dim ARR_numa(values.n - 1) As IntPtr
@@ -254,7 +296,7 @@ End Property
 	Private Class Marshal_Numaa
 		Public nalloc as Integer
 		Public n as Integer
-		Public numa as IntPTR
+		Public numa as IntPtr
 	End Class
 End Class
 
@@ -262,11 +304,25 @@ End Class
 ' SRC/array.h (83, 8)
 ' Double number array: an array of doubles
 Public Class L_Dna
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Dna
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.L_DnaDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Dna
@@ -280,6 +336,7 @@ Public Class L_Dna
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -293,6 +350,7 @@ End Property
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -306,6 +364,7 @@ End Property
 ''' </summary>
 ReadOnly Property refcount as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.refcount
 		Return Nothing
 	End Get
@@ -319,6 +378,7 @@ End Property
 ''' </summary>
 ReadOnly Property startx as Double
 	Get
+	if isnothing(values) then return nothing
 				Return Values.startx
 		Return Nothing
 	End Get
@@ -332,6 +392,7 @@ End Property
 ''' </summary>
 ReadOnly Property delx as Double
 	Get
+	if isnothing(values) then return nothing
 				Return Values.delx
 		Return Nothing
 	End Get
@@ -345,6 +406,7 @@ End Property
 ''' </summary>
 ReadOnly Property array as Double()
 	Get
+	if isnothing(values) then return nothing
 		If Values.array <> IntPtr.Zero Then 
 	Dim _array(values.n -1) as Double
 	Marshal.Copy(Values.array, _array, 0, _array.Length)
@@ -362,7 +424,7 @@ End Property
 		Public refcount as Integer
 		Public startx as Double
 		Public delx as Double
-		Public array as IntPTR
+		Public array as IntPtr
 	End Class
 End Class
 
@@ -370,11 +432,25 @@ End Class
 ' SRC/array.h (95, 8)
 ' Array of double number arrays
 Public Class L_Dnaa
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Dnaa
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.L_DnaaDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Dnaa
@@ -388,6 +464,7 @@ Public Class L_Dnaa
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -401,6 +478,7 @@ End Property
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -414,6 +492,7 @@ End Property
 ''' </summary>
 ReadOnly Property dna as List (of L_Dna)
 	Get
+	if isnothing(values) then return nothing
 		If Values.dna <> IntPtr.Zero Then
 		Dim LST_dna As New List(Of L_Dna)
 		Dim ARR_dna(values.n - 1) As IntPtr
@@ -432,7 +511,7 @@ End Property
 	Private Class Marshal_L_Dnaa
 		Public nalloc as Integer
 		Public n as Integer
-		Public dna as IntPTR
+		Public dna as IntPtr
 	End Class
 End Class
 
@@ -440,11 +519,25 @@ End Class
 ' SRC/array.h (104, 8)
 ' A hash table of Dnas
 Public Class L_DnaHash
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_DnaHash
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.L_DnaHashDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_DnaHash
@@ -458,6 +551,7 @@ Public Class L_DnaHash
 ''' </summary>
 ReadOnly Property nbuckets as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nbuckets
 		Return Nothing
 	End Get
@@ -471,6 +565,7 @@ End Property
 ''' </summary>
 ReadOnly Property initsize as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.initsize
 		Return Nothing
 	End Get
@@ -484,6 +579,7 @@ End Property
 ''' </summary>
 ReadOnly Property dna as List (of L_Dna)
 	Get
+	if isnothing(values) then return nothing
 		If Values.dna <> IntPtr.Zero Then
 		Dim LST_dna As New List(Of L_Dna)
 		Dim ARR_dna(1 - 1) As IntPtr
@@ -502,7 +598,7 @@ End Property
 	Private Class Marshal_L_DnaHash
 		Public nbuckets as Integer
 		Public initsize as Integer
-		Public dna as IntPTR
+		Public dna as IntPtr
 	End Class
 End Class
 
@@ -510,11 +606,25 @@ End Class
 ' SRC/array.h (116, 8)
 ' String array: an array of C strings
 Public Class Sarray
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_Sarray
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.SarrayDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_Sarray
@@ -528,6 +638,7 @@ Public Class Sarray
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -541,6 +652,7 @@ End Property
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -554,6 +666,7 @@ End Property
 ''' </summary>
 ReadOnly Property refcount as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.refcount
 		Return Nothing
 	End Get
@@ -567,6 +680,7 @@ End Property
 ''' </summary>
 ReadOnly Property array as String()
 	Get
+	if isnothing(values) then return nothing
 		Dim LSTRET As New List(Of String)
 Dim LSTPTR(Values.n - 1) As IntPtr: Marshal.Copy(Values.array, LSTPTR, 0, values.n)
 For Each Entry As IntPtr In LSTPTR: LSTRET.Add(Marshal.PtrToStringAnsi(Entry)): Next
@@ -581,7 +695,7 @@ End Property
 		Public nalloc as Integer
 		Public n as Integer
 		Public refcount as Integer
-		Public array as IntPTR
+		Public array as IntPtr
 	End Class
 End Class
 
@@ -589,11 +703,25 @@ End Class
 ' SRC/array.h (126, 8)
 ' Byte array (analogous to C++ "string")
 Public Class L_Bytea
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Bytea
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.L_ByteaDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Bytea
@@ -607,6 +735,7 @@ Public Class L_Bytea
 ''' </summary>
 ReadOnly Property nalloc as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -620,6 +749,7 @@ End Property
 ''' </summary>
 ReadOnly Property size as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.size
 		Return Nothing
 	End Get
@@ -633,6 +763,7 @@ End Property
 ''' </summary>
 ReadOnly Property refcount as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.refcount
 		Return Nothing
 	End Get
@@ -646,6 +777,7 @@ End Property
 ''' </summary>
 ReadOnly Property data as Byte()
 	Get
+	if isnothing(values) then return nothing
 		If Values.data <> IntPtr.Zero Then 
 	Dim _data(values.nalloc -1) as Byte
 	Marshal.Copy(Values.data, _data, 0, _data.Length)
@@ -661,7 +793,7 @@ End Property
 		Public nalloc as UInteger
 		Public size as UInteger
 		Public refcount as Integer
-		Public data as IntPTR
+		Public data as IntPtr
 	End Class
 End Class
 
@@ -671,11 +803,12 @@ End Class
 ' SRC/bbuffer.h (50, 8)
 ' Expandable byte buffer for memory read/write operations
 Public Class L_ByteBuffer
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_ByteBuffer
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_ByteBuffer
@@ -689,6 +822,7 @@ Public Class L_ByteBuffer
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -702,6 +836,7 @@ End Property
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -715,6 +850,7 @@ End Property
 ''' </summary>
 ReadOnly Property nwritten as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nwritten
 		Return Nothing
 	End Get
@@ -728,6 +864,7 @@ End Property
 ''' </summary>
 ReadOnly Property array as Byte()
 	Get
+	if isnothing(values) then return nothing
 		If Values.array <> IntPtr.Zero Then 
 	Dim _array(values.n -1) as Byte
 	Marshal.Copy(Values.array, _array, 0, _array.Length)
@@ -743,7 +880,7 @@ End Property
 		Public nalloc as Integer
 		Public n as Integer
 		Public nwritten as Integer
-		Public array as IntPTR
+		Public array as IntPtr
 	End Class
 End Class
 
@@ -753,11 +890,12 @@ End Class
 ' SRC/heap.h (77, 8)
 ' Heap of arbitrary void* data
 Public Class L_Heap
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Heap
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Heap
@@ -771,6 +909,7 @@ Public Class L_Heap
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -784,6 +923,7 @@ End Property
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -793,12 +933,13 @@ End Property
 ''' Brf: ptr array
 '''  Loc: SRC/heap.h (81, 18)
 '''  Org: [void ** array]
-'''  Msh: void ** | 3:Void | IntPTR()
+'''  Msh: void ** | 3:Void | IntPtr()
 ''' </summary>
-ReadOnly Property array as IntPTR()
+ReadOnly Property array as IntPtr()
 	Get
+	if isnothing(values) then return nothing
 			If Values.array <> IntPtr.Zero Then 
-		Dim _array(values.n) as IntPTR
+		Dim _array(values.n) as IntPtr
 		Marshal.Copy(Values.array, _array, 0, values.n)
 		Return _array
 	End if
@@ -814,6 +955,7 @@ End Property
 ''' </summary>
 ReadOnly Property direction as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.direction
 		Return Nothing
 	End Get
@@ -824,7 +966,7 @@ End Property
 	Private Class Marshal_L_Heap
 		Public nalloc as Integer
 		Public n as Integer
-		Public array as IntPTR
+		Public array as IntPtr
 		Public direction as Integer
 	End Class
 End Class
@@ -835,11 +977,12 @@ End Class
 ' SRC/list.h (61, 8)
 ' list.h
 Public Class DoubleLinkedList
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_DoubleLinkedList
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_DoubleLinkedList
@@ -853,6 +996,7 @@ Public Class DoubleLinkedList
 ''' </summary>
 ReadOnly Property prev as DoubleLinkedList
 	Get
+	if isnothing(values) then return nothing
 			If Values.prev <> IntPtr.Zero Then 
 		Return New DoubleLinkedList(Values.prev)
 	End if
@@ -868,6 +1012,7 @@ End Property
 ''' </summary>
 ReadOnly Property _next_ as DoubleLinkedList
 	Get
+	if isnothing(values) then return nothing
 			If Values._next_ <> IntPtr.Zero Then 
 		Return New DoubleLinkedList(Values._next_)
 	End if
@@ -879,10 +1024,11 @@ End Property
 ''' Brf: 
 '''  Loc: SRC/list.h (65, 33)
 '''  Org: [void * data]
-'''  Msh: void * | 2:Void |  ... Pointer auf Object = IntPTR
+'''  Msh: void * | 2:Void |  ... Pointer auf Object = IntPtr
 ''' </summary>
-ReadOnly Property data as IntPTR
+ReadOnly Property data as IntPtr
 	Get
+	if isnothing(values) then return nothing
 		If Values.data <> IntPtr.Zero Then
 	Return  Values.data
 End if
@@ -893,9 +1039,9 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_DoubleLinkedList
-		Public prev as IntPTR
-		Public _next_ as IntPTR
-		Public data as IntPTR
+		Public prev as IntPtr
+		Public _next_ as IntPtr
+		Public data as IntPtr
 	End Class
 End Class
 
@@ -905,11 +1051,12 @@ End Class
 ' SRC/ptra.h (51, 8)
 ' Generic pointer array
 Public Class L_Ptra
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Ptra
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Ptra
@@ -923,6 +1070,7 @@ Public Class L_Ptra
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -936,6 +1084,7 @@ End Property
 ''' </summary>
 ReadOnly Property imax as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.imax
 		Return Nothing
 	End Get
@@ -949,6 +1098,7 @@ End Property
 ''' </summary>
 ReadOnly Property nactual as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nactual
 		Return Nothing
 	End Get
@@ -958,12 +1108,13 @@ End Property
 ''' Brf: ptr array
 '''  Loc: SRC/ptra.h (56, 22)
 '''  Org: [void ** array]
-'''  Msh: void ** | 3:Void | IntPTR()
+'''  Msh: void ** | 3:Void | IntPtr()
 ''' </summary>
-ReadOnly Property array as IntPTR()
+ReadOnly Property array as IntPtr()
 	Get
+	if isnothing(values) then return nothing
 			If Values.array <> IntPtr.Zero Then 
-		Dim _array(values.nactual) as IntPTR
+		Dim _array(values.nactual) as IntPtr
 		Marshal.Copy(Values.array, _array, 0, values.nactual)
 		Return _array
 	End if
@@ -977,7 +1128,7 @@ End Property
 		Public nalloc as Integer
 		Public imax as Integer
 		Public nactual as Integer
-		Public array as IntPTR
+		Public array as IntPtr
 	End Class
 End Class
 
@@ -985,11 +1136,12 @@ End Class
 ' SRC/ptra.h (62, 8)
 ' Array of generic pointer arrays
 Public Class L_Ptraa
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Ptraa
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Ptraa
@@ -1003,6 +1155,7 @@ Public Class L_Ptraa
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -1016,6 +1169,7 @@ End Property
 ''' </summary>
 ReadOnly Property ptra as List (of L_Ptra)
 	Get
+	if isnothing(values) then return nothing
 		If Values.ptra <> IntPtr.Zero Then
 		Dim LST_ptra As New List(Of L_Ptra)
 		Dim ARR_ptra(values.nalloc - 1) As IntPtr
@@ -1033,7 +1187,7 @@ End Property
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Ptraa
 		Public nalloc as Integer
-		Public ptra as IntPTR
+		Public ptra as IntPtr
 	End Class
 End Class
 
@@ -1043,11 +1197,12 @@ End Class
 ' SRC/queue.h (64, 8)
 ' Expandable pointer queue for arbitrary void* data
 Public Class L_Queue
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Queue
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Queue
@@ -1061,6 +1216,7 @@ Public Class L_Queue
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -1074,6 +1230,7 @@ End Property
 ''' </summary>
 ReadOnly Property nhead as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nhead
 		Return Nothing
 	End Get
@@ -1087,6 +1244,7 @@ End Property
 ''' </summary>
 ReadOnly Property nelem as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nelem
 		Return Nothing
 	End Get
@@ -1096,12 +1254,13 @@ End Property
 ''' Brf: ptr array
 '''  Loc: SRC/queue.h (70, 22)
 '''  Org: [void ** array]
-'''  Msh: void ** | 3:Void | IntPTR()
+'''  Msh: void ** | 3:Void | IntPtr()
 ''' </summary>
-ReadOnly Property array as IntPTR()
+ReadOnly Property array as IntPtr()
 	Get
+	if isnothing(values) then return nothing
 			If Values.array <> IntPtr.Zero Then 
-		Dim _array(values.nelem) as IntPTR
+		Dim _array(values.nelem) as IntPtr
 		Marshal.Copy(Values.array, _array, 0, values.nelem)
 		Return _array
 	End if
@@ -1117,6 +1276,7 @@ End Property
 ''' </summary>
 ReadOnly Property stack as L_Stack
 	Get
+	if isnothing(values) then return nothing
 			If Values.stack <> IntPtr.Zero Then 
 		Return New L_Stack(Values.stack)
 	End if
@@ -1130,8 +1290,8 @@ End Property
 		Public nalloc as Integer
 		Public nhead as Integer
 		Public nelem as Integer
-		Public array as IntPTR
-		Public stack as IntPTR
+		Public array as IntPtr
+		Public stack as IntPtr
 	End Class
 End Class
 
@@ -1141,11 +1301,12 @@ End Class
 ' SRC/rbtree.h (61, 7)
 ' Storage for keys and values for red-black trees, maps and sets. Note: (1) Keys and values of the valid key types are all 64-bit (2) (void *) can be used for values but not for keys.
 Public Class Rb_Type
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_Rb_Type
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_Rb_Type
@@ -1159,6 +1320,7 @@ Public Class Rb_Type
 ''' </summary>
 ReadOnly Property itype as Long
 	Get
+	if isnothing(values) then return nothing
 				Return Values.itype
 		Return Nothing
 	End Get
@@ -1172,6 +1334,7 @@ End Property
 ''' </summary>
 ReadOnly Property utype as ULong
 	Get
+	if isnothing(values) then return nothing
 				Return Values.utype
 		Return Nothing
 	End Get
@@ -1185,6 +1348,7 @@ End Property
 ''' </summary>
 ReadOnly Property ftype as Double
 	Get
+	if isnothing(values) then return nothing
 				Return Values.ftype
 		Return Nothing
 	End Get
@@ -1194,10 +1358,11 @@ End Property
 ''' Brf: 
 '''  Loc: SRC/rbtree.h (65, 16)
 '''  Org: [void * ptype]
-'''  Msh: void * | 2:Void |  ... Pointer auf Object = IntPTR
+'''  Msh: void * | 2:Void |  ... Pointer auf Object = IntPtr
 ''' </summary>
-ReadOnly Property ptype as IntPTR
+ReadOnly Property ptype as IntPtr
 	Get
+	if isnothing(values) then return nothing
 		If Values.ptype <> IntPtr.Zero Then
 	Return  Values.ptype
 End if
@@ -1211,7 +1376,7 @@ End Property
 		Public itype as Long
 		Public utype as ULong
 		Public ftype as Double
-		Public ptype as IntPTR
+		Public ptype as IntPtr
 	End Class
 End Class
 
@@ -1219,11 +1384,25 @@ End Class
 ' SRC/rbtree.h (69, 8)
 ' 
 Public Class L_Rbtree
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Rbtree
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.L_RbtreeDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Rbtree
@@ -1237,6 +1416,7 @@ Public Class L_Rbtree
 ''' </summary>
 ReadOnly Property root as L_Rbtree_Node
 	Get
+	if isnothing(values) then return nothing
 			If Values.root <> IntPtr.Zero Then 
 		Return New L_Rbtree_Node(Values.root)
 	End if
@@ -1252,6 +1432,7 @@ End Property
 ''' </summary>
 ReadOnly Property keytype as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.keytype
 		Return Nothing
 	End Get
@@ -1260,7 +1441,7 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Rbtree
-		Public root as IntPTR
+		Public root as IntPtr
 		Public keytype as Integer
 	End Class
 End Class
@@ -1269,11 +1450,12 @@ End Class
 ' SRC/rbtree.h (77, 8)
 ' 
 Public Class L_Rbtree_Node
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Rbtree_Node
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Rbtree_Node
@@ -1287,6 +1469,7 @@ Public Class L_Rbtree_Node
 ''' </summary>
 ReadOnly Property key as Rb_Type
 	Get
+	if isnothing(values) then return nothing
 				Return Values.key
 		Return Nothing
 	End Get
@@ -1300,6 +1483,7 @@ End Property
 ''' </summary>
 ReadOnly Property value as Rb_Type
 	Get
+	if isnothing(values) then return nothing
 				Return Values.value
 		Return Nothing
 	End Get
@@ -1313,6 +1497,7 @@ End Property
 ''' </summary>
 ReadOnly Property left as L_Rbtree_Node
 	Get
+	if isnothing(values) then return nothing
 			If Values.left <> IntPtr.Zero Then 
 		Return New L_Rbtree_Node(Values.left)
 	End if
@@ -1328,6 +1513,7 @@ End Property
 ''' </summary>
 ReadOnly Property right as L_Rbtree_Node
 	Get
+	if isnothing(values) then return nothing
 			If Values.right <> IntPtr.Zero Then 
 		Return New L_Rbtree_Node(Values.right)
 	End if
@@ -1343,6 +1529,7 @@ End Property
 ''' </summary>
 ReadOnly Property parent as L_Rbtree_Node
 	Get
+	if isnothing(values) then return nothing
 			If Values.parent <> IntPtr.Zero Then 
 		Return New L_Rbtree_Node(Values.parent)
 	End if
@@ -1358,6 +1545,7 @@ End Property
 ''' </summary>
 ReadOnly Property color as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.color
 		Return Nothing
 	End Get
@@ -1368,9 +1556,9 @@ End Property
 	Private Class Marshal_L_Rbtree_Node
 		Public key as Rb_Type
 		Public value as Rb_Type
-		Public left as IntPTR
-		Public right as IntPTR
-		Public parent as IntPTR
+		Public left as IntPtr
+		Public right as IntPtr
+		Public parent as IntPtr
 		Public color as Integer
 	End Class
 End Class
@@ -1381,11 +1569,12 @@ End Class
 ' SRC/stack.h (59, 8)
 ' Expandable pointer stack for arbitrary void* data. Note that array[n] is the first null ptr in the array
 Public Class L_Stack
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Stack
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Stack
@@ -1399,6 +1588,7 @@ Public Class L_Stack
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -1412,6 +1602,7 @@ End Property
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -1421,12 +1612,13 @@ End Property
 ''' Brf: ptr array
 '''  Loc: SRC/stack.h (63, 22)
 '''  Org: [void ** array]
-'''  Msh: void ** | 3:Void | IntPTR()
+'''  Msh: void ** | 3:Void | IntPtr()
 ''' </summary>
-ReadOnly Property array as IntPTR()
+ReadOnly Property array as IntPtr()
 	Get
+	if isnothing(values) then return nothing
 			If Values.array <> IntPtr.Zero Then 
-		Dim _array(values.n) as IntPTR
+		Dim _array(values.n) as IntPtr
 		Marshal.Copy(Values.array, _array, 0, values.n)
 		Return _array
 	End if
@@ -1442,6 +1634,7 @@ End Property
 ''' </summary>
 ReadOnly Property auxstack as L_Stack
 	Get
+	if isnothing(values) then return nothing
 			If Values.auxstack <> IntPtr.Zero Then 
 		Return New L_Stack(Values.auxstack)
 	End if
@@ -1454,8 +1647,8 @@ End Property
 	Private Class Marshal_L_Stack
 		Public nalloc as Integer
 		Public n as Integer
-		Public array as IntPTR
-		Public auxstack as IntPTR
+		Public array as IntPtr
+		Public auxstack as IntPtr
 	End Class
 End Class
 
@@ -1465,11 +1658,12 @@ End Class
 ' SRC/bmf.h (45, 8)
 ' Data structure to hold bitmap fonts and related data
 Public Class L_Bmf
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Bmf
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Bmf
@@ -1483,6 +1677,7 @@ Public Class L_Bmf
 ''' </summary>
 ReadOnly Property pixa as Pixa
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixa <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixa)
 	End if
@@ -1498,6 +1693,7 @@ End Property
 ''' </summary>
 ReadOnly Property size as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.size
 		Return Nothing
 	End Get
@@ -1511,6 +1707,7 @@ End Property
 ''' </summary>
 ReadOnly Property directory as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.directory <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.directory)
 End if
@@ -1526,6 +1723,7 @@ End Property
 ''' </summary>
 ReadOnly Property baseline1 as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.baseline1
 		Return Nothing
 	End Get
@@ -1539,6 +1737,7 @@ End Property
 ''' </summary>
 ReadOnly Property baseline2 as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.baseline2
 		Return Nothing
 	End Get
@@ -1552,6 +1751,7 @@ End Property
 ''' </summary>
 ReadOnly Property baseline3 as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.baseline3
 		Return Nothing
 	End Get
@@ -1565,6 +1765,7 @@ End Property
 ''' </summary>
 ReadOnly Property lineheight as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.lineheight
 		Return Nothing
 	End Get
@@ -1578,6 +1779,7 @@ End Property
 ''' </summary>
 ReadOnly Property kernwidth as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.kernwidth
 		Return Nothing
 	End Get
@@ -1591,6 +1793,7 @@ End Property
 ''' </summary>
 ReadOnly Property spacewidth as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.spacewidth
 		Return Nothing
 	End Get
@@ -1604,6 +1807,7 @@ End Property
 ''' </summary>
 ReadOnly Property vertlinesep as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.vertlinesep
 		Return Nothing
 	End Get
@@ -1617,6 +1821,7 @@ End Property
 ''' </summary>
 ReadOnly Property fonttab as Integer()
 	Get
+	if isnothing(values) then return nothing
 		If Values.fonttab <> IntPtr.Zero Then 
 	Dim _fonttab(1 -1) as Integer
 	Marshal.Copy(Values.fonttab, _fonttab, 0, _fonttab.Length)
@@ -1634,6 +1839,7 @@ End Property
 ''' </summary>
 ReadOnly Property baselinetab as Integer()
 	Get
+	if isnothing(values) then return nothing
 		If Values.baselinetab <> IntPtr.Zero Then 
 	Dim _baselinetab(1 -1) as Integer
 	Marshal.Copy(Values.baselinetab, _baselinetab, 0, _baselinetab.Length)
@@ -1651,6 +1857,7 @@ End Property
 ''' </summary>
 ReadOnly Property widthtab as Integer()
 	Get
+	if isnothing(values) then return nothing
 		If Values.widthtab <> IntPtr.Zero Then 
 	Dim _widthtab(1 -1) as Integer
 	Marshal.Copy(Values.widthtab, _widthtab, 0, _widthtab.Length)
@@ -1663,9 +1870,9 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Bmf
-		Public pixa as IntPTR
+		Public pixa as IntPtr
 		Public size as Integer
-		Public directory as IntPTR
+		Public directory as IntPtr
 		Public baseline1 as Integer
 		Public baseline2 as Integer
 		Public baseline3 as Integer
@@ -1673,9 +1880,9 @@ End Property
 		Public kernwidth as Integer
 		Public spacewidth as Integer
 		Public vertlinesep as Integer
-		Public fonttab as IntPTR
-		Public baselinetab as IntPTR
-		Public widthtab as IntPTR
+		Public fonttab as IntPtr
+		Public baselinetab as IntPtr
+		Public widthtab as IntPtr
 	End Class
 End Class
 
@@ -1685,11 +1892,12 @@ End Class
 ' SRC/ccbord.h (91, 8)
 ' CCBord contains:
 Public Class CCBord
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_CCBord
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_CCBord
@@ -1703,6 +1911,7 @@ Public Class CCBord
 ''' </summary>
 ReadOnly Property pix as Pix
 	Get
+	if isnothing(values) then return nothing
 			If Values.pix <> IntPtr.Zero Then 
 		Return New Pix(Values.pix)
 	End if
@@ -1718,6 +1927,7 @@ End Property
 ''' </summary>
 ReadOnly Property boxa as Boxa
 	Get
+	if isnothing(values) then return nothing
 			If Values.boxa <> IntPtr.Zero Then 
 		Return New Boxa(Values.boxa)
 	End if
@@ -1733,6 +1943,7 @@ End Property
 ''' </summary>
 ReadOnly Property start as Pta
 	Get
+	if isnothing(values) then return nothing
 			If Values.start <> IntPtr.Zero Then 
 		Return New Pta(Values.start)
 	End if
@@ -1748,6 +1959,7 @@ End Property
 ''' </summary>
 ReadOnly Property refcount as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.refcount
 		Return Nothing
 	End Get
@@ -1761,6 +1973,7 @@ End Property
 ''' </summary>
 ReadOnly Property local as Ptaa
 	Get
+	if isnothing(values) then return nothing
 			If Values.local <> IntPtr.Zero Then 
 		Return New Ptaa(Values.local)
 	End if
@@ -1776,6 +1989,7 @@ End Property
 ''' </summary>
 ReadOnly Property _global_ as Ptaa
 	Get
+	if isnothing(values) then return nothing
 			If Values._global_ <> IntPtr.Zero Then 
 		Return New Ptaa(Values._global_)
 	End if
@@ -1791,6 +2005,7 @@ End Property
 ''' </summary>
 ReadOnly Property _step_ as Numaa
 	Get
+	if isnothing(values) then return nothing
 			If Values._step_ <> IntPtr.Zero Then 
 		Return New Numaa(Values._step_)
 	End if
@@ -1806,6 +2021,7 @@ End Property
 ''' </summary>
 ReadOnly Property splocal as Pta
 	Get
+	if isnothing(values) then return nothing
 			If Values.splocal <> IntPtr.Zero Then 
 		Return New Pta(Values.splocal)
 	End if
@@ -1821,6 +2037,7 @@ End Property
 ''' </summary>
 ReadOnly Property spglobal as Pta
 	Get
+	if isnothing(values) then return nothing
 			If Values.spglobal <> IntPtr.Zero Then 
 		Return New Pta(Values.spglobal)
 	End if
@@ -1831,15 +2048,15 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_CCBord
-		Public pix as IntPTR
-		Public boxa as IntPTR
-		Public start as IntPTR
+		Public pix as IntPtr
+		Public boxa as IntPtr
+		Public start as IntPtr
 		Public refcount as Integer
-		Public local as IntPTR
-		Public _global_ as IntPTR
-		Public _step_ as IntPTR
-		Public splocal as IntPTR
-		Public spglobal as IntPTR
+		Public local as IntPtr
+		Public _global_ as IntPtr
+		Public _step_ as IntPtr
+		Public splocal as IntPtr
+		Public spglobal as IntPtr
 	End Class
 End Class
 
@@ -1847,11 +2064,12 @@ End Class
 ' SRC/ccbord.h (106, 8)
 ' Array of CCBord
 Public Class CCBorda
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_CCBorda
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_CCBorda
@@ -1865,6 +2083,7 @@ Public Class CCBorda
 ''' </summary>
 ReadOnly Property pix as Pix
 	Get
+	if isnothing(values) then return nothing
 			If Values.pix <> IntPtr.Zero Then 
 		Return New Pix(Values.pix)
 	End if
@@ -1880,6 +2099,7 @@ End Property
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.w
 		Return Nothing
 	End Get
@@ -1893,6 +2113,7 @@ End Property
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.h
 		Return Nothing
 	End Get
@@ -1906,6 +2127,7 @@ End Property
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -1919,6 +2141,7 @@ End Property
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -1932,6 +2155,7 @@ End Property
 ''' </summary>
 ReadOnly Property ccb as List (of CCBord)
 	Get
+	if isnothing(values) then return nothing
 		If Values.ccb <> IntPtr.Zero Then
 		Dim LST_ccb As New List(Of CCBord)
 		Dim ARR_ccb(values.n - 1) As IntPtr
@@ -1948,12 +2172,12 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_CCBorda
-		Public pix as IntPTR
+		Public pix as IntPtr
 		Public w as Integer
 		Public h as Integer
 		Public n as Integer
 		Public nalloc as Integer
-		Public ccb as IntPTR
+		Public ccb as IntPtr
 	End Class
 End Class
 
@@ -1963,11 +2187,12 @@ End Class
 ' SRC/dewarp.h (113, 8)
 ' Data structure to hold a number of Dewarp
 Public Class L_Dewarpa
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Dewarpa
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Dewarpa
@@ -1981,6 +2206,7 @@ Public Class L_Dewarpa
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -1994,6 +2220,7 @@ End Property
 ''' </summary>
 ReadOnly Property maxpage as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.maxpage
 		Return Nothing
 	End Get
@@ -2007,6 +2234,7 @@ End Property
 ''' </summary>
 ReadOnly Property dewarp as List (of L_Dewarp)
 	Get
+	if isnothing(values) then return nothing
 		If Values.dewarp <> IntPtr.Zero Then
 		Dim LST_dewarp As New List(Of L_Dewarp)
 		Dim ARR_dewarp(values.nalloc - 1) As IntPtr
@@ -2028,6 +2256,7 @@ End Property
 ''' </summary>
 ReadOnly Property dewarpcache as List (of L_Dewarp)
 	Get
+	if isnothing(values) then return nothing
 		If Values.dewarpcache <> IntPtr.Zero Then
 		Dim LST_dewarpcache As New List(Of L_Dewarp)
 		Dim ARR_dewarpcache(values.nalloc - 1) As IntPtr
@@ -2049,6 +2278,7 @@ End Property
 ''' </summary>
 ReadOnly Property namodels as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.namodels <> IntPtr.Zero Then 
 		Return New Numa(Values.namodels)
 	End if
@@ -2064,6 +2294,7 @@ End Property
 ''' </summary>
 ReadOnly Property napages as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.napages <> IntPtr.Zero Then 
 		Return New Numa(Values.napages)
 	End if
@@ -2079,6 +2310,7 @@ End Property
 ''' </summary>
 ReadOnly Property redfactor as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.redfactor
 		Return Nothing
 	End Get
@@ -2092,6 +2324,7 @@ End Property
 ''' </summary>
 ReadOnly Property sampling as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.sampling
 		Return Nothing
 	End Get
@@ -2105,6 +2338,7 @@ End Property
 ''' </summary>
 ReadOnly Property minlines as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.minlines
 		Return Nothing
 	End Get
@@ -2118,6 +2352,7 @@ End Property
 ''' </summary>
 ReadOnly Property maxdist as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.maxdist
 		Return Nothing
 	End Get
@@ -2131,6 +2366,7 @@ End Property
 ''' </summary>
 ReadOnly Property max_linecurv as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.max_linecurv
 		Return Nothing
 	End Get
@@ -2144,6 +2380,7 @@ End Property
 ''' </summary>
 ReadOnly Property min_diff_linecurv as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.min_diff_linecurv
 		Return Nothing
 	End Get
@@ -2157,6 +2394,7 @@ End Property
 ''' </summary>
 ReadOnly Property max_diff_linecurv as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.max_diff_linecurv
 		Return Nothing
 	End Get
@@ -2170,6 +2408,7 @@ End Property
 ''' </summary>
 ReadOnly Property max_edgeslope as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.max_edgeslope
 		Return Nothing
 	End Get
@@ -2183,6 +2422,7 @@ End Property
 ''' </summary>
 ReadOnly Property max_edgecurv as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.max_edgecurv
 		Return Nothing
 	End Get
@@ -2196,6 +2436,7 @@ End Property
 ''' </summary>
 ReadOnly Property max_diff_edgecurv as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.max_diff_edgecurv
 		Return Nothing
 	End Get
@@ -2209,6 +2450,7 @@ End Property
 ''' </summary>
 ReadOnly Property useboth as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.useboth
 		Return Nothing
 	End Get
@@ -2222,6 +2464,7 @@ End Property
 ''' </summary>
 ReadOnly Property check_columns as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.check_columns
 		Return Nothing
 	End Get
@@ -2235,6 +2478,7 @@ End Property
 ''' </summary>
 ReadOnly Property modelsready as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.modelsready
 		Return Nothing
 	End Get
@@ -2245,10 +2489,10 @@ End Property
 	Private Class Marshal_L_Dewarpa
 		Public nalloc as Integer
 		Public maxpage as Integer
-		Public dewarp as IntPTR
-		Public dewarpcache as IntPTR
-		Public namodels as IntPTR
-		Public napages as IntPTR
+		Public dewarp as IntPtr
+		Public dewarpcache as IntPtr
+		Public namodels as IntPtr
+		Public napages as IntPtr
 		Public redfactor as Integer
 		Public sampling as Integer
 		Public minlines as Integer
@@ -2269,11 +2513,12 @@ End Class
 ' SRC/dewarp.h (151, 8)
 ' Data structure for a single dewarp
 Public Class L_Dewarp
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Dewarp
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Dewarp
@@ -2287,6 +2532,7 @@ Public Class L_Dewarp
 ''' </summary>
 ReadOnly Property dewa as L_Dewarpa
 	Get
+	if isnothing(values) then return nothing
 			If Values.dewa <> IntPtr.Zero Then 
 		Return New L_Dewarpa(Values.dewa)
 	End if
@@ -2302,6 +2548,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixs as Pix
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixs <> IntPtr.Zero Then 
 		Return New Pix(Values.pixs)
 	End if
@@ -2317,6 +2564,7 @@ End Property
 ''' </summary>
 ReadOnly Property sampvdispar as FPix
 	Get
+	if isnothing(values) then return nothing
 			If Values.sampvdispar <> IntPtr.Zero Then 
 		Return New FPix(Values.sampvdispar)
 	End if
@@ -2332,6 +2580,7 @@ End Property
 ''' </summary>
 ReadOnly Property samphdispar as FPix
 	Get
+	if isnothing(values) then return nothing
 			If Values.samphdispar <> IntPtr.Zero Then 
 		Return New FPix(Values.samphdispar)
 	End if
@@ -2347,6 +2596,7 @@ End Property
 ''' </summary>
 ReadOnly Property sampydispar as FPix
 	Get
+	if isnothing(values) then return nothing
 			If Values.sampydispar <> IntPtr.Zero Then 
 		Return New FPix(Values.sampydispar)
 	End if
@@ -2362,6 +2612,7 @@ End Property
 ''' </summary>
 ReadOnly Property fullvdispar as FPix
 	Get
+	if isnothing(values) then return nothing
 			If Values.fullvdispar <> IntPtr.Zero Then 
 		Return New FPix(Values.fullvdispar)
 	End if
@@ -2377,6 +2628,7 @@ End Property
 ''' </summary>
 ReadOnly Property fullhdispar as FPix
 	Get
+	if isnothing(values) then return nothing
 			If Values.fullhdispar <> IntPtr.Zero Then 
 		Return New FPix(Values.fullhdispar)
 	End if
@@ -2392,6 +2644,7 @@ End Property
 ''' </summary>
 ReadOnly Property fullydispar as FPix
 	Get
+	if isnothing(values) then return nothing
 			If Values.fullydispar <> IntPtr.Zero Then 
 		Return New FPix(Values.fullydispar)
 	End if
@@ -2407,6 +2660,7 @@ End Property
 ''' </summary>
 ReadOnly Property namidys as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.namidys <> IntPtr.Zero Then 
 		Return New Numa(Values.namidys)
 	End if
@@ -2422,6 +2676,7 @@ End Property
 ''' </summary>
 ReadOnly Property nacurves as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.nacurves <> IntPtr.Zero Then 
 		Return New Numa(Values.nacurves)
 	End if
@@ -2437,6 +2692,7 @@ End Property
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.w
 		Return Nothing
 	End Get
@@ -2450,6 +2706,7 @@ End Property
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.h
 		Return Nothing
 	End Get
@@ -2463,6 +2720,7 @@ End Property
 ''' </summary>
 ReadOnly Property pageno as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.pageno
 		Return Nothing
 	End Get
@@ -2476,6 +2734,7 @@ End Property
 ''' </summary>
 ReadOnly Property sampling as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.sampling
 		Return Nothing
 	End Get
@@ -2489,6 +2748,7 @@ End Property
 ''' </summary>
 ReadOnly Property redfactor as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.redfactor
 		Return Nothing
 	End Get
@@ -2502,6 +2762,7 @@ End Property
 ''' </summary>
 ReadOnly Property minlines as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.minlines
 		Return Nothing
 	End Get
@@ -2515,6 +2776,7 @@ End Property
 ''' </summary>
 ReadOnly Property nlines as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nlines
 		Return Nothing
 	End Get
@@ -2528,6 +2790,7 @@ End Property
 ''' </summary>
 ReadOnly Property mincurv as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.mincurv
 		Return Nothing
 	End Get
@@ -2541,6 +2804,7 @@ End Property
 ''' </summary>
 ReadOnly Property maxcurv as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.maxcurv
 		Return Nothing
 	End Get
@@ -2554,6 +2818,7 @@ End Property
 ''' </summary>
 ReadOnly Property leftslope as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.leftslope
 		Return Nothing
 	End Get
@@ -2567,6 +2832,7 @@ End Property
 ''' </summary>
 ReadOnly Property rightslope as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.rightslope
 		Return Nothing
 	End Get
@@ -2580,6 +2846,7 @@ End Property
 ''' </summary>
 ReadOnly Property leftcurv as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.leftcurv
 		Return Nothing
 	End Get
@@ -2593,6 +2860,7 @@ End Property
 ''' </summary>
 ReadOnly Property rightcurv as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.rightcurv
 		Return Nothing
 	End Get
@@ -2606,6 +2874,7 @@ End Property
 ''' </summary>
 ReadOnly Property nx as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nx
 		Return Nothing
 	End Get
@@ -2619,6 +2888,7 @@ End Property
 ''' </summary>
 ReadOnly Property ny as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.ny
 		Return Nothing
 	End Get
@@ -2632,6 +2902,7 @@ End Property
 ''' </summary>
 ReadOnly Property hasref as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.hasref
 		Return Nothing
 	End Get
@@ -2645,6 +2916,7 @@ End Property
 ''' </summary>
 ReadOnly Property refpage as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.refpage
 		Return Nothing
 	End Get
@@ -2658,6 +2930,7 @@ End Property
 ''' </summary>
 ReadOnly Property vsuccess as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.vsuccess
 		Return Nothing
 	End Get
@@ -2671,6 +2944,7 @@ End Property
 ''' </summary>
 ReadOnly Property hsuccess as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.hsuccess
 		Return Nothing
 	End Get
@@ -2684,6 +2958,7 @@ End Property
 ''' </summary>
 ReadOnly Property ysuccess as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.ysuccess
 		Return Nothing
 	End Get
@@ -2697,6 +2972,7 @@ End Property
 ''' </summary>
 ReadOnly Property vvalid as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.vvalid
 		Return Nothing
 	End Get
@@ -2710,6 +2986,7 @@ End Property
 ''' </summary>
 ReadOnly Property hvalid as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.hvalid
 		Return Nothing
 	End Get
@@ -2723,6 +3000,7 @@ End Property
 ''' </summary>
 ReadOnly Property skip_horiz as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.skip_horiz
 		Return Nothing
 	End Get
@@ -2736,6 +3014,7 @@ End Property
 ''' </summary>
 ReadOnly Property debug as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.debug
 		Return Nothing
 	End Get
@@ -2744,16 +3023,16 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Dewarp
-		Public dewa as IntPTR
-		Public pixs as IntPTR
-		Public sampvdispar as IntPTR
-		Public samphdispar as IntPTR
-		Public sampydispar as IntPTR
-		Public fullvdispar as IntPTR
-		Public fullhdispar as IntPTR
-		Public fullydispar as IntPTR
-		Public namidys as IntPTR
-		Public nacurves as IntPTR
+		Public dewa as IntPtr
+		Public pixs as IntPtr
+		Public sampvdispar as IntPtr
+		Public samphdispar as IntPtr
+		Public sampydispar as IntPtr
+		Public fullvdispar as IntPtr
+		Public fullhdispar as IntPtr
+		Public fullydispar as IntPtr
+		Public namidys as IntPtr
+		Public nacurves as IntPtr
 		Public w as Integer
 		Public h as Integer
 		Public pageno as Integer
@@ -2787,11 +3066,25 @@ End Class
 ' SRC/gplot.h (75, 8)
 ' Data structure for generating gnuplot files
 Public Class GPlot
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_GPlot
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.GPlotDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_GPlot
@@ -2805,6 +3098,7 @@ Public Class GPlot
 ''' </summary>
 ReadOnly Property rootname as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.rootname <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.rootname)
 End if
@@ -2820,6 +3114,7 @@ End Property
 ''' </summary>
 ReadOnly Property cmdname as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.cmdname <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.cmdname)
 End if
@@ -2835,6 +3130,7 @@ End Property
 ''' </summary>
 ReadOnly Property cmddata as Sarray
 	Get
+	if isnothing(values) then return nothing
 			If Values.cmddata <> IntPtr.Zero Then 
 		Return New Sarray(Values.cmddata)
 	End if
@@ -2850,6 +3146,7 @@ End Property
 ''' </summary>
 ReadOnly Property datanames as Sarray
 	Get
+	if isnothing(values) then return nothing
 			If Values.datanames <> IntPtr.Zero Then 
 		Return New Sarray(Values.datanames)
 	End if
@@ -2865,6 +3162,7 @@ End Property
 ''' </summary>
 ReadOnly Property plotdata as Sarray
 	Get
+	if isnothing(values) then return nothing
 			If Values.plotdata <> IntPtr.Zero Then 
 		Return New Sarray(Values.plotdata)
 	End if
@@ -2880,6 +3178,7 @@ End Property
 ''' </summary>
 ReadOnly Property plottitles as Sarray
 	Get
+	if isnothing(values) then return nothing
 			If Values.plottitles <> IntPtr.Zero Then 
 		Return New Sarray(Values.plottitles)
 	End if
@@ -2895,6 +3194,7 @@ End Property
 ''' </summary>
 ReadOnly Property plotstyles as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.plotstyles <> IntPtr.Zero Then 
 		Return New Numa(Values.plotstyles)
 	End if
@@ -2910,6 +3210,7 @@ End Property
 ''' </summary>
 ReadOnly Property nplots as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nplots
 		Return Nothing
 	End Get
@@ -2923,6 +3224,7 @@ End Property
 ''' </summary>
 ReadOnly Property outname as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.outname <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.outname)
 End if
@@ -2938,6 +3240,7 @@ End Property
 ''' </summary>
 ReadOnly Property outformat as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.outformat
 		Return Nothing
 	End Get
@@ -2951,6 +3254,7 @@ End Property
 ''' </summary>
 ReadOnly Property scaling as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.scaling
 		Return Nothing
 	End Get
@@ -2964,6 +3268,7 @@ End Property
 ''' </summary>
 ReadOnly Property title as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.title <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.title)
 End if
@@ -2979,6 +3284,7 @@ End Property
 ''' </summary>
 ReadOnly Property xlabel as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.xlabel <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.xlabel)
 End if
@@ -2994,6 +3300,7 @@ End Property
 ''' </summary>
 ReadOnly Property ylabel as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.ylabel <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.ylabel)
 End if
@@ -3004,20 +3311,20 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_GPlot
-		Public rootname as IntPTR
-		Public cmdname as IntPTR
-		Public cmddata as IntPTR
-		Public datanames as IntPTR
-		Public plotdata as IntPTR
-		Public plottitles as IntPTR
-		Public plotstyles as IntPTR
+		Public rootname as IntPtr
+		Public cmdname as IntPtr
+		Public cmddata as IntPtr
+		Public datanames as IntPtr
+		Public plotdata as IntPtr
+		Public plottitles as IntPtr
+		Public plotstyles as IntPtr
 		Public nplots as Integer
-		Public outname as IntPTR
+		Public outname as IntPtr
 		Public outformat as Integer
 		Public scaling as Integer
-		Public title as IntPTR
-		Public xlabel as IntPTR
-		Public ylabel as IntPTR
+		Public title as IntPtr
+		Public xlabel as IntPtr
+		Public ylabel as IntPtr
 	End Class
 End Class
 
@@ -3027,11 +3334,12 @@ End Class
 ' SRC/imageio.h (166, 8)
 ' Compressed image data
 Public Class L_Compressed_Data
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Compressed_Data
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Compressed_Data
@@ -3045,6 +3353,7 @@ Public Class L_Compressed_Data
 ''' </summary>
 ReadOnly Property type as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.type
 		Return Nothing
 	End Get
@@ -3058,6 +3367,7 @@ End Property
 ''' </summary>
 ReadOnly Property datacomp as Byte()
 	Get
+	if isnothing(values) then return nothing
 		If Values.datacomp <> IntPtr.Zero Then 
 	Dim _datacomp(1 -1) as Byte
 	Marshal.Copy(Values.datacomp, _datacomp, 0, _datacomp.Length)
@@ -3075,6 +3385,7 @@ End Property
 ''' </summary>
 ReadOnly Property nbytescomp as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nbytescomp
 		Return Nothing
 	End Get
@@ -3088,6 +3399,7 @@ End Property
 ''' </summary>
 ReadOnly Property data85 as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.data85 <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.data85)
 End if
@@ -3103,6 +3415,7 @@ End Property
 ''' </summary>
 ReadOnly Property nbytes85 as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nbytes85
 		Return Nothing
 	End Get
@@ -3116,6 +3429,7 @@ End Property
 ''' </summary>
 ReadOnly Property cmapdata85 as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.cmapdata85 <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.cmapdata85)
 End if
@@ -3131,6 +3445,7 @@ End Property
 ''' </summary>
 ReadOnly Property cmapdatahex as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.cmapdatahex <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.cmapdatahex)
 End if
@@ -3146,6 +3461,7 @@ End Property
 ''' </summary>
 ReadOnly Property ncolors as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.ncolors
 		Return Nothing
 	End Get
@@ -3159,6 +3475,7 @@ End Property
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.w
 		Return Nothing
 	End Get
@@ -3172,6 +3489,7 @@ End Property
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.h
 		Return Nothing
 	End Get
@@ -3185,6 +3503,7 @@ End Property
 ''' </summary>
 ReadOnly Property bps as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.bps
 		Return Nothing
 	End Get
@@ -3198,6 +3517,7 @@ End Property
 ''' </summary>
 ReadOnly Property spp as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.spp
 		Return Nothing
 	End Get
@@ -3211,6 +3531,7 @@ End Property
 ''' </summary>
 ReadOnly Property minisblack as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.minisblack
 		Return Nothing
 	End Get
@@ -3224,6 +3545,7 @@ End Property
 ''' </summary>
 ReadOnly Property predictor as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.predictor
 		Return Nothing
 	End Get
@@ -3237,6 +3559,7 @@ End Property
 ''' </summary>
 ReadOnly Property nbytes as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nbytes
 		Return Nothing
 	End Get
@@ -3250,6 +3573,7 @@ End Property
 ''' </summary>
 ReadOnly Property res as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.res
 		Return Nothing
 	End Get
@@ -3259,12 +3583,12 @@ End Property
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Compressed_Data
 		Public type as Integer
-		Public datacomp as IntPTR
+		Public datacomp as IntPtr
 		Public nbytescomp as UInteger
-		Public data85 as IntPTR
+		Public data85 as IntPtr
 		Public nbytes85 as UInteger
-		Public cmapdata85 as IntPTR
-		Public cmapdatahex as IntPTR
+		Public cmapdata85 as IntPtr
+		Public cmapdatahex as IntPtr
 		Public ncolors as Integer
 		Public w as Integer
 		Public h as Integer
@@ -3281,11 +3605,12 @@ End Class
 ' SRC/imageio.h (211, 8)
 ' Intermediate pdf generation data
 Public Class L_Pdf_Data
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Pdf_Data
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Pdf_Data
@@ -3299,6 +3624,7 @@ Public Class L_Pdf_Data
 ''' </summary>
 ReadOnly Property title as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.title <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.title)
 End if
@@ -3314,6 +3640,7 @@ End Property
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -3327,6 +3654,7 @@ End Property
 ''' </summary>
 ReadOnly Property ncmap as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.ncmap
 		Return Nothing
 	End Get
@@ -3340,6 +3668,7 @@ End Property
 ''' </summary>
 ReadOnly Property cida as L_Ptra
 	Get
+	if isnothing(values) then return nothing
 			If Values.cida <> IntPtr.Zero Then 
 		Return New L_Ptra(Values.cida)
 	End if
@@ -3355,6 +3684,7 @@ End Property
 ''' </summary>
 ReadOnly Property id as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.id <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.id)
 End if
@@ -3370,6 +3700,7 @@ End Property
 ''' </summary>
 ReadOnly Property obj1 as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.obj1 <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.obj1)
 End if
@@ -3385,6 +3716,7 @@ End Property
 ''' </summary>
 ReadOnly Property obj2 as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.obj2 <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.obj2)
 End if
@@ -3400,6 +3732,7 @@ End Property
 ''' </summary>
 ReadOnly Property obj3 as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.obj3 <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.obj3)
 End if
@@ -3415,6 +3748,7 @@ End Property
 ''' </summary>
 ReadOnly Property obj4 as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.obj4 <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.obj4)
 End if
@@ -3430,6 +3764,7 @@ End Property
 ''' </summary>
 ReadOnly Property obj5 as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.obj5 <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.obj5)
 End if
@@ -3445,6 +3780,7 @@ End Property
 ''' </summary>
 ReadOnly Property poststream as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.poststream <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.poststream)
 End if
@@ -3460,6 +3796,7 @@ End Property
 ''' </summary>
 ReadOnly Property trailer as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.trailer <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.trailer)
 End if
@@ -3475,6 +3812,7 @@ End Property
 ''' </summary>
 ReadOnly Property xy as Pta
 	Get
+	if isnothing(values) then return nothing
 			If Values.xy <> IntPtr.Zero Then 
 		Return New Pta(Values.xy)
 	End if
@@ -3490,6 +3828,7 @@ End Property
 ''' </summary>
 ReadOnly Property wh as Pta
 	Get
+	if isnothing(values) then return nothing
 			If Values.wh <> IntPtr.Zero Then 
 		Return New Pta(Values.wh)
 	End if
@@ -3505,6 +3844,7 @@ End Property
 ''' </summary>
 ReadOnly Property mediabox as Box
 	Get
+	if isnothing(values) then return nothing
 			If Values.mediabox <> IntPtr.Zero Then 
 		Return New Box(Values.mediabox)
 	End if
@@ -3520,6 +3860,7 @@ End Property
 ''' </summary>
 ReadOnly Property saprex as Sarray
 	Get
+	if isnothing(values) then return nothing
 			If Values.saprex <> IntPtr.Zero Then 
 		Return New Sarray(Values.saprex)
 	End if
@@ -3535,6 +3876,7 @@ End Property
 ''' </summary>
 ReadOnly Property sacmap as Sarray
 	Get
+	if isnothing(values) then return nothing
 			If Values.sacmap <> IntPtr.Zero Then 
 		Return New Sarray(Values.sacmap)
 	End if
@@ -3550,6 +3892,7 @@ End Property
 ''' </summary>
 ReadOnly Property objsize as L_Dna
 	Get
+	if isnothing(values) then return nothing
 			If Values.objsize <> IntPtr.Zero Then 
 		Return New L_Dna(Values.objsize)
 	End if
@@ -3565,6 +3908,7 @@ End Property
 ''' </summary>
 ReadOnly Property objloc as L_Dna
 	Get
+	if isnothing(values) then return nothing
 			If Values.objloc <> IntPtr.Zero Then 
 		Return New L_Dna(Values.objloc)
 	End if
@@ -3580,6 +3924,7 @@ End Property
 ''' </summary>
 ReadOnly Property xrefloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.xrefloc
 		Return Nothing
 	End Get
@@ -3588,25 +3933,25 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Pdf_Data
-		Public title as IntPTR
+		Public title as IntPtr
 		Public n as Integer
 		Public ncmap as Integer
-		Public cida as IntPTR
-		Public id as IntPTR
-		Public obj1 as IntPTR
-		Public obj2 as IntPTR
-		Public obj3 as IntPTR
-		Public obj4 as IntPTR
-		Public obj5 as IntPTR
-		Public poststream as IntPTR
-		Public trailer as IntPTR
-		Public xy as IntPTR
-		Public wh as IntPTR
-		Public mediabox as IntPTR
-		Public saprex as IntPTR
-		Public sacmap as IntPTR
-		Public objsize as IntPTR
-		Public objloc as IntPTR
+		Public cida as IntPtr
+		Public id as IntPtr
+		Public obj1 as IntPtr
+		Public obj2 as IntPtr
+		Public obj3 as IntPtr
+		Public obj4 as IntPtr
+		Public obj5 as IntPtr
+		Public poststream as IntPtr
+		Public trailer as IntPtr
+		Public xy as IntPtr
+		Public wh as IntPtr
+		Public mediabox as IntPtr
+		Public saprex as IntPtr
+		Public sacmap as IntPtr
+		Public objsize as IntPtr
+		Public objloc as IntPtr
 		Public xrefloc as Integer
 	End Class
 End Class
@@ -3617,11 +3962,25 @@ End Class
 ' SRC/jbclass.h (47, 8)
 ' The JbClasser struct holds all the data accumulated during the classification process that can be used for a compressed jbig2-type representation of a set of images. This is created in an initialization process and added to as the selected components on each successive page are analyzed.
 Public Class JbClasser
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_JbClasser
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.JbClasserDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_JbClasser
@@ -3635,6 +3994,7 @@ Public Class JbClasser
 ''' </summary>
 ReadOnly Property safiles as Sarray
 	Get
+	if isnothing(values) then return nothing
 			If Values.safiles <> IntPtr.Zero Then 
 		Return New Sarray(Values.safiles)
 	End if
@@ -3650,6 +4010,7 @@ End Property
 ''' </summary>
 ReadOnly Property method as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.method
 		Return Nothing
 	End Get
@@ -3663,6 +4024,7 @@ End Property
 ''' </summary>
 ReadOnly Property components as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.components
 		Return Nothing
 	End Get
@@ -3676,6 +4038,7 @@ End Property
 ''' </summary>
 ReadOnly Property maxwidth as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.maxwidth
 		Return Nothing
 	End Get
@@ -3689,6 +4052,7 @@ End Property
 ''' </summary>
 ReadOnly Property maxheight as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.maxheight
 		Return Nothing
 	End Get
@@ -3702,6 +4066,7 @@ End Property
 ''' </summary>
 ReadOnly Property npages as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.npages
 		Return Nothing
 	End Get
@@ -3715,6 +4080,7 @@ End Property
 ''' </summary>
 ReadOnly Property baseindex as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.baseindex
 		Return Nothing
 	End Get
@@ -3728,6 +4094,7 @@ End Property
 ''' </summary>
 ReadOnly Property nacomps as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.nacomps <> IntPtr.Zero Then 
 		Return New Numa(Values.nacomps)
 	End if
@@ -3743,6 +4110,7 @@ End Property
 ''' </summary>
 ReadOnly Property sizehaus as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.sizehaus
 		Return Nothing
 	End Get
@@ -3756,6 +4124,7 @@ End Property
 ''' </summary>
 ReadOnly Property rankhaus as Single
 	Get
+	if isnothing(values) then return nothing
 				Return Values.rankhaus
 		Return Nothing
 	End Get
@@ -3769,6 +4138,7 @@ End Property
 ''' </summary>
 ReadOnly Property thresh as Single
 	Get
+	if isnothing(values) then return nothing
 				Return Values.thresh
 		Return Nothing
 	End Get
@@ -3782,6 +4152,7 @@ End Property
 ''' </summary>
 ReadOnly Property weightfactor as Single
 	Get
+	if isnothing(values) then return nothing
 				Return Values.weightfactor
 		Return Nothing
 	End Get
@@ -3795,6 +4166,7 @@ End Property
 ''' </summary>
 ReadOnly Property naarea as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.naarea <> IntPtr.Zero Then 
 		Return New Numa(Values.naarea)
 	End if
@@ -3810,6 +4182,7 @@ End Property
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.w
 		Return Nothing
 	End Get
@@ -3823,6 +4196,7 @@ End Property
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.h
 		Return Nothing
 	End Get
@@ -3836,6 +4210,7 @@ End Property
 ''' </summary>
 ReadOnly Property nclass as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nclass
 		Return Nothing
 	End Get
@@ -3849,6 +4224,7 @@ End Property
 ''' </summary>
 ReadOnly Property keep_pixaa as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.keep_pixaa
 		Return Nothing
 	End Get
@@ -3862,6 +4238,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixaa as Pixaa
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixaa <> IntPtr.Zero Then 
 		Return New Pixaa(Values.pixaa)
 	End if
@@ -3877,6 +4254,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixat as Pixa
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixat <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixat)
 	End if
@@ -3892,6 +4270,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixatd as Pixa
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixatd <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixatd)
 	End if
@@ -3907,6 +4286,7 @@ End Property
 ''' </summary>
 ReadOnly Property dahash as L_DnaHash
 	Get
+	if isnothing(values) then return nothing
 			If Values.dahash <> IntPtr.Zero Then 
 		Return New L_DnaHash(Values.dahash)
 	End if
@@ -3922,6 +4302,7 @@ End Property
 ''' </summary>
 ReadOnly Property nafgt as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.nafgt <> IntPtr.Zero Then 
 		Return New Numa(Values.nafgt)
 	End if
@@ -3937,6 +4318,7 @@ End Property
 ''' </summary>
 ReadOnly Property ptac as Pta
 	Get
+	if isnothing(values) then return nothing
 			If Values.ptac <> IntPtr.Zero Then 
 		Return New Pta(Values.ptac)
 	End if
@@ -3952,6 +4334,7 @@ End Property
 ''' </summary>
 ReadOnly Property ptact as Pta
 	Get
+	if isnothing(values) then return nothing
 			If Values.ptact <> IntPtr.Zero Then 
 		Return New Pta(Values.ptact)
 	End if
@@ -3967,6 +4350,7 @@ End Property
 ''' </summary>
 ReadOnly Property naclass as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.naclass <> IntPtr.Zero Then 
 		Return New Numa(Values.naclass)
 	End if
@@ -3982,6 +4366,7 @@ End Property
 ''' </summary>
 ReadOnly Property napage as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.napage <> IntPtr.Zero Then 
 		Return New Numa(Values.napage)
 	End if
@@ -3997,6 +4382,7 @@ End Property
 ''' </summary>
 ReadOnly Property ptaul as Pta
 	Get
+	if isnothing(values) then return nothing
 			If Values.ptaul <> IntPtr.Zero Then 
 		Return New Pta(Values.ptaul)
 	End if
@@ -4012,6 +4398,7 @@ End Property
 ''' </summary>
 ReadOnly Property ptall as Pta
 	Get
+	if isnothing(values) then return nothing
 			If Values.ptall <> IntPtr.Zero Then 
 		Return New Pta(Values.ptall)
 	End if
@@ -4022,34 +4409,34 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_JbClasser
-		Public safiles as IntPTR
+		Public safiles as IntPtr
 		Public method as Integer
 		Public components as Integer
 		Public maxwidth as Integer
 		Public maxheight as Integer
 		Public npages as Integer
 		Public baseindex as Integer
-		Public nacomps as IntPTR
+		Public nacomps as IntPtr
 		Public sizehaus as Integer
 		Public rankhaus as Single
 		Public thresh as Single
 		Public weightfactor as Single
-		Public naarea as IntPTR
+		Public naarea as IntPtr
 		Public w as Integer
 		Public h as Integer
 		Public nclass as Integer
 		Public keep_pixaa as Integer
-		Public pixaa as IntPTR
-		Public pixat as IntPTR
-		Public pixatd as IntPTR
-		Public dahash as IntPTR
-		Public nafgt as IntPTR
-		Public ptac as IntPTR
-		Public ptact as IntPTR
-		Public naclass as IntPTR
-		Public napage as IntPTR
-		Public ptaul as IntPTR
-		Public ptall as IntPTR
+		Public pixaa as IntPtr
+		Public pixat as IntPtr
+		Public pixatd as IntPtr
+		Public dahash as IntPtr
+		Public nafgt as IntPtr
+		Public ptac as IntPtr
+		Public ptact as IntPtr
+		Public naclass as IntPtr
+		Public napage as IntPtr
+		Public ptaul as IntPtr
+		Public ptall as IntPtr
 	End Class
 End Class
 
@@ -4057,11 +4444,25 @@ End Class
 ' SRC/jbclass.h (104, 8)
 ' The JbData struct holds all the data required for the compressed jbig-type representation of a set of images. The data can be written to file, read back, and used to regenerate an approximate version of the original, which differs in two ways from the original: (1) It uses a template image for each c.c. instead of the original instance, for each occurrence on each page. (2) It discards components with either a height or width larger than the maximuma, given here by the lattice dimensions used for storing the templates.
 Public Class JbData
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_JbData
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.JbDataDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_JbData
@@ -4075,6 +4476,7 @@ Public Class JbData
 ''' </summary>
 ReadOnly Property pix as Pix
 	Get
+	if isnothing(values) then return nothing
 			If Values.pix <> IntPtr.Zero Then 
 		Return New Pix(Values.pix)
 	End if
@@ -4090,6 +4492,7 @@ End Property
 ''' </summary>
 ReadOnly Property npages as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.npages
 		Return Nothing
 	End Get
@@ -4103,6 +4506,7 @@ End Property
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.w
 		Return Nothing
 	End Get
@@ -4116,6 +4520,7 @@ End Property
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.h
 		Return Nothing
 	End Get
@@ -4129,6 +4534,7 @@ End Property
 ''' </summary>
 ReadOnly Property nclass as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nclass
 		Return Nothing
 	End Get
@@ -4142,6 +4548,7 @@ End Property
 ''' </summary>
 ReadOnly Property latticew as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.latticew
 		Return Nothing
 	End Get
@@ -4155,6 +4562,7 @@ End Property
 ''' </summary>
 ReadOnly Property latticeh as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.latticeh
 		Return Nothing
 	End Get
@@ -4168,6 +4576,7 @@ End Property
 ''' </summary>
 ReadOnly Property naclass as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.naclass <> IntPtr.Zero Then 
 		Return New Numa(Values.naclass)
 	End if
@@ -4183,6 +4592,7 @@ End Property
 ''' </summary>
 ReadOnly Property napage as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.napage <> IntPtr.Zero Then 
 		Return New Numa(Values.napage)
 	End if
@@ -4198,6 +4608,7 @@ End Property
 ''' </summary>
 ReadOnly Property ptaul as Pta
 	Get
+	if isnothing(values) then return nothing
 			If Values.ptaul <> IntPtr.Zero Then 
 		Return New Pta(Values.ptaul)
 	End if
@@ -4208,16 +4619,16 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_JbData
-		Public pix as IntPTR
+		Public pix as IntPtr
 		Public npages as Integer
 		Public w as Integer
 		Public h as Integer
 		Public nclass as Integer
 		Public latticew as Integer
 		Public latticeh as Integer
-		Public naclass as IntPTR
-		Public napage as IntPTR
-		Public ptaul as IntPTR
+		Public naclass as IntPtr
+		Public napage as IntPtr
+		Public ptaul as IntPtr
 	End Class
 End Class
 
@@ -4227,11 +4638,25 @@ End Class
 ' SRC/morph.h (62, 8)
 ' Selection
 Public Class Sel
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_Sel
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.SelDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_Sel
@@ -4245,6 +4670,7 @@ Public Class Sel
 ''' </summary>
 ReadOnly Property sy as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.sy
 		Return Nothing
 	End Get
@@ -4258,6 +4684,7 @@ End Property
 ''' </summary>
 ReadOnly Property sx as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.sx
 		Return Nothing
 	End Get
@@ -4271,6 +4698,7 @@ End Property
 ''' </summary>
 ReadOnly Property cy as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.cy
 		Return Nothing
 	End Get
@@ -4284,6 +4712,7 @@ End Property
 ''' </summary>
 ReadOnly Property cx as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.cx
 		Return Nothing
 	End Get
@@ -4297,6 +4726,7 @@ End Property
 ''' </summary>
 ReadOnly Property data as List (of Integer())
 	Get
+	if isnothing(values) then return nothing
 		Dim _Data1(sy - 1) As Integer
 Dim _DataFin As New List(Of Integer())
 Marshal.Copy(Values.data, _Data1, 0, _Data1.Length)
@@ -4318,6 +4748,7 @@ End Property
 ''' </summary>
 ReadOnly Property name as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.name <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.name)
 End if
@@ -4332,8 +4763,8 @@ End Property
 		Public sx as Integer
 		Public cy as Integer
 		Public cx as Integer
-		Public data as IntPTR
-		Public name as IntPTR
+		Public data as IntPtr
+		Public name as IntPtr
 	End Class
 End Class
 
@@ -4341,11 +4772,25 @@ End Class
 ' SRC/morph.h (74, 8)
 ' Array of Sel
 Public Class Sela
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_Sela
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.SelaDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_Sela
@@ -4359,6 +4804,7 @@ Public Class Sela
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -4372,6 +4818,7 @@ End Property
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -4385,6 +4832,7 @@ End Property
 ''' </summary>
 ReadOnly Property sel as List (of Sel)
 	Get
+	if isnothing(values) then return nothing
 		If Values.sel <> IntPtr.Zero Then
 		Dim LST_sel As New List(Of Sel)
 		Dim ARR_sel(values.n - 1) As IntPtr
@@ -4403,7 +4851,7 @@ End Property
 	Private Class Marshal_Sela
 		Public n as Integer
 		Public nalloc as Integer
-		Public sel as IntPTR
+		Public sel as IntPtr
 	End Class
 End Class
 
@@ -4411,11 +4859,12 @@ End Class
 ' SRC/morph.h (89, 8)
 ' Kernel
 Public Class L_Kernel
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Kernel
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Kernel
@@ -4429,6 +4878,7 @@ Public Class L_Kernel
 ''' </summary>
 ReadOnly Property sy as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.sy
 		Return Nothing
 	End Get
@@ -4442,6 +4892,7 @@ End Property
 ''' </summary>
 ReadOnly Property sx as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.sx
 		Return Nothing
 	End Get
@@ -4455,6 +4906,7 @@ End Property
 ''' </summary>
 ReadOnly Property cy as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.cy
 		Return Nothing
 	End Get
@@ -4468,6 +4920,7 @@ End Property
 ''' </summary>
 ReadOnly Property cx as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.cx
 		Return Nothing
 	End Get
@@ -4481,6 +4934,7 @@ End Property
 ''' </summary>
 ReadOnly Property data as List(Of Single())
 	Get
+	if isnothing(values) then return nothing
 		Dim _Data1(1 - 1) As Single
 Dim _DataFin As New List(Of Single())
 Marshal.Copy(Values.data, _Data1, 0, _Data1.Length)
@@ -4501,7 +4955,7 @@ End Property
 		Public sx as Integer
 		Public cy as Integer
 		Public cx as Integer
-		Public data as IntPTR
+		Public data as IntPtr
 	End Class
 End Class
 
@@ -4511,11 +4965,25 @@ End Class
 ' SRC/pix.h (134, 8)
 ' Basic Pix
 Public Class Pix
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_Pix
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.PixDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_Pix
@@ -4529,6 +4997,7 @@ Public Class Pix
 ''' </summary>
 ReadOnly Property w as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.w
 		Return Nothing
 	End Get
@@ -4542,6 +5011,7 @@ End Property
 ''' </summary>
 ReadOnly Property h as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.h
 		Return Nothing
 	End Get
@@ -4555,6 +5025,7 @@ End Property
 ''' </summary>
 ReadOnly Property d as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.d
 		Return Nothing
 	End Get
@@ -4568,6 +5039,7 @@ End Property
 ''' </summary>
 ReadOnly Property spp as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.spp
 		Return Nothing
 	End Get
@@ -4581,6 +5053,7 @@ End Property
 ''' </summary>
 ReadOnly Property wpl as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.wpl
 		Return Nothing
 	End Get
@@ -4594,6 +5067,7 @@ End Property
 ''' </summary>
 ReadOnly Property refcount as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.refcount
 		Return Nothing
 	End Get
@@ -4607,6 +5081,7 @@ End Property
 ''' </summary>
 ReadOnly Property xres as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.xres
 		Return Nothing
 	End Get
@@ -4620,6 +5095,7 @@ End Property
 ''' </summary>
 ReadOnly Property yres as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.yres
 		Return Nothing
 	End Get
@@ -4633,6 +5109,7 @@ End Property
 ''' </summary>
 ReadOnly Property informat as IFF
 	Get
+	if isnothing(values) then return nothing
 				Return Values.informat
 		Return Nothing
 	End Get
@@ -4646,6 +5123,7 @@ End Property
 ''' </summary>
 ReadOnly Property special as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.special
 		Return Nothing
 	End Get
@@ -4659,6 +5137,7 @@ End Property
 ''' </summary>
 ReadOnly Property text as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.text <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.text)
 End if
@@ -4674,6 +5153,7 @@ End Property
 ''' </summary>
 ReadOnly Property colormap as PixColormap
 	Get
+	if isnothing(values) then return nothing
 			If Values.colormap <> IntPtr.Zero Then 
 		Return New PixColormap(Values.colormap)
 	End if
@@ -4689,6 +5169,7 @@ End Property
 ''' </summary>
 ReadOnly Property data as Byte()
 	Get
+	if isnothing(values) then return nothing
 		Dim _data((w * h * (d/8)) -1) as Byte
 Marshal.Copy(Values.data, _data, 0, _data.Length)
 Return _data
@@ -4709,9 +5190,9 @@ End Property
 		Public yres as Integer
 		Public informat as Integer
 		Public special as Integer
-		Public text as IntPTR
-		Public colormap as IntPTR
-		Public data as IntPTR
+		Public text as IntPtr
+		Public colormap as IntPtr
+		Public data as IntPtr
 	End Class
 End Class
 
@@ -4719,11 +5200,12 @@ End Class
 ' SRC/pix.h (155, 8)
 ' Colormap of a Pix
 Public Class PixColormap
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_PixColormap
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_PixColormap
@@ -4733,10 +5215,11 @@ Public Class PixColormap
 ''' Brf: colormap table (array of RGBA_QUAD)
 '''  Loc: SRC/pix.h (157, 22)
 '''  Org: [void * array]
-'''  Msh: void * | 2:Void |  ... Pointer auf Object = IntPTR
+'''  Msh: void * | 2:Void |  ... Pointer auf Object = IntPtr
 ''' </summary>
-ReadOnly Property array as IntPTR
+ReadOnly Property array as IntPtr
 	Get
+	if isnothing(values) then return nothing
 		If Values.array <> IntPtr.Zero Then
 	Return  Values.array
 End if
@@ -4752,6 +5235,7 @@ End Property
 ''' </summary>
 ReadOnly Property depth as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.depth
 		Return Nothing
 	End Get
@@ -4765,6 +5249,7 @@ End Property
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -4778,6 +5263,7 @@ End Property
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -4786,7 +5272,7 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_PixColormap
-		Public array as IntPTR
+		Public array as IntPtr
 		Public depth as Integer
 		Public nalloc as Integer
 		Public n as Integer
@@ -4797,11 +5283,12 @@ End Class
 ' SRC/pix.h (169, 8)
 ' Colormap table entry (after the BMP version). Note that the BMP format stores the colormap table exactly as it appears here, with color samples being stored sequentially, in the order (b,g,r,a).
 Public Class RGBA_Quad
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_RGBA_Quad
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_RGBA_Quad
@@ -4815,6 +5302,7 @@ Public Class RGBA_Quad
 ''' </summary>
 ReadOnly Property blue as Byte
 	Get
+	if isnothing(values) then return nothing
 				Return Values.blue
 		Return Nothing
 	End Get
@@ -4828,6 +5316,7 @@ End Property
 ''' </summary>
 ReadOnly Property green as Byte
 	Get
+	if isnothing(values) then return nothing
 				Return Values.green
 		Return Nothing
 	End Get
@@ -4841,6 +5330,7 @@ End Property
 ''' </summary>
 ReadOnly Property red as Byte
 	Get
+	if isnothing(values) then return nothing
 				Return Values.red
 		Return Nothing
 	End Get
@@ -4854,6 +5344,7 @@ End Property
 ''' </summary>
 ReadOnly Property alpha as Byte
 	Get
+	if isnothing(values) then return nothing
 				Return Values.alpha
 		Return Nothing
 	End Get
@@ -4873,11 +5364,25 @@ End Class
 ' SRC/pix.h (454, 8)
 ' Array of pix
 Public Class Pixa
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_Pixa
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.PixaDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_Pixa
@@ -4891,6 +5396,7 @@ Public Class Pixa
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -4904,6 +5410,7 @@ End Property
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -4917,6 +5424,7 @@ End Property
 ''' </summary>
 ReadOnly Property refcount as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.refcount
 		Return Nothing
 	End Get
@@ -4930,6 +5438,7 @@ End Property
 ''' </summary>
 ReadOnly Property pix as List (of Pix)
 	Get
+	if isnothing(values) then return nothing
 		If Values.pix <> IntPtr.Zero Then
 		Dim LST_pix As New List(Of Pix)
 		Dim ARR_pix(values.n - 1) As IntPtr
@@ -4951,6 +5460,7 @@ End Property
 ''' </summary>
 ReadOnly Property boxa as Boxa
 	Get
+	if isnothing(values) then return nothing
 			If Values.boxa <> IntPtr.Zero Then 
 		Return New Boxa(Values.boxa)
 	End if
@@ -4964,8 +5474,8 @@ End Property
 		Public n as Integer
 		Public nalloc as Integer
 		Public refcount as UInteger
-		Public pix as IntPTR
-		Public boxa as IntPTR
+		Public pix as IntPtr
+		Public boxa as IntPtr
 	End Class
 End Class
 
@@ -4973,11 +5483,25 @@ End Class
 ' SRC/pix.h (465, 8)
 ' Array of arrays of pix
 Public Class Pixaa
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_Pixaa
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.PixaaDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_Pixaa
@@ -4991,6 +5515,7 @@ Public Class Pixaa
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -5004,6 +5529,7 @@ End Property
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -5017,6 +5543,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixa as List (of Pixa)
 	Get
+	if isnothing(values) then return nothing
 		If Values.pixa <> IntPtr.Zero Then
 		Dim LST_pixa As New List(Of Pixa)
 		Dim ARR_pixa(values.n - 1) As IntPtr
@@ -5038,6 +5565,7 @@ End Property
 ''' </summary>
 ReadOnly Property boxa as Boxa
 	Get
+	if isnothing(values) then return nothing
 			If Values.boxa <> IntPtr.Zero Then 
 		Return New Boxa(Values.boxa)
 	End if
@@ -5050,8 +5578,8 @@ End Property
 	Private Class Marshal_Pixaa
 		Public n as Integer
 		Public nalloc as Integer
-		Public pixa as IntPTR
-		Public boxa as IntPTR
+		Public pixa as IntPtr
+		Public boxa as IntPtr
 	End Class
 End Class
 
@@ -5059,11 +5587,25 @@ End Class
 ' SRC/pix.h (480, 8)
 ' Basic rectangle
 Public Class Box
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_Box
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.BoxDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_Box
@@ -5077,6 +5619,7 @@ Public Class Box
 ''' </summary>
 ReadOnly Property x as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.x
 		Return Nothing
 	End Get
@@ -5090,6 +5633,7 @@ End Property
 ''' </summary>
 ReadOnly Property y as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.y
 		Return Nothing
 	End Get
@@ -5103,6 +5647,7 @@ End Property
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.w
 		Return Nothing
 	End Get
@@ -5116,6 +5661,7 @@ End Property
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.h
 		Return Nothing
 	End Get
@@ -5129,6 +5675,7 @@ End Property
 ''' </summary>
 ReadOnly Property refcount as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.refcount
 		Return Nothing
 	End Get
@@ -5149,11 +5696,25 @@ End Class
 ' SRC/pix.h (492, 8)
 ' Array of Box
 Public Class Boxa
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_Boxa
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.BoxaDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_Boxa
@@ -5167,6 +5728,7 @@ Public Class Boxa
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -5180,6 +5742,7 @@ End Property
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -5193,6 +5756,7 @@ End Property
 ''' </summary>
 ReadOnly Property refcount as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.refcount
 		Return Nothing
 	End Get
@@ -5206,6 +5770,7 @@ End Property
 ''' </summary>
 ReadOnly Property box as List (of Box)
 	Get
+	if isnothing(values) then return nothing
 		If Values.box <> IntPtr.Zero Then
 		Dim LST_box As New List(Of Box)
 		Dim ARR_box(values.n - 1) As IntPtr
@@ -5225,7 +5790,7 @@ End Property
 		Public n as Integer
 		Public nalloc as Integer
 		Public refcount as UInteger
-		Public box as IntPTR
+		Public box as IntPtr
 	End Class
 End Class
 
@@ -5233,11 +5798,25 @@ End Class
 ' SRC/pix.h (502, 8)
 ' Array of Boxa
 Public Class Boxaa
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_Boxaa
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.BoxaaDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_Boxaa
@@ -5251,6 +5830,7 @@ Public Class Boxaa
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -5264,6 +5844,7 @@ End Property
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -5277,6 +5858,7 @@ End Property
 ''' </summary>
 ReadOnly Property boxa as List (of Boxa)
 	Get
+	if isnothing(values) then return nothing
 		If Values.boxa <> IntPtr.Zero Then
 		Dim LST_boxa As New List(Of Boxa)
 		Dim ARR_boxa(values.n - 1) As IntPtr
@@ -5295,7 +5877,7 @@ End Property
 	Private Class Marshal_Boxaa
 		Public n as Integer
 		Public nalloc as Integer
-		Public boxa as IntPTR
+		Public boxa as IntPtr
 	End Class
 End Class
 
@@ -5303,11 +5885,25 @@ End Class
 ' SRC/pix.h (517, 8)
 ' Array of points
 Public Class Pta
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_Pta
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.PtaDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_Pta
@@ -5321,6 +5917,7 @@ Public Class Pta
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -5334,6 +5931,7 @@ End Property
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -5347,6 +5945,7 @@ End Property
 ''' </summary>
 ReadOnly Property refcount as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.refcount
 		Return Nothing
 	End Get
@@ -5360,6 +5959,7 @@ End Property
 ''' </summary>
 ReadOnly Property x as Single()
 	Get
+	if isnothing(values) then return nothing
 		If Values.x <> IntPtr.Zero Then 
 	Dim _x(values.n -1) as Single
 	Marshal.Copy(Values.x, _x, 0, _x.Length)
@@ -5377,6 +5977,7 @@ End Property
 ''' </summary>
 ReadOnly Property y as Single()
 	Get
+	if isnothing(values) then return nothing
 		If Values.y <> IntPtr.Zero Then 
 	Dim _y(values.n -1) as Single
 	Marshal.Copy(Values.y, _y, 0, _y.Length)
@@ -5392,8 +5993,8 @@ End Property
 		Public n as Integer
 		Public nalloc as Integer
 		Public refcount as UInteger
-		Public x as IntPTR
-		Public y as IntPTR
+		Public x as IntPtr
+		Public y as IntPtr
 	End Class
 End Class
 
@@ -5401,11 +6002,25 @@ End Class
 ' SRC/pix.h (532, 8)
 ' Array of Pta
 Public Class Ptaa
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_Ptaa
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.PtaaDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_Ptaa
@@ -5419,6 +6034,7 @@ Public Class Ptaa
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -5432,6 +6048,7 @@ End Property
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -5445,6 +6062,7 @@ End Property
 ''' </summary>
 ReadOnly Property pta as List (of Pta)
 	Get
+	if isnothing(values) then return nothing
 		If Values.pta <> IntPtr.Zero Then
 		Dim LST_pta As New List(Of Pta)
 		Dim ARR_pta(values.n - 1) As IntPtr
@@ -5463,7 +6081,7 @@ End Property
 	Private Class Marshal_Ptaa
 		Public n as Integer
 		Public nalloc as Integer
-		Public pta as IntPTR
+		Public pta as IntPtr
 	End Class
 End Class
 
@@ -5471,11 +6089,25 @@ End Class
 ' SRC/pix.h (546, 8)
 ' Pix accumulator container
 Public Class Pixacc
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_Pixacc
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.PixaccDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_Pixacc
@@ -5489,6 +6121,7 @@ Public Class Pixacc
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.w
 		Return Nothing
 	End Get
@@ -5502,6 +6135,7 @@ End Property
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.h
 		Return Nothing
 	End Get
@@ -5515,6 +6149,7 @@ End Property
 ''' </summary>
 ReadOnly Property offset as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.offset
 		Return Nothing
 	End Get
@@ -5528,6 +6163,7 @@ End Property
 ''' </summary>
 ReadOnly Property pix as Pix
 	Get
+	if isnothing(values) then return nothing
 			If Values.pix <> IntPtr.Zero Then 
 		Return New Pix(Values.pix)
 	End if
@@ -5541,7 +6177,7 @@ End Property
 		Public w as Integer
 		Public h as Integer
 		Public offset as Integer
-		Public pix as IntPTR
+		Public pix as IntPtr
 	End Class
 End Class
 
@@ -5549,11 +6185,25 @@ End Class
 ' SRC/pix.h (562, 8)
 ' Pix tiling
 Public Class PixTiling
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_PixTiling
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.PixTilingDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_PixTiling
@@ -5567,6 +6217,7 @@ Public Class PixTiling
 ''' </summary>
 ReadOnly Property pix as Pix
 	Get
+	if isnothing(values) then return nothing
 			If Values.pix <> IntPtr.Zero Then 
 		Return New Pix(Values.pix)
 	End if
@@ -5582,6 +6233,7 @@ End Property
 ''' </summary>
 ReadOnly Property nx as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nx
 		Return Nothing
 	End Get
@@ -5595,6 +6247,7 @@ End Property
 ''' </summary>
 ReadOnly Property ny as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.ny
 		Return Nothing
 	End Get
@@ -5608,6 +6261,7 @@ End Property
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.w
 		Return Nothing
 	End Get
@@ -5621,6 +6275,7 @@ End Property
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.h
 		Return Nothing
 	End Get
@@ -5634,6 +6289,7 @@ End Property
 ''' </summary>
 ReadOnly Property xoverlap as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.xoverlap
 		Return Nothing
 	End Get
@@ -5647,6 +6303,7 @@ End Property
 ''' </summary>
 ReadOnly Property yoverlap as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.yoverlap
 		Return Nothing
 	End Get
@@ -5660,6 +6317,7 @@ End Property
 ''' </summary>
 ReadOnly Property strip as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.strip
 		Return Nothing
 	End Get
@@ -5668,7 +6326,7 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_PixTiling
-		Public pix as IntPTR
+		Public pix as IntPtr
 		Public nx as Integer
 		Public ny as Integer
 		Public w as Integer
@@ -5683,11 +6341,25 @@ End Class
 ' SRC/pix.h (582, 8)
 ' Pix with float array
 Public Class FPix
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_FPix
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.FPixDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_FPix
@@ -5701,6 +6373,7 @@ Public Class FPix
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.w
 		Return Nothing
 	End Get
@@ -5714,6 +6387,7 @@ End Property
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.h
 		Return Nothing
 	End Get
@@ -5727,6 +6401,7 @@ End Property
 ''' </summary>
 ReadOnly Property wpl as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.wpl
 		Return Nothing
 	End Get
@@ -5740,6 +6415,7 @@ End Property
 ''' </summary>
 ReadOnly Property refcount as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.refcount
 		Return Nothing
 	End Get
@@ -5753,6 +6429,7 @@ End Property
 ''' </summary>
 ReadOnly Property xres as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.xres
 		Return Nothing
 	End Get
@@ -5766,6 +6443,7 @@ End Property
 ''' </summary>
 ReadOnly Property yres as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.yres
 		Return Nothing
 	End Get
@@ -5779,6 +6457,7 @@ End Property
 ''' </summary>
 ReadOnly Property data as Single()
 	Get
+	if isnothing(values) then return nothing
 		If Values.data <> IntPtr.Zero Then 
 	Dim _data(1 -1) as Single
 	Marshal.Copy(Values.data, _data, 0, _data.Length)
@@ -5797,7 +6476,7 @@ End Property
 		Public refcount as UInteger
 		Public xres as Integer
 		Public yres as Integer
-		Public data as IntPTR
+		Public data as IntPtr
 	End Class
 End Class
 
@@ -5805,11 +6484,25 @@ End Class
 ' SRC/pix.h (597, 8)
 ' Array of FPix
 Public Class FPixa
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_FPixa
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.FPixaDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_FPixa
@@ -5823,6 +6516,7 @@ Public Class FPixa
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -5836,6 +6530,7 @@ End Property
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -5849,6 +6544,7 @@ End Property
 ''' </summary>
 ReadOnly Property refcount as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.refcount
 		Return Nothing
 	End Get
@@ -5862,6 +6558,7 @@ End Property
 ''' </summary>
 ReadOnly Property fpix as List (of FPix)
 	Get
+	if isnothing(values) then return nothing
 		If Values.fpix <> IntPtr.Zero Then
 		Dim LST_fpix As New List(Of FPix)
 		Dim ARR_fpix(values.n - 1) As IntPtr
@@ -5881,7 +6578,7 @@ End Property
 		Public n as Integer
 		Public nalloc as Integer
 		Public refcount as UInteger
-		Public fpix as IntPTR
+		Public fpix as IntPtr
 	End Class
 End Class
 
@@ -5889,11 +6586,25 @@ End Class
 ' SRC/pix.h (613, 8)
 ' Pix with double array
 Public Class DPix
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_DPix
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.DPixDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_DPix
@@ -5907,6 +6618,7 @@ Public Class DPix
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.w
 		Return Nothing
 	End Get
@@ -5920,6 +6632,7 @@ End Property
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.h
 		Return Nothing
 	End Get
@@ -5933,6 +6646,7 @@ End Property
 ''' </summary>
 ReadOnly Property wpl as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.wpl
 		Return Nothing
 	End Get
@@ -5946,6 +6660,7 @@ End Property
 ''' </summary>
 ReadOnly Property refcount as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.refcount
 		Return Nothing
 	End Get
@@ -5959,6 +6674,7 @@ End Property
 ''' </summary>
 ReadOnly Property xres as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.xres
 		Return Nothing
 	End Get
@@ -5972,6 +6688,7 @@ End Property
 ''' </summary>
 ReadOnly Property yres as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.yres
 		Return Nothing
 	End Get
@@ -5985,6 +6702,7 @@ End Property
 ''' </summary>
 ReadOnly Property data as Double()
 	Get
+	if isnothing(values) then return nothing
 		If Values.data <> IntPtr.Zero Then 
 	Dim _data(1 -1) as Double
 	Marshal.Copy(Values.data, _data, 0, _data.Length)
@@ -6003,7 +6721,7 @@ End Property
 		Public refcount as UInteger
 		Public xres as Integer
 		Public yres as Integer
-		Public data as IntPTR
+		Public data as IntPtr
 	End Class
 End Class
 
@@ -6011,11 +6729,25 @@ End Class
 ' SRC/pix.h (633, 8)
 ' Compressed Pix
 Public Class PixComp
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_PixComp
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.PixCompDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_PixComp
@@ -6029,6 +6761,7 @@ Public Class PixComp
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.w
 		Return Nothing
 	End Get
@@ -6042,6 +6775,7 @@ End Property
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.h
 		Return Nothing
 	End Get
@@ -6055,6 +6789,7 @@ End Property
 ''' </summary>
 ReadOnly Property d as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.d
 		Return Nothing
 	End Get
@@ -6068,6 +6803,7 @@ End Property
 ''' </summary>
 ReadOnly Property xres as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.xres
 		Return Nothing
 	End Get
@@ -6081,6 +6817,7 @@ End Property
 ''' </summary>
 ReadOnly Property yres as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.yres
 		Return Nothing
 	End Get
@@ -6094,6 +6831,7 @@ End Property
 ''' </summary>
 ReadOnly Property comptype as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.comptype
 		Return Nothing
 	End Get
@@ -6107,6 +6845,7 @@ End Property
 ''' </summary>
 ReadOnly Property text as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.text <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.text)
 End if
@@ -6122,6 +6861,7 @@ End Property
 ''' </summary>
 ReadOnly Property cmapflag as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.cmapflag
 		Return Nothing
 	End Get
@@ -6135,6 +6875,7 @@ End Property
 ''' </summary>
 ReadOnly Property data as Byte()
 	Get
+	if isnothing(values) then return nothing
 		If Values.data <> IntPtr.Zero Then 
 	Dim _data(1 -1) as Byte
 	Marshal.Copy(Values.data, _data, 0, _data.Length)
@@ -6152,6 +6893,7 @@ End Property
 ''' </summary>
 ReadOnly Property size as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.size
 		Return Nothing
 	End Get
@@ -6166,9 +6908,9 @@ End Property
 		Public xres as Integer
 		Public yres as Integer
 		Public comptype as Integer
-		Public text as IntPTR
+		Public text as IntPtr
 		Public cmapflag as Integer
-		Public data as IntPTR
+		Public data as IntPtr
 		Public size as UInteger
 	End Class
 End Class
@@ -6177,11 +6919,25 @@ End Class
 ' SRC/pix.h (658, 8)
 ' Array of compressed pix
 Public Class PixaComp
-	Property Pointer as IntPTR
+	Implements IDisposable
+	Property Pointer as IntPtr
 	Private Values as Marshal_PixaComp
 
 
-	Sub New (PTR as IntPTR)
+	#Region "IDisposable Support
+	Private disposedValue As Boolean
+	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+	  LeptonicaSharp.Natives.PixaCompDestroy(Pointer)
+	  If Not Me.disposedValue Then
+	  If disposing Then Values = Nothing
+	  End If : Me.disposedValue = True
+	End Sub
+	Public Sub Dispose() Implements IDisposable.Dispose
+	  Dispose(True) : GC.SuppressFinalize(Me)
+	End Sub
+	#End Region
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_PixaComp
@@ -6195,6 +6951,7 @@ Public Class PixaComp
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -6208,6 +6965,7 @@ End Property
 ''' </summary>
 ReadOnly Property nalloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nalloc
 		Return Nothing
 	End Get
@@ -6221,6 +6979,7 @@ End Property
 ''' </summary>
 ReadOnly Property offset as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.offset
 		Return Nothing
 	End Get
@@ -6234,6 +6993,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixc as List (of PixComp)
 	Get
+	if isnothing(values) then return nothing
 		If Values.pixc <> IntPtr.Zero Then
 		Dim LST_pixc As New List(Of PixComp)
 		Dim ARR_pixc(values.n - 1) As IntPtr
@@ -6255,6 +7015,7 @@ End Property
 ''' </summary>
 ReadOnly Property boxa as Boxa
 	Get
+	if isnothing(values) then return nothing
 			If Values.boxa <> IntPtr.Zero Then 
 		Return New Boxa(Values.boxa)
 	End if
@@ -6268,8 +7029,8 @@ End Property
 		Public n as Integer
 		Public nalloc as Integer
 		Public offset as Integer
-		Public pixc as IntPTR
-		Public boxa as IntPTR
+		Public pixc as IntPtr
+		Public boxa as IntPtr
 	End Class
 End Class
 
@@ -6279,11 +7040,12 @@ End Class
 ' SRC/recog.h (116, 8)
 ' 
 Public Class L_Recog
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Recog
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Recog
@@ -6297,6 +7059,7 @@ Public Class L_Recog
 ''' </summary>
 ReadOnly Property scalew as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.scalew
 		Return Nothing
 	End Get
@@ -6310,6 +7073,7 @@ End Property
 ''' </summary>
 ReadOnly Property scaleh as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.scaleh
 		Return Nothing
 	End Get
@@ -6323,6 +7087,7 @@ End Property
 ''' </summary>
 ReadOnly Property linew as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.linew
 		Return Nothing
 	End Get
@@ -6336,6 +7101,7 @@ End Property
 ''' </summary>
 ReadOnly Property templ_use as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.templ_use
 		Return Nothing
 	End Get
@@ -6349,6 +7115,7 @@ End Property
 ''' </summary>
 ReadOnly Property maxarraysize as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.maxarraysize
 		Return Nothing
 	End Get
@@ -6362,6 +7129,7 @@ End Property
 ''' </summary>
 ReadOnly Property setsize as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.setsize
 		Return Nothing
 	End Get
@@ -6375,6 +7143,7 @@ End Property
 ''' </summary>
 ReadOnly Property threshold as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.threshold
 		Return Nothing
 	End Get
@@ -6388,6 +7157,7 @@ End Property
 ''' </summary>
 ReadOnly Property maxyshift as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.maxyshift
 		Return Nothing
 	End Get
@@ -6401,6 +7171,7 @@ End Property
 ''' </summary>
 ReadOnly Property charset_type as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.charset_type
 		Return Nothing
 	End Get
@@ -6414,6 +7185,7 @@ End Property
 ''' </summary>
 ReadOnly Property charset_size as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.charset_size
 		Return Nothing
 	End Get
@@ -6427,6 +7199,7 @@ End Property
 ''' </summary>
 ReadOnly Property min_nopad as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.min_nopad
 		Return Nothing
 	End Get
@@ -6440,6 +7213,7 @@ End Property
 ''' </summary>
 ReadOnly Property num_samples as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.num_samples
 		Return Nothing
 	End Get
@@ -6453,6 +7227,7 @@ End Property
 ''' </summary>
 ReadOnly Property minwidth_u as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.minwidth_u
 		Return Nothing
 	End Get
@@ -6466,6 +7241,7 @@ End Property
 ''' </summary>
 ReadOnly Property maxwidth_u as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.maxwidth_u
 		Return Nothing
 	End Get
@@ -6479,6 +7255,7 @@ End Property
 ''' </summary>
 ReadOnly Property minheight_u as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.minheight_u
 		Return Nothing
 	End Get
@@ -6492,6 +7269,7 @@ End Property
 ''' </summary>
 ReadOnly Property maxheight_u as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.maxheight_u
 		Return Nothing
 	End Get
@@ -6505,6 +7283,7 @@ End Property
 ''' </summary>
 ReadOnly Property minwidth as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.minwidth
 		Return Nothing
 	End Get
@@ -6518,6 +7297,7 @@ End Property
 ''' </summary>
 ReadOnly Property maxwidth as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.maxwidth
 		Return Nothing
 	End Get
@@ -6531,6 +7311,7 @@ End Property
 ''' </summary>
 ReadOnly Property ave_done as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.ave_done
 		Return Nothing
 	End Get
@@ -6544,6 +7325,7 @@ End Property
 ''' </summary>
 ReadOnly Property train_done as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.train_done
 		Return Nothing
 	End Get
@@ -6557,6 +7339,7 @@ End Property
 ''' </summary>
 ReadOnly Property max_wh_ratio as Single
 	Get
+	if isnothing(values) then return nothing
 				Return Values.max_wh_ratio
 		Return Nothing
 	End Get
@@ -6570,6 +7353,7 @@ End Property
 ''' </summary>
 ReadOnly Property max_ht_ratio as Single
 	Get
+	if isnothing(values) then return nothing
 				Return Values.max_ht_ratio
 		Return Nothing
 	End Get
@@ -6583,6 +7367,7 @@ End Property
 ''' </summary>
 ReadOnly Property min_splitw as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.min_splitw
 		Return Nothing
 	End Get
@@ -6596,6 +7381,7 @@ End Property
 ''' </summary>
 ReadOnly Property max_splith as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.max_splith
 		Return Nothing
 	End Get
@@ -6609,6 +7395,7 @@ End Property
 ''' </summary>
 ReadOnly Property sa_text as Sarray
 	Get
+	if isnothing(values) then return nothing
 			If Values.sa_text <> IntPtr.Zero Then 
 		Return New Sarray(Values.sa_text)
 	End if
@@ -6624,6 +7411,7 @@ End Property
 ''' </summary>
 ReadOnly Property dna_tochar as L_Dna
 	Get
+	if isnothing(values) then return nothing
 			If Values.dna_tochar <> IntPtr.Zero Then 
 		Return New L_Dna(Values.dna_tochar)
 	End if
@@ -6639,6 +7427,7 @@ End Property
 ''' </summary>
 ReadOnly Property centtab as Integer()
 	Get
+	if isnothing(values) then return nothing
 		If Values.centtab <> IntPtr.Zero Then 
 	Dim _centtab(1 -1) as Integer
 	Marshal.Copy(Values.centtab, _centtab, 0, _centtab.Length)
@@ -6656,6 +7445,7 @@ End Property
 ''' </summary>
 ReadOnly Property sumtab as Integer()
 	Get
+	if isnothing(values) then return nothing
 		If Values.sumtab <> IntPtr.Zero Then 
 	Dim _sumtab(1 -1) as Integer
 	Marshal.Copy(Values.sumtab, _sumtab, 0, _sumtab.Length)
@@ -6673,6 +7463,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixaa_u as Pixaa
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixaa_u <> IntPtr.Zero Then 
 		Return New Pixaa(Values.pixaa_u)
 	End if
@@ -6688,6 +7479,7 @@ End Property
 ''' </summary>
 ReadOnly Property ptaa_u as Ptaa
 	Get
+	if isnothing(values) then return nothing
 			If Values.ptaa_u <> IntPtr.Zero Then 
 		Return New Ptaa(Values.ptaa_u)
 	End if
@@ -6703,6 +7495,7 @@ End Property
 ''' </summary>
 ReadOnly Property naasum_u as Numaa
 	Get
+	if isnothing(values) then return nothing
 			If Values.naasum_u <> IntPtr.Zero Then 
 		Return New Numaa(Values.naasum_u)
 	End if
@@ -6718,6 +7511,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixaa as Pixaa
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixaa <> IntPtr.Zero Then 
 		Return New Pixaa(Values.pixaa)
 	End if
@@ -6733,6 +7527,7 @@ End Property
 ''' </summary>
 ReadOnly Property ptaa as Ptaa
 	Get
+	if isnothing(values) then return nothing
 			If Values.ptaa <> IntPtr.Zero Then 
 		Return New Ptaa(Values.ptaa)
 	End if
@@ -6748,6 +7543,7 @@ End Property
 ''' </summary>
 ReadOnly Property naasum as Numaa
 	Get
+	if isnothing(values) then return nothing
 			If Values.naasum <> IntPtr.Zero Then 
 		Return New Numaa(Values.naasum)
 	End if
@@ -6763,6 +7559,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixa_u as Pixa
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixa_u <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixa_u)
 	End if
@@ -6778,6 +7575,7 @@ End Property
 ''' </summary>
 ReadOnly Property pta_u as Pta
 	Get
+	if isnothing(values) then return nothing
 			If Values.pta_u <> IntPtr.Zero Then 
 		Return New Pta(Values.pta_u)
 	End if
@@ -6793,6 +7591,7 @@ End Property
 ''' </summary>
 ReadOnly Property nasum_u as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.nasum_u <> IntPtr.Zero Then 
 		Return New Numa(Values.nasum_u)
 	End if
@@ -6808,6 +7607,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixa as Pixa
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixa <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixa)
 	End if
@@ -6823,6 +7623,7 @@ End Property
 ''' </summary>
 ReadOnly Property pta as Pta
 	Get
+	if isnothing(values) then return nothing
 			If Values.pta <> IntPtr.Zero Then 
 		Return New Pta(Values.pta)
 	End if
@@ -6838,6 +7639,7 @@ End Property
 ''' </summary>
 ReadOnly Property nasum as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.nasum <> IntPtr.Zero Then 
 		Return New Numa(Values.nasum)
 	End if
@@ -6853,6 +7655,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixa_tr as Pixa
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixa_tr <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixa_tr)
 	End if
@@ -6868,6 +7671,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixadb_ave as Pixa
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixadb_ave <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixadb_ave)
 	End if
@@ -6883,6 +7687,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixa_id as Pixa
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixa_id <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixa_id)
 	End if
@@ -6898,6 +7703,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixdb_ave as Pix
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixdb_ave <> IntPtr.Zero Then 
 		Return New Pix(Values.pixdb_ave)
 	End if
@@ -6913,6 +7719,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixdb_range as Pix
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixdb_range <> IntPtr.Zero Then 
 		Return New Pix(Values.pixdb_range)
 	End if
@@ -6928,6 +7735,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixadb_boot as Pixa
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixadb_boot <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixadb_boot)
 	End if
@@ -6943,6 +7751,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixadb_split as Pixa
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixadb_split <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixadb_split)
 	End if
@@ -6958,6 +7767,7 @@ End Property
 ''' </summary>
 ReadOnly Property bmf as L_Bmf
 	Get
+	if isnothing(values) then return nothing
 			If Values.bmf <> IntPtr.Zero Then 
 		Return New L_Bmf(Values.bmf)
 	End if
@@ -6973,6 +7783,7 @@ End Property
 ''' </summary>
 ReadOnly Property bmf_size as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.bmf_size
 		Return Nothing
 	End Get
@@ -6986,6 +7797,7 @@ End Property
 ''' </summary>
 ReadOnly Property did as L_Rdid
 	Get
+	if isnothing(values) then return nothing
 			If Values.did <> IntPtr.Zero Then 
 		Return New L_Rdid(Values.did)
 	End if
@@ -7001,6 +7813,7 @@ End Property
 ''' </summary>
 ReadOnly Property rch as L_Rch
 	Get
+	if isnothing(values) then return nothing
 			If Values.rch <> IntPtr.Zero Then 
 		Return New L_Rch(Values.rch)
 	End if
@@ -7016,6 +7829,7 @@ End Property
 ''' </summary>
 ReadOnly Property rcha as L_Rcha
 	Get
+	if isnothing(values) then return nothing
 			If Values.rcha <> IntPtr.Zero Then 
 		Return New L_Rcha(Values.rcha)
 	End if
@@ -7050,34 +7864,34 @@ End Property
 		Public max_ht_ratio as Single
 		Public min_splitw as Integer
 		Public max_splith as Integer
-		Public sa_text as IntPTR
-		Public dna_tochar as IntPTR
-		Public centtab as IntPTR
-		Public sumtab as IntPTR
-		Public pixaa_u as IntPTR
-		Public ptaa_u as IntPTR
-		Public naasum_u as IntPTR
-		Public pixaa as IntPTR
-		Public ptaa as IntPTR
-		Public naasum as IntPTR
-		Public pixa_u as IntPTR
-		Public pta_u as IntPTR
-		Public nasum_u as IntPTR
-		Public pixa as IntPTR
-		Public pta as IntPTR
-		Public nasum as IntPTR
-		Public pixa_tr as IntPTR
-		Public pixadb_ave as IntPTR
-		Public pixa_id as IntPTR
-		Public pixdb_ave as IntPTR
-		Public pixdb_range as IntPTR
-		Public pixadb_boot as IntPTR
-		Public pixadb_split as IntPTR
-		Public bmf as IntPTR
+		Public sa_text as IntPtr
+		Public dna_tochar as IntPtr
+		Public centtab as IntPtr
+		Public sumtab as IntPtr
+		Public pixaa_u as IntPtr
+		Public ptaa_u as IntPtr
+		Public naasum_u as IntPtr
+		Public pixaa as IntPtr
+		Public ptaa as IntPtr
+		Public naasum as IntPtr
+		Public pixa_u as IntPtr
+		Public pta_u as IntPtr
+		Public nasum_u as IntPtr
+		Public pixa as IntPtr
+		Public pta as IntPtr
+		Public nasum as IntPtr
+		Public pixa_tr as IntPtr
+		Public pixadb_ave as IntPtr
+		Public pixa_id as IntPtr
+		Public pixdb_ave as IntPtr
+		Public pixdb_range as IntPtr
+		Public pixadb_boot as IntPtr
+		Public pixadb_split as IntPtr
+		Public bmf as IntPtr
 		Public bmf_size as Integer
-		Public did as IntPTR
-		Public rch as IntPTR
-		Public rcha as IntPTR
+		Public did as IntPtr
+		Public rch as IntPtr
+		Public rcha as IntPtr
 	End Class
 End Class
 
@@ -7085,11 +7899,12 @@ End Class
 ' SRC/recog.h (182, 8)
 ' Data returned from correlation matching on a single character
 Public Class L_Rch
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Rch
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Rch
@@ -7103,6 +7918,7 @@ Public Class L_Rch
 ''' </summary>
 ReadOnly Property index as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.index
 		Return Nothing
 	End Get
@@ -7116,6 +7932,7 @@ End Property
 ''' </summary>
 ReadOnly Property score as Single
 	Get
+	if isnothing(values) then return nothing
 				Return Values.score
 		Return Nothing
 	End Get
@@ -7129,6 +7946,7 @@ End Property
 ''' </summary>
 ReadOnly Property text as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.text <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.text)
 End if
@@ -7144,6 +7962,7 @@ End Property
 ''' </summary>
 ReadOnly Property sample as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.sample
 		Return Nothing
 	End Get
@@ -7157,6 +7976,7 @@ End Property
 ''' </summary>
 ReadOnly Property xloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.xloc
 		Return Nothing
 	End Get
@@ -7170,6 +7990,7 @@ End Property
 ''' </summary>
 ReadOnly Property yloc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.yloc
 		Return Nothing
 	End Get
@@ -7183,6 +8004,7 @@ End Property
 ''' </summary>
 ReadOnly Property width as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.width
 		Return Nothing
 	End Get
@@ -7193,7 +8015,7 @@ End Property
 	Private Class Marshal_L_Rch
 		Public index as Integer
 		Public score as Single
-		Public text as IntPTR
+		Public text as IntPtr
 		Public sample as Integer
 		Public xloc as Integer
 		Public yloc as Integer
@@ -7205,11 +8027,12 @@ End Class
 ' SRC/recog.h (197, 8)
 ' Data returned from correlation matching on an array of characters
 Public Class L_Rcha
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Rcha
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Rcha
@@ -7223,6 +8046,7 @@ Public Class L_Rcha
 ''' </summary>
 ReadOnly Property naindex as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.naindex <> IntPtr.Zero Then 
 		Return New Numa(Values.naindex)
 	End if
@@ -7238,6 +8062,7 @@ End Property
 ''' </summary>
 ReadOnly Property nascore as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.nascore <> IntPtr.Zero Then 
 		Return New Numa(Values.nascore)
 	End if
@@ -7253,6 +8078,7 @@ End Property
 ''' </summary>
 ReadOnly Property satext as Sarray
 	Get
+	if isnothing(values) then return nothing
 			If Values.satext <> IntPtr.Zero Then 
 		Return New Sarray(Values.satext)
 	End if
@@ -7268,6 +8094,7 @@ End Property
 ''' </summary>
 ReadOnly Property nasample as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.nasample <> IntPtr.Zero Then 
 		Return New Numa(Values.nasample)
 	End if
@@ -7283,6 +8110,7 @@ End Property
 ''' </summary>
 ReadOnly Property naxloc as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.naxloc <> IntPtr.Zero Then 
 		Return New Numa(Values.naxloc)
 	End if
@@ -7298,6 +8126,7 @@ End Property
 ''' </summary>
 ReadOnly Property nayloc as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.nayloc <> IntPtr.Zero Then 
 		Return New Numa(Values.nayloc)
 	End if
@@ -7313,6 +8142,7 @@ End Property
 ''' </summary>
 ReadOnly Property nawidth as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.nawidth <> IntPtr.Zero Then 
 		Return New Numa(Values.nawidth)
 	End if
@@ -7323,13 +8153,13 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Rcha
-		Public naindex as IntPTR
-		Public nascore as IntPTR
-		Public satext as IntPTR
-		Public nasample as IntPTR
-		Public naxloc as IntPTR
-		Public nayloc as IntPTR
-		Public nawidth as IntPTR
+		Public naindex as IntPtr
+		Public nascore as IntPtr
+		Public satext as IntPtr
+		Public nasample as IntPtr
+		Public naxloc as IntPtr
+		Public nayloc as IntPtr
+		Public nawidth as IntPtr
 	End Class
 End Class
 
@@ -7337,11 +8167,12 @@ End Class
 ' SRC/recog.h (211, 8)
 ' Data used for decoding a line of characters.
 Public Class L_Rdid
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Rdid
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Rdid
@@ -7355,6 +8186,7 @@ Public Class L_Rdid
 ''' </summary>
 ReadOnly Property pixs as Pix
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixs <> IntPtr.Zero Then 
 		Return New Pix(Values.pixs)
 	End if
@@ -7370,6 +8202,7 @@ End Property
 ''' </summary>
 ReadOnly Property counta as List (of Integer())
 	Get
+	if isnothing(values) then return nothing
 		Dim _Data1(1 - 1) As Integer
 Dim _DataFin As New List(Of Integer())
 Marshal.Copy(Values.counta, _Data1, 0, _Data1.Length)
@@ -7391,6 +8224,7 @@ End Property
 ''' </summary>
 ReadOnly Property delya as List (of Integer())
 	Get
+	if isnothing(values) then return nothing
 		Dim _Data1(1 - 1) As Integer
 Dim _DataFin As New List(Of Integer())
 Marshal.Copy(Values.delya, _Data1, 0, _Data1.Length)
@@ -7412,6 +8246,7 @@ End Property
 ''' </summary>
 ReadOnly Property narray as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.narray
 		Return Nothing
 	End Get
@@ -7425,6 +8260,7 @@ End Property
 ''' </summary>
 ReadOnly Property size as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.size
 		Return Nothing
 	End Get
@@ -7438,6 +8274,7 @@ End Property
 ''' </summary>
 ReadOnly Property setwidth as Integer()
 	Get
+	if isnothing(values) then return nothing
 		If Values.setwidth <> IntPtr.Zero Then 
 	Dim _setwidth(1 -1) as Integer
 	Marshal.Copy(Values.setwidth, _setwidth, 0, _setwidth.Length)
@@ -7455,6 +8292,7 @@ End Property
 ''' </summary>
 ReadOnly Property nasum as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.nasum <> IntPtr.Zero Then 
 		Return New Numa(Values.nasum)
 	End if
@@ -7470,6 +8308,7 @@ End Property
 ''' </summary>
 ReadOnly Property namoment as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.namoment <> IntPtr.Zero Then 
 		Return New Numa(Values.namoment)
 	End if
@@ -7485,6 +8324,7 @@ End Property
 ''' </summary>
 ReadOnly Property fullarrays as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.fullarrays
 		Return Nothing
 	End Get
@@ -7498,6 +8338,7 @@ End Property
 ''' </summary>
 ReadOnly Property beta as Single()
 	Get
+	if isnothing(values) then return nothing
 		If Values.beta <> IntPtr.Zero Then 
 	Dim _beta(1 -1) as Single
 	Marshal.Copy(Values.beta, _beta, 0, _beta.Length)
@@ -7515,6 +8356,7 @@ End Property
 ''' </summary>
 ReadOnly Property gamma as Single()
 	Get
+	if isnothing(values) then return nothing
 		If Values.gamma <> IntPtr.Zero Then 
 	Dim _gamma(1 -1) as Single
 	Marshal.Copy(Values.gamma, _gamma, 0, _gamma.Length)
@@ -7532,6 +8374,7 @@ End Property
 ''' </summary>
 ReadOnly Property trellisscore as Single()
 	Get
+	if isnothing(values) then return nothing
 		If Values.trellisscore <> IntPtr.Zero Then 
 	Dim _trellisscore(1 -1) as Single
 	Marshal.Copy(Values.trellisscore, _trellisscore, 0, _trellisscore.Length)
@@ -7549,6 +8392,7 @@ End Property
 ''' </summary>
 ReadOnly Property trellistempl as Integer()
 	Get
+	if isnothing(values) then return nothing
 		If Values.trellistempl <> IntPtr.Zero Then 
 	Dim _trellistempl(1 -1) as Integer
 	Marshal.Copy(Values.trellistempl, _trellistempl, 0, _trellistempl.Length)
@@ -7566,6 +8410,7 @@ End Property
 ''' </summary>
 ReadOnly Property natempl as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.natempl <> IntPtr.Zero Then 
 		Return New Numa(Values.natempl)
 	End if
@@ -7581,6 +8426,7 @@ End Property
 ''' </summary>
 ReadOnly Property naxloc as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.naxloc <> IntPtr.Zero Then 
 		Return New Numa(Values.naxloc)
 	End if
@@ -7596,6 +8442,7 @@ End Property
 ''' </summary>
 ReadOnly Property nadely as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.nadely <> IntPtr.Zero Then 
 		Return New Numa(Values.nadely)
 	End if
@@ -7611,6 +8458,7 @@ End Property
 ''' </summary>
 ReadOnly Property nawidth as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.nawidth <> IntPtr.Zero Then 
 		Return New Numa(Values.nawidth)
 	End if
@@ -7626,6 +8474,7 @@ End Property
 ''' </summary>
 ReadOnly Property boxa as Boxa
 	Get
+	if isnothing(values) then return nothing
 			If Values.boxa <> IntPtr.Zero Then 
 		Return New Boxa(Values.boxa)
 	End if
@@ -7641,6 +8490,7 @@ End Property
 ''' </summary>
 ReadOnly Property nascore as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.nascore <> IntPtr.Zero Then 
 		Return New Numa(Values.nascore)
 	End if
@@ -7656,6 +8506,7 @@ End Property
 ''' </summary>
 ReadOnly Property natempl_r as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.natempl_r <> IntPtr.Zero Then 
 		Return New Numa(Values.natempl_r)
 	End if
@@ -7671,6 +8522,7 @@ End Property
 ''' </summary>
 ReadOnly Property nasample_r as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.nasample_r <> IntPtr.Zero Then 
 		Return New Numa(Values.nasample_r)
 	End if
@@ -7686,6 +8538,7 @@ End Property
 ''' </summary>
 ReadOnly Property naxloc_r as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.naxloc_r <> IntPtr.Zero Then 
 		Return New Numa(Values.naxloc_r)
 	End if
@@ -7701,6 +8554,7 @@ End Property
 ''' </summary>
 ReadOnly Property nadely_r as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.nadely_r <> IntPtr.Zero Then 
 		Return New Numa(Values.nadely_r)
 	End if
@@ -7716,6 +8570,7 @@ End Property
 ''' </summary>
 ReadOnly Property nawidth_r as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.nawidth_r <> IntPtr.Zero Then 
 		Return New Numa(Values.nawidth_r)
 	End if
@@ -7731,6 +8586,7 @@ End Property
 ''' </summary>
 ReadOnly Property nascore_r as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.nascore_r <> IntPtr.Zero Then 
 		Return New Numa(Values.nascore_r)
 	End if
@@ -7741,31 +8597,31 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Rdid
-		Public pixs as IntPTR
-		Public counta as IntPTR
-		Public delya as IntPTR
+		Public pixs as IntPtr
+		Public counta as IntPtr
+		Public delya as IntPtr
 		Public narray as Integer
 		Public size as Integer
-		Public setwidth as IntPTR
-		Public nasum as IntPTR
-		Public namoment as IntPTR
+		Public setwidth as IntPtr
+		Public nasum as IntPtr
+		Public namoment as IntPtr
 		Public fullarrays as Integer
-		Public beta as IntPTR
-		Public gamma as IntPTR
-		Public trellisscore as IntPTR
-		Public trellistempl as IntPTR
-		Public natempl as IntPTR
-		Public naxloc as IntPTR
-		Public nadely as IntPTR
-		Public nawidth as IntPTR
-		Public boxa as IntPTR
-		Public nascore as IntPTR
-		Public natempl_r as IntPTR
-		Public nasample_r as IntPTR
-		Public naxloc_r as IntPTR
-		Public nadely_r as IntPTR
-		Public nawidth_r as IntPTR
-		Public nascore_r as IntPTR
+		Public beta as IntPtr
+		Public gamma as IntPtr
+		Public trellisscore as IntPtr
+		Public trellistempl as IntPtr
+		Public natempl as IntPtr
+		Public naxloc as IntPtr
+		Public nadely as IntPtr
+		Public nawidth as IntPtr
+		Public boxa as IntPtr
+		Public nascore as IntPtr
+		Public natempl_r as IntPtr
+		Public nasample_r as IntPtr
+		Public naxloc_r as IntPtr
+		Public nadely_r as IntPtr
+		Public nawidth_r as IntPtr
+		Public nascore_r as IntPtr
 	End Class
 End Class
 
@@ -7775,11 +8631,12 @@ End Class
 ' SRC/regutils.h (117, 8)
 ' Regression test parameter packer
 Public Class L_RegParams
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_RegParams
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_RegParams
@@ -7793,6 +8650,7 @@ Public Class L_RegParams
 ''' </summary>
 ReadOnly Property fp as FILE
 	Get
+	if isnothing(values) then return nothing
 			If Values.fp <> IntPtr.Zero Then 
 		Return New FILE(Values.fp)
 	End if
@@ -7808,6 +8666,7 @@ End Property
 ''' </summary>
 ReadOnly Property testname as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.testname <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.testname)
 End if
@@ -7823,6 +8682,7 @@ End Property
 ''' </summary>
 ReadOnly Property tempfile as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.tempfile <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.tempfile)
 End if
@@ -7838,6 +8698,7 @@ End Property
 ''' </summary>
 ReadOnly Property mode as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.mode
 		Return Nothing
 	End Get
@@ -7851,6 +8712,7 @@ End Property
 ''' </summary>
 ReadOnly Property index as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.index
 		Return Nothing
 	End Get
@@ -7864,6 +8726,7 @@ End Property
 ''' </summary>
 ReadOnly Property success as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.success
 		Return Nothing
 	End Get
@@ -7877,6 +8740,7 @@ End Property
 ''' </summary>
 ReadOnly Property display as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.display
 		Return Nothing
 	End Get
@@ -7888,8 +8752,9 @@ End Property
 '''  Org: [L_TIMER tstart]
 '''  Msh: L_TIMER | 1:Pointer |
 ''' </summary>
-ReadOnly Property tstart as IntPTR
+ReadOnly Property tstart as IntPtr
 	Get
+	if isnothing(values) then return nothing
 				Return Values.tstart
 		Return Nothing
 	End Get
@@ -7898,14 +8763,14 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_RegParams
-		Public fp as IntPTR
-		Public testname as IntPTR
-		Public tempfile as IntPTR
+		Public fp as IntPtr
+		Public testname as IntPtr
+		Public tempfile as IntPtr
 		Public mode as Integer
 		Public index as Integer
 		Public success as Integer
 		Public display as Integer
-		Public tstart as IntPTR
+		Public tstart as IntPtr
 	End Class
 End Class
 
@@ -7915,11 +8780,12 @@ End Class
 ' SRC/stringcode.h (40, 8)
 ' stringcode.h
 Public Class L_StrCode
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_StrCode
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_StrCode
@@ -7933,6 +8799,7 @@ Public Class L_StrCode
 ''' </summary>
 ReadOnly Property fileno as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.fileno
 		Return Nothing
 	End Get
@@ -7946,6 +8813,7 @@ End Property
 ''' </summary>
 ReadOnly Property ifunc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.ifunc
 		Return Nothing
 	End Get
@@ -7959,6 +8827,7 @@ End Property
 ''' </summary>
 ReadOnly Property _function_ as Sarray
 	Get
+	if isnothing(values) then return nothing
 			If Values._function_ <> IntPtr.Zero Then 
 		Return New Sarray(Values._function_)
 	End if
@@ -7974,6 +8843,7 @@ End Property
 ''' </summary>
 ReadOnly Property data as Sarray
 	Get
+	if isnothing(values) then return nothing
 			If Values.data <> IntPtr.Zero Then 
 		Return New Sarray(Values.data)
 	End if
@@ -7989,6 +8859,7 @@ End Property
 ''' </summary>
 ReadOnly Property descr as Sarray
 	Get
+	if isnothing(values) then return nothing
 			If Values.descr <> IntPtr.Zero Then 
 		Return New Sarray(Values.descr)
 	End if
@@ -8004,6 +8875,7 @@ End Property
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -8014,9 +8886,9 @@ End Property
 	Private Class Marshal_L_StrCode
 		Public fileno as Integer
 		Public ifunc as Integer
-		Public _function_ as IntPTR
-		Public data as IntPTR
-		Public descr as IntPTR
+		Public _function_ as IntPtr
+		Public data as IntPtr
+		Public descr as IntPtr
 		Public n as Integer
 	End Class
 End Class
@@ -8027,11 +8899,12 @@ End Class
 ' SRC/sudoku.h (52, 8)
 ' sudoku.h
 Public Class L_Sudoku
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Sudoku
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Sudoku
@@ -8045,6 +8918,7 @@ Public Class L_Sudoku
 ''' </summary>
 ReadOnly Property num as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.num
 		Return Nothing
 	End Get
@@ -8058,6 +8932,7 @@ End Property
 ''' </summary>
 ReadOnly Property locs as Integer()
 	Get
+	if isnothing(values) then return nothing
 		If Values.locs <> IntPtr.Zero Then 
 	Dim _locs(1 -1) as Integer
 	Marshal.Copy(Values.locs, _locs, 0, _locs.Length)
@@ -8075,6 +8950,7 @@ End Property
 ''' </summary>
 ReadOnly Property current as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.current
 		Return Nothing
 	End Get
@@ -8088,6 +8964,7 @@ End Property
 ''' </summary>
 ReadOnly Property init as Integer()
 	Get
+	if isnothing(values) then return nothing
 		If Values.init <> IntPtr.Zero Then 
 	Dim _init(1 -1) as Integer
 	Marshal.Copy(Values.init, _init, 0, _init.Length)
@@ -8105,6 +8982,7 @@ End Property
 ''' </summary>
 ReadOnly Property state as Integer()
 	Get
+	if isnothing(values) then return nothing
 		If Values.state <> IntPtr.Zero Then 
 	Dim _state(1 -1) as Integer
 	Marshal.Copy(Values.state, _state, 0, _state.Length)
@@ -8122,6 +9000,7 @@ End Property
 ''' </summary>
 ReadOnly Property nguess as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nguess
 		Return Nothing
 	End Get
@@ -8135,6 +9014,7 @@ End Property
 ''' </summary>
 ReadOnly Property finished as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.finished
 		Return Nothing
 	End Get
@@ -8148,6 +9028,7 @@ End Property
 ''' </summary>
 ReadOnly Property failure as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.failure
 		Return Nothing
 	End Get
@@ -8157,10 +9038,10 @@ End Property
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Sudoku
 		Public num as Integer
-		Public locs as IntPTR
+		Public locs as IntPtr
 		Public current as Integer
-		Public init as IntPTR
-		Public state as IntPTR
+		Public init as IntPtr
+		Public state as IntPtr
 		Public nguess as Integer
 		Public finished as Integer
 		Public failure as Integer
@@ -8173,11 +9054,12 @@ End Class
 ' SRC/watershed.h (38, 8)
 ' Simple data structure to hold watershed data.
 Public Class L_WShed
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_WShed
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_WShed
@@ -8191,6 +9073,7 @@ Public Class L_WShed
 ''' </summary>
 ReadOnly Property pixs as Pix
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixs <> IntPtr.Zero Then 
 		Return New Pix(Values.pixs)
 	End if
@@ -8206,6 +9089,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixm as Pix
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixm <> IntPtr.Zero Then 
 		Return New Pix(Values.pixm)
 	End if
@@ -8221,6 +9105,7 @@ End Property
 ''' </summary>
 ReadOnly Property mindepth as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.mindepth
 		Return Nothing
 	End Get
@@ -8234,6 +9119,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixlab as Pix
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixlab <> IntPtr.Zero Then 
 		Return New Pix(Values.pixlab)
 	End if
@@ -8249,6 +9135,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixt as Pix
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixt <> IntPtr.Zero Then 
 		Return New Pix(Values.pixt)
 	End if
@@ -8260,12 +9147,13 @@ End Property
 ''' Brf: line ptrs for pixs
 '''  Loc: SRC/watershed.h (45, 20)
 '''  Org: [void ** lines8]
-'''  Msh: void ** | 3:Void | IntPTR()
+'''  Msh: void ** | 3:Void | IntPtr()
 ''' </summary>
-ReadOnly Property lines8 as IntPTR()
+ReadOnly Property lines8 as IntPtr()
 	Get
+	if isnothing(values) then return nothing
 			If Values.lines8 <> IntPtr.Zero Then 
-		Dim _lines8(1) as IntPTR
+		Dim _lines8(1) as IntPtr
 		Marshal.Copy(Values.lines8, _lines8, 0, 1)
 		Return _lines8
 	End if
@@ -8277,12 +9165,13 @@ End Property
 ''' Brf: line ptrs for pixm
 '''  Loc: SRC/watershed.h (46, 20)
 '''  Org: [void ** linem1]
-'''  Msh: void ** | 3:Void | IntPTR()
+'''  Msh: void ** | 3:Void | IntPtr()
 ''' </summary>
-ReadOnly Property linem1 as IntPTR()
+ReadOnly Property linem1 as IntPtr()
 	Get
+	if isnothing(values) then return nothing
 			If Values.linem1 <> IntPtr.Zero Then 
-		Dim _linem1(1) as IntPTR
+		Dim _linem1(1) as IntPtr
 		Marshal.Copy(Values.linem1, _linem1, 0, 1)
 		Return _linem1
 	End if
@@ -8294,12 +9183,13 @@ End Property
 ''' Brf: line ptrs for pixlab
 '''  Loc: SRC/watershed.h (47, 20)
 '''  Org: [void ** linelab32]
-'''  Msh: void ** | 3:Void | IntPTR()
+'''  Msh: void ** | 3:Void | IntPtr()
 ''' </summary>
-ReadOnly Property linelab32 as IntPTR()
+ReadOnly Property linelab32 as IntPtr()
 	Get
+	if isnothing(values) then return nothing
 			If Values.linelab32 <> IntPtr.Zero Then 
-		Dim _linelab32(1) as IntPTR
+		Dim _linelab32(1) as IntPtr
 		Marshal.Copy(Values.linelab32, _linelab32, 0, 1)
 		Return _linelab32
 	End if
@@ -8311,12 +9201,13 @@ End Property
 ''' Brf: line ptrs for pixt
 '''  Loc: SRC/watershed.h (48, 20)
 '''  Org: [void ** linet1]
-'''  Msh: void ** | 3:Void | IntPTR()
+'''  Msh: void ** | 3:Void | IntPtr()
 ''' </summary>
-ReadOnly Property linet1 as IntPTR()
+ReadOnly Property linet1 as IntPtr()
 	Get
+	if isnothing(values) then return nothing
 			If Values.linet1 <> IntPtr.Zero Then 
-		Dim _linet1(1) as IntPTR
+		Dim _linet1(1) as IntPtr
 		Marshal.Copy(Values.linet1, _linet1, 0, 1)
 		Return _linet1
 	End if
@@ -8332,6 +9223,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixad as Pixa
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixad <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixad)
 	End if
@@ -8347,6 +9239,7 @@ End Property
 ''' </summary>
 ReadOnly Property ptas as Pta
 	Get
+	if isnothing(values) then return nothing
 			If Values.ptas <> IntPtr.Zero Then 
 		Return New Pta(Values.ptas)
 	End if
@@ -8362,6 +9255,7 @@ End Property
 ''' </summary>
 ReadOnly Property nasi as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.nasi <> IntPtr.Zero Then 
 		Return New Numa(Values.nasi)
 	End if
@@ -8377,6 +9271,7 @@ End Property
 ''' </summary>
 ReadOnly Property nash as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.nash <> IntPtr.Zero Then 
 		Return New Numa(Values.nash)
 	End if
@@ -8392,6 +9287,7 @@ End Property
 ''' </summary>
 ReadOnly Property namh as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.namh <> IntPtr.Zero Then 
 		Return New Numa(Values.namh)
 	End if
@@ -8407,6 +9303,7 @@ End Property
 ''' </summary>
 ReadOnly Property nalevels as Numa
 	Get
+	if isnothing(values) then return nothing
 			If Values.nalevels <> IntPtr.Zero Then 
 		Return New Numa(Values.nalevels)
 	End if
@@ -8422,6 +9319,7 @@ End Property
 ''' </summary>
 ReadOnly Property nseeds as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nseeds
 		Return Nothing
 	End Get
@@ -8435,6 +9333,7 @@ End Property
 ''' </summary>
 ReadOnly Property nother as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nother
 		Return Nothing
 	End Get
@@ -8448,6 +9347,7 @@ End Property
 ''' </summary>
 ReadOnly Property lut as Integer()
 	Get
+	if isnothing(values) then return nothing
 		If Values.lut <> IntPtr.Zero Then 
 	Dim _lut(1 -1) as Integer
 	Marshal.Copy(Values.lut, _lut, 0, _lut.Length)
@@ -8465,6 +9365,7 @@ End Property
 ''' </summary>
 ReadOnly Property links as List (of Numa)
 	Get
+	if isnothing(values) then return nothing
 		If Values.links <> IntPtr.Zero Then
 		Dim LST_links As New List(Of Numa)
 		Dim ARR_links(1 - 1) As IntPtr
@@ -8486,6 +9387,7 @@ End Property
 ''' </summary>
 ReadOnly Property arraysize as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.arraysize
 		Return Nothing
 	End Get
@@ -8499,6 +9401,7 @@ End Property
 ''' </summary>
 ReadOnly Property debug as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.debug
 		Return Nothing
 	End Get
@@ -8507,25 +9410,25 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_WShed
-		Public pixs as IntPTR
-		Public pixm as IntPTR
+		Public pixs as IntPtr
+		Public pixm as IntPtr
 		Public mindepth as Integer
-		Public pixlab as IntPTR
-		Public pixt as IntPTR
-		Public lines8 as IntPTR
-		Public linem1 as IntPTR
-		Public linelab32 as IntPTR
-		Public linet1 as IntPTR
-		Public pixad as IntPTR
-		Public ptas as IntPTR
-		Public nasi as IntPTR
-		Public nash as IntPTR
-		Public namh as IntPTR
-		Public nalevels as IntPTR
+		Public pixlab as IntPtr
+		Public pixt as IntPtr
+		Public lines8 as IntPtr
+		Public linem1 as IntPtr
+		Public linelab32 as IntPtr
+		Public linet1 as IntPtr
+		Public pixad as IntPtr
+		Public ptas as IntPtr
+		Public nasi as IntPtr
+		Public nash as IntPtr
+		Public namh as IntPtr
+		Public nalevels as IntPtr
 		Public nseeds as Integer
 		Public nother as Integer
-		Public lut as IntPTR
-		Public links as IntPTR
+		Public lut as IntPtr
+		Public links as IntPtr
 		Public arraysize as Integer
 		Public debug as Integer
 	End Class
@@ -8537,11 +9440,12 @@ End Class
 ' SRC/bilateral.h (115, 8)
 ' Bilateral filter
 Public Class L_Bilateral
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Bilateral
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Bilateral
@@ -8555,6 +9459,7 @@ Public Class L_Bilateral
 ''' </summary>
 ReadOnly Property pixs as Pix
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixs <> IntPtr.Zero Then 
 		Return New Pix(Values.pixs)
 	End if
@@ -8570,6 +9475,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixsc as Pix
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixsc <> IntPtr.Zero Then 
 		Return New Pix(Values.pixsc)
 	End if
@@ -8585,6 +9491,7 @@ End Property
 ''' </summary>
 ReadOnly Property reduction as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.reduction
 		Return Nothing
 	End Get
@@ -8598,6 +9505,7 @@ End Property
 ''' </summary>
 ReadOnly Property spatial_stdev as Single
 	Get
+	if isnothing(values) then return nothing
 				Return Values.spatial_stdev
 		Return Nothing
 	End Get
@@ -8611,6 +9519,7 @@ End Property
 ''' </summary>
 ReadOnly Property range_stdev as Single
 	Get
+	if isnothing(values) then return nothing
 				Return Values.range_stdev
 		Return Nothing
 	End Get
@@ -8624,6 +9533,7 @@ End Property
 ''' </summary>
 ReadOnly Property spatial as Single()
 	Get
+	if isnothing(values) then return nothing
 		If Values.spatial <> IntPtr.Zero Then 
 	Dim _spatial(1 -1) as Single
 	Marshal.Copy(Values.spatial, _spatial, 0, _spatial.Length)
@@ -8641,6 +9551,7 @@ End Property
 ''' </summary>
 ReadOnly Property range as Single()
 	Get
+	if isnothing(values) then return nothing
 		If Values.range <> IntPtr.Zero Then 
 	Dim _range(1 -1) as Single
 	Marshal.Copy(Values.range, _range, 0, _range.Length)
@@ -8658,6 +9569,7 @@ End Property
 ''' </summary>
 ReadOnly Property minval as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.minval
 		Return Nothing
 	End Get
@@ -8671,6 +9583,7 @@ End Property
 ''' </summary>
 ReadOnly Property maxval as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.maxval
 		Return Nothing
 	End Get
@@ -8684,6 +9597,7 @@ End Property
 ''' </summary>
 ReadOnly Property ncomps as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.ncomps
 		Return Nothing
 	End Get
@@ -8697,6 +9611,7 @@ End Property
 ''' </summary>
 ReadOnly Property nc as Integer()
 	Get
+	if isnothing(values) then return nothing
 		If Values.nc <> IntPtr.Zero Then 
 	Dim _nc(1 -1) as Integer
 	Marshal.Copy(Values.nc, _nc, 0, _nc.Length)
@@ -8714,6 +9629,7 @@ End Property
 ''' </summary>
 ReadOnly Property kindex as Integer()
 	Get
+	if isnothing(values) then return nothing
 		If Values.kindex <> IntPtr.Zero Then 
 	Dim _kindex(1 -1) as Integer
 	Marshal.Copy(Values.kindex, _kindex, 0, _kindex.Length)
@@ -8731,6 +9647,7 @@ End Property
 ''' </summary>
 ReadOnly Property kfract as Single()
 	Get
+	if isnothing(values) then return nothing
 		If Values.kfract <> IntPtr.Zero Then 
 	Dim _kfract(1 -1) as Single
 	Marshal.Copy(Values.kfract, _kfract, 0, _kfract.Length)
@@ -8748,6 +9665,7 @@ End Property
 ''' </summary>
 ReadOnly Property pixac as Pixa
 	Get
+	if isnothing(values) then return nothing
 			If Values.pixac <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixac)
 	End if
@@ -8763,6 +9681,7 @@ End Property
 ''' </summary>
 ReadOnly Property lineset as List (of List (of List (of Byte())))
 	Get
+	if isnothing(values) then return nothing
 		Dim _Data1(4 - 1) As Byte
 Dim _DataFin As new List (of List ( of List (of Byte())))
 Marshal.Copy(Values.lineset, _Data1, 0, _Data1.Length)
@@ -8779,21 +9698,21 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Bilateral
-		Public pixs as IntPTR
-		Public pixsc as IntPTR
+		Public pixs as IntPtr
+		Public pixsc as IntPtr
 		Public reduction as Integer
 		Public spatial_stdev as Single
 		Public range_stdev as Single
-		Public spatial as IntPTR
-		Public range as IntPTR
+		Public spatial as IntPtr
+		Public range as IntPtr
 		Public minval as Integer
 		Public maxval as Integer
 		Public ncomps as Integer
-		Public nc as IntPTR
-		Public kindex as IntPTR
-		Public kfract as IntPTR
-		Public pixac as IntPTR
-		<MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> 		Public lineset as IntPTR
+		Public nc as IntPtr
+		Public kindex as IntPtr
+		Public kfract as IntPtr
+		Public pixac as IntPtr
+		<MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> 		Public lineset as IntPtr
 	End Class
 End Class
 
@@ -8803,11 +9722,12 @@ End Class
 ' SRC/bmp.h (50, 8)
 ' BMP file header
 Public Class BMP_FileHeader
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_BMP_FileHeader
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_BMP_FileHeader
@@ -8821,6 +9741,7 @@ Public Class BMP_FileHeader
 ''' </summary>
 ReadOnly Property bfType as Short
 	Get
+	if isnothing(values) then return nothing
 				Return Values.bfType
 		Return Nothing
 	End Get
@@ -8834,6 +9755,7 @@ End Property
 ''' </summary>
 ReadOnly Property bfSize as Short
 	Get
+	if isnothing(values) then return nothing
 				Return Values.bfSize
 		Return Nothing
 	End Get
@@ -8847,6 +9769,7 @@ End Property
 ''' </summary>
 ReadOnly Property bfFill1 as Short
 	Get
+	if isnothing(values) then return nothing
 				Return Values.bfFill1
 		Return Nothing
 	End Get
@@ -8860,6 +9783,7 @@ End Property
 ''' </summary>
 ReadOnly Property bfReserved1 as Short
 	Get
+	if isnothing(values) then return nothing
 				Return Values.bfReserved1
 		Return Nothing
 	End Get
@@ -8873,6 +9797,7 @@ End Property
 ''' </summary>
 ReadOnly Property bfReserved2 as Short
 	Get
+	if isnothing(values) then return nothing
 				Return Values.bfReserved2
 		Return Nothing
 	End Get
@@ -8886,6 +9811,7 @@ End Property
 ''' </summary>
 ReadOnly Property bfOffBits as Short
 	Get
+	if isnothing(values) then return nothing
 				Return Values.bfOffBits
 		Return Nothing
 	End Get
@@ -8899,6 +9825,7 @@ End Property
 ''' </summary>
 ReadOnly Property bfFill2 as Short
 	Get
+	if isnothing(values) then return nothing
 				Return Values.bfFill2
 		Return Nothing
 	End Get
@@ -8921,11 +9848,12 @@ End Class
 ' SRC/bmp.h (75, 8)
 ' BMP info header
 Public Class BMP_InfoHeader
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_BMP_InfoHeader
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_BMP_InfoHeader
@@ -8939,6 +9867,7 @@ Public Class BMP_InfoHeader
 ''' </summary>
 ReadOnly Property biSize as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.biSize
 		Return Nothing
 	End Get
@@ -8952,6 +9881,7 @@ End Property
 ''' </summary>
 ReadOnly Property biWidth as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.biWidth
 		Return Nothing
 	End Get
@@ -8965,6 +9895,7 @@ End Property
 ''' </summary>
 ReadOnly Property biHeight as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.biHeight
 		Return Nothing
 	End Get
@@ -8978,6 +9909,7 @@ End Property
 ''' </summary>
 ReadOnly Property biPlanes as Short
 	Get
+	if isnothing(values) then return nothing
 				Return Values.biPlanes
 		Return Nothing
 	End Get
@@ -8991,6 +9923,7 @@ End Property
 ''' </summary>
 ReadOnly Property biBitCount as Short
 	Get
+	if isnothing(values) then return nothing
 				Return Values.biBitCount
 		Return Nothing
 	End Get
@@ -9004,6 +9937,7 @@ End Property
 ''' </summary>
 ReadOnly Property biCompression as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.biCompression
 		Return Nothing
 	End Get
@@ -9017,6 +9951,7 @@ End Property
 ''' </summary>
 ReadOnly Property biSizeImage as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.biSizeImage
 		Return Nothing
 	End Get
@@ -9030,6 +9965,7 @@ End Property
 ''' </summary>
 ReadOnly Property biXPelsPerMeter as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.biXPelsPerMeter
 		Return Nothing
 	End Get
@@ -9043,6 +9979,7 @@ End Property
 ''' </summary>
 ReadOnly Property biYPelsPerMeter as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.biYPelsPerMeter
 		Return Nothing
 	End Get
@@ -9056,6 +9993,7 @@ End Property
 ''' </summary>
 ReadOnly Property biClrUsed as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.biClrUsed
 		Return Nothing
 	End Get
@@ -9069,6 +10007,7 @@ End Property
 ''' </summary>
 ReadOnly Property biClrImportant as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.biClrImportant
 		Return Nothing
 	End Get
@@ -9097,11 +10036,12 @@ End Class
 ' SRC\colorquant1.c (158, 8)
 ' 
 Public Class ColorQuantCell
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_ColorQuantCell
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_ColorQuantCell
@@ -9115,6 +10055,7 @@ Public Class ColorQuantCell
 ''' </summary>
 ReadOnly Property rc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.rc
 		Return Nothing
 	End Get
@@ -9128,6 +10069,7 @@ End Property
 ''' </summary>
 ReadOnly Property gc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.gc
 		Return Nothing
 	End Get
@@ -9141,6 +10083,7 @@ End Property
 ''' </summary>
 ReadOnly Property bc as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.bc
 		Return Nothing
 	End Get
@@ -9154,6 +10097,7 @@ End Property
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -9167,6 +10111,7 @@ End Property
 ''' </summary>
 ReadOnly Property index as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.index
 		Return Nothing
 	End Get
@@ -9180,6 +10125,7 @@ End Property
 ''' </summary>
 ReadOnly Property nleaves as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nleaves
 		Return Nothing
 	End Get
@@ -9193,6 +10139,7 @@ End Property
 ''' </summary>
 ReadOnly Property bleaf as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.bleaf
 		Return Nothing
 	End Get
@@ -9215,11 +10162,12 @@ End Class
 ' SRC\colorquant1.c (190, 8)
 ' 
 Public Class OctcubeQuantCell
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_OctcubeQuantCell
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_OctcubeQuantCell
@@ -9233,6 +10181,7 @@ Public Class OctcubeQuantCell
 ''' </summary>
 ReadOnly Property n as Single
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -9246,6 +10195,7 @@ End Property
 ''' </summary>
 ReadOnly Property octindex as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.octindex
 		Return Nothing
 	End Get
@@ -9259,6 +10209,7 @@ End Property
 ''' </summary>
 ReadOnly Property rcum as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.rcum
 		Return Nothing
 	End Get
@@ -9272,6 +10223,7 @@ End Property
 ''' </summary>
 ReadOnly Property gcum as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.gcum
 		Return Nothing
 	End Get
@@ -9285,6 +10237,7 @@ End Property
 ''' </summary>
 ReadOnly Property bcum as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.bcum
 		Return Nothing
 	End Get
@@ -9298,6 +10251,7 @@ End Property
 ''' </summary>
 ReadOnly Property rval as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.rval
 		Return Nothing
 	End Get
@@ -9311,6 +10265,7 @@ End Property
 ''' </summary>
 ReadOnly Property gval as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.gval
 		Return Nothing
 	End Get
@@ -9324,6 +10279,7 @@ End Property
 ''' </summary>
 ReadOnly Property bval as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.bval
 		Return Nothing
 	End Get
@@ -9347,11 +10303,12 @@ End Class
 ' SRC\colorquant1.c (206, 8)
 ' 
 Public Class L_OctcubePop
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_OctcubePop
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_OctcubePop
@@ -9365,6 +10322,7 @@ Public Class L_OctcubePop
 ''' </summary>
 ReadOnly Property npix as Single
 	Get
+	if isnothing(values) then return nothing
 				Return Values.npix
 		Return Nothing
 	End Get
@@ -9378,6 +10336,7 @@ End Property
 ''' </summary>
 ReadOnly Property index as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.index
 		Return Nothing
 	End Get
@@ -9391,6 +10350,7 @@ End Property
 ''' </summary>
 ReadOnly Property rval as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.rval
 		Return Nothing
 	End Get
@@ -9404,6 +10364,7 @@ End Property
 ''' </summary>
 ReadOnly Property gval as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.gval
 		Return Nothing
 	End Get
@@ -9417,6 +10378,7 @@ End Property
 ''' </summary>
 ReadOnly Property bval as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.bval
 		Return Nothing
 	End Get
@@ -9439,11 +10401,12 @@ End Class
 ' SRC\colorquant2.c (178, 8)
 ' 
 Public Class L_Box3d
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Box3d
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Box3d
@@ -9457,6 +10420,7 @@ Public Class L_Box3d
 ''' </summary>
 ReadOnly Property sortparam as Single
 	Get
+	if isnothing(values) then return nothing
 				Return Values.sortparam
 		Return Nothing
 	End Get
@@ -9470,6 +10434,7 @@ End Property
 ''' </summary>
 ReadOnly Property npix as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.npix
 		Return Nothing
 	End Get
@@ -9483,6 +10448,7 @@ End Property
 ''' </summary>
 ReadOnly Property vol as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.vol
 		Return Nothing
 	End Get
@@ -9496,6 +10462,7 @@ End Property
 ''' </summary>
 ReadOnly Property r1 as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.r1
 		Return Nothing
 	End Get
@@ -9509,6 +10476,7 @@ End Property
 ''' </summary>
 ReadOnly Property r2 as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.r2
 		Return Nothing
 	End Get
@@ -9522,6 +10490,7 @@ End Property
 ''' </summary>
 ReadOnly Property g1 as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.g1
 		Return Nothing
 	End Get
@@ -9535,6 +10504,7 @@ End Property
 ''' </summary>
 ReadOnly Property g2 as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.g2
 		Return Nothing
 	End Get
@@ -9548,6 +10518,7 @@ End Property
 ''' </summary>
 ReadOnly Property b1 as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.b1
 		Return Nothing
 	End Get
@@ -9561,6 +10532,7 @@ End Property
 ''' </summary>
 ReadOnly Property b2 as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.b2
 		Return Nothing
 	End Get
@@ -9587,11 +10559,12 @@ End Class
 ' SRC\conncomp.c (99, 8)
 ' The struct FillSeg is used by the Heckbert seedfill algorithm to hold information about image segments that are waiting to be investigated. We use two Stacks, one to hold the FillSegs in use, and an auxiliary Stack as a reservoir to hold FillSegs for re-use.
 Public Class FillSeg
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_FillSeg
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_FillSeg
@@ -9605,6 +10578,7 @@ Public Class FillSeg
 ''' </summary>
 ReadOnly Property xleft as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.xleft
 		Return Nothing
 	End Get
@@ -9618,6 +10592,7 @@ End Property
 ''' </summary>
 ReadOnly Property xright as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.xright
 		Return Nothing
 	End Get
@@ -9631,6 +10606,7 @@ End Property
 ''' </summary>
 ReadOnly Property y as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.y
 		Return Nothing
 	End Get
@@ -9644,6 +10620,7 @@ End Property
 ''' </summary>
 ReadOnly Property dy as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.dy
 		Return Nothing
 	End Get
@@ -9665,11 +10642,12 @@ End Class
 ' SRC\jbclass.c (236, 8)
 ' 
 Public Class JbFindTemplatesState
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_JbFindTemplatesState
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_JbFindTemplatesState
@@ -9683,6 +10661,7 @@ Public Class JbFindTemplatesState
 ''' </summary>
 ReadOnly Property classer as JbClasser
 	Get
+	if isnothing(values) then return nothing
 			If Values.classer <> IntPtr.Zero Then 
 		Return New JbClasser(Values.classer)
 	End if
@@ -9698,6 +10677,7 @@ End Property
 ''' </summary>
 ReadOnly Property w as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.w
 		Return Nothing
 	End Get
@@ -9711,6 +10691,7 @@ End Property
 ''' </summary>
 ReadOnly Property h as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.h
 		Return Nothing
 	End Get
@@ -9724,6 +10705,7 @@ End Property
 ''' </summary>
 ReadOnly Property i as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.i
 		Return Nothing
 	End Get
@@ -9737,6 +10719,7 @@ End Property
 ''' </summary>
 ReadOnly Property dna as L_Dna
 	Get
+	if isnothing(values) then return nothing
 			If Values.dna <> IntPtr.Zero Then 
 		Return New L_Dna(Values.dna)
 	End if
@@ -9752,6 +10735,7 @@ End Property
 ''' </summary>
 ReadOnly Property n as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.n
 		Return Nothing
 	End Get
@@ -9760,11 +10744,11 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_JbFindTemplatesState
-		Public classer as IntPTR
+		Public classer as IntPtr
 		Public w as Integer
 		Public h as Integer
 		Public i as Integer
-		Public dna as IntPTR
+		Public dna as IntPtr
 		Public n as Integer
 	End Class
 End Class
@@ -9775,11 +10759,12 @@ End Class
 ' SRC\jpegio.c (164, 8)
 ' 
 Public Class callback_data
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_callback_data
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_callback_data
@@ -9793,6 +10778,7 @@ Public Class callback_data
 ''' </summary>
 ReadOnly Property jmpbuf as Char
 	Get
+	if isnothing(values) then return nothing
 				Return Values.jmpbuf
 		Return Nothing
 	End Get
@@ -9806,6 +10792,7 @@ End Property
 ''' </summary>
 ReadOnly Property comment as Byte()
 	Get
+	if isnothing(values) then return nothing
 		If Values.comment <> IntPtr.Zero Then 
 	Dim _comment(1 -1) as Byte
 	Marshal.Copy(Values.comment, _comment, 0, _comment.Length)
@@ -9819,7 +10806,7 @@ End Property
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_callback_data
 		Public jmpbuf as Char
-		Public comment as IntPTR
+		Public comment as IntPtr
 	End Class
 End Class
 
@@ -9829,11 +10816,12 @@ End Class
 ' SRC\maze.c (76, 8)
 ' 
 Public Class MazeElement
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_MazeElement
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_MazeElement
@@ -9847,6 +10835,7 @@ Public Class MazeElement
 ''' </summary>
 ReadOnly Property distance as Single
 	Get
+	if isnothing(values) then return nothing
 				Return Values.distance
 		Return Nothing
 	End Get
@@ -9860,6 +10849,7 @@ End Property
 ''' </summary>
 ReadOnly Property x as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.x
 		Return Nothing
 	End Get
@@ -9873,6 +10863,7 @@ End Property
 ''' </summary>
 ReadOnly Property y as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.y
 		Return Nothing
 	End Get
@@ -9886,6 +10877,7 @@ End Property
 ''' </summary>
 ReadOnly Property val as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.val
 		Return Nothing
 	End Get
@@ -9899,6 +10891,7 @@ End Property
 ''' </summary>
 ReadOnly Property dir as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.dir
 		Return Nothing
 	End Get
@@ -9921,11 +10914,12 @@ End Class
 ' SRC\partition.c (48, 8)
 ' Partition element
 Public Class PartitionElement
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_PartitionElement
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_PartitionElement
@@ -9939,6 +10933,7 @@ Public Class PartitionElement
 ''' </summary>
 ReadOnly Property size as Single
 	Get
+	if isnothing(values) then return nothing
 				Return Values.size
 		Return Nothing
 	End Get
@@ -9952,6 +10947,7 @@ End Property
 ''' </summary>
 ReadOnly Property box as Box
 	Get
+	if isnothing(values) then return nothing
 			If Values.box <> IntPtr.Zero Then 
 		Return New Box(Values.box)
 	End if
@@ -9967,6 +10963,7 @@ End Property
 ''' </summary>
 ReadOnly Property boxa as Boxa
 	Get
+	if isnothing(values) then return nothing
 			If Values.boxa <> IntPtr.Zero Then 
 		Return New Boxa(Values.boxa)
 	End if
@@ -9978,8 +10975,8 @@ End Property
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_PartitionElement
 		Public size as Single
-		Public box as IntPTR
-		Public boxa as IntPTR
+		Public box as IntPtr
+		Public boxa as IntPtr
 	End Class
 End Class
 
@@ -9989,11 +10986,12 @@ End Class
 ' SRC\pix1.c (218, 8)
 ' Pix memory manager
 Public Class PixMemoryManager
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_PixMemoryManager
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_PixMemoryManager
@@ -10005,8 +11003,9 @@ Public Class PixMemoryManager
 '''  Org: [alloc_fn allocator]
 '''  Msh: alloc_fn | 1:Pointer |
 ''' </summary>
-ReadOnly Property allocator as IntPTR
+ReadOnly Property allocator as IntPtr
 	Get
+	if isnothing(values) then return nothing
 				Return Values.allocator
 		Return Nothing
 	End Get
@@ -10018,8 +11017,9 @@ End Property
 '''  Org: [dealloc_fn deallocator]
 '''  Msh: dealloc_fn | 1:Pointer |
 ''' </summary>
-ReadOnly Property deallocator as IntPTR
+ReadOnly Property deallocator as IntPtr
 	Get
+	if isnothing(values) then return nothing
 				Return Values.deallocator
 		Return Nothing
 	End Get
@@ -10028,8 +11028,8 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_PixMemoryManager
-		Public allocator as IntPTR
-		Public deallocator as IntPTR
+		Public allocator as IntPtr
+		Public deallocator as IntPtr
 	End Class
 End Class
 
@@ -10039,11 +11039,12 @@ End Class
 ' SRC\pixalloc.c (113, 8)
 ' Pix memory storage
 Public Class PixMemoryStore
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_PixMemoryStore
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_PixMemoryStore
@@ -10057,6 +11058,7 @@ Public Class PixMemoryStore
 ''' </summary>
 ReadOnly Property paa as L_Ptraa
 	Get
+	if isnothing(values) then return nothing
 			If Values.paa <> IntPtr.Zero Then 
 		Return New L_Ptraa(Values.paa)
 	End if
@@ -10072,6 +11074,7 @@ End Property
 ''' </summary>
 ReadOnly Property minsize as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.minsize
 		Return Nothing
 	End Get
@@ -10085,6 +11088,7 @@ End Property
 ''' </summary>
 ReadOnly Property smallest as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.smallest
 		Return Nothing
 	End Get
@@ -10098,6 +11102,7 @@ End Property
 ''' </summary>
 ReadOnly Property largest as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.largest
 		Return Nothing
 	End Get
@@ -10111,6 +11116,7 @@ End Property
 ''' </summary>
 ReadOnly Property nbytes as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nbytes
 		Return Nothing
 	End Get
@@ -10124,6 +11130,7 @@ End Property
 ''' </summary>
 ReadOnly Property nlevels as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.nlevels
 		Return Nothing
 	End Get
@@ -10137,6 +11144,7 @@ End Property
 ''' </summary>
 ReadOnly Property sizes as Byte()
 	Get
+	if isnothing(values) then return nothing
 		Dim _sizes(1 -1) as Byte
 Marshal.Copy(Values.sizes, _sizes, 0, _sizes.Length)
 Return _sizes
@@ -10152,6 +11160,7 @@ End Property
 ''' </summary>
 ReadOnly Property allocarray as Integer()
 	Get
+	if isnothing(values) then return nothing
 		If Values.allocarray <> IntPtr.Zero Then 
 	Dim _allocarray(1 -1) as Integer
 	Marshal.Copy(Values.allocarray, _allocarray, 0, _allocarray.Length)
@@ -10169,6 +11178,7 @@ End Property
 ''' </summary>
 ReadOnly Property baseptr as Byte()
 	Get
+	if isnothing(values) then return nothing
 		Dim _baseptr(1 -1) as Byte
 Marshal.Copy(Values.baseptr, _baseptr, 0, _baseptr.Length)
 Return _baseptr
@@ -10184,6 +11194,7 @@ End Property
 ''' </summary>
 ReadOnly Property maxptr as Byte()
 	Get
+	if isnothing(values) then return nothing
 		Dim _maxptr(1 -1) as Byte
 Marshal.Copy(Values.maxptr, _maxptr, 0, _maxptr.Length)
 Return _maxptr
@@ -10199,6 +11210,7 @@ End Property
 ''' </summary>
 ReadOnly Property firstptr as List(Of Byte())
 	Get
+	if isnothing(values) then return nothing
 		Dim _Data1(4 - 1) As Byte
 Dim _DataFin As New List(Of Byte())
 Marshal.Copy(Values.firstptr, _Data1, 0, _Data1.Length)
@@ -10220,6 +11232,7 @@ End Property
 ''' </summary>
 ReadOnly Property memused as Integer()
 	Get
+	if isnothing(values) then return nothing
 		If Values.memused <> IntPtr.Zero Then 
 	Dim _memused(1 -1) as Integer
 	Marshal.Copy(Values.memused, _memused, 0, _memused.Length)
@@ -10237,6 +11250,7 @@ End Property
 ''' </summary>
 ReadOnly Property meminuse as Integer()
 	Get
+	if isnothing(values) then return nothing
 		If Values.meminuse <> IntPtr.Zero Then 
 	Dim _meminuse(1 -1) as Integer
 	Marshal.Copy(Values.meminuse, _meminuse, 0, _meminuse.Length)
@@ -10254,6 +11268,7 @@ End Property
 ''' </summary>
 ReadOnly Property memmax as Integer()
 	Get
+	if isnothing(values) then return nothing
 		If Values.memmax <> IntPtr.Zero Then 
 	Dim _memmax(1 -1) as Integer
 	Marshal.Copy(Values.memmax, _memmax, 0, _memmax.Length)
@@ -10271,6 +11286,7 @@ End Property
 ''' </summary>
 ReadOnly Property memempty as Integer()
 	Get
+	if isnothing(values) then return nothing
 		If Values.memempty <> IntPtr.Zero Then 
 	Dim _memempty(1 -1) as Integer
 	Marshal.Copy(Values.memempty, _memempty, 0, _memempty.Length)
@@ -10288,6 +11304,7 @@ End Property
 ''' </summary>
 ReadOnly Property logfile as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.logfile <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.logfile)
 End if
@@ -10298,22 +11315,22 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_PixMemoryStore
-		Public paa as IntPTR
+		Public paa as IntPtr
 		Public minsize as UInteger
 		Public smallest as UInteger
 		Public largest as UInteger
 		Public nbytes as UInteger
 		Public nlevels as Integer
-		Public sizes as IntPTR
-		Public allocarray as IntPTR
-		Public baseptr as IntPTR
-		Public maxptr as IntPTR
-		<MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> 		Public firstptr as IntPTR
-		Public memused as IntPTR
-		Public meminuse as IntPTR
-		Public memmax as IntPTR
-		Public memempty as IntPTR
-		Public logfile as IntPTR
+		Public sizes as IntPtr
+		Public allocarray as IntPtr
+		Public baseptr as IntPtr
+		Public maxptr as IntPtr
+		<MarshalAs(UnmanagedType.ByValTStr, SizeConst:=4)> 		Public firstptr as IntPtr
+		Public memused as IntPtr
+		Public meminuse as IntPtr
+		Public memmax as IntPtr
+		Public memempty as IntPtr
+		Public logfile as IntPtr
 	End Class
 End Class
 
@@ -10323,11 +11340,12 @@ End Class
 ' SRC\pngio.c (1293, 8)
 ' A node in a linked list of memory buffers that hold I/O content
 Public Class MemIOData
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_MemIOData
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_MemIOData
@@ -10341,6 +11359,7 @@ Public Class MemIOData
 ''' </summary>
 ReadOnly Property m_Buffer as String
 	Get
+	if isnothing(values) then return nothing
 		If Values.m_Buffer <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.m_Buffer)
 End if
@@ -10356,6 +11375,7 @@ End Property
 ''' </summary>
 ReadOnly Property m_Count as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.m_Count
 		Return Nothing
 	End Get
@@ -10369,6 +11389,7 @@ End Property
 ''' </summary>
 ReadOnly Property m_Size as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.m_Size
 		Return Nothing
 	End Get
@@ -10382,6 +11403,7 @@ End Property
 ''' </summary>
 ReadOnly Property m_Next as MemIOData
 	Get
+	if isnothing(values) then return nothing
 			If Values.m_Next <> IntPtr.Zero Then 
 		Return New MemIOData(Values.m_Next)
 	End if
@@ -10397,6 +11419,7 @@ End Property
 ''' </summary>
 ReadOnly Property m_Last as MemIOData
 	Get
+	if isnothing(values) then return nothing
 			If Values.m_Last <> IntPtr.Zero Then 
 		Return New MemIOData(Values.m_Last)
 	End if
@@ -10407,11 +11430,11 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_MemIOData
-		Public m_Buffer as IntPTR
+		Public m_Buffer as IntPtr
 		Public m_Count as Integer
 		Public m_Size as Integer
-		Public m_Next as IntPTR
-		Public m_Last as IntPTR
+		Public m_Next as IntPtr
+		Public m_Last as IntPtr
 	End Class
 End Class
 
@@ -10421,11 +11444,12 @@ End Class
 ' SRC\seedfill.c (170, 8)
 ' 
 Public Class L_Pixel
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Pixel
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Pixel
@@ -10439,6 +11463,7 @@ Public Class L_Pixel
 ''' </summary>
 ReadOnly Property x as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.x
 		Return Nothing
 	End Get
@@ -10452,6 +11477,7 @@ End Property
 ''' </summary>
 ReadOnly Property y as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.y
 		Return Nothing
 	End Get
@@ -10471,11 +11497,12 @@ End Class
 ' SRC\sel1.c (152, 8)
 ' 
 Public Class CompParameterMap
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_CompParameterMap
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_CompParameterMap
@@ -10489,6 +11516,7 @@ Public Class CompParameterMap
 ''' </summary>
 ReadOnly Property size as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.size
 		Return Nothing
 	End Get
@@ -10502,6 +11530,7 @@ End Property
 ''' </summary>
 ReadOnly Property size1 as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.size1
 		Return Nothing
 	End Get
@@ -10515,6 +11544,7 @@ End Property
 ''' </summary>
 ReadOnly Property size2 as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.size2
 		Return Nothing
 	End Get
@@ -10528,6 +11558,7 @@ End Property
 ''' </summary>
 ReadOnly Property selnameh1 as Char
 	Get
+	if isnothing(values) then return nothing
 				Return Values.selnameh1
 		Return Nothing
 	End Get
@@ -10541,6 +11572,7 @@ End Property
 ''' </summary>
 ReadOnly Property selnameh2 as Char
 	Get
+	if isnothing(values) then return nothing
 				Return Values.selnameh2
 		Return Nothing
 	End Get
@@ -10554,6 +11586,7 @@ End Property
 ''' </summary>
 ReadOnly Property selnamev1 as Char
 	Get
+	if isnothing(values) then return nothing
 				Return Values.selnamev1
 		Return Nothing
 	End Get
@@ -10567,6 +11600,7 @@ End Property
 ''' </summary>
 ReadOnly Property selnamev2 as Char
 	Get
+	if isnothing(values) then return nothing
 				Return Values.selnamev2
 		Return Nothing
 	End Get
@@ -10591,11 +11625,12 @@ End Class
 ' SRC\stringcode.c (95, 8)
 ' Associations between names and functions
 Public Class L_GenAssoc
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_GenAssoc
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_GenAssoc
@@ -10609,6 +11644,7 @@ Public Class L_GenAssoc
 ''' </summary>
 ReadOnly Property index as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.index
 		Return Nothing
 	End Get
@@ -10622,6 +11658,7 @@ End Property
 ''' </summary>
 ReadOnly Property type as Char
 	Get
+	if isnothing(values) then return nothing
 				Return Values.type
 		Return Nothing
 	End Get
@@ -10635,6 +11672,7 @@ End Property
 ''' </summary>
 ReadOnly Property structname as Char
 	Get
+	if isnothing(values) then return nothing
 				Return Values.structname
 		Return Nothing
 	End Get
@@ -10648,6 +11686,7 @@ End Property
 ''' </summary>
 ReadOnly Property reader as Char
 	Get
+	if isnothing(values) then return nothing
 				Return Values.reader
 		Return Nothing
 	End Get
@@ -10661,6 +11700,7 @@ End Property
 ''' </summary>
 ReadOnly Property memreader as Char
 	Get
+	if isnothing(values) then return nothing
 				Return Values.memreader
 		Return Nothing
 	End Get
@@ -10683,11 +11723,12 @@ End Class
 ' SRC\tiffio.c (155, 8)
 ' 
 Public Class tiff_transform
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_tiff_transform
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_tiff_transform
@@ -10701,6 +11742,7 @@ Public Class tiff_transform
 ''' </summary>
 ReadOnly Property vflip as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.vflip
 		Return Nothing
 	End Get
@@ -10714,6 +11756,7 @@ End Property
 ''' </summary>
 ReadOnly Property hflip as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.hflip
 		Return Nothing
 	End Get
@@ -10727,6 +11770,7 @@ End Property
 ''' </summary>
 ReadOnly Property rotate as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.rotate
 		Return Nothing
 	End Get
@@ -10745,11 +11789,12 @@ End Class
 ' SRC\tiffio.c (2174, 8)
 ' Memory stream buffer used with TIFFClientOpen()
 Public Class L_Memstream
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_Memstream
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_Memstream
@@ -10763,6 +11808,7 @@ Public Class L_Memstream
 ''' </summary>
 ReadOnly Property buffer as Byte()
 	Get
+	if isnothing(values) then return nothing
 		If Values.buffer <> IntPtr.Zero Then 
 	Dim _buffer(1 -1) as Byte
 	Marshal.Copy(Values.buffer, _buffer, 0, _buffer.Length)
@@ -10780,6 +11826,7 @@ End Property
 ''' </summary>
 ReadOnly Property bufsize as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.bufsize
 		Return Nothing
 	End Get
@@ -10793,6 +11840,7 @@ End Property
 ''' </summary>
 ReadOnly Property offset as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.offset
 		Return Nothing
 	End Get
@@ -10806,6 +11854,7 @@ End Property
 ''' </summary>
 ReadOnly Property hw as UInteger
 	Get
+	if isnothing(values) then return nothing
 				Return Values.hw
 		Return Nothing
 	End Get
@@ -10819,6 +11868,7 @@ End Property
 ''' </summary>
 ReadOnly Property poutdata as List(Of Byte())
 	Get
+	if isnothing(values) then return nothing
 		Dim _Data1(1 - 1) As Byte
 Dim _DataFin As New List(Of Byte())
 Marshal.Copy(Values.poutdata, _Data1, 0, _Data1.Length)
@@ -10840,6 +11890,7 @@ End Property
 ''' </summary>
 ReadOnly Property poutsize as Byte()
 	Get
+	if isnothing(values) then return nothing
 		Dim _poutsize(1 -1) as Byte
 Marshal.Copy(Values.poutsize, _poutsize, 0, _poutsize.Length)
 Return _poutsize
@@ -10850,12 +11901,12 @@ End Property
 
 	<StructLayout(LayoutKind.Sequential)>
 	Private Class Marshal_L_Memstream
-		Public buffer as IntPTR
+		Public buffer as IntPtr
 		Public bufsize as UInteger
 		Public offset as UInteger
 		Public hw as UInteger
-		Public poutdata as IntPTR
-		Public poutsize as IntPTR
+		Public poutdata as IntPtr
+		Public poutsize as IntPtr
 	End Class
 End Class
 
@@ -10865,11 +11916,12 @@ End Class
 ' SRC\watershed.c (124, 8)
 ' New pixel coordinates
 Public Class L_NewPixel
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_NewPixel
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_NewPixel
@@ -10883,6 +11935,7 @@ Public Class L_NewPixel
 ''' </summary>
 ReadOnly Property x as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.x
 		Return Nothing
 	End Get
@@ -10896,6 +11949,7 @@ End Property
 ''' </summary>
 ReadOnly Property y as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.y
 		Return Nothing
 	End Get
@@ -10913,11 +11967,12 @@ End Class
 ' SRC\watershed.c (132, 8)
 ' Wartshed pixel
 Public Class L_WSPixel
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_L_WSPixel
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_L_WSPixel
@@ -10931,6 +11986,7 @@ Public Class L_WSPixel
 ''' </summary>
 ReadOnly Property val as Single
 	Get
+	if isnothing(values) then return nothing
 				Return Values.val
 		Return Nothing
 	End Get
@@ -10944,6 +12000,7 @@ End Property
 ''' </summary>
 ReadOnly Property x as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.x
 		Return Nothing
 	End Get
@@ -10957,6 +12014,7 @@ End Property
 ''' </summary>
 ReadOnly Property y as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.y
 		Return Nothing
 	End Get
@@ -10970,6 +12028,7 @@ End Property
 ''' </summary>
 ReadOnly Property index as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.index
 		Return Nothing
 	End Get
@@ -10991,11 +12050,12 @@ End Class
 ' SRC\writefile.c (139, 8)
 ' 
 Public Class ExtensionMap
-	Property Pointer as IntPTR
+	Property Pointer as IntPtr
 	Private Values as Marshal_ExtensionMap
 
 
-	Sub New (PTR as IntPTR)
+
+	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
 		Values = New  Marshal_ExtensionMap
@@ -11009,6 +12069,7 @@ Public Class ExtensionMap
 ''' </summary>
 ReadOnly Property extension as Char
 	Get
+	if isnothing(values) then return nothing
 				Return Values.extension
 		Return Nothing
 	End Get
@@ -11022,6 +12083,7 @@ End Property
 ''' </summary>
 ReadOnly Property format as Integer
 	Get
+	if isnothing(values) then return nothing
 				Return Values.format
 		Return Nothing
 	End Get

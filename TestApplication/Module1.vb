@@ -7,43 +7,62 @@ Imports System.Drawing.Imaging
 Module Module1
 
     Sub Main()
+        ' ---------------------------------------------
+        ' Set to 1 to enable debug images.
+        ' requires i_view32.exe in the application path.
+        ' ---------------------------------------------
+        LeptonicaSharp._AllFunctions.setLeptDebugOK(1)
 
-        TestPDF()
+        Dim PIX32 As New Pix("s1.jpg")    ' 32 BPP Pix
+        'PIX32.Display()
+
+        'TestPDF()
         'TestPix()
-        'TestColorMap()
         'TestMem()
         'TestString()
         'TestDisplay()
+        'TestColorMap()
         'TestSimpleClass()
+        'TestPixFunctions()
         'TestDewaFunctions()
+        'TestNumaFunctions()
+
 
     End Sub
 
     Private Sub TestDisplay()
-        Dim PIX32 As New Pix("Test.jpg")
-        'PIX32.save_autoformat("PIX32.jpg", IFF.IFF_JFIF_JPEG)
-        PIX32.Display()
+        Dim PIX32 As New Pix("test.jpg")
+        PIX32.save_autoformat("PIX32.jpg", IFF.IFF_JFIF_JPEG)
+        'PIX32.Display()
 
         Dim PIX16 As Pix = LeptonicaSharp._AllFunctions.pixConvert32To16(PIX32, L_16_bit_conversion.L_MS_TWO_BYTES)
-        'PIX16.save_autoformat("Pix16.jpg", IFF.IFF_JFIF_JPEG)
-        PIX16.Display()
+        PIX16.save_autoformat("Pix16.jpg", IFF.IFF_JFIF_JPEG)
+        'PIX16.Display()
 
         Dim PIX8 As Pix = LeptonicaSharp._AllFunctions.pixConvert16To8(PIX16, L_16_bit_conversion.L_MS_BYTE)
-        'PIX8.save_autoformat("Pix16.jpg", IFF.IFF_JFIF_JPEG)
-        PIX8.Display()
+        PIX8.save_autoformat("Pix8.jpg", IFF.IFF_JFIF_JPEG)
+        'PIX8.Display()
 
         Dim PIX4 As Pix = LeptonicaSharp._AllFunctions.pixConvert8To4(PIX8)
-        'PIX4.save_autoformat("Pix16.jpg", IFF.IFF_JFIF_JPEG)
-        PIX4.Display()
+        PIX4.save_autoformat("Pix4.jpg", IFF.IFF_JFIF_JPEG)
+        'PIX4.Display() 
 
         Dim PIX2 As Pix = LeptonicaSharp._AllFunctions.pixConvert8To2(PIX8)
-        'PIX2.save_autoformat("Pix16.jpg", IFF.IFF_JFIF_JPEG)
-        PIX2.Display()
+        PIX2.save_autoformat("Pix2.jpg", IFF.IFF_JFIF_JPEG)
+        'PIX2.Display() 
 
         Dim PIX1 As Pix = LeptonicaSharp._AllFunctions.pixConvertTo1(PIX8, 128)
-        'PIX1.save_autoformat("Pix16.jpg", IFF.IFF_JFIF_JPEG)
-        PIX1.Display()
+        PIX1.save_autoformat("Pix1.jpg", IFF.IFF_JFIF_JPEG)
+        'PIX1.Display() 
+
+        PIX32.Dispose()
+        PIX16.Dispose()
+        PIX8.Dispose()
+        PIX4.Dispose()
+        PIX2.Dispose()
+        PIX1.Dispose()
     End Sub
+
     Private Sub TestDewaFunctions()
         Dim PIXD As Pix = Nothing ' ByRef
         Dim DEWA As L_Dewarpa = Nothing ' ByRef
@@ -57,48 +76,60 @@ Module Module1
     End Sub
     Private Sub TestNumaFunctions()
         Dim PIX32 As New Pix("Test.jpg") ': PIX32.Display()
-        'Dim histo As LeptonicaSharp.Numa = LeptonicaSharp._AllFunctions.pixGetRGBHistogram(PIX32, 2, 1)
-        'Dim norma As LeptonicaSharp.Numa = LeptonicaSharp._AllFunctions.numaNormalizeHistogram(histo, 1)
+        Dim PIX8 As Pix = LeptonicaSharp._AllFunctions.pixConvert32To8(PIX32, 5, 2)
+
+        ' ------------------
+        ' NUMA-Functions:
+        ' ------------------
+        Dim histoRGB As LeptonicaSharp.Numa = LeptonicaSharp._AllFunctions.pixGetRGBHistogram(PIX32, 2, 1)                             ' OK
+        Dim normaRGB As LeptonicaSharp.Numa = LeptonicaSharp._AllFunctions.numaNormalizeHistogram(histoRGB, 1)                         ' OK
+        Dim histo As LeptonicaSharp.Numa = LeptonicaSharp._AllFunctions.pixGetGrayHistogram(PIX8, 1)                                   ' OK
+        Dim norma As LeptonicaSharp.Numa = LeptonicaSharp._AllFunctions.numaNormalizeHistogram(histo, 1)                               ' OK
+        Dim closed As LeptonicaSharp.Numa = LeptonicaSharp._AllFunctions.numaDilate(norma, 5)                                          ' OK
+
     End Sub
     Private Sub TestPixFunctions()
-        'Dim PixS As LeptonicaSharp.Pix = LeptonicaSharp._AllFunctions.pixHMT(PIX1, Sel)
-        'PixS = LeptonicaSharp._AllFunctions.pixInvert(PixS)
-        'PixS = LeptonicaSharp._AllFunctions.pixDilateBrick(PixS, 1, 2)
 
-        'PIXD = LeptonicaSharp._AllFunctions.pixSauvolaBinarize(PIX8, 2, 0.35, 0, , , , PIX1) ': PIX1.Display()
-        'PIXD = LeptonicaSharp._AllFunctions.pixBackgroundNormSimple(PIXD)
-        'PIXD = LeptonicaSharp._AllFunctions.pixCleanBackgroundToWhite(PIXD, 1, 30, 190)
-        'PIXD = LeptonicaSharp._AllFunctions.pixContrastNorm(PIXD, 100, 100, 55, 4, 4)
-        'PIXD = LeptonicaSharp._AllFunctions.pixUnsharpMasking(PIX8, 7, 0.1)
-        'PIXD = LeptonicaSharp._AllFunctions.pixEqualizeTRC(PIXD, 0.5, 1)
-        'PIXD = LeptonicaSharp._AllFunctions.pixConvert32To16(PIXD, L_16_bit_conversion.L_CLIP_TO_FFFF)
-        'PIXD = LeptonicaSharp._AllFunctions.pixConvert16To8(PIXD, L_16_bit_conversion.L_AUTO_BYTE)
-        'PIXD = LeptonicaSharp._AllFunctions.pixConvert1To16(PIX1, 255, 0)
-        'PIXD = LeptonicaSharp._AllFunctions.pixThresholdToBinary(PIX8, 130)
-        'PIXD = LeptonicaSharp._AllFunctions.pixClipRectangle(PIXD, new Box (50,50,50,50))
+        Dim PIX32 As New Pix("test.jpg")    ' 32 BPP Pix
+        Dim PIXG As Pix = Nothing           ' ByRef Result Pix 
+        Dim PIX8 As Pix = LeptonicaSharp._AllFunctions.pixConvert32To8(PIX32, 5, 2)
 
-        'Pix = LeptonicaSharp._AllFunctions.pixDeskew(Pix)
-        'Pix = LeptonicaSharp._AllFunctions.pixClipRectangle(Pix, New LeptonicaSharp.Box(50, 50, 100, 100))
-        'Pix = LeptonicaSharp._AllFunctions.pixConvertRGBToLuminance(Pix)
-        'Pix = LeptonicaSharp._AllFunctions.pixConvertRGBToGrayFast(Pix)
-        'Pix = LeptonicaSharp._AllFunctions.pixEqualizeTRC(Nothing, Pix, 0.5, 1)
-        'Pix = LeptonicaSharp._AllFunctions.pixInvert(Pix)
+        ' ------------------
+        ' 32BPPFunctions
+        ' ------------------
+        ' PIX32 = LeptonicaSharp._AllFunctions.pixInvert(PIX32) : PIX32.Display()                                                       ' OK
+        ' PIX32 = LeptonicaSharp._AllFunctions.pixBackgroundNormSimple(PIX32) : PIX32.Display()                                         ' OK
+        ' PIX32 = LeptonicaSharp._AllFunctions.pixCleanBackgroundToWhite(PIX32, 1, 30, 190) : PIX32.Display()                           ' OK
+        ' PIX32 = LeptonicaSharp._AllFunctions.pixClipRectangle(PIX32, New Box(9, 9, 90, 90)) : PIX32.Display()                         ' OK
+        ' PIX32 = LeptonicaSharp._AllFunctions.pixUnsharpMasking(PIX32, 3, 0.1) : PIX32.Display()                                       ' OK
+        ' PIX32 = LeptonicaSharp._AllFunctions.pixEqualizeTRC(PIX32, 0.5, 1) : PIX32.Display()                                          ' OK
+        ' PIX32 = LeptonicaSharp._AllFunctions.pixDeskew(PIX32) : PIX32.Display()                                                       ' OK
+        ' PIX32 = LeptonicaSharp._AllFunctions.pixConvertRGBToLuminance(PIX32) : PIX32.Display()                                        ' OK
+        ' PIX32 = LeptonicaSharp._AllFunctions.pixConvertRGBToGrayFast(PIX32) : PIX32.Display()                                         ' OK
+        ' PIX32 = LeptonicaSharp._AllFunctions.pixEqualizeTRC(PIX32, 0.5, 2) : PIX32.Display()                                          ' OK
 
-        'Dim B As Byte() = LeptonicaSharp._AllFunctions.pixExtractData(PIX32)
-        'Dim histo As LeptonicaSharp.Numa = LeptonicaSharp.ByGroup.Pix.pixGetGrayHistogram(Pixg, 1)
-        'Dim norma As LeptonicaSharp.Numa = LeptonicaSharp.Unordered.numaNormalizeHistogram(histo, 1)
-        'Dim Pixg2 As LeptonicaSharp.Pix = LeptonicaSharp.Unordered.pixConvert16To8(Pixg, LeptonicaSharp._8BitConversionFlags.LSB)
-        'Dim BYREF_PixB As New LeptonicaSharp.Pix
 
-        ' Dim STAT As LeptonicaSharp.Status = LeptonicaSharp.Unordered.pixSauvolaBinarizeTiled(Pixg, 8, 0.34, 1, 1, Nothing, BYREF_PixB)
-        'Dim Dew As LeptonicaSharp.Dewarp = LeptonicaSharp.Unordered.dewarpCreate(BYREF_PixB, 7, 30, 15, 1)
+        ' ------------------
+        ' 8BPP-Functions
+        ' ------------------
+        'PIX8 = LeptonicaSharp._AllFunctions.pixContrastNorm(PIX8, 100, 100, 55, 4, 4) : PIX8.Display()                                 ' OK
+        'PIX8 = LeptonicaSharp._AllFunctions.pixThresholdToBinary(PIX8, 130) : PIX8.Display()                                           ' OK
+        'PIX8 = LeptonicaSharp._AllFunctions.pixTwoSidedEdgeFilter(PIX8, L_L_EDGES.L_HORIZONTAL_EDGES) : PIX8.Display()                 ' OK
+        Dim STAT As Integer = LeptonicaSharp._AllFunctions.pixSauvolaBinarizeTiled(PIX8, 8, 0.3, 1, 1, Nothing, PIXG) ': PIXG.Display() ' OK
+        'Dim Dew As LeptonicaSharp.L_Dewarp = LeptonicaSharp._AllFunctions.dewarpCreate(PIXG, 0)                                        ' OK
 
-        'Dim closed As LeptonicaSharp.Numa = LeptonicaSharp.NumaFunc2.numaDilate(norma, 5)
+        ' ------------------
+        ' 1BPP-Functions:
+        ' ------------------
+        PIX32.Display()
+        Dim SEL As New LeptonicaSharp.Sel("ooooCoooo", 3, 3, "TEST")
+        PIXG = LeptonicaSharp._AllFunctions.pixHMT(PIXG.InvertColors, SEL)                             ' OK
+        PIXG = LeptonicaSharp._AllFunctions.pixDilateBrick(PIXG, 4, 4)
+        PIXG.Display()
+        Sel.Display()
 
-        'Pix = LeptonicaSharp.Implementations.Edge.pixTwoSidedEdgeFilter(Pix, LeptonicaSharp.EdgeOrientationFlags2.L_HORIZONTAL_EDGES)
 
-        ' Leptonica Fails - Auch beim nativen Speichern falsch!
-        'Pix = LeptonicaSharp.PixConv.pixConvert32To8(Pix, LeptonicaSharp._16BitConversionFlags.L_CLIP_TO_FFFF, LeptonicaSharp._16BitConversionFlags.L_CLIP_TO_FF)
+        Dim B As Byte() = LeptonicaSharp._AllFunctions.pixExtractData(PIX32)                                                            ' Byte() Größe undefiniert
 
     End Sub
 
@@ -107,14 +138,22 @@ Module Module1
 
         Dim T As String = LeptonicaSharp._AllFunctions.pixGetText(PIX32)
         Dim SArray As LeptonicaSharp.Sarray = LeptonicaSharp._AllFunctions.getFilenamesInDirectory("C:\")
-        Dim Sel = New LeptonicaSharp.Sel("ooooo" & "oC  o" & "o   o" & "ooooo", 5, 4, "Test")
+        Dim Sel = New LeptonicaSharp.Sel("ooooo" & "oC  o" & "o   o" & "ooooo", 5, 4, "Test") : Sel.Display() ' : Sel.Display(PIX32)
         Dim Box As New LeptonicaSharp.Box(50, 50, 100, 100)
         Dim numa = New LeptonicaSharp.Numa("2.5,5,7")
         Dim SY = LeptonicaSharp._AllFunctions.create2dIntArray(2, 5)
+
+        ' Speicher bereinigen
+        SArray.Dispose()
+        Sel.Dispose()
+        Box.Dispose()
+        numa.Dispose()
+        PIX32.Dispose()
     End Sub
     Sub TestColorMap()
-        Dim PIX32_2 As New Pix("weasel2.4c.png") ' : PIX32_2.Display()
+        Dim PIX32_2 As New Pix("weasel4.16c.png") ' : PIX32_2.Display()
         Dim CM As PixColormap = LeptonicaSharp._AllFunctions.pixGetColormap(PIX32_2)
+        PIX32_2.Dispose()
     End Sub
     Sub TestPix()
         Dim PIX32 As New Pix("Test.jpg") ' : PIX32.Display()
@@ -123,9 +162,9 @@ Module Module1
         Dim PIX8 As Pix = LeptonicaSharp._AllFunctions.pixConvert32To8(PIX32, L_16_bit_conversion.L_CLIP_TO_FFFF, L_16_bit_conversion.L_CLIP_TO_FF)
         Dim PIXD As New Pix
 
-        PIX32.save_autoformat("Test3.jp2", Enumerations.IFF.IFF_JP2)
-        PIX32.save_format("After_BGNormSimple.jpg", IFF.IFF_JFIF_JPEG)
-        PIX32.save_autoformat("Test_dewa.jpg", IFF.IFF_PNG)
+        PIX32.save_autoformat("Test_Format_JPG.jpg", IFF.IFF_JFIF_JPEG)
+        PIX32.save_autoformat("Test_Format_JP2.jp2", IFF.IFF_JP2)
+        PIX32.save_autoformat("Test_Format_PNG.png", IFF.IFF_PNG)
     End Sub
     Sub TestString()
         Dim Stri = LeptonicaSharp._AllFunctions.sarrayCreateWordsFromString("Das ist ein Test")
@@ -169,12 +208,12 @@ Module Module1
     End Sub
     Sub TestPDF()
         Dim PIX32 As New Pix("Test.jpg")
-        Dim C0 As New L_Pdf_Data()
+        Dim C0 As L_Pdf_Data = Nothing
         Dim C1 As New L_Pdf_Data()
         Dim C2 As New L_Pdf_Data()
         Dim C3 As New L_Pdf_Data()
 
-        ' schreibt nur das erste Bild ?!?!
+        ' Diese Funktion schreibt nur 1 PDF-Seite mit mehreren Bildern!
         LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_JPEG_ENCODE, "TestMax.pdf", C0, L_T_IMAGE.L_FIRST_IMAGE)
         LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_JPEG_ENCODE, "TestMax.pdf", C0, L_T_IMAGE.L_NEXT_IMAGE)
         LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_JPEG_ENCODE, "TestMax.pdf", C0, L_T_IMAGE.L_LAST_IMAGE)

@@ -42532,7 +42532,7 @@ LeptonicaSharp
  Brf: ptr array
   Loc: SRC/heap.h (81, 18)
   Org: [void ** array]
-  Msh: void ** | 3:Void | IntPTR()
+  Msh: void ** | 3:Void | IntPtr()
  </summary>
 </member><member name="P:LeptonicaSharp.L_Heap.direction">
 	<summary>
@@ -42560,7 +42560,7 @@ LeptonicaSharp
  Brf: 
   Loc: SRC/list.h (65, 33)
   Org: [void * data]
-  Msh: void * | 2:Void |  ... Pointer auf Object = IntPTR
+  Msh: void * | 2:Void |  ... Pointer auf Object = IntPtr
  </summary>
 </member><member name="P:LeptonicaSharp.L_Ptra.nalloc">
 	<summary>
@@ -42588,7 +42588,7 @@ LeptonicaSharp
  Brf: ptr array
   Loc: SRC/ptra.h (56, 22)
   Org: [void ** array]
-  Msh: void ** | 3:Void | IntPTR()
+  Msh: void ** | 3:Void | IntPtr()
  </summary>
 </member><member name="P:LeptonicaSharp.L_Ptraa.nalloc">
 	<summary>
@@ -42630,7 +42630,7 @@ LeptonicaSharp
  Brf: ptr array
   Loc: SRC/queue.h (70, 22)
   Org: [void ** array]
-  Msh: void ** | 3:Void | IntPTR()
+  Msh: void ** | 3:Void | IntPtr()
  </summary>
 </member><member name="P:LeptonicaSharp.L_Queue.stack">
 	<summary>
@@ -42665,7 +42665,7 @@ LeptonicaSharp
  Brf: 
   Loc: SRC/rbtree.h (65, 16)
   Org: [void * ptype]
-  Msh: void * | 2:Void |  ... Pointer auf Object = IntPTR
+  Msh: void * | 2:Void |  ... Pointer auf Object = IntPtr
  </summary>
 </member><member name="P:LeptonicaSharp.L_Rbtree.root">
 	<summary>
@@ -42742,7 +42742,7 @@ LeptonicaSharp
  Brf: ptr array
   Loc: SRC/stack.h (63, 22)
   Org: [void ** array]
-  Msh: void ** | 3:Void | IntPTR()
+  Msh: void ** | 3:Void | IntPtr()
  </summary>
 </member><member name="P:LeptonicaSharp.L_Stack.auxstack">
 	<summary>
@@ -44128,7 +44128,7 @@ LeptonicaSharp
  Brf: colormap table (array of RGBA_QUAD)
   Loc: SRC/pix.h (157, 22)
   Org: [void * array]
-  Msh: void * | 2:Void |  ... Pointer auf Object = IntPTR
+  Msh: void * | 2:Void |  ... Pointer auf Object = IntPtr
  </summary>
 </member><member name="P:LeptonicaSharp.PixColormap.depth">
 	<summary>
@@ -45528,28 +45528,28 @@ LeptonicaSharp
  Brf: line ptrs for pixs
   Loc: SRC/watershed.h (45, 20)
   Org: [void ** lines8]
-  Msh: void ** | 3:Void | IntPTR()
+  Msh: void ** | 3:Void | IntPtr()
  </summary>
 </member><member name="P:LeptonicaSharp.L_WShed.linem1">
 	<summary>
  Brf: line ptrs for pixm
   Loc: SRC/watershed.h (46, 20)
   Org: [void ** linem1]
-  Msh: void ** | 3:Void | IntPTR()
+  Msh: void ** | 3:Void | IntPtr()
  </summary>
 </member><member name="P:LeptonicaSharp.L_WShed.linelab32">
 	<summary>
  Brf: line ptrs for pixlab
   Loc: SRC/watershed.h (47, 20)
   Org: [void ** linelab32]
-  Msh: void ** | 3:Void | IntPTR()
+  Msh: void ** | 3:Void | IntPtr()
  </summary>
 </member><member name="P:LeptonicaSharp.L_WShed.linet1">
 	<summary>
  Brf: line ptrs for pixt
   Loc: SRC/watershed.h (48, 20)
   Org: [void ** linet1]
-  Msh: void ** | 3:Void | IntPTR()
+  Msh: void ** | 3:Void | IntPtr()
  </summary>
 </member><member name="P:LeptonicaSharp.L_WShed.pixad">
 	<summary>
@@ -88870,53 +88870,53 @@ LeptonicaSharp
  Control printing of error, warning and info messages
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_INTERP.L_LINEAR_INTERP">
-	<summary>smaller  linear</summary>
+	<summary>linear</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_INTERP.L_QUADRATIC_INTERP">
-	<summary>smaller  quadratic</summary>
+	<summary>quadratic</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_INTERP">
 	<summary>
  Flags for interpolation in Numa
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BORDER.L_CONTINUED_BORDER">
-	<summary>smaller  extended with same value</summary>
+	<summary>extended with same value</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BORDER.L_SLOPE_BORDER">
-	<summary>smaller  extended with constant normal derivative</summary>
+	<summary>extended with constant normal derivative</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BORDER.L_MIRRORED_BORDER">
-	<summary>smaller  mirrored</summary>
+	<summary>mirrored</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_BORDER">
 	<summary>
  Flags for added borders in Numa and Fpix
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_VALUE.L_INTEGER_VALUE">
-	<summary>smaller  convert to integer</summary>
+	<summary>convert to integer</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_VALUE.L_FLOAT_VALUE">
-	<summary>smaller  convert to float</summary>
+	<summary>convert to float</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_VALUE">
 	<summary>
  Flags for data type converted from Numa
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_COMPACTION.L_NO_COMPACTION">
-	<summary>smaller  null the pointer only</summary>
+	<summary>null the pointer only</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_COMPACTION.L_COMPACTION">
-	<summary>smaller  compact the array</summary>
+	<summary>compact the array</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_COMPACTION">
 	<summary>
  Flags for removal from L_Ptra
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_DOWNSHIFT.L_AUTO_DOWNSHIFT">
-	<summary>smaller  choose based on number of holes</summary>
+	<summary>choose based on number of holes</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_DOWNSHIFT.L_MIN_DOWNSHIFT">
-	<summary>smaller  downshifts min # of ptrs below insert</summary>
+	<summary>downshifts min # of ptrs below insert</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_DOWNSHIFT.L_FULL_DOWNSHIFT">
-	<summary>smaller  downshifts all ptrs below insert</summary>
+	<summary>downshifts all ptrs below insert</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_DOWNSHIFT">
 	<summary>
  Flags for insertion into L_Ptra
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_accessor__l_ptraa.L_HANDLE_ONLY">
-	<summary>smaller  ptr to L_Ptra; caller can inspect only</summary>
+	<summary>ptr to L_Ptra; caller can inspect only</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_accessor__l_ptraa.L_REMOVE">
-	<summary>smaller  caller owns; destroy or save in L_Ptraa</summary>
+	<summary>caller owns; destroy or save in L_Ptraa</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_accessor__l_ptraa">
 	<summary>
  Accessor flags for L_Ptraa
@@ -88932,11 +88932,11 @@ LeptonicaSharp
  The three valid key types for red-black trees, maps and sets.
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.SPLIT_ON.SPLIT_ON_LEADING_WHITE">
-	<summary>smaller  tab or space at beginning of line</summary>
+	<summary>tab or space at beginning of line</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.SPLIT_ON.SPLIT_ON_BLANK_LINE">
-	<summary>smaller  newline with optional white space</summary>
+	<summary>newline with optional white space</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.SPLIT_ON.SPLIT_ON_BOTH">
-	<summary>smaller  leading white space or newline</summary>
+	<summary>leading white space or newline</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.SPLIT_ON">
 	<summary>
  Constants for deciding when text block is divided into paragraphs
@@ -88984,7 +88984,7 @@ LeptonicaSharp
 	<summary>
 	</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.GPLOT_SCALING.GPLOT_LINEAR_SCALE">
-	<summary>smaller  default</summary>
+	<summary>default</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.GPLOT_SCALING.GPLOT_LOG_SCALE_X">
 	<summary></summary>
 </member><member name="F:LeptonicaSharp.Enumerations.GPLOT_SCALING.GPLOT_LOG_SCALE_Y">
@@ -89037,43 +89037,43 @@ LeptonicaSharp
  Image file format types
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.ID.BMP_ID">
-	<summary>smaller  BM - for bitmaps</summary>
+	<summary>BM - for bitmaps</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.ID.TIFF_BIGEND_ID">
-	<summary>smaller  MM - for 'motorola'</summary>
+	<summary>MM - for 'motorola'</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.ID.TIFF_LITTLEEND_ID">
-	<summary>smaller  II - for 'intel'</summary>
+	<summary>II - for 'intel'</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.ID">
 	<summary>
  Format header ids
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_JPEG.L_JPEG_READ_LUMINANCE">
-	<summary>smaller  only want luminance data; no chroma</summary>
+	<summary>only want luminance data; no chroma</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_JPEG.L_JPEG_FAIL_ON_BAD_DATA">
-	<summary>smaller  don't return possibly damaged pix</summary>
+	<summary>don't return possibly damaged pix</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_JPEG">
 	<summary>
  Hinting bit flags in jpeg reader
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ENCODE.L_DEFAULT_ENCODE">
-	<summary>smaller  use default encoding based on image</summary>
+	<summary>use default encoding based on image</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ENCODE.L_JPEG_ENCODE">
-	<summary>smaller  use dct encoding: 8 and 32 bpp, no cmap</summary>
+	<summary>use dct encoding: 8 and 32 bpp, no cmap</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ENCODE.L_G4_ENCODE">
-	<summary>smaller  use ccitt g4 fax encoding: 1 bpp</summary>
+	<summary>use ccitt g4 fax encoding: 1 bpp</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ENCODE.L_FLATE_ENCODE">
-	<summary>smaller  use flate encoding: any depth, cmap ok</summary>
+	<summary>use flate encoding: any depth, cmap ok</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ENCODE.L_JP2K_ENCODE">
-	<summary>smaller  use jp2k encoding: 8 and 32 bpp, no cmap</summary>
+	<summary>use jp2k encoding: 8 and 32 bpp, no cmap</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_ENCODE">
 	<summary>
  Pdf formatted encoding types
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_T_IMAGE.L_FIRST_IMAGE">
-	<summary>smaller  first image to be used</summary>
+	<summary>first image to be used</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_T_IMAGE.L_NEXT_IMAGE">
-	<summary>smaller  intermediate image; not first or last</summary>
+	<summary>intermediate image; not first or last</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_T_IMAGE.L_LAST_IMAGE">
-	<summary>smaller  last image to be used</summary>
+	<summary>last image to be used</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_T_IMAGE">
 	<summary>
  Pdf multi image flags
@@ -89225,654 +89225,654 @@ LeptonicaSharp
  Color content flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.colors_32_bpp.COLOR_RED">
-	<summary>smaller  red color index in RGBA_QUAD</summary>
+	<summary>red color index in RGBA_QUAD</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.colors_32_bpp.COLOR_GREEN">
-	<summary>smaller  green color index in RGBA_QUAD</summary>
+	<summary>green color index in RGBA_QUAD</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.colors_32_bpp.COLOR_BLUE">
-	<summary>smaller  blue color index in RGBA_QUAD</summary>
+	<summary>blue color index in RGBA_QUAD</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.colors_32_bpp.L_ALPHA_CHANNEL">
-	<summary>smaller  alpha value index in RGBA_QUAD</summary>
+	<summary>alpha value index in RGBA_QUAD</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.colors_32_bpp">
 	<summary>
  Colors for 32 bpp
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_DRAW.L_DRAW_RED">
-	<summary>smaller  draw in red</summary>
+	<summary>draw in red</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_DRAW.L_DRAW_GREEN">
-	<summary>smaller  draw in green</summary>
+	<summary>draw in green</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_DRAW.L_DRAW_BLUE">
-	<summary>smaller  draw in blue</summary>
+	<summary>draw in blue</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_DRAW.L_DRAW_SPECIFIED">
-	<summary>smaller  draw specified color</summary>
+	<summary>draw specified color</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_DRAW.L_DRAW_RGB">
-	<summary>smaller  draw as sequence of r,g,b</summary>
+	<summary>draw as sequence of r,g,b</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_DRAW.L_DRAW_RANDOM">
-	<summary>smaller  draw randomly chosen colors</summary>
+	<summary>draw randomly chosen colors</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_DRAW">
 	<summary>
  Colors for drawing boxes
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.REMOVE_CMAP.REMOVE_CMAP_TO_BINARY">
-	<summary>smaller  remove colormap for conv to 1 bpp</summary>
+	<summary>remove colormap for conv to 1 bpp</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.REMOVE_CMAP.REMOVE_CMAP_TO_GRAYSCALE">
-	<summary>smaller  remove colormap for conv to 8 bpp</summary>
+	<summary>remove colormap for conv to 8 bpp</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.REMOVE_CMAP.REMOVE_CMAP_TO_FULL_COLOR">
-	<summary>smaller  remove colormap for conv to 32 bpp</summary>
+	<summary>remove colormap for conv to 32 bpp</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.REMOVE_CMAP.REMOVE_CMAP_WITH_ALPHA">
-	<summary>smaller  remove colormap and alpha</summary>
+	<summary>remove colormap and alpha</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.REMOVE_CMAP.REMOVE_CMAP_BASED_ON_SRC">
-	<summary>smaller  remove depending on src format</summary>
+	<summary>remove depending on src format</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.REMOVE_CMAP">
 	<summary>
  Flags for colormap conversion
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_access_storage.L_NOCOPY">
-	<summary>smaller  do not copy the object; do not delete the ptr</summary>
+	<summary>do not copy the object; do not delete the ptr</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_access_storage.L_INSERT">
-	<summary>smaller  stuff it in; do not copy or clone</summary>
+	<summary>stuff it in; do not copy or clone</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_access_storage.L_COPY">
-	<summary>smaller  make/use a copy of the object</summary>
+	<summary>make/use a copy of the object</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_access_storage.L_CLONE">
-	<summary>smaller  make/use clone (ref count) of the object</summary>
+	<summary>make/use clone (ref count) of the object</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_access_storage.L_COPY_CLONE">
-	<summary>smaller  make a new array object (e.g., pixa) and fill    smaller  the array with clones (e.g., pix)</summary>
+	<summary>make a new array object (e.g., pixa) and fill    the array with clones (e.g., pix)</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_access_storage">
 	<summary>
  Access and storage flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SORT.L_SHELL_SORT">
-	<summary>smaller  use shell sort</summary>
+	<summary>use shell sort</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SORT.L_BIN_SORT">
-	<summary>smaller  use bin sort</summary>
+	<summary>use bin sort</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_SORT">
 	<summary>
  Sort mode flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SORT_CREASING.L_SORT_INCREASING">
-	<summary>smaller  sort in increasing order</summary>
+	<summary>sort in increasing order</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SORT_CREASING.L_SORT_DECREASING">
-	<summary>smaller  sort in decreasing order</summary>
+	<summary>sort in decreasing order</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_SORT_CREASING">
 	<summary>
  Sort order flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SORT_BY.L_SORT_BY_X">
-	<summary>smaller  sort box or c.c. by left edge location</summary>
+	<summary>sort box or c.c. by left edge location</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SORT_BY.L_SORT_BY_Y">
-	<summary>smaller  sort box or c.c. by top edge location</summary>
+	<summary>sort box or c.c. by top edge location</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SORT_BY.L_SORT_BY_RIGHT">
-	<summary>smaller  sort box or c.c. by right edge location</summary>
+	<summary>sort box or c.c. by right edge location</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SORT_BY.L_SORT_BY_BOT">
-	<summary>smaller  sort box or c.c. by bot edge location</summary>
+	<summary>sort box or c.c. by bot edge location</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SORT_BY.L_SORT_BY_WIDTH">
-	<summary>smaller  sort box or c.c. by width</summary>
+	<summary>sort box or c.c. by width</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SORT_BY.L_SORT_BY_HEIGHT">
-	<summary>smaller  sort box or c.c. by height</summary>
+	<summary>sort box or c.c. by height</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SORT_BY.L_SORT_BY_MIN_DIMENSION">
-	<summary>smaller  sort box or c.c. by min dimension</summary>
+	<summary>sort box or c.c. by min dimension</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SORT_BY.L_SORT_BY_MAX_DIMENSION">
-	<summary>smaller  sort box or c.c. by max dimension</summary>
+	<summary>sort box or c.c. by max dimension</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SORT_BY.L_SORT_BY_PERIMETER">
-	<summary>smaller  sort box or c.c. by perimeter</summary>
+	<summary>sort box or c.c. by perimeter</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SORT_BY.L_SORT_BY_AREA">
-	<summary>smaller  sort box or c.c. by area</summary>
+	<summary>sort box or c.c. by area</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SORT_BY.L_SORT_BY_ASPECT_RATIO">
-	<summary>smaller  sort box or c.c. by width/height ratio</summary>
+	<summary>sort box or c.c. by width/height ratio</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_SORT_BY">
 	<summary>
  Sort type flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BLEND.L_BLEND_WITH_INVERSE">
-	<summary>smaller  add some of src inverse to itself</summary>
+	<summary>add some of src inverse to itself</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BLEND.L_BLEND_TO_WHITE">
-	<summary>smaller  shift src colors towards white</summary>
+	<summary>shift src colors towards white</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BLEND.L_BLEND_TO_BLACK">
-	<summary>smaller  shift src colors towards black</summary>
+	<summary>shift src colors towards black</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BLEND.L_BLEND_GRAY">
-	<summary>smaller  blend src directly with blender</summary>
+	<summary>blend src directly with blender</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BLEND.L_BLEND_GRAY_WITH_INVERSE">
-	<summary>smaller  add amount of src inverse to itself,    smaller  based on blender pix value</summary>
+	<summary>add amount of src inverse to itself,    based on blender pix value</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_BLEND">
 	<summary>
  Blend flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_PAINT.L_PAINT_LIGHT">
-	<summary>smaller  colorize non-black pixels</summary>
+	<summary>colorize non-black pixels</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_PAINT.L_PAINT_DARK">
-	<summary>smaller  colorize non-white pixels</summary>
+	<summary>colorize non-white pixels</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_PAINT">
 	<summary>
 	</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_PIXELS.L_SET_PIXELS">
-	<summary>smaller  set all bits in each pixel to 1</summary>
+	<summary>set all bits in each pixel to 1</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_PIXELS.L_CLEAR_PIXELS">
-	<summary>smaller  set all bits in each pixel to 0</summary>
+	<summary>set all bits in each pixel to 0</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_PIXELS.L_FLIP_PIXELS">
-	<summary>smaller  flip all bits in each pixel</summary>
+	<summary>flip all bits in each pixel</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_PIXELS">
 	<summary>
  Graphics pixel setting
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SELECT.L_SELECT_WIDTH">
-	<summary>smaller  width must satisfy constraint</summary>
+	<summary>width must satisfy constraint</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SELECT.L_SELECT_HEIGHT">
-	<summary>smaller  height must satisfy constraint</summary>
+	<summary>height must satisfy constraint</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SELECT.L_SELECT_XVAL">
-	<summary>smaller  x value satisfy constraint</summary>
+	<summary>x value satisfy constraint</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SELECT.L_SELECT_YVAL">
-	<summary>smaller  y value must satisfy constraint</summary>
+	<summary>y value must satisfy constraint</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SELECT.L_SELECT_IF_EITHER">
-	<summary>smaller  either width or height (or xval    smaller  or yval) can satisfy</summary>
+	<summary>either width or height (or xval    or yval) can satisfy</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SELECT.L_SELECT_IF_BOTH">
-	<summary>smaller  both width and height (or xval     smaller  and yval must satisfy</summary>
+	<summary>both width and height (or xval     and yval must satisfy</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_SELECT">
 	<summary>
  Location filter flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SELECT_IF.L_SELECT_IF_LT">
-	<summary>smaller  save if value is less than threshold</summary>
+	<summary>save if value is less than threshold</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SELECT_IF.L_SELECT_IF_GT">
-	<summary>smaller  save if value is more than threshold</summary>
+	<summary>save if value is more than threshold</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SELECT_IF.L_SELECT_IF_LTE">
-	<summary>smaller  save if value is  smaller = to the threshold</summary>
+	<summary>save if value is  smaller = to the threshold</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SELECT_IF.L_SELECT_IF_GTE">
-	<summary>smaller  save if value is  bigger = to the threshold</summary>
+	<summary>save if value is  bigger = to the threshold</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_SELECT_IF">
 	<summary>
  Size filter flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SELECT_.L_SELECT_RED">
-	<summary>smaller  use red component</summary>
+	<summary>use red component</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SELECT_.L_SELECT_GREEN">
-	<summary>smaller  use green component</summary>
+	<summary>use green component</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SELECT_.L_SELECT_BLUE">
-	<summary>smaller  use blue component</summary>
+	<summary>use blue component</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SELECT_.L_SELECT_MIN">
-	<summary>smaller  use min color component</summary>
+	<summary>use min color component</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SELECT_.L_SELECT_MAX">
-	<summary>smaller  use max color component</summary>
+	<summary>use max color component</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SELECT_.L_SELECT_AVERAGE">
-	<summary>smaller  use average of color components</summary>
+	<summary>use average of color components</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SELECT_.L_SELECT_HUE">
-	<summary>smaller  use hue value (in HSV color space)</summary>
+	<summary>use hue value (in HSV color space)</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SELECT_.L_SELECT_SATURATION">
-	<summary>smaller  use saturation value (in HSV space)</summary>
+	<summary>use saturation value (in HSV space)</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_SELECT_">
 	<summary>
  Color component selection flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_16_bit_conversion.L_LS_BYTE">
-	<summary>smaller  use LSB</summary>
+	<summary>use LSB</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_16_bit_conversion.L_MS_BYTE">
-	<summary>smaller  use MSB</summary>
+	<summary>use MSB</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_16_bit_conversion.L_AUTO_BYTE">
-	<summary>smaller  use LSB if max(val)  smaller  256; else MSB</summary>
+	<summary>use LSB if max(val)  smaller  256; else MSB</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_16_bit_conversion.L_CLIP_TO_FF">
-	<summary>smaller  use max(val, 255)</summary>
+	<summary>use max(val, 255)</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_16_bit_conversion.L_LS_TWO_BYTES">
-	<summary>smaller  use two LSB</summary>
+	<summary>use two LSB</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_16_bit_conversion.L_MS_TWO_BYTES">
-	<summary>smaller  use two MSB</summary>
+	<summary>use two MSB</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_16_bit_conversion.L_CLIP_TO_FFFF">
-	<summary>smaller  use max(val, 65535)</summary>
+	<summary>use max(val, 65535)</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_16_bit_conversion">
 	<summary>
  16-bit conversion flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ROTATE.L_ROTATE_AREA_MAP">
-	<summary>smaller  use area map rotation, if possible</summary>
+	<summary>use area map rotation, if possible</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ROTATE.L_ROTATE_SHEAR">
-	<summary>smaller  use shear rotation</summary>
+	<summary>use shear rotation</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ROTATE.L_ROTATE_SAMPLING">
-	<summary>smaller  use sampling</summary>
+	<summary>use sampling</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_ROTATE">
 	<summary>
  Rotate flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BRING_IN.L_BRING_IN_WHITE">
-	<summary>smaller  bring in white pixels from the outside</summary>
+	<summary>bring in white pixels from the outside</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BRING_IN.L_BRING_IN_BLACK">
-	<summary>smaller  bring in black pixels from the outside</summary>
+	<summary>bring in black pixels from the outside</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_BRING_IN">
 	<summary>
  Background flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SHEAR_ABOUT_CER.L_SHEAR_ABOUT_CORNER">
-	<summary>smaller  shear image about UL corner</summary>
+	<summary>shear image about UL corner</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SHEAR_ABOUT_CER.L_SHEAR_ABOUT_CENTER">
-	<summary>smaller  shear image about center</summary>
+	<summary>shear image about center</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_SHEAR_ABOUT_CER">
 	<summary>
  Shear flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_affine_transm_order.L_TR_SC_RO">
-	<summary>smaller  translate, scale, rotate</summary>
+	<summary>translate, scale, rotate</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_affine_transm_order.L_SC_RO_TR">
-	<summary>smaller  scale, rotate, translate</summary>
+	<summary>scale, rotate, translate</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_affine_transm_order.L_RO_TR_SC">
-	<summary>smaller  rotate, translate, scale</summary>
+	<summary>rotate, translate, scale</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_affine_transm_order.L_TR_RO_SC">
-	<summary>smaller  translate, rotate, scale</summary>
+	<summary>translate, rotate, scale</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_affine_transm_order.L_RO_SC_TR">
-	<summary>smaller  rotate, scale, translate</summary>
+	<summary>rotate, scale, translate</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_affine_transm_order.L_SC_TR_RO">
-	<summary>smaller  scale, translate, rotate</summary>
+	<summary>scale, translate, rotate</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_affine_transm_order">
 	<summary>
  Affine transform order flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_FILL.L_FILL_WHITE">
-	<summary>smaller  fill white pixels (e.g, in fg map)</summary>
+	<summary>fill white pixels (e.g, in fg map)</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_FILL.L_FILL_BLACK">
-	<summary>smaller  fill black pixels (e.g., in bg map)</summary>
+	<summary>fill black pixels (e.g., in bg map)</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_FILL">
 	<summary>
  Grayscale filling flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SET.L_SET_WHITE">
-	<summary>smaller  set pixels to white</summary>
+	<summary>set pixels to white</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SET.L_SET_BLACK">
-	<summary>smaller  set pixels to black</summary>
+	<summary>set pixels to black</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_SET">
 	<summary>
  Flags for setting to white or black
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_GET_VAL.L_GET_WHITE_VAL">
-	<summary>smaller  get white pixel value</summary>
+	<summary>get white pixel value</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_GET_VAL.L_GET_BLACK_VAL">
-	<summary>smaller  get black pixel value</summary>
+	<summary>get black pixel value</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_GET_VAL">
 	<summary>
  Flags for getting white or black value
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_IS_MAX.L_WHITE_IS_MAX">
-	<summary>smaller  white pixels are 0xff or 0xffff; black are 0</summary>
+	<summary>white pixels are 0xff or 0xffff; black are 0</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_IS_MAX.L_BLACK_IS_MAX">
-	<summary>smaller  black pixels are 0xff or 0xffff; white are 0</summary>
+	<summary>black pixels are 0xff or 0xffff; white are 0</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_IS_MAX">
 	<summary>
  Flags for 8 bit and 16 bit pixel sums
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.DEFAULT_CLIP.DEFAULT_CLIP_LOWER_1">
-	<summary>smaller  dist to black with no prop; 1 bpp</summary>
+	<summary>dist to black with no prop; 1 bpp</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.DEFAULT_CLIP.DEFAULT_CLIP_UPPER_1">
-	<summary>smaller  dist to black with no prop; 1 bpp</summary>
+	<summary>dist to black with no prop; 1 bpp</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.DEFAULT_CLIP.DEFAULT_CLIP_LOWER_2">
-	<summary>smaller  dist to black with no prop; 2 bpp</summary>
+	<summary>dist to black with no prop; 2 bpp</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.DEFAULT_CLIP.DEFAULT_CLIP_UPPER_2">
-	<summary>smaller  dist to black with no prop; 2 bpp</summary>
+	<summary>dist to black with no prop; 2 bpp</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.DEFAULT_CLIP">
 	<summary>
  Dither parameters
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_AN_DISTANCE.L_MANHATTAN_DISTANCE">
-	<summary>smaller  L1 distance (e.g., in color space)</summary>
+	<summary>L1 distance (e.g., in color space)</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_AN_DISTANCE.L_EUCLIDEAN_DISTANCE">
-	<summary>smaller  L2 distance</summary>
+	<summary>L2 distance</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_AN_DISTANCE">
 	<summary>
  Distance flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_value_.L_NEGATIVE">
-	<summary>smaller  values  smaller  0</summary>
+	<summary>values  smaller  0</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_value_.L_NON_NEGATIVE">
-	<summary>smaller  values  bigger = 0</summary>
+	<summary>values  bigger = 0</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_value_.L_POSITIVE">
-	<summary>smaller  values  bigger  0</summary>
+	<summary>values  bigger  0</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_value_.L_NON_POSITIVE">
-	<summary>smaller  values  smaller = 0</summary>
+	<summary>values  smaller = 0</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_value_.L_ZERO">
-	<summary>smaller  values = 0</summary>
+	<summary>values = 0</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_value_.L_ALL">
-	<summary>smaller  all values</summary>
+	<summary>all values</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_value_">
 	<summary>
  Value flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_statistical_measures.L_MEAN_ABSVAL">
-	<summary>smaller  average of abs values</summary>
+	<summary>average of abs values</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_statistical_measures.L_MEDIAN_VAL">
-	<summary>smaller  median value of set</summary>
+	<summary>median value of set</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_statistical_measures.L_MODE_VAL">
-	<summary>smaller  mode value of set</summary>
+	<summary>mode value of set</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_statistical_measures.L_MODE_COUNT">
-	<summary>smaller  mode count of set</summary>
+	<summary>mode count of set</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_statistical_measures.L_ROOT_MEAN_SQUARE">
-	<summary>smaller  rms of values</summary>
+	<summary>rms of values</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_statistical_measures.L_STANDARD_DEVIATION">
-	<summary>smaller  standard deviation from mean</summary>
+	<summary>standard deviation from mean</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_statistical_measures.L_VARIANCE">
-	<summary>smaller  variance of values</summary>
+	<summary>variance of values</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_statistical_measures">
 	<summary>
  Statistical measures
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_CHOOSE.L_CHOOSE_CONSECUTIVE">
-	<summary>smaller  select 'n' consecutive</summary>
+	<summary>select 'n' consecutive</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_CHOOSE.L_CHOOSE_SKIP_BY">
-	<summary>smaller  select at intervals of 'n'</summary>
+	<summary>select at intervals of 'n'</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_CHOOSE">
 	<summary>
  Set selection flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_TEXT_ORIENT.L_TEXT_ORIENT_UNKNOWN">
-	<summary>smaller  low confidence on text orientation</summary>
+	<summary>low confidence on text orientation</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_TEXT_ORIENT.L_TEXT_ORIENT_UP">
-	<summary>smaller  portrait, text rightside-up</summary>
+	<summary>portrait, text rightside-up</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_TEXT_ORIENT.L_TEXT_ORIENT_LEFT">
-	<summary>smaller  landscape, text up to left</summary>
+	<summary>landscape, text up to left</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_TEXT_ORIENT.L_TEXT_ORIENT_DOWN">
-	<summary>smaller  portrait, text upside-down</summary>
+	<summary>portrait, text upside-down</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_TEXT_ORIENT.L_TEXT_ORIENT_RIGHT">
-	<summary>smaller  landscape, text up to right</summary>
+	<summary>landscape, text up to right</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_TEXT_ORIENT">
 	<summary>
  Text orientation flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_L_EDGES.L_HORIZONTAL_EDGES">
-	<summary>smaller  filters for horizontal edges</summary>
+	<summary>filters for horizontal edges</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_L_EDGES.L_VERTICAL_EDGES">
-	<summary>smaller  filters for vertical edges</summary>
+	<summary>filters for vertical edges</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_L_EDGES.L_ALL_EDGES">
-	<summary>smaller  filters for all edges</summary>
+	<summary>filters for all edges</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_L_EDGES">
 	<summary>
  Edge orientation flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_LINE.L_HORIZONTAL_LINE">
-	<summary>smaller  horizontal line</summary>
+	<summary>horizontal line</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_LINE.L_POS_SLOPE_LINE">
-	<summary>smaller  45 degree line with positive slope</summary>
+	<summary>45 degree line with positive slope</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_LINE.L_VERTICAL_LINE">
-	<summary>smaller  vertical line</summary>
+	<summary>vertical line</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_LINE.L_NEG_SLOPE_LINE">
-	<summary>smaller  45 degree line with negative slope</summary>
+	<summary>45 degree line with negative slope</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_LINE.L_OBLIQUE_LINE">
-	<summary>smaller  neither horizontal nor vertical</summary>
+	<summary>neither horizontal nor vertical</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_LINE">
 	<summary>
  Line orientation flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_MODE.L_PORTRAIT_MODE">
-	<summary>smaller  typical: page is viewed with height  bigger  width</summary>
+	<summary>typical: page is viewed with height  bigger  width</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_MODE.L_LANDSCAPE_MODE">
-	<summary>smaller  page is viewed at 90 deg to portrait mode</summary>
+	<summary>page is viewed at 90 deg to portrait mode</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_MODE">
 	<summary>
  Image orientation flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_scan_direction.L_FROM_LEFT">
-	<summary>smaller  scan from left</summary>
+	<summary>scan from left</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_scan_direction.L_FROM_RIGHT">
-	<summary>smaller  scan from right</summary>
+	<summary>scan from right</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_scan_direction.L_FROM_TOP">
-	<summary>smaller  scan from top</summary>
+	<summary>scan from top</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_scan_direction.L_FROM_BOT">
-	<summary>smaller  scan from bottom</summary>
+	<summary>scan from bottom</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_scan_direction.L_SCAN_NEGATIVE">
-	<summary>smaller  scan in negative direction</summary>
+	<summary>scan in negative direction</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_scan_direction.L_SCAN_POSITIVE">
-	<summary>smaller  scan in positive direction</summary>
+	<summary>scan in positive direction</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_scan_direction.L_SCAN_BOTH">
-	<summary>smaller  scan in both directions</summary>
+	<summary>scan in both directions</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_scan_direction.L_SCAN_HORIZONTAL">
-	<summary>smaller  horizontal scan (direction unimportant)</summary>
+	<summary>horizontal scan (direction unimportant)</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_scan_direction.L_SCAN_VERTICAL">
-	<summary>smaller  vertical scan (direction unimportant)</summary>
+	<summary>vertical scan (direction unimportant)</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_scan_direction">
 	<summary>
  Scan direction flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_box_size_adjustment_location.L_ADJUST_SKIP">
-	<summary>smaller  do not adjust</summary>
+	<summary>do not adjust</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_box_size_adjustment_location.L_ADJUST_LEFT">
-	<summary>smaller  adjust left edge</summary>
+	<summary>adjust left edge</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_box_size_adjustment_location.L_ADJUST_RIGHT">
-	<summary>smaller  adjust right edge</summary>
+	<summary>adjust right edge</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_box_size_adjustment_location.L_ADJUST_LEFT_AND_RIGHT">
-	<summary>smaller  adjust both left and right edges</summary>
+	<summary>adjust both left and right edges</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_box_size_adjustment_location.L_ADJUST_TOP">
-	<summary>smaller  adjust top edge</summary>
+	<summary>adjust top edge</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_box_size_adjustment_location.L_ADJUST_BOT">
-	<summary>smaller  adjust bottom edge</summary>
+	<summary>adjust bottom edge</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_box_size_adjustment_location.L_ADJUST_TOP_AND_BOT">
-	<summary>smaller  adjust both top and bottom edges</summary>
+	<summary>adjust both top and bottom edges</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_box_size_adjustment_location.L_ADJUST_CHOOSE_MIN">
-	<summary>smaller  choose the min median value</summary>
+	<summary>choose the min median value</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_box_size_adjustment_location.L_ADJUST_CHOOSE_MAX">
-	<summary>smaller  choose the max median value</summary>
+	<summary>choose the max median value</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_box_size_adjustment_location.L_SET_LEFT">
-	<summary>smaller  set left side to a given value</summary>
+	<summary>set left side to a given value</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_box_size_adjustment_location.L_SET_RIGHT">
-	<summary>smaller  set right side to a given value</summary>
+	<summary>set right side to a given value</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_box_size_adjustment_location.L_SET_TOP">
-	<summary>smaller  set top side to a given value</summary>
+	<summary>set top side to a given value</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_box_size_adjustment_location.L_SET_BOT">
-	<summary>smaller  set bottom side to a given value</summary>
+	<summary>set bottom side to a given value</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_box_size_adjustment_location.L_GET_LEFT">
-	<summary>smaller  get left side location</summary>
+	<summary>get left side location</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_box_size_adjustment_location.L_GET_RIGHT">
-	<summary>smaller  get right side location</summary>
+	<summary>get right side location</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_box_size_adjustment_location.L_GET_TOP">
-	<summary>smaller  get top side location</summary>
+	<summary>get top side location</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_box_size_adjustment_location.L_GET_BOT">
-	<summary>smaller  get bottom side location</summary>
+	<summary>get bottom side location</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_box_size_adjustment_location">
 	<summary>
  Box size adjustment and location flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L__modifying_box_boundaries_using_a_second_box.L_USE_MINSIZE">
-	<summary>smaller  use boundaries giving min size</summary>
+	<summary>use boundaries giving min size</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L__modifying_box_boundaries_using_a_second_box.L_USE_MAXSIZE">
-	<summary>smaller  use boundaries giving max size</summary>
+	<summary>use boundaries giving max size</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L__modifying_box_boundaries_using_a_second_box.L_SUB_ON_LOC_DIFF">
-	<summary>smaller  modify boundary if big location diff</summary>
+	<summary>modify boundary if big location diff</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L__modifying_box_boundaries_using_a_second_box.L_SUB_ON_SIZE_DIFF">
-	<summary>smaller  modify boundary if big size diff</summary>
+	<summary>modify boundary if big size diff</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L__modifying_box_boundaries_using_a_second_box.L_USE_CAPPED_MIN">
-	<summary>smaller  modify boundary with capped min</summary>
+	<summary>modify boundary with capped min</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L__modifying_box_boundaries_using_a_second_box.L_USE_CAPPED_MAX">
-	<summary>smaller  modify boundary with capped max</summary>
+	<summary>modify boundary with capped max</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L__modifying_box_boundaries_using_a_second_box">
 	<summary>
  Flags for modifying box boundaries using a second box
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_hling_overlapping_bounding_boxes_in_boxa.L_COMBINE">
-	<summary>smaller  resize to bounding region; remove smaller</summary>
+	<summary>resize to bounding region; remove smaller</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_hling_overlapping_bounding_boxes_in_boxa.L_REMOVE_SMALL">
-	<summary>smaller  only remove smaller</summary>
+	<summary>only remove smaller</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_hling_overlapping_bounding_boxes_in_boxa">
 	<summary>
  Handling overlapping bounding boxes in Boxa
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_USE_BOXES.L_USE_ALL_BOXES">
-	<summary>smaller  consider all boxes in the sequence</summary>
+	<summary>consider all boxes in the sequence</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_USE_BOXES.L_USE_SAME_PARITY_BOXES">
-	<summary>smaller  consider boxes with the same parity</summary>
+	<summary>consider boxes with the same parity</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_USE_BOXES">
 	<summary>
  Flags for replacing invalid boxes
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_WARP_TO_T.L_WARP_TO_LEFT">
-	<summary>smaller  increasing stretch or contraction to left</summary>
+	<summary>increasing stretch or contraction to left</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_WARP_TO_T.L_WARP_TO_RIGHT">
-	<summary>smaller  increasing stretch or contraction to right</summary>
+	<summary>increasing stretch or contraction to right</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_WARP_TO_T">
 	<summary>
  Horizontal warp direction
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_WARP.L_LINEAR_WARP">
-	<summary>smaller  stretch or contraction grows linearly</summary>
+	<summary>stretch or contraction grows linearly</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_WARP.L_QUADRATIC_WARP">
-	<summary>smaller  stretch or contraction grows quadratically</summary>
+	<summary>stretch or contraction grows quadratically</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_WARP">
 	<summary>
  Horizontal warp stretch mode
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ED.L_INTERPOLATED">
-	<summary>smaller  linear interpolation from src pixels</summary>
+	<summary>linear interpolation from src pixels</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ED.L_SAMPLED">
-	<summary>smaller  nearest src pixel sampling only</summary>
+	<summary>nearest src pixel sampling only</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_ED">
 	<summary>
  Pixel selection for resampling
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_THIN_G.L_THIN_FG">
-	<summary>smaller  thin foreground of 1 bpp image</summary>
+	<summary>thin foreground of 1 bpp image</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_THIN_G.L_THIN_BG">
-	<summary>smaller  thin background of 1 bpp image</summary>
+	<summary>thin background of 1 bpp image</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_THIN_G">
 	<summary>
  Thinning flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_AL_RUNS.L_HORIZONTAL_RUNS">
-	<summary>smaller  determine runlengths of horizontal runs</summary>
+	<summary>determine runlengths of horizontal runs</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_AL_RUNS.L_VERTICAL_RUNS">
-	<summary>smaller  determine runlengths of vertical runs</summary>
+	<summary>determine runlengths of vertical runs</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_AL_RUNS">
 	<summary>
  Runlength flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_EDGE.L_SOBEL_EDGE">
-	<summary>smaller  Sobel edge filter</summary>
+	<summary>Sobel edge filter</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_EDGE.L_TWO_SIDED_EDGE">
-	<summary>smaller  Two-sided edge filter</summary>
+	<summary>Two-sided edge filter</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_EDGE">
 	<summary>
  Edge filter flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SUBPIXEL_ORDER.L_SUBPIXEL_ORDER_RGB">
-	<summary>smaller  sensor order left-to-right RGB</summary>
+	<summary>sensor order left-to-right RGB</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SUBPIXEL_ORDER.L_SUBPIXEL_ORDER_BGR">
-	<summary>smaller  sensor order left-to-right BGR</summary>
+	<summary>sensor order left-to-right BGR</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SUBPIXEL_ORDER.L_SUBPIXEL_ORDER_VRGB">
-	<summary>smaller  sensor order top-to-bottom RGB</summary>
+	<summary>sensor order top-to-bottom RGB</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_SUBPIXEL_ORDER.L_SUBPIXEL_ORDER_VBGR">
-	<summary>smaller  sensor order top-to-bottom BGR</summary>
+	<summary>sensor order top-to-bottom BGR</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_SUBPIXEL_ORDER">
 	<summary>
  Subpixel color component ordering in LC display
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_HISTO.L_HS_HISTO">
-	<summary>smaller  Use hue-saturation histogram</summary>
+	<summary>Use hue-saturation histogram</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_HISTO.L_HV_HISTO">
-	<summary>smaller  Use hue-value histogram</summary>
+	<summary>Use hue-value histogram</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_HISTO.L_SV_HISTO">
-	<summary>smaller  Use saturation-value histogram</summary>
+	<summary>Use saturation-value histogram</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_HISTO">
 	<summary>
  HSV histogram flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_CLUDE_REGION.L_INCLUDE_REGION">
-	<summary>smaller  Use hue-saturation histogram</summary>
+	<summary>Use hue-saturation histogram</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_CLUDE_REGION.L_EXCLUDE_REGION">
-	<summary>smaller  Use hue-value histogram</summary>
+	<summary>Use hue-value histogram</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_CLUDE_REGION">
 	<summary>
  Region flags (inclusion, exclusion)
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ADD.L_ADD_ABOVE">
-	<summary>smaller  Add text above the image</summary>
+	<summary>Add text above the image</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ADD.L_ADD_BELOW">
-	<summary>smaller  Add text below the image</summary>
+	<summary>Add text below the image</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ADD.L_ADD_LEFT">
-	<summary>smaller  Add text to the left of the image</summary>
+	<summary>Add text to the left of the image</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ADD.L_ADD_RIGHT">
-	<summary>smaller  Add text to the right of the image</summary>
+	<summary>Add text to the right of the image</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ADD.L_ADD_AT_TOP">
-	<summary>smaller  Add text over the top of the image</summary>
+	<summary>Add text over the top of the image</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ADD.L_ADD_AT_BOT">
-	<summary>smaller  Add text over the bottom of the image</summary>
+	<summary>Add text over the bottom of the image</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ADD.L_ADD_AT_LEFT">
-	<summary>smaller  Add text over left side of the image</summary>
+	<summary>Add text over left side of the image</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ADD.L_ADD_AT_RIGHT">
-	<summary>smaller  Add text over right side of the image</summary>
+	<summary>Add text over right side of the image</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_ADD">
 	<summary>
  Flags for adding text to a Pix
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_PLOT_AT.L_PLOT_AT_TOP">
-	<summary>smaller  Plot horizontally at top</summary>
+	<summary>Plot horizontally at top</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_PLOT_AT.L_PLOT_AT_MID_HORIZ">
-	<summary>smaller  Plot horizontally at middle</summary>
+	<summary>Plot horizontally at middle</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_PLOT_AT.L_PLOT_AT_BOT">
-	<summary>smaller  Plot horizontally at bottom</summary>
+	<summary>Plot horizontally at bottom</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_PLOT_AT.L_PLOT_AT_LEFT">
-	<summary>smaller  Plot vertically at left</summary>
+	<summary>Plot vertically at left</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_PLOT_AT.L_PLOT_AT_MID_VERT">
-	<summary>smaller  Plot vertically at middle</summary>
+	<summary>Plot vertically at middle</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_PLOT_AT.L_PLOT_AT_RIGHT">
-	<summary>smaller  Plot vertically at right</summary>
+	<summary>Plot vertically at right</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_PLOT_AT">
 	<summary>
  Flags for plotting on a Pix
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_DISPLAY_WITH.L_DISPLAY_WITH_XZGV">
-	<summary>smaller  Use xzgv with pixDisplay()</summary>
+	<summary>Use xzgv with pixDisplay()</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_DISPLAY_WITH.L_DISPLAY_WITH_XLI">
-	<summary>smaller  Use xli with pixDisplay()</summary>
+	<summary>Use xli with pixDisplay()</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_DISPLAY_WITH.L_DISPLAY_WITH_XV">
-	<summary>smaller  Use xv with pixDisplay()</summary>
+	<summary>Use xv with pixDisplay()</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_DISPLAY_WITH.L_DISPLAY_WITH_IV">
-	<summary>smaller  Use irfvanview (win) with pixDisplay()</summary>
+	<summary>Use irfvanview (win) with pixDisplay()</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_DISPLAY_WITH.L_DISPLAY_WITH_OPEN">
-	<summary>smaller  Use open (apple) with pixDisplay()</summary>
+	<summary>Use open (apple) with pixDisplay()</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_DISPLAY_WITH">
 	<summary>
  Flags for selecting display program
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.Unnamed_Enum_1.L_NO_CHROMA_SAMPLING_JPEG">
-	<summary>smaller  Write full resolution chroma</summary>
+	<summary>Write full resolution chroma</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.Unnamed_Enum_1">
 	<summary>
  Flags used in Pix::special
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_hling_negative_values_in_conversion_to_unsigned_int.L_CLIP_TO_ZERO">
-	<summary>smaller  Clip negative values to 0</summary>
+	<summary>Clip negative values to 0</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_hling_negative_values_in_conversion_to_unsigned_int.L_TAKE_ABSVAL">
-	<summary>smaller  Convert to positive using L_ABS()</summary>
+	<summary>Convert to positive using L_ABS()</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_hling_negative_values_in_conversion_to_unsigned_int">
 	<summary>
  Handling negative values in conversion to unsigned int
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ZERO.L_LESS_THAN_ZERO">
-	<summary>smaller  Choose values less than zero</summary>
+	<summary>Choose values less than zero</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ZERO.L_EQUAL_TO_ZERO">
-	<summary>smaller  Choose values equal to zero</summary>
+	<summary>Choose values equal to zero</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_ZERO.L_GREATER_THAN_ZERO">
-	<summary>smaller  Choose values greater than zero</summary>
+	<summary>Choose values greater than zero</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_ZERO">
 	<summary>
  Relative to zero flags
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_TRAIL_SLASH.L_ADD_TRAIL_SLASH">
-	<summary>smaller  Add trailing slash to string</summary>
+	<summary>Add trailing slash to string</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_TRAIL_SLASH.L_REMOVE_TRAIL_SLASH">
-	<summary>smaller  Remove trailing slash from string</summary>
+	<summary>Remove trailing slash from string</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_TRAIL_SLASH">
 	<summary>
  Flags for adding or removing traling slash from string
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L__describing_limited_character_sets.L_UNKNOWN">
-	<summary>smaller  character set type is not specified</summary>
+	<summary>character set type is not specified</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L__describing_limited_character_sets.L_ARABIC_NUMERALS">
-	<summary>smaller  10 digits</summary>
+	<summary>10 digits</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L__describing_limited_character_sets.L_LC_ROMAN_NUMERALS">
-	<summary>smaller  7 lower-case letters (i,v,x,l,c,d,m)</summary>
+	<summary>7 lower-case letters (i,v,x,l,c,d,m)</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L__describing_limited_character_sets.L_UC_ROMAN_NUMERALS">
-	<summary>smaller  7 upper-case letters (I,V,X,L,C,D,M)</summary>
+	<summary>7 upper-case letters (I,V,X,L,C,D,M)</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L__describing_limited_character_sets.L_LC_ALPHA">
-	<summary>smaller  26 lower-case letters</summary>
+	<summary>26 lower-case letters</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L__describing_limited_character_sets.L_UC_ALPHA">
-	<summary>smaller  26 upper-case letters</summary>
+	<summary>26 upper-case letters</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L__describing_limited_character_sets">
 	<summary>
  Flags for describing limited character sets
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_USE_A_TEMPLATES.L_USE_ALL_TEMPLATES">
-	<summary>smaller  use all templates; default</summary>
+	<summary>use all templates; default</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_USE_A_TEMPLATES.L_USE_AVERAGE_TEMPLATES">
-	<summary>smaller  use average templates; special cases</summary>
+	<summary>use average templates; special cases</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_USE_A_TEMPLATES">
 	<summary>
  Flags for selecting average or all templates: recog-&gt;templ_use
@@ -89888,13 +89888,13 @@ LeptonicaSharp
  Running modes for the test
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_STR.L_STR_TYPE">
-	<summary>smaller  typedef for the data type</summary>
+	<summary>typedef for the data type</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_STR.L_STR_NAME">
-	<summary>smaller  name of the data type</summary>
+	<summary>name of the data type</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_STR.L_STR_READER">
-	<summary>smaller  reader to get the data type from file</summary>
+	<summary>reader to get the data type from file</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_STR.L_STR_MEMREADER">
-	<summary>smaller  reader to get the compressed string in memory</summary>
+	<summary>reader to get the compressed string in memory</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_STR">
 	<summary>
  Select string in stringcode for a specific serializable data type
@@ -89908,35 +89908,35 @@ LeptonicaSharp
  For printing out array data
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_USE_WIS.L_USE_WIDTHS">
-	<summary>smaller  use histogram of barcode widths</summary>
+	<summary>use histogram of barcode widths</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_USE_WIS.L_USE_WINDOWS">
-	<summary>smaller  find best window for decoding transitions</summary>
+	<summary>find best window for decoding transitions</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_USE_WIS">
 	<summary>
  Flags for method of extracting barcode widths
  </summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BF.L_BF_UNKNOWN">
-	<summary>smaller  unknown format</summary>
+	<summary>unknown format</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BF.L_BF_ANY">
-	<summary>smaller  try decoding with all known formats</summary>
+	<summary>try decoding with all known formats</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BF.L_BF_CODE128">
-	<summary>smaller  decode with Code128 format</summary>
+	<summary>decode with Code128 format</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BF.L_BF_EAN8">
-	<summary>smaller  decode with EAN8 format</summary>
+	<summary>decode with EAN8 format</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BF.L_BF_EAN13">
-	<summary>smaller  decode with EAN13 format</summary>
+	<summary>decode with EAN13 format</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BF.L_BF_CODE2OF5">
-	<summary>smaller  decode with Code 2 of 5 format</summary>
+	<summary>decode with Code 2 of 5 format</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BF.L_BF_CODEI2OF5">
-	<summary>smaller  decode with Interleaved 2 of 5 format</summary>
+	<summary>decode with Interleaved 2 of 5 format</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BF.L_BF_CODE39">
-	<summary>smaller  decode with Code39 format</summary>
+	<summary>decode with Code39 format</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BF.L_BF_CODE93">
-	<summary>smaller  decode with Code93 format</summary>
+	<summary>decode with Code93 format</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BF.L_BF_CODABAR">
-	<summary>smaller  decode with Code93 format</summary>
+	<summary>decode with Code93 format</summary>
 </member><member name="F:LeptonicaSharp.Enumerations.L_BF.L_BF_UPCA">
-	<summary>smaller  decode with UPC A format</summary>
+	<summary>decode with UPC A format</summary>
 </member><member name="T:LeptonicaSharp.Enumerations.L_BF">
 	<summary>
  Flags for barcode formats

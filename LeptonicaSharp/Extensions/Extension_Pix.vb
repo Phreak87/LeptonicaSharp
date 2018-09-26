@@ -75,23 +75,27 @@ Partial Public Class Pix
         Dim n As New ShowPix(Me)
     End Sub
     Sub New(ByVal Bitmap As Bitmap)
+        Dim Stream As New System.IO.MemoryStream : Bitmap.Save(Stream, Imaging.ImageFormat.Png)
+        Me.Pointer = Natives.pixReadMemPng(Stream.GetBuffer, Stream.Length)
+        Values = New Marshal_Pix : Marshal.PtrToStructure(Me.Pointer, Values)
+        'Me.New(Me.Pointer)
         ' Funktioniert nur teilweise > Überarbeiten
-        Me.New(LeptonicaSharp.Natives.pixCreate(Bitmap.Width, Bitmap.Height, GetBPP(Bitmap)))
-        Dim BPPIDX As Integer = GetBPP(Bitmap) / 8
-        Dim BMPDAT As BitmapData = Bitmap.LockBits(New Rectangle(0, 0, Bitmap.Width, Bitmap.Height), ImageLockMode.WriteOnly, Bitmap.PixelFormat)
-        Dim BMPBYT((BMPDAT.Height * BMPDAT.Stride) - 1) As Byte
-        Marshal.Copy(BMPDAT.Scan0, BMPBYT, 0, BMPBYT.Length)
-        Select Case BPPIDX
-            Case 1 ' : Throw New NotImplementedException
-            Case 2 : Throw New NotImplementedException
-            Case 3 : BMPBYT = SwapBytes(BMPBYT, "RGB", "BGR")
-            Case 4 : BMPBYT = SwapBytes(BMPBYT, "RGBA", "ARGB")
-            Case 5 : Throw New NotImplementedException
-            Case 6 : Throw New NotImplementedException
-        End Select
-        Marshal.Copy(BMPBYT, 0, Me.Values.data, BMPBYT.Length)
-        Bitmap.UnlockBits(BMPDAT)
-        Me.save_png("CheckPoint1.png")
+        'Me.New(LeptonicaSharp.Natives.pixCreate(Bitmap.Width, Bitmap.Height, GetBPP(Bitmap)))
+        'Dim BPPIDX As Integer = GetBPP(Bitmap) / 8
+        'Dim BMPDAT As BitmapData = Bitmap.LockBits(New Rectangle(0, 0, Bitmap.Width, Bitmap.Height), ImageLockMode.WriteOnly, Bitmap.PixelFormat)
+        'Dim BMPBYT((BMPDAT.Height * BMPDAT.Stride) - 1) As Byte
+        'Marshal.Copy(BMPDAT.Scan0, BMPBYT, 0, BMPBYT.Length)
+        'Select Case BPPIDX
+        '    Case 1 ' : Throw New NotImplementedException
+        '    Case 2 : Throw New NotImplementedException
+        '    Case 3 : BMPBYT = SwapBytes(BMPBYT, "RGB", "BGR")
+        '    Case 4 : BMPBYT = SwapBytes(BMPBYT, "RGBA", "ARGB")
+        '    Case 5 : Throw New NotImplementedException
+        '    Case 6 : Throw New NotImplementedException
+        'End Select
+        'Marshal.Copy(BMPBYT, 0, Me.Values.data, BMPBYT.Length)
+        'Bitmap.UnlockBits(BMPDAT)
+        ' Me.save_png("CheckPoint1.png")
     End Sub
     Public Function ToBitmap32() As Image
         If Me.Pointer = IntPtr.Zero Then Return Nothing

@@ -31,7 +31,7 @@ Full featured wrapper for leptonica 1.77.0 (Sep.2018)
 # How to Implement (Via Nuget)
 
 1. Load the Library from Nuget. 
-2. Find the leptonica-1.77.0.dll in the Nuget folder and copy this file to the same path as LeptonicaSharp.dll
+2. Run once LeptonicaSharp.Natives.Initialize() to copy the required dll´s
 3. Your ready to start.
 
 # How to extend predefined classes:

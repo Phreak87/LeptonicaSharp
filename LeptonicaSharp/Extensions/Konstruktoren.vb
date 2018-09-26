@@ -29,35 +29,49 @@ End Class
 Partial Public Class L_Pdf_Data
     Sub New()
         Values = New Marshal_L_Pdf_Data
-        Values.cida = New L_Ptra().Pointer
-        Values.objloc = New L_Dna().Pointer
-        Values.objsize = New L_Dna().Pointer
-        Values.sacmap = New Sarray().Pointer
-        Values.saprex = New Sarray().Pointer
-        Values.wh = New Pta().Pointer
-        Values.xy = New Pta().Pointer
+        Values.cida = New L_Ptra(10).Pointer
+        Values.objloc = New L_Dna(10).Pointer
+        Values.objsize = New L_Dna(10).Pointer
+        Values.sacmap = New Sarray(10).Pointer
+        Values.saprex = New Sarray(1).Pointer
+        Values.wh = New Pta(10).Pointer
+        Values.xy = New Pta(10).Pointer
         Pointer = Marshal.AllocHGlobal(Marshal.SizeOf(Values))
         Marshal.StructureToPtr(Values, Pointer, True)
     End Sub
 End Class
 Partial Public Class L_Ptra
-    Sub New()
-        Me.Pointer = LeptonicaSharp._AllFunctions.ptraCreate(10).Pointer
+    Sub New(Count As Integer)
+        Me.New(LeptonicaSharp.Natives.ptraCreate(Count))
+    End Sub
+    Sub Refresh()
+        Marshal.PtrToStructure(Me.Pointer, Values)
     End Sub
 End Class
 Partial Public Class L_Dna
-    Sub New()
-        Pointer = LeptonicaSharp._AllFunctions.l_dnaCreate(10).Pointer
+    Sub New(Count As Integer)
+        Me.New(Natives.l_dnaCreate(Count))
     End Sub
 End Class
 Partial Public Class Pta
+    Sub New(Count As Integer)
+        Me.New(Natives.ptaCreate(Count))
+    End Sub
+End Class
+Partial Public Class Ptra
     Sub New()
-        Pointer = LeptonicaSharp._AllFunctions.ptaCreate(10).Pointer
+
     End Sub
 End Class
 Partial Public Class Sarray
-    Sub New()
-        Pointer = LeptonicaSharp._AllFunctions.sarrayCreate(10).Pointer
+    Sub New(Count As Integer)
+        Me.New(Natives.sarrayCreate(Count))
     End Sub
 End Class
+Partial Public Class Pixa
+    Sub New(Count As Integer)
+        Me.New(Natives.pixaCreate(Count))
+    End Sub
+End Class
+
 #End Region

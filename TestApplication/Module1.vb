@@ -8,6 +8,12 @@ Module Module1
 
     Sub Main()
         ' ---------------------------------------------
+        ' Copy the required dll-files to your path if 
+        ' they dont exists.
+        ' ---------------------------------------------
+        LeptonicaSharp.Natives.Initialize()
+
+        ' ---------------------------------------------
         ' Set to 1 to enable debug images.
         ' requires i_view32.exe in the application path.
         ' ---------------------------------------------
@@ -17,7 +23,8 @@ Module Module1
         'PIX32.Display()
 
         'TestPDF()
-        'TestPix()
+        'TestPDF2()
+        TestPix()
         'TestMem()
         'TestString()
         'TestDisplay()
@@ -140,6 +147,7 @@ Module Module1
         Dim SArray As LeptonicaSharp.Sarray = LeptonicaSharp._AllFunctions.getFilenamesInDirectory("C:\")
         Dim Sel = New LeptonicaSharp.Sel("ooooo" & "oC  o" & "o   o" & "ooooo", 5, 4, "Test") : Sel.Display() ' : Sel.Display(PIX32)
         Dim Box As New LeptonicaSharp.Box(50, 50, 100, 100)
+        Dim pta = LeptonicaSharp._AllFunctions.ptraCreate(3)
         Dim numa = New LeptonicaSharp.Numa("2.5,5,7")
         Dim SY = LeptonicaSharp._AllFunctions.create2dIntArray(2, 5)
 
@@ -157,7 +165,7 @@ Module Module1
     End Sub
     Sub TestPix()
         Dim PIX32 As New Pix("Test.jpg") ' : PIX32.Display()
-        Dim PIX32_2 As New Pix(New Bitmap("rgb.png")) ' : PIX32_2.Display()
+        Dim PIX32_2 As New Pix(New Bitmap("test.jpg")) : PIX32_2.Display()
         Dim PIX16 As Pix = LeptonicaSharp._AllFunctions.pixConvert32To16(PIX32, L_16_bit_conversion.L_CLIP_TO_FFFF)
         Dim PIX8 As Pix = LeptonicaSharp._AllFunctions.pixConvert32To8(PIX32, L_16_bit_conversion.L_CLIP_TO_FFFF, L_16_bit_conversion.L_CLIP_TO_FF)
         Dim PIXD As New Pix
@@ -186,6 +194,11 @@ Module Module1
         ' Datentypen: UInt8 * und UInt8 ** 
         ' ----------------------------------------
 
+        Dim n As New System.IO.FileStream("pix32.jpg", System.IO.FileMode.Open)
+        Dim P As Pix = LeptonicaSharp._AllFunctions.pixReadStreamJpeg(New FILE("pix32.jpg"), 0, 1, 0)
+        P.Display()
+
+
         ' Schreibt als Workaround für JPEG in eine Temp.Datei
         Dim BMPBYT1 As Byte() = My.Computer.FileSystem.ReadAllBytes("Test.jpg")
         Dim PX1 As Pix = LeptonicaSharp._AllFunctions.pixReadMem(BMPBYT1, BMPBYT1.Length)
@@ -209,18 +222,52 @@ Module Module1
     Sub TestPDF()
         Dim PIX32 As New Pix("Test.jpg")
         Dim C0 As L_Pdf_Data = Nothing
-        Dim C1 As New L_Pdf_Data()
-        Dim C2 As New L_Pdf_Data()
-        Dim C3 As New L_Pdf_Data()
 
-        ' Diese Funktion schreibt nur 1 PDF-Seite mit mehreren Bildern!
+        ' Diese Funktionen schreiben nur 1 PDF-Seite mit mehreren Bildern!
         LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_JPEG_ENCODE, "TestMax.pdf", C0, L_T_IMAGE.L_FIRST_IMAGE)
         LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_JPEG_ENCODE, "TestMax.pdf", C0, L_T_IMAGE.L_NEXT_IMAGE)
         LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_JPEG_ENCODE, "TestMax.pdf", C0, L_T_IMAGE.L_LAST_IMAGE)
-
-        LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_FLATE_ENCODE, "Test1.pdf", C1, L_T_IMAGE.L_LAST_IMAGE)
-        LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_G4_ENCODE, "Test2.pdf", C2, L_T_IMAGE.L_LAST_IMAGE)
-        LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_JPEG_ENCODE, "Test3.pdf", C3, L_T_IMAGE.L_LAST_IMAGE)
+        LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_FLATE_ENCODE, "Test1.pdf", C0, L_T_IMAGE.L_LAST_IMAGE)
+        LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_G4_ENCODE, "Test2.pdf", C0, L_T_IMAGE.L_LAST_IMAGE)
+        LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_JPEG_ENCODE, "Test3.pdf", C0, L_T_IMAGE.L_LAST_IMAGE)
     End Sub
+    Sub TestPDF2()
+        ' -----------------------------------
+        ' Create Multipage-PDF from Filenames
+        ' -----------------------------------
+        'Dim Stri = LeptonicaSharp._AllFunctions.sarrayCreateWordsFromString("Test.jpg Test.jpg Test.jpg")
+        'LeptonicaSharp._AllFunctions.saConvertFilesToPdf(Stri, 0, 0.0, 0, 0, "newTextMax.pdf", "multipage pdf")
 
+        ' -----------------------------------
+        ' Create Multipage-PDF from PIXs
+        ' -----------------------------------
+        'Dim PIX32 As New Pix("Test.jpg")
+        'Dim pixadb = New Pixa(3)
+        '_AllFunctions.pixaAddPix(pixadb, PIX32, L_access_storage.L_COPY)
+        '_AllFunctions.pixaAddPix(pixadb, PIX32, L_access_storage.L_COPY)
+        '_AllFunctions.pixaAddPix(pixadb, PIX32, L_access_storage.L_COPY)
+        '_AllFunctions.pixaConvertToPdf(pixadb, PIX32.xres, 0, L_ENCODE.L_JPEG_ENCODE, 0, "fileout.pdf")
+
+        ' Dim C0 As L_Pdf_Data = Nothing '        Will be created on L_FIRST_IMAGE call
+        Dim C0 As New L_Pdf_Data
+        Dim PIX32 As New Pix("Test.jpg") '      The Pix 
+        Dim pa_data = New L_Ptra(3) '           Pointer Array
+
+        Dim OK As L_OK = _AllFunctions.selectDefaultPdfEncoding(PIX32, L_ENCODE.L_JPEG_ENCODE)
+
+        Dim imdata As Byte() = Nothing
+        Dim imbytes As UInteger
+
+        '_AllFunctions.pixConvertToPdfData(PIX32, L_ENCODE.L_JPEG_ENCODE, imdata, imbytes, C0, L_T_IMAGE.L_FIRST_IMAGE)
+        '_AllFunctions.pixConvertToPdfData(PIX32, L_ENCODE.L_JPEG_ENCODE, imdata, imbytes, C0, L_T_IMAGE.L_NEXT_IMAGE)
+        _AllFunctions.pixConvertToPdfData(PIX32, L_ENCODE.L_JPEG_ENCODE, imdata, imbytes, C0, L_T_IMAGE.L_LAST_IMAGE) ' C0 is beeing Destroyed here! 
+        Dim ba = _AllFunctions.l_byteaInitFromMem(imdata, imbytes)
+        _AllFunctions.ptraAdd(pa_data, ba)
+
+        'Need more work here but I can't get this far in debugging due to the wrapper.
+        'Dim pages As Integer = _AllFunctions.ptraGetActualCount(pa_data, pages)'
+        Dim RETPData As Byte() = Nothing
+        Dim RETPNBytes As UInteger = 0
+        _AllFunctions.ptraConcatenatePdfToData(pa_data, RETPData, RETPNBytes)
+    End Sub
 End Module

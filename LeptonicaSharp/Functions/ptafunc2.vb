@@ -1,0 +1,416 @@
+Imports System.Runtime.InteropServices
+Imports LeptonicaSharp.Enumerations
+Partial Public Class _AllFunctions
+
+
+' SRC\ptafunc2.c (89, 1)
+' ptaSort()
+' ptaSort(PTA *, l_int32, l_int32, NUMA **) as PTA *
+'''  <summary>
+''' 
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <param name="ptas">[in] - </param>
+'''  <param name="sorttype">[in] - L_SORT_BY_X, L_SORT_BY_Y</param>
+'''  <param name="sortorder">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
+'''  <param name="pnaindex">[out][optional] - index of sorted order into original array</param>
+'''   <returns>ptad sorted version of ptas, or NULL on error</returns>
+Public Shared Function ptaSort(
+				ByVal ptas as Pta, 
+				ByVal sorttype as Enumerations.L_SORT_BY, 
+				ByVal sortorder as Enumerations.L_SORT_CREASING, 
+				Optional ByRef pnaindex as Numa = Nothing) as Pta
+
+	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
+
+Dim pnaindexPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaindex) Then pnaindexPTR = pnaindex.Pointer
+
+	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaSort( ptas.Pointer, sorttype, sortorder, pnaindexPTR)
+	If  _Result = IntPtr.Zero then Return Nothing
+	if pnaindexPTR <> IntPtr.Zero then pnaindex = new Numa(pnaindexPTR)
+
+	Return  new Pta(_Result)
+End Function
+
+' SRC\ptafunc2.c (132, 1)
+' ptaGetSortIndex()
+' ptaGetSortIndex(PTA *, l_int32, l_int32, NUMA **) as l_ok
+'''  <summary>
+''' 
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <param name="ptas">[in] - </param>
+'''  <param name="sorttype">[in] - L_SORT_BY_X, L_SORT_BY_Y</param>
+'''  <param name="sortorder">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
+'''  <param name="pnaindex">[out] - index of sorted order into original array</param>
+'''   <returns>0 if OK, 1 on error</returns>
+Public Shared Function ptaGetSortIndex(
+				ByVal ptas as Pta, 
+				ByVal sorttype as Enumerations.L_SORT_BY, 
+				ByVal sortorder as Enumerations.L_SORT_CREASING, 
+				ByRef pnaindex as Numa) as Integer
+
+	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
+
+	Dim pnaindexPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaindex) Then pnaindexPTR = pnaindex.Pointer
+
+	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetSortIndex( ptas.Pointer, sorttype, sortorder, pnaindexPTR)
+	if pnaindexPTR <> IntPtr.Zero then pnaindex = new Numa(pnaindexPTR)
+
+	Return _Result
+End Function
+
+' SRC\ptafunc2.c (182, 1)
+' ptaSortByIndex()
+' ptaSortByIndex(PTA *, NUMA *) as PTA *
+'''  <summary>
+''' 
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <param name="ptas">[in] - </param>
+'''  <param name="naindex">[in] - na that maps from the new pta to the input pta</param>
+'''   <returns>ptad sorted, or NULL on  error</returns>
+Public Shared Function ptaSortByIndex(
+				ByVal ptas as Pta, 
+				ByVal naindex as Numa) as Pta
+
+	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
+	If IsNothing (naindex) then Throw New ArgumentNullException  ("naindex cannot be Nothing")
+
+
+	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaSortByIndex( ptas.Pointer, naindex.Pointer)
+	If  _Result = IntPtr.Zero then Return Nothing
+
+	Return  new Pta(_Result)
+End Function
+
+' SRC\ptafunc2.c (218, 1)
+' ptaaSortByIndex()
+' ptaaSortByIndex(PTAA *, NUMA *) as PTAA *
+'''  <summary>
+''' 
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <param name="ptaas">[in] - </param>
+'''  <param name="naindex">[in] - na that maps from the new ptaa to the input ptaa</param>
+'''   <returns>ptaad sorted, or NULL on error</returns>
+Public Shared Function ptaaSortByIndex(
+				ByVal ptaas as Ptaa, 
+				ByVal naindex as Numa) as Ptaa
+
+	If IsNothing (ptaas) then Throw New ArgumentNullException  ("ptaas cannot be Nothing")
+	If IsNothing (naindex) then Throw New ArgumentNullException  ("naindex cannot be Nothing")
+
+
+	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaaSortByIndex( ptaas.Pointer, naindex.Pointer)
+	If  _Result = IntPtr.Zero then Return Nothing
+
+	Return  new Ptaa(_Result)
+End Function
+
+' SRC\ptafunc2.c (257, 1)
+' ptaGetRankValue()
+' ptaGetRankValue(PTA *, l_float32, PTA *, l_int32, l_float32 *) as l_ok
+'''  <summary>
+''' 
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <param name="pta">[in] - </param>
+'''  <param name="fract">[in] - use 0.0 for smallest, 1.0 for largest</param>
+'''  <param name="ptasort">[in][optional] - version of %pta sorted by %sorttype</param>
+'''  <param name="sorttype">[in] - L_SORT_BY_X, L_SORT_BY_Y</param>
+'''  <param name="pval">[out] - rankval the x or y value at %fract</param>
+'''   <returns>0 if OK, 1 on error</returns>
+Public Shared Function ptaGetRankValue(
+				ByVal pta as Pta, 
+				ByVal fract as Single, 
+				ByVal sorttype as Enumerations.L_SORT_BY, 
+				ByRef pval as Single(), 
+				Optional ByVal ptasort as Pta = Nothing) as Integer
+
+	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+	Dim ptasortPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ptasort) Then ptasortPTR = ptasort.Pointer
+
+	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetRankValue( pta.Pointer, fract, ptasortPTR, sorttype, pval)
+
+	Return _Result
+End Function
+
+' SRC\ptafunc2.c (317, 1)
+' ptaUnionByAset()
+' ptaUnionByAset(PTA *, PTA *) as PTA *
+'''  <summary>
+''' Notes
+''' (1) See sarrayRemoveDupsByAset() for the approach.
+''' (2) The key is a 64-bit hash from the (x,y) pair.
+''' (3) This is slower than ptaUnionByHash(), mostly because of the
+''' nlogn sort to build up the rbtree.  Do not use for large
+''' numbers of points (say, GT 1M).
+''' (4) The Aset() functions use the sorted l_Aset, which is just
+''' an rbtree in disguise.
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <param name="pta1">[in] - </param>
+'''  <param name="pta2">[in] - </param>
+'''   <returns>ptad with the union of the set of points, or NULL on error</returns>
+Public Shared Function ptaUnionByAset(
+				ByVal pta1 as Pta, 
+				ByVal pta2 as Pta) as Pta
+
+	If IsNothing (pta1) then Throw New ArgumentNullException  ("pta1 cannot be Nothing")
+	If IsNothing (pta2) then Throw New ArgumentNullException  ("pta2 cannot be Nothing")
+
+
+	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaUnionByAset( pta1.Pointer, pta2.Pointer)
+	If  _Result = IntPtr.Zero then Return Nothing
+
+	Return  new Pta(_Result)
+End Function
+
+' SRC\ptafunc2.c (354, 1)
+' ptaRemoveDupsByAset()
+' ptaRemoveDupsByAset(PTA *) as PTA *
+'''  <summary>
+''' Notes
+''' (1) This is slower than ptaRemoveDupsByHash(), mostly because
+''' of the nlogn sort to build up the rbtree.  Do not use for
+''' large numbers of points (say, GT 1M).
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <param name="ptas">[in] - assumed to be integer values</param>
+'''   <returns>ptad with duplicates removed, or NULL on error</returns>
+Public Shared Function ptaRemoveDupsByAset(
+				ByVal ptas as Pta) as Pta
+
+	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
+
+
+	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaRemoveDupsByAset( ptas.Pointer)
+	If  _Result = IntPtr.Zero then Return Nothing
+
+	Return  new Pta(_Result)
+End Function
+
+' SRC\ptafunc2.c (401, 1)
+' ptaIntersectionByAset()
+' ptaIntersectionByAset(PTA *, PTA *) as PTA *
+'''  <summary>
+''' Notes
+''' (1) See sarrayIntersectionByAset() for the approach.
+''' (2) The key is a 64-bit hash from the (x,y) pair.
+''' (3) This is slower than ptaIntersectionByHash(), mostly because
+''' of the nlogn sort to build up the rbtree.  Do not use for
+''' large numbers of points (say, GT 1M).
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <param name="pta1">[in] - </param>
+'''  <param name="pta2">[in] - </param>
+'''   <returns>ptad intersection of the point sets, or NULL on error</returns>
+Public Shared Function ptaIntersectionByAset(
+				ByVal pta1 as Pta, 
+				ByVal pta2 as Pta) as Pta
+
+	If IsNothing (pta1) then Throw New ArgumentNullException  ("pta1 cannot be Nothing")
+	If IsNothing (pta2) then Throw New ArgumentNullException  ("pta2 cannot be Nothing")
+
+
+	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaIntersectionByAset( pta1.Pointer, pta2.Pointer)
+	If  _Result = IntPtr.Zero then Return Nothing
+
+	Return  new Pta(_Result)
+End Function
+
+' SRC\ptafunc2.c (451, 1)
+' l_asetCreateFromPta()
+' l_asetCreateFromPta(PTA *) as L_ASET *
+'''  <summary>
+''' 
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <param name="pta">[in] - </param>
+'''   <returns>set using a 64-bit hash of (x,y) as the key</returns>
+Public Shared Function l_asetCreateFromPta(
+				ByVal pta as Pta) as L_Rbtree
+
+	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+
+
+	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_asetCreateFromPta( pta.Pointer)
+	If  _Result = IntPtr.Zero then Return Nothing
+
+	Return  new L_Rbtree(_Result)
+End Function
+
+' SRC\ptafunc2.c (493, 1)
+' ptaUnionByHash()
+' ptaUnionByHash(PTA *, PTA *) as PTA *
+'''  <summary>
+''' Notes
+''' (1) This is faster than ptaUnionByAset(), because the
+''' bucket lookup is O(n).  It should be used if the pts are
+''' integers (e.g., representing pixel positions).
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <param name="pta1">[in] - </param>
+'''  <param name="pta2">[in] - </param>
+'''   <returns>ptad with the union of the set of points, or NULL on error</returns>
+Public Shared Function ptaUnionByHash(
+				ByVal pta1 as Pta, 
+				ByVal pta2 as Pta) as Pta
+
+	If IsNothing (pta1) then Throw New ArgumentNullException  ("pta1 cannot be Nothing")
+	If IsNothing (pta2) then Throw New ArgumentNullException  ("pta2 cannot be Nothing")
+
+
+	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaUnionByHash( pta1.Pointer, pta2.Pointer)
+	If  _Result = IntPtr.Zero then Return Nothing
+
+	Return  new Pta(_Result)
+End Function
+
+' SRC\ptafunc2.c (543, 1)
+' ptaRemoveDupsByHash()
+' ptaRemoveDupsByHash(PTA *, PTA **, L_DNAHASH **) as l_ok
+'''  <summary>
+''' Notes
+''' (1) Generates a pta with unique values.
+''' (2) The dnahash is built up with ptad to assure uniqueness.
+''' It can be used to find if a point is in the set
+''' ptaFindPtByHash(ptad, dahash, x, y, index)
+''' (3) The hash of the (x,y) location is simple and fast.  It scales
+''' up with the number of buckets to insure a fairly random
+''' bucket selection for adjacent points.
+''' (4) A Dna is used rather than a Numa because we need accurate
+''' representation of 32-bit integers that are indices into ptas.
+''' Integer --GT float --GT integer conversion makes errors for
+''' integers larger than 10M.
+''' (5) This is faster than ptaRemoveDupsByAset(), because the
+''' bucket lookup is O(n), although there is a double-loop
+''' lookup within the dna in each bucket.
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <param name="ptas">[in] - assumed to be integer values</param>
+'''  <param name="pptad">[out] - unique set of pts; duplicates removed</param>
+'''  <param name="pdahash">[out][optional] - dnahash used for lookup</param>
+'''   <returns>0 if OK, 1 on error</returns>
+Public Shared Function ptaRemoveDupsByHash(
+				ByVal ptas as Pta, 
+				ByRef pptad as Pta, 
+				Optional ByRef pdahash as L_DnaHash = Nothing) as Integer
+
+	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
+
+	Dim pptadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pptad) Then pptadPTR = pptad.Pointer
+Dim pdahashPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdahash) Then pdahashPTR = pdahash.Pointer
+
+	Dim _Result as Integer = LeptonicaSharp.Natives.ptaRemoveDupsByHash( ptas.Pointer, pptadPTR, pdahashPTR)
+	if pptadPTR <> IntPtr.Zero then pptad = new Pta(pptadPTR)
+	if pdahashPTR <> IntPtr.Zero then pdahash = new L_DnaHash(pdahashPTR)
+
+	Return _Result
+End Function
+
+' SRC\ptafunc2.c (600, 1)
+' ptaIntersectionByHash()
+' ptaIntersectionByHash(PTA *, PTA *) as PTA *
+'''  <summary>
+''' Notes
+''' (1) This is faster than ptaIntersectionByAset(), because the
+''' bucket lookup is O(n).  It should be used if the pts are
+''' integers (e.g., representing pixel positions).
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <param name="pta1">[in] - </param>
+'''  <param name="pta2">[in] - </param>
+'''   <returns>ptad intersection of the point sets, or NULL on error</returns>
+Public Shared Function ptaIntersectionByHash(
+				ByVal pta1 as Pta, 
+				ByVal pta2 as Pta) as Pta
+
+	If IsNothing (pta1) then Throw New ArgumentNullException  ("pta1 cannot be Nothing")
+	If IsNothing (pta2) then Throw New ArgumentNullException  ("pta2 cannot be Nothing")
+
+
+	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaIntersectionByHash( pta1.Pointer, pta2.Pointer)
+	If  _Result = IntPtr.Zero then Return Nothing
+
+	Return  new Pta(_Result)
+End Function
+
+' SRC\ptafunc2.c (674, 1)
+' ptaFindPtByHash()
+' ptaFindPtByHash(PTA *, L_DNAHASH *, l_int32, l_int32, l_int32 *) as l_ok
+'''  <summary>
+''' Notes
+''' (1) Fast lookup in dnaHash associated with a pta, to see if a
+''' random point (x,y) is already stored in the hash table.
+''' (2) We use a strong hash function to minimize the chance that
+''' two different points hash to the same key value.
+''' (3) We select the number of buckets to be about 5% of the size
+''' of the input %pta, so that when fully populated, each
+''' bucket (dna) will have about 20 entries, each being an index
+''' into %pta.  In lookup, after hashing to the key, and then
+''' again to the bucket, we traverse the bucket (dna), using the
+''' index into %pta to check if the point (x,y) has been found before.
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <param name="pta">[in] - </param>
+'''  <param name="dahash">[in] - built from pta</param>
+'''  <param name="x">[in] - arbitrary points</param>
+'''  <param name="y">[in] - arbitrary points</param>
+'''  <param name="pindex">[out] - index into pta if (x,y) is in pta; -1 otherwise</param>
+'''   <returns>0 if OK, 1 on error</returns>
+Public Shared Function ptaFindPtByHash(
+				ByVal pta as Pta, 
+				ByVal dahash as L_DnaHash, 
+				ByVal x as Integer, 
+				ByVal y as Integer, 
+				ByRef pindex as Integer) as Integer
+
+	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+	If IsNothing (dahash) then Throw New ArgumentNullException  ("dahash cannot be Nothing")
+
+
+	Dim _Result as Integer = LeptonicaSharp.Natives.ptaFindPtByHash( pta.Pointer, dahash.Pointer, x, y, pindex)
+
+	Return _Result
+End Function
+
+' SRC\ptafunc2.c (720, 1)
+' l_dnaHashCreateFromPta()
+' l_dnaHashCreateFromPta(PTA *) as L_DNAHASH *
+'''  <summary>
+''' 
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <param name="pta">[in] - </param>
+'''   <returns>dahash, or NULL on error</returns>
+Public Shared Function l_dnaHashCreateFromPta(
+				ByVal pta as Pta) as L_DnaHash
+
+	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+
+
+	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaHashCreateFromPta( pta.Pointer)
+	If  _Result = IntPtr.Zero then Return Nothing
+
+	Return  new L_DnaHash(_Result)
+End Function
+
+End Class

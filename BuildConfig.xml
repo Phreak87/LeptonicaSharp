@@ -1,0 +1,110 @@
+<Builder>
+
+	<!-- 
+	####################################################
+	Arraygröße, Enumeration und Funktionen fuer Parameter
+	bestimmen. Semikolon separiert List (of Array)
+	####################################################
+	-->
+	<Class Name="SEL">
+		<Parameter Name ="data">		<Size>sy;sx</Size>				</Parameter>
+	</Class>
+	<Class Name="PIX">
+		<Parameter Name ="data">		<Size>(w * h * (d/8))</Size>	</Parameter>
+		<Parameter Name ="informat">	<Enum>IFF</Enum>				</Parameter>
+		
+		<Extend    Name="pixReadMemBmp" 	Group="New" 	as="Constructor"/>
+		<Extend    Name="PixConvert32to16" 	Group="Convert" as="Function"/>
+	</Class>
+	
+	<!-- 
+	##############################################
+	Standardwerte für benannte Funktionen setzen
+	Parameter wird dann als Optional behandelt
+	##############################################
+	-->
+	<Function Name="pixDeskewGeneral">
+		<Parameter Name="thresh"><Default>0</Default></Parameter>
+	</Function>
+	<Function Name="pixSauvolaBinarize">		
+		<Parameter Name="factor"><Default>0.35</Default></Parameter>
+		<Parameter Name="addborder"><Default>0</Default></Parameter>
+	</Function>
+	<Function Name="pixConvertToPdf">
+		<Parameter Name="x"><Default>0</Default></Parameter>
+		<Parameter Name="y"><Default>0</Default></Parameter>
+		<Parameter Name="res"><Default>0</Default></Parameter>
+		<Parameter Name="quality"><Default>0</Default></Parameter>
+	</Function>
+	<Function Name="convertToPdfData">
+		<Parameter Name="x"><Default>0</Default></Parameter>
+		<Parameter Name="y"><Default>0</Default></Parameter>
+		<Parameter Name="res"><Default>0</Default></Parameter>
+		<Parameter Name="quality"><Default>0</Default></Parameter>
+	</Function>
+	<Function Name="pixConvertToPdfData">
+		<Parameter Name="x"><Default>0</Default></Parameter>
+		<Parameter Name="y"><Default>0</Default></Parameter>
+		<Parameter Name="res"><Default>0</Default></Parameter>
+		<Parameter Name="quality"><Default>0</Default></Parameter>
+	</Function>
+
+	<!-- 
+	##########################################################
+	Standardwerte für alle Funktionen bestimmen
+	Function Name = "" = Alle Funktionen
+	Parameter Class = "PIX" => Parameter muss Klasse Pix sein
+	CheckComment Text = Wenn Kommentar dann spec. Prüfung
+	##########################################################
+	-->
+	<Function Name="">
+		<Parameter Name= "" Class="PIX">
+			<CheckComment Text="1 bpp" 											Prop="d">{1}</CheckComment>
+			<CheckComment Text="4 bpp, can be null" 							Prop="d">{4}</CheckComment>
+			<CheckComment Text="8 bpp" 											Prop="d">{8}</CheckComment>
+			<CheckComment Text="8 bpp grayscale" 								Prop="d">{8}</CheckComment>
+			<CheckComment Text="8 bpp; colormap OK" 							Prop="d">{8}</CheckComment>
+			<CheckComment Text="8 bpp; no colormap" 							Prop="d">{8}</CheckComment>
+			<CheckComment Text="8 bpp grayscale; not colormapped" 				Prop="d">{8}</CheckComment>
+			<CheckComment Text="16 bpp" 										Prop="d">{16}</CheckComment>
+			<CheckComment Text="32 bpp RGB" 									Prop="d">{32}</CheckComment>
+			<CheckComment Text="32 bpp rgb, not colormapped" 					Prop="d">{32}</CheckComment>
+			<CheckComment Text="32 bpp, single component"	 					Prop="d">{32}</CheckComment>
+			<CheckComment Text="4 or 8 bpp"										Prop="d">{4,8}</CheckComment>
+			<CheckComment Text="8 or 16 bpp grayscale"							Prop="d">{8,16}</CheckComment>
+			<CheckComment Text="8 bpp grayscale, 32 bpp rgb, or colormapped" 	Prop="d">{8,16}</CheckComment>
+			<CheckComment Text="2, 4 or 8 bpp grayscale" 						Prop="d">{2,4,8}</CheckComment>
+			<CheckComment Text="8 bpp gray; 2, 4 or 8 bpp colormapped" 			Prop="d">{2,4,8}</CheckComment>
+			<CheckComment Text="1, 8, 32 bpp" 				 					Prop="d">{1,8,32}</CheckComment>
+			<CheckComment Text="1, 2, 4, 8 bpp, not cmapped"					Prop="d">{1,2,4,8}</CheckComment>
+			<CheckComment Text="1, 2, 4, 8, 16 bpp; can be colormapped"	 	 	Prop="d">{1,2,4,8,16}</CheckComment>
+			<CheckComment Text="1, 2, 4, 8, 16, 32 bpp"	 	 					Prop="d">{1,2,4,8,16,32}</CheckComment>
+			<CheckComment Text="1, 2, 4, 8, 16 or 32 bpp"	 	 				Prop="d">{1,2,4,8,16,24,32}</CheckComment><!-- 24 works too ... -->
+		</Parameter>
+		<Parameter Name="filename">
+			<CheckFile/>
+		</Parameter> 
+		<Parameter Name="reduction"> 
+			<CheckRange>2-16</CheckRange>	
+		</Parameter> 	 
+		<Parameter Name="debug"> 
+			<Enum>DebugOnOff</Enum>				
+			<Default>DebugOnOff.DebugOn</Default>
+		</Parameter>
+		<Parameter Name="redsearch"> 		
+			<Default>0</Default>
+			<CheckArray>{0,1,2,4,8}</CheckArray>
+		</Parameter>
+		<Parameter Name="redsweep"> 		
+			<Default>0</Default>
+			<CheckArray>{0,1,2,4,8}</CheckArray>
+		</Parameter>
+		<Parameter Name="scalex"> 		
+			<Default>1</Default>
+		</Parameter>
+		<Parameter Name="scaley"> 		
+			<Default>1</Default>
+		</Parameter>
+	</Function>
+	
+</Builder>

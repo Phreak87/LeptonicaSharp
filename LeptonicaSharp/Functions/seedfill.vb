@@ -34,10 +34,10 @@ Partial Public Class _AllFunctions
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''   <returns>pixd always</returns>
 Public Shared Function pixSeedfillBinary(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal pixm as Pix, 
-				ByVal connectivity as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal connectivity as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
@@ -83,12 +83,12 @@ End Function
 '''  <param name="ymax">[in] - max distance in y direction of fill into the mask</param>
 '''   <returns>pixd always</returns>
 Public Shared Function pixSeedfillBinaryRestricted(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal pixm as Pix, 
 				ByVal connectivity as Integer, 
 				ByVal xmax as Integer, 
-				ByVal ymax as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal ymax as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
@@ -120,7 +120,7 @@ Public Shared Function pixHolesByFilling(
 				ByVal connectivity as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixHolesByFilling( pixs.Pointer, connectivity)
@@ -155,7 +155,7 @@ Public Shared Function pixFillClosedBorders(
 				ByVal connectivity as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFillClosedBorders( pixs.Pointer, connectivity)
@@ -180,7 +180,7 @@ Public Shared Function pixExtractBorderConnComps(
 				ByVal connectivity as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtractBorderConnComps( pixs.Pointer, connectivity)
@@ -206,7 +206,7 @@ Public Shared Function pixRemoveBorderConnComps(
 				ByVal connectivity as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRemoveBorderConnComps( pixs.Pointer, connectivity)
@@ -246,7 +246,7 @@ Public Shared Function pixFillBgFromBorder(
 				ByVal connectivity as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFillBgFromBorder( pixs.Pointer, connectivity)
@@ -293,7 +293,7 @@ Public Shared Function pixFillHolesToBoundingRect(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (maxhfract) then Throw New ArgumentNullException  ("maxhfract cannot be Nothing")
 	If IsNothing (minfgfract) then Throw New ArgumentNullException  ("minfgfract cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFillHolesToBoundingRect( pixs.Pointer, minsize, maxhfract, minfgfract)
@@ -653,11 +653,11 @@ Public Shared Function pixLocalExtrema(
 				ByVal pixs as Pix, 
 				ByVal maxmin as Integer, 
 				ByVal minmax as Integer, 
-				Optional ByRef ppixmin as Pix = Nothing, 
-				Optional ByRef ppixmax as Pix = Nothing) as Integer
+				ByRef ppixmin as Pix, 
+				ByRef ppixmax as Pix) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 Dim ppixminPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixmin) Then ppixminPTR = ppixmin.Pointer
 Dim ppixmaxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixmax) Then ppixmaxPTR = ppixmax.Pointer
@@ -708,7 +708,7 @@ Public Shared Function pixSelectedLocalExtrema(
 				ByRef ppixmax as Pix) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim ppixminPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixmin) Then ppixminPTR = ppixmin.Pointer
 	Dim ppixmaxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixmax) Then ppixmaxPTR = ppixmax.Pointer
@@ -740,8 +740,8 @@ Public Shared Function pixFindEqualValues(
 
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
-	If {8}.contains (pixs1.d) = false then Throw New ArgumentException ("8 bpp") ' All Functions - All Parameters - CommentCheck
-	If {8}.contains (pixs2.d) = false then Throw New ArgumentException ("8 bpp") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs1.d) = false then Throw New ArgumentException ("8 bpp")
+	If {8}.contains (pixs2.d) = false then Throw New ArgumentException ("8 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFindEqualValues( pixs1.Pointer, pixs2.Pointer)
@@ -775,12 +775,12 @@ Public Shared Function pixSelectMinInConnComp(
 				ByVal pixs as Pix, 
 				ByVal pixm as Pix, 
 				ByRef ppta as Pta, 
-				Optional ByRef pnav as Numa = Nothing) as Integer
+				ByRef pnav as Numa) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp") ' All Functions - All Parameters - CommentCheck
-	If {1}.contains (pixm.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
+	If {1}.contains (pixm.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pptaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppta) Then pptaPTR = ppta.Pointer
 Dim pnavPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnav) Then pnavPTR = pnav.Pointer
@@ -816,11 +816,11 @@ End Function
 '''  <param name="bordersize">[in] - amount of border clearing</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixRemoveSeededComponents(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal pixm as Pix, 
 				ByVal connectivity as Integer, 
-				ByVal bordersize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal bordersize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")

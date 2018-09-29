@@ -31,15 +31,15 @@ Partial Public Class _AllFunctions
 Public Shared Function pixConvertToPdfData(
 				ByVal pix as Pix, 
 				ByVal type as Enumerations.L_ENCODE, 
+				ByVal quality as Integer, 
 				ByRef pdata as Byte(), 
 				ByRef pnbytes as UInteger, 
+				ByVal x as Integer, 
+				ByVal y as Integer, 
+				ByVal res as Integer, 
+				ByVal title as String, 
 				ByRef plpd as L_Pdf_Data, 
-				ByVal position as Enumerations.L_T_IMAGE, 
-				Optional ByVal quality as Integer = 0, 
-				Optional ByVal x as Integer = 0, 
-				Optional ByVal y as Integer = 0, 
-				Optional ByVal res as Integer = 0, 
-				Optional ByVal title as String = Nothing) as Integer
+				ByVal position as Enumerations.L_T_IMAGE) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
@@ -47,7 +47,7 @@ Public Shared Function pixConvertToPdfData(
 	Dim plpdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(plpd) Then plpdPTR = plpd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixConvertToPdfData( pix.Pointer, type, quality, pdataPTR, pnbytes, x, y, res, title, plpdPTR, position)
-ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
+	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 	if plpdPTR <> IntPtr.Zero then plpd = new L_Pdf_Data(plpdPTR)
 
 	Return _Result
@@ -89,9 +89,9 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptraConcatenatePdfToData(
 				ByVal pa_data as L_Ptra, 
+				ByVal sa as Sarray, 
 				ByRef pdata as Byte(), 
-				ByRef pnbytes as UInteger, 
-				Optional ByVal sa as Sarray = Nothing) as Integer
+				ByRef pnbytes as UInteger) as Integer
 
 	If IsNothing (pa_data) then Throw New ArgumentNullException  ("pa_data cannot be Nothing")
 
@@ -99,7 +99,7 @@ Public Shared Function ptraConcatenatePdfToData(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraConcatenatePdfToData( pa_data.Pointer, saPTR, pdataPTR, pnbytes)
-ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
+	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
 End Function
@@ -153,10 +153,10 @@ End Function
 '''  <param name="pcid">[out] - compressed data</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function l_generateCIDataForPdf(
+				ByVal fname as String, 
+				ByVal pix as Pix, 
 				ByVal quality as Integer, 
-				ByRef pcid as L_Compressed_Data, 
-				Optional ByVal fname as String = Nothing, 
-				Optional ByVal pix as Pix = Nothing) as Integer
+				ByRef pcid as L_Compressed_Data) as Integer
 
 
 	Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
@@ -188,7 +188,7 @@ End Function
 '''   <returns>cid containing png data, or NULL on error</returns>
 Public Shared Function l_generateFlateDataPdf(
 				ByVal fname as String, 
-				Optional ByVal pixs as Pix = Nothing) as L_Compressed_Data
+				ByVal pixs as Pix) as L_Compressed_Data
 
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 
@@ -249,7 +249,6 @@ Public Shared Function l_generateJpegDataMem(
 				ByVal ascii85flag as Integer) as L_Compressed_Data
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (nbytes) then Throw New ArgumentNullException  ("nbytes cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_generateJpegDataMem( data, nbytes, ascii85flag)
@@ -408,16 +407,16 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function cidConvertToPdfData(
 				ByVal cid as L_Compressed_Data, 
+				ByVal title as String, 
 				ByRef pdata as Byte(), 
-				ByRef pnbytes as UInteger, 
-				Optional ByVal title as String = Nothing) as Integer
+				ByRef pnbytes as UInteger) as Integer
 
 	If IsNothing (cid) then Throw New ArgumentNullException  ("cid cannot be Nothing")
 
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.cidConvertToPdfData( cid.Pointer, title, pdataPTR, pnbytes)
-ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
+	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
 End Function

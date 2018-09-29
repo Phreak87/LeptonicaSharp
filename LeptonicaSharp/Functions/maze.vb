@@ -112,7 +112,7 @@ Public Shared Function pixSearchBinaryMaze(
 				ByVal yi as Integer, 
 				ByVal xf as Integer, 
 				ByVal yf as Integer, 
-				Optional ByRef ppixd as Pix = Nothing) as Pta
+				ByRef ppixd as Pix) as Pta
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -146,7 +146,7 @@ Public Shared Function pixSearchGrayMaze(
 				ByVal yi as Integer, 
 				ByVal xf as Integer, 
 				ByVal yf as Integer, 
-				Optional ByRef ppixd as Pix = Nothing) as Pta
+				ByRef ppixd as Pix) as Pta
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 

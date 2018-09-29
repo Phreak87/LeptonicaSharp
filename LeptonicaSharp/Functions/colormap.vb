@@ -307,7 +307,7 @@ End Function
 Public Shared Function pixcmapAddBlackOrWhite(
 				ByVal cmap as PixColormap, 
 				ByVal color as Integer, 
-				Optional ByRef pindex as Integer = Nothing) as Integer
+				ByRef pindex as Integer) as Integer
 
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
 
@@ -886,10 +886,10 @@ End Function
 Public Shared Function pixcmapGetRangeValues(
 				ByVal cmap as PixColormap, 
 				ByRef _select_ as Integer, 
-				Optional ByRef pminval as Integer = Nothing, 
-				Optional ByRef pmaxval as Integer = Nothing, 
-				Optional ByRef pminindex as Integer = Nothing, 
-				Optional ByRef pmaxindex as Integer = Nothing) as Integer
+				ByRef pminval as Integer, 
+				ByRef pmaxval as Integer, 
+				ByRef pminindex as Integer, 
+				ByRef pmaxindex as Integer) as Integer
 
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
 
@@ -917,7 +917,6 @@ End Function
 Public Shared Function pixcmapGrayToColor(
 				ByVal color as UInteger) as PixColormap
 
-	If IsNothing (color) then Throw New ArgumentNullException  ("color cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixcmapGrayToColor( color)
@@ -1022,6 +1021,7 @@ Public Shared Function pixcmapRead(
 				ByVal filename as String) as PixColormap
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixcmapRead( filename)
@@ -1068,7 +1068,6 @@ Public Shared Function pixcmapReadMem(
 				ByVal size as UInteger) as PixColormap
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixcmapReadMem( data, size)
@@ -1094,6 +1093,7 @@ Public Shared Function pixcmapWrite(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixcmapWrite( filename, cmap.Pointer)
@@ -1148,7 +1148,7 @@ Public Shared Function pixcmapWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixcmapWriteMem( pdataPTR, psize, cmap.Pointer)
-ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
+	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
 End Function
@@ -1172,7 +1172,7 @@ Public Shared Function pixcmapToArrays(
 				ByRef prmap as List (of Integer()), 
 				ByRef pgmap as List (of Integer()), 
 				ByRef pbmap as List (of Integer()), 
-				Optional ByRef pamap as List (of Integer()) = Nothing) as Integer
+				ByRef pamap as List (of Integer())) as Integer
 
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
 
@@ -1201,14 +1201,14 @@ End Function
 Public Shared Function pixcmapToRGBTable(
 				ByVal cmap as PixColormap, 
 				ByRef ptab as Byte(), 
-				Optional ByRef pncolors as Integer = Nothing) as Integer
+				ByRef pncolors as Integer) as Integer
 
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
 
 	Dim ptabPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixcmapToRGBTable( cmap.Pointer, ptabPTR, pncolors)
-ReDim ptab(IIf(1 > 0, 1, 1) - 1) : If ptabPTR <> IntPtr.Zero Then Marshal.Copy(ptabPTR, ptab, 0, ptab.count)
+	ReDim ptab(IIf(1 > 0, 1, 1) - 1) : If ptabPTR <> IntPtr.Zero Then Marshal.Copy(ptabPTR, ptab, 0, ptab.count)
 
 	Return _Result
 End Function
@@ -1238,7 +1238,7 @@ Public Shared Function pixcmapSerializeToMemory(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixcmapSerializeToMemory( cmap.Pointer, cpc, pncolors, pdataPTR)
-ReDim pdata(IIf(1 > 0, 1, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
+	ReDim pdata(IIf(1 > 0, 1, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
 End Function
@@ -1412,8 +1412,6 @@ Public Shared Function pixcmapShiftByComponent(
 				ByVal dstval as UInteger) as Integer
 
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
-	If IsNothing (srcval) then Throw New ArgumentNullException  ("srcval cannot be Nothing")
-	If IsNothing (dstval) then Throw New ArgumentNullException  ("dstval cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixcmapShiftByComponent( cmap.Pointer, srcval, dstval)

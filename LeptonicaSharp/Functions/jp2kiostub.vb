@@ -17,12 +17,12 @@ Public Shared Function pixReadJp2k(
 				ByRef reduction as UInteger, 
 				ByRef box as Box, 
 				ByRef hint as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
+				ByRef debug as Enumerations.DebugOnOff) as Pix
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
-	If IsNothing (reduction) then Throw New ArgumentNullException  ("reduction cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
-	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("") ' All Functions - specific Parameter - RangeCheck
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("")
 
 Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -46,12 +46,11 @@ Public Shared Function pixReadStreamJp2k(
 				ByRef reduction as UInteger, 
 				ByRef box as Box, 
 				ByRef hint as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
+				ByRef debug as Enumerations.DebugOnOff) as Pix
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
-	If IsNothing (reduction) then Throw New ArgumentNullException  ("reduction cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
-	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("") ' All Functions - specific Parameter - RangeCheck
+	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("")
 
 Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
 Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
@@ -77,10 +76,11 @@ Public Shared Function pixWriteJp2k(
 				ByRef quality as Integer, 
 				ByRef nlevels as Integer, 
 				ByRef hint as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByRef debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
@@ -104,7 +104,7 @@ Public Shared Function pixWriteStreamJp2k(
 				ByRef quality as Integer, 
 				ByRef nlevels as Integer, 
 				ByRef hint as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByRef debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
@@ -132,13 +132,11 @@ Public Shared Function pixReadMemJp2k(
 				ByRef reduction as UInteger, 
 				ByRef box as Box, 
 				ByRef hint as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
+				ByRef debug as Enumerations.DebugOnOff) as Pix
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
-	If IsNothing (reduction) then Throw New ArgumentNullException  ("reduction cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
-	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("") ' All Functions - specific Parameter - RangeCheck
+	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("")
 
 Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -164,7 +162,7 @@ Public Shared Function pixWriteMemJp2k(
 				ByRef quality as Integer, 
 				ByRef nlevels as Integer, 
 				ByRef hint as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByRef debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (pdata) then Throw New ArgumentNullException  ("pdata cannot be Nothing")
 	If IsNothing (psize) then Throw New ArgumentNullException  ("psize cannot be Nothing")

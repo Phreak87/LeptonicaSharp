@@ -19,7 +19,7 @@ Partial Public Class _AllFunctions
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function selaAddBasic(
-				Optional ByVal sela as Sela = Nothing) as Sela
+				ByVal sela as Sela) as Sela
 
 
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
@@ -41,7 +41,7 @@ End Function
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function selaAddHitMiss(
-				Optional ByVal sela as Sela = Nothing) as Sela
+				ByVal sela as Sela) as Sela
 
 
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
@@ -66,7 +66,7 @@ End Function
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function selaAddDwaLinear(
-				Optional ByVal sela as Sela = Nothing) as Sela
+				ByVal sela as Sela) as Sela
 
 
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
@@ -92,7 +92,7 @@ End Function
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function selaAddDwaCombs(
-				Optional ByVal sela as Sela = Nothing) as Sela
+				ByVal sela as Sela) as Sela
 
 
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
@@ -130,11 +130,11 @@ End Function
 '''  <param name="debugflag">[in] - 1 for debug output</param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function selaAddCrossJunctions(
+				ByVal sela as Sela, 
 				ByVal hlsize as Single, 
 				ByVal mdist as Single, 
 				ByVal norient as Integer, 
-				ByVal debugflag as Integer, 
-				Optional ByVal sela as Sela = Nothing) as Sela
+				ByVal debugflag as Integer) as Sela
 
 	If IsNothing (hlsize) then Throw New ArgumentNullException  ("hlsize cannot be Nothing")
 	If IsNothing (mdist) then Throw New ArgumentNullException  ("mdist cannot be Nothing")
@@ -169,11 +169,11 @@ End Function
 '''  <param name="debugflag">[in] - 1 for debug output</param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function selaAddTJunctions(
+				ByVal sela as Sela, 
 				ByVal hlsize as Single, 
 				ByVal mdist as Single, 
 				ByVal norient as Integer, 
-				ByVal debugflag as Integer, 
-				Optional ByVal sela as Sela = Nothing) as Sela
+				ByVal debugflag as Integer) as Sela
 
 	If IsNothing (hlsize) then Throw New ArgumentNullException  ("hlsize cannot be Nothing")
 	If IsNothing (mdist) then Throw New ArgumentNullException  ("mdist cannot be Nothing")
@@ -198,7 +198,7 @@ End Function
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function sela4ccThin(
-				Optional ByVal sela as Sela = Nothing) as Sela
+				ByVal sela as Sela) as Sela
 
 
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
@@ -221,7 +221,7 @@ End Function
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function sela8ccThin(
-				Optional ByVal sela as Sela = Nothing) as Sela
+				ByVal sela as Sela) as Sela
 
 
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
@@ -244,7 +244,7 @@ End Function
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function sela4and8ccThin(
-				Optional ByVal sela as Sela = Nothing) as Sela
+				ByVal sela as Sela) as Sela
 
 
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer

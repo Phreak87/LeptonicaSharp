@@ -21,9 +21,9 @@ Partial Public Class _AllFunctions
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function l_dnaJoin(
 				ByVal dad as L_Dna, 
+				ByVal das as L_Dna, 
 				ByVal istart as Integer, 
-				ByVal iend as Integer, 
-				Optional ByVal das as L_Dna = Nothing) as Integer
+				ByVal iend as Integer) as Integer
 
 	If IsNothing (dad) then Throw New ArgumentNullException  ("dad cannot be Nothing")
 

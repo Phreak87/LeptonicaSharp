@@ -445,7 +445,7 @@ Public Shared Function boxaHandleOverlaps(
 				ByVal range as Integer, 
 				ByVal min_overlap as Single, 
 				ByVal max_ratio as Single, 
-				Optional ByRef pnamap as Numa = Nothing) as Boxa
+				ByRef pnamap as Numa) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 	If IsNothing (min_overlap) then Throw New ArgumentNullException  ("min_overlap cannot be Nothing")
@@ -480,8 +480,8 @@ End Function
 Public Shared Function boxSeparationDistance(
 				ByVal box1 as Box, 
 				ByVal box2 as Box, 
-				Optional ByRef ph_sep as Integer = Nothing, 
-				Optional ByRef pv_sep as Integer = Nothing) as Integer
+				ByRef ph_sep as Integer, 
+				ByRef pv_sep as Integer) as Integer
 
 	If IsNothing (box1) then Throw New ArgumentNullException  ("box1 cannot be Nothing")
 	If IsNothing (box2) then Throw New ArgumentNullException  ("box2 cannot be Nothing")
@@ -805,15 +805,15 @@ End Function
 '''  <param name="pbh">[out][optional] - clipped height</param>
 '''   <returns>0 if OK; 1 on error</returns>
 Public Shared Function boxClipToRectangleParams(
+				ByVal box as Box, 
 				ByVal w as Integer, 
 				ByVal h as Integer, 
 				ByRef pxstart as Integer, 
 				ByRef pystart as Integer, 
 				ByRef pxend as Integer, 
 				ByRef pyend as Integer, 
-				Optional ByVal box as Box = Nothing, 
-				Optional ByRef pbw as Integer = Nothing, 
-				Optional ByRef pbh as Integer = Nothing) as Integer
+				ByRef pbw as Integer, 
+				ByRef pbh as Integer) as Integer
 
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
@@ -843,10 +843,10 @@ End Function
 '''  <param name="sideflag">[in] - L_FROM_LEFT, etc., indicating the side that moves</param>
 '''   <returns>boxd, or NULL on error or if the computed boxd has width or height LT= 0.</returns>
 Public Shared Function boxRelocateOneSide(
+				ByVal boxd as Box, 
 				ByVal boxs as Box, 
 				ByVal loc as Integer, 
-				ByVal sideflag as Enumerations.L_scan_direction, 
-				Optional ByVal boxd as Box = Nothing) as Box
+				ByVal sideflag as Enumerations.L_scan_direction) as Box
 
 	If IsNothing (boxs) then Throw New ArgumentNullException  ("boxs cannot be Nothing")
 
@@ -917,12 +917,12 @@ End Function
 '''  <param name="delbot">[in] - changes in location of each side</param>
 '''   <returns>boxd, or NULL on error or if the computed boxd has width or height LT= 0.</returns>
 Public Shared Function boxAdjustSides(
+				ByVal boxd as Box, 
 				ByVal boxs as Box, 
 				ByVal delleft as Integer, 
 				ByVal delright as Integer, 
 				ByVal deltop as Integer, 
-				ByVal delbot as Integer, 
-				Optional ByVal boxd as Box = Nothing) as Box
+				ByVal delbot as Integer) as Box
 
 	If IsNothing (boxs) then Throw New ArgumentNullException  ("boxs cannot be Nothing")
 
@@ -1104,8 +1104,8 @@ Public Shared Function boxaEqual(
 				ByVal boxa1 as Boxa, 
 				ByVal boxa2 as Boxa, 
 				ByVal maxdist as Integer, 
-				ByRef psame as Integer, 
-				Optional ByRef pnaindex as Numa = Nothing) as Integer
+				ByRef pnaindex as Numa, 
+				ByRef psame as Integer) as Integer
 
 	If IsNothing (boxa1) then Throw New ArgumentNullException  ("boxa1 cannot be Nothing")
 	If IsNothing (boxa2) then Throw New ArgumentNullException  ("boxa2 cannot be Nothing")
@@ -1185,9 +1185,9 @@ Public Shared Function boxaSimilar(
 				ByVal rightdiff as Integer, 
 				ByVal topdiff as Integer, 
 				ByVal botdiff as Integer, 
+				ByVal debug as Enumerations.DebugOnOff, 
 				ByRef psimilar as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn, 
-				Optional ByRef pnasim as Numa = Nothing) as Integer
+				ByRef pnasim as Numa) as Integer
 
 	If IsNothing (boxa1) then Throw New ArgumentNullException  ("boxa1 cannot be Nothing")
 	If IsNothing (boxa2) then Throw New ArgumentNullException  ("boxa2 cannot be Nothing")

@@ -62,7 +62,7 @@ Public Shared Function pixBlockconvGray(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixacc) then Throw New ArgumentNullException  ("pixacc cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlockconvGray( pixs.Pointer, pixacc.Pointer, wc, hc)
@@ -141,7 +141,7 @@ Public Shared Function pixBlockconvGrayUnnormalized(
 				ByVal hc as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlockconvGrayUnnormalized( pixs.Pointer, wc, hc)
@@ -279,13 +279,13 @@ Public Shared Function pixWindowedStats(
 				ByVal wc as Integer, 
 				ByVal hc as Integer, 
 				ByVal hasborder as Integer, 
-				Optional ByRef ppixm as Pix = Nothing, 
-				Optional ByRef ppixms as Pix = Nothing, 
-				Optional ByRef pfpixv as FPix = Nothing, 
-				Optional ByRef pfpixrv as FPix = Nothing) as Integer
+				ByRef ppixm as Pix, 
+				ByRef ppixms as Pix, 
+				ByRef pfpixv as FPix, 
+				ByRef pfpixrv as FPix) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale")
 
 Dim ppixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixm) Then ppixmPTR = ppixm.Pointer
 Dim ppixmsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixms) Then ppixmsPTR = ppixms.Pointer
@@ -385,7 +385,7 @@ Public Shared Function pixWindowedMeanSquare(
 				ByVal hasborder as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixWindowedMeanSquare( pixs.Pointer, wc, hc, hasborder)
@@ -420,8 +420,8 @@ End Function
 Public Shared Function pixWindowedVariance(
 				ByVal pixm as Pix, 
 				ByVal pixms as Pix, 
-				Optional ByRef pfpixv as FPix = Nothing, 
-				Optional ByRef pfpixrv as FPix = Nothing) as Integer
+				ByRef pfpixv as FPix, 
+				ByRef pfpixrv as FPix) as Integer
 
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 	If IsNothing (pixms) then Throw New ArgumentNullException  ("pixms cannot be Nothing")
@@ -460,7 +460,7 @@ Public Shared Function pixMeanSquareAccum(
 				ByVal pixs as Pix) as DPix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMeanSquareAccum( pixs.Pointer)
@@ -499,14 +499,14 @@ End Function
 '''   <returns>pixd 1 bpp</returns>
 Public Shared Function pixBlockrank(
 				ByVal pixs as Pix, 
+				ByVal pixacc as Pix, 
 				ByVal wc as Integer, 
 				ByVal hc as Integer, 
-				ByVal rank as Single, 
-				Optional ByVal pixacc as Pix = Nothing) as Pix
+				ByVal rank as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (rank) then Throw New ArgumentNullException  ("rank cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixaccPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixacc) Then pixaccPTR = pixacc.Pointer
 
@@ -550,12 +550,12 @@ End Function
 '''   <returns>pixd 8 bpp</returns>
 Public Shared Function pixBlocksum(
 				ByVal pixs as Pix, 
+				ByVal pixacc as Pix, 
 				ByVal wc as Integer, 
-				ByVal hc as Integer, 
-				Optional ByVal pixacc as Pix = Nothing) as Pix
+				ByVal hc as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixaccPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixacc) Then pixaccPTR = pixacc.Pointer
 
@@ -596,10 +596,10 @@ End Function
 Public Shared Function pixCensusTransform(
 				ByVal pixs as Pix, 
 				ByVal halfsize as Integer, 
-				Optional ByVal pixacc as Pix = Nothing) as Pix
+				ByVal pixacc as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim pixaccPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixacc) Then pixaccPTR = pixacc.Pointer
 
@@ -759,7 +759,7 @@ Public Shared Function pixConvolveRGB(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (kel) then Throw New ArgumentNullException  ("kel cannot be Nothing")
-	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb") ' All Functions - All Parameters - CommentCheck
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvolveRGB( pixs.Pointer, kel.Pointer)
@@ -802,7 +802,7 @@ Public Shared Function pixConvolveRGBSep(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (kelx) then Throw New ArgumentNullException  ("kelx cannot be Nothing")
 	If IsNothing (kely) then Throw New ArgumentNullException  ("kely cannot be Nothing")
-	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb") ' All Functions - All Parameters - CommentCheck
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvolveRGBSep( pixs.Pointer, kelx.Pointer, kely.Pointer)
@@ -930,13 +930,13 @@ End Function
 Public Shared Function pixConvolveWithBias(
 				ByVal pixs as Pix, 
 				ByVal kel1 as L_Kernel, 
+				ByVal kel2 as L_Kernel, 
 				ByVal force8 as Integer, 
-				ByRef pbias as Integer, 
-				Optional ByVal kel2 as L_Kernel = Nothing) as Pix
+				ByRef pbias as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (kel1) then Throw New ArgumentNullException  ("kel1 cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp; no colormap") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp; no colormap")
 
 	Dim kel2PTR As IntPtr = IntPtr.Zero : If Not IsNothing(kel2) Then kel2PTR = kel2.Pointer
 

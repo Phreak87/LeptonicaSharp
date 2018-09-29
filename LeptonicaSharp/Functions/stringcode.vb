@@ -48,7 +48,7 @@ End Function
 Public Shared Function strcodeCreateFromFile(
 				ByVal filein as String, 
 				ByVal fileno as Integer, 
-				Optional ByVal outdir as String = Nothing) as Integer
+				ByVal outdir as String) as Integer
 
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
 
@@ -104,7 +104,7 @@ End Function
 '''   <returns>void</returns>
 Public Shared Function strcodeFinalize(
 				ByRef pstrcode as L_StrCode, 
-				Optional ByVal outdir as String = Nothing) as Integer
+				ByVal outdir as String) as Integer
 
 
 	Dim pstrcodePTR As IntPtr = IntPtr.Zero : If Not IsNothing(pstrcode) Then pstrcodePTR = pstrcode.Pointer
@@ -136,6 +136,7 @@ Public Shared Function l_getStructStrFromFile(
 				ByRef pstr as String()) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 Dim pstrPTR As IntPtr = pstrPTR = Marshal.AllocHGlobal(Marshal.sizeOf(pstr.toArray))
 

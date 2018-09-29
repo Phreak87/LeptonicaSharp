@@ -36,10 +36,10 @@ Public Shared Function pixSelectBySize(
 				ByVal connectivity as Integer, 
 				ByVal type as Enumerations.L_SELECT, 
 				ByVal relation as Enumerations.L_SELECT_IF, 
-				Optional ByRef pchanged as Integer = Nothing) as Pix
+				ByRef pchanged as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSelectBySize( pixs.Pointer, width, height, connectivity, type, relation, pchanged)
@@ -78,7 +78,7 @@ Public Shared Function pixaSelectBySize(
 				ByVal height as Integer, 
 				ByVal type as Enumerations.L_SELECT, 
 				ByVal relation as Enumerations.L_SELECT_IF, 
-				Optional ByRef pchanged as Integer = Nothing) as Pixa
+				ByRef pchanged as Integer) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 
@@ -155,11 +155,11 @@ Public Shared Function pixSelectByPerimToAreaRatio(
 				ByVal thresh as Single, 
 				ByVal connectivity as Integer, 
 				ByVal type as Enumerations.L_SELECT_IF, 
-				Optional ByRef pchanged as Integer = Nothing) as Pix
+				ByRef pchanged as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSelectByPerimToAreaRatio( pixs.Pointer, thresh, connectivity, type, pchanged)
@@ -188,7 +188,7 @@ Public Shared Function pixaSelectByPerimToAreaRatio(
 				ByVal pixas as Pixa, 
 				ByVal thresh as Single, 
 				ByVal type as Enumerations.L_SELECT_IF, 
-				Optional ByRef pchanged as Integer = Nothing) as Pixa
+				ByRef pchanged as Integer) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
@@ -229,11 +229,11 @@ Public Shared Function pixSelectByPerimSizeRatio(
 				ByVal thresh as Single, 
 				ByVal connectivity as Integer, 
 				ByVal type as Enumerations.L_SELECT_IF, 
-				Optional ByRef pchanged as Integer = Nothing) as Pix
+				ByRef pchanged as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSelectByPerimSizeRatio( pixs.Pointer, thresh, connectivity, type, pchanged)
@@ -262,7 +262,7 @@ Public Shared Function pixaSelectByPerimSizeRatio(
 				ByVal pixas as Pixa, 
 				ByVal thresh as Single, 
 				ByVal type as Enumerations.L_SELECT_IF, 
-				Optional ByRef pchanged as Integer = Nothing) as Pixa
+				ByRef pchanged as Integer) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
@@ -302,11 +302,11 @@ Public Shared Function pixSelectByAreaFraction(
 				ByVal thresh as Single, 
 				ByVal connectivity as Integer, 
 				ByVal type as Enumerations.L_SELECT_IF, 
-				Optional ByRef pchanged as Integer = Nothing) as Pix
+				ByRef pchanged as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSelectByAreaFraction( pixs.Pointer, thresh, connectivity, type, pchanged)
@@ -339,7 +339,7 @@ Public Shared Function pixaSelectByAreaFraction(
 				ByVal pixas as Pixa, 
 				ByVal thresh as Single, 
 				ByVal type as Enumerations.L_SELECT_IF, 
-				Optional ByRef pchanged as Integer = Nothing) as Pixa
+				ByRef pchanged as Integer) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
@@ -378,11 +378,11 @@ Public Shared Function pixSelectByWidthHeightRatio(
 				ByVal thresh as Single, 
 				ByVal connectivity as Integer, 
 				ByVal type as Enumerations.L_SELECT_IF, 
-				Optional ByRef pchanged as Integer = Nothing) as Pix
+				ByRef pchanged as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSelectByWidthHeightRatio( pixs.Pointer, thresh, connectivity, type, pchanged)
@@ -415,7 +415,7 @@ Public Shared Function pixaSelectByWidthHeightRatio(
 				ByVal pixas as Pixa, 
 				ByVal thresh as Single, 
 				ByVal type as Enumerations.L_SELECT_IF, 
-				Optional ByRef pchanged as Integer = Nothing) as Pixa
+				ByRef pchanged as Integer) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
@@ -450,7 +450,7 @@ Public Shared Function pixaSelectByNumConnComp(
 				ByVal nmin as Integer, 
 				ByVal nmax as Integer, 
 				ByVal connectivity as Integer, 
-				Optional ByRef pchanged as Integer = Nothing) as Pixa
+				ByRef pchanged as Integer) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 
@@ -481,7 +481,7 @@ End Function
 Public Shared Function pixaSelectWithIndicator(
 				ByVal pixas as Pixa, 
 				ByVal na as Numa, 
-				Optional ByRef pchanged as Integer = Nothing) as Pixa
+				ByRef pchanged as Integer) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
@@ -568,7 +568,7 @@ End Function
 Public Shared Function pixaSelectWithString(
 				ByVal pixas as Pixa, 
 				ByVal str as String, 
-				Optional ByRef perror as Integer = Nothing) as Pixa
+				ByRef perror as Integer) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 	If IsNothing (str) then Throw New ArgumentNullException  ("str cannot be Nothing")
@@ -596,9 +596,9 @@ End Function
 '''  <param name="index">[in] - of component to be rendered</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixaRenderComponent(
+				ByVal pixs as Pix, 
 				ByVal pixa as Pixa, 
-				ByVal index as Integer, 
-				Optional ByVal pixs as Pix = Nothing) as Pix
+				ByVal index as Integer) as Pix
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
@@ -636,8 +636,8 @@ Public Shared Function pixaSort(
 				ByVal pixas as Pixa, 
 				ByVal sorttype as Enumerations.L_SORT_BY, 
 				ByVal sortorder as Enumerations.L_SORT_CREASING, 
-				ByVal copyflag as Enumerations.L_access_storage, 
-				Optional ByRef pnaindex as Numa = Nothing) as Pixa
+				ByRef pnaindex as Numa, 
+				ByVal copyflag as Enumerations.L_access_storage) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 
@@ -678,8 +678,8 @@ Public Shared Function pixaBinSort(
 				ByVal pixas as Pixa, 
 				ByVal sorttype as Enumerations.L_SORT_BY, 
 				ByVal sortorder as Enumerations.L_SORT_CREASING, 
-				ByVal copyflag as Enumerations.L_access_storage, 
-				Optional ByRef pnaindex as Numa = Nothing) as Pixa
+				ByRef pnaindex as Numa, 
+				ByVal copyflag as Enumerations.L_access_storage) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 
@@ -864,8 +864,8 @@ End Function
 '''   <returns>paad, or NULL on error</returns>
 Public Shared Function pixaaScaleToSizeVar(
 				ByVal paas as Pixaa, 
-				Optional ByVal nawd as Numa = Nothing, 
-				Optional ByVal nahd as Numa = Nothing) as Pixaa
+				ByVal nawd as Numa, 
+				ByVal nahd as Numa) as Pixaa
 
 	If IsNothing (paas) then Throw New ArgumentNullException  ("paas cannot be Nothing")
 
@@ -949,8 +949,8 @@ End Function
 '''   <returns>pixad, or NULL on error</returns>
 Public Shared Function pixaScale(
 				ByVal pixas as Pixa, 
-				Optional ByVal scalex as Single = 1, 
-				Optional ByVal scaley as Single = 1) as Pixa
+				ByVal scalex as Single, 
+				ByVal scaley as Single) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 
@@ -976,8 +976,8 @@ End Function
 '''   <returns>pixad, or NULL on error</returns>
 Public Shared Function pixaScaleBySampling(
 				ByVal pixas as Pixa, 
-				Optional ByVal scalex as Single = 1, 
-				Optional ByVal scaley as Single = 1) as Pixa
+				ByVal scalex as Single, 
+				ByVal scaley as Single) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 
@@ -1117,16 +1117,15 @@ End Function
 '''  <param name="val">[in] - value of added border pixels</param>
 '''   <returns>pixad with border added to each pix, including on error</returns>
 Public Shared Function pixaAddBorderGeneral(
+				ByVal pixad as Pixa, 
 				ByVal pixas as Pixa, 
 				ByVal left as Integer, 
 				ByVal right as Integer, 
 				ByVal top as Integer, 
 				ByVal bot as Integer, 
-				ByVal val as UInteger, 
-				Optional ByVal pixad as Pixa = Nothing) as Pixa
+				ByVal val as UInteger) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 	Dim pixadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixad) Then pixadPTR = pixad.Pointer
 
@@ -1154,8 +1153,8 @@ End Function
 '''   <returns>pixa, or NULL on error</returns>
 Public Shared Function pixaaFlattenToPixa(
 				ByVal paa as Pixaa, 
-				ByVal copyflag as Enumerations.L_access_storage, 
-				Optional ByRef pnaindex as Numa = Nothing) as Pixa
+				ByRef pnaindex as Numa, 
+				ByVal copyflag as Enumerations.L_access_storage) as Pixa
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
@@ -1184,10 +1183,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaaSizeRange(
 				ByVal paa as Pixaa, 
-				Optional ByRef pminw as Integer = Nothing, 
-				Optional ByRef pminh as Integer = Nothing, 
-				Optional ByRef pmaxw as Integer = Nothing, 
-				Optional ByRef pmaxh as Integer = Nothing) as Integer
+				ByRef pminw as Integer, 
+				ByRef pminh as Integer, 
+				ByRef pmaxw as Integer, 
+				ByRef pmaxh as Integer) as Integer
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
@@ -1213,10 +1212,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaSizeRange(
 				ByVal pixa as Pixa, 
-				Optional ByRef pminw as Integer = Nothing, 
-				Optional ByRef pminh as Integer = Nothing, 
-				Optional ByRef pmaxw as Integer = Nothing, 
-				Optional ByRef pmaxh as Integer = Nothing) as Integer
+				ByRef pminw as Integer, 
+				ByRef pminh as Integer, 
+				ByRef pmaxw as Integer, 
+				ByRef pmaxh as Integer) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
@@ -1279,8 +1278,8 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaClipToForeground(
 				ByVal pixas as Pixa, 
-				Optional ByRef ppixad as Pixa = Nothing, 
-				Optional ByRef pboxa as Boxa = Nothing) as Integer
+				ByRef ppixad as Pixa, 
+				ByRef pboxa as Boxa) as Integer
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 
@@ -1377,8 +1376,8 @@ End Function
 '''   <returns>0 if OK; 1 on error</returns>
 Public Shared Function pixaGetDepthInfo(
 				ByVal pixa as Pixa, 
-				Optional ByRef pmaxdepth as Integer = Nothing, 
-				Optional ByRef psame as Integer = Nothing) as Integer
+				ByRef pmaxdepth as Integer, 
+				ByRef psame as Integer) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
@@ -1446,8 +1445,8 @@ Public Shared Function pixaEqual(
 				ByVal pixa1 as Pixa, 
 				ByVal pixa2 as Pixa, 
 				ByVal maxdist as Integer, 
-				ByRef psame as Integer, 
-				Optional ByRef pnaindex as Numa = Nothing) as Integer
+				ByRef pnaindex as Numa, 
+				ByRef psame as Integer) as Integer
 
 	If IsNothing (pixa1) then Throw New ArgumentNullException  ("pixa1 cannot be Nothing")
 	If IsNothing (pixa2) then Throw New ArgumentNullException  ("pixa2 cannot be Nothing")

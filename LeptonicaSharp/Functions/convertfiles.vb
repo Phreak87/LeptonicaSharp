@@ -24,13 +24,13 @@ Partial Public Class _AllFunctions
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function convertFilesTo1bpp(
 				ByVal dirin as String, 
+				ByVal substr as String, 
 				ByVal upscaling as Integer, 
 				ByVal thresh as Integer, 
 				ByVal firstpage as Integer, 
 				ByVal npages as Integer, 
 				ByVal dirout as String, 
-				ByVal outformat as Enumerations.IFF, 
-				Optional ByVal substr as String = Nothing) as Integer
+				ByVal outformat as Enumerations.IFF) as Integer
 
 	If IsNothing (dirin) then Throw New ArgumentNullException  ("dirin cannot be Nothing")
 	If IsNothing (dirout) then Throw New ArgumentNullException  ("dirout cannot be Nothing")

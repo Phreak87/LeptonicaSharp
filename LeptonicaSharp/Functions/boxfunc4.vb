@@ -95,7 +95,7 @@ Public Shared Function boxaSelectBySize(
 				ByVal height as Integer, 
 				ByVal type as Enumerations.L_SELECT, 
 				ByVal relation as Enumerations.L_SELECT_IF, 
-				Optional ByRef pchanged as Integer = Nothing) as Boxa
+				ByRef pchanged as Integer) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
@@ -166,7 +166,7 @@ Public Shared Function boxaSelectByArea(
 				ByVal boxas as Boxa, 
 				ByVal area as Integer, 
 				ByVal relation as Enumerations.L_SELECT_IF, 
-				Optional ByRef pchanged as Integer = Nothing) as Boxa
+				ByRef pchanged as Integer) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
@@ -229,7 +229,7 @@ Public Shared Function boxaSelectByWHRatio(
 				ByVal boxas as Boxa, 
 				ByVal ratio as Single, 
 				ByVal relation as Enumerations.L_SELECT_IF, 
-				Optional ByRef pchanged as Integer = Nothing) as Boxa
+				ByRef pchanged as Integer) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 	If IsNothing (ratio) then Throw New ArgumentNullException  ("ratio cannot be Nothing")
@@ -290,7 +290,7 @@ End Function
 Public Shared Function boxaSelectWithIndicator(
 				ByVal boxas as Boxa, 
 				ByVal na as Numa, 
-				Optional ByRef pchanged as Integer = Nothing) as Boxa
+				ByRef pchanged as Integer) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
@@ -350,8 +350,8 @@ End Function
 '''  <param name="boxas">[in] - input boxa</param>
 '''   <returns>boxad with boxes permuted, or NULL on error</returns>
 Public Shared Function boxaPermuteRandom(
-				ByVal boxas as Boxa, 
-				Optional ByVal boxad as Boxa = Nothing) as Boxa
+				ByVal boxad as Boxa, 
+				ByVal boxas as Boxa) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
@@ -523,7 +523,7 @@ Public Shared Function boxaSmoothSequenceLS(
 				ByVal subflag as Enumerations.L__modifying_box_boundaries_using_a_second_box, 
 				ByVal maxdiff as Enumerations.L__modifying_box_boundaries_using_a_second_box, 
 				ByVal extrapixels as Enumerations.L__modifying_box_boundaries_using_a_second_box, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Boxa
+				ByVal debug as Enumerations.DebugOnOff) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 	If IsNothing (factor) then Throw New ArgumentNullException  ("factor cannot be Nothing")
@@ -576,7 +576,7 @@ Public Shared Function boxaSmoothSequenceMedian(
 				ByVal subflag as Enumerations.L__modifying_box_boundaries_using_a_second_box, 
 				ByVal maxdiff as Enumerations.L__modifying_box_boundaries_using_a_second_box, 
 				ByVal extrapixels as Enumerations.L__modifying_box_boundaries_using_a_second_box, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Boxa
+				ByVal debug as Enumerations.DebugOnOff) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
@@ -621,7 +621,7 @@ End Function
 Public Shared Function boxaLinearFit(
 				ByVal boxas as Boxa, 
 				ByVal factor as Single, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Boxa
+				ByVal debug as Enumerations.DebugOnOff) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 	If IsNothing (factor) then Throw New ArgumentNullException  ("factor cannot be Nothing")
@@ -654,7 +654,7 @@ End Function
 Public Shared Function boxaWindowedMedian(
 				ByVal boxas as Boxa, 
 				ByVal halfwin as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Boxa
+				ByVal debug as Enumerations.DebugOnOff) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
@@ -883,7 +883,7 @@ Public Shared Function boxaReconcilePairWidth(
 				ByVal delw as Integer, 
 				ByVal op as Enumerations.L_box_size_adjustment_location, 
 				ByVal factor as Single, 
-				Optional ByVal na as Numa = Nothing) as Boxa
+				ByVal na as Numa) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 	If IsNothing (factor) then Throw New ArgumentNullException  ("factor cannot be Nothing")
@@ -921,12 +921,12 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaPlotSides(
 				ByVal boxa as Boxa, 
-				Optional ByVal plotname as String = Nothing, 
-				Optional ByRef pnal as Numa = Nothing, 
-				Optional ByRef pnat as Numa = Nothing, 
-				Optional ByRef pnar as Numa = Nothing, 
-				Optional ByRef pnab as Numa = Nothing, 
-				Optional ByRef ppixd as Pix = Nothing) as Integer
+				ByVal plotname as String, 
+				ByRef pnal as Numa, 
+				ByRef pnat as Numa, 
+				ByRef pnar as Numa, 
+				ByRef pnab as Numa, 
+				ByRef ppixd as Pix) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
@@ -970,10 +970,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaPlotSizes(
 				ByVal boxa as Boxa, 
-				Optional ByVal plotname as String = Nothing, 
-				Optional ByRef pnaw as Numa = Nothing, 
-				Optional ByRef pnah as Numa = Nothing, 
-				Optional ByRef ppixd as Pix = Nothing) as Integer
+				ByVal plotname as String, 
+				ByRef pnaw as Numa, 
+				ByRef pnah as Numa, 
+				ByRef ppixd as Pix) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
@@ -1010,7 +1010,7 @@ End Function
 Public Shared Function boxaFillSequence(
 				ByVal boxas as Boxa, 
 				ByVal useflag as Enumerations.L_USE_BOXES, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Boxa
+				ByVal debug as Enumerations.DebugOnOff) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
@@ -1046,10 +1046,10 @@ End Function
 Public Shared Function boxaSizeVariation(
 				ByVal boxa as Boxa, 
 				ByVal type as Enumerations.L_SELECT, 
-				Optional ByRef pdel_evenodd as Single() = Nothing, 
-				Optional ByRef prms_even as Single() = Nothing, 
-				Optional ByRef prms_odd as Single() = Nothing, 
-				Optional ByRef prms_all as Single() = Nothing) as Integer
+				ByRef pdel_evenodd as Single(), 
+				ByRef prms_even as Single(), 
+				ByRef prms_odd as Single(), 
+				ByRef prms_all as Single()) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
@@ -1080,9 +1080,9 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaGetExtent(
 				ByVal boxa as Boxa, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing, 
-				Optional ByRef pbox as Box = Nothing) as Integer
+				ByRef pw as Integer, 
+				ByRef ph as Integer, 
+				ByRef pbox as Box) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
@@ -1147,10 +1147,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaaSizeRange(
 				ByVal baa as Boxaa, 
-				Optional ByRef pminw as Integer = Nothing, 
-				Optional ByRef pminh as Integer = Nothing, 
-				Optional ByRef pmaxw as Integer = Nothing, 
-				Optional ByRef pmaxh as Integer = Nothing) as Integer
+				ByRef pminw as Integer, 
+				ByRef pminh as Integer, 
+				ByRef pmaxw as Integer, 
+				ByRef pmaxh as Integer) as Integer
 
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 
@@ -1176,10 +1176,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaSizeRange(
 				ByVal boxa as Boxa, 
-				Optional ByRef pminw as Integer = Nothing, 
-				Optional ByRef pminh as Integer = Nothing, 
-				Optional ByRef pmaxw as Integer = Nothing, 
-				Optional ByRef pmaxh as Integer = Nothing) as Integer
+				ByRef pminw as Integer, 
+				ByRef pminh as Integer, 
+				ByRef pmaxw as Integer, 
+				ByRef pmaxh as Integer) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
@@ -1205,10 +1205,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaLocationRange(
 				ByVal boxa as Boxa, 
-				Optional ByRef pminx as Integer = Nothing, 
-				Optional ByRef pminy as Integer = Nothing, 
-				Optional ByRef pmaxx as Integer = Nothing, 
-				Optional ByRef pmaxy as Integer = Nothing) as Integer
+				ByRef pminx as Integer, 
+				ByRef pminy as Integer, 
+				ByRef pmaxx as Integer, 
+				ByRef pmaxy as Integer) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
@@ -1232,8 +1232,8 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaGetSizes(
 				ByVal boxa as Boxa, 
-				Optional ByRef pnaw as Numa = Nothing, 
-				Optional ByRef pnah as Numa = Nothing) as Integer
+				ByRef pnaw as Numa, 
+				ByRef pnah as Numa) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
@@ -1296,13 +1296,13 @@ End Function
 '''   <returns>pixd of tiled images of boxes, or NULL on error</returns>
 Public Shared Function boxaDisplayTiled(
 				ByVal boxas as Boxa, 
+				ByVal pixa as Pixa, 
 				ByVal maxwidth as Integer, 
 				ByVal linewidth as Integer, 
 				ByVal scalefactor as Single, 
 				ByVal background as Integer, 
 				ByVal spacing as Integer, 
-				ByVal border as Integer, 
-				Optional ByVal pixa as Pixa = Nothing) as Pix
+				ByVal border as Integer) as Pix
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 	If IsNothing (scalefactor) then Throw New ArgumentNullException  ("scalefactor cannot be Nothing")

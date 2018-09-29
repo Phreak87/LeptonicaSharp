@@ -22,8 +22,8 @@ Public Shared Function boxaTransform(
 				ByVal boxas as Boxa, 
 				ByVal shiftx as Integer, 
 				ByVal shifty as Integer, 
-				Optional ByVal scalex as Single = 1, 
-				Optional ByVal scaley as Single = 1) as Boxa
+				ByVal scalex as Single, 
+				ByVal scaley as Single) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
@@ -54,8 +54,8 @@ Public Shared Function boxTransform(
 				ByVal box as Box, 
 				ByVal shiftx as Integer, 
 				ByVal shifty as Integer, 
-				Optional ByVal scalex as Single = 1, 
-				Optional ByVal scaley as Single = 1) as Box
+				ByVal scalex as Single, 
+				ByVal scaley as Single) as Box
 
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
@@ -107,12 +107,12 @@ Public Shared Function boxaTransformOrdered(
 				ByVal boxas as Boxa, 
 				ByVal shiftx as Integer, 
 				ByVal shifty as Integer, 
+				ByVal scalex as Single, 
+				ByVal scaley as Single, 
 				ByVal xcen as Integer, 
 				ByVal ycen as Integer, 
 				ByVal angle as Single, 
-				ByVal order as Enumerations.L_affine_transm_order, 
-				Optional ByVal scalex as Single = 1, 
-				Optional ByVal scaley as Single = 1) as Boxa
+				ByVal order as Enumerations.L_affine_transm_order) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 	If IsNothing (angle) then Throw New ArgumentNullException  ("angle cannot be Nothing")
@@ -182,12 +182,12 @@ Public Shared Function boxTransformOrdered(
 				ByVal boxs as Box, 
 				ByVal shiftx as Integer, 
 				ByVal shifty as Integer, 
+				ByVal scalex as Single, 
+				ByVal scaley as Single, 
 				ByVal xcen as Integer, 
 				ByVal ycen as Integer, 
 				ByVal angle as Single, 
-				ByVal order as Enumerations.L_affine_transm_order, 
-				Optional ByVal scalex as Single = 1, 
-				Optional ByVal scaley as Single = 1) as Box
+				ByVal order as Enumerations.L_affine_transm_order) as Box
 
 	If IsNothing (boxs) then Throw New ArgumentNullException  ("boxs cannot be Nothing")
 	If IsNothing (angle) then Throw New ArgumentNullException  ("angle cannot be Nothing")
@@ -277,7 +277,7 @@ Public Shared Function boxaSort(
 				ByVal boxas as Boxa, 
 				ByVal sorttype as Enumerations.L_SORT_BY, 
 				ByVal sortorder as Enumerations.L_SORT_CREASING, 
-				Optional ByRef pnaindex as Numa = Nothing) as Boxa
+				ByRef pnaindex as Numa) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
@@ -312,7 +312,7 @@ Public Shared Function boxaBinSort(
 				ByVal boxas as Boxa, 
 				ByVal sorttype as Enumerations.L_SORT_BY, 
 				ByVal sortorder as Enumerations.L_SORT_CREASING, 
-				Optional ByRef pnaindex as Numa = Nothing) as Boxa
+				ByRef pnaindex as Numa) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
@@ -394,10 +394,10 @@ End Function
 '''   <returns>baa 2d sorted version of boxa, or NULL on error</returns>
 Public Shared Function boxaSort2d(
 				ByVal boxas as Boxa, 
+				ByRef pnaad as Numaa, 
 				ByVal delta1 as Integer, 
 				ByVal delta2 as Integer, 
-				ByVal minh1 as Integer, 
-				Optional ByRef pnaad as Numaa = Nothing) as Boxaa
+				ByVal minh1 as Integer) as Boxaa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
@@ -460,13 +460,13 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaExtractAsNuma(
 				ByVal boxa as Boxa, 
-				ByVal keepinvalid as Integer, 
-				Optional ByRef pnal as Numa = Nothing, 
-				Optional ByRef pnat as Numa = Nothing, 
-				Optional ByRef pnar as Numa = Nothing, 
-				Optional ByRef pnab as Numa = Nothing, 
-				Optional ByRef pnaw as Numa = Nothing, 
-				Optional ByRef pnah as Numa = Nothing) as Integer
+				ByRef pnal as Numa, 
+				ByRef pnat as Numa, 
+				ByRef pnar as Numa, 
+				ByRef pnab as Numa, 
+				ByRef pnaw as Numa, 
+				ByRef pnah as Numa, 
+				ByVal keepinvalid as Integer) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
@@ -515,13 +515,13 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaExtractAsPta(
 				ByVal boxa as Boxa, 
-				ByVal keepinvalid as Integer, 
-				Optional ByRef pptal as Pta = Nothing, 
-				Optional ByRef pptat as Pta = Nothing, 
-				Optional ByRef pptar as Pta = Nothing, 
-				Optional ByRef pptab as Pta = Nothing, 
-				Optional ByRef pptaw as Pta = Nothing, 
-				Optional ByRef pptah as Pta = Nothing) as Integer
+				ByRef pptal as Pta, 
+				ByRef pptat as Pta, 
+				ByRef pptar as Pta, 
+				ByRef pptab as Pta, 
+				ByRef pptaw as Pta, 
+				ByRef pptah as Pta, 
+				ByVal keepinvalid as Integer) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
@@ -572,10 +572,10 @@ End Function
 Public Shared Function boxaGetRankVals(
 				ByVal boxa as Boxa, 
 				ByVal fract as Single, 
-				Optional ByRef px as Integer = Nothing, 
-				Optional ByRef py as Integer = Nothing, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing) as Integer
+				ByRef px as Integer, 
+				ByRef py as Integer, 
+				ByRef pw as Integer, 
+				ByRef ph as Integer) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
@@ -603,10 +603,10 @@ End Function
 '''   <returns>0 if OK, 1 on error or if the boxa is empty or has no valid boxes</returns>
 Public Shared Function boxaGetMedianVals(
 				ByVal boxa as Boxa, 
-				Optional ByRef px as Integer = Nothing, 
-				Optional ByRef py as Integer = Nothing, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing) as Integer
+				ByRef px as Integer, 
+				ByRef py as Integer, 
+				ByRef pw as Integer, 
+				ByRef ph as Integer) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
@@ -630,8 +630,8 @@ End Function
 '''   <returns>0 if OK, 1 on error or if the boxa is empty</returns>
 Public Shared Function boxaGetAverageSize(
 				ByVal boxa as Boxa, 
-				Optional ByRef pw as Single() = Nothing, 
-				Optional ByRef ph as Single() = Nothing) as Integer
+				ByRef pw as Single(), 
+				ByRef ph as Single()) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
@@ -663,10 +663,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaaGetExtent(
 				ByVal baa as Boxaa, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing, 
-				Optional ByRef pbox as Box = Nothing, 
-				Optional ByRef pboxa as Boxa = Nothing) as Integer
+				ByRef pw as Integer, 
+				ByRef ph as Integer, 
+				ByRef pbox as Box, 
+				ByRef pboxa as Boxa) as Integer
 
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 
@@ -703,8 +703,8 @@ End Function
 '''   <returns>boxa, or NULL on error</returns>
 Public Shared Function boxaaFlattenToBoxa(
 				ByVal baa as Boxaa, 
-				ByVal copyflag as Enumerations.L_access_storage, 
-				Optional ByRef pnaindex as Numa = Nothing) as Boxa
+				ByRef pnaindex as Numa, 
+				ByVal copyflag as Enumerations.L_access_storage) as Boxa
 
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 
@@ -739,8 +739,8 @@ End Function
 Public Shared Function boxaaFlattenAligned(
 				ByVal baa as Boxaa, 
 				ByVal num as Integer, 
-				ByVal copyflag as Enumerations.L_access_storage, 
-				Optional ByVal fillerbox as Box = Nothing) as Boxa
+				ByVal fillerbox as Box, 
+				ByVal copyflag as Enumerations.L_access_storage) as Boxa
 
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 

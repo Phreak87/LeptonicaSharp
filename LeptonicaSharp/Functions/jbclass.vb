@@ -374,7 +374,7 @@ Public Shared Function jbGetComponents(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pboxad) then Throw New ArgumentNullException  ("pboxad cannot be Nothing")
 	If IsNothing (ppixad) then Throw New ArgumentNullException  ("ppixad cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pboxadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxad) Then pboxadPTR = pboxad.Pointer
 	Dim ppixadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixad) Then ppixadPTR = ppixad.Pointer
@@ -417,8 +417,8 @@ End Function
 Public Shared Function pixWordMaskByDilation(
 				ByVal pixs as Pix, 
 				ByRef ppixm as Pix, 
-				Optional ByRef psize as Integer = Nothing, 
-				Optional ByRef pixadb as Pixa = Nothing) as Integer
+				ByRef psize as Integer, 
+				ByRef pixadb as Pixa) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (ppixm) then Throw New ArgumentNullException  ("ppixm cannot be Nothing")
@@ -458,8 +458,8 @@ Public Shared Function pixWordBoxesByDilation(
 				ByVal maxwidth as Integer, 
 				ByVal maxheight as Integer, 
 				ByRef pboxa as Boxa, 
-				Optional ByRef psize as Integer = Nothing, 
-				Optional ByRef pixadb as Pixa = Nothing) as Integer
+				ByRef psize as Integer, 
+				ByRef pixadb as Pixa) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 

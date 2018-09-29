@@ -37,13 +37,13 @@ Partial Public Class _AllFunctions
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixItalicWords(
 				ByVal pixs as Pix, 
+				ByVal boxaw as Boxa, 
+				ByVal pixw as Pix, 
 				ByRef pboxa as Boxa, 
-				ByVal debugflag as Integer, 
-				Optional ByVal boxaw as Boxa = Nothing, 
-				Optional ByVal pixw as Pix = Nothing) as Integer
+				ByVal debugflag as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim boxawPTR As IntPtr = IntPtr.Zero : If Not IsNothing(boxaw) Then boxawPTR = boxaw.Pointer
 	Dim pixwPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixw) Then pixwPTR = pixw.Pointer

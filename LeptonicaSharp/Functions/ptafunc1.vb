@@ -235,10 +235,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaGetRange(
 				ByVal pta as Pta, 
-				Optional ByRef pminx as Single() = Nothing, 
-				Optional ByRef pmaxx as Single() = Nothing, 
-				Optional ByRef pminy as Single() = Nothing, 
-				Optional ByRef pmaxy as Single() = Nothing) as Integer
+				ByRef pminx as Single(), 
+				ByRef pmaxx as Single(), 
+				ByRef pminy as Single(), 
+				ByRef pmaxy as Single()) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
@@ -289,7 +289,7 @@ Public Shared Function pixFindCornerPixels(
 				ByVal pixs as Pix) as Pta
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFindCornerPixels( pixs.Pointer)
@@ -366,8 +366,8 @@ Public Shared Function ptaTransform(
 				ByVal ptas as Pta, 
 				ByVal shiftx as Integer, 
 				ByVal shifty as Integer, 
-				Optional ByVal scalex as Single = 1, 
-				Optional ByVal scaley as Single = 1) as Pta
+				ByVal scalex as Single, 
+				ByVal scaley as Single) as Pta
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
@@ -457,10 +457,10 @@ End Function
 '''   <returns>0 if OK, 1 on error.  If pta is empty, requested values are returned as -1.0.</returns>
 Public Shared Function ptaGetMinMax(
 				ByVal pta as Pta, 
-				Optional ByRef pxmin as Single() = Nothing, 
-				Optional ByRef pymin as Single() = Nothing, 
-				Optional ByRef pxmax as Single() = Nothing, 
-				Optional ByRef pymax as Single() = Nothing) as Integer
+				ByRef pxmin as Single(), 
+				ByRef pymin as Single(), 
+				ByRef pxmax as Single(), 
+				ByRef pymax as Single()) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
@@ -560,9 +560,9 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaGetLinearLSF(
 				ByVal pta as Pta, 
-				Optional ByRef pa as Single() = Nothing, 
-				Optional ByRef pb as Single() = Nothing, 
-				Optional ByRef pnafit as Numa = Nothing) as Integer
+				ByRef pa as Single(), 
+				ByRef pb as Single(), 
+				ByRef pnafit as Numa) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
@@ -606,10 +606,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaGetQuadraticLSF(
 				ByVal pta as Pta, 
-				Optional ByRef pa as Single() = Nothing, 
-				Optional ByRef pb as Single() = Nothing, 
-				Optional ByRef pc as Single() = Nothing, 
-				Optional ByRef pnafit as Numa = Nothing) as Integer
+				ByRef pa as Single(), 
+				ByRef pb as Single(), 
+				ByRef pc as Single(), 
+				ByRef pnafit as Numa) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
@@ -656,11 +656,11 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaGetCubicLSF(
 				ByVal pta as Pta, 
-				Optional ByRef pa as Single() = Nothing, 
-				Optional ByRef pb as Single() = Nothing, 
-				Optional ByRef pc as Single() = Nothing, 
-				Optional ByRef pd as Single() = Nothing, 
-				Optional ByRef pnafit as Numa = Nothing) as Integer
+				ByRef pa as Single(), 
+				ByRef pb as Single(), 
+				ByRef pc as Single(), 
+				ByRef pd as Single(), 
+				ByRef pnafit as Numa) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
@@ -709,12 +709,12 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaGetQuarticLSF(
 				ByVal pta as Pta, 
-				Optional ByRef pa as Single() = Nothing, 
-				Optional ByRef pb as Single() = Nothing, 
-				Optional ByRef pc as Single() = Nothing, 
-				Optional ByRef pd as Single() = Nothing, 
-				Optional ByRef pe as Single() = Nothing, 
-				Optional ByRef pnafit as Numa = Nothing) as Integer
+				ByRef pa as Single(), 
+				ByRef pb as Single(), 
+				ByRef pc as Single(), 
+				ByRef pd as Single(), 
+				ByRef pe as Single(), 
+				ByRef pnafit as Numa) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
@@ -753,11 +753,11 @@ End Function
 Public Shared Function ptaNoisyLinearLSF(
 				ByVal pta as Pta, 
 				ByVal factor as Single, 
-				Optional ByRef pptad as Pta = Nothing, 
-				Optional ByRef pa as Single() = Nothing, 
-				Optional ByRef pb as Single() = Nothing, 
-				Optional ByRef pmederr as Single() = Nothing, 
-				Optional ByRef pnafit as Numa = Nothing) as Integer
+				ByRef pptad as Pta, 
+				ByRef pa as Single(), 
+				ByRef pb as Single(), 
+				ByRef pmederr as Single(), 
+				ByRef pnafit as Numa) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 	If IsNothing (factor) then Throw New ArgumentNullException  ("factor cannot be Nothing")
@@ -796,12 +796,12 @@ End Function
 Public Shared Function ptaNoisyQuadraticLSF(
 				ByVal pta as Pta, 
 				ByVal factor as Single, 
-				Optional ByRef pptad as Pta = Nothing, 
-				Optional ByRef pa as Single() = Nothing, 
-				Optional ByRef pb as Single() = Nothing, 
-				Optional ByRef pc as Single() = Nothing, 
-				Optional ByRef pmederr as Single() = Nothing, 
-				Optional ByRef pnafit as Numa = Nothing) as Integer
+				ByRef pptad as Pta, 
+				ByRef pa as Single(), 
+				ByRef pb as Single(), 
+				ByRef pc as Single(), 
+				ByRef pmederr as Single(), 
+				ByRef pnafit as Numa) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 	If IsNothing (factor) then Throw New ArgumentNullException  ("factor cannot be Nothing")
@@ -970,7 +970,7 @@ Public Shared Function pixPlotAlongPta(
 				ByVal pixs as Pix, 
 				ByVal pta as Pta, 
 				ByVal outformat as Enumerations.GPLOT_OUTPUT, 
-				Optional ByVal title as String = Nothing) as Integer
+				ByVal title as String) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
@@ -996,10 +996,10 @@ End Function
 '''   <returns>pta, or NULL on error</returns>
 Public Shared Function ptaGetPixelsFromPix(
 				ByVal pixs as Pix, 
-				Optional ByVal box as Box = Nothing) as Pta
+				ByVal box as Box) as Pta
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -1057,7 +1057,7 @@ Public Shared Function ptaGetBoundaryPixels(
 				ByVal type as Enumerations.L_BOUNDARY_G) as Pta
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaGetBoundaryPixels( pixs.Pointer, type)
@@ -1093,11 +1093,11 @@ Public Shared Function ptaaGetBoundaryPixels(
 				ByVal pixs as Pix, 
 				ByVal type as Enumerations.L_BOUNDARY_G, 
 				ByVal connectivity as Integer, 
-				Optional ByRef pboxa as Boxa = Nothing, 
-				Optional ByRef ppixa as Pixa = Nothing) as Ptaa
+				ByRef pboxa as Boxa, 
+				ByRef ppixa as Pixa) as Ptaa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = pboxa.Pointer
 Dim ppixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixa) Then ppixaPTR = ppixa.Pointer
@@ -1133,7 +1133,7 @@ End Function
 '''   <returns>ptaa, or NULL on error</returns>
 Public Shared Function ptaaIndexLabeledPixels(
 				ByVal pixs as Pix, 
-				Optional ByRef pncc as Integer = Nothing) as Ptaa
+				ByRef pncc as Integer) as Ptaa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -1277,7 +1277,7 @@ Public Shared Function pixDisplayPta(
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-	If {1,2,4,8,16,24,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1,2,4,8,16,24,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDisplayPta( pixd.Pointer, pixs.Pointer, pta.Pointer)
@@ -1369,8 +1369,7 @@ Public Shared Function pixDisplayPtaPattern(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 	If IsNothing (pixp) then Throw New ArgumentNullException  ("pixp cannot be Nothing")
-	If IsNothing (color) then Throw New ArgumentNullException  ("color cannot be Nothing")
-	If {1,2,4,8,16,24,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1,2,4,8,16,24,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDisplayPtaPattern( pixd.Pointer, pixs.Pointer, pta.Pointer, pixp.Pointer, cx, cy, color)
@@ -1402,12 +1401,12 @@ End Function
 '''   <returns>ptad with all points of replicated pattern, or NULL on error</returns>
 Public Shared Function ptaReplicatePattern(
 				ByVal ptas as Pta, 
+				ByVal pixp as Pix, 
+				ByVal ptap as Pta, 
 				ByVal cx as Integer, 
 				ByVal cy as Integer, 
 				ByVal w as Integer, 
-				ByVal h as Integer, 
-				Optional ByVal pixp as Pix = Nothing, 
-				Optional ByVal ptap as Pta = Nothing) as Pta
+				ByVal h as Integer) as Pta
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
@@ -1437,7 +1436,7 @@ Public Shared Function pixDisplayPtaa(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
-	If {1,2,4,8,16,24,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1,2,4,8,16,24,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDisplayPtaa( pixs.Pointer, ptaa.Pointer)

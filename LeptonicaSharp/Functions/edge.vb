@@ -31,7 +31,7 @@ Public Shared Function pixSobelEdgeFilter(
 				ByVal orientflag as Enumerations.L_L_EDGES) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp; no colormap") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp; no colormap")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSobelEdgeFilter( pixs.Pointer, orientflag)
@@ -73,7 +73,7 @@ Public Shared Function pixTwoSidedEdgeFilter(
 				ByVal orientflag as Enumerations.L_L_EDGES) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp; no colormap") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp; no colormap")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixTwoSidedEdgeFilter( pixs.Pointer, orientflag)
@@ -116,13 +116,13 @@ Public Shared Function pixMeasureEdgeSmoothness(
 				ByVal side as Enumerations.L_scan_direction, 
 				ByVal minjump as Integer, 
 				ByVal minreversal as Integer, 
-				Optional ByRef pjpl as Single() = Nothing, 
-				Optional ByRef pjspl as Single() = Nothing, 
-				Optional ByRef prpl as Single() = Nothing, 
-				Optional ByVal debugfile as String = Nothing) as Integer
+				ByRef pjpl as Single(), 
+				ByRef pjspl as Single(), 
+				ByRef prpl as Single(), 
+				ByVal debugfile as String) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixMeasureEdgeSmoothness( pixs.Pointer, side, minjump, minreversal, pjpl, pjspl, prpl, debugfile)
@@ -145,10 +145,10 @@ End Function
 Public Shared Function pixGetEdgeProfile(
 				ByVal pixs as Pix, 
 				ByVal side as Enumerations.L_scan_direction, 
-				Optional ByVal debugfile as String = Nothing) as Numa
+				ByVal debugfile as String) as Numa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetEdgeProfile( pixs.Pointer, side, debugfile)

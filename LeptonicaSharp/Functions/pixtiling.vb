@@ -84,8 +84,8 @@ End Sub
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixTilingGetCount(
 				ByVal pt as PixTiling, 
-				Optional ByRef pnx as Integer = Nothing, 
-				Optional ByRef pny as Integer = Nothing) as Integer
+				ByRef pnx as Integer, 
+				ByRef pny as Integer) as Integer
 
 	If IsNothing (pt) then Throw New ArgumentNullException  ("pt cannot be Nothing")
 
@@ -109,8 +109,8 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixTilingGetSize(
 				ByVal pt as PixTiling, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing) as Integer
+				ByRef pw as Integer, 
+				ByRef ph as Integer) as Integer
 
 	If IsNothing (pt) then Throw New ArgumentNullException  ("pt cannot be Nothing")
 

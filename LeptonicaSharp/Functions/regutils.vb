@@ -132,9 +132,7 @@ Public Shared Function regTestCompareStrings(
 
 	If IsNothing (rp) then Throw New ArgumentNullException  ("rp cannot be Nothing")
 	If IsNothing (string1) then Throw New ArgumentNullException  ("string1 cannot be Nothing")
-	If IsNothing (bytes1) then Throw New ArgumentNullException  ("bytes1 cannot be Nothing")
 	If IsNothing (string2) then Throw New ArgumentNullException  ("string2 cannot be Nothing")
-	If IsNothing (bytes2) then Throw New ArgumentNullException  ("bytes2 cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.regTestCompareStrings( rp.Pointer, string1, bytes1, string2, bytes2)
@@ -358,7 +356,6 @@ Public Shared Function regTestWriteDataAndCheck(
 
 	If IsNothing (rp) then Throw New ArgumentNullException  ("rp cannot be Nothing")
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (nbytes) then Throw New ArgumentNullException  ("nbytes cannot be Nothing")
 	If IsNothing (ext) then Throw New ArgumentNullException  ("ext cannot be Nothing")
 
 Dim dataPTR As IntPtr = Marshal.AllocHGlobal(0)

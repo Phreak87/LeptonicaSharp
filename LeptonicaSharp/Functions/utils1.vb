@@ -188,7 +188,6 @@ End Function
 Public Shared Function convertOnLittleEnd32(
 				ByRef wordin as UInteger) as UInteger
 
-	If IsNothing (wordin) then Throw New ArgumentNullException  ("wordin cannot be Nothing")
 
 
 	Dim _Result as UInteger = LeptonicaSharp.Natives.convertOnLittleEnd32( wordin)
@@ -208,7 +207,6 @@ End Function
 Public Shared Function convertOnBigEnd32(
 				ByRef wordin as UInteger) as UInteger
 
-	If IsNothing (wordin) then Throw New ArgumentNullException  ("wordin cannot be Nothing")
 
 
 	Dim _Result as UInteger = LeptonicaSharp.Natives.convertOnBigEnd32( wordin)
@@ -488,7 +486,7 @@ End Function
 Public Shared Function lept_isPrime(
 				ByVal n as ULong, 
 				ByRef pis_prime as Integer, 
-				Optional ByRef pfactor as UInteger = Nothing) as Integer
+				ByRef pfactor as UInteger) as Integer
 
 	If IsNothing (n) then Throw New ArgumentNullException  ("n cannot be Nothing")
 
@@ -513,7 +511,6 @@ End Function
 Public Shared Function convertIntToGrayCode(
 				ByVal val as UInteger) as UInteger
 
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
 	Dim _Result as UInteger = LeptonicaSharp.Natives.convertIntToGrayCode( val)
@@ -534,7 +531,6 @@ End Function
 Public Shared Function convertGrayCodeToInt(
 				ByVal val as UInteger) as UInteger
 
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
 	Dim _Result as UInteger = LeptonicaSharp.Natives.convertGrayCodeToInt( val)

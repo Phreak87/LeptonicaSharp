@@ -13,8 +13,21 @@
 		<Parameter Name ="data">		<Size>(w * h * (d/8))</Size>	</Parameter>
 		<Parameter Name ="informat">	<Enum>IFF</Enum>				</Parameter>
 		
-		<Extend    Name="pixReadMemBmp" 	Group="New" 	as="Constructor"/>
-		<Extend    Name="PixConvert32to16" 	Group="Convert" as="Function"/>
+		<!-- 
+			Erweiterungsfunktionen
+			Name ist der Name der Funktion, die unter dieser Klasse erscheinen soll
+			Type ist der Typ Konstruktor oder Funktion
+			Source bestimmt den Parameter, für den die eigene Klasse verwendet wird.
+			Return bestimmt welchen Parameter der Quellwert nach ausführen der Funktion annehmen soll.
+			Source und Return müssen die gleiche Klasse (z.B. pix) sein.		
+		-->
+		<Extend    Name="pixRead" 			Type="Construct" 	Source="pixs" 		return="return"/>
+		<Extend    Name="PixConvert32to16"  Type="Function" 	Source="pixs" 		return="return"/>
+		<Extend    Name="pixConvert32To8" 	Type="Function" 	Source="pixs" 		return="return"/>
+		<Extend    Name="pixConvert8To4" 	Type="Function" 	Source="pixs" 		return="return"/>
+		<Extend    Name="pixConvert8To2" 	Type="Function" 	Source="pixs" 		return="return"/>
+		<Extend    Name="pixConvertTo1" 	Type="Function" 	Source="pixs" 		return="return"/>
+		<Extend    Name="pixConvertToPdf" 	Type="Function" 	Source="pix" 		return=""/>
 	</Class>
 	
 	<!-- 

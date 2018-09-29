@@ -21,7 +21,7 @@ Partial Public Class _AllFunctions
 '''   <returns>pixa, or NULL on error</returns>
 Public Shared Function pixaReadFiles(
 				ByVal dirname as String, 
-				Optional ByVal substr as String = Nothing) as Pixa
+				ByVal substr as String) as Pixa
 
 	If IsNothing (dirname) then Throw New ArgumentNullException  ("dirname cannot be Nothing")
 
@@ -69,6 +69,7 @@ Public Shared Function pixRead(
 				ByVal filename as String) as Pix
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRead( filename)
@@ -95,6 +96,7 @@ Public Shared Function pixReadWithHint(
 				ByVal hint as Integer) as Pix
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadWithHint( filename, hint)
@@ -190,14 +192,15 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixReadHeader(
 				ByVal filename as String, 
-				Optional ByRef pformat as Integer = Nothing, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing, 
-				Optional ByRef pbps as Integer = Nothing, 
-				Optional ByRef pspp as Integer = Nothing, 
-				Optional ByRef piscmap as Integer = Nothing) as Integer
+				ByRef pformat as Integer, 
+				ByRef pw as Integer, 
+				ByRef ph as Integer, 
+				ByRef pbps as Integer, 
+				ByRef pspp as Integer, 
+				ByRef piscmap as Integer) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixReadHeader( filename, pformat, pw, ph, pbps, pspp, piscmap)
@@ -221,6 +224,7 @@ Public Shared Function findFileFormat(
 				ByRef pformat as Integer) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.findFileFormat( filename, pformat)
@@ -325,7 +329,6 @@ Public Shared Function pixReadMem(
 				ByVal size as UInteger) as Pix
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMem( data, size)
@@ -363,15 +366,14 @@ End Function
 Public Shared Function pixReadHeaderMem(
 				ByVal data as Byte(), 
 				ByVal size as UInteger, 
-				Optional ByRef pformat as Integer = Nothing, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing, 
-				Optional ByRef pbps as Integer = Nothing, 
-				Optional ByRef pspp as Integer = Nothing, 
-				Optional ByRef piscmap as Integer = Nothing) as Integer
+				ByRef pformat as Integer, 
+				ByRef pw as Integer, 
+				ByRef ph as Integer, 
+				ByRef pbps as Integer, 
+				ByRef pspp as Integer, 
+				ByRef piscmap as Integer) as Integer
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixReadHeaderMem( data, size, pformat, pw, ph, pbps, pspp, piscmap)
@@ -403,6 +405,7 @@ Public Shared Function writeImageFileInfo(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (fpout) then Throw New ArgumentNullException  ("fpout cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.writeImageFileInfo( filename, fpout.Pointer, headeronly)
@@ -436,6 +439,7 @@ Public Shared Function ioFormatTest(
 				ByVal filename as String) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ioFormatTest( filename)

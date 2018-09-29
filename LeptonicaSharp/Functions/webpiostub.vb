@@ -39,7 +39,6 @@ Public Shared Function pixReadMemWebP(
 				ByRef filesize as UInteger) as Pix
 
 	If IsNothing (filedata) then Throw New ArgumentNullException  ("filedata cannot be Nothing")
-	If IsNothing (filesize) then Throw New ArgumentNullException  ("filesize cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemWebP( filedata, filesize)
@@ -67,6 +66,7 @@ Public Shared Function readHeaderWebP(
 	If IsNothing (pw) then Throw New ArgumentNullException  ("pw cannot be Nothing")
 	If IsNothing (ph) then Throw New ArgumentNullException  ("ph cannot be Nothing")
 	If IsNothing (pspp) then Throw New ArgumentNullException  ("pspp cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderWebP( filename, pw, ph, pspp)
@@ -91,7 +91,6 @@ Public Shared Function readHeaderMemWebP(
 				ByRef pspp as Object) as Integer
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 	If IsNothing (pw) then Throw New ArgumentNullException  ("pw cannot be Nothing")
 	If IsNothing (ph) then Throw New ArgumentNullException  ("ph cannot be Nothing")
 	If IsNothing (pspp) then Throw New ArgumentNullException  ("pspp cannot be Nothing")
@@ -119,6 +118,7 @@ Public Shared Function pixWriteWebP(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 

@@ -30,10 +30,10 @@ Public Shared Function pixOrientCorrect(
 				ByVal pixs as Pix, 
 				ByVal minupconf as Single, 
 				ByVal minratio as Single, 
-				Optional ByRef pupconf as Single() = Nothing, 
-				Optional ByRef pleftconf as Single() = Nothing, 
-				Optional ByRef protation as Integer = Nothing, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
+				ByRef pupconf as Single(), 
+				ByRef pleftconf as Single(), 
+				ByRef protation as Integer, 
+				ByVal debug as Enumerations.DebugOnOff) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (minupconf) then Throw New ArgumentNullException  ("minupconf cannot be Nothing")
@@ -106,10 +106,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixOrientDetect(
 				ByVal pixs as Pix, 
+				ByRef pupconf as Single(), 
+				ByRef pleftconf as Single(), 
 				ByVal mincount as Integer, 
-				Optional ByRef pupconf as Single() = Nothing, 
-				Optional ByRef pleftconf as Single() = Nothing, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByVal debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -154,7 +154,7 @@ Public Shared Function makeOrientDecision(
 				ByVal minupconf as Single, 
 				ByVal minratio as Single, 
 				ByRef porient as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByVal debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (upconf) then Throw New ArgumentNullException  ("upconf cannot be Nothing")
 	If IsNothing (leftconf) then Throw New ArgumentNullException  ("leftconf cannot be Nothing")
@@ -192,7 +192,7 @@ Public Shared Function pixUpDownDetect(
 				ByVal pixs as Pix, 
 				ByRef pconf as Single(), 
 				ByVal mincount as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByVal debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -245,7 +245,7 @@ Public Shared Function pixUpDownDetectGeneral(
 				ByRef pconf as Single(), 
 				ByVal mincount as Integer, 
 				ByVal npixels as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByVal debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -278,10 +278,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixOrientDetectDwa(
 				ByVal pixs as Pix, 
+				ByRef pupconf as Single(), 
+				ByRef pleftconf as Single(), 
 				ByVal mincount as Integer, 
-				Optional ByRef pupconf as Single() = Nothing, 
-				Optional ByRef pleftconf as Single() = Nothing, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByVal debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -318,7 +318,7 @@ Public Shared Function pixUpDownDetectDwa(
 				ByVal pixs as Pix, 
 				ByRef pconf as Single(), 
 				ByVal mincount as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByVal debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -348,7 +348,7 @@ Public Shared Function pixUpDownDetectGeneralDwa(
 				ByRef pconf as Single(), 
 				ByVal mincount as Integer, 
 				ByVal npixels as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByVal debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -401,7 +401,7 @@ Public Shared Function pixMirrorDetect(
 				ByVal pixs as Pix, 
 				ByRef pconf as Single(), 
 				ByVal mincount as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByVal debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -431,7 +431,7 @@ Public Shared Function pixMirrorDetectDwa(
 				ByVal pixs as Pix, 
 				ByRef pconf as Single(), 
 				ByVal mincount as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByVal debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 

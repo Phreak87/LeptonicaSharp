@@ -581,8 +581,8 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function l_dnaGetParameters(
 				ByVal da as L_Dna, 
-				Optional ByRef pstartx as Double() = Nothing, 
-				Optional ByRef pdelx as Double() = Nothing) as Integer
+				ByRef pstartx as Double(), 
+				ByRef pdelx as Double()) as Integer
 
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
@@ -657,6 +657,7 @@ Public Shared Function l_dnaRead(
 				ByVal filename as String) as L_Dna
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaRead( filename)
@@ -705,6 +706,7 @@ Public Shared Function l_dnaWrite(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaWrite( filename, da.Pointer)
@@ -1042,6 +1044,7 @@ Public Shared Function l_dnaaRead(
 				ByVal filename as String) as L_Dnaa
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaaRead( filename)
@@ -1089,6 +1092,7 @@ Public Shared Function l_dnaaWrite(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (daa) then Throw New ArgumentNullException  ("daa cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaaWrite( filename, daa.Pointer)

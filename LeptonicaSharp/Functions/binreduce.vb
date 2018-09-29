@@ -24,7 +24,7 @@ Partial Public Class _AllFunctions
 '''   <returns>pixd 2x subsampled, or NULL on error</returns>
 Public Shared Function pixReduceBinary2(
 				ByVal pixs as Pix, 
-				Optional ByVal intab as Byte() = Nothing) as Pix
+				ByVal intab as Byte()) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -59,7 +59,7 @@ Public Shared Function pixReduceRankBinaryCascade(
 				ByVal level4 as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReduceRankBinaryCascade( pixs.Pointer, level1, level2, level3, level4)
@@ -91,10 +91,10 @@ End Function
 Public Shared Function pixReduceRankBinary2(
 				ByVal pixs as Pix, 
 				ByVal level as Integer, 
-				Optional ByVal intab as Byte() = Nothing) as Pix
+				ByVal intab as Byte()) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReduceRankBinary2( pixs.Pointer, level, intab)

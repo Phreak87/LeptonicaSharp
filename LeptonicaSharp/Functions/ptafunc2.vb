@@ -20,7 +20,7 @@ Public Shared Function ptaSort(
 				ByVal ptas as Pta, 
 				ByVal sorttype as Enumerations.L_SORT_BY, 
 				ByVal sortorder as Enumerations.L_SORT_CREASING, 
-				Optional ByRef pnaindex as Numa = Nothing) as Pta
+				ByRef pnaindex as Numa) as Pta
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
@@ -129,9 +129,9 @@ End Function
 Public Shared Function ptaGetRankValue(
 				ByVal pta as Pta, 
 				ByVal fract as Single, 
+				ByVal ptasort as Pta, 
 				ByVal sorttype as Enumerations.L_SORT_BY, 
-				ByRef pval as Single(), 
-				Optional ByVal ptasort as Pta = Nothing) as Integer
+				ByRef pval as Single()) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
@@ -309,7 +309,7 @@ End Function
 Public Shared Function ptaRemoveDupsByHash(
 				ByVal ptas as Pta, 
 				ByRef pptad as Pta, 
-				Optional ByRef pdahash as L_DnaHash = Nothing) as Integer
+				ByRef pdahash as L_DnaHash) as Integer
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 

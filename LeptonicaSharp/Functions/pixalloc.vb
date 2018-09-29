@@ -36,8 +36,6 @@ Public Shared Function pmsCreate(
 				ByVal numalloc as Numa, 
 				ByVal logfile as String) as Integer
 
-	If IsNothing (minsize) then Throw New ArgumentNullException  ("minsize cannot be Nothing")
-	If IsNothing (smallest) then Throw New ArgumentNullException  ("smallest cannot be Nothing")
 	If IsNothing (numalloc) then Throw New ArgumentNullException  ("numalloc cannot be Nothing")
 	If IsNothing (logfile) then Throw New ArgumentNullException  ("logfile cannot be Nothing")
 
@@ -83,7 +81,6 @@ End Sub
 Public Shared Function pmsCustomAlloc(
 				ByVal nbytes as UInteger) as Object
 
-	If IsNothing (nbytes) then Throw New ArgumentNullException  ("nbytes cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pmsCustomAlloc( nbytes)
@@ -133,7 +130,6 @@ End Sub
 Public Shared Function pmsGetAlloc(
 				ByVal nbytes as UInteger) as Object
 
-	If IsNothing (nbytes) then Throw New ArgumentNullException  ("nbytes cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pmsGetAlloc( nbytes)
@@ -156,7 +152,6 @@ Public Shared Function pmsGetLevelForAlloc(
 				ByVal nbytes as UInteger, 
 				ByRef plevel as Integer) as Integer
 
-	If IsNothing (nbytes) then Throw New ArgumentNullException  ("nbytes cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pmsGetLevelForAlloc( nbytes, plevel)

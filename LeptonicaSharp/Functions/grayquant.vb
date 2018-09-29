@@ -113,7 +113,7 @@ Public Shared Function pixThresholdToBinary(
 				ByVal thresh as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {4,8}.contains (pixs.d) = false then Throw New ArgumentException ("4 or 8 bpp") ' All Functions - All Parameters - CommentCheck
+	If {4,8}.contains (pixs.d) = false then Throw New ArgumentException ("4 or 8 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixThresholdToBinary( pixs.Pointer, thresh)
@@ -164,7 +164,7 @@ Public Shared Function pixVarThresholdToBinary(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixg) then Throw New ArgumentNullException  ("pixg cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixVarThresholdToBinary( pixs.Pointer, pixg.Pointer)
@@ -202,12 +202,12 @@ End Function
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
 Public Shared Function pixAdaptThresholdToBinary(
 				ByVal pixs as Pix, 
-				ByVal gamma as Single, 
-				Optional ByVal pixm as Pix = Nothing) as Pix
+				ByVal pixm as Pix, 
+				ByVal gamma as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (gamma) then Throw New ArgumentNullException  ("gamma cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
@@ -245,15 +245,15 @@ End Function
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
 Public Shared Function pixAdaptThresholdToBinaryGen(
 				ByVal pixs as Pix, 
+				ByVal pixm as Pix, 
 				ByVal gamma as Single, 
 				ByVal blackval as Integer, 
 				ByVal whiteval as Integer, 
-				ByVal thresh as Integer, 
-				Optional ByVal pixm as Pix = Nothing) as Pix
+				ByVal thresh as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (gamma) then Throw New ArgumentNullException  ("gamma cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
@@ -351,7 +351,7 @@ Public Shared Function pixDitherTo2bpp(
 				ByVal cmapflag as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDitherTo2bpp( pixs.Pointer, cmapflag)
@@ -385,7 +385,7 @@ Public Shared Function pixDitherTo2bppSpec(
 				ByVal cmapflag as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDitherTo2bppSpec( pixs.Pointer, lowerclip, upperclip, cmapflag)
@@ -444,7 +444,7 @@ Public Shared Function pixThresholdTo2bpp(
 				ByVal cmapflag as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixThresholdTo2bpp( pixs.Pointer, nlevels, cmapflag)
@@ -706,7 +706,6 @@ Public Shared Function pixGenerateMaskByBand32(
 				ByVal fractp as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (refval) then Throw New ArgumentNullException  ("refval cannot be Nothing")
 	If IsNothing (fractm) then Throw New ArgumentNullException  ("fractm cannot be Nothing")
 	If IsNothing (fractp) then Throw New ArgumentNullException  ("fractp cannot be Nothing")
 
@@ -745,8 +744,6 @@ Public Shared Function pixGenerateMaskByDiscr32(
 				ByVal distflag as Enumerations.L_AN_DISTANCE) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (refval1) then Throw New ArgumentNullException  ("refval1 cannot be Nothing")
-	If IsNothing (refval2) then Throw New ArgumentNullException  ("refval2 cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenerateMaskByDiscr32( pixs.Pointer, refval1, refval2, distflag)
@@ -801,11 +798,11 @@ End Function
 '''  <param name="maxsize">[in] - maximum number of adjacent bins allowed to represent a color, regardless of the population of pixels in the bins; must be at least 2</param>
 '''   <returns>pixd 8 bpp, cmapped, or NULL on error</returns>
 Public Shared Function pixGrayQuantFromHisto(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
+				ByVal pixm as Pix, 
 				ByVal minfract as Single, 
-				ByVal maxsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing, 
-				Optional ByVal pixm as Pix = Nothing) as Pix
+				ByVal maxsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (minfract) then Throw New ArgumentNullException  ("minfract cannot be Nothing")

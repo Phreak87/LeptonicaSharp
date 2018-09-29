@@ -44,8 +44,8 @@ End Sub
 '''  <param name="data">[in] - void ptr, to be added</param>
 '''   <returns>0 if OK; 1 on error</returns>
 Public Shared Function listAddToHead(
-				ByVal data as Object, 
-				Optional ByRef phead as DoubleLinkedList = Nothing) as Integer
+				ByRef phead as DoubleLinkedList, 
+				ByVal data as Object) as Integer
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
@@ -122,9 +122,9 @@ End Function
 '''  <param name="data">[in] - void  address, to be added</param>
 '''   <returns>0 if OK; 1 on error</returns>
 Public Shared Function listInsertBefore(
+				ByRef phead as DoubleLinkedList, 
 				ByVal elem as DoubleLinkedList, 
-				ByVal data as Object, 
-				Optional ByRef phead as DoubleLinkedList = Nothing) as Integer
+				ByVal data as Object) as Integer
 
 	If IsNothing (elem) then Throw New ArgumentNullException  ("elem cannot be Nothing")
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
@@ -162,9 +162,9 @@ End Function
 '''  <param name="data">[in] - void  ptr, to be added</param>
 '''   <returns>0 if OK; 1 on error</returns>
 Public Shared Function listInsertAfter(
+				ByRef phead as DoubleLinkedList, 
 				ByVal elem as DoubleLinkedList, 
-				ByVal data as Object, 
-				Optional ByRef phead as DoubleLinkedList = Nothing) as Integer
+				ByVal data as Object) as Integer
 
 	If IsNothing (elem) then Throw New ArgumentNullException  ("elem cannot be Nothing")
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")

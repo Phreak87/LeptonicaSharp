@@ -59,8 +59,8 @@ Public Shared Function pixQuadtreeVariance(
 				ByVal nlevels as Integer, 
 				ByVal pix_ma as Pix, 
 				ByVal dpix_msa as DPix, 
-				Optional ByRef pfpixa_v as FPixa = Nothing, 
-				Optional ByRef pfpixa_rv as FPixa = Nothing) as Integer
+				ByRef pfpixa_v as FPixa, 
+				ByRef pfpixa_rv as FPixa) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pix_ma) then Throw New ArgumentNullException  ("pix_ma cannot be Nothing")
@@ -101,7 +101,7 @@ Public Shared Function pixMeanInRectangle(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 	If IsNothing (pixma) then Throw New ArgumentNullException  ("pixma cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixMeanInRectangle( pixs.Pointer, box.Pointer, pixma.Pointer, pval)
@@ -133,14 +133,14 @@ Public Shared Function pixVarianceInRectangle(
 				ByVal box as Box, 
 				ByVal pix_ma as Pix, 
 				ByVal dpix_msa as DPix, 
-				Optional ByRef pvar as Single() = Nothing, 
-				Optional ByRef prvar as Single() = Nothing) as Integer
+				ByRef pvar as Single(), 
+				ByRef prvar as Single()) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 	If IsNothing (pix_ma) then Throw New ArgumentNullException  ("pix_ma cannot be Nothing")
 	If IsNothing (dpix_msa) then Throw New ArgumentNullException  ("dpix_msa cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixVarianceInRectangle( pixs.Pointer, box.Pointer, pix_ma.Pointer, dpix_msa.Pointer, pvar, prvar)

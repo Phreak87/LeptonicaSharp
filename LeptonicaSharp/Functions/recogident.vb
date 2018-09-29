@@ -33,10 +33,10 @@ Public Shared Function recogIdentifyMultiple(
 				ByVal pixs as Pix, 
 				ByVal minh as Integer, 
 				ByVal skipsplit as Integer, 
-				ByVal debugsplit as Integer, 
-				Optional ByRef pboxa as Boxa = Nothing, 
-				Optional ByRef ppixa as Pixa = Nothing, 
-				Optional ByRef ppixdb as Pix = Nothing) as Integer
+				ByRef pboxa as Boxa, 
+				ByRef ppixa as Pixa, 
+				ByRef ppixdb as Pix, 
+				ByVal debugsplit as Integer) as Integer
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -88,7 +88,7 @@ Public Shared Function recogSplitIntoCharacters(
 				ByVal skipsplit as Integer, 
 				ByRef pboxa as Boxa, 
 				ByRef ppixa as Pixa, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByVal debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -127,10 +127,10 @@ Public Shared Function recogCorrelationBestRow(
 				ByVal recog as L_Recog, 
 				ByVal pixs as Pix, 
 				ByRef pboxa as Boxa, 
-				Optional ByRef pnascore as Numa = Nothing, 
-				Optional ByRef pnaindex as Numa = Nothing, 
-				Optional ByRef psachar as Sarray = Nothing, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByRef pnascore as Numa, 
+				ByRef pnaindex as Numa, 
+				ByRef psachar as Sarray, 
+				ByVal debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -176,9 +176,9 @@ Public Shared Function recogCorrelationBestChar(
 				ByVal pixs as Pix, 
 				ByRef pbox as Box, 
 				ByRef pscore as Single(), 
-				Optional ByRef pindex as Integer = Nothing, 
-				Optional ByRef pcharstr as String() = Nothing, 
-				Optional ByRef ppixdb as Pix = Nothing) as Integer
+				ByRef pindex as Integer, 
+				ByRef pcharstr as String(), 
+				ByRef ppixdb as Pix) as Integer
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -215,7 +215,7 @@ End Function
 Public Shared Function recogIdentifyPixa(
 				ByVal recog as L_Recog, 
 				ByVal pixa as Pixa, 
-				Optional ByRef ppixdb as Pix = Nothing) as Integer
+				ByRef ppixdb as Pix) as Integer
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
@@ -257,7 +257,7 @@ End Function
 Public Shared Function recogIdentifyPix(
 				ByVal recog as L_Recog, 
 				ByVal pixs as Pix, 
-				Optional ByRef ppixdb as Pix = Nothing) as Integer
+				ByRef ppixdb as Pix) as Integer
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -354,13 +354,13 @@ End Sub
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function rchaExtract(
 				ByVal rcha as L_Rcha, 
-				Optional ByRef pnaindex as Numa = Nothing, 
-				Optional ByRef pnascore as Numa = Nothing, 
-				Optional ByRef psatext as Sarray = Nothing, 
-				Optional ByRef pnasample as Numa = Nothing, 
-				Optional ByRef pnaxloc as Numa = Nothing, 
-				Optional ByRef pnayloc as Numa = Nothing, 
-				Optional ByRef pnawidth as Numa = Nothing) as Integer
+				ByRef pnaindex as Numa, 
+				ByRef pnascore as Numa, 
+				ByRef psatext as Sarray, 
+				ByRef pnasample as Numa, 
+				ByRef pnaxloc as Numa, 
+				ByRef pnayloc as Numa, 
+				ByRef pnawidth as Numa) as Integer
 
 	If IsNothing (rcha) then Throw New ArgumentNullException  ("rcha cannot be Nothing")
 
@@ -403,13 +403,13 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function rchExtract(
 				ByVal rch as L_Rch, 
-				Optional ByRef pindex as Integer = Nothing, 
-				Optional ByRef pscore as Single() = Nothing, 
-				Optional ByRef ptext as String() = Nothing, 
-				Optional ByRef psample as Integer = Nothing, 
-				Optional ByRef pxloc as Integer = Nothing, 
-				Optional ByRef pyloc as Integer = Nothing, 
-				Optional ByRef pwidth as Integer = Nothing) as Integer
+				ByRef pindex as Integer, 
+				ByRef pscore as Single(), 
+				ByRef ptext as String(), 
+				ByRef psample as Integer, 
+				ByRef pxloc as Integer, 
+				ByRef pyloc as Integer, 
+				ByRef pwidth as Integer) as Integer
 
 	If IsNothing (rch) then Throw New ArgumentNullException  ("rch cannot be Nothing")
 
@@ -488,8 +488,8 @@ Public Shared Function recogExtractNumbers(
 				ByVal boxas as Boxa, 
 				ByVal scorethresh as Single, 
 				ByVal spacethresh as Integer, 
-				Optional ByRef pbaa as Boxaa = Nothing, 
-				Optional ByRef pnaa as Numaa = Nothing) as Sarray
+				ByRef pbaa as Boxaa, 
+				ByRef pnaa as Numaa) as Sarray
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
@@ -529,7 +529,7 @@ Public Shared Function showExtractNumbers(
 				ByVal sa as Sarray, 
 				ByVal baa as Boxaa, 
 				ByVal naa as Numaa, 
-				Optional ByRef ppixdb as Pix = Nothing) as Pixa
+				ByRef ppixdb as Pix) as Pixa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")

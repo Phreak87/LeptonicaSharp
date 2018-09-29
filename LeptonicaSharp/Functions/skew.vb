@@ -20,10 +20,10 @@ Partial Public Class _AllFunctions
 '''   <returns>pixd deskewed pix, or NULL on error</returns>
 Public Shared Function pixDeskewBoth(
 				ByVal pixs as Pix, 
-				Optional ByVal redsearch as Integer = 0) as Pix
+				ByVal redsearch as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("for binary search reduction factor = 1, 2 or 4; use 0 for default") ' All Functions - specific Parameter - ArrayCheck
+	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("for binary search reduction factor = 1, 2 or 4; use 0 for default")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDeskewBoth( pixs.Pointer, redsearch)
@@ -50,10 +50,10 @@ End Function
 '''   <returns>pixd deskewed pix, or NULL on error</returns>
 Public Shared Function pixDeskew(
 				ByVal pixs as Pix, 
-				Optional ByVal redsearch as Integer = 0) as Pix
+				ByVal redsearch as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("for binary search reduction factor = 1, 2 or 4; use 0 for default") ' All Functions - specific Parameter - ArrayCheck
+	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("for binary search reduction factor = 1, 2 or 4; use 0 for default")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDeskew( pixs.Pointer, redsearch)
@@ -80,12 +80,12 @@ End Function
 '''   <returns>pixd deskewed pix, or NULL on error</returns>
 Public Shared Function pixFindSkewAndDeskew(
 				ByVal pixs as Pix, 
-				Optional ByVal redsearch as Integer = 0, 
-				Optional ByRef pangle as Single() = Nothing, 
-				Optional ByRef pconf as Single() = Nothing) as Pix
+				ByVal redsearch as Integer, 
+				ByRef pangle as Single(), 
+				ByRef pconf as Single()) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("for binary search reduction factor = 1, 2 or 4; use 0 for default") ' All Functions - specific Parameter - ArrayCheck
+	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("for binary search reduction factor = 1, 2 or 4; use 0 for default")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFindSkewAndDeskew( pixs.Pointer, redsearch, pangle, pconf)
@@ -116,19 +116,19 @@ End Function
 '''   <returns>pixd deskewed pix, or NULL on error</returns>
 Public Shared Function pixDeskewGeneral(
 				ByVal pixs as Pix, 
+				ByVal redsweep as Integer, 
 				ByVal sweeprange as Single, 
 				ByVal sweepdelta as Single, 
-				Optional ByVal redsweep as Integer = 0, 
-				Optional ByVal redsearch as Integer = 0, 
-				Optional ByVal thresh as Integer = 0, 
-				Optional ByRef pangle as Single() = Nothing, 
-				Optional ByRef pconf as Single() = Nothing) as Pix
+				ByVal redsearch as Integer, 
+				ByVal thresh as Integer, 
+				ByRef pangle as Single(), 
+				ByRef pconf as Single()) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sweeprange) then Throw New ArgumentNullException  ("sweeprange cannot be Nothing")
 	If IsNothing (sweepdelta) then Throw New ArgumentNullException  ("sweepdelta cannot be Nothing")
-	If {0,1,2,4,8}.contains (redsweep) = false then Throw New ArgumentException ("for linear search reduction factor = 1, 2 or 4; use 0 for default") ' All Functions - specific Parameter - ArrayCheck
-	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("for binary search reduction factor = 1, 2 or 4; use 0 for default;") ' All Functions - specific Parameter - ArrayCheck
+	If {0,1,2,4,8}.contains (redsweep) = false then Throw New ArgumentException ("for linear search reduction factor = 1, 2 or 4; use 0 for default")
+	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("for binary search reduction factor = 1, 2 or 4; use 0 for default;")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDeskewGeneral( pixs.Pointer, redsweep, sweeprange, sweepdelta, redsearch, thresh, pangle, pconf)
@@ -160,7 +160,7 @@ Public Shared Function pixFindSkew(
 				ByRef pconf as Single()) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindSkew( pixs.Pointer, pangle, pconf)
@@ -194,8 +194,8 @@ Public Shared Function pixFindSkewSweep(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sweeprange) then Throw New ArgumentNullException  ("sweeprange cannot be Nothing")
 	If IsNothing (sweepdelta) then Throw New ArgumentNullException  ("sweepdelta cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
-	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("factor = 1, 2, 4 or 8") ' All Functions - specific Parameter - RangeCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("factor = 1, 2, 4 or 8")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindSkewSweep( pixs.Pointer, pangle, reduction, sweeprange, sweepdelta)
@@ -234,19 +234,19 @@ Public Shared Function pixFindSkewSweepAndSearch(
 				ByVal pixs as Pix, 
 				ByRef pangle as Single(), 
 				ByRef pconf as Single(), 
+				ByVal redsweep as Integer, 
+				ByVal redsearch as Integer, 
 				ByVal sweeprange as Single, 
 				ByVal sweepdelta as Single, 
-				ByVal minbsdelta as Single, 
-				Optional ByVal redsweep as Integer = 0, 
-				Optional ByVal redsearch as Integer = 0) as Integer
+				ByVal minbsdelta as Single) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sweeprange) then Throw New ArgumentNullException  ("sweeprange cannot be Nothing")
 	If IsNothing (sweepdelta) then Throw New ArgumentNullException  ("sweepdelta cannot be Nothing")
 	If IsNothing (minbsdelta) then Throw New ArgumentNullException  ("minbsdelta cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
-	If {0,1,2,4,8}.contains (redsweep) = false then Throw New ArgumentException ("sweep reduction factor = 1, 2, 4 or 8") ' All Functions - specific Parameter - ArrayCheck
-	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("binary search reduction factor = 1, 2, 4 or 8; and must not exceed redsweep") ' All Functions - specific Parameter - ArrayCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+	If {0,1,2,4,8}.contains (redsweep) = false then Throw New ArgumentException ("sweep reduction factor = 1, 2, 4 or 8")
+	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("binary search reduction factor = 1, 2, 4 or 8; and must not exceed redsweep")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindSkewSweepAndSearch( pixs.Pointer, pangle, pconf, redsweep, redsearch, sweeprange, sweepdelta, minbsdelta)
@@ -294,22 +294,22 @@ Public Shared Function pixFindSkewSweepAndSearchScore(
 				ByVal pixs as Pix, 
 				ByRef pangle as Single(), 
 				ByRef pconf as Single(), 
+				ByRef pendscore as Single(), 
+				ByVal redsweep as Integer, 
+				ByVal redsearch as Integer, 
 				ByVal sweepcenter as Single, 
 				ByVal sweeprange as Single, 
 				ByVal sweepdelta as Single, 
-				ByVal minbsdelta as Single, 
-				Optional ByRef pendscore as Single() = Nothing, 
-				Optional ByVal redsweep as Integer = 0, 
-				Optional ByVal redsearch as Integer = 0) as Integer
+				ByVal minbsdelta as Single) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sweepcenter) then Throw New ArgumentNullException  ("sweepcenter cannot be Nothing")
 	If IsNothing (sweeprange) then Throw New ArgumentNullException  ("sweeprange cannot be Nothing")
 	If IsNothing (sweepdelta) then Throw New ArgumentNullException  ("sweepdelta cannot be Nothing")
 	If IsNothing (minbsdelta) then Throw New ArgumentNullException  ("minbsdelta cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
-	If {0,1,2,4,8}.contains (redsweep) = false then Throw New ArgumentException ("sweep reduction factor = 1, 2, 4 or 8") ' All Functions - specific Parameter - ArrayCheck
-	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("binary search reduction factor = 1, 2, 4 or 8; and must not exceed redsweep") ' All Functions - specific Parameter - ArrayCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+	If {0,1,2,4,8}.contains (redsweep) = false then Throw New ArgumentException ("sweep reduction factor = 1, 2, 4 or 8")
+	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("binary search reduction factor = 1, 2, 4 or 8; and must not exceed redsweep")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindSkewSweepAndSearchScore( pixs.Pointer, pangle, pconf, pendscore, redsweep, redsearch, sweepcenter, sweeprange, sweepdelta, minbsdelta)
@@ -348,23 +348,23 @@ Public Shared Function pixFindSkewSweepAndSearchScorePivot(
 				ByVal pixs as Pix, 
 				ByRef pangle as Single(), 
 				ByRef pconf as Single(), 
+				ByRef pendscore as Single(), 
+				ByVal redsweep as Integer, 
+				ByVal redsearch as Integer, 
 				ByVal sweepcenter as Single, 
 				ByVal sweeprange as Single, 
 				ByVal sweepdelta as Single, 
 				ByVal minbsdelta as Single, 
-				ByVal pivot as Enumerations.L_SHEAR_ABOUT_CER, 
-				Optional ByRef pendscore as Single() = Nothing, 
-				Optional ByVal redsweep as Integer = 0, 
-				Optional ByVal redsearch as Integer = 0) as Integer
+				ByVal pivot as Enumerations.L_SHEAR_ABOUT_CER) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sweepcenter) then Throw New ArgumentNullException  ("sweepcenter cannot be Nothing")
 	If IsNothing (sweeprange) then Throw New ArgumentNullException  ("sweeprange cannot be Nothing")
 	If IsNothing (sweepdelta) then Throw New ArgumentNullException  ("sweepdelta cannot be Nothing")
 	If IsNothing (minbsdelta) then Throw New ArgumentNullException  ("minbsdelta cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
-	If {0,1,2,4,8}.contains (redsweep) = false then Throw New ArgumentException ("sweep reduction factor = 1, 2, 4 or 8") ' All Functions - specific Parameter - ArrayCheck
-	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("binary search reduction factor = 1, 2, 4 or 8; and must not exceed redsweep") ' All Functions - specific Parameter - ArrayCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+	If {0,1,2,4,8}.contains (redsweep) = false then Throw New ArgumentException ("sweep reduction factor = 1, 2, 4 or 8")
+	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("binary search reduction factor = 1, 2, 4 or 8; and must not exceed redsweep")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindSkewSweepAndSearchScorePivot( pixs.Pointer, pangle, pconf, pendscore, redsweep, redsearch, sweepcenter, sweeprange, sweepdelta, minbsdelta, pivot)
@@ -385,12 +385,12 @@ Public Shared Function pixFindSkewOrthogonalRange(
 				ByRef pixs as Pix, 
 				ByRef pangle as Single(), 
 				ByRef pconf as Single(), 
+				ByRef redsweep as Integer, 
+				ByRef redsearch as Integer, 
 				ByRef sweeprange as Single, 
 				ByRef sweepdelta as Single, 
 				ByRef minbsdelta as Single, 
-				ByRef confprior as Single, 
-				Optional ByVal redsweep as Integer = 0, 
-				Optional ByVal redsearch as Integer = 0) as Integer
+				ByRef confprior as Single) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pangle) then Throw New ArgumentNullException  ("pangle cannot be Nothing")
@@ -399,8 +399,8 @@ Public Shared Function pixFindSkewOrthogonalRange(
 	If IsNothing (sweepdelta) then Throw New ArgumentNullException  ("sweepdelta cannot be Nothing")
 	If IsNothing (minbsdelta) then Throw New ArgumentNullException  ("minbsdelta cannot be Nothing")
 	If IsNothing (confprior) then Throw New ArgumentNullException  ("confprior cannot be Nothing")
-	If {0,1,2,4,8}.contains (redsweep) = false then Throw New ArgumentException ("") ' All Functions - specific Parameter - ArrayCheck
-	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("") ' All Functions - specific Parameter - ArrayCheck
+	If {0,1,2,4,8}.contains (redsweep) = false then Throw New ArgumentException ("")
+	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("")
 
 Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 
@@ -459,9 +459,9 @@ End Function
 '''   <returns>0 if OK, 1 on error or if there are no fg pixels</returns>
 Public Shared Function pixFindNormalizedSquareSum(
 				ByVal pixs as Pix, 
-				Optional ByRef phratio as Single() = Nothing, 
-				Optional ByRef pvratio as Single() = Nothing, 
-				Optional ByRef pfract as Single() = Nothing) as Integer
+				ByRef phratio as Single(), 
+				ByRef pvratio as Single(), 
+				ByRef pfract as Single()) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 

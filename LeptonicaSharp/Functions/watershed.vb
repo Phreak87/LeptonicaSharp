@@ -97,8 +97,8 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function wshedBasins(
 				ByVal wshed as L_WShed, 
-				Optional ByRef ppixa as Pixa = Nothing, 
-				Optional ByRef pnalevels as Numa = Nothing) as Integer
+				ByRef ppixa as Pixa, 
+				ByRef pnalevels as Numa) as Integer
 
 	If IsNothing (wshed) then Throw New ArgumentNullException  ("wshed cannot be Nothing")
 

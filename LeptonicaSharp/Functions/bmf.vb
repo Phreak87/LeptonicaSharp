@@ -22,8 +22,8 @@ Partial Public Class _AllFunctions
 '''  <param name="fontsize">[in] - 4, 6, 8, ... , 20</param>
 '''   <returns>bmf holding the bitmap font and associated information</returns>
 Public Shared Function bmfCreate(
-				ByVal fontsize as Integer, 
-				Optional ByVal dir as String = Nothing) as L_Bmf
+				ByVal dir as String, 
+				ByVal fontsize as Integer) as L_Bmf
 
 
 
@@ -179,9 +179,9 @@ End Function
 '''  <param name="fontsize">[in] - in pts, at 300 ppi</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaSaveFont(
+				ByVal indir as String, 
 				ByVal outdir as String, 
-				ByVal fontsize as Integer, 
-				Optional ByVal indir as String = Nothing) as Integer
+				ByVal fontsize as Integer) as Integer
 
 	If IsNothing (outdir) then Throw New ArgumentNullException  ("outdir cannot be Nothing")
 

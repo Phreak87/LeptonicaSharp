@@ -84,7 +84,7 @@ Public Shared Function pixThinConnected(
 				ByVal maxiters as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixThinConnected( pixs.Pointer, type, connectivity, maxiters)
@@ -129,7 +129,7 @@ Public Shared Function pixThinConnectedBySet(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixThinConnectedBySet( pixs.Pointer, type, sela.Pointer, maxiters)
@@ -169,7 +169,7 @@ End Function
 '''   <returns>sela, or NULL on error</returns>
 Public Shared Function selaMakeThinSets(
 				ByVal index as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Sela
+				ByVal debug as Enumerations.DebugOnOff) as Sela
 
 
 

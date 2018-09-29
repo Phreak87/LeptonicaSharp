@@ -95,12 +95,12 @@ End Function
 '''   <returns>0 if OK; 1 on error</returns>
 Public Shared Function pixColorGray(
 				ByVal pixs as Pix, 
+				ByVal box as Box, 
 				ByVal type as Enumerations.L_PAINT, 
 				ByVal thresh as Integer, 
 				ByVal rval as Integer, 
 				ByVal gval as Integer, 
-				ByVal bval as Integer, 
-				Optional ByVal box as Box = Nothing) as Integer
+				ByVal bval as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -183,15 +183,13 @@ End Function
 '''  <param name="diff">[in] - max absolute difference, applied to all components</param>
 '''   <returns>pixd with all pixels within diff of pixval set to pixval, or pixd on error</returns>
 Public Shared Function pixSnapColor(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal srcval as UInteger, 
 				ByVal dstval as UInteger, 
-				ByVal diff as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal diff as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (srcval) then Throw New ArgumentNullException  ("srcval cannot be Nothing")
-	If IsNothing (dstval) then Throw New ArgumentNullException  ("dstval cannot be Nothing")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -223,15 +221,13 @@ End Function
 '''  <param name="diff">[in] - max absolute difference, applied to all components</param>
 '''   <returns>pixd with all pixels within diff of srcval set to dstval, or pixd on error</returns>
 Public Shared Function pixSnapColorCmap(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal srcval as UInteger, 
 				ByVal dstval as UInteger, 
-				ByVal diff as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal diff as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (srcval) then Throw New ArgumentNullException  ("srcval cannot be Nothing")
-	If IsNothing (dstval) then Throw New ArgumentNullException  ("dstval cannot be Nothing")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -270,15 +266,13 @@ End Function
 '''  <param name="dstval">[in] - target color 0xrrggbb00</param>
 '''   <returns>pixd with all pixels mapped based on the srcval/destval mapping, or pixd on error</returns>
 Public Shared Function pixLinearMapToTargetColor(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal srcval as UInteger, 
-				ByVal dstval as UInteger, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal dstval as UInteger) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (srcval) then Throw New ArgumentNullException  ("srcval cannot be Nothing")
-	If IsNothing (dstval) then Throw New ArgumentNullException  ("dstval cannot be Nothing")
-	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb") ' All Functions - All Parameters - CommentCheck
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -322,9 +316,6 @@ Public Shared Function pixelLinearMapToTargetColor(
 				ByVal dstmap as UInteger, 
 				ByRef pdcolor as UInteger) as Integer
 
-	If IsNothing (scolor) then Throw New ArgumentNullException  ("scolor cannot be Nothing")
-	If IsNothing (srcmap) then Throw New ArgumentNullException  ("srcmap cannot be Nothing")
-	If IsNothing (dstmap) then Throw New ArgumentNullException  ("dstmap cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixelLinearMapToTargetColor( scolor, srcmap, dstmap, pdcolor)
@@ -374,15 +365,13 @@ End Function
 '''  <param name="dstval">[in] - target color 0xrrggbb00</param>
 '''   <returns>pixd with all pixels mapped based on the srcval/destval mapping, or pixd on error</returns>
 Public Shared Function pixShiftByComponent(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal srcval as UInteger, 
-				ByVal dstval as UInteger, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal dstval as UInteger) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (srcval) then Throw New ArgumentNullException  ("srcval cannot be Nothing")
-	If IsNothing (dstval) then Throw New ArgumentNullException  ("dstval cannot be Nothing")
-	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb") ' All Functions - All Parameters - CommentCheck
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -421,8 +410,6 @@ Public Shared Function pixelShiftByComponent(
 				ByVal dstval as UInteger, 
 				ByRef ppixel as UInteger) as Integer
 
-	If IsNothing (srcval) then Throw New ArgumentNullException  ("srcval cannot be Nothing")
-	If IsNothing (dstval) then Throw New ArgumentNullException  ("dstval cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixelShiftByComponent( rval, gval, bval, srcval, dstval, ppixel)

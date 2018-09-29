@@ -65,7 +65,6 @@ Public Shared Function pixSetPixel(
 				ByVal val as UInteger) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetPixel( pix.Pointer, x, y, val)
@@ -91,12 +90,12 @@ Public Shared Function pixGetRGBPixel(
 				ByVal pix as Pix, 
 				ByVal x as Integer, 
 				ByRef y as Integer, 
-				Optional ByRef prval as Integer = Nothing, 
-				Optional ByRef pgval as Integer = Nothing, 
-				Optional ByRef pbval as Integer = Nothing) as Integer
+				ByRef prval as Integer, 
+				ByRef pgval as Integer, 
+				ByRef pbval as Integer) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If {32}.contains (pix.d) = false then Throw New ArgumentException ("32 bpp rgb, not colormapped") ' All Functions - All Parameters - CommentCheck
+	If {32}.contains (pix.d) = false then Throw New ArgumentException ("32 bpp rgb, not colormapped")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetRGBPixel( pix.Pointer, x, y, prval, pgval, pbval)
@@ -127,7 +126,7 @@ Public Shared Function pixSetRGBPixel(
 				ByVal bval as Integer) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If {32}.contains (pix.d) = false then Throw New ArgumentException ("32 bpp rgb") ' All Functions - All Parameters - CommentCheck
+	If {32}.contains (pix.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetRGBPixel( pix.Pointer, x, y, rval, gval, bval)
@@ -151,9 +150,9 @@ End Function
 '''   <returns>0 if OK; 1 on error</returns>
 Public Shared Function pixGetRandomPixel(
 				ByVal pix as Pix, 
-				Optional ByRef pval as UInteger = Nothing, 
-				Optional ByRef px as Integer = Nothing, 
-				Optional ByRef py as Integer = Nothing) as Integer
+				ByRef pval as UInteger, 
+				ByRef px as Integer, 
+				ByRef py as Integer) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
@@ -231,7 +230,6 @@ Public Shared Sub setPixelLow(
 				ByVal val as UInteger)
 
 	If IsNothing (line) then Throw New ArgumentNullException  ("line cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 	Dim linePTR As IntPtr = Marshal.AllocHGlobal(line.Count) : Marshal.Copy(line, 0, linePTR, line.Length)
 
@@ -386,7 +384,6 @@ Public Shared Function pixSetAllArbitrary(
 				ByVal val as UInteger) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetAllArbitrary( pix.Pointer, val)
@@ -531,7 +528,6 @@ Public Shared Function pixSetInRectArbitrary(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetInRectArbitrary( pix.Pointer, box.Pointer, val)
@@ -557,14 +553,13 @@ End Function
 '''   <returns>0 if OK; 1 on error</returns>
 Public Shared Function pixBlendInRect(
 				ByVal pixs as Pix, 
+				ByVal box as Box, 
 				ByVal val as UInteger, 
-				ByVal fract as Single, 
-				Optional ByVal box as Box = Nothing) as Integer
+				ByVal fract as Single) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
-	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb") ' All Functions - All Parameters - CommentCheck
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -606,7 +601,7 @@ Public Shared Function pixSetPadBits(
 				ByVal val as Integer) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If {1,2,4,8,16,32}.contains (pix.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16, 32 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1,2,4,8,16,32}.contains (pix.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16, 32 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetPadBits( pix.Pointer, val)
@@ -642,7 +637,7 @@ Public Shared Function pixSetPadBitsBand(
 				ByVal val as Integer) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If {1,2,4,8,16,32}.contains (pix.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16, 32 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1,2,4,8,16,32}.contains (pix.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16, 32 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetPadBitsBand( pix.Pointer, by, bh, val)
@@ -720,7 +715,6 @@ Public Shared Function pixSetBorderVal(
 				ByVal val as UInteger) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetBorderVal( pixs.Pointer, left, right, top, bot, val)
@@ -749,7 +743,6 @@ Public Shared Function pixSetBorderRingVal(
 				ByVal val as UInteger) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetBorderRingVal( pixs.Pointer, dist, val)
@@ -851,7 +844,6 @@ Public Shared Function pixAddBorder(
 				ByVal val as UInteger) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAddBorder( pixs.Pointer, npix, val)
@@ -949,7 +941,6 @@ Public Shared Function pixAddBorderGeneral(
 				ByVal val as UInteger) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAddBorderGeneral( pixs.Pointer, left, right, top, bot, val)
@@ -1250,7 +1241,6 @@ Public Shared Function pixDisplayLayersRGBA(
 				ByVal maxw as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDisplayLayersRGBA( pixs.Pointer, val, maxw)
@@ -1350,7 +1340,7 @@ Public Shared Function pixSetRGBComponent(
 
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetRGBComponent( pixd.Pointer, pixs.Pointer, comp)
@@ -1493,11 +1483,10 @@ End Function
 '''  <param name="pbval">[out][optional] - blue component</param>
 Public Shared Sub extractRGBValues(
 				ByVal pixel as UInteger, 
-				Optional ByRef prval as Integer = Nothing, 
-				Optional ByRef pgval as Integer = Nothing, 
-				Optional ByRef pbval as Integer = Nothing)
+				ByRef prval as Integer, 
+				ByRef pgval as Integer, 
+				ByRef pbval as Integer)
 
-	If IsNothing (pixel) then Throw New ArgumentNullException  ("pixel cannot be Nothing")
 
 
 	LeptonicaSharp.Natives.extractRGBValues( pixel, prval, pgval, pbval)
@@ -1519,12 +1508,11 @@ End Sub
 '''  <param name="paval">[out][optional] - alpha component</param>
 Public Shared Sub extractRGBAValues(
 				ByVal pixel as UInteger, 
-				Optional ByRef prval as Integer = Nothing, 
-				Optional ByRef pgval as Integer = Nothing, 
-				Optional ByRef pbval as Integer = Nothing, 
-				Optional ByRef paval as Integer = Nothing)
+				ByRef prval as Integer, 
+				ByRef pgval as Integer, 
+				ByRef pbval as Integer, 
+				ByRef paval as Integer)
 
-	If IsNothing (pixel) then Throw New ArgumentNullException  ("pixel cannot be Nothing")
 
 
 	LeptonicaSharp.Natives.extractRGBAValues( pixel, prval, pgval, pbval, paval)
@@ -1546,7 +1534,6 @@ Public Shared Function extractMinMaxComponent(
 				ByVal pixel as UInteger, 
 				ByVal type as Enumerations.L_CHOOSE_M) as Integer
 
-	If IsNothing (pixel) then Throw New ArgumentNullException  ("pixel cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.extractMinMaxComponent( pixel, type)
@@ -1772,12 +1759,12 @@ Public Shared Function pixGetRasterData(
 				ByRef pnbytes as UInteger) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1,8,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 8, 32 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1,8,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 8, 32 bpp")
 
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetRasterData( pixs.Pointer, pdataPTR, pnbytes)
-ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
+	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
 End Function
@@ -1833,8 +1820,8 @@ End Function
 '''   <returns>line ptr array, or NULL on error</returns>
 Public Shared Function pixSetupByteProcessing(
 				ByVal pix as Pix, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing) as List( of Byte())
+				ByRef pw as Integer, 
+				ByRef ph as Integer) as List( of Byte())
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 

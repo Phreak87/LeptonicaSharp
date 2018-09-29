@@ -52,7 +52,6 @@ Public Shared Function pixcompCreateFromString(
 				ByVal copyflag as Enumerations.L_access_storage) as PixComp
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixcompCreateFromString( data, size, copyflag)
@@ -81,6 +80,7 @@ Public Shared Function pixcompCreateFromFile(
 				ByVal comptype as Enumerations.IFF) as PixComp
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixcompCreateFromFile( filename, comptype)
@@ -147,9 +147,9 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixcompGetDimensions(
 				ByVal pixc as PixComp, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing, 
-				Optional ByRef pd as Integer = Nothing) as Integer
+				ByRef pw as Integer, 
+				ByRef ph as Integer, 
+				ByRef pd as Integer) as Integer
 
 	If IsNothing (pixc) then Throw New ArgumentNullException  ("pixc cannot be Nothing")
 
@@ -175,10 +175,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixcompGetParameters(
 				ByVal pixc as PixComp, 
-				Optional ByRef pxres as Integer = Nothing, 
-				Optional ByRef pyres as Integer = Nothing, 
-				Optional ByRef pcomptype as Integer = Nothing, 
-				Optional ByRef pcmapflag as Integer = Nothing) as Integer
+				ByRef pxres as Integer, 
+				ByRef pyres as Integer, 
+				ByRef pcomptype as Integer, 
+				ByRef pcmapflag as Integer) as Integer
 
 	If IsNothing (pixc) then Throw New ArgumentNullException  ("pixc cannot be Nothing")
 
@@ -304,8 +304,8 @@ End Function
 Public Shared Function pixacompCreateWithInit(
 				ByVal n as Integer, 
 				ByVal offset as Integer, 
-				ByVal comptype as Enumerations.IFF, 
-				Optional ByVal pix as Pix = Nothing) as PixaComp
+				ByVal pix as Pix, 
+				ByVal comptype as Enumerations.IFF) as PixaComp
 
 
 	Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
@@ -373,8 +373,8 @@ End Function
 '''   <returns>pixac, or NULL on error</returns>
 Public Shared Function pixacompCreateFromFiles(
 				ByVal dirname as String, 
-				ByVal comptype as Enumerations.IFF, 
-				Optional ByVal substr as String = Nothing) as PixaComp
+				ByVal substr as String, 
+				ByVal comptype as Enumerations.IFF) as PixaComp
 
 	If IsNothing (dirname) then Throw New ArgumentNullException  ("dirname cannot be Nothing")
 
@@ -678,9 +678,9 @@ End Function
 Public Shared Function pixacompGetPixDimensions(
 				ByVal pixac as PixaComp, 
 				ByVal index as Integer, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing, 
-				Optional ByRef pd as Integer = Nothing) as Integer
+				ByRef pw as Integer, 
+				ByRef ph as Integer, 
+				ByRef pd as Integer) as Integer
 
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
 
@@ -791,10 +791,10 @@ End Function
 Public Shared Function pixacompGetBoxGeometry(
 				ByVal pixac as PixaComp, 
 				ByVal index as Integer, 
-				Optional ByRef px as Integer = Nothing, 
-				Optional ByRef py as Integer = Nothing, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing) as Integer
+				ByRef px as Integer, 
+				ByRef py as Integer, 
+				ByRef pw as Integer, 
+				ByRef ph as Integer) as Integer
 
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
 
@@ -900,9 +900,9 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixacompJoin(
 				ByVal pixacd as PixaComp, 
+				ByVal pixacs as PixaComp, 
 				ByVal istart as Integer, 
-				ByVal iend as Integer, 
-				Optional ByVal pixacs as PixaComp = Nothing) as Integer
+				ByVal iend as Integer) as Integer
 
 	If IsNothing (pixacd) then Throw New ArgumentNullException  ("pixacd cannot be Nothing")
 
@@ -957,6 +957,7 @@ Public Shared Function pixacompRead(
 				ByVal filename as String) as PixaComp
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixacompRead( filename)
@@ -1004,7 +1005,6 @@ Public Shared Function pixacompReadMem(
 				ByVal size as UInteger) as PixaComp
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixacompReadMem( data, size)
@@ -1033,6 +1033,7 @@ Public Shared Function pixacompWrite(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompWrite( filename, pixac.Pointer)
@@ -1087,7 +1088,7 @@ Public Shared Function pixacompWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompWriteMem( pdataPTR, psize, pixac.Pointer)
-ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
+	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
 End Function
@@ -1126,8 +1127,8 @@ Public Shared Function pixacompConvertToPdf(
 				ByVal scalefactor as Single, 
 				ByVal type as Enumerations.L_ENCODE, 
 				ByVal quality as Integer, 
-				ByVal fileout as String, 
-				Optional ByVal title as String = Nothing) as Integer
+				ByVal title as String, 
+				ByVal fileout as String) as Integer
 
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
 	If IsNothing (scalefactor) then Throw New ArgumentNullException  ("scalefactor cannot be Nothing")
@@ -1163,9 +1164,9 @@ Public Shared Function pixacompConvertToPdfData(
 				ByVal scalefactor as Single, 
 				ByVal type as Enumerations.L_ENCODE, 
 				ByVal quality as Integer, 
+				ByVal title as String, 
 				ByRef pdata as Byte(), 
-				ByRef pnbytes as UInteger, 
-				Optional ByVal title as String = Nothing) as Integer
+				ByRef pnbytes as UInteger) as Integer
 
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
 	If IsNothing (scalefactor) then Throw New ArgumentNullException  ("scalefactor cannot be Nothing")
@@ -1173,7 +1174,7 @@ Public Shared Function pixacompConvertToPdfData(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompConvertToPdfData( pixac.Pointer, res, scalefactor, type, quality, title, pdataPTR, pnbytes)
-ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
+	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
 End Function
@@ -1198,16 +1199,16 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixacompFastConvertToPdfData(
 				ByVal pixac as PixaComp, 
+				ByVal title as String, 
 				ByRef pdata as Byte(), 
-				ByRef pnbytes as UInteger, 
-				Optional ByVal title as String = Nothing) as Integer
+				ByRef pnbytes as UInteger) as Integer
 
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
 
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompFastConvertToPdfData( pixac.Pointer, title, pdataPTR, pnbytes)
-ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
+	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
 End Function
@@ -1227,7 +1228,7 @@ End Function
 Public Shared Function pixacompWriteStreamInfo(
 				ByVal fp as FILE, 
 				ByVal pixac as PixaComp, 
-				Optional ByVal text as String = Nothing) as Integer
+				ByVal text as String) as Integer
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
@@ -1253,7 +1254,7 @@ End Function
 Public Shared Function pixcompWriteStreamInfo(
 				ByVal fp as FILE, 
 				ByVal pixc as PixComp, 
-				Optional ByVal text as String = Nothing) as Integer
+				ByVal text as String) as Integer
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pixc) then Throw New ArgumentNullException  ("pixc cannot be Nothing")

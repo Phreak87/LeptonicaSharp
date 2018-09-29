@@ -34,11 +34,11 @@ Partial Public Class _AllFunctions
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixSetSelectCmap(
 				ByVal pixs as Pix, 
+				ByVal box as Box, 
 				ByVal sindex as Integer, 
 				ByVal rval as Integer, 
 				ByVal gval as Integer, 
-				ByVal bval as Integer, 
-				Optional ByVal box as Box = Nothing) as Integer
+				ByVal bval as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -137,11 +137,11 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixColorGrayCmap(
 				ByVal pixs as Pix, 
+				ByVal box as Box, 
 				ByVal type as Enumerations.L_PAINT, 
 				ByVal rval as Integer, 
 				ByVal gval as Integer, 
-				ByVal bval as Integer, 
-				Optional ByVal box as Box = Nothing) as Integer
+				ByVal bval as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -230,7 +230,7 @@ Public Shared Function addColorizedGrayToCmap(
 				ByVal rval as Integer, 
 				ByVal gval as Integer, 
 				ByVal bval as Integer, 
-				Optional ByRef pna as Numa = Nothing) as Integer
+				ByRef pna as Numa) as Integer
 
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
 
@@ -270,13 +270,13 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixSetSelectMaskedCmap(
 				ByVal pixs as Pix, 
+				ByVal pixm as Pix, 
 				ByVal x as Integer, 
 				ByVal y as Integer, 
 				ByVal sindex as Integer, 
 				ByVal rval as Integer, 
 				ByVal gval as Integer, 
-				ByVal bval as Integer, 
-				Optional ByVal pixm as Pix = Nothing) as Integer
+				ByVal bval as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -315,12 +315,12 @@ End Function
 '''   <returns>0 if OK; 1 on error</returns>
 Public Shared Function pixSetMaskedCmap(
 				ByVal pixs as Pix, 
+				ByVal pixm as Pix, 
 				ByVal x as Integer, 
 				ByVal y as Integer, 
 				ByVal rval as Integer, 
 				ByVal gval as Integer, 
-				ByVal bval as Integer, 
-				Optional ByVal pixm as Pix = Nothing) as Integer
+				ByVal bval as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 

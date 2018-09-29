@@ -33,7 +33,7 @@ Public Shared Function recogDecode(
 				ByVal recog as L_Recog, 
 				ByVal pixs as Pix, 
 				ByVal nlevels as Integer, 
-				Optional ByRef ppixdb as Pix = Nothing) as Boxa
+				ByRef ppixdb as Pix) as Boxa
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")

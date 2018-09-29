@@ -21,7 +21,7 @@ Public Shared Function pixExtractBoundary(
 				ByVal type as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtractBoundary( pixs.Pointer, type)
@@ -48,13 +48,13 @@ End Function
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixMorphSequenceMasked(
 				ByVal pixs as Pix, 
+				ByVal pixm as Pix, 
 				ByVal sequence as String, 
-				ByVal dispsep as Integer, 
-				Optional ByVal pixm as Pix = Nothing) as Pix
+				ByVal dispsep as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
@@ -93,11 +93,11 @@ Public Shared Function pixMorphSequenceByComponent(
 				ByVal connectivity as Integer, 
 				ByVal minw as Integer, 
 				ByVal minh as Integer, 
-				Optional ByRef pboxa as Boxa = Nothing) as Pix
+				ByRef pboxa as Boxa) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = pboxa.Pointer
 
@@ -178,12 +178,12 @@ Public Shared Function pixMorphSequenceByRegion(
 				ByVal connectivity as Integer, 
 				ByVal minw as Integer, 
 				ByVal minh as Integer, 
-				Optional ByRef pboxa as Boxa = Nothing) as Pix
+				ByRef pboxa as Boxa) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = pboxa.Pointer
 
@@ -226,7 +226,7 @@ Public Shared Function pixaMorphSequenceByRegion(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixam) then Throw New ArgumentNullException  ("pixam cannot be Nothing")
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaMorphSequenceByRegion( pixs.Pointer, pixam.Pointer, sequence, minw, minh)
@@ -397,7 +397,6 @@ Public Shared Function pixDisplayMatchedPattern(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixp) then Throw New ArgumentNullException  ("pixp cannot be Nothing")
 	If IsNothing (pixe) then Throw New ArgumentNullException  ("pixe cannot be Nothing")
-	If IsNothing (color) then Throw New ArgumentNullException  ("color cannot be Nothing")
 	If IsNothing (scale) then Throw New ArgumentNullException  ("scale cannot be Nothing")
 
 
@@ -750,10 +749,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixCentroid(
 				ByVal pix as Pix, 
+				ByVal centtab as Integer(), 
+				ByVal sumtab as Integer(), 
 				ByRef pxave as Single(), 
-				ByRef pyave as Single(), 
-				Optional ByVal centtab as Integer() = Nothing, 
-				Optional ByVal sumtab as Integer() = Nothing) as Integer
+				ByRef pyave as Single()) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 

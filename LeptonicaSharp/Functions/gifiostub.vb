@@ -39,7 +39,6 @@ Public Shared Function pixReadMemGif(
 				ByRef size as UInteger) as Pix
 
 	If IsNothing (cdata) then Throw New ArgumentNullException  ("cdata cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemGif( cdata, size)

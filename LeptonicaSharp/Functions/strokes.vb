@@ -18,11 +18,11 @@ Partial Public Class _AllFunctions
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixFindStrokeLength(
 				ByVal pixs as Pix, 
-				ByRef plength as Integer, 
-				Optional ByVal tab8 as Integer() = Nothing) as Integer
+				ByVal tab8 as Integer(), 
+				ByRef plength as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindStrokeLength( pixs.Pointer, tab8, plength)
@@ -54,13 +54,13 @@ End Function
 Public Shared Function pixFindStrokeWidth(
 				ByVal pixs as Pix, 
 				ByVal thresh as Single, 
+				ByVal tab8 as Integer(), 
 				ByRef pwidth as Single(), 
-				Optional ByVal tab8 as Integer() = Nothing, 
-				Optional ByRef pnahisto as Numa = Nothing) as Integer
+				ByRef pnahisto as Numa) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 Dim pnahistoPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnahisto) Then pnahistoPTR = pnahisto.Pointer
 
@@ -87,8 +87,8 @@ End Function
 Public Shared Function pixaFindStrokeWidth(
 				ByVal pixa as Pixa, 
 				ByVal thresh as Single, 
-				Optional ByVal tab8 as Integer() = Nothing, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Numa
+				ByVal tab8 as Integer(), 
+				ByVal debug as Enumerations.DebugOnOff) as Numa
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")

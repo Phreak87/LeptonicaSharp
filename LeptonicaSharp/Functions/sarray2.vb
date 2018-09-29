@@ -223,7 +223,7 @@ End Function
 Public Shared Function sarrayRemoveDupsByHash(
 				ByVal sas as Sarray, 
 				ByRef psad as Sarray, 
-				Optional ByRef pdahash as L_DnaHash = Nothing) as Integer
+				ByRef pdahash as L_DnaHash) as Integer
 
 	If IsNothing (sas) then Throw New ArgumentNullException  ("sas cannot be Nothing")
 

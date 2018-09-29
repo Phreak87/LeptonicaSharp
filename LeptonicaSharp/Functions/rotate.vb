@@ -177,7 +177,7 @@ Public Shared Function pixRotateBinaryNice(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (angle) then Throw New ArgumentNullException  ("angle cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotateBinaryNice( pixs.Pointer, angle, incolor)
@@ -236,8 +236,8 @@ End Function
 Public Shared Function pixRotateWithAlpha(
 				ByVal pixs as Pix, 
 				ByVal angle as Single, 
-				ByVal fract as Single, 
-				Optional ByVal pixg as Pix = Nothing) as Pix
+				ByVal pixg as Pix, 
+				ByVal fract as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (angle) then Throw New ArgumentNullException  ("angle cannot be Nothing")

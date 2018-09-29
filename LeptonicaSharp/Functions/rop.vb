@@ -238,11 +238,11 @@ End Function
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 '''   <returns>pixd, or NULL on error.</returns>
 Public Shared Function pixTranslate(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hshift as Integer, 
 				ByVal vshift as Integer, 
-				ByVal incolor as Enumerations.L_BRING_IN, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 

@@ -21,10 +21,10 @@ Partial Public Class _AllFunctions
 '''  <param name="op">[in] - L_ARITH_ADD, L_ARITH_SUBTRACT, L_ARITH_MULTIPLY, L_ARITH_DIVIDE</param>
 '''   <returns>nad always operation applied to na1 and na2</returns>
 Public Shared Function numaArithOp(
+				ByVal nad as Numa, 
 				ByVal na1 as Numa, 
 				ByVal na2 as Numa, 
-				ByVal op as Enumerations.L_arithmetic_logical_operator, 
-				Optional ByVal nad as Numa = Nothing) as Numa
+				ByVal op as Enumerations.L_arithmetic_logical_operator) as Numa
 
 	If IsNothing (na1) then Throw New ArgumentNullException  ("na1 cannot be Nothing")
 	If IsNothing (na2) then Throw New ArgumentNullException  ("na2 cannot be Nothing")
@@ -59,10 +59,10 @@ End Function
 '''  <param name="op">[in] - L_UNION, L_INTERSECTION, L_SUBTRACTION, L_EXCLUSIVE_OR</param>
 '''   <returns>nad always operation applied to na1 and na2</returns>
 Public Shared Function numaLogicalOp(
+				ByVal nad as Numa, 
 				ByVal na1 as Numa, 
 				ByVal na2 as Numa, 
-				ByVal op as Enumerations.L_arithmetic_logical_operator, 
-				Optional ByVal nad as Numa = Nothing) as Numa
+				ByVal op as Enumerations.L_arithmetic_logical_operator) as Numa
 
 	If IsNothing (na1) then Throw New ArgumentNullException  ("na1 cannot be Nothing")
 	If IsNothing (na2) then Throw New ArgumentNullException  ("na2 cannot be Nothing")
@@ -92,8 +92,8 @@ End Function
 '''  <param name="nas">[in] - </param>
 '''   <returns>nad always 'inverts' nas</returns>
 Public Shared Function numaInvert(
-				ByVal nas as Numa, 
-				Optional ByVal nad as Numa = Nothing) as Numa
+				ByVal nad as Numa, 
+				ByVal nas as Numa) as Numa
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
@@ -182,8 +182,8 @@ End Function
 '''   <returns>0 if OK; 1 on error</returns>
 Public Shared Function numaGetMin(
 				ByVal na as Numa, 
-				Optional ByRef pminval as Single() = Nothing, 
-				Optional ByRef piminloc as Integer = Nothing) as Integer
+				ByRef pminval as Single(), 
+				ByRef piminloc as Integer) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
@@ -207,8 +207,8 @@ End Function
 '''   <returns>0 if OK; 1 on error</returns>
 Public Shared Function numaGetMax(
 				ByVal na as Numa, 
-				Optional ByRef pmaxval as Single() = Nothing, 
-				Optional ByRef pimaxloc as Integer = Nothing) as Integer
+				ByRef pmaxval as Single(), 
+				ByRef pimaxloc as Integer) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
@@ -430,8 +430,8 @@ End Function
 '''  <param name="nas">[in] - input numa</param>
 '''   <returns>nad with all numbers being the absval of the input, or NULL on error</returns>
 Public Shared Function numaMakeAbsValue(
-				ByVal nas as Numa, 
-				Optional ByVal nad as Numa = Nothing) as Numa
+				ByVal nad as Numa, 
+				ByVal nas as Numa) as Numa
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
@@ -704,8 +704,8 @@ End Function
 '''  <param name="nas">[in] - input numa</param>
 '''   <returns></returns>
 Public Shared Function numaReverse(
-				ByVal nas as Numa, 
-				Optional ByVal nad as Numa = Nothing) as Numa
+				ByVal nad as Numa, 
+				ByVal nas as Numa) as Numa
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
@@ -806,8 +806,8 @@ End Function
 Public Shared Function numaGetSpanValues(
 				ByVal na as Numa, 
 				ByVal span as Integer, 
-				Optional ByRef pstart as Integer = Nothing, 
-				Optional ByRef pend as Integer = Nothing) as Integer
+				ByRef pstart as Integer, 
+				ByRef pend as Integer) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
@@ -834,9 +834,9 @@ End Function
 Public Shared Function numaGetEdgeValues(
 				ByVal na as Numa, 
 				ByVal edge as Integer, 
-				Optional ByRef pstart as Integer = Nothing, 
-				Optional ByRef pend as Integer = Nothing, 
-				Optional ByRef psign as Integer = Nothing) as Integer
+				ByRef pstart as Integer, 
+				ByRef pend as Integer, 
+				ByRef psign as Integer) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
@@ -962,8 +962,8 @@ Public Shared Function numaInterpolateEqxInterval(
 				ByVal x0 as Single, 
 				ByVal x1 as Single, 
 				ByVal npts as Integer, 
-				ByRef pnay as Numa, 
-				Optional ByRef pnax as Numa = Nothing) as Integer
+				ByRef pnax as Numa, 
+				ByRef pnay as Numa) as Integer
 
 	If IsNothing (startx) then Throw New ArgumentNullException  ("startx cannot be Nothing")
 	If IsNothing (deltax) then Throw New ArgumentNullException  ("deltax cannot be Nothing")
@@ -1016,8 +1016,8 @@ Public Shared Function numaInterpolateArbxInterval(
 				ByVal x0 as Single, 
 				ByVal x1 as Single, 
 				ByVal npts as Integer, 
-				ByRef pnady as Numa, 
-				Optional ByRef pnadx as Numa = Nothing) as Integer
+				ByRef pnadx as Numa, 
+				ByRef pnady as Numa) as Integer
 
 	If IsNothing (nax) then Throw New ArgumentNullException  ("nax cannot be Nothing")
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
@@ -1065,8 +1065,8 @@ End Function
 Public Shared Function numaFitMax(
 				ByVal na as Numa, 
 				ByRef pmaxval as Single(), 
-				ByRef pmaxloc as Single(), 
-				Optional ByVal naloc as Numa = Nothing) as Integer
+				ByVal naloc as Numa, 
+				ByRef pmaxloc as Single()) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
@@ -1103,8 +1103,8 @@ Public Shared Function numaDifferentiateInterval(
 				ByVal x0 as Single, 
 				ByVal x1 as Single, 
 				ByVal npts as Integer, 
-				ByRef pnady as Numa, 
-				Optional ByRef pnadx as Numa = Nothing) as Integer
+				ByRef pnadx as Numa, 
+				ByRef pnady as Numa) as Integer
 
 	If IsNothing (nax) then Throw New ArgumentNullException  ("nax cannot be Nothing")
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
@@ -1202,11 +1202,11 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function numaSortGeneral(
 				ByVal na as Numa, 
+				ByRef pnasort as Numa, 
+				ByRef pnaindex as Numa, 
+				ByRef pnainvert as Numa, 
 				ByVal sortorder as Enumerations.L_SORT_CREASING, 
-				ByVal sorttype as Enumerations.L_SORT, 
-				Optional ByRef pnasort as Numa = Nothing, 
-				Optional ByRef pnaindex as Numa = Nothing, 
-				Optional ByRef pnainvert as Numa = Nothing) as Integer
+				ByVal sorttype as Enumerations.L_SORT) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
@@ -1607,9 +1607,9 @@ End Function
 Public Shared Function numaGetRankValue(
 				ByVal na as Numa, 
 				ByVal fract as Single, 
+				ByVal nasort as Numa, 
 				ByVal usebins as Integer, 
-				ByRef pval as Single(), 
-				Optional ByVal nasort as Numa = Nothing) as Integer
+				ByRef pval as Single()) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
@@ -1692,7 +1692,7 @@ End Function
 Public Shared Function numaGetMode(
 				ByVal na as Numa, 
 				ByRef pval as Single(), 
-				Optional ByRef pcount as Integer = Nothing) as Integer
+				ByRef pcount as Integer) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
@@ -1722,8 +1722,8 @@ End Function
 '''   <returns>0 if OK; 1 on error</returns>
 Public Shared Function numaGetMedianVariation(
 				ByVal na as Numa, 
-				ByRef pmedvar as Single(), 
-				Optional ByRef pmedval as Single() = Nothing) as Integer
+				ByRef pmedval as Single(), 
+				ByRef pmedvar as Single()) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
@@ -1751,9 +1751,9 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function numaJoin(
 				ByVal nad as Numa, 
+				ByVal nas as Numa, 
 				ByVal istart as Integer, 
-				ByVal iend as Integer, 
-				Optional ByVal nas as Numa = Nothing) as Integer
+				ByVal iend as Integer) as Integer
 
 	If IsNothing (nad) then Throw New ArgumentNullException  ("nad cannot be Nothing")
 
@@ -1782,9 +1782,9 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function numaaJoin(
 				ByVal naad as Numaa, 
+				ByVal naas as Numaa, 
 				ByVal istart as Integer, 
-				ByVal iend as Integer, 
-				Optional ByVal naas as Numaa = Nothing) as Integer
+				ByVal iend as Integer) as Integer
 
 	If IsNothing (naad) then Throw New ArgumentNullException  ("naad cannot be Nothing")
 

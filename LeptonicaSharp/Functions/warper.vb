@@ -31,9 +31,7 @@ Public Shared Function pixSimpleCaptcha(
 				ByVal cmapflag as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (seed) then Throw New ArgumentNullException  ("seed cannot be Nothing")
-	If IsNothing (color) then Throw New ArgumentNullException  ("color cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp; no colormap") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp; no colormap")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSimpleCaptcha( pixs.Pointer, border, nterms, seed, color, cmapflag)
@@ -95,8 +93,7 @@ Public Shared Function pixRandomHarmonicWarp(
 	If IsNothing (ymag) then Throw New ArgumentNullException  ("ymag cannot be Nothing")
 	If IsNothing (xfreq) then Throw New ArgumentNullException  ("xfreq cannot be Nothing")
 	If IsNothing (yfreq) then Throw New ArgumentNullException  ("yfreq cannot be Nothing")
-	If IsNothing (seed) then Throw New ArgumentNullException  ("seed cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp; no colormap") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp; no colormap")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRandomHarmonicWarp( pixs.Pointer, xmag, ymag, xfreq, yfreq, nx, ny, seed, grayval)
@@ -459,8 +456,8 @@ Public Shared Function pixStereoFromPair(
 	If IsNothing (rwt) then Throw New ArgumentNullException  ("rwt cannot be Nothing")
 	If IsNothing (gwt) then Throw New ArgumentNullException  ("gwt cannot be Nothing")
 	If IsNothing (bwt) then Throw New ArgumentNullException  ("bwt cannot be Nothing")
-	If {32}.contains (pix1.d) = false then Throw New ArgumentException ("32 bpp rgb") ' All Functions - All Parameters - CommentCheck
-	If {32}.contains (pix2.d) = false then Throw New ArgumentException ("32 bpp rgb") ' All Functions - All Parameters - CommentCheck
+	If {32}.contains (pix1.d) = false then Throw New ArgumentException ("32 bpp rgb")
+	If {32}.contains (pix2.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixStereoFromPair( pix1.Pointer, pix2.Pointer, rwt, gwt, bwt)

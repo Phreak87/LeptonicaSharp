@@ -21,9 +21,10 @@ Partial Public Class _AllFunctions
 Public Shared Function fhmtautogen(
 				ByVal sela as Sela, 
 				ByVal fileindex as Integer, 
-				Optional ByVal filename as String = Nothing) as Integer
+				ByVal filename as String) as Integer
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fhmtautogen( sela.Pointer, fileindex, filename)
@@ -57,9 +58,10 @@ End Function
 Public Shared Function fhmtautogen1(
 				ByVal sela as Sela, 
 				ByVal fileindex as Integer, 
-				Optional ByVal filename as String = Nothing) as Integer
+				ByVal filename as String) as Integer
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fhmtautogen1( sela.Pointer, fileindex, filename)
@@ -91,9 +93,10 @@ End Function
 Public Shared Function fhmtautogen2(
 				ByVal sela as Sela, 
 				ByVal fileindex as Integer, 
-				Optional ByVal filename as String = Nothing) as Integer
+				ByVal filename as String) as Integer
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fhmtautogen2( sela.Pointer, fileindex, filename)

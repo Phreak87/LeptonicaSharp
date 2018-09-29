@@ -41,11 +41,12 @@ Public Shared Function pixReadJpeg(
 				ByVal filename as String, 
 				ByVal cmapflag as Integer, 
 				ByVal reduction as Integer, 
-				ByVal hint as Integer, 
-				Optional ByRef pnwarn as Integer = Nothing) as Pix
+				ByRef pnwarn as Integer, 
+				ByVal hint as Integer) as Pix
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
-	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("scaling factor 1, 2, 4 or 8") ' All Functions - specific Parameter - RangeCheck
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("scaling factor 1, 2, 4 or 8")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadJpeg( filename, cmapflag, reduction, pnwarn, hint)
@@ -73,11 +74,11 @@ Public Shared Function pixReadStreamJpeg(
 				ByVal fp as FILE, 
 				ByVal cmapflag as Integer, 
 				ByVal reduction as Integer, 
-				ByVal hint as Integer, 
-				Optional ByRef pnwarn as Integer = Nothing) as Pix
+				ByRef pnwarn as Integer, 
+				ByVal hint as Integer) as Pix
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
-	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("scaling factor 1, 2, 4 or 8") ' All Functions - specific Parameter - RangeCheck
+	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("scaling factor 1, 2, 4 or 8")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadStreamJpeg( fp.Pointer, cmapflag, reduction, pnwarn, hint)
@@ -103,13 +104,14 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function readHeaderJpeg(
 				ByVal filename as String, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing, 
-				Optional ByRef pspp as Integer = Nothing, 
-				Optional ByRef pycck as Integer = Nothing, 
-				Optional ByRef pcmyk as Integer = Nothing) as Integer
+				ByRef pw as Integer, 
+				ByRef ph as Integer, 
+				ByRef pspp as Integer, 
+				ByRef pycck as Integer, 
+				ByRef pcmyk as Integer) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderJpeg( filename, pw, ph, pspp, pycck, pcmyk)
@@ -134,11 +136,11 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function freadHeaderJpeg(
 				ByVal fp as FILE, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing, 
-				Optional ByRef pspp as Integer = Nothing, 
-				Optional ByRef pycck as Integer = Nothing, 
-				Optional ByRef pcmyk as Integer = Nothing) as Integer
+				ByRef pw as Integer, 
+				ByRef ph as Integer, 
+				ByRef pspp as Integer, 
+				ByRef pycck as Integer, 
+				ByRef pcmyk as Integer) as Integer
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
@@ -217,6 +219,7 @@ Public Shared Function pixWriteJpeg(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteJpeg( filename, pix.Pointer, quality, progressive)
@@ -296,12 +299,11 @@ Public Shared Function pixReadMemJpeg(
 				ByVal size as UInteger, 
 				ByVal cmflag as Integer, 
 				ByVal reduction as Integer, 
-				ByVal hint as Integer, 
-				Optional ByRef pnwarn as Integer = Nothing) as Pix
+				ByRef pnwarn as Integer, 
+				ByVal hint as Integer) as Pix
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
-	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("scaling factor 1, 2, 4 or 8") ' All Functions - specific Parameter - RangeCheck
+	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("scaling factor 1, 2, 4 or 8")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemJpeg( data, size, cmflag, reduction, pnwarn, hint)
@@ -329,14 +331,13 @@ End Function
 Public Shared Function readHeaderMemJpeg(
 				ByVal data as Byte(), 
 				ByVal size as UInteger, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing, 
-				Optional ByRef pspp as Integer = Nothing, 
-				Optional ByRef pycck as Integer = Nothing, 
-				Optional ByRef pcmyk as Integer = Nothing) as Integer
+				ByRef pw as Integer, 
+				ByRef ph as Integer, 
+				ByRef pspp as Integer, 
+				ByRef pycck as Integer, 
+				ByRef pcmyk as Integer) as Integer
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderMemJpeg( data, size, pw, ph, pspp, pycck, pcmyk)
@@ -360,11 +361,10 @@ End Function
 Public Shared Function readResolutionMemJpeg(
 				ByVal data as Byte(), 
 				ByVal size as UInteger, 
-				Optional ByRef pxres as Integer = Nothing, 
-				Optional ByRef pyres as Integer = Nothing) as Integer
+				ByRef pxres as Integer, 
+				ByRef pyres as Integer) as Integer
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readResolutionMemJpeg( data, size, pxres, pyres)
@@ -400,7 +400,7 @@ Public Shared Function pixWriteMemJpeg(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMemJpeg( pdataPTR, psize, pix.Pointer, quality, progressive)
-ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
+	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
 End Function

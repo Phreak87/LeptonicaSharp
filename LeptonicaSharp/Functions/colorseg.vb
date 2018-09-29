@@ -157,13 +157,13 @@ End Function
 Public Shared Function pixAssignToNearestColor(
 				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
+				ByVal pixm as Pix, 
 				ByVal level as Integer, 
-				Optional ByVal pixm as Pix = Nothing, 
-				Optional ByVal countarray as Integer() = Nothing) as Integer
+				ByVal countarray as Integer()) as Integer
 
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixm.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixm.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 

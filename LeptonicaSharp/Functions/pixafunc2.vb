@@ -64,7 +64,6 @@ Public Shared Function pixaDisplayOnColor(
 				ByVal bgcolor as UInteger) as Pix
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-	If IsNothing (bgcolor) then Throw New ArgumentNullException  ("bgcolor cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaDisplayOnColor( pixa.Pointer, w, h, bgcolor)
@@ -131,7 +130,7 @@ Public Shared Function pixaDisplayLinearly(
 				ByVal background as Integer, 
 				ByVal spacing as Integer, 
 				ByVal border as Integer, 
-				Optional ByRef pboxa as Boxa = Nothing) as Pix
+				ByRef pboxa as Boxa) as Pix
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 	If IsNothing (scalefactor) then Throw New ArgumentNullException  ("scalefactor cannot be Nothing")
@@ -172,8 +171,8 @@ Public Shared Function pixaDisplayOnLattice(
 				ByVal pixa as Pixa, 
 				ByVal cellw as Integer, 
 				ByVal cellh as Integer, 
-				Optional ByRef pncols as Integer = Nothing, 
-				Optional ByRef pboxa as Boxa = Nothing) as Pix
+				ByRef pncols as Integer, 
+				ByRef pboxa as Boxa) as Pix
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
@@ -217,7 +216,6 @@ Public Shared Function pixaDisplayUnsplit(
 				ByVal bordercolor as UInteger) as Pix
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-	If IsNothing (bordercolor) then Throw New ArgumentNullException  ("bordercolor cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaDisplayUnsplit( pixa.Pointer, nx, ny, borderwidth, bordercolor)
@@ -445,7 +443,6 @@ Public Shared Function pixaDisplayTiledWithText(
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 	If IsNothing (scalefactor) then Throw New ArgumentNullException  ("scalefactor cannot be Nothing")
-	If IsNothing (textcolor) then Throw New ArgumentNullException  ("textcolor cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaDisplayTiledWithText( pixa.Pointer, maxwidth, scalefactor, spacing, border, fontsize, textcolor)
@@ -492,7 +489,6 @@ Public Shared Function pixaDisplayTiledByIndex(
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
-	If IsNothing (textcolor) then Throw New ArgumentNullException  ("textcolor cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaDisplayTiledByIndex( pixa.Pointer, na.Pointer, width, spacing, border, fontsize, textcolor)
@@ -777,7 +773,6 @@ Public Shared Function pixaSelectToPdf(
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 	If IsNothing (scalefactor) then Throw New ArgumentNullException  ("scalefactor cannot be Nothing")
-	If IsNothing (color) then Throw New ArgumentNullException  ("color cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 
 
@@ -897,14 +892,14 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function convertToNUpFiles(
 				ByVal dir as String, 
+				ByVal substr as String, 
 				ByVal nx as Integer, 
 				ByVal ny as Integer, 
 				ByVal tw as Integer, 
 				ByVal spacing as Integer, 
 				ByVal border as Integer, 
 				ByVal fontsize as Integer, 
-				ByVal outdir as String, 
-				Optional ByVal substr as String = Nothing) as Integer
+				ByVal outdir as String) as Integer
 
 	If IsNothing (dir) then Throw New ArgumentNullException  ("dir cannot be Nothing")
 	If IsNothing (outdir) then Throw New ArgumentNullException  ("outdir cannot be Nothing")
@@ -935,13 +930,13 @@ End Function
 '''   <returns>pixad, or NULL on error</returns>
 Public Shared Function convertToNUpPixa(
 				ByVal dir as String, 
+				ByVal substr as String, 
 				ByVal nx as Integer, 
 				ByVal ny as Integer, 
 				ByVal tw as Integer, 
 				ByVal spacing as Integer, 
 				ByVal border as Integer, 
-				ByVal fontsize as Integer, 
-				Optional ByVal substr as String = Nothing) as Pixa
+				ByVal fontsize as Integer) as Pixa
 
 	If IsNothing (dir) then Throw New ArgumentNullException  ("dir cannot be Nothing")
 
@@ -975,13 +970,13 @@ End Function
 '''   <returns>pixad, or NULL on error</returns>
 Public Shared Function pixaConvertToNUpPixa(
 				ByVal pixas as Pixa, 
+				ByVal sa as Sarray, 
 				ByVal nx as Integer, 
 				ByVal ny as Integer, 
 				ByVal tw as Integer, 
 				ByVal spacing as Integer, 
 				ByVal border as Integer, 
-				ByVal fontsize as Integer, 
-				Optional ByVal sa as Sarray = Nothing) as Pixa
+				ByVal fontsize as Integer) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 

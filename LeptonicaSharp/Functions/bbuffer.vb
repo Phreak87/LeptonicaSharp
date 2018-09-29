@@ -19,8 +19,8 @@ Partial Public Class _AllFunctions
 '''  <param name="nalloc">[in] - size of byte array to be alloc'd 0 for default</param>
 '''   <returns>bbuffer, or NULL on error</returns>
 Public Shared Function bbufferCreate(
-				ByVal nalloc as Integer, 
-				Optional ByVal indata as Byte() = Nothing) as L_ByteBuffer
+				ByVal indata as Byte(), 
+				ByVal nalloc as Integer) as L_ByteBuffer
 
 
 
@@ -182,7 +182,6 @@ Public Shared Function bbufferWrite(
 
 	If IsNothing (bb) then Throw New ArgumentNullException  ("bb cannot be Nothing")
 	If IsNothing (dest) then Throw New ArgumentNullException  ("dest cannot be Nothing")
-	If IsNothing (nbytes) then Throw New ArgumentNullException  ("nbytes cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.bbufferWrite( bb.Pointer, dest, nbytes, pnout)
@@ -211,7 +210,6 @@ Public Shared Function bbufferWriteStream(
 
 	If IsNothing (bb) then Throw New ArgumentNullException  ("bb cannot be Nothing")
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
-	If IsNothing (nbytes) then Throw New ArgumentNullException  ("nbytes cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.bbufferWriteStream( bb.Pointer, fp.Pointer, nbytes, pnout)

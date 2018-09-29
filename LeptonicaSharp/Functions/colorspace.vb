@@ -38,8 +38,8 @@ Partial Public Class _AllFunctions
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd always</returns>
 Public Shared Function pixConvertRGBToHSV(
-				ByVal pixs as Pix, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal pixd as Pix, 
+				ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -70,8 +70,8 @@ End Function
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd always</returns>
 Public Shared Function pixConvertHSVToRGB(
-				ByVal pixs as Pix, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal pixd as Pix, 
+				ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -318,7 +318,7 @@ Public Shared Function pixMakeRangeMaskHS(
 				ByVal regionflag as Enumerations.L_CLUDE_REGION) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb") ' All Functions - All Parameters - CommentCheck
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMakeRangeMaskHS( pixs.Pointer, huecenter, huehw, satcenter, sathw, regionflag)
@@ -359,7 +359,7 @@ Public Shared Function pixMakeRangeMaskHV(
 				ByVal regionflag as Enumerations.L_CLUDE_REGION) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb") ' All Functions - All Parameters - CommentCheck
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMakeRangeMaskHV( pixs.Pointer, huecenter, huehw, valcenter, valhw, regionflag)
@@ -399,7 +399,7 @@ Public Shared Function pixMakeRangeMaskSV(
 				ByVal regionflag as Enumerations.L_CLUDE_REGION) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb") ' All Functions - All Parameters - CommentCheck
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMakeRangeMaskSV( pixs.Pointer, satcenter, sathw, valcenter, valhw, regionflag)
@@ -430,8 +430,8 @@ End Function
 Public Shared Function pixMakeHistoHS(
 				ByVal pixs as Pix, 
 				ByVal factor as Integer, 
-				Optional ByRef pnahue as Numa = Nothing, 
-				Optional ByRef pnasat as Numa = Nothing) as Pix
+				ByRef pnahue as Numa, 
+				ByRef pnasat as Numa) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -468,8 +468,8 @@ End Function
 Public Shared Function pixMakeHistoHV(
 				ByVal pixs as Pix, 
 				ByVal factor as Integer, 
-				Optional ByRef pnahue as Numa = Nothing, 
-				Optional ByRef pnaval as Numa = Nothing) as Pix
+				ByRef pnahue as Numa, 
+				ByRef pnaval as Numa) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -506,8 +506,8 @@ End Function
 Public Shared Function pixMakeHistoSV(
 				ByVal pixs as Pix, 
 				ByVal factor as Integer, 
-				Optional ByRef pnasat as Numa = Nothing, 
-				Optional ByRef pnaval as Numa = Nothing) as Pix
+				ByRef pnasat as Numa, 
+				ByRef pnaval as Numa) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -558,7 +558,7 @@ Public Shared Function pixFindHistoPeaksHSV(
 				ByVal erasefactor as Single, 
 				ByRef ppta as Pta, 
 				ByRef pnatot as Numa, 
-				Optional ByRef ppixa as Pixa = Nothing) as Integer
+				ByRef ppixa as Pixa) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (erasefactor) then Throw New ArgumentNullException  ("erasefactor cannot be Nothing")
@@ -638,8 +638,8 @@ End Function
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd always</returns>
 Public Shared Function pixConvertRGBToYUV(
-				ByVal pixs as Pix, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal pixd as Pix, 
+				ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -669,8 +669,8 @@ End Function
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd always</returns>
 Public Shared Function pixConvertYUVToRGB(
-				ByVal pixs as Pix, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal pixd as Pix, 
+				ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 

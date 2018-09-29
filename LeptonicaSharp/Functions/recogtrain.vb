@@ -24,9 +24,9 @@ Partial Public Class _AllFunctions
 Public Shared Function recogTrainLabeled(
 				ByVal recog as L_Recog, 
 				ByVal pixs as Pix, 
-				Optional ByVal box as Box = Nothing, 
-				Optional ByVal text as String = Nothing, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByVal box as Box, 
+				ByVal text as String, 
+				ByVal debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -57,9 +57,9 @@ End Function
 Public Shared Function recogProcessLabeled(
 				ByVal recog as L_Recog, 
 				ByVal pixs as Pix, 
-				ByRef ppix as Pix, 
-				Optional ByVal box as Box = Nothing, 
-				Optional ByVal text as String = Nothing) as Integer
+				ByVal box as Box, 
+				ByVal text as String, 
+				ByRef ppix as Pix) as Integer
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -95,7 +95,7 @@ End Function
 Public Shared Function recogAddSample(
 				ByVal recog as L_Recog, 
 				ByVal pix as Pix, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByVal debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
@@ -156,7 +156,7 @@ End Function
 '''   <returns>0 on success, 1 on failure</returns>
 Public Shared Function recogAverageSamples(
 				ByVal precog as List (of L_Recog), 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByVal debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (precog) then Throw New ArgumentNullException  ("precog cannot be Nothing")
 
@@ -188,10 +188,10 @@ End Function
 '''   <returns>0 on success, 1 on failure</returns>
 Public Shared Function pixaAccumulateSamples(
 				ByVal pixa as Pixa, 
+				ByVal pta as Pta, 
 				ByRef ppixd as Pix, 
-				Optional ByVal pta as Pta = Nothing, 
-				Optional ByRef px as Single() = Nothing, 
-				Optional ByRef py as Single() = Nothing) as Integer
+				ByRef px as Single(), 
+				ByRef py as Single()) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
@@ -286,7 +286,7 @@ Public Shared Function recogFilterPixaBySize(
 				ByVal setsize as Integer, 
 				ByVal maxkeep as Integer, 
 				ByVal max_ht_ratio as Single, 
-				Optional ByRef pna as Numa = Nothing) as Pixa
+				ByRef pna as Numa) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 	If IsNothing (max_ht_ratio) then Throw New ArgumentNullException  ("max_ht_ratio cannot be Nothing")
@@ -348,8 +348,8 @@ Public Shared Function recogRemoveOutliers1(
 				ByVal minscore as Single, 
 				ByVal mintarget as Integer, 
 				ByVal minsize as Integer, 
-				Optional ByRef ppixsave as Pix = Nothing, 
-				Optional ByRef ppixrem as Pix = Nothing) as Integer
+				ByRef ppixsave as Pix, 
+				ByRef ppixrem as Pix) as Integer
 
 	If IsNothing (precog) then Throw New ArgumentNullException  ("precog cannot be Nothing")
 	If IsNothing (minscore) then Throw New ArgumentNullException  ("minscore cannot be Nothing")
@@ -406,8 +406,8 @@ Public Shared Function pixaRemoveOutliers1(
 				ByVal minscore as Single, 
 				ByVal mintarget as Integer, 
 				ByVal minsize as Integer, 
-				Optional ByRef ppixsave as Pix = Nothing, 
-				Optional ByRef ppixrem as Pix = Nothing) as Pixa
+				ByRef ppixsave as Pix, 
+				ByRef ppixrem as Pix) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 	If IsNothing (minscore) then Throw New ArgumentNullException  ("minscore cannot be Nothing")
@@ -445,8 +445,8 @@ Public Shared Function recogRemoveOutliers2(
 				ByVal precog as List (of L_Recog), 
 				ByVal minscore as Single, 
 				ByVal minsize as Integer, 
-				Optional ByRef ppixsave as Pix = Nothing, 
-				Optional ByRef ppixrem as Pix = Nothing) as Integer
+				ByRef ppixsave as Pix, 
+				ByRef ppixrem as Pix) as Integer
 
 	If IsNothing (precog) then Throw New ArgumentNullException  ("precog cannot be Nothing")
 	If IsNothing (minscore) then Throw New ArgumentNullException  ("minscore cannot be Nothing")
@@ -491,8 +491,8 @@ Public Shared Function pixaRemoveOutliers2(
 				ByVal pixas as Pixa, 
 				ByVal minscore as Single, 
 				ByVal minsize as Integer, 
-				Optional ByRef ppixsave as Pix = Nothing, 
-				Optional ByRef ppixrem as Pix = Nothing) as Pixa
+				ByRef ppixsave as Pix, 
+				ByRef ppixrem as Pix) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 	If IsNothing (minscore) then Throw New ArgumentNullException  ("minscore cannot be Nothing")
@@ -541,7 +541,7 @@ Public Shared Function recogTrainFromBoot(
 				ByVal pixas as Pixa, 
 				ByVal minscore as Single, 
 				ByVal threshold as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pixa
+				ByVal debug as Enumerations.DebugOnOff) as Pixa
 
 	If IsNothing (recogboot) then Throw New ArgumentNullException  ("recogboot cannot be Nothing")
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
@@ -671,7 +671,7 @@ Public Shared Function recogMakeBootDigitRecog(
 				ByVal scaleh as Integer, 
 				ByVal linew as Integer, 
 				ByVal maxyshift as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as L_Recog
+				ByVal debug as Enumerations.DebugOnOff) as L_Recog
 
 
 
@@ -693,7 +693,7 @@ End Function
 '''  <param name="debug">[in] - 1 for display of templates</param>
 '''   <returns>pixa   of templates; or NULL on error</returns>
 Public Shared Function recogMakeBootDigitTemplates(
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pixa
+				ByVal debug as Enumerations.DebugOnOff) as Pixa
 
 
 
@@ -750,7 +750,7 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function recogDebugAverages(
 				ByVal precog as List (of L_Recog), 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByVal debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (precog) then Throw New ArgumentNullException  ("precog cannot be Nothing")
 
@@ -851,10 +851,10 @@ End Function
 Public Shared Function recogShowMatch(
 				ByVal recog as L_Recog, 
 				ByVal pix1 as Pix, 
+				ByVal pix2 as Pix, 
+				ByVal box as Box, 
 				ByVal index as Integer, 
-				ByVal score as Single, 
-				Optional ByVal pix2 as Pix = Nothing, 
-				Optional ByVal box as Box = Nothing) as Pix
+				ByVal score as Single) as Pix
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")

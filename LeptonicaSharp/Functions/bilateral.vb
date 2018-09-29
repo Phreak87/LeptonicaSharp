@@ -67,7 +67,7 @@ Public Shared Function pixBilateral(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (spatial_stdev) then Throw New ArgumentNullException  ("spatial_stdev cannot be Nothing")
 	If IsNothing (range_stdev) then Throw New ArgumentNullException  ("range_stdev cannot be Nothing")
-	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("1, 2 or 4") ' All Functions - specific Parameter - RangeCheck
+	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("1, 2 or 4")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBilateral( pixs.Pointer, spatial_stdev, range_stdev, ncomps, reduction)
@@ -102,7 +102,7 @@ Public Shared Function pixBilateralGray(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (spatial_stdev) then Throw New ArgumentNullException  ("spatial_stdev cannot be Nothing")
 	If IsNothing (range_stdev) then Throw New ArgumentNullException  ("range_stdev cannot be Nothing")
-	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("1, 2 or 4") ' All Functions - specific Parameter - RangeCheck
+	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("1, 2 or 4")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBilateralGray( pixs.Pointer, spatial_stdev, range_stdev, ncomps, reduction)
@@ -137,7 +137,7 @@ End Function
 Public Shared Function pixBilateralExact(
 				ByVal pixs as Pix, 
 				ByVal spatial_kel as L_Kernel, 
-				Optional ByVal range_kel as L_Kernel = Nothing) as Pix
+				ByVal range_kel as L_Kernel) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (spatial_kel) then Throw New ArgumentNullException  ("spatial_kel cannot be Nothing")
@@ -166,7 +166,7 @@ End Function
 Public Shared Function pixBilateralGrayExact(
 				ByVal pixs as Pix, 
 				ByVal spatial_kel as L_Kernel, 
-				Optional ByVal range_kel as L_Kernel = Nothing) as Pix
+				ByVal range_kel as L_Kernel) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (spatial_kel) then Throw New ArgumentNullException  ("spatial_kel cannot be Nothing")

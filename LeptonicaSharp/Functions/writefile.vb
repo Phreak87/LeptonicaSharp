@@ -164,6 +164,7 @@ Public Shared Function pixWriteAutoFormat(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteAutoFormat( filename, pix.Pointer)
@@ -221,6 +222,7 @@ Public Shared Function pixWriteImpliedFormat(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteImpliedFormat( filename, pix.Pointer, quality, progressive)
@@ -269,6 +271,7 @@ Public Shared Function getImpliedFileFormat(
 				ByVal filename as String) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.getImpliedFileFormat( filename)
@@ -359,7 +362,7 @@ Public Shared Function pixWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMem( pdataPTR, psize, pix.Pointer, format)
-ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
+	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
 End Function
@@ -468,8 +471,8 @@ Public Shared Function pixDisplayWithTitle(
 				ByRef pixs as Pix, 
 				ByVal x as Integer, 
 				ByVal y as Integer, 
-				ByVal dispflag as Integer, 
-				Optional ByVal title as String = Nothing) as Integer
+				ByVal title as String, 
+				ByVal dispflag as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -613,14 +616,13 @@ Public Shared Function pixSaveTiledWithText(
 				ByVal newrow as Integer, 
 				ByVal space as Integer, 
 				ByVal linewidth as Integer, 
+				ByVal bmf as L_Bmf, 
+				ByVal textstr as String, 
 				ByVal val as UInteger, 
-				ByVal location as Enumerations.L_ADD, 
-				Optional ByVal bmf as L_Bmf = Nothing, 
-				Optional ByVal textstr as String = Nothing) as Integer
+				ByVal location as Enumerations.L_ADD) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 	Dim bmfPTR As IntPtr = IntPtr.Zero : If Not IsNothing(bmf) Then bmfPTR = bmf.Pointer
 
@@ -677,7 +679,7 @@ Public Shared Function pixDisplayWrite(
 				ByVal reduction as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("-1 to reset/erase; 0 to disable; otherwise this is a  factor") ' All Functions - specific Parameter - RangeCheck
+	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("-1 to reset/erase; 0 to disable; otherwise this is a  factor")
 
 Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 

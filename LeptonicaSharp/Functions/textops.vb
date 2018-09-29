@@ -33,14 +33,13 @@ Partial Public Class _AllFunctions
 Public Shared Function pixAddSingleTextblock(
 				ByVal pixs as Pix, 
 				ByVal bmf as L_Bmf, 
+				ByVal textstr as String, 
 				ByVal val as UInteger, 
 				ByVal location as Enumerations.L_ADD, 
-				Optional ByVal textstr as String = Nothing, 
-				Optional ByRef poverflow as Integer = Nothing) as Pix
+				ByRef poverflow as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAddSingleTextblock( pixs.Pointer, bmf.Pointer, textstr, val, location, poverflow)
@@ -82,13 +81,12 @@ End Function
 Public Shared Function pixAddTextlines(
 				ByVal pixs as Pix, 
 				ByVal bmf as L_Bmf, 
+				ByVal textstr as String, 
 				ByVal val as UInteger, 
-				ByVal location as Enumerations.L_ADD, 
-				Optional ByVal textstr as String = Nothing) as Pix
+				ByVal location as Enumerations.L_ADD) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAddTextlines( pixs.Pointer, bmf.Pointer, textstr, val, location)
@@ -136,12 +134,11 @@ Public Shared Function pixSetTextblock(
 				ByVal y0 as Integer, 
 				ByVal wtext as Integer, 
 				ByVal firstindent as Integer, 
-				Optional ByRef poverflow as Integer = Nothing) as Integer
+				ByRef poverflow as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
 	If IsNothing (textstr) then Throw New ArgumentNullException  ("textstr cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetTextblock( pixs.Pointer, bmf.Pointer, textstr, val, x0, y0, wtext, firstindent, poverflow)
@@ -185,13 +182,12 @@ Public Shared Function pixSetTextline(
 				ByVal val as UInteger, 
 				ByVal x0 as Integer, 
 				ByVal y0 as Integer, 
-				Optional ByRef pwidth as Integer = Nothing, 
-				Optional ByRef poverflow as Integer = Nothing) as Integer
+				ByRef pwidth as Integer, 
+				ByRef poverflow as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
 	If IsNothing (textstr) then Throw New ArgumentNullException  ("textstr cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetTextline( pixs.Pointer, bmf.Pointer, textstr, val, x0, y0, pwidth, poverflow)
@@ -228,13 +224,12 @@ End Function
 Public Shared Function pixaAddTextNumber(
 				ByVal pixas as Pixa, 
 				ByVal bmf as L_Bmf, 
+				ByVal na as Numa, 
 				ByVal val as UInteger, 
-				ByVal location as Enumerations.L_ADD, 
-				Optional ByVal na as Numa = Nothing) as Pixa
+				ByVal location as Enumerations.L_ADD) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 	If IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 	Dim naPTR As IntPtr = IntPtr.Zero : If Not IsNothing(na) Then naPTR = na.Pointer
 
@@ -276,13 +271,12 @@ End Function
 Public Shared Function pixaAddTextlines(
 				ByVal pixas as Pixa, 
 				ByVal bmf as L_Bmf, 
+				ByVal sa as Sarray, 
 				ByVal val as UInteger, 
-				ByVal location as Enumerations.L_ADD, 
-				Optional ByVal sa as Sarray = Nothing) as Pixa
+				ByVal location as Enumerations.L_ADD) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 	If IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 	Dim saPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sa) Then saPTR = sa.Pointer
 
@@ -324,15 +318,14 @@ Public Shared Function pixaAddPixWithText(
 				ByVal pixa as Pixa, 
 				ByVal pixs as Pix, 
 				ByVal reduction as Integer, 
+				ByVal bmf as L_Bmf, 
+				ByVal textstr as String, 
 				ByVal val as UInteger, 
-				ByVal location as Enumerations.L_ADD, 
-				Optional ByVal bmf as L_Bmf = Nothing, 
-				Optional ByVal textstr as String = Nothing) as Integer
+				ByVal location as Enumerations.L_ADD) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
-	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("integer subsampling factor") ' All Functions - specific Parameter - RangeCheck
+	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("integer subsampling factor")
 
 	Dim bmfPTR As IntPtr = IntPtr.Zero : If Not IsNothing(bmf) Then bmfPTR = bmf.Pointer
 

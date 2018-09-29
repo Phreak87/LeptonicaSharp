@@ -186,7 +186,7 @@ End Function
 Public Shared Function l_dnaRemoveDupsByHash(
 				ByVal das as L_Dna, 
 				ByRef pdad as L_Dna, 
-				Optional ByRef pdahash as L_DnaHash = Nothing) as Integer
+				ByRef pdahash as L_DnaHash) as Integer
 
 	If IsNothing (das) then Throw New ArgumentNullException  ("das cannot be Nothing")
 

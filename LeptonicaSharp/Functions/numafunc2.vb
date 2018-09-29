@@ -168,9 +168,9 @@ Public Shared Function numaSimpleStats(
 				ByVal na as Numa, 
 				ByVal first as Integer, 
 				ByVal last as Integer, 
-				Optional ByRef pmean as Single() = Nothing, 
-				Optional ByRef pvar as Single() = Nothing, 
-				Optional ByRef prvar as Single() = Nothing) as Integer
+				ByRef pmean as Single(), 
+				ByRef pvar as Single(), 
+				ByRef prvar as Single()) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
@@ -214,10 +214,10 @@ End Function
 Public Shared Function numaWindowedStats(
 				ByVal nas as Numa, 
 				ByVal wc as Integer, 
-				Optional ByRef pnam as Numa = Nothing, 
-				Optional ByRef pnams as Numa = Nothing, 
-				Optional ByRef pnav as Numa = Nothing, 
-				Optional ByRef pnarv as Numa = Nothing) as Integer
+				ByRef pnam as Numa, 
+				ByRef pnams as Numa, 
+				ByRef pnav as Numa, 
+				ByRef pnarv as Numa) as Integer
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
@@ -310,8 +310,8 @@ End Function
 Public Shared Function numaWindowedVariance(
 				ByVal nam as Numa, 
 				ByVal nams as Numa, 
-				Optional ByRef pnav as Numa = Nothing, 
-				Optional ByRef pnarv as Numa = Nothing) as Integer
+				ByRef pnav as Numa, 
+				ByRef pnarv as Numa) as Integer
 
 	If IsNothing (nam) then Throw New ArgumentNullException  ("nam cannot be Nothing")
 	If IsNothing (nams) then Throw New ArgumentNullException  ("nams cannot be Nothing")
@@ -406,7 +406,7 @@ Public Shared Function numaMakeHistogram(
 				ByVal na as Numa, 
 				ByVal maxbins as Integer, 
 				ByRef pbinsize as Integer, 
-				Optional ByRef pbinstart as Integer = Nothing) as Numa
+				ByRef pbinstart as Integer) as Numa
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
@@ -581,14 +581,14 @@ End Function
 Public Shared Function numaGetStatsUsingHistogram(
 				ByVal na as Numa, 
 				ByVal maxbins as Integer, 
+				ByRef pmin as Single(), 
+				ByRef pmax as Single(), 
+				ByRef pmean as Single(), 
+				ByRef pvariance as Single(), 
+				ByRef pmedian as Single(), 
 				ByVal rank as Single, 
-				Optional ByRef pmin as Single() = Nothing, 
-				Optional ByRef pmax as Single() = Nothing, 
-				Optional ByRef pmean as Single() = Nothing, 
-				Optional ByRef pvariance as Single() = Nothing, 
-				Optional ByRef pmedian as Single() = Nothing, 
-				Optional ByRef prval as Single() = Nothing, 
-				Optional ByRef phisto as Numa = Nothing) as Integer
+				ByRef prval as Single(), 
+				ByRef phisto as Numa) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 	If IsNothing (rank) then Throw New ArgumentNullException  ("rank cannot be Nothing")
@@ -626,10 +626,10 @@ Public Shared Function numaGetHistogramStats(
 				ByVal nahisto as Numa, 
 				ByVal startx as Single, 
 				ByVal deltax as Single, 
-				Optional ByRef pxmean as Single() = Nothing, 
-				Optional ByRef pxmedian as Single() = Nothing, 
-				Optional ByRef pxmode as Single() = Nothing, 
-				Optional ByRef pxvariance as Single() = Nothing) as Integer
+				ByRef pxmean as Single(), 
+				ByRef pxmedian as Single(), 
+				ByRef pxmode as Single(), 
+				ByRef pxvariance as Single()) as Integer
 
 	If IsNothing (nahisto) then Throw New ArgumentNullException  ("nahisto cannot be Nothing")
 	If IsNothing (startx) then Throw New ArgumentNullException  ("startx cannot be Nothing")
@@ -670,10 +670,10 @@ Public Shared Function numaGetHistogramStatsOnInterval(
 				ByVal deltax as Single, 
 				ByVal ifirst as Integer, 
 				ByVal ilast as Integer, 
-				Optional ByRef pxmean as Single() = Nothing, 
-				Optional ByRef pxmedian as Single() = Nothing, 
-				Optional ByRef pxmode as Single() = Nothing, 
-				Optional ByRef pxvariance as Single() = Nothing) as Integer
+				ByRef pxmean as Single(), 
+				ByRef pxmedian as Single(), 
+				ByRef pxmode as Single(), 
+				ByRef pxvariance as Single()) as Integer
 
 	If IsNothing (nahisto) then Throw New ArgumentNullException  ("nahisto cannot be Nothing")
 	If IsNothing (startx) then Throw New ArgumentNullException  ("startx cannot be Nothing")
@@ -705,8 +705,8 @@ Public Shared Function numaMakeRankFromHistogram(
 				ByVal deltax as Single, 
 				ByVal nasy as Numa, 
 				ByVal npts as Integer, 
-				ByRef pnay as Numa, 
-				Optional ByRef pnax as Numa = Nothing) as Integer
+				ByRef pnax as Numa, 
+				ByRef pnay as Numa) as Integer
 
 	If IsNothing (startx) then Throw New ArgumentNullException  ("startx cannot be Nothing")
 	If IsNothing (deltax) then Throw New ArgumentNullException  ("deltax cannot be Nothing")
@@ -824,10 +824,10 @@ End Function
 Public Shared Function numaDiscretizeRankAndIntensity(
 				ByVal na as Numa, 
 				ByVal nbins as Integer, 
-				Optional ByRef pnarbin as Numa = Nothing, 
-				Optional ByRef pnam as Numa = Nothing, 
-				Optional ByRef pnar as Numa = Nothing, 
-				Optional ByRef pnabb as Numa = Nothing) as Integer
+				ByRef pnarbin as Numa, 
+				ByRef pnam as Numa, 
+				ByRef pnar as Numa, 
+				ByRef pnabb as Numa) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
@@ -865,8 +865,8 @@ End Function
 Public Shared Function numaGetRankBinValues(
 				ByVal na as Numa, 
 				ByVal nbins as Integer, 
-				Optional ByRef pnarbin as Numa = Nothing, 
-				Optional ByRef pnam as Numa = Nothing) as Integer
+				ByRef pnarbin as Numa, 
+				ByRef pnam as Numa) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
@@ -931,12 +931,12 @@ End Function
 Public Shared Function numaSplitDistribution(
 				ByVal na as Numa, 
 				ByVal scorefract as Single, 
-				Optional ByRef psplitindex as Integer = Nothing, 
-				Optional ByRef pave1 as Single() = Nothing, 
-				Optional ByRef pave2 as Single() = Nothing, 
-				Optional ByRef pnum1 as Single() = Nothing, 
-				Optional ByRef pnum2 as Single() = Nothing, 
-				Optional ByRef pnascore as Numa = Nothing) as Integer
+				ByRef psplitindex as Integer, 
+				ByRef pave1 as Single(), 
+				ByRef pave2 as Single(), 
+				ByRef pnum1 as Single(), 
+				ByRef pnum2 as Single(), 
+				ByRef pnascore as Numa) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 	If IsNothing (scorefract) then Throw New ArgumentNullException  ("scorefract cannot be Nothing")
@@ -1079,10 +1079,10 @@ End Function
 Public Shared Function grayInterHistogramStats(
 				ByVal naa as Numaa, 
 				ByVal wc as Integer, 
-				Optional ByRef pnam as Numa = Nothing, 
-				Optional ByRef pnams as Numa = Nothing, 
-				Optional ByRef pnav as Numa = Nothing, 
-				Optional ByRef pnarv as Numa = Nothing) as Integer
+				ByRef pnam as Numa, 
+				ByRef pnams as Numa, 
+				ByRef pnav as Numa, 
+				ByRef pnarv as Numa) as Integer
 
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
 
@@ -1162,7 +1162,7 @@ End Function
 Public Shared Function numaFindExtrema(
 				ByVal nas as Numa, 
 				ByVal delta as Single, 
-				Optional ByRef pnav as Numa = Nothing) as Numa
+				ByRef pnav as Numa) as Numa
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 	If IsNothing (delta) then Throw New ArgumentNullException  ("delta cannot be Nothing")
@@ -1195,8 +1195,8 @@ End Function
 Public Shared Function numaCountReversals(
 				ByVal nas as Numa, 
 				ByVal minreversal as Single, 
-				Optional ByRef pnr as Integer = Nothing, 
-				Optional ByRef pnrpl as Single() = Nothing) as Integer
+				ByRef pnr as Integer, 
+				ByRef pnrpl as Single()) as Integer
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 	If IsNothing (minreversal) then Throw New ArgumentNullException  ("minreversal cannot be Nothing")
@@ -1232,10 +1232,10 @@ End Function
 '''  <param name="pbestthresh">[out] - robust estimate of threshold to use</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function numaSelectCrossingThreshold(
+				ByVal nax as Numa, 
 				ByVal nay as Numa, 
 				ByVal estthresh as Single, 
-				ByRef pbestthresh as Single(), 
-				Optional ByVal nax as Numa = Nothing) as Integer
+				ByRef pbestthresh as Single()) as Integer
 
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
 	If IsNothing (estthresh) then Throw New ArgumentNullException  ("estthresh cannot be Nothing")
@@ -1262,9 +1262,9 @@ End Function
 '''  <param name="thresh">[in] - threshold value for nay</param>
 '''   <returns>nad abscissa pts at threshold, or NULL on error</returns>
 Public Shared Function numaCrossingsByThreshold(
+				ByVal nax as Numa, 
 				ByVal nay as Numa, 
-				ByVal thresh as Single, 
-				Optional ByVal nax as Numa = Nothing) as Numa
+				ByVal thresh as Single) as Numa
 
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
 	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
@@ -1292,9 +1292,9 @@ End Function
 '''  <param name="delta">[in] - parameter used to identify when a new peak can be found</param>
 '''   <returns>nad abscissa pts at threshold, or NULL on error</returns>
 Public Shared Function numaCrossingsByPeaks(
+				ByVal nax as Numa, 
 				ByVal nay as Numa, 
-				ByVal delta as Single, 
-				Optional ByVal nax as Numa = Nothing) as Numa
+				ByVal delta as Single) as Numa
 
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
 	If IsNothing (delta) then Throw New ArgumentNullException  ("delta cannot be Nothing")
@@ -1350,7 +1350,7 @@ Public Shared Function numaEvalBestHaarParameters(
 				ByVal maxwidth as Single, 
 				ByRef pbestwidth as Single(), 
 				ByRef pbestshift as Single(), 
-				Optional ByRef pbestscore as Single() = Nothing) as Integer
+				ByRef pbestscore as Single()) as Integer
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 	If IsNothing (relweight) then Throw New ArgumentNullException  ("relweight cannot be Nothing")

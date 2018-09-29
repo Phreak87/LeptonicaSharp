@@ -7,9 +7,10 @@ Imports System.Drawing.Imaging
 Module Module1
 
     Sub Main()
+
         ' ---------------------------------------------
         ' Copy the required dll-files to your path if 
-        ' they dont exists.
+        ' they dont exists. (Nuget)
         ' ---------------------------------------------
         LeptonicaSharp.Natives.Initialize()
 
@@ -19,12 +20,14 @@ Module Module1
         ' ---------------------------------------------
         LeptonicaSharp._AllFunctions.setLeptDebugOK(1)
 
-        Dim PIX32 As New Pix("s1.jpg")    ' 32 BPP Pix
-        'PIX32.Display()
+        Dim PIX32 As New Pix("Test.jpg")    ' 32 BPP Pix
+        PIX32.pixConvert32To16(L_16_bit_conversion.L_CLIP_TO_FFFF)
+        PIX32.pixConvertToPdf(L_ENCODE.L_FLATE_ENCODE, "Test.pdf", Nothing, L_T_IMAGE.L_FIRST_IMAGE)
+        PIX32.Display()
 
         'TestPDF()
         'TestPDF2()
-        TestPix()
+        'TestPix()
         'TestMem()
         'TestString()
         'TestDisplay()
@@ -33,7 +36,6 @@ Module Module1
         'TestPixFunctions()
         'TestDewaFunctions()
         'TestNumaFunctions()
-
 
     End Sub
 
@@ -74,7 +76,7 @@ Module Module1
         Dim PIXD As Pix = Nothing ' ByRef
         Dim DEWA As L_Dewarpa = Nothing ' ByRef
         Dim PIX32 As New Pix("Test.jpg") : PIX32.Display()
-        Dim RSU = LeptonicaSharp._AllFunctions.dewarpSinglePage(PIX32, 0, 1, 1, 0, PIXD)
+        'Dim RSU = LeptonicaSharp._AllFunctions.dewarpSinglePage(PIX32, 0, 1, 1, 0, PIXD)
         PIXD.save_jpg("DewarpSinglePageTest.jpg")
 
         'Dim dewa1 As LeptonicaSharp.L_Dewarpa = LeptonicaSharp._AllFunctions.dewarpaCreate(1, 0, 2, 0, -1)
@@ -130,8 +132,8 @@ Module Module1
         ' ------------------
         PIX32.Display()
         Dim SEL As New LeptonicaSharp.Sel("ooooCoooo", 3, 3, "TEST")
-        PIXG = LeptonicaSharp._AllFunctions.pixHMT(PIXG.InvertColors, SEL)                             ' OK
-        PIXG = LeptonicaSharp._AllFunctions.pixDilateBrick(PIXG, 4, 4)
+        ' PIXG = LeptonicaSharp._AllFunctions.pixHMT(PIXG.InvertColors, SEL)                             ' OK
+        ' PIXG = LeptonicaSharp._AllFunctions.pixDilateBrick(PIXG, 4, 4)
         PIXG.Display()
         Sel.Display()
 
@@ -165,10 +167,11 @@ Module Module1
     End Sub
     Sub TestPix()
         Dim PIX32 As New Pix("Test.jpg") ' : PIX32.Display()
+
         Dim PIX32_2 As New Pix(New Bitmap("test.jpg")) : PIX32_2.Display()
         Dim PIX16 As Pix = LeptonicaSharp._AllFunctions.pixConvert32To16(PIX32, L_16_bit_conversion.L_CLIP_TO_FFFF)
         Dim PIX8 As Pix = LeptonicaSharp._AllFunctions.pixConvert32To8(PIX32, L_16_bit_conversion.L_CLIP_TO_FFFF, L_16_bit_conversion.L_CLIP_TO_FF)
-        Dim PIXD As New Pix
+        Dim PIXD As New Pix(1, 1)
 
         PIX32.save_autoformat("Test_Format_JPG.jpg", IFF.IFF_JFIF_JPEG)
         PIX32.save_autoformat("Test_Format_JP2.jp2", IFF.IFF_JP2)
@@ -177,7 +180,7 @@ Module Module1
     Sub TestString()
         Dim Stri = LeptonicaSharp._AllFunctions.sarrayCreateWordsFromString("Das ist ein Test")
         Dim stri1 = LeptonicaSharp._AllFunctions.sarrayAddString(Stri, "Halllo", 1)
-        Dim Stri2 = LeptonicaSharp._AllFunctions.sarrayGetArray(Stri)
+        Dim Stri2 = LeptonicaSharp._AllFunctions.sarrayGetArray(Stri, Nothing, Nothing)
         Dim Stri3 As Integer = LeptonicaSharp._AllFunctions.sarrayGetCount(Stri)
         Dim Stri4 As String = LeptonicaSharp._AllFunctions.sarrayGetString(Stri, 4, 1)
     End Sub
@@ -194,10 +197,8 @@ Module Module1
         ' Datentypen: UInt8 * und UInt8 ** 
         ' ----------------------------------------
 
-        Dim n As New System.IO.FileStream("pix32.jpg", System.IO.FileMode.Open)
-        Dim P As Pix = LeptonicaSharp._AllFunctions.pixReadStreamJpeg(New FILE("pix32.jpg"), 0, 1, 0)
-        P.Display()
-
+        Dim n As New System.IO.FileStream("test.jpg", System.IO.FileMode.Open)
+        Dim P As Pix = LeptonicaSharp._AllFunctions.pixReadStreamJpeg(New FILE("test.jpg"), 0, 1, Nothing, 0)
 
         ' Schreibt als Workaround für JPEG in eine Temp.Datei
         Dim BMPBYT1 As Byte() = My.Computer.FileSystem.ReadAllBytes("Test.jpg")
@@ -224,12 +225,24 @@ Module Module1
         Dim C0 As L_Pdf_Data = Nothing
 
         ' Diese Funktionen schreiben nur 1 PDF-Seite mit mehreren Bildern!
-        LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_JPEG_ENCODE, "TestMax.pdf", C0, L_T_IMAGE.L_FIRST_IMAGE)
-        LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_JPEG_ENCODE, "TestMax.pdf", C0, L_T_IMAGE.L_NEXT_IMAGE)
-        LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_JPEG_ENCODE, "TestMax.pdf", C0, L_T_IMAGE.L_LAST_IMAGE)
-        LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_FLATE_ENCODE, "Test1.pdf", C0, L_T_IMAGE.L_LAST_IMAGE)
-        LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_G4_ENCODE, "Test2.pdf", C0, L_T_IMAGE.L_LAST_IMAGE)
-        LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_JPEG_ENCODE, "Test3.pdf", C0, L_T_IMAGE.L_LAST_IMAGE)
+        ' Funktionen mit Optionalen Parametern
+        ' LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_JPEG_ENCODE, "TestMax.pdf", C0, L_T_IMAGE.L_FIRST_IMAGE)
+        ' LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_JPEG_ENCODE, "TestMax.pdf", C0, L_T_IMAGE.L_NEXT_IMAGE)
+        ' LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_JPEG_ENCODE, "TestMax.pdf", C0, L_T_IMAGE.L_LAST_IMAGE)
+        ' LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_FLATE_ENCODE, "Test1.pdf", C0, L_T_IMAGE.L_LAST_IMAGE)
+        ' LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_G4_ENCODE, "Test2.pdf", C0, L_T_IMAGE.L_LAST_IMAGE)
+        ' LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_JPEG_ENCODE, "Test3.pdf", C0, L_T_IMAGE.L_LAST_IMAGE)
+
+        LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_JPEG_ENCODE, 0, "TestMax.pdf", 0, 0, 0, "Title", C0, L_T_IMAGE.L_FIRST_IMAGE)
+        LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_JPEG_ENCODE, 0, "TestMax.pdf", 0, 0, 0, "Title", C0, L_T_IMAGE.L_NEXT_IMAGE)
+        LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_JPEG_ENCODE, 0, "TestMax.pdf", 0, 0, 0, "Title", C0, L_T_IMAGE.L_LAST_IMAGE)
+
+        C0 = New L_Pdf_Data ' Wird geleert bei LastImage
+        ' LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_FLATE_ENCODE, 0, "TestMax.pdf", 0, 0, 0, "Title", C0, L_T_IMAGE.L_LAST_IMAGE)
+        ' LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_G4_ENCODE, 0, "TestMax.pdf", 0, 0, 0, "Title", C0, L_T_IMAGE.L_LAST_IMAGE)
+        ' LeptonicaSharp._AllFunctions.pixConvertToPdf(PIX32, L_ENCODE.L_JPEG_ENCODE, 0, "TestMax.pdf", 0, 0, 0, "Title", C0, L_T_IMAGE.L_LAST_IMAGE)
+
+
     End Sub
     Sub TestPDF2()
         ' -----------------------------------
@@ -258,9 +271,12 @@ Module Module1
         Dim imdata As Byte() = Nothing
         Dim imbytes As UInteger
 
-        '_AllFunctions.pixConvertToPdfData(PIX32, L_ENCODE.L_JPEG_ENCODE, imdata, imbytes, C0, L_T_IMAGE.L_FIRST_IMAGE)
-        '_AllFunctions.pixConvertToPdfData(PIX32, L_ENCODE.L_JPEG_ENCODE, imdata, imbytes, C0, L_T_IMAGE.L_NEXT_IMAGE)
-        _AllFunctions.pixConvertToPdfData(PIX32, L_ENCODE.L_JPEG_ENCODE, imdata, imbytes, C0, L_T_IMAGE.L_LAST_IMAGE) ' C0 is beeing Destroyed here! 
+        ' _AllFunctions.pixConvertToPdfData(PIX32, L_ENCODE.L_JPEG_ENCODE, imdata, imbytes, C0, L_T_IMAGE.L_FIRST_IMAGE) ' OptPar
+        ' _AllFunctions.pixConvertToPdfData(PIX32, L_ENCODE.L_JPEG_ENCODE, imdata, imbytes, C0, L_T_IMAGE.L_NEXT_IMAGE)  ' OptPar
+        ' _AllFunctions.pixConvertToPdfData(PIX32, L_ENCODE.L_JPEG_ENCODE, imdata, imbytes, C0, L_T_IMAGE.L_LAST_IMAGE)  ' OptPar, C0 is beeing Destroyed here! 
+        _AllFunctions.pixConvertToPdfData(PIX32, L_ENCODE.L_JPEG_ENCODE, 0, imdata, imbytes, 0, 0, 0, "Title", C0, L_T_IMAGE.L_FIRST_IMAGE)
+        _AllFunctions.pixConvertToPdfData(PIX32, L_ENCODE.L_JPEG_ENCODE, 0, imdata, imbytes, 0, 0, 0, "Title", C0, L_T_IMAGE.L_NEXT_IMAGE)
+        _AllFunctions.pixConvertToPdfData(PIX32, L_ENCODE.L_JPEG_ENCODE, 0, imdata, imbytes, 0, 0, 0, "Title", C0, L_T_IMAGE.L_LAST_IMAGE)
         Dim ba = _AllFunctions.l_byteaInitFromMem(imdata, imbytes)
         _AllFunctions.ptraAdd(pa_data, ba)
 
@@ -268,6 +284,6 @@ Module Module1
         'Dim pages As Integer = _AllFunctions.ptraGetActualCount(pa_data, pages)'
         Dim RETPData As Byte() = Nothing
         Dim RETPNBytes As UInteger = 0
-        _AllFunctions.ptraConcatenatePdfToData(pa_data, RETPData, RETPNBytes)
+        ' _AllFunctions.ptraConcatenatePdfToData(pa_data, RETPData, RETPNBytes)
     End Sub
 End Module

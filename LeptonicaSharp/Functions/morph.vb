@@ -26,13 +26,13 @@ Partial Public Class _AllFunctions
 '''  <param name="sel">[in] - </param>
 '''   <returns>pixd</returns>
 Public Shared Function pixDilate(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
-				ByVal sel as Sel, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal sel as Sel) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -65,13 +65,13 @@ End Function
 '''  <param name="sel">[in] - </param>
 '''   <returns>pixd</returns>
 Public Shared Function pixErode(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
-				ByVal sel as Sel, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal sel as Sel) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -106,13 +106,13 @@ End Function
 '''  <param name="sel">[in] - </param>
 '''   <returns>pixd</returns>
 Public Shared Function pixHMT(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
-				ByVal sel as Sel, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal sel as Sel) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -145,13 +145,13 @@ End Function
 '''  <param name="sel">[in] - </param>
 '''   <returns>pixd</returns>
 Public Shared Function pixOpen(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
-				ByVal sel as Sel, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal sel as Sel) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -187,13 +187,13 @@ End Function
 '''  <param name="sel">[in] - </param>
 '''   <returns>pixd</returns>
 Public Shared Function pixClose(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
-				ByVal sel as Sel, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal sel as Sel) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -233,13 +233,13 @@ End Function
 '''  <param name="sel">[in] - </param>
 '''   <returns>pixd</returns>
 Public Shared Function pixCloseSafe(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
-				ByVal sel as Sel, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal sel as Sel) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -275,13 +275,13 @@ End Function
 '''  <param name="sel">[in] - </param>
 '''   <returns>pixd</returns>
 Public Shared Function pixOpenGeneralized(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
-				ByVal sel as Sel, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal sel as Sel) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -318,13 +318,13 @@ End Function
 '''  <param name="sel">[in] - </param>
 '''   <returns>pixd</returns>
 Public Shared Function pixCloseGeneralized(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
-				ByVal sel as Sel, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal sel as Sel) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -360,13 +360,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd</returns>
 Public Shared Function pixDilateBrick(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -402,13 +402,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd</returns>
 Public Shared Function pixErodeBrick(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -444,13 +444,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixOpenBrick(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -486,13 +486,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixCloseBrick(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -533,13 +533,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixCloseSafeBrick(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -648,13 +648,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixDilateCompBrick(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -704,13 +704,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixErodeCompBrick(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -760,13 +760,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixOpenCompBrick(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -816,13 +816,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixCloseCompBrick(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -877,13 +877,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixCloseSafeCompBrick(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 

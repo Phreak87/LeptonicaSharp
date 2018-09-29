@@ -18,7 +18,6 @@ Partial Public Class _AllFunctions
 Public Shared Function l_byteaCreate(
 				ByVal nbytes as UInteger) as L_Bytea
 
-	If IsNothing (nbytes) then Throw New ArgumentNullException  ("nbytes cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_byteaCreate( nbytes)
@@ -43,7 +42,6 @@ Public Shared Function l_byteaInitFromMem(
 				ByVal size as UInteger) as L_Bytea
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_byteaInitFromMem( data, size)
@@ -234,7 +232,6 @@ Public Shared Function l_byteaAppendData(
 
 	If IsNothing (ba) then Throw New ArgumentNullException  ("ba cannot be Nothing")
 	If IsNothing (newdata) then Throw New ArgumentNullException  ("newdata cannot be Nothing")
-	If IsNothing (newbytes) then Throw New ArgumentNullException  ("newbytes cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_byteaAppendData( ba.Pointer, newdata, newbytes)
@@ -310,7 +307,6 @@ Public Shared Function l_byteaSplit(
 				ByRef pba2 as L_Bytea) as Integer
 
 	If IsNothing (ba1) then Throw New ArgumentNullException  ("ba1 cannot be Nothing")
-	If IsNothing (splitloc) then Throw New ArgumentNullException  ("splitloc cannot be Nothing")
 
 	Dim pba2PTR As IntPtr = IntPtr.Zero : If Not IsNothing(pba2) Then pba2PTR = pba2.Pointer
 
@@ -341,7 +337,6 @@ Public Shared Function l_byteaFindEachSequence(
 
 	If IsNothing (ba) then Throw New ArgumentNullException  ("ba cannot be Nothing")
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
-	If IsNothing (seqlen) then Throw New ArgumentNullException  ("seqlen cannot be Nothing")
 
 	Dim pdaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pda) Then pdaPTR = pda.Pointer
 
@@ -372,8 +367,6 @@ Public Shared Function l_byteaWrite(
 
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 	If IsNothing (ba) then Throw New ArgumentNullException  ("ba cannot be Nothing")
-	If IsNothing (startloc) then Throw New ArgumentNullException  ("startloc cannot be Nothing")
-	If IsNothing (endloc) then Throw New ArgumentNullException  ("endloc cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_byteaWrite( fname, ba.Pointer, startloc, endloc)
@@ -402,8 +395,6 @@ Public Shared Function l_byteaWriteStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (ba) then Throw New ArgumentNullException  ("ba cannot be Nothing")
-	If IsNothing (startloc) then Throw New ArgumentNullException  ("startloc cannot be Nothing")
-	If IsNothing (endloc) then Throw New ArgumentNullException  ("endloc cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_byteaWriteStream( fp.Pointer, ba.Pointer, startloc, endloc)

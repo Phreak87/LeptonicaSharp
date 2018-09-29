@@ -119,7 +119,7 @@ Public Shared Function jbWordsInTextlines(
 	If IsNothing (dirin) then Throw New ArgumentNullException  ("dirin cannot be Nothing")
 	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
 	If IsNothing (weight) then Throw New ArgumentNullException  ("weight cannot be Nothing")
-	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("1 for full res; 2 for half-res") ' All Functions - specific Parameter - RangeCheck
+	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("1 for full res; 2 for half-res")
 
 	Dim pnatlPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnatl) Then pnatlPTR = pnatl.Pointer
 
@@ -228,7 +228,7 @@ Public Shared Function pixGetWordBoxesInTextlines(
 				ByVal maxwidth as Integer, 
 				ByVal maxheight as Integer, 
 				ByRef pboxad as Boxa, 
-				Optional ByRef pnai as Numa = Nothing) as Integer
+				ByRef pnai as Numa) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 

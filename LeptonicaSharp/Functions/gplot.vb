@@ -23,9 +23,9 @@ Partial Public Class _AllFunctions
 Public Shared Function gplotCreate(
 				ByVal rootname as String, 
 				ByVal outformat as Enumerations.GPLOT_OUTPUT, 
-				Optional ByVal title as String = Nothing, 
-				Optional ByVal xlabel as String = Nothing, 
-				Optional ByVal ylabel as String = Nothing) as GPlot
+				ByVal title as String, 
+				ByVal xlabel as String, 
+				ByVal ylabel as String) as GPlot
 
 	If IsNothing (rootname) then Throw New ArgumentNullException  ("rootname cannot be Nothing")
 
@@ -86,10 +86,10 @@ End Sub
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function gplotAddPlot(
 				ByVal gplot as GPlot, 
+				ByVal nax as Numa, 
 				ByVal nay as Numa, 
 				ByVal plotstyle as Enumerations.GPLOT_STYLE, 
-				Optional ByVal nax as Numa = Nothing, 
-				Optional ByVal plottitle as String = Nothing) as Integer
+				ByVal plottitle as String) as Integer
 
 	If IsNothing (gplot) then Throw New ArgumentNullException  ("gplot cannot be Nothing")
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
@@ -222,7 +222,7 @@ Public Shared Function gplotSimple1(
 				ByVal na as Numa, 
 				ByVal outformat as Enumerations.GPLOT_OUTPUT, 
 				ByVal outroot as String, 
-				Optional ByVal title as String = Nothing) as Integer
+				ByVal title as String) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 	If IsNothing (outroot) then Throw New ArgumentNullException  ("outroot cannot be Nothing")
@@ -257,7 +257,7 @@ Public Shared Function gplotSimple2(
 				ByVal na2 as Numa, 
 				ByVal outformat as Enumerations.GPLOT_OUTPUT, 
 				ByVal outroot as String, 
-				Optional ByVal title as String = Nothing) as Integer
+				ByVal title as String) as Integer
 
 	If IsNothing (na1) then Throw New ArgumentNullException  ("na1 cannot be Nothing")
 	If IsNothing (na2) then Throw New ArgumentNullException  ("na2 cannot be Nothing")
@@ -292,7 +292,7 @@ Public Shared Function gplotSimpleN(
 				ByVal naa as Numaa, 
 				ByVal outformat as Enumerations.GPLOT_OUTPUT, 
 				ByVal outroot as String, 
-				Optional ByVal title as String = Nothing) as Integer
+				ByVal title as String) as Integer
 
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
 	If IsNothing (outroot) then Throw New ArgumentNullException  ("outroot cannot be Nothing")
@@ -326,12 +326,12 @@ End Function
 '''  <param name="title">[in][optional] - , can be NULL</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function gplotSimpleXY1(
+				ByVal nax as Numa, 
 				ByVal nay as Numa, 
 				ByVal plotstyle as Enumerations.GPLOT_STYLE, 
 				ByVal outformat as Enumerations.GPLOT_OUTPUT, 
 				ByVal outroot as String, 
-				Optional ByVal nax as Numa = Nothing, 
-				Optional ByVal title as String = Nothing) as Integer
+				ByVal title as String) as Integer
 
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
 	If IsNothing (outroot) then Throw New ArgumentNullException  ("outroot cannot be Nothing")
@@ -373,7 +373,7 @@ Public Shared Function gplotSimpleXY2(
 				ByVal plotstyle as Enumerations.GPLOT_STYLE, 
 				ByVal outformat as Enumerations.GPLOT_OUTPUT, 
 				ByVal outroot as String, 
-				Optional ByVal title as String = Nothing) as Integer
+				ByVal title as String) as Integer
 
 	If IsNothing (nax) then Throw New ArgumentNullException  ("nax cannot be Nothing")
 	If IsNothing (nay1) then Throw New ArgumentNullException  ("nay1 cannot be Nothing")
@@ -409,12 +409,12 @@ End Function
 '''  <param name="title">[in][optional] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function gplotSimpleXYN(
+				ByVal nax as Numa, 
 				ByVal naay as Numaa, 
 				ByVal plotstyle as Enumerations.GPLOT_STYLE, 
 				ByVal outformat as Enumerations.GPLOT_OUTPUT, 
 				ByVal outroot as String, 
-				Optional ByVal nax as Numa = Nothing, 
-				Optional ByVal title as String = Nothing) as Integer
+				ByVal title as String) as Integer
 
 	If IsNothing (naay) then Throw New ArgumentNullException  ("naay cannot be Nothing")
 	If IsNothing (outroot) then Throw New ArgumentNullException  ("outroot cannot be Nothing")
@@ -440,6 +440,7 @@ Public Shared Function gplotRead(
 				ByVal filename as String) as GPlot
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.gplotRead( filename)
@@ -465,6 +466,7 @@ Public Shared Function gplotWrite(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (gplot) then Throw New ArgumentNullException  ("gplot cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotWrite( filename, gplot.Pointer)

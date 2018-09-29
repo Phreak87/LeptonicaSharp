@@ -61,13 +61,13 @@ End Function
 '''  <param name="type">[in] - L_BLEND_WITH_INVERSE, L_BLEND_TO_WHITE, L_BLEND_TO_BLACK</param>
 '''   <returns>pixd if OK; NULL on error</returns>
 Public Shared Function pixBlendMask(
+				ByVal pixd as Pix, 
 				ByVal pixs1 as Pix, 
 				ByVal pixs2 as Pix, 
 				ByVal x as Integer, 
 				ByRef y as Integer, 
 				ByVal fract as Single, 
-				ByVal type as Enumerations.L_BLEND, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal type as Enumerations.L_BLEND) as Pix
 
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
@@ -121,6 +121,7 @@ End Function
 '''  <param name="transpix">[in] - pixel grayval in pixs2 that is to be transparent</param>
 '''   <returns>pixd if OK; pixs1 on error</returns>
 Public Shared Function pixBlendGray(
+				ByVal pixd as Pix, 
 				ByVal pixs1 as Pix, 
 				ByVal pixs2 as Pix, 
 				ByVal x as Integer, 
@@ -128,13 +129,11 @@ Public Shared Function pixBlendGray(
 				ByVal fract as Single, 
 				ByVal type as Enumerations.L_BLEND, 
 				ByVal transparent as Integer, 
-				ByVal transpix as UInteger, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal transpix as UInteger) as Pix
 
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
 	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
-	If IsNothing (transpix) then Throw New ArgumentNullException  ("transpix cannot be Nothing")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -179,12 +178,12 @@ End Function
 '''  <param name="fract">[in] - blending fraction</param>
 '''   <returns>pixd if OK; pixs1 on error</returns>
 Public Shared Function pixBlendGrayInverse(
+				ByVal pixd as Pix, 
 				ByVal pixs1 as Pix, 
 				ByVal pixs2 as Pix, 
 				ByVal x as Integer, 
 				ByRef y as Integer, 
-				ByVal fract as Single, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal fract as Single) as Pix
 
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
@@ -227,19 +226,18 @@ End Function
 '''  <param name="transpix">[in] - pixel color in pixs2 that is to be transparent</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixBlendColor(
+				ByVal pixd as Pix, 
 				ByVal pixs1 as Pix, 
 				ByVal pixs2 as Pix, 
 				ByVal x as Integer, 
 				ByRef y as Integer, 
 				ByVal fract as Single, 
 				ByVal transparent as Integer, 
-				ByVal transpix as UInteger, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal transpix as UInteger) as Pix
 
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
 	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
-	If IsNothing (transpix) then Throw New ArgumentNullException  ("transpix cannot be Nothing")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -276,7 +274,6 @@ Public Shared Function pixBlendColorByChannel(
 	If IsNothing (rfract) then Throw New ArgumentNullException  ("rfract cannot be Nothing")
 	If IsNothing (gfract) then Throw New ArgumentNullException  ("gfract cannot be Nothing")
 	If IsNothing (bfract) then Throw New ArgumentNullException  ("bfract cannot be Nothing")
-	If IsNothing (transpix) then Throw New ArgumentNullException  ("transpix cannot be Nothing")
 
 Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 Dim pixs1PTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs1) Then pixs1PTR = pixs1.Pointer
@@ -330,13 +327,13 @@ End Function
 '''  <param name="shift">[in] - GT= 0 but LT= 128 shift of zero blend value from median source; use -1 for default value;</param>
 '''   <returns>pixd if OK; pixs1 on error</returns>
 Public Shared Function pixBlendGrayAdapt(
+				ByVal pixd as Pix, 
 				ByVal pixs1 as Pix, 
 				ByVal pixs2 as Pix, 
 				ByVal x as Integer, 
 				ByRef y as Integer, 
 				ByVal fract as Single, 
-				ByVal shift as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal shift as Integer) as Pix
 
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
@@ -499,9 +496,9 @@ End Function
 Public Shared Function pixBlendWithGrayMask(
 				ByVal pixs1 as Pix, 
 				ByVal pixs2 as Pix, 
+				ByVal pixg as Pix, 
 				ByVal x as Integer, 
-				ByVal y as Integer, 
-				Optional ByVal pixg as Pix = Nothing) as Pix
+				ByVal y as Integer) as Pix
 
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
@@ -542,19 +539,18 @@ End Function
 '''  <param name="maxval">[in] - args for grayscale TRC mapping</param>
 '''   <returns>pixd always</returns>
 Public Shared Function pixBlendBackgroundToColor(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal box as Box, 
 				ByVal color as UInteger, 
 				ByVal gamma as Single, 
 				ByVal minval as Integer, 
-				ByVal maxval as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal maxval as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
-	If IsNothing (color) then Throw New ArgumentNullException  ("color cannot be Nothing")
 	If IsNothing (gamma) then Throw New ArgumentNullException  ("gamma cannot be Nothing")
-	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb") ' All Functions - All Parameters - CommentCheck
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -584,15 +580,14 @@ End Function
 '''  <param name="color">[in] - 32 bit color in 0xrrggbb00 format</param>
 '''   <returns>pixd always</returns>
 Public Shared Function pixMultiplyByColor(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal box as Box, 
-				ByVal color as UInteger, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal color as UInteger) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
-	If IsNothing (color) then Throw New ArgumentNullException  ("color cannot be Nothing")
-	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb") ' All Functions - All Parameters - CommentCheck
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -624,7 +619,6 @@ Public Shared Function pixAlphaBlendUniform(
 				ByVal color as UInteger) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (color) then Throw New ArgumentNullException  ("color cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAlphaBlendUniform( pixs.Pointer, color)

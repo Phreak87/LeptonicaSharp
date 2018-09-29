@@ -17,8 +17,8 @@ Partial Public Class _AllFunctions
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaFindDimensions(
 				ByVal pixa as Pixa, 
-				Optional ByRef pnaw as Numa = Nothing, 
-				Optional ByRef pnah as Numa = Nothing) as Integer
+				ByRef pnaw as Numa, 
+				ByRef pnah as Numa) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
@@ -51,11 +51,11 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixFindAreaPerimRatio(
 				ByVal pixs as Pix, 
-				ByRef pfract as Single(), 
-				Optional ByVal tab as Integer() = Nothing) as Integer
+				ByVal tab as Integer(), 
+				ByRef pfract as Single()) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindAreaPerimRatio( pixs.Pointer, tab, pfract)
@@ -111,11 +111,11 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixFindPerimToAreaRatio(
 				ByVal pixs as Pix, 
-				ByRef pfract as Single(), 
-				Optional ByVal tab as Integer() = Nothing) as Integer
+				ByVal tab as Integer(), 
+				ByRef pfract as Single()) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindPerimToAreaRatio( pixs.Pointer, tab, pfract)
@@ -174,11 +174,11 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixFindPerimSizeRatio(
 				ByVal pixs as Pix, 
-				ByRef pratio as Single(), 
-				Optional ByVal tab as Integer() = Nothing) as Integer
+				ByVal tab as Integer(), 
+				ByRef pratio as Single()) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindPerimSizeRatio( pixs.Pointer, tab, pratio)
@@ -227,11 +227,11 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixFindAreaFraction(
 				ByVal pixs as Pix, 
-				ByRef pfract as Single(), 
-				Optional ByVal tab as Integer() = Nothing) as Integer
+				ByVal tab as Integer(), 
+				ByRef pfract as Single()) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindAreaFraction( pixs.Pointer, tab, pfract)
@@ -260,7 +260,7 @@ End Function
 Public Shared Function pixaFindAreaFractionMasked(
 				ByVal pixa as Pixa, 
 				ByVal pixm as Pix, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Numa
+				ByVal debug as Enumerations.DebugOnOff) as Numa
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
@@ -297,10 +297,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixFindAreaFractionMasked(
 				ByVal pixs as Pix, 
+				ByVal box as Box, 
 				ByVal pixm as Pix, 
-				ByRef pfract as Single(), 
-				Optional ByVal box as Box = Nothing, 
-				Optional ByVal tab as Integer() = Nothing) as Integer
+				ByVal tab as Integer(), 
+				ByRef pfract as Single()) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
@@ -383,14 +383,14 @@ Public Shared Function pixFindOverlapFraction(
 				ByVal pixs2 as Pix, 
 				ByVal x2 as Integer, 
 				ByVal y2 as Integer, 
+				ByVal tab as Integer(), 
 				ByRef pratio as Single(), 
-				Optional ByVal tab as Integer() = Nothing, 
-				Optional ByRef pnoverlap as Integer = Nothing) as Integer
+				ByRef pnoverlap as Integer) as Integer
 
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
-	If {1}.contains (pixs1.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
-	If {1}.contains (pixs2.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs1.d) = false then Throw New ArgumentException ("1 bpp")
+	If {1}.contains (pixs2.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindOverlapFraction( pixs1.Pointer, pixs2.Pointer, x2, y2, tab, pratio, pnoverlap)
@@ -424,7 +424,7 @@ Public Shared Function pixFindRectangleComps(
 				ByVal minh as Integer) as Boxa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFindRectangleComps( pixs.Pointer, dist, minw, minh)
@@ -469,12 +469,12 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixConformsToRectangle(
 				ByVal pixs as Pix, 
+				ByVal box as Box, 
 				ByVal dist as Integer, 
-				ByRef pconforms as Integer, 
-				Optional ByVal box as Box = Nothing) as Integer
+				ByRef pconforms as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -544,7 +544,7 @@ End Function
 Public Shared Function pixClipRectangle(
 				ByVal pixs as Pix, 
 				ByVal box as Box, 
-				Optional ByRef pboxc as Box = Nothing) as Pix
+				ByRef pboxc as Box) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
@@ -596,7 +596,6 @@ Public Shared Function pixClipMasked(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
-	If IsNothing (outval) then Throw New ArgumentNullException  ("outval cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixClipMasked( pixs.Pointer, pixm.Pointer, x, y, outval)
@@ -697,9 +696,9 @@ End Function
 '''   <returns>pixd resized to match or NULL on error</returns>
 Public Shared Function pixResizeToMatch(
 				ByVal pixs as Pix, 
+				ByVal pixt as Pix, 
 				ByVal w as Integer, 
-				ByVal h as Integer, 
-				Optional ByVal pixt as Pix = Nothing) as Pix
+				ByVal h as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -787,7 +786,7 @@ Public Shared Function pixMakeCoveringOfRectangles(
 				ByVal maxiters as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMakeCoveringOfRectangles( pixs.Pointer, maxiters)
@@ -827,8 +826,8 @@ Public Shared Function pixFractionFgInMask(
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
-	If {1}.contains (pix1.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
-	If {1}.contains (pix2.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pix1.d) = false then Throw New ArgumentException ("1 bpp")
+	If {1}.contains (pix2.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFractionFgInMask( pix1.Pointer, pix2.Pointer, pfract)
@@ -852,11 +851,11 @@ End Function
 '''   <returns>0 if OK; 1 on error or if there are no fg pixels</returns>
 Public Shared Function pixClipToForeground(
 				ByVal pixs as Pix, 
-				Optional ByRef ppixd as Pix = Nothing, 
-				Optional ByRef pbox as Box = Nothing) as Integer
+				ByRef ppixd as Pix, 
+				ByRef pbox as Box) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 Dim pboxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbox) Then pboxPTR = pbox.Pointer
@@ -890,7 +889,7 @@ Public Shared Function pixTestClipToForeground(
 				ByRef pcanclip as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixTestClipToForeground( pixs.Pointer, pcanclip)
@@ -917,12 +916,12 @@ End Function
 '''   <returns>0 if OK; 1 on error or if there are no fg pixels</returns>
 Public Shared Function pixClipBoxToForeground(
 				ByVal pixs as Pix, 
-				Optional ByVal boxs as Box = Nothing, 
-				Optional ByRef ppixd as Pix = Nothing, 
-				Optional ByRef pboxd as Box = Nothing) as Integer
+				ByVal boxs as Box, 
+				ByRef ppixd as Pix, 
+				ByRef pboxd as Box) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim boxsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(boxs) Then boxsPTR = boxs.Pointer
 Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
@@ -953,12 +952,12 @@ End Function
 '''   <returns>0 if OK; 1 on error or if no fg pixels are found</returns>
 Public Shared Function pixScanForForeground(
 				ByVal pixs as Pix, 
+				ByVal box as Box, 
 				ByVal scanflag as Enumerations.L_scan_direction, 
-				ByRef ploc as Integer, 
-				Optional ByVal box as Box = Nothing) as Integer
+				ByRef ploc as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -1001,16 +1000,16 @@ End Function
 '''   <returns>0 if OK; 1 on error or if a fg edge is not found from all four sides.</returns>
 Public Shared Function pixClipBoxToEdges(
 				ByVal pixs as Pix, 
+				ByVal boxs as Box, 
 				ByVal lowthresh as Integer, 
 				ByVal highthresh as Integer, 
 				ByVal maxwidth as Integer, 
 				ByVal factor as Integer, 
-				Optional ByVal boxs as Box = Nothing, 
-				Optional ByRef ppixd as Pix = Nothing, 
-				Optional ByRef pboxd as Box = Nothing) as Integer
+				ByRef ppixd as Pix, 
+				ByRef pboxd as Box) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim boxsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(boxs) Then boxsPTR = boxs.Pointer
 Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
@@ -1054,16 +1053,16 @@ End Function
 '''   <returns>0 if OK; 1 on error or if the edge is not found</returns>
 Public Shared Function pixScanForEdge(
 				ByVal pixs as Pix, 
+				ByVal box as Box, 
 				ByVal lowthresh as Integer, 
 				ByVal highthresh as Integer, 
 				ByVal maxwidth as Integer, 
 				ByVal factor as Integer, 
 				ByVal scanflag as Enumerations.L_scan_direction, 
-				ByRef ploc as Integer, 
-				Optional ByVal box as Box = Nothing) as Integer
+				ByRef ploc as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -1289,7 +1288,7 @@ Public Shared Function pixWindowedVarianceOnLine(
 				ByRef pnad as Numa) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp; no colormap") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp; no colormap")
 
 	Dim pnadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnad) Then pnadPTR = pnad.Pointer
 
@@ -1338,13 +1337,13 @@ Public Shared Function pixMinMaxNearLine(
 				ByVal y2 as Integer, 
 				ByVal dist as Integer, 
 				ByVal direction as Enumerations.L_scan_direction, 
-				Optional ByRef pnamin as Numa = Nothing, 
-				Optional ByRef pnamax as Numa = Nothing, 
-				Optional ByRef pminave as Single() = Nothing, 
-				Optional ByRef pmaxave as Single() = Nothing) as Integer
+				ByRef pnamin as Numa, 
+				ByRef pnamax as Numa, 
+				ByRef pminave as Single(), 
+				ByRef pmaxave as Single()) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp; no colormap") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp; no colormap")
 
 Dim pnaminPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnamin) Then pnaminPTR = pnamin.Pointer
 Dim pnamaxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnamax) Then pnamaxPTR = pnamax.Pointer
@@ -1372,7 +1371,7 @@ Public Shared Function pixRankRowTransform(
 				ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp; no colormap") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp; no colormap")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRankRowTransform( pixs.Pointer)
@@ -1397,7 +1396,7 @@ Public Shared Function pixRankColumnTransform(
 				ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp; no colormap") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp; no colormap")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRankColumnTransform( pixs.Pointer)

@@ -51,8 +51,8 @@ End Function
 '''  <param name="pixs">[in] - all depths</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixRotate180(
-				ByVal pixs as Pix, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal pixd as Pix, 
+				ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -134,8 +134,8 @@ End Function
 '''  <param name="pixs">[in] - all depths</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixFlipLR(
-				ByVal pixs as Pix, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal pixd as Pix, 
+				ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -175,8 +175,8 @@ End Function
 '''  <param name="pixs">[in] - all depths</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixFlipTB(
-				ByVal pixs as Pix, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal pixd as Pix, 
+				ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 

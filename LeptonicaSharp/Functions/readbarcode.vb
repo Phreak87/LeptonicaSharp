@@ -21,8 +21,8 @@ Public Shared Function pixProcessBarcodes(
 				ByVal pixs as Pix, 
 				ByVal format as Enumerations.L_BF, 
 				ByVal method as Enumerations.L_USE_WIS, 
-				ByVal debugflag as Integer, 
-				Optional ByRef psaw as Sarray = Nothing) as Sarray
+				ByRef psaw as Sarray, 
+				ByVal debugflag as Integer) as Sarray
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -77,8 +77,8 @@ Public Shared Function pixReadBarcodes(
 				ByVal pixa as Pixa, 
 				ByVal format as Enumerations.L_BF, 
 				ByVal method as Enumerations.L_USE_WIS, 
-				ByVal debugflag as Integer, 
-				Optional ByRef psaw as Sarray = Nothing) as Sarray
+				ByRef psaw as Sarray, 
+				ByVal debugflag as Integer) as Sarray
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
@@ -133,8 +133,8 @@ End Function
 Public Shared Function pixLocateBarcodes(
 				ByVal pixs as Pix, 
 				ByVal thresh as Integer, 
-				Optional ByRef ppixb as Pix = Nothing, 
-				Optional ByRef ppixm as Pix = Nothing) as Boxa
+				ByRef ppixb as Pix, 
+				ByRef ppixm as Pix) as Boxa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -173,8 +173,8 @@ Public Shared Function pixDeskewBarcode(
 				ByVal box as Box, 
 				ByVal margin as Integer, 
 				ByVal threshold as Integer, 
-				Optional ByRef pangle as Single() = Nothing, 
-				Optional ByRef pconf as Single() = Nothing) as Pix
+				ByRef pangle as Single(), 
+				ByRef pconf as Single()) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixb) then Throw New ArgumentNullException  ("pixb cannot be Nothing")
@@ -212,9 +212,9 @@ Public Shared Function pixExtractBarcodeWidths1(
 				ByVal pixs as Pix, 
 				ByVal thresh as Single, 
 				ByVal binfract as Single, 
-				ByVal debugflag as Integer, 
-				Optional ByRef pnaehist as Numa = Nothing, 
-				Optional ByRef pnaohist as Numa = Nothing) as Numa
+				ByRef pnaehist as Numa, 
+				ByRef pnaohist as Numa, 
+				ByVal debugflag as Integer) as Numa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
@@ -258,9 +258,9 @@ End Function
 Public Shared Function pixExtractBarcodeWidths2(
 				ByVal pixs as Pix, 
 				ByVal thresh as Single, 
-				ByVal debugflag as Integer, 
-				Optional ByRef pwidth as Single() = Nothing, 
-				Optional ByRef pnac as Numa = Nothing) as Numa
+				ByRef pwidth as Single(), 
+				ByRef pnac as Numa, 
+				ByVal debugflag as Integer) as Numa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
@@ -327,9 +327,9 @@ End Function
 Public Shared Function numaQuantizeCrossingsByWidth(
 				ByVal nas as Numa, 
 				ByVal binfract as Single, 
-				ByVal debugflag as Integer, 
-				Optional ByRef pnaehist as Numa = Nothing, 
-				Optional ByRef pnaohist as Numa = Nothing) as Numa
+				ByRef pnaehist as Numa, 
+				ByRef pnaohist as Numa, 
+				ByVal debugflag as Integer) as Numa
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 	If IsNothing (binfract) then Throw New ArgumentNullException  ("binfract cannot be Nothing")
@@ -369,10 +369,10 @@ End Function
 Public Shared Function numaQuantizeCrossingsByWindow(
 				ByVal nas as Numa, 
 				ByVal ratio as Single, 
-				ByVal debugflag as Integer, 
-				Optional ByRef pwidth as Single() = Nothing, 
-				Optional ByRef pfirstloc as Single() = Nothing, 
-				Optional ByRef pnac as Numa = Nothing) as Numa
+				ByRef pwidth as Single(), 
+				ByRef pfirstloc as Single(), 
+				ByRef pnac as Numa, 
+				ByVal debugflag as Integer) as Numa
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 	If IsNothing (ratio) then Throw New ArgumentNullException  ("ratio cannot be Nothing")

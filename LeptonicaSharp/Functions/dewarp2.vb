@@ -55,7 +55,7 @@ Partial Public Class _AllFunctions
 '''   <returns>0 if OK, 1 if unable to build the model or on error</returns>
 Public Shared Function dewarpBuildPageModel(
 				ByVal dew as L_Dewarp, 
-				Optional ByVal debugfile as String = Nothing) as Integer
+				ByVal debugfile as String) as Integer
 
 	If IsNothing (dew) then Throw New ArgumentNullException  ("dew cannot be Nothing")
 
@@ -161,7 +161,7 @@ Public Shared Function dewarpGetTextlineCenters(
 				ByVal debugflag as Integer) as Ptaa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpGetTextlineCenters( pixs.Pointer, debugflag)
@@ -192,7 +192,7 @@ Public Shared Function dewarpRemoveShortLines(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (ptaas) then Throw New ArgumentNullException  ("ptaas cannot be Nothing")
 	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpRemoveShortLines( pixs.Pointer, ptaas.Pointer, fract, debugflag)
@@ -286,7 +286,7 @@ End Function
 Public Shared Function dewarpBuildLineModel(
 				ByVal dew as L_Dewarp, 
 				ByVal opensize as Integer, 
-				Optional ByVal debugfile as String = Nothing) as Integer
+				ByVal debugfile as String) as Integer
 
 	If IsNothing (dew) then Throw New ArgumentNullException  ("dew cannot be Nothing")
 
@@ -313,8 +313,8 @@ End Function
 Public Shared Function dewarpaModelStatus(
 				ByVal dewa as L_Dewarpa, 
 				ByVal pageno as Integer, 
-				Optional ByRef pvsuccess as Integer = Nothing, 
-				Optional ByRef phsuccess as Integer = Nothing) as Integer
+				ByRef pvsuccess as Integer, 
+				ByRef phsuccess as Integer) as Integer
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 

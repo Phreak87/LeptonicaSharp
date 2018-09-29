@@ -67,13 +67,14 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function readHeaderPng(
 				ByVal filename as String, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing, 
-				Optional ByRef pbps as Integer = Nothing, 
-				Optional ByRef pspp as Integer = Nothing, 
-				Optional ByRef piscmap as Integer = Nothing) as Integer
+				ByRef pw as Integer, 
+				ByRef ph as Integer, 
+				ByRef pbps as Integer, 
+				ByRef pspp as Integer, 
+				ByRef piscmap as Integer) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderPng( filename, pw, ph, pbps, pspp, piscmap)
@@ -99,11 +100,11 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function freadHeaderPng(
 				ByVal fp as FILE, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing, 
-				Optional ByRef pbps as Integer = Nothing, 
-				Optional ByRef pspp as Integer = Nothing, 
-				Optional ByRef piscmap as Integer = Nothing) as Integer
+				ByRef pw as Integer, 
+				ByRef ph as Integer, 
+				ByRef pbps as Integer, 
+				ByRef pspp as Integer, 
+				ByRef piscmap as Integer) as Integer
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
@@ -142,14 +143,13 @@ End Function
 Public Shared Function readHeaderMemPng(
 				ByVal data as Byte(), 
 				ByVal size as UInteger, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing, 
-				Optional ByRef pbps as Integer = Nothing, 
-				Optional ByRef pspp as Integer = Nothing, 
-				Optional ByRef piscmap as Integer = Nothing) as Integer
+				ByRef pw as Integer, 
+				ByRef ph as Integer, 
+				ByRef pbps as Integer, 
+				ByRef pspp as Integer, 
+				ByRef piscmap as Integer) as Integer
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderMemPng( data, size, pw, ph, pbps, pspp, piscmap)
@@ -198,6 +198,7 @@ Public Shared Function isPngInterlaced(
 				ByRef pinterlaced as Integer) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.isPngInterlaced( filename, pinterlaced)
@@ -253,6 +254,7 @@ Public Shared Function pixWritePng(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 	If IsNothing (gamma) then Throw New ArgumentNullException  ("gamma cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWritePng( filename, pix.Pointer, gamma)
@@ -416,7 +418,6 @@ Public Shared Function pixReadMemPng(
 				ByVal filesize as UInteger) as Pix
 
 	If IsNothing (filedata) then Throw New ArgumentNullException  ("filedata cannot be Nothing")
-	If IsNothing (filesize) then Throw New ArgumentNullException  ("filesize cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemPng( filedata, filesize)
@@ -451,7 +452,7 @@ Public Shared Function pixWriteMemPng(
 	Dim pfiledataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMemPng( pfiledataPTR, pfilesize, pix.Pointer, gamma)
-ReDim pfiledata(IIf(1 > 0, 1, 1) - 1) : If pfiledataPTR <> IntPtr.Zero Then Marshal.Copy(pfiledataPTR, pfiledata, 0, pfiledata.count)
+	ReDim pfiledata(IIf(pfilesize > 0, pfilesize, 1) - 1) : If pfiledataPTR <> IntPtr.Zero Then Marshal.Copy(pfiledataPTR, pfiledata, 0, pfiledata.count)
 
 	Return _Result
 End Function

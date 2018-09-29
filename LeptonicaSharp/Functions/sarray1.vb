@@ -305,14 +305,14 @@ End Function
 '''   <returns>ptr to string array, or NULL on error</returns>
 Public Shared Function sarrayGetArray(
 				ByVal sa as Sarray, 
-				Optional ByRef pnalloc as Integer = Nothing, 
-				Optional ByRef pn as Integer = Nothing) as String()
+				ByRef pnalloc as Integer, 
+				ByRef pn as Integer) as String()
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayGetArray( sa.Pointer, pnalloc, pn)
-Dim PTRARR(pn-1) As IntPtr : Marshal.Copy(_Result, PTRARR, 0, PTRARR.Length)
+Dim PTRARR(pnalloc-1) As IntPtr : Marshal.Copy(_Result, PTRARR, 0, PTRARR.Length)
 Dim BLST As New List(Of String) : For Each eintrag In PTRARR : BLST.Add(Marshal.PtrToStringAnsi(eintrag)) : Next
 Dim B As String() = BLST.toArray()
 
@@ -608,7 +608,7 @@ End Function
 '''   <returns>saout output sarray, filtered with substring or NULL on error</returns>
 Public Shared Function sarraySelectBySubstring(
 				ByVal sain as Sarray, 
-				Optional ByVal substr as String = Nothing) as Sarray
+				ByVal substr as String) as Sarray
 
 	If IsNothing (sain) then Throw New ArgumentNullException  ("sain cannot be Nothing")
 
@@ -715,6 +715,7 @@ Public Shared Function sarrayRead(
 				ByVal filename as String) as Sarray
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayRead( filename)
@@ -767,7 +768,6 @@ Public Shared Function sarrayReadMem(
 				ByVal size as UInteger) as Sarray
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayReadMem( data, size)
@@ -793,6 +793,7 @@ Public Shared Function sarrayWrite(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayWrite( filename, sa.Pointer)
@@ -849,7 +850,7 @@ Public Shared Function sarrayWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayWriteMem( pdataPTR, psize, sa.Pointer)
-ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
+	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
 End Function
@@ -871,6 +872,7 @@ Public Shared Function sarrayAppend(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayAppend( filename, sa.Pointer)
@@ -919,10 +921,10 @@ End Function
 '''   <returns>sarray of numbered pathnames, or NULL on error</returns>
 Public Shared Function getNumberedPathnamesInDirectory(
 				ByVal dirname as String, 
+				ByVal substr as String, 
 				ByVal numpre as Integer, 
 				ByVal numpost as Integer, 
-				ByVal maxnum as Integer, 
-				Optional ByVal substr as String = Nothing) as Sarray
+				ByVal maxnum as Integer) as Sarray
 
 	If IsNothing (dirname) then Throw New ArgumentNullException  ("dirname cannot be Nothing")
 
@@ -955,9 +957,9 @@ End Function
 '''   <returns>sarray of sorted pathnames, or NULL on error</returns>
 Public Shared Function getSortedPathnamesInDirectory(
 				ByVal dirname as String, 
+				ByVal substr as String, 
 				ByVal first as Integer, 
-				ByVal nfiles as Integer, 
-				Optional ByVal substr as String = Nothing) as Sarray
+				ByVal nfiles as Integer) as Sarray
 
 	If IsNothing (dirname) then Throw New ArgumentNullException  ("dirname cannot be Nothing")
 

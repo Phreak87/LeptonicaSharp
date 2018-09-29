@@ -54,9 +54,9 @@ End Function
 Public Shared Function pixWriteStreamPS(
 				ByVal fp as FILE, 
 				ByVal pix as Pix, 
+				ByVal box as Box, 
 				ByVal res as Integer, 
-				ByVal scale as Single, 
-				Optional ByVal box as Box = Nothing) as Integer
+				ByVal scale as Single) as Integer
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
@@ -212,6 +212,7 @@ End Function
 '''  <param name="pwpt">[out] - image width in pts</param>
 '''  <param name="phpt">[out] - image height in pts</param>
 Public Shared Sub getScaledParametersPS(
+				ByVal box as Box, 
 				ByVal wpix as Integer, 
 				ByVal hpix as Integer, 
 				ByVal res as Integer, 
@@ -219,8 +220,7 @@ Public Shared Sub getScaledParametersPS(
 				ByRef pxpt as Single(), 
 				ByRef pypt as Single(), 
 				ByRef pwpt as Single(), 
-				ByRef phpt as Single(), 
-				Optional ByVal box as Box = Nothing)
+				ByRef phpt as Single())
 
 	If IsNothing (scale) then Throw New ArgumentNullException  ("scale cannot be Nothing")
 
@@ -427,14 +427,14 @@ End Function
 '''  <param name="endpage">[in] - boolean use TRUE if this is the last image to be added to the page; FALSE otherwise</param>
 '''   <returns>PS string, or NULL on error</returns>
 Public Shared Function generateJpegPS(
+				ByVal filein as String, 
 				ByVal cid as L_Compressed_Data, 
 				ByVal xpt as Single, 
 				ByVal ypt as Single, 
 				ByVal wpt as Single, 
 				ByVal hpt as Single, 
 				ByVal pageno as Integer, 
-				ByVal endpage as Integer, 
-				Optional ByVal filein as String = Nothing) as String
+				ByVal endpage as Integer) as String
 
 	If IsNothing (cid) then Throw New ArgumentNullException  ("cid cannot be Nothing")
 	If IsNothing (xpt) then Throw New ArgumentNullException  ("xpt cannot be Nothing")
@@ -618,6 +618,7 @@ End Function
 '''  <param name="endpage">[in] - boolean use TRUE if this is the last image to be added to the page; FALSE otherwise</param>
 '''   <returns>PS string, or NULL on error</returns>
 Public Shared Function generateG4PS(
+				ByVal filein as String, 
 				ByVal cid as L_Compressed_Data, 
 				ByVal xpt as Single, 
 				ByVal ypt as Single, 
@@ -625,8 +626,7 @@ Public Shared Function generateG4PS(
 				ByVal hpt as Single, 
 				ByVal maskflag as Integer, 
 				ByVal pageno as Integer, 
-				ByVal endpage as Integer, 
-				Optional ByVal filein as String = Nothing) as String
+				ByVal endpage as Integer) as String
 
 	If IsNothing (cid) then Throw New ArgumentNullException  ("cid cannot be Nothing")
 	If IsNothing (xpt) then Throw New ArgumentNullException  ("xpt cannot be Nothing")
@@ -851,14 +851,14 @@ End Function
 '''  <param name="endpage">[in] - boolean use TRUE if this is the last image to be added to the page; FALSE otherwise</param>
 '''   <returns>PS string, or NULL on error</returns>
 Public Shared Function generateFlatePS(
+				ByVal filein as String, 
 				ByVal cid as L_Compressed_Data, 
 				ByVal xpt as Single, 
 				ByVal ypt as Single, 
 				ByVal wpt as Single, 
 				ByVal hpt as Single, 
 				ByVal pageno as Integer, 
-				ByVal endpage as Integer, 
-				Optional ByVal filein as String = Nothing) as String
+				ByVal endpage as Integer) as String
 
 	If IsNothing (cid) then Throw New ArgumentNullException  ("cid cannot be Nothing")
 	If IsNothing (xpt) then Throw New ArgumentNullException  ("xpt cannot be Nothing")
@@ -894,9 +894,9 @@ Public Shared Function pixWriteMemPS(
 				ByRef pdata as Byte(), 
 				ByRef psize as UInteger, 
 				ByVal pix as Pix, 
+				ByVal box as Box, 
 				ByVal res as Integer, 
-				ByVal scale as Single, 
-				Optional ByVal box as Box = Nothing) as Integer
+				ByVal scale as Single) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 	If IsNothing (scale) then Throw New ArgumentNullException  ("scale cannot be Nothing")
@@ -905,7 +905,7 @@ Public Shared Function pixWriteMemPS(
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMemPS( pdataPTR, psize, pix.Pointer, boxPTR, res, scale)
-ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
+	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
 End Function

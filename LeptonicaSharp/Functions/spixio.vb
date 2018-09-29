@@ -49,9 +49,10 @@ Public Shared Function readHeaderSpix(
 				ByRef pheight as Integer, 
 				ByRef pbps as Integer, 
 				ByRef pspp as Integer, 
-				Optional ByRef piscmap as Integer = Nothing) as Integer
+				ByRef piscmap as Integer) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderSpix( filename, pwidth, pheight, pbps, pspp, piscmap)
@@ -81,7 +82,7 @@ Public Shared Function freadHeaderSpix(
 				ByRef pheight as Integer, 
 				ByRef pbps as Integer, 
 				ByRef pspp as Integer, 
-				Optional ByRef piscmap as Integer = Nothing) as Integer
+				ByRef piscmap as Integer) as Integer
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
@@ -113,7 +114,7 @@ Public Shared Function sreadHeaderSpix(
 				ByRef pheight as Integer, 
 				ByRef pbps as Integer, 
 				ByRef pspp as Integer, 
-				Optional ByRef piscmap as Integer = Nothing) as Integer
+				ByRef piscmap as Integer) as Integer
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
@@ -164,7 +165,6 @@ Public Shared Function pixReadMemSpix(
 				ByVal size as UInteger) as Pix
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemSpix( data, size)
@@ -195,7 +195,7 @@ Public Shared Function pixWriteMemSpix(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMemSpix( pdataPTR, psize, pix.Pointer)
-ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
+	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
 End Function
@@ -234,7 +234,7 @@ Public Shared Function pixSerializeToMemory(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSerializeToMemory( pixs.Pointer, pdataPTR, pnbytes)
-ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
+	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
 End Function
@@ -257,7 +257,6 @@ Public Shared Function pixDeserializeFromMemory(
 				ByVal nbytes as UInteger) as Pix
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (nbytes) then Throw New ArgumentNullException  ("nbytes cannot be Nothing")
 
 	Dim dataPTR As IntPtr = Marshal.AllocHGlobal(data.Count) : Marshal.Copy(data, 0, dataPTR, data.Length)
 

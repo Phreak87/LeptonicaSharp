@@ -77,7 +77,7 @@ End Function
 Public Shared Function pixaCreateFromBoxa(
 				ByVal pixs as Pix, 
 				ByVal boxa as Boxa, 
-				Optional ByRef pcropwarn as Integer = Nothing) as Pixa
+				ByRef pcropwarn as Integer) as Pixa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
@@ -121,7 +121,6 @@ Public Shared Function pixaSplitPix(
 				ByVal bordercolor as UInteger) as Pixa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (bordercolor) then Throw New ArgumentNullException  ("bordercolor cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaSplitPix( pixs.Pointer, nx, ny, borderwidth, bordercolor)
@@ -142,7 +141,7 @@ End Function
 '''  </remarks>
 '''  <param name="ppixa">[in,out]can be null - ed</param>
 Public Shared Sub pixaDestroy(
-				Optional ByRef ppixa as Pixa = Nothing)
+				ByRef ppixa as Pixa)
 
 
 Dim ppixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixa) Then ppixaPTR = ppixa.Pointer
@@ -340,9 +339,9 @@ End Function
 Public Shared Function pixaGetPixDimensions(
 				ByVal pixa as Pixa, 
 				ByVal index as Integer, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing, 
-				Optional ByRef pd as Integer = Nothing) as Integer
+				ByRef pw as Integer, 
+				ByRef ph as Integer, 
+				ByRef pd as Integer) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
@@ -449,10 +448,10 @@ End Function
 Public Shared Function pixaGetBoxGeometry(
 				ByVal pixa as Pixa, 
 				ByVal index as Integer, 
-				Optional ByRef px as Integer = Nothing, 
-				Optional ByRef py as Integer = Nothing, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing) as Integer
+				ByRef px as Integer, 
+				ByRef py as Integer, 
+				ByRef pw as Integer, 
+				ByRef ph as Integer) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
@@ -511,7 +510,7 @@ Public Shared Function pixaGetPixArray(
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaGetPixArray( pixa.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
-Dim B as new Pix
+Dim B as new Pix(_Result)
 
 	Return B
 End Function
@@ -532,7 +531,7 @@ End Function
 Public Shared Function pixaVerifyDepth(
 				ByVal pixa as Pixa, 
 				ByRef psame as Integer, 
-				Optional ByRef pmaxd as Integer = Nothing) as Integer
+				ByRef pmaxd as Integer) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
@@ -559,8 +558,8 @@ End Function
 Public Shared Function pixaVerifyDimensions(
 				ByVal pixa as Pixa, 
 				ByRef psame as Integer, 
-				Optional ByRef pmaxw as Integer = Nothing, 
-				Optional ByRef pmaxh as Integer = Nothing) as Integer
+				ByRef pmaxw as Integer, 
+				ByRef pmaxh as Integer) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
@@ -586,8 +585,8 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaIsFull(
 				ByVal pixa as Pixa, 
-				Optional ByRef pfullpa as Integer = Nothing, 
-				Optional ByRef pfullba as Integer = Nothing) as Integer
+				ByRef pfullpa as Integer, 
+				ByRef pfullba as Integer) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
@@ -637,7 +636,7 @@ End Function
 '''   <returns>0 if OK, 1 on error.</returns>
 Public Shared Function pixaSetText(
 				ByVal pixa as Pixa, 
-				Optional ByVal sa as Sarray = Nothing) as Integer
+				ByVal sa as Sarray) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
@@ -669,7 +668,7 @@ End Function
 '''   <returns>array of array of line ptrs, or NULL on error</returns>
 Public Shared Function pixaGetLinePtrs(
 				ByVal pixa as Pixa, 
-				Optional ByRef psize as Integer = Nothing) as IntPtr
+				ByRef psize as Integer) as IntPtr
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
@@ -724,7 +723,7 @@ Public Shared Function pixaReplacePix(
 				ByVal pixa as Pixa, 
 				ByVal index as Integer, 
 				ByVal pix as Pix, 
-				Optional ByVal box as Box = Nothing) as Integer
+				ByVal box as Box) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
@@ -759,7 +758,7 @@ Public Shared Function pixaInsertPix(
 				ByVal pixa as Pixa, 
 				ByVal index as Integer, 
 				ByVal pixs as Pix, 
-				Optional ByVal box as Box = Nothing) as Integer
+				ByVal box as Box) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -819,8 +818,8 @@ End Function
 Public Shared Function pixaRemovePixAndSave(
 				ByVal pixa as Pixa, 
 				ByVal index as Integer, 
-				Optional ByRef ppix as Pix = Nothing, 
-				Optional ByRef pbox as Box = Nothing) as Integer
+				ByRef ppix as Pix, 
+				ByRef pbox as Box) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
@@ -871,8 +870,8 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaInitFull(
 				ByVal pixa as Pixa, 
-				Optional ByVal pix as Pix = Nothing, 
-				Optional ByVal box as Box = Nothing) as Integer
+				ByVal pix as Pix, 
+				ByVal box as Box) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
@@ -927,9 +926,9 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaJoin(
 				ByVal pixad as Pixa, 
+				ByVal pixas as Pixa, 
 				ByVal istart as Integer, 
-				ByVal iend as Integer, 
-				Optional ByVal pixas as Pixa = Nothing) as Integer
+				ByVal iend as Integer) as Integer
 
 	If IsNothing (pixad) then Throw New ArgumentNullException  ("pixad cannot be Nothing")
 
@@ -989,9 +988,9 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaaJoin(
 				ByVal paad as Pixaa, 
+				ByVal paas as Pixaa, 
 				ByVal istart as Integer, 
-				ByVal iend as Integer, 
-				Optional ByVal paas as Pixaa = Nothing) as Integer
+				ByVal iend as Integer) as Integer
 
 	If IsNothing (paad) then Throw New ArgumentNullException  ("paad cannot be Nothing")
 
@@ -1155,8 +1154,8 @@ Public Shared Function pixaaAddPix(
 				ByVal paa as Pixaa, 
 				ByVal index as Integer, 
 				ByVal pix as Pix, 
-				ByVal copyflag as Enumerations.L_access_storage, 
-				Optional ByVal box as Box = Nothing) as Integer
+				ByVal box as Box, 
+				ByVal copyflag as Enumerations.L_access_storage) as Integer
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
@@ -1210,7 +1209,7 @@ End Function
 '''   <returns>count, or 0 if no pixaa</returns>
 Public Shared Function pixaaGetCount(
 				ByVal paa as Pixaa, 
-				Optional ByRef pna as Numa = Nothing) as Integer
+				ByRef pna as Numa) as Integer
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
@@ -1326,7 +1325,7 @@ End Function
 Public Shared Function pixaaVerifyDepth(
 				ByVal paa as Pixaa, 
 				ByRef psame as Integer, 
-				Optional ByRef pmaxd as Integer = Nothing) as Integer
+				ByRef pmaxd as Integer) as Integer
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
@@ -1353,8 +1352,8 @@ End Function
 Public Shared Function pixaaVerifyDimensions(
 				ByVal paa as Pixaa, 
 				ByRef psame as Integer, 
-				Optional ByRef pmaxw as Integer = Nothing, 
-				Optional ByRef pmaxh as Integer = Nothing) as Integer
+				ByRef pmaxw as Integer, 
+				ByRef pmaxh as Integer) as Integer
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
@@ -1516,6 +1515,7 @@ Public Shared Function pixaRead(
 				ByVal filename as String) as Pixa
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaRead( filename)
@@ -1564,7 +1564,6 @@ Public Shared Function pixaReadMem(
 				ByVal size as UInteger) as Pixa
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaReadMem( data, size)
@@ -1621,6 +1620,7 @@ Public Shared Function pixaWrite(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaWrite( filename, pixa.Pointer)
@@ -1677,7 +1677,7 @@ Public Shared Function pixaWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaWriteMem( pdataPTR, psize, pixa.Pointer)
-ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
+	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
 End Function
@@ -1698,6 +1698,7 @@ Public Shared Function pixaReadBoth(
 				ByVal filename as String) as Pixa
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaReadBoth( filename)
@@ -1728,9 +1729,9 @@ End Function
 '''   <returns>paa, or NULL on error or if no pixa files are found.</returns>
 Public Shared Function pixaaReadFromFiles(
 				ByVal dirname as String, 
+				ByVal substr as String, 
 				ByVal first as Integer, 
-				ByVal nfiles as Integer, 
-				Optional ByVal substr as String = Nothing) as Pixaa
+				ByVal nfiles as Integer) as Pixaa
 
 	If IsNothing (dirname) then Throw New ArgumentNullException  ("dirname cannot be Nothing")
 
@@ -1757,6 +1758,7 @@ Public Shared Function pixaaRead(
 				ByVal filename as String) as Pixaa
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaaRead( filename)
@@ -1805,7 +1807,6 @@ Public Shared Function pixaaReadMem(
 				ByVal size as UInteger) as Pixaa
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaaReadMem( data, size)
@@ -1833,6 +1834,7 @@ Public Shared Function pixaaWrite(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaWrite( filename, paa.Pointer)
@@ -1889,7 +1891,7 @@ Public Shared Function pixaaWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaWriteMem( pdataPTR, psize, paa.Pointer)
-ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
+	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
 End Function

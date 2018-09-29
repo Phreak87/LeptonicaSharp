@@ -255,8 +255,8 @@ Public Shared Function pixCorrelationScoreShifted(
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 	If IsNothing (tab) then Throw New ArgumentNullException  ("tab cannot be Nothing")
-	If {1}.contains (pix1.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
-	If {1}.contains (pix2.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pix1.d) = false then Throw New ArgumentException ("1 bpp")
+	If {1}.contains (pix2.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCorrelationScoreShifted( pix1.Pointer, pix2.Pointer, area1, area2, delx, dely, tab, pscore)

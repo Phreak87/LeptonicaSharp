@@ -62,8 +62,8 @@ End Function
 '''  <param name="scaley">[in] - vertical scale factor</param>
 '''   <returns>3x3 transform matrix, or NULL on error</returns>
 Public Shared Function createMatrix2dScale(
-				Optional ByVal scalex as Single = 1, 
-				Optional ByVal scaley as Single = 1) as Single()
+				ByVal scalex as Single, 
+				ByVal scaley as Single) as Single()
 
 
 
@@ -164,8 +164,8 @@ End Function
 '''   <returns>0 if OK; 1 on error</returns>
 Public Shared Function ptaScale(
 				ByVal ptas as Pta, 
-				Optional ByVal scalex as Single = 1, 
-				Optional ByVal scaley as Single = 1) as Pta
+				ByVal scalex as Single, 
+				ByVal scaley as Single) as Pta
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
@@ -262,8 +262,8 @@ End Function
 '''   <returns>boxad  scaled boxas, or NULL on error Notes (1) See createMatrix2dScale() for details of transform.</returns>
 Public Shared Function boxaScale(
 				ByVal boxas as Boxa, 
-				Optional ByVal scalex as Single = 1, 
-				Optional ByVal scaley as Single = 1) as Boxa
+				ByVal scalex as Single, 
+				ByVal scaley as Single) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 

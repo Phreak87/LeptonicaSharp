@@ -143,10 +143,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function kernelGetParameters(
 				ByVal kel as L_Kernel, 
-				Optional ByRef psy as Integer = Nothing, 
-				Optional ByRef psx as Integer = Nothing, 
-				Optional ByRef pcy as Integer = Nothing, 
-				Optional ByRef pcx as Integer = Nothing) as Integer
+				ByRef psy as Integer, 
+				ByRef psx as Integer, 
+				ByRef pcy as Integer, 
+				ByRef pcx as Integer) as Integer
 
 	If IsNothing (kel) then Throw New ArgumentNullException  ("kel cannot be Nothing")
 
@@ -218,8 +218,8 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function kernelGetMinMax(
 				ByVal kel as L_Kernel, 
-				Optional ByRef pmin as Single() = Nothing, 
-				Optional ByRef pmax as Single() = Nothing) as Integer
+				ByRef pmin as Single(), 
+				ByRef pmax as Single()) as Integer
 
 	If IsNothing (kel) then Throw New ArgumentNullException  ("kel cannot be Nothing")
 
@@ -484,6 +484,7 @@ Public Shared Function kernelCreateFromFile(
 				ByVal filename as String) as L_Kernel
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelCreateFromFile( filename)

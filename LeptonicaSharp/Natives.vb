@@ -1,6 +1,10 @@
 Imports System.Runtime.InteropServices
 Public Class Natives
+#If DEBUG Then
+Const DllPath as String = "leptonica-1.77.0d.dll"
+#Else
 Const DllPath as String = "leptonica-1.77.0.dll"
+#End If
 Const CConv as CallingConvention = CallingConvention.Cdecl
 
 

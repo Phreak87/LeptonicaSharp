@@ -104,9 +104,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LeptonicaSharp\testdll.vbproj">
+    <ProjectReference Include="..\LeptonicaSharp\LeptonicaSharp.vbproj">
       <Project>{5141B932-2D30-47A6-87A6-557FA5F4E6A7}</Project>
-      <Name>testdll</Name>
+      <Name>LeptonicaSharp</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

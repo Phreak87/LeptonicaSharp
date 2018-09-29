@@ -23,7 +23,7 @@ Public Shared Function pixConvertToFPix(
 				ByVal ncomps as Integer) as FPix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1,2,4,8,16,24,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1,2,4,8,16,24,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertToFPix( pixs.Pointer, ncomps)
@@ -52,7 +52,7 @@ Public Shared Function pixConvertToDPix(
 				ByVal ncomps as Integer) as DPix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1,2,4,8,16,24,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1,2,4,8,16,24,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertToDPix( pixs.Pointer, ncomps)
@@ -218,9 +218,9 @@ End Function
 '''   <returns>0 if OK; 1 on error</returns>
 Public Shared Function fpixGetMin(
 				ByVal fpix as FPix, 
-				Optional ByRef pminval as Single() = Nothing, 
-				Optional ByRef pxminloc as Integer = Nothing, 
-				Optional ByRef pyminloc as Integer = Nothing) as Integer
+				ByRef pminval as Single(), 
+				ByRef pxminloc as Integer, 
+				ByRef pyminloc as Integer) as Integer
 
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
 
@@ -245,9 +245,9 @@ End Function
 '''   <returns>0 if OK; 1 on error</returns>
 Public Shared Function fpixGetMax(
 				ByVal fpix as FPix, 
-				Optional ByRef pmaxval as Single() = Nothing, 
-				Optional ByRef pxmaxloc as Integer = Nothing, 
-				Optional ByRef pymaxloc as Integer = Nothing) as Integer
+				ByRef pmaxval as Single(), 
+				ByRef pxmaxloc as Integer, 
+				ByRef pymaxloc as Integer) as Integer
 
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
 
@@ -272,9 +272,9 @@ End Function
 '''   <returns>0 if OK; 1 on error</returns>
 Public Shared Function dpixGetMin(
 				ByVal dpix as DPix, 
-				Optional ByRef pminval as Double() = Nothing, 
-				Optional ByRef pxminloc as Integer = Nothing, 
-				Optional ByRef pyminloc as Integer = Nothing) as Integer
+				ByRef pminval as Double(), 
+				ByRef pxminloc as Integer, 
+				ByRef pyminloc as Integer) as Integer
 
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
 
@@ -299,9 +299,9 @@ End Function
 '''   <returns>0 if OK; 1 on error</returns>
 Public Shared Function dpixGetMax(
 				ByVal dpix as DPix, 
-				Optional ByRef pmaxval as Double() = Nothing, 
-				Optional ByRef pxmaxloc as Integer = Nothing, 
-				Optional ByRef pymaxloc as Integer = Nothing) as Integer
+				ByRef pmaxval as Double(), 
+				ByRef pxmaxloc as Integer, 
+				ByRef pymaxloc as Integer) as Integer
 
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
 
@@ -400,11 +400,11 @@ End Function
 '''  <param name="b">[in] - multiplication factors on fpixs1 and fpixs2, rsp.</param>
 '''   <returns>fpixd always</returns>
 Public Shared Function fpixLinearCombination(
+				ByVal fpixd as FPix, 
 				ByVal fpixs1 as FPix, 
 				ByVal fpixs2 as FPix, 
 				ByVal a as Single, 
-				ByVal b as Single, 
-				Optional ByVal fpixd as FPix = Nothing) as FPix
+				ByVal b as Single) as FPix
 
 	If IsNothing (fpixs1) then Throw New ArgumentNullException  ("fpixs1 cannot be Nothing")
 	If IsNothing (fpixs2) then Throw New ArgumentNullException  ("fpixs2 cannot be Nothing")
@@ -473,11 +473,11 @@ End Function
 '''  <param name="b">[in] - multiplication factors on dpixs1 and dpixs2, rsp.</param>
 '''   <returns>dpixd always</returns>
 Public Shared Function dpixLinearCombination(
+				ByVal dpixd as DPix, 
 				ByVal dpixs1 as DPix, 
 				ByVal dpixs2 as DPix, 
 				ByVal a as Single, 
-				ByVal b as Single, 
-				Optional ByVal dpixd as DPix = Nothing) as DPix
+				ByVal b as Single) as DPix
 
 	If IsNothing (dpixs1) then Throw New ArgumentNullException  ("dpixs1 cannot be Nothing")
 	If IsNothing (dpixs2) then Throw New ArgumentNullException  ("dpixs2 cannot be Nothing")
@@ -820,8 +820,8 @@ End Function
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>fpixd, or NULL on error</returns>
 Public Shared Function fpixRotate180(
-				ByVal fpixs as FPix, 
-				Optional ByVal fpixd as FPix = Nothing) as FPix
+				ByVal fpixd as FPix, 
+				ByVal fpixs as FPix) as FPix
 
 	If IsNothing (fpixs) then Throw New ArgumentNullException  ("fpixs cannot be Nothing")
 
@@ -885,8 +885,8 @@ End Function
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>fpixd, or NULL on error</returns>
 Public Shared Function fpixFlipLR(
-				ByVal fpixs as FPix, 
-				Optional ByVal fpixd as FPix = Nothing) as FPix
+				ByVal fpixd as FPix, 
+				ByVal fpixs as FPix) as FPix
 
 	If IsNothing (fpixs) then Throw New ArgumentNullException  ("fpixs cannot be Nothing")
 
@@ -923,8 +923,8 @@ End Function
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>fpixd, or NULL on error</returns>
 Public Shared Function fpixFlipTB(
-				ByVal fpixs as FPix, 
-				Optional ByVal fpixd as FPix = Nothing) as FPix
+				ByVal fpixd as FPix, 
+				ByVal fpixs as FPix) as FPix
 
 	If IsNothing (fpixs) then Throw New ArgumentNullException  ("fpixs cannot be Nothing")
 
@@ -1181,7 +1181,7 @@ Public Shared Function pixComponentFunction(
 	If IsNothing (rdenom) then Throw New ArgumentNullException  ("rdenom cannot be Nothing")
 	If IsNothing (gdenom) then Throw New ArgumentNullException  ("gdenom cannot be Nothing")
 	If IsNothing (bdenom) then Throw New ArgumentNullException  ("bdenom cannot be Nothing")
-	If {32}.contains (pix.d) = false then Throw New ArgumentException ("32 bpp rgb") ' All Functions - All Parameters - CommentCheck
+	If {32}.contains (pix.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixComponentFunction( pix.Pointer, rnum, gnum, bnum, rdenom, gdenom, bdenom)

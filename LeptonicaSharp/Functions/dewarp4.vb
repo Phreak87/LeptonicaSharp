@@ -31,8 +31,8 @@ Public Shared Function dewarpSinglePage(
 				ByVal useboth as Integer, 
 				ByVal check_columns as Integer, 
 				ByRef ppixd as Pix, 
-				Optional ByRef pdewa as L_Dewarpa = Nothing, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByRef pdewa as L_Dewarpa, 
+				ByVal debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -118,12 +118,12 @@ Public Shared Function dewarpSinglePageRun(
 				ByVal pixb as Pix, 
 				ByVal dewa as L_Dewarpa, 
 				ByRef ppixd as Pix, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByVal debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixb) then Throw New ArgumentNullException  ("pixb cannot be Nothing")
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
-	If {1}.contains (pixb.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixb.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
@@ -186,7 +186,7 @@ End Function
 Public Shared Function dewarpaSetValidModels(
 				ByVal dewa as L_Dewarpa, 
 				ByVal notests as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByVal debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
@@ -238,7 +238,7 @@ End Function
 Public Shared Function dewarpaInsertRefModels(
 				ByVal dewa as L_Dewarpa, 
 				ByVal notests as Integer, 
-				Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
+				ByVal debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
@@ -361,12 +361,12 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function dewarpaModelStats(
 				ByVal dewa as L_Dewarpa, 
-				Optional ByRef pnnone as Integer = Nothing, 
-				Optional ByRef pnvsuccess as Integer = Nothing, 
-				Optional ByRef pnvvalid as Integer = Nothing, 
-				Optional ByRef pnhsuccess as Integer = Nothing, 
-				Optional ByRef pnhvalid as Integer = Nothing, 
-				Optional ByRef pnref as Integer = Nothing) as Integer
+				ByRef pnnone as Integer, 
+				ByRef pnvsuccess as Integer, 
+				ByRef pnvvalid as Integer, 
+				ByRef pnhsuccess as Integer, 
+				ByRef pnhvalid as Integer, 
+				ByRef pnref as Integer) as Integer
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 

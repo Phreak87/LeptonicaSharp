@@ -152,10 +152,10 @@ End Sub
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxGetGeometry(
 				ByVal box as Box, 
-				Optional ByRef px as Integer = Nothing, 
-				Optional ByRef py as Integer = Nothing, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing) as Integer
+				ByRef px as Integer, 
+				ByRef py as Integer, 
+				ByRef pw as Integer, 
+				ByRef ph as Integer) as Integer
 
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
@@ -181,10 +181,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxSetGeometry(
 				ByVal box as Box, 
-				Optional ByVal x as Integer = Nothing, 
-				Optional ByVal y as Integer = Nothing, 
-				Optional ByVal w as Integer = Nothing, 
-				Optional ByVal h as Integer = Nothing) as Integer
+				ByVal x as Integer, 
+				ByVal y as Integer, 
+				ByVal w as Integer, 
+				ByVal h as Integer) as Integer
 
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
@@ -211,10 +211,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxGetSideLocations(
 				ByVal box as Box, 
-				Optional ByRef pl as Integer = Nothing, 
-				Optional ByRef pr as Integer = Nothing, 
-				Optional ByRef pt as Integer = Nothing, 
-				Optional ByRef pb as Integer = Nothing) as Integer
+				ByRef pl as Integer, 
+				ByRef pr as Integer, 
+				ByRef pt as Integer, 
+				ByRef pb as Integer) as Integer
 
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
@@ -240,10 +240,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxSetSideLocations(
 				ByVal box as Box, 
-				Optional ByVal l as Integer = Nothing, 
-				Optional ByVal r as Integer = Nothing, 
-				Optional ByVal t as Integer = Nothing, 
-				Optional ByVal b as Integer = Nothing) as Integer
+				ByVal l as Integer, 
+				ByVal r as Integer, 
+				ByVal t as Integer, 
+				ByVal b as Integer) as Integer
 
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
@@ -601,10 +601,10 @@ End Function
 Public Shared Function boxaGetBoxGeometry(
 				ByVal boxa as Boxa, 
 				ByVal index as Integer, 
-				Optional ByRef px as Integer = Nothing, 
-				Optional ByRef py as Integer = Nothing, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing) as Integer
+				ByRef px as Integer, 
+				ByRef py as Integer, 
+				ByRef pw as Integer, 
+				ByRef ph as Integer) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
@@ -743,7 +743,7 @@ End Function
 Public Shared Function boxaRemoveBoxAndSave(
 				ByVal boxa as Boxa, 
 				ByVal index as Integer, 
-				Optional ByRef pbox as Box = Nothing) as Integer
+				ByRef pbox as Box) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
@@ -820,7 +820,7 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaInitFull(
 				ByVal boxa as Boxa, 
-				Optional ByVal box as Box = Nothing) as Integer
+				ByVal box as Box) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
@@ -1300,9 +1300,9 @@ End Function
 '''   <returns>baa, or NULL on error or if no boxa files are found.</returns>
 Public Shared Function boxaaReadFromFiles(
 				ByVal dirname as String, 
+				ByVal substr as String, 
 				ByVal first as Integer, 
-				ByVal nfiles as Integer, 
-				Optional ByVal substr as String = Nothing) as Boxaa
+				ByVal nfiles as Integer) as Boxaa
 
 	If IsNothing (dirname) then Throw New ArgumentNullException  ("dirname cannot be Nothing")
 
@@ -1327,6 +1327,7 @@ Public Shared Function boxaaRead(
 				ByVal filename as String) as Boxaa
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaRead( filename)
@@ -1373,7 +1374,6 @@ Public Shared Function boxaaReadMem(
 				ByVal size as UInteger) as Boxaa
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaReadMem( data, size)
@@ -1399,6 +1399,7 @@ Public Shared Function boxaaWrite(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaWrite( filename, baa.Pointer)
@@ -1453,7 +1454,7 @@ Public Shared Function boxaaWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaWriteMem( pdataPTR, psize, baa.Pointer)
-ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
+	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
 End Function
@@ -1472,6 +1473,7 @@ Public Shared Function boxaRead(
 				ByVal filename as String) as Boxa
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaRead( filename)
@@ -1518,7 +1520,6 @@ Public Shared Function boxaReadMem(
 				ByVal size as UInteger) as Boxa
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaReadMem( data, size)
@@ -1549,6 +1550,7 @@ Public Shared Function boxaWriteDebug(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaWriteDebug( filename, boxa.Pointer)
@@ -1573,6 +1575,7 @@ Public Shared Function boxaWrite(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaWrite( filename, boxa.Pointer)
@@ -1627,7 +1630,7 @@ Public Shared Function boxaWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaWriteMem( pdataPTR, psize, boxa.Pointer)
-ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
+	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
 End Function

@@ -44,8 +44,8 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function stringCopy(
 				ByVal dest as String, 
-				ByVal n as Integer, 
-				Optional ByVal src as String = Nothing) as Integer
+				ByVal src as String, 
+				ByVal n as Integer) as Integer
 
 	If IsNothing (dest) then Throw New ArgumentNullException  ("dest cannot be Nothing")
 
@@ -71,7 +71,7 @@ End Function
 '''   <returns>0 if OK; 1 on error</returns>
 Public Shared Function stringReplace(
 				ByRef pdest as String(), 
-				Optional ByVal src as String = Nothing) as Integer
+				ByVal src as String) as Integer
 
 
 Dim pdestPTR As IntPtr = pdestPTR = Marshal.AllocHGlobal(Marshal.sizeOf(pdest.toArray))
@@ -102,7 +102,6 @@ Public Shared Function stringLength(
 				ByVal size as UInteger) as Integer
 
 	If IsNothing (src) then Throw New ArgumentNullException  ("src cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.stringLength( src, size)
@@ -136,7 +135,6 @@ Public Shared Function stringCat(
 				ByVal src as String) as Integer
 
 	If IsNothing (dest) then Throw New ArgumentNullException  ("dest cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 	If IsNothing (src) then Throw New ArgumentNullException  ("src cannot be Nothing")
 
 
@@ -183,8 +181,8 @@ End Function
 '''  <param name="src2">[in] - string [optional] can be null</param>
 '''   <returns>concatenated string, or NULL on error</returns>
 Public Shared Function stringJoin(
-				Optional ByVal src1 as String = Nothing, 
-				Optional ByVal src2 as String = Nothing) as String
+				ByVal src1 as String, 
+				ByVal src2 as String) as String
 
 
 
@@ -226,7 +224,7 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function stringJoinIP(
 				ByRef psrc1 as String(), 
-				Optional ByVal src2 as String = Nothing) as Integer
+				ByVal src2 as String) as Integer
 
 
 Dim psrc1PTR As IntPtr = psrc1PTR = Marshal.AllocHGlobal(Marshal.sizeOf(psrc1.toArray))
@@ -408,7 +406,7 @@ End Function
 Public Shared Function stringFindSubstr(
 				ByVal src as String, 
 				ByRef _sub_ as String, 
-				Optional ByRef ploc as Integer = Nothing) as Integer
+				ByRef ploc as Integer) as Integer
 
 	If IsNothing (src) then Throw New ArgumentNullException  ("src cannot be Nothing")
 	If IsNothing (_sub_) then Throw New ArgumentNullException  ("_sub_ cannot be Nothing")
@@ -446,8 +444,8 @@ Public Shared Function stringReplaceSubstr(
 				ByVal src as String, 
 				ByVal sub1 as String, 
 				ByVal sub2 as String, 
-				Optional ByRef pfound as Integer = Nothing, 
-				Optional ByRef ploc as Integer = Nothing) as String
+				ByRef pfound as Integer, 
+				ByRef ploc as Integer) as String
 
 	If IsNothing (src) then Throw New ArgumentNullException  ("src cannot be Nothing")
 	If IsNothing (sub1) then Throw New ArgumentNullException  ("sub1 cannot be Nothing")
@@ -479,7 +477,7 @@ Public Shared Function stringReplaceEachSubstr(
 				ByVal src as String, 
 				ByVal sub1 as String, 
 				ByVal sub2 as String, 
-				Optional ByRef pcount as Integer = Nothing) as String
+				ByRef pcount as Integer) as String
 
 	If IsNothing (src) then Throw New ArgumentNullException  ("src cannot be Nothing")
 	If IsNothing (sub1) then Throw New ArgumentNullException  ("sub1 cannot be Nothing")
@@ -515,9 +513,7 @@ Public Shared Function arrayFindEachSequence(
 				ByVal seqlen as UInteger) as L_Dna
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (datalen) then Throw New ArgumentNullException  ("datalen cannot be Nothing")
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
-	If IsNothing (seqlen) then Throw New ArgumentNullException  ("seqlen cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.arrayFindEachSequence( data, datalen, sequence, seqlen)
@@ -558,9 +554,7 @@ Public Shared Function arrayFindSequence(
 				ByRef pfound as Integer) as Integer
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (datalen) then Throw New ArgumentNullException  ("datalen cannot be Nothing")
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
-	If IsNothing (seqlen) then Throw New ArgumentNullException  ("seqlen cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.arrayFindSequence( data, datalen, sequence, seqlen, poffset, pfound)
@@ -588,9 +582,9 @@ End Function
 '''  <param name="newsize">[in] - size of data to be reallocated in bytes</param>
 '''   <returns>ptr to new data, or NULL on error Action !N.B. 3) and (4! 1 Allocates memory, initialized to 0 2 Copies as much of the input data as possible to the new block, truncating the copy if necessary 3 Frees the input data 4 Zeroes the input data ptr</returns>
 Public Shared Function reallocNew(
+				ByRef pindata as IntPtr(), 
 				ByVal oldsize as Integer, 
-				ByVal newsize as Integer, 
-				Optional ByRef pindata as IntPtr() = Nothing) as Object
+				ByVal newsize as Integer) as Object
 
 
 Dim pindataPTR As IntPtr = IntPtr.Zero: if not isNothing (pindata) then pindataPTR = Marshal.AllocHGlobal(Marshal.SizeOf(pindata.toarray))
@@ -616,6 +610,7 @@ Public Shared Function l_binaryRead(
 				ByRef pnbytes as UInteger) as Byte()
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.l_binaryRead( filename, pnbytes)
@@ -683,8 +678,7 @@ Public Shared Function l_binaryReadSelect(
 				ByRef pnread as UInteger) as Byte()
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
-	If IsNothing (start) then Throw New ArgumentNullException  ("start cannot be Nothing")
-	If IsNothing (nbytes) then Throw New ArgumentNullException  ("nbytes cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.l_binaryReadSelect( filename, start, nbytes, pnread)
@@ -718,8 +712,6 @@ Public Shared Function l_binaryReadSelectStream(
 				ByRef pnread as UInteger) as Byte()
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
-	If IsNothing (start) then Throw New ArgumentNullException  ("start cannot be Nothing")
-	If IsNothing (nbytes) then Throw New ArgumentNullException  ("nbytes cannot be Nothing")
 
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.l_binaryReadSelectStream( fp.Pointer, start, nbytes, pnread)
@@ -749,7 +741,7 @@ Public Shared Function l_binaryWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (operation) then Throw New ArgumentNullException  ("operation cannot be Nothing")
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (nbytes) then Throw New ArgumentNullException  ("nbytes cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 Dim dataPTR As IntPtr = Marshal.AllocHGlobal(0)
 
@@ -772,6 +764,7 @@ Public Shared Function nbytesInFile(
 				ByVal filename as String) as UInteger
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as UInteger = LeptonicaSharp.Natives.nbytesInFile( filename)
@@ -820,7 +813,6 @@ Public Shared Function l_binaryCopy(
 				ByVal size as UInteger) as Byte()
 
 	If IsNothing (datas) then Throw New ArgumentNullException  ("datas cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.l_binaryCopy( datas, size)
@@ -893,6 +885,7 @@ Public Shared Function fileAppendString(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (str) then Throw New ArgumentNullException  ("str cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fileAppendString( filename, str)
@@ -918,6 +911,7 @@ Public Shared Function fopenReadStream(
 				ByVal filename as String) as FILE
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fopenReadStream( filename)
@@ -947,6 +941,7 @@ Public Shared Function fopenWriteStream(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (modestring) then Throw New ArgumentNullException  ("modestring cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fopenWriteStream( filename, modestring)
@@ -974,7 +969,6 @@ Public Shared Function fopenReadFromMemory(
 				ByVal size as UInteger) as FILE
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fopenReadFromMemory( data, size)
@@ -1024,6 +1018,7 @@ Public Shared Function lept_fopen(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (mode) then Throw New ArgumentNullException  ("mode cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.lept_fopen( filename, mode)
@@ -1073,8 +1068,6 @@ Public Shared Function lept_calloc(
 				ByVal nmemb as UInteger, 
 				ByVal size as UInteger) as Object
 
-	If IsNothing (nmemb) then Throw New ArgumentNullException  ("nmemb cannot be Nothing")
-	If IsNothing (size) then Throw New ArgumentNullException  ("size cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.lept_calloc( nmemb, size)
@@ -1215,8 +1208,8 @@ End Sub
 '''  <param name="substr">[in][optional] - pattern to match in filename</param>
 '''   <returns>0 on success, non-zero on failure</returns>
 Public Shared Function lept_rm_match(
-				Optional ByVal subdir as String = Nothing, 
-				Optional ByVal substr as String = Nothing) as Integer
+				ByVal subdir as String, 
+				ByVal substr as String) as Integer
 
 
 
@@ -1240,8 +1233,8 @@ End Function
 '''  <param name="tail">[in] - filename without the directory</param>
 '''   <returns>0 on success, non-zero on failure</returns>
 Public Shared Function lept_rm(
-				ByVal tail as String, 
-				Optional ByVal subdir as String = Nothing) as Integer
+				ByVal subdir as String, 
+				ByVal tail as String) as Integer
 
 	If IsNothing (tail) then Throw New ArgumentNullException  ("tail cannot be Nothing")
 
@@ -1313,9 +1306,9 @@ End Function
 '''   <returns>0 on success, non-zero on failure</returns>
 Public Shared Function lept_mv(
 				ByVal srcfile as String, 
-				Optional ByVal newdir as String = Nothing, 
-				Optional ByVal newtail as String = Nothing, 
-				Optional ByRef pnewpath as String() = Nothing) as Integer
+				ByVal newdir as String, 
+				ByVal newtail as String, 
+				ByRef pnewpath as String()) as Integer
 
 	If IsNothing (srcfile) then Throw New ArgumentNullException  ("srcfile cannot be Nothing")
 
@@ -1361,9 +1354,9 @@ End Function
 '''   <returns>0 on success, non-zero on failure</returns>
 Public Shared Function lept_cp(
 				ByVal srcfile as String, 
-				Optional ByVal newdir as String = Nothing, 
-				Optional ByVal newtail as String = Nothing, 
-				Optional ByRef pnewpath as String() = Nothing) as Integer
+				ByVal newdir as String, 
+				ByVal newtail as String, 
+				ByRef pnewpath as String()) as Integer
 
 	If IsNothing (srcfile) then Throw New ArgumentNullException  ("srcfile cannot be Nothing")
 
@@ -1427,8 +1420,8 @@ End Sub
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function splitPathAtDirectory(
 				ByVal pathname as String, 
-				Optional ByRef pdir as String() = Nothing, 
-				Optional ByRef ptail as String() = Nothing) as Integer
+				ByRef pdir as String(), 
+				ByRef ptail as String()) as Integer
 
 	If IsNothing (pathname) then Throw New ArgumentNullException  ("pathname cannot be Nothing")
 
@@ -1465,8 +1458,8 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function splitPathAtExtension(
 				ByVal pathname as String, 
-				Optional ByRef pbasename as String() = Nothing, 
-				Optional ByRef pextension as String() = Nothing) as Integer
+				ByRef pbasename as String(), 
+				ByRef pextension as String()) as Integer
 
 	If IsNothing (pathname) then Throw New ArgumentNullException  ("pathname cannot be Nothing")
 
@@ -1517,8 +1510,8 @@ End Function
 '''  <param name="fname">[in][optional] - can be null</param>
 '''   <returns>specially concatenated path, or NULL on error</returns>
 Public Shared Function pathJoin(
-				Optional ByVal dir as String = Nothing, 
-				Optional ByVal fname as String = Nothing) as String
+				ByVal dir as String, 
+				ByVal fname as String) as String
 
 
 
@@ -1615,8 +1608,8 @@ End Function
 '''  <param name="fname">[in][optional] - file name within a directory</param>
 '''   <returns>pathname either a directory or full path, or NULL on error</returns>
 Public Shared Function genPathname(
-				Optional ByVal dir as String = Nothing, 
-				Optional ByVal fname as String = Nothing) as String
+				ByVal dir as String, 
+				ByVal fname as String) as String
 
 
 
@@ -1655,10 +1648,9 @@ End Function
 Public Shared Function makeTempDirname(
 				ByVal result as String, 
 				ByVal nbytes as UInteger, 
-				Optional ByVal subdir as String = Nothing) as Integer
+				ByVal subdir as String) as Integer
 
 	If IsNothing (result) then Throw New ArgumentNullException  ("result cannot be Nothing")
-	If IsNothing (nbytes) then Throw New ArgumentNullException  ("nbytes cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.makeTempDirname( result, nbytes, subdir)
@@ -1685,7 +1677,6 @@ Public Shared Function modifyTrailingSlash(
 				ByVal flag as Enumerations.L_TRAIL_SLASH) as Integer
 
 	If IsNothing (path) then Throw New ArgumentNullException  ("path cannot be Nothing")
-	If IsNothing (nbytes) then Throw New ArgumentNullException  ("nbytes cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.modifyTrailingSlash( path, nbytes, flag)

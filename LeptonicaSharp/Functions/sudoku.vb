@@ -21,6 +21,7 @@ Public Shared Function sudokuReadFile(
 				ByVal filename as String) as Integer()
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as Integer() = LeptonicaSharp.Natives.sudokuReadFile( filename)

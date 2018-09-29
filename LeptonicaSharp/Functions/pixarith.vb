@@ -81,9 +81,9 @@ End Function
 '''  <param name="pixs2">[in] - </param>
 '''   <returns>pixd always</returns>
 Public Shared Function pixAddGray(
+				ByVal pixd as Pix, 
 				ByVal pixs1 as Pix, 
-				ByVal pixs2 as Pix, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal pixs2 as Pix) as Pix
 
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
@@ -119,9 +119,9 @@ End Function
 '''  <param name="pixs2">[in] - </param>
 '''   <returns>pixd always</returns>
 Public Shared Function pixSubtractGray(
+				ByVal pixd as Pix, 
 				ByVal pixs1 as Pix, 
-				ByVal pixs2 as Pix, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal pixs2 as Pix) as Pix
 
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
@@ -152,10 +152,10 @@ End Function
 '''  <param name="setval">[in] - </param>
 '''   <returns>pixd always</returns>
 Public Shared Function pixThresholdToValue(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal threshval as Integer, 
-				ByVal setval as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal setval as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -195,7 +195,6 @@ Public Shared Function pixInitAccumulate(
 				ByVal h as Integer, 
 				ByVal offset as UInteger) as Pix
 
-	If IsNothing (offset) then Throw New ArgumentNullException  ("offset cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixInitAccumulate( w, h, offset)
@@ -226,7 +225,6 @@ Public Shared Function pixFinalAccumulate(
 				ByVal depth as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (offset) then Throw New ArgumentNullException  ("offset cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFinalAccumulate( pixs.Pointer, offset, depth)
@@ -255,8 +253,6 @@ Public Shared Function pixFinalAccumulateThreshold(
 				ByVal threshold as UInteger) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (offset) then Throw New ArgumentNullException  ("offset cannot be Nothing")
-	If IsNothing (threshold) then Throw New ArgumentNullException  ("threshold cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFinalAccumulateThreshold( pixs.Pointer, offset, threshold)
@@ -317,7 +313,6 @@ Public Shared Function pixMultConstAccumulate(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (factor) then Throw New ArgumentNullException  ("factor cannot be Nothing")
-	If IsNothing (offset) then Throw New ArgumentNullException  ("offset cannot be Nothing")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixMultConstAccumulate( pixs.Pointer, factor, offset)
@@ -410,10 +405,10 @@ End Function
 '''  <param name="type">[in] - L_CHOOSE_MIN, L_CHOOSE_MAX</param>
 '''   <returns>pixd always</returns>
 Public Shared Function pixMinOrMax(
+				ByVal pixd as Pix, 
 				ByVal pixs1 as Pix, 
 				ByVal pixs2 as Pix, 
-				ByVal type as Enumerations.L_CHOOSE_M, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal type as Enumerations.L_CHOOSE_M) as Pix
 
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
@@ -505,7 +500,6 @@ Public Shared Function linearScaleRGBVal(
 				ByVal sval as UInteger, 
 				ByVal factor as Single) as UInteger
 
-	If IsNothing (sval) then Throw New ArgumentNullException  ("sval cannot be Nothing")
 	If IsNothing (factor) then Throw New ArgumentNullException  ("factor cannot be Nothing")
 
 
@@ -538,7 +532,6 @@ Public Shared Function logScaleRGBVal(
 				ByVal tab as Single(), 
 				ByVal factor as Single) as UInteger
 
-	If IsNothing (sval) then Throw New ArgumentNullException  ("sval cannot be Nothing")
 	If IsNothing (tab) then Throw New ArgumentNullException  ("tab cannot be Nothing")
 	If IsNothing (factor) then Throw New ArgumentNullException  ("factor cannot be Nothing")
 

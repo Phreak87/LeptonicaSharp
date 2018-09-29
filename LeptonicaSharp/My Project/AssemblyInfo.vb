@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Die Werte der Assemblyattribute überprüfen
 
-<Assembly: AssemblyTitle("LeptonicaSharp")> 
+<Assembly: AssemblyTitle("testdll")> 
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("-")> 
-<Assembly: AssemblyProduct("LeptonicaSharp")> 
+<Assembly: AssemblyProduct("testdll")> 
 <Assembly: AssemblyCopyright("Copyright © - 2018")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
 
 'Die folgende GUID bestimmt die ID der Typbibliothek, wenn dieses Projekt für COM verfügbar gemacht wird
-<Assembly: Guid("93575c15-f86e-4a8b-9c3e-c0a2b3008f13")> 
+<Assembly: Guid("a0c17784-4928-4042-9871-586ba3a5168b")> 
 
 ' Versionsinformationen für eine Assembly bestehen aus den folgenden vier Werten:
 '

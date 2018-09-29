@@ -54,7 +54,7 @@ Public Shared Function dewarpaApplyDisparity(
 				ByVal x as Integer, 
 				ByVal y as Integer, 
 				ByRef ppixd as Pix, 
-				Optional ByVal debugfile as String = Nothing) as Integer
+				ByVal debugfile as String) as Integer
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -103,7 +103,7 @@ Public Shared Function dewarpaApplyDisparityBoxa(
 				ByVal x as Integer, 
 				ByVal y as Integer, 
 				ByRef pboxad as Boxa, 
-				Optional ByVal debugfile as String = Nothing) as Integer
+				ByVal debugfile as String) as Integer
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -173,9 +173,9 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function dewarpPopulateFullRes(
 				ByVal dew as L_Dewarp, 
+				ByVal pix as Pix, 
 				ByVal x as Integer, 
-				ByVal y as Integer, 
-				Optional ByVal pix as Pix = Nothing) as Integer
+				ByVal y as Integer) as Integer
 
 	If IsNothing (dew) then Throw New ArgumentNullException  ("dew cannot be Nothing")
 

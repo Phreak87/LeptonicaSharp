@@ -42,11 +42,11 @@ Partial Public Class _AllFunctions
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK;</param>
 '''   <returns>pixd, always</returns>
 Public Shared Function pixHShear(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal yloc as Integer, 
 				ByVal radang as Single, 
-				ByVal incolor as Enumerations.L_BRING_IN, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (radang) then Throw New ArgumentNullException  ("radang cannot be Nothing")
@@ -98,11 +98,11 @@ End Function
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK;</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixVShear(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal xloc as Integer, 
 				ByVal radang as Single, 
-				ByVal incolor as Enumerations.L_BRING_IN, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (radang) then Throw New ArgumentNullException  ("radang cannot be Nothing")
@@ -132,10 +132,10 @@ End Function
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK;</param>
 '''   <returns>pixd, or NULL on error.</returns>
 Public Shared Function pixHShearCorner(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal radang as Single, 
-				ByVal incolor as Enumerations.L_BRING_IN, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (radang) then Throw New ArgumentNullException  ("radang cannot be Nothing")
@@ -165,10 +165,10 @@ End Function
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK;</param>
 '''   <returns>pixd, or NULL on error.</returns>
 Public Shared Function pixVShearCorner(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal radang as Single, 
-				ByVal incolor as Enumerations.L_BRING_IN, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (radang) then Throw New ArgumentNullException  ("radang cannot be Nothing")
@@ -198,10 +198,10 @@ End Function
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK;</param>
 '''   <returns>pixd, or NULL on error.</returns>
 Public Shared Function pixHShearCenter(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal radang as Single, 
-				ByVal incolor as Enumerations.L_BRING_IN, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (radang) then Throw New ArgumentNullException  ("radang cannot be Nothing")
@@ -231,10 +231,10 @@ End Function
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK;</param>
 '''   <returns>pixd, or NULL on error.</returns>
 Public Shared Function pixVShearCenter(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal radang as Single, 
-				ByVal incolor as Enumerations.L_BRING_IN, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (radang) then Throw New ArgumentNullException  ("radang cannot be Nothing")

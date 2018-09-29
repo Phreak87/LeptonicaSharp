@@ -63,12 +63,12 @@ Public Shared Function pixOtsuAdaptiveThreshold(
 				ByVal smoothx as Integer, 
 				ByVal smoothy as Integer, 
 				ByVal scorefract as Single, 
-				Optional ByRef ppixth as Pix = Nothing, 
-				Optional ByRef ppixd as Pix = Nothing) as Integer
+				ByRef ppixth as Pix, 
+				ByRef ppixd as Pix) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (scorefract) then Throw New ArgumentNullException  ("scorefract cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 Dim ppixthPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixth) Then ppixthPTR = ppixth.Pointer
 Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
@@ -117,6 +117,7 @@ End Function
 '''   <returns>pixd 1 bpp thresholded image, or NULL on error</returns>
 Public Shared Function pixOtsuThreshOnBackgroundNorm(
 				ByVal pixs as Pix, 
+				ByVal pixim as Pix, 
 				ByVal sx as Integer, 
 				ByVal sy as Integer, 
 				ByVal thresh as Integer, 
@@ -125,12 +126,11 @@ Public Shared Function pixOtsuThreshOnBackgroundNorm(
 				ByVal smoothx as Integer, 
 				ByVal smoothy as Integer, 
 				ByVal scorefract as Single, 
-				Optional ByVal pixim as Pix = Nothing, 
-				Optional ByRef pthresh as Integer = Nothing) as Pix
+				ByRef pthresh as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (scorefract) then Throw New ArgumentNullException  ("scorefract cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale; not colormapped") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale; not colormapped")
 
 	Dim piximPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixim) Then piximPTR = pixim.Pointer
 
@@ -181,6 +181,7 @@ End Function
 '''   <returns>pixd 1 bpp thresholded image, or NULL on error</returns>
 Public Shared Function pixMaskedThreshOnBackgroundNorm(
 				ByVal pixs as Pix, 
+				ByVal pixim as Pix, 
 				ByVal sx as Integer, 
 				ByVal sy as Integer, 
 				ByVal thresh as Integer, 
@@ -188,12 +189,11 @@ Public Shared Function pixMaskedThreshOnBackgroundNorm(
 				ByVal smoothx as Integer, 
 				ByVal smoothy as Integer, 
 				ByVal scorefract as Single, 
-				Optional ByVal pixim as Pix = Nothing, 
-				Optional ByRef pthresh as Integer = Nothing) as Pix
+				ByRef pthresh as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (scorefract) then Throw New ArgumentNullException  ("scorefract cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale; not colormapped") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale; not colormapped")
 
 	Dim piximPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixim) Then piximPTR = pixim.Pointer
 
@@ -239,8 +239,8 @@ Public Shared Function pixSauvolaBinarizeTiled(
 				ByVal factor as Single, 
 				ByVal nx as Integer, 
 				ByVal ny as Integer, 
-				Optional ByRef ppixth as Pix = Nothing, 
-				Optional ByRef ppixd as Pix = Nothing) as Integer
+				ByRef ppixth as Pix, 
+				ByRef ppixd as Pix) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (factor) then Throw New ArgumentNullException  ("factor cannot be Nothing")
@@ -296,15 +296,15 @@ End Function
 Public Shared Function pixSauvolaBinarize(
 				ByVal pixs as Pix, 
 				ByVal whsize as Integer, 
-				Optional ByVal factor as Single = 0.35, 
-				Optional ByVal addborder as Integer = 0, 
-				Optional ByRef ppixm as Pix = Nothing, 
-				Optional ByRef ppixsd as Pix = Nothing, 
-				Optional ByRef ppixth as Pix = Nothing, 
-				Optional ByRef ppixd as Pix = Nothing) as Integer
+				ByVal factor as Single, 
+				ByVal addborder as Integer, 
+				ByRef ppixm as Pix, 
+				ByRef ppixsd as Pix, 
+				ByRef ppixth as Pix, 
+				ByRef ppixd as Pix) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale; not colormapped") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale; not colormapped")
 
 Dim ppixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixm) Then ppixmPTR = ppixm.Pointer
 Dim ppixsdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixsd) Then ppixsdPTR = ppixsd.Pointer
@@ -361,12 +361,12 @@ Public Shared Function pixSauvolaGetThreshold(
 				ByVal pixm as Pix, 
 				ByVal pixms as Pix, 
 				ByVal factor as Single, 
-				Optional ByRef ppixsd as Pix = Nothing) as Pix
+				ByRef ppixsd as Pix) as Pix
 
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 	If IsNothing (pixms) then Throw New ArgumentNullException  ("pixms cannot be Nothing")
 	If IsNothing (factor) then Throw New ArgumentNullException  ("factor cannot be Nothing")
-	If {8}.contains (pixm.d) = false then Throw New ArgumentException ("8 bpp grayscale; not colormapped") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixm.d) = false then Throw New ArgumentException ("8 bpp grayscale; not colormapped")
 
 Dim ppixsdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixsd) Then ppixsdPTR = ppixsd.Pointer
 
@@ -396,7 +396,7 @@ Public Shared Function pixApplyLocalThreshold(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixth) then Throw New ArgumentNullException  ("pixth cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale; not colormapped") ' All Functions - All Parameters - CommentCheck
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale; not colormapped")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixApplyLocalThreshold( pixs.Pointer, pixth.Pointer, redfactor)
@@ -457,15 +457,15 @@ End Function
 '''   <returns>0 if OK, 1 on error or if no threshold is found</returns>
 Public Shared Function pixThresholdByConnComp(
 				ByVal pixs as Pix, 
+				ByVal pixm as Pix, 
 				ByVal start as Integer, 
 				ByRef _end_ as Integer, 
 				ByVal incr as Integer, 
 				ByVal thresh48 as Single, 
 				ByVal threshdiff as Single, 
-				ByVal debugflag as Integer, 
-				Optional ByVal pixm as Pix = Nothing, 
-				Optional ByRef pglobthresh as Integer = Nothing, 
-				Optional ByRef ppixd as Pix = Nothing) as Integer
+				ByRef pglobthresh as Integer, 
+				ByRef ppixd as Pix, 
+				ByVal debugflag as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (thresh48) then Throw New ArgumentNullException  ("thresh48 cannot be Nothing")

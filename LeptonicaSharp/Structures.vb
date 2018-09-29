@@ -5,16 +5,15 @@ Imports LeptonicaSharp.Enumerations
 #Region "SRC/environ.h"
 '  SRC/environ.h (308, 8)
 '  Timing struct
-public class L_WallTimer
-	property Pointer as IntPtr
-	private Values as Marshal_L_WallTimer
+Public Class L_WallTimer
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_WallTimer
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_WallTimer
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -26,10 +25,9 @@ public class L_WallTimer
 '''  </summary>
 ReadOnly property start_sec as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.start_sec
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.start_sec
+		Return nothing
 	End Get
 End Property
 
@@ -42,10 +40,9 @@ End Property
 '''  </summary>
 ReadOnly property start_usec as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.start_usec
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.start_usec
+		Return nothing
 	End Get
 End Property
 
@@ -58,10 +55,9 @@ End Property
 '''  </summary>
 ReadOnly property stop_sec as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.stop_sec
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.stop_sec
+		Return nothing
 	End Get
 End Property
 
@@ -74,10 +70,9 @@ End Property
 '''  </summary>
 ReadOnly property stop_usec as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.stop_usec
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.stop_usec
+		Return nothing
 	End Get
 End Property
 
@@ -96,10 +91,10 @@ End Class
 #Region "SRC/array.h"
 '  SRC/array.h (59, 8)
 '  Number array: an array of floats
-public class Numa
+Public Class Numa
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_Numa
+	Property Pointer as IntPtr
+	Private Values as new Marshal_Numa
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -118,7 +113,6 @@ public class Numa
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_Numa
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -130,10 +124,9 @@ public class Numa
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -146,10 +139,9 @@ End Property
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -162,10 +154,9 @@ End Property
 '''  </summary>
 ReadOnly property refcount as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.refcount
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.refcount
+		Return nothing
 	End Get
 End Property
 
@@ -178,10 +169,9 @@ End Property
 '''  </summary>
 ReadOnly property startx as Single
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.startx
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.startx
+		Return nothing
 	End Get
 End Property
 
@@ -194,10 +184,9 @@ End Property
 '''  </summary>
 ReadOnly property delx as Single
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.delx
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.delx
+		Return nothing
 	End Get
 End Property
 
@@ -210,14 +199,13 @@ End Property
 '''  </summary>
 ReadOnly property array as Single()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.array <> IntPtr.Zero Then 
-	Dim _array(values.n -1) as Single
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.array <> IntPtr.Zero Then 
+	Dim _array(values.nalloc -1) as Single
 	Marshal.Copy(Values.array, _array, 0, _array.Length)
 	Return _array
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -236,10 +224,10 @@ End Class
 
 '  SRC/array.h (71, 8)
 '  Array of number arrays
-public class Numaa
+Public Class Numaa
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_Numaa
+	Property Pointer as IntPtr
+	Private Values as new Marshal_Numaa
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -258,7 +246,6 @@ public class Numaa
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_Numaa
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -270,10 +257,9 @@ public class Numaa
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -286,10 +272,9 @@ End Property
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -302,18 +287,17 @@ End Property
 '''  </summary>
 ReadOnly property numa as List (of Numa)
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.numa <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.numa <> IntPtr.Zero Then
 		Dim LST_numa As New List(Of Numa)
-		Dim ARR_numa(values.n - 1) As IntPtr
-		Marshal.Copy(Values.numa, ARR_numa, 0, values.n)
+		Dim ARR_numa(values.nalloc - 1) As IntPtr
+		Marshal.Copy(Values.numa, ARR_numa, 0, values.nalloc)
 		For Each Entry In ARR_numa
 			LST_numa.Add(New Numa(Entry))
 		Next
 Return LST_numa
 End If
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -329,10 +313,10 @@ End Class
 
 '  SRC/array.h (83, 8)
 '  Double number array: an array of doubles
-public class L_Dna
+Public Class L_Dna
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_L_Dna
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Dna
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -351,7 +335,6 @@ public class L_Dna
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Dna
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -363,10 +346,9 @@ public class L_Dna
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -379,10 +361,9 @@ End Property
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -395,10 +376,9 @@ End Property
 '''  </summary>
 ReadOnly property refcount as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.refcount
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.refcount
+		Return nothing
 	End Get
 End Property
 
@@ -411,10 +391,9 @@ End Property
 '''  </summary>
 ReadOnly property startx as Double
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.startx
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.startx
+		Return nothing
 	End Get
 End Property
 
@@ -427,10 +406,9 @@ End Property
 '''  </summary>
 ReadOnly property delx as Double
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.delx
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.delx
+		Return nothing
 	End Get
 End Property
 
@@ -443,14 +421,13 @@ End Property
 '''  </summary>
 ReadOnly property array as Double()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.array <> IntPtr.Zero Then 
-	Dim _array(values.n -1) as Double
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.array <> IntPtr.Zero Then 
+	Dim _array(values.nalloc -1) as Double
 	Marshal.Copy(Values.array, _array, 0, _array.Length)
 	Return _array
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -469,10 +446,10 @@ End Class
 
 '  SRC/array.h (95, 8)
 '  Array of double number arrays
-public class L_Dnaa
+Public Class L_Dnaa
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_L_Dnaa
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Dnaa
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -491,7 +468,6 @@ public class L_Dnaa
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Dnaa
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -503,10 +479,9 @@ public class L_Dnaa
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -519,10 +494,9 @@ End Property
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -535,18 +509,17 @@ End Property
 '''  </summary>
 ReadOnly property dna as List (of L_Dna)
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.dna <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.dna <> IntPtr.Zero Then
 		Dim LST_dna As New List(Of L_Dna)
-		Dim ARR_dna(values.n - 1) As IntPtr
-		Marshal.Copy(Values.dna, ARR_dna, 0, values.n)
+		Dim ARR_dna(values.nalloc - 1) As IntPtr
+		Marshal.Copy(Values.dna, ARR_dna, 0, values.nalloc)
 		For Each Entry In ARR_dna
 			LST_dna.Add(New L_Dna(Entry))
 		Next
 Return LST_dna
 End If
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -562,10 +535,10 @@ End Class
 
 '  SRC/array.h (104, 8)
 '  A hash table of Dnas
-public class L_DnaHash
+Public Class L_DnaHash
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_L_DnaHash
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_DnaHash
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -584,7 +557,6 @@ public class L_DnaHash
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_DnaHash
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -596,10 +568,9 @@ public class L_DnaHash
 '''  </summary>
 ReadOnly property nbuckets as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nbuckets
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nbuckets
+		Return nothing
 	End Get
 End Property
 
@@ -612,10 +583,9 @@ End Property
 '''  </summary>
 ReadOnly property initsize as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.initsize
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.initsize
+		Return nothing
 	End Get
 End Property
 
@@ -628,9 +598,8 @@ End Property
 '''  </summary>
 ReadOnly property dna as List (of L_Dna)
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.dna <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.dna <> IntPtr.Zero Then
 		Dim LST_dna As New List(Of L_Dna)
 		Dim ARR_dna(1 - 1) As IntPtr
 		Marshal.Copy(Values.dna, ARR_dna, 0, 1)
@@ -639,7 +608,7 @@ ReadOnly property dna as List (of L_Dna)
 		Next
 Return LST_dna
 End If
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -655,10 +624,10 @@ End Class
 
 '  SRC/array.h (116, 8)
 '  String array: an array of C strings
-public class Sarray
+Public Class Sarray
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_Sarray
+	Property Pointer as IntPtr
+	Private Values as new Marshal_Sarray
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -677,7 +646,6 @@ public class Sarray
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_Sarray
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -689,10 +657,9 @@ public class Sarray
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -705,10 +672,9 @@ End Property
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -721,10 +687,9 @@ End Property
 '''  </summary>
 ReadOnly property refcount as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.refcount
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.refcount
+		Return nothing
 	End Get
 End Property
 
@@ -737,13 +702,12 @@ End Property
 '''  </summary>
 ReadOnly property array as String()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	Dim LSTRET As New List(Of String)
-Dim LSTPTR(Values.n - 1) As IntPtr: Marshal.Copy(Values.array, LSTPTR, 0, values.n)
+		Marshal.PtrToStructure (Pointer, Values)
+		Dim LSTRET As New List(Of String)
+Dim LSTPTR(Values.n - 1) As IntPtr: Marshal.Copy(Values.array, LSTPTR, 0, values.nalloc)
 For Each Entry As IntPtr In LSTPTR: LSTRET.Add(Marshal.PtrToStringAnsi(Entry)): Next
 Return LSTRET.ToArray
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -760,10 +724,10 @@ End Class
 
 '  SRC/array.h (126, 8)
 '  Byte array (analogous to C++ "string")
-public class L_Bytea
+Public Class L_Bytea
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_L_Bytea
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Bytea
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -782,7 +746,6 @@ public class L_Bytea
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Bytea
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -794,10 +757,9 @@ public class L_Bytea
 '''  </summary>
 ReadOnly property nalloc as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -810,10 +772,9 @@ End Property
 '''  </summary>
 ReadOnly property size as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.size
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.size
+		Return nothing
 	End Get
 End Property
 
@@ -826,10 +787,9 @@ End Property
 '''  </summary>
 ReadOnly property refcount as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.refcount
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.refcount
+		Return nothing
 	End Get
 End Property
 
@@ -842,14 +802,13 @@ End Property
 '''  </summary>
 ReadOnly property data as Byte()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.data <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.data <> IntPtr.Zero Then 
 	Dim _data(values.nalloc -1) as Byte
 	Marshal.Copy(Values.data, _data, 0, _data.Length)
 	Return _data
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -868,16 +827,15 @@ End Class
 #Region "SRC/bbuffer.h"
 '  SRC/bbuffer.h (50, 8)
 '  Expandable byte buffer for memory read/write operations
-public class L_ByteBuffer
-	property Pointer as IntPtr
-	private Values as Marshal_L_ByteBuffer
+Public Class L_ByteBuffer
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_ByteBuffer
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_ByteBuffer
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -889,10 +847,9 @@ public class L_ByteBuffer
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -905,10 +862,9 @@ End Property
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -921,10 +877,9 @@ End Property
 '''  </summary>
 ReadOnly property nwritten as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nwritten
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nwritten
+		Return nothing
 	End Get
 End Property
 
@@ -937,14 +892,13 @@ End Property
 '''  </summary>
 ReadOnly property array as Byte()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.array <> IntPtr.Zero Then 
-	Dim _array(values.n -1) as Byte
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.array <> IntPtr.Zero Then 
+	Dim _array(values.nalloc -1) as Byte
 	Marshal.Copy(Values.array, _array, 0, _array.Length)
 	Return _array
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -963,16 +917,15 @@ End Class
 #Region "SRC/heap.h"
 '  SRC/heap.h (77, 8)
 '  Heap of arbitrary void* data
-public class L_Heap
-	property Pointer as IntPtr
-	private Values as Marshal_L_Heap
+Public Class L_Heap
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Heap
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Heap
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -984,10 +937,9 @@ public class L_Heap
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -1000,10 +952,9 @@ End Property
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -1016,14 +967,13 @@ End Property
 '''  </summary>
 ReadOnly property array as IntPtr()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.array <> IntPtr.Zero Then 
-		Dim _array(values.n) as IntPtr
-		Marshal.Copy(Values.array, _array, 0, values.n)
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.array <> IntPtr.Zero Then 
+		Dim _array(values.nalloc) as IntPtr
+		Marshal.Copy(Values.array, _array, 0, values.nalloc)
 		Return _array
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -1036,10 +986,9 @@ End Property
 '''  </summary>
 ReadOnly property direction as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.direction
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.direction
+		Return nothing
 	End Get
 End Property
 
@@ -1058,16 +1007,15 @@ End Class
 #Region "SRC/list.h"
 '  SRC/list.h (61, 8)
 '  list.h
-public class DoubleLinkedList
-	property Pointer as IntPtr
-	private Values as Marshal_DoubleLinkedList
+Public Class DoubleLinkedList
+	Property Pointer as IntPtr
+	Private Values as new Marshal_DoubleLinkedList
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_DoubleLinkedList
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -1079,12 +1027,11 @@ public class DoubleLinkedList
 '''  </summary>
 ReadOnly property prev as DoubleLinkedList
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.prev <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.prev <> IntPtr.Zero Then 
 		Return New DoubleLinkedList(Values.prev)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -1097,12 +1044,11 @@ End Property
 '''  </summary>
 ReadOnly property _next_ as DoubleLinkedList
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values._next_ <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values._next_ <> IntPtr.Zero Then 
 		Return New DoubleLinkedList(Values._next_)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -1115,12 +1061,11 @@ End Property
 '''  </summary>
 ReadOnly property data as IntPtr
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.data <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.data <> IntPtr.Zero Then
 	Return  Values.data
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -1138,16 +1083,15 @@ End Class
 #Region "SRC/ptra.h"
 '  SRC/ptra.h (51, 8)
 '  Generic pointer array
-public class L_Ptra
-	property Pointer as IntPtr
-	private Values as Marshal_L_Ptra
+Public Class L_Ptra
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Ptra
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Ptra
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -1159,10 +1103,9 @@ public class L_Ptra
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -1175,10 +1118,9 @@ End Property
 '''  </summary>
 ReadOnly property imax as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.imax
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.imax
+		Return nothing
 	End Get
 End Property
 
@@ -1191,10 +1133,9 @@ End Property
 '''  </summary>
 ReadOnly property nactual as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nactual
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nactual
+		Return nothing
 	End Get
 End Property
 
@@ -1207,14 +1148,13 @@ End Property
 '''  </summary>
 ReadOnly property array as IntPtr()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.array <> IntPtr.Zero Then 
-		Dim _array(values.nactual) as IntPtr
-		Marshal.Copy(Values.array, _array, 0, values.nactual)
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.array <> IntPtr.Zero Then 
+		Dim _array(values.nalloc) as IntPtr
+		Marshal.Copy(Values.array, _array, 0, values.nalloc)
 		Return _array
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -1231,16 +1171,15 @@ End Class
 
 '  SRC/ptra.h (62, 8)
 '  Array of generic pointer arrays
-public class L_Ptraa
-	property Pointer as IntPtr
-	private Values as Marshal_L_Ptraa
+Public Class L_Ptraa
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Ptraa
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Ptraa
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -1252,10 +1191,9 @@ public class L_Ptraa
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -1268,9 +1206,8 @@ End Property
 '''  </summary>
 ReadOnly property ptra as List (of L_Ptra)
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.ptra <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.ptra <> IntPtr.Zero Then
 		Dim LST_ptra As New List(Of L_Ptra)
 		Dim ARR_ptra(values.nalloc - 1) As IntPtr
 		Marshal.Copy(Values.ptra, ARR_ptra, 0, values.nalloc)
@@ -1279,7 +1216,7 @@ ReadOnly property ptra as List (of L_Ptra)
 		Next
 Return LST_ptra
 End If
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -1296,16 +1233,15 @@ End Class
 #Region "SRC/queue.h"
 '  SRC/queue.h (64, 8)
 '  Expandable pointer queue for arbitrary void* data
-public class L_Queue
-	property Pointer as IntPtr
-	private Values as Marshal_L_Queue
+Public Class L_Queue
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Queue
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Queue
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -1317,10 +1253,9 @@ public class L_Queue
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -1333,10 +1268,9 @@ End Property
 '''  </summary>
 ReadOnly property nhead as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nhead
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nhead
+		Return nothing
 	End Get
 End Property
 
@@ -1349,10 +1283,9 @@ End Property
 '''  </summary>
 ReadOnly property nelem as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nelem
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nelem
+		Return nothing
 	End Get
 End Property
 
@@ -1365,14 +1298,13 @@ End Property
 '''  </summary>
 ReadOnly property array as IntPtr()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.array <> IntPtr.Zero Then 
-		Dim _array(values.nelem) as IntPtr
-		Marshal.Copy(Values.array, _array, 0, values.nelem)
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.array <> IntPtr.Zero Then 
+		Dim _array(values.nalloc) as IntPtr
+		Marshal.Copy(Values.array, _array, 0, values.nalloc)
 		Return _array
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -1385,12 +1317,11 @@ End Property
 '''  </summary>
 ReadOnly property stack as L_Stack
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.stack <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.stack <> IntPtr.Zero Then 
 		Return New L_Stack(Values.stack)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -1410,16 +1341,15 @@ End Class
 #Region "SRC/rbtree.h"
 '  SRC/rbtree.h (61, 7)
 '  Storage for keys and values for red-black trees, maps and sets. Note: (1) Keys and values of the valid key types are all 64-bit (2) (void *) can be used for values but not for keys.
-public class Rb_Type
-	property Pointer as IntPtr
-	private Values as Marshal_Rb_Type
+Public Class Rb_Type
+	Property Pointer as IntPtr
+	Private Values as new Marshal_Rb_Type
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_Rb_Type
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -1431,10 +1361,9 @@ public class Rb_Type
 '''  </summary>
 ReadOnly property itype as Long
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.itype
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.itype
+		Return nothing
 	End Get
 End Property
 
@@ -1447,10 +1376,9 @@ End Property
 '''  </summary>
 ReadOnly property utype as ULong
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.utype
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.utype
+		Return nothing
 	End Get
 End Property
 
@@ -1463,10 +1391,9 @@ End Property
 '''  </summary>
 ReadOnly property ftype as Double
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.ftype
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.ftype
+		Return nothing
 	End Get
 End Property
 
@@ -1479,12 +1406,11 @@ End Property
 '''  </summary>
 ReadOnly property ptype as IntPtr
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.ptype <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.ptype <> IntPtr.Zero Then
 	Return  Values.ptype
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -1501,10 +1427,10 @@ End Class
 
 '  SRC/rbtree.h (69, 8)
 '  
-public class L_Rbtree
+Public Class L_Rbtree
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_L_Rbtree
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Rbtree
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -1523,7 +1449,6 @@ public class L_Rbtree
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Rbtree
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -1535,12 +1460,11 @@ public class L_Rbtree
 '''  </summary>
 ReadOnly property root as L_Rbtree_Node
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.root <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.root <> IntPtr.Zero Then 
 		Return New L_Rbtree_Node(Values.root)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -1553,10 +1477,9 @@ End Property
 '''  </summary>
 ReadOnly property keytype as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.keytype
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.keytype
+		Return nothing
 	End Get
 End Property
 
@@ -1571,16 +1494,15 @@ End Class
 
 '  SRC/rbtree.h (77, 8)
 '  
-public class L_Rbtree_Node
-	property Pointer as IntPtr
-	private Values as Marshal_L_Rbtree_Node
+Public Class L_Rbtree_Node
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Rbtree_Node
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Rbtree_Node
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -1592,10 +1514,9 @@ public class L_Rbtree_Node
 '''  </summary>
 ReadOnly property key as Rb_Type
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.key
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.key
+		Return nothing
 	End Get
 End Property
 
@@ -1608,10 +1529,9 @@ End Property
 '''  </summary>
 ReadOnly property value as Rb_Type
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.value
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.value
+		Return nothing
 	End Get
 End Property
 
@@ -1624,12 +1544,11 @@ End Property
 '''  </summary>
 ReadOnly property left as L_Rbtree_Node
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.left <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.left <> IntPtr.Zero Then 
 		Return New L_Rbtree_Node(Values.left)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -1642,12 +1561,11 @@ End Property
 '''  </summary>
 ReadOnly property right as L_Rbtree_Node
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.right <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.right <> IntPtr.Zero Then 
 		Return New L_Rbtree_Node(Values.right)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -1660,12 +1578,11 @@ End Property
 '''  </summary>
 ReadOnly property parent as L_Rbtree_Node
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.parent <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.parent <> IntPtr.Zero Then 
 		Return New L_Rbtree_Node(Values.parent)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -1678,10 +1595,9 @@ End Property
 '''  </summary>
 ReadOnly property color as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.color
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.color
+		Return nothing
 	End Get
 End Property
 
@@ -1702,16 +1618,15 @@ End Class
 #Region "SRC/stack.h"
 '  SRC/stack.h (59, 8)
 '  Expandable pointer stack for arbitrary void* data. Note that array[n] is the first null ptr in the array
-public class L_Stack
-	property Pointer as IntPtr
-	private Values as Marshal_L_Stack
+Public Class L_Stack
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Stack
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Stack
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -1723,10 +1638,9 @@ public class L_Stack
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -1739,10 +1653,9 @@ End Property
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -1755,14 +1668,13 @@ End Property
 '''  </summary>
 ReadOnly property array as IntPtr()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.array <> IntPtr.Zero Then 
-		Dim _array(values.n) as IntPtr
-		Marshal.Copy(Values.array, _array, 0, values.n)
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.array <> IntPtr.Zero Then 
+		Dim _array(values.nalloc) as IntPtr
+		Marshal.Copy(Values.array, _array, 0, values.nalloc)
 		Return _array
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -1775,12 +1687,11 @@ End Property
 '''  </summary>
 ReadOnly property auxstack as L_Stack
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.auxstack <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.auxstack <> IntPtr.Zero Then 
 		Return New L_Stack(Values.auxstack)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -1799,16 +1710,15 @@ End Class
 #Region "SRC/bmf.h"
 '  SRC/bmf.h (45, 8)
 '  Data structure to hold bitmap fonts and related data
-public class L_Bmf
-	property Pointer as IntPtr
-	private Values as Marshal_L_Bmf
+Public Class L_Bmf
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Bmf
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Bmf
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -1820,12 +1730,11 @@ public class L_Bmf
 '''  </summary>
 ReadOnly property pixa as Pixa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixa <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixa <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixa)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -1838,10 +1747,9 @@ End Property
 '''  </summary>
 ReadOnly property size as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.size
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.size
+		Return nothing
 	End Get
 End Property
 
@@ -1854,12 +1762,11 @@ End Property
 '''  </summary>
 ReadOnly property directory as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.directory <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.directory <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.directory)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -1872,10 +1779,9 @@ End Property
 '''  </summary>
 ReadOnly property baseline1 as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.baseline1
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.baseline1
+		Return nothing
 	End Get
 End Property
 
@@ -1888,10 +1794,9 @@ End Property
 '''  </summary>
 ReadOnly property baseline2 as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.baseline2
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.baseline2
+		Return nothing
 	End Get
 End Property
 
@@ -1904,10 +1809,9 @@ End Property
 '''  </summary>
 ReadOnly property baseline3 as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.baseline3
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.baseline3
+		Return nothing
 	End Get
 End Property
 
@@ -1920,10 +1824,9 @@ End Property
 '''  </summary>
 ReadOnly property lineheight as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.lineheight
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.lineheight
+		Return nothing
 	End Get
 End Property
 
@@ -1936,10 +1839,9 @@ End Property
 '''  </summary>
 ReadOnly property kernwidth as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.kernwidth
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.kernwidth
+		Return nothing
 	End Get
 End Property
 
@@ -1952,10 +1854,9 @@ End Property
 '''  </summary>
 ReadOnly property spacewidth as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.spacewidth
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.spacewidth
+		Return nothing
 	End Get
 End Property
 
@@ -1968,10 +1869,9 @@ End Property
 '''  </summary>
 ReadOnly property vertlinesep as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.vertlinesep
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.vertlinesep
+		Return nothing
 	End Get
 End Property
 
@@ -1984,14 +1884,13 @@ End Property
 '''  </summary>
 ReadOnly property fonttab as Integer()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.fonttab <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.fonttab <> IntPtr.Zero Then 
 	Dim _fonttab(1 -1) as Integer
 	Marshal.Copy(Values.fonttab, _fonttab, 0, _fonttab.Length)
 	Return _fonttab
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2004,14 +1903,13 @@ End Property
 '''  </summary>
 ReadOnly property baselinetab as Integer()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.baselinetab <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.baselinetab <> IntPtr.Zero Then 
 	Dim _baselinetab(1 -1) as Integer
 	Marshal.Copy(Values.baselinetab, _baselinetab, 0, _baselinetab.Length)
 	Return _baselinetab
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2024,14 +1922,13 @@ End Property
 '''  </summary>
 ReadOnly property widthtab as Integer()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.widthtab <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.widthtab <> IntPtr.Zero Then 
 	Dim _widthtab(1 -1) as Integer
 	Marshal.Copy(Values.widthtab, _widthtab, 0, _widthtab.Length)
 	Return _widthtab
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2059,16 +1956,15 @@ End Class
 #Region "SRC/ccbord.h"
 '  SRC/ccbord.h (91, 8)
 '  CCBord contains:
-public class CCBord
-	property Pointer as IntPtr
-	private Values as Marshal_CCBord
+Public Class CCBord
+	Property Pointer as IntPtr
+	Private Values as new Marshal_CCBord
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_CCBord
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -2080,12 +1976,11 @@ public class CCBord
 '''  </summary>
 ReadOnly property pix as Pix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pix <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pix <> IntPtr.Zero Then 
 		Return New Pix(Values.pix)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2098,12 +1993,11 @@ End Property
 '''  </summary>
 ReadOnly property boxa as Boxa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.boxa <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.boxa <> IntPtr.Zero Then 
 		Return New Boxa(Values.boxa)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2116,12 +2010,11 @@ End Property
 '''  </summary>
 ReadOnly property start as Pta
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.start <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.start <> IntPtr.Zero Then 
 		Return New Pta(Values.start)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2134,10 +2027,9 @@ End Property
 '''  </summary>
 ReadOnly property refcount as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.refcount
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.refcount
+		Return nothing
 	End Get
 End Property
 
@@ -2150,12 +2042,11 @@ End Property
 '''  </summary>
 ReadOnly property local as Ptaa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.local <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.local <> IntPtr.Zero Then 
 		Return New Ptaa(Values.local)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2168,12 +2059,11 @@ End Property
 '''  </summary>
 ReadOnly property _global_ as Ptaa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values._global_ <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values._global_ <> IntPtr.Zero Then 
 		Return New Ptaa(Values._global_)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2186,12 +2076,11 @@ End Property
 '''  </summary>
 ReadOnly property _step_ as Numaa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values._step_ <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values._step_ <> IntPtr.Zero Then 
 		Return New Numaa(Values._step_)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2204,12 +2093,11 @@ End Property
 '''  </summary>
 ReadOnly property splocal as Pta
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.splocal <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.splocal <> IntPtr.Zero Then 
 		Return New Pta(Values.splocal)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2222,12 +2110,11 @@ End Property
 '''  </summary>
 ReadOnly property spglobal as Pta
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.spglobal <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.spglobal <> IntPtr.Zero Then 
 		Return New Pta(Values.spglobal)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2249,16 +2136,15 @@ End Class
 
 '  SRC/ccbord.h (106, 8)
 '  Array of CCBord
-public class CCBorda
-	property Pointer as IntPtr
-	private Values as Marshal_CCBorda
+Public Class CCBorda
+	Property Pointer as IntPtr
+	Private Values as new Marshal_CCBorda
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_CCBorda
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -2270,12 +2156,11 @@ public class CCBorda
 '''  </summary>
 ReadOnly property pix as Pix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pix <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pix <> IntPtr.Zero Then 
 		Return New Pix(Values.pix)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2288,10 +2173,9 @@ End Property
 '''  </summary>
 ReadOnly property w as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.w
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.w
+		Return nothing
 	End Get
 End Property
 
@@ -2304,10 +2188,9 @@ End Property
 '''  </summary>
 ReadOnly property h as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.h
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.h
+		Return nothing
 	End Get
 End Property
 
@@ -2320,10 +2203,9 @@ End Property
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -2336,10 +2218,9 @@ End Property
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -2352,18 +2233,17 @@ End Property
 '''  </summary>
 ReadOnly property ccb as List (of CCBord)
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.ccb <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.ccb <> IntPtr.Zero Then
 		Dim LST_ccb As New List(Of CCBord)
-		Dim ARR_ccb(values.n - 1) As IntPtr
-		Marshal.Copy(Values.ccb, ARR_ccb, 0, values.n)
+		Dim ARR_ccb(values.nalloc - 1) As IntPtr
+		Marshal.Copy(Values.ccb, ARR_ccb, 0, values.nalloc)
 		For Each Entry In ARR_ccb
 			LST_ccb.Add(New CCBord(Entry))
 		Next
 Return LST_ccb
 End If
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2384,16 +2264,15 @@ End Class
 #Region "SRC/dewarp.h"
 '  SRC/dewarp.h (113, 8)
 '  Data structure to hold a number of Dewarp
-public class L_Dewarpa
-	property Pointer as IntPtr
-	private Values as Marshal_L_Dewarpa
+Public Class L_Dewarpa
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Dewarpa
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Dewarpa
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -2405,10 +2284,9 @@ public class L_Dewarpa
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -2421,10 +2299,9 @@ End Property
 '''  </summary>
 ReadOnly property maxpage as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.maxpage
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.maxpage
+		Return nothing
 	End Get
 End Property
 
@@ -2437,9 +2314,8 @@ End Property
 '''  </summary>
 ReadOnly property dewarp as List (of L_Dewarp)
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.dewarp <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.dewarp <> IntPtr.Zero Then
 		Dim LST_dewarp As New List(Of L_Dewarp)
 		Dim ARR_dewarp(values.nalloc - 1) As IntPtr
 		Marshal.Copy(Values.dewarp, ARR_dewarp, 0, values.nalloc)
@@ -2448,7 +2324,7 @@ ReadOnly property dewarp as List (of L_Dewarp)
 		Next
 Return LST_dewarp
 End If
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2461,9 +2337,8 @@ End Property
 '''  </summary>
 ReadOnly property dewarpcache as List (of L_Dewarp)
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.dewarpcache <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.dewarpcache <> IntPtr.Zero Then
 		Dim LST_dewarpcache As New List(Of L_Dewarp)
 		Dim ARR_dewarpcache(values.nalloc - 1) As IntPtr
 		Marshal.Copy(Values.dewarpcache, ARR_dewarpcache, 0, values.nalloc)
@@ -2472,7 +2347,7 @@ ReadOnly property dewarpcache as List (of L_Dewarp)
 		Next
 Return LST_dewarpcache
 End If
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2485,12 +2360,11 @@ End Property
 '''  </summary>
 ReadOnly property namodels as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.namodels <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.namodels <> IntPtr.Zero Then 
 		Return New Numa(Values.namodels)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2503,12 +2377,11 @@ End Property
 '''  </summary>
 ReadOnly property napages as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.napages <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.napages <> IntPtr.Zero Then 
 		Return New Numa(Values.napages)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2521,10 +2394,9 @@ End Property
 '''  </summary>
 ReadOnly property redfactor as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.redfactor
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.redfactor
+		Return nothing
 	End Get
 End Property
 
@@ -2537,10 +2409,9 @@ End Property
 '''  </summary>
 ReadOnly property sampling as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.sampling
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.sampling
+		Return nothing
 	End Get
 End Property
 
@@ -2553,10 +2424,9 @@ End Property
 '''  </summary>
 ReadOnly property minlines as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.minlines
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.minlines
+		Return nothing
 	End Get
 End Property
 
@@ -2569,10 +2439,9 @@ End Property
 '''  </summary>
 ReadOnly property maxdist as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.maxdist
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.maxdist
+		Return nothing
 	End Get
 End Property
 
@@ -2585,10 +2454,9 @@ End Property
 '''  </summary>
 ReadOnly property max_linecurv as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.max_linecurv
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.max_linecurv
+		Return nothing
 	End Get
 End Property
 
@@ -2601,10 +2469,9 @@ End Property
 '''  </summary>
 ReadOnly property min_diff_linecurv as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.min_diff_linecurv
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.min_diff_linecurv
+		Return nothing
 	End Get
 End Property
 
@@ -2617,10 +2484,9 @@ End Property
 '''  </summary>
 ReadOnly property max_diff_linecurv as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.max_diff_linecurv
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.max_diff_linecurv
+		Return nothing
 	End Get
 End Property
 
@@ -2633,10 +2499,9 @@ End Property
 '''  </summary>
 ReadOnly property max_edgeslope as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.max_edgeslope
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.max_edgeslope
+		Return nothing
 	End Get
 End Property
 
@@ -2649,10 +2514,9 @@ End Property
 '''  </summary>
 ReadOnly property max_edgecurv as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.max_edgecurv
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.max_edgecurv
+		Return nothing
 	End Get
 End Property
 
@@ -2665,10 +2529,9 @@ End Property
 '''  </summary>
 ReadOnly property max_diff_edgecurv as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.max_diff_edgecurv
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.max_diff_edgecurv
+		Return nothing
 	End Get
 End Property
 
@@ -2681,10 +2544,9 @@ End Property
 '''  </summary>
 ReadOnly property useboth as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.useboth
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.useboth
+		Return nothing
 	End Get
 End Property
 
@@ -2697,10 +2559,9 @@ End Property
 '''  </summary>
 ReadOnly property check_columns as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.check_columns
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.check_columns
+		Return nothing
 	End Get
 End Property
 
@@ -2713,10 +2574,9 @@ End Property
 '''  </summary>
 ReadOnly property modelsready as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.modelsready
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.modelsready
+		Return nothing
 	End Get
 End Property
 
@@ -2748,16 +2608,15 @@ End Class
 
 '  SRC/dewarp.h (151, 8)
 '  Data structure for a single dewarp
-public class L_Dewarp
-	property Pointer as IntPtr
-	private Values as Marshal_L_Dewarp
+Public Class L_Dewarp
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Dewarp
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Dewarp
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -2769,12 +2628,11 @@ public class L_Dewarp
 '''  </summary>
 ReadOnly property dewa as L_Dewarpa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.dewa <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.dewa <> IntPtr.Zero Then 
 		Return New L_Dewarpa(Values.dewa)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2787,12 +2645,11 @@ End Property
 '''  </summary>
 ReadOnly property pixs as Pix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixs <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixs <> IntPtr.Zero Then 
 		Return New Pix(Values.pixs)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2805,12 +2662,11 @@ End Property
 '''  </summary>
 ReadOnly property sampvdispar as FPix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.sampvdispar <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.sampvdispar <> IntPtr.Zero Then 
 		Return New FPix(Values.sampvdispar)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2823,12 +2679,11 @@ End Property
 '''  </summary>
 ReadOnly property samphdispar as FPix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.samphdispar <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.samphdispar <> IntPtr.Zero Then 
 		Return New FPix(Values.samphdispar)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2841,12 +2696,11 @@ End Property
 '''  </summary>
 ReadOnly property sampydispar as FPix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.sampydispar <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.sampydispar <> IntPtr.Zero Then 
 		Return New FPix(Values.sampydispar)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2859,12 +2713,11 @@ End Property
 '''  </summary>
 ReadOnly property fullvdispar as FPix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.fullvdispar <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.fullvdispar <> IntPtr.Zero Then 
 		Return New FPix(Values.fullvdispar)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2877,12 +2730,11 @@ End Property
 '''  </summary>
 ReadOnly property fullhdispar as FPix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.fullhdispar <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.fullhdispar <> IntPtr.Zero Then 
 		Return New FPix(Values.fullhdispar)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2895,12 +2747,11 @@ End Property
 '''  </summary>
 ReadOnly property fullydispar as FPix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.fullydispar <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.fullydispar <> IntPtr.Zero Then 
 		Return New FPix(Values.fullydispar)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2913,12 +2764,11 @@ End Property
 '''  </summary>
 ReadOnly property namidys as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.namidys <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.namidys <> IntPtr.Zero Then 
 		Return New Numa(Values.namidys)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2931,12 +2781,11 @@ End Property
 '''  </summary>
 ReadOnly property nacurves as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.nacurves <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.nacurves <> IntPtr.Zero Then 
 		Return New Numa(Values.nacurves)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -2949,10 +2798,9 @@ End Property
 '''  </summary>
 ReadOnly property w as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.w
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.w
+		Return nothing
 	End Get
 End Property
 
@@ -2965,10 +2813,9 @@ End Property
 '''  </summary>
 ReadOnly property h as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.h
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.h
+		Return nothing
 	End Get
 End Property
 
@@ -2981,10 +2828,9 @@ End Property
 '''  </summary>
 ReadOnly property pageno as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.pageno
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.pageno
+		Return nothing
 	End Get
 End Property
 
@@ -2997,10 +2843,9 @@ End Property
 '''  </summary>
 ReadOnly property sampling as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.sampling
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.sampling
+		Return nothing
 	End Get
 End Property
 
@@ -3013,10 +2858,9 @@ End Property
 '''  </summary>
 ReadOnly property redfactor as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.redfactor
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.redfactor
+		Return nothing
 	End Get
 End Property
 
@@ -3029,10 +2873,9 @@ End Property
 '''  </summary>
 ReadOnly property minlines as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.minlines
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.minlines
+		Return nothing
 	End Get
 End Property
 
@@ -3045,10 +2888,9 @@ End Property
 '''  </summary>
 ReadOnly property nlines as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nlines
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nlines
+		Return nothing
 	End Get
 End Property
 
@@ -3061,10 +2903,9 @@ End Property
 '''  </summary>
 ReadOnly property mincurv as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.mincurv
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.mincurv
+		Return nothing
 	End Get
 End Property
 
@@ -3077,10 +2918,9 @@ End Property
 '''  </summary>
 ReadOnly property maxcurv as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.maxcurv
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.maxcurv
+		Return nothing
 	End Get
 End Property
 
@@ -3093,10 +2933,9 @@ End Property
 '''  </summary>
 ReadOnly property leftslope as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.leftslope
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.leftslope
+		Return nothing
 	End Get
 End Property
 
@@ -3109,10 +2948,9 @@ End Property
 '''  </summary>
 ReadOnly property rightslope as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.rightslope
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.rightslope
+		Return nothing
 	End Get
 End Property
 
@@ -3125,10 +2963,9 @@ End Property
 '''  </summary>
 ReadOnly property leftcurv as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.leftcurv
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.leftcurv
+		Return nothing
 	End Get
 End Property
 
@@ -3141,10 +2978,9 @@ End Property
 '''  </summary>
 ReadOnly property rightcurv as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.rightcurv
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.rightcurv
+		Return nothing
 	End Get
 End Property
 
@@ -3157,10 +2993,9 @@ End Property
 '''  </summary>
 ReadOnly property nx as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nx
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nx
+		Return nothing
 	End Get
 End Property
 
@@ -3173,10 +3008,9 @@ End Property
 '''  </summary>
 ReadOnly property ny as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.ny
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.ny
+		Return nothing
 	End Get
 End Property
 
@@ -3189,10 +3023,9 @@ End Property
 '''  </summary>
 ReadOnly property hasref as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.hasref
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.hasref
+		Return nothing
 	End Get
 End Property
 
@@ -3205,10 +3038,9 @@ End Property
 '''  </summary>
 ReadOnly property refpage as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.refpage
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.refpage
+		Return nothing
 	End Get
 End Property
 
@@ -3221,10 +3053,9 @@ End Property
 '''  </summary>
 ReadOnly property vsuccess as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.vsuccess
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.vsuccess
+		Return nothing
 	End Get
 End Property
 
@@ -3237,10 +3068,9 @@ End Property
 '''  </summary>
 ReadOnly property hsuccess as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.hsuccess
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.hsuccess
+		Return nothing
 	End Get
 End Property
 
@@ -3253,10 +3083,9 @@ End Property
 '''  </summary>
 ReadOnly property ysuccess as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.ysuccess
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.ysuccess
+		Return nothing
 	End Get
 End Property
 
@@ -3269,10 +3098,9 @@ End Property
 '''  </summary>
 ReadOnly property vvalid as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.vvalid
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.vvalid
+		Return nothing
 	End Get
 End Property
 
@@ -3285,10 +3113,9 @@ End Property
 '''  </summary>
 ReadOnly property hvalid as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.hvalid
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.hvalid
+		Return nothing
 	End Get
 End Property
 
@@ -3301,10 +3128,9 @@ End Property
 '''  </summary>
 ReadOnly property skip_horiz as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.skip_horiz
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.skip_horiz
+		Return nothing
 	End Get
 End Property
 
@@ -3317,10 +3143,9 @@ End Property
 '''  </summary>
 ReadOnly property debug as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.debug
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.debug
+		Return nothing
 	End Get
 End Property
 
@@ -3369,10 +3194,10 @@ End Class
 #Region "SRC/gplot.h"
 '  SRC/gplot.h (75, 8)
 '  Data structure for generating gnuplot files
-public class GPlot
+Public Class GPlot
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_GPlot
+	Property Pointer as IntPtr
+	Private Values as new Marshal_GPlot
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -3391,7 +3216,6 @@ public class GPlot
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_GPlot
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -3403,12 +3227,11 @@ public class GPlot
 '''  </summary>
 ReadOnly property rootname as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.rootname <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.rootname <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.rootname)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -3421,12 +3244,11 @@ End Property
 '''  </summary>
 ReadOnly property cmdname as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.cmdname <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.cmdname <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.cmdname)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -3439,12 +3261,11 @@ End Property
 '''  </summary>
 ReadOnly property cmddata as Sarray
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.cmddata <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.cmddata <> IntPtr.Zero Then 
 		Return New Sarray(Values.cmddata)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -3457,12 +3278,11 @@ End Property
 '''  </summary>
 ReadOnly property datanames as Sarray
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.datanames <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.datanames <> IntPtr.Zero Then 
 		Return New Sarray(Values.datanames)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -3475,12 +3295,11 @@ End Property
 '''  </summary>
 ReadOnly property plotdata as Sarray
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.plotdata <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.plotdata <> IntPtr.Zero Then 
 		Return New Sarray(Values.plotdata)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -3493,12 +3312,11 @@ End Property
 '''  </summary>
 ReadOnly property plottitles as Sarray
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.plottitles <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.plottitles <> IntPtr.Zero Then 
 		Return New Sarray(Values.plottitles)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -3511,12 +3329,11 @@ End Property
 '''  </summary>
 ReadOnly property plotstyles as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.plotstyles <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.plotstyles <> IntPtr.Zero Then 
 		Return New Numa(Values.plotstyles)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -3529,10 +3346,9 @@ End Property
 '''  </summary>
 ReadOnly property nplots as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nplots
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nplots
+		Return nothing
 	End Get
 End Property
 
@@ -3545,12 +3361,11 @@ End Property
 '''  </summary>
 ReadOnly property outname as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.outname <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.outname <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.outname)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -3563,10 +3378,9 @@ End Property
 '''  </summary>
 ReadOnly property outformat as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.outformat
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.outformat
+		Return nothing
 	End Get
 End Property
 
@@ -3579,10 +3393,9 @@ End Property
 '''  </summary>
 ReadOnly property scaling as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.scaling
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.scaling
+		Return nothing
 	End Get
 End Property
 
@@ -3595,12 +3408,11 @@ End Property
 '''  </summary>
 ReadOnly property title as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.title <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.title <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.title)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -3613,12 +3425,11 @@ End Property
 '''  </summary>
 ReadOnly property xlabel as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.xlabel <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.xlabel <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.xlabel)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -3631,12 +3442,11 @@ End Property
 '''  </summary>
 ReadOnly property ylabel as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.ylabel <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.ylabel <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.ylabel)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -3665,16 +3475,15 @@ End Class
 #Region "SRC/imageio.h"
 '  SRC/imageio.h (166, 8)
 '  Compressed image data
-public class L_Compressed_Data
-	property Pointer as IntPtr
-	private Values as Marshal_L_Compressed_Data
+Public Class L_Compressed_Data
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Compressed_Data
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Compressed_Data
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -3686,10 +3495,9 @@ public class L_Compressed_Data
 '''  </summary>
 ReadOnly property type as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.type
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.type
+		Return nothing
 	End Get
 End Property
 
@@ -3702,14 +3510,13 @@ End Property
 '''  </summary>
 ReadOnly property datacomp as Byte()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.datacomp <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.datacomp <> IntPtr.Zero Then 
 	Dim _datacomp(1 -1) as Byte
 	Marshal.Copy(Values.datacomp, _datacomp, 0, _datacomp.Length)
 	Return _datacomp
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -3722,10 +3529,9 @@ End Property
 '''  </summary>
 ReadOnly property nbytescomp as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nbytescomp
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nbytescomp
+		Return nothing
 	End Get
 End Property
 
@@ -3738,12 +3544,11 @@ End Property
 '''  </summary>
 ReadOnly property data85 as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.data85 <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.data85 <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.data85)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -3756,10 +3561,9 @@ End Property
 '''  </summary>
 ReadOnly property nbytes85 as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nbytes85
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nbytes85
+		Return nothing
 	End Get
 End Property
 
@@ -3772,12 +3576,11 @@ End Property
 '''  </summary>
 ReadOnly property cmapdata85 as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.cmapdata85 <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.cmapdata85 <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.cmapdata85)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -3790,12 +3593,11 @@ End Property
 '''  </summary>
 ReadOnly property cmapdatahex as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.cmapdatahex <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.cmapdatahex <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.cmapdatahex)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -3808,10 +3610,9 @@ End Property
 '''  </summary>
 ReadOnly property ncolors as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.ncolors
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.ncolors
+		Return nothing
 	End Get
 End Property
 
@@ -3824,10 +3625,9 @@ End Property
 '''  </summary>
 ReadOnly property w as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.w
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.w
+		Return nothing
 	End Get
 End Property
 
@@ -3840,10 +3640,9 @@ End Property
 '''  </summary>
 ReadOnly property h as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.h
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.h
+		Return nothing
 	End Get
 End Property
 
@@ -3856,10 +3655,9 @@ End Property
 '''  </summary>
 ReadOnly property bps as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.bps
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.bps
+		Return nothing
 	End Get
 End Property
 
@@ -3872,10 +3670,9 @@ End Property
 '''  </summary>
 ReadOnly property spp as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.spp
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.spp
+		Return nothing
 	End Get
 End Property
 
@@ -3888,10 +3685,9 @@ End Property
 '''  </summary>
 ReadOnly property minisblack as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.minisblack
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.minisblack
+		Return nothing
 	End Get
 End Property
 
@@ -3904,10 +3700,9 @@ End Property
 '''  </summary>
 ReadOnly property predictor as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.predictor
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.predictor
+		Return nothing
 	End Get
 End Property
 
@@ -3920,10 +3715,9 @@ End Property
 '''  </summary>
 ReadOnly property nbytes as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nbytes
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nbytes
+		Return nothing
 	End Get
 End Property
 
@@ -3936,10 +3730,9 @@ End Property
 '''  </summary>
 ReadOnly property res as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.res
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.res
+		Return nothing
 	End Get
 End Property
 
@@ -3968,16 +3761,15 @@ End Class
 
 '  SRC/imageio.h (211, 8)
 '  Intermediate pdf generation data
-public class L_Pdf_Data
-	property Pointer as IntPtr
-	private Values as Marshal_L_Pdf_Data
+Public Class L_Pdf_Data
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Pdf_Data
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Pdf_Data
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -3989,12 +3781,11 @@ public class L_Pdf_Data
 '''  </summary>
 ReadOnly property title as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.title <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.title <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.title)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4007,10 +3798,9 @@ End Property
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -4023,10 +3813,9 @@ End Property
 '''  </summary>
 ReadOnly property ncmap as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.ncmap
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.ncmap
+		Return nothing
 	End Get
 End Property
 
@@ -4039,12 +3828,11 @@ End Property
 '''  </summary>
 ReadOnly property cida as L_Ptra
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.cida <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.cida <> IntPtr.Zero Then 
 		Return New L_Ptra(Values.cida)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4057,12 +3845,11 @@ End Property
 '''  </summary>
 ReadOnly property id as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.id <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.id <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.id)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4075,12 +3862,11 @@ End Property
 '''  </summary>
 ReadOnly property obj1 as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.obj1 <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.obj1 <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.obj1)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4093,12 +3879,11 @@ End Property
 '''  </summary>
 ReadOnly property obj2 as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.obj2 <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.obj2 <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.obj2)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4111,12 +3896,11 @@ End Property
 '''  </summary>
 ReadOnly property obj3 as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.obj3 <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.obj3 <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.obj3)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4129,12 +3913,11 @@ End Property
 '''  </summary>
 ReadOnly property obj4 as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.obj4 <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.obj4 <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.obj4)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4147,12 +3930,11 @@ End Property
 '''  </summary>
 ReadOnly property obj5 as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.obj5 <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.obj5 <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.obj5)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4165,12 +3947,11 @@ End Property
 '''  </summary>
 ReadOnly property poststream as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.poststream <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.poststream <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.poststream)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4183,12 +3964,11 @@ End Property
 '''  </summary>
 ReadOnly property trailer as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.trailer <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.trailer <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.trailer)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4201,12 +3981,11 @@ End Property
 '''  </summary>
 ReadOnly property xy as Pta
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.xy <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.xy <> IntPtr.Zero Then 
 		Return New Pta(Values.xy)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4219,12 +3998,11 @@ End Property
 '''  </summary>
 ReadOnly property wh as Pta
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.wh <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.wh <> IntPtr.Zero Then 
 		Return New Pta(Values.wh)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4237,12 +4015,11 @@ End Property
 '''  </summary>
 ReadOnly property mediabox as Box
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.mediabox <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.mediabox <> IntPtr.Zero Then 
 		Return New Box(Values.mediabox)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4255,12 +4032,11 @@ End Property
 '''  </summary>
 ReadOnly property saprex as Sarray
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.saprex <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.saprex <> IntPtr.Zero Then 
 		Return New Sarray(Values.saprex)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4273,12 +4049,11 @@ End Property
 '''  </summary>
 ReadOnly property sacmap as Sarray
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.sacmap <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.sacmap <> IntPtr.Zero Then 
 		Return New Sarray(Values.sacmap)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4291,12 +4066,11 @@ End Property
 '''  </summary>
 ReadOnly property objsize as L_Dna
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.objsize <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.objsize <> IntPtr.Zero Then 
 		Return New L_Dna(Values.objsize)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4309,12 +4083,11 @@ End Property
 '''  </summary>
 ReadOnly property objloc as L_Dna
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.objloc <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.objloc <> IntPtr.Zero Then 
 		Return New L_Dna(Values.objloc)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4327,10 +4100,9 @@ End Property
 '''  </summary>
 ReadOnly property xrefloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.xrefloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.xrefloc
+		Return nothing
 	End Get
 End Property
 
@@ -4365,10 +4137,10 @@ End Class
 #Region "SRC/jbclass.h"
 '  SRC/jbclass.h (47, 8)
 '  The JbClasser struct holds all the data accumulated during the classification process that can be used for a compressed jbig2-type representation of a set of images. This is created in an initialization process and added to as the selected components on each successive page are analyzed.
-public class JbClasser
+Public Class JbClasser
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_JbClasser
+	Property Pointer as IntPtr
+	Private Values as new Marshal_JbClasser
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -4387,7 +4159,6 @@ public class JbClasser
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_JbClasser
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -4399,12 +4170,11 @@ public class JbClasser
 '''  </summary>
 ReadOnly property safiles as Sarray
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.safiles <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.safiles <> IntPtr.Zero Then 
 		Return New Sarray(Values.safiles)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4417,10 +4187,9 @@ End Property
 '''  </summary>
 ReadOnly property method as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.method
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.method
+		Return nothing
 	End Get
 End Property
 
@@ -4433,10 +4202,9 @@ End Property
 '''  </summary>
 ReadOnly property components as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.components
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.components
+		Return nothing
 	End Get
 End Property
 
@@ -4449,10 +4217,9 @@ End Property
 '''  </summary>
 ReadOnly property maxwidth as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.maxwidth
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.maxwidth
+		Return nothing
 	End Get
 End Property
 
@@ -4465,10 +4232,9 @@ End Property
 '''  </summary>
 ReadOnly property maxheight as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.maxheight
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.maxheight
+		Return nothing
 	End Get
 End Property
 
@@ -4481,10 +4247,9 @@ End Property
 '''  </summary>
 ReadOnly property npages as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.npages
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.npages
+		Return nothing
 	End Get
 End Property
 
@@ -4497,10 +4262,9 @@ End Property
 '''  </summary>
 ReadOnly property baseindex as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.baseindex
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.baseindex
+		Return nothing
 	End Get
 End Property
 
@@ -4513,12 +4277,11 @@ End Property
 '''  </summary>
 ReadOnly property nacomps as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.nacomps <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.nacomps <> IntPtr.Zero Then 
 		Return New Numa(Values.nacomps)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4531,10 +4294,9 @@ End Property
 '''  </summary>
 ReadOnly property sizehaus as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.sizehaus
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.sizehaus
+		Return nothing
 	End Get
 End Property
 
@@ -4547,10 +4309,9 @@ End Property
 '''  </summary>
 ReadOnly property rankhaus as Single
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.rankhaus
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.rankhaus
+		Return nothing
 	End Get
 End Property
 
@@ -4563,10 +4324,9 @@ End Property
 '''  </summary>
 ReadOnly property thresh as Single
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.thresh
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.thresh
+		Return nothing
 	End Get
 End Property
 
@@ -4579,10 +4339,9 @@ End Property
 '''  </summary>
 ReadOnly property weightfactor as Single
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.weightfactor
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.weightfactor
+		Return nothing
 	End Get
 End Property
 
@@ -4595,12 +4354,11 @@ End Property
 '''  </summary>
 ReadOnly property naarea as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.naarea <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.naarea <> IntPtr.Zero Then 
 		Return New Numa(Values.naarea)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4613,10 +4371,9 @@ End Property
 '''  </summary>
 ReadOnly property w as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.w
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.w
+		Return nothing
 	End Get
 End Property
 
@@ -4629,10 +4386,9 @@ End Property
 '''  </summary>
 ReadOnly property h as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.h
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.h
+		Return nothing
 	End Get
 End Property
 
@@ -4645,10 +4401,9 @@ End Property
 '''  </summary>
 ReadOnly property nclass as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nclass
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nclass
+		Return nothing
 	End Get
 End Property
 
@@ -4661,10 +4416,9 @@ End Property
 '''  </summary>
 ReadOnly property keep_pixaa as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.keep_pixaa
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.keep_pixaa
+		Return nothing
 	End Get
 End Property
 
@@ -4677,12 +4431,11 @@ End Property
 '''  </summary>
 ReadOnly property pixaa as Pixaa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixaa <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixaa <> IntPtr.Zero Then 
 		Return New Pixaa(Values.pixaa)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4695,12 +4448,11 @@ End Property
 '''  </summary>
 ReadOnly property pixat as Pixa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixat <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixat <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixat)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4713,12 +4465,11 @@ End Property
 '''  </summary>
 ReadOnly property pixatd as Pixa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixatd <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixatd <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixatd)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4731,12 +4482,11 @@ End Property
 '''  </summary>
 ReadOnly property dahash as L_DnaHash
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.dahash <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.dahash <> IntPtr.Zero Then 
 		Return New L_DnaHash(Values.dahash)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4749,12 +4499,11 @@ End Property
 '''  </summary>
 ReadOnly property nafgt as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.nafgt <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.nafgt <> IntPtr.Zero Then 
 		Return New Numa(Values.nafgt)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4767,12 +4516,11 @@ End Property
 '''  </summary>
 ReadOnly property ptac as Pta
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.ptac <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.ptac <> IntPtr.Zero Then 
 		Return New Pta(Values.ptac)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4785,12 +4533,11 @@ End Property
 '''  </summary>
 ReadOnly property ptact as Pta
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.ptact <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.ptact <> IntPtr.Zero Then 
 		Return New Pta(Values.ptact)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4803,12 +4550,11 @@ End Property
 '''  </summary>
 ReadOnly property naclass as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.naclass <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.naclass <> IntPtr.Zero Then 
 		Return New Numa(Values.naclass)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4821,12 +4567,11 @@ End Property
 '''  </summary>
 ReadOnly property napage as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.napage <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.napage <> IntPtr.Zero Then 
 		Return New Numa(Values.napage)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4839,12 +4584,11 @@ End Property
 '''  </summary>
 ReadOnly property ptaul as Pta
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.ptaul <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.ptaul <> IntPtr.Zero Then 
 		Return New Pta(Values.ptaul)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4857,12 +4601,11 @@ End Property
 '''  </summary>
 ReadOnly property ptall as Pta
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.ptall <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.ptall <> IntPtr.Zero Then 
 		Return New Pta(Values.ptall)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4903,10 +4646,10 @@ End Class
 
 '  SRC/jbclass.h (104, 8)
 '  The JbData struct holds all the data required for the compressed jbig-type representation of a set of images. The data can be written to file, read back, and used to regenerate an approximate version of the original, which differs in two ways from the original: (1) It uses a template image for each c.c. instead of the original instance, for each occurrence on each page. (2) It discards components with either a height or width larger than the maximuma, given here by the lattice dimensions used for storing the templates.
-public class JbData
+Public Class JbData
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_JbData
+	Property Pointer as IntPtr
+	Private Values as new Marshal_JbData
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -4925,7 +4668,6 @@ public class JbData
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_JbData
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -4937,12 +4679,11 @@ public class JbData
 '''  </summary>
 ReadOnly property pix as Pix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pix <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pix <> IntPtr.Zero Then 
 		Return New Pix(Values.pix)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -4955,10 +4696,9 @@ End Property
 '''  </summary>
 ReadOnly property npages as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.npages
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.npages
+		Return nothing
 	End Get
 End Property
 
@@ -4971,10 +4711,9 @@ End Property
 '''  </summary>
 ReadOnly property w as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.w
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.w
+		Return nothing
 	End Get
 End Property
 
@@ -4987,10 +4726,9 @@ End Property
 '''  </summary>
 ReadOnly property h as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.h
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.h
+		Return nothing
 	End Get
 End Property
 
@@ -5003,10 +4741,9 @@ End Property
 '''  </summary>
 ReadOnly property nclass as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nclass
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nclass
+		Return nothing
 	End Get
 End Property
 
@@ -5019,10 +4756,9 @@ End Property
 '''  </summary>
 ReadOnly property latticew as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.latticew
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.latticew
+		Return nothing
 	End Get
 End Property
 
@@ -5035,10 +4771,9 @@ End Property
 '''  </summary>
 ReadOnly property latticeh as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.latticeh
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.latticeh
+		Return nothing
 	End Get
 End Property
 
@@ -5051,12 +4786,11 @@ End Property
 '''  </summary>
 ReadOnly property naclass as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.naclass <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.naclass <> IntPtr.Zero Then 
 		Return New Numa(Values.naclass)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -5069,12 +4803,11 @@ End Property
 '''  </summary>
 ReadOnly property napage as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.napage <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.napage <> IntPtr.Zero Then 
 		Return New Numa(Values.napage)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -5087,12 +4820,11 @@ End Property
 '''  </summary>
 ReadOnly property ptaul as Pta
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.ptaul <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.ptaul <> IntPtr.Zero Then 
 		Return New Pta(Values.ptaul)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -5117,10 +4849,10 @@ End Class
 #Region "SRC/morph.h"
 '  SRC/morph.h (62, 8)
 '  Selection
-public class Sel
+Public Class Sel
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_Sel
+	Property Pointer as IntPtr
+	Private Values as new Marshal_Sel
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -5139,7 +4871,6 @@ public class Sel
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_Sel
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -5151,10 +4882,9 @@ public class Sel
 '''  </summary>
 ReadOnly property sy as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.sy
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.sy
+		Return nothing
 	End Get
 End Property
 
@@ -5167,10 +4897,9 @@ End Property
 '''  </summary>
 ReadOnly property sx as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.sx
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.sx
+		Return nothing
 	End Get
 End Property
 
@@ -5183,10 +4912,9 @@ End Property
 '''  </summary>
 ReadOnly property cy as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.cy
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.cy
+		Return nothing
 	End Get
 End Property
 
@@ -5199,10 +4927,9 @@ End Property
 '''  </summary>
 ReadOnly property cx as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.cx
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.cx
+		Return nothing
 	End Get
 End Property
 
@@ -5215,9 +4942,8 @@ End Property
 '''  </summary>
 ReadOnly property data as List (of Integer())
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	Dim _Data1(sy - 1) As Integer
+		Marshal.PtrToStructure (Pointer, Values)
+		Dim _Data1(sy - 1) As Integer
 Dim _DataFin As New List(Of Integer())
 Marshal.Copy(Values.data, _Data1, 0, _Data1.Length)
 For Each eintrag In _Data1
@@ -5226,7 +4952,7 @@ For Each eintrag In _Data1
 	 _DataFin.Add(_Data2)
 Next
 Return _DataFin
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -5239,12 +4965,11 @@ End Property
 '''  </summary>
 ReadOnly property name as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.name <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.name <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.name)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -5263,10 +4988,10 @@ End Class
 
 '  SRC/morph.h (74, 8)
 '  Array of Sel
-public class Sela
+Public Class Sela
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_Sela
+	Property Pointer as IntPtr
+	Private Values as new Marshal_Sela
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -5285,7 +5010,6 @@ public class Sela
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_Sela
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -5297,10 +5021,9 @@ public class Sela
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -5313,10 +5036,9 @@ End Property
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -5329,18 +5051,17 @@ End Property
 '''  </summary>
 ReadOnly property sel as List (of Sel)
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.sel <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.sel <> IntPtr.Zero Then
 		Dim LST_sel As New List(Of Sel)
-		Dim ARR_sel(values.n - 1) As IntPtr
-		Marshal.Copy(Values.sel, ARR_sel, 0, values.n)
+		Dim ARR_sel(values.nalloc - 1) As IntPtr
+		Marshal.Copy(Values.sel, ARR_sel, 0, values.nalloc)
 		For Each Entry In ARR_sel
 			LST_sel.Add(New Sel(Entry))
 		Next
 Return LST_sel
 End If
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -5356,16 +5077,15 @@ End Class
 
 '  SRC/morph.h (89, 8)
 '  Kernel
-public class L_Kernel
-	property Pointer as IntPtr
-	private Values as Marshal_L_Kernel
+Public Class L_Kernel
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Kernel
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Kernel
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -5377,10 +5097,9 @@ public class L_Kernel
 '''  </summary>
 ReadOnly property sy as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.sy
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.sy
+		Return nothing
 	End Get
 End Property
 
@@ -5393,10 +5112,9 @@ End Property
 '''  </summary>
 ReadOnly property sx as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.sx
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.sx
+		Return nothing
 	End Get
 End Property
 
@@ -5409,10 +5127,9 @@ End Property
 '''  </summary>
 ReadOnly property cy as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.cy
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.cy
+		Return nothing
 	End Get
 End Property
 
@@ -5425,10 +5142,9 @@ End Property
 '''  </summary>
 ReadOnly property cx as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.cx
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.cx
+		Return nothing
 	End Get
 End Property
 
@@ -5441,9 +5157,8 @@ End Property
 '''  </summary>
 ReadOnly property data as List(Of Single())
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	Dim _Data1(1 - 1) As Single
+		Marshal.PtrToStructure (Pointer, Values)
+		Dim _Data1(1 - 1) As Single
 Dim _DataFin As New List(Of Single())
 Marshal.Copy(Values.data, _Data1, 0, _Data1.Length)
 For Each eintrag In _Data1
@@ -5452,7 +5167,7 @@ For Each eintrag In _Data1
 	 _DataFin.Add(_Data2)
 Next
 Return _DataFin
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -5472,10 +5187,10 @@ End Class
 #Region "SRC/pix.h"
 '  SRC/pix.h (134, 8)
 '  Basic Pix
-public class Pix
+Public Class Pix
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_Pix
+	Property Pointer as IntPtr
+	Private Values as new Marshal_Pix
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -5494,7 +5209,6 @@ public class Pix
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_Pix
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -5506,10 +5220,9 @@ public class Pix
 '''  </summary>
 ReadOnly property w as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.w
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.w
+		Return nothing
 	End Get
 End Property
 
@@ -5522,10 +5235,9 @@ End Property
 '''  </summary>
 ReadOnly property h as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.h
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.h
+		Return nothing
 	End Get
 End Property
 
@@ -5538,10 +5250,9 @@ End Property
 '''  </summary>
 ReadOnly property d as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.d
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.d
+		Return nothing
 	End Get
 End Property
 
@@ -5554,10 +5265,9 @@ End Property
 '''  </summary>
 ReadOnly property spp as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.spp
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.spp
+		Return nothing
 	End Get
 End Property
 
@@ -5570,10 +5280,9 @@ End Property
 '''  </summary>
 ReadOnly property wpl as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.wpl
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.wpl
+		Return nothing
 	End Get
 End Property
 
@@ -5586,10 +5295,9 @@ End Property
 '''  </summary>
 ReadOnly property refcount as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.refcount
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.refcount
+		Return nothing
 	End Get
 End Property
 
@@ -5602,10 +5310,9 @@ End Property
 '''  </summary>
 ReadOnly property xres as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.xres
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.xres
+		Return nothing
 	End Get
 End Property
 
@@ -5618,10 +5325,9 @@ End Property
 '''  </summary>
 ReadOnly property yres as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.yres
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.yres
+		Return nothing
 	End Get
 End Property
 
@@ -5634,10 +5340,9 @@ End Property
 '''  </summary>
 ReadOnly property informat as IFF
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.informat
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.informat
+		Return nothing
 	End Get
 End Property
 
@@ -5650,10 +5355,9 @@ End Property
 '''  </summary>
 ReadOnly property special as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.special
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.special
+		Return nothing
 	End Get
 End Property
 
@@ -5666,12 +5370,11 @@ End Property
 '''  </summary>
 ReadOnly property text as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.text <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.text <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.text)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -5684,12 +5387,11 @@ End Property
 '''  </summary>
 ReadOnly property colormap as PixColormap
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.colormap <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.colormap <> IntPtr.Zero Then 
 		Return New PixColormap(Values.colormap)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -5702,12 +5404,11 @@ End Property
 '''  </summary>
 ReadOnly property data as Byte()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	Dim _data((w * h * (d/8)) -1) as Byte
+		Marshal.PtrToStructure (Pointer, Values)
+		Dim _data((w * h * (d/8)) -1) as Byte
 Marshal.Copy(Values.data, _data, 0, _data.Length)
 Return _data
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -5733,16 +5434,15 @@ End Class
 
 '  SRC/pix.h (155, 8)
 '  Colormap of a Pix
-public class PixColormap
-	property Pointer as IntPtr
-	private Values as Marshal_PixColormap
+Public Class PixColormap
+	Property Pointer as IntPtr
+	Private Values as new Marshal_PixColormap
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_PixColormap
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -5754,12 +5454,11 @@ public class PixColormap
 '''  </summary>
 ReadOnly property array as IntPtr
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.array <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.array <> IntPtr.Zero Then
 	Return  Values.array
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -5772,10 +5471,9 @@ End Property
 '''  </summary>
 ReadOnly property depth as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.depth
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.depth
+		Return nothing
 	End Get
 End Property
 
@@ -5788,10 +5486,9 @@ End Property
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -5804,10 +5501,9 @@ End Property
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -5824,16 +5520,15 @@ End Class
 
 '  SRC/pix.h (169, 8)
 '  Colormap table entry (after the BMP version). Note that the BMP format stores the colormap table exactly as it appears here, with color samples being stored sequentially, in the order (b,g,r,a).
-public class RGBA_Quad
-	property Pointer as IntPtr
-	private Values as Marshal_RGBA_Quad
+Public Class RGBA_Quad
+	Property Pointer as IntPtr
+	Private Values as new Marshal_RGBA_Quad
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_RGBA_Quad
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -5845,10 +5540,9 @@ public class RGBA_Quad
 '''  </summary>
 ReadOnly property blue as Byte
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.blue
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.blue
+		Return nothing
 	End Get
 End Property
 
@@ -5861,10 +5555,9 @@ End Property
 '''  </summary>
 ReadOnly property green as Byte
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.green
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.green
+		Return nothing
 	End Get
 End Property
 
@@ -5877,10 +5570,9 @@ End Property
 '''  </summary>
 ReadOnly property red as Byte
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.red
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.red
+		Return nothing
 	End Get
 End Property
 
@@ -5893,10 +5585,9 @@ End Property
 '''  </summary>
 ReadOnly property alpha as Byte
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.alpha
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.alpha
+		Return nothing
 	End Get
 End Property
 
@@ -5913,10 +5604,10 @@ End Class
 
 '  SRC/pix.h (454, 8)
 '  Array of pix
-public class Pixa
+Public Class Pixa
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_Pixa
+	Property Pointer as IntPtr
+	Private Values as new Marshal_Pixa
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -5935,7 +5626,6 @@ public class Pixa
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_Pixa
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -5947,10 +5637,9 @@ public class Pixa
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -5963,10 +5652,9 @@ End Property
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -5979,10 +5667,9 @@ End Property
 '''  </summary>
 ReadOnly property refcount as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.refcount
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.refcount
+		Return nothing
 	End Get
 End Property
 
@@ -5995,18 +5682,17 @@ End Property
 '''  </summary>
 ReadOnly property pix as List (of Pix)
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.pix <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.pix <> IntPtr.Zero Then
 		Dim LST_pix As New List(Of Pix)
-		Dim ARR_pix(values.n - 1) As IntPtr
-		Marshal.Copy(Values.pix, ARR_pix, 0, values.n)
+		Dim ARR_pix(values.nalloc - 1) As IntPtr
+		Marshal.Copy(Values.pix, ARR_pix, 0, values.nalloc)
 		For Each Entry In ARR_pix
 			LST_pix.Add(New Pix(Entry))
 		Next
 Return LST_pix
 End If
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -6019,12 +5705,11 @@ End Property
 '''  </summary>
 ReadOnly property boxa as Boxa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.boxa <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.boxa <> IntPtr.Zero Then 
 		Return New Boxa(Values.boxa)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -6042,10 +5727,10 @@ End Class
 
 '  SRC/pix.h (465, 8)
 '  Array of arrays of pix
-public class Pixaa
+Public Class Pixaa
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_Pixaa
+	Property Pointer as IntPtr
+	Private Values as new Marshal_Pixaa
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -6064,7 +5749,6 @@ public class Pixaa
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_Pixaa
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -6076,10 +5760,9 @@ public class Pixaa
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -6092,10 +5775,9 @@ End Property
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -6108,18 +5790,17 @@ End Property
 '''  </summary>
 ReadOnly property pixa as List (of Pixa)
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.pixa <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.pixa <> IntPtr.Zero Then
 		Dim LST_pixa As New List(Of Pixa)
-		Dim ARR_pixa(values.n - 1) As IntPtr
-		Marshal.Copy(Values.pixa, ARR_pixa, 0, values.n)
+		Dim ARR_pixa(values.nalloc - 1) As IntPtr
+		Marshal.Copy(Values.pixa, ARR_pixa, 0, values.nalloc)
 		For Each Entry In ARR_pixa
 			LST_pixa.Add(New Pixa(Entry))
 		Next
 Return LST_pixa
 End If
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -6132,12 +5813,11 @@ End Property
 '''  </summary>
 ReadOnly property boxa as Boxa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.boxa <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.boxa <> IntPtr.Zero Then 
 		Return New Boxa(Values.boxa)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -6154,10 +5834,10 @@ End Class
 
 '  SRC/pix.h (480, 8)
 '  Basic rectangle
-public class Box
+Public Class Box
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_Box
+	Property Pointer as IntPtr
+	Private Values as new Marshal_Box
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -6176,7 +5856,6 @@ public class Box
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_Box
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -6188,10 +5867,9 @@ public class Box
 '''  </summary>
 ReadOnly property x as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.x
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.x
+		Return nothing
 	End Get
 End Property
 
@@ -6204,10 +5882,9 @@ End Property
 '''  </summary>
 ReadOnly property y as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.y
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.y
+		Return nothing
 	End Get
 End Property
 
@@ -6220,10 +5897,9 @@ End Property
 '''  </summary>
 ReadOnly property w as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.w
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.w
+		Return nothing
 	End Get
 End Property
 
@@ -6236,10 +5912,9 @@ End Property
 '''  </summary>
 ReadOnly property h as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.h
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.h
+		Return nothing
 	End Get
 End Property
 
@@ -6252,10 +5927,9 @@ End Property
 '''  </summary>
 ReadOnly property refcount as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.refcount
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.refcount
+		Return nothing
 	End Get
 End Property
 
@@ -6273,10 +5947,10 @@ End Class
 
 '  SRC/pix.h (492, 8)
 '  Array of Box
-public class Boxa
+Public Class Boxa
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_Boxa
+	Property Pointer as IntPtr
+	Private Values as new Marshal_Boxa
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -6295,7 +5969,6 @@ public class Boxa
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_Boxa
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -6307,10 +5980,9 @@ public class Boxa
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -6323,10 +5995,9 @@ End Property
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -6339,10 +6010,9 @@ End Property
 '''  </summary>
 ReadOnly property refcount as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.refcount
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.refcount
+		Return nothing
 	End Get
 End Property
 
@@ -6355,18 +6025,17 @@ End Property
 '''  </summary>
 ReadOnly property box as List (of Box)
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.box <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.box <> IntPtr.Zero Then
 		Dim LST_box As New List(Of Box)
-		Dim ARR_box(values.n - 1) As IntPtr
-		Marshal.Copy(Values.box, ARR_box, 0, values.n)
+		Dim ARR_box(values.nalloc - 1) As IntPtr
+		Marshal.Copy(Values.box, ARR_box, 0, values.nalloc)
 		For Each Entry In ARR_box
 			LST_box.Add(New Box(Entry))
 		Next
 Return LST_box
 End If
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -6383,10 +6052,10 @@ End Class
 
 '  SRC/pix.h (502, 8)
 '  Array of Boxa
-public class Boxaa
+Public Class Boxaa
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_Boxaa
+	Property Pointer as IntPtr
+	Private Values as new Marshal_Boxaa
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -6405,7 +6074,6 @@ public class Boxaa
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_Boxaa
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -6417,10 +6085,9 @@ public class Boxaa
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -6433,10 +6100,9 @@ End Property
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -6449,18 +6115,17 @@ End Property
 '''  </summary>
 ReadOnly property boxa as List (of Boxa)
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.boxa <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.boxa <> IntPtr.Zero Then
 		Dim LST_boxa As New List(Of Boxa)
-		Dim ARR_boxa(values.n - 1) As IntPtr
-		Marshal.Copy(Values.boxa, ARR_boxa, 0, values.n)
+		Dim ARR_boxa(values.nalloc - 1) As IntPtr
+		Marshal.Copy(Values.boxa, ARR_boxa, 0, values.nalloc)
 		For Each Entry In ARR_boxa
 			LST_boxa.Add(New Boxa(Entry))
 		Next
 Return LST_boxa
 End If
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -6476,10 +6141,10 @@ End Class
 
 '  SRC/pix.h (517, 8)
 '  Array of points
-public class Pta
+Public Class Pta
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_Pta
+	Property Pointer as IntPtr
+	Private Values as new Marshal_Pta
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -6498,7 +6163,6 @@ public class Pta
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_Pta
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -6510,10 +6174,9 @@ public class Pta
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -6526,10 +6189,9 @@ End Property
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -6542,10 +6204,9 @@ End Property
 '''  </summary>
 ReadOnly property refcount as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.refcount
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.refcount
+		Return nothing
 	End Get
 End Property
 
@@ -6558,14 +6219,13 @@ End Property
 '''  </summary>
 ReadOnly property x as Single()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.x <> IntPtr.Zero Then 
-	Dim _x(values.n -1) as Single
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.x <> IntPtr.Zero Then 
+	Dim _x(values.nalloc -1) as Single
 	Marshal.Copy(Values.x, _x, 0, _x.Length)
 	Return _x
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -6578,14 +6238,13 @@ End Property
 '''  </summary>
 ReadOnly property y as Single()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.y <> IntPtr.Zero Then 
-	Dim _y(values.n -1) as Single
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.y <> IntPtr.Zero Then 
+	Dim _y(values.nalloc -1) as Single
 	Marshal.Copy(Values.y, _y, 0, _y.Length)
 	Return _y
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -6603,10 +6262,10 @@ End Class
 
 '  SRC/pix.h (532, 8)
 '  Array of Pta
-public class Ptaa
+Public Class Ptaa
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_Ptaa
+	Property Pointer as IntPtr
+	Private Values as new Marshal_Ptaa
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -6625,7 +6284,6 @@ public class Ptaa
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_Ptaa
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -6637,10 +6295,9 @@ public class Ptaa
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -6653,10 +6310,9 @@ End Property
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -6669,18 +6325,17 @@ End Property
 '''  </summary>
 ReadOnly property pta as List (of Pta)
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.pta <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.pta <> IntPtr.Zero Then
 		Dim LST_pta As New List(Of Pta)
-		Dim ARR_pta(values.n - 1) As IntPtr
-		Marshal.Copy(Values.pta, ARR_pta, 0, values.n)
+		Dim ARR_pta(values.nalloc - 1) As IntPtr
+		Marshal.Copy(Values.pta, ARR_pta, 0, values.nalloc)
 		For Each Entry In ARR_pta
 			LST_pta.Add(New Pta(Entry))
 		Next
 Return LST_pta
 End If
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -6696,10 +6351,10 @@ End Class
 
 '  SRC/pix.h (546, 8)
 '  Pix accumulator container
-public class Pixacc
+Public Class Pixacc
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_Pixacc
+	Property Pointer as IntPtr
+	Private Values as new Marshal_Pixacc
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -6718,7 +6373,6 @@ public class Pixacc
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_Pixacc
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -6730,10 +6384,9 @@ public class Pixacc
 '''  </summary>
 ReadOnly property w as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.w
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.w
+		Return nothing
 	End Get
 End Property
 
@@ -6746,10 +6399,9 @@ End Property
 '''  </summary>
 ReadOnly property h as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.h
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.h
+		Return nothing
 	End Get
 End Property
 
@@ -6762,10 +6414,9 @@ End Property
 '''  </summary>
 ReadOnly property offset as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.offset
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.offset
+		Return nothing
 	End Get
 End Property
 
@@ -6778,12 +6429,11 @@ End Property
 '''  </summary>
 ReadOnly property pix as Pix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pix <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pix <> IntPtr.Zero Then 
 		Return New Pix(Values.pix)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -6800,10 +6450,10 @@ End Class
 
 '  SRC/pix.h (562, 8)
 '  Pix tiling
-public class PixTiling
+Public Class PixTiling
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_PixTiling
+	Property Pointer as IntPtr
+	Private Values as new Marshal_PixTiling
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -6822,7 +6472,6 @@ public class PixTiling
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_PixTiling
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -6834,12 +6483,11 @@ public class PixTiling
 '''  </summary>
 ReadOnly property pix as Pix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pix <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pix <> IntPtr.Zero Then 
 		Return New Pix(Values.pix)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -6852,10 +6500,9 @@ End Property
 '''  </summary>
 ReadOnly property nx as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nx
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nx
+		Return nothing
 	End Get
 End Property
 
@@ -6868,10 +6515,9 @@ End Property
 '''  </summary>
 ReadOnly property ny as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.ny
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.ny
+		Return nothing
 	End Get
 End Property
 
@@ -6884,10 +6530,9 @@ End Property
 '''  </summary>
 ReadOnly property w as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.w
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.w
+		Return nothing
 	End Get
 End Property
 
@@ -6900,10 +6545,9 @@ End Property
 '''  </summary>
 ReadOnly property h as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.h
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.h
+		Return nothing
 	End Get
 End Property
 
@@ -6916,10 +6560,9 @@ End Property
 '''  </summary>
 ReadOnly property xoverlap as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.xoverlap
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.xoverlap
+		Return nothing
 	End Get
 End Property
 
@@ -6932,10 +6575,9 @@ End Property
 '''  </summary>
 ReadOnly property yoverlap as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.yoverlap
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.yoverlap
+		Return nothing
 	End Get
 End Property
 
@@ -6948,10 +6590,9 @@ End Property
 '''  </summary>
 ReadOnly property strip as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.strip
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.strip
+		Return nothing
 	End Get
 End Property
 
@@ -6972,10 +6613,10 @@ End Class
 
 '  SRC/pix.h (582, 8)
 '  Pix with float array
-public class FPix
+Public Class FPix
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_FPix
+	Property Pointer as IntPtr
+	Private Values as new Marshal_FPix
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -6994,7 +6635,6 @@ public class FPix
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_FPix
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -7006,10 +6646,9 @@ public class FPix
 '''  </summary>
 ReadOnly property w as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.w
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.w
+		Return nothing
 	End Get
 End Property
 
@@ -7022,10 +6661,9 @@ End Property
 '''  </summary>
 ReadOnly property h as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.h
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.h
+		Return nothing
 	End Get
 End Property
 
@@ -7038,10 +6676,9 @@ End Property
 '''  </summary>
 ReadOnly property wpl as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.wpl
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.wpl
+		Return nothing
 	End Get
 End Property
 
@@ -7054,10 +6691,9 @@ End Property
 '''  </summary>
 ReadOnly property refcount as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.refcount
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.refcount
+		Return nothing
 	End Get
 End Property
 
@@ -7070,10 +6706,9 @@ End Property
 '''  </summary>
 ReadOnly property xres as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.xres
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.xres
+		Return nothing
 	End Get
 End Property
 
@@ -7086,10 +6721,9 @@ End Property
 '''  </summary>
 ReadOnly property yres as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.yres
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.yres
+		Return nothing
 	End Get
 End Property
 
@@ -7102,14 +6736,13 @@ End Property
 '''  </summary>
 ReadOnly property data as Single()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.data <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.data <> IntPtr.Zero Then 
 	Dim _data(1 -1) as Single
 	Marshal.Copy(Values.data, _data, 0, _data.Length)
 	Return _data
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -7129,10 +6762,10 @@ End Class
 
 '  SRC/pix.h (597, 8)
 '  Array of FPix
-public class FPixa
+Public Class FPixa
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_FPixa
+	Property Pointer as IntPtr
+	Private Values as new Marshal_FPixa
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -7151,7 +6784,6 @@ public class FPixa
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_FPixa
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -7163,10 +6795,9 @@ public class FPixa
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -7179,10 +6810,9 @@ End Property
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -7195,10 +6825,9 @@ End Property
 '''  </summary>
 ReadOnly property refcount as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.refcount
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.refcount
+		Return nothing
 	End Get
 End Property
 
@@ -7211,18 +6840,17 @@ End Property
 '''  </summary>
 ReadOnly property fpix as List (of FPix)
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.fpix <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.fpix <> IntPtr.Zero Then
 		Dim LST_fpix As New List(Of FPix)
-		Dim ARR_fpix(values.n - 1) As IntPtr
-		Marshal.Copy(Values.fpix, ARR_fpix, 0, values.n)
+		Dim ARR_fpix(values.nalloc - 1) As IntPtr
+		Marshal.Copy(Values.fpix, ARR_fpix, 0, values.nalloc)
 		For Each Entry In ARR_fpix
 			LST_fpix.Add(New FPix(Entry))
 		Next
 Return LST_fpix
 End If
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -7239,10 +6867,10 @@ End Class
 
 '  SRC/pix.h (613, 8)
 '  Pix with double array
-public class DPix
+Public Class DPix
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_DPix
+	Property Pointer as IntPtr
+	Private Values as new Marshal_DPix
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -7261,7 +6889,6 @@ public class DPix
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_DPix
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -7273,10 +6900,9 @@ public class DPix
 '''  </summary>
 ReadOnly property w as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.w
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.w
+		Return nothing
 	End Get
 End Property
 
@@ -7289,10 +6915,9 @@ End Property
 '''  </summary>
 ReadOnly property h as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.h
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.h
+		Return nothing
 	End Get
 End Property
 
@@ -7305,10 +6930,9 @@ End Property
 '''  </summary>
 ReadOnly property wpl as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.wpl
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.wpl
+		Return nothing
 	End Get
 End Property
 
@@ -7321,10 +6945,9 @@ End Property
 '''  </summary>
 ReadOnly property refcount as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.refcount
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.refcount
+		Return nothing
 	End Get
 End Property
 
@@ -7337,10 +6960,9 @@ End Property
 '''  </summary>
 ReadOnly property xres as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.xres
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.xres
+		Return nothing
 	End Get
 End Property
 
@@ -7353,10 +6975,9 @@ End Property
 '''  </summary>
 ReadOnly property yres as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.yres
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.yres
+		Return nothing
 	End Get
 End Property
 
@@ -7369,14 +6990,13 @@ End Property
 '''  </summary>
 ReadOnly property data as Double()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.data <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.data <> IntPtr.Zero Then 
 	Dim _data(1 -1) as Double
 	Marshal.Copy(Values.data, _data, 0, _data.Length)
 	Return _data
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -7396,10 +7016,10 @@ End Class
 
 '  SRC/pix.h (633, 8)
 '  Compressed Pix
-public class PixComp
+Public Class PixComp
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_PixComp
+	Property Pointer as IntPtr
+	Private Values as new Marshal_PixComp
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -7418,7 +7038,6 @@ public class PixComp
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_PixComp
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -7430,10 +7049,9 @@ public class PixComp
 '''  </summary>
 ReadOnly property w as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.w
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.w
+		Return nothing
 	End Get
 End Property
 
@@ -7446,10 +7064,9 @@ End Property
 '''  </summary>
 ReadOnly property h as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.h
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.h
+		Return nothing
 	End Get
 End Property
 
@@ -7462,10 +7079,9 @@ End Property
 '''  </summary>
 ReadOnly property d as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.d
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.d
+		Return nothing
 	End Get
 End Property
 
@@ -7478,10 +7094,9 @@ End Property
 '''  </summary>
 ReadOnly property xres as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.xres
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.xres
+		Return nothing
 	End Get
 End Property
 
@@ -7494,10 +7109,9 @@ End Property
 '''  </summary>
 ReadOnly property yres as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.yres
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.yres
+		Return nothing
 	End Get
 End Property
 
@@ -7510,10 +7124,9 @@ End Property
 '''  </summary>
 ReadOnly property comptype as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.comptype
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.comptype
+		Return nothing
 	End Get
 End Property
 
@@ -7526,12 +7139,11 @@ End Property
 '''  </summary>
 ReadOnly property text as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.text <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.text <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.text)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -7544,10 +7156,9 @@ End Property
 '''  </summary>
 ReadOnly property cmapflag as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.cmapflag
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.cmapflag
+		Return nothing
 	End Get
 End Property
 
@@ -7560,14 +7171,13 @@ End Property
 '''  </summary>
 ReadOnly property data as Byte()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.data <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.data <> IntPtr.Zero Then 
 	Dim _data(1 -1) as Byte
 	Marshal.Copy(Values.data, _data, 0, _data.Length)
 	Return _data
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -7580,10 +7190,9 @@ End Property
 '''  </summary>
 ReadOnly property size as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.size
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.size
+		Return nothing
 	End Get
 End Property
 
@@ -7606,10 +7215,10 @@ End Class
 
 '  SRC/pix.h (658, 8)
 '  Array of compressed pix
-public class PixaComp
+Public Class PixaComp
 	implements IDisposable
-	property Pointer as IntPtr
-	private Values as Marshal_PixaComp
+	Property Pointer as IntPtr
+	Private Values as new Marshal_PixaComp
 
 	#Region "IDisposable Support"
 	Private disposedValue As Boolean
@@ -7628,7 +7237,6 @@ public class PixaComp
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_PixaComp
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -7640,10 +7248,9 @@ public class PixaComp
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -7656,10 +7263,9 @@ End Property
 '''  </summary>
 ReadOnly property nalloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nalloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nalloc
+		Return nothing
 	End Get
 End Property
 
@@ -7672,10 +7278,9 @@ End Property
 '''  </summary>
 ReadOnly property offset as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.offset
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.offset
+		Return nothing
 	End Get
 End Property
 
@@ -7688,18 +7293,17 @@ End Property
 '''  </summary>
 ReadOnly property pixc as List (of PixComp)
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.pixc <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.pixc <> IntPtr.Zero Then
 		Dim LST_pixc As New List(Of PixComp)
-		Dim ARR_pixc(values.n - 1) As IntPtr
-		Marshal.Copy(Values.pixc, ARR_pixc, 0, values.n)
+		Dim ARR_pixc(values.nalloc - 1) As IntPtr
+		Marshal.Copy(Values.pixc, ARR_pixc, 0, values.nalloc)
 		For Each Entry In ARR_pixc
 			LST_pixc.Add(New PixComp(Entry))
 		Next
 Return LST_pixc
 End If
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -7712,12 +7316,11 @@ End Property
 '''  </summary>
 ReadOnly property boxa as Boxa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.boxa <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.boxa <> IntPtr.Zero Then 
 		Return New Boxa(Values.boxa)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -7737,16 +7340,15 @@ End Class
 #Region "SRC/recog.h"
 '  SRC/recog.h (116, 8)
 '  
-public class L_Recog
-	property Pointer as IntPtr
-	private Values as Marshal_L_Recog
+Public Class L_Recog
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Recog
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Recog
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -7758,10 +7360,9 @@ public class L_Recog
 '''  </summary>
 ReadOnly property scalew as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.scalew
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.scalew
+		Return nothing
 	End Get
 End Property
 
@@ -7774,10 +7375,9 @@ End Property
 '''  </summary>
 ReadOnly property scaleh as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.scaleh
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.scaleh
+		Return nothing
 	End Get
 End Property
 
@@ -7790,10 +7390,9 @@ End Property
 '''  </summary>
 ReadOnly property linew as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.linew
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.linew
+		Return nothing
 	End Get
 End Property
 
@@ -7806,10 +7405,9 @@ End Property
 '''  </summary>
 ReadOnly property templ_use as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.templ_use
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.templ_use
+		Return nothing
 	End Get
 End Property
 
@@ -7822,10 +7420,9 @@ End Property
 '''  </summary>
 ReadOnly property maxarraysize as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.maxarraysize
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.maxarraysize
+		Return nothing
 	End Get
 End Property
 
@@ -7838,10 +7435,9 @@ End Property
 '''  </summary>
 ReadOnly property setsize as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.setsize
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.setsize
+		Return nothing
 	End Get
 End Property
 
@@ -7854,10 +7450,9 @@ End Property
 '''  </summary>
 ReadOnly property threshold as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.threshold
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.threshold
+		Return nothing
 	End Get
 End Property
 
@@ -7870,10 +7465,9 @@ End Property
 '''  </summary>
 ReadOnly property maxyshift as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.maxyshift
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.maxyshift
+		Return nothing
 	End Get
 End Property
 
@@ -7886,10 +7480,9 @@ End Property
 '''  </summary>
 ReadOnly property charset_type as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.charset_type
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.charset_type
+		Return nothing
 	End Get
 End Property
 
@@ -7902,10 +7495,9 @@ End Property
 '''  </summary>
 ReadOnly property charset_size as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.charset_size
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.charset_size
+		Return nothing
 	End Get
 End Property
 
@@ -7918,10 +7510,9 @@ End Property
 '''  </summary>
 ReadOnly property min_nopad as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.min_nopad
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.min_nopad
+		Return nothing
 	End Get
 End Property
 
@@ -7934,10 +7525,9 @@ End Property
 '''  </summary>
 ReadOnly property num_samples as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.num_samples
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.num_samples
+		Return nothing
 	End Get
 End Property
 
@@ -7950,10 +7540,9 @@ End Property
 '''  </summary>
 ReadOnly property minwidth_u as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.minwidth_u
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.minwidth_u
+		Return nothing
 	End Get
 End Property
 
@@ -7966,10 +7555,9 @@ End Property
 '''  </summary>
 ReadOnly property maxwidth_u as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.maxwidth_u
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.maxwidth_u
+		Return nothing
 	End Get
 End Property
 
@@ -7982,10 +7570,9 @@ End Property
 '''  </summary>
 ReadOnly property minheight_u as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.minheight_u
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.minheight_u
+		Return nothing
 	End Get
 End Property
 
@@ -7998,10 +7585,9 @@ End Property
 '''  </summary>
 ReadOnly property maxheight_u as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.maxheight_u
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.maxheight_u
+		Return nothing
 	End Get
 End Property
 
@@ -8014,10 +7600,9 @@ End Property
 '''  </summary>
 ReadOnly property minwidth as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.minwidth
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.minwidth
+		Return nothing
 	End Get
 End Property
 
@@ -8030,10 +7615,9 @@ End Property
 '''  </summary>
 ReadOnly property maxwidth as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.maxwidth
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.maxwidth
+		Return nothing
 	End Get
 End Property
 
@@ -8046,10 +7630,9 @@ End Property
 '''  </summary>
 ReadOnly property ave_done as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.ave_done
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.ave_done
+		Return nothing
 	End Get
 End Property
 
@@ -8062,10 +7645,9 @@ End Property
 '''  </summary>
 ReadOnly property train_done as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.train_done
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.train_done
+		Return nothing
 	End Get
 End Property
 
@@ -8078,10 +7660,9 @@ End Property
 '''  </summary>
 ReadOnly property max_wh_ratio as Single
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.max_wh_ratio
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.max_wh_ratio
+		Return nothing
 	End Get
 End Property
 
@@ -8094,10 +7675,9 @@ End Property
 '''  </summary>
 ReadOnly property max_ht_ratio as Single
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.max_ht_ratio
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.max_ht_ratio
+		Return nothing
 	End Get
 End Property
 
@@ -8110,10 +7690,9 @@ End Property
 '''  </summary>
 ReadOnly property min_splitw as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.min_splitw
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.min_splitw
+		Return nothing
 	End Get
 End Property
 
@@ -8126,10 +7705,9 @@ End Property
 '''  </summary>
 ReadOnly property max_splith as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.max_splith
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.max_splith
+		Return nothing
 	End Get
 End Property
 
@@ -8142,12 +7720,11 @@ End Property
 '''  </summary>
 ReadOnly property sa_text as Sarray
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.sa_text <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.sa_text <> IntPtr.Zero Then 
 		Return New Sarray(Values.sa_text)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8160,12 +7737,11 @@ End Property
 '''  </summary>
 ReadOnly property dna_tochar as L_Dna
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.dna_tochar <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.dna_tochar <> IntPtr.Zero Then 
 		Return New L_Dna(Values.dna_tochar)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8178,14 +7754,13 @@ End Property
 '''  </summary>
 ReadOnly property centtab as Integer()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.centtab <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.centtab <> IntPtr.Zero Then 
 	Dim _centtab(1 -1) as Integer
 	Marshal.Copy(Values.centtab, _centtab, 0, _centtab.Length)
 	Return _centtab
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8198,14 +7773,13 @@ End Property
 '''  </summary>
 ReadOnly property sumtab as Integer()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.sumtab <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.sumtab <> IntPtr.Zero Then 
 	Dim _sumtab(1 -1) as Integer
 	Marshal.Copy(Values.sumtab, _sumtab, 0, _sumtab.Length)
 	Return _sumtab
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8218,12 +7792,11 @@ End Property
 '''  </summary>
 ReadOnly property pixaa_u as Pixaa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixaa_u <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixaa_u <> IntPtr.Zero Then 
 		Return New Pixaa(Values.pixaa_u)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8236,12 +7809,11 @@ End Property
 '''  </summary>
 ReadOnly property ptaa_u as Ptaa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.ptaa_u <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.ptaa_u <> IntPtr.Zero Then 
 		Return New Ptaa(Values.ptaa_u)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8254,12 +7826,11 @@ End Property
 '''  </summary>
 ReadOnly property naasum_u as Numaa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.naasum_u <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.naasum_u <> IntPtr.Zero Then 
 		Return New Numaa(Values.naasum_u)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8272,12 +7843,11 @@ End Property
 '''  </summary>
 ReadOnly property pixaa as Pixaa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixaa <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixaa <> IntPtr.Zero Then 
 		Return New Pixaa(Values.pixaa)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8290,12 +7860,11 @@ End Property
 '''  </summary>
 ReadOnly property ptaa as Ptaa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.ptaa <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.ptaa <> IntPtr.Zero Then 
 		Return New Ptaa(Values.ptaa)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8308,12 +7877,11 @@ End Property
 '''  </summary>
 ReadOnly property naasum as Numaa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.naasum <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.naasum <> IntPtr.Zero Then 
 		Return New Numaa(Values.naasum)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8326,12 +7894,11 @@ End Property
 '''  </summary>
 ReadOnly property pixa_u as Pixa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixa_u <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixa_u <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixa_u)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8344,12 +7911,11 @@ End Property
 '''  </summary>
 ReadOnly property pta_u as Pta
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pta_u <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pta_u <> IntPtr.Zero Then 
 		Return New Pta(Values.pta_u)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8362,12 +7928,11 @@ End Property
 '''  </summary>
 ReadOnly property nasum_u as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.nasum_u <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.nasum_u <> IntPtr.Zero Then 
 		Return New Numa(Values.nasum_u)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8380,12 +7945,11 @@ End Property
 '''  </summary>
 ReadOnly property pixa as Pixa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixa <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixa <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixa)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8398,12 +7962,11 @@ End Property
 '''  </summary>
 ReadOnly property pta as Pta
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pta <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pta <> IntPtr.Zero Then 
 		Return New Pta(Values.pta)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8416,12 +7979,11 @@ End Property
 '''  </summary>
 ReadOnly property nasum as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.nasum <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.nasum <> IntPtr.Zero Then 
 		Return New Numa(Values.nasum)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8434,12 +7996,11 @@ End Property
 '''  </summary>
 ReadOnly property pixa_tr as Pixa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixa_tr <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixa_tr <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixa_tr)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8452,12 +8013,11 @@ End Property
 '''  </summary>
 ReadOnly property pixadb_ave as Pixa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixadb_ave <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixadb_ave <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixadb_ave)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8470,12 +8030,11 @@ End Property
 '''  </summary>
 ReadOnly property pixa_id as Pixa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixa_id <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixa_id <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixa_id)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8488,12 +8047,11 @@ End Property
 '''  </summary>
 ReadOnly property pixdb_ave as Pix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixdb_ave <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixdb_ave <> IntPtr.Zero Then 
 		Return New Pix(Values.pixdb_ave)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8506,12 +8064,11 @@ End Property
 '''  </summary>
 ReadOnly property pixdb_range as Pix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixdb_range <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixdb_range <> IntPtr.Zero Then 
 		Return New Pix(Values.pixdb_range)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8524,12 +8081,11 @@ End Property
 '''  </summary>
 ReadOnly property pixadb_boot as Pixa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixadb_boot <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixadb_boot <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixadb_boot)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8542,12 +8098,11 @@ End Property
 '''  </summary>
 ReadOnly property pixadb_split as Pixa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixadb_split <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixadb_split <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixadb_split)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8560,12 +8115,11 @@ End Property
 '''  </summary>
 ReadOnly property bmf as L_Bmf
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.bmf <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.bmf <> IntPtr.Zero Then 
 		Return New L_Bmf(Values.bmf)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8578,10 +8132,9 @@ End Property
 '''  </summary>
 ReadOnly property bmf_size as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.bmf_size
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.bmf_size
+		Return nothing
 	End Get
 End Property
 
@@ -8594,12 +8147,11 @@ End Property
 '''  </summary>
 ReadOnly property did as L_Rdid
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.did <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.did <> IntPtr.Zero Then 
 		Return New L_Rdid(Values.did)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8612,12 +8164,11 @@ End Property
 '''  </summary>
 ReadOnly property rch as L_Rch
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.rch <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.rch <> IntPtr.Zero Then 
 		Return New L_Rch(Values.rch)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8630,12 +8181,11 @@ End Property
 '''  </summary>
 ReadOnly property rcha as L_Rcha
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.rcha <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.rcha <> IntPtr.Zero Then 
 		Return New L_Rcha(Values.rcha)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8700,16 +8250,15 @@ End Class
 
 '  SRC/recog.h (182, 8)
 '  Data returned from correlation matching on a single character
-public class L_Rch
-	property Pointer as IntPtr
-	private Values as Marshal_L_Rch
+Public Class L_Rch
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Rch
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Rch
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -8721,10 +8270,9 @@ public class L_Rch
 '''  </summary>
 ReadOnly property index as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.index
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.index
+		Return nothing
 	End Get
 End Property
 
@@ -8737,10 +8285,9 @@ End Property
 '''  </summary>
 ReadOnly property score as Single
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.score
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.score
+		Return nothing
 	End Get
 End Property
 
@@ -8753,12 +8300,11 @@ End Property
 '''  </summary>
 ReadOnly property text as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.text <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.text <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.text)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8771,10 +8317,9 @@ End Property
 '''  </summary>
 ReadOnly property sample as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.sample
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.sample
+		Return nothing
 	End Get
 End Property
 
@@ -8787,10 +8332,9 @@ End Property
 '''  </summary>
 ReadOnly property xloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.xloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.xloc
+		Return nothing
 	End Get
 End Property
 
@@ -8803,10 +8347,9 @@ End Property
 '''  </summary>
 ReadOnly property yloc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.yloc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.yloc
+		Return nothing
 	End Get
 End Property
 
@@ -8819,10 +8362,9 @@ End Property
 '''  </summary>
 ReadOnly property width as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.width
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.width
+		Return nothing
 	End Get
 End Property
 
@@ -8842,16 +8384,15 @@ End Class
 
 '  SRC/recog.h (197, 8)
 '  Data returned from correlation matching on an array of characters
-public class L_Rcha
-	property Pointer as IntPtr
-	private Values as Marshal_L_Rcha
+Public Class L_Rcha
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Rcha
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Rcha
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -8863,12 +8404,11 @@ public class L_Rcha
 '''  </summary>
 ReadOnly property naindex as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.naindex <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.naindex <> IntPtr.Zero Then 
 		Return New Numa(Values.naindex)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8881,12 +8421,11 @@ End Property
 '''  </summary>
 ReadOnly property nascore as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.nascore <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.nascore <> IntPtr.Zero Then 
 		Return New Numa(Values.nascore)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8899,12 +8438,11 @@ End Property
 '''  </summary>
 ReadOnly property satext as Sarray
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.satext <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.satext <> IntPtr.Zero Then 
 		Return New Sarray(Values.satext)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8917,12 +8455,11 @@ End Property
 '''  </summary>
 ReadOnly property nasample as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.nasample <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.nasample <> IntPtr.Zero Then 
 		Return New Numa(Values.nasample)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8935,12 +8472,11 @@ End Property
 '''  </summary>
 ReadOnly property naxloc as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.naxloc <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.naxloc <> IntPtr.Zero Then 
 		Return New Numa(Values.naxloc)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8953,12 +8489,11 @@ End Property
 '''  </summary>
 ReadOnly property nayloc as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.nayloc <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.nayloc <> IntPtr.Zero Then 
 		Return New Numa(Values.nayloc)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8971,12 +8506,11 @@ End Property
 '''  </summary>
 ReadOnly property nawidth as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.nawidth <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.nawidth <> IntPtr.Zero Then 
 		Return New Numa(Values.nawidth)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -8996,16 +8530,15 @@ End Class
 
 '  SRC/recog.h (211, 8)
 '  Data used for decoding a line of characters.
-public class L_Rdid
-	property Pointer as IntPtr
-	private Values as Marshal_L_Rdid
+Public Class L_Rdid
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Rdid
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Rdid
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -9017,12 +8550,11 @@ public class L_Rdid
 '''  </summary>
 ReadOnly property pixs as Pix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixs <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixs <> IntPtr.Zero Then 
 		Return New Pix(Values.pixs)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9035,9 +8567,8 @@ End Property
 '''  </summary>
 ReadOnly property counta as List (of Integer())
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	Dim _Data1(1 - 1) As Integer
+		Marshal.PtrToStructure (Pointer, Values)
+		Dim _Data1(1 - 1) As Integer
 Dim _DataFin As New List(Of Integer())
 Marshal.Copy(Values.counta, _Data1, 0, _Data1.Length)
 For Each eintrag In _Data1
@@ -9046,7 +8577,7 @@ For Each eintrag In _Data1
 	 _DataFin.Add(_Data2)
 Next
 Return _DataFin
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9059,9 +8590,8 @@ End Property
 '''  </summary>
 ReadOnly property delya as List (of Integer())
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	Dim _Data1(1 - 1) As Integer
+		Marshal.PtrToStructure (Pointer, Values)
+		Dim _Data1(1 - 1) As Integer
 Dim _DataFin As New List(Of Integer())
 Marshal.Copy(Values.delya, _Data1, 0, _Data1.Length)
 For Each eintrag In _Data1
@@ -9070,7 +8600,7 @@ For Each eintrag In _Data1
 	 _DataFin.Add(_Data2)
 Next
 Return _DataFin
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9083,10 +8613,9 @@ End Property
 '''  </summary>
 ReadOnly property narray as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.narray
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.narray
+		Return nothing
 	End Get
 End Property
 
@@ -9099,10 +8628,9 @@ End Property
 '''  </summary>
 ReadOnly property size as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.size
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.size
+		Return nothing
 	End Get
 End Property
 
@@ -9115,14 +8643,13 @@ End Property
 '''  </summary>
 ReadOnly property setwidth as Integer()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.setwidth <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.setwidth <> IntPtr.Zero Then 
 	Dim _setwidth(1 -1) as Integer
 	Marshal.Copy(Values.setwidth, _setwidth, 0, _setwidth.Length)
 	Return _setwidth
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9135,12 +8662,11 @@ End Property
 '''  </summary>
 ReadOnly property nasum as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.nasum <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.nasum <> IntPtr.Zero Then 
 		Return New Numa(Values.nasum)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9153,12 +8679,11 @@ End Property
 '''  </summary>
 ReadOnly property namoment as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.namoment <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.namoment <> IntPtr.Zero Then 
 		Return New Numa(Values.namoment)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9171,10 +8696,9 @@ End Property
 '''  </summary>
 ReadOnly property fullarrays as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.fullarrays
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.fullarrays
+		Return nothing
 	End Get
 End Property
 
@@ -9187,14 +8711,13 @@ End Property
 '''  </summary>
 ReadOnly property beta as Single()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.beta <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.beta <> IntPtr.Zero Then 
 	Dim _beta(1 -1) as Single
 	Marshal.Copy(Values.beta, _beta, 0, _beta.Length)
 	Return _beta
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9207,14 +8730,13 @@ End Property
 '''  </summary>
 ReadOnly property gamma as Single()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.gamma <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.gamma <> IntPtr.Zero Then 
 	Dim _gamma(1 -1) as Single
 	Marshal.Copy(Values.gamma, _gamma, 0, _gamma.Length)
 	Return _gamma
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9227,14 +8749,13 @@ End Property
 '''  </summary>
 ReadOnly property trellisscore as Single()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.trellisscore <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.trellisscore <> IntPtr.Zero Then 
 	Dim _trellisscore(1 -1) as Single
 	Marshal.Copy(Values.trellisscore, _trellisscore, 0, _trellisscore.Length)
 	Return _trellisscore
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9247,14 +8768,13 @@ End Property
 '''  </summary>
 ReadOnly property trellistempl as Integer()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.trellistempl <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.trellistempl <> IntPtr.Zero Then 
 	Dim _trellistempl(1 -1) as Integer
 	Marshal.Copy(Values.trellistempl, _trellistempl, 0, _trellistempl.Length)
 	Return _trellistempl
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9267,12 +8787,11 @@ End Property
 '''  </summary>
 ReadOnly property natempl as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.natempl <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.natempl <> IntPtr.Zero Then 
 		Return New Numa(Values.natempl)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9285,12 +8804,11 @@ End Property
 '''  </summary>
 ReadOnly property naxloc as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.naxloc <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.naxloc <> IntPtr.Zero Then 
 		Return New Numa(Values.naxloc)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9303,12 +8821,11 @@ End Property
 '''  </summary>
 ReadOnly property nadely as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.nadely <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.nadely <> IntPtr.Zero Then 
 		Return New Numa(Values.nadely)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9321,12 +8838,11 @@ End Property
 '''  </summary>
 ReadOnly property nawidth as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.nawidth <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.nawidth <> IntPtr.Zero Then 
 		Return New Numa(Values.nawidth)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9339,12 +8855,11 @@ End Property
 '''  </summary>
 ReadOnly property boxa as Boxa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.boxa <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.boxa <> IntPtr.Zero Then 
 		Return New Boxa(Values.boxa)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9357,12 +8872,11 @@ End Property
 '''  </summary>
 ReadOnly property nascore as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.nascore <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.nascore <> IntPtr.Zero Then 
 		Return New Numa(Values.nascore)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9375,12 +8889,11 @@ End Property
 '''  </summary>
 ReadOnly property natempl_r as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.natempl_r <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.natempl_r <> IntPtr.Zero Then 
 		Return New Numa(Values.natempl_r)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9393,12 +8906,11 @@ End Property
 '''  </summary>
 ReadOnly property nasample_r as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.nasample_r <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.nasample_r <> IntPtr.Zero Then 
 		Return New Numa(Values.nasample_r)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9411,12 +8923,11 @@ End Property
 '''  </summary>
 ReadOnly property naxloc_r as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.naxloc_r <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.naxloc_r <> IntPtr.Zero Then 
 		Return New Numa(Values.naxloc_r)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9429,12 +8940,11 @@ End Property
 '''  </summary>
 ReadOnly property nadely_r as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.nadely_r <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.nadely_r <> IntPtr.Zero Then 
 		Return New Numa(Values.nadely_r)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9447,12 +8957,11 @@ End Property
 '''  </summary>
 ReadOnly property nawidth_r as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.nawidth_r <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.nawidth_r <> IntPtr.Zero Then 
 		Return New Numa(Values.nawidth_r)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9465,12 +8974,11 @@ End Property
 '''  </summary>
 ReadOnly property nascore_r as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.nascore_r <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.nascore_r <> IntPtr.Zero Then 
 		Return New Numa(Values.nascore_r)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9510,16 +9018,15 @@ End Class
 #Region "SRC/regutils.h"
 '  SRC/regutils.h (117, 8)
 '  Regression test parameter packer
-public class L_RegParams
-	property Pointer as IntPtr
-	private Values as Marshal_L_RegParams
+Public Class L_RegParams
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_RegParams
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_RegParams
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -9531,12 +9038,11 @@ public class L_RegParams
 '''  </summary>
 ReadOnly property fp as FILE
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.fp <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.fp <> IntPtr.Zero Then 
 		Return New FILE(Values.fp)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9549,12 +9055,11 @@ End Property
 '''  </summary>
 ReadOnly property testname as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.testname <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.testname <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.testname)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9567,12 +9072,11 @@ End Property
 '''  </summary>
 ReadOnly property tempfile as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.tempfile <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.tempfile <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.tempfile)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9585,10 +9089,9 @@ End Property
 '''  </summary>
 ReadOnly property mode as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.mode
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.mode
+		Return nothing
 	End Get
 End Property
 
@@ -9601,10 +9104,9 @@ End Property
 '''  </summary>
 ReadOnly property index as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.index
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.index
+		Return nothing
 	End Get
 End Property
 
@@ -9617,10 +9119,9 @@ End Property
 '''  </summary>
 ReadOnly property success as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.success
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.success
+		Return nothing
 	End Get
 End Property
 
@@ -9633,10 +9134,9 @@ End Property
 '''  </summary>
 ReadOnly property display as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.display
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.display
+		Return nothing
 	End Get
 End Property
 
@@ -9649,10 +9149,9 @@ End Property
 '''  </summary>
 ReadOnly property tstart as IntPtr
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.tstart
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.tstart
+		Return nothing
 	End Get
 End Property
 
@@ -9675,16 +9174,15 @@ End Class
 #Region "SRC/stringcode.h"
 '  SRC/stringcode.h (40, 8)
 '  stringcode.h
-public class L_StrCode
-	property Pointer as IntPtr
-	private Values as Marshal_L_StrCode
+Public Class L_StrCode
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_StrCode
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_StrCode
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -9696,10 +9194,9 @@ public class L_StrCode
 '''  </summary>
 ReadOnly property fileno as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.fileno
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.fileno
+		Return nothing
 	End Get
 End Property
 
@@ -9712,10 +9209,9 @@ End Property
 '''  </summary>
 ReadOnly property ifunc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.ifunc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.ifunc
+		Return nothing
 	End Get
 End Property
 
@@ -9728,12 +9224,11 @@ End Property
 '''  </summary>
 ReadOnly property _function_ as Sarray
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values._function_ <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values._function_ <> IntPtr.Zero Then 
 		Return New Sarray(Values._function_)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9746,12 +9241,11 @@ End Property
 '''  </summary>
 ReadOnly property data as Sarray
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.data <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.data <> IntPtr.Zero Then 
 		Return New Sarray(Values.data)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9764,12 +9258,11 @@ End Property
 '''  </summary>
 ReadOnly property descr as Sarray
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.descr <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.descr <> IntPtr.Zero Then 
 		Return New Sarray(Values.descr)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9782,10 +9275,9 @@ End Property
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -9806,16 +9298,15 @@ End Class
 #Region "SRC/sudoku.h"
 '  SRC/sudoku.h (52, 8)
 '  sudoku.h
-public class L_Sudoku
-	property Pointer as IntPtr
-	private Values as Marshal_L_Sudoku
+Public Class L_Sudoku
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Sudoku
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Sudoku
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -9827,10 +9318,9 @@ public class L_Sudoku
 '''  </summary>
 ReadOnly property num as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.num
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.num
+		Return nothing
 	End Get
 End Property
 
@@ -9843,14 +9333,13 @@ End Property
 '''  </summary>
 ReadOnly property locs as Integer()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.locs <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.locs <> IntPtr.Zero Then 
 	Dim _locs(1 -1) as Integer
 	Marshal.Copy(Values.locs, _locs, 0, _locs.Length)
 	Return _locs
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9863,10 +9352,9 @@ End Property
 '''  </summary>
 ReadOnly property current as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.current
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.current
+		Return nothing
 	End Get
 End Property
 
@@ -9879,14 +9367,13 @@ End Property
 '''  </summary>
 ReadOnly property init as Integer()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.init <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.init <> IntPtr.Zero Then 
 	Dim _init(1 -1) as Integer
 	Marshal.Copy(Values.init, _init, 0, _init.Length)
 	Return _init
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9899,14 +9386,13 @@ End Property
 '''  </summary>
 ReadOnly property state as Integer()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.state <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.state <> IntPtr.Zero Then 
 	Dim _state(1 -1) as Integer
 	Marshal.Copy(Values.state, _state, 0, _state.Length)
 	Return _state
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -9919,10 +9405,9 @@ End Property
 '''  </summary>
 ReadOnly property nguess as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nguess
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nguess
+		Return nothing
 	End Get
 End Property
 
@@ -9935,10 +9420,9 @@ End Property
 '''  </summary>
 ReadOnly property finished as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.finished
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.finished
+		Return nothing
 	End Get
 End Property
 
@@ -9951,10 +9435,9 @@ End Property
 '''  </summary>
 ReadOnly property failure as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.failure
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.failure
+		Return nothing
 	End Get
 End Property
 
@@ -9977,16 +9460,15 @@ End Class
 #Region "SRC/watershed.h"
 '  SRC/watershed.h (38, 8)
 '  Simple data structure to hold watershed data.
-public class L_WShed
-	property Pointer as IntPtr
-	private Values as Marshal_L_WShed
+Public Class L_WShed
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_WShed
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_WShed
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -9998,12 +9480,11 @@ public class L_WShed
 '''  </summary>
 ReadOnly property pixs as Pix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixs <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixs <> IntPtr.Zero Then 
 		Return New Pix(Values.pixs)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10016,12 +9497,11 @@ End Property
 '''  </summary>
 ReadOnly property pixm as Pix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixm <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixm <> IntPtr.Zero Then 
 		Return New Pix(Values.pixm)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10034,10 +9514,9 @@ End Property
 '''  </summary>
 ReadOnly property mindepth as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.mindepth
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.mindepth
+		Return nothing
 	End Get
 End Property
 
@@ -10050,12 +9529,11 @@ End Property
 '''  </summary>
 ReadOnly property pixlab as Pix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixlab <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixlab <> IntPtr.Zero Then 
 		Return New Pix(Values.pixlab)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10068,12 +9546,11 @@ End Property
 '''  </summary>
 ReadOnly property pixt as Pix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixt <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixt <> IntPtr.Zero Then 
 		Return New Pix(Values.pixt)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10086,14 +9563,13 @@ End Property
 '''  </summary>
 ReadOnly property lines8 as IntPtr()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.lines8 <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.lines8 <> IntPtr.Zero Then 
 		Dim _lines8(1) as IntPtr
 		Marshal.Copy(Values.lines8, _lines8, 0, 1)
 		Return _lines8
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10106,14 +9582,13 @@ End Property
 '''  </summary>
 ReadOnly property linem1 as IntPtr()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.linem1 <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.linem1 <> IntPtr.Zero Then 
 		Dim _linem1(1) as IntPtr
 		Marshal.Copy(Values.linem1, _linem1, 0, 1)
 		Return _linem1
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10126,14 +9601,13 @@ End Property
 '''  </summary>
 ReadOnly property linelab32 as IntPtr()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.linelab32 <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.linelab32 <> IntPtr.Zero Then 
 		Dim _linelab32(1) as IntPtr
 		Marshal.Copy(Values.linelab32, _linelab32, 0, 1)
 		Return _linelab32
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10146,14 +9620,13 @@ End Property
 '''  </summary>
 ReadOnly property linet1 as IntPtr()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.linet1 <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.linet1 <> IntPtr.Zero Then 
 		Dim _linet1(1) as IntPtr
 		Marshal.Copy(Values.linet1, _linet1, 0, 1)
 		Return _linet1
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10166,12 +9639,11 @@ End Property
 '''  </summary>
 ReadOnly property pixad as Pixa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixad <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixad <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixad)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10184,12 +9656,11 @@ End Property
 '''  </summary>
 ReadOnly property ptas as Pta
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.ptas <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.ptas <> IntPtr.Zero Then 
 		Return New Pta(Values.ptas)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10202,12 +9673,11 @@ End Property
 '''  </summary>
 ReadOnly property nasi as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.nasi <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.nasi <> IntPtr.Zero Then 
 		Return New Numa(Values.nasi)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10220,12 +9690,11 @@ End Property
 '''  </summary>
 ReadOnly property nash as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.nash <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.nash <> IntPtr.Zero Then 
 		Return New Numa(Values.nash)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10238,12 +9707,11 @@ End Property
 '''  </summary>
 ReadOnly property namh as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.namh <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.namh <> IntPtr.Zero Then 
 		Return New Numa(Values.namh)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10256,12 +9724,11 @@ End Property
 '''  </summary>
 ReadOnly property nalevels as Numa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.nalevels <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.nalevels <> IntPtr.Zero Then 
 		Return New Numa(Values.nalevels)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10274,10 +9741,9 @@ End Property
 '''  </summary>
 ReadOnly property nseeds as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nseeds
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nseeds
+		Return nothing
 	End Get
 End Property
 
@@ -10290,10 +9756,9 @@ End Property
 '''  </summary>
 ReadOnly property nother as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nother
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nother
+		Return nothing
 	End Get
 End Property
 
@@ -10306,14 +9771,13 @@ End Property
 '''  </summary>
 ReadOnly property lut as Integer()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.lut <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.lut <> IntPtr.Zero Then 
 	Dim _lut(1 -1) as Integer
 	Marshal.Copy(Values.lut, _lut, 0, _lut.Length)
 	Return _lut
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10326,9 +9790,8 @@ End Property
 '''  </summary>
 ReadOnly property links as List (of Numa)
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.links <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.links <> IntPtr.Zero Then
 		Dim LST_links As New List(Of Numa)
 		Dim ARR_links(1 - 1) As IntPtr
 		Marshal.Copy(Values.links, ARR_links, 0, 1)
@@ -10337,7 +9800,7 @@ ReadOnly property links as List (of Numa)
 		Next
 Return LST_links
 End If
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10350,10 +9813,9 @@ End Property
 '''  </summary>
 ReadOnly property arraysize as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.arraysize
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.arraysize
+		Return nothing
 	End Get
 End Property
 
@@ -10366,10 +9828,9 @@ End Property
 '''  </summary>
 ReadOnly property debug as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.debug
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.debug
+		Return nothing
 	End Get
 End Property
 
@@ -10405,16 +9866,15 @@ End Class
 #Region "SRC/bilateral.h"
 '  SRC/bilateral.h (115, 8)
 '  Bilateral filter
-public class L_Bilateral
-	property Pointer as IntPtr
-	private Values as Marshal_L_Bilateral
+Public Class L_Bilateral
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Bilateral
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Bilateral
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -10426,12 +9886,11 @@ public class L_Bilateral
 '''  </summary>
 ReadOnly property pixs as Pix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixs <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixs <> IntPtr.Zero Then 
 		Return New Pix(Values.pixs)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10444,12 +9903,11 @@ End Property
 '''  </summary>
 ReadOnly property pixsc as Pix
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixsc <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixsc <> IntPtr.Zero Then 
 		Return New Pix(Values.pixsc)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10462,10 +9920,9 @@ End Property
 '''  </summary>
 ReadOnly property reduction as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.reduction
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.reduction
+		Return nothing
 	End Get
 End Property
 
@@ -10478,10 +9935,9 @@ End Property
 '''  </summary>
 ReadOnly property spatial_stdev as Single
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.spatial_stdev
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.spatial_stdev
+		Return nothing
 	End Get
 End Property
 
@@ -10494,10 +9950,9 @@ End Property
 '''  </summary>
 ReadOnly property range_stdev as Single
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.range_stdev
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.range_stdev
+		Return nothing
 	End Get
 End Property
 
@@ -10510,14 +9965,13 @@ End Property
 '''  </summary>
 ReadOnly property spatial as Single()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.spatial <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.spatial <> IntPtr.Zero Then 
 	Dim _spatial(1 -1) as Single
 	Marshal.Copy(Values.spatial, _spatial, 0, _spatial.Length)
 	Return _spatial
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10530,14 +9984,13 @@ End Property
 '''  </summary>
 ReadOnly property range as Single()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.range <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.range <> IntPtr.Zero Then 
 	Dim _range(1 -1) as Single
 	Marshal.Copy(Values.range, _range, 0, _range.Length)
 	Return _range
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10550,10 +10003,9 @@ End Property
 '''  </summary>
 ReadOnly property minval as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.minval
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.minval
+		Return nothing
 	End Get
 End Property
 
@@ -10566,10 +10018,9 @@ End Property
 '''  </summary>
 ReadOnly property maxval as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.maxval
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.maxval
+		Return nothing
 	End Get
 End Property
 
@@ -10582,10 +10033,9 @@ End Property
 '''  </summary>
 ReadOnly property ncomps as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.ncomps
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.ncomps
+		Return nothing
 	End Get
 End Property
 
@@ -10598,14 +10048,13 @@ End Property
 '''  </summary>
 ReadOnly property nc as Integer()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.nc <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.nc <> IntPtr.Zero Then 
 	Dim _nc(1 -1) as Integer
 	Marshal.Copy(Values.nc, _nc, 0, _nc.Length)
 	Return _nc
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10618,14 +10067,13 @@ End Property
 '''  </summary>
 ReadOnly property kindex as Integer()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.kindex <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.kindex <> IntPtr.Zero Then 
 	Dim _kindex(1 -1) as Integer
 	Marshal.Copy(Values.kindex, _kindex, 0, _kindex.Length)
 	Return _kindex
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10638,14 +10086,13 @@ End Property
 '''  </summary>
 ReadOnly property kfract as Single()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.kfract <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.kfract <> IntPtr.Zero Then 
 	Dim _kfract(1 -1) as Single
 	Marshal.Copy(Values.kfract, _kfract, 0, _kfract.Length)
 	Return _kfract
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10658,12 +10105,11 @@ End Property
 '''  </summary>
 ReadOnly property pixac as Pixa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.pixac <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.pixac <> IntPtr.Zero Then 
 		Return New Pixa(Values.pixac)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10676,9 +10122,8 @@ End Property
 '''  </summary>
 ReadOnly property lineset as List (of List (of List (of Byte())))
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	Dim _Data1(4 - 1) As Byte
+		Marshal.PtrToStructure (Pointer, Values)
+		Dim _Data1(4 - 1) As Byte
 Dim _DataFin As new List (of List ( of List (of Byte())))
 Marshal.Copy(Values.lineset, _Data1, 0, _Data1.Length)
 For Each eintrag In _Data1
@@ -10687,7 +10132,7 @@ For Each eintrag In _Data1
 	 _DataFin.AddRange(_Data2)
 Next
 Return _DataFin
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -10717,16 +10162,15 @@ End Class
 #Region "SRC/bmp.h"
 '  SRC/bmp.h (50, 8)
 '  BMP file header
-public class BMP_FileHeader
-	property Pointer as IntPtr
-	private Values as Marshal_BMP_FileHeader
+Public Class BMP_FileHeader
+	Property Pointer as IntPtr
+	Private Values as new Marshal_BMP_FileHeader
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_BMP_FileHeader
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -10738,10 +10182,9 @@ public class BMP_FileHeader
 '''  </summary>
 ReadOnly property bfType as Short
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.bfType
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.bfType
+		Return nothing
 	End Get
 End Property
 
@@ -10754,10 +10197,9 @@ End Property
 '''  </summary>
 ReadOnly property bfSize as Short
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.bfSize
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.bfSize
+		Return nothing
 	End Get
 End Property
 
@@ -10770,10 +10212,9 @@ End Property
 '''  </summary>
 ReadOnly property bfFill1 as Short
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.bfFill1
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.bfFill1
+		Return nothing
 	End Get
 End Property
 
@@ -10786,10 +10227,9 @@ End Property
 '''  </summary>
 ReadOnly property bfReserved1 as Short
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.bfReserved1
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.bfReserved1
+		Return nothing
 	End Get
 End Property
 
@@ -10802,10 +10242,9 @@ End Property
 '''  </summary>
 ReadOnly property bfReserved2 as Short
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.bfReserved2
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.bfReserved2
+		Return nothing
 	End Get
 End Property
 
@@ -10818,10 +10257,9 @@ End Property
 '''  </summary>
 ReadOnly property bfOffBits as Short
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.bfOffBits
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.bfOffBits
+		Return nothing
 	End Get
 End Property
 
@@ -10834,10 +10272,9 @@ End Property
 '''  </summary>
 ReadOnly property bfFill2 as Short
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.bfFill2
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.bfFill2
+		Return nothing
 	End Get
 End Property
 
@@ -10857,16 +10294,15 @@ End Class
 
 '  SRC/bmp.h (75, 8)
 '  BMP info header
-public class BMP_InfoHeader
-	property Pointer as IntPtr
-	private Values as Marshal_BMP_InfoHeader
+Public Class BMP_InfoHeader
+	Property Pointer as IntPtr
+	Private Values as new Marshal_BMP_InfoHeader
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_BMP_InfoHeader
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -10878,10 +10314,9 @@ public class BMP_InfoHeader
 '''  </summary>
 ReadOnly property biSize as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.biSize
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.biSize
+		Return nothing
 	End Get
 End Property
 
@@ -10894,10 +10329,9 @@ End Property
 '''  </summary>
 ReadOnly property biWidth as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.biWidth
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.biWidth
+		Return nothing
 	End Get
 End Property
 
@@ -10910,10 +10344,9 @@ End Property
 '''  </summary>
 ReadOnly property biHeight as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.biHeight
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.biHeight
+		Return nothing
 	End Get
 End Property
 
@@ -10926,10 +10359,9 @@ End Property
 '''  </summary>
 ReadOnly property biPlanes as Short
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.biPlanes
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.biPlanes
+		Return nothing
 	End Get
 End Property
 
@@ -10942,10 +10374,9 @@ End Property
 '''  </summary>
 ReadOnly property biBitCount as Short
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.biBitCount
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.biBitCount
+		Return nothing
 	End Get
 End Property
 
@@ -10958,10 +10389,9 @@ End Property
 '''  </summary>
 ReadOnly property biCompression as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.biCompression
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.biCompression
+		Return nothing
 	End Get
 End Property
 
@@ -10974,10 +10404,9 @@ End Property
 '''  </summary>
 ReadOnly property biSizeImage as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.biSizeImage
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.biSizeImage
+		Return nothing
 	End Get
 End Property
 
@@ -10990,10 +10419,9 @@ End Property
 '''  </summary>
 ReadOnly property biXPelsPerMeter as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.biXPelsPerMeter
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.biXPelsPerMeter
+		Return nothing
 	End Get
 End Property
 
@@ -11006,10 +10434,9 @@ End Property
 '''  </summary>
 ReadOnly property biYPelsPerMeter as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.biYPelsPerMeter
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.biYPelsPerMeter
+		Return nothing
 	End Get
 End Property
 
@@ -11022,10 +10449,9 @@ End Property
 '''  </summary>
 ReadOnly property biClrUsed as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.biClrUsed
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.biClrUsed
+		Return nothing
 	End Get
 End Property
 
@@ -11038,10 +10464,9 @@ End Property
 '''  </summary>
 ReadOnly property biClrImportant as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.biClrImportant
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.biClrImportant
+		Return nothing
 	End Get
 End Property
 
@@ -11067,16 +10492,15 @@ End Class
 #Region "SRC\colorquant1.c"
 '  SRC\colorquant1.c (158, 8)
 '  
-public class ColorQuantCell
-	property Pointer as IntPtr
-	private Values as Marshal_ColorQuantCell
+Public Class ColorQuantCell
+	Property Pointer as IntPtr
+	Private Values as new Marshal_ColorQuantCell
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_ColorQuantCell
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -11088,10 +10512,9 @@ public class ColorQuantCell
 '''  </summary>
 ReadOnly property rc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.rc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.rc
+		Return nothing
 	End Get
 End Property
 
@@ -11104,10 +10527,9 @@ End Property
 '''  </summary>
 ReadOnly property gc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.gc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.gc
+		Return nothing
 	End Get
 End Property
 
@@ -11120,10 +10542,9 @@ End Property
 '''  </summary>
 ReadOnly property bc as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.bc
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.bc
+		Return nothing
 	End Get
 End Property
 
@@ -11136,10 +10557,9 @@ End Property
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -11152,10 +10572,9 @@ End Property
 '''  </summary>
 ReadOnly property index as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.index
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.index
+		Return nothing
 	End Get
 End Property
 
@@ -11168,10 +10587,9 @@ End Property
 '''  </summary>
 ReadOnly property nleaves as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nleaves
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nleaves
+		Return nothing
 	End Get
 End Property
 
@@ -11184,10 +10602,9 @@ End Property
 '''  </summary>
 ReadOnly property bleaf as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.bleaf
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.bleaf
+		Return nothing
 	End Get
 End Property
 
@@ -11207,16 +10624,15 @@ End Class
 
 '  SRC\colorquant1.c (190, 8)
 '  
-public class OctcubeQuantCell
-	property Pointer as IntPtr
-	private Values as Marshal_OctcubeQuantCell
+Public Class OctcubeQuantCell
+	Property Pointer as IntPtr
+	Private Values as new Marshal_OctcubeQuantCell
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_OctcubeQuantCell
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -11228,10 +10644,9 @@ public class OctcubeQuantCell
 '''  </summary>
 ReadOnly property n as Single
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -11244,10 +10659,9 @@ End Property
 '''  </summary>
 ReadOnly property octindex as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.octindex
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.octindex
+		Return nothing
 	End Get
 End Property
 
@@ -11260,10 +10674,9 @@ End Property
 '''  </summary>
 ReadOnly property rcum as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.rcum
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.rcum
+		Return nothing
 	End Get
 End Property
 
@@ -11276,10 +10689,9 @@ End Property
 '''  </summary>
 ReadOnly property gcum as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.gcum
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.gcum
+		Return nothing
 	End Get
 End Property
 
@@ -11292,10 +10704,9 @@ End Property
 '''  </summary>
 ReadOnly property bcum as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.bcum
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.bcum
+		Return nothing
 	End Get
 End Property
 
@@ -11308,10 +10719,9 @@ End Property
 '''  </summary>
 ReadOnly property rval as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.rval
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.rval
+		Return nothing
 	End Get
 End Property
 
@@ -11324,10 +10734,9 @@ End Property
 '''  </summary>
 ReadOnly property gval as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.gval
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.gval
+		Return nothing
 	End Get
 End Property
 
@@ -11340,10 +10749,9 @@ End Property
 '''  </summary>
 ReadOnly property bval as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.bval
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.bval
+		Return nothing
 	End Get
 End Property
 
@@ -11364,16 +10772,15 @@ End Class
 
 '  SRC\colorquant1.c (206, 8)
 '  
-public class L_OctcubePop
-	property Pointer as IntPtr
-	private Values as Marshal_L_OctcubePop
+Public Class L_OctcubePop
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_OctcubePop
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_OctcubePop
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -11385,10 +10792,9 @@ public class L_OctcubePop
 '''  </summary>
 ReadOnly property npix as Single
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.npix
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.npix
+		Return nothing
 	End Get
 End Property
 
@@ -11401,10 +10807,9 @@ End Property
 '''  </summary>
 ReadOnly property index as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.index
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.index
+		Return nothing
 	End Get
 End Property
 
@@ -11417,10 +10822,9 @@ End Property
 '''  </summary>
 ReadOnly property rval as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.rval
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.rval
+		Return nothing
 	End Get
 End Property
 
@@ -11433,10 +10837,9 @@ End Property
 '''  </summary>
 ReadOnly property gval as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.gval
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.gval
+		Return nothing
 	End Get
 End Property
 
@@ -11449,10 +10852,9 @@ End Property
 '''  </summary>
 ReadOnly property bval as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.bval
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.bval
+		Return nothing
 	End Get
 End Property
 
@@ -11472,16 +10874,15 @@ End Class
 #Region "SRC\colorquant2.c"
 '  SRC\colorquant2.c (178, 8)
 '  
-public class L_Box3d
-	property Pointer as IntPtr
-	private Values as Marshal_L_Box3d
+Public Class L_Box3d
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Box3d
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Box3d
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -11493,10 +10894,9 @@ public class L_Box3d
 '''  </summary>
 ReadOnly property sortparam as Single
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.sortparam
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.sortparam
+		Return nothing
 	End Get
 End Property
 
@@ -11509,10 +10909,9 @@ End Property
 '''  </summary>
 ReadOnly property npix as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.npix
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.npix
+		Return nothing
 	End Get
 End Property
 
@@ -11525,10 +10924,9 @@ End Property
 '''  </summary>
 ReadOnly property vol as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.vol
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.vol
+		Return nothing
 	End Get
 End Property
 
@@ -11541,10 +10939,9 @@ End Property
 '''  </summary>
 ReadOnly property r1 as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.r1
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.r1
+		Return nothing
 	End Get
 End Property
 
@@ -11557,10 +10954,9 @@ End Property
 '''  </summary>
 ReadOnly property r2 as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.r2
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.r2
+		Return nothing
 	End Get
 End Property
 
@@ -11573,10 +10969,9 @@ End Property
 '''  </summary>
 ReadOnly property g1 as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.g1
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.g1
+		Return nothing
 	End Get
 End Property
 
@@ -11589,10 +10984,9 @@ End Property
 '''  </summary>
 ReadOnly property g2 as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.g2
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.g2
+		Return nothing
 	End Get
 End Property
 
@@ -11605,10 +10999,9 @@ End Property
 '''  </summary>
 ReadOnly property b1 as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.b1
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.b1
+		Return nothing
 	End Get
 End Property
 
@@ -11621,10 +11014,9 @@ End Property
 '''  </summary>
 ReadOnly property b2 as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.b2
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.b2
+		Return nothing
 	End Get
 End Property
 
@@ -11648,16 +11040,15 @@ End Class
 #Region "SRC\conncomp.c"
 '  SRC\conncomp.c (99, 8)
 '  The struct FillSeg is used by the Heckbert seedfill algorithm to hold information about image segments that are waiting to be investigated. We use two Stacks, one to hold the FillSegs in use, and an auxiliary Stack as a reservoir to hold FillSegs for re-use.
-public class FillSeg
-	property Pointer as IntPtr
-	private Values as Marshal_FillSeg
+Public Class FillSeg
+	Property Pointer as IntPtr
+	Private Values as new Marshal_FillSeg
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_FillSeg
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -11669,10 +11060,9 @@ public class FillSeg
 '''  </summary>
 ReadOnly property xleft as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.xleft
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.xleft
+		Return nothing
 	End Get
 End Property
 
@@ -11685,10 +11075,9 @@ End Property
 '''  </summary>
 ReadOnly property xright as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.xright
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.xright
+		Return nothing
 	End Get
 End Property
 
@@ -11701,10 +11090,9 @@ End Property
 '''  </summary>
 ReadOnly property y as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.y
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.y
+		Return nothing
 	End Get
 End Property
 
@@ -11717,10 +11105,9 @@ End Property
 '''  </summary>
 ReadOnly property dy as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.dy
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.dy
+		Return nothing
 	End Get
 End Property
 
@@ -11739,16 +11126,15 @@ End Class
 #Region "SRC\jbclass.c"
 '  SRC\jbclass.c (236, 8)
 '  
-public class JbFindTemplatesState
-	property Pointer as IntPtr
-	private Values as Marshal_JbFindTemplatesState
+Public Class JbFindTemplatesState
+	Property Pointer as IntPtr
+	Private Values as new Marshal_JbFindTemplatesState
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_JbFindTemplatesState
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -11760,12 +11146,11 @@ public class JbFindTemplatesState
 '''  </summary>
 ReadOnly property classer as JbClasser
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.classer <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.classer <> IntPtr.Zero Then 
 		Return New JbClasser(Values.classer)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -11778,10 +11163,9 @@ End Property
 '''  </summary>
 ReadOnly property w as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.w
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.w
+		Return nothing
 	End Get
 End Property
 
@@ -11794,10 +11178,9 @@ End Property
 '''  </summary>
 ReadOnly property h as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.h
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.h
+		Return nothing
 	End Get
 End Property
 
@@ -11810,10 +11193,9 @@ End Property
 '''  </summary>
 ReadOnly property i as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.i
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.i
+		Return nothing
 	End Get
 End Property
 
@@ -11826,12 +11208,11 @@ End Property
 '''  </summary>
 ReadOnly property dna as L_Dna
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.dna <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.dna <> IntPtr.Zero Then 
 		Return New L_Dna(Values.dna)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -11844,10 +11225,9 @@ End Property
 '''  </summary>
 ReadOnly property n as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.n
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.n
+		Return nothing
 	End Get
 End Property
 
@@ -11868,16 +11248,15 @@ End Class
 #Region "SRC\jpegio.c"
 '  SRC\jpegio.c (164, 8)
 '  
-public class callback_data
-	property Pointer as IntPtr
-	private Values as Marshal_callback_data
+Public Class callback_data
+	Property Pointer as IntPtr
+	Private Values as new Marshal_callback_data
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_callback_data
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -11889,10 +11268,9 @@ public class callback_data
 '''  </summary>
 ReadOnly property jmpbuf as Char
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.jmpbuf
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.jmpbuf
+		Return nothing
 	End Get
 End Property
 
@@ -11905,14 +11283,13 @@ End Property
 '''  </summary>
 ReadOnly property comment as Byte()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.comment <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.comment <> IntPtr.Zero Then 
 	Dim _comment(1 -1) as Byte
 	Marshal.Copy(Values.comment, _comment, 0, _comment.Length)
 	Return _comment
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -11929,16 +11306,15 @@ End Class
 #Region "SRC\maze.c"
 '  SRC\maze.c (76, 8)
 '  
-public class MazeElement
-	property Pointer as IntPtr
-	private Values as Marshal_MazeElement
+Public Class MazeElement
+	Property Pointer as IntPtr
+	Private Values as new Marshal_MazeElement
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_MazeElement
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -11950,10 +11326,9 @@ public class MazeElement
 '''  </summary>
 ReadOnly property distance as Single
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.distance
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.distance
+		Return nothing
 	End Get
 End Property
 
@@ -11966,10 +11341,9 @@ End Property
 '''  </summary>
 ReadOnly property x as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.x
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.x
+		Return nothing
 	End Get
 End Property
 
@@ -11982,10 +11356,9 @@ End Property
 '''  </summary>
 ReadOnly property y as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.y
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.y
+		Return nothing
 	End Get
 End Property
 
@@ -11998,10 +11371,9 @@ End Property
 '''  </summary>
 ReadOnly property val as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.val
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.val
+		Return nothing
 	End Get
 End Property
 
@@ -12014,10 +11386,9 @@ End Property
 '''  </summary>
 ReadOnly property dir as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.dir
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.dir
+		Return nothing
 	End Get
 End Property
 
@@ -12037,16 +11408,15 @@ End Class
 #Region "SRC\partition.c"
 '  SRC\partition.c (48, 8)
 '  Partition element
-public class PartitionElement
-	property Pointer as IntPtr
-	private Values as Marshal_PartitionElement
+Public Class PartitionElement
+	Property Pointer as IntPtr
+	Private Values as new Marshal_PartitionElement
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_PartitionElement
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -12058,10 +11428,9 @@ public class PartitionElement
 '''  </summary>
 ReadOnly property size as Single
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.size
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.size
+		Return nothing
 	End Get
 End Property
 
@@ -12074,12 +11443,11 @@ End Property
 '''  </summary>
 ReadOnly property box as Box
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.box <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.box <> IntPtr.Zero Then 
 		Return New Box(Values.box)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -12092,12 +11460,11 @@ End Property
 '''  </summary>
 ReadOnly property boxa as Boxa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.boxa <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.boxa <> IntPtr.Zero Then 
 		Return New Boxa(Values.boxa)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -12115,16 +11482,15 @@ End Class
 #Region "SRC\pix1.c"
 '  SRC\pix1.c (218, 8)
 '  Pix memory manager
-public class PixMemoryManager
-	property Pointer as IntPtr
-	private Values as Marshal_PixMemoryManager
+Public Class PixMemoryManager
+	Property Pointer as IntPtr
+	Private Values as new Marshal_PixMemoryManager
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_PixMemoryManager
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -12136,10 +11502,9 @@ public class PixMemoryManager
 '''  </summary>
 ReadOnly property allocator as IntPtr
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.allocator
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.allocator
+		Return nothing
 	End Get
 End Property
 
@@ -12152,10 +11517,9 @@ End Property
 '''  </summary>
 ReadOnly property deallocator as IntPtr
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.deallocator
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.deallocator
+		Return nothing
 	End Get
 End Property
 
@@ -12172,16 +11536,15 @@ End Class
 #Region "SRC\pixalloc.c"
 '  SRC\pixalloc.c (113, 8)
 '  Pix memory storage
-public class PixMemoryStore
-	property Pointer as IntPtr
-	private Values as Marshal_PixMemoryStore
+Public Class PixMemoryStore
+	Property Pointer as IntPtr
+	Private Values as new Marshal_PixMemoryStore
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_PixMemoryStore
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -12193,12 +11556,11 @@ public class PixMemoryStore
 '''  </summary>
 ReadOnly property paa as L_Ptraa
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.paa <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.paa <> IntPtr.Zero Then 
 		Return New L_Ptraa(Values.paa)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -12211,10 +11573,9 @@ End Property
 '''  </summary>
 ReadOnly property minsize as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.minsize
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.minsize
+		Return nothing
 	End Get
 End Property
 
@@ -12227,10 +11588,9 @@ End Property
 '''  </summary>
 ReadOnly property smallest as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.smallest
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.smallest
+		Return nothing
 	End Get
 End Property
 
@@ -12243,10 +11603,9 @@ End Property
 '''  </summary>
 ReadOnly property largest as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.largest
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.largest
+		Return nothing
 	End Get
 End Property
 
@@ -12259,10 +11618,9 @@ End Property
 '''  </summary>
 ReadOnly property nbytes as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nbytes
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nbytes
+		Return nothing
 	End Get
 End Property
 
@@ -12275,10 +11633,9 @@ End Property
 '''  </summary>
 ReadOnly property nlevels as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.nlevels
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.nlevels
+		Return nothing
 	End Get
 End Property
 
@@ -12291,12 +11648,11 @@ End Property
 '''  </summary>
 ReadOnly property sizes as Byte()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	Dim _sizes(1 -1) as Byte
+		Marshal.PtrToStructure (Pointer, Values)
+		Dim _sizes(1 -1) as Byte
 Marshal.Copy(Values.sizes, _sizes, 0, _sizes.Length)
 Return _sizes
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -12309,14 +11665,13 @@ End Property
 '''  </summary>
 ReadOnly property allocarray as Integer()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.allocarray <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.allocarray <> IntPtr.Zero Then 
 	Dim _allocarray(1 -1) as Integer
 	Marshal.Copy(Values.allocarray, _allocarray, 0, _allocarray.Length)
 	Return _allocarray
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -12329,12 +11684,11 @@ End Property
 '''  </summary>
 ReadOnly property baseptr as Byte()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	Dim _baseptr(1 -1) as Byte
+		Marshal.PtrToStructure (Pointer, Values)
+		Dim _baseptr(1 -1) as Byte
 Marshal.Copy(Values.baseptr, _baseptr, 0, _baseptr.Length)
 Return _baseptr
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -12347,12 +11701,11 @@ End Property
 '''  </summary>
 ReadOnly property maxptr as Byte()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	Dim _maxptr(1 -1) as Byte
+		Marshal.PtrToStructure (Pointer, Values)
+		Dim _maxptr(1 -1) as Byte
 Marshal.Copy(Values.maxptr, _maxptr, 0, _maxptr.Length)
 Return _maxptr
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -12365,9 +11718,8 @@ End Property
 '''  </summary>
 ReadOnly property firstptr as List(Of Byte())
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	Dim _Data1(4 - 1) As Byte
+		Marshal.PtrToStructure (Pointer, Values)
+		Dim _Data1(4 - 1) As Byte
 Dim _DataFin As New List(Of Byte())
 Marshal.Copy(Values.firstptr, _Data1, 0, _Data1.Length)
 For Each eintrag In _Data1
@@ -12376,7 +11728,7 @@ For Each eintrag In _Data1
 	 _DataFin.Add(_Data2)
 Next
 Return _DataFin
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -12389,14 +11741,13 @@ End Property
 '''  </summary>
 ReadOnly property memused as Integer()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.memused <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.memused <> IntPtr.Zero Then 
 	Dim _memused(1 -1) as Integer
 	Marshal.Copy(Values.memused, _memused, 0, _memused.Length)
 	Return _memused
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -12409,14 +11760,13 @@ End Property
 '''  </summary>
 ReadOnly property meminuse as Integer()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.meminuse <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.meminuse <> IntPtr.Zero Then 
 	Dim _meminuse(1 -1) as Integer
 	Marshal.Copy(Values.meminuse, _meminuse, 0, _meminuse.Length)
 	Return _meminuse
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -12429,14 +11779,13 @@ End Property
 '''  </summary>
 ReadOnly property memmax as Integer()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.memmax <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.memmax <> IntPtr.Zero Then 
 	Dim _memmax(1 -1) as Integer
 	Marshal.Copy(Values.memmax, _memmax, 0, _memmax.Length)
 	Return _memmax
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -12449,14 +11798,13 @@ End Property
 '''  </summary>
 ReadOnly property memempty as Integer()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.memempty <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.memempty <> IntPtr.Zero Then 
 	Dim _memempty(1 -1) as Integer
 	Marshal.Copy(Values.memempty, _memempty, 0, _memempty.Length)
 	Return _memempty
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -12469,12 +11817,11 @@ End Property
 '''  </summary>
 ReadOnly property logfile as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.logfile <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.logfile <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.logfile)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -12505,16 +11852,15 @@ End Class
 #Region "SRC\pngio.c"
 '  SRC\pngio.c (1293, 8)
 '  A node in a linked list of memory buffers that hold I/O content
-public class MemIOData
-	property Pointer as IntPtr
-	private Values as Marshal_MemIOData
+Public Class MemIOData
+	Property Pointer as IntPtr
+	Private Values as new Marshal_MemIOData
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_MemIOData
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -12526,12 +11872,11 @@ public class MemIOData
 '''  </summary>
 ReadOnly property m_Buffer as String
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.m_Buffer <> IntPtr.Zero Then
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.m_Buffer <> IntPtr.Zero Then
 	Return Marshal.PtrToStringAnsi(Values.m_Buffer)
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -12544,10 +11889,9 @@ End Property
 '''  </summary>
 ReadOnly property m_Count as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.m_Count
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.m_Count
+		Return nothing
 	End Get
 End Property
 
@@ -12560,10 +11904,9 @@ End Property
 '''  </summary>
 ReadOnly property m_Size as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.m_Size
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.m_Size
+		Return nothing
 	End Get
 End Property
 
@@ -12576,12 +11919,11 @@ End Property
 '''  </summary>
 ReadOnly property m_Next as MemIOData
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.m_Next <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.m_Next <> IntPtr.Zero Then 
 		Return New MemIOData(Values.m_Next)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -12594,12 +11936,11 @@ End Property
 '''  </summary>
 ReadOnly property m_Last as MemIOData
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-		If Values.m_Last <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+			If Values.m_Last <> IntPtr.Zero Then 
 		Return New MemIOData(Values.m_Last)
 	End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -12619,16 +11960,15 @@ End Class
 #Region "SRC\seedfill.c"
 '  SRC\seedfill.c (170, 8)
 '  
-public class L_Pixel
-	property Pointer as IntPtr
-	private Values as Marshal_L_Pixel
+Public Class L_Pixel
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Pixel
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Pixel
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -12640,10 +11980,9 @@ public class L_Pixel
 '''  </summary>
 ReadOnly property x as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.x
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.x
+		Return nothing
 	End Get
 End Property
 
@@ -12656,10 +11995,9 @@ End Property
 '''  </summary>
 ReadOnly property y as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.y
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.y
+		Return nothing
 	End Get
 End Property
 
@@ -12676,16 +12014,15 @@ End Class
 #Region "SRC\sel1.c"
 '  SRC\sel1.c (152, 8)
 '  
-public class CompParameterMap
-	property Pointer as IntPtr
-	private Values as Marshal_CompParameterMap
+Public Class CompParameterMap
+	Property Pointer as IntPtr
+	Private Values as new Marshal_CompParameterMap
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_CompParameterMap
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -12697,10 +12034,9 @@ public class CompParameterMap
 '''  </summary>
 ReadOnly property size as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.size
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.size
+		Return nothing
 	End Get
 End Property
 
@@ -12713,10 +12049,9 @@ End Property
 '''  </summary>
 ReadOnly property size1 as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.size1
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.size1
+		Return nothing
 	End Get
 End Property
 
@@ -12729,10 +12064,9 @@ End Property
 '''  </summary>
 ReadOnly property size2 as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.size2
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.size2
+		Return nothing
 	End Get
 End Property
 
@@ -12745,10 +12079,9 @@ End Property
 '''  </summary>
 ReadOnly property selnameh1 as Char
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.selnameh1
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.selnameh1
+		Return nothing
 	End Get
 End Property
 
@@ -12761,10 +12094,9 @@ End Property
 '''  </summary>
 ReadOnly property selnameh2 as Char
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.selnameh2
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.selnameh2
+		Return nothing
 	End Get
 End Property
 
@@ -12777,10 +12109,9 @@ End Property
 '''  </summary>
 ReadOnly property selnamev1 as Char
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.selnamev1
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.selnamev1
+		Return nothing
 	End Get
 End Property
 
@@ -12793,10 +12124,9 @@ End Property
 '''  </summary>
 ReadOnly property selnamev2 as Char
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.selnamev2
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.selnamev2
+		Return nothing
 	End Get
 End Property
 
@@ -12818,16 +12148,15 @@ End Class
 #Region "SRC\stringcode.c"
 '  SRC\stringcode.c (95, 8)
 '  Associations between names and functions
-public class L_GenAssoc
-	property Pointer as IntPtr
-	private Values as Marshal_L_GenAssoc
+Public Class L_GenAssoc
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_GenAssoc
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_GenAssoc
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -12839,10 +12168,9 @@ public class L_GenAssoc
 '''  </summary>
 ReadOnly property index as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.index
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.index
+		Return nothing
 	End Get
 End Property
 
@@ -12855,10 +12183,9 @@ End Property
 '''  </summary>
 ReadOnly property type as Char
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.type
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.type
+		Return nothing
 	End Get
 End Property
 
@@ -12871,10 +12198,9 @@ End Property
 '''  </summary>
 ReadOnly property structname as Char
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.structname
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.structname
+		Return nothing
 	End Get
 End Property
 
@@ -12887,10 +12213,9 @@ End Property
 '''  </summary>
 ReadOnly property reader as Char
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.reader
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.reader
+		Return nothing
 	End Get
 End Property
 
@@ -12903,10 +12228,9 @@ End Property
 '''  </summary>
 ReadOnly property memreader as Char
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.memreader
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.memreader
+		Return nothing
 	End Get
 End Property
 
@@ -12926,16 +12250,15 @@ End Class
 #Region "SRC\tiffio.c"
 '  SRC\tiffio.c (155, 8)
 '  
-public class tiff_transform
-	property Pointer as IntPtr
-	private Values as Marshal_tiff_transform
+Public Class tiff_transform
+	Property Pointer as IntPtr
+	Private Values as new Marshal_tiff_transform
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_tiff_transform
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -12947,10 +12270,9 @@ public class tiff_transform
 '''  </summary>
 ReadOnly property vflip as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.vflip
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.vflip
+		Return nothing
 	End Get
 End Property
 
@@ -12963,10 +12285,9 @@ End Property
 '''  </summary>
 ReadOnly property hflip as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.hflip
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.hflip
+		Return nothing
 	End Get
 End Property
 
@@ -12979,10 +12300,9 @@ End Property
 '''  </summary>
 ReadOnly property rotate as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.rotate
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.rotate
+		Return nothing
 	End Get
 End Property
 
@@ -12998,16 +12318,15 @@ End Class
 
 '  SRC\tiffio.c (2174, 8)
 '  Memory stream buffer used with TIFFClientOpen()
-public class L_Memstream
-	property Pointer as IntPtr
-	private Values as Marshal_L_Memstream
+Public Class L_Memstream
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_Memstream
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_Memstream
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -13019,14 +12338,13 @@ public class L_Memstream
 '''  </summary>
 ReadOnly property buffer as Byte()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	If Values.buffer <> IntPtr.Zero Then 
+		Marshal.PtrToStructure (Pointer, Values)
+		If Values.buffer <> IntPtr.Zero Then 
 	Dim _buffer(1 -1) as Byte
 	Marshal.Copy(Values.buffer, _buffer, 0, _buffer.Length)
 	Return _buffer
 End if
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -13039,10 +12357,9 @@ End Property
 '''  </summary>
 ReadOnly property bufsize as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.bufsize
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.bufsize
+		Return nothing
 	End Get
 End Property
 
@@ -13055,10 +12372,9 @@ End Property
 '''  </summary>
 ReadOnly property offset as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.offset
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.offset
+		Return nothing
 	End Get
 End Property
 
@@ -13071,10 +12387,9 @@ End Property
 '''  </summary>
 ReadOnly property hw as UInteger
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.hw
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.hw
+		Return nothing
 	End Get
 End Property
 
@@ -13087,9 +12402,8 @@ End Property
 '''  </summary>
 ReadOnly property poutdata as List(Of Byte())
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	Dim _Data1(1 - 1) As Byte
+		Marshal.PtrToStructure (Pointer, Values)
+		Dim _Data1(1 - 1) As Byte
 Dim _DataFin As New List(Of Byte())
 Marshal.Copy(Values.poutdata, _Data1, 0, _Data1.Length)
 For Each eintrag In _Data1
@@ -13098,7 +12412,7 @@ For Each eintrag In _Data1
 	 _DataFin.Add(_Data2)
 Next
 Return _DataFin
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -13111,12 +12425,11 @@ End Property
 '''  </summary>
 ReadOnly property poutsize as Byte()
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-	Dim _poutsize(1 -1) as Byte
+		Marshal.PtrToStructure (Pointer, Values)
+		Dim _poutsize(1 -1) as Byte
 Marshal.Copy(Values.poutsize, _poutsize, 0, _poutsize.Length)
 Return _poutsize
-	Return nothing
+		Return nothing
 	End Get
 End Property
 
@@ -13137,16 +12450,15 @@ End Class
 #Region "SRC\watershed.c"
 '  SRC\watershed.c (124, 8)
 '  New pixel coordinates
-public class L_NewPixel
-	property Pointer as IntPtr
-	private Values as Marshal_L_NewPixel
+Public Class L_NewPixel
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_NewPixel
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_NewPixel
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -13158,10 +12470,9 @@ public class L_NewPixel
 '''  </summary>
 ReadOnly property x as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.x
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.x
+		Return nothing
 	End Get
 End Property
 
@@ -13174,10 +12485,9 @@ End Property
 '''  </summary>
 ReadOnly property y as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.y
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.y
+		Return nothing
 	End Get
 End Property
 
@@ -13192,16 +12502,15 @@ End Class
 
 '  SRC\watershed.c (132, 8)
 '  Wartshed pixel
-public class L_WSPixel
-	property Pointer as IntPtr
-	private Values as Marshal_L_WSPixel
+Public Class L_WSPixel
+	Property Pointer as IntPtr
+	Private Values as new Marshal_L_WSPixel
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_L_WSPixel
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -13213,10 +12522,9 @@ public class L_WSPixel
 '''  </summary>
 ReadOnly property val as Single
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.val
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.val
+		Return nothing
 	End Get
 End Property
 
@@ -13229,10 +12537,9 @@ End Property
 '''  </summary>
 ReadOnly property x as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.x
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.x
+		Return nothing
 	End Get
 End Property
 
@@ -13245,10 +12552,9 @@ End Property
 '''  </summary>
 ReadOnly property y as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.y
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.y
+		Return nothing
 	End Get
 End Property
 
@@ -13261,10 +12567,9 @@ End Property
 '''  </summary>
 ReadOnly property index as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.index
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.index
+		Return nothing
 	End Get
 End Property
 
@@ -13283,16 +12588,15 @@ End Class
 #Region "SRC\writefile.c"
 '  SRC\writefile.c (139, 8)
 '  
-public class ExtensionMap
-	property Pointer as IntPtr
-	private Values as Marshal_ExtensionMap
+Public Class ExtensionMap
+	Property Pointer as IntPtr
+	Private Values as new Marshal_ExtensionMap
 
 
 
 	Sub New (PTR as IntPtr)
 		If PTR = IntPtr.Zero Then Exit Sub
 		Pointer = PTR
-		Values = New  Marshal_ExtensionMap
 		Marshal.PtrToStructure (Pointer, Values)
 	End Sub
 
@@ -13304,10 +12608,9 @@ public class ExtensionMap
 '''  </summary>
 ReadOnly property extension as Char
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.extension
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.extension
+		Return nothing
 	End Get
 End Property
 
@@ -13320,10 +12623,9 @@ End Property
 '''  </summary>
 ReadOnly property format as Integer
 	Get
-	Marshal.PtrToStructure (Pointer, Values)
-	if isnothing(values) then return nothing
-			Return Values.format
-	Return nothing
+		Marshal.PtrToStructure (Pointer, Values)
+				Return Values.format
+		Return nothing
 	End Get
 End Property
 

@@ -21,10 +21,10 @@ Partial Public Class _AllFunctions
 Public Shared Function pixMaskConnComp(
 				ByVal pixs as Pix, 
 				ByVal connectivity as Integer, 
-				Optional ByRef pboxa as Boxa = Nothing) as Pix
+				ByRef pboxa as Boxa) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = pboxa.Pointer
 
@@ -62,10 +62,10 @@ End Function
 '''  <param name="op">[in] - L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
 '''   <returns>pixd with masking op over the boxes, or NULL on error</returns>
 Public Shared Function pixMaskBoxa(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal boxa as Boxa, 
-				ByVal op as Enumerations.L_PIXELS, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal op as Enumerations.L_PIXELS) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
@@ -110,7 +110,6 @@ Public Shared Function pixPaintBoxa(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixPaintBoxa( pixs.Pointer, boxa.Pointer, val)
@@ -133,8 +132,8 @@ End Function
 '''   <returns>pixd with boxes filled with white or black, or NULL on error</returns>
 Public Shared Function pixSetBlackOrWhiteBoxa(
 				ByVal pixs as Pix, 
-				ByVal op as Enumerations.L_SET, 
-				Optional ByVal boxa as Boxa = Nothing) as Pix
+				ByVal boxa as Boxa, 
+				ByVal op as Enumerations.L_SET) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -233,7 +232,6 @@ Public Shared Function pixDrawBoxa(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDrawBoxa( pixs.Pointer, boxa.Pointer, width, val)
@@ -299,19 +297,17 @@ End Function
 '''  <param name="h">[in] - height of outupt pix; use 0 if determined by %pixs or %baa</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaaDisplay(
+				ByVal pixs as Pix, 
 				ByVal baa as Boxaa, 
 				ByVal linewba as Integer, 
 				ByVal linewb as Integer, 
 				ByVal colorba as UInteger, 
 				ByVal colorb as UInteger, 
 				ByVal w as Integer, 
-				ByVal h as Integer, 
-				Optional ByVal pixs as Pix = Nothing) as Pix
+				ByVal h as Integer) as Pix
 
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
-	If IsNothing (colorba) then Throw New ArgumentNullException  ("colorba cannot be Nothing")
-	If IsNothing (colorb) then Throw New ArgumentNullException  ("colorb cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 
@@ -402,7 +398,7 @@ Public Shared Function pixSplitIntoBoxa(
 				ByVal remainder as Integer) as Boxa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSplitIntoBoxa( pixs.Pointer, minsum, skipdist, delta, maxbg, maxcomps, remainder)
@@ -482,16 +478,16 @@ End Function
 '''   <returns>boxa of rectangles covering the fg of pix, or NULL on error</returns>
 Public Shared Function pixSplitComponentIntoBoxa(
 				ByVal pix as Pix, 
+				ByVal box as Box, 
 				ByVal minsum as Integer, 
 				ByVal skipdist as Integer, 
 				ByVal delta as Integer, 
 				ByVal maxbg as Integer, 
 				ByVal maxcomps as Integer, 
-				ByVal remainder as Integer, 
-				Optional ByVal box as Box = Nothing) as Boxa
+				ByVal remainder as Integer) as Boxa
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If {1}.contains (pix.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pix.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -573,8 +569,8 @@ Public Shared Function boxaCompareRegions(
 				ByVal areathresh as Integer, 
 				ByRef pnsame as Integer, 
 				ByRef pdiffarea as Single(), 
-				Optional ByRef pdiffxor as Single() = Nothing, 
-				Optional ByRef ppixdb as Pix = Nothing) as Integer
+				ByRef pdiffxor as Single(), 
+				ByRef ppixdb as Pix) as Integer
 
 	If IsNothing (boxa1) then Throw New ArgumentNullException  ("boxa1 cannot be Nothing")
 	If IsNothing (boxa2) then Throw New ArgumentNullException  ("boxa2 cannot be Nothing")
@@ -620,7 +616,7 @@ Public Shared Function pixSelectLargeULComp(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (areaslop) then Throw New ArgumentNullException  ("areaslop cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSelectLargeULComp( pixs.Pointer, areaslop, yslop, connectivity)

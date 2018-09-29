@@ -35,13 +35,13 @@ Partial Public Class _AllFunctions
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd</returns>
 Public Shared Function pixDilateBrickDwa(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -86,13 +86,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd</returns>
 Public Shared Function pixErodeBrickDwa(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -137,13 +137,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd</returns>
 Public Shared Function pixOpenBrickDwa(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -190,13 +190,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd</returns>
 Public Shared Function pixCloseBrickDwa(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -250,13 +250,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd</returns>
 Public Shared Function pixDilateCompBrickDwa(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -310,13 +310,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd</returns>
 Public Shared Function pixErodeCompBrickDwa(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -370,13 +370,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd</returns>
 Public Shared Function pixOpenCompBrickDwa(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -431,13 +431,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd</returns>
 Public Shared Function pixCloseCompBrickDwa(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -477,13 +477,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd</returns>
 Public Shared Function pixDilateCompBrickExtendDwa(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -510,13 +510,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd</returns>
 Public Shared Function pixErodeCompBrickExtendDwa(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -540,13 +540,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd 1 There are three cases a) pixd == null   (result into new pixd b) pixd == pixs   (in-place; writes result back to pixs c) pixd != pixs   (puts result into existing pixd 2) There is no need to call this directly  pixOpenCompBrickDwa( calls this function if either brick dimension exceeds 63.</returns>
 Public Shared Function pixOpenCompBrickExtendDwa(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -570,13 +570,13 @@ End Function
 '''  <param name="vsize">[in] - height of brick Sel</param>
 '''   <returns>pixd 1 There are three cases a) pixd == null   (result into new pixd b) pixd == pixs   (in-place; writes result back to pixs c) pixd != pixs   (puts result into existing pixd 2) There is no need to call this directly  pixCloseCompBrickDwa( calls this function if either brick dimension exceeds 63.</returns>
 Public Shared Function pixCloseCompBrickExtendDwa(
+				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal hsize as Integer, 
-				ByVal vsize as Integer, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp") ' All Functions - All Parameters - CommentCheck
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -629,7 +629,7 @@ Public Shared Function getExtendedCompositeParameters(
 				ByVal size as Integer, 
 				ByRef pn as Integer, 
 				ByRef pextra as Integer, 
-				Optional ByRef pactualsize as Integer = Nothing) as Integer
+				ByRef pactualsize as Integer) as Integer
 
 
 

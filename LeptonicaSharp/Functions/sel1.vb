@@ -63,7 +63,7 @@ End Sub
 Public Shared Function selCreate(
 				ByVal height as Integer, 
 				ByVal width as Integer, 
-				Optional ByVal name as String = Nothing) as Sel
+				ByVal name as String) as Sel
 
 
 
@@ -321,7 +321,7 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function selSetName(
 				ByVal sel as Sel, 
-				Optional ByVal name as String = Nothing) as Integer
+				ByVal name as String) as Integer
 
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
 
@@ -347,8 +347,8 @@ End Function
 Public Shared Function selaFindSelByName(
 				ByVal sela as Sela, 
 				ByVal name as String, 
-				Optional ByRef pindex as Integer = Nothing, 
-				Optional ByVal psel as List (of Sel) = Nothing) as Integer
+				ByRef pindex as Integer, 
+				ByVal psel as List (of Sel)) as Integer
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
 	If IsNothing (name) then Throw New ArgumentNullException  ("name cannot be Nothing")
@@ -434,10 +434,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function selGetParameters(
 				ByVal sel as Sel, 
-				Optional ByRef psy as Integer = Nothing, 
-				Optional ByRef psx as Integer = Nothing, 
-				Optional ByRef pcy as Integer = Nothing, 
-				Optional ByRef pcx as Integer = Nothing) as Integer
+				ByRef psy as Integer, 
+				ByRef psx as Integer, 
+				ByRef pcy as Integer, 
+				ByRef pcx as Integer) as Integer
 
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
 
@@ -567,12 +567,12 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function getCompositeParameters(
 				ByVal size as Integer, 
-				Optional ByRef psize1 as Integer = Nothing, 
-				Optional ByRef psize2 as Integer = Nothing, 
-				Optional ByRef pnameh1 as String() = Nothing, 
-				Optional ByRef pnameh2 as String() = Nothing, 
-				Optional ByRef pnamev1 as String() = Nothing, 
-				Optional ByRef pnamev2 as String() = Nothing) as Integer
+				ByRef psize1 as Integer, 
+				ByRef psize2 as Integer, 
+				ByRef pnameh1 as String(), 
+				ByRef pnameh2 as String(), 
+				ByRef pnamev1 as String(), 
+				ByRef pnamev2 as String()) as Integer
 
 
 Dim pnameh1PTR As IntPtr = pnameh1PTR = Marshal.AllocHGlobal(Marshal.sizeOf(pnameh1.toArray))
@@ -881,7 +881,7 @@ Public Shared Function selCreateFromString(
 				ByVal text as String, 
 				ByVal h as Integer, 
 				ByVal w as Integer, 
-				Optional ByVal name as String = Nothing) as Sel
+				ByVal name as String) as Sel
 
 	If IsNothing (text) then Throw New ArgumentNullException  ("text cannot be Nothing")
 
@@ -957,6 +957,7 @@ Public Shared Function selaCreateFromFile(
 				ByVal filename as String) as Sela
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaCreateFromFile( filename)
@@ -983,7 +984,7 @@ Public Shared Function selCreateFromPta(
 				ByVal pta as Pta, 
 				ByVal cy as Integer, 
 				ByVal cx as Integer, 
-				Optional ByVal name as String = Nothing) as Sel
+				ByVal name as String) as Sel
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
@@ -1012,7 +1013,7 @@ Public Shared Function selCreateFromPix(
 				ByVal pix as Pix, 
 				ByVal cy as Integer, 
 				ByVal cx as Integer, 
-				Optional ByVal name as String = Nothing) as Sel
+				ByVal name as String) as Sel
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
@@ -1072,7 +1073,7 @@ End Function
 '''   <returns>sel if OK, NULL on error</returns>
 Public Shared Function selCreateFromColorPix(
 				ByVal pixs as Pix, 
-				Optional ByVal selname as String = Nothing) as Sel
+				ByVal selname as String) as Sel
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 

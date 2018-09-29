@@ -28,8 +28,8 @@ Partial Public Class _AllFunctions
 '''  <param name="allocator">[in][optional] - use NULL to skip</param>
 '''  <param name="deallocator">[in][optional] - use NULL to skip</param>
 Public Shared Sub setPixMemoryManager(
-				Optional ByVal allocator as IntPtr = Nothing, 
-				Optional ByVal deallocator as IntPtr = Nothing)
+				ByVal allocator as IntPtr, 
+				ByVal deallocator as IntPtr)
 
 
 
@@ -261,8 +261,8 @@ End Sub
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixCopy(
-				ByVal pixs as Pix, 
-				Optional ByVal pixd as Pix = Nothing) as Pix
+				ByVal pixd as Pix, 
+				ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
@@ -461,8 +461,8 @@ End Function
 '''  <param name="ppixs">[in,out] - will be nulled after the swap</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixSwapAndDestroy(
-				ByRef ppixs as Pix, 
-				Optional ByRef ppixd as Pix = Nothing) as Integer
+				ByRef ppixd as Pix, 
+				ByRef ppixs as Pix) as Integer
 
 
 Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
@@ -619,9 +619,9 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixGetDimensions(
 				ByVal pix as Pix, 
-				Optional ByRef pw as Integer = Nothing, 
-				Optional ByRef ph as Integer = Nothing, 
-				Optional ByRef pd as Integer = Nothing) as Integer
+				ByRef pw as Integer, 
+				ByRef ph as Integer, 
+				ByRef pd as Integer) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
@@ -935,8 +935,8 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixGetResolution(
 				ByVal pix as Pix, 
-				Optional ByRef pxres as Integer = Nothing, 
-				Optional ByRef pyres as Integer = Nothing) as Integer
+				ByRef pxres as Integer, 
+				ByRef pyres as Integer) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
@@ -1147,7 +1147,7 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixSetText(
 				ByVal pix as Pix, 
-				Optional ByVal textstring as String = Nothing) as Integer
+				ByVal textstring as String) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
@@ -1173,7 +1173,7 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixAddText(
 				ByVal pix as Pix, 
-				Optional ByVal textstring as String = Nothing) as Integer
+				ByVal textstring as String) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
@@ -1454,7 +1454,7 @@ End Function
 '''   <returns>array of line ptrs, or NULL on error</returns>
 Public Shared Function pixGetLinePtrs(
 				ByVal pix as Pix, 
-				Optional ByRef psize as Integer = Nothing) as IntPtr()
+				ByRef psize as Integer) as IntPtr()
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
@@ -1480,7 +1480,7 @@ End Function
 Public Shared Function pixPrintStreamInfo(
 				ByVal fp as FILE, 
 				ByVal pix as Pix, 
-				Optional ByVal text as String = Nothing) as Integer
+				ByVal text as String) as Integer
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")

@@ -30,7 +30,6 @@ Public Shared Function zlibCompress(
 				ByRef pnout as UInteger) as Byte()
 
 	If IsNothing (datain) then Throw New ArgumentNullException  ("datain cannot be Nothing")
-	If IsNothing (nin) then Throw New ArgumentNullException  ("nin cannot be Nothing")
 
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.zlibCompress( datain, nin, pnout)
@@ -57,7 +56,6 @@ Public Shared Function zlibUncompress(
 				ByRef pnout as UInteger) as Byte()
 
 	If IsNothing (datain) then Throw New ArgumentNullException  ("datain cannot be Nothing")
-	If IsNothing (nin) then Throw New ArgumentNullException  ("nin cannot be Nothing")
 
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.zlibUncompress( datain, nin, pnout)

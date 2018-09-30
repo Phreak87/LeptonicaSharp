@@ -31,7 +31,7 @@ Full featured wrapper for leptonica 1.77.0 (Sep.2018)
 # How to Implement (Via Nuget)
 
 1. Load the Library from Nuget. 
-2. Run once LeptonicaSharp.Natives.Initialize() to copy the required dll´s
+2. Run once LeptonicaSharp.Natives.Initialize() to copy the required dllÂ´s
 3. Your ready to start.
 
 # How to extend predefined classes:
@@ -83,6 +83,7 @@ cmake/cmake-gui
 Find the Testapplication.exe and run the Examples included.
 
 # Special thanks
+- FDNCRED for the support, binarys and helpfile
 - (http://www.leptonica.org/) Leptonica for this great c-library
 - (https://github.com/tvn-cosine/leptonica.net) Leptonica.Net for inspiration and implementation comparison
 - (https://github.com/charlesw/tesseract) for a few snippets from tesseract (works with leptonica)

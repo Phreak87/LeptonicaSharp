@@ -83,7 +83,7 @@ cmake/cmake-gui
 Find the Testapplication.exe and run the Examples included.
 
 # Special thanks
-- FDNCRED for the support, binarys and helpfile
+- [FDnCRed](https://github.com/fdncred) for the support, binaries, and helpfile
 - (http://www.leptonica.org/) Leptonica for this great c-library
 - (https://github.com/tvn-cosine/leptonica.net) Leptonica.Net for inspiration and implementation comparison
 - (https://github.com/charlesw/tesseract) for a few snippets from tesseract (works with leptonica)

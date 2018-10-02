@@ -2,38 +2,71 @@
 
 	<!-- 
 	####################################################
-	Arraygröße, Enumeration und Funktionen fuer Parameter
-	bestimmen. Semikolon separiert List (of Array)
+	Define the Size of the Array and Enumeration-Names for Properties
+	This overwrites internal definitions of the Array-Size
+	Semicolon Separates Arrays (Array(sx) of  Array (sy))
 	####################################################
 	-->
 	<Class Name="SEL">
 		<Parameter Name ="data">		<Size>sy;sx</Size>				</Parameter>
 	</Class>
 	<Class Name="PIX">
-		<Parameter Name ="data">		<Size>(w * h * (d/8))</Size>	</Parameter>
-		<Parameter Name ="informat">	<Enum>IFF</Enum>				</Parameter>
+		<Parameter Name ="data">		<Size>(w * h * (d/8))</Size>				</Parameter>
+		<Parameter Name ="pixGetData">	<Size>(pix.w * pix.h * (pix.d/8))</Size>	</Parameter>
+		<Parameter Name ="informat">	<Enum>IFF</Enum>							</Parameter>
+
+		<!-- 
+		#############################################################################################################
+		If CONSTRUCTOR is selected the returned parameter must be the same as the class. (e.g. as Pix if  Class = Pix)
+		Source will be replace by this class (me) and is always a optional value
+		Choose only 1 Constructor with the same parameters.
+		#############################################################################################################
+		-->
+		<Extend    Name="pixRead" 			Type="Construct" 	Source="pixs"/> 
 		
 		<!-- 
-			Erweiterungsfunktionen
-			Name ist der Name der Funktion, die unter dieser Klasse erscheinen soll
-			Type ist der Typ Konstruktor oder Funktion
-			Source bestimmt den Parameter, für den die eigene Klasse verwendet wird.
-			Return bestimmt welchen Parameter der Quellwert nach ausführen der Funktion annehmen soll.
-			Source und Return müssen die gleiche Klasse (z.B. pix) sein.		
+		#############################################################################################################
+		If RETURN is selected the returned parameter must be the same as the class. (e.g. as Pix if  Class = Pix)
+		All optional Values defined in this configuration will be applied.
+		Source will be replace by this class (me) and is always a optional value
+		Choose the most standard and default functions
+		e.g. : "simplified interface", "Top-Level", "simple default values").
+		e.g. pixConvert16to8 und pixConvert32to8 are Defaulted in pixConvertTo8.
+		#############################################################################################################
 		-->
-		<Extend    Name="pixRead" 			Type="Construct" 	Source="pixs" 		return="return"/>
-		<Extend    Name="PixConvert32to16"  Type="Function" 	Source="pixs" 		return="return"/>
-		<Extend    Name="pixConvert32To8" 	Type="Function" 	Source="pixs" 		return="return"/>
-		<Extend    Name="pixConvert8To4" 	Type="Function" 	Source="pixs" 		return="return"/>
-		<Extend    Name="pixConvert8To2" 	Type="Function" 	Source="pixs" 		return="return"/>
-		<Extend    Name="pixConvertTo1" 	Type="Function" 	Source="pixs" 		return="return"/>
-		<Extend    Name="pixConvertToPdf" 	Type="Function" 	Source="pix" 		return=""/>
+		<Extend    Name="pixConvertTo32" 			Type="Function" 	Source="pixs" 		return="return"/>
+		<Extend    Name="PixConvertTo16"  			Type="Function" 	Source="pixs" 		return="return"/>
+		<Extend    Name="pixConvertTo8" 			Type="Function" 	Source="pixs" 		return="return"/>
+		<Extend    Name="pixConvertTo4" 			Type="Function" 	Source="pixs" 		return="return"/>
+		<Extend    Name="pixConvertTo2" 			Type="Function" 	Source="pixs" 		return="return"/>
+		<Extend    Name="pixConvertTo1" 			Type="Function" 	Source="pixs" 		return="return"/>
+		
+		<Extend    Name="pixDeskew" 				Type="Function" 	Source="pixs" 		return="return"/>
+		<Extend    Name="pixInvert" 				Type="Function" 	Source="pixs" 		return="return"/>
+		<Extend    Name="pixOrientCorrect" 			Type="Function" 	Source="pixs" 		return="return"/>
+		<Extend    Name="pixBackgroundNormSimple" 	Type="Function" 	Source="pixs" 		return="return"/>
+		<Extend    Name="pixCleanBackgroundToWhite" Type="Function" 	Source="pixs" 		return="return"/>
+		
+		<!-- 
+		#############################################################################################################
+		If Parameter is selected the returned parameter must be the same as the class and a ByRef Parameter of the Function
+		Source will be replace by this class (me) and is always a optional value
+		#############################################################################################################
+		-->
+		<Extend    Name="dewarpSinglePage" 	Type="Function" 	Source="pixs" 		return="ppixd"/>
+		
+		<!-- 
+		#############################################################################################################
+		No Return, But all ByRefs are returned
+		#############################################################################################################
+		-->
+		<Extend    Name="pixConvertToPdf" 	Type="Sub" 			Source="pix"/>
+		
 	</Class>
 	
 	<!-- 
 	##############################################
-	Standardwerte für benannte Funktionen setzen
-	Parameter wird dann als Optional behandelt
+	Set defaults for functions (set to optional)
 	##############################################
 	-->
 	<Function Name="pixDeskewGeneral">
@@ -64,10 +97,10 @@
 
 	<!-- 
 	##########################################################
-	Standardwerte für alle Funktionen bestimmen
-	Function Name = "" = Alle Funktionen
-	Parameter Class = "PIX" => Parameter muss Klasse Pix sein
-	CheckComment Text = Wenn Kommentar dann spec. Prüfung
+	This applies to ALL functions!
+	Function Name = "" = All Functiones
+	Parameter Class = "PIX" => Parameter must be class Pix
+	CheckComment Text = If this Comment occurs check the Array with the Prop
 	##########################################################
 	-->
 	<Function Name="">
@@ -91,16 +124,19 @@
 			<CheckComment Text="1, 8, 32 bpp" 				 					Prop="d">{1,8,32}</CheckComment>
 			<CheckComment Text="1, 2, 4, 8 bpp, not cmapped"					Prop="d">{1,2,4,8}</CheckComment>
 			<CheckComment Text="1, 2, 4, 8, 16 bpp; can be colormapped"	 	 	Prop="d">{1,2,4,8,16}</CheckComment>
-			<CheckComment Text="1, 2, 4, 8, 16, 32 bpp"	 	 					Prop="d">{1,2,4,8,16,32}</CheckComment>
+			<CheckComment Text="1, 2, 4, 8, 16, 32 bpp"	 	 					Prop="d">{1,2,4,8,16,24,32}</CheckComment>
 			<CheckComment Text="1, 2, 4, 8, 16 or 32 bpp"	 	 				Prop="d">{1,2,4,8,16,24,32}</CheckComment><!-- 24 works too ... -->
 		</Parameter>
 		<Parameter Name="filename">
+			<!-- Check if Filename/Path exists -->
 			<CheckFile/>
 		</Parameter> 
 		<Parameter Name="reduction"> 
+			<!-- Check a specific Range -->
 			<CheckRange>2-16</CheckRange>	
 		</Parameter> 	 
 		<Parameter Name="debug"> 
+			<!-- Set Enum DebugOnOff instead of Integer -->
 			<Enum>DebugOnOff</Enum>				
 			<Default>DebugOnOff.DebugOn</Default>
 		</Parameter>

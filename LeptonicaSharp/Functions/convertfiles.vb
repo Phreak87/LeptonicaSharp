@@ -1,22 +1,23 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\convertfiles.c (67, 1)
 ' convertFilesTo1bpp()
 ' convertFilesTo1bpp(const char *, const char *, l_int32, l_int32, l_int32, l_int32, const char *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Images are sorted lexicographically, and the names in the
-''' output directory are retained except for the extension.
+''' <para/>
+''' Notes:<para/>
+''' (1) Images are sorted lexicographically, and the names in the<para/>
+''' output directory are retained except for the extension.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dirin">[in] - </param>
-'''  <param name="substr">[in][optional] - substring filter on filenames; can be NULL</param>
-'''  <param name="upscaling">[in] - 1, 2 or 4; only for input color or grayscale</param>
-'''  <param name="thresh">[in] - global threshold for binarization; use 0 for default</param>
+'''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
+'''  <param name="upscaling">[in] - 1, 2 or 4 only for input color or grayscale</param>
+'''  <param name="thresh">[in] - global threshold for binarization use 0 for default</param>
 '''  <param name="firstpage">[in] - </param>
 '''  <param name="npages">[in] - use 0 to do all from %firstpage to the end</param>
 '''  <param name="dirout">[in] - </param>

@@ -1,18 +1,19 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\queue.c (90, 1)
 ' lqueueCreate()
 ' lqueueCreate(l_int32) as L_QUEUE *
 '''  <summary>
-''' Notes
-''' (1) Allocates a ptr array of given size, and initializes counters.
+''' <para/>
+''' Notes:<para/>
+''' (1) Allocates a ptr array of given size, and initializes counters.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="nalloc">[in] - size of ptr array to be alloc'd; 0 for default</param>
+'''  <param name="nalloc">[in] - size of ptr array to be alloc'd 0 for default</param>
 '''   <returns>lqueue, or NULL on error</returns>
 Public Shared Function lqueueCreate(
 				ByVal nalloc as Integer) as L_Queue
@@ -29,16 +30,17 @@ End Function
 ' lqueueDestroy()
 ' lqueueDestroy(L_QUEUE **, l_int32) as void
 '''  <summary>
-''' Notes
-''' (1) If freeflag is TRUE, frees each struct in the array.
-''' (2) If freeflag is FALSE but there are elements on the array,
-''' gives a warning and destroys the array.  This will
-''' cause a memory leak of all the items that were on the queue.
-''' So if the items require their own destroy function, they
-''' must be destroyed before the queue.  The same applies to the
-''' auxiliary stack, if it is used.
-''' (3) To destroy the L_Queue, we destroy the ptr array, then
-''' the lqueue, and then null the contents of the input ptr.
+''' <para/>
+''' Notes:<para/>
+''' (1) If freeflag is TRUE, frees each struct in the array.<para/>
+''' (2) If freeflag is FALSE but there are elements on the array,<para/>
+''' gives a warning and destroys the array.  This will<para/>
+''' cause a memory leak of all the items that were on the queue.<para/>
+''' So if the items require their own destroy function, they<para/>
+''' must be destroyed before the queue.  The same applies to the<para/>
+''' auxiliary stack, if it is used.<para/>
+''' (3) To destroy the L_Queue, we destroy the ptr array, then<para/>
+''' the lqueue, and then null the contents of the input ptr.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -60,13 +62,14 @@ End Sub
 ' lqueueAdd()
 ' lqueueAdd(L_QUEUE *, void *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The algorithm is as follows.  If the queue is populated
-''' to the end of the allocated array, shift all ptrs toward
-''' the beginning of the array, so that the head of the queue
-''' is at the beginning of the array.  Then, if the array is
-''' more than 0.75 full, realloc with double the array size.
-''' Finally, add the item to the tail of the queue.
+''' <para/>
+''' Notes:<para/>
+''' (1) The algorithm is as follows.  If the queue is populated<para/>
+''' to the end of the allocated array, shift all ptrs toward<para/>
+''' the beginning of the array, so that the head of the queue<para/>
+''' is at the beginning of the array.  Then, if the array is<para/>
+''' more than 0.75 full, realloc with double the array size.<para/>
+''' Finally, add the item to the tail of the queue.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -91,9 +94,10 @@ End Function
 ' lqueueRemove()
 ' lqueueRemove(L_QUEUE *) as void *
 '''  <summary>
-''' Notes
-''' (1) If this is the last item on the queue, so that the queue
-''' becomes empty, nhead is reset to the beginning of the array.
+''' <para/>
+''' Notes:<para/>
+''' (1) If this is the last item on the queue, so that the queue<para/>
+''' becomes empty, nhead is reset to the beginning of the array.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -113,9 +117,6 @@ End Function
 ' SRC\queue.c (283, 1)
 ' lqueueGetCount()
 ' lqueueGetCount(L_QUEUE *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="lq">[in] - lqueue</param>
@@ -134,14 +135,11 @@ End Function
 ' SRC\queue.c (305, 1)
 ' lqueuePrint()
 ' lqueuePrint(FILE *, L_QUEUE *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="lq">[in] - lqueue</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function lqueuePrint(
 				ByVal fp as FILE, 
 				ByVal lq as L_Queue) as Integer

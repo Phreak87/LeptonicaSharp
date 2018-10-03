@@ -1,37 +1,38 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\shear.c (113, 1)
 ' pixHShear()
 ' pixHShear(PIX *, PIX *, l_int32, l_float32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) There are 3 cases
-''' (a) pixd == null (make a new pixd)
-''' (b) pixd == pixs (in-place)
-''' (c) pixd != pixs
-''' (2) For these three cases, use these patterns, respectively
-''' pixd = pixHShear(NULL, pixs, ...);
-''' pixHShear(pixs, pixs, ...);
-''' pixHShear(pixd, pixs, ...);
-''' (3) This shear leaves the horizontal line of pixels at y = yloc
-''' invariant.  For a positive shear angle, pixels above this
-''' line are shoved to the right, and pixels below this line
-''' move to the left.
-''' (4) With positive shear angle, this can be used, along with
-''' pixVShear(), to perform a cw rotation, either with 2 shears
-''' (for small angles) or in the general case with 3 shears.
-''' (5) Changing the value of yloc is equivalent to translating
-''' the result horizontally.
-''' (6) This brings in 'incolor' pixels from outside the image.
-''' (7) For in-place operation, pixs cannot be colormapped,
-''' because the in-place operation only blits in 0 or 1 bits,
-''' not an arbitrary colormap index.
-''' (8) The angle is brought into the range [-pi, -pi].  It is
-''' not permitted to be within MIN_DIFF_FROM_HALF_PI radians
-''' from either -pi/2 or pi/2.
+''' <para/>
+''' Notes:<para/>
+''' (1) There are 3 cases:<para/>
+''' (a) pixd == null (make a new pixd)<para/>
+''' (b) pixd == pixs (in-place)<para/>
+''' (c) pixd != pixs<para/>
+''' (2) For these three cases, use these patterns, respectively:<para/>
+''' pixd = pixHShear(NULL, pixs, ...)<para/>
+''' pixHShear(pixs, pixs, ...)<para/>
+''' pixHShear(pixd, pixs, ...)<para/>
+''' (3) This shear leaves the horizontal line of pixels at y = yloc<para/>
+''' invariant.  For a positive shear angle, pixels above this<para/>
+''' line are shoved to the right, and pixels below this line<para/>
+''' move to the left.<para/>
+''' (4) With positive shear angle, this can be used, along with<para/>
+''' pixVShear(), to perform a cw rotation, either with 2 shears<para/>
+''' (for small angles) or in the general case with 3 shears.<para/>
+''' (5) Changing the value of yloc is equivalent to translating<para/>
+''' the result horizontally.<para/>
+''' (6) This brings in 'incolor' pixels from outside the image.<para/>
+''' (7) For in-place operation, pixs cannot be colormapped,<para/>
+''' because the in-place operation only blits in 0 or 1 bits,<para/>
+''' not an arbitrary colormap index.<para/>
+''' (8) The angle is brought into the range [-pi, -pi].  It is<para/>
+''' not permitted to be within MIN_DIFF_FROM_HALF_PI radians<para/>
+''' from either -pi/2 or pi/2.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -39,7 +40,7 @@ Partial Public Class _AllFunctions
 '''  <param name="pixs">[in] - no restrictions on depth</param>
 '''  <param name="yloc">[in] - location of horizontal line, measured from origin</param>
 '''  <param name="radang">[in] - angle in radians</param>
-'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK;</param>
+'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 '''   <returns>pixd, always</returns>
 Public Shared Function pixHShear(
 				ByVal pixd as Pix, 
@@ -63,39 +64,40 @@ End Function
 ' pixVShear()
 ' pixVShear(PIX *, PIX *, l_int32, l_float32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) There are 3 cases
-''' (a) pixd == null (make a new pixd)
-''' (b) pixd == pixs (in-place)
-''' (c) pixd != pixs
-''' (2) For these three cases, use these patterns, respectively
-''' pixd = pixVShear(NULL, pixs, ...);
-''' pixVShear(pixs, pixs, ...);
-''' pixVShear(pixd, pixs, ...);
-''' (3) This shear leaves the vertical line of pixels at x = xloc
-''' invariant.  For a positive shear angle, pixels to the right
-''' of this line are shoved downward, and pixels to the left
-''' of the line move upward.
-''' (4) With positive shear angle, this can be used, along with
-''' pixHShear(), to perform a cw rotation, either with 2 shears
-''' (for small angles) or in the general case with 3 shears.
-''' (5) Changing the value of xloc is equivalent to translating
-''' the result vertically.
-''' (6) This brings in 'incolor' pixels from outside the image.
-''' (7) For in-place operation, pixs cannot be colormapped,
-''' because the in-place operation only blits in 0 or 1 bits,
-''' not an arbitrary colormap index.
-''' (8) The angle is brought into the range [-pi, -pi].  It is
-''' not permitted to be within MIN_DIFF_FROM_HALF_PI radians
-''' from either -pi/2 or pi/2.
+''' <para/>
+''' Notes:<para/>
+''' (1) There are 3 cases:<para/>
+''' (a) pixd == null (make a new pixd)<para/>
+''' (b) pixd == pixs (in-place)<para/>
+''' (c) pixd != pixs<para/>
+''' (2) For these three cases, use these patterns, respectively:<para/>
+''' pixd = pixVShear(NULL, pixs, ...)<para/>
+''' pixVShear(pixs, pixs, ...)<para/>
+''' pixVShear(pixd, pixs, ...)<para/>
+''' (3) This shear leaves the vertical line of pixels at x = xloc<para/>
+''' invariant.  For a positive shear angle, pixels to the right<para/>
+''' of this line are shoved downward, and pixels to the left<para/>
+''' of the line move upward.<para/>
+''' (4) With positive shear angle, this can be used, along with<para/>
+''' pixHShear(), to perform a cw rotation, either with 2 shears<para/>
+''' (for small angles) or in the general case with 3 shears.<para/>
+''' (5) Changing the value of xloc is equivalent to translating<para/>
+''' the result vertically.<para/>
+''' (6) This brings in 'incolor' pixels from outside the image.<para/>
+''' (7) For in-place operation, pixs cannot be colormapped,<para/>
+''' because the in-place operation only blits in 0 or 1 bits,<para/>
+''' not an arbitrary colormap index.<para/>
+''' (8) The angle is brought into the range [-pi, -pi].  It is<para/>
+''' not permitted to be within MIN_DIFF_FROM_HALF_PI radians<para/>
+''' from either -pi/2 or pi/2.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixd">[in][optional] - , this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - no restrictions on depth</param>
 '''  <param name="xloc">[in] - location of vertical line, measured from origin</param>
-'''  <param name="radang">[in] - angle in radians; not too close to +-(pi / 2)</param>
-'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK;</param>
+'''  <param name="radang">[in] - angle in radians not too close to +-(pi / 2)</param>
+'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixVShear(
 				ByVal pixd as Pix, 
@@ -119,17 +121,18 @@ End Function
 ' pixHShearCorner()
 ' pixHShearCorner(PIX *, PIX *, l_float32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) See pixHShear() for usage.
-''' (2) This does a horizontal shear about the UL corner, with (+) shear
-''' pushing increasingly leftward (-x) with increasing y.
+''' <para/>
+''' Notes:<para/>
+''' (1) See pixHShear() for usage.<para/>
+''' (2) This does a horizontal shear about the UL corner, with (+) shear<para/>
+''' pushing increasingly leftward (-x) with increasing y.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixd">[in][optional] - , if not null, must be equal to pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="radang">[in] - angle in radians</param>
-'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK;</param>
+'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 '''   <returns>pixd, or NULL on error.</returns>
 Public Shared Function pixHShearCorner(
 				ByVal pixd as Pix, 
@@ -152,17 +155,18 @@ End Function
 ' pixVShearCorner()
 ' pixVShearCorner(PIX *, PIX *, l_float32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) See pixVShear() for usage.
-''' (2) This does a vertical shear about the UL corner, with (+) shear
-''' pushing increasingly downward (+y) with increasing x.
+''' <para/>
+''' Notes:<para/>
+''' (1) See pixVShear() for usage.<para/>
+''' (2) This does a vertical shear about the UL corner, with (+) shear<para/>
+''' pushing increasingly downward (+y) with increasing x.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixd">[in][optional] - , if not null, must be equal to pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="radang">[in] - angle in radians</param>
-'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK;</param>
+'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 '''   <returns>pixd, or NULL on error.</returns>
 Public Shared Function pixVShearCorner(
 				ByVal pixd as Pix, 
@@ -185,17 +189,18 @@ End Function
 ' pixHShearCenter()
 ' pixHShearCenter(PIX *, PIX *, l_float32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) See pixHShear() for usage.
-''' (2) This does a horizontal shear about the center, with (+) shear
-''' pushing increasingly leftward (-x) with increasing y.
+''' <para/>
+''' Notes:<para/>
+''' (1) See pixHShear() for usage.<para/>
+''' (2) This does a horizontal shear about the center, with (+) shear<para/>
+''' pushing increasingly leftward (-x) with increasing y.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixd">[in][optional] - , if not null, must be equal to pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="radang">[in] - angle in radians</param>
-'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK;</param>
+'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 '''   <returns>pixd, or NULL on error.</returns>
 Public Shared Function pixHShearCenter(
 				ByVal pixd as Pix, 
@@ -218,17 +223,18 @@ End Function
 ' pixVShearCenter()
 ' pixVShearCenter(PIX *, PIX *, l_float32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) See pixVShear() for usage.
-''' (2) This does a vertical shear about the center, with (+) shear
-''' pushing increasingly downward (+y) with increasing x.
+''' <para/>
+''' Notes:<para/>
+''' (1) See pixVShear() for usage.<para/>
+''' (2) This does a vertical shear about the center, with (+) shear<para/>
+''' pushing increasingly downward (+y) with increasing x.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixd">[in][optional] - , if not null, must be equal to pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="radang">[in] - angle in radians</param>
-'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK;</param>
+'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 '''   <returns>pixd, or NULL on error.</returns>
 Public Shared Function pixVShearCenter(
 				ByVal pixd as Pix, 
@@ -251,21 +257,22 @@ End Function
 ' pixHShearIP()
 ' pixHShearIP(PIX *, l_int32, l_float32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This is an in-place version of pixHShear(); see comments there.
-''' (2) This brings in 'incolor' pixels from outside the image.
-''' (3) pixs cannot be colormapped, because the in-place operation
-''' only blits in 0 or 1 bits, not an arbitrary colormap index.
-''' (4) Does a horizontal full-band shear about the line with (+) shear
-''' pushing increasingly leftward (-x) with increasing y.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is an in-place version of pixHShear() see comments there.<para/>
+''' (2) This brings in 'incolor' pixels from outside the image.<para/>
+''' (3) pixs cannot be colormapped, because the in-place operation<para/>
+''' only blits in 0 or 1 bits, not an arbitrary colormap index.<para/>
+''' (4) Does a horizontal full-band shear about the line with (+) shear<para/>
+''' pushing increasingly leftward (-x) with increasing y.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="yloc">[in] - location of horizontal line, measured from origin</param>
 '''  <param name="radang">[in] - angle in radians</param>
-'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK;</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixHShearIP(
 				ByVal pixs as Pix, 
 				ByVal yloc as Integer, 
@@ -285,21 +292,22 @@ End Function
 ' pixVShearIP()
 ' pixVShearIP(PIX *, l_int32, l_float32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This is an in-place version of pixVShear(); see comments there.
-''' (2) This brings in 'incolor' pixels from outside the image.
-''' (3) pixs cannot be colormapped, because the in-place operation
-''' only blits in 0 or 1 bits, not an arbitrary colormap index.
-''' (4) Does a vertical full-band shear about the line with (+) shear
-''' pushing increasingly downward (+y) with increasing x.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is an in-place version of pixVShear() see comments there.<para/>
+''' (2) This brings in 'incolor' pixels from outside the image.<para/>
+''' (3) pixs cannot be colormapped, because the in-place operation<para/>
+''' only blits in 0 or 1 bits, not an arbitrary colormap index.<para/>
+''' (4) Does a vertical full-band shear about the line with (+) shear<para/>
+''' pushing increasingly downward (+y) with increasing x.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixs">[in] - all depths; not colormapped</param>
+'''  <param name="pixs">[in] - all depths not colormapped</param>
 '''  <param name="xloc">[in] - location of vertical line, measured from origin</param>
 '''  <param name="radang">[in] - angle in radians</param>
-'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK;</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixVShearIP(
 				ByVal pixs as Pix, 
 				ByVal xloc as Integer, 
@@ -319,25 +327,26 @@ End Function
 ' pixHShearLI()
 ' pixHShearLI(PIX *, l_int32, l_float32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This does horizontal shear with linear interpolation for
-''' accurate results on 8 bpp gray, 32 bpp rgb, or cmapped images.
-''' It is relatively slow compared to the sampled version
-''' implemented by rasterop, but the result is much smoother.
-''' (2) This shear leaves the horizontal line of pixels at y = yloc
-''' invariant.  For a positive shear angle, pixels above this
-''' line are shoved to the right, and pixels below this line
-''' move to the left.
-''' (3) Any colormap is removed.
-''' (4) The angle is brought into the range [-pi/2 + del, pi/2 - del],
-''' where del == MIN_DIFF_FROM_HALF_PI.
+''' <para/>
+''' Notes:<para/>
+''' (1) This does horizontal shear with linear interpolation for<para/>
+''' accurate results on 8 bpp gray, 32 bpp rgb, or cmapped images.<para/>
+''' It is relatively slow compared to the sampled version<para/>
+''' implemented by rasterop, but the result is much smoother.<para/>
+''' (2) This shear leaves the horizontal line of pixels at y = yloc<para/>
+''' invariant.  For a positive shear angle, pixels above this<para/>
+''' line are shoved to the right, and pixels below this line<para/>
+''' move to the left.<para/>
+''' (3) Any colormap is removed.<para/>
+''' (4) The angle is brought into the range [-pi/2 + del, pi/2 - del],<para/>
+''' where del == MIN_DIFF_FROM_HALF_PI.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 8 bpp or 32 bpp, or colormapped</param>
 '''  <param name="yloc">[in] - location of horizontal line, measured from origin</param>
 '''  <param name="radang">[in] - angle in radians, in range (-pi/2 ... pi/2)</param>
-'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK;</param>
+'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 '''   <returns>pixd sheared, or NULL on error</returns>
 Public Shared Function pixHShearLI(
 				ByVal pixs as Pix, 
@@ -359,25 +368,26 @@ End Function
 ' pixVShearLI()
 ' pixVShearLI(PIX *, l_int32, l_float32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This does vertical shear with linear interpolation for
-''' accurate results on 8 bpp gray, 32 bpp rgb, or cmapped images.
-''' It is relatively slow compared to the sampled version
-''' implemented by rasterop, but the result is much smoother.
-''' (2) This shear leaves the vertical line of pixels at x = xloc
-''' invariant.  For a positive shear angle, pixels to the right
-''' of this line are shoved downward, and pixels to the left
-''' of the line move upward.
-''' (3) Any colormap is removed.
-''' (4) The angle is brought into the range [-pi/2 + del, pi/2 - del],
-''' where del == MIN_DIFF_FROM_HALF_PI.
+''' <para/>
+''' Notes:<para/>
+''' (1) This does vertical shear with linear interpolation for<para/>
+''' accurate results on 8 bpp gray, 32 bpp rgb, or cmapped images.<para/>
+''' It is relatively slow compared to the sampled version<para/>
+''' implemented by rasterop, but the result is much smoother.<para/>
+''' (2) This shear leaves the vertical line of pixels at x = xloc<para/>
+''' invariant.  For a positive shear angle, pixels to the right<para/>
+''' of this line are shoved downward, and pixels to the left<para/>
+''' of the line move upward.<para/>
+''' (3) Any colormap is removed.<para/>
+''' (4) The angle is brought into the range [-pi/2 + del, pi/2 - del],<para/>
+''' where del == MIN_DIFF_FROM_HALF_PI.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 8 bpp or 32 bpp, or colormapped</param>
 '''  <param name="xloc">[in] - location of vertical line, measured from origin</param>
 '''  <param name="radang">[in] - angle in radians, in range (-pi/2 ... pi/2)</param>
-'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK;</param>
+'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 '''   <returns>pixd sheared, or NULL on error</returns>
 Public Shared Function pixVShearLI(
 				ByVal pixs as Pix, 

@@ -1,14 +1,15 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\pixabasic.c (162, 1)
 ' pixaCreate()
 ' pixaCreate(l_int32) as PIXA *
 '''  <summary>
-''' Notes
-''' (1) This creates an empty boxa.
+''' <para/>
+''' Notes:<para/>
+''' (1) This creates an empty boxa.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -29,9 +30,10 @@ End Function
 ' pixaCreateFromPix()
 ' pixaCreateFromPix(PIX *, l_int32, l_int32, l_int32) as PIXA *
 '''  <summary>
-''' Notes
-''' (1) For bpp = 1, we truncate each retrieved pix to the ON
-''' pixels, which we assume for now start at (0,0)
+''' <para/>
+''' Notes:<para/>
+''' (1) For bpp = 1, we truncate each retrieved pix to the ON<para/>
+''' pixels, which we assume for now start at (0,0)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -59,14 +61,15 @@ End Function
 ' pixaCreateFromBoxa()
 ' pixaCreateFromBoxa(PIX *, BOXA *, l_int32 *) as PIXA *
 '''  <summary>
-''' Notes
-''' (1) This simply extracts from pixs the region corresponding to each
-''' box in the boxa.
-''' (2) The 3rd arg is optional.  If the extent of the boxa exceeds the
-''' size of the pixa, so that some boxes are either clipped
-''' or entirely outside the pix, a warning is returned as TRUE.
-''' (3) pixad will have only the properly clipped elements, and
-''' the internal boxa will be correct.
+''' <para/>
+''' Notes:<para/>
+''' (1) This simply extracts from pixs the region corresponding to each<para/>
+''' box in the boxa.<para/>
+''' (2) The 3rd arg is optional.  If the extent of the boxa exceeds the<para/>
+''' size of the pixa, so that some boxes are either clipped<para/>
+''' or entirely outside the pix, a warning is returned as TRUE.<para/>
+''' (3) pixad will have only the properly clipped elements, and<para/>
+''' the internal boxa will be correct.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -93,17 +96,18 @@ End Function
 ' pixaSplitPix()
 ' pixaSplitPix(PIX *, l_int32, l_int32, l_int32, l_uint32) as PIXA *
 '''  <summary>
-''' Notes
-''' (1) This is a variant on pixaCreateFromPix(), where we
-''' simply divide the image up into (approximately) equal
-''' subunits.  If you want the subimages to have essentially
-''' the same aspect ratio as the input pix, use nx = ny.
-''' (2) If borderwidth is 0, we ignore the input bordercolor and
-''' redefine it to white.
-''' (3) The bordercolor is always used to initialize each tiled pix,
-''' so that if the src is clipped, the unblitted part will
-''' be this color.  This avoids 1 pixel wide black stripes at the
-''' left and lower edges.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is a variant on pixaCreateFromPix(), where we<para/>
+''' simply divide the image up into (approximately) equal<para/>
+''' subunits.  If you want the subimages to have essentially<para/>
+''' the same aspect ratio as the input pix, use nx = ny.<para/>
+''' (2) If borderwidth is 0, we ignore the input bordercolor and<para/>
+''' redefine it to white.<para/>
+''' (3) The bordercolor is always used to initialize each tiled pix,<para/>
+''' so that if the src is clipped, the unblitted part will<para/>
+''' be this color.  This avoids 1 pixel wide black stripes at the<para/>
+''' left and lower edges.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -111,7 +115,7 @@ End Function
 '''  <param name="nx">[in] - number of mosaic cells horizontally</param>
 '''  <param name="ny">[in] - number of mosaic cells vertically</param>
 '''  <param name="borderwidth">[in] - of added border on all sides</param>
-'''  <param name="bordercolor">[in] - in our RGBA format 0xrrggbbaa</param>
+'''  <param name="bordercolor">[in] - in our RGBA format: 0xrrggbbaa</param>
 '''   <returns>pixa, or NULL on error</returns>
 Public Shared Function pixaSplitPix(
 				ByVal pixs as Pix, 
@@ -133,9 +137,10 @@ End Function
 ' pixaDestroy()
 ' pixaDestroy(PIXA **) as void
 '''  <summary>
-''' Notes
-''' (1) Decrements the ref count and, if 0, destroys the pixa.
-''' (2) Always nulls the input ptr.
+''' <para/>
+''' Notes:<para/>
+''' (1) Decrements the ref count and, if 0, destroys the pixa.<para/>
+''' (2) Always nulls the input ptr.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -154,13 +159,10 @@ End Sub
 ' SRC\pixabasic.c (441, 1)
 ' pixaCopy()
 ' pixaCopy(PIXA *, l_int32) as PIXA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixa">[in] - </param>
-'''  <param name="copyflag">[in] - see pix.h for details L_COPY makes a new pixa and copies each pix and each box; L_CLONE gives a new ref-counted handle to the input pixa; L_COPY_CLONE makes a new pixa and inserts clones of all pix and boxes</param>
+'''  <param name="copyflag">[in] - see pix.h for details: L_COPY makes a new pixa and copies each pix and each box L_CLONE gives a new ref-counted handle to the input pixa L_COPY_CLONE makes a new pixa and inserts clones of all pix and boxes</param>
 '''   <returns>new pixa, or NULL on error</returns>
 Public Shared Function pixaCopy(
 				ByVal pixa as Pixa, 
@@ -178,15 +180,12 @@ End Function
 ' SRC\pixabasic.c (494, 1)
 ' pixaAddPix()
 ' pixaAddPix(PIXA *, PIX *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pix">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixaAddPix(
 				ByVal pixa as Pixa, 
 				ByVal pix as Pix, 
@@ -204,9 +203,6 @@ End Function
 ' SRC\pixabasic.c (538, 1)
 ' pixaAddBox()
 ' pixaAddBox(PIXA *, BOX *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixa">[in] - </param>
@@ -231,15 +227,16 @@ End Function
 ' pixaExtendArrayToSize()
 ' pixaExtendArrayToSize(PIXA *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) If necessary, reallocs new pixa and boxa ptrs arrays to %size.
-''' The pixa and boxa ptr arrays must always be equal in size.
+''' <para/>
+''' Notes:<para/>
+''' (1) If necessary, reallocs new pixa and boxa ptrs arrays to %size.<para/>
+''' The pixa and boxa ptr arrays must always be equal in size.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="size">[in] - </param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixaExtendArrayToSize(
 				ByVal pixa as Pixa, 
 				ByVal size as Integer) as Integer
@@ -255,9 +252,6 @@ End Function
 ' SRC\pixabasic.c (622, 1)
 ' pixaGetCount()
 ' pixaGetCount(PIXA *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixa">[in] - </param>
@@ -276,9 +270,6 @@ End Function
 ' SRC\pixabasic.c (641, 1)
 ' pixaChangeRefcount()
 ' pixaChangeRefcount(PIXA *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixa">[in] - </param>
@@ -299,9 +290,6 @@ End Function
 ' SRC\pixabasic.c (663, 1)
 ' pixaGetPix()
 ' pixaGetPix(PIXA *, l_int32, l_int32) as PIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixa">[in] - </param>
@@ -325,9 +313,6 @@ End Function
 ' SRC\pixabasic.c (698, 1)
 ' pixaGetPixDimensions()
 ' pixaGetPixDimensions(PIXA *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixa">[in] - </param>
@@ -354,9 +339,6 @@ End Function
 ' SRC\pixabasic.c (732, 1)
 ' pixaGetBoxa()
 ' pixaGetBoxa(PIXA *, l_int32) as BOXA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixa">[in] - </param>
@@ -378,9 +360,6 @@ End Function
 ' SRC\pixabasic.c (756, 1)
 ' pixaGetBoxaCount()
 ' pixaGetBoxaCount(PIXA *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixa">[in] - </param>
@@ -400,15 +379,16 @@ End Function
 ' pixaGetBox()
 ' pixaGetBox(PIXA *, l_int32, l_int32) as BOX *
 '''  <summary>
-''' Notes
-''' (1) There is always a boxa with a pixa, and it is initialized so
-''' that each box ptr is NULL.
-''' (2) In general, we expect that there is either a box associated
-''' with each pix, or no boxes at all in the boxa.
-''' (3) Having no boxes is thus not an automatic error.  Whether it
-''' is an actual error is determined by the calling program.
-''' If the caller expects to get a box, it is an error; see, e.g.,
-''' pixaGetBoxGeometry().
+''' <para/>
+''' Notes:<para/>
+''' (1) There is always a boxa with a pixa, and it is initialized so<para/>
+''' that each box ptr is NULL.<para/>
+''' (2) In general, we expect that there is either a box associated<para/>
+''' with each pix, or no boxes at all in the boxa.<para/>
+''' (3) Having no boxes is thus not an automatic error.  Whether it<para/>
+''' is an actual error is determined by the calling program.<para/>
+''' If the caller expects to get a box, it is an error see, e.g.,<para/>
+''' pixaGetBoxGeometry().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -433,9 +413,6 @@ End Function
 ' SRC\pixabasic.c (826, 1)
 ' pixaGetBoxGeometry()
 ' pixaGetBoxGeometry(PIXA *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixa">[in] - </param>
@@ -465,8 +442,9 @@ End Function
 ' pixaSetBoxa()
 ' pixaSetBoxa(PIXA *, BOXA *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This destroys the existing boxa in the pixa.
+''' <para/>
+''' Notes:<para/>
+''' (1) This destroys the existing boxa in the pixa.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -492,11 +470,12 @@ End Function
 ' pixaGetPixArray()
 ' pixaGetPixArray(PIXA *) as PIX **
 '''  <summary>
-''' Notes
-''' (1) This returns a ptr to the actual array.  The array is
-''' owned by the pixa, so it must not be destroyed.
-''' (2) The caller should always check if the return value is NULL
-''' before accessing any of the pix ptrs in this array!
+''' <para/>
+''' Notes:<para/>
+''' (1) This returns a ptr to the actual array.  The array is<para/>
+''' owned by the pixa, so it must not be destroyed.<para/>
+''' (2) The caller should always check if the return value is NULL<para/>
+''' before accessing any of the pix ptrs in this array!<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -519,13 +498,14 @@ End Function
 ' pixaVerifyDepth()
 ' pixaVerifyDepth(PIXA *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) It is considered to be an error if there are no pix.
+''' <para/>
+''' Notes:<para/>
+''' (1) It is considered to be an error if there are no pix.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixa">[in] - </param>
-'''  <param name="psame">[out] - 1 if depth is the same for all pix; 0 otherwise</param>
+'''  <param name="psame">[out] - 1 if depth is the same for all pix 0 otherwise</param>
 '''  <param name="pmaxd">[out][optional] - max depth of all pix</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaVerifyDepth(
@@ -545,13 +525,14 @@ End Function
 ' pixaVerifyDimensions()
 ' pixaVerifyDimensions(PIXA *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) It is considered to be an error if there are no pix.
+''' <para/>
+''' Notes:<para/>
+''' (1) It is considered to be an error if there are no pix.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixa">[in] - </param>
-'''  <param name="psame">[out] - 1 if dimensions are the same for all pix; 0 otherwise</param>
+'''  <param name="psame">[out] - 1 if dimensions are the same for all pix 0 otherwise</param>
 '''  <param name="pmaxw">[out][optional] - max width of all pix</param>
 '''  <param name="pmaxh">[out][optional] - max height of all pix</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -573,9 +554,10 @@ End Function
 ' pixaIsFull()
 ' pixaIsFull(PIXA *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) A pixa is "full" if the array of pix is fully
-''' occupied from index 0 to index (pixa-GTn - 1).
+''' <para/>
+''' Notes:<para/>
+''' (1) A pixa is "full" if the array of pix is fully<para/>
+''' occupied from index 0 to index (pixa- is greater n - 1).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -600,9 +582,10 @@ End Function
 ' pixaCountText()
 ' pixaCountText(PIXA *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) All pix have non-empty text strings if the returned value %ntext
-''' equals the pixa count.
+''' <para/>
+''' Notes:<para/>
+''' (1) All pix have non-empty text strings if the returned value %ntext<para/>
+''' equals the pixa count.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -625,9 +608,10 @@ End Function
 ' pixaSetText()
 ' pixaSetText(PIXA *, SARRAY *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) To clear all the text fields, use sa == NULL;
-''' (2) If sa is defined, it must be the same size as %pixa.
+''' <para/>
+''' Notes:<para/>
+''' (1) To clear all the text fields, use sa == NULL<para/>
+''' (2) If sa is defined, it must be the same size as %pixa.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -651,15 +635,16 @@ End Function
 ' pixaGetLinePtrs()
 ' pixaGetLinePtrs(PIXA *, l_int32 *) as void ***
 '''  <summary>
-''' Notes
-''' (1) See pixGetLinePtrs() for details.
-''' (2) It is best if all pix in the pixa are the same size.
-''' The size of each line ptr array is equal to the height
-''' of the pix that it refers to.
-''' (3) This is an array of arrays.  To destroy it
-''' for (i = 0; i LT size; i++)
-''' LEPT_FREE(lineset[i]);
-''' LEPT_FREE(lineset);
+''' <para/>
+''' Notes:<para/>
+''' (1) See pixGetLinePtrs() for details.<para/>
+''' (2) It is best if all pix in the pixa are the same size.<para/>
+''' The size of each line ptr array is equal to the height<para/>
+''' of the pix that it refers to.<para/>
+''' (3) This is an array of arrays.  To destroy it:<para/>
+''' for (i = 0 i  is lower  size i++)<para/>
+''' LEPT_FREE(lineset[i])<para/>
+''' LEPT_FREE(lineset)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -682,9 +667,10 @@ End Function
 ' pixaWriteStreamInfo()
 ' pixaWriteStreamInfo(FILE *, PIXA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) For each pix in the pixa, write out the pix dimensions, spp,
-''' text string (if it exists), and cmap info.
+''' <para/>
+''' Notes:<para/>
+''' (1) For each pix in the pixa, write out the pix dimensions, spp,<para/>
+''' text string (if it exists), and cmap info.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -708,9 +694,10 @@ End Function
 ' pixaReplacePix()
 ' pixaReplacePix(PIXA *, l_int32, PIX *, BOX *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) In-place replacement of one pix.
-''' (2) The previous pix at that location is destroyed.
+''' <para/>
+''' Notes:<para/>
+''' (1) In-place replacement of one pix.<para/>
+''' (2) The previous pix at that location is destroyed.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -739,13 +726,14 @@ End Function
 ' pixaInsertPix()
 ' pixaInsertPix(PIXA *, l_int32, PIX *, BOX *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This shifts pixa[i] --GT pixa[i + 1] for all i GT= index,
-''' and then inserts at pixa[index].
-''' (2) To insert at the beginning of the array, set index = 0.
-''' (3) It should not be used repeatedly on large arrays,
-''' because the function is O(n).
-''' (4) To append a pix to a pixa, it's easier to use pixaAddPix().
+''' <para/>
+''' Notes:<para/>
+''' (1) This shifts pixa[i] -- is greater  pixa[i + 1] for all i  is greater = index,<para/>
+''' and then inserts at pixa[index].<para/>
+''' (2) To insert at the beginning of the array, set index = 0.<para/>
+''' (3) It should not be used repeatedly on large arrays,<para/>
+''' because the function is O(n).<para/>
+''' (4) To append a pix to a pixa, it's easier to use pixaAddPix().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -774,11 +762,12 @@ End Function
 ' pixaRemovePix()
 ' pixaRemovePix(PIXA *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This shifts pixa[i] --GT pixa[i - 1] for all i GT index.
-''' (2) It should not be used repeatedly on large arrays,
-''' because the function is O(n).
-''' (3) The corresponding box is removed as well, if it exists.
+''' <para/>
+''' Notes:<para/>
+''' (1) This shifts pixa[i] -- is greater  pixa[i - 1] for all i  is greater  index.<para/>
+''' (2) It should not be used repeatedly on large arrays,<para/>
+''' because the function is O(n).<para/>
+''' (3) The corresponding box is removed as well, if it exists.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -801,12 +790,13 @@ End Function
 ' pixaRemovePixAndSave()
 ' pixaRemovePixAndSave(PIXA *, l_int32, PIX **, BOX **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This shifts pixa[i] --GT pixa[i - 1] for all i GT index.
-''' (2) It should not be used repeatedly on large arrays,
-''' because the function is O(n).
-''' (3) The corresponding box is removed as well, if it exists.
-''' (4) The removed pix and box can either be retained or destroyed.
+''' <para/>
+''' Notes:<para/>
+''' (1) This shifts pixa[i] -- is greater  pixa[i - 1] for all i  is greater  index.<para/>
+''' (2) It should not be used repeatedly on large arrays,<para/>
+''' because the function is O(n).<para/>
+''' (3) The corresponding box is removed as well, if it exists.<para/>
+''' (4) The removed pix and box can either be retained or destroyed.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -837,30 +827,31 @@ End Function
 ' pixaInitFull()
 ' pixaInitFull(PIXA *, PIX *, BOX *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This initializes a pixa by filling up the entire pix ptr array
-''' with copies of %pix.  If %pix == NULL, we use a tiny placeholder
-''' pix (w = h = d = 1).  Any existing pix are destroyed.
-''' It also optionally fills the boxa with copies of %box.
-''' After this operation, the numbers of pix and (optionally)
-''' boxes are equal to the number of allocated ptrs.
-''' (2) Note that we use pixaReplacePix() instead of pixaInsertPix().
-''' They both have the same effect when inserting into a NULL ptr
-''' in the pixa ptr array
-''' (3) If the boxa is not initialized (i.e., filled with boxes),
-''' later insertion of boxes will cause an error, because the
-''' 'n' field is 0.
-''' (4) Example usage.  This function is useful to prepare for a
-''' random insertion (or replacement) of pix into a pixa.
-''' To randomly insert pix into a pixa, without boxes, up to
-''' some index "max"
-''' Pixa pixa = pixaCreate(max);
-''' pixaInitFull(pixa, NULL, NULL);
-''' An existing pixa with a smaller ptr array can also be reused
-''' pixaExtendArrayToSize(pixa, max);
-''' pixaInitFull(pixa, NULL, NULL);
-''' The initialization allows the pixa to always be properly
-''' filled, even if all pix (and boxes) are not later replaced.
+''' <para/>
+''' Notes:<para/>
+''' (1) This initializes a pixa by filling up the entire pix ptr array<para/>
+''' with copies of %pix.  If %pix == NULL, we use a tiny placeholder<para/>
+''' pix (w = h = d = 1).  Any existing pix are destroyed.<para/>
+''' It also optionally fills the boxa with copies of %box.<para/>
+''' After this operation, the numbers of pix and (optionally)<para/>
+''' boxes are equal to the number of allocated ptrs.<para/>
+''' (2) Note that we use pixaReplacePix() instead of pixaInsertPix().<para/>
+''' They both have the same effect when inserting into a NULL ptr<para/>
+''' in the pixa ptr array:<para/>
+''' (3) If the boxa is not initialized (i.e., filled with boxes),<para/>
+''' later insertion of boxes will cause an error, because the<para/>
+''' 'n' field is 0.<para/>
+''' (4) Example usage.  This function is useful to prepare for a<para/>
+''' random insertion (or replacement) of pix into a pixa.<para/>
+''' To randomly insert pix into a pixa, without boxes, up to<para/>
+''' some index "max":<para/>
+''' Pixa pixa = pixaCreate(max)<para/>
+''' pixaInitFull(pixa, NULL, NULL)<para/>
+''' An existing pixa with a smaller ptr array can also be reused:<para/>
+''' pixaExtendArrayToSize(pixa, max)<para/>
+''' pixaInitFull(pixa, NULL, NULL)<para/>
+''' The initialization allows the pixa to always be properly<para/>
+''' filled, even if all pix (and boxes) are not later replaced.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -887,10 +878,11 @@ End Function
 ' pixaClear()
 ' pixaClear(PIXA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This destroys all pix in the pixa, as well as
-''' all boxes in the boxa.  The ptrs in the pix ptr array
-''' are all null'd.  The number of allocated pix, n, is set to 0.
+''' <para/>
+''' Notes:<para/>
+''' (1) This destroys all pix in the pixa, as well as<para/>
+''' all boxes in the boxa.  The ptrs in the pix ptr array<para/>
+''' are all null'd.  The number of allocated pix, n, is set to 0.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -911,18 +903,19 @@ End Function
 ' pixaJoin()
 ' pixaJoin(PIXA *, PIXA *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This appends a clone of each indicated pix in pixas to pixad
-''' (2) istart LT 0 is taken to mean 'read from the start' (istart = 0)
-''' (3) iend LT 0 means 'read to the end'
-''' (4) If pixas is NULL or contains no pix, this is a no-op.
+''' <para/>
+''' Notes:<para/>
+''' (1) This appends a clone of each indicated pix in pixas to pixad<para/>
+''' (2) istart  is lower  0 is taken to mean 'read from the start' (istart = 0)<para/>
+''' (3) iend  is lower  0 means 'read to the end'<para/>
+''' (4) If pixas is NULL or contains no pix, this is a no-op.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixad">[in] - dest pixa; add to this one</param>
-'''  <param name="pixas">[in][optional] - source pixa; add from this one</param>
+'''  <param name="pixad">[in] - dest pixa add to this one</param>
+'''  <param name="pixas">[in][optional] - source pixa add from this one</param>
 '''  <param name="istart">[in] - starting index in pixas</param>
-'''  <param name="iend">[in] - ending index in pixas; use -1 to cat all</param>
+'''  <param name="iend">[in] - ending index in pixas use -1 to cat all</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaJoin(
 				ByVal pixad as Pixa, 
@@ -943,11 +936,12 @@ End Function
 ' pixaInterleave()
 ' pixaInterleave(PIXA *, PIXA *, l_int32) as PIXA *
 '''  <summary>
-''' Notes
-''' (1) %copyflag determines if the pix are copied or cloned.
-''' The boxes, if they exist, are copied.
-''' (2) If the two pixa have different sizes, a warning is issued,
-''' and the number of pairs returned is the minimum size.
+''' <para/>
+''' Notes:<para/>
+''' (1) %copyflag determines if the pix are copied or cloned.<para/>
+''' The boxes, if they exist, are copied.<para/>
+''' (2) If the two pixa have different sizes, a warning is issued,<para/>
+''' and the number of pairs returned is the minimum size.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -974,17 +968,18 @@ End Function
 ' pixaaJoin()
 ' pixaaJoin(PIXAA *, PIXAA *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This appends a clone of each indicated pixa in paas to pixaad
-''' (2) istart LT 0 is taken to mean 'read from the start' (istart = 0)
-''' (3) iend LT 0 means 'read to the end'
+''' <para/>
+''' Notes:<para/>
+''' (1) This appends a clone of each indicated pixa in paas to pixaad<para/>
+''' (2) istart  is lower  0 is taken to mean 'read from the start' (istart = 0)<para/>
+''' (3) iend  is lower  0 means 'read to the end'<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="paad">[in] - dest pixaa; add to this one</param>
-'''  <param name="paas">[in][optional] - source pixaa; add from this one</param>
+'''  <param name="paad">[in] - dest pixaa add to this one</param>
+'''  <param name="paas">[in][optional] - source pixaa add from this one</param>
 '''  <param name="istart">[in] - starting index in pixaas</param>
-'''  <param name="iend">[in] - ending index in pixaas; use -1 to cat all</param>
+'''  <param name="iend">[in] - ending index in pixaas use -1 to cat all</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaaJoin(
 				ByVal paad as Pixaa, 
@@ -1005,19 +1000,20 @@ End Function
 ' pixaaCreate()
 ' pixaaCreate(l_int32) as PIXAA *
 '''  <summary>
-''' Notes
-''' (1) A pixaa provides a 2-level hierarchy of images.
-''' A common use is for segmentation masks, which are
-''' inexpensive to store in png format.
-''' (2) For example, suppose you want a mask for each textline
-''' in a two-column page.  The textline masks for each column
-''' can be represented by a pixa, of which there are 2 in the pixaa.
-''' The boxes for the textline mask components within a column
-''' can have their origin referred to the column rather than the page.
-''' Then the boxa field can be used to represent the two box (regions)
-''' for the columns, and the (x,y) components of each box can
-''' be used to get the absolute position of the textlines on
-''' the page.
+''' <para/>
+''' Notes:<para/>
+''' (1) A pixaa provides a 2-level hierarchy of images.<para/>
+''' A common use is for segmentation masks, which are<para/>
+''' inexpensive to store in png format.<para/>
+''' (2) For example, suppose you want a mask for each textline<para/>
+''' in a two-column page.  The textline masks for each column<para/>
+''' can be represented by a pixa, of which there are 2 in the pixaa.<para/>
+''' The boxes for the textline mask components within a column<para/>
+''' can have their origin referred to the column rather than the page.<para/>
+''' Then the boxa field can be used to represent the two box (regions)<para/>
+''' for the columns, and the (x,y) components of each box can<para/>
+''' be used to get the absolute position of the textlines on<para/>
+''' the page.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1038,14 +1034,15 @@ End Function
 ' pixaaCreateFromPixa()
 ' pixaaCreateFromPixa(PIXA *, l_int32, l_int32, l_int32) as PIXAA *
 '''  <summary>
-''' Notes
-''' (1) This subdivides a pixa into a set of smaller pixa that
-''' are accumulated into a pixaa.
-''' (2) If type == L_CHOOSE_CONSECUTIVE, the first 'n' pix are
-''' put in a pixa and added to pixaa, then the next 'n', etc.
-''' If type == L_CHOOSE_SKIP_BY, the first pixa is made by
-''' aggregating pix[0], pix[n], pix[2n], etc.
-''' (3) The copyflag specifies if each new pix is a copy or a clone.
+''' <para/>
+''' Notes:<para/>
+''' (1) This subdivides a pixa into a set of smaller pixa that<para/>
+''' are accumulated into a pixaa.<para/>
+''' (2) If type == L_CHOOSE_CONSECUTIVE, the first 'n' pix are<para/>
+''' put in a pixa and added to pixaa, then the next 'n', etc.<para/>
+''' If type == L_CHOOSE_SKIP_BY, the first pixa is made by<para/>
+''' aggregating pix[0], pix[n], pix[2n], etc.<para/>
+''' (3) The copyflag specifies if each new pix is a copy or a clone.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1072,9 +1069,6 @@ End Function
 ' SRC\pixabasic.c (1879, 1)
 ' pixaaDestroy()
 ' pixaaDestroy(PIXAA **) as void
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="ppaa">[in,out] - to be nulled</param>
@@ -1092,15 +1086,12 @@ End Sub
 ' SRC\pixabasic.c (1923, 1)
 ' pixaaAddPixa()
 ' pixaaAddPixa(PIXAA *, PIXA *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="paa">[in] - </param>
 '''  <param name="pixa">[in] - to be added</param>
-'''  <param name="copyflag">[in] - L_INSERT inserts the pixa directly; L_COPY makes a new pixa and copies each pix and each box; L_CLONE gives a new handle to the input pixa; L_COPY_CLONE makes a new pixa and inserts clones of all pix and boxes</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''  <param name="copyflag">[in] - : L_INSERT inserts the pixa directly L_COPY makes a new pixa and copies each pix and each box L_CLONE gives a new handle to the input pixa L_COPY_CLONE makes a new pixa and inserts clones of all pix and boxes</param>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixaaAddPixa(
 				ByVal paa as Pixaa, 
 				ByVal pixa as Pixa, 
@@ -1118,13 +1109,10 @@ End Function
 ' SRC\pixabasic.c (1964, 1)
 ' pixaaExtendArray()
 ' pixaaExtendArray(PIXAA *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="paa">[in] - </param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixaaExtendArray(
 				ByVal paa as Pixaa) as Integer
 
@@ -1139,9 +1127,6 @@ End Function
 ' SRC\pixabasic.c (1992, 1)
 ' pixaaAddPix()
 ' pixaaAddPix(PIXAA *, l_int32, PIX *, BOX *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="paa">[in] - input paa</param>
@@ -1149,7 +1134,7 @@ End Function
 '''  <param name="pix">[in] - to be added</param>
 '''  <param name="box">[in][optional] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixaaAddPix(
 				ByVal paa as Pixaa, 
 				ByVal index as Integer, 
@@ -1171,9 +1156,10 @@ End Function
 ' pixaaAddBox()
 ' pixaaAddBox(PIXAA *, BOX *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The box can be used, for example, to hold the support region
-''' of a pixa that is being added to the pixaa.
+''' <para/>
+''' Notes:<para/>
+''' (1) The box can be used, for example, to hold the support region<para/>
+''' of a pixa that is being added to the pixaa.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1199,8 +1185,9 @@ End Function
 ' pixaaGetCount()
 ' pixaaGetCount(PIXAA *, NUMA **) as l_int32
 '''  <summary>
-''' Notes
-''' (1) If paa is empty, a returned na will also be empty.
+''' <para/>
+''' Notes:<para/>
+''' (1) If paa is empty, a returned na will also be empty.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1225,15 +1212,16 @@ End Function
 ' pixaaGetPixa()
 ' pixaaGetPixa(PIXAA *, l_int32, l_int32) as PIXA *
 '''  <summary>
-''' Notes
-''' (1) L_COPY makes a new pixa with a copy of every pix
-''' (2) L_CLONE just makes a new reference to the pixa,
-''' and bumps the counter.  You would use this, for example,
-''' when you need to extract some data from a pix within a
-''' pixa within a pixaa.
-''' (3) L_COPY_CLONE makes a new pixa with a clone of every pix
-''' and box
-''' (4) In all cases, you must invoke pixaDestroy() on the returned pixa
+''' <para/>
+''' Notes:<para/>
+''' (1) L_COPY makes a new pixa with a copy of every pix<para/>
+''' (2) L_CLONE just makes a new reference to the pixa,<para/>
+''' and bumps the counter.  You would use this, for example,<para/>
+''' when you need to extract some data from a pix within a<para/>
+''' pixa within a pixaa.<para/>
+''' (3) L_COPY_CLONE makes a new pixa with a clone of every pix<para/>
+''' and box<para/>
+''' (4) In all cases, you must invoke pixaDestroy() on the returned pixa<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1259,9 +1247,10 @@ End Function
 ' pixaaGetBoxa()
 ' pixaaGetBoxa(PIXAA *, l_int32) as BOXA *
 '''  <summary>
-''' Notes
-''' (1) L_COPY returns a copy; L_CLONE returns a new reference to the boxa.
-''' (2) In both cases, invoke boxaDestroy() on the returned boxa.
+''' <para/>
+''' Notes:<para/>
+''' (1) L_COPY returns a copy L_CLONE returns a new reference to the boxa.<para/>
+''' (2) In both cases, invoke boxaDestroy() on the returned boxa.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1284,9 +1273,6 @@ End Function
 ' SRC\pixabasic.c (2177, 1)
 ' pixaaGetPix()
 ' pixaaGetPix(PIXAA *, l_int32, l_int32, l_int32) as PIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="paa">[in] - </param>
@@ -1313,15 +1299,16 @@ End Function
 ' pixaaVerifyDepth()
 ' pixaaVerifyDepth(PIXAA *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) It is considered to be an error if any pixa have no pix.
+''' <para/>
+''' Notes:<para/>
+''' (1) It is considered to be an error if any pixa have no pix.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="paa">[in] - </param>
-'''  <param name="psame">[out] - 1 if all pix have the same depth; 0 otherwise</param>
+'''  <param name="psame">[out] - 1 if all pix have the same depth 0 otherwise</param>
 '''  <param name="pmaxd">[out][optional] - max depth of all pix in pixaa</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixaaVerifyDepth(
 				ByVal paa as Pixaa, 
 				ByRef psame as Integer, 
@@ -1339,16 +1326,17 @@ End Function
 ' pixaaVerifyDimensions()
 ' pixaaVerifyDimensions(PIXAA *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) It is considered to be an error if any pixa have no pix.
+''' <para/>
+''' Notes:<para/>
+''' (1) It is considered to be an error if any pixa have no pix.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="paa">[in] - </param>
-'''  <param name="psame">[out] - 1 if all pix have the same depth; 0 otherwise</param>
+'''  <param name="psame">[out] - 1 if all pix have the same depth 0 otherwise</param>
 '''  <param name="pmaxw">[out][optional] - max width of all pix in pixaa</param>
 '''  <param name="pmaxh">[out][optional] - max height of all pix in pixaa</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixaaVerifyDimensions(
 				ByVal paa as Pixaa, 
 				ByRef psame as Integer, 
@@ -1367,8 +1355,9 @@ End Function
 ' pixaaIsFull()
 ' pixaaIsFull(PIXAA *, l_int32 *) as l_int32
 '''  <summary>
-''' Notes
-''' (1) Does not require boxa associated with each pixa to be full.
+''' <para/>
+''' Notes:<para/>
+''' (1) Does not require boxa associated with each pixa to be full.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1391,17 +1380,18 @@ End Function
 ' pixaaInitFull()
 ' pixaaInitFull(PIXAA *, PIXA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This initializes a pixaa by filling up the entire pixa ptr array
-''' with copies of %pixa.  Any existing pixa are destroyed.
-''' (2) Example usage.  This function is useful to prepare for a
-''' random insertion (or replacement) of pixa into a pixaa.
-''' To randomly insert pixa into a pixaa, up to some index "max"
-''' Pixaa paa = pixaaCreate(max);
-''' Pixa pixa = pixaCreate(1);  // if you want little memory
-''' pixaaInitFull(paa, pixa);  // copy it to entire array
-''' pixaDestroy(pixa);  // no longer needed
-''' The initialization allows the pixaa to always be properly filled.
+''' <para/>
+''' Notes:<para/>
+''' (1) This initializes a pixaa by filling up the entire pixa ptr array<para/>
+''' with copies of %pixa.  Any existing pixa are destroyed.<para/>
+''' (2) Example usage.  This function is useful to prepare for a<para/>
+''' random insertion (or replacement) of pixa into a pixaa.<para/>
+''' To randomly insert pixa into a pixaa, up to some index "max":<para/>
+''' Pixaa paa = pixaaCreate(max)<para/>
+''' Pixa pixa = pixaCreate(1)  // if you want little memory<para/>
+''' pixaaInitFull(paa, pixa)  // copy it to entire array<para/>
+''' pixaDestroy( and pixa)  // no longer needed<para/>
+''' The initialization allows the pixaa to always be properly filled.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1425,12 +1415,13 @@ End Function
 ' pixaaReplacePixa()
 ' pixaaReplacePixa(PIXAA *, l_int32, PIXA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This allows random insertion of a pixa into a pixaa, with
-''' destruction of any existing pixa at that location.
-''' The input pixa is now owned by the pixaa.
-''' (2) No other pixa in the array are affected.
-''' (3) The index must be within the allowed set.
+''' <para/>
+''' Notes:<para/>
+''' (1) This allows random insertion of a pixa into a pixaa, with<para/>
+''' destruction of any existing pixa at that location.<para/>
+''' The input pixa is now owned by the pixaa.<para/>
+''' (2) No other pixa in the array are affected.<para/>
+''' (3) The index must be within the allowed set.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1456,9 +1447,10 @@ End Function
 ' pixaaClear()
 ' pixaaClear(PIXAA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This destroys all pixa in the pixaa, and nulls the ptrs
-''' in the pixa ptr array.
+''' <para/>
+''' Notes:<para/>
+''' (1) This destroys all pixa in the pixaa, and nulls the ptrs<para/>
+''' in the pixa ptr array.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1479,10 +1471,11 @@ End Function
 ' pixaaTruncate()
 ' pixaaTruncate(PIXAA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This identifies the largest index containing a pixa that
-''' has any pix within it, destroys all pixa above that index,
-''' and resets the count.
+''' <para/>
+''' Notes:<para/>
+''' (1) This identifies the largest index containing a pixa that<para/>
+''' has any pix within it, destroys all pixa above that index,<para/>
+''' and resets the count.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1503,9 +1496,10 @@ End Function
 ' pixaRead()
 ' pixaRead(const char *) as PIXA *
 '''  <summary>
-''' Notes
-''' (1) The pix are stored in the file as png.
-''' If the png library is not linked, this will fail.
+''' <para/>
+''' Notes:<para/>
+''' (1) The pix are stored in the file as png.<para/>
+''' If the png library is not linked, this will fail.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1528,9 +1522,10 @@ End Function
 ' pixaReadStream()
 ' pixaReadStream(FILE *) as PIXA *
 '''  <summary>
-''' Notes
-''' (1) The pix are stored in the file as png.
-''' If the png library is not linked, this will fail.
+''' <para/>
+''' Notes:<para/>
+''' (1) The pix are stored in the file as png.<para/>
+''' If the png library is not linked, this will fail.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1551,9 +1546,6 @@ End Function
 ' SRC\pixabasic.c (2615, 1)
 ' pixaReadMem()
 ' pixaReadMem(const l_uint8 *, size_t) as PIXA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="data">[in] - of serialized pixa</param>
@@ -1576,18 +1568,19 @@ End Function
 ' pixaWriteDebug()
 ' pixaWriteDebug(const char *, PIXA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Debug version, intended for use in the library when writing
-''' to files in a temp directory with names that are compiled in.
-''' This is used instead of pixaWrite() for all such library calls.
-''' (2) The global variable LeptDebugOK defaults to 0, and can be set
-''' or cleared by the function setLeptDebugOK().
+''' <para/>
+''' Notes:<para/>
+''' (1) Debug version, intended for use in the library when writing<para/>
+''' to files in a temp directory with names that are compiled in.<para/>
+''' This is used instead of pixaWrite() for all such library calls.<para/>
+''' (2) The global variable LeptDebugOK defaults to 0, and can be set<para/>
+''' or cleared by the function setLeptDebugOK().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fname">[in] - </param>
 '''  <param name="pixa">[in] - </param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixaWriteDebug(
 				ByVal fname as String, 
 				ByVal pixa as Pixa) as Integer
@@ -1605,9 +1598,10 @@ End Function
 ' pixaWrite()
 ' pixaWrite(const char *, PIXA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The pix are stored in the file as png.
-''' If the png library is not linked, this will fail.
+''' <para/>
+''' Notes:<para/>
+''' (1) The pix are stored in the file as png.<para/>
+''' If the png library is not linked, this will fail.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1632,9 +1626,10 @@ End Function
 ' pixaWriteStream()
 ' pixaWriteStream(FILE *, PIXA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The pix are stored in the file as png.
-''' If the png library is not linked, this will fail.
+''' <para/>
+''' Notes:<para/>
+''' (1) The pix are stored in the file as png.<para/>
+''' If the png library is not linked, this will fail.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1658,8 +1653,9 @@ End Function
 ' pixaWriteMem()
 ' pixaWriteMem(l_uint8 **, size_t *, PIXA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Serializes a pixa in memory and puts the result in a buffer.
+''' <para/>
+''' Notes:<para/>
+''' (1) Serializes a pixa in memory and puts the result in a buffer.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1686,9 +1682,10 @@ End Function
 ' pixaReadBoth()
 ' pixaReadBoth(const char *) as PIXA *
 '''  <summary>
-''' Notes
-''' (1) This reads serialized files of either a pixa or a pixacomp,
-''' and returns a pixa in memory.  It requires png and jpeg libraries.
+''' <para/>
+''' Notes:<para/>
+''' (1) This reads serialized files of either a pixa or a pixacomp,<para/>
+''' and returns a pixa in memory.  It requires png and jpeg libraries.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1711,19 +1708,20 @@ End Function
 ' pixaaReadFromFiles()
 ' pixaaReadFromFiles(const char *, const char *, l_int32, l_int32) as PIXAA *
 '''  <summary>
-''' Notes
-''' (1) The files must be serialized pixa files (e.g., .pa)
-''' If some files cannot be read, warnings are issued.
-''' (2) Use %substr to filter filenames in the directory.  If
-''' %substr == NULL, this takes all files.
-''' (3) After filtering, use %first and %nfiles to select
-''' a contiguous set of files, that have been lexically
-''' sorted in increasing order.
+''' <para/>
+''' Notes:<para/>
+''' (1) The files must be serialized pixa files (e.g., .pa)<para/>
+''' If some files cannot be read, warnings are issued.<para/>
+''' (2) Use %substr to filter filenames in the directory.  If<para/>
+''' %substr == NULL, this takes all files.<para/>
+''' (3) After filtering, use %first and %nfiles to select<para/>
+''' a contiguous set of files, that have been lexically<para/>
+''' sorted in increasing order.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dirname">[in] - directory</param>
-'''  <param name="substr">[in][optional] - substring filter on filenames; can be NULL</param>
+'''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="first">[in] - 0-based</param>
 '''  <param name="nfiles">[in] - use 0 for everything from %first to the end</param>
 '''   <returns>paa, or NULL on error or if no pixa files are found.</returns>
@@ -1746,9 +1744,10 @@ End Function
 ' pixaaRead()
 ' pixaaRead(const char *) as PIXAA *
 '''  <summary>
-''' Notes
-''' (1) The pix are stored in the file as png.
-''' If the png library is not linked, this will fail.
+''' <para/>
+''' Notes:<para/>
+''' (1) The pix are stored in the file as png.<para/>
+''' If the png library is not linked, this will fail.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1771,9 +1770,10 @@ End Function
 ' pixaaReadStream()
 ' pixaaReadStream(FILE *) as PIXAA *
 '''  <summary>
-''' Notes
-''' (1) The pix are stored in the file as png.
-''' If the png library is not linked, this will fail.
+''' <para/>
+''' Notes:<para/>
+''' (1) The pix are stored in the file as png.<para/>
+''' If the png library is not linked, this will fail.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1794,9 +1794,6 @@ End Function
 ' SRC\pixabasic.c (3023, 1)
 ' pixaaReadMem()
 ' pixaaReadMem(const l_uint8 *, size_t) as PIXAA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="data">[in] - of serialized pixaa</param>
@@ -1819,9 +1816,10 @@ End Function
 ' pixaaWrite()
 ' pixaaWrite(const char *, PIXAA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The pix are stored in the file as png.
-''' If the png library is not linked, this will fail.
+''' <para/>
+''' Notes:<para/>
+''' (1) The pix are stored in the file as png.<para/>
+''' If the png library is not linked, this will fail.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1846,9 +1844,10 @@ End Function
 ' pixaaWriteStream()
 ' pixaaWriteStream(FILE *, PIXAA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The pix are stored in the file as png.
-''' If the png library is not linked, this will fail.
+''' <para/>
+''' Notes:<para/>
+''' (1) The pix are stored in the file as png.<para/>
+''' If the png library is not linked, this will fail.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1872,8 +1871,9 @@ End Function
 ' pixaaWriteMem()
 ' pixaaWriteMem(l_uint8 **, size_t *, PIXAA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Serializes a pixaa in memory and puts the result in a buffer.
+''' <para/>
+''' Notes:<para/>
+''' (1) Serializes a pixaa in memory and puts the result in a buffer.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

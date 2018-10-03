@@ -1,14 +1,15 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\boxfunc2.c (91, 1)
 ' boxaTransform()
 ' boxaTransform(BOXA *, l_int32, l_int32, l_float32, l_float32) as BOXA *
 '''  <summary>
-''' Notes
-''' (1) This is a very simple function that first shifts, then scales.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is a very simple function that first shifts, then scales.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -38,9 +39,10 @@ End Function
 ' boxTransform()
 ' boxTransform(BOX *, l_int32, l_int32, l_float32, l_float32) as BOX *
 '''  <summary>
-''' Notes
-''' (1) This is a very simple function that first shifts, then scales.
-''' (2) If the box is invalid, a new invalid box is returned.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is a very simple function that first shifts, then scales.<para/>
+''' (2) If the box is invalid, a new invalid box is returned.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -70,26 +72,27 @@ End Function
 ' boxaTransformOrdered()
 ' boxaTransformOrdered(BOXA *, l_int32, l_int32, l_float32, l_float32, l_int32, l_int32, l_float32, l_int32) as BOXA *
 '''  <summary>
-''' Notes
-''' (1) This allows a sequence of linear transforms on each box.
-''' the transforms are from the affine set, composed of
-''' shift, scaling and rotation, and the order of the
-''' transforms is specified.
-''' (2) Although these operations appear to be on an infinite
-''' 2D plane, in practice the region of interest is clipped
-''' to a finite image.  The center of rotation is usually taken
-''' with respect to the image (either the UL corner or the
-''' center).  A translation can have two very different effects
-''' (a) Moves the boxes across the fixed image region.
-''' (b) Moves the image origin, causing a change in the image
-''' region and an opposite effective translation of the boxes.
-''' This function should only be used for (a), where the image
-''' region is fixed on translation.  If the image region is
-''' changed by the translation, use instead the functions
-''' in affinecompose.c, where the image region and rotation
-''' center can be computed from the actual clipping due to
-''' translation of the image origin.
-''' (3) See boxTransformOrdered() for usage and implementation details.
+''' <para/>
+''' Notes:<para/>
+''' (1) This allows a sequence of linear transforms on each box.<para/>
+''' the transforms are from the affine set, composed of<para/>
+''' shift, scaling and rotation, and the order of the<para/>
+''' transforms is specified.<para/>
+''' (2) Although these operations appear to be on an infinite<para/>
+''' 2D plane, in practice the region of interest is clipped<para/>
+''' to a finite image.  The center of rotation is usually taken<para/>
+''' with respect to the image (either the UL corner or the<para/>
+''' center).  A translation can have two very different effects:<para/>
+''' (a) Moves the boxes across the fixed image region.<para/>
+''' (b) Moves the image origin, causing a change in the image<para/>
+''' region and an opposite effective translation of the boxes.<para/>
+''' This function should only be used for (a), where the image<para/>
+''' region is fixed on translation.  If the image region is<para/>
+''' changed by the translation, use instead the functions<para/>
+''' in affinecompose.c, where the image region and rotation<para/>
+''' center can be computed from the actual clipping due to<para/>
+''' translation of the image origin.<para/>
+''' (3) See boxTransformOrdered() for usage and implementation details.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -100,8 +103,8 @@ End Function
 '''  <param name="scaley">[in] - </param>
 '''  <param name="xcen">[in] - center of rotation</param>
 '''  <param name="ycen">[in] - center of rotation</param>
-'''  <param name="angle">[in] - in radians; clockwise is positive</param>
-'''  <param name="order">[in] - one of 6 combinations L_TR_SC_RO, ...</param>
+'''  <param name="angle">[in] - in radians clockwise is positive</param>
+'''  <param name="order">[in] - one of 6 combinations: L_TR_SC_RO, ...</param>
 '''   <returns>boxd, or NULL on error</returns>
 Public Shared Function boxaTransformOrdered(
 				ByVal boxas as Boxa, 
@@ -128,43 +131,44 @@ End Function
 ' boxTransformOrdered()
 ' boxTransformOrdered(BOX *, l_int32, l_int32, l_float32, l_float32, l_int32, l_int32, l_float32, l_int32) as BOX *
 '''  <summary>
-''' Notes
-''' (1) This allows a sequence of linear transforms, composed of
-''' shift, scaling and rotation, where the order of the
-''' transforms is specified.
-''' (2) The rotation is taken about a point specified by (xcen, ycen).
-''' Let the components of the vector from the center of rotation
-''' to the box center be (xdif, ydif)
-''' xdif = (bx + 0.5  bw) - xcen
-''' ydif = (by + 0.5  bh) - ycen
-''' Then the box center after rotation has new components
-''' bxcen = xcen + xdif  cosa + ydif  sina
-''' bycen = ycen + ydif  cosa - xdif  sina
-''' where cosa and sina are the cos and sin of the angle,
-''' and the enclosing box for the rotated box has size
-''' rw = |bw  cosa| + |bh  sina|
-''' rh = |bh  cosa| + |bw  sina|
-''' where bw and bh are the unrotated width and height.
-''' Then the box UL corner (rx, ry) is
-''' rx = bxcen - 0.5  rw
-''' ry = bycen - 0.5  rh
-''' (3) The center of rotation specified by args %xcen and %ycen
-''' is the point BEFORE any translation or scaling.  If the
-''' rotation is not the first operation, this function finds
-''' the actual center at the time of rotation.  It does this
-''' by making the following assumptions
-''' (1) Any scaling is with respect to the UL corner, so
-''' that the center location scales accordingly.
-''' (2) A translation does not affect the center of
-''' the image; it just moves the boxes.
-''' We always use assumption (1).  However, assumption (2)
-''' will be incorrect if the apparent translation is due
-''' to a clipping operation that, in effect, moves the
-''' origin of the image.  In that case, you should NOT use
-''' these simple functions.  Instead, use the functions
-''' in affinecompose.c, where the rotation center can be
-''' computed from the actual clipping due to translation
-''' of the image origin.
+''' <para/>
+''' Notes:<para/>
+''' (1) This allows a sequence of linear transforms, composed of<para/>
+''' shift, scaling and rotation, where the order of the<para/>
+''' transforms is specified.<para/>
+''' (2) The rotation is taken about a point specified by (xcen, ycen).<para/>
+''' Let the components of the vector from the center of rotation<para/>
+''' to the box center be (xdif, ydif):<para/>
+''' xdif = (bx + 0.5  bw) - xcen<para/>
+''' ydif = (by + 0.5  bh) - ycen<para/>
+''' Then the box center after rotation has new components:<para/>
+''' bxcen = xcen + xdif  cosa + ydif  sina<para/>
+''' bycen = ycen + ydif  cosa - xdif  sina<para/>
+''' where cosa and sina are the cos and sin of the angle,<para/>
+''' and the enclosing box for the rotated box has size:<para/>
+''' rw = |bw  cosa| + |bh  sina|<para/>
+''' rh = |bh  cosa| + |bw  sina|<para/>
+''' where bw and bh are the unrotated width and height.<para/>
+''' Then the box UL corner (rx, ry) is<para/>
+''' rx = bxcen - 0.5  rw<para/>
+''' ry = bycen - 0.5  rh<para/>
+''' (3) The center of rotation specified by args %xcen and %ycen<para/>
+''' is the point BEFORE any translation or scaling.  If the<para/>
+''' rotation is not the first operation, this function finds<para/>
+''' the actual center at the time of rotation.  It does this<para/>
+''' by making the following assumptions:<para/>
+''' (1) Any scaling is with respect to the UL corner, so<para/>
+''' that the center location scales accordingly.<para/>
+''' (2) A translation does not affect the center of<para/>
+''' the image it just moves the boxes.<para/>
+''' We always use assumption (1).  However, assumption (2)<para/>
+''' will be incorrect if the apparent translation is due<para/>
+''' to a clipping operation that, in effect, moves the<para/>
+''' origin of the image.  In that case, you should NOT use<para/>
+''' these simple functions.  Instead, use the functions<para/>
+''' in affinecompose.c, where the rotation center can be<para/>
+''' computed from the actual clipping due to translation<para/>
+''' of the image origin.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -175,8 +179,8 @@ End Function
 '''  <param name="scaley">[in] - </param>
 '''  <param name="xcen">[in] - center of rotation</param>
 '''  <param name="ycen">[in] - center of rotation</param>
-'''  <param name="angle">[in] - in radians; clockwise is positive</param>
-'''  <param name="order">[in] - one of 6 combinations L_TR_SC_RO, ...</param>
+'''  <param name="angle">[in] - in radians clockwise is positive</param>
+'''  <param name="order">[in] - one of 6 combinations: L_TR_SC_RO, ...</param>
 '''   <returns>boxd, or NULL on error</returns>
 Public Shared Function boxTransformOrdered(
 				ByVal boxs as Box, 
@@ -203,15 +207,16 @@ End Function
 ' boxaRotateOrth()
 ' boxaRotateOrth(BOXA *, l_int32, l_int32, l_int32) as BOXA *
 '''  <summary>
-''' Notes
-''' (1) See boxRotateOrth() for details.
+''' <para/>
+''' Notes:<para/>
+''' (1) See boxRotateOrth() for details.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="w">[in] - of image in which the boxa is embedded</param>
 '''  <param name="h">[in] - of image in which the boxa is embedded</param>
-'''  <param name="rotation">[in] - 0 = noop, 1 = 90 deg, 2 = 180 deg, 3 = 270 deg; all rotations are clockwise</param>
+'''  <param name="rotation">[in] - 0 = noop, 1 = 90 deg, 2 = 180 deg, 3 = 270 deg all rotations are clockwise</param>
 '''   <returns>boxad, or NULL on error</returns>
 Public Shared Function boxaRotateOrth(
 				ByVal boxas as Boxa, 
@@ -232,17 +237,18 @@ End Function
 ' boxRotateOrth()
 ' boxRotateOrth(BOX *, l_int32, l_int32, l_int32) as BOX *
 '''  <summary>
-''' Notes
-''' (1) Rotate the image with the embedded box by the specified amount.
-''' (2) After rotation, the rotated box is always measured with
-''' respect to the UL corner of the image.
+''' <para/>
+''' Notes:<para/>
+''' (1) Rotate the image with the embedded box by the specified amount.<para/>
+''' (2) After rotation, the rotated box is always measured with<para/>
+''' respect to the UL corner of the image.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="box">[in] - </param>
 '''  <param name="w">[in] - of image in which the box is embedded</param>
 '''  <param name="h">[in] - of image in which the box is embedded</param>
-'''  <param name="rotation">[in] - 0 = noop, 1 = 90 deg, 2 = 180 deg, 3 = 270 deg; all rotations are clockwise</param>
+'''  <param name="rotation">[in] - 0 = noop, 1 = 90 deg, 2 = 180 deg, 3 = 270 deg all rotations are clockwise</param>
 '''   <returns>boxd, or NULL on error</returns>
 Public Shared Function boxRotateOrth(
 				ByVal box as Box, 
@@ -263,8 +269,9 @@ End Function
 ' boxaSort()
 ' boxaSort(BOXA *, l_int32, l_int32, NUMA **) as BOXA *
 '''  <summary>
-''' Notes
-''' (1) An empty boxa returns a copy, with a warning.
+''' <para/>
+''' Notes:<para/>
+''' (1) An empty boxa returns a copy, with a warning.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -294,12 +301,13 @@ End Function
 ' boxaBinSort()
 ' boxaBinSort(BOXA *, l_int32, l_int32, NUMA **) as BOXA *
 '''  <summary>
-''' Notes
-''' (1) For a large number of boxes (say, greater than 1000), this
-''' O(n) binsort is much faster than the O(nlogn) shellsort.
-''' For 5000 components, this is over 20x faster than boxaSort().
-''' (2) Consequently, boxaSort() calls this function if it will
-''' likely go much faster.
+''' <para/>
+''' Notes:<para/>
+''' (1) For a large number of boxes (say, greater than 1000), this<para/>
+''' O(n) binsort is much faster than the O(nlogn) shellsort.<para/>
+''' For 5000 components, this is over 20x faster than boxaSort().<para/>
+''' (2) Consequently, boxaSort() calls this function if it will<para/>
+''' likely go much faster.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -328,9 +336,6 @@ End Function
 ' SRC\boxfunc2.c (761, 1)
 ' boxaSortByIndex()
 ' boxaSortByIndex(BOXA *, NUMA *) as BOXA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="boxas">[in] - </param>
@@ -354,42 +359,43 @@ End Function
 ' boxaSort2d()
 ' boxaSort2d(BOXA *, NUMAA **, l_int32, l_int32, l_int32) as BOXAA *
 '''  <summary>
-''' Notes
-''' (1) The final result is a sort where the 'fast scan' direction is
-''' left to right, and the 'slow scan' direction is from top
-''' to bottom.  Each boxa in the baa represents a sorted set
-''' of boxes from left to right.
-''' (2) Three passes are used to aggregate the boxas, which can correspond
-''' to characters or words in a line of text.  In pass 1, only
-''' taller components, which correspond to xheight or larger,
-''' are permitted to start a new boxa.  In pass 2, the remaining
-''' vertically-challenged components are allowed to join an
-''' existing boxa or start a new one.  In pass 3, boxa whose extent
-''' is overlapping are joined.  After that, the boxes in each
-''' boxa are sorted horizontally, and finally the boxa are
-''' sorted vertically.
-''' (3) If delta1 LT 0, the first pass allows aggregation when
-''' boxes in the same boxa do not overlap vertically.
-''' The distance by which they can miss and still be aggregated
-''' is the absolute value |delta1|.   Similar for delta2 on
-''' the second pass.
-''' (4) On the first pass, any component of height less than minh1
-''' cannot start a new boxa; it's put aside for later insertion.
-''' (5) On the second pass, any small component that doesn't align
-''' with an existing boxa can start a new one.
-''' (6) This can be used to identify lines of text from
-''' character or word bounding boxes.
-''' (7) Typical values for the input parameters on 300 ppi text are
-''' delta1 ~ 0
-''' delta2 ~ 0
-''' minh1 ~ 5
+''' <para/>
+''' Notes:<para/>
+''' (1) The final result is a sort where the 'fast scan' direction is<para/>
+''' left to right, and the 'slow scan' direction is from top<para/>
+''' to bottom.  Each boxa in the baa represents a sorted set<para/>
+''' of boxes from left to right.<para/>
+''' (2) Three passes are used to aggregate the boxas, which can correspond<para/>
+''' to characters or words in a line of text.  In pass 1, only<para/>
+''' taller components, which correspond to xheight or larger,<para/>
+''' are permitted to start a new boxa.  In pass 2, the remaining<para/>
+''' vertically-challenged components are allowed to join an<para/>
+''' existing boxa or start a new one.  In pass 3, boxa whose extent<para/>
+''' is overlapping are joined.  After that, the boxes in each<para/>
+''' boxa are sorted horizontally, and finally the boxa are<para/>
+''' sorted vertically.<para/>
+''' (3) If delta1  is lower  0, the first pass allows aggregation when<para/>
+''' boxes in the same boxa do not overlap vertically.<para/>
+''' The distance by which they can miss and still be aggregated<para/>
+''' is the absolute value |delta1|. Similar for delta2 on<para/>
+''' the second pass.<para/>
+''' (4) On the first pass, any component of height less than minh1<para/>
+''' cannot start a new boxa it's put aside for later insertion.<para/>
+''' (5) On the second pass, any small component that doesn't align<para/>
+''' with an existing boxa can start a new one.<para/>
+''' (6) This can be used to identify lines of text from<para/>
+''' character or word bounding boxes.<para/>
+''' (7) Typical values for the input parameters on 300 ppi text are:<para/>
+''' delta1 ~ 0<para/>
+''' delta2 ~ 0<para/>
+''' minh1 ~ 5<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="pnaad">[out][optional] - numaa with sorted indices whose values are the indices of the input array</param>
-'''  <param name="delta1">[in] - min overlap that permits aggregation of a box onto a boxa of horizontally-aligned boxes; pass 1</param>
-'''  <param name="delta2">[in] - min overlap that permits aggregation of a box onto a boxa of horizontally-aligned boxes; pass 2</param>
+'''  <param name="delta1">[in] - min overlap that permits aggregation of a box onto a boxa of horizontally-aligned boxes pass 1</param>
+'''  <param name="delta2">[in] - min overlap that permits aggregation of a box onto a boxa of horizontally-aligned boxes pass 2</param>
 '''  <param name="minh1">[in] - components less than this height either join an existing boxa or are set aside for pass 2</param>
 '''   <returns>baa 2d sorted version of boxa, or NULL on error</returns>
 Public Shared Function boxaSort2d(
@@ -413,9 +419,6 @@ End Function
 ' SRC\boxfunc2.c (1024, 1)
 ' boxaSort2dByIndex()
 ' boxaSort2dByIndex(BOXA *, NUMAA *) as BOXAA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="boxas">[in] - </param>
@@ -439,13 +442,14 @@ End Function
 ' boxaExtractAsNuma()
 ' boxaExtractAsNuma(BOXA *, NUMA **, NUMA **, NUMA **, NUMA **, NUMA **, NUMA **, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) If you are counting or sorting values, such as determining
-''' rank order, you must remove invalid boxes.
-''' (2) If you are parametrizing the values, or doing an evaluation
-''' where the position in the boxa sequence is important, you
-''' must replace the invalid boxes with valid ones before
-''' doing the extraction. This is easily done with boxaFillSequence().
+''' <para/>
+''' Notes:<para/>
+''' (1) If you are counting or sorting values, such as determining<para/>
+''' rank order, you must remove invalid boxes.<para/>
+''' (2) If you are parametrizing the values, or doing an evaluation<para/>
+''' where the position in the boxa sequence is important, you<para/>
+''' must replace the invalid boxes with valid ones before<para/>
+''' doing the extraction. This is easily done with boxaFillSequence().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -456,7 +460,7 @@ End Function
 '''  <param name="pnab">[out][optional] - array of bottom locations</param>
 '''  <param name="pnaw">[out][optional] - array of widths</param>
 '''  <param name="pnah">[out][optional] - array of heights</param>
-'''  <param name="keepinvalid">[in] - 1 to keep invalid boxes; 0 to remove them</param>
+'''  <param name="keepinvalid">[in] - 1 to keep invalid boxes 0 to remove them</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaExtractAsNuma(
 				ByVal boxa as Boxa, 
@@ -492,15 +496,16 @@ End Function
 ' boxaExtractAsPta()
 ' boxaExtractAsPta(BOXA *, PTA **, PTA **, PTA **, PTA **, PTA **, PTA **, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) For most applications, such as counting, sorting, fitting
-''' to some parametrized form, plotting or filtering in general,
-''' you should remove the invalid boxes.  Each pta saves the
-''' box index in the x array, so replacing invalid boxes by
-''' filling with boxaFillSequence(), which is required for
-''' boxaExtractAsNuma(), is not necessary.
-''' (2) If invalid boxes are retained, each one will result in
-''' entries (typically 0) in all selected output pta.
+''' <para/>
+''' Notes:<para/>
+''' (1) For most applications, such as counting, sorting, fitting<para/>
+''' to some parametrized form, plotting or filtering in general,<para/>
+''' you should remove the invalid boxes.  Each pta saves the<para/>
+''' box index in the x array, so replacing invalid boxes by<para/>
+''' filling with boxaFillSequence(), which is required for<para/>
+''' boxaExtractAsNuma(), is not necessary.<para/>
+''' (2) If invalid boxes are retained, each one will result in<para/>
+''' entries (typically 0) in all selected output pta.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -511,7 +516,7 @@ End Function
 '''  <param name="pptab">[out][optional] - array of bottom locations vs. index</param>
 '''  <param name="pptaw">[out][optional] - array of widths vs. index</param>
 '''  <param name="pptah">[out][optional] - array of heights vs. index</param>
-'''  <param name="keepinvalid">[in] - 1 to keep invalid boxes; 0 to remove them</param>
+'''  <param name="keepinvalid">[in] - 1 to keep invalid boxes 0 to remove them</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaExtractAsPta(
 				ByVal boxa as Boxa, 
@@ -547,18 +552,19 @@ End Function
 ' boxaGetRankVals()
 ' boxaGetRankVals(BOXA *, l_float32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This function does not assume that all boxes in the boxa are valid
-''' (2) The four box parameters are sorted independently.
-''' For rank order, the width and height are sorted in increasing
-''' order.  But what does it mean to sort x and y in "rank order"?
-''' If the boxes are of comparable size and somewhat
-''' aligned (e.g., from multiple images), it makes some sense
-''' to give a "rank order" for x and y by sorting them in
-''' decreasing order.  But in general, the interpretation of a rank
-''' order on x and y is highly application dependent.  In summary
-''' ~ x and y are sorted in decreasing order
-''' ~ w and h are sorted in increasing order
+''' <para/>
+''' Notes:<para/>
+''' (1) This function does not assume that all boxes in the boxa are valid<para/>
+''' (2) The four box parameters are sorted independently.<para/>
+''' For rank order, the width and height are sorted in increasing<para/>
+''' order.  But what does it mean to sort x and y in "rank order"?<para/>
+''' If the boxes are of comparable size and somewhat<para/>
+''' aligned (e.g., from multiple images), it makes some sense<para/>
+''' to give a "rank order" for x and y by sorting them in<para/>
+''' decreasing order.  But in general, the interpretation of a rank<para/>
+''' order on x and y is highly application dependent.  In summary:<para/>
+''' ~ x and y are sorted in decreasing order<para/>
+''' ~ w and h are sorted in increasing order<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -590,8 +596,9 @@ End Function
 ' boxaGetMedianVals()
 ' boxaGetMedianVals(BOXA *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) See boxaGetRankVals()
+''' <para/>
+''' Notes:<para/>
+''' (1) See boxaGetRankVals()<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -619,9 +626,6 @@ End Function
 ' SRC\boxfunc2.c (1343, 1)
 ' boxaGetAverageSize()
 ' boxaGetAverageSize(BOXA *, l_float32 *, l_float32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="boxa">[in] - </param>
@@ -645,13 +649,14 @@ End Function
 ' boxaaGetExtent()
 ' boxaaGetExtent(BOXAA *, l_int32 *, l_int32 *, BOX **, BOXA **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The returned w and h are the minimum size image
-''' that would contain all boxes untranslated.
-''' (2) Each box in the returned boxa is the minimum box required to
-''' hold all the boxes in the respective boxa of baa.
-''' (3) If there are no valid boxes in a boxa, the box corresponding
-''' to its extent has all fields set to 0 (an invalid box).
+''' <para/>
+''' Notes:<para/>
+''' (1) The returned w and h are the minimum size image<para/>
+''' that would contain all boxes untranslated.<para/>
+''' (2) Each box in the returned boxa is the minimum box required to<para/>
+''' hold all the boxes in the respective boxa of baa.<para/>
+''' (3) If there are no valid boxes in a boxa, the box corresponding<para/>
+''' to its extent has all fields set to 0 (an invalid box).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -684,16 +689,17 @@ End Function
 ' boxaaFlattenToBoxa()
 ' boxaaFlattenToBoxa(BOXAA *, NUMA **, l_int32) as BOXA *
 '''  <summary>
-''' Notes
-''' (1) This 'flattens' the baa to a boxa, taking the boxes in
-''' order in the first boxa, then the second, etc.
-''' (2) If a boxa is empty, we generate an invalid, placeholder box
-''' of zero size.  This is useful when converting from a baa
-''' where each boxa has either 0 or 1 boxes, and it is necessary
-''' to maintain a 11 correspondence between the initial
-''' boxa array and the resulting box array.
-''' (3) If naindex is defined, we generate a Numa that gives, for
-''' each box in the baa, the index of the boxa to which it belongs.
+''' <para/>
+''' Notes:<para/>
+''' (1) This 'flattens' the baa to a boxa, taking the boxes in<para/>
+''' order in the first boxa, then the second, etc.<para/>
+''' (2) If a boxa is empty, we generate an invalid, placeholder box<para/>
+''' of zero size.  This is useful when converting from a baa<para/>
+''' where each boxa has either 0 or 1 boxes, and it is necessary<para/>
+''' to maintain a 1:1 correspondence between the initial<para/>
+''' boxa array and the resulting box array.<para/>
+''' (3) If  and naindex is defined, we generate a Numa that gives, for<para/>
+''' each box in the baa, the index of the boxa to which it belongs.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -721,13 +727,14 @@ End Function
 ' boxaaFlattenAligned()
 ' boxaaFlattenAligned(BOXAA *, l_int32, BOX *, l_int32) as BOXA *
 '''  <summary>
-''' Notes
-''' (1) This 'flattens' the baa to a boxa, taking the first %num
-''' boxes from each boxa.
-''' (2) In each boxa, if there are less than %num boxes, we preserve
-''' the alignment between the input baa and the output boxa
-''' by inserting one or more fillerbox(es) or, if %fillerbox == NULL,
-''' one or more invalid placeholder boxes.
+''' <para/>
+''' Notes:<para/>
+''' (1) This 'flattens' the baa to a boxa, taking the first %num<para/>
+''' boxes from each boxa.<para/>
+''' (2) In each boxa, if there are less than %num boxes, we preserve<para/>
+''' the alignment between the input baa and the output boxa<para/>
+''' by inserting one or more fillerbox(es) or, if %fillerbox == NULL,<para/>
+''' one or more invalid placeholder boxes.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -756,10 +763,11 @@ End Function
 ' boxaEncapsulateAligned()
 ' boxaEncapsulateAligned(BOXA *, l_int32, l_int32) as BOXAA *
 '''  <summary>
-''' Notes
-''' (1) This puts %num boxes from the input %boxa into each of a
-''' set of boxa within an output baa.
-''' (2) This assumes that the boxes in %boxa are in sets of %num each.
+''' <para/>
+''' Notes:<para/>
+''' (1) This puts %num boxes from the input %boxa into each of a<para/>
+''' set of boxa within an output baa.<para/>
+''' (2) This assumes that the boxes in %boxa are in sets of %num each.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -785,16 +793,17 @@ End Function
 ' boxaaTranspose()
 ' boxaaTranspose(BOXAA *) as BOXAA *
 '''  <summary>
-''' Notes
-''' (1) If you think of a boxaa as a 2D array of boxes that is accessed
-''' row major, then each row is represented by one of the boxa.
-''' This function creates a new boxaa related to the input boxaa
-''' as a column major traversal of the input boxaa.
-''' (2) For example, if %baas has 2 boxa, each with 10 boxes, then
-''' %baad will have 10 boxa, each with 2 boxes.
-''' (3) Require for this transpose operation that each boxa in
-''' %baas has the same number of boxes.  This operation is useful
-''' when the i-th boxes in each boxa are meaningfully related.
+''' <para/>
+''' Notes:<para/>
+''' (1) If you think of a boxaa as a 2D array of boxes that is accessed<para/>
+''' row major, then each row is represented by one of the boxa.<para/>
+''' This function creates a new boxaa related to the input boxaa<para/>
+''' as a column major traversal of the input boxaa.<para/>
+''' (2) For example, if %baas has 2 boxa, each with 10 boxes, then<para/>
+''' %baad will have 10 boxa, each with 2 boxes.<para/>
+''' (3) Require for this transpose operation that each boxa in<para/>
+''' %baas has the same number of boxes.  This operation is useful<para/>
+''' when the i-th boxes in each boxa are meaningfully related.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -816,9 +825,10 @@ End Function
 ' boxaaAlignBox()
 ' boxaaAlignBox(BOXAA *, BOX *, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This is not greedy.  It finds the boxa whose vertical
-''' extent has the closest overlap with the input box.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is not greedy.  It finds the boxa whose vertical<para/>
+''' extent has the closest overlap with the input box.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

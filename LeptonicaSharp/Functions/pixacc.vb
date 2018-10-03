@@ -1,25 +1,26 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\pixacc.c (90, 1)
 ' pixaccCreate()
 ' pixaccCreate(l_int32, l_int32, l_int32) as PIXACC *
 '''  <summary>
-''' Notes
-''' (1) Use %negflag = 1 for safety if any negative numbers are going
-''' to be used in the chain of operations.  Negative numbers
-''' arise, e.g., by subtracting a pix, or by adding a pix
-''' that has been pre-multiplied by a negative number.
-''' (2) Initializes the internal 32 bpp pix, similarly to the
-''' initialization in pixInitAccumulate().
+''' <para/>
+''' Notes:<para/>
+''' (1) Use %negflag = 1 for safety if any negative numbers are going<para/>
+''' to be used in the chain of operations.  Negative numbers<para/>
+''' arise, e.g., by subtracting a pix, or by adding a pix<para/>
+''' that has been pre-multiplied by a negative number.<para/>
+''' (2) Initializes the internal 32 bpp pix, similarly to the<para/>
+''' initialization in pixInitAccumulate().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="w">[in] - of 32 bpp internal Pix</param>
 '''  <param name="h">[in] - of 32 bpp internal Pix</param>
-'''  <param name="negflag">[in] - 0 if only positive numbers are involved; 1 if there will be negative numbers</param>
+'''  <param name="negflag">[in] - 0 if only positive numbers are involved 1 if there will be negative numbers</param>
 '''   <returns>pixacc, or NULL on error</returns>
 Public Shared Function pixaccCreate(
 				ByVal w as Integer, 
@@ -38,13 +39,14 @@ End Function
 ' pixaccCreateFromPix()
 ' pixaccCreateFromPix(PIX *, l_int32) as PIXACC *
 '''  <summary>
-''' Notes
-''' (1) See pixaccCreate()
+''' <para/>
+''' Notes:<para/>
+''' (1) See pixaccCreate()<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - </param>
-'''  <param name="negflag">[in] - 0 if only positive numbers are involved; 1 if there will be negative numbers</param>
+'''  <param name="negflag">[in] - 0 if only positive numbers are involved 1 if there will be negative numbers</param>
 '''   <returns>pixacc, or NULL on error</returns>
 Public Shared Function pixaccCreateFromPix(
 				ByVal pix as Pix, 
@@ -63,8 +65,9 @@ End Function
 ' pixaccDestroy()
 ' pixaccDestroy(PIXACC **) as void
 '''  <summary>
-''' Notes
-''' (1) Always nulls the input ptr.
+''' <para/>
+''' Notes:<para/>
+''' (1) Always nulls the input ptr.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -83,9 +86,6 @@ End Sub
 ' SRC\pixacc.c (192, 1)
 ' pixaccFinal()
 ' pixaccFinal(PIXACC *, l_int32) as PIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixacc">[in] - </param>
@@ -107,9 +107,6 @@ End Function
 ' SRC\pixacc.c (215, 1)
 ' pixaccGetPix()
 ' pixaccGetPix(PIXACC *) as PIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixacc">[in] - </param>
@@ -129,9 +126,6 @@ End Function
 ' SRC\pixacc.c (232, 1)
 ' pixaccGetOffset()
 ' pixaccGetOffset(PIXACC *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixacc">[in] - </param>
@@ -150,9 +144,6 @@ End Function
 ' SRC\pixacc.c (253, 1)
 ' pixaccAdd()
 ' pixaccAdd(PIXACC *, PIX *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixacc">[in] - </param>
@@ -174,9 +165,6 @@ End Function
 ' SRC\pixacc.c (275, 1)
 ' pixaccSubtract()
 ' pixaccSubtract(PIXACC *, PIX *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixacc">[in] - </param>
@@ -198,9 +186,6 @@ End Function
 ' SRC\pixacc.c (297, 1)
 ' pixaccMultConst()
 ' pixaccMultConst(PIXACC *, l_float32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixacc">[in] - </param>
@@ -223,9 +208,10 @@ End Function
 ' pixaccMultConstAccumulate()
 ' pixaccMultConstAccumulate(PIXACC *, PIX *, l_float32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This creates a temp pix that is %pix multiplied by the
-''' constant %factor.  It then adds that into %pixacc.
+''' <para/>
+''' Notes:<para/>
+''' (1) This creates a temp pix that is %pix multiplied by the<para/>
+''' constant %factor.  It then adds that into %pixacc.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

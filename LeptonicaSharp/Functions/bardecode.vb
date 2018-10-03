@@ -1,14 +1,11 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\bardecode.c (96, 1)
 ' barcodeDispatchDecoder()
 ' barcodeDispatchDecoder(char *, l_int32, l_int32) as char *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="barstr">[in] - string of integers in set {1,2,3,4} of bar widths</param>
@@ -31,13 +28,10 @@ End Function
 ' SRC\bardecode.c (173, 1)
 ' barcodeFormatIsSupported()
 ' barcodeFormatIsSupported(l_int32) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="format">[in] - </param>
-'''   <returns>1 if format is one of those supported; 0 otherwise</returns>
+'''   <returns>1 if format is one of those supported 0 otherwise</returns>
 Public Shared Function barcodeFormatIsSupported(
 				ByVal format as Integer) as Integer
 

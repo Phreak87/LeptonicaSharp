@@ -1,17 +1,14 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\stack.c (78, 1)
 ' lstackCreate()
 ' lstackCreate(l_int32) as L_STACK *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="nalloc">[in] - initial ptr array size; use 0 for default</param>
+'''  <param name="nalloc">[in] - initial ptr array size use 0 for default</param>
 '''   <returns>lstack, or NULL on error</returns>
 Public Shared Function lstackCreate(
 				ByVal nalloc as Integer) as L_Stack
@@ -28,15 +25,16 @@ End Function
 ' lstackDestroy()
 ' lstackDestroy(L_STACK **, l_int32) as void
 '''  <summary>
-''' Notes
-''' (1) If freeflag is TRUE, frees each struct in the array.
-''' (2) If freeflag is FALSE but there are elements on the array,
-''' gives a warning and destroys the array.  This will
-''' cause a memory leak of all the items that were on the lstack.
-''' So if the items require their own destroy function, they
-''' must be destroyed before the lstack.
-''' (3) To destroy the lstack, we destroy the ptr array, then
-''' the lstack, and then null the contents of the input ptr.
+''' <para/>
+''' Notes:<para/>
+''' (1) If freeflag is TRUE, frees each struct in the array.<para/>
+''' (2) If freeflag is FALSE but there are elements on the array,<para/>
+''' gives a warning and destroys the array.  This will<para/>
+''' cause a memory leak of all the items that were on the lstack.<para/>
+''' So if the items require their own destroy function, they<para/>
+''' must be destroyed before the lstack.<para/>
+''' (3) To destroy the lstack, we destroy the ptr array, then<para/>
+''' the lstack, and then null the contents of the input ptr.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -57,14 +55,11 @@ End Sub
 ' SRC\stack.c (167, 1)
 ' lstackAdd()
 ' lstackAdd(L_STACK *, void *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="lstack">[in] - </param>
 '''  <param name="item">[in] - to be added to the lstack</param>
-'''   <returns>0 if OK; 1 on error.</returns>
+'''   <returns>0 if OK 1 on error.</returns>
 Public Shared Function lstackAdd(
 				ByVal lstack as L_Stack, 
 				ByVal item as Object) as Integer
@@ -82,9 +77,6 @@ End Function
 ' SRC\stack.c (197, 1)
 ' lstackRemove()
 ' lstackRemove(L_STACK *) as void *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="lstack">[in] - </param>
@@ -103,9 +95,6 @@ End Function
 ' SRC\stack.c (247, 1)
 ' lstackGetCount()
 ' lstackGetCount(L_STACK *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="lstack">[in] - </param>
@@ -124,14 +113,11 @@ End Function
 ' SRC\stack.c (270, 1)
 ' lstackPrint()
 ' lstackPrint(FILE *, L_STACK *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="lstack">[in] - </param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function lstackPrint(
 				ByVal fp as FILE, 
 				ByVal lstack as L_Stack) as Integer

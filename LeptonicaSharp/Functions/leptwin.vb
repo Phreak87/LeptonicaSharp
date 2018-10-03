@@ -1,16 +1,17 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\leptwin.c (303, 1)
 ' pixGetWindowsHBITMAP()
 ' pixGetWindowsHBITMAP(PIX *) as HBITMAP
 '''  <summary>
-''' Notes
-''' (1) It's the responsibility of the caller to destroy the
-''' returned hBitmap with a call to DeleteObject (or with
-''' something that eventually calls DeleteObject).
+''' <para/>
+''' Notes:<para/>
+''' (1) It's the responsibility of the caller to destroy the<para/>
+''' returned hBitmap with a call to DeleteObject (or with<para/>
+''' something that eventually calls DeleteObject).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

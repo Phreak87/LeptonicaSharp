@@ -1,19 +1,20 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\utils1.c (125, 1)
 ' setMsgSeverity()
 ' setMsgSeverity(l_int32) as l_int32
 '''  <summary>
-''' Notes
-''' (1) setMsgSeverity() allows the user to specify the desired
-''' message severity threshold.  Messages of equal or greater
-''' severity will be output.  The previous message severity is
-''' returned when the new severity is set.
-''' (2) If L_SEVERITY_EXTERNAL is passed, then the severity will be
-''' obtained from the LEPT_MSG_SEVERITY environment variable.
+''' <para/>
+''' Notes:<para/>
+''' (1) setMsgSeverity() allows the user to specify the desired<para/>
+''' message severity threshold.  Messages of equal or greater<para/>
+''' severity will be output.  The previous message severity is<para/>
+''' returned when the new severity is set.<para/>
+''' (2) If L_SEVERITY_EXTERNAL is passed, then the severity will be<para/>
+''' obtained from the LEPT_MSG_SEVERITY environment variable.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -32,9 +33,6 @@ End Function
 ' SRC\utils1.c (176, 1)
 ' returnErrorInt()
 ' returnErrorInt(const char *, const char *, l_int32) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="msg">[in] - error message</param>
@@ -58,9 +56,6 @@ End Function
 ' SRC\utils1.c (194, 1)
 ' returnErrorFloat()
 ' returnErrorFloat(const char *, const char *, l_float32) as l_float32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="msg">[in] - error message</param>
@@ -85,9 +80,6 @@ End Function
 ' SRC\utils1.c (212, 1)
 ' returnErrorPtr()
 ' returnErrorPtr(const char *, const char *, void *) as void *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="msg">[in] - error message</param>
@@ -113,14 +105,11 @@ End Function
 ' SRC\utils1.c (233, 1)
 ' filesAreIdentical()
 ' filesAreIdentical(const char *, const char *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fname1">[in] - </param>
 '''  <param name="fname2">[in] - </param>
-'''  <param name="psame">[out] - 1 if identical; 0 if different</param>
+'''  <param name="psame">[out] - 1 if identical 0 if different</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function filesAreIdentical(
 				ByVal fname1 as String, 
@@ -139,14 +128,11 @@ End Function
 ' SRC\utils1.c (303, 1)
 ' 
 ' convertOnLittleEnd16(l_uint16) as l_uint16
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function convertOnLittleEnd16(
-				ByRef shortin as UShort) as UShort
+				ByVal shortin as UShort) as UShort
 
 	If IsNothing (shortin) then Throw New ArgumentNullException  ("shortin cannot be Nothing")
 
@@ -159,14 +145,11 @@ End Function
 ' SRC\utils1.c (309, 1)
 ' 
 ' convertOnBigEnd16(l_uint16) as l_uint16
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function convertOnBigEnd16(
-				ByRef shortin as UShort) as UShort
+				ByVal shortin as UShort) as UShort
 
 	If IsNothing (shortin) then Throw New ArgumentNullException  ("shortin cannot be Nothing")
 
@@ -179,14 +162,11 @@ End Function
 ' SRC\utils1.c (338, 1)
 ' 
 ' convertOnLittleEnd32(l_uint32) as l_uint32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function convertOnLittleEnd32(
-				ByRef wordin as UInteger) as UInteger
+				ByVal wordin as UInteger) as UInteger
 
 
 
@@ -198,14 +178,11 @@ End Function
 ' SRC\utils1.c (345, 1)
 ' 
 ' convertOnBigEnd32(l_uint32) as l_uint32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function convertOnBigEnd32(
-				ByRef wordin as UInteger) as UInteger
+				ByVal wordin as UInteger) as UInteger
 
 
 
@@ -218,14 +195,15 @@ End Function
 ' fileCorruptByDeletion()
 ' fileCorruptByDeletion(const char *, l_float32, l_float32, const char *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) %loc and %size are expressed as a fraction of the file size.
-''' (2) This makes a copy of the data in %filein, where bytes in the
-''' specified region have deleted.
-''' (3) If (%loc + %size) GT= 1.0, this deletes from the position
-''' represented by %loc to the end of the file.
-''' (4) It is useful for testing robustness of I/O wrappers when the
-''' data is corrupted, by simulating data corruption by deletion.
+''' <para/>
+''' Notes:<para/>
+''' (1) %loc and %size are expressed as a fraction of the file size.<para/>
+''' (2) This makes a copy of the data in %filein, where bytes in the<para/>
+''' specified region have deleted.<para/>
+''' (3) If (%loc + %size)  is greater = 1.0, this deletes from the position<para/>
+''' represented by %loc to the end of the file.<para/>
+''' (4) It is useful for testing robustness of I/O wrappers when the<para/>
+''' data is corrupted, by simulating data corruption by deletion.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -255,14 +233,15 @@ End Function
 ' fileCorruptByMutation()
 ' fileCorruptByMutation(const char *, l_float32, l_float32, const char *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) %loc and %size are expressed as a fraction of the file size.
-''' (2) This makes a copy of the data in %filein, where bytes in the
-''' specified region have been replaced by random data.
-''' (3) If (%loc + %size) GT= 1.0, this modifies data from the position
-''' represented by %loc to the end of the file.
-''' (4) It is useful for testing robustness of I/O wrappers when the
-''' data is corrupted, by simulating data corruption.
+''' <para/>
+''' Notes:<para/>
+''' (1) %loc and %size are expressed as a fraction of the file size.<para/>
+''' (2) This makes a copy of the data in %filein, where bytes in the<para/>
+''' specified region have been replaced by random data.<para/>
+''' (3) If (%loc + %size)  is greater = 1.0, this modifies data from the position<para/>
+''' represented by %loc to the end of the file.<para/>
+''' (4) It is useful for testing robustness of I/O wrappers when the<para/>
+''' data is corrupted, by simulating data corruption.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -292,14 +271,15 @@ End Function
 ' genRandomIntegerInRange()
 ' genRandomIntegerInRange(l_int32, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) For example, to choose a rand integer between 0 and 99,
-''' use %range = 100.
+''' <para/>
+''' Notes:<para/>
+''' (1) For example, to choose a rand integer between 0 and 99,<para/>
+''' use %range = 100.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="range">[in] - size of range; must be GT= 2</param>
-'''  <param name="seed">[in] - use 0 to skip; otherwise call srand</param>
+'''  <param name="range">[in] - size of range must be  is greater = 2</param>
+'''  <param name="seed">[in] - use 0 to skip otherwise call srand</param>
 '''  <param name="pval">[out] - random integer in range {0 ... range-1}</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function genRandomIntegerInRange(
@@ -318,11 +298,12 @@ End Function
 ' lept_roundftoi()
 ' lept_roundftoi(l_float32) as l_int32
 '''  <summary>
-''' Notes
-''' (1) For fval GT= 0, fval --GT round(fval) == floor(fval + 0.5)
-''' For fval LT 0, fval --GT -round(-fval))
-''' This is symmetric around 0.
-''' e.g., for fval in (-0.5 ... 0.5), fval --GT 0
+''' <para/>
+''' Notes:<para/>
+''' (1) For fval  is greater = 0, fval -- is greater  round(fval) == floor(fval + 0.5)<para/>
+''' For fval  is lower  0, fval -- is greater  -round(-fval))<para/>
+''' This is symmetric around 0.<para/>
+''' e.g., for fval in (-0.5 ... 0.5), fval -- is greater  0<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -343,18 +324,19 @@ End Function
 ' l_hashStringToUint64()
 ' l_hashStringToUint64(const char *, l_uint64 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The intent of the hash is to avoid collisions by mapping
-''' the string as randomly as possible into 64 bits.
-''' (2) To the extent that the hashes are random, the probability of
-''' a collision can be approximated by the square of the number
-''' of strings divided by 2^64.  For 1 million strings, the
-''' collision probability is about 1 in 16 million.
-''' (3) I expect non-randomness of the distribution to be most evident
-''' for small text strings.  This hash function has been tested
-''' for all 5-character text strings composed of 26 letters,
-''' of which there are 26^5 = 12356630.  There are no hash
-''' collisions for this set.
+''' <para/>
+''' Notes:<para/>
+''' (1) The intent of the hash is to avoid collisions by mapping<para/>
+''' the string as randomly as possible into 64 bits.<para/>
+''' (2) To the extent that the hashes are random, the probability of<para/>
+''' a collision can be approximated by the square of the number<para/>
+''' of strings divided by 2^64.  For 1 million strings, the<para/>
+''' collision probability is about 1 in 16 million.<para/>
+''' (3) I expect non-randomness of the distribution to be most evident<para/>
+''' for small text strings.  This hash function has been tested<para/>
+''' for all 5-character text strings composed of 26 letters,<para/>
+''' of which there are 26^5 = 12356630.  There are no hash<para/>
+''' collisions for this set.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -378,18 +360,19 @@ End Function
 ' l_hashPtToUint64()
 ' l_hashPtToUint64(l_int32, l_int32, l_uint64 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) I found that a simple hash function has no collisions for
-''' any of 400 million points with x and y up to 20000.
-''' (2) Previously used a much more complicated and slower function
-''' mulp = 26544357894361;
-''' hash = 104395301;
-''' hash += (x  mulp) ^ (hash GTGT 5);
-''' hash ^= (hash LTLT 7);
-''' hash += (y  mulp) ^ (hash GTGT 7);
-''' hash = hash ^ (hash LTLT 11);
-''' Such logical gymnastics to get coverage over the 2^64
-''' values are not required.
+''' <para/>
+''' Notes:<para/>
+''' (1) I found that a simple hash function has no collisions for<para/>
+''' any of 400 million points with x and y up to 20000.<para/>
+''' (2) Previously used a much more complicated and slower function:<para/>
+''' mulp = 26544357894361<para/>
+''' hash = 104395301<para/>
+''' hash += (x  mulp) ^ (hash  is greater  is greater  5)<para/>
+''' hash ^= (hash  is lower  is lower  7)<para/>
+''' hash += (y  mulp) ^ (hash  is greater  is greater  7)<para/>
+''' hash = hash ^ (hash  is lower  is lower  11)<para/>
+''' Such logical gymnastics to get coverage over the 2^64<para/>
+''' values are not required.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -414,20 +397,21 @@ End Function
 ' l_hashFloat64ToUint64()
 ' l_hashFloat64ToUint64(l_int32, l_float64, l_uint64 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Simple, fast hash for using dnaHash with 64-bit data
-''' (e.g., sets and histograms).
-''' (2) The resulting hash is called a "key" in a lookup
-''' operation.  The bucket for %val in a dnaHash is simply
-''' found by taking the mod of the hash with the number of
-''' buckets (which is prime).  What gets stored in the
-''' dna in that bucket could depend on use, but for the most
-''' flexibility, we store an index into the associated dna.
-''' This is all that is required for generating either a hash set
-''' or a histogram (an example of a hash map).
-''' (3) For example, to generate a histogram, the histogram dna,
-''' a histogram of unique values aligned with the histogram dna,
-''' and a dnahash hashmap are built.  See l_dnaMakeHistoByHash().
+''' <para/>
+''' Notes:<para/>
+''' (1) Simple, fast hash for using dnaHash with 64-bit data<para/>
+''' (e.g., sets and histograms).<para/>
+''' (2) The resulting hash is called a "key" in a lookup<para/>
+''' operation.  The bucket for %val in a dnaHash is simply<para/>
+''' found by taking the mod of the hash with the number of<para/>
+''' buckets (which is prime).  What gets stored in the<para/>
+''' dna in that bucket could depend on use, but for the most<para/>
+''' flexibility, we store an index into the associated dna.<para/>
+''' This is all that is required for generating either a hash set<para/>
+''' or a histogram (an example of a hash map).<para/>
+''' (3) For example, to generate a histogram, the histogram dna,<para/>
+''' a histogram of unique values aligned with the histogram dna,<para/>
+''' and a dnahash hashmap are built.  See l_dnaMakeHistoByHash().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -452,9 +436,6 @@ End Function
 ' SRC\utils1.c (678, 1)
 ' findNextLargerPrime()
 ' findNextLargerPrime(l_int32, l_uint32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="start">[in] - </param>
@@ -474,9 +455,6 @@ End Function
 ' SRC\utils1.c (713, 1)
 ' lept_isPrime()
 ' lept_isPrime(l_uint64, l_int32 *, l_uint32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="n">[in] - 64-bit unsigned</param>
@@ -500,9 +478,10 @@ End Function
 ' convertIntToGrayCode()
 ' convertIntToGrayCode(l_uint32) as l_uint32
 '''  <summary>
-''' Notes
-''' (1) Gray code values corresponding to integers differ by
-''' only one bit transition between successive integers.
+''' <para/>
+''' Notes:<para/>
+''' (1) Gray code values corresponding to integers differ by<para/>
+''' only one bit transition between successive integers.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -521,9 +500,6 @@ End Function
 ' SRC\utils1.c (777, 1)
 ' convertGrayCodeToInt()
 ' convertGrayCodeToInt(l_uint32) as l_uint32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="val">[in] - gray code value</param>
@@ -539,11 +515,8 @@ Public Shared Function convertGrayCodeToInt(
 End Function
 
 ' SRC\utils1.c (799, 1)
-' getLeptonicaVersion() Return string of version number (e.g., 'leptonica-1.74.2') Notes (1) The caller has responsibility to free the memory.
+' getLeptonicaVersion() Return: string of version number (e.g., 'leptonica-1.74.2') Notes: (1) The caller has responsibility to free the memory.
 ' getLeptonicaVersion() as char *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
@@ -559,9 +532,6 @@ End Function
 ' SRC\utils1.c (946, 1)
 ' 
 ' startTimer() as void
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 Public Shared Sub startTimer()
@@ -575,9 +545,6 @@ End Sub
 ' SRC\utils1.c (960, 1)
 ' 
 ' stopTimer() as l_float32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
@@ -593,9 +560,6 @@ End Function
 ' SRC\utils1.c (977, 1)
 ' 
 ' startTimerNested() as L_TIMER
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
@@ -611,14 +575,11 @@ End Function
 ' SRC\utils1.c (994, 1)
 ' 
 ' stopTimerNested(L_TIMER) as l_float32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function stopTimerNested(
-				ByRef utime_start as IntPtr) as Single
+				ByVal utime_start as IntPtr) as Single
 
 	If IsNothing (utime_start) then Throw New ArgumentNullException  ("utime_start cannot be Nothing")
 
@@ -631,14 +592,11 @@ End Function
 ' SRC\utils1.c (1013, 1)
 ' 
 ' l_getCurrentTime(l_int32 *, l_int32 *) as void
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 Public Shared Sub l_getCurrentTime(
-				ByRef sec as Object, 
-				ByRef usec as Object)
+				ByVal sec as Object, 
+				ByVal usec as Object)
 
 	If IsNothing (sec) then Throw New ArgumentNullException  ("sec cannot be Nothing")
 	If IsNothing (usec) then Throw New ArgumentNullException  ("usec cannot be Nothing")
@@ -652,12 +610,13 @@ End Sub
 ' startWallTimer()
 ' startWallTimer() as L_WALLTIMER *
 '''  <summary>
-''' Notes
-''' (1) These measure the wall clock time  elapsed between the two calls
-''' L_WALLTIMER timer = startWallTimer();
-''' ....
-''' fprintf(stderr, "Elapsed time = %f sec\n", stopWallTimer(timer);
-''' (2) Note that the timer object is destroyed by stopWallTimer().
+''' <para/>
+''' Notes:<para/>
+''' (1) These measure the wall clock time  elapsed between the two calls:<para/>
+''' L_WALLTIMER timer = startWallTimer()<para/>
+''' ....<para/>
+''' fprintf(stderr, "Elapsed time = %f sec\n", stopWallTimer( and timer)<para/>
+''' (2) Note that the timer object is destroyed by stopWallTimer().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -675,9 +634,6 @@ End Function
 ' SRC\utils1.c (1069, 1)
 ' stopWallTimer()
 ' stopWallTimer(L_WALLTIMER **) as l_float32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="ptimer">[in,out] - walltimer-ptr</param>
@@ -698,10 +654,11 @@ End Function
 ' l_getFormattedDate()
 ' l_getFormattedDate() as char *
 '''  <summary>
-''' Notes
-''' (1) This is used in pdf, in the form specified in section 3.8.2 of
-''' http//partners.adobe.com/public/developer/en/pdf/PDFReference.pdf
-''' (2) Contributed by Dave Bryan.  Works on all platforms.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is used in pdf, in the form specified in section 3.8.2 of<para/>
+''' http://partners.adobe.com/public/developer/en/pdf/PDFReference.pdf<para/>
+''' (2) Contributed by Dave Bryan.  Works on all platforms.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

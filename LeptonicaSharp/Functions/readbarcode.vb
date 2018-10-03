@@ -1,14 +1,11 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\readbarcode.c (134, 1)
 ' pixProcessBarcodes()
 ' pixProcessBarcodes(PIX *, l_int32, l_int32, SARRAY **, l_int32) as SARRAY *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - any depth</param>
@@ -38,9 +35,6 @@ End Function
 ' SRC\readbarcode.c (182, 1)
 ' pixExtractBarcodes()
 ' pixExtractBarcodes(PIX *, l_int32) as PIXA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 8 bpp, no colormap</param>
@@ -62,14 +56,11 @@ End Function
 ' SRC\readbarcode.c (254, 1)
 ' pixReadBarcodes()
 ' pixReadBarcodes(PIXA *, l_int32, l_int32, SARRAY **, l_int32) as SARRAY *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixa">[in] - of 8 bpp deskewed and cropped barcodes</param>
 '''  <param name="format">[in] - L_BF_ANY, L_BF_CODEI2OF5, L_BF_CODE93, ...</param>
-'''  <param name="method">[in] - L_USE_WIDTHS, L_USE_WINDOWS;</param>
+'''  <param name="method">[in] - L_USE_WIDTHS, L_USE_WINDOWS</param>
 '''  <param name="psaw">[out][optional] - sarray of bar widths</param>
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
 '''   <returns>sa sarray of widths, one string for each barcode found, or NULL on error</returns>
@@ -94,13 +85,10 @@ End Function
 ' SRC\readbarcode.c (335, 1)
 ' pixReadBarcodeWidths()
 ' pixReadBarcodeWidths(PIX *, l_int32, l_int32) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - of 8 bpp deskewed and cropped barcode</param>
-'''  <param name="method">[in] - L_USE_WIDTHS, L_USE_WINDOWS;</param>
+'''  <param name="method">[in] - L_USE_WIDTHS, L_USE_WINDOWS</param>
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
 '''   <returns>na numa of widths (each in set {1,2,3,4}, or NULL on error</returns>
 Public Shared Function pixReadBarcodeWidths(
@@ -120,13 +108,10 @@ End Function
 ' SRC\readbarcode.c (384, 1)
 ' pixLocateBarcodes()
 ' pixLocateBarcodes(PIX *, l_int32, PIX **, PIX **) as BOXA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - any depth</param>
-'''  <param name="thresh">[in] - for binarization of edge filter output; typ. 20</param>
+'''  <param name="thresh">[in] - for binarization of edge filter output typ. 20</param>
 '''  <param name="ppixb">[out][optional] - binarized edge filtered input image</param>
 '''  <param name="ppixm">[out][optional] - mask over barcodes</param>
 '''   <returns>boxa location of barcodes, or NULL if none found or on error</returns>
@@ -153,17 +138,18 @@ End Function
 ' pixDeskewBarcode()
 ' pixDeskewBarcode(PIX *, PIX *, BOX *, l_int32, l_int32, l_float32 *, l_float32 *) as PIX *
 '''  <summary>
-''' Notes
-''' (1) The (optional) angle returned is the angle in degrees (cw positive)
-''' necessary to rotate the image so that it is deskewed.
+''' <para/>
+''' Notes:<para/>
+''' (1) The (optional) angle returned is the angle in degrees (cw positive)<para/>
+''' necessary to rotate the image so that it is deskewed.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixs">[in] - input image; 8 bpp</param>
+'''  <param name="pixs">[in] - input image 8 bpp</param>
 '''  <param name="pixb">[in] - binarized edge-filtered input image</param>
 '''  <param name="box">[in] - identified region containing barcode</param>
 '''  <param name="margin">[in] - of extra pixels around box to extract</param>
-'''  <param name="threshold">[in] - for binarization; ~20</param>
+'''  <param name="threshold">[in] - for binarization ~20</param>
 '''  <param name="pangle">[out][optional] - in degrees, clockwise is positive</param>
 '''  <param name="pconf">[out][optional] - confidence</param>
 '''   <returns>pixd deskewed barcode, or NULL on error</returns>
@@ -191,21 +177,22 @@ End Function
 ' pixExtractBarcodeWidths1()
 ' pixExtractBarcodeWidths1(PIX *, l_float32, l_float32, NUMA **, NUMA **, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) The widths are alternating black/white, starting with black
-''' and ending with black.
-''' (2) This method uses the widths of the bars directly, in terms
-''' of the (float) number of pixels between transitions.
-''' The histograms of these widths for black and white bars is
-''' generated and interpreted.
+''' <para/>
+''' Notes:<para/>
+''' (1) The widths are alternating black/white, starting with black<para/>
+''' and ending with black.<para/>
+''' (2) This method uses the widths of the bars directly, in terms<para/>
+''' of the (float) number of pixels between transitions.<para/>
+''' The histograms of these widths for black and white bars is<para/>
+''' generated and interpreted.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixs">[in] - input image; 8 bpp</param>
-'''  <param name="thresh">[in] - estimated pixel threshold for crossing white LT--GT black; typ. ~120</param>
-'''  <param name="binfract">[in] - histo binsize as a fraction of minsize; e.g., 0.25</param>
-'''  <param name="pnaehist">[out][optional] - histogram of black widths; NULL ok</param>
-'''  <param name="pnaohist">[out][optional] - histogram of white widths; NULL ok</param>
+'''  <param name="pixs">[in] - input image 8 bpp</param>
+'''  <param name="thresh">[in] - estimated pixel threshold for crossing white  is lower -- is greater  black typ. ~120</param>
+'''  <param name="binfract">[in] - histo binsize as a fraction of minsize e.g., 0.25</param>
+'''  <param name="pnaehist">[out][optional] - histogram of black widths NULL ok</param>
+'''  <param name="pnaohist">[out][optional] - histogram of white widths NULL ok</param>
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
 '''   <returns>nad numa of barcode widths in encoded integer units, or NULL on error</returns>
 Public Shared Function pixExtractBarcodeWidths1(
@@ -235,22 +222,23 @@ End Function
 ' pixExtractBarcodeWidths2()
 ' pixExtractBarcodeWidths2(PIX *, l_float32, l_float32 *, NUMA **, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) The widths are alternating black/white, starting with black
-''' and ending with black.
-''' (2) The optional best decoding window width is the width of the window
-''' that is used to make a decision about whether a transition occurs.
-''' It is approximately the average width in pixels of the narrowest
-''' white and black bars (i.e., those corresponding to unit width).
-''' (3) The optional return signal %nac is a sequence of 0s, 1s,
-''' and perhaps a few 2s, giving the number of crossings in each window.
-''' On the occasion where there is a '2', it is interpreted as
-''' as ending two runs the previous one and another one that has length 1.
+''' <para/>
+''' Notes:<para/>
+''' (1) The widths are alternating black/white, starting with black<para/>
+''' and ending with black.<para/>
+''' (2) The optional best decoding window width is the width of the window<para/>
+''' that is used to make a decision about whether a transition occurs.<para/>
+''' It is approximately the average width in pixels of the narrowest<para/>
+''' white and black bars (i.e., those corresponding to unit width).<para/>
+''' (3) The optional return signal %nac is a sequence of 0s, 1s,<para/>
+''' and perhaps a few 2s, giving the number of crossings in each window.<para/>
+''' On the occasion where there is a '2', it is interpreted as<para/>
+''' as ending two runs: the previous one and another one that has length 1.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixs">[in] - input image; 8 bpp</param>
-'''  <param name="thresh">[in] - estimated pixel threshold for crossing white LT--GT black; typ. ~120</param>
+'''  <param name="pixs">[in] - input image 8 bpp</param>
+'''  <param name="thresh">[in] - estimated pixel threshold for crossing white  is lower -- is greater  black typ. ~120</param>
 '''  <param name="pwidth">[out][optional] - best decoding window width, in pixels</param>
 '''  <param name="pnac">[out][optional] - number of transitions in each window</param>
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
@@ -277,13 +265,10 @@ End Function
 ' SRC\readbarcode.c (713, 1)
 ' pixExtractBarcodeCrossings()
 ' pixExtractBarcodeCrossings(PIX *, l_float32, l_int32) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixs">[in] - input image; 8 bpp</param>
-'''  <param name="thresh">[in] - estimated pixel threshold for crossing white LT--GT black; typ. ~120</param>
+'''  <param name="pixs">[in] - input image 8 bpp</param>
+'''  <param name="thresh">[in] - estimated pixel threshold for crossing white  is lower -- is greater  black typ. ~120</param>
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
 '''   <returns>numa of crossings, in pixel units, or NULL on error</returns>
 Public Shared Function pixExtractBarcodeCrossings(
@@ -305,21 +290,22 @@ End Function
 ' numaQuantizeCrossingsByWidth()
 ' numaQuantizeCrossingsByWidth(NUMA *, l_float32, NUMA **, NUMA **, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) This first computes the histogram of black and white bar widths,
-''' binned in appropriate units.  There should be well-defined
-''' peaks, each corresponding to a specific width.  The sequence
-''' of barcode widths (namely, the integers from the set {1,2,3,4})
-''' is returned.
-''' (2) The optional returned histograms are binned in width units
-''' that are inversely proportional to %binfract.  For example,
-''' if %binfract = 0.25, there are 4.0 bins in the distance of
-''' the width of the narrowest bar.
+''' <para/>
+''' Notes:<para/>
+''' (1) This first computes the histogram of black and white bar widths,<para/>
+''' binned in appropriate units.  There should be well-defined<para/>
+''' peaks, each corresponding to a specific width.  The sequence<para/>
+''' of barcode widths (namely, the integers from the set {1,2,3,4})<para/>
+''' is returned.<para/>
+''' (2) The optional returned histograms are binned in width units<para/>
+''' that are inversely proportional to %binfract.  For example,<para/>
+''' if %binfract = 0.25, there are 4.0 bins in the distance of<para/>
+''' the width of the narrowest bar.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - numa of crossing locations, in pixel units</param>
-'''  <param name="binfract">[in] - histo binsize as a fraction of minsize; e.g., 0.25</param>
+'''  <param name="binfract">[in] - histo binsize as a fraction of minsize e.g., 0.25</param>
 '''  <param name="pnaehist">[out][optional] - histo of even (black) bar widths</param>
 '''  <param name="pnaohist">[out][optional] - histo of odd (white) bar widths</param>
 '''  <param name="debugflag">[in] - 1 to generate plots of histograms of bar widths</param>
@@ -349,18 +335,19 @@ End Function
 ' numaQuantizeCrossingsByWindow()
 ' numaQuantizeCrossingsByWindow(NUMA *, l_float32, l_float32 *, l_float32 *, NUMA **, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) The minimum size of the window is set by the minimum
-''' distance between zero crossings.
-''' (2) The optional return signal %nac is a sequence of 0s, 1s,
-''' and perhaps a few 2s, giving the number of crossings in each window.
-''' On the occasion where there is a '2', it is interpreted as
-''' ending two runs the previous one and another one that has length 1.
+''' <para/>
+''' Notes:<para/>
+''' (1) The minimum size of the window is set by the minimum<para/>
+''' distance between zero crossings.<para/>
+''' (2) The optional return signal %nac is a sequence of 0s, 1s,<para/>
+''' and perhaps a few 2s, giving the number of crossings in each window.<para/>
+''' On the occasion where there is a '2', it is interpreted as<para/>
+''' ending two runs: the previous one and another one that has length 1.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - numa of crossing locations</param>
-'''  <param name="ratio">[in] - of max window size over min window size in search; typ. 2.0</param>
+'''  <param name="ratio">[in] - of max window size over min window size in search typ. 2.0</param>
 '''  <param name="pwidth">[out][optional] - best window width</param>
 '''  <param name="pfirstloc">[out][optional] - center of window for first xing</param>
 '''  <param name="pnac">[out][optional] - array of window crossings (0, 1, 2)</param>

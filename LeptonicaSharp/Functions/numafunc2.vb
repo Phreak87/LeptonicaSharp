@@ -1,27 +1,28 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\numafunc2.c (165, 1)
 ' numaErode()
 ' numaErode(NUMA *, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) The structuring element (sel) is linear, all "hits"
-''' (2) If size == 1, this returns a copy
-''' (3) General comment.  The morphological operations are equivalent
-''' to those that would be performed on a 1-dimensional fpix.
-''' However, because we have not implemented morphological
-''' operations on fpix, we do this here.  Because it is only
-''' 1 dimensional, there is no reason to use the more
-''' complicated van Herk/Gil-Werman algorithm, and we do it
-''' by brute force.
+''' <para/>
+''' Notes:<para/>
+''' (1) The structuring element (sel) is linear, all "hits"<para/>
+''' (2) If size == 1, this returns a copy<para/>
+''' (3) General comment.  The morphological operations are equivalent<para/>
+''' to those that would be performed on a 1-dimensional fpix.<para/>
+''' However, because we have not implemented morphological<para/>
+''' operations on fpix, we do this here.  Because it is only<para/>
+''' 1 dimensional, there is no reason to use the more<para/>
+''' complicated van Herk/Gil-Werman algorithm, and we do it<para/>
+''' by brute force.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - </param>
-'''  <param name="size">[in] - of sel; greater than 0, odd; origin implicitly in center</param>
+'''  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 '''   <returns>nad eroded, or NULL on error</returns>
 Public Shared Function numaErode(
 				ByVal nas as Numa, 
@@ -40,14 +41,15 @@ End Function
 ' numaDilate()
 ' numaDilate(NUMA *, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) The structuring element (sel) is linear, all "hits"
-''' (2) If size == 1, this returns a copy
+''' <para/>
+''' Notes:<para/>
+''' (1) The structuring element (sel) is linear, all "hits"<para/>
+''' (2) If size == 1, this returns a copy<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - </param>
-'''  <param name="size">[in] - of sel; greater than 0, odd; origin implicitly in center</param>
+'''  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 '''   <returns>nad dilated, or NULL on error</returns>
 Public Shared Function numaDilate(
 				ByVal nas as Numa, 
@@ -66,14 +68,15 @@ End Function
 ' numaOpen()
 ' numaOpen(NUMA *, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) The structuring element (sel) is linear, all "hits"
-''' (2) If size == 1, this returns a copy
+''' <para/>
+''' Notes:<para/>
+''' (1) The structuring element (sel) is linear, all "hits"<para/>
+''' (2) If size == 1, this returns a copy<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - </param>
-'''  <param name="size">[in] - of sel; greater than 0, odd; origin implicitly in center</param>
+'''  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 '''   <returns>nad opened, or NULL on error</returns>
 Public Shared Function numaOpen(
 				ByVal nas as Numa, 
@@ -92,20 +95,21 @@ End Function
 ' numaClose()
 ' numaClose(NUMA *, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) The structuring element (sel) is linear, all "hits"
-''' (2) If size == 1, this returns a copy
-''' (3) We add a border before doing this operation, for the same
-''' reason that we add a border to a pix before doing a safe closing.
-''' Without the border, a small component near the border gets
-''' clipped at the border on dilation, and can be entirely removed
-''' by the following erosion, violating the basic extensivity
-''' property of closing.
+''' <para/>
+''' Notes:<para/>
+''' (1) The structuring element (sel) is linear, all "hits"<para/>
+''' (2) If size == 1, this returns a copy<para/>
+''' (3) We add a border before doing this operation, for the same<para/>
+''' reason that we add a border to a pix before doing a safe closing.<para/>
+''' Without the border, a small component near the border gets<para/>
+''' clipped at the border on dilation, and can be entirely removed<para/>
+''' by the following erosion, violating the basic extensivity<para/>
+''' property of closing.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - </param>
-'''  <param name="size">[in] - of sel; greater than 0, odd; origin implicitly in center</param>
+'''  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 '''   <returns>nad opened, or NULL on error</returns>
 Public Shared Function numaClose(
 				ByVal nas as Numa, 
@@ -124,8 +128,9 @@ End Function
 ' numaTransform()
 ' numaTransform(NUMA *, l_float32, l_float32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) Each number is shifted before scaling.
+''' <para/>
+''' Notes:<para/>
+''' (1) Each number is shifted before scaling.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -152,14 +157,11 @@ End Function
 ' SRC\numafunc2.c (431, 1)
 ' numaSimpleStats()
 ' numaSimpleStats(NUMA *, l_int32, l_int32, l_float32 *, l_float32 *, l_float32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - input numa</param>
 '''  <param name="first">[in] - first element to use</param>
-'''  <param name="last">[in] - last element to use; 0 to go to the end</param>
+'''  <param name="last">[in] - last element to use 0 to go to the end</param>
 '''  <param name="pmean">[out][optional] - mean value</param>
 '''  <param name="pvar">[out][optional] - variance</param>
 '''  <param name="prvar">[out][optional] - rms deviation from the mean</param>
@@ -184,23 +186,24 @@ End Function
 ' numaWindowedStats()
 ' numaWindowedStats(NUMA *, l_int32, NUMA **, NUMA **, NUMA **, NUMA **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This is a high-level convenience function for calculating
-''' any or all of these derived arrays.
-''' (2) These statistical measures over the values in the
-''' rectangular window are
-''' ~ average value [x]  (nam)
-''' ~ average squared value [xx] (nams)
-''' ~ variance [(x - [x])(x - [x])] = [xx] - [x][x]  (nav)
-''' ~ square-root of variance (narv)
-''' where the brackets [ .. ] indicate that the average value is
-''' to be taken over the window.
-''' (3) Note that the variance is just the mean square difference from
-''' the mean value; and the square root of the variance is the
-''' root mean square difference from the mean, sometimes also
-''' called the 'standard deviation'.
-''' (4) Internally, use mirrored borders to handle values near the
-''' end of each array.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is a high-level convenience function for calculating<para/>
+''' any or all of these derived arrays.<para/>
+''' (2) These statistical measures over the values in the<para/>
+''' rectangular window are:<para/>
+''' ~ average value: [x]  (nam)<para/>
+''' ~ average squared value: [xx] (nams)<para/>
+''' ~ variance: [(x - [x])(x - [x])] = [xx] - [x][x]  (nav)<para/>
+''' ~ square-root of variance: (narv)<para/>
+''' where the brackets [ .. ] indicate that the average value is<para/>
+''' to be taken over the window.<para/>
+''' (3) Note that the variance is just the mean square difference from<para/>
+''' the mean value and the square root of the variance is the<para/>
+''' root mean square difference from the mean, sometimes also<para/>
+''' called the 'standard deviation'.<para/>
+''' (4) Internally, use mirrored borders to handle values near the<para/>
+''' end of each array.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -239,9 +242,10 @@ End Function
 ' numaWindowedMean()
 ' numaWindowedMean(NUMA *, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) This is a convolution.  The window has width = 2  %wc + 1.
-''' (2) We add a mirrored border of size %wc to each end of the array.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is a convolution.  The window has width = 2  %wc + 1.<para/>
+''' (2) We add a mirrored border of size %wc to each end of the array.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -265,9 +269,10 @@ End Function
 ' numaWindowedMeanSquare()
 ' numaWindowedMeanSquare(NUMA *, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) The window has width = 2  %wc + 1.
-''' (2) We add a mirrored border of size %wc to each end of the array.
+''' <para/>
+''' Notes:<para/>
+''' (1) The window has width = 2  %wc + 1.<para/>
+''' (2) We add a mirrored border of size %wc to each end of the array.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -291,14 +296,15 @@ End Function
 ' numaWindowedVariance()
 ' numaWindowedVariance(NUMA *, NUMA *, NUMA **, NUMA **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The numas of windowed mean and mean square are precomputed,
-''' using numaWindowedMean() and numaWindowedMeanSquare().
-''' (2) Either or both of the variance and square-root of variance
-''' are returned, where the variance is the average over the
-''' window of the mean square difference of the pixel value
-''' from the mean
-''' [(x - [x])(x - [x])] = [xx] - [x][x]
+''' <para/>
+''' Notes:<para/>
+''' (1) The numas of windowed mean and mean square are precomputed,<para/>
+''' using numaWindowedMean() and numaWindowedMeanSquare().<para/>
+''' (2) Either or both of the variance and square-root of variance<para/>
+''' are returned, where the variance is the average over the<para/>
+''' window of the mean square difference of the pixel value<para/>
+''' from the mean:<para/>
+''' [(x - [x])(x - [x])] = [xx] - [x][x]<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -330,13 +336,14 @@ End Function
 ' numaWindowedMedian()
 ' numaWindowedMedian(NUMA *, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) The requested window has width = 2  %halfwin + 1.
-''' (2) If the input nas has less then 3 elements, return a copy.
-''' (3) If the filter is too small (%halfwin LT= 0), return a copy.
-''' (4) If the filter is too large, it is reduced in size.
-''' (5) We add a mirrored border of size %halfwin to each end of
-''' the array to simplify the calculation by avoiding end-effects.
+''' <para/>
+''' Notes:<para/>
+''' (1) The requested window has width = 2  %halfwin + 1.<para/>
+''' (2) If the input nas has less then 3 elements, return a copy.<para/>
+''' (3) If the filter is too small (%halfwin  is lower = 0), return a copy.<para/>
+''' (4) If the filter is too large, it is reduced in size.<para/>
+''' (5) We add a mirrored border of size %halfwin to each end of<para/>
+''' the array to simplify the calculation by avoiding end-effects.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -359,9 +366,6 @@ End Function
 ' SRC\numafunc2.c (807, 1)
 ' numaConvertToInt()
 ' numaConvertToInt(NUMA *) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - source numa</param>
@@ -382,25 +386,26 @@ End Function
 ' numaMakeHistogram()
 ' numaMakeHistogram(NUMA *, l_int32, l_int32 *, l_int32 *) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) This simple interface is designed for integer data.
-''' The bins are of integer width and start on integer boundaries,
-''' so the results on float data will not have high precision.
-''' (2) Specify the max number of input bins.   Then %binsize,
-''' the size of bins necessary to accommodate the input data,
-''' is returned.  It is one of the sequence
-''' {1, 2, 5, 10, 20, 50, ...}.
-''' (3) If binstart is given, all values are accommodated,
-''' and the min value of the starting bin is returned.
-''' Otherwise, all negative values are discarded and
-''' the histogram bins start at 0.
+''' <para/>
+''' Notes:<para/>
+''' (1) This simple interface is designed for integer data.<para/>
+''' The bins are of integer width and start on integer boundaries,<para/>
+''' so the results on float data will not have high precision.<para/>
+''' (2) Specify the max number of input bins. Then %binsize,<para/>
+''' the size of bins necessary to accommodate the input data,<para/>
+''' is returned.  It is one of the sequence:<para/>
+''' {1, 2, 5, 10, 20, 50, ...}.<para/>
+''' (3) If  and binstart is given, all values are accommodated,<para/>
+''' and the min value of the starting bin is returned.<para/>
+''' Otherwise, all negative values are discarded and<para/>
+''' the histogram bins start at 0.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - </param>
 '''  <param name="maxbins">[in] - max number of histogram bins</param>
 '''  <param name="pbinsize">[out] - size of histogram bins</param>
-'''  <param name="pbinstart">[out][optional] - start val of minimum bin; input NULL to force start at 0</param>
+'''  <param name="pbinstart">[out][optional] - start val of minimum bin input NULL to force start at 0</param>
 '''   <returns>na consisiting of histogram of integerized values, or NULL on error.</returns>
 Public Shared Function numaMakeHistogram(
 				ByVal na as Numa, 
@@ -421,22 +426,23 @@ End Function
 ' numaMakeHistogramAuto()
 ' numaMakeHistogramAuto(NUMA *, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) This simple interface is designed for accurate binning
-''' of both integer and float data.
-''' (2) If the array data is integers, and the range of integers
-''' is smaller than %maxbins, they are binned as they fall,
-''' with binsize = 1.
-''' (3) If the range of data, (maxval - minval), is larger than
-''' %maxbins, or if the data is floats, they are binned into
-''' exactly %maxbins bins.
-''' (4) Unlike numaMakeHistogram(), these bins in general have
-''' non-integer location and width, even for integer data.
+''' <para/>
+''' Notes:<para/>
+''' (1) This simple interface is designed for accurate binning<para/>
+''' of both integer and float data.<para/>
+''' (2) If the array data is integers, and the range of integers<para/>
+''' is smaller than %maxbins, they are binned as they fall,<para/>
+''' with binsize = 1.<para/>
+''' (3) If the range of data, (maxval - minval), is larger than<para/>
+''' %maxbins, or if the data is floats, they are binned into<para/>
+''' exactly %maxbins bins.<para/>
+''' (4) Unlike numaMakeHistogram(), these bins in general have<para/>
+''' non-integer location and width, even for integer data.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="na">[in] - numa of floats; these may be integers</param>
-'''  <param name="maxbins">[in] - max number of histogram bins; GT= 1</param>
+'''  <param name="na">[in] - numa of floats these may be integers</param>
+'''  <param name="maxbins">[in] - max number of histogram bins  is greater = 1</param>
 '''   <returns>na consisiting of histogram of quantized float values, or NULL on error.</returns>
 Public Shared Function numaMakeHistogramAuto(
 				ByVal na as Numa, 
@@ -455,13 +461,14 @@ End Function
 ' numaMakeHistogramClipped()
 ' numaMakeHistogramClipped(NUMA *, l_float32, l_float32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) This simple function generates a histogram of values
-''' from na, discarding all values LT 0.0 or greater than
-''' min(%maxsize, maxval), where maxval is the maximum value in na.
-''' The histogram data is put in bins of size delx = %binsize,
-''' starting at x = 0.0.  We use as many bins as are
-''' needed to hold the data.
+''' <para/>
+''' Notes:<para/>
+''' (1) This simple function generates a histogram of values<para/>
+''' from na, discarding all values  is lower  0.0 or greater than<para/>
+''' min(%maxsize, maxval), where maxval is the maximum value in na.<para/>
+''' The histogram data is put in bins of size delx = %binsize,<para/>
+''' starting at x = 0.0.  We use as many bins as are<para/>
+''' needed to hold the data.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -488,9 +495,6 @@ End Function
 ' SRC\numafunc2.c (1104, 1)
 ' numaRebinHistogram()
 ' numaRebinHistogram(NUMA *, l_int32) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - input histogram</param>
@@ -512,13 +516,10 @@ End Function
 ' SRC\numafunc2.c (1153, 1)
 ' numaNormalizeHistogram()
 ' numaNormalizeHistogram(NUMA *, l_float32) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - input histogram</param>
-'''  <param name="tsum">[in] - target sum of all numbers in dest histogram; e.g., use %tsum= 1.0 if this represents a probability distribution</param>
+'''  <param name="tsum">[in] - target sum of all numbers in dest histogram e.g., use %tsum= 1.0 if this represents a probability distribution</param>
 '''   <returns>nad normalized histogram, or NULL on error</returns>
 Public Shared Function numaNormalizeHistogram(
 				ByVal nas as Numa, 
@@ -538,45 +539,46 @@ End Function
 ' numaGetStatsUsingHistogram()
 ' numaGetStatsUsingHistogram(NUMA *, l_int32, l_float32 *, l_float32 *, l_float32 *, l_float32 *, l_float32 *, l_float32, l_float32 *, NUMA **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This is a simple interface for gathering statistics
-''' from a numa, where a histogram is used 'under the covers'
-''' to avoid sorting if a rank value is requested.  In that case,
-''' by using a histogram we are trading speed for accuracy, because
-''' the values in %na are quantized to the center of a set of bins.
-''' (2) If the median, other rank value, or histogram are not requested,
-''' the calculation is all performed on the input Numa.
-''' (3) The variance is the average of the square of the
-''' difference from the mean.  The median is the value in na
-''' with rank 0.5.
-''' (4) There are two situations where this gives rank results with
-''' accuracy comparable to computing stastics directly on the input
-''' data, without binning into a histogram
-''' (a) the data is integers and the range of data is less than
-''' %maxbins, and
-''' (b) the data is floats and the range is small compared to
-''' %maxbins, so that the binsize is much less than 1.
-''' (5) If a histogram is used and the numbers in the Numa extend
-''' over a large range, you can limit the required storage by
-''' specifying the maximum number of bins in the histogram.
-''' Use %maxbins == 0 to force the bin size to be 1.
-''' (6) This optionally returns the median and one arbitrary rank value.
-''' If you need several rank values, return the histogram and use
-''' numaHistogramGetValFromRank(nah, rank, rval)
-''' multiple times.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is a simple interface for gathering statistics<para/>
+''' from a numa, where a histogram is used 'under the covers'<para/>
+''' to avoid sorting if a rank value is requested.  In that case,<para/>
+''' by using a histogram we are trading speed for accuracy, because<para/>
+''' the values in %na are quantized to the center of a set of bins.<para/>
+''' (2) If the median, other rank value, or histogram are not requested,<para/>
+''' the calculation is all performed on the input Numa.<para/>
+''' (3) The variance is the average of the square of the<para/>
+''' difference from the mean.  The median is the value in na<para/>
+''' with rank 0.5.<para/>
+''' (4) There are two situations where this gives rank results with<para/>
+''' accuracy comparable to computing stastics directly on the input<para/>
+''' data, without binning into a histogram:<para/>
+''' (a) the data is integers and the range of data is less than<para/>
+''' %maxbins, and<para/>
+''' (b) the data is floats and the range is small compared to<para/>
+''' %maxbins, so that the binsize is much less than 1.<para/>
+''' (5) If a histogram is used and the numbers in the Numa extend<para/>
+''' over a large range, you can limit the required storage by<para/>
+''' specifying the maximum number of bins in the histogram.<para/>
+''' Use %maxbins == 0 to force the bin size to be 1.<para/>
+''' (6) This optionally returns the median and one arbitrary rank value.<para/>
+''' If you need several rank values, return the histogram and use<para/>
+''' numaHistogramGetValFromRank(nah, rank,  and rval)<para/>
+''' multiple times.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="na">[in] - an arbitrary set of numbers; not ordered and not a histogram</param>
-'''  <param name="maxbins">[in] - the maximum number of bins to be allowed in the histogram; use an integer larger than the largest number in %na for consecutive integer bins</param>
+'''  <param name="na">[in] - an arbitrary set of numbers not ordered and not a histogram</param>
+'''  <param name="maxbins">[in] - the maximum number of bins to be allowed in the histogram use an integer larger than the largest number in %na for consecutive integer bins</param>
 '''  <param name="pmin">[out][optional] - min value of set</param>
 '''  <param name="pmax">[out][optional] - max value of set</param>
 '''  <param name="pmean">[out][optional] - mean value of set</param>
 '''  <param name="pvariance">[out][optional] - variance</param>
 '''  <param name="pmedian">[out][optional] - median value of set</param>
-'''  <param name="rank">[in] - in [0.0 ... 1.0]; median has a rank 0.5; ignored if rval == NULL</param>
+'''  <param name="rank">[in] - in [0.0 ... 1.0] median has a rank 0.5 ignored if  and rval == NULL</param>
 '''  <param name="prval">[out][optional] - value in na corresponding to %rank</param>
-'''  <param name="phisto">[out][optional] - Numa histogram; use NULL to prevent</param>
+'''  <param name="phisto">[out][optional] - Numa histogram use NULL to prevent</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function numaGetStatsUsingHistogram(
 				ByVal na as Numa, 
@@ -605,21 +607,22 @@ End Function
 ' numaGetHistogramStats()
 ' numaGetHistogramStats(NUMA *, l_float32, l_float32, l_float32 *, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) If the histogram represents the relation y(x), the
-''' computed values that are returned are the x values.
-''' These are NOT the bucket indices i; they are related to the
-''' bucket indices by
-''' x(i) = startx + i  deltax
+''' <para/>
+''' Notes:<para/>
+''' (1) If the histogram represents the relation y(x), the<para/>
+''' computed values that are returned are the x values.<para/>
+''' These are NOT the bucket indices i they are related to the<para/>
+''' bucket indices by<para/>
+''' x(i) = startx + i  deltax<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="nahisto">[in] - histogram y(x(i)), i = 0 ... nbins - 1</param>
-'''  <param name="startx">[in] - x value of first bin x(0)</param>
-'''  <param name="deltax">[in] - x increment between bins; the bin size; x(1) - x(0)</param>
+'''  <param name="nahisto">[in] - histogram: y(x(i)), i = 0 ... nbins - 1</param>
+'''  <param name="startx">[in] - x value of first bin: x(0)</param>
+'''  <param name="deltax">[in] - x increment between bins the bin size x(1) - x(0)</param>
 '''  <param name="pxmean">[out][optional] - mean value of histogram</param>
 '''  <param name="pxmedian">[out][optional] - median value of histogram</param>
-'''  <param name="pxmode">[out][optional] - mode value of histogram xmode = x(imode), where y(xmode) GT= y(x(i)) for all i != imode</param>
+'''  <param name="pxmode">[out][optional] - mode value of histogram: xmode = x(imode), where y(xmode)  is greater = y(x(i)) for all i != imode</param>
 '''  <param name="pxvariance">[out][optional] - variance of x</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function numaGetHistogramStats(
@@ -645,23 +648,24 @@ End Function
 ' numaGetHistogramStatsOnInterval()
 ' numaGetHistogramStatsOnInterval(NUMA *, l_float32, l_float32, l_int32, l_int32, l_float32 *, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) If the histogram represents the relation y(x), the
-''' computed values that are returned are the x values.
-''' These are NOT the bucket indices i; they are related to the
-''' bucket indices by
-''' x(i) = startx + i  deltax
+''' <para/>
+''' Notes:<para/>
+''' (1) If the histogram represents the relation y(x), the<para/>
+''' computed values that are returned are the x values.<para/>
+''' These are NOT the bucket indices i they are related to the<para/>
+''' bucket indices by<para/>
+''' x(i) = startx + i  deltax<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="nahisto">[in] - histogram y(x(i)), i = 0 ... nbins - 1</param>
-'''  <param name="startx">[in] - x value of first bin x(0)</param>
-'''  <param name="deltax">[in] - x increment between bins; the bin size; x(1) - x(0)</param>
+'''  <param name="nahisto">[in] - histogram: y(x(i)), i = 0 ... nbins - 1</param>
+'''  <param name="startx">[in] - x value of first bin: x(0)</param>
+'''  <param name="deltax">[in] - x increment between bins the bin size x(1) - x(0)</param>
 '''  <param name="ifirst">[in] - first bin to use for collecting stats</param>
-'''  <param name="ilast">[in] - last bin for collecting stats; use 0 to go to the end</param>
+'''  <param name="ilast">[in] - last bin for collecting stats use 0 to go to the end</param>
 '''  <param name="pxmean">[out][optional] - mean value of histogram</param>
 '''  <param name="pxmedian">[out][optional] - median value of histogram</param>
-'''  <param name="pxmode">[out][optional] - mode value of histogram xmode = x(imode), where y(xmode) GT= y(x(i)) for all i != imode</param>
+'''  <param name="pxmode">[out][optional] - mode value of histogram: xmode = x(imode), where y(xmode)  is greater = y(x(i)) for all i != imode</param>
 '''  <param name="pxvariance">[out][optional] - variance of x</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function numaGetHistogramStatsOnInterval(
@@ -688,9 +692,6 @@ End Function
 ' SRC\numafunc2.c (1462, 1)
 ' numaMakeRankFromHistogram()
 ' numaMakeRankFromHistogram(l_float32, l_float32, NUMA *, l_int32, NUMA **, NUMA **) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="startx">[in] - xval corresponding to first element in nay</param>
@@ -726,17 +727,18 @@ End Function
 ' numaHistogramGetRankFromVal()
 ' numaHistogramGetRankFromVal(NUMA *, l_float32, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) If we think of the histogram as a function y(x), normalized
-''' to 1, for a given input value of x, this computes the
-''' rank of x, which is the integral of y(x) from the start
-''' value of x to the input value.
-''' (2) This function only makes sense when applied to a Numa that
-''' is a histogram.  The values in the histogram can be ints and
-''' floats, and are computed as floats.  The rank is returned
-''' as a float between 0.0 and 1.0.
-''' (3) The numa parameters startx and binsize are used to
-''' compute x from the Numa index i.
+''' <para/>
+''' Notes:<para/>
+''' (1) If we think of the histogram as a function y(x), normalized<para/>
+''' to 1, for a given input value of x, this computes the<para/>
+''' rank of x, which is the integral of y(x) from the start<para/>
+''' value of x to the input value.<para/>
+''' (2) This function only makes sense when applied to a Numa that<para/>
+''' is a histogram.  The values in the histogram can be ints and<para/>
+''' floats, and are computed as floats.  The rank is returned<para/>
+''' as a float between 0.0 and 1.0.<para/>
+''' (3) The numa parameters startx and binsize are used to<para/>
+''' compute x from the Numa index i.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -762,17 +764,18 @@ End Function
 ' numaHistogramGetValFromRank()
 ' numaHistogramGetValFromRank(NUMA *, l_float32, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) If we think of the histogram as a function y(x), this returns
-''' the value x such that the integral of y(x) from the start
-''' value to x gives the fraction 'rank' of the integral
-''' of y(x) over all bins.
-''' (2) This function only makes sense when applied to a Numa that
-''' is a histogram.  The values in the histogram can be ints and
-''' floats, and are computed as floats.  The val is returned
-''' as a float, even though the buckets are of integer width.
-''' (3) The numa parameters startx and binsize are used to
-''' compute x from the Numa index i.
+''' <para/>
+''' Notes:<para/>
+''' (1) If we think of the histogram as a function y(x), this returns<para/>
+''' the value x such that the integral of y(x) from the start<para/>
+''' value to x gives the fraction 'rank' of the integral<para/>
+''' of y(x) over all bins.<para/>
+''' (2) This function only makes sense when applied to a Numa that<para/>
+''' is a histogram.  The values in the histogram can be ints and<para/>
+''' floats, and are computed as floats.  The val is returned<para/>
+''' as a float, even though the buckets are of integer width.<para/>
+''' (3) The numa parameters startx and binsize are used to<para/>
+''' compute x from the Numa index i.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -798,19 +801,20 @@ End Function
 ' numaDiscretizeRankAndIntensity()
 ' numaDiscretizeRankAndIntensity(NUMA *, l_int32, NUMA **, NUMA **, NUMA **, NUMA **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) We are inverting the rank(intensity) function to get
-''' the intensity(rank) function at %nbins equally spaced
-''' values of rank between 0.0 and 1.0.  We save integer values
-''' for the intensity.
-''' (2) We are using the word "intensity" to describe the type of
-''' array values, but any array of non-negative numbers will work.
-''' (3) The output arrays give the following mappings, where the
-''' input is a normalized histogram of array values
-''' array values  --GT  rank bin number  (narbin)
-''' rank bin number  --GT  median array value in bin (nam)
-''' array values  --GT  cumulative norm = rank  (nar)
-''' rank bin number  --GT  array value at right bin edge (nabb)
+''' <para/>
+''' Notes:<para/>
+''' (1) We are inverting the rank(intensity) function to get<para/>
+''' the intensity(rank) function at %nbins equally spaced<para/>
+''' values of rank between 0.0 and 1.0.  We save integer values<para/>
+''' for the intensity.<para/>
+''' (2) We are using the word "intensity" to describe the type of<para/>
+''' array values, but any array of non-negative numbers will work.<para/>
+''' (3) The output arrays give the following mappings, where the<para/>
+''' input is a normalized histogram of array values:<para/>
+''' array values -- is greater rank bin number  (narbin)<para/>
+''' rank bin number  -- is greater median array value in bin (nam)<para/>
+''' array values -- is greater cumulative norm = rank  (nar)<para/>
+''' rank bin number  -- is greater array value at right bin edge (nabb)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -818,7 +822,7 @@ End Function
 '''  <param name="nbins">[in] - number of bins at which the rank is divided</param>
 '''  <param name="pnarbin">[out][optional] - rank bin value vs intensity</param>
 '''  <param name="pnam">[out][optional] - median intensity in a bin vs rank bin value, with %nbins of discretized rank values</param>
-'''  <param name="pnar">[out][optional] - rank vs intensity; this is a cumulative norm histogram</param>
+'''  <param name="pnar">[out][optional] - rank vs intensity this is a cumulative norm histogram</param>
 '''  <param name="pnabb">[out][optional] - intensity at the right bin boundary vs rank bin</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function numaDiscretizeRankAndIntensity(
@@ -849,11 +853,12 @@ End Function
 ' numaGetRankBinValues()
 ' numaGetRankBinValues(NUMA *, l_int32, NUMA **, NUMA **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Simple interface for getting a binned rank representation
-''' of an input array of values.  This returns two mappings
-''' array value  --GT  rank bin number  (narbin)
-''' rank bin number --GT  median array value in each rank bin (nam)
+''' <para/>
+''' Notes:<para/>
+''' (1) Simple interface for getting a binned rank representation<para/>
+''' of an input array of values.  This returns two mappings:<para/>
+''' array value -- is greater rank bin number  (narbin)<para/>
+''' rank bin number -- is greater median array value in each rank bin (nam)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -884,38 +889,39 @@ End Function
 ' numaSplitDistribution()
 ' numaSplitDistribution(NUMA *, l_float32, l_int32 *, l_float32 *, l_float32 *, l_float32 *, l_float32 *, NUMA **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This function is intended to be used on a distribution of
-''' values that represent two sets, such as a histogram of
-''' pixel values for an image with a fg and bg, and the goal
-''' is to determine the averages of the two sets and the
-''' best splitting point.
-''' (2) The Otsu method finds a split point that divides the distribution
-''' into two parts by maximizing a score function that is the
-''' product of two terms
-''' (a) the square of the difference of centroids, (ave1 - ave2)^2
-''' (b) fract1  (1 - fract1)
-''' where fract1 is the fraction in the lower distribution.
-''' (3) This works well for images where the fg and bg are
-''' each relatively homogeneous and well-separated in color.
-''' However, if the actual fg and bg sets are very different
-''' in size, and the bg is highly varied, as can occur in some
-''' scanned document images, this will bias the split point
-''' into the larger "bump" (i.e., toward the point where the
-''' (b) term reaches its maximum of 0.25 at fract1 = 0.5.
-''' To avoid this, we define a range of values near the
-''' maximum of the score function, and choose the value within
-''' this range such that the histogram itself has a minimum value.
-''' The range is determined by scorefract we include all abscissa
-''' values to the left and right of the value that maximizes the
-''' score, such that the score stays above (1 - scorefract)  maxscore.
-''' The intuition behind this modification is to try to find
-''' a split point that both has a high variance score and is
-''' at or near a minimum in the histogram, so that the histogram
-''' slope is small at the split point.
-''' (4) We normalize the score so that if the two distributions
-''' were of equal size and at opposite ends of the numa, the
-''' score would be 1.0.
+''' <para/>
+''' Notes:<para/>
+''' (1) This function is intended to be used on a distribution of<para/>
+''' values that represent two sets, such as a histogram of<para/>
+''' pixel values for an image with a fg and bg, and the goal<para/>
+''' is to determine the averages of the two sets and the<para/>
+''' best splitting point.<para/>
+''' (2) The Otsu method finds a split point that divides the distribution<para/>
+''' into two parts by maximizing a score function that is the<para/>
+''' product of two terms:<para/>
+''' (a) the square of the difference of centroids, (ave1 - ave2)^2<para/>
+''' (b) fract1  (1 - fract1)<para/>
+''' where fract1 is the fraction in the lower distribution.<para/>
+''' (3) This works well for images where the fg and bg are<para/>
+''' each relatively homogeneous and well-separated in color.<para/>
+''' However, if the actual fg and bg sets are very different<para/>
+''' in size, and the bg is highly varied, as can occur in some<para/>
+''' scanned document images, this will bias the split point<para/>
+''' into the larger "bump" (i.e., toward the point where the<para/>
+''' (b) term reaches its maximum of 0.25 at fract1 = 0.5.<para/>
+''' To avoid this, we define a range of values near the<para/>
+''' maximum of the score function, and choose the value within<para/>
+''' this range such that the histogram itself has a minimum value.<para/>
+''' The range is determined by scorefract: we include all abscissa<para/>
+''' values to the left and right of the value that maximizes the<para/>
+''' score, such that the score stays above (1 - scorefract)  maxscore.<para/>
+''' The intuition behind this modification is to try to find<para/>
+''' a split point that both has a high variance score and is<para/>
+''' at or near a minimum in the histogram, so that the histogram<para/>
+''' slope is small at the split point.<para/>
+''' (4) We normalize the score so that if the two distributions<para/>
+''' were of equal size and at opposite ends of the numa, the<para/>
+''' score would be 1.0.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -926,7 +932,7 @@ End Function
 '''  <param name="pave2">[out][optional] - average of upper distribution</param>
 '''  <param name="pnum1">[out][optional] - population of lower distribution</param>
 '''  <param name="pnum2">[out][optional] - population of upper distribution</param>
-'''  <param name="pnascore">[out][optional] - for debugging; otherwise use NULL</param>
+'''  <param name="pnascore">[out][optional] - for debugging otherwise use NULL</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function numaSplitDistribution(
 				ByVal na as Numa, 
@@ -953,19 +959,20 @@ End Function
 ' grayHistogramsToEMD()
 ' grayHistogramsToEMD(NUMAA *, NUMAA *, NUMA **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The two numaas must be the same size and have corresponding
-''' 256-element histograms.  Pairs do not need to be normalized
-''' to the same sum.
-''' (2) This is typically used on two sets of histograms from
-''' corresponding tiles of two images.  The similarity of two
-''' images can be found with the scoring function used in
-''' pixCompareGrayByHisto()
-''' score S = 1.0 - k  D, where
-''' k is a constant, say in the range 5-10
-''' D = EMD
-''' for each tile; for multiple tiles, take the Min(S) over
-''' the set of tiles to be the final score.
+''' <para/>
+''' Notes:<para/>
+''' (1) The two numaas must be the same size and have corresponding<para/>
+''' 256-element histograms.  Pairs do not need to be normalized<para/>
+''' to the same sum.<para/>
+''' (2) This is typically used on two sets of histograms from<para/>
+''' corresponding tiles of two images.  The similarity of two<para/>
+''' images can be found with the scoring function used in<para/>
+''' pixCompareGrayByHisto():<para/>
+''' score S = 1.0 - k  D, where<para/>
+''' k is a constant, say in the range 5-10<para/>
+''' D = EMD<para/>
+''' for each tile for multiple tiles, take the Min(S) over<para/>
+''' the set of tiles to be the final score.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -993,23 +1000,24 @@ End Function
 ' numaEarthMoverDistance()
 ' numaEarthMoverDistance(NUMA *, NUMA *, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The two numas must have the same size.  They do not need to be
-''' normalized to the same sum before applying the function.
-''' (2) For a 1D discrete function, the implementation of the EMD
-''' is trivial.  Just keep filling or emptying buckets in one numa
-''' to match the amount in the other, moving sequentially along
-''' both arrays.
-''' (3) We divide the sum of the absolute value of everything moved
-''' (by 1 unit at a time) by the sum of the numa (amount of "earth")
-''' to get the average distance that the "earth" was moved.
-''' This is the value returned here.
-''' (4) The caller can do a further normalization, by the number of
-''' buckets (minus 1), to get the EM distance as a fraction of
-''' the maximum possible distance, which is n-1.  This fraction
-''' is 1.0 for the situation where all the 'earth' in the first
-''' array is at one end, and all in the second array is at the
-''' other end.
+''' <para/>
+''' Notes:<para/>
+''' (1) The two numas must have the same size.  They do not need to be<para/>
+''' normalized to the same sum before applying the function.<para/>
+''' (2) For a 1D discrete function, the implementation of the EMD<para/>
+''' is trivial.  Just keep filling or emptying buckets in one numa<para/>
+''' to match the amount in the other, moving sequentially along<para/>
+''' both arrays.<para/>
+''' (3) We divide the sum of the absolute value of everything moved<para/>
+''' (by 1 unit at a time) by the sum of the numa (amount of "earth")<para/>
+''' to get the average distance that the "earth" was moved.<para/>
+''' This is the value returned here.<para/>
+''' (4) The caller can do a further normalization, by the number of<para/>
+''' buckets (minus 1), to get the EM distance as a fraction of<para/>
+''' the maximum possible distance, which is n-1.  This fraction<para/>
+''' is 1.0 for the situation where all the 'earth' in the first<para/>
+''' array is at one end, and all in the second array is at the<para/>
+''' other end.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1035,37 +1043,38 @@ End Function
 ' grayInterHistogramStats()
 ' grayInterHistogramStats(NUMAA *, l_int32, NUMA **, NUMA **, NUMA **, NUMA **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The %naa has two or more 256-element numa histograms, which
-''' are to be compared value-wise at each of the 256 gray levels.
-''' The result are stats (mean, mean square, variance, root variance)
-''' aggregated across the set of histograms, and each is output
-''' as a 256 entry numa.  Think of these histograms as a matrix,
-''' where each histogram is one row of the array.  The stats are
-''' then aggregated column-wise, between the histograms.
-''' (2) These stats are
-''' ~ average value LTvGT  (nam)
-''' ~ average squared value LTvvGT (nams)
-''' ~ variance LT(v - LTvGT)(v - LTvGT)GT = LTvvGT - LTvGTLTvGT  (nav)
-''' ~ square-root of variance (narv)
-''' where the brackets LT .. GT indicate that the average value is
-''' to be taken over each column of the array.
-''' (3) The input histograms are optionally smoothed before these
-''' statistical operations.
-''' (4) The input histograms are normalized to a sum of 10000.  By
-''' doing this, the resulting numbers are independent of the
-''' number of samples used in building the individual histograms.
-''' (5) A typical application is on a set of histograms from tiles
-''' of an image, to distinguish between text/tables and photo
-''' regions.  If the tiles are much larger than the text line
-''' spacing, text/table regions typically have smaller variance
-''' across tiles than photo regions.  For this application, it
-''' may be useful to ignore values near white, which are large for
-''' text and would magnify the variance due to variations in
-''' illumination.  However, because the variance of a drawing or
-''' a light photo can be similar to that of grayscale text, this
-''' function is only a discriminator between darker photos/drawings
-''' and light photos/text/line-graphics.
+''' <para/>
+''' Notes:<para/>
+''' (1) The %naa has two or more 256-element numa histograms, which<para/>
+''' are to be compared value-wise at each of the 256 gray levels.<para/>
+''' The result are stats (mean, mean square, variance, root variance)<para/>
+''' aggregated across the set of histograms, and each is output<para/>
+''' as a 256 entry numa.  Think of these histograms as a matrix,<para/>
+''' where each histogram is one row of the array.  The stats are<para/>
+''' then aggregated column-wise, between the histograms.<para/>
+''' (2) These stats are:<para/>
+''' ~ average value:  is lower v is greater (nam)<para/>
+''' ~ average squared value:  is lower vv is greater  (nams)<para/>
+''' ~ variance:  is lower (v -  is lower v is greater )(v -  is lower v is greater ) is greater  =  is lower vv is greater  -  is lower v is greater  is lower v is greater (nav)<para/>
+''' ~ square-root of variance: (narv)<para/>
+''' where the brackets  is lower  ..  is greater  indicate that the average value is<para/>
+''' to be taken over each column of the array.<para/>
+''' (3) The input histograms are optionally smoothed before these<para/>
+''' statistical operations.<para/>
+''' (4) The input histograms are normalized to a sum of 10000.  By<para/>
+''' doing this, the resulting numbers are independent of the<para/>
+''' number of samples used in building the individual histograms.<para/>
+''' (5) A typical application is on a set of histograms from tiles<para/>
+''' of an image, to distinguish between text/tables and photo<para/>
+''' regions.  If the tiles are much larger than the text line<para/>
+''' spacing, text/table regions typically have smaller variance<para/>
+''' across tiles than photo regions.  For this application, it<para/>
+''' may be useful to ignore values near white, which are large for<para/>
+''' text and would magnify the variance due to variations in<para/>
+''' illumination.  However, because the variance of a drawing or<para/>
+''' a light photo can be similar to that of grayscale text, this<para/>
+''' function is only a discriminator between darker photos/drawings<para/>
+''' and light photos/text/line-graphics.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1104,10 +1113,11 @@ End Function
 ' numaFindPeaks()
 ' numaFindPeaks(NUMA *, l_int32, l_float32, l_float32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) The returned na consists of sets of four numbers representing
-''' the peak, in the following order
-''' left edge; peak center; right edge; normalized peak area
+''' <para/>
+''' Notes:<para/>
+''' (1) The returned na consists of sets of four numbers representing<para/>
+''' the peak, in the following order:<para/>
+''' left edge peak center right edge normalized peak area<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1137,21 +1147,22 @@ End Function
 ' numaFindExtrema()
 ' numaFindExtrema(NUMA *, l_float32, NUMA **) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) This returns a sequence of extrema (peaks and valleys).
-''' (2) The algorithm is analogous to that for determining
-''' mountain peaks.  Suppose we have a local peak, with
-''' bumps on the side.  Under what conditions can we consider
-''' those 'bumps' to be actual peaks?  The answer if the
-''' bump is separated from the peak by a saddle that is at
-''' least 500 feet below the bump.
-''' (3) Operationally, suppose we are looking for a peak.
-''' We are keeping the largest value we've seen since the
-''' last valley, and are looking for a value that is delta
-''' BELOW our current peak.  When we find such a value,
-''' we label the peak, use the current value to label the
-''' valley, and then do the same operation in reverse (looking
-''' for a valley).
+''' <para/>
+''' Notes:<para/>
+''' (1) This returns a sequence of extrema (peaks and valleys).<para/>
+''' (2) The algorithm is analogous to that for determining<para/>
+''' mountain peaks.  Suppose we have a local peak, with<para/>
+''' bumps on the side.  Under what conditions can we consider<para/>
+''' those 'bumps' to be actual peaks?  The answer: if the<para/>
+''' bump is separated from the peak by a saddle that is at<para/>
+''' least 500 feet below the bump.<para/>
+''' (3) Operationally, suppose we are looking for a peak.<para/>
+''' We are keeping the largest value we've seen since the<para/>
+''' last valley, and are looking for a value that is delta<para/>
+''' BELOW our current peak.  When we find such a value,<para/>
+''' we label the peak, use the current value to label the<para/>
+''' valley, and then do the same operation in reverse (looking<para/>
+''' for a valley).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1180,17 +1191,18 @@ End Function
 ' numaCountReversals()
 ' numaCountReversals(NUMA *, l_float32, l_int32 *, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The input numa is can be generated from pixExtractAlongLine().
-''' If so, the x parameters can be used to find the reversal
-''' frequency along a line.
+''' <para/>
+''' Notes:<para/>
+''' (1) The input numa is can be generated from pixExtractAlongLine().<para/>
+''' If so, the x parameters can be used to find the reversal<para/>
+''' frequency along a line.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - input values</param>
 '''  <param name="minreversal">[in] - relative amount to resolve peaks and valleys</param>
 '''  <param name="pnr">[out][optional] - number of reversals</param>
-'''  <param name="pnrpl">[out] - ([optional] reversal density reversals/length</param>
+'''  <param name="pnrpl">[out] - ([optional] reversal density: reversals/length</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function numaCountReversals(
 				ByVal nas as Numa, 
@@ -1211,24 +1223,25 @@ End Function
 ' numaSelectCrossingThreshold()
 ' numaSelectCrossingThreshold(NUMA *, NUMA *, l_float32, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) When a valid threshold is used, the number of crossings is
-''' a maximum, because none are missed.  If no threshold intersects
-''' all the crossings, the crossings must be determined with
-''' numaCrossingsByPeaks().
-''' (2) %estthresh is an input estimate of the threshold that should
-''' be used.  We compute the crossings with 41 thresholds
-''' (20 below and 20 above).  There is a range in which the
-''' number of crossings is a maximum.  Return a threshold
-''' in the center of this stable plateau of crossings.
-''' This can then be used with numaCrossingsByThreshold()
-''' to get a good estimate of crossing locations.
+''' <para/>
+''' Notes:<para/>
+''' (1) When a valid threshold is used, the number of crossings is<para/>
+''' a maximum, because none are missed.  If no threshold intersects<para/>
+''' all the crossings, the crossings must be determined with<para/>
+''' numaCrossingsByPeaks().<para/>
+''' (2) %estthresh is an input estimate of the threshold that should<para/>
+''' be used.  We compute the crossings with 41 thresholds<para/>
+''' (20 below and 20 above).  There is a range in which the<para/>
+''' number of crossings is a maximum.  Return a threshold<para/>
+''' in the center of this stable plateau of crossings.<para/>
+''' This can then be used with numaCrossingsByThreshold()<para/>
+''' to get a good estimate of crossing locations.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="nax">[in][optional] - numa of abscissa values; can be NULL</param>
+'''  <param name="nax">[in][optional] - numa of abscissa values can be NULL</param>
 '''  <param name="nay">[in] - signal</param>
-'''  <param name="estthresh">[in] - estimated pixel threshold for crossing e.g., for images, white LT--GT black; typ. ~120</param>
+'''  <param name="estthresh">[in] - estimated pixel threshold for crossing: e.g., for images, white  is lower -- is greater  black typ. ~120</param>
 '''  <param name="pbestthresh">[out] - robust estimate of threshold to use</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function numaSelectCrossingThreshold(
@@ -1251,13 +1264,14 @@ End Function
 ' numaCrossingsByThreshold()
 ' numaCrossingsByThreshold(NUMA *, NUMA *, l_float32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) If nax == NULL, we use startx and delx from nay to compute
-''' the crossing values in nad.
+''' <para/>
+''' Notes:<para/>
+''' (1) If nax == NULL, we use startx and delx from nay to compute<para/>
+''' the crossing values in nad.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="nax">[in][optional] - numa of abscissa values; can be NULL</param>
+'''  <param name="nax">[in][optional] - numa of abscissa values can be NULL</param>
 '''  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 '''  <param name="thresh">[in] - threshold value for nay</param>
 '''   <returns>nad abscissa pts at threshold, or NULL on error</returns>
@@ -1281,9 +1295,10 @@ End Function
 ' numaCrossingsByPeaks()
 ' numaCrossingsByPeaks(NUMA *, NUMA *, l_float32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) If nax == NULL, we use startx and delx from nay to compute
-''' the crossing values in nad.
+''' <para/>
+''' Notes:<para/>
+''' (1) If nax == NULL, we use startx and delx from nay to compute<para/>
+''' the crossing values in nad.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1311,23 +1326,24 @@ End Function
 ' numaEvalBestHaarParameters()
 ' numaEvalBestHaarParameters(NUMA *, l_float32, l_int32, l_int32, l_float32, l_float32, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This does a linear sweep of widths, evaluating at %nshift
-''' shifts for each width, computing the score from a convolution
-''' with a long comb, and finding the (width, shift) pair that
-''' gives the maximum score.  The best width is the "half-wavelength"
-''' of the signal.
-''' (2) The convolving function is a comb of alternating values
-''' +1 and -1  relweight, separated by the width and phased by
-''' the shift.  This is similar to a Haar transform, except
-''' there the convolution is performed with a square wave.
-''' (3) The function is useful for finding the line spacing
-''' and strength of line signal from pixel sum projections.
-''' (4) The score is normalized to the size of nas divided by
-''' the number of half-widths.  For image applications, the input is
-''' typically an array of pixel projections, so one should
-''' normalize by dividing the score by the image width in the
-''' pixel projection direction.
+''' <para/>
+''' Notes:<para/>
+''' (1) This does a linear sweep of widths, evaluating at %nshift<para/>
+''' shifts for each width, computing the score from a convolution<para/>
+''' with a long comb, and finding the (width, shift) pair that<para/>
+''' gives the maximum score.  The best width is the "half-wavelength"<para/>
+''' of the signal.<para/>
+''' (2) The convolving function is a comb of alternating values<para/>
+''' +1 and -1  relweight, separated by the width and phased by<para/>
+''' the shift.  This is similar to a Haar transform, except<para/>
+''' there the convolution is performed with a square wave.<para/>
+''' (3) The function is useful for finding the line spacing<para/>
+''' and strength of line signal from pixel sum projections.<para/>
+''' (4) The score is normalized to the size of nas divided by<para/>
+''' the number of half-widths.  For image applications, the input is<para/>
+''' typically an array of pixel projections, so one should<para/>
+''' normalize by dividing the score by the image width in the<para/>
+''' pixel projection direction.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1367,28 +1383,29 @@ End Function
 ' numaEvalHaarSum()
 ' numaEvalHaarSum(NUMA *, l_float32, l_float32, l_float32, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This does a convolution with a comb of alternating values
-''' +1 and -relweight, separated by the width and phased by the shift.
-''' This is similar to a Haar transform, except that for Haar,
-''' (1) the convolution kernel is symmetric about 0, so the
-''' relweight is 1.0, and
-''' (2) the convolution is performed with a square wave.
-''' (2) The score is normalized to the size of nas divided by
-''' twice the "width".  For image applications, the input is
-''' typically an array of pixel projections, so one should
-''' normalize by dividing the score by the image width in the
-''' pixel projection direction.
-''' (3) To get a Haar-like result, use relweight = 1.0.  For detecting
-''' signals where you expect every other sample to be close to
-''' zero, as with barcodes or filtered text lines, you can
-''' use relweight GT 1.0.
+''' <para/>
+''' Notes:<para/>
+''' (1) This does a convolution with a comb of alternating values<para/>
+''' +1 and -relweight, separated by the width and phased by the shift.<para/>
+''' This is similar to a Haar transform, except that for Haar,<para/>
+''' (1) the convolution kernel is symmetric about 0, so the<para/>
+''' relweight is 1.0, and<para/>
+''' (2) the convolution is performed with a square wave.<para/>
+''' (2) The score is normalized to the size of nas divided by<para/>
+''' twice the "width".  For image applications, the input is<para/>
+''' typically an array of pixel projections, so one should<para/>
+''' normalize by dividing the score by the image width in the<para/>
+''' pixel projection direction.<para/>
+''' (3) To get a Haar-like result, use relweight = 1.0.  For detecting<para/>
+''' signals where you expect every other sample to be close to<para/>
+''' zero, as with barcodes or filtered text lines, you can<para/>
+''' use relweight  is greater  1.0.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - numa of non-negative signal values</param>
 '''  <param name="width">[in] - distance between +1 and -1 in convolution comb</param>
-'''  <param name="shift">[in] - phase of the comb location of first +1</param>
+'''  <param name="shift">[in] - phase of the comb: location of first +1</param>
 '''  <param name="relweight">[in] - relative weight of (-1 comb) / (+1 comb) contributions to the 'convolution'.  In effect, the convolution kernel is a comb consisting of alternating +1 and -weight.</param>
 '''  <param name="pscore">[out] - convolution with "Haar"-like comb</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1414,20 +1431,21 @@ End Function
 ' genConstrainedNumaInRange()
 ' genConstrainedNumaInRange(l_int32, l_int32, l_int32, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) Selection is made uniformly in the range.  This can be used
-''' to select pages distributed as uniformly as possible
-''' through a book, where you are constrained to
-''' ~ choose between [first, ... biggest],
-''' ~ choose no more than nmax numbers, and
-''' and you have the option of requiring pairs of adjacent numbers.
+''' <para/>
+''' Notes:<para/>
+''' (1) Selection is made uniformly in the range.  This can be used<para/>
+''' to select pages distributed as uniformly as possible<para/>
+''' through a book, where you are constrained to:<para/>
+''' ~ choose between [first, ... biggest],<para/>
+''' ~ choose no more than nmax numbers, and<para/>
+''' and you have the option of requiring pairs of adjacent numbers.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="first">[in] - first number to choose; GT= 0</param>
-'''  <param name="last">[in] - biggest possible number to reach; GT= first</param>
-'''  <param name="nmax">[in] - maximum number of numbers to select; GT 0</param>
-'''  <param name="use_pairs">[in] - 1 = select pairs of adjacent numbers; 0 = select individual numbers</param>
+'''  <param name="first">[in] - first number to choose  is greater = 0</param>
+'''  <param name="last">[in] - biggest possible number to reach  is greater = first</param>
+'''  <param name="nmax">[in] - maximum number of numbers to select  is greater  0</param>
+'''  <param name="use_pairs">[in] - 1 = select pairs of adjacent numbers 0 = select individual numbers</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function genConstrainedNumaInRange(
 				ByVal first as Integer, 

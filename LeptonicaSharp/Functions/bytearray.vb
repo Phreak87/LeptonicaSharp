@@ -1,15 +1,16 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\bytearray.c (93, 1)
 ' l_byteaCreate()
 ' l_byteaCreate(size_t) as L_BYTEA *
 '''  <summary>
-''' Notes
-''' (1) The allocated array is n + 1 bytes.  This allows room
-''' for null termination.
+''' <para/>
+''' Notes:<para/>
+''' (1) The allocated array is n + 1 bytes.  This allows room<para/>
+''' for null termination.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -29,9 +30,6 @@ End Function
 ' SRC\bytearray.c (122, 1)
 ' l_byteaInitFromMem()
 ' l_byteaInitFromMem(const l_uint8 *, size_t) as L_BYTEA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="data">[in] - to be copied to the array</param>
@@ -53,9 +51,6 @@ End Function
 ' SRC\bytearray.c (149, 1)
 ' l_byteaInitFromFile()
 ' l_byteaInitFromFile(const char *) as L_BYTEA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fname">[in] - </param>
@@ -75,9 +70,6 @@ End Function
 ' SRC\bytearray.c (176, 1)
 ' l_byteaInitFromStream()
 ' l_byteaInitFromStream(FILE *) as L_BYTEA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
@@ -98,8 +90,9 @@ End Function
 ' l_byteaCopy()
 ' l_byteaCopy(L_BYTEA *, l_int32) as L_BYTEA *
 '''  <summary>
-''' Notes
-''' (1) If cloning, up the refcount and return a ptr to %bas.
+''' <para/>
+''' Notes:<para/>
+''' (1) If cloning, up the refcount and return a ptr to %bas.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -123,11 +116,12 @@ End Function
 ' l_byteaDestroy()
 ' l_byteaDestroy(L_BYTEA **) as void
 '''  <summary>
-''' Notes
-''' (1) Decrements the ref count and, if 0, destroys the lba.
-''' (2) Always nulls the input ptr.
-''' (3) If the data has been previously removed, the lba will
-''' have been nulled, so this will do nothing.
+''' <para/>
+''' Notes:<para/>
+''' (1) Decrements the ref count and, if 0, destroys the lba.<para/>
+''' (2) Always nulls the input ptr.<para/>
+''' (3) If the data has been previously removed, the lba will<para/>
+''' have been nulled, so this will do nothing.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -146,9 +140,6 @@ End Sub
 ' SRC\bytearray.c (281, 1)
 ' l_byteaGetSize()
 ' l_byteaGetSize(L_BYTEA *) as size_t
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="ba">[in] - </param>
@@ -168,8 +159,9 @@ End Function
 ' l_byteaGetData()
 ' l_byteaGetData(L_BYTEA *, size_t *) as l_uint8 *
 '''  <summary>
-''' Notes
-''' (1) The returned ptr is owned by %ba.  Do not free it!
+''' <para/>
+''' Notes:<para/>
+''' (1) The returned ptr is owned by %ba.  Do not free it!<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -192,9 +184,10 @@ End Function
 ' l_byteaCopyData()
 ' l_byteaCopyData(L_BYTEA *, size_t *) as l_uint8 *
 '''  <summary>
-''' Notes
-''' (1) The returned data is owned by the caller.  The input %ba
-''' still owns the original data array.
+''' <para/>
+''' Notes:<para/>
+''' (1) The returned data is owned by the caller.  The input %ba<para/>
+''' still owns the original data array.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -216,9 +209,6 @@ End Function
 ' SRC\bytearray.c (363, 1)
 ' l_byteaAppendData()
 ' l_byteaAppendData(L_BYTEA *, const l_uint8 *, size_t) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="ba">[in] - </param>
@@ -242,9 +232,6 @@ End Function
 ' SRC\bytearray.c (396, 1)
 ' l_byteaAppendString()
 ' l_byteaAppendString(L_BYTEA *, const char *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="ba">[in] - </param>
@@ -267,8 +254,9 @@ End Function
 ' l_byteaJoin()
 ' l_byteaJoin(L_BYTEA *, L_BYTEA **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) It is a no-op, not an error, for %ba2 to be null.
+''' <para/>
+''' Notes:<para/>
+''' (1) It is a no-op, not an error, for %ba2 to be null.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -292,13 +280,10 @@ End Function
 ' SRC\bytearray.c (497, 1)
 ' l_byteaSplit()
 ' l_byteaSplit(L_BYTEA *, size_t, L_BYTEA **) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="ba1">[in] - lba to split; array bytes nulled beyond the split loc</param>
-'''  <param name="splitloc">[in] - location in ba1 to split; ba2 begins there</param>
+'''  <param name="ba1">[in] - lba to split array bytes nulled beyond the split loc</param>
+'''  <param name="splitloc">[in] - location in ba1 to split ba2 begins there</param>
 '''  <param name="pba2">[out] - with data starting at splitloc</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function l_byteaSplit(
@@ -319,9 +304,6 @@ End Function
 ' SRC\bytearray.c (540, 1)
 ' l_byteaFindEachSequence()
 ' l_byteaFindEachSequence(L_BYTEA *, const l_uint8 *, size_t, L_DNA **) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="ba">[in] - </param>
@@ -349,15 +331,12 @@ End Function
 ' SRC\bytearray.c (578, 1)
 ' l_byteaWrite()
 ' l_byteaWrite(const char *, L_BYTEA *, size_t, size_t) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fname">[in] - output file</param>
 '''  <param name="ba">[in] - </param>
 '''  <param name="startloc">[in] - first byte to output</param>
-'''  <param name="endloc">[in] - last byte to output; use 0 to write to the end of the data array</param>
+'''  <param name="endloc">[in] - last byte to output use 0 to write to the end of the data array</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function l_byteaWrite(
 				ByVal fname as String, 
@@ -377,15 +356,12 @@ End Function
 ' SRC\bytearray.c (612, 1)
 ' l_byteaWriteStream()
 ' l_byteaWriteStream(FILE *, L_BYTEA *, size_t, size_t) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream opened for binary write</param>
 '''  <param name="ba">[in] - </param>
 '''  <param name="startloc">[in] - first byte to output</param>
-'''  <param name="endloc">[in] - last byte to output; use 0 to write to the end of the data array</param>
+'''  <param name="endloc">[in] - last byte to output use 0 to write to the end of the data array</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function l_byteaWriteStream(
 				ByVal fp as FILE, 

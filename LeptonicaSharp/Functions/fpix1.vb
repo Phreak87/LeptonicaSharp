@@ -1,16 +1,17 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\fpix1.c (149, 1)
 ' fpixCreate()
 ' fpixCreate(l_int32, l_int32) as FPIX *
 '''  <summary>
-''' Notes
-''' (1) Makes a FPix of specified size, with the data array
-''' allocated and initialized to 0.
-''' (2) The number of pixels must be less than 2^29.
+''' <para/>
+''' Notes:<para/>
+''' (1) Makes a FPix of specified size, with the data array<para/>
+''' allocated and initialized to 0.<para/>
+''' (2) The number of pixels must be less than 2^29.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -33,10 +34,11 @@ End Function
 ' fpixCreateTemplate()
 ' fpixCreateTemplate(FPIX *) as FPIX *
 '''  <summary>
-''' Notes
-''' (1) Makes a FPix of the same size as the input FPix, with the
-''' data array allocated and initialized to 0.
-''' (2) Copies the resolution.
+''' <para/>
+''' Notes:<para/>
+''' (1) Makes a FPix of the same size as the input FPix, with the<para/>
+''' data array allocated and initialized to 0.<para/>
+''' (2) Copies the resolution.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -58,8 +60,9 @@ End Function
 ' fpixClone()
 ' fpixClone(FPIX *) as FPIX *
 '''  <summary>
-''' Notes
-''' (1) See pixClone() for definition and usage.
+''' <para/>
+''' Notes:<para/>
+''' (1) See pixClone() for definition and usage.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -81,29 +84,30 @@ End Function
 ' fpixCopy()
 ' fpixCopy(FPIX *, FPIX *) as FPIX *
 '''  <summary>
-''' Notes
-''' (1) There are three cases
-''' (a) fpixd == null  (makes a new fpix; refcount = 1)
-''' (b) fpixd == fpixs  (no-op)
-''' (c) fpixd != fpixs  (data copy; no change in refcount)
-''' If the refcount of fpixd GT 1, case (c) will side-effect
-''' these handles.
-''' (2) The general pattern of use is
-''' fpixd = fpixCopy(fpixd, fpixs);
-''' This will work for all three cases.
-''' For clarity when the case is known, you can use
-''' (a) fpixd = fpixCopy(NULL, fpixs);
-''' (c) fpixCopy(fpixd, fpixs);
-''' (3) For case (c), we check if fpixs and fpixd are the same size.
-''' If so, the data is copied directly.
-''' Otherwise, the data is reallocated to the correct size
-''' and the copy proceeds.  The refcount of fpixd is unchanged.
-''' (4) This operation, like all others that may involve a pre-existing
-''' fpixd, will side-effect any existing clones of fpixd.
+''' <para/>
+''' Notes:<para/>
+''' (1) There are three cases:<para/>
+''' (a) fpixd == null  (makes a new fpix refcount = 1)<para/>
+''' (b) fpixd == fpixs  (no-op)<para/>
+''' (c) fpixd != fpixs  (data copy no change in refcount)<para/>
+''' If the refcount of fpixd  is greater  1, case (c) will side-effect<para/>
+''' these handles.<para/>
+''' (2) The general pattern of use is:<para/>
+''' fpixd = fpixCopy(fpixd, fpixs)<para/>
+''' This will work for all three cases.<para/>
+''' For clarity when the case is known, you can use:<para/>
+''' (a) fpixd = fpixCopy(NULL, fpixs)<para/>
+''' (c) fpixCopy(fpixd, fpixs)<para/>
+''' (3) For case (c), we check if fpixs and fpixd are the same size.<para/>
+''' If so, the data is copied directly.<para/>
+''' Otherwise, the data is reallocated to the correct size<para/>
+''' and the copy proceeds.  The refcount of fpixd is unchanged.<para/>
+''' (4) This operation, like all others that may involve a pre-existing<para/>
+''' fpixd, will side-effect any existing clones of fpixd.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="fpixd">[in][optional] - ; can be null, or equal to fpixs, or different from fpixs</param>
+'''  <param name="fpixd">[in][optional] - can be null, or equal to fpixs, or different from fpixs</param>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>fpixd, or NULL on error</returns>
 Public Shared Function fpixCopy(
@@ -124,11 +128,12 @@ End Function
 ' fpixResizeImageData()
 ' fpixResizeImageData(FPIX *, FPIX *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) If the data sizes differ, this destroys the existing
-''' data in fpixd and allocates a new, uninitialized, data array
-''' of the same size as the data in fpixs.  Otherwise, this
-''' doesn't do anything.
+''' <para/>
+''' Notes:<para/>
+''' (1) If the data sizes differ, this destroys the existing<para/>
+''' data in fpixd and allocates a new, uninitialized, data array<para/>
+''' of the same size as the data in fpixs.  Otherwise, this<para/>
+''' doesn't do anything.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -152,9 +157,10 @@ End Function
 ' fpixDestroy()
 ' fpixDestroy(FPIX **) as void
 '''  <summary>
-''' Notes
-''' (1) Decrements the ref count and, if 0, destroys the fpix.
-''' (2) Always nulls the input ptr.
+''' <para/>
+''' Notes:<para/>
+''' (1) Decrements the ref count and, if 0, destroys the fpix.<para/>
+''' (2) Always nulls the input ptr.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -173,9 +179,6 @@ End Sub
 ' SRC\fpix1.c (408, 1)
 ' fpixGetDimensions()
 ' fpixGetDimensions(FPIX *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpix">[in] - </param>
@@ -198,9 +201,6 @@ End Function
 ' SRC\fpix1.c (434, 1)
 ' fpixSetDimensions()
 ' fpixSetDimensions(FPIX *, l_int32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpix">[in] - </param>
@@ -223,9 +223,6 @@ End Function
 ' SRC\fpix1.c (455, 1)
 ' fpixGetWpl()
 ' fpixGetWpl(FPIX *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpix">[in] - </param>
@@ -244,9 +241,6 @@ End Function
 ' SRC\fpix1.c (473, 1)
 ' fpixSetWpl()
 ' fpixSetWpl(FPIX *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpix">[in] - </param>
@@ -267,9 +261,6 @@ End Function
 ' SRC\fpix1.c (493, 1)
 ' fpixGetRefcount()
 ' fpixGetRefcount(FPIX *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpix">[in] - </param>
@@ -288,9 +279,6 @@ End Function
 ' SRC\fpix1.c (511, 1)
 ' fpixChangeRefcount()
 ' fpixChangeRefcount(FPIX *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpix">[in] - </param>
@@ -311,9 +299,6 @@ End Function
 ' SRC\fpix1.c (532, 1)
 ' fpixGetResolution()
 ' fpixGetResolution(FPIX *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpix">[in] - </param>
@@ -336,9 +321,6 @@ End Function
 ' SRC\fpix1.c (554, 1)
 ' fpixSetResolution()
 ' fpixSetResolution(FPIX *, l_int32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpix">[in] - </param>
@@ -361,9 +343,6 @@ End Function
 ' SRC\fpix1.c (576, 1)
 ' fpixCopyResolution()
 ' fpixCopyResolution(FPIX *, FPIX *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpixd">[in] - </param>
@@ -385,13 +364,10 @@ End Function
 ' SRC\fpix1.c (598, 1)
 ' fpixGetData()
 ' fpixGetData(FPIX *) as l_float32 *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpix">[in] - </param>
-'''   <returns>ptr FPixdata, or NULL on error</returns>
+'''   <returns>ptr FPix::data, or NULL on error</returns>
 Public Shared Function fpixGetData(
 				ByVal fpix as FPix) as Single()
 
@@ -406,9 +382,6 @@ End Function
 ' SRC\fpix1.c (616, 1)
 ' fpixSetData()
 ' fpixSetData(FPIX *, l_float32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpix">[in] - </param>
@@ -430,19 +403,16 @@ End Function
 ' SRC\fpix1.c (638, 1)
 ' fpixGetPixel()
 ' fpixGetPixel(FPIX *, l_int32, l_int32, l_float32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="x">[in] - ,y pixel coords</param>
 '''  <param name="pval">[out] - pixel value</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function fpixGetPixel(
 				ByVal fpix as FPix, 
 				ByVal x as Integer, 
-				ByRef y as Integer, 
+				ByVal y as Integer, 
 				ByRef pval as Single()) as Integer
 
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
@@ -456,19 +426,16 @@ End Function
 ' SRC\fpix1.c (673, 1)
 ' fpixSetPixel()
 ' fpixSetPixel(FPIX *, l_int32, l_int32, l_float32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="x">[in] - ,y pixel coords</param>
 '''  <param name="val">[in] - pixel value</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function fpixSetPixel(
 				ByVal fpix as FPix, 
 				ByVal x as Integer, 
-				ByRef y as Integer, 
+				ByVal y as Integer, 
 				ByVal val as Single) as Integer
 
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
@@ -483,9 +450,6 @@ End Function
 ' SRC\fpix1.c (706, 1)
 ' fpixaCreate()
 ' fpixaCreate(l_int32) as FPIXA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="n">[in] - initial number of ptrs</param>
@@ -505,11 +469,12 @@ End Function
 ' fpixaCopy()
 ' fpixaCopy(FPIXA *, l_int32) as FPIXA *
 '''  <summary>
-''' Notes
-''' copyflag may be one of
-''' ~ L_COPY makes a new fpixa and copies each fpix
-''' ~ L_CLONE gives a new ref-counted handle to the input fpixa
-''' ~ L_COPY_CLONE makes a new fpixa with clones of all fpix
+''' <para/>
+''' Notes:<para/>
+''' copyflag may be one of<para/>
+''' ~ L_COPY makes a new fpixa and copies each fpix<para/>
+''' ~ L_CLONE gives a new ref-counted handle to the input fpixa<para/>
+''' ~ L_COPY_CLONE makes a new fpixa with clones of all fpix<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -533,9 +498,10 @@ End Function
 ' fpixaDestroy()
 ' fpixaDestroy(FPIXA **) as void
 '''  <summary>
-''' Notes
-''' (1) Decrements the ref count and, if 0, destroys the fpixa.
-''' (2) Always nulls the input ptr.
+''' <para/>
+''' Notes:<para/>
+''' (1) Decrements the ref count and, if 0, destroys the fpixa.<para/>
+''' (2) Always nulls the input ptr.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -554,15 +520,12 @@ End Sub
 ' SRC\fpix1.c (834, 1)
 ' fpixaAddFPix()
 ' fpixaAddFPix(FPIXA *, FPIX *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="fpix">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function fpixaAddFPix(
 				ByVal fpixa as FPixa, 
 				ByVal fpix as FPix, 
@@ -580,9 +543,6 @@ End Function
 ' SRC\fpix1.c (934, 1)
 ' fpixaGetCount()
 ' fpixaGetCount(FPIXA *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpixa">[in] - </param>
@@ -601,9 +561,6 @@ End Function
 ' SRC\fpix1.c (953, 1)
 ' fpixaChangeRefcount()
 ' fpixaChangeRefcount(FPIXA *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpixa">[in] - </param>
@@ -624,9 +581,6 @@ End Function
 ' SRC\fpix1.c (975, 1)
 ' fpixaGetFPix()
 ' fpixaGetFPix(FPIXA *, l_int32, l_int32) as FPIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpixa">[in] - </param>
@@ -650,9 +604,6 @@ End Function
 ' SRC\fpix1.c (1004, 1)
 ' fpixaGetFPixDimensions()
 ' fpixaGetFPixDimensions(FPIXA *, l_int32, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpixa">[in] - </param>
@@ -677,9 +628,6 @@ End Function
 ' SRC\fpix1.c (1038, 1)
 ' fpixaGetData()
 ' fpixaGetData(FPIXA *, l_int32) as l_float32 *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpixa">[in] - </param>
@@ -700,21 +648,18 @@ End Function
 ' SRC\fpix1.c (1070, 1)
 ' fpixaGetPixel()
 ' fpixaGetPixel(FPIXA *, l_int32, l_int32, l_int32, l_float32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="index">[in] - into fpixa array</param>
 '''  <param name="x">[in] - ,y pixel coords</param>
 '''  <param name="pval">[out] - pixel value</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function fpixaGetPixel(
 				ByVal fpixa as FPixa, 
 				ByVal index as Integer, 
 				ByVal x as Integer, 
-				ByRef y as Integer, 
+				ByVal y as Integer, 
 				ByRef pval as Single()) as Integer
 
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
@@ -728,21 +673,18 @@ End Function
 ' SRC\fpix1.c (1107, 1)
 ' fpixaSetPixel()
 ' fpixaSetPixel(FPIXA *, l_int32, l_int32, l_int32, l_float32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="index">[in] - into fpixa array</param>
 '''  <param name="x">[in] - ,y pixel coords</param>
 '''  <param name="val">[in] - pixel value</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function fpixaSetPixel(
 				ByVal fpixa as FPixa, 
 				ByVal index as Integer, 
 				ByVal x as Integer, 
-				ByRef y as Integer, 
+				ByVal y as Integer, 
 				ByVal val as Single) as Integer
 
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
@@ -758,10 +700,11 @@ End Function
 ' dpixCreate()
 ' dpixCreate(l_int32, l_int32) as DPIX *
 '''  <summary>
-''' Notes
-''' (1) Makes a DPix of specified size, with the data array
-''' allocated and initialized to 0.
-''' (2) The number of pixels must be less than 2^28.
+''' <para/>
+''' Notes:<para/>
+''' (1) Makes a DPix of specified size, with the data array<para/>
+''' allocated and initialized to 0.<para/>
+''' (2) The number of pixels must be less than 2^28.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -784,10 +727,11 @@ End Function
 ' dpixCreateTemplate()
 ' dpixCreateTemplate(DPIX *) as DPIX *
 '''  <summary>
-''' Notes
-''' (1) Makes a DPix of the same size as the input DPix, with the
-''' data array allocated and initialized to 0.
-''' (2) Copies the resolution.
+''' <para/>
+''' Notes:<para/>
+''' (1) Makes a DPix of the same size as the input DPix, with the<para/>
+''' data array allocated and initialized to 0.<para/>
+''' (2) Copies the resolution.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -809,8 +753,9 @@ End Function
 ' dpixClone()
 ' dpixClone(DPIX *) as DPIX *
 '''  <summary>
-''' Notes
-''' (1) See pixClone() for definition and usage.
+''' <para/>
+''' Notes:<para/>
+''' (1) See pixClone() for definition and usage.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -832,29 +777,30 @@ End Function
 ' dpixCopy()
 ' dpixCopy(DPIX *, DPIX *) as DPIX *
 '''  <summary>
-''' Notes
-''' (1) There are three cases
-''' (a) dpixd == null  (makes a new dpix; refcount = 1)
-''' (b) dpixd == dpixs  (no-op)
-''' (c) dpixd != dpixs  (data copy; no change in refcount)
-''' If the refcount of dpixd GT 1, case (c) will side-effect
-''' these handles.
-''' (2) The general pattern of use is
-''' dpixd = dpixCopy(dpixd, dpixs);
-''' This will work for all three cases.
-''' For clarity when the case is known, you can use
-''' (a) dpixd = dpixCopy(NULL, dpixs);
-''' (c) dpixCopy(dpixd, dpixs);
-''' (3) For case (c), we check if dpixs and dpixd are the same size.
-''' If so, the data is copied directly.
-''' Otherwise, the data is reallocated to the correct size
-''' and the copy proceeds.  The refcount of dpixd is unchanged.
-''' (4) This operation, like all others that may involve a pre-existing
-''' dpixd, will side-effect any existing clones of dpixd.
+''' <para/>
+''' Notes:<para/>
+''' (1) There are three cases:<para/>
+''' (a) dpixd == null  (makes a new dpix refcount = 1)<para/>
+''' (b) dpixd == dpixs  (no-op)<para/>
+''' (c) dpixd != dpixs  (data copy no change in refcount)<para/>
+''' If the refcount of dpixd  is greater  1, case (c) will side-effect<para/>
+''' these handles.<para/>
+''' (2) The general pattern of use is:<para/>
+''' dpixd = dpixCopy(dpixd, dpixs)<para/>
+''' This will work for all three cases.<para/>
+''' For clarity when the case is known, you can use:<para/>
+''' (a) dpixd = dpixCopy(NULL, dpixs)<para/>
+''' (c) dpixCopy(dpixd, dpixs)<para/>
+''' (3) For case (c), we check if dpixs and dpixd are the same size.<para/>
+''' If so, the data is copied directly.<para/>
+''' Otherwise, the data is reallocated to the correct size<para/>
+''' and the copy proceeds.  The refcount of dpixd is unchanged.<para/>
+''' (4) This operation, like all others that may involve a pre-existing<para/>
+''' dpixd, will side-effect any existing clones of dpixd.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="dpixd">[in][optional] - ; can be null, or equal to dpixs, or different from dpixs</param>
+'''  <param name="dpixd">[in][optional] - can be null, or equal to dpixs, or different from dpixs</param>
 '''  <param name="dpixs">[in] - </param>
 '''   <returns>dpixd, or NULL on error</returns>
 Public Shared Function dpixCopy(
@@ -874,9 +820,6 @@ End Function
 ' SRC\fpix1.c (1316, 1)
 ' dpixResizeImageData()
 ' dpixResizeImageData(DPIX *, DPIX *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dpixd">[in] - </param>
@@ -899,9 +842,10 @@ End Function
 ' dpixDestroy()
 ' dpixDestroy(DPIX **) as void
 '''  <summary>
-''' Notes
-''' (1) Decrements the ref count and, if 0, destroys the dpix.
-''' (2) Always nulls the input ptr.
+''' <para/>
+''' Notes:<para/>
+''' (1) Decrements the ref count and, if 0, destroys the dpix.<para/>
+''' (2) Always nulls the input ptr.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -920,9 +864,6 @@ End Sub
 ' SRC\fpix1.c (1398, 1)
 ' dpixGetDimensions()
 ' dpixGetDimensions(DPIX *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dpix">[in] - </param>
@@ -945,9 +886,6 @@ End Function
 ' SRC\fpix1.c (1424, 1)
 ' dpixSetDimensions()
 ' dpixSetDimensions(DPIX *, l_int32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dpix">[in] - </param>
@@ -970,9 +908,6 @@ End Function
 ' SRC\fpix1.c (1445, 1)
 ' dpixGetWpl()
 ' dpixGetWpl(DPIX *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dpix">[in] - </param>
@@ -991,9 +926,6 @@ End Function
 ' SRC\fpix1.c (1463, 1)
 ' dpixSetWpl()
 ' dpixSetWpl(DPIX *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dpix">[in] - </param>
@@ -1014,9 +946,6 @@ End Function
 ' SRC\fpix1.c (1483, 1)
 ' dpixGetRefcount()
 ' dpixGetRefcount(DPIX *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dpix">[in] - </param>
@@ -1035,9 +964,6 @@ End Function
 ' SRC\fpix1.c (1501, 1)
 ' dpixChangeRefcount()
 ' dpixChangeRefcount(DPIX *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dpix">[in] - </param>
@@ -1058,9 +984,6 @@ End Function
 ' SRC\fpix1.c (1522, 1)
 ' dpixGetResolution()
 ' dpixGetResolution(DPIX *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dpix">[in] - </param>
@@ -1083,9 +1006,6 @@ End Function
 ' SRC\fpix1.c (1544, 1)
 ' dpixSetResolution()
 ' dpixSetResolution(DPIX *, l_int32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dpix">[in] - </param>
@@ -1108,9 +1028,6 @@ End Function
 ' SRC\fpix1.c (1566, 1)
 ' dpixCopyResolution()
 ' dpixCopyResolution(DPIX *, DPIX *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dpixd">[in] - </param>
@@ -1132,13 +1049,10 @@ End Function
 ' SRC\fpix1.c (1588, 1)
 ' dpixGetData()
 ' dpixGetData(DPIX *) as l_float64 *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dpix">[in] - </param>
-'''   <returns>ptr DPixdata, or NULL on error</returns>
+'''   <returns>ptr DPix::data, or NULL on error</returns>
 Public Shared Function dpixGetData(
 				ByVal dpix as DPix) as Double()
 
@@ -1153,9 +1067,6 @@ End Function
 ' SRC\fpix1.c (1606, 1)
 ' dpixSetData()
 ' dpixSetData(DPIX *, l_float64 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dpix">[in] - </param>
@@ -1177,19 +1088,16 @@ End Function
 ' SRC\fpix1.c (1628, 1)
 ' dpixGetPixel()
 ' dpixGetPixel(DPIX *, l_int32, l_int32, l_float64 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="x">[in] - ,y pixel coords</param>
 '''  <param name="pval">[out] - pixel value</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function dpixGetPixel(
 				ByVal dpix as DPix, 
 				ByVal x as Integer, 
-				ByRef y as Integer, 
+				ByVal y as Integer, 
 				ByRef pval as Double()) as Integer
 
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
@@ -1203,19 +1111,16 @@ End Function
 ' SRC\fpix1.c (1663, 1)
 ' dpixSetPixel()
 ' dpixSetPixel(DPIX *, l_int32, l_int32, l_float64) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="x">[in] - ,y pixel coords</param>
 '''  <param name="val">[in] - pixel value</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function dpixSetPixel(
 				ByVal dpix as DPix, 
 				ByVal x as Integer, 
-				ByRef y as Integer, 
+				ByVal y as Integer, 
 				ByVal val as Double) as Integer
 
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
@@ -1230,9 +1135,6 @@ End Function
 ' SRC\fpix1.c (1696, 1)
 ' fpixRead()
 ' fpixRead(const char *) as FPIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - </param>
@@ -1253,9 +1155,6 @@ End Function
 ' SRC\fpix1.c (1723, 1)
 ' fpixReadStream()
 ' fpixReadStream(FILE *) as FPIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
@@ -1275,9 +1174,6 @@ End Function
 ' SRC\fpix1.c (1776, 1)
 ' fpixReadMem()
 ' fpixReadMem(const l_uint8 *, size_t) as FPIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="data">[in] - of serialized fpix</param>
@@ -1299,9 +1195,6 @@ End Function
 ' SRC\fpix1.c (1804, 1)
 ' fpixWrite()
 ' fpixWrite(const char *, FPIX *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - </param>
@@ -1324,9 +1217,6 @@ End Function
 ' SRC\fpix1.c (1835, 1)
 ' fpixWriteStream()
 ' fpixWriteStream(FILE *, FPIX *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
@@ -1349,8 +1239,9 @@ End Function
 ' fpixWriteMem()
 ' fpixWriteMem(l_uint8 **, size_t *, FPIX *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Serializes a fpix in memory and puts the result in a buffer.
+''' <para/>
+''' Notes:<para/>
+''' (1) Serializes a fpix in memory and puts the result in a buffer.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1377,15 +1268,16 @@ End Function
 ' fpixEndianByteSwap()
 ' fpixEndianByteSwap(FPIX *, FPIX *) as FPIX *
 '''  <summary>
-''' Notes
-''' (1) On big-endian hardware, this does byte-swapping on each of
-''' the 4-byte floats in the fpix data.  On little-endians,
-''' the data is unchanged.  This is used for serialization
-''' of fpix; the data is serialized in little-endian byte
-''' order because most hardware is little-endian.
-''' (2) The operation can be either in-place or, if fpixd == NULL,
-''' a new fpix is made.  If not in-place, caller must catch
-''' the returned pointer.
+''' <para/>
+''' Notes:<para/>
+''' (1) On big-endian hardware, this does byte-swapping on each of<para/>
+''' the 4-byte floats in the fpix data.  On little-endians,<para/>
+''' the data is unchanged.  This is used for serialization<para/>
+''' of fpix the data is serialized in little-endian byte<para/>
+''' order because most hardware is little-endian.<para/>
+''' (2) The operation can be either in-place or, if fpixd == NULL,<para/>
+''' a new fpix is made.  If not in-place, caller must catch<para/>
+''' the returned pointer.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1409,9 +1301,6 @@ End Function
 ' SRC\fpix1.c (1993, 1)
 ' dpixRead()
 ' dpixRead(const char *) as DPIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - </param>
@@ -1432,9 +1321,6 @@ End Function
 ' SRC\fpix1.c (2020, 1)
 ' dpixReadStream()
 ' dpixReadStream(FILE *) as DPIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
@@ -1454,9 +1340,6 @@ End Function
 ' SRC\fpix1.c (2073, 1)
 ' dpixReadMem()
 ' dpixReadMem(const l_uint8 *, size_t) as DPIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="data">[in] - of serialized dpix</param>
@@ -1478,9 +1361,6 @@ End Function
 ' SRC\fpix1.c (2101, 1)
 ' dpixWrite()
 ' dpixWrite(const char *, DPIX *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - </param>
@@ -1503,9 +1383,6 @@ End Function
 ' SRC\fpix1.c (2132, 1)
 ' dpixWriteStream()
 ' dpixWriteStream(FILE *, DPIX *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
@@ -1528,8 +1405,9 @@ End Function
 ' dpixWriteMem()
 ' dpixWriteMem(l_uint8 **, size_t *, DPIX *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Serializes a dpix in memory and puts the result in a buffer.
+''' <para/>
+''' Notes:<para/>
+''' (1) Serializes a dpix in memory and puts the result in a buffer.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1556,15 +1434,16 @@ End Function
 ' dpixEndianByteSwap()
 ' dpixEndianByteSwap(DPIX *, DPIX *) as DPIX *
 '''  <summary>
-''' Notes
-''' (1) On big-endian hardware, this does byte-swapping on each of
-''' the 4-byte words in the dpix data.  On little-endians,
-''' the data is unchanged.  This is used for serialization
-''' of dpix; the data is serialized in little-endian byte
-''' order because most hardware is little-endian.
-''' (2) The operation can be either in-place or, if dpixd == NULL,
-''' a new dpix is made.  If not in-place, caller must catch
-''' the returned pointer.
+''' <para/>
+''' Notes:<para/>
+''' (1) On big-endian hardware, this does byte-swapping on each of<para/>
+''' the 4-byte words in the dpix data.  On little-endians,<para/>
+''' the data is unchanged.  This is used for serialization<para/>
+''' of dpix the data is serialized in little-endian byte<para/>
+''' order because most hardware is little-endian.<para/>
+''' (2) The operation can be either in-place or, if dpixd == NULL,<para/>
+''' a new dpix is made.  If not in-place, caller must catch<para/>
+''' the returned pointer.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1589,8 +1468,9 @@ End Function
 ' fpixPrintStream()
 ' fpixPrintStream(FILE *, FPIX *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Subsampled printout of fpix for debugging.
+''' <para/>
+''' Notes:<para/>
+''' (1) Subsampled printout of fpix for debugging.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

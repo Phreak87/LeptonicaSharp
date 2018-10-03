@@ -1,21 +1,18 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\fliphmtgen.c (77, 1)
 ' 
 ' pixFlipFHMTGen(PIX *, PIX *, const char *) as PIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function pixFlipFHMTGen(
-				ByRef pixd as Pix, 
-				ByRef pixs as Pix, 
-				ByRef selname as String) as Pix
+				ByVal pixd as Pix, 
+				ByVal pixs as Pix, 
+				ByVal selname as String) as Pix
 
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")

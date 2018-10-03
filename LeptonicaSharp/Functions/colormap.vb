@@ -1,14 +1,11 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\colormap.c (110, 1)
 ' pixcmapCreate()
 ' pixcmapCreate(l_int32) as PIXCMAP *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="depth">[in] - bpp, of pix</param>
@@ -28,27 +25,28 @@ End Function
 ' pixcmapCreateRandom()
 ' pixcmapCreateRandom(l_int32, l_int32, l_int32) as PIXCMAP *
 '''  <summary>
-''' Notes
-''' (1) This sets up a colormap with random colors,
-''' where the first color is optionally black, the last color
-''' is optionally white, and the remaining colors are
-''' chosen randomly.
-''' (2) The number of randomly chosen colors is
-''' 2^(depth) - haswhite - hasblack
-''' (3) Because rand() is seeded, it might disrupt otherwise
-''' deterministic results if also used elsewhere in a program.
-''' (4) rand() is not threadsafe, and will generate garbage if run
-''' on multiple threads at once -- though garbage is generally
-''' what you want from a random number generator!
-''' (5) Modern rand()s have equal randomness in low and high order
-''' bits, but older ones don't.  Here, we're just using rand()
-''' to choose colors for output.
+''' <para/>
+''' Notes:<para/>
+''' (1) This sets up a colormap with random colors,<para/>
+''' where the first color is optionally black, the last color<para/>
+''' is optionally white, and the remaining colors are<para/>
+''' chosen randomly.<para/>
+''' (2) The number of randomly chosen colors is:<para/>
+''' 2^(depth) - haswhite - hasblack<para/>
+''' (3) Because rand() is seeded, it might disrupt otherwise<para/>
+''' deterministic results if also used elsewhere in a program.<para/>
+''' (4) rand() is not threadsafe, and will generate garbage if run<para/>
+''' on multiple threads at once -- though garbage is generally<para/>
+''' what you want from a random number generator!<para/>
+''' (5) Modern rand()s have equal randomness in low and high order<para/>
+''' bits, but older ones don't.  Here, we're just using rand()<para/>
+''' to choose colors for output.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="depth">[in] - bpp, of pix; 2, 4 or 8</param>
-'''  <param name="hasblack">[in] - 1 if the first color is black; 0 if no black</param>
-'''  <param name="haswhite">[in] - 1 if the last color is white; 0 if no white</param>
+'''  <param name="depth">[in] - bpp, of pix 2, 4 or 8</param>
+'''  <param name="hasblack">[in] - 1 if the first color is black 0 if no black</param>
+'''  <param name="haswhite">[in] - 1 if the last color is white 0 if no white</param>
 '''   <returns>cmap, or NULL on error</returns>
 Public Shared Function pixcmapCreateRandom(
 				ByVal depth as Integer, 
@@ -67,13 +65,14 @@ End Function
 ' pixcmapCreateLinear()
 ' pixcmapCreateLinear(l_int32, l_int32) as PIXCMAP *
 '''  <summary>
-''' Notes
-''' (1) Colormap has equally spaced gray color values
-''' from black (0, 0, 0) to white (255, 255, 255).
+''' <para/>
+''' Notes:<para/>
+''' (1) Colormap has equally spaced gray color values<para/>
+''' from black (0, 0, 0) to white (255, 255, 255).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="d">[in] - depth of pix for this colormap; 1, 2, 4 or 8</param>
+'''  <param name="d">[in] - depth of pix for this colormap 1, 2, 4 or 8</param>
 '''  <param name="nlevels">[in] - valid in range [2, 2^d]</param>
 '''   <returns>cmap, or NULL on error</returns>
 Public Shared Function pixcmapCreateLinear(
@@ -91,9 +90,6 @@ End Function
 ' SRC\colormap.c (233, 1)
 ' pixcmapCopy()
 ' pixcmapCopy(PIXCMAP *) as PIXCMAP *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmaps">[in] - </param>
@@ -113,9 +109,6 @@ End Function
 ' SRC\colormap.c (263, 1)
 ' pixcmapDestroy()
 ' pixcmapDestroy(PIXCMAP **) as void
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pcmap">[in,out] - set to null</param>
@@ -134,16 +127,17 @@ End Sub
 ' pixcmapAddColor()
 ' pixcmapAddColor(PIXCMAP *, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This always adds the color if there is room.
-''' (2) The alpha component is 255 (opaque)
+''' <para/>
+''' Notes:<para/>
+''' (1) This always adds the color if there is room.<para/>
+''' (2) The alpha component is 255 (opaque)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
-'''  <param name="rval">[in] - colormap entry to be added; each number is in range [0, ... 255]</param>
-'''  <param name="gval">[in] - colormap entry to be added; each number is in range [0, ... 255]</param>
-'''  <param name="bval">[in] - colormap entry to be added; each number is in range [0, ... 255]</param>
+'''  <param name="rval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
+'''  <param name="gval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
+'''  <param name="bval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixcmapAddColor(
 				ByVal cmap as PixColormap, 
@@ -163,16 +157,17 @@ End Function
 ' pixcmapAddRGBA()
 ' pixcmapAddRGBA(PIXCMAP *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This always adds the color if there is room.
+''' <para/>
+''' Notes:<para/>
+''' (1) This always adds the color if there is room.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
-'''  <param name="rval">[in] - colormap entry to be added; each number is in range [0, ... 255]</param>
-'''  <param name="gval">[in] - colormap entry to be added; each number is in range [0, ... 255]</param>
-'''  <param name="bval">[in] - colormap entry to be added; each number is in range [0, ... 255]</param>
-'''  <param name="aval">[in] - colormap entry to be added; each number is in range [0, ... 255]</param>
+'''  <param name="rval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
+'''  <param name="gval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
+'''  <param name="bval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
+'''  <param name="aval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixcmapAddRGBA(
 				ByVal cmap as PixColormap, 
@@ -193,21 +188,22 @@ End Function
 ' pixcmapAddNewColor()
 ' pixcmapAddNewColor(PIXCMAP *, l_int32, l_int32, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This only adds color if not already there.
-''' (2) The alpha component is 255 (opaque)
-''' (3) This returns the index of the new (or existing) color.
-''' (4) Returns 2 with a warning if unable to add this color;
-''' the caller should check the return value.
+''' <para/>
+''' Notes:<para/>
+''' (1) This only adds color if not already there.<para/>
+''' (2) The alpha component is 255 (opaque)<para/>
+''' (3) This returns the index of the new (or existing) color.<para/>
+''' (4) Returns 2 with a warning if unable to add this color<para/>
+''' the caller should check the return value.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
-'''  <param name="rval">[in] - colormap entry to be added; each number is in range [0, ... 255]</param>
-'''  <param name="gval">[in] - colormap entry to be added; each number is in range [0, ... 255]</param>
-'''  <param name="bval">[in] - colormap entry to be added; each number is in range [0, ... 255]</param>
+'''  <param name="rval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
+'''  <param name="gval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
+'''  <param name="bval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 '''  <param name="pindex">[out] - index of color</param>
-'''   <returns>0 if OK, 1 on error; 2 if unable to add color</returns>
+'''   <returns>0 if OK, 1 on error 2 if unable to add color</returns>
 Public Shared Function pixcmapAddNewColor(
 				ByVal cmap as PixColormap, 
 				ByVal rval as Integer, 
@@ -227,18 +223,19 @@ End Function
 ' pixcmapAddNearestColor()
 ' pixcmapAddNearestColor(PIXCMAP *, l_int32, l_int32, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This only adds color if not already there.
-''' (2) The alpha component is 255 (opaque)
-''' (3) If it's not in the colormap and there is no room to add
-''' another color, this returns the index of the nearest color.
+''' <para/>
+''' Notes:<para/>
+''' (1) This only adds color if not already there.<para/>
+''' (2) The alpha component is 255 (opaque)<para/>
+''' (3) If it's not in the colormap and there is no room to add<para/>
+''' another color, this returns the index of the nearest color.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
-'''  <param name="rval">[in] - colormap entry to be added; each number is in range [0, ... 255]</param>
-'''  <param name="gval">[in] - colormap entry to be added; each number is in range [0, ... 255]</param>
-'''  <param name="bval">[in] - colormap entry to be added; each number is in range [0, ... 255]</param>
+'''  <param name="rval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
+'''  <param name="gval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
+'''  <param name="bval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 '''  <param name="pindex">[out] - index of color</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixcmapAddNearestColor(
@@ -260,17 +257,18 @@ End Function
 ' pixcmapUsableColor()
 ' pixcmapUsableColor(PIXCMAP *, l_int32, l_int32, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This checks if the color already exists or if there is
-''' room to add it.  It makes no change in the colormap.
+''' <para/>
+''' Notes:<para/>
+''' (1) This checks if the color already exists or if there is<para/>
+''' room to add it.  It makes no change in the colormap.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
-'''  <param name="rval">[in] - colormap entry to be added; each number is in range [0, ... 255]</param>
-'''  <param name="gval">[in] - colormap entry to be added; each number is in range [0, ... 255]</param>
-'''  <param name="bval">[in] - colormap entry to be added; each number is in range [0, ... 255]</param>
-'''  <param name="pusable">[out] - 1 if usable; 0 if not</param>
+'''  <param name="rval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
+'''  <param name="gval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
+'''  <param name="bval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
+'''  <param name="pusable">[out] - 1 if usable 0 if not</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixcmapUsableColor(
 				ByVal cmap as PixColormap, 
@@ -291,18 +289,19 @@ End Function
 ' pixcmapAddBlackOrWhite()
 ' pixcmapAddBlackOrWhite(PIXCMAP *, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This only adds color if not already there.
-''' (2) The alpha component is 255 (opaque)
-''' (3) This sets index to the requested color.
-''' (4) If there is no room in the colormap, returns the index
-''' of the closest color.
+''' <para/>
+''' Notes:<para/>
+''' (1) This only adds color if not already there.<para/>
+''' (2) The alpha component is 255 (opaque)<para/>
+''' (3) This sets index to the requested color.<para/>
+''' (4) If there is no room in the colormap, returns the index<para/>
+''' of the closest color.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="color">[in] - 0 for black, 1 for white</param>
-'''  <param name="pindex">[out][optional] - index of color; can be null</param>
+'''  <param name="pindex">[out][optional] - index of color can be null</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixcmapAddBlackOrWhite(
 				ByVal cmap as PixColormap, 
@@ -320,14 +319,11 @@ End Function
 ' SRC\colormap.c (563, 1)
 ' pixcmapSetBlackAndWhite()
 ' pixcmapSetBlackAndWhite(PIXCMAP *, l_int32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
-'''  <param name="setblack">[in] - 0 for no operation; 1 to set darkest color to black</param>
-'''  <param name="setwhite">[in] - 0 for no operation; 1 to set lightest color to white</param>
+'''  <param name="setblack">[in] - 0 for no operation 1 to set darkest color to black</param>
+'''  <param name="setwhite">[in] - 0 for no operation 1 to set lightest color to white</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixcmapSetBlackAndWhite(
 				ByVal cmap as PixColormap, 
@@ -345,9 +341,6 @@ End Function
 ' SRC\colormap.c (593, 1)
 ' pixcmapGetCount()
 ' pixcmapGetCount(PIXCMAP *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
@@ -366,9 +359,6 @@ End Function
 ' SRC\colormap.c (610, 1)
 ' pixcmapGetFreeCount()
 ' pixcmapGetFreeCount(PIXCMAP *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
@@ -387,9 +377,6 @@ End Function
 ' SRC\colormap.c (627, 1)
 ' pixcmapGetDepth()
 ' pixcmapGetDepth(PIXCMAP *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
@@ -409,8 +396,9 @@ End Function
 ' pixcmapGetMinDepth()
 ' pixcmapGetMinDepth(PIXCMAP *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) On error, mindepth is returned as 0.
+''' <para/>
+''' Notes:<para/>
+''' (1) On error,  and mindepth is returned as 0.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -433,8 +421,9 @@ End Function
 ' pixcmapClear()
 ' pixcmapClear(PIXCMAP *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This removes the colors by setting the count to 0.
+''' <para/>
+''' Notes:<para/>
+''' (1) This removes the colors by setting the count to 0.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -454,9 +443,6 @@ End Function
 ' SRC\colormap.c (709, 1)
 ' pixcmapGetColor()
 ' pixcmapGetColor(PIXCMAP *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
@@ -484,8 +470,9 @@ End Function
 ' pixcmapGetColor32()
 ' pixcmapGetColor32(PIXCMAP *, l_int32, l_uint32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The returned alpha channel value is 255.
+''' <para/>
+''' Notes:<para/>
+''' (1) The returned alpha channel value is 255.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -509,9 +496,6 @@ End Function
 ' SRC\colormap.c (777, 1)
 ' pixcmapGetRGBA()
 ' pixcmapGetRGBA(PIXCMAP *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
@@ -540,9 +524,6 @@ End Function
 ' SRC\colormap.c (815, 1)
 ' pixcmapGetRGBA32()
 ' pixcmapGetRGBA32(PIXCMAP *, l_int32, l_uint32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
@@ -566,18 +547,19 @@ End Function
 ' pixcmapResetColor()
 ' pixcmapResetColor(PIXCMAP *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This resets sets the color of an entry that has already
-''' been set and included in the count of colors.
-''' (2) The alpha component is 255 (opaque)
+''' <para/>
+''' Notes:<para/>
+''' (1) This resets sets the color of an entry that has already<para/>
+''' been set and included in the count of colors.<para/>
+''' (2) The alpha component is 255 (opaque)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="index">[in] - </param>
-'''  <param name="rval">[in] - colormap entry to be reset; each number is in range [0, ... 255]</param>
-'''  <param name="gval">[in] - colormap entry to be reset; each number is in range [0, ... 255]</param>
-'''  <param name="bval">[in] - colormap entry to be reset; each number is in range [0, ... 255]</param>
+'''  <param name="rval">[in] - colormap entry to be reset each number is in range [0, ... 255]</param>
+'''  <param name="gval">[in] - colormap entry to be reset each number is in range [0, ... 255]</param>
+'''  <param name="bval">[in] - colormap entry to be reset each number is in range [0, ... 255]</param>
 '''   <returns>0 if OK, 1 if not accessible caller should check</returns>
 Public Shared Function pixcmapResetColor(
 				ByVal cmap as PixColormap, 
@@ -598,11 +580,12 @@ End Function
 ' pixcmapSetAlpha()
 ' pixcmapSetAlpha(PIXCMAP *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This modifies the transparency of one entry in a colormap.
-''' The alpha component by default is 255 (opaque).
-''' This is used when extracting the colormap from a PNG file
-''' without decoding the image.
+''' <para/>
+''' Notes:<para/>
+''' (1) This modifies the transparency of one entry in a colormap.<para/>
+''' The alpha component by default is 255 (opaque).<para/>
+''' This is used when extracting the colormap from a PNG file<para/>
+''' without decoding the image.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -626,15 +609,12 @@ End Function
 ' SRC\colormap.c (921, 1)
 ' pixcmapGetIndex()
 ' pixcmapGetIndex(PIXCMAP *, l_int32, l_int32, l_int32, l_int32 *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
-'''  <param name="rval">[in] - colormap colors to search for; each number is in range [0, ... 255]</param>
-'''  <param name="gval">[in] - colormap colors to search for; each number is in range [0, ... 255]</param>
-'''  <param name="bval">[in] - colormap colors to search for; each number is in range [0, ... 255]</param>
+'''  <param name="rval">[in] - colormap colors to search for each number is in range [0, ... 255]</param>
+'''  <param name="gval">[in] - colormap colors to search for each number is in range [0, ... 255]</param>
+'''  <param name="bval">[in] - colormap colors to search for each number is in range [0, ... 255]</param>
 '''  <param name="pindex">[out] - found index</param>
 '''   <returns>0 if found, 1 if not found caller must check</returns>
 Public Shared Function pixcmapGetIndex(
@@ -655,13 +635,10 @@ End Function
 ' SRC\colormap.c (960, 1)
 ' pixcmapHasColor()
 ' pixcmapHasColor(PIXCMAP *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
-'''  <param name="pcolor">[out] - TRUE if cmap has color; FALSE otherwise</param>
+'''  <param name="pcolor">[out] - TRUE if cmap has color FALSE otherwise</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixcmapHasColor(
 				ByVal cmap as PixColormap, 
@@ -678,13 +655,10 @@ End Function
 ' SRC\colormap.c (999, 1)
 ' pixcmapIsOpaque()
 ' pixcmapIsOpaque(PIXCMAP *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
-'''  <param name="popaque">[out] - TRUE if fully opaque all entries are 255</param>
+'''  <param name="popaque">[out] - TRUE if fully opaque: all entries are 255</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixcmapIsOpaque(
 				ByVal cmap as PixColormap, 
@@ -701,13 +675,10 @@ End Function
 ' SRC\colormap.c (1034, 1)
 ' pixcmapIsBlackAndWhite()
 ' pixcmapIsBlackAndWhite(PIXCMAP *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
-'''  <param name="pblackwhite">[out] - TRUE if the cmap has only two colors black (0,0,0) and white (255,255,255)</param>
+'''  <param name="pblackwhite">[out] - TRUE if the cmap has only two colors: black (0,0,0) and white (255,255,255)</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixcmapIsBlackAndWhite(
 				ByVal cmap as PixColormap, 
@@ -725,8 +696,9 @@ End Function
 ' pixcmapCountGrayColors()
 ' pixcmapCountGrayColors(PIXCMAP *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This counts the unique gray colors, including black and white.
+''' <para/>
+''' Notes:<para/>
+''' (1) This counts the unique gray colors, including black and white.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -748,9 +720,6 @@ End Function
 ' SRC\colormap.c (1116, 1)
 ' pixcmapGetRankIntensity()
 ' pixcmapGetRankIntensity(PIXCMAP *, l_float32, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
@@ -775,18 +744,19 @@ End Function
 ' pixcmapGetNearestIndex()
 ' pixcmapGetNearestIndex(PIXCMAP *, l_int32, l_int32, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Returns the index of the exact color if possible, otherwise the
-''' index of the color closest to the target color.
-''' (2) Nearest color is that which is the least sum-of-squares distance
-''' from the target color.
+''' <para/>
+''' Notes:<para/>
+''' (1) Returns the index of the exact color if possible, otherwise the<para/>
+''' index of the color closest to the target color.<para/>
+''' (2) Nearest color is that which is the least sum-of-squares distance<para/>
+''' from the target color.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
-'''  <param name="rval">[in] - colormap colors to search for; each number is in range [0, ... 255]</param>
-'''  <param name="gval">[in] - colormap colors to search for; each number is in range [0, ... 255]</param>
-'''  <param name="bval">[in] - colormap colors to search for; each number is in range [0, ... 255]</param>
+'''  <param name="rval">[in] - colormap colors to search for each number is in range [0, ... 255]</param>
+'''  <param name="gval">[in] - colormap colors to search for each number is in range [0, ... 255]</param>
+'''  <param name="bval">[in] - colormap colors to search for each number is in range [0, ... 255]</param>
 '''  <param name="pindex">[out] - the index of the nearest color</param>
 '''   <returns>0 if OK, 1 on error caller must check</returns>
 Public Shared Function pixcmapGetNearestIndex(
@@ -808,16 +778,17 @@ End Function
 ' pixcmapGetNearestGrayIndex()
 ' pixcmapGetNearestGrayIndex(PIXCMAP *, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This should be used on gray colormaps.  It uses only the
-''' green value of the colormap.
-''' (2) Returns the index of the exact color if possible, otherwise the
-''' index of the color closest to the target color.
+''' <para/>
+''' Notes:<para/>
+''' (1) This should be used on gray colormaps.  It uses only the<para/>
+''' green value of the colormap.<para/>
+''' (2) Returns the index of the exact color if possible, otherwise the<para/>
+''' index of the color closest to the target color.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - </param>
-'''  <param name="val">[in] - gray value to search for; in range [0, ... 255]</param>
+'''  <param name="val">[in] - gray value to search for in range [0, ... 255]</param>
 '''  <param name="pindex">[out] - the index of the nearest color</param>
 '''   <returns>0 if OK, 1 on error caller must check</returns>
 Public Shared Function pixcmapGetNearestGrayIndex(
@@ -837,9 +808,10 @@ End Function
 ' pixcmapGetDistanceToColor()
 ' pixcmapGetDistanceToColor(PIXCMAP *, l_int32, l_int32, l_int32, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Returns the L2 distance (squared) between the color at index i
-''' and the target color.
+''' <para/>
+''' Notes:<para/>
+''' (1) Returns the L2 distance (squared) between the color at index i<para/>
+''' and the target color.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -870,10 +842,11 @@ End Function
 ' pixcmapGetRangeValues()
 ' pixcmapGetRangeValues(PIXCMAP *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Returns, for selected components (or the average), the
-''' the extreme values (min and/or max) and their indices
-''' that are found in the cmap.
+''' <para/>
+''' Notes:<para/>
+''' (1) Returns, for selected components (or the average), the<para/>
+''' the extreme values (min and/or max) and their indices<para/>
+''' that are found in the cmap.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -885,7 +858,7 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixcmapGetRangeValues(
 				ByVal cmap as PixColormap, 
-				ByRef _select_ as Integer, 
+				ByVal _select_ as Integer, 
 				ByRef pminval as Integer, 
 				ByRef pmaxval as Integer, 
 				ByRef pminindex as Integer, 
@@ -903,12 +876,13 @@ End Function
 ' pixcmapGrayToColor()
 ' pixcmapGrayToColor(l_uint32) as PIXCMAP *
 '''  <summary>
-''' Notes
-''' (1) This creates a colormap that maps from gray to
-''' a specific color.  In the mapping, each component
-''' is faded to white, depending on the gray value.
-''' (2) In use, this is simply attached to a grayscale pix
-''' to give it the input color.
+''' <para/>
+''' Notes:<para/>
+''' (1) This creates a colormap that maps from gray to<para/>
+''' a specific color.  In the mapping, each component<para/>
+''' is faded to white, depending on the gray value.<para/>
+''' (2) In use, this is simply attached to a grayscale pix<para/>
+''' to give it the input color.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -929,17 +903,18 @@ End Function
 ' pixcmapColorToGray()
 ' pixcmapColorToGray(PIXCMAP *, l_float32, l_float32, l_float32) as PIXCMAP *
 '''  <summary>
-''' Notes
-''' (1) This creates a gray colormap from an arbitrary colormap.
-''' (2) In use, attach the output gray colormap to the pix
-''' (or a copy of it) that provided the input colormap.
+''' <para/>
+''' Notes:<para/>
+''' (1) This creates a gray colormap from an arbitrary colormap.<para/>
+''' (2) In use, attach the output gray colormap to the pix<para/>
+''' (or a copy of it) that provided the input colormap.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmaps">[in] - </param>
-'''  <param name="rwt">[in] - non-negative; these should add to 1.0</param>
-'''  <param name="gwt">[in] - non-negative; these should add to 1.0</param>
-'''  <param name="bwt">[in] - non-negative; these should add to 1.0</param>
+'''  <param name="rwt">[in] - non-negative these should add to 1.0</param>
+'''  <param name="gwt">[in] - non-negative these should add to 1.0</param>
+'''  <param name="bwt">[in] - non-negative these should add to 1.0</param>
 '''   <returns>cmap gray, or NULL on error</returns>
 Public Shared Function pixcmapColorToGray(
 				ByVal cmaps as PixColormap, 
@@ -963,9 +938,10 @@ End Function
 ' pixcmapConvertTo4()
 ' pixcmapConvertTo4(PIXCMAP *) as PIXCMAP *
 '''  <summary>
-''' Notes
-''' (1) This converts a 2 bpp colormap to 4 bpp.  The colors
-''' are the same; the output colormap entry array has size 16.
+''' <para/>
+''' Notes:<para/>
+''' (1) This converts a 2 bpp colormap to 4 bpp.  The colors<para/>
+''' are the same the output colormap entry array has size 16.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -987,9 +963,10 @@ End Function
 ' pixcmapConvertTo8()
 ' pixcmapConvertTo8(PIXCMAP *) as PIXCMAP *
 '''  <summary>
-''' Notes
-''' (1) This converts a 2 bpp or 4 bpp colormap to 8 bpp.  The colors
-''' are the same; the output colormap entry array has size 256.
+''' <para/>
+''' Notes:<para/>
+''' (1) This converts a 2 bpp or 4 bpp colormap to 8 bpp.  The colors<para/>
+''' are the same the output colormap entry array has size 256.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1010,9 +987,6 @@ End Function
 ' SRC\colormap.c (1587, 1)
 ' pixcmapRead()
 ' pixcmapRead(const char *) as PIXCMAP *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - </param>
@@ -1033,9 +1007,6 @@ End Function
 ' SRC\colormap.c (1614, 1)
 ' pixcmapReadStream()
 ' pixcmapReadStream(FILE *) as PIXCMAP *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
@@ -1055,13 +1026,10 @@ End Function
 ' SRC\colormap.c (1655, 1)
 ' pixcmapReadMem()
 ' pixcmapReadMem(const l_uint8 *, size_t) as PIXCMAP *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="data">[in] - serialization of pixcmap; in ascii</param>
-'''  <param name="size">[in] - of data in bytes; can use strlen to get it</param>
+'''  <param name="data">[in] - serialization of pixcmap in ascii</param>
+'''  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 '''   <returns>cmap, or NULL on error</returns>
 Public Shared Function pixcmapReadMem(
 				ByVal data as Byte(), 
@@ -1079,9 +1047,6 @@ End Function
 ' SRC\colormap.c (1683, 1)
 ' pixcmapWrite()
 ' pixcmapWrite(const char *, PIXCMAP *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - </param>
@@ -1104,16 +1069,13 @@ End Function
 ' SRC\colormap.c (1715, 1)
 ' pixcmapWriteStream()
 ' pixcmapWriteStream(FILE *, PIXCMAP *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream    \param[in]    cmap</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixcmapWriteStream(
 				ByVal fp as FILE, 
-				ByRef cmap as PixColormap) as Integer
+				ByVal cmap as PixColormap) as Integer
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
@@ -1129,12 +1091,13 @@ End Function
 ' pixcmapWriteMem()
 ' pixcmapWriteMem(l_uint8 **, size_t *, PIXCMAP *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Serializes a pixcmap in memory and puts the result in a buffer.
+''' <para/>
+''' Notes:<para/>
+''' (1) Serializes a pixcmap in memory and puts the result in a buffer.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pdata">[out] - data of serialized pixcmap; ascii</param>
+'''  <param name="pdata">[out] - data of serialized pixcmap ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="cmap">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1156,9 +1119,6 @@ End Function
 ' SRC\colormap.c (1813, 1)
 ' pixcmapToArrays()
 ' pixcmapToArrays(PIXCMAP *, l_int32 **, l_int32 **, l_int32 **, l_int32 **) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - colormap</param>
@@ -1166,7 +1126,7 @@ End Function
 '''  <param name="pgmap">[out] - colormap arrays</param>
 '''  <param name="pbmap">[out] - colormap arrays</param>
 '''  <param name="pamap">[out][optional] - alpha array</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcmapToArrays(
 				ByVal cmap as PixColormap, 
 				ByRef prmap as List (of Integer()), 
@@ -1189,15 +1149,12 @@ End Function
 ' SRC\colormap.c (1867, 1)
 ' pixcmapToRGBTable()
 ' pixcmapToRGBTable(PIXCMAP *, l_uint32 **, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - colormap</param>
 '''  <param name="ptab">[out] - table of rgba values for the colormap</param>
 '''  <param name="pncolors">[out][optional] - size of table</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcmapToRGBTable(
 				ByVal cmap as PixColormap, 
 				ByRef ptab as Byte(), 
@@ -1217,16 +1174,17 @@ End Function
 ' pixcmapSerializeToMemory()
 ' pixcmapSerializeToMemory(PIXCMAP *, l_int32, l_int32 *, l_uint8 **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) When serializing to store in a pdf, use %cpc = 3.
+''' <para/>
+''' Notes:<para/>
+''' (1) When serializing to store in a pdf, use %cpc = 3.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - colormap</param>
-'''  <param name="cpc">[in] - components/color 3 for rgb, 4 for rgba</param>
+'''  <param name="cpc">[in] - components/color: 3 for rgb, 4 for rgba</param>
 '''  <param name="pncolors">[out] - number of colors in table</param>
 '''  <param name="pdata">[out] - binary string, cpc bytes per color</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcmapSerializeToMemory(
 				ByVal cmap as PixColormap, 
 				ByVal cpc as Integer, 
@@ -1246,13 +1204,10 @@ End Function
 ' SRC\colormap.c (1960, 1)
 ' pixcmapDeserializeFromMemory()
 ' pixcmapDeserializeFromMemory(l_uint8 *, l_int32, l_int32) as PIXCMAP *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="data">[in] - binary string, 3 or 4 bytes per color</param>
-'''  <param name="cpc">[in] - components/color 3 for rgb, 4 for rgba</param>
+'''  <param name="cpc">[in] - components/color: 3 for rgb, 4 for rgba</param>
 '''  <param name="ncolors">[in] - </param>
 '''   <returns>cmap, or NULL on error</returns>
 Public Shared Function pixcmapDeserializeFromMemory(
@@ -1273,13 +1228,14 @@ End Function
 ' pixcmapConvertToHex()
 ' pixcmapConvertToHex(l_uint8 *, l_int32) as char *
 '''  <summary>
-''' Notes
-''' (1) The number of bytes in %data is 3  ncolors.
-''' (2) Output is in form
-''' LT r0g0b0 r1g1b1 ... rngnbn GT
-''' where r0, g0, b0 ... are each 2 bytes of hex ascii
-''' (3) This is used in pdf files to express the colormap as an
-''' array in ascii (human-readable) format.
+''' <para/>
+''' Notes:<para/>
+''' (1) The number of bytes in %data is 3  ncolors.<para/>
+''' (2) Output is in form:<para/>
+'''  is lower  r0g0b0 r1g1b1 ... rngnbn  is greater <para/>
+''' where r0, g0, b0 ... are each 2 bytes of hex ascii<para/>
+''' (3) This is used in pdf files to express the colormap as an<para/>
+''' array in ascii (human-readable) format.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1302,18 +1258,19 @@ End Function
 ' pixcmapGammaTRC()
 ' pixcmapGammaTRC(PIXCMAP *, l_float32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This is an in-place transform
-''' (2) See pixGammaTRC() and numaGammaTRC() in enhance.c
-''' for description and use of transform
+''' <para/>
+''' Notes:<para/>
+''' (1) This is an in-place transform<para/>
+''' (2) See pixGammaTRC() and numaGammaTRC() in enhance.c<para/>
+''' for description and use of transform<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - colormap</param>
-'''  <param name="gamma">[in] - gamma correction; must be GT 0.0</param>
-'''  <param name="minval">[in] - input value that gives 0 for output; can be LT 0</param>
-'''  <param name="maxval">[in] - input value that gives 255 for output; can be GT 255</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''  <param name="gamma">[in] - gamma correction must be  is greater  0.0</param>
+'''  <param name="minval">[in] - input value that gives 0 for output can be  is lower  0</param>
+'''  <param name="maxval">[in] - input value that gives 255 for output can be  is greater  255</param>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcmapGammaTRC(
 				ByVal cmap as PixColormap, 
 				ByVal gamma as Single, 
@@ -1333,16 +1290,17 @@ End Function
 ' pixcmapContrastTRC()
 ' pixcmapContrastTRC(PIXCMAP *, l_float32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This is an in-place transform
-''' (2) See pixContrastTRC() and numaContrastTRC() in enhance.c
-''' for description and use of transform
+''' <para/>
+''' Notes:<para/>
+''' (1) This is an in-place transform<para/>
+''' (2) See pixContrastTRC() and numaContrastTRC() in enhance.c<para/>
+''' for description and use of transform<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - colormap</param>
 '''  <param name="factor">[in] - generally between 0.0 [no enhancement] and 1.0, but can be larger than 1.0</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcmapContrastTRC(
 				ByVal cmap as PixColormap, 
 				ByVal factor as Single) as Integer
@@ -1360,21 +1318,22 @@ End Function
 ' pixcmapShiftIntensity()
 ' pixcmapShiftIntensity(PIXCMAP *, l_float32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This is an in-place transform
-''' (2) It does a proportional shift of the intensity for each color.
-''' (3) If fraction LT 0.0, it moves all colors towards (0,0,0).
-''' This darkens the image.
-''' If fraction GT 0.0, it moves all colors towards (255,255,255)
-''' This fades the image.
-''' (4) The equivalent transform can be accomplished with pixcmapGammaTRC(),
-''' but it is considerably more difficult (see numaGammaTRC()).
+''' <para/>
+''' Notes:<para/>
+''' (1) This is an in-place transform<para/>
+''' (2) It does a proportional shift of the intensity for each color.<para/>
+''' (3) If fraction  is lower  0.0, it moves all colors towards (0,0,0).<para/>
+''' This darkens the image.<para/>
+''' If fraction  is greater  0.0, it moves all colors towards (255,255,255)<para/>
+''' This fades the image.<para/>
+''' (4) The equivalent transform can be accomplished with pixcmapGammaTRC(),<para/>
+''' but it is considerably more difficult (see numaGammaTRC()).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - colormap</param>
 '''  <param name="fraction">[in] - between -1.0 and +1.0</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcmapShiftIntensity(
 				ByVal cmap as PixColormap, 
 				ByVal fraction as Single) as Integer
@@ -1392,20 +1351,21 @@ End Function
 ' pixcmapShiftByComponent()
 ' pixcmapShiftByComponent(PIXCMAP *, l_uint32, l_uint32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This is an in-place transform
-''' (2) It implements pixelShiftByComponent() for each color.
-''' The mapping is specified by srcval and dstval.
-''' (3) If a component decreases, the component in the colormap
-''' decreases by the same ratio.  Likewise for increasing, except
-''' all ratios are taken with respect to the distance from 255.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is an in-place transform<para/>
+''' (2) It implements pixelShiftByComponent() for each color.<para/>
+''' The mapping is specified by srcval and dstval.<para/>
+''' (3) If a component decreases, the component in the colormap<para/>
+''' decreases by the same ratio.  Likewise for increasing, except<para/>
+''' all ratios are taken with respect to the distance from 255.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cmap">[in] - colormap</param>
-'''  <param name="srcval">[in] - source color 0xrrggbb00</param>
-'''  <param name="dstval">[in] - target color 0xrrggbb00</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''  <param name="srcval">[in] - source color: 0xrrggbb00</param>
+'''  <param name="dstval">[in] - target color: 0xrrggbb00</param>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcmapShiftByComponent(
 				ByVal cmap as PixColormap, 
 				ByVal srcval as UInteger, 

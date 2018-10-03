@@ -1,34 +1,35 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\textops.c (115, 1)
 ' pixAddSingleTextblock()
 ' pixAddSingleTextblock(PIX *, L_BMF *, const char *, l_uint32, l_int32, l_int32 *) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This function paints a set of lines of text over an image.
-''' If %location is L_ADD_ABOVE or L_ADD_BELOW, the pix size
-''' is expanded with a border and rendered over the border.
-''' (2) %val is the pixel value to be painted through the font mask.
-''' It should be chosen to agree with the depth of pixs.
-''' If it is out of bounds, an intermediate value is chosen.
-''' For RGB, use hex notation 0xRRGGBB00, where RR is the
-''' hex representation of the red intensity, etc.
-''' (3) If textstr == NULL, use the text field in the pix.
-''' (4) If there is a colormap, this does the best it can to use
-''' the requested color, or something similar to it.
-''' (5) Typical usage is for labelling a pix with some text data.
+''' <para/>
+''' Notes:<para/>
+''' (1) This function paints a set of lines of text over an image.<para/>
+''' If %location is L_ADD_ABOVE or L_ADD_BELOW, the pix size<para/>
+''' is expanded with a border and rendered over the border.<para/>
+''' (2) %val is the pixel value to be painted through the font mask.<para/>
+''' It should be chosen to agree with the depth of pixs.<para/>
+''' If it is out of bounds, an intermediate value is chosen.<para/>
+''' For RGB, use hex notation: 0xRRGGBB00, where RR is the<para/>
+''' hex representation of the red intensity, etc.<para/>
+''' (3) If textstr == NULL, use the text field in the pix.<para/>
+''' (4) If there is a colormap, this does the best it can to use<para/>
+''' the requested color, or something similar to it.<para/>
+''' (5) Typical usage is for labelling a pix with some text data.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixs">[in] - input pix; colormap ok</param>
+'''  <param name="pixs">[in] - input pix colormap ok</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
 '''  <param name="textstr">[in][optional] - text string to be added</param>
 '''  <param name="val">[in] - color to set the text</param>
 '''  <param name="location">[in] - L_ADD_ABOVE, L_ADD_AT_TOP, L_ADD_AT_BOT, L_ADD_BELOW</param>
-'''  <param name="poverflow">[out][optional] - 1 if text overflows allocated region and is clipped; 0 otherwise</param>
+'''  <param name="poverflow">[out][optional] - 1 if text overflows allocated region and is clipped 0 otherwise</param>
 '''   <returns>pixd new pix with rendered text, or either a copy or NULL on error</returns>
 Public Shared Function pixAddSingleTextblock(
 				ByVal pixs as Pix, 
@@ -52,27 +53,28 @@ End Function
 ' pixAddTextlines()
 ' pixAddTextlines(PIX *, L_BMF *, const char *, l_uint32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This function expands an image as required to paint one or
-''' more lines of text adjacent to the image.  If %bmf == NULL,
-''' this returns a copy.  If above or below, the lines are
-''' centered with respect to the image; if left or right, they
-''' are left justified.
-''' (2) %val is the pixel value to be painted through the font mask.
-''' It should be chosen to agree with the depth of pixs.
-''' If it is out of bounds, an intermediate value is chosen.
-''' For RGB, use hex notation 0xRRGGBB00, where RR is the
-''' hex representation of the red intensity, etc.
-''' (3) If textstr == NULL, use the text field in the pix.  The
-''' text field contains one or most "lines" of text, where newlines
-''' are used as line separators.
-''' (4) If there is a colormap, this does the best it can to use
-''' the requested color, or something similar to it.
-''' (5) Typical usage is for labelling a pix with some text data.
+''' <para/>
+''' Notes:<para/>
+''' (1) This function expands an image as required to paint one or<para/>
+''' more lines of text adjacent to the image.  If %bmf == NULL,<para/>
+''' this returns a copy.  If above or below, the lines are<para/>
+''' centered with respect to the image if left or right, they<para/>
+''' are left justified.<para/>
+''' (2) %val is the pixel value to be painted through the font mask.<para/>
+''' It should be chosen to agree with the depth of pixs.<para/>
+''' If it is out of bounds, an intermediate value is chosen.<para/>
+''' For RGB, use hex notation: 0xRRGGBB00, where RR is the<para/>
+''' hex representation of the red intensity, etc.<para/>
+''' (3) If textstr == NULL, use the text field in the pix.  The<para/>
+''' text field contains one or most "lines" of text, where newlines<para/>
+''' are used as line separators.<para/>
+''' (4) If there is a colormap, this does the best it can to use<para/>
+''' the requested color, or something similar to it.<para/>
+''' (5) Typical usage is for labelling a pix with some text data.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixs">[in] - input pix; colormap ok</param>
+'''  <param name="pixs">[in] - input pix colormap ok</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
 '''  <param name="textstr">[in][optional] - text string to be added</param>
 '''  <param name="val">[in] - color to set the text</param>
@@ -99,19 +101,20 @@ End Function
 ' pixSetTextblock()
 ' pixSetTextblock(PIX *, L_BMF *, const char *, l_uint32, l_int32, l_int32, l_int32, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This function paints a set of lines of text over an image.
-''' (2) %val is the pixel value to be painted through the font mask.
-''' It should be chosen to agree with the depth of pixs.
-''' If it is out of bounds, an intermediate value is chosen.
-''' For RGB, use hex notation 0xRRGGBB00, where RR is the
-''' hex representation of the red intensity, etc.
-''' The last two hex digits are 00 (byte value 0), assigned to
-''' the A component.  Note that, as usual, RGBA proceeds from
-''' left to right in the order from MSB to LSB (see pix.h
-''' for details).
-''' (3) If there is a colormap, this does the best it can to use
-''' the requested color, or something similar to it.
+''' <para/>
+''' Notes:<para/>
+''' (1) This function paints a set of lines of text over an image.<para/>
+''' (2) %val is the pixel value to be painted through the font mask.<para/>
+''' It should be chosen to agree with the depth of pixs.<para/>
+''' If it is out of bounds, an intermediate value is chosen.<para/>
+''' For RGB, use hex notation: 0xRRGGBB00, where RR is the<para/>
+''' hex representation of the red intensity, etc.<para/>
+''' The last two hex digits are 00 (byte value 0), assigned to<para/>
+''' the A component.  Note that, as usual, RGBA proceeds from<para/>
+''' left to right in the order from MSB to LSB (see pix.h<para/>
+''' for details).<para/>
+''' (3) If there is a colormap, this does the best it can to use<para/>
+''' the requested color, or something similar to it.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -123,7 +126,7 @@ End Function
 '''  <param name="y0">[in] - baseline location for the first text line</param>
 '''  <param name="wtext">[in] - max width of each line of generated text</param>
 '''  <param name="firstindent">[in] - indentation of first line, in x-widths</param>
-'''  <param name="poverflow">[out][optional] - 0 if text is contained in input pix; 1 if it is clipped</param>
+'''  <param name="poverflow">[out][optional] - 0 if text is contained in input pix 1 if it is clipped</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixSetTextblock(
 				ByVal pixs as Pix, 
@@ -150,19 +153,20 @@ End Function
 ' pixSetTextline()
 ' pixSetTextline(PIX *, L_BMF *, const char *, l_uint32, l_int32, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This function paints a line of text over an image.
-''' (2) %val is the pixel value to be painted through the font mask.
-''' It should be chosen to agree with the depth of pixs.
-''' If it is out of bounds, an intermediate value is chosen.
-''' For RGB, use hex notation 0xRRGGBB00, where RR is the
-''' hex representation of the red intensity, etc.
-''' The last two hex digits are 00 (byte value 0), assigned to
-''' the A component.  Note that, as usual, RGBA proceeds from
-''' left to right in the order from MSB to LSB (see pix.h
-''' for details).
-''' (3) If there is a colormap, this does the best it can to use
-''' the requested color, or something similar to it.
+''' <para/>
+''' Notes:<para/>
+''' (1) This function paints a line of text over an image.<para/>
+''' (2) %val is the pixel value to be painted through the font mask.<para/>
+''' It should be chosen to agree with the depth of pixs.<para/>
+''' If it is out of bounds, an intermediate value is chosen.<para/>
+''' For RGB, use hex notation: 0xRRGGBB00, where RR is the<para/>
+''' hex representation of the red intensity, etc.<para/>
+''' The last two hex digits are 00 (byte value 0), assigned to<para/>
+''' the A component.  Note that, as usual, RGBA proceeds from<para/>
+''' left to right in the order from MSB to LSB (see pix.h<para/>
+''' for details).<para/>
+''' (3) If there is a colormap, this does the best it can to use<para/>
+''' the requested color, or something similar to it.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -173,7 +177,7 @@ End Function
 '''  <param name="x0">[in] - left edge for first char</param>
 '''  <param name="y0">[in] - baseline location for all text on line</param>
 '''  <param name="pwidth">[out][optional] - width of generated text</param>
-'''  <param name="poverflow">[out][optional] - 0 if text is contained in input pix; 1 if it is clipped</param>
+'''  <param name="poverflow">[out][optional] - 0 if text is contained in input pix 1 if it is clipped</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixSetTextline(
 				ByVal pixs as Pix, 
@@ -199,25 +203,26 @@ End Function
 ' pixaAddTextNumber()
 ' pixaAddTextNumber(PIXA *, L_BMF *, NUMA *, l_uint32, l_int32) as PIXA *
 '''  <summary>
-''' Notes
-''' (1) Typical usage is for labelling each pix in a pixa with a number.
-''' (2) This function paints numbers external to each pix, in a position
-''' given by %location.  In all cases, the pix is expanded on
-''' on side and the number is painted over white in the added region.
-''' (3) %val is the pixel value to be painted through the font mask.
-''' It should be chosen to agree with the depth of pixs.
-''' If it is out of bounds, an intermediate value is chosen.
-''' For RGB, use hex notation 0xRRGGBB00, where RR is the
-''' hex representation of the red intensity, etc.
-''' (4) If na == NULL, number each pix sequentially, starting with 1.
-''' (5) If there is a colormap, this does the best it can to use
-''' the requested color, or something similar to it.
+''' <para/>
+''' Notes:<para/>
+''' (1) Typical usage is for labelling each pix in a pixa with a number.<para/>
+''' (2) This function paints numbers external to each pix, in a position<para/>
+''' given by %location.  In all cases, the pix is expanded on<para/>
+''' on side and the number is painted over white in the added region.<para/>
+''' (3) %val is the pixel value to be painted through the font mask.<para/>
+''' It should be chosen to agree with the depth of pixs.<para/>
+''' If it is out of bounds, an intermediate value is chosen.<para/>
+''' For RGB, use hex notation: 0xRRGGBB00, where RR is the<para/>
+''' hex representation of the red intensity, etc.<para/>
+''' (4) If na == NULL, number each pix sequentially, starting with 1.<para/>
+''' (5) If there is a colormap, this does the best it can to use<para/>
+''' the requested color, or something similar to it.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixas">[in] - input pixa; colormap ok</param>
+'''  <param name="pixas">[in] - input pixa colormap ok</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
-'''  <param name="na">[in][optional] - number array; use 1 ... n if null</param>
+'''  <param name="na">[in][optional] - number array use 1 ... n if null</param>
 '''  <param name="val">[in] - color to set the text</param>
 '''  <param name="location">[in] - L_ADD_ABOVE, L_ADD_BELOW, L_ADD_LEFT, L_ADD_RIGHT</param>
 '''   <returns>pixad new pixa with rendered numbers, or NULL on error</returns>
@@ -243,28 +248,29 @@ End Function
 ' pixaAddTextlines()
 ' pixaAddTextlines(PIXA *, L_BMF *, SARRAY *, l_uint32, l_int32) as PIXA *
 '''  <summary>
-''' Notes
-''' (1) This function adds one or more lines of text externally to
-''' each pix, in a position given by %location.  In all cases,
-''' the pix is expanded as necessary to accommodate the text.
-''' (2) %val is the pixel value to be painted through the font mask.
-''' It should be chosen to agree with the depth of pixs.
-''' If it is out of bounds, an intermediate value is chosen.
-''' For RGB, use hex notation 0xRRGGBB00, where RR is the
-''' hex representation of the red intensity, etc.
-''' (3) If sa == NULL, use the text embedded in each pix.  In all
-''' cases, newlines in the text string are used to separate the
-''' lines of text that are added to the pix.
-''' (4) If sa has a smaller count than pixa, issue a warning
-''' and do not use any embedded text.
-''' (5) If there is a colormap, this does the best it can to use
-''' the requested color, or something similar to it.
+''' <para/>
+''' Notes:<para/>
+''' (1) This function adds one or more lines of text externally to<para/>
+''' each pix, in a position given by %location.  In all cases,<para/>
+''' the pix is expanded as necessary to accommodate the text.<para/>
+''' (2) %val is the pixel value to be painted through the font mask.<para/>
+''' It should be chosen to agree with the depth of pixs.<para/>
+''' If it is out of bounds, an intermediate value is chosen.<para/>
+''' For RGB, use hex notation: 0xRRGGBB00, where RR is the<para/>
+''' hex representation of the red intensity, etc.<para/>
+''' (3) If sa == NULL, use the text embedded in each pix.  In all<para/>
+''' cases, newlines in the text string are used to separate the<para/>
+''' lines of text that are added to the pix.<para/>
+''' (4) If sa has a smaller count than pixa, issue a warning<para/>
+''' and do not use any embedded text.<para/>
+''' (5) If there is a colormap, this does the best it can to use<para/>
+''' the requested color, or something similar to it.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixas">[in] - input pixa; colormap ok</param>
+'''  <param name="pixas">[in] - input pixa colormap ok</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
-'''  <param name="sa">[in][optional] - sarray; use text embedded in each pix if null</param>
+'''  <param name="sa">[in][optional] - sarray use text embedded in each pix if null</param>
 '''  <param name="val">[in] - color to set the text</param>
 '''  <param name="location">[in] - L_ADD_ABOVE, L_ADD_BELOW, L_ADD_LEFT, L_ADD_RIGHT</param>
 '''   <returns>pixad new pixa with rendered text, or NULL on error</returns>
@@ -290,19 +296,20 @@ End Function
 ' pixaAddPixWithText()
 ' pixaAddPixWithText(PIXA *, PIX *, l_int32, L_BMF *, const char *, l_uint32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This function generates a new pix with added text, and adds
-''' it by insertion into the pixa.
-''' (2) If the input pixs is not cmapped and not 32 bpp, it is
-''' converted to 32 bpp rgb.  %val is a standard 32 bpp pixel,
-''' expressed as 0xrrggbb00.  If there is a colormap, this does
-''' the best it can to use the requested color, or something close.
-''' (3) if %bmf == NULL, generate an 8 pt font; this takes about 5 msec.
-''' (4) If %textstr == NULL, use the text field in the pix.
-''' (5) In general, the text string can be written in multiple lines;
-''' use newlines as the separators.
-''' (6) Typical usage is for debugging, where the pixa of labeled images
-''' is used to generate a pdf.  Suggest using 1.0 for scalefactor.
+''' <para/>
+''' Notes:<para/>
+''' (1) This function generates a new pix with added text, and adds<para/>
+''' it by insertion into the pixa.<para/>
+''' (2) If the input pixs is not cmapped and not 32 bpp, it is<para/>
+''' converted to 32 bpp rgb.  %val is a standard 32 bpp pixel,<para/>
+''' expressed as 0xrrggbb00.  If there is a colormap, this does<para/>
+''' the best it can to use the requested color, or something close.<para/>
+''' (3) if %bmf == NULL, generate an 8 pt font this takes about 5 msec.<para/>
+''' (4) If %textstr == NULL, use the text field in the pix.<para/>
+''' (5) In general, the text string can be written in multiple lines<para/>
+''' use newlines as the separators.<para/>
+''' (6) Typical usage is for debugging, where the pixa of labeled images<para/>
+''' is used to generate a pdf.  Suggest using 1.0 for scalefactor.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -338,9 +345,10 @@ End Function
 ' bmfGetLineStrings()
 ' bmfGetLineStrings(L_BMF *, const char *, l_int32, l_int32, l_int32 *) as SARRAY *
 '''  <summary>
-''' Notes
-''' (1) Divides the input text string into an array of text strings,
-''' each of which will fit within maxw bits of width.
+''' <para/>
+''' Notes:<para/>
+''' (1) Divides the input text string into an array of text strings,<para/>
+''' each of which will fit within maxw bits of width.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -370,9 +378,6 @@ End Function
 ' SRC\textops.c (938, 1)
 ' bmfGetWordWidths()
 ' bmfGetWordWidths(L_BMF *, const char *, SARRAY *) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="bmf">[in] - </param>
@@ -398,9 +403,6 @@ End Function
 ' SRC\textops.c (979, 1)
 ' bmfGetStringWidth()
 ' bmfGetStringWidth(L_BMF *, const char *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="bmf">[in] - </param>
@@ -424,13 +426,10 @@ End Function
 ' SRC\textops.c (1023, 1)
 ' splitStringToParagraphs()
 ' splitStringToParagraphs(char *, l_int32) as SARRAY *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="textstr">[in] - text string</param>
-'''  <param name="splitflag">[in] - see enum in bmf.h; valid values in {1,2,3}</param>
+'''  <param name="splitflag">[in] - see enum in bmf.h valid values in {1,2,3}</param>
 '''   <returns>sarray where each string is a paragraph of the input, or NULL on error.</returns>
 Public Shared Function splitStringToParagraphs(
 				ByVal textstr as String, 

@@ -120,9 +120,9 @@ End Enum
 ''' Accessor flags for L_Ptraa
 ''' </summary>
 Public Enum L_accessor__l_ptraa
-''' <summary>ptr to L_Ptra; caller can inspect only</summary>
+''' <summary>ptr to L_Ptra: caller can inspect only</summary>
 L_HANDLE_ONLY = 0
-''' <summary>caller owns; destroy or save in L_Ptraa</summary>
+''' <summary>caller owns: destroy or save in L_Ptraa</summary>
 L_REMOVE = 1
 End Enum
 
@@ -306,7 +306,7 @@ End Enum
 ''' Hinting bit flags in jpeg reader
 ''' </summary>
 Public Enum L_JPEG
-''' <summary>only want luminance data; no chroma</summary>
+''' <summary>only want luminance data: no chroma</summary>
 L_JPEG_READ_LUMINANCE = 1
 ''' <summary>don't return possibly damaged pix</summary>
 L_JPEG_FAIL_ON_BAD_DATA = 2
@@ -338,7 +338,7 @@ End Enum
 Public Enum L_T_IMAGE
 ''' <summary>first image to be used</summary>
 L_FIRST_IMAGE = 1
-''' <summary>intermediate image; not first or last</summary>
+''' <summary>intermediate image: not first or last</summary>
 L_NEXT_IMAGE = 2
 ''' <summary>last image to be used</summary>
 L_LAST_IMAGE = 3
@@ -612,15 +612,15 @@ End Enum
 ''' Access and storage flags
 ''' </summary>
 Public Enum L_access_storage
-''' <summary>do not copy the object; do not delete the ptr</summary>
+''' <summary>do not copy the object: do not delete the ptr</summary>
 L_NOCOPY = 0
-''' <summary>stuff it in; do not copy or clone</summary>
+''' <summary>stuff it in: do not copy or clone</summary>
 L_INSERT = 0
 ''' <summary>make/use a copy of the object</summary>
 L_COPY = 1
 ''' <summary>make/use clone (ref count) of the object</summary>
 L_CLONE = 2
-''' <summary>make a new array object (e.g., pixa) and fill    the array with clones (e.g., pix)</summary>
+''' <summary>make a new array object (e.g., pixa) and fill the array with clones (e.g., pix)</summary>
 L_COPY_CLONE = 3
 End Enum
 
@@ -692,7 +692,7 @@ L_BLEND_TO_WHITE = 2
 L_BLEND_TO_BLACK = 3
 ''' <summary>blend src directly with blender</summary>
 L_BLEND_GRAY = 4
-''' <summary>add amount of src inverse to itself,    based on blender pix value</summary>
+''' <summary>add amount of src inverse to itself, based on blender pix value</summary>
 L_BLEND_GRAY_WITH_INVERSE = 5
 End Enum
 
@@ -736,9 +736,9 @@ L_SELECT_HEIGHT = 2
 L_SELECT_XVAL = 3
 ''' <summary>y value must satisfy constraint</summary>
 L_SELECT_YVAL = 4
-''' <summary>either width or height (or xval    or yval) can satisfy</summary>
+''' <summary>either width or height (or xval or yval) can satisfy</summary>
 L_SELECT_IF_EITHER = 5
-''' <summary>both width and height (or xval     and yval must satisfy</summary>
+''' <summary>both width and height (or xval and yval must satisfy</summary>
 L_SELECT_IF_BOTH = 6
 End Enum
 
@@ -752,9 +752,9 @@ Public Enum L_SELECT_IF
 L_SELECT_IF_LT = 1
 ''' <summary>save if value is more than threshold</summary>
 L_SELECT_IF_GT = 2
-''' <summary>save if value is  smaller = to the threshold</summary>
+''' <summary>save if value is  is smaller = to the threshold</summary>
 L_SELECT_IF_LTE = 3
-''' <summary>save if value is  bigger = to the threshold</summary>
+''' <summary>save if value is  is greater = to the threshold</summary>
 L_SELECT_IF_GTE = 4
 End Enum
 
@@ -792,7 +792,7 @@ Public Enum L_16_bit_conversion
 L_LS_BYTE = 1
 ''' <summary>use MSB</summary>
 L_MS_BYTE = 2
-''' <summary>use LSB if max(val)  smaller  256; else MSB</summary>
+''' <summary>use LSB if max(val)  is smaller  256: else MSB</summary>
 L_AUTO_BYTE = 3
 ''' <summary>use max(val, 255)</summary>
 L_CLIP_TO_FF = 4
@@ -904,9 +904,9 @@ End Enum
 ''' Flags for 8 bit and 16 bit pixel sums
 ''' </summary>
 Public Enum L_IS_MAX
-''' <summary>white pixels are 0xff or 0xffff; black are 0</summary>
+''' <summary>white pixels are 0xff or 0xffff: black are 0</summary>
 L_WHITE_IS_MAX = 1
-''' <summary>black pixels are 0xff or 0xffff; white are 0</summary>
+''' <summary>black pixels are 0xff or 0xffff: white are 0</summary>
 L_BLACK_IS_MAX = 2
 End Enum
 
@@ -916,13 +916,13 @@ End Enum
 ''' Dither parameters
 ''' </summary>
 Public Enum DEFAULT_CLIP
-''' <summary>dist to black with no prop; 1 bpp</summary>
+''' <summary>dist to black with no prop: 1 bpp</summary>
 DEFAULT_CLIP_LOWER_1 = 10
-''' <summary>dist to black with no prop; 1 bpp</summary>
+''' <summary>dist to black with no prop: 1 bpp</summary>
 DEFAULT_CLIP_UPPER_1 = 10
-''' <summary>dist to black with no prop; 2 bpp</summary>
+''' <summary>dist to black with no prop: 2 bpp</summary>
 DEFAULT_CLIP_LOWER_2 = 5
-''' <summary>dist to black with no prop; 2 bpp</summary>
+''' <summary>dist to black with no prop: 2 bpp</summary>
 DEFAULT_CLIP_UPPER_2 = 5
 End Enum
 
@@ -944,13 +944,13 @@ End Enum
 ''' Value flags
 ''' </summary>
 Public Enum L_value_
-''' <summary>values  smaller  0</summary>
+''' <summary>values  is smaller  0</summary>
 L_NEGATIVE = 1
-''' <summary>values  bigger = 0</summary>
+''' <summary>values  is greater = 0</summary>
 L_NON_NEGATIVE = 2
-''' <summary>values  bigger  0</summary>
+''' <summary>values  is greater  0</summary>
 L_POSITIVE = 3
-''' <summary>values  smaller = 0</summary>
+''' <summary>values  is smaller = 0</summary>
 L_NON_POSITIVE = 4
 ''' <summary>values = 0</summary>
 L_ZERO = 5
@@ -1048,7 +1048,7 @@ End Enum
 ''' Image orientation flags
 ''' </summary>
 Public Enum L_MODE
-''' <summary>typical: page is viewed with height  bigger  width</summary>
+''' <summary>typical: page is viewed with height  is greater  width</summary>
 L_PORTRAIT_MODE = 0
 ''' <summary>page is viewed at 90 deg to portrait mode</summary>
 L_LANDSCAPE_MODE = 1
@@ -1148,7 +1148,7 @@ End Enum
 ''' Handling overlapping bounding boxes in Boxa
 ''' </summary>
 Public Enum L_hling_overlapping_bounding_boxes_in_boxa
-''' <summary>resize to bounding region; remove smaller</summary>
+''' <summary>resize to bounding region: remove smaller</summary>
 L_COMBINE = 1
 ''' <summary>only remove smaller</summary>
 L_REMOVE_SMALL = 2
@@ -1418,9 +1418,9 @@ End Enum
 ''' Flags for selecting average or all templates: recog->templ_use
 ''' </summary>
 Public Enum L_USE_A_TEMPLATES
-''' <summary>use all templates; default</summary>
+''' <summary>use all templates: default</summary>
 L_USE_ALL_TEMPLATES = 0
-''' <summary>use average templates; special cases</summary>
+''' <summary>use average templates: special cases</summary>
 L_USE_AVERAGE_TEMPLATES = 1
 End Enum
 

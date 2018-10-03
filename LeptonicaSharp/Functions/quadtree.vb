@@ -1,22 +1,23 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\quadtree.c (92, 1)
 ' pixQuadtreeMean()
 ' pixQuadtreeMean(PIX *, l_int32, PIX *, FPIXA **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The returned fpixa has %nlevels of fpix, each containing
-''' the mean values at its level.  Level 0 has a
-''' single value; level 1 has 4 values; level 2 has 16; etc.
+''' <para/>
+''' Notes:<para/>
+''' (1) The returned fpixa has %nlevels of fpix, each containing<para/>
+''' the mean values at its level.  Level 0 has a<para/>
+''' single value level 1 has 4 values level 2 has 16 etc.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 8 bpp, no colormap</param>
-'''  <param name="nlevels">[in] - in quadtree; max allowed depends on image size</param>
-'''  <param name="pix_ma">[in] - input mean accumulator; can be null</param>
+'''  <param name="nlevels">[in] - in quadtree max allowed depends on image size</param>
+'''  <param name="pix_ma">[in] - input mean accumulator can be null</param>
 '''  <param name="pfpixa">[out] - mean values in quadtree</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixQuadtreeMean(
@@ -40,17 +41,18 @@ End Function
 ' pixQuadtreeVariance()
 ' pixQuadtreeVariance(PIX *, l_int32, PIX *, DPIX *, FPIXA **, FPIXA **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The returned fpixav and fpixarv have %nlevels of fpix,
-''' each containing at the respective levels the variance
-''' and root variance values.
+''' <para/>
+''' Notes:<para/>
+''' (1) The returned fpixav and fpixarv have %nlevels of fpix,<para/>
+''' each containing at the respective levels the variance<para/>
+''' and root variance values.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 8 bpp, no colormap</param>
 '''  <param name="nlevels">[in] - in quadtree</param>
-'''  <param name="pix_ma">[in] - input mean accumulator; can be null</param>
-'''  <param name="dpix_msa">[in] - input mean square accumulator; can be null</param>
+'''  <param name="pix_ma">[in] - input mean accumulator can be null</param>
+'''  <param name="dpix_msa">[in] - input mean square accumulator can be null</param>
 '''  <param name="pfpixa_v">[out][optional] - variance values in quadtree</param>
 '''  <param name="pfpixa_rv">[out][optional] - root variance values in quadtree</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -80,10 +82,11 @@ End Function
 ' pixMeanInRectangle()
 ' pixMeanInRectangle(PIX *, BOX *, PIX *, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This function is intended to be used for many rectangles
-''' on the same image.  It can find the mean within a
-''' rectangle in O(1), independent of the size of the rectangle.
+''' <para/>
+''' Notes:<para/>
+''' (1) This function is intended to be used for many rectangles<para/>
+''' on the same image.  It can find the mean within a<para/>
+''' rectangle in O(1), independent of the size of the rectangle.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -113,11 +116,12 @@ End Function
 ' pixVarianceInRectangle()
 ' pixVarianceInRectangle(PIX *, BOX *, PIX *, DPIX *, l_float32 *, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This function is intended to be used for many rectangles
-''' on the same image.  It can find the variance and/or the
-''' square root of the variance within a rectangle in O(1),
-''' independent of the size of the rectangle.
+''' <para/>
+''' Notes:<para/>
+''' (1) This function is intended to be used for many rectangles<para/>
+''' on the same image.  It can find the variance and/or the<para/>
+''' square root of the variance within a rectangle in O(1),<para/>
+''' independent of the size of the rectangle.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -152,14 +156,15 @@ End Function
 ' boxaaQuadtreeRegions()
 ' boxaaQuadtreeRegions(l_int32, l_int32, l_int32) as BOXAA *
 '''  <summary>
-''' Notes
-''' (1) The returned boxaa has %nlevels of boxa, each containing
-''' the set of rectangles at that level.  The rectangle at
-''' level 0 is the entire region; at level 1 the region is
-''' divided into 4 rectangles, and at level n there are n^4
-''' rectangles.
-''' (2) At each level, the rectangles in the boxa are in "raster"
-''' order, with LR (fast scan) and TB (slow scan).
+''' <para/>
+''' Notes:<para/>
+''' (1) The returned boxaa has %nlevels of boxa, each containing<para/>
+''' the set of rectangles at that level.  The rectangle at<para/>
+''' level 0 is the entire region at level 1 the region is<para/>
+''' divided into 4 rectangles, and at level n there are n^4<para/>
+''' rectangles.<para/>
+''' (2) At each level, the rectangles in the boxa are in "raster"<para/>
+''' order, with LR (fast scan) and TB (slow scan).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -184,11 +189,12 @@ End Function
 ' quadtreeGetParent()
 ' quadtreeGetParent(FPIXA *, l_int32, l_int32, l_int32, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Check return value for error.  On error, val is returned as 0.0.
-''' (2) The parent is located at
-''' level - 1
-''' (x/2, y/2)
+''' <para/>
+''' Notes:<para/>
+''' (1) Check return value for error.  On error, val is returned as 0.0.<para/>
+''' (2) The parent is located at:<para/>
+''' level - 1<para/>
+''' (x/2, y/2)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -199,8 +205,8 @@ End Function
 Public Shared Function quadtreeGetParent(
 				ByVal fpixa as FPixa, 
 				ByVal level as Integer, 
-				ByRef x as Integer, 
-				ByRef y as Integer, 
+				ByVal x as Integer, 
+				ByVal y as Integer, 
 				ByRef pval as Single()) as Integer
 
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
@@ -215,11 +221,12 @@ End Function
 ' quadtreeGetChildren()
 ' quadtreeGetChildren(FPIXA *, l_int32, l_int32, l_int32, l_float32 *, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Check return value for error.  On error, all return vals are 0.0.
-''' (2) The returned child pixels are located at
-''' level + 1
-''' (2x, 2y), (2x+1, 2y), (2x, 2y+1), (2x+1, 2y+1)
+''' <para/>
+''' Notes:<para/>
+''' (1) Check return value for error.  On error, all return vals are 0.0.<para/>
+''' (2) The returned child pixels are located at:<para/>
+''' level + 1<para/>
+''' (2x, 2y), (2x+1, 2y), (2x, 2y+1), (2x+1, 2y+1)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -233,8 +240,8 @@ End Function
 Public Shared Function quadtreeGetChildren(
 				ByVal fpixa as FPixa, 
 				ByVal level as Integer, 
-				ByRef x as Integer, 
-				ByRef y as Integer, 
+				ByVal x as Integer, 
+				ByVal y as Integer, 
 				ByRef pval00 as Single(), 
 				ByRef pval10 as Single(), 
 				ByRef pval01 as Single(), 
@@ -252,11 +259,12 @@ End Function
 ' quadtreeMaxLevels()
 ' quadtreeMaxLevels(l_int32, l_int32) as l_int32
 '''  <summary>
-''' Notes
-''' (1) The criterion for maxlevels is that the subdivision not
-''' go down below the single pixel level.  The 1.5 factor
-''' is intended to keep any rectangle from accidentally
-''' having zero dimension due to integer truncation.
+''' <para/>
+''' Notes:<para/>
+''' (1) The criterion for maxlevels is that the subdivision not<para/>
+''' go down below the single pixel level.  The 1.5 factor<para/>
+''' is intended to keep any rectangle from accidentally<para/>
+''' having zero dimension due to integer truncation.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -278,11 +286,12 @@ End Function
 ' fpixaDisplayQuadtree()
 ' fpixaDisplayQuadtree(FPIXA *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) The mean and root variance fall naturally in the 8 bpp range,
-''' but the variance is typically outside the range.  This
-''' function displays 8 bpp pix clipped to 255, so the image
-''' pixels will mostly be 255 (white).
+''' <para/>
+''' Notes:<para/>
+''' (1) The mean and root variance fall naturally in the 8 bpp range,<para/>
+''' but the variance is typically outside the range.  This<para/>
+''' function displays 8 bpp pix clipped to 255, so the image<para/>
+''' pixels will mostly be 255 (white).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

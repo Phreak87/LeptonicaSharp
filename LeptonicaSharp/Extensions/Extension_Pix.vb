@@ -38,15 +38,25 @@ Partial Public Class Pix
     '        Return Sep2
     '    End Get
     'End Property
+    ReadOnly Property Bitmap As Bitmap
+        Get
+            Dim BMP = Me.ToBitmap
+            Dim TIM As New Timers.Timer(5000)
+            AddHandler TIM.Elapsed, Sub() BMP.Dispose()
+            TIM.Start()
+            Return BMP
+        End Get
+    End Property
+
 
 #Region "Konstruktoren"
     Sub New(w As Integer, h As Integer)
-        Dim OBJ = LeptonicaSharp._AllFunctions.pixCreate(w, h, 32)
+        Dim OBJ = LeptonicaSharp._All.pixCreate(w, h, 32)
         Pointer = OBJ.Pointer
     End Sub
     Sub New(ByVal Bitmap As Bitmap)
         Dim Stream As New System.IO.MemoryStream : Bitmap.Save(Stream, Imaging.ImageFormat.Bmp)
-        Dim OBJ = _AllFunctions.pixReadMemBmp(Stream.GetBuffer, Stream.Length)
+        Dim OBJ = _All.pixReadMemBmp(Stream.GetBuffer, Stream.Length)
         Pointer = OBJ.Pointer
     End Sub
 #End Region
@@ -71,15 +81,18 @@ Partial Public Class Pix
 #End Region
 
 #Region "Functions"
-    Sub Display()
-        Dim n As New ShowPix(Me)
+    Sub Display(Optional Text As String = "")
+        Dim n As New ShowPix(Me, Text)
     End Sub
     Public Function ToBitmap() As Image
-        Dim i As Integer = 0 : Dim B As Byte() = Nothing
-        _AllFunctions.pixWriteMemBmp(B, i, Me)
-        Using MemStrm As New IO.MemoryStream(B)
-            Return New Bitmap(MemStrm)
-        End Using
+        Dim Size As Integer = 0
+        Dim Bytes As Byte() = Nothing
+        Dim PixU As Pix = Me
+
+        If Me.d = 1 Then PixU = Me.pixConvertTo16
+        _All.pixWriteMemBmp(Bytes, Size, Me)
+        Dim MemStrm As New IO.MemoryStream(Bytes)
+        Return New Bitmap(MemStrm, True)
     End Function
 #End Region
 End Class

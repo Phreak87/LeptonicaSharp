@@ -1,14 +1,11 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\roplow.c (124, 1)
 ' rasteropUniLow()
 ' rasteropUniLow(l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as void
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="datad">[in] - ptr to dest image data</param>
@@ -44,9 +41,6 @@ End Sub
 ' SRC\roplow.c (481, 1)
 ' rasteropLow()
 ' rasteropLow(l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32) as void
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="datad">[in] - ptr to dest image data</param>
@@ -97,16 +91,17 @@ End Sub
 ' rasteropVipLow()
 ' rasteropVipLow(l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as void
 '''  <summary>
-''' Notes
-''' (1) This clears the pixels that are left exposed after the
-''' translation.  You can consider them as pixels that are
-''' shifted in from outside the image.  This can be later
-''' overridden by the incolor parameter in higher-level functions
-''' that call this.  For example, for images with depth GT 1,
-''' these pixels are cleared to black; to be white they
-''' must later be SET to white.  See, e.g., pixRasteropVip().
-''' (2) This function scales the width to accommodate any depth,
-''' performs clipping, and then does the in-place rasterop.
+''' <para/>
+''' Notes:<para/>
+''' (1) This clears the pixels that are left exposed after the<para/>
+''' translation.  You can consider them as pixels that are<para/>
+''' shifted in from outside the image.  This can be later<para/>
+''' overridden by the incolor parameter in higher-level functions<para/>
+''' that call this.  For example, for images with depth  is greater  1,<para/>
+''' these pixels are cleared to black to be white they<para/>
+''' must later be SET to white.  See, e.g., pixRasteropVip().<para/>
+''' (2) This function scales the width to accommodate any depth,<para/>
+''' performs clipping, and then does the in-place rasterop.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -140,13 +135,14 @@ End Sub
 ' rasteropHipLow()
 ' rasteropHipLow(l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as void
 '''  <summary>
-''' Notes
-''' (1) This clears the pixels that are left exposed after the rasterop.
-''' Therefore, for Pix with depth GT 1, these pixels become black,
-''' and must be subsequently SET if they are to be white.
-''' For example, see pixRasteropHip().
-''' (2) This function performs clipping and calls shiftDataHorizontalLow()
-''' to do the in-place rasterop on each line.
+''' <para/>
+''' Notes:<para/>
+''' (1) This clears the pixels that are left exposed after the rasterop.<para/>
+''' Therefore, for Pix with depth  is greater  1, these pixels become black,<para/>
+''' and must be subsequently SET if they are to be white.<para/>
+''' For example, see pixRasteropHip().<para/>
+''' (2) This function performs clipping and calls shiftDataHorizontalLow()<para/>
+''' to do the in-place rasterop on each line.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

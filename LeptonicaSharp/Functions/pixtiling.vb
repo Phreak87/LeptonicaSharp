@@ -1,30 +1,31 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\pixtiling.c (121, 1)
 ' pixTilingCreate()
 ' pixTilingCreate(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIXTILING *
 '''  <summary>
-''' Notes
-''' (1) We put a clone of pixs in the PixTiling.
-''' (2) The input to pixTilingCreate() for horizontal tiling can be
-''' either the number of tiles across the image or the approximate
-''' width of the tiles.  If the latter, the actual width will be
-''' determined by making all tiles but the last of equal width, and
-''' making the last as close to the others as possible.  The same
-''' consideration is applied independently to the vertical tiling.
-''' To specify tile width, set nx = 0; to specify the number of
-''' tiles horizontally across the image, set w = 0.
-''' (3) If pixs is to be tiled in one-dimensional strips, use ny = 1 for
-''' vertical strips and nx = 1 for horizontal strips.
-''' (4) The overlap must not be larger than the width or height of
-''' the leftmost or topmost tile(s).
+''' <para/>
+''' Notes:<para/>
+''' (1) We put a clone of pixs in the PixTiling.<para/>
+''' (2) The input to pixTilingCreate() for horizontal tiling can be<para/>
+''' either the number of tiles across the image or the approximate<para/>
+''' width of the tiles.  If the latter, the actual width will be<para/>
+''' determined by making all tiles but the last of equal width, and<para/>
+''' making the last as close to the others as possible.  The same<para/>
+''' consideration is applied independently to the vertical tiling.<para/>
+''' To specify tile width, set nx = 0 to specify the number of<para/>
+''' tiles horizontally across the image, set w = 0.<para/>
+''' (3) If pixs is to be tiled in one-dimensional strips, use ny = 1 for<para/>
+''' vertical strips and nx = 1 for horizontal strips.<para/>
+''' (4) The overlap must not be larger than the width or height of<para/>
+''' the leftmost or topmost tile(s).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixs">[in] - pix to be tiled; any depth; colormap OK</param>
+'''  <param name="pixs">[in] - pix to be tiled any depth colormap OK</param>
 '''  <param name="nx">[in] - number of tiles across image</param>
 '''  <param name="ny">[in] - number of tiles down image</param>
 '''  <param name="w">[in] - desired width of each tile</param>
@@ -53,9 +54,6 @@ End Function
 ' SRC\pixtiling.c (178, 1)
 ' pixTilingDestroy()
 ' pixTilingDestroy(PIXTILING **) as void
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="ppt">[in,out] - will be set to null before returning</param>
@@ -73,14 +71,11 @@ End Sub
 ' SRC\pixtiling.c (208, 1)
 ' pixTilingGetCount()
 ' pixTilingGetCount(PIXTILING *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pt">[in] - pixtiling</param>
-'''  <param name="pnx">[out][optional] - nx; can be null</param>
-'''  <param name="pny">[out][optional] - ny; can be null</param>
+'''  <param name="pnx">[out][optional] - nx can be null</param>
+'''  <param name="pny">[out][optional] - ny can be null</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixTilingGetCount(
 				ByVal pt as PixTiling, 
@@ -98,14 +93,11 @@ End Function
 ' SRC\pixtiling.c (231, 1)
 ' pixTilingGetSize()
 ' pixTilingGetSize(PIXTILING *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pt">[in] - pixtiling</param>
-'''  <param name="pw">[out][optional] - tile width; can be null</param>
-'''  <param name="ph">[out][optional] - tile height; can be null</param>
+'''  <param name="pw">[out][optional] - tile width can be null</param>
+'''  <param name="ph">[out][optional] - tile height can be null</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixTilingGetSize(
 				ByVal pt as PixTiling, 
@@ -123,9 +115,6 @@ End Function
 ' SRC\pixtiling.c (255, 1)
 ' pixTilingGetTile()
 ' pixTilingGetTile(PIXTILING *, l_int32, l_int32) as PIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pt">[in] - pixtiling</param>
@@ -150,12 +139,13 @@ End Function
 ' pixTilingNoStripOnPaint()
 ' pixTilingNoStripOnPaint(PIXTILING *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The default for paint is to strip out the overlap pixels
-''' that are added by pixTilingGetTile().  However, some
-''' operations will generate an image with these pixels
-''' stripped off.  This tells the paint operation not
-''' to strip the added boundary pixels when painting.
+''' <para/>
+''' Notes:<para/>
+''' (1) The default for paint is to strip out the overlap pixels<para/>
+''' that are added by pixTilingGetTile().  However, some<para/>
+''' operations will generate an image with these pixels<para/>
+''' stripped off.  This tells the paint operation not<para/>
+''' to strip the added boundary pixels when painting.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -175,15 +165,12 @@ End Function
 ' SRC\pixtiling.c (390, 1)
 ' pixTilingPaintTile()
 ' pixTilingPaintTile(PIX *, l_int32, l_int32, PIX *, PIXTILING *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixd">[in] - dest paint tile onto this, without overlap</param>
+'''  <param name="pixd">[in] - dest: paint tile onto this, without overlap</param>
 '''  <param name="i">[in] - tile row index</param>
 '''  <param name="j">[in] - tile column index</param>
-'''  <param name="pixs">[in] - source tile to be painted from</param>
+'''  <param name="pixs">[in] - source: tile to be painted from</param>
 '''  <param name="pt">[in] - pixtiling struct</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixTilingPaintTile(

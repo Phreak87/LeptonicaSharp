@@ -1,17 +1,18 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\bbuffer.c (124, 1)
 ' bbufferCreate()
 ' bbufferCreate(const l_uint8 *, l_int32) as L_BBUFFER *
 '''  <summary>
-''' Notes
-''' (1) If a buffer address is given, you should read all the data in.
-''' (2) Allocates a bbuffer with associated byte array of
-''' the given size.  If a buffer address is given,
-''' it then reads the number of bytes into the byte array.
+''' <para/>
+''' Notes:<para/>
+''' (1) If a buffer address is given, you should read all the data in.<para/>
+''' (2) Allocates a bbuffer with associated byte array of<para/>
+''' the given size.  If a buffer address is given,<para/>
+''' it then reads the number of bytes into the byte array.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -34,9 +35,10 @@ End Function
 ' bbufferDestroy()
 ' bbufferDestroy(L_BBUFFER **) as void
 '''  <summary>
-''' Notes
-''' (1) Destroys the byte array in the bbuffer and then the bbuffer;
-''' then nulls the contents of the input ptr.
+''' <para/>
+''' Notes:<para/>
+''' (1) Destroys the byte array in the bbuffer and then the bbuffer<para/>
+''' then nulls the contents of the input ptr.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -56,8 +58,9 @@ End Sub
 ' bbufferDestroyAndSaveData()
 ' bbufferDestroyAndSaveData(L_BBUFFER **, size_t *) as l_uint8 *
 '''  <summary>
-''' Notes
-''' (1) Copies data to newly allocated array; then destroys the bbuffer.
+''' <para/>
+''' Notes:<para/>
+''' (1) Copies data to newly allocated array then destroys the bbuffer.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -81,14 +84,15 @@ End Function
 ' bbufferRead()
 ' bbufferRead(L_BBUFFER *, l_uint8 *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) For a read after write, first remove the written
-''' bytes by shifting the unwritten bytes in the array,
-''' then check if there is enough room to add the new bytes.
-''' If not, realloc with bbufferExpandArray(), resulting
-''' in a second writing of the unwritten bytes.  While less
-''' efficient, this is simpler than making a special case
-''' of reallocNew().
+''' <para/>
+''' Notes:<para/>
+''' (1) For a read after write, first remove the written<para/>
+''' bytes by shifting the unwritten bytes in the array,<para/>
+''' then check if there is enough room to add the new bytes.<para/>
+''' If not, realloc with bbufferExpandArray(), resulting<para/>
+''' in a second writing of the unwritten bytes.  While less<para/>
+''' efficient, this is simpler than making a special case<para/>
+''' of reallocNew().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -113,9 +117,6 @@ End Function
 ' SRC\bbuffer.c (308, 1)
 ' bbufferReadStream()
 ' bbufferReadStream(L_BBUFFER *, FILE *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="bb">[in] - bbuffer</param>
@@ -140,9 +141,10 @@ End Function
 ' bbufferExtendArray()
 ' bbufferExtendArray(L_BBUFFER *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) reallocNew() copies all bb-GTnalloc bytes, even though
-''' only bb-GTn are data.
+''' <para/>
+''' Notes:<para/>
+''' (1) reallocNew() copies all bb- is greater nalloc bytes, even though<para/>
+''' only bb- is greater n are data.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -164,9 +166,6 @@ End Function
 ' SRC\bbuffer.c (390, 1)
 ' bbufferWrite()
 ' bbufferWrite(L_BBUFFER *, l_uint8 *, size_t, size_t *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="bb">[in] - bbuffer</param>
@@ -192,9 +191,6 @@ End Function
 ' SRC\bbuffer.c (442, 1)
 ' bbufferWriteStream()
 ' bbufferWriteStream(L_BBUFFER *, FILE *, size_t, size_t *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="bb">[in] - bbuffer</param>

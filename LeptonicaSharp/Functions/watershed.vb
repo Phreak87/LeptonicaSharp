@@ -1,29 +1,30 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\watershed.c (203, 1)
 ' wshedCreate()
 ' wshedCreate(PIX *, PIX *, l_int32, l_int32) as L_WSHED *
 '''  <summary>
-''' Notes
-''' (1) It is not necessary for the fg pixels in the seed image
-''' be at minima, or that they be isolated.  We extract a
-''' single pixel from each connected component, and a seed
-''' anywhere in a watershed will eventually label the watershed
-''' when the filling level reaches it.
-''' (2) Set mindepth to some value to ignore noise in pixs that
-''' can create small local minima.  Any watershed shallower
-''' than mindepth, even if it has a seed, will not be saved;
-''' It will either be incorporated in another watershed or
-''' eliminated.
+''' <para/>
+''' Notes:<para/>
+''' (1) It is not necessary for the fg pixels in the seed image<para/>
+''' be at minima, or that they be isolated.  We extract a<para/>
+''' single pixel from each connected component, and a seed<para/>
+''' anywhere in a watershed will eventually label the watershed<para/>
+''' when the filling level reaches it.<para/>
+''' (2) Set mindepth to some value to ignore noise in pixs that<para/>
+''' can create small local minima.  Any watershed shallower<para/>
+''' than mindepth, even if it has a seed, will not be saved<para/>
+''' It will either be incorporated in another watershed or<para/>
+''' eliminated.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 8 bpp source</param>
 '''  <param name="pixm">[in] - 1 bpp 'marker' seed</param>
-'''  <param name="mindepth">[in] - minimum depth; anything less is not saved</param>
+'''  <param name="mindepth">[in] - minimum depth anything less is not saved</param>
 '''  <param name="debugflag">[in] - 1 for debug output</param>
 '''   <returns>WShed, or NULL on error</returns>
 Public Shared Function wshedCreate(
@@ -45,9 +46,6 @@ End Function
 ' SRC\watershed.c (250, 1)
 ' wshedDestroy()
 ' wshedDestroy(L_WSHED **) as void
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pwshed">[in,out] - will be set to null before returning</param>
@@ -65,13 +63,10 @@ End Sub
 ' SRC\watershed.c (305, 1)
 ' wshedApply()
 ' wshedApply(L_WSHED *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="wshed">[in] - generated from wshedCreate()</param>
-'''   <returns>0 if OK, 1 on error Iportant note 1 This is buggy.  It seems to locate watersheds that are duplicates.  The watershed extraction after complete fill grabs some regions belonging to existing watersheds. See prog/watershedtest.c for testing.</returns>
+'''   <returns>0 if OK, 1 on error Iportant note: 1 This is buggy.  It seems to locate watersheds that are duplicates.  The watershed extraction after complete fill grabs some regions belonging to existing watersheds. See prog/watershedtest.c for testing.</returns>
 Public Shared Function wshedApply(
 				ByVal wshed as L_WShed) as Integer
 
@@ -86,9 +81,6 @@ End Function
 ' SRC\watershed.c (1034, 1)
 ' wshedBasins()
 ' wshedBasins(L_WSHED *, PIXA **, NUMA **) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="wshed">[in] - </param>
@@ -115,9 +107,6 @@ End Function
 ' SRC\watershed.c (1058, 1)
 ' wshedRenderFill()
 ' wshedRenderFill(L_WSHED *) as PIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="wshed">[in] - </param>
@@ -137,9 +126,6 @@ End Function
 ' SRC\watershed.c (1094, 1)
 ' wshedRenderColors()
 ' wshedRenderColors(L_WSHED *) as PIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="wshed">[in] - </param>

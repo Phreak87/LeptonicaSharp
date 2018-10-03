@@ -1,19 +1,16 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\gifiostub.c (45, 7)
 ' 
 ' pixReadStreamGif(FILE *) as PIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function pixReadStreamGif(
-				ByRef fp as FILE) as Pix
+				ByVal fp as FILE) as Pix
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
@@ -28,15 +25,12 @@ End Function
 ' SRC\gifiostub.c (52, 7)
 ' 
 ' pixReadMemGif(const l_uint8 *, size_t) as PIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function pixReadMemGif(
-				ByRef cdata as Byte(), 
-				ByRef size as UInteger) as Pix
+				ByVal cdata as Byte(), 
+				ByVal size as UInteger) as Pix
 
 	If IsNothing (cdata) then Throw New ArgumentNullException  ("cdata cannot be Nothing")
 
@@ -50,15 +44,12 @@ End Function
 ' SRC\gifiostub.c (59, 6)
 ' 
 ' pixWriteStreamGif(FILE *, PIX *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function pixWriteStreamGif(
-				ByRef fp as FILE, 
-				ByRef pix as Pix) as Integer
+				ByVal fp as FILE, 
+				ByVal pix as Pix) as Integer
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
@@ -74,16 +65,13 @@ End Function
 ' SRC\gifiostub.c (66, 6)
 ' 
 ' pixWriteMemGif(l_uint8 **, size_t *, PIX *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function pixWriteMemGif(
-				ByRef pdata as Object, 
-				ByRef psize as Object, 
-				ByRef pix as Pix) as Integer
+				ByVal pdata as Object, 
+				ByVal psize as Object, 
+				ByVal pix as Pix) as Integer
 
 	If IsNothing (pdata) then Throw New ArgumentNullException  ("pdata cannot be Nothing")
 	If IsNothing (psize) then Throw New ArgumentNullException  ("psize cannot be Nothing")

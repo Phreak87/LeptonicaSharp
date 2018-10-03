@@ -1,20 +1,21 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\bmf.c (114, 1)
 ' bmfCreate()
 ' bmfCreate(const char *, l_int32) as L_BMF *
 '''  <summary>
-''' Notes
-''' (1) If %dir == null, this generates the font bitmaps from a
-''' compiled string.
-''' (2) Otherwise, this tries to read a pre-computed pixa file with the
-''' 95 ascii chars in it.  If the file is not found, it then
-''' attempts to generate the pixa and associated baseline
-''' data from a tiff image containing all the characters.  If
-''' that fails, it uses the compiled string.
+''' <para/>
+''' Notes:<para/>
+''' (1) If %dir == null, this generates the font bitmaps from a<para/>
+''' compiled string.<para/>
+''' (2) Otherwise, this tries to read a pre-computed pixa file with the<para/>
+''' 95 ascii chars in it.  If the file is not found, it then<para/>
+''' attempts to generate the pixa and associated baseline<para/>
+''' data from a tiff image containing all the characters.  If<para/>
+''' that fails, it uses the compiled string.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -36,9 +37,6 @@ End Function
 ' SRC\bmf.c (166, 1)
 ' bmfDestroy()
 ' bmfDestroy(L_BMF **) as void
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pbmf">[in,out] - set to null</param>
@@ -56,9 +54,6 @@ End Sub
 ' SRC\bmf.c (202, 1)
 ' bmfGetPix()
 ' bmfGetPix(L_BMF *, char) as PIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="bmf">[in] - </param>
@@ -81,14 +76,11 @@ End Function
 ' SRC\bmf.c (237, 1)
 ' bmfGetWidth()
 ' bmfGetWidth(L_BMF *, char, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="bmf">[in] - </param>
 '''  <param name="chr">[in] - should be one of the 95 supported bitmaps</param>
-'''  <param name="pw">[out] - character width; -1 if not printable</param>
+'''  <param name="pw">[out] - character width -1 if not printable</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function bmfGetWidth(
 				ByVal bmf as L_Bmf, 
@@ -107,9 +99,6 @@ End Function
 ' SRC\bmf.c (276, 1)
 ' bmfGetBaseline()
 ' bmfGetBaseline(L_BMF *, char, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="bmf">[in] - </param>
@@ -134,8 +123,9 @@ End Function
 ' pixaGetFont()
 ' pixaGetFont(const char *, l_int32, l_int32 *, l_int32 *, l_int32 *) as PIXA *
 '''  <summary>
-''' Notes
-''' (1) This reads a pre-computed pixa file with the 95 ascii chars.
+''' <para/>
+''' Notes:<para/>
+''' (1) This reads a pre-computed pixa file with the 95 ascii chars.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -165,12 +155,13 @@ End Function
 ' pixaSaveFont()
 ' pixaSaveFont(const char *, const char *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This saves a font of a particular size.
-''' (2) If %dir == null, this generates the font bitmaps from a
-''' compiled string.
-''' (3) prog/genfonts calls this function for each of the
-''' nine font sizes, to generate all the font pixa files.
+''' <para/>
+''' Notes:<para/>
+''' (1) This saves a font of a particular size.<para/>
+''' (2) If %dir == null, this generates the font bitmaps from a<para/>
+''' compiled string.<para/>
+''' (3) prog/genfonts calls this function for each of the<para/>
+''' nine font sizes, to generate all the font pixa files.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

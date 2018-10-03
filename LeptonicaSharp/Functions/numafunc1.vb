@@ -1,17 +1,18 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\numafunc1.c (153, 1)
 ' numaArithOp()
 ' numaArithOp(NUMA *, NUMA *, NUMA *, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) The sizes of na1 and na2 must be equal.
-''' (2) nad can only null or equal to na1.
-''' (3) To add a constant to a numa, or to multipy a numa by
-''' a constant, use numaTransform().
+''' <para/>
+''' Notes:<para/>
+''' (1) The sizes of na1 and na2 must be equal.<para/>
+''' (2) nad can only null or equal to na1.<para/>
+''' (3) To add a constant to a numa, or to multipy a numa by<para/>
+''' a constant, use numaTransform().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -19,7 +20,7 @@ Partial Public Class _AllFunctions
 '''  <param name="na1">[in] - </param>
 '''  <param name="na2">[in] - </param>
 '''  <param name="op">[in] - L_ARITH_ADD, L_ARITH_SUBTRACT, L_ARITH_MULTIPLY, L_ARITH_DIVIDE</param>
-'''   <returns>nad always operation applied to na1 and na2</returns>
+'''   <returns>nad always: operation applied to na1 and na2</returns>
 Public Shared Function numaArithOp(
 				ByVal nad as Numa, 
 				ByVal na1 as Numa, 
@@ -41,15 +42,16 @@ End Function
 ' numaLogicalOp()
 ' numaLogicalOp(NUMA *, NUMA *, NUMA *, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) The sizes of na1 and na2 must be equal.
-''' (2) nad can only be null or equal to na1.
-''' (3) This is intended for use with indicator arrays (0s and 1s).
-''' Input data is extracted as integers (0 == false, anything
-''' else == true); output results are 0 and 1.
-''' (4) L_SUBTRACTION is subtraction of val2 from val1.  For bit logical
-''' arithmetic this is (val1  ~val2), but because these values
-''' are integers, we use (val1  !val2).
+''' <para/>
+''' Notes:<para/>
+''' (1) The sizes of na1 and na2 must be equal.<para/>
+''' (2) nad can only be null or equal to na1.<para/>
+''' (3) This is intended for use with indicator arrays (0s and 1s).<para/>
+''' Input data is extracted as integers (0 == false, anything<para/>
+''' else == true) output results are 0 and 1.<para/>
+''' (4) L_SUBTRACTION is subtraction of val2 from val1.  For bit logical<para/>
+''' arithmetic this is (val1  and  ~val2), but because these values<para/>
+''' are integers, we use (val1  and  and  !val2).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -57,7 +59,7 @@ End Function
 '''  <param name="na1">[in] - </param>
 '''  <param name="na2">[in] - </param>
 '''  <param name="op">[in] - L_UNION, L_INTERSECTION, L_SUBTRACTION, L_EXCLUSIVE_OR</param>
-'''   <returns>nad always operation applied to na1 and na2</returns>
+'''   <returns>nad always: operation applied to na1 and na2</returns>
 Public Shared Function numaLogicalOp(
 				ByVal nad as Numa, 
 				ByVal na1 as Numa, 
@@ -79,18 +81,19 @@ End Function
 ' numaInvert()
 ' numaInvert(NUMA *, NUMA *) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) This is intended for use with indicator arrays (0s and 1s).
-''' It gives a boolean-type output, taking the input as
-''' an integer and inverting it
-''' 0  --GT  1
-''' anything else  --GT   0
+''' <para/>
+''' Notes:<para/>
+''' (1) This is intended for use with indicator arrays (0s and 1s).<para/>
+''' It gives a boolean-type output, taking the input as<para/>
+''' an integer and inverting it:<para/>
+''' 0  -- is greater 1<para/>
+''' anything else  -- is greater  0<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nad">[in][optional] - can be null or equal to nas (in-place</param>
 '''  <param name="nas">[in] - </param>
-'''   <returns>nad always 'inverts' nas</returns>
+'''   <returns>nad always: 'inverts' nas</returns>
 Public Shared Function numaInvert(
 				ByVal nad as Numa, 
 				ByVal nas as Numa) as Numa
@@ -109,17 +112,18 @@ End Function
 ' numaSimilar()
 ' numaSimilar(NUMA *, NUMA *, l_float32, l_int32 *) as l_int32
 '''  <summary>
-''' Notes
-''' (1) Float values can differ slightly due to roundoff and
-''' accumulated errors.  Using %maxdiff GT 0.0 allows similar
-''' arrays to be identified.
+''' <para/>
+''' Notes:<para/>
+''' (1) Float values can differ slightly due to roundoff and<para/>
+''' accumulated errors.  Using %maxdiff  is greater  0.0 allows similar<para/>
+''' arrays to be identified.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na1">[in] - </param>
 '''  <param name="na2">[in] - </param>
 '''  <param name="maxdiff">[in] - use 0.0 for exact equality</param>
-'''  <param name="psimilar">[out] - 1 if similar; 0 if different</param>
+'''  <param name="psimilar">[out] - 1 if similar 0 if different</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function numaSimilar(
 				ByVal na1 as Numa, 
@@ -141,12 +145,13 @@ End Function
 ' numaAddToNumber()
 ' numaAddToNumber(NUMA *, l_int32, l_float32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This is useful for accumulating sums, regardless of the index
-''' order in which the values are made available.
-''' (2) Before use, the numa has to be filled up to %index.  This would
-''' typically be used by creating the numa with the full sized
-''' array, initialized to 0.0, using numaMakeConstant().
+''' <para/>
+''' Notes:<para/>
+''' (1) This is useful for accumulating sums, regardless of the index<para/>
+''' order in which the values are made available.<para/>
+''' (2) Before use, the numa has to be filled up to %index.  This would<para/>
+''' typically be used by creating the numa with the full sized<para/>
+''' array, initialized to 0.0, using numaMakeConstant().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -171,15 +176,12 @@ End Function
 ' SRC\numafunc1.c (431, 1)
 ' numaGetMin()
 ' numaGetMin(NUMA *, l_float32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pminval">[out][optional] - min value</param>
 '''  <param name="piminloc">[out][optional] - index of min location</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function numaGetMin(
 				ByVal na as Numa, 
 				ByRef pminval as Single(), 
@@ -196,15 +198,12 @@ End Function
 ' SRC\numafunc1.c (473, 1)
 ' numaGetMax()
 ' numaGetMax(NUMA *, l_float32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pmaxval">[out][optional] - max value</param>
 '''  <param name="pimaxloc">[out][optional] - index of max location</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function numaGetMax(
 				ByVal na as Numa, 
 				ByRef pmaxval as Single(), 
@@ -221,9 +220,6 @@ End Function
 ' SRC\numafunc1.c (514, 1)
 ' numaGetSum()
 ' numaGetSum(NUMA *, l_float32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - source numa</param>
@@ -245,11 +241,12 @@ End Function
 ' numaGetPartialSums()
 ' numaGetPartialSums(NUMA *) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) nasum[i] is the sum for all j LT= i of na[j].
-''' So nasum[0] = na[0].
-''' (2) If you want to generate a rank function, where rank[0] - 0.0,
-''' insert a 0.0 at the beginning of the nasum array.
+''' <para/>
+''' Notes:<para/>
+''' (1) nasum[i] is the sum for all j  is lower = i of na[j].<para/>
+''' So nasum[0] = na[0].<para/>
+''' (2) If you want to generate a rank function, where rank[0] - 0.0,<para/>
+''' insert a 0.0 at the beginning of the nasum array.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -270,9 +267,6 @@ End Function
 ' SRC\numafunc1.c (586, 1)
 ' numaGetSumOnInterval()
 ' numaGetSumOnInterval(NUMA *, l_int32, l_int32, l_float32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - source numa</param>
@@ -298,15 +292,16 @@ End Function
 ' numaHasOnlyIntegers()
 ' numaHasOnlyIntegers(NUMA *, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Set %maxsamples == 0 to check every integer in na.  Otherwise,
-''' this samples no more than %maxsamples.
+''' <para/>
+''' Notes:<para/>
+''' (1) Set %maxsamples == 0 to check every integer in na.  Otherwise,<para/>
+''' this samples no more than %maxsamples.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="maxsamples">[in] - maximum number of samples to check</param>
-'''  <param name="pallints">[out] - 1 if all sampled values are ints; else 0</param>
+'''  <param name="pallints">[out] - 1 if all sampled values are ints else 0</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function numaHasOnlyIntegers(
 				ByVal na as Numa, 
@@ -324,13 +319,10 @@ End Function
 ' SRC\numafunc1.c (673, 1)
 ' numaSubsample()
 ' numaSubsample(NUMA *, l_int32) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - </param>
-'''  <param name="subfactor">[in] - subsample factor, GT= 1</param>
+'''  <param name="subfactor">[in] - subsample factor,  is greater = 1</param>
 '''   <returns>nad evenly sampled values from nas, or NULL on error</returns>
 Public Shared Function numaSubsample(
 				ByVal nas as Numa, 
@@ -348,9 +340,6 @@ End Function
 ' SRC\numafunc1.c (707, 1)
 ' numaMakeDelta()
 ' numaMakeDelta(NUMA *) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - input numa</param>
@@ -370,9 +359,6 @@ End Function
 ' SRC\numafunc1.c (737, 1)
 ' numaMakeSequence()
 ' numaMakeSequence(l_float32, l_float32, l_int32) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="startval">[in] - </param>
@@ -397,9 +383,6 @@ End Function
 ' SRC\numafunc1.c (768, 1)
 ' numaMakeConstant()
 ' numaMakeConstant(l_float32, l_int32) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="val">[in] - </param>
@@ -421,9 +404,6 @@ End Function
 ' SRC\numafunc1.c (784, 1)
 ' numaMakeAbsValue()
 ' numaMakeAbsValue(NUMA *, NUMA *) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nad">[in]can be null - for new array, or the same as nas for inplace</param>
@@ -446,9 +426,6 @@ End Function
 ' SRC\numafunc1.c (818, 1)
 ' numaAddBorder()
 ' numaAddBorder(NUMA *, l_int32, l_int32, l_float32) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - </param>
@@ -475,9 +452,6 @@ End Function
 ' SRC\numafunc1.c (860, 1)
 ' numaAddSpecifiedBorder()
 ' numaAddSpecifiedBorder(NUMA *, l_int32, l_int32, l_int32) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - </param>
@@ -503,9 +477,6 @@ End Function
 ' SRC\numafunc1.c (910, 1)
 ' numaRemoveBorder()
 ' numaRemoveBorder(NUMA *, l_int32, l_int32) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - </param>
@@ -529,9 +500,6 @@ End Function
 ' SRC\numafunc1.c (951, 1)
 ' numaCountNonzeroRuns()
 ' numaCountNonzeroRuns(NUMA *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - e.g., of pixel counts in rows or columns</param>
@@ -552,9 +520,6 @@ End Function
 ' SRC\numafunc1.c (990, 1)
 ' numaGetNonzeroRange()
 ' numaGetNonzeroRange(NUMA *, l_float32, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - source numa</param>
@@ -580,9 +545,6 @@ End Function
 ' SRC\numafunc1.c (1041, 1)
 ' numaGetCountRelativeToZero()
 ' numaGetCountRelativeToZero(NUMA *, l_int32, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - source numa</param>
@@ -606,12 +568,13 @@ End Function
 ' numaClipToInterval()
 ' numaClipToInterval(NUMA *, l_int32, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' If you want the indices of the array values to be unchanged,
-''' use first = 0.
-''' Usage
-''' This is useful to clip a histogram that has a few nonzero
-''' values to its nonzero range.
+''' <para/>
+''' Notes:<para/>
+''' If you want the indices of the array values to be unchanged,<para/>
+''' use first = 0.<para/>
+''' Usage:<para/>
+''' This is useful to clip a histogram that has a few nonzero<para/>
+''' values to its nonzero range.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -637,10 +600,11 @@ End Function
 ' numaMakeThresholdIndicator()
 ' numaMakeThresholdIndicator(NUMA *, l_float32, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) For each element in nas, if the constraint given by 'type'
-''' correctly specifies its relation to thresh, a value of 1
-''' is recorded in nad.
+''' <para/>
+''' Notes:<para/>
+''' (1) For each element in nas, if the constraint given by 'type'<para/>
+''' correctly specifies its relation to thresh, a value of 1<para/>
+''' is recorded in nad.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -667,9 +631,10 @@ End Function
 ' numaUniformSampling()
 ' numaUniformSampling(NUMA *, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) This resamples the values in the array, using %nsamp
-''' equal divisions.
+''' <para/>
+''' Notes:<para/>
+''' (1) This resamples the values in the array, using %nsamp<para/>
+''' equal divisions.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -693,10 +658,11 @@ End Function
 ' numaReverse()
 ' numaReverse(NUMA *, NUMA *) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) Usage
-''' numaReverse(nas, nas);   // in-place
-''' nad = numaReverse(NULL, nas);  // makes a new one
+''' <para/>
+''' Notes:<para/>
+''' (1) Usage:<para/>
+''' numaReverse(nas, nas) // in-place<para/>
+''' nad = numaReverse(NULL, nas)  // makes a new one<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -721,16 +687,17 @@ End Function
 ' numaLowPassIntervals()
 ' numaLowPassIntervals(NUMA *, l_float32, l_float32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) For each interval where the value is less than a specified
-''' fraction of the maximum, this records the left and right "x"
-''' value.
+''' <para/>
+''' Notes:<para/>
+''' (1) For each interval where the value is less than a specified<para/>
+''' fraction of the maximum, this records the left and right "x"<para/>
+''' value.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - input numa</param>
-'''  <param name="thresh">[in] - threshold fraction of max; in [0.0 ... 1.0]</param>
-'''  <param name="maxn">[in] - for normalizing; set maxn = 0.0 to use the max in nas</param>
+'''  <param name="thresh">[in] - threshold fraction of max in [0.0 ... 1.0]</param>
+'''  <param name="maxn">[in] - for normalizing set maxn = 0.0 to use the max in nas</param>
 '''   <returns></returns>
 Public Shared Function numaLowPassIntervals(
 				ByVal nas as Numa, 
@@ -752,25 +719,26 @@ End Function
 ' numaThresholdEdges()
 ' numaThresholdEdges(NUMA *, l_float32, l_float32, l_float32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) For each edge interval, where where the value is less
-''' than %thresh1 on one side, greater than %thresh2 on
-''' the other, and between these thresholds throughout the
-''' interval, this records a triplet of values the
-''' 'left' and 'right' edges, and either +1 or -1, depending
-''' on whether the edge is rising or falling.
-''' (2) No assumption is made about the value outside the array,
-''' so if the value at the array edge is between the threshold
-''' values, it is not considered part of an edge.  We start
-''' looking for edge intervals only after leaving the thresholded
-''' band.
+''' <para/>
+''' Notes:<para/>
+''' (1) For each edge interval, where where the value is less<para/>
+''' than %thresh1 on one side, greater than %thresh2 on<para/>
+''' the other, and between these thresholds throughout the<para/>
+''' interval, this records a triplet of values: the<para/>
+''' 'left' and 'right' edges, and either +1 or -1, depending<para/>
+''' on whether the edge is rising or falling.<para/>
+''' (2) No assumption is made about the value outside the array,<para/>
+''' so if the value at the array edge is between the threshold<para/>
+''' values, it is not considered part of an edge.  We start<para/>
+''' looking for edge intervals only after leaving the thresholded<para/>
+''' band.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - input numa</param>
-'''  <param name="thresh1">[in] - low threshold as fraction of max; in [0.0 ... 1.0]</param>
-'''  <param name="thresh2">[in] - high threshold as fraction of max; in [0.0 ... 1.0]</param>
-'''  <param name="maxn">[in] - for normalizing; set maxn = 0.0 to use the max in nas</param>
+'''  <param name="thresh1">[in] - low threshold as fraction of max in [0.0 ... 1.0]</param>
+'''  <param name="thresh2">[in] - high threshold as fraction of max in [0.0 ... 1.0]</param>
+'''  <param name="maxn">[in] - for normalizing set maxn = 0.0 to use the max in nas</param>
 '''   <returns></returns>
 Public Shared Function numaThresholdEdges(
 				ByVal nas as Numa, 
@@ -793,9 +761,6 @@ End Function
 ' SRC\numafunc1.c (1509, 1)
 ' numaGetSpanValues()
 ' numaGetSpanValues(NUMA *, l_int32, l_int32 *, l_int32 *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - numa that is output of numaLowPassIntervals()</param>
@@ -820,16 +785,13 @@ End Function
 ' SRC\numafunc1.c (1545, 1)
 ' numaGetEdgeValues()
 ' numaGetEdgeValues(NUMA *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - numa that is output of numaThresholdEdges()</param>
 '''  <param name="edge">[in] - edge number, zero-based</param>
 '''  <param name="pstart">[out][optional] - location of start of transition</param>
 '''  <param name="pend">[out][optional] - location of end of transition</param>
-'''  <param name="psign">[out][optional] - transition sign +1 is rising, -1 is falling</param>
+'''  <param name="psign">[out][optional] - transition sign: +1 is rising, -1 is falling</param>
 '''   <returns></returns>
 Public Shared Function numaGetEdgeValues(
 				ByVal na as Numa, 
@@ -850,16 +812,17 @@ End Function
 ' numaInterpolateEqxVal()
 ' numaInterpolateEqxVal(l_float32, l_float32, NUMA *, l_int32, l_float32, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Considering nay as a function of x, the x values
-''' are equally spaced
-''' (2) Caller should check for valid return.
-''' For linear Lagrangian interpolation (through 2 data pts)
-''' y(x) = y1(x-x2)/(x1-x2) + y2(x-x1)/(x2-x1)
-''' For quadratic Lagrangian interpolation (through 3 data pts)
-''' y(x) = y1(x-x2)(x-x3)/((x1-x2)(x1-x3)) +
-''' y2(x-x1)(x-x3)/((x2-x1)(x2-x3)) +
-''' y3(x-x1)(x-x2)/((x3-x1)(x3-x2))
+''' <para/>
+''' Notes:<para/>
+''' (1) Considering nay as a function of x, the x values<para/>
+''' are equally spaced<para/>
+''' (2) Caller should check for valid return.<para/>
+''' For linear Lagrangian interpolation (through 2 data pts):<para/>
+''' y(x) = y1(x-x2)/(x1-x2) + y2(x-x1)/(x2-x1)<para/>
+''' For quadratic Lagrangian interpolation (through 3 data pts):<para/>
+''' y(x) = y1(x-x2)(x-x3)/((x1-x2)(x1-x3)) +<para/>
+''' y2(x-x1)(x-x3)/((x2-x1)(x2-x3)) +<para/>
+''' y3(x-x1)(x-x2)/((x3-x1)(x3-x2))<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -893,13 +856,14 @@ End Function
 ' numaInterpolateArbxVal()
 ' numaInterpolateArbxVal(NUMA *, NUMA *, l_int32, l_float32, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The values in nax must be sorted in increasing order.
-''' If, additionally, they are equally spaced, you can use
-''' numaInterpolateEqxVal().
-''' (2) Caller should check for valid return.
-''' (3) Uses lagrangian interpolation.  See numaInterpolateEqxVal()
-''' for formulas.
+''' <para/>
+''' Notes:<para/>
+''' (1) The values in nax must be sorted in increasing order.<para/>
+''' If, additionally, they are equally spaced, you can use<para/>
+''' numaInterpolateEqxVal().<para/>
+''' (2) Caller should check for valid return.<para/>
+''' (3) Uses lagrangian interpolation.  See numaInterpolateEqxVal()<para/>
+''' for formulas.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -930,17 +894,18 @@ End Function
 ' numaInterpolateEqxInterval()
 ' numaInterpolateEqxInterval(l_float32, l_float32, NUMA *, l_int32, l_float32, l_float32, l_int32, NUMA **, NUMA **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Considering nasy as a function of x, the x values
-''' are equally spaced.
-''' (2) This creates nay (and optionally nax) of interpolated
-''' values over the specified interval (x0, x1).
-''' (3) If the interval (x0, x1) lies partially outside the array
-''' nasy (as interpreted by startx and deltax), it is an
-''' error and returns 1.
-''' (4) Note that deltax is the intrinsic x-increment for the input
-''' array nasy, whereas delx is the intrinsic x-increment for the
-''' output interpolated array nay.
+''' <para/>
+''' Notes:<para/>
+''' (1) Considering nasy as a function of x, the x values<para/>
+''' are equally spaced.<para/>
+''' (2) This creates nay (and optionally nax) of interpolated<para/>
+''' values over the specified interval (x0, x1).<para/>
+''' (3) If the interval (x0, x1) lies partially outside the array<para/>
+''' nasy (as interpreted by startx and deltax), it is an<para/>
+''' error and returns 1.<para/>
+''' (4) Note that deltax is the intrinsic x-increment for the input<para/>
+''' array nasy, whereas delx is the intrinsic x-increment for the<para/>
+''' output interpolated array nay.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -985,18 +950,19 @@ End Function
 ' numaInterpolateArbxInterval()
 ' numaInterpolateArbxInterval(NUMA *, NUMA *, l_int32, l_float32, l_float32, l_int32, NUMA **, NUMA **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The values in nax must be sorted in increasing order.
-''' If they are not sorted, we do it here, and complain.
-''' (2) If the values in nax are equally spaced, you can use
-''' numaInterpolateEqxInterval().
-''' (3) Caller should check for valid return.
-''' (4) We don't call numaInterpolateArbxVal() for each output
-''' point, because that requires an O(n) search for
-''' each point.  Instead, we do a single O(n) pass through
-''' nax, saving the indices to be used for each output yval.
-''' (5) Uses lagrangian interpolation.  See numaInterpolateEqxVal()
-''' for formulas.
+''' <para/>
+''' Notes:<para/>
+''' (1) The values in nax must be sorted in increasing order.<para/>
+''' If they are not sorted, we do it here, and complain.<para/>
+''' (2) If the values in nax are equally spaced, you can use<para/>
+''' numaInterpolateEqxInterval().<para/>
+''' (3) Caller should check for valid return.<para/>
+''' (4) We don't call numaInterpolateArbxVal() for each output<para/>
+''' point, because that requires an O(n) search for<para/>
+''' each point.  Instead, we do a single O(n) pass through<para/>
+''' nax, saving the indices to be used for each output yval.<para/>
+''' (5) Uses lagrangian interpolation.  See numaInterpolateEqxVal()<para/>
+''' for formulas.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1038,30 +1004,31 @@ End Function
 ' numaFitMax()
 ' numaFitMax(NUMA *, l_float32 *, NUMA *, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' If %naloc is given, there is no requirement that the
-''' data points are evenly spaced.  Lagrangian interpolation
-''' handles that.  The only requirement is that the
-''' data points are ordered so that the values in naloc
-''' are either increasing or decreasing.  We test to make
-''' sure that the sizes of na and naloc are equal, and it
-''' is assumed that the correspondences %na[i] as a function
-''' of %naloc[i] are properly arranged for all i.
-''' The formula for Lagrangian interpolation through 3 data pts is
-''' y(x) = y1(x-x2)(x-x3)/((x1-x2)(x1-x3)) +
-''' y2(x-x1)(x-x3)/((x2-x1)(x2-x3)) +
-''' y3(x-x1)(x-x2)/((x3-x1)(x3-x2))
-''' Then the derivative, using the constants (c1,c2,c3) defined below,
-''' is set to 0
-''' y'(x) = 2x(c1+c2+c3) - c1(x2+x3) - c2(x1+x3) - c3(x1+x2) = 0
+''' <para/>
+''' Notes:<para/>
+''' If %naloc is given, there is no requirement that the<para/>
+''' data points are evenly spaced.  Lagrangian interpolation<para/>
+''' handles that.  The only requirement is that the<para/>
+''' data points are ordered so that the values in naloc<para/>
+''' are either increasing or decreasing.  We test to make<para/>
+''' sure that the sizes of na and naloc are equal, and it<para/>
+''' is assumed that the correspondences %na[i] as a function<para/>
+''' of %naloc[i] are properly arranged for all i.<para/>
+''' The formula for Lagrangian interpolation through 3 data pts is:<para/>
+''' y(x) = y1(x-x2)(x-x3)/((x1-x2)(x1-x3)) +<para/>
+''' y2(x-x1)(x-x3)/((x2-x1)(x2-x3)) +<para/>
+''' y3(x-x1)(x-x2)/((x3-x1)(x3-x2))<para/>
+''' Then the derivative, using the constants (c1,c2,c3) defined below,<para/>
+''' is set to 0:<para/>
+''' y'(x) = 2x(c1+c2+c3) - c1(x2+x3) - c2(x1+x3) - c3(x1+x2) = 0<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - numa of ordinate values, to fit a max to</param>
 '''  <param name="pmaxval">[out] - max value</param>
 '''  <param name="naloc">[in][optional] - associated numa of abscissa values</param>
-'''  <param name="pmaxloc">[out] - abscissa value that gives max value in na; if naloc == null, this is given as an interpolated index value</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''  <param name="pmaxloc">[out] - abscissa value that gives max value in na if naloc == null, this is given as an interpolated index value</param>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function numaFitMax(
 				ByVal na as Numa, 
 				ByRef pmaxval as Single(), 
@@ -1081,11 +1048,12 @@ End Function
 ' numaDifferentiateInterval()
 ' numaDifferentiateInterval(NUMA *, NUMA *, l_float32, l_float32, l_int32, NUMA **, NUMA **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The values in nax must be sorted in increasing order.
-''' If they are not sorted, it is done in the interpolation
-''' step, and a warning is issued.
-''' (2) Caller should check for valid return.
+''' <para/>
+''' Notes:<para/>
+''' (1) The values in nax must be sorted in increasing order.<para/>
+''' If they are not sorted, it is done in the interpolation<para/>
+''' step, and a warning is issued.<para/>
+''' (2) Caller should check for valid return.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1125,11 +1093,12 @@ End Function
 ' numaIntegrateInterval()
 ' numaIntegrateInterval(NUMA *, NUMA *, l_float32, l_float32, l_int32, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The values in nax must be sorted in increasing order.
-''' If they are not sorted, it is done in the interpolation
-''' step, and a warning is issued.
-''' (2) Caller should check for valid return.
+''' <para/>
+''' Notes:<para/>
+''' (1) The values in nax must be sorted in increasing order.<para/>
+''' If they are not sorted, it is done in the interpolation<para/>
+''' step, and a warning is issued.<para/>
+''' (2) Caller should check for valid return.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1163,33 +1132,34 @@ End Function
 ' numaSortGeneral()
 ' numaSortGeneral(NUMA *, NUMA **, NUMA **, NUMA **, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Sorting can be confusing.  Here's an array of five values with
-''' the results shown for the 3 output arrays.
-''' na   nasort   naindex   nainvert
-''' -----------------------------------
-''' 3   9   2   3
-''' 4   6   3   2
-''' 9   4   1   0
-''' 6   3   0   1
-''' 1   1   4   4
-''' Note that naindex is a LUT into na for the sorted array values,
-''' and nainvert directly gives the sorted index values for the
-''' input array.  It is useful to view naindex is as a map
-''' 0  --GT  2
-''' 1  --GT  3
-''' 2  --GT  1
-''' 3  --GT  0
-''' 4  --GT  4
-''' and nainvert, the inverse of this map
-''' 0  --GT  3
-''' 1  --GT  2
-''' 2  --GT  0
-''' 3  --GT  1
-''' 4  --GT  4
-''' We can write these relations symbolically as
-''' nasort[i] = na[naindex[i]]
-''' na[i] = nasort[nainvert[i]]
+''' <para/>
+''' Notes:<para/>
+''' (1) Sorting can be confusing.  Here's an array of five values with<para/>
+''' the results shown for the 3 output arrays.<para/>
+''' na  nasort naindex nainvert<para/>
+''' -----------------------------------<para/>
+''' 3 9 2 3<para/>
+''' 4 6 3 2<para/>
+''' 9 4 1 0<para/>
+''' 6 3 0 1<para/>
+''' 1 1 4 4<para/>
+''' Note that naindex is a LUT into na for the sorted array values,<para/>
+''' and nainvert directly gives the sorted index values for the<para/>
+''' input array.  It is useful to view naindex is as a map:<para/>
+''' 0  -- is greater 2<para/>
+''' 1  -- is greater 3<para/>
+''' 2  -- is greater 1<para/>
+''' 3  -- is greater 0<para/>
+''' 4  -- is greater 4<para/>
+''' and nainvert, the inverse of this map:<para/>
+''' 0  -- is greater 3<para/>
+''' 1  -- is greater 2<para/>
+''' 2  -- is greater 0<para/>
+''' 3  -- is greater 1<para/>
+''' 4  -- is greater 4<para/>
+''' We can write these relations symbolically as:<para/>
+''' nasort[i] = na[naindex[i]]<para/>
+''' na[i] = nasort[nainvert[i]]<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1226,9 +1196,10 @@ End Function
 ' numaSortAutoSelect()
 ' numaSortAutoSelect(NUMA *, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) This does either a shell sort or a bin sort, depending on
-''' the number of elements in nas and the dynamic range.
+''' <para/>
+''' Notes:<para/>
+''' (1) This does either a shell sort or a bin sort, depending on<para/>
+''' the number of elements in nas and the dynamic range.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1252,9 +1223,10 @@ End Function
 ' numaSortIndexAutoSelect()
 ' numaSortIndexAutoSelect(NUMA *, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) This does either a shell sort or a bin sort, depending on
-''' the number of elements in nas and the dynamic range.
+''' <para/>
+''' Notes:<para/>
+''' (1) This does either a shell sort or a bin sort, depending on<para/>
+''' the number of elements in nas and the dynamic range.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1278,10 +1250,11 @@ End Function
 ' numaChooseSortType()
 ' numaChooseSortType(NUMA *) as l_int32
 '''  <summary>
-''' Notes
-''' (1) This selects either a shell sort or a bin sort, depending on
-''' the number of elements in nas and the dynamic range.
-''' (2) If there are negative values in nas, it selects shell sort.
+''' <para/>
+''' Notes:<para/>
+''' (1) This selects either a shell sort or a bin sort, depending on<para/>
+''' the number of elements in nas and the dynamic range.<para/>
+''' (2) If there are negative values in nas, it selects shell sort.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1302,14 +1275,15 @@ End Function
 ' numaSort()
 ' numaSort(NUMA *, NUMA *, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) Set naout = nain for in-place; otherwise, set naout = NULL.
-''' (2) Source Shell sort, modified from KR, 2nd edition, p.62.
-''' Slow but simple O(n logn) sort.
+''' <para/>
+''' Notes:<para/>
+''' (1) Set naout = nain for in-place otherwise, set naout = NULL.<para/>
+''' (2) Source: Shell sort, modified from K and R, 2nd edition, p.62.<para/>
+''' Slow but simple O(n logn) sort.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="naout">[in] - output numa; can be NULL or equal to nain</param>
+'''  <param name="naout">[in] - output numa can be NULL or equal to nain</param>
 '''  <param name="nain">[in] - input numa</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 '''   <returns>naout output sorted numa, or NULL on error</returns>
@@ -1332,12 +1306,13 @@ End Function
 ' numaBinSort()
 ' numaBinSort(NUMA *, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) Because this uses a bin sort with buckets of size 1, it
-''' is not appropriate for sorting either small arrays or
-''' arrays containing very large integer values.  For such
-''' arrays, use a standard general sort function like
-''' numaSort().
+''' <para/>
+''' Notes:<para/>
+''' (1) Because this uses a bin sort with buckets of size 1, it<para/>
+''' is not appropriate for sorting either small arrays or<para/>
+''' arrays containing very large integer values.  For such<para/>
+''' arrays, use a standard general sort function like<para/>
+''' numaSort().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1360,9 +1335,6 @@ End Function
 ' SRC\numafunc1.c (2621, 1)
 ' numaGetSortIndex()
 ' numaGetSortIndex(NUMA *, l_int32) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - source numa</param>
@@ -1385,14 +1357,15 @@ End Function
 ' numaGetBinSortIndex()
 ' numaGetBinSortIndex(NUMA *, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) This creates an array (or lookup table) that contains
-''' the sorted position of the elements in the input Numa.
-''' (2) Because it uses a bin sort with buckets of size 1, it
-''' is not appropriate for sorting either small arrays or
-''' arrays containing very large integer values.  For such
-''' arrays, use a standard general sort function like
-''' numaGetSortIndex().
+''' <para/>
+''' Notes:<para/>
+''' (1) This creates an array (or lookup table) that contains<para/>
+''' the sorted position of the elements in the input Numa.<para/>
+''' (2) Because it uses a bin sort with buckets of size 1, it<para/>
+''' is not appropriate for sorting either small arrays or<para/>
+''' arrays containing very large integer values.  For such<para/>
+''' arrays, use a standard general sort function like<para/>
+''' numaGetSortIndex().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1415,9 +1388,6 @@ End Function
 ' SRC\numafunc1.c (2770, 1)
 ' numaSortByIndex()
 ' numaSortByIndex(NUMA *, NUMA *) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - </param>
@@ -1441,17 +1411,18 @@ End Function
 ' numaIsSorted()
 ' numaIsSorted(NUMA *, l_int32, l_int32 *) as l_int32
 '''  <summary>
-''' Notes
-''' (1) This is a quick O(n) test if nas is sorted.  It is useful
-''' in situations where the array is likely to be already
-''' sorted, and a sort operation can be avoided.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is a quick O(n) test if nas is sorted.  It is useful<para/>
+''' in situations where the array is likely to be already<para/>
+''' sorted, and a sort operation can be avoided.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - </param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
-'''  <param name="psorted">[out] - 1 if sorted; 0 if not</param>
-'''   <returns>1 if OK; 0 on error</returns>
+'''  <param name="psorted">[out] - 1 if sorted 0 if not</param>
+'''   <returns>1 if OK 0 on error</returns>
 Public Shared Function numaIsSorted(
 				ByVal nas as Numa, 
 				ByVal sortorder as Enumerations.L_SORT_CREASING, 
@@ -1469,9 +1440,10 @@ End Function
 ' numaSortPair()
 ' numaSortPair(NUMA *, NUMA *, l_int32, NUMA **, NUMA **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This function sorts the two input arrays, nax and nay,
-''' together, using nax as the key for sorting.
+''' <para/>
+''' Notes:<para/>
+''' (1) This function sorts the two input arrays, nax and nay,<para/>
+''' together, using nax as the key for sorting.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1505,10 +1477,11 @@ End Function
 ' numaInvertMap()
 ' numaInvertMap(NUMA *) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) This requires that nas contain each integer from 0 to n-1.
-''' The array is typically an index array into a sort or permutation
-''' of another array.
+''' <para/>
+''' Notes:<para/>
+''' (1) This requires that nas contain each integer from 0 to n-1.<para/>
+''' The array is typically an index array into a sort or permutation<para/>
+''' of another array.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1530,11 +1503,12 @@ End Function
 ' numaPseudorandomSequence()
 ' numaPseudorandomSequence(l_int32, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) This uses the Durstenfeld shuffle.
-''' See http//en.wikipedia.org/wiki/Fisherâ€“Yates_shuffle.
-''' Result is a pseudorandom permutation of the sequence of integers
-''' from 0 to size - 1.
+''' <para/>
+''' Notes:<para/>
+''' (1) This uses the Durstenfeld shuffle.<para/>
+''' See: http://en.wikipedia.org/wiki/Fisherâ€“Yates_shuffle.<para/>
+''' Result is a pseudorandom permutation of the sequence of integers<para/>
+''' from 0 to size - 1.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1556,9 +1530,6 @@ End Function
 ' SRC\numafunc1.c (3008, 1)
 ' numaRandomPermutation()
 ' numaRandomPermutation(NUMA *, l_int32) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nas">[in] - input array</param>
@@ -1581,29 +1552,30 @@ End Function
 ' numaGetRankValue()
 ' numaGetRankValue(NUMA *, l_float32, NUMA *, l_int32, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Computes the rank value of a number in the %na, which is
-''' the number that is a fraction %fract from the small
-''' end of the sorted version of %na.
-''' (2) If you do this multiple times for different rank values,
-''' sort the array in advance and use that for %nasort;
-''' if you're only calling this once, input %nasort == NULL.
-''' (3) If %usebins == 1, this uses a bin sorting method.
-''' Use this only where
-''' the numbers are non-negative integers
-''' there are over 100 numbers
-''' the maximum value is less than about 50,000
-''' (4) The advantage of using a bin sort is that it is O(n),
-''' instead of O(nlogn) for general sort routines.
+''' <para/>
+''' Notes:<para/>
+''' (1) Computes the rank value of a number in the %na, which is<para/>
+''' the number that is a fraction %fract from the small<para/>
+''' end of the sorted version of %na.<para/>
+''' (2) If you do this multiple times for different rank values,<para/>
+''' sort the array in advance and use that for %nasort<para/>
+''' if you're only calling this once, input %nasort == NULL.<para/>
+''' (3) If %usebins == 1, this uses a bin sorting method.<para/>
+''' Use this only where:<para/>
+''' the numbers are non-negative integers<para/>
+''' there are over 100 numbers<para/>
+''' the maximum value is less than about 50,000<para/>
+''' (4) The advantage of using a bin sort is that it is O(n),<para/>
+''' instead of O(nlogn) for general sort routines.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="fract">[in] - use 0.0 for smallest, 1.0 for largest</param>
 '''  <param name="nasort">[in][optional] - increasing sorted version of na</param>
-'''  <param name="usebins">[in] - 0 for general sort; 1 for bin sort</param>
+'''  <param name="usebins">[in] - 0 for general sort 1 for bin sort</param>
 '''  <param name="pval">[out] - rank val</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function numaGetRankValue(
 				ByVal na as Numa, 
 				ByVal fract as Single, 
@@ -1625,15 +1597,16 @@ End Function
 ' numaGetMedian()
 ' numaGetMedian(NUMA *, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Computes the median value of the numbers in the numa, by
-''' sorting and finding the middle value in the sorted array.
+''' <para/>
+''' Notes:<para/>
+''' (1) Computes the median value of the numbers in the numa, by<para/>
+''' sorting and finding the middle value in the sorted array.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pval">[out] - median value</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function numaGetMedian(
 				ByVal na as Numa, 
 				ByRef pval as Single()) as Integer
@@ -1650,17 +1623,18 @@ End Function
 ' numaGetBinnedMedian()
 ' numaGetBinnedMedian(NUMA *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Computes the median value of the numbers in the numa,
-''' using bin sort and finding the middle value in the sorted array.
-''' (2) See numaGetRankValue() for conditions on na for which
-''' this should be used.  Otherwise, use numaGetMedian().
+''' <para/>
+''' Notes:<para/>
+''' (1) Computes the median value of the numbers in the numa,<para/>
+''' using bin sort and finding the middle value in the sorted array.<para/>
+''' (2) See numaGetRankValue() for conditions on na for which<para/>
+''' this should be used.  Otherwise, use numaGetMedian().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pval">[out] - integer median value</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function numaGetBinnedMedian(
 				ByVal na as Numa, 
 				ByRef pval as Integer) as Integer
@@ -1677,18 +1651,19 @@ End Function
 ' numaGetMode()
 ' numaGetMode(NUMA *, l_float32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Computes the mode value of the numbers in the numa, by
-''' sorting and finding the value of the number with the
-''' largest count.
-''' (2) Optionally, also returns that count.
+''' <para/>
+''' Notes:<para/>
+''' (1) Computes the mode value of the numbers in the numa, by<para/>
+''' sorting and finding the value of the number with the<para/>
+''' largest count.<para/>
+''' (2) Optionally, also returns that count.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pval">[out] - mode val</param>
 '''  <param name="pcount">[out][optional] - mode count</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function numaGetMode(
 				ByVal na as Numa, 
 				ByRef pval as Single(), 
@@ -1706,20 +1681,21 @@ End Function
 ' numaGetMedianVariation()
 ' numaGetMedianVariation(NUMA *, l_float32 *, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Finds the median of the absolute value of the variation from
-''' the median value in the array.  Why take the absolute value?
-''' Consider the case where you have values equally distributed
-''' about both sides of a median value.  Without taking the absolute
-''' value of the differences, you will get 0 for the variation,
-''' and this is not useful.
+''' <para/>
+''' Notes:<para/>
+''' (1) Finds the median of the absolute value of the variation from<para/>
+''' the median value in the array.  Why take the absolute value?<para/>
+''' Consider the case where you have values equally distributed<para/>
+''' about both sides of a median value.  Without taking the absolute<para/>
+''' value of the differences, you will get 0 for the variation,<para/>
+''' and this is not useful.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pmedval">[out][optional] - median value</param>
 '''  <param name="pmedvar">[out] - median variation from median val</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function numaGetMedianVariation(
 				ByVal na as Numa, 
 				ByRef pmedval as Single(), 
@@ -1737,17 +1713,18 @@ End Function
 ' numaJoin()
 ' numaJoin(NUMA *, NUMA *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) istart LT 0 is taken to mean 'read from the start' (istart = 0)
-''' (2) iend LT 0 means 'read to the end'
-''' (3) if nas == NULL, this is a no-op
+''' <para/>
+''' Notes:<para/>
+''' (1) istart  is lower  0 is taken to mean 'read from the start' (istart = 0)<para/>
+''' (2) iend  is lower  0 means 'read to the end'<para/>
+''' (3) if nas == NULL, this is a no-op<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="nad">[in] - dest numa; add to this one</param>
-'''  <param name="nas">[in][optional] - source numa; add from this one</param>
+'''  <param name="nad">[in] - dest numa add to this one</param>
+'''  <param name="nas">[in][optional] - source numa add from this one</param>
 '''  <param name="istart">[in] - starting index in nas</param>
-'''  <param name="iend">[in] - ending index in nas; use -1 to cat all</param>
+'''  <param name="iend">[in] - ending index in nas use -1 to cat all</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function numaJoin(
 				ByVal nad as Numa, 
@@ -1768,17 +1745,18 @@ End Function
 ' numaaJoin()
 ' numaaJoin(NUMAA *, NUMAA *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) istart LT 0 is taken to mean 'read from the start' (istart = 0)
-''' (2) iend LT 0 means 'read to the end'
-''' (3) if naas == NULL, this is a no-op
+''' <para/>
+''' Notes:<para/>
+''' (1) istart  is lower  0 is taken to mean 'read from the start' (istart = 0)<para/>
+''' (2) iend  is lower  0 means 'read to the end'<para/>
+''' (3) if naas == NULL, this is a no-op<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="naad">[in] - dest naa; add to this one</param>
-'''  <param name="naas">[in][optional] - source naa; add from this one</param>
+'''  <param name="naad">[in] - dest naa add to this one</param>
+'''  <param name="naas">[in][optional] - source naa add from this one</param>
 '''  <param name="istart">[in] - starting index in nas</param>
-'''  <param name="iend">[in] - ending index in naas; use -1 to cat all</param>
+'''  <param name="iend">[in] - ending index in naas use -1 to cat all</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function numaaJoin(
 				ByVal naad as Numaa, 
@@ -1799,12 +1777,13 @@ End Function
 ' numaaFlattenToNuma()
 ' numaaFlattenToNuma(NUMAA *) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) This 'flattens' the Numaa to a Numa, by joining successively
-''' each Numa in the Numaa.
-''' (2) It doesn't make any assumptions about the location of the
-''' Numas in the Numaa array, unlike most Numaa functions.
-''' (3) It leaves the input Numaa unchanged.
+''' <para/>
+''' Notes:<para/>
+''' (1) This 'flattens' the Numaa to a Numa, by joining successively<para/>
+''' each Numa in the Numaa.<para/>
+''' (2) It doesn't make any assumptions about the location of the<para/>
+''' Numas in the Numaa array, unlike most Numaa functions.<para/>
+''' (3) It leaves the input Numaa unchanged.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

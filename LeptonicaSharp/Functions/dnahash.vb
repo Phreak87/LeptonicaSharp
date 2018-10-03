@@ -1,19 +1,20 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\dnahash.c (122, 1)
 ' l_dnaHashCreate()
 ' l_dnaHashCreate(l_int32, l_int32) as L_DNAHASH *
 '''  <summary>
-''' Notes
-''' (1) Actual dna are created only as required by l_dnaHashAdd()
+''' <para/>
+''' Notes:<para/>
+''' (1) Actual dna are created only as required by l_dnaHashAdd()<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nbuckets">[in] - the number of buckets in the hash table, which should be prime.</param>
-'''  <param name="initsize">[in] - initial size of each allocated dna; 0 for default</param>
+'''  <param name="initsize">[in] - initial size of each allocated dna 0 for default</param>
 '''   <returns>ptr to new dnahash, or NULL on error</returns>
 Public Shared Function l_dnaHashCreate(
 				ByVal nbuckets as Integer, 
@@ -30,9 +31,6 @@ End Function
 ' SRC\dnahash.c (152, 1)
 ' l_dnaHashDestroy()
 ' l_dnaHashDestroy(L_DNAHASH **) as void
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pdahash">[in,out] - to be nulled, if it exists</param>
@@ -50,9 +48,6 @@ End Sub
 ' SRC\dnahash.c (185, 1)
 ' l_dnaHashGetCount()
 ' l_dnaHashGetCount(L_DNAHASH *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dahash">[in] - </param>
@@ -71,9 +66,6 @@ End Function
 ' SRC\dnahash.c (203, 1)
 ' l_dnaHashGetTotalCount()
 ' l_dnaHashGetTotalCount(L_DNAHASH *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dahash">[in] - </param>
@@ -92,9 +84,6 @@ End Function
 ' SRC\dnahash.c (232, 1)
 ' l_dnaHashGetDna()
 ' l_dnaHashGetDna(L_DNAHASH *, l_uint64, l_int32) as L_DNA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dahash">[in] - </param>
@@ -119,15 +108,12 @@ End Function
 ' SRC\dnahash.c (267, 1)
 ' l_dnaHashAdd()
 ' l_dnaHashAdd(L_DNAHASH *, l_uint64, l_float64) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dahash">[in] - </param>
 '''  <param name="key">[in] - key to be hashed into a bucket number</param>
 '''  <param name="value">[in] - float value to be appended to the specific dna</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function l_dnaHashAdd(
 				ByVal dahash as L_DnaHash, 
 				ByVal key as ULong, 
@@ -147,14 +133,15 @@ End Function
 ' l_dnaHashCreateFromDna()
 ' l_dnaHashCreateFromDna(L_DNA *) as L_DNAHASH *
 '''  <summary>
-''' Notes
-''' (1) The values stored in the %dahash are indices into %da;
-''' %dahash has no use without %da.
+''' <para/>
+''' Notes:<para/>
+''' (1) The values stored in the %dahash are indices into %da<para/>
+''' %dahash has no use without %da.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="da">[in] - </param>
-'''   <returns>dahash if OK; 1 on error</returns>
+'''   <returns>dahash if OK 1 on error</returns>
 Public Shared Function l_dnaHashCreateFromDna(
 				ByVal da as L_Dna) as L_DnaHash
 
@@ -171,18 +158,19 @@ End Function
 ' l_dnaRemoveDupsByHash()
 ' l_dnaRemoveDupsByHash(L_DNA *, L_DNA **, L_DNAHASH **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Generates a dna with unique values.
-''' (2) The dnahash is built up with dad to assure uniqueness.
-''' It can be used to find if an element is in the set
-''' l_dnaFindValByHash(dad, dahash, val, index)
+''' <para/>
+''' Notes:<para/>
+''' (1) Generates a dna with unique values.<para/>
+''' (2) The dnahash is built up with dad to assure uniqueness.<para/>
+''' It can be used to find if an element is in the set:<para/>
+''' l_dnaFindValByHash(dad, dahash, val,  and index)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="das">[in] - </param>
 '''  <param name="pdad">[out] - hash set</param>
 '''  <param name="pdahash">[out][optional] - dnahash used for lookup</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function l_dnaRemoveDupsByHash(
 				ByVal das as L_Dna, 
 				ByRef pdad as L_Dna, 
@@ -204,28 +192,29 @@ End Function
 ' l_dnaMakeHistoByHash()
 ' l_dnaMakeHistoByHash(L_DNA *, L_DNAHASH **, L_DNA **, L_DNA **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Generates and returns a dna of occurrences (histogram),
-''' an aligned dna of values, and an associated hashmap.
-''' The hashmap takes %dav and a value, and points into the
-''' histogram in %dac.
-''' (2) The dna of values, %dav, is aligned with the histogram %dac,
-''' and is needed for fast lookup.  It is a hash set, because
-''' the values are unique.
-''' (3) Lookup is simple
-''' l_dnaFindValByHash(dav, dahash, val, index);
-''' if (index GT= 0)
-''' l_dnaGetIValue(dac, index, icount);
-''' else
-''' icount = 0;
+''' <para/>
+''' Notes:<para/>
+''' (1) Generates and returns a dna of occurrences (histogram),<para/>
+''' an aligned dna of values, and an associated hashmap.<para/>
+''' The hashmap takes %dav and a value, and points into the<para/>
+''' histogram in %dac.<para/>
+''' (2) The dna of values, %dav, is aligned with the histogram %dac,<para/>
+''' and is needed for fast lookup.  It is a hash set, because<para/>
+''' the values are unique.<para/>
+''' (3) Lookup is simple:<para/>
+''' l_dnaFindValByHash(dav, dahash, val,  and index)<para/>
+''' if (index  is greater = 0)<para/>
+''' l_dnaGetIValue(dac, index,  and icount)<para/>
+''' else<para/>
+''' icount = 0<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="das">[in] - </param>
-'''  <param name="pdahash">[out] - hash map val --GT index</param>
-'''  <param name="pdav">[out] - array of values index --GT val</param>
-'''  <param name="pdac">[out] - histo array of counts index --GT count</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''  <param name="pdahash">[out] - hash map: val -- is greater  index</param>
+'''  <param name="pdav">[out] - array of values: index -- is greater  val</param>
+'''  <param name="pdac">[out] - histo array of counts: index -- is greater  count</param>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function l_dnaMakeHistoByHash(
 				ByVal das as L_Dna, 
 				ByRef pdahash as L_DnaHash, 
@@ -250,9 +239,10 @@ End Function
 ' l_dnaIntersectionByHash()
 ' l_dnaIntersectionByHash(L_DNA *, L_DNA *) as L_DNA *
 '''  <summary>
-''' Notes
-''' (1) This uses the same method for building the intersection set
-''' as ptaIntersectionByHash() and sarrayIntersectionByHash().
+''' <para/>
+''' Notes:<para/>
+''' (1) This uses the same method for building the intersection set<para/>
+''' as ptaIntersectionByHash() and sarrayIntersectionByHash().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -277,18 +267,19 @@ End Function
 ' l_dnaFindValByHash()
 ' l_dnaFindValByHash(L_DNA *, L_DNAHASH *, l_float64, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Algo hash %val into a key; hash the key to get the dna
-''' in %dahash (that holds indices into %da); traverse
-''' the dna of indices looking for %val in %da.
+''' <para/>
+''' Notes:<para/>
+''' (1) Algo: hash %val into a key hash the key to get the dna<para/>
+''' in %dahash (that holds indices into %da) traverse<para/>
+''' the dna of indices looking for %val in %da.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="da">[in] - </param>
 '''  <param name="dahash">[in] - containing indices into %da</param>
 '''  <param name="val">[in] - searching for this number in %da</param>
-'''  <param name="pindex">[out] - index into da if found; -1 otherwise</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''  <param name="pindex">[out] - index into da if found -1 otherwise</param>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function l_dnaFindValByHash(
 				ByVal da as L_Dna, 
 				ByVal dahash as L_DnaHash, 

@@ -1,22 +1,23 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\list.c (236, 1)
 ' listDestroy()
 ' listDestroy(DLLIST **) as void
 '''  <summary>
-''' Notes
-''' (1) This only destroys the cons cells.  Before destroying
-''' the list, it is necessary to remove all data and set the
-''' data pointers in each cons cell to NULL.
-''' (2) listDestroy() will give a warning message for each data
-''' ptr that is not NULL.
+''' <para/>
+''' Notes:<para/>
+''' (1) This only destroys the cons cells.  Before destroying<para/>
+''' the list, it is necessary to remove all data and set the<para/>
+''' data pointers in each cons cell to NULL.<para/>
+''' (2) listDestroy() will give a warning message for each data<para/>
+''' ptr that is not NULL.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="phead">[in,out] - to be nulled; head of list</param>
+'''  <param name="phead">[in,out] - to be nulled head of list</param>
 Public Shared Sub listDestroy(
 				ByRef phead as DoubleLinkedList)
 
@@ -32,17 +33,18 @@ End Sub
 ' listAddToHead()
 ' listAddToHead(DLLIST **, void *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This makes a new cell, attaches the data, and adds the
-''' cell to the head of the list.
-''' (2) When consing from NULL, be sure to initialize head to NULL
-''' before calling this function.
+''' <para/>
+''' Notes:<para/>
+''' (1) This makes a new cell, attaches the data, and adds the<para/>
+''' cell to the head of the list.<para/>
+''' (2) When consing from NULL, be sure to initialize head to NULL<para/>
+''' before calling this function.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="phead">[in,out][optional] - input head</param>
 '''  <param name="data">[in] - void ptr, to be added</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function listAddToHead(
 				ByRef phead as DoubleLinkedList, 
 				ByVal data as Object) as Integer
@@ -62,25 +64,26 @@ End Function
 ' listAddToTail()
 ' listAddToTail(DLLIST **, DLLIST **, void *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This makes a new cell, attaches the data, and adds the
-''' cell to the tail of the list.
-''' (2) head is input to allow the list to be "cons'd" up from NULL.
-''' (3) tail is input to allow the tail to be updated
-''' for efficient sequential operation with this function.
-''' (4) We assume that if phead and/or ptail are not NULL,
-''' then they are valid addresses.  Therefore
-''' (a) when consing from NULL, be sure to initialize both
-''' head and tail to NULL.
-''' (b) when tail == NULL for an existing list, the tail
-''' will be found and updated.
+''' <para/>
+''' Notes:<para/>
+''' (1) This makes a new cell, attaches the data, and adds the<para/>
+''' cell to the tail of the list.<para/>
+''' (2)  and head is input to allow the list to be "cons'd" up from NULL.<para/>
+''' (3)  and tail is input to allow the tail to be updated<para/>
+''' for efficient sequential operation with this function.<para/>
+''' (4) We assume that if phead and/or ptail are not NULL,<para/>
+''' then they are valid addresses.  Therefore:<para/>
+''' (a) when consing from NULL, be sure to initialize both<para/>
+''' head and tail to NULL.<para/>
+''' (b) when tail == NULL for an existing list, the tail<para/>
+''' will be found and updated.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="phead">[in,out] - [may be updated], can be NULL</param>
 '''  <param name="ptail">[in,out] - [updated], can be NULL</param>
 '''  <param name="data">[in] - void ptr, to be hung on tail cons cell</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function listAddToTail(
 				ByRef phead as DoubleLinkedList, 
 				ByRef ptail as DoubleLinkedList, 
@@ -103,24 +106,25 @@ End Function
 ' listInsertBefore()
 ' listInsertBefore(DLLIST **, DLLIST *, void *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This can be called on a null list, in which case both
-''' head and elem must be null.
-''' (2) If you are searching through a list, looking for a condition
-''' to add an element, you can do something like this
-''' \code
-''' L_BEGIN_LIST_FORWARD(head, elem)
-''' LTidentify an elem to insert beforeGT
-''' listInsertBefore(head, elem, data);
-''' L_END_LIST
-''' \endcode
+''' <para/>
+''' Notes:<para/>
+''' (1) This can be called on a null list, in which case both<para/>
+''' head and elem must be null.<para/>
+''' (2) If you are searching through a list, looking for a condition<para/>
+''' to add an element, you can do something like this:<para/>
+''' \code<para/>
+''' L_BEGIN_LIST_FORWARD(head, elem)<para/>
+'''  is lower identify an elem to insert before is greater <para/>
+''' listInsertBefore( and head, elem, data)<para/>
+''' L_END_LIST<para/>
+''' \endcode<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="phead">[in,out][optional] - input head</param>
-'''  <param name="elem">[in] - list element to be inserted in front of; must be NULL if head is NULL</param>
+'''  <param name="elem">[in] - list element to be inserted in front of must be NULL if head is NULL</param>
 '''  <param name="data">[in] - void  address, to be added</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function listInsertBefore(
 				ByRef phead as DoubleLinkedList, 
 				ByVal elem as DoubleLinkedList, 
@@ -142,25 +146,26 @@ End Function
 ' listInsertAfter()
 ' listInsertAfter(DLLIST **, DLLIST *, void *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This can be called on a null list, in which case both
-''' head and elem must be null.  The head is included
-''' in the call to allow "consing" up from NULL.
-''' (2) If you are searching through a list, looking for a condition
-''' to add an element, you can do something like this
-''' \code
-''' L_BEGIN_LIST_FORWARD(head, elem)
-''' LTidentify an elem to insert afterGT
-''' listInsertAfter(head, elem, data);
-''' L_END_LIST
-''' \endcode
+''' <para/>
+''' Notes:<para/>
+''' (1) This can be called on a null list, in which case both<para/>
+''' head and elem must be null.  The head is included<para/>
+''' in the call to allow "consing" up from NULL.<para/>
+''' (2) If you are searching through a list, looking for a condition<para/>
+''' to add an element, you can do something like this:<para/>
+''' \code<para/>
+''' L_BEGIN_LIST_FORWARD(head, elem)<para/>
+'''  is lower identify an elem to insert after is greater <para/>
+''' listInsertAfter( and head, elem, data)<para/>
+''' L_END_LIST<para/>
+''' \endcode<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="phead">[in,out][optional] - input head</param>
-'''  <param name="elem">[in] - list element to be inserted after; must be NULL if head is NULL</param>
+'''  <param name="elem">[in] - list element to be inserted after must be NULL if head is NULL</param>
 '''  <param name="data">[in] - void  ptr, to be added</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function listInsertAfter(
 				ByRef phead as DoubleLinkedList, 
 				ByVal elem as DoubleLinkedList, 
@@ -182,11 +187,12 @@ End Function
 ' listRemoveElement()
 ' listRemoveElement(DLLIST **, DLLIST *) as void *
 '''  <summary>
-''' Notes
-''' (1) in ANSI C, it is not necessary to cast return to actual type; e.g.,
-''' pix = listRemoveElement(head, elem);
-''' but in ANSI C++, it is necessary to do the cast
-''' pix = (Pix )listRemoveElement(head, elem);
+''' <para/>
+''' Notes:<para/>
+''' (1) in ANSI C, it is not necessary to cast return to actual type e.g.,<para/>
+''' pix = listRemoveElement( and head, elem)<para/>
+''' but in ANSI C++, it is necessary to do the cast:<para/>
+''' pix = (Pix )listRemoveElement( and head, elem)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -211,11 +217,12 @@ End Function
 ' listRemoveFromHead()
 ' listRemoveFromHead(DLLIST **) as void *
 '''  <summary>
-''' Notes
-''' (1) in ANSI C, it is not necessary to cast return to actual type; e.g.,
-''' pix = listRemoveFromHead(head);
-''' but in ANSI C++, it is necessary to do the cast; e.g.,
-''' pix = (Pix )listRemoveFromHead(head);
+''' <para/>
+''' Notes:<para/>
+''' (1) in ANSI C, it is not necessary to cast return to actual type e.g.,<para/>
+''' pix = listRemoveFromHead( and head)<para/>
+''' but in ANSI C++, it is necessary to do the cast e.g.,<para/>
+''' pix = (Pix )listRemoveFromHead( and head)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -237,18 +244,19 @@ End Function
 ' listRemoveFromTail()
 ' listRemoveFromTail(DLLIST **, DLLIST **) as void *
 '''  <summary>
-''' Notes
-''' (1) We include head so that it can be set to NULL if
-''' if the only element in the list is removed.
-''' (2) The function is relying on the fact that if tail is
-''' not NULL, then is is a valid address.  You can use
-''' this function with tail == NULL for an existing list, in
-''' which case  the tail is found and updated, and the
-''' removed element is returned.
-''' (3) In ANSI C, it is not necessary to cast return to actual type; e.g.,
-''' pix = listRemoveFromTail(head, tail);
-''' but in ANSI C++, it is necessary to do the cast; e.g.,
-''' pix = (Pix )listRemoveFromTail(head, tail);
+''' <para/>
+''' Notes:<para/>
+''' (1) We include  and head so that it can be set to NULL if<para/>
+''' if the only element in the list is removed.<para/>
+''' (2) The function is relying on the fact that if tail is<para/>
+''' not NULL, then is is a valid address.  You can use<para/>
+''' this function with tail == NULL for an existing list, in<para/>
+''' which case  the tail is found and updated, and the<para/>
+''' removed element is returned.<para/>
+''' (3) In ANSI C, it is not necessary to cast return to actual type e.g.,<para/>
+''' pix = listRemoveFromTail( and head,  and tail)<para/>
+''' but in ANSI C++, it is necessary to do the cast e.g.,<para/>
+''' pix = (Pix )listRemoveFromTail( and head,  and tail)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -274,14 +282,15 @@ End Function
 ' listFindElement()
 ' listFindElement(DLLIST *, void *) as DLLIST *
 '''  <summary>
-''' Notes
-''' (1) This returns a ptr to the cell, which is still embedded in
-''' the list.
-''' (2) This handle and the attached data have not been copied or
-''' reference counted, so they must not be destroyed.  This
-''' violates our basic rule that every handle returned from a
-''' function is owned by that function and must be destroyed,
-''' but if rules aren't there to be broken, why have them?
+''' <para/>
+''' Notes:<para/>
+''' (1) This returns a ptr to the cell, which is still embedded in<para/>
+''' the list.<para/>
+''' (2) This handle and the attached data have not been copied or<para/>
+''' reference counted, so they must not be destroyed.  This<para/>
+''' violates our basic rule that every handle returned from a<para/>
+''' function is owned by that function and must be destroyed,<para/>
+''' but if rules aren't there to be broken, why have them?<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -306,9 +315,6 @@ End Function
 ' SRC\list.c (696, 1)
 ' listFindTail()
 ' listFindTail(DLLIST *) as DLLIST *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="head">[in] - </param>
@@ -328,13 +334,10 @@ End Function
 ' SRC\list.c (721, 1)
 ' listGetCount()
 ' listGetCount(DLLIST *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="head">[in] - of list</param>
-'''   <returns>number of elements; 0 if no list or on error</returns>
+'''   <returns>number of elements 0 if no list or on error</returns>
 Public Shared Function listGetCount(
 				ByVal head as DoubleLinkedList) as Integer
 
@@ -350,8 +353,9 @@ End Function
 ' listReverse()
 ' listReverse(DLLIST **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This reverses the list in-place.
+''' <para/>
+''' Notes:<para/>
+''' (1) This reverses the list in-place.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -373,14 +377,15 @@ End Function
 ' listJoin()
 ' listJoin(DLLIST **, DLLIST **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The concatenated list is returned with head1 as the new head.
-''' (2) Both input ptrs must exist, though either can have the value NULL.
+''' <para/>
+''' Notes:<para/>
+''' (1) The concatenated list is returned with head1 as the new head.<para/>
+''' (2) Both input ptrs must exist, though either can have the value NULL.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="phead1">[in,out] - [may be changed] head of first list</param>
-'''  <param name="phead2">[in,out] - to be nulled; head of second list</param>
+'''  <param name="phead2">[in,out] - to be nulled head of second list</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function listJoin(
 				ByRef phead1 as DoubleLinkedList, 

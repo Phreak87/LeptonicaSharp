@@ -1,35 +1,36 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\runlength.c (99, 1)
 ' pixStrokeWidthTransform()
 ' pixStrokeWidthTransform(PIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) The dest Pix is 8 or 16 bpp, with the pixel values
-''' equal to the stroke width in which it is a member.
-''' The values are clipped to the max pixel value if necessary.
-''' (2) The color determines if we're labelling white or black strokes.
-''' (3) A pixel that is not a member of the chosen color gets
-''' value 0; it belongs to a width of length 0 of the
-''' chosen color.
-''' (4) This chooses, for each dest pixel, the minimum of sets
-''' of runlengths through each pixel.  Here are the sets
-''' nangles increment set
-''' ------- --------- --------------------------------
-''' 2 90 {0, 90}
-''' 4 45 {0, 45, 90, 135}
-''' 6 30 {0, 30, 60, 90, 120, 150}
-''' 8 22.5  {0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5}
-''' (5) Runtime scales linearly with (nangles - 2).
+''' <para/>
+''' Notes:<para/>
+''' (1) The dest Pix is 8 or 16 bpp, with the pixel values<para/>
+''' equal to the stroke width in which it is a member.<para/>
+''' The values are clipped to the max pixel value if necessary.<para/>
+''' (2) The color determines if we're labelling white or black strokes.<para/>
+''' (3) A pixel that is not a member of the chosen color gets<para/>
+''' value 0 it belongs to a width of length 0 of the<para/>
+''' chosen color.<para/>
+''' (4) This chooses, for each dest pixel, the minimum of sets<para/>
+''' of runlengths through each pixel.  Here are the sets:<para/>
+''' nangles  increment  set<para/>
+''' -------  ---------  --------------------------------<para/>
+''' 2  90 {0, 90}<para/>
+''' 4  45 {0, 45, 90, 135}<para/>
+''' 6  30 {0, 30, 60, 90, 120, 150}<para/>
+''' 8  22.5 {0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5}<para/>
+''' (5) Runtime scales linearly with (nangles - 2).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="color">[in] - 0 for white runs, 1 for black runs</param>
-'''  <param name="depth">[in] - of pixd 8 or 16 bpp</param>
+'''  <param name="depth">[in] - of pixd: 8 or 16 bpp</param>
 '''  <param name="nangles">[in] - 2, 4, 6 or 8</param>
 '''   <returns>pixd 8 or 16 bpp, or NULL on error</returns>
 Public Shared Function pixStrokeWidthTransform(
@@ -52,16 +53,17 @@ End Function
 ' pixRunlengthTransform()
 ' pixRunlengthTransform(PIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) The dest Pix is 8 or 16 bpp, with the pixel values
-''' equal to the runlength in which it is a member.
-''' The length is clipped to the max pixel value if necessary.
-''' (2) The color determines if we're labelling white or black runs.
-''' (3) A pixel that is not a member of the chosen color gets
-''' value 0; it belongs to a run of length 0 of the
-''' chosen color.
-''' (4) To convert for maximum dynamic range, either linear or
-''' log, use pixMaxDynamicRange().
+''' <para/>
+''' Notes:<para/>
+''' (1) The dest Pix is 8 or 16 bpp, with the pixel values<para/>
+''' equal to the runlength in which it is a member.<para/>
+''' The length is clipped to the max pixel value if necessary.<para/>
+''' (2) The color determines if we're labelling white or black runs.<para/>
+''' (3) A pixel that is not a member of the chosen color gets<para/>
+''' value 0 it belongs to a run of length 0 of the<para/>
+''' chosen color.<para/>
+''' (4) To convert for maximum dynamic range, either linear or<para/>
+''' log, use pixMaxDynamicRange().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -90,13 +92,14 @@ End Function
 ' pixFindHorizontalRuns()
 ' pixFindHorizontalRuns(PIX *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This finds foreground horizontal runs on a single scanline.
-''' (2) To find background runs, use pixInvert() before applying
-''' this function.
-''' (3) The xstart and xend arrays are input.  They should be
-''' of size w/2 + 1 to insure that they can hold
-''' the maximum number of runs in the raster line.
+''' <para/>
+''' Notes:<para/>
+''' (1) This finds foreground horizontal runs on a single scanline.<para/>
+''' (2) To find background runs, use pixInvert() before applying<para/>
+''' this function.<para/>
+''' (3) The xstart and xend arrays are input.  They should be<para/>
+''' of size w/2 + 1 to insure that they can hold<para/>
+''' the maximum number of runs in the raster line.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -105,7 +108,7 @@ End Function
 '''  <param name="xstart">[in] - returns array of start positions for fg runs</param>
 '''  <param name="xend">[in] - returns array of end positions for fg runs</param>
 '''  <param name="pn">[out] - the number of runs found</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixFindHorizontalRuns(
 				ByVal pix as Pix, 
 				ByVal y as Integer, 
@@ -128,13 +131,14 @@ End Function
 ' pixFindVerticalRuns()
 ' pixFindVerticalRuns(PIX *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This finds foreground vertical runs on a single scanline.
-''' (2) To find background runs, use pixInvert() before applying
-''' this function.
-''' (3) The ystart and yend arrays are input.  They should be
-''' of size h/2 + 1 to insure that they can hold
-''' the maximum number of runs in the raster line.
+''' <para/>
+''' Notes:<para/>
+''' (1) This finds foreground vertical runs on a single scanline.<para/>
+''' (2) To find background runs, use pixInvert() before applying<para/>
+''' this function.<para/>
+''' (3) The ystart and yend arrays are input.  They should be<para/>
+''' of size h/2 + 1 to insure that they can hold<para/>
+''' the maximum number of runs in the raster line.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -143,7 +147,7 @@ End Function
 '''  <param name="ystart">[in] - returns array of start positions for fg runs</param>
 '''  <param name="yend">[in] - returns array of end positions for fg runs</param>
 '''  <param name="pn">[out] - the number of runs found</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixFindVerticalRuns(
 				ByVal pix as Pix, 
 				ByVal x as Integer, 
@@ -166,10 +170,11 @@ End Function
 ' pixFindMaxRuns()
 ' pixFindMaxRuns(PIX *, l_int32, NUMA **) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) This finds the longest foreground runs by row or column
-''' (2) To find background runs, use pixInvert() before applying
-''' this function.
+''' <para/>
+''' Notes:<para/>
+''' (1) This finds the longest foreground runs by row or column<para/>
+''' (2) To find background runs, use pixInvert() before applying<para/>
+''' this function.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -198,10 +203,11 @@ End Function
 ' pixFindMaxHorizontalRunOnLine()
 ' pixFindMaxHorizontalRunOnLine(PIX *, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This finds the longest foreground horizontal run on a scanline.
-''' (2) To find background runs, use pixInvert() before applying
-''' this function.
+''' <para/>
+''' Notes:<para/>
+''' (1) This finds the longest foreground horizontal run on a scanline.<para/>
+''' (2) To find background runs, use pixInvert() before applying<para/>
+''' this function.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -209,7 +215,7 @@ End Function
 '''  <param name="y">[in] - line to traverse</param>
 '''  <param name="pxstart">[out][optional] - start position</param>
 '''  <param name="psize">[out] - the size of the run</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixFindMaxHorizontalRunOnLine(
 				ByVal pix as Pix, 
 				ByVal y as Integer, 
@@ -229,10 +235,11 @@ End Function
 ' pixFindMaxVerticalRunOnLine()
 ' pixFindMaxVerticalRunOnLine(PIX *, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This finds the longest foreground vertical run on a scanline.
-''' (2) To find background runs, use pixInvert() before applying
-''' this function.
+''' <para/>
+''' Notes:<para/>
+''' (1) This finds the longest foreground vertical run on a scanline.<para/>
+''' (2) To find background runs, use pixInvert() before applying<para/>
+''' this function.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -240,7 +247,7 @@ End Function
 '''  <param name="x">[in] - column to traverse</param>
 '''  <param name="pystart">[out][optional] - start position</param>
 '''  <param name="psize">[out] - the size of the run</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixFindMaxVerticalRunOnLine(
 				ByVal pix as Pix, 
 				ByVal x as Integer, 
@@ -260,26 +267,27 @@ End Function
 ' runlengthMembershipOnLine()
 ' runlengthMembershipOnLine(l_int32 *, l_int32, l_int32, l_int32 *, l_int32 *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Converts a set of runlengths into a buffer of
-''' runlength membership values.
-''' (2) Initialization of the array gives pixels that are
-''' not within a run the value 0.
+''' <para/>
+''' Notes:<para/>
+''' (1) Converts a set of runlengths into a buffer of<para/>
+''' runlength membership values.<para/>
+''' (2) Initialization of the array gives pixels that are<para/>
+''' not within a run the value 0.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="buffer">[in] - into which full line of data is placed</param>
-'''  <param name="size">[in] - full size of line; w or h</param>
+'''  <param name="size">[in] - full size of line w or h</param>
 '''  <param name="depth">[in] - 8 or 16 bpp</param>
 '''  <param name="start">[in] - array of start positions for fg runs</param>
 '''  <param name="n">[in] - the number of runs</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function runlengthMembershipOnLine(
 				ByVal buffer as Integer(), 
 				ByVal size as Integer, 
 				ByVal depth as Integer, 
 				ByVal start as Integer(), 
-				ByRef _end_ as Object, 
+				ByVal _end_ as Object, 
 				ByVal n as Integer) as Integer
 
 	If IsNothing (buffer) then Throw New ArgumentNullException  ("buffer cannot be Nothing")
@@ -296,11 +304,12 @@ End Function
 ' makeMSBitLocTab()
 ' makeMSBitLocTab(l_int32) as l_int32 *
 '''  <summary>
-''' Notes
-''' (1) If bitval == 1, it finds the leftmost ON pixel in a byte;
-''' otherwise if bitval == 0, it finds the leftmost OFF pixel.
-''' (2) If there are no pixels of the indicated color in the byte,
-''' this returns 8.
+''' <para/>
+''' Notes:<para/>
+''' (1) If bitval == 1, it finds the leftmost ON pixel in a byte<para/>
+''' otherwise if bitval == 0, it finds the leftmost OFF pixel.<para/>
+''' (2) If there are no pixels of the indicated color in the byte,<para/>
+''' this returns 8.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

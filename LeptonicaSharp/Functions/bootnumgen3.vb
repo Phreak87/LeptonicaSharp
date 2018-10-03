@@ -1,15 +1,16 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\bootnumgen3.c (349, 1)
 ' l_bootnum_gen3()
 ' l_bootnum_gen3() as PIXA *
 '''  <summary>
-''' Call this way
-''' PIXA  pixa = l_bootnum_gen3();   (C)
-''' Pixa  pixa = l_bootnum_gen3();   (C++)
+''' <para/>
+''' Call this way:<para/>
+''' PIXA  pixa = l_bootnum_gen3() (C)<para/>
+''' Pixa  pixa = l_bootnum_gen3() (C++)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

@@ -1,16 +1,17 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\boxfunc3.c (94, 1)
 ' pixMaskConnComp()
 ' pixMaskConnComp(PIX *, l_int32, BOXA **) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This generates a mask image with ON pixels over the
-''' b.b. of the c.c. in pixs.  If there are no ON pixels in pixs,
-''' pixd will also have no ON pixels.
+''' <para/>
+''' Notes:<para/>
+''' (1) This generates a mask image with ON pixels over the<para/>
+''' b.b. of the c.c. in pixs.  If there are no ON pixels in pixs,<para/>
+''' pixd will also have no ON pixels.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -39,25 +40,26 @@ End Function
 ' pixMaskBoxa()
 ' pixMaskBoxa(PIX *, PIX *, BOXA *, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This can be used with
-''' pixd = NULL  (makes a new pixd)
-''' pixd = pixs  (in-place)
-''' (2) If pixd == NULL, this first makes a copy of pixs, and then
-''' bit-twiddles over the boxes.  Otherwise, it operates directly
-''' on pixs.
-''' (3) This simple function is typically used with 1 bpp images.
-''' It uses the 1-image rasterop function, rasteropUniLow(),
-''' to set, clear or flip the pixels in pixd.
-''' (4) If you want to generate a 1 bpp mask of ON pixels from the boxes
-''' in a Boxa, in a pix of size (w,h)
-''' pix = pixCreate(w, h, 1);
-''' pixMaskBoxa(pix, pix, boxa, L_SET_PIXELS);
+''' <para/>
+''' Notes:<para/>
+''' (1) This can be used with:<para/>
+''' pixd = NULL  (makes a new pixd)<para/>
+''' pixd = pixs  (in-place)<para/>
+''' (2) If pixd == NULL, this first makes a copy of pixs, and then<para/>
+''' bit-twiddles over the boxes.  Otherwise, it operates directly<para/>
+''' on pixs.<para/>
+''' (3) This simple function is typically used with 1 bpp images.<para/>
+''' It uses the 1-image rasterop function, rasteropUniLow(),<para/>
+''' to set, clear or flip the pixels in pixd.<para/>
+''' (4) If you want to generate a 1 bpp mask of ON pixels from the boxes<para/>
+''' in a Boxa, in a pix of size (w,h):<para/>
+''' pix = pixCreate(w, h, 1)<para/>
+''' pixMaskBoxa(pix, pix, boxa, L_SET_PIXELS)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixd">[in][optional] - may be NULL</param>
-'''  <param name="pixs">[in] - any depth; not cmapped</param>
+'''  <param name="pixs">[in] - any depth not cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to paint</param>
 '''  <param name="op">[in] - L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
 '''   <returns>pixd with masking op over the boxes, or NULL on error</returns>
@@ -82,20 +84,21 @@ End Function
 ' pixPaintBoxa()
 ' pixPaintBoxa(PIX *, BOXA *, l_uint32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) If pixs is 1 bpp or is colormapped, it is converted to 8 bpp
-''' and the boxa is painted using a colormap; otherwise,
-''' it is converted to 32 bpp rgb.
-''' (2) There are several ways to display a box on an image
-''' Paint it as a solid color
-''' Draw the outline
-''' Blend the outline or region with the existing image
-''' We provide painting and drawing here; blending is in blend.c.
-''' When painting or drawing, the result can be either a
-''' cmapped image or an rgb image.  The dest will be cmapped
-''' if the src is either 1 bpp or has a cmap that is not full.
-''' To force RGB output, use pixConvertTo8(pixs, FALSE)
-''' before calling any of these paint and draw functions.
+''' <para/>
+''' Notes:<para/>
+''' (1) If pixs is 1 bpp or is colormapped, it is converted to 8 bpp<para/>
+''' and the boxa is painted using a colormap otherwise,<para/>
+''' it is converted to 32 bpp rgb.<para/>
+''' (2) There are several ways to display a box on an image:<para/>
+''' Paint it as a solid color<para/>
+''' Draw the outline<para/>
+''' Blend the outline or region with the existing image<para/>
+''' We provide painting and drawing here blending is in blend.c.<para/>
+''' When painting or drawing, the result can be either a<para/>
+''' cmapped image or an rgb image.  The dest will be cmapped<para/>
+''' if the src is either 1 bpp or has a cmap that is not full.<para/>
+''' To force RGB output, use pixConvertTo8(pixs, FALSE)<para/>
+''' before calling any of these paint and draw functions.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -121,9 +124,6 @@ End Function
 ' SRC\boxfunc3.c (283, 1)
 ' pixSetBlackOrWhiteBoxa()
 ' pixSetBlackOrWhiteBoxa(PIX *, BOXA *, l_int32) as PIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - any depth, can be cmapped</param>
@@ -149,11 +149,12 @@ End Function
 ' pixPaintBoxaRandom()
 ' pixPaintBoxaRandom(PIX *, BOXA *) as PIX *
 '''  <summary>
-''' Notes
-''' (1) If pixs is 1 bpp, we paint the boxa using a colormap;
-''' otherwise, we convert to 32 bpp.
-''' (2) We use up to 254 different colors for painting the regions.
-''' (3) If boxes overlap, the later ones paint over earlier ones.
+''' <para/>
+''' Notes:<para/>
+''' (1) If pixs is 1 bpp, we paint the boxa using a colormap<para/>
+''' otherwise, we convert to 32 bpp.<para/>
+''' (2) We use up to 254 different colors for painting the regions.<para/>
+''' (3) If boxes overlap, the later ones paint over earlier ones.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -178,17 +179,18 @@ End Function
 ' pixBlendBoxaRandom()
 ' pixBlendBoxaRandom(PIX *, BOXA *, l_float32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) pixs is converted to 32 bpp.
-''' (2) This differs from pixPaintBoxaRandom(), in that the
-''' colors here are blended with the color of pixs.
-''' (3) We use up to 254 different colors for painting the regions.
-''' (4) If boxes overlap, the final color depends only on the last
-''' rect that is used.
+''' <para/>
+''' Notes:<para/>
+''' (1) pixs is converted to 32 bpp.<para/>
+''' (2) This differs from pixPaintBoxaRandom(), in that the<para/>
+''' colors here are blended with the color of pixs.<para/>
+''' (3) We use up to 254 different colors for painting the regions.<para/>
+''' (4) If boxes overlap, the final color depends only on the last<para/>
+''' rect that is used.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixs">[in] - any depth; can be cmapped</param>
+'''  <param name="pixs">[in] - any depth can be cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to blend/paint</param>
 '''  <param name="fract">[in] - of box color to use</param>
 '''   <returns>pixd 32 bpp, with blend/painted boxes, or NULL on error</returns>
@@ -212,14 +214,15 @@ End Function
 ' pixDrawBoxa()
 ' pixDrawBoxa(PIX *, BOXA *, l_int32, l_uint32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) If pixs is 1 bpp or is colormapped, it is converted to 8 bpp
-''' and the boxa is drawn using a colormap; otherwise,
-''' it is converted to 32 bpp rgb.
+''' <para/>
+''' Notes:<para/>
+''' (1) If pixs is 1 bpp or is colormapped, it is converted to 8 bpp<para/>
+''' and the boxa is drawn using a colormap otherwise,<para/>
+''' it is converted to 32 bpp rgb.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixs">[in] - any depth; can be cmapped</param>
+'''  <param name="pixs">[in] - any depth can be cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to draw</param>
 '''  <param name="width">[in] - of lines</param>
 '''  <param name="val">[in] - rgba color to draw</param>
@@ -244,11 +247,12 @@ End Function
 ' pixDrawBoxaRandom()
 ' pixDrawBoxaRandom(PIX *, BOXA *, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) If pixs is 1 bpp, we draw the boxa using a colormap;
-''' otherwise, we convert to 32 bpp.
-''' (2) We use up to 254 different colors for drawing the boxes.
-''' (3) If boxes overlap, the later ones draw over earlier ones.
+''' <para/>
+''' Notes:<para/>
+''' (1) If pixs is 1 bpp, we draw the boxa using a colormap<para/>
+''' otherwise, we convert to 32 bpp.<para/>
+''' (2) We use up to 254 different colors for drawing the boxes.<para/>
+''' (3) If boxes overlap, the later ones draw over earlier ones.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -275,15 +279,16 @@ End Function
 ' boxaaDisplay()
 ' boxaaDisplay(PIX *, BOXAA *, l_int32, l_int32, l_uint32, l_uint32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) If %pixs exists, this renders the boxes over an 8 bpp version
-''' of it.  Otherwise, it renders the boxes over an empty image
-''' with a white background.
-''' (2) If %pixs exists, the dimensions of %pixd are the same,
-''' and input values of %w and %h are ignored.
-''' If %pixs is NULL, the dimensions of %pixd are determined by
-''' - %w and %h if both are GT 0, or
-''' - the minimum size required using all boxes in %baa.
+''' <para/>
+''' Notes:<para/>
+''' (1) If %pixs exists, this renders the boxes over an 8 bpp version<para/>
+''' of it.  Otherwise, it renders the boxes over an empty image<para/>
+''' with a white background.<para/>
+''' (2) If %pixs exists, the dimensions of %pixd are the same,<para/>
+''' and input values of %w and %h are ignored.<para/>
+''' If %pixs is NULL, the dimensions of %pixd are determined by<para/>
+''' - %w and %h if both are  is greater  0, or<para/>
+''' - the minimum size required using all boxes in %baa.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -293,8 +298,8 @@ End Function
 '''  <param name="linewb">[in] - line width to display outline of each box</param>
 '''  <param name="colorba">[in] - color to display boxa</param>
 '''  <param name="colorb">[in] - color to display box</param>
-'''  <param name="w">[in] - width of outupt pix; use 0 if determined by %pixs or %baa</param>
-'''  <param name="h">[in] - height of outupt pix; use 0 if determined by %pixs or %baa</param>
+'''  <param name="w">[in] - width of outupt pix use 0 if determined by %pixs or %baa</param>
+'''  <param name="h">[in] - height of outupt pix use 0 if determined by %pixs or %baa</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaaDisplay(
 				ByVal pixs as Pix, 
@@ -321,15 +326,16 @@ End Function
 ' pixaDisplayBoxaa()
 ' pixaDisplayBoxaa(PIXA *, BOXAA *, l_int32, l_int32) as PIXA *
 '''  <summary>
-''' Notes
-''' (1) All pix in %pixas that are not rgb are converted to rgb.
-''' (2) Each boxa in %baa contains boxes that will be drawn on
-''' the corresponding pix in %pixas.
-''' (3) The color of the boxes drawn on each pix are selected with
-''' %colorflag
-''' For red, green or blue use L_DRAW_RED, etc.
-''' For sequential r, g, b use L_DRAW_RGB
-''' For random colors use L_DRAW_RANDOM
+''' <para/>
+''' Notes:<para/>
+''' (1) All pix in %pixas that are not rgb are converted to rgb.<para/>
+''' (2) Each boxa in %baa contains boxes that will be drawn on<para/>
+''' the corresponding pix in %pixas.<para/>
+''' (3) The color of the boxes drawn on each pix are selected with<para/>
+''' %colorflag:<para/>
+''' For red, green or blue: use L_DRAW_RED, etc.<para/>
+''' For sequential r, g, b: use L_DRAW_RGB<para/>
+''' For random colors: use L_DRAW_RANDOM<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -358,25 +364,26 @@ End Function
 ' pixSplitIntoBoxa()
 ' pixSplitIntoBoxa(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as BOXA *
 '''  <summary>
-''' Notes
-''' (1) This generates a boxa of rectangles that covers
-''' the fg of a mask.  For each 8-connected component in pixs,
-''' it does a greedy partitioning, choosing the largest
-''' rectangle found from each of the four directions at each iter.
-''' See pixSplitComponentIntoBoxa() for details.
-''' (2) The input parameters give some flexibility for boundary
-''' noise.  The resulting set of rectangles may cover some
-''' bg pixels.
-''' (3) This should be used when there are a small number of
-''' mask components, each of which has sides that are close
-''' to horizontal and vertical.  The input parameters %delta
-''' and %maxbg determine whether or not holes in the mask are covered.
-''' (4) The parameter %maxcomps gives the maximum number of allowed
-''' rectangles extracted from any single connected component.
-''' Use 0 if no limit is to be applied.
-''' (5) The flag %remainder specifies whether we take a final bounding
-''' box for anything left after the maximum number of allowed
-''' rectangle is extracted.
+''' <para/>
+''' Notes:<para/>
+''' (1) This generates a boxa of rectangles that covers<para/>
+''' the fg of a mask.  For each 8-connected component in pixs,<para/>
+''' it does a greedy partitioning, choosing the largest<para/>
+''' rectangle found from each of the four directions at each iter.<para/>
+''' See pixSplitComponentIntoBoxa() for details.<para/>
+''' (2) The input parameters give some flexibility for boundary<para/>
+''' noise.  The resulting set of rectangles may cover some<para/>
+''' bg pixels.<para/>
+''' (3) This should be used when there are a small number of<para/>
+''' mask components, each of which has sides that are close<para/>
+''' to horizontal and vertical.  The input parameters %delta<para/>
+''' and %maxbg determine whether or not holes in the mask are covered.<para/>
+''' (4) The parameter %maxcomps gives the maximum number of allowed<para/>
+''' rectangles extracted from any single connected component.<para/>
+''' Use 0 if no limit is to be applied.<para/>
+''' (5) The flag %remainder specifies whether we take a final bounding<para/>
+''' box for anything left after the maximum number of allowed<para/>
+''' rectangle is extracted.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -411,59 +418,60 @@ End Function
 ' pixSplitComponentIntoBoxa()
 ' pixSplitComponentIntoBoxa(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as BOXA *
 '''  <summary>
-''' Notes
-''' (1) This generates a boxa of rectangles that covers
-''' the fg of a mask.  It does so by a greedy partitioning of
-''' the mask, choosing the largest rectangle found from
-''' each of the four directions at each step.
-''' (2) The input parameters give some flexibility for boundary
-''' noise.  The resulting set of rectangles must cover all
-''' the fg pixels and, in addition, may cover some bg pixels.
-''' Using small input parameters on a noiseless mask (i.e., one
-''' that has only large vertical and horizontal edges) will
-''' result in a proper covering of only the fg pixels of the mask.
-''' (3) The input is assumed to be a single connected component, that
-''' may have holes.  From each side, sweep inward, counting
-''' the pixels.  If the count becomes greater than %minsum,
-''' and we have moved forward a further amount %skipdist,
-''' record that count ('countref'), but don't accept if the scan
-''' contains more than %maxbg bg pixels.  Continue the scan
-''' until we reach a count that differs from countref by at
-''' least %delta, at which point the propagation stops.  The box
-''' swept out gets a score, which is the sum of fg pixels
-''' minus a penalty.  The penalty is the number of bg pixels
-''' in the box.  This is done from all four sides, and the
-''' side with the largest score is saved as a rectangle.
-''' The process repeats until there is either no rectangle
-''' left, or there is one that can't be captured from any
-''' direction.  For the latter case, we simply accept the
-''' last rectangle.
-''' (4) The input box is only used to specify the location of
-''' the UL corner of pix, with respect to an origin that
-''' typically represents the UL corner of an underlying image,
-''' of which pix is one component.  If %box is null,
-''' the UL corner is taken to be (0, 0).
-''' (5) The parameter %maxcomps gives the maximum number of allowed
-''' rectangles extracted from any single connected component.
-''' Use 0 if no limit is to be applied.
-''' (6) The flag %remainder specifies whether we take a final bounding
-''' box for anything left after the maximum number of allowed
-''' rectangle is extracted.
-''' (7) So if %maxcomps GT 0, it specifies that we want no more than
-''' the first %maxcomps rectangles that satisfy the input
-''' criteria.  After this, we can get a final rectangle that
-''' bounds everything left over by setting %remainder == 1.
-''' If %remainder == 0, we only get rectangles that satisfy
-''' the input criteria.
-''' (8) It should be noted that the removal of rectangles can
-''' break the original c.c. into several c.c.
-''' (9) Summing up
-''' If %maxcomp == 0, the splitting proceeds as far as possible.
-''' If %maxcomp GT 0, the splitting stops when %maxcomps are
-''' found, or earlier if no more components can be selected.
-''' If %remainder == 1 and components remain that cannot be
-''' selected, they are returned as a single final rectangle;
-''' otherwise, they are ignored.
+''' <para/>
+''' Notes:<para/>
+''' (1) This generates a boxa of rectangles that covers<para/>
+''' the fg of a mask.  It does so by a greedy partitioning of<para/>
+''' the mask, choosing the largest rectangle found from<para/>
+''' each of the four directions at each step.<para/>
+''' (2) The input parameters give some flexibility for boundary<para/>
+''' noise.  The resulting set of rectangles must cover all<para/>
+''' the fg pixels and, in addition, may cover some bg pixels.<para/>
+''' Using small input parameters on a noiseless mask (i.e., one<para/>
+''' that has only large vertical and horizontal edges) will<para/>
+''' result in a proper covering of only the fg pixels of the mask.<para/>
+''' (3) The input is assumed to be a single connected component, that<para/>
+''' may have holes.  From each side, sweep inward, counting<para/>
+''' the pixels.  If the count becomes greater than %minsum,<para/>
+''' and we have moved forward a further amount %skipdist,<para/>
+''' record that count ('countref'), but don't accept if the scan<para/>
+''' contains more than %maxbg bg pixels.  Continue the scan<para/>
+''' until we reach a count that differs from countref by at<para/>
+''' least %delta, at which point the propagation stops.  The box<para/>
+''' swept out gets a score, which is the sum of fg pixels<para/>
+''' minus a penalty.  The penalty is the number of bg pixels<para/>
+''' in the box.  This is done from all four sides, and the<para/>
+''' side with the largest score is saved as a rectangle.<para/>
+''' The process repeats until there is either no rectangle<para/>
+''' left, or there is one that can't be captured from any<para/>
+''' direction.  For the latter case, we simply accept the<para/>
+''' last rectangle.<para/>
+''' (4) The input box is only used to specify the location of<para/>
+''' the UL corner of pix, with respect to an origin that<para/>
+''' typically represents the UL corner of an underlying image,<para/>
+''' of which pix is one component.  If %box is null,<para/>
+''' the UL corner is taken to be (0, 0).<para/>
+''' (5) The parameter %maxcomps gives the maximum number of allowed<para/>
+''' rectangles extracted from any single connected component.<para/>
+''' Use 0 if no limit is to be applied.<para/>
+''' (6) The flag %remainder specifies whether we take a final bounding<para/>
+''' box for anything left after the maximum number of allowed<para/>
+''' rectangle is extracted.<para/>
+''' (7) So if %maxcomps  is greater  0, it specifies that we want no more than<para/>
+''' the first %maxcomps rectangles that satisfy the input<para/>
+''' criteria.  After this, we can get a final rectangle that<para/>
+''' bounds everything left over by setting %remainder == 1.<para/>
+''' If %remainder == 0, we only get rectangles that satisfy<para/>
+''' the input criteria.<para/>
+''' (8) It should be noted that the removal of rectangles can<para/>
+''' break the original c.c. into several c.c.<para/>
+''' (9) Summing up:<para/>
+''' If %maxcomp == 0, the splitting proceeds as far as possible.<para/>
+''' If %maxcomp  is greater  0, the splitting stops when %maxcomps are<para/>
+''' found, or earlier if no more components can be selected.<para/>
+''' If %remainder == 1 and components remain that cannot be<para/>
+''' selected, they are returned as a single final rectangle<para/>
+''' otherwise, they are ignored.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -501,14 +509,15 @@ End Function
 ' makeMosaicStrips()
 ' makeMosaicStrips(l_int32, l_int32, l_int32, l_int32) as BOXA *
 '''  <summary>
-''' Notes
-''' (1) For example, this can be used to generate a pixa of
-''' vertical strips of width 10 from an image, using
-''' pixGetDimensions(pix, w, h, NULL);
-''' boxa = makeMosaicStrips(w, h, L_SCAN_HORIZONTAL, 10);
-''' pixa = pixClipRectangles(pix, boxa);
-''' All strips except the last will be the same width.  The
-''' last strip will have width w % 10.
+''' <para/>
+''' Notes:<para/>
+''' (1) For example, this can be used to generate a pixa of<para/>
+''' vertical strips of width 10 from an image, using:<para/>
+''' pixGetDimensions(pix,  and w,  and h, NULL)<para/>
+''' boxa = makeMosaicStrips(w, h, L_SCAN_HORIZONTAL, 10)<para/>
+''' pixa = pixClipRectangles(pix, boxa)<para/>
+''' All strips except the last will be the same width.  The<para/>
+''' last strip will have width w % 10.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -535,23 +544,24 @@ End Function
 ' boxaCompareRegions()
 ' boxaCompareRegions(BOXA *, BOXA *, l_int32, l_int32 *, l_float32 *, l_float32 *, PIX **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This takes 2 boxa, removes all boxes smaller than a given area,
-''' and compares the remaining boxes between the boxa.
-''' (2) The area threshold is introduced to help remove noise from
-''' small components.  Any box with a smaller value of w  h
-''' will be removed from consideration.
-''' (3) The xor difference is the most stringent test, requiring alignment
-''' of the corresponding boxes.  It is also more computationally
-''' intensive and is optionally returned.  Alignment is to the
-''' UL corner of each region containing all boxes, as given by
-''' boxaGetExtent().
-''' (4) Both fractional differences are with respect to the total
-''' area in the two boxa.  They range from 0.0 to 1.0.
-''' A perfect match has value 0.0.  If both boxa are empty,
-''' we return 0.0; if one is empty we return 1.0.
-''' (5) An example input might be the rectangular regions of a
-''' segmentation mask for text or images from two pages.
+''' <para/>
+''' Notes:<para/>
+''' (1) This takes 2 boxa, removes all boxes smaller than a given area,<para/>
+''' and compares the remaining boxes between the boxa.<para/>
+''' (2) The area threshold is introduced to help remove noise from<para/>
+''' small components.  Any box with a smaller value of w  h<para/>
+''' will be removed from consideration.<para/>
+''' (3) The xor difference is the most stringent test, requiring alignment<para/>
+''' of the corresponding boxes.  It is also more computationally<para/>
+''' intensive and is optionally returned.  Alignment is to the<para/>
+''' UL corner of each region containing all boxes, as given by<para/>
+''' boxaGetExtent().<para/>
+''' (4) Both fractional differences are with respect to the total<para/>
+''' area in the two boxa.  They range from 0.0 to 1.0.<para/>
+''' A perfect match has value 0.0.  If both boxa are empty,<para/>
+''' we return 0.0 if one is empty we return 1.0.<para/>
+''' (5) An example input might be the rectangular regions of a<para/>
+''' segmentation mask for text or images from two pages.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -587,19 +597,20 @@ End Function
 ' pixSelectLargeULComp()
 ' pixSelectLargeULComp(PIX *, l_float32, l_int32, l_int32) as BOX *
 '''  <summary>
-''' Notes
-''' (1) This selects a box near the top (first) and left (second)
-''' of the image, from the set of all boxes that have
-''' area GT= %areaslop  (area of biggest box),
-''' where %areaslop is some fraction; say ~ 0.9.
-''' (2) For all boxes satisfying the above condition, select
-''' the left-most box that is within %yslop (say, 20) pixels
-''' of the box nearest the top.
-''' (3) This can be used to reliably select a specific one of
-''' the largest regions in an image, for applications where
-''' there are expected to be small variations in region size
-''' and location.
-''' (4) See boxSelectLargeULBox() for implementation details.
+''' <para/>
+''' Notes:<para/>
+''' (1) This selects a box near the top (first) and left (second)<para/>
+''' of the image, from the set of all boxes that have<para/>
+''' area  is greater = %areaslop  (area of biggest box),<para/>
+''' where %areaslop is some fraction say ~ 0.9.<para/>
+''' (2) For all boxes satisfying the above condition, select<para/>
+''' the left-most box that is within %yslop (say, 20) pixels<para/>
+''' of the box nearest the top.<para/>
+''' (3) This can be used to reliably select a specific one of<para/>
+''' the largest regions in an image, for applications where<para/>
+''' there are expected to be small variations in region size<para/>
+''' and location.<para/>
+''' (4) See boxSelectLargeULBox() for implementation details.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -629,8 +640,9 @@ End Function
 ' boxaSelectLargeULBox()
 ' boxaSelectLargeULBox(BOXA *, l_float32, l_int32) as BOX *
 '''  <summary>
-''' Notes
-''' (1) See usage notes in pixSelectLargeULComp().
+''' <para/>
+''' Notes:<para/>
+''' (1) See usage notes in pixSelectLargeULComp().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

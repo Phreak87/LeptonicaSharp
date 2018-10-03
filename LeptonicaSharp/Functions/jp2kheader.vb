@@ -1,14 +1,11 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\jp2kheader.c (75, 1)
 ' readHeaderJp2k()
 ' readHeaderJp2k(const char *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - </param>
@@ -36,9 +33,6 @@ End Function
 ' SRC\jp2kheader.c (112, 1)
 ' freadHeaderJp2k()
 ' freadHeaderJp2k(FILE *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream opened for read</param>
@@ -66,17 +60,18 @@ End Function
 ' readHeaderMemJp2k()
 ' readHeaderMemJp2k(const l_uint8 *, size_t, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The ISO/IEC reference for jpeg2000 is
-''' http//www.jpeg.org/public/15444-1annexi.pdf
-''' and the file format syntax begins at page 127.
-''' (2) The Image Header Box begins with 'ihdr' = 0x69686472 in
-''' big-endian order.  This typically, but not always, starts
-''' byte 44, with the big-endian data fields beginning at byte 48
-''' h 4 bytes
-''' w 4 bytes
-''' spp  2 bytes
-''' bps  1 byte   (contains bps - 1)
+''' <para/>
+''' Notes:<para/>
+''' (1) The ISO/IEC reference for jpeg2000 is<para/>
+''' http://www.jpeg.org/public/15444-1annexi.pdf<para/>
+''' and the file format syntax begins at page 127.<para/>
+''' (2) The Image Header Box begins with 'ihdr' = 0x69686472 in<para/>
+''' big-endian order.  This typically, but not always, starts<para/>
+''' byte 44, with the big-endian data fields beginning at byte 48:<para/>
+''' h:  4 bytes<para/>
+''' w:  4 bytes<para/>
+''' spp:  2 bytes<para/>
+''' bps:  1 byte (contains bps - 1)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -106,16 +101,13 @@ End Function
 ' SRC\jp2kheader.c (240, 1)
 ' 
 ' fgetJp2kResolution(FILE *, l_int32 *, l_int32 *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function fgetJp2kResolution(
-				ByRef fp as FILE, 
-				ByRef pxres as Object, 
-				ByRef pyres as Object) as Integer
+				ByVal fp as FILE, 
+				ByVal pxres as Object, 
+				ByVal pyres as Object) as Integer
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pxres) then Throw New ArgumentNullException  ("pxres cannot be Nothing")

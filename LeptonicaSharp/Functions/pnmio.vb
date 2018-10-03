@@ -1,14 +1,11 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\pnmio.c (145, 1)
 ' pixReadStreamPnm()
 ' pixReadStreamPnm(FILE *) as PIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream opened for read</param>
@@ -28,9 +25,6 @@ End Function
 ' SRC\pnmio.c (447, 1)
 ' readHeaderPnm()
 ' readHeaderPnm(const char *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - </param>
@@ -62,9 +56,6 @@ End Function
 ' SRC\pnmio.c (490, 1)
 ' freadHeaderPnm()
 ' freadHeaderPnm(FILE *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream opened for read</param>
@@ -96,19 +87,20 @@ End Function
 ' pixWriteStreamPnm()
 ' pixWriteStreamPnm(FILE *, PIX *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This writes "raw" packed format only
-''' 1 bpp --GT pbm (P4)
-''' 2, 4, 8, 16 bpp, no colormap or grayscale colormap --GT pgm (P5)
-''' 2, 4, 8 bpp with color-valued colormap, or rgb --GT rgb ppm (P6)
-''' (2) 24 bpp rgb are not supported in leptonica, but this will
-''' write them out as a packed array of bytes (3 to a pixel).
+''' <para/>
+''' Notes:<para/>
+''' (1) This writes "raw" packed format only:<para/>
+''' 1 bpp -- is greater  pbm (P4)<para/>
+''' 2, 4, 8, 16 bpp, no colormap or grayscale colormap -- is greater  pgm (P5)<para/>
+''' 2, 4, 8 bpp with color-valued colormap, or rgb -- is greater  rgb ppm (P6)<para/>
+''' (2) 24 bpp rgb are not supported in leptonica, but this will<para/>
+''' write them out as a packed array of bytes (3 to a pixel).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream opened for write</param>
 '''  <param name="pix">[in] - </param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixWriteStreamPnm(
 				ByVal fp as FILE, 
 				ByVal pix as Pix) as Integer
@@ -125,14 +117,11 @@ End Function
 ' SRC\pnmio.c (786, 1)
 ' pixWriteStreamAsciiPnm()
 ' pixWriteStreamAsciiPnm(FILE *, PIX *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream opened for write</param>
 '''  <param name="pix">[in] - </param>
-'''   <returns>0 if OK; 1 on error Writes "ASCII" format only 1 bpp --GT pbm P1 2, 4, 8, 16 bpp, no colormap or grayscale colormap --GT pgm P2 2, 4, 8 bpp with color-valued colormap, or rgb --GT rgb ppm P3</returns>
+'''   <returns>0 if OK 1 on error Writes "ASCII" format only: 1 bpp -- is greater  pbm P1 2, 4, 8, 16 bpp, no colormap or grayscale colormap -- is greater  pgm P2 2, 4, 8 bpp with color-valued colormap, or rgb -- is greater  rgb ppm P3</returns>
 Public Shared Function pixWriteStreamAsciiPnm(
 				ByVal fp as FILE, 
 				ByVal pix as Pix) as Integer
@@ -150,16 +139,17 @@ End Function
 ' pixWriteStreamPam()
 ' pixWriteStreamPam(FILE *, PIX *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This writes arbitrary PAM (P7) packed format.
-''' (2) 24 bpp rgb are not supported in leptonica, but this will
-''' write them out as a packed array of bytes (3 to a pixel).
+''' <para/>
+''' Notes:<para/>
+''' (1) This writes arbitrary PAM (P7) packed format.<para/>
+''' (2) 24 bpp rgb are not supported in leptonica, but this will<para/>
+''' write them out as a packed array of bytes (3 to a pixel).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream opened for write</param>
 '''  <param name="pix">[in] - </param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixWriteStreamPam(
 				ByVal fp as FILE, 
 				ByVal pix as Pix) as Integer
@@ -177,12 +167,13 @@ End Function
 ' pixReadMemPnm()
 ' pixReadMemPnm(const l_uint8 *, size_t) as PIX *
 '''  <summary>
-''' Notes
-''' (1) The %size byte of %data must be a null character.
+''' <para/>
+''' Notes:<para/>
+''' (1) The %size byte of %data must be a null character.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="data">[in] - const; pnm-encoded</param>
+'''  <param name="data">[in] - const pnm-encoded</param>
 '''  <param name="size">[in] - of data</param>
 '''   <returns>pix, or NULL on error</returns>
 Public Shared Function pixReadMemPnm(
@@ -201,12 +192,9 @@ End Function
 ' SRC\pnmio.c (1117, 1)
 ' readHeaderMemPnm()
 ' readHeaderMemPnm(const l_uint8 *, size_t, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="data">[in] - const; pnm-encoded</param>
+'''  <param name="data">[in] - const pnm-encoded</param>
 '''  <param name="size">[in] - of data</param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -237,9 +225,10 @@ End Function
 ' pixWriteMemPnm()
 ' pixWriteMemPnm(l_uint8 **, size_t *, PIX *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) See pixWriteStreamPnm() for usage.  This version writes to
-''' memory instead of to a file stream.
+''' <para/>
+''' Notes:<para/>
+''' (1) See pixWriteStreamPnm() for usage.  This version writes to<para/>
+''' memory instead of to a file stream.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -266,9 +255,10 @@ End Function
 ' pixWriteMemPam()
 ' pixWriteMemPam(l_uint8 **, size_t *, PIX *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) See pixWriteStreamPnm() for usage.  This version writes to
-''' memory instead of to a file stream.
+''' <para/>
+''' Notes:<para/>
+''' (1) See pixWriteStreamPnm() for usage.  This version writes to<para/>
+''' memory instead of to a file stream.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

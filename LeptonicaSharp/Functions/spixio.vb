@@ -1,15 +1,16 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\spixio.c (88, 1)
 ' pixReadStreamSpix()
 ' pixReadStreamSpix(FILE *) as PIX *
 '''  <summary>
-''' Notes
-''' (1) If called from pixReadStream(), the stream is positioned
-''' at the beginning of the file.
+''' <para/>
+''' Notes:<para/>
+''' (1) If called from pixReadStream(), the stream is positioned<para/>
+''' at the beginning of the file.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -31,8 +32,9 @@ End Function
 ' readHeaderSpix()
 ' readHeaderSpix(const char *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) If there is a colormap, iscmap is returned as 1; else 0.
+''' <para/>
+''' Notes:<para/>
+''' (1) If there is a colormap, iscmap is returned as 1 else 0.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -64,8 +66,9 @@ End Function
 ' freadHeaderSpix()
 ' freadHeaderSpix(FILE *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) If there is a colormap, iscmap is returned as 1; else 0.
+''' <para/>
+''' Notes:<para/>
+''' (1) If there is a colormap, iscmap is returned as 1 else 0.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -96,8 +99,9 @@ End Function
 ' sreadHeaderSpix()
 ' sreadHeaderSpix(const l_uint32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) If there is a colormap, iscmap is returned as 1; else 0.
+''' <para/>
+''' Notes:<para/>
+''' (1) If there is a colormap, iscmap is returned as 1 else 0.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -128,14 +132,11 @@ End Function
 ' SRC\spixio.c (265, 1)
 ' pixWriteStreamSpix()
 ' pixWriteStreamSpix(FILE *, PIX *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pix">[in] - </param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixWriteStreamSpix(
 				ByVal fp as FILE, 
 				ByVal pix as Pix) as Integer
@@ -152,12 +153,9 @@ End Function
 ' SRC\spixio.c (297, 1)
 ' pixReadMemSpix()
 ' pixReadMemSpix(const l_uint8 *, size_t) as PIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="data">[in] - const; uncompressed</param>
+'''  <param name="data">[in] - const uncompressed</param>
 '''  <param name="size">[in] - bytes of data</param>
 '''   <returns>pix, or NULL on error</returns>
 Public Shared Function pixReadMemSpix(
@@ -176,14 +174,11 @@ End Function
 ' SRC\spixio.c (313, 1)
 ' pixWriteMemSpix()
 ' pixWriteMemSpix(l_uint8 **, size_t *, PIX *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pdata">[out] - data of serialized, uncompressed pix</param>
 '''  <param name="psize">[out] - size of returned data</param>
-'''  <param name="pix">[in] - all depths; colormap OK</param>
+'''  <param name="pix">[in] - all depths colormap OK</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixWriteMemSpix(
 				ByRef pdata as Byte(), 
@@ -204,19 +199,20 @@ End Function
 ' pixSerializeToMemory()
 ' pixSerializeToMemory(PIX *, l_uint32 **, size_t *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This does a fast serialization of the principal elements
-''' of the pix, as follows
-''' "spix" (4 bytes) -- ID for file type
-''' w   (4 bytes)
-''' h   (4 bytes)
-''' d   (4 bytes)
-''' wpl (4 bytes)
-''' ncolors   (4 bytes) -- in colormap; 0 if there is no colormap
-''' cdata  (4  ncolors)  -- size of serialized colormap array
-''' rdatasize (4 bytes) -- size of serialized raster data
-''' = 4  wpl  h
-''' rdata  (rdatasize)
+''' <para/>
+''' Notes:<para/>
+''' (1) This does a fast serialization of the principal elements<para/>
+''' of the pix, as follows:<para/>
+''' "spix"  (4 bytes) -- ID for file type<para/>
+''' w (4 bytes)<para/>
+''' h (4 bytes)<para/>
+''' d (4 bytes)<para/>
+''' wpl (4 bytes)<para/>
+''' ncolors (4 bytes) -- in colormap 0 if there is no colormap<para/>
+''' cdata (4  ncolors)  -- size of serialized colormap array<para/>
+''' rdatasize (4 bytes) -- size of serialized raster data<para/>
+''' = 4  wpl  h<para/>
+''' rdata (rdatasize)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -243,9 +239,10 @@ End Function
 ' pixDeserializeFromMemory()
 ' pixDeserializeFromMemory(const l_uint32 *, size_t) as PIX *
 '''  <summary>
-''' Notes
-''' (1) See pixSerializeToMemory() for the binary format.
-''' (2) Note the image size limits.
+''' <para/>
+''' Notes:<para/>
+''' (1) See pixSerializeToMemory() for the binary format.<para/>
+''' (2) Note the image size limits.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

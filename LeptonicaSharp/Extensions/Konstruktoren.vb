@@ -4,12 +4,12 @@
 Partial Public Class Sel
 
     Sub Display()
-        Dim n As New ShowPix(LeptonicaSharp._AllFunctions.selDisplayInPix(Me, 1, 1))
+        Dim n As New ShowPix(LeptonicaSharp._All.selDisplayInPix(Me, 1, 1))
     End Sub
     Sub Display(ByVal Pix As Pix)
         Dim CRed As UInt32 = BitConverter.ToUInt32({255, 0, 0, 0}, 0)
         Dim CBlu As UInt32 = BitConverter.ToUInt32({0, 255, 0, 0}, 0)
-        Dim n As New ShowPix(LeptonicaSharp._AllFunctions.pixDisplayHitMissSel(Pix, Me, 1, CRed, CBlu))
+        Dim n As New ShowPix(LeptonicaSharp._All.pixDisplayHitMissSel(Pix, Me, 1, CRed, CBlu))
     End Sub
     Sub New(ByVal Text As String, ByVal w As Integer, ByVal h As Integer, ByVal name As String)
         Me.New(LeptonicaSharp.Natives.selCreateFromString(Text, h, w, name))
@@ -64,7 +64,8 @@ Partial Public Class Ptra
     End Sub
 End Class
 Partial Public Class Sarray
-    Sub New(Count As Integer)
+
+    Sub New(ByVal Count As Integer)
         Me.New(Natives.sarrayCreate(Count))
     End Sub
 End Class

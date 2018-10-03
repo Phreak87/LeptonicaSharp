@@ -1,17 +1,14 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\dnabasic.c (169, 1)
 ' l_dnaCreate()
 ' l_dnaCreate(l_int32) as L_DNA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="n">[in] - size of number array to be alloc'd; 0 for default</param>
+'''  <param name="n">[in] - size of number array to be alloc'd 0 for default</param>
 '''   <returns>da, or NULL on error</returns>
 Public Shared Function l_dnaCreate(
 				ByVal n as Integer) as L_Dna
@@ -28,11 +25,12 @@ End Function
 ' l_dnaCreateFromIArray()
 ' l_dnaCreateFromIArray(l_int32 *, l_int32) as L_DNA *
 '''  <summary>
-''' Notes
-''' (1) We can't insert this int array into the l_dna, because a l_dna
-''' takes a double array.  So this just copies the data from the
-''' input array into the l_dna.  The input array continues to be
-''' owned by the caller.
+''' <para/>
+''' Notes:<para/>
+''' (1) We can't insert this int array into the l_dna, because a l_dna<para/>
+''' takes a double array.  So this just copies the data from the<para/>
+''' input array into the l_dna.  The input array continues to be<para/>
+''' owned by the caller.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -56,10 +54,11 @@ End Function
 ' l_dnaCreateFromDArray()
 ' l_dnaCreateFromDArray(l_float64 *, l_int32, l_int32) as L_DNA *
 '''  <summary>
-''' Notes
-''' (1) With L_INSERT, ownership of the input array is transferred
-''' to the returned l_dna, and all %size elements are considered
-''' to be valid.
+''' <para/>
+''' Notes:<para/>
+''' (1) With L_INSERT, ownership of the input array is transferred<para/>
+''' to the returned l_dna, and all %size elements are considered<para/>
+''' to be valid.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -84,9 +83,6 @@ End Function
 ' SRC\dnabasic.c (286, 1)
 ' l_dnaMakeSequence()
 ' l_dnaMakeSequence(l_float64, l_float64, l_int32) as L_DNA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="startval">[in] - </param>
@@ -112,9 +108,10 @@ End Function
 ' l_dnaDestroy()
 ' l_dnaDestroy(L_DNA **) as void
 '''  <summary>
-''' Notes
-''' (1) Decrements the ref count and, if 0, destroys the l_dna.
-''' (2) Always nulls the input ptr.
+''' <para/>
+''' Notes:<para/>
+''' (1) Decrements the ref count and, if 0, destroys the l_dna.<para/>
+''' (2) Always nulls the input ptr.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -134,8 +131,9 @@ End Sub
 ' l_dnaCopy()
 ' l_dnaCopy(L_DNA *) as L_DNA *
 '''  <summary>
-''' Notes
-''' (1) This removes unused ptrs above da-GTn.
+''' <para/>
+''' Notes:<para/>
+''' (1) This removes unused ptrs above da- is greater n.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -156,9 +154,6 @@ End Function
 ' SRC\dnabasic.c (389, 1)
 ' l_dnaClone()
 ' l_dnaClone(L_DNA *) as L_DNA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="da">[in] - </param>
@@ -179,15 +174,16 @@ End Function
 ' l_dnaEmpty()
 ' l_dnaEmpty(L_DNA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This does not change the allocation of the array.
-''' It just clears the number of stored numbers, so that
-''' the array appears to be empty.
+''' <para/>
+''' Notes:<para/>
+''' (1) This does not change the allocation of the array.<para/>
+''' It just clears the number of stored numbers, so that<para/>
+''' the array appears to be empty.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="da">[in] - </param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function l_dnaEmpty(
 				ByVal da as L_Dna) as Integer
 
@@ -202,13 +198,10 @@ End Function
 ' SRC\dnabasic.c (439, 1)
 ' l_dnaAddNumber()
 ' l_dnaAddNumber(L_DNA *, l_float64) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="da">[in] - </param>
-'''  <param name="val">[in] - float or int to be added; stored as a float</param>
+'''  <param name="val">[in] - float or int to be added stored as a float</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function l_dnaAddNumber(
 				ByVal da as L_Dna, 
@@ -227,11 +220,12 @@ End Function
 ' l_dnaInsertNumber()
 ' l_dnaInsertNumber(L_DNA *, l_int32, l_float64) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This shifts da[i] --GT da[i + 1] for all i GT= index,
-''' and then inserts val as da[index].
-''' (2) It should not be used repeatedly on large arrays,
-''' because the function is O(n).
+''' <para/>
+''' Notes:<para/>
+''' (1) This shifts da[i] -- is greater  da[i + 1] for all i  is greater = index,<para/>
+''' and then inserts val as da[index].<para/>
+''' (2) It should not be used repeatedly on large arrays,<para/>
+''' because the function is O(n).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -257,10 +251,11 @@ End Function
 ' l_dnaRemoveNumber()
 ' l_dnaRemoveNumber(L_DNA *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This shifts da[i] --GT da[i - 1] for all i GT index.
-''' (2) It should not be used repeatedly on large arrays,
-''' because the function is O(n).
+''' <para/>
+''' Notes:<para/>
+''' (1) This shifts da[i] -- is greater  da[i - 1] for all i  is greater  index.<para/>
+''' (2) It should not be used repeatedly on large arrays,<para/>
+''' because the function is O(n).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -282,9 +277,6 @@ End Function
 ' SRC\dnabasic.c (568, 1)
 ' l_dnaReplaceNumber()
 ' l_dnaReplaceNumber(L_DNA *, l_int32, l_float64) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="da">[in] - </param>
@@ -308,9 +300,6 @@ End Function
 ' SRC\dnabasic.c (597, 1)
 ' l_dnaGetCount()
 ' l_dnaGetCount(L_DNA *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="da">[in] - </param>
@@ -330,12 +319,13 @@ End Function
 ' l_dnaSetCount()
 ' l_dnaSetCount(L_DNA *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) If newcount LT= da-GTnalloc, this resets da-GTn.
-''' Using newcount = 0 is equivalent to l_dnaEmpty().
-''' (2) If newcount GT da-GTnalloc, this causes a realloc
-''' to a size da-GTnalloc = newcount.
-''' (3) All the previously unused values in da are set to 0.0.
+''' <para/>
+''' Notes:<para/>
+''' (1) If newcount  is lower = da- is greater nalloc, this resets da- is greater n.<para/>
+''' Using newcount = 0 is equivalent to l_dnaEmpty().<para/>
+''' (2) If newcount  is greater  da- is greater nalloc, this causes a realloc<para/>
+''' to a size da- is greater nalloc = newcount.<para/>
+''' (3) All the previously unused values in da are set to 0.0.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -358,16 +348,17 @@ End Function
 ' l_dnaGetDValue()
 ' l_dnaGetDValue(L_DNA *, l_int32, l_float64 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Caller may need to check the function return value to
-''' decide if a 0.0 in the returned ival is valid.
+''' <para/>
+''' Notes:<para/>
+''' (1) Caller may need to check the function return value to<para/>
+''' decide if a 0.0 in the returned ival is valid.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - into l_dna</param>
-'''  <param name="pval">[out] - double value; 0.0 on error</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''  <param name="pval">[out] - double value 0.0 on error</param>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function l_dnaGetDValue(
 				ByVal da as L_Dna, 
 				ByVal index as Integer, 
@@ -385,16 +376,17 @@ End Function
 ' l_dnaGetIValue()
 ' l_dnaGetIValue(L_DNA *, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Caller may need to check the function return value to
-''' decide if a 0 in the returned ival is valid.
+''' <para/>
+''' Notes:<para/>
+''' (1) Caller may need to check the function return value to<para/>
+''' decide if a 0 in the returned ival is valid.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - into l_dna</param>
-'''  <param name="pival">[out] - integer value; 0 on error</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''  <param name="pival">[out] - integer value 0 on error</param>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function l_dnaGetIValue(
 				ByVal da as L_Dna, 
 				ByVal index as Integer, 
@@ -411,15 +403,12 @@ End Function
 ' SRC\dnabasic.c (725, 1)
 ' l_dnaSetValue()
 ' l_dnaSetValue(L_DNA *, l_int32, l_float64) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - to element to be set</param>
 '''  <param name="val">[in] - to set element</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function l_dnaSetValue(
 				ByVal da as L_Dna, 
 				ByVal index as Integer, 
@@ -437,15 +426,12 @@ End Function
 ' SRC\dnabasic.c (750, 1)
 ' l_dnaShiftValue()
 ' l_dnaShiftValue(L_DNA *, l_int32, l_float64) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - to element to change relative to the current value</param>
-'''  <param name="diff">[in] - increment if diff GT 0 or decrement if diff LT 0</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''  <param name="diff">[in] - increment if diff  is greater  0 or decrement if diff  is lower  0</param>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function l_dnaShiftValue(
 				ByVal da as L_Dna, 
 				ByVal index as Integer, 
@@ -464,16 +450,17 @@ End Function
 ' l_dnaGetIArray()
 ' l_dnaGetIArray(L_DNA *) as l_int32 *
 '''  <summary>
-''' Notes
-''' (1) A copy of the array is made, because we need to
-''' generate an integer array from the bare double array.
-''' The caller is responsible for freeing the array.
-''' (2) The array size is determined by the number of stored numbers,
-''' not by the size of the allocated array in the l_dna.
-''' (3) This function is provided to simplify calculations
-''' using the bare internal array, rather than continually
-''' calling accessors on the l_dna.  It is typically used
-''' on an array of size 256.
+''' <para/>
+''' Notes:<para/>
+''' (1) A copy of the array is made, because we need to<para/>
+''' generate an integer array from the bare double array.<para/>
+''' The caller is responsible for freeing the array.<para/>
+''' (2) The array size is determined by the number of stored numbers,<para/>
+''' not by the size of the allocated array in the l_dna.<para/>
+''' (3) This function is provided to simplify calculations<para/>
+''' using the bare internal array, rather than continually<para/>
+''' calling accessors on the l_dna.  It is typically used<para/>
+''' on an array of size 256.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -494,17 +481,18 @@ End Function
 ' l_dnaGetDArray()
 ' l_dnaGetDArray(L_DNA *, l_int32) as l_float64 *
 '''  <summary>
-''' Notes
-''' (1) If copyflag == L_COPY, it makes a copy which the caller
-''' is responsible for freeing.  Otherwise, it operates
-''' directly on the bare array of the l_dna.
-''' (2) Very important for L_NOCOPY, any writes to the array
-''' will be in the l_dna.  Do not write beyond the size of
-''' the count field, because it will not be accessible
-''' from the l_dna!  If necessary, be sure to set the count
-''' field to a larger number (such as the alloc size)
-''' BEFORE calling this function.  Creating with l_dnaMakeConstant()
-''' is another way to insure full initialization.
+''' <para/>
+''' Notes:<para/>
+''' (1) If copyflag == L_COPY, it makes a copy which the caller<para/>
+''' is responsible for freeing.  Otherwise, it operates<para/>
+''' directly on the bare array of the l_dna.<para/>
+''' (2) Very important: for L_NOCOPY, any writes to the array<para/>
+''' will be in the l_dna.  Do not write beyond the size of<para/>
+''' the count field, because it will not be accessible<para/>
+''' from the l_dna!  If necessary, be sure to set the count<para/>
+''' field to a larger number (such as the alloc size)<para/>
+''' BEFORE calling this function.  Creating with l_dnaMakeConstant()<para/>
+''' is another way to insure full initialization.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -526,9 +514,6 @@ End Function
 ' SRC\dnabasic.c (863, 1)
 ' l_dnaGetRefCount()
 ' l_dnaGetRefcount(L_DNA *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="da">[in] - </param>
@@ -547,9 +532,6 @@ End Function
 ' SRC\dnabasic.c (881, 1)
 ' l_dnaChangeRefCount()
 ' l_dnaChangeRefcount(L_DNA *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="da">[in] - </param>
@@ -570,9 +552,6 @@ End Function
 ' SRC\dnabasic.c (902, 1)
 ' l_dnaGetParameters()
 ' l_dnaGetParameters(L_DNA *, l_float64 *, l_float64 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="da">[in] - </param>
@@ -595,9 +574,6 @@ End Function
 ' SRC\dnabasic.c (932, 1)
 ' l_dnaSetParameters()
 ' l_dnaSetParameters(L_DNA *, l_float64, l_float64) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="da">[in] - </param>
@@ -622,9 +598,6 @@ End Function
 ' SRC\dnabasic.c (955, 1)
 ' l_dnaCopyParameters()
 ' l_dnaCopyParameters(L_DNA *, L_DNA *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dad">[in] - destination DNuma</param>
@@ -646,9 +619,6 @@ End Function
 ' SRC\dnabasic.c (981, 1)
 ' l_dnaRead()
 ' l_dnaRead(const char *) as L_DNA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - </param>
@@ -670,8 +640,9 @@ End Function
 ' l_dnaReadStream()
 ' l_dnaReadStream(FILE *) as L_DNA *
 '''  <summary>
-''' Notes
-''' (1) fscanf takes %lf to read a double; fprintf takes %f to write it.
+''' <para/>
+''' Notes:<para/>
+''' (1) fscanf takes %lf to read a double fprintf takes %f to write it.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -692,9 +663,6 @@ End Function
 ' SRC\dnabasic.c (1056, 1)
 ' l_dnaWrite()
 ' l_dnaWrite(const char *, L_DNA *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - </param>
@@ -717,9 +685,6 @@ End Function
 ' SRC\dnabasic.c (1087, 1)
 ' l_dnaWriteStream()
 ' l_dnaWriteStream(FILE *, L_DNA *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
@@ -741,9 +706,6 @@ End Function
 ' SRC\dnabasic.c (1127, 1)
 ' l_dnaaCreate()
 ' l_dnaaCreate(l_int32) as L_DNAA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="n">[in] - size of l_dna ptr array to be alloc'd 0 for default</param>
@@ -763,16 +725,17 @@ End Function
 ' l_dnaaCreateFull()
 ' l_dnaaCreateFull(l_int32, l_int32) as L_DNAA *
 '''  <summary>
-''' Notes
-''' (1) This allocates a dnaa and fills the array with allocated dnas.
-''' In use, after calling this function, use
-''' l_dnaaAddNumber(dnaa, index, val);
-''' to add val to the index-th dna in dnaa.
+''' <para/>
+''' Notes:<para/>
+''' (1) This allocates a dnaa and fills the array with allocated dnas.<para/>
+''' In use, after calling this function, use<para/>
+''' l_dnaaAddNumber(dnaa, index, val)<para/>
+''' to add val to the index-th dna in dnaa.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="nptr">[in] - size of dna ptr array to be alloc'd</param>
-'''  <param name="n">[in] - size of individual dna arrays to be alloc'd 0 for default</param>
+'''  <param name="nptr">[in] - : size of dna ptr array to be alloc'd</param>
+'''  <param name="n">[in] - : size of individual dna arrays to be alloc'd 0 for default</param>
 '''   <returns>daa, or NULL on error</returns>
 Public Shared Function l_dnaaCreateFull(
 				ByVal nptr as Integer, 
@@ -790,10 +753,11 @@ End Function
 ' l_dnaaTruncate()
 ' l_dnaaTruncate(L_DNAA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This identifies the largest index containing a dna that
-''' has any numbers within it, destroys all dna beyond that
-''' index, and resets the count.
+''' <para/>
+''' Notes:<para/>
+''' (1) This identifies the largest index containing a dna that<para/>
+''' has any numbers within it, destroys all dna beyond that<para/>
+''' index, and resets the count.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -813,9 +777,6 @@ End Function
 ' SRC\dnabasic.c (1228, 1)
 ' l_dnaaDestroy()
 ' l_dnaaDestroy(L_DNAA **) as void
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pdaa">[in,out] - to be nulled if it exists</param>
@@ -833,9 +794,6 @@ End Sub
 ' SRC\dnabasic.c (1265, 1)
 ' l_dnaaAddDna()
 ' l_dnaaAddDna(L_DNAA *, L_DNA *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="daa">[in] - </param>
@@ -859,9 +817,6 @@ End Function
 ' SRC\dnabasic.c (1333, 1)
 ' l_dnaaGetCount()
 ' l_dnaaGetCount(L_DNAA *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="daa">[in] - </param>
@@ -880,9 +835,6 @@ End Function
 ' SRC\dnabasic.c (1351, 1)
 ' l_dnaaGetDnaCount()
 ' l_dnaaGetDnaCount(L_DNAA *, l_int32) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="daa">[in] - </param>
@@ -903,9 +855,6 @@ End Function
 ' SRC\dnabasic.c (1372, 1)
 ' l_dnaaGetNumberCount()
 ' l_dnaaGetNumberCount(L_DNAA *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="daa">[in] - </param>
@@ -924,9 +873,6 @@ End Function
 ' SRC\dnabasic.c (1402, 1)
 ' l_dnaaGetDna()
 ' l_dnaaGetDna(L_DNAA *, l_int32, l_int32) as L_DNA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="daa">[in] - </param>
@@ -951,10 +897,11 @@ End Function
 ' l_dnaaReplaceDna()
 ' l_dnaaReplaceDna(L_DNAA *, l_int32, L_DNA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Any existing l_dna is destroyed, and the input one
-''' is inserted in its place.
-''' (2) If the index is invalid, return 1 (error)
+''' <para/>
+''' Notes:<para/>
+''' (1) Any existing l_dna is destroyed, and the input one<para/>
+''' is inserted in its place.<para/>
+''' (2) If the index is invalid, return 1 (error)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -979,9 +926,6 @@ End Function
 ' SRC\dnabasic.c (1470, 1)
 ' l_dnaaGetValue()
 ' l_dnaaGetValue(L_DNAA *, l_int32, l_int32, l_float64 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="daa">[in] - </param>
@@ -1007,14 +951,15 @@ End Function
 ' l_dnaaAddNumber()
 ' l_dnaaAddNumber(L_DNAA *, l_int32, l_float64) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Adds to an existing l_dna only.
+''' <para/>
+''' Notes:<para/>
+''' (1) Adds to an existing l_dna only.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="daa">[in] - </param>
 '''  <param name="index">[in] - of l_dna within l_dnaa</param>
-'''  <param name="val">[in] - number to be added; stored as a double</param>
+'''  <param name="val">[in] - number to be added stored as a double</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function l_dnaaAddNumber(
 				ByVal daa as L_Dnaa, 
@@ -1033,9 +978,6 @@ End Function
 ' SRC\dnabasic.c (1542, 1)
 ' l_dnaaRead()
 ' l_dnaaRead(const char *) as L_DNAA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - </param>
@@ -1056,9 +998,6 @@ End Function
 ' SRC\dnabasic.c (1569, 1)
 ' l_dnaaReadStream()
 ' l_dnaaReadStream(FILE *) as L_DNAA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
@@ -1078,9 +1017,6 @@ End Function
 ' SRC\dnabasic.c (1613, 1)
 ' l_dnaaWrite()
 ' l_dnaaWrite(const char *, L_DNAA *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - </param>
@@ -1103,9 +1039,6 @@ End Function
 ' SRC\dnabasic.c (1644, 1)
 ' l_dnaaWriteStream()
 ' l_dnaaWriteStream(FILE *, L_DNAA *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>

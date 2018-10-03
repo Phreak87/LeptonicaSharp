@@ -1,16 +1,17 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\bmpio.c (89, 1)
 ' pixReadStreamBmp()
 ' pixReadStreamBmp(FILE *) as PIX *
 '''  <summary>
-''' Notes
-''' (1) Here are references on the bmp file format
-''' http//en.wikipedia.org/wiki/BMP_file_format
-''' http//www.fortunecity.com/skyscraper/windows/364/bmpffrmt.html
+''' <para/>
+''' Notes:<para/>
+''' (1) Here are references on the bmp file format:<para/>
+''' http://en.wikipedia.org/wiki/BMP_file_format<para/>
+''' http://www.fortunecity.com/skyscraper/windows/364/bmpffrmt.html<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -31,9 +32,6 @@ End Function
 ' SRC\bmpio.c (119, 1)
 ' pixReadMemBmp()
 ' pixReadMemBmp(const l_uint8 *, size_t) as PIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="cdata">[in] - bmp data</param>
@@ -55,9 +53,6 @@ End Function
 ' SRC\bmpio.c (351, 1)
 ' pixWriteStreamBmp()
 ' pixWriteStreamBmp(FILE *, PIX *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
@@ -80,16 +75,17 @@ End Function
 ' pixWriteMemBmp()
 ' pixWriteMemBmp(l_uint8 **, size_t *, PIX *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) 2 bpp bmp files are not valid in the spec, and are
-''' written as 8 bpp.
-''' (2) pix with depth LT= 8 bpp are written with a colormap.
-''' 16 bpp gray and 32 bpp rgb pix are written without a colormap.
-''' (3) The transparency component in an rgb pix is ignored.
-''' All 32 bpp pix have the bmp alpha component set to 255 (opaque).
-''' (4) The bmp colormap entries, RGBA_QUAD, are the same as
-''' the ones used for colormaps in leptonica.  This allows
-''' a simple memcpy for bmp output.
+''' <para/>
+''' Notes:<para/>
+''' (1) 2 bpp bmp files are not valid in the spec, and are<para/>
+''' written as 8 bpp.<para/>
+''' (2) pix with depth  is lower = 8 bpp are written with a colormap.<para/>
+''' 16 bpp gray and 32 bpp rgb pix are written without a colormap.<para/>
+''' (3) The transparency component in an rgb pix is ignored.<para/>
+''' All 32 bpp pix have the bmp alpha component set to 255 (opaque).<para/>
+''' (4) The bmp colormap entries, RGBA_QUAD, are the same as<para/>
+''' the ones used for colormaps in leptonica.  This allows<para/>
+''' a simple memcpy for bmp output.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -103,7 +99,7 @@ Public Shared Function pixWriteMemBmp(
 				ByVal pixs as Pix) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16, 32 bpp")
+	If {1,2,4,8,16,24,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16, 32 bpp")
 
 	Dim pfdataPTR As IntPtr = IntPtr.Zero
 

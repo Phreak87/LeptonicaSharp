@@ -69,6 +69,11 @@
 	Set defaults for functions (set to optional)
 	##############################################
 	-->
+	<Function Name="pixConvertTo16">
+		<Parameter Name="pixs"> 
+			<CheckRange>1-8</CheckRange>	
+		</Parameter> 
+	</Function>
 	<Function Name="pixDeskewGeneral">
 		<Parameter Name="thresh"><Default>0</Default></Parameter>
 	</Function>
@@ -113,9 +118,11 @@
 			<CheckComment Text="8 bpp; no colormap" 							Prop="d">{8}</CheckComment>
 			<CheckComment Text="8 bpp grayscale; not colormapped" 				Prop="d">{8}</CheckComment>
 			<CheckComment Text="16 bpp" 										Prop="d">{16}</CheckComment>
+			<CheckComment Text="24 bpp rgb" 									Prop="d">{24}</CheckComment>
 			<CheckComment Text="32 bpp RGB" 									Prop="d">{32}</CheckComment>
 			<CheckComment Text="32 bpp rgb, not colormapped" 					Prop="d">{32}</CheckComment>
 			<CheckComment Text="32 bpp, single component"	 					Prop="d">{32}</CheckComment>
+			<CheckComment Text="1, 8 bpp"	 									Prop="d">{1,8}</CheckComment>
 			<CheckComment Text="4 or 8 bpp"										Prop="d">{4,8}</CheckComment>
 			<CheckComment Text="8 or 16 bpp grayscale"							Prop="d">{8,16}</CheckComment>
 			<CheckComment Text="8 bpp grayscale, 32 bpp rgb, or colormapped" 	Prop="d">{8,16}</CheckComment>
@@ -126,6 +133,7 @@
 			<CheckComment Text="1, 2, 4, 8, 16 bpp; can be colormapped"	 	 	Prop="d">{1,2,4,8,16}</CheckComment>
 			<CheckComment Text="1, 2, 4, 8, 16, 32 bpp"	 	 					Prop="d">{1,2,4,8,16,24,32}</CheckComment>
 			<CheckComment Text="1, 2, 4, 8, 16 or 32 bpp"	 	 				Prop="d">{1,2,4,8,16,24,32}</CheckComment><!-- 24 works too ... -->
+			 <CheckComment Text="1, 2, 4, 8, 16, with or without colormap or 32 bpp rgb" Prop="d">{1,2,4,8,16,24,32}</CheckComment><!-- 24 works too ... -->
 		</Parameter>
 		<Parameter Name="filename">
 			<!-- Check if Filename/Path exists -->

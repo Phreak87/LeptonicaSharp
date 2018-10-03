@@ -1,26 +1,27 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\coloring.c (126, 1)
 ' pixColorGrayRegions()
 ' pixColorGrayRegions(PIX *, BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This generates a new image, where some of the pixels in each
-''' box in the boxa are colorized.  See pixColorGray() for usage
-''' with %type and %thresh.  Note that %thresh is only used for
-''' rgb; it is ignored for colormapped images.
-''' (2) If the input image is colormapped, the new image will be 8 bpp
-''' colormapped if possible; otherwise, it will be converted
-''' to 32 bpp rgb.  Only pixels that are strictly gray will be
-''' colorized.
-''' (3) If the input image is not colormapped, it is converted to rgb.
-''' A "gray" value for a pixel is determined by averaging the
-''' components, and the output rgb value is determined from this.
-''' (4) This can be used in conjunction with pixHasHighlightRed() to
-''' add highlight color to a grayscale image.
+''' <para/>
+''' Notes:<para/>
+''' (1) This generates a new image, where some of the pixels in each<para/>
+''' box in the boxa are colorized.  See pixColorGray() for usage<para/>
+''' with %type and %thresh.  Note that %thresh is only used for<para/>
+''' rgb it is ignored for colormapped images.<para/>
+''' (2) If the input image is colormapped, the new image will be 8 bpp<para/>
+''' colormapped if possible otherwise, it will be converted<para/>
+''' to 32 bpp rgb.  Only pixels that are strictly gray will be<para/>
+''' colorized.<para/>
+''' (3) If the input image is not colormapped, it is converted to rgb.<para/>
+''' A "gray" value for a pixel is determined by averaging the<para/>
+''' components, and the output rgb value is determined from this.<para/>
+''' (4) This can be used in conjunction with pixHasHighlightRed() to<para/>
+''' add highlight color to a grayscale image.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -55,44 +56,45 @@ End Function
 ' pixColorGray()
 ' pixColorGray(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This is an in-place operation; pixs is modified.
-''' If pixs is colormapped, the operation will add colors to the
-''' colormap.  Otherwise, pixs will be converted to 32 bpp rgb if
-''' it is initially 8 bpp gray.
-''' (2) If type == L_PAINT_LIGHT, it colorizes non-black pixels,
-''' preserving antialiasing.
-''' If type == L_PAINT_DARK, it colorizes non-white pixels,
-''' preserving antialiasing.
-''' (3) If box is NULL, applies function to the entire image; otherwise,
-''' clips the operation to the intersection of the box and pix.
-''' (4) If colormapped, calls pixColorGrayCmap(), which applies the
-''' coloring algorithm only to pixels that are strictly gray.
-''' (5) For RGB, determines a "gray" value by averaging; then uses this
-''' value, plus the input rgb target, to generate the output
-''' pixel values.
-''' (6) thresh is only used for rgb; it is ignored for colormapped pix.
-''' If type == L_PAINT_LIGHT, use thresh = 0 if all pixels are to
-''' be colored (black pixels will be unaltered).
-''' In situations where there are a lot of black pixels,
-''' setting thresh GT 0 will make the function considerably
-''' more efficient without affecting the final result.
-''' If type == L_PAINT_DARK, use thresh = 255 if all pixels
-''' are to be colored (white pixels will be unaltered).
-''' In situations where there are a lot of white pixels,
-''' setting thresh LT 255 will make the function considerably
-''' more efficient without affecting the final result.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is an in-place operation pixs is modified.<para/>
+''' If pixs is colormapped, the operation will add colors to the<para/>
+''' colormap.  Otherwise, pixs will be converted to 32 bpp rgb if<para/>
+''' it is initially 8 bpp gray.<para/>
+''' (2) If type == L_PAINT_LIGHT, it colorizes non-black pixels,<para/>
+''' preserving antialiasing.<para/>
+''' If type == L_PAINT_DARK, it colorizes non-white pixels,<para/>
+''' preserving antialiasing.<para/>
+''' (3) If box is NULL, applies function to the entire image otherwise,<para/>
+''' clips the operation to the intersection of the box and pix.<para/>
+''' (4) If colormapped, calls pixColorGrayCmap(), which applies the<para/>
+''' coloring algorithm only to pixels that are strictly gray.<para/>
+''' (5) For RGB, determines a "gray" value by averaging then uses this<para/>
+''' value, plus the input rgb target, to generate the output<para/>
+''' pixel values.<para/>
+''' (6) thresh is only used for rgb it is ignored for colormapped pix.<para/>
+''' If type == L_PAINT_LIGHT, use thresh = 0 if all pixels are to<para/>
+''' be colored (black pixels will be unaltered).<para/>
+''' In situations where there are a lot of black pixels,<para/>
+''' setting thresh  is greater  0 will make the function considerably<para/>
+''' more efficient without affecting the final result.<para/>
+''' If type == L_PAINT_DARK, use thresh = 255 if all pixels<para/>
+''' are to be colored (white pixels will be unaltered).<para/>
+''' In situations where there are a lot of white pixels,<para/>
+''' setting thresh  is lower  255 will make the function considerably<para/>
+''' more efficient without affecting the final result.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 8 bpp gray, rgb or colormapped image</param>
-'''  <param name="box">[in][optional] - region in which to apply color; can be NULL</param>
+'''  <param name="box">[in][optional] - region in which to apply color can be NULL</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
 '''  <param name="thresh">[in] - average value below/above which pixel is unchanged</param>
 '''  <param name="rval">[in] - new color to paint</param>
 '''  <param name="gval">[in] - new color to paint</param>
 '''  <param name="bval">[in] - new color to paint</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixColorGray(
 				ByVal pixs as Pix, 
 				ByVal box as Box, 
@@ -115,22 +117,23 @@ End Function
 ' pixColorGrayMasked()
 ' pixColorGrayMasked(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This generates a new image, where some of the pixels under
-''' FG in the mask are colorized.
-''' (2) See pixColorGray() for usage with %type and %thresh.  Note
-''' that %thresh is only used for rgb; it is ignored for
-''' colormapped images.  In most cases, the mask will be over
-''' the darker parts and %type == L_PAINT_DARK.
-''' (3) If pixs is colormapped this calls pixColorMaskedCmap(),
-''' which adds colors to the colormap for pixd; it only adds
-''' colors corresponding to strictly gray colors in the colormap.
-''' Otherwise, if pixs is 8 bpp gray, pixd will be 32 bpp rgb.
-''' (4) If pixs is 32 bpp rgb, for each pixel a "gray" value is
-''' found by averaging.  This average is then used with the
-''' input rgb target to generate the output pixel values.
-''' (5) This can be used in conjunction with pixHasHighlightRed() to
-''' add highlight color to a grayscale image.
+''' <para/>
+''' Notes:<para/>
+''' (1) This generates a new image, where some of the pixels under<para/>
+''' FG in the mask are colorized.<para/>
+''' (2) See pixColorGray() for usage with %type and %thresh.  Note<para/>
+''' that %thresh is only used for rgb it is ignored for<para/>
+''' colormapped images.  In most cases, the mask will be over<para/>
+''' the darker parts and %type == L_PAINT_DARK.<para/>
+''' (3) If pixs is colormapped this calls pixColorMaskedCmap(),<para/>
+''' which adds colors to the colormap for pixd it only adds<para/>
+''' colors corresponding to strictly gray colors in the colormap.<para/>
+''' Otherwise, if pixs is 8 bpp gray, pixd will be 32 bpp rgb.<para/>
+''' (4) If pixs is 32 bpp rgb, for each pixel a "gray" value is<para/>
+''' found by averaging.  This average is then used with the<para/>
+''' input rgb target to generate the output pixel values.<para/>
+''' (5) This can be used in conjunction with pixHasHighlightRed() to<para/>
+''' add highlight color to a grayscale image.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -165,21 +168,22 @@ End Function
 ' pixSnapColor()
 ' pixSnapColor(PIX *, PIX *, l_uint32, l_uint32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) For inplace operation, call it this way
-''' pixSnapColor(pixs, pixs, ... )
-''' (2) For generating a new pixd
-''' pixd = pixSnapColor(NULL, pixs, ...)
-''' (3) If pixs has a colormap, it is handled by pixSnapColorCmap().
-''' (4) All pixels within 'diff' of 'srcval', componentwise,
-''' will be changed to 'dstval'.
+''' <para/>
+''' Notes:<para/>
+''' (1) For inplace operation, call it this way:<para/>
+''' pixSnapColor(pixs, pixs, ... )<para/>
+''' (2) For generating a new pixd:<para/>
+''' pixd = pixSnapColor(NULL, pixs, ...)<para/>
+''' (3) If pixs has a colormap, it is handled by pixSnapColorCmap().<para/>
+''' (4) All pixels within 'diff' of 'srcval', componentwise,<para/>
+''' will be changed to 'dstval'.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixd">[in][optional] - ; either NULL or equal to pixs for in-place</param>
+'''  <param name="pixd">[in][optional] - either NULL or equal to pixs for in-place</param>
 '''  <param name="pixs">[in] - colormapped or 8 bpp gray or 32 bpp rgb</param>
-'''  <param name="srcval">[in] - color center to be selected for change 0xrrggbb00</param>
-'''  <param name="dstval">[in] - target color for pixels 0xrrggbb00</param>
+'''  <param name="srcval">[in] - color center to be selected for change: 0xrrggbb00</param>
+'''  <param name="dstval">[in] - target color for pixels: 0xrrggbb00</param>
 '''  <param name="diff">[in] - max absolute difference, applied to all components</param>
 '''   <returns>pixd with all pixels within diff of pixval set to pixval, or pixd on error</returns>
 Public Shared Function pixSnapColor(
@@ -203,21 +207,22 @@ End Function
 ' pixSnapColorCmap()
 ' pixSnapColorCmap(PIX *, PIX *, l_uint32, l_uint32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) For inplace operation, call it this way
-''' pixSnapCcmap(pixs, pixs, ... )
-''' (2) For generating a new pixd
-''' pixd = pixSnapCmap(NULL, pixs, ...)
-''' (3) pixs must have a colormap.
-''' (4) All colors within 'diff' of 'srcval', componentwise,
-''' will be changed to 'dstval'.
+''' <para/>
+''' Notes:<para/>
+''' (1) For inplace operation, call it this way:<para/>
+''' pixSnapCcmap(pixs, pixs, ... )<para/>
+''' (2) For generating a new pixd:<para/>
+''' pixd = pixSnapCmap(NULL, pixs, ...)<para/>
+''' (3) pixs must have a colormap.<para/>
+''' (4) All colors within 'diff' of 'srcval', componentwise,<para/>
+''' will be changed to 'dstval'.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixd">[in][optional] - ; either NULL or equal to pixs for in-place</param>
+'''  <param name="pixd">[in][optional] - either NULL or equal to pixs for in-place</param>
 '''  <param name="pixs">[in] - colormapped</param>
-'''  <param name="srcval">[in] - color center to be selected for change 0xrrggbb00</param>
-'''  <param name="dstval">[in] - target color for pixels 0xrrggbb00</param>
+'''  <param name="srcval">[in] - color center to be selected for change: 0xrrggbb00</param>
+'''  <param name="dstval">[in] - target color for pixels: 0xrrggbb00</param>
 '''  <param name="diff">[in] - max absolute difference, applied to all components</param>
 '''   <returns>pixd with all pixels within diff of srcval set to dstval, or pixd on error</returns>
 Public Shared Function pixSnapColorCmap(
@@ -241,29 +246,30 @@ End Function
 ' pixLinearMapToTargetColor()
 ' pixLinearMapToTargetColor(PIX *, PIX *, l_uint32, l_uint32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) For each component (r, b, g) separately, this does a piecewise
-''' linear mapping of the colors in pixs to colors in pixd.
-''' If rs and rd are the red src and dest components in %srcval and
-''' %dstval, then the range [0 ... rs] in pixs is mapped to
-''' [0 ... rd] in pixd.  Likewise, the range [rs ... 255] in pixs
-''' is mapped to [rd ... 255] in pixd.  And similarly for green
-''' and blue.
-''' (2) The mapping will in general change the hue of the pixels.
-''' However, if the src and dst targets are related by
-''' a transformation given by pixelFractionalShift(), the hue
-''' is invariant.
-''' (3) For inplace operation, call it this way
-''' pixLinearMapToTargetColor(pixs, pixs, ... )
-''' (4) For generating a new pixd
-''' pixd = pixLinearMapToTargetColor(NULL, pixs, ...)
+''' <para/>
+''' Notes:<para/>
+''' (1) For each component (r, b, g) separately, this does a piecewise<para/>
+''' linear mapping of the colors in pixs to colors in pixd.<para/>
+''' If rs and rd are the red src and dest components in %srcval and<para/>
+''' %dstval, then the range [0 ... rs] in pixs is mapped to<para/>
+''' [0 ... rd] in pixd.  Likewise, the range [rs ... 255] in pixs<para/>
+''' is mapped to [rd ... 255] in pixd.  And similarly for green<para/>
+''' and blue.<para/>
+''' (2) The mapping will in general change the hue of the pixels.<para/>
+''' However, if the src and dst targets are related by<para/>
+''' a transformation given by pixelFractionalShift(), the hue<para/>
+''' is invariant.<para/>
+''' (3) For inplace operation, call it this way:<para/>
+''' pixLinearMapToTargetColor(pixs, pixs, ... )<para/>
+''' (4) For generating a new pixd:<para/>
+''' pixd = pixLinearMapToTargetColor(NULL, pixs, ...)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixd">[in][optional] - ; either NULL or equal to pixs for in-place</param>
+'''  <param name="pixd">[in][optional] - either NULL or equal to pixs for in-place</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
-'''  <param name="srcval">[in] - source color 0xrrggbb00</param>
-'''  <param name="dstval">[in] - target color 0xrrggbb00</param>
+'''  <param name="srcval">[in] - source color: 0xrrggbb00</param>
+'''  <param name="dstval">[in] - target color: 0xrrggbb00</param>
 '''   <returns>pixd with all pixels mapped based on the srcval/destval mapping, or pixd on error</returns>
 Public Shared Function pixLinearMapToTargetColor(
 				ByVal pixd as Pix, 
@@ -286,29 +292,30 @@ End Function
 ' pixelLinearMapToTargetColor()
 ' pixelLinearMapToTargetColor(l_uint32, l_uint32, l_uint32, l_uint32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This does this does a piecewise linear mapping of each
-''' component of %scolor to %dcolor, based on the relation
-''' between the components of %srcmap and %dstmap.  It is the
-''' same transformation, performed on a single color, as mapped
-''' on every pixel in a pix by pixLinearMapToTargetColor().
-''' (2) For each component, if the sval is larger than the smap,
-''' the dval will be pushed up from dmap towards white.
-''' Otherwise, dval will be pushed down from dmap towards black.
-''' This is because you can visualize the transformation as
-''' a linear stretching where smap moves to dmap, and everything
-''' else follows linearly with 0 and 255 fixed.
-''' (3) The mapping will in general change the hue of %scolor.
-''' However, if the %srcmap and %dstmap targets are related by
-''' a transformation given by pixelFractionalShift(), the hue
-''' will be invariant.
+''' <para/>
+''' Notes:<para/>
+''' (1) This does this does a piecewise linear mapping of each<para/>
+''' component of %scolor to %dcolor, based on the relation<para/>
+''' between the components of %srcmap and %dstmap.  It is the<para/>
+''' same transformation, performed on a single color, as mapped<para/>
+''' on every pixel in a pix by pixLinearMapToTargetColor().<para/>
+''' (2) For each component, if the sval is larger than the smap,<para/>
+''' the dval will be pushed up from dmap towards white.<para/>
+''' Otherwise, dval will be pushed down from dmap towards black.<para/>
+''' This is because you can visualize the transformation as<para/>
+''' a linear stretching where smap moves to dmap, and everything<para/>
+''' else follows linearly with 0 and 255 fixed.<para/>
+''' (3) The mapping will in general change the hue of %scolor.<para/>
+''' However, if the %srcmap and %dstmap targets are related by<para/>
+''' a transformation given by pixelFractionalShift(), the hue<para/>
+''' will be invariant.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="scolor">[in] - rgb source color 0xrrggbb00</param>
-'''  <param name="srcmap">[in] - source mapping color 0xrrggbb00</param>
-'''  <param name="dstmap">[in] - target mapping color 0xrrggbb00</param>
-'''  <param name="pdcolor">[out] - rgb dest color 0xrrggbb00</param>
+'''  <param name="scolor">[in] - rgb source color: 0xrrggbb00</param>
+'''  <param name="srcmap">[in] - source mapping color: 0xrrggbb00</param>
+'''  <param name="dstmap">[in] - target mapping color: 0xrrggbb00</param>
+'''  <param name="pdcolor">[out] - rgb dest color: 0xrrggbb00</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixelLinearMapToTargetColor(
 				ByVal scolor as UInteger, 
@@ -327,42 +334,43 @@ End Function
 ' pixShiftByComponent()
 ' pixShiftByComponent(PIX *, PIX *, l_uint32, l_uint32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) For each component (r, b, g) separately, this does a linear
-''' mapping of the colors in pixs to colors in pixd.
-''' Let rs and rd be the red src and dest components in %srcval and
-''' %dstval, and rval is the red component of the src pixel.
-''' Then for all pixels in pixs, the mapping for the red
-''' component from pixs to pixd is
-''' if (rd LT= rs)   (shift toward black)
-''' rval --GT (rd/rs)  rval
-''' if (rd GT rs) (shift toward white)
-''' (255 - rval) --GT ((255 - rs)/(255 - rd))  (255 - rval)
-''' Thus if rd LT= rs, the red component of all pixels is
-''' mapped by the same fraction toward white, and if rd GT rs,
-''' they are mapped by the same fraction toward black.
-''' This is essentially a different linear TRC (gamma = 1)
-''' for each component.  The source and target color inputs are
-''' just used to generate the three fractions.
-''' (2) Note that this mapping differs from that in
-''' pixLinearMapToTargetColor(), which maps rs --GT rd and does
-''' a piecewise stretching in between.
-''' (3) For inplace operation, call it this way
-''' pixFractionalShiftByComponent(pixs, pixs, ... )
-''' (4) For generating a new pixd
-''' pixd = pixLinearMapToTargetColor(NULL, pixs, ...)
-''' (5) A simple application is to color a grayscale image.
-''' A light background can be colored using srcval = 0xffffff00
-''' and picking a target background color for dstval.
-''' A dark foreground can be colored by using srcval = 0x0
-''' and choosing a target foreground color for dstval.
+''' <para/>
+''' Notes:<para/>
+''' (1) For each component (r, b, g) separately, this does a linear<para/>
+''' mapping of the colors in pixs to colors in pixd.<para/>
+''' Let rs and rd be the red src and dest components in %srcval and<para/>
+''' %dstval, and rval is the red component of the src pixel.<para/>
+''' Then for all pixels in pixs, the mapping for the red<para/>
+''' component from pixs to pixd is:<para/>
+''' if (rd  is lower = rs) (shift toward black)<para/>
+''' rval -- is greater  (rd/rs)  rval<para/>
+''' if (rd  is greater  rs)  (shift toward white)<para/>
+''' (255 - rval) -- is greater  ((255 - rs)/(255 - rd))  (255 - rval)<para/>
+''' Thus if rd  is lower = rs, the red component of all pixels is<para/>
+''' mapped by the same fraction toward white, and if rd  is greater  rs,<para/>
+''' they are mapped by the same fraction toward black.<para/>
+''' This is essentially a different linear TRC (gamma = 1)<para/>
+''' for each component.  The source and target color inputs are<para/>
+''' just used to generate the three fractions.<para/>
+''' (2) Note that this mapping differs from that in<para/>
+''' pixLinearMapToTargetColor(), which maps rs -- is greater  rd and does<para/>
+''' a piecewise stretching in between.<para/>
+''' (3) For inplace operation, call it this way:<para/>
+''' pixFractionalShiftByComponent(pixs, pixs, ... )<para/>
+''' (4) For generating a new pixd:<para/>
+''' pixd = pixLinearMapToTargetColor(NULL, pixs, ...)<para/>
+''' (5) A simple application is to color a grayscale image.<para/>
+''' A light background can be colored using srcval = 0xffffff00<para/>
+''' and picking a target background color for dstval.<para/>
+''' A dark foreground can be colored by using srcval = 0x0<para/>
+''' and choosing a target foreground color for dstval.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixd">[in][optional] - ; either NULL or equal to pixs for in-place</param>
+'''  <param name="pixd">[in][optional] - either NULL or equal to pixs for in-place</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
-'''  <param name="srcval">[in] - source color 0xrrggbb00</param>
-'''  <param name="dstval">[in] - target color 0xrrggbb00</param>
+'''  <param name="srcval">[in] - source color: 0xrrggbb00</param>
+'''  <param name="dstval">[in] - target color: 0xrrggbb00</param>
 '''   <returns>pixd with all pixels mapped based on the srcval/destval mapping, or pixd on error</returns>
 Public Shared Function pixShiftByComponent(
 				ByVal pixd as Pix, 
@@ -385,21 +393,22 @@ End Function
 ' pixelShiftByComponent()
 ' pixelShiftByComponent(l_int32, l_int32, l_int32, l_uint32, l_uint32, l_uint32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This is a linear transformation that gives the same result
-''' on a single pixel as pixShiftByComponent() gives
-''' on a pix.  Each component is handled separately.  If
-''' the dest component is larger than the src, then the
-''' component is pushed toward 255 by the same fraction as
-''' the src --GT dest shift.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is a linear transformation that gives the same result<para/>
+''' on a single pixel as pixShiftByComponent() gives<para/>
+''' on a pix.  Each component is handled separately.  If<para/>
+''' the dest component is larger than the src, then the<para/>
+''' component is pushed toward 255 by the same fraction as<para/>
+''' the src -- is greater  dest shift.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>
-'''  <param name="srcval">[in] - source color 0xrrggbb00</param>
-'''  <param name="dstval">[in] - target color 0xrrggbb00</param>
+'''  <param name="srcval">[in] - source color: 0xrrggbb00</param>
+'''  <param name="dstval">[in] - target color: 0xrrggbb00</param>
 '''  <param name="ppixel">[out] - rgb value</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixelShiftByComponent(
@@ -421,21 +430,22 @@ End Function
 ' pixelFractionalShift()
 ' pixelFractionalShift(l_int32, l_int32, l_int32, l_float32, l_uint32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This transformation leaves the hue invariant, while changing
-''' the saturation and intensity.  It can be used for that
-''' purpose in pixLinearMapToTargetColor().
-''' (2) %fraction is in the range [-1 .... +1].  If %fraction LT 0,
-''' saturation is increased and brightness is reduced.  The
-''' opposite results if %fraction GT 0.  If %fraction == -1,
-''' the resulting pixel is black; %fraction == 1 results in white.
+''' <para/>
+''' Notes:<para/>
+''' (1) This transformation leaves the hue invariant, while changing<para/>
+''' the saturation and intensity.  It can be used for that<para/>
+''' purpose in pixLinearMapToTargetColor().<para/>
+''' (2) %fraction is in the range [-1 .... +1].  If %fraction  is lower  0,<para/>
+''' saturation is increased and brightness is reduced.  The<para/>
+''' opposite results if %fraction  is greater  0.  If %fraction == -1,<para/>
+''' the resulting pixel is black %fraction == 1 results in white.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>
-'''  <param name="fraction">[in] - negative toward black; positive toward white</param>
+'''  <param name="fraction">[in] - negative toward black positive toward white</param>
 '''  <param name="ppixel">[out] - rgb value</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixelFractionalShift(

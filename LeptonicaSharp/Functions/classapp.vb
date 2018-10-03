@@ -1,17 +1,18 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\classapp.c (96, 1)
 ' jbCorrelation()
 ' jbCorrelation(const char *, l_float32, l_float32, l_int32, const char *, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The images must be 1 bpp.  If they are not, you can convert
-''' them using convertFilesTo1bpp().
-''' (2) See prog/jbcorrelation for generating more output (e.g.,
-''' for debugging)
+''' <para/>
+''' Notes:<para/>
+''' (1) The images must be 1 bpp.  If they are not, you can convert<para/>
+''' them using convertFilesTo1bpp().<para/>
+''' (2) See prog/jbcorrelation for generating more output (e.g.,<para/>
+''' for debugging)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -22,7 +23,7 @@ Partial Public Class _AllFunctions
 '''  <param name="rootname">[in] - for output files</param>
 '''  <param name="firstpage">[in] - 0-based</param>
 '''  <param name="npages">[in] - use 0 for all pages in dirin</param>
-'''  <param name="renderflag">[in] - 1 to render from templates; 0 to skip</param>
+'''  <param name="renderflag">[in] - 1 to render from templates 0 to skip</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function jbCorrelation(
 				ByVal dirin as String, 
@@ -49,20 +50,21 @@ End Function
 ' jbRankHaus()
 ' jbRankHaus(const char *, l_int32, l_float32, l_int32, const char *, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) See prog/jbrankhaus for generating more output (e.g.,
-''' for debugging)
+''' <para/>
+''' Notes:<para/>
+''' (1) See prog/jbrankhaus for generating more output (e.g.,<para/>
+''' for debugging)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dirin">[in] - directory of input images</param>
-'''  <param name="size">[in] - of Sel used for dilation; typ. 2</param>
-'''  <param name="rank">[in] - rank value of match; typ. 0.97</param>
+'''  <param name="size">[in] - of Sel used for dilation typ. 2</param>
+'''  <param name="rank">[in] - rank value of match typ. 0.97</param>
 '''  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
 '''  <param name="rootname">[in] - for output files</param>
 '''  <param name="firstpage">[in] - 0-based</param>
 '''  <param name="npages">[in] - use 0 for all pages in dirin</param>
-'''  <param name="renderflag">[in] - 1 to render from templates; 0 to skip</param>
+'''  <param name="renderflag">[in] - 1 to render from templates 0 to skip</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function jbRankHaus(
 				ByVal dirin as String, 
@@ -88,19 +90,20 @@ End Function
 ' jbWordsInTextlines()
 ' jbWordsInTextlines(const char *, l_int32, l_int32, l_int32, l_float32, l_float32, NUMA **, l_int32, l_int32) as JBCLASSER *
 '''  <summary>
-''' Notes
-''' (1) This is a high-level function.  See prog/jbwords for example
-''' of usage.
-''' (2) Typically, use input of 75 - 150 ppi for finding words.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is a high-level function.  See prog/jbwords for example<para/>
+''' of usage.<para/>
+''' (2) Typically, use input of 75 - 150 ppi for finding words.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dirin">[in] - directory of input pages</param>
-'''  <param name="reduction">[in] - 1 for full res; 2 for half-res</param>
+'''  <param name="reduction">[in] - 1 for full res 2 for half-res</param>
 '''  <param name="maxwidth">[in] - of word mask components, to be kept</param>
 '''  <param name="maxheight">[in] - of word mask components, to be kept</param>
-'''  <param name="thresh">[in] - on correlation; 0.80 is reasonable</param>
-'''  <param name="weight">[in] - for handling thick text; 0.6 is reasonable</param>
+'''  <param name="thresh">[in] - on correlation 0.80 is reasonable</param>
+'''  <param name="weight">[in] - for handling thick text 0.6 is reasonable</param>
 '''  <param name="pnatl">[out] - numa with textline index for each component</param>
 '''  <param name="firstpage">[in] - 0-based</param>
 '''  <param name="npages">[in] - use 0 for all pages in dirin</param>
@@ -119,7 +122,7 @@ Public Shared Function jbWordsInTextlines(
 	If IsNothing (dirin) then Throw New ArgumentNullException  ("dirin cannot be Nothing")
 	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
 	If IsNothing (weight) then Throw New ArgumentNullException  ("weight cannot be Nothing")
-	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("1 for full res; 2 for half-res")
+	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("1 for full res 2 for half-res")
 
 	Dim pnatlPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnatl) Then pnatlPTR = pnatl.Pointer
 
@@ -134,44 +137,45 @@ End Function
 ' pixGetWordsInTextlines()
 ' pixGetWordsInTextlines(PIX *, l_int32, l_int32, l_int32, l_int32, BOXA **, PIXA **, NUMA **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The input should be at a resolution of between 75 and 150 ppi.
-''' (2) The four size constraints on saved components are all
-''' scaled by %reduction.
-''' (3) The result are word images (and their b.b.), extracted in
-''' textline order, at either full res or 2x reduction,
-''' and with a numa giving the textline index for each word.
-''' (4) The pixa and boxa interfaces should make this type of
-''' application simple to put together.  The steps are
-''' ~ generate first estimate of word masks
-''' ~ get b.b. of these, and remove the small and big ones
-''' ~ extract pixa of the word images, using the b.b.
-''' ~ sort actual word images in textline order (2d)
-''' ~ flatten them to a pixa (1d), saving the textline index
-''' for each pix
-''' (5) In an actual application, it may be desirable to pre-filter
-''' the input image to remove large components, to extract
-''' single columns of text, and to deskew them.  For example,
-''' to remove both large components and small noisy components
-''' that can interfere with the statistics used to estimate
-''' parameters for segmenting by words, but still retain text lines,
-''' the following image preprocessing can be done
-''' Pix pixt = pixMorphSequence(pixs, "c40.1", 0);
-''' Pix pixf = pixSelectBySize(pixt, 0, 60, 8,
-''' L_SELECT_HEIGHT, L_SELECT_IF_LT, NULL);
-''' pixAnd(pixf, pixf, pixs);  // the filtered image
-''' The closing turns text lines into long blobs, but does not
-''' significantly increase their height.  But if there are many
-''' small connected components in a dense texture, this is likely
-''' to generate tall components that will be eliminated in pixf.
+''' <para/>
+''' Notes:<para/>
+''' (1) The input should be at a resolution of between 75 and 150 ppi.<para/>
+''' (2) The four size constraints on saved components are all<para/>
+''' scaled by %reduction.<para/>
+''' (3) The result are word images (and their b.b.), extracted in<para/>
+''' textline order, at either full res or 2x reduction,<para/>
+''' and with a numa giving the textline index for each word.<para/>
+''' (4) The pixa and boxa interfaces should make this type of<para/>
+''' application simple to put together.  The steps are:<para/>
+''' ~ generate first estimate of word masks<para/>
+''' ~ get b.b. of these, and remove the small and big ones<para/>
+''' ~ extract pixa of the word images, using the b.b.<para/>
+''' ~ sort actual word images in textline order (2d)<para/>
+''' ~ flatten them to a pixa (1d), saving the textline index<para/>
+''' for each pix<para/>
+''' (5) In an actual application, it may be desirable to pre-filter<para/>
+''' the input image to remove large components, to extract<para/>
+''' single columns of text, and to deskew them.  For example,<para/>
+''' to remove both large components and small noisy components<para/>
+''' that can interfere with the statistics used to estimate<para/>
+''' parameters for segmenting by words, but still retain text lines,<para/>
+''' the following image preprocessing can be done:<para/>
+''' Pix pixt = pixMorphSequence(pixs, "c40.1", 0)<para/>
+''' Pix pixf = pixSelectBySize(pixt, 0, 60, 8,<para/>
+''' L_SELECT_HEIGHT, L_SELECT_IF_LT, NULL)<para/>
+''' pixAnd(pixf, pixf, pixs)  // the filtered image<para/>
+''' The closing turns text lines into long blobs, but does not<para/>
+''' significantly increase their height.  But if there are many<para/>
+''' small connected components in a dense texture, this is likely<para/>
+''' to generate tall components that will be eliminated in pixf.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 1 bpp, typ. 75 - 150 ppi</param>
-'''  <param name="minwidth">[in] - of saved components; smaller are discarded</param>
-'''  <param name="minheight">[in] - of saved components; smaller are discarded</param>
-'''  <param name="maxwidth">[in] - of saved components; larger are discarded</param>
-'''  <param name="maxheight">[in] - of saved components; larger are discarded</param>
+'''  <param name="minwidth">[in] - of saved components smaller are discarded</param>
+'''  <param name="minheight">[in] - of saved components smaller are discarded</param>
+'''  <param name="maxwidth">[in] - of saved components larger are discarded</param>
+'''  <param name="maxheight">[in] - of saved components larger are discarded</param>
 '''  <param name="pboxad">[out] - word boxes sorted in textline line order</param>
 '''  <param name="ppixad">[out] - word images sorted in textline line order</param>
 '''  <param name="pnai">[out] - index of textline for each word</param>
@@ -204,20 +208,21 @@ End Function
 ' pixGetWordBoxesInTextlines()
 ' pixGetWordBoxesInTextlines(PIX *, l_int32, l_int32, l_int32, l_int32, BOXA **, NUMA **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The input should be at a resolution of between 75 and 150 ppi.
-''' (2) This is a special version of pixGetWordsInTextlines(), that
-''' just finds the word boxes in line order, with a numa
-''' giving the textline index for each word.
-''' See pixGetWordsInTextlines() for more details.
+''' <para/>
+''' Notes:<para/>
+''' (1) The input should be at a resolution of between 75 and 150 ppi.<para/>
+''' (2) This is a special version of pixGetWordsInTextlines(), that<para/>
+''' just finds the word boxes in line order, with a numa<para/>
+''' giving the textline index for each word.<para/>
+''' See pixGetWordsInTextlines() for more details.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 1 bpp, typ. 300 ppi</param>
-'''  <param name="minwidth">[in] - of saved components; smaller are discarded</param>
-'''  <param name="minheight">[in] - of saved components; smaller are discarded</param>
-'''  <param name="maxwidth">[in] - of saved components; larger are discarded</param>
-'''  <param name="maxheight">[in] - of saved components; larger are discarded</param>
+'''  <param name="minwidth">[in] - of saved components smaller are discarded</param>
+'''  <param name="minheight">[in] - of saved components smaller are discarded</param>
+'''  <param name="maxwidth">[in] - of saved components larger are discarded</param>
+'''  <param name="maxheight">[in] - of saved components larger are discarded</param>
 '''  <param name="pboxad">[out] - word boxes sorted in textline line order</param>
 '''  <param name="pnai">[out][optional] - index of textline for each word</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -246,12 +251,13 @@ End Function
 ' boxaExtractSortedPattern()
 ' boxaExtractSortedPattern(BOXA *, NUMA *) as NUMAA *
 '''  <summary>
-''' Notes
-''' (1) The input is expected to come from pixGetWordBoxesInTextlines().
-''' (2) Each numa in the output consists of an average y coordinate
-''' of the first box in the textline, followed by pairs of
-''' x coordinates representing the left and right edges of each
-''' of the boxes in the textline.
+''' <para/>
+''' Notes:<para/>
+''' (1) The input is expected to come from pixGetWordBoxesInTextlines().<para/>
+''' (2) Each numa in the output consists of an average y coordinate<para/>
+''' of the first box in the textline, followed by pairs of<para/>
+''' x coordinates representing the left and right edges of each<para/>
+''' of the boxes in the textline.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -276,44 +282,45 @@ End Function
 ' numaaCompareImagesByBoxes()
 ' numaaCompareImagesByBoxes(NUMAA *, NUMAA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32 *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Each input numaa describes a set of sorted bounding boxes
-''' (sorted by textline and, within each textline, from
-''' left to right) in the images from which they are derived.
-''' See boxaExtractSortedPattern() for a description of the data
-''' format in each of the input numaa.
-''' (2) This function does an alignment between the input
-''' descriptions of bounding boxes for two images. The
-''' input parameter %nperline specifies the number of boxes
-''' to consider in each line when testing for a match, and
-''' %nreq is the required number of lines that must be well-aligned
-''' to get a match.
-''' (3) Testing by alignment has 3 steps
-''' (a) Generating the location of word bounding boxes from the
-''' images (prior to calling this function).
-''' (b) Listing all possible pairs of aligned rows, based on
-''' tolerances in horizontal and vertical positions of
-''' the boxes.  Specifically, all pairs of rows are enumerated
-''' whose first %nperline boxes can be brought into close
-''' alignment, based on the delx parameter for boxes in the
-''' line and within the overall the %maxshiftx and %maxshifty
-''' constraints.
-''' (c) Each pair, starting with the first, is used to search
-''' for a set of %nreq - 1 other pairs that can all be aligned
-''' with a difference in global translation of not more
-''' than (%delx, %dely).
+''' <para/>
+''' Notes:<para/>
+''' (1) Each input numaa describes a set of sorted bounding boxes<para/>
+''' (sorted by textline and, within each textline, from<para/>
+''' left to right) in the images from which they are derived.<para/>
+''' See boxaExtractSortedPattern() for a description of the data<para/>
+''' format in each of the input numaa.<para/>
+''' (2) This function does an alignment between the input<para/>
+''' descriptions of bounding boxes for two images. The<para/>
+''' input parameter %nperline specifies the number of boxes<para/>
+''' to consider in each line when testing for a match, and<para/>
+''' %nreq is the required number of lines that must be well-aligned<para/>
+''' to get a match.<para/>
+''' (3) Testing by alignment has 3 steps:<para/>
+''' (a) Generating the location of word bounding boxes from the<para/>
+''' images (prior to calling this function).<para/>
+''' (b) Listing all possible pairs of aligned rows, based on<para/>
+''' tolerances in horizontal and vertical positions of<para/>
+''' the boxes.  Specifically, all pairs of rows are enumerated<para/>
+''' whose first %nperline boxes can be brought into close<para/>
+''' alignment, based on the delx parameter for boxes in the<para/>
+''' line and within the overall the %maxshiftx and %maxshifty<para/>
+''' constraints.<para/>
+''' (c) Each pair, starting with the first, is used to search<para/>
+''' for a set of %nreq - 1 other pairs that can all be aligned<para/>
+''' with a difference in global translation of not more<para/>
+''' than (%delx, %dely).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="naa1">[in] - for image 1, formatted by boxaExtractSortedPattern()</param>
-'''  <param name="naa2">[in] - ditto; for image 2</param>
+'''  <param name="naa2">[in] - ditto for image 2</param>
 '''  <param name="nperline">[in] - number of box regions to be used in each textline</param>
 '''  <param name="nreq">[in] - number of complete row matches required</param>
 '''  <param name="maxshiftx">[in] - max allowed x shift between two patterns, in pixels</param>
 '''  <param name="maxshifty">[in] - max allowed y shift between two patterns, in pixels</param>
 '''  <param name="delx">[in] - max allowed difference in x data, after alignment</param>
 '''  <param name="dely">[in] - max allowed difference in y data, after alignment</param>
-'''  <param name="psame">[out] - 1 if %nreq row matches are found; 0 otherwise</param>
+'''  <param name="psame">[out] - 1 if %nreq row matches are found 0 otherwise</param>
 '''  <param name="debugflag">[in] - 1 for debug output</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function numaaCompareImagesByBoxes(

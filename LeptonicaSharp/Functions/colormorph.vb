@@ -1,23 +1,24 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\colormorph.c (66, 1)
 ' pixColorMorph()
 ' pixColorMorph(PIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This does the morph operation on each component separately,
-''' and recombines the result.
-''' (2) Sel is a brick with all elements being hits.
-''' (3) If hsize = vsize = 1, just returns a copy.
+''' <para/>
+''' Notes:<para/>
+''' (1) This does the morph operation on each component separately,<para/>
+''' and recombines the result.<para/>
+''' (2) Sel is a brick with all elements being hits.<para/>
+''' (3) If hsize = vsize = 1, just returns a copy.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="type">[in] - L_MORPH_DILATE, L_MORPH_ERODE, L_MORPH_OPEN, or L_MORPH_CLOSE</param>
-'''  <param name="hsize">[in] - of Sel; must be odd; origin implicitly in center</param>
+'''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
 '''  <param name="vsize">[in] - ditto</param>
 '''   <returns>pixd</returns>
 Public Shared Function pixColorMorph(

@@ -1,20 +1,21 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\rotateshear.c (196, 1)
 ' pixRotateShear()
 ' pixRotateShear(PIX *, l_int32, l_int32, l_float32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This rotates an image about the given point, using
-''' either 2 or 3 shears.
-''' (2) A positive angle gives a clockwise rotation.
-''' (3) This brings in 'incolor' pixels from outside the image.
-''' (4) For rotation angles larger than about 0.35 radians, we issue
-''' a warning because you should probably be using another method
-''' (either sampling or area mapping)
+''' <para/>
+''' Notes:<para/>
+''' (1) This rotates an image about the given point, using<para/>
+''' either 2 or 3 shears.<para/>
+''' (2) A positive angle gives a clockwise rotation.<para/>
+''' (3) This brings in 'incolor' pixels from outside the image.<para/>
+''' (4) For rotation angles larger than about 0.35 radians, we issue<para/>
+''' a warning because you should probably be using another method<para/>
+''' (either sampling or area mapping)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -22,7 +23,7 @@ Partial Public Class _AllFunctions
 '''  <param name="xcen">[in] - x value for which there is no horizontal shear</param>
 '''  <param name="ycen">[in] - y value for which there is no vertical shear</param>
 '''  <param name="angle">[in] - radians</param>
-'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK;</param>
+'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 '''   <returns>pixd, or NULL on error.</returns>
 Public Shared Function pixRotateShear(
 				ByVal pixs as Pix, 
@@ -45,19 +46,20 @@ End Function
 ' pixRotate2Shear()
 ' pixRotate2Shear(PIX *, l_int32, l_int32, l_float32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This rotates the image about the given point, using the 2-shear
-''' method.  It should only be used for angles smaller than
-''' MAX_2_SHEAR_ANGLE.  For larger angles, a warning is issued.
-''' (2) A positive angle gives a clockwise rotation.
-''' (3) 2-shear rotation by a specified angle is equivalent
-''' to the sequential transformations
-''' x' = x + tan(angle)  (y - ycen)  for x-shear
-''' y' = y + tan(angle)  (x - xcen)  for y-shear
-''' (4) Computation of tan(angle) is performed within the shear operation.
-''' (5) This brings in 'incolor' pixels from outside the image.
-''' (6) If the image has an alpha layer, it is rotated separately by
-''' two shears.
+''' <para/>
+''' Notes:<para/>
+''' (1) This rotates the image about the given point, using the 2-shear<para/>
+''' method.  It should only be used for angles smaller than<para/>
+''' MAX_2_SHEAR_ANGLE.  For larger angles, a warning is issued.<para/>
+''' (2) A positive angle gives a clockwise rotation.<para/>
+''' (3) 2-shear rotation by a specified angle is equivalent<para/>
+''' to the sequential transformations<para/>
+''' x' = x + tan(angle)  (y - ycen) for x-shear<para/>
+''' y' = y + tan(angle)  (x - xcen) for y-shear<para/>
+''' (4) Computation of tan(angle) is performed within the shear operation.<para/>
+''' (5) This brings in 'incolor' pixels from outside the image.<para/>
+''' (6) If the image has an alpha layer, it is rotated separately by<para/>
+''' two shears.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -65,7 +67,7 @@ End Function
 '''  <param name="xcen">[in] - center of rotation</param>
 '''  <param name="ycen">[in] - center of rotation</param>
 '''  <param name="angle">[in] - radians</param>
-'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK;</param>
+'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 '''   <returns>pixd, or NULL on error.</returns>
 Public Shared Function pixRotate2Shear(
 				ByVal pixs as Pix, 
@@ -88,25 +90,26 @@ End Function
 ' pixRotate3Shear()
 ' pixRotate3Shear(PIX *, l_int32, l_int32, l_float32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This rotates the image about the given point, using the 3-shear
-''' method.  It should only be used for angles smaller than
-''' LIMIT_SHEAR_ANGLE.  For larger angles, a warning is issued.
-''' (2) A positive angle gives a clockwise rotation.
-''' (3) 3-shear rotation by a specified angle is equivalent
-''' to the sequential transformations
-''' y' = y + tan(angle/2)  (x - xcen)  for first y-shear
-''' x' = x + sin(angle)  (y - ycen) for x-shear
-''' y' = y + tan(angle/2)  (x - xcen)  for second y-shear
-''' (4) Computation of tan(angle) is performed in the shear operations.
-''' (5) This brings in 'incolor' pixels from outside the image.
-''' (6) If the image has an alpha layer, it is rotated separately by
-''' two shears.
-''' (7) The algorithm was published by Alan Paeth "A Fast Algorithm
-''' for General Raster Rotation," Graphics Interface '86,
-''' pp. 77-81, May 1986.  A description of the method, along with
-''' an implementation, can be found in Graphics Gems, p. 179,
-''' edited by Andrew Glassner, published by Academic Press, 1990.
+''' <para/>
+''' Notes:<para/>
+''' (1) This rotates the image about the given point, using the 3-shear<para/>
+''' method.  It should only be used for angles smaller than<para/>
+''' LIMIT_SHEAR_ANGLE.  For larger angles, a warning is issued.<para/>
+''' (2) A positive angle gives a clockwise rotation.<para/>
+''' (3) 3-shear rotation by a specified angle is equivalent<para/>
+''' to the sequential transformations<para/>
+''' y' = y + tan(angle/2)  (x - xcen) for first y-shear<para/>
+''' x' = x + sin(angle)  (y - ycen) for x-shear<para/>
+''' y' = y + tan(angle/2)  (x - xcen) for second y-shear<para/>
+''' (4) Computation of tan(angle) is performed in the shear operations.<para/>
+''' (5) This brings in 'incolor' pixels from outside the image.<para/>
+''' (6) If the image has an alpha layer, it is rotated separately by<para/>
+''' two shears.<para/>
+''' (7) The algorithm was published by Alan Paeth: "A Fast Algorithm<para/>
+''' for General Raster Rotation," Graphics Interface '86,<para/>
+''' pp. 77-81, May 1986.  A description of the method, along with<para/>
+''' an implementation, can be found in Graphics Gems, p. 179,<para/>
+''' edited by Andrew Glassner, published by Academic Press, 1990.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -114,7 +117,7 @@ End Function
 '''  <param name="xcen">[in] - center of rotation</param>
 '''  <param name="ycen">[in] - center of rotation</param>
 '''  <param name="angle">[in] - radians</param>
-'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK;</param>
+'''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 '''   <returns>pixd, or NULL on error.</returns>
 Public Shared Function pixRotate3Shear(
 				ByVal pixs as Pix, 
@@ -137,30 +140,31 @@ End Function
 ' pixRotateShearIP()
 ' pixRotateShearIP(PIX *, l_int32, l_int32, l_float32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This does an in-place rotation of the image about the
-''' specified point, using the 3-shear method.  It should only
-''' be used for angles smaller than LIMIT_SHEAR_ANGLE.
-''' For larger angles, a warning is issued.
-''' (2) A positive angle gives a clockwise rotation.
-''' (3) 3-shear rotation by a specified angle is equivalent
-''' to the sequential transformations
-''' y' = y + tan(angle/2)  (x - xcen)   for first y-shear
-''' x' = x + sin(angle)  (y - ycen)  for x-shear
-''' y' = y + tan(angle/2)  (x - xcen)   for second y-shear
-''' (4) Computation of tan(angle) is performed in the shear operations.
-''' (5) This brings in 'incolor' pixels from outside the image.
-''' (6) The pix cannot be colormapped, because the in-place operation
-''' only blits in 0 or 1 bits, not an arbitrary colormap index.
+''' <para/>
+''' Notes:<para/>
+''' (1) This does an in-place rotation of the image about the<para/>
+''' specified point, using the 3-shear method.  It should only<para/>
+''' be used for angles smaller than LIMIT_SHEAR_ANGLE.<para/>
+''' For larger angles, a warning is issued.<para/>
+''' (2) A positive angle gives a clockwise rotation.<para/>
+''' (3) 3-shear rotation by a specified angle is equivalent<para/>
+''' to the sequential transformations<para/>
+''' y' = y + tan(angle/2)  (x - xcen)  for first y-shear<para/>
+''' x' = x + sin(angle)  (y - ycen)  for x-shear<para/>
+''' y' = y + tan(angle/2)  (x - xcen)  for second y-shear<para/>
+''' (4) Computation of tan(angle) is performed in the shear operations.<para/>
+''' (5) This brings in 'incolor' pixels from outside the image.<para/>
+''' (6) The pix cannot be colormapped, because the in-place operation<para/>
+''' only blits in 0 or 1 bits, not an arbitrary colormap index.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixs">[in] - any depth; not colormapped</param>
+'''  <param name="pixs">[in] - any depth not colormapped</param>
 '''  <param name="xcen">[in] - center of rotation</param>
 '''  <param name="ycen">[in] - center of rotation</param>
 '''  <param name="angle">[in] - radians</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixRotateShearIP(
 				ByVal pixs as Pix, 
 				ByVal xcen as Integer, 
@@ -180,9 +184,6 @@ End Function
 ' SRC\rotateshear.c (439, 1)
 ' pixRotateShearCenter()
 ' pixRotateShearCenter(PIX *, l_float32, l_int32) as PIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - </param>
@@ -207,9 +208,6 @@ End Function
 ' SRC\rotateshear.c (462, 1)
 ' pixRotateShearCenterIP()
 ' pixRotateShearCenterIP(PIX *, l_float32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - </param>

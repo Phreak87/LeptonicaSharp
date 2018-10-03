@@ -1,39 +1,40 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\pix3.c (155, 1)
 ' pixSetMasked()
 ' pixSetMasked(PIX *, PIX *, l_uint32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) In-place operation.
-''' (2) NOTE For cmapped images, this calls pixSetMaskedCmap().
-''' %val must be the 32-bit color representation of the RGB pixel.
-''' It is not the index into the colormap!
-''' (2) If pixm == NULL, a warning is given.
-''' (3) This is an implicitly aligned operation, where the UL
-''' corners of pixd and pixm coincide.  A warning is
-''' issued if the two image sizes differ significantly,
-''' but the operation proceeds.
-''' (4) Each pixel in pixd that co-locates with an ON pixel
-''' in pixm is set to the specified input value.
-''' Other pixels in pixd are not changed.
-''' (5) You can visualize this as painting the color through
-''' the mask, as a stencil.
-''' (6) If you do not want to have the UL corners aligned,
-''' use the function pixSetMaskedGeneral(), which requires
-''' you to input the UL corner of pixm relative to pixd.
-''' (7) Implementation details see comments in pixPaintThroughMask()
-''' for when we use rasterop to do the painting.
+''' <para/>
+''' Notes:<para/>
+''' (1) In-place operation.<para/>
+''' (2) NOTE: For cmapped images, this calls pixSetMaskedCmap().<para/>
+''' %val must be the 32-bit color representation of the RGB pixel.<para/>
+''' It is not the index into the colormap!<para/>
+''' (2) If pixm == NULL, a warning is given.<para/>
+''' (3) This is an implicitly aligned operation, where the UL<para/>
+''' corners of pixd and pixm coincide.  A warning is<para/>
+''' issued if the two image sizes differ significantly,<para/>
+''' but the operation proceeds.<para/>
+''' (4) Each pixel in pixd that co-locates with an ON pixel<para/>
+''' in pixm is set to the specified input value.<para/>
+''' Other pixels in pixd are not changed.<para/>
+''' (5) You can visualize this as painting the color through<para/>
+''' the mask, as a stencil.<para/>
+''' (6) If you do not want to have the UL corners aligned,<para/>
+''' use the function pixSetMaskedGeneral(), which requires<para/>
+''' you to input the UL corner of pixm relative to pixd.<para/>
+''' (7) Implementation details: see comments in pixPaintThroughMask()<para/>
+''' for when we use rasterop to do the painting.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixd">[in] - 1, 2, 4, 8, 16 or 32 bpp; or colormapped</param>
-'''  <param name="pixm">[in][optional] - 1 bpp mask; no operation if NULL</param>
+'''  <param name="pixd">[in] - 1, 2, 4, 8, 16 or 32 bpp or colormapped</param>
+'''  <param name="pixm">[in][optional] - 1 bpp mask no operation if NULL</param>
 '''  <param name="val">[in] - value to set at each masked pixel</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixSetMasked(
 				ByVal pixd as Pix, 
 				ByVal pixm as Pix, 
@@ -52,31 +53,32 @@ End Function
 ' pixSetMaskedGeneral()
 ' pixSetMaskedGeneral(PIX *, PIX *, l_uint32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This is an in-place operation.
-''' (2) Alignment is explicit.  If you want the UL corners of
-''' the two images to be aligned, use pixSetMasked().
-''' (3) A typical use would be painting through the foreground
-''' of a small binary mask pixm, located somewhere on a
-''' larger pixd.  Other pixels in pixd are not changed.
-''' (4) You can visualize this as painting the color through
-''' the mask, as a stencil.
-''' (5) This uses rasterop to handle clipping and different depths of pixd.
-''' (6) If pixd has a colormap, you should call pixPaintThroughMask().
-''' (7) Why is this function here, if pixPaintThroughMask() does the
-''' same thing, and does it more generally?  I've retained it here
-''' to show how one can paint through a mask using only full
-''' image rasterops, rather than pixel peeking in pixm and poking
-''' in pixd.  It's somewhat baroque, but I found it amusing.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is an in-place operation.<para/>
+''' (2) Alignment is explicit.  If you want the UL corners of<para/>
+''' the two images to be aligned, use pixSetMasked().<para/>
+''' (3) A typical use would be painting through the foreground<para/>
+''' of a small binary mask pixm, located somewhere on a<para/>
+''' larger pixd.  Other pixels in pixd are not changed.<para/>
+''' (4) You can visualize this as painting the color through<para/>
+''' the mask, as a stencil.<para/>
+''' (5) This uses rasterop to handle clipping and different depths of pixd.<para/>
+''' (6) If pixd has a colormap, you should call pixPaintThroughMask().<para/>
+''' (7) Why is this function here, if pixPaintThroughMask() does the<para/>
+''' same thing, and does it more generally?  I've retained it here<para/>
+''' to show how one can paint through a mask using only full<para/>
+''' image rasterops, rather than pixel peeking in pixm and poking<para/>
+''' in pixd.  It's somewhat baroque, but I found it amusing.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixd">[in] - 8, 16 or 32 bpp</param>
-'''  <param name="pixm">[in][optional] - 1 bpp mask; no operation if null</param>
+'''  <param name="pixm">[in][optional] - 1 bpp mask no operation if null</param>
 '''  <param name="val">[in] - value to set at each masked pixel</param>
-'''  <param name="x">[in] - location of UL corner of pixm relative to pixd; can be negative</param>
-'''  <param name="y">[in] - location of UL corner of pixm relative to pixd; can be negative</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''  <param name="x">[in] - location of UL corner of pixm relative to pixd can be negative</param>
+'''  <param name="y">[in] - location of UL corner of pixm relative to pixd can be negative</param>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixSetMaskedGeneral(
 				ByVal pixd as Pix, 
 				ByVal pixm as Pix, 
@@ -97,31 +99,32 @@ End Function
 ' pixCombineMasked()
 ' pixCombineMasked(PIX *, PIX *, PIX *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) In-place operation; pixd is changed.
-''' (2) This sets each pixel in pixd that co-locates with an ON
-''' pixel in pixm to the corresponding value of pixs.
-''' (3) pixs and pixd must be the same depth and not colormapped.
-''' (4) All three input pix are aligned at the UL corner, and the
-''' operation is clipped to the intersection of all three images.
-''' (5) If pixm == NULL, it's a no-op.
-''' (6) Implementation see notes in pixCombineMaskedGeneral().
-''' For 8 bpp selective masking, you might guess that it
-''' would be faster to generate an 8 bpp version of pixm,
-''' using pixConvert1To8(pixm, 0, 255), and then use a
-''' general combine operation
-''' d = (d  ~m) | (s  m)
-''' on a word-by-word basis.  Not always.  The word-by-word
-''' combine takes a time that is independent of the mask data.
-''' If the mask is relatively sparse, the byte-check method
-''' is actually faster!
+''' <para/>
+''' Notes:<para/>
+''' (1) In-place operation pixd is changed.<para/>
+''' (2) This sets each pixel in pixd that co-locates with an ON<para/>
+''' pixel in pixm to the corresponding value of pixs.<para/>
+''' (3) pixs and pixd must be the same depth and not colormapped.<para/>
+''' (4) All three input pix are aligned at the UL corner, and the<para/>
+''' operation is clipped to the intersection of all three images.<para/>
+''' (5) If pixm == NULL, it's a no-op.<para/>
+''' (6) Implementation: see notes in pixCombineMaskedGeneral().<para/>
+''' For 8 bpp selective masking, you might guess that it<para/>
+''' would be faster to generate an 8 bpp version of pixm,<para/>
+''' using pixConvert1To8(pixm, 0, 255), and then use a<para/>
+''' general combine operation<para/>
+''' d = (d  and  ~m) | (s  and  m)<para/>
+''' on a word-by-word basis.  Not always.  The word-by-word<para/>
+''' combine takes a time that is independent of the mask data.<para/>
+''' If the mask is relatively sparse, the byte-check method<para/>
+''' is actually faster!<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixd">[in] - 1 bpp, 8 bpp gray or 32 bpp rgb; no cmap</param>
-'''  <param name="pixs">[in] - 1 bpp, 8 bpp gray or 32 bpp rgb; no cmap</param>
-'''  <param name="pixm">[in][optional] - 1 bpp mask; no operation if NULL</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''  <param name="pixd">[in] - 1 bpp, 8 bpp gray or 32 bpp rgb no cmap</param>
+'''  <param name="pixs">[in] - 1 bpp, 8 bpp gray or 32 bpp rgb no cmap</param>
+'''  <param name="pixm">[in][optional] - 1 bpp mask no operation if NULL</param>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixCombineMasked(
 				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
@@ -141,42 +144,43 @@ End Function
 ' pixCombineMaskedGeneral()
 ' pixCombineMaskedGeneral(PIX *, PIX *, PIX *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) In-place operation; pixd is changed.
-''' (2) This is a generalized version of pixCombinedMasked(), where
-''' the source and mask can be placed at the same (arbitrary)
-''' location relative to pixd.
-''' (3) pixs and pixd must be the same depth and not colormapped.
-''' (4) The UL corners of both pixs and pixm are aligned with
-''' the point (x, y) of pixd, and the operation is clipped to
-''' the intersection of all three images.
-''' (5) If pixm == NULL, it's a no-op.
-''' (6) Implementation.  There are two ways to do these.  In the first,
-''' we use rasterop, ORing the part of pixs under the mask
-''' with pixd (which has been appropriately cleared there first).
-''' In the second, the mask is used one pixel at a time to
-''' selectively replace pixels of pixd with those of pixs.
-''' Here, we use rasterop for 1 bpp and pixel-wise replacement
-''' for 8 and 32 bpp.  To use rasterop for 8 bpp, for example,
-''' we must first generate an 8 bpp version of the mask.
-''' The code is simple
-''' Pix pixm8 = pixConvert1To8(NULL, pixm, 0, 255);
-''' Pix pixt = pixAnd(NULL, pixs, pixm8);
-''' pixRasterop(pixd, x, y, wmin, hmin, PIX_DST  PIX_NOT(PIX_SRC),
-''' pixm8, 0, 0);
-''' pixRasterop(pixd, x, y, wmin, hmin, PIX_SRC | PIX_DST,
-''' pixt, 0, 0);
-''' pixDestroy(pixt);
-''' pixDestroy(pixm8);
+''' <para/>
+''' Notes:<para/>
+''' (1) In-place operation pixd is changed.<para/>
+''' (2) This is a generalized version of pixCombinedMasked(), where<para/>
+''' the source and mask can be placed at the same (arbitrary)<para/>
+''' location relative to pixd.<para/>
+''' (3) pixs and pixd must be the same depth and not colormapped.<para/>
+''' (4) The UL corners of both pixs and pixm are aligned with<para/>
+''' the point (x, y) of pixd, and the operation is clipped to<para/>
+''' the intersection of all three images.<para/>
+''' (5) If pixm == NULL, it's a no-op.<para/>
+''' (6) Implementation.  There are two ways to do these.  In the first,<para/>
+''' we use rasterop, ORing the part of pixs under the mask<para/>
+''' with pixd (which has been appropriately cleared there first).<para/>
+''' In the second, the mask is used one pixel at a time to<para/>
+''' selectively replace pixels of pixd with those of pixs.<para/>
+''' Here, we use rasterop for 1 bpp and pixel-wise replacement<para/>
+''' for 8 and 32 bpp.  To use rasterop for 8 bpp, for example,<para/>
+''' we must first generate an 8 bpp version of the mask.<para/>
+''' The code is simple:<para/>
+''' Pix pixm8 = pixConvert1To8(NULL, pixm, 0, 255)<para/>
+''' Pix pixt = pixAnd(NULL, pixs, pixm8)<para/>
+''' pixRasterop(pixd, x, y, wmin, hmin, PIX_DST  and  PIX_NOT(PIX_SRC),<para/>
+''' pixm8, 0, 0)<para/>
+''' pixRasterop(pixd, x, y, wmin, hmin, PIX_SRC | PIX_DST,<para/>
+''' pixt, 0, 0)<para/>
+''' pixDestroy( and pixt)<para/>
+''' pixDestroy( and pixm8)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixd">[in] - 1 bpp, 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="pixs">[in] - 1 bpp, 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask</param>
-'''  <param name="x">[in] - origin of pixs and pixm relative to pixd; can be negative</param>
-'''  <param name="y">[in] - origin of pixs and pixm relative to pixd; can be negative</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''  <param name="x">[in] - origin of pixs and pixm relative to pixd can be negative</param>
+'''  <param name="y">[in] - origin of pixs and pixm relative to pixd can be negative</param>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixCombineMaskedGeneral(
 				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
@@ -198,46 +202,47 @@ End Function
 ' pixPaintThroughMask()
 ' pixPaintThroughMask(PIX *, PIX *, l_int32, l_int32, l_uint32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) In-place operation.  Calls pixSetMaskedCmap() for colormapped
-''' images.
-''' (2) For 1, 2, 4, 8 and 16 bpp gray, we take the appropriate
-''' number of least significant bits of val.
-''' (3) If pixm == NULL, it's a no-op.
-''' (4) The mask origin is placed at (x,y) on pixd, and the
-''' operation is clipped to the intersection of rectangles.
-''' (5) For rgb, the components in val are in the canonical locations,
-''' with red in location COLOR_RED, etc.
-''' (6) Implementation detail 1
-''' For painting with val == 0 or val == maxval, you can use rasterop.
-''' If val == 0, invert the mask so that it's 0 over the region
-''' into which you want to write, and use PIX_SRC  PIX_DST to
-''' clear those pixels.  To write with val = maxval (all 1's),
-''' use PIX_SRC | PIX_DST to set all bits under the mask.
-''' (7) Implementation detail 2
-''' The rasterop trick can be used for depth GT 1 as well.
-''' For val == 0, generate the mask for depth d from the binary
-''' mask using
-''' pixmd = pixUnpackBinary(pixm, d, 1);
-''' and use pixRasterop() with PIX_MASK.  For val == maxval,
-''' pixmd = pixUnpackBinary(pixm, d, 0);
-''' and use pixRasterop() with PIX_PAINT.
-''' But note that if d == 32 bpp, it is about 3x faster to use
-''' the general implementation (not pixRasterop()).
-''' (8) Implementation detail 3
-''' It might be expected that the switch in the inner loop will
-''' cause large branching delays and should be avoided.
-''' This is not the case, because the entrance is always the
-''' same and the compiler can correctly predict the jump.
+''' <para/>
+''' Notes:<para/>
+''' (1) In-place operation.  Calls pixSetMaskedCmap() for colormapped<para/>
+''' images.<para/>
+''' (2) For 1, 2, 4, 8 and 16 bpp gray, we take the appropriate<para/>
+''' number of least significant bits of val.<para/>
+''' (3) If pixm == NULL, it's a no-op.<para/>
+''' (4) The mask origin is placed at (x,y) on pixd, and the<para/>
+''' operation is clipped to the intersection of rectangles.<para/>
+''' (5) For rgb, the components in val are in the canonical locations,<para/>
+''' with red in location COLOR_RED, etc.<para/>
+''' (6) Implementation detail 1:<para/>
+''' For painting with val == 0 or val == maxval, you can use rasterop.<para/>
+''' If val == 0, invert the mask so that it's 0 over the region<para/>
+''' into which you want to write, and use PIX_SRC  and  PIX_DST to<para/>
+''' clear those pixels.  To write with val = maxval (all 1's),<para/>
+''' use PIX_SRC | PIX_DST to set all bits under the mask.<para/>
+''' (7) Implementation detail 2:<para/>
+''' The rasterop trick can be used for depth  is greater  1 as well.<para/>
+''' For val == 0, generate the mask for depth d from the binary<para/>
+''' mask using<para/>
+''' pixmd = pixUnpackBinary(pixm, d, 1)<para/>
+''' and use pixRasterop() with PIX_MASK.  For val == maxval,<para/>
+''' pixmd = pixUnpackBinary(pixm, d, 0)<para/>
+''' and use pixRasterop() with PIX_PAINT.<para/>
+''' But note that if d == 32 bpp, it is about 3x faster to use<para/>
+''' the general implementation (not pixRasterop()).<para/>
+''' (8) Implementation detail 3:<para/>
+''' It might be expected that the switch in the inner loop will<para/>
+''' cause large branching delays and should be avoided.<para/>
+''' This is not the case, because the entrance is always the<para/>
+''' same and the compiler can correctly predict the jump.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixd">[in] - 1, 2, 4, 8, 16 or 32 bpp; or colormapped</param>
+'''  <param name="pixd">[in] - 1, 2, 4, 8, 16 or 32 bpp or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask</param>
-'''  <param name="x">[in] - origin of pixm relative to pixd; can be negative</param>
-'''  <param name="y">[in] - origin of pixm relative to pixd; can be negative</param>
+'''  <param name="x">[in] - origin of pixm relative to pixd can be negative</param>
+'''  <param name="y">[in] - origin of pixm relative to pixd can be negative</param>
 '''  <param name="val">[in] - pixel value to set at each masked pixel</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixPaintThroughMask(
 				ByVal pixd as Pix, 
 				ByVal pixm as Pix, 
@@ -258,64 +263,65 @@ End Function
 ' pixPaintSelfThroughMask()
 ' pixPaintSelfThroughMask(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) In-place operation; pixd is changed.
-''' (2) If pixm == NULL, it's a no-op.
-''' (3) The mask origin is placed at (x,y) on pixd, and the
-''' operation is clipped to the intersection of pixd and the
-''' fg of the mask.
-''' (4) %tsize is the the requested size for tiling.  The actual
-''' actual size for each c.c. will be bounded by the minimum
-''' dimension of the c.c.
-''' (5) For %mindist, %searchdir and %ntiles, see pixFindRepCloseTile().
-''' They determine the set of possible tiles that can be used
-''' to build a larger mirrored tile to paint onto pixd through
-''' the c.c. of pixm.
-''' (6) %distblend is used for alpha blending.  It is only applied
-''' if there is exactly one c.c. in the mask.  Use distblend == 0
-''' to skip blending and just paint through the 1 bpp mask.
-''' (7) To apply blending to more than 1 component, call this function
-''' repeatedly with %pixm, %x and %y representing one component of
-''' the mask each time.  This would be done as follows, for an
-''' underlying image pixs and mask pixm of components to fill
-''' Boxa boxa = pixConnComp(pixm, pixa, 8);
-''' n = boxaGetCount(boxa);
-''' for (i = 0; i LT n; i++) {
-''' Pix pix = pixaGetPix(pixa, i, L_CLONE);
-''' Box box = pixaGetBox(pixa, i, L_CLONE);
-''' boxGetGeometry(box, bx, by, bw, bh);
-''' pixPaintSelfThroughMask(pixs, pix, bx, by, searchdir,
-''' mindist, tilesize, ntiles, distblend);
-''' pixDestroy(pix);
-''' boxDestroy(box);
-''' }
-''' pixaDestroy(pixa);
-''' boxaDestroy(boxa);
-''' (8) If no tiles can be found, this falls back to estimating the
-''' color near the boundary of the region to be textured.
-''' (9) This can be used to replace the pixels in some regions of
-''' an image by selected neighboring pixels.  The mask represents
-''' the pixels to be replaced.  For each connected component in
-''' the mask, this function selects up to two tiles of neighboring
-''' pixels to be used for replacement of pixels represented by
-''' the component (i.e., under the FG of that component in the mask).
-''' After selection, mirror replication is used to generate an
-''' image that is large enough to cover the component.  Alpha
-''' blending can also be used outside of the component, but near the
-''' edge, to blur the transition between painted and original pixels.
+''' <para/>
+''' Notes:<para/>
+''' (1) In-place operation pixd is changed.<para/>
+''' (2) If pixm == NULL, it's a no-op.<para/>
+''' (3) The mask origin is placed at (x,y) on pixd, and the<para/>
+''' operation is clipped to the intersection of pixd and the<para/>
+''' fg of the mask.<para/>
+''' (4) %tsize is the the requested size for tiling.  The actual<para/>
+''' actual size for each c.c. will be bounded by the minimum<para/>
+''' dimension of the c.c.<para/>
+''' (5) For %mindist, %searchdir and %ntiles, see pixFindRepCloseTile().<para/>
+''' They determine the set of possible tiles that can be used<para/>
+''' to build a larger mirrored tile to paint onto pixd through<para/>
+''' the c.c. of pixm.<para/>
+''' (6) %distblend is used for alpha blending.  It is only applied<para/>
+''' if there is exactly one c.c. in the mask.  Use distblend == 0<para/>
+''' to skip blending and just paint through the 1 bpp mask.<para/>
+''' (7) To apply blending to more than 1 component, call this function<para/>
+''' repeatedly with %pixm, %x and %y representing one component of<para/>
+''' the mask each time.  This would be done as follows, for an<para/>
+''' underlying image pixs and mask pixm of components to fill:<para/>
+''' Boxa boxa = pixConnComp(pixm,  and pixa, 8)<para/>
+''' n = boxaGetCount(boxa)<para/>
+''' for (i = 0 i  is lower  n i++) {<para/>
+''' Pix pix = pixaGetPix(pixa, i, L_CLONE)<para/>
+''' Box box = pixaGetBox(pixa, i, L_CLONE)<para/>
+''' boxGetGeometry(box,  and bx,  and by,  and bw,  and bh)<para/>
+''' pixPaintSelfThroughMask(pixs, pix, bx, by, searchdir,<para/>
+''' mindist, tilesize, ntiles, distblend)<para/>
+''' pixDestroy( and pix)<para/>
+''' boxDestroy( and box)<para/>
+''' }<para/>
+''' pixaDestroy( and pixa)<para/>
+''' boxaDestroy( and boxa)<para/>
+''' (8) If no tiles can be found, this falls back to estimating the<para/>
+''' color near the boundary of the region to be textured.<para/>
+''' (9) This can be used to replace the pixels in some regions of<para/>
+''' an image by selected neighboring pixels.  The mask represents<para/>
+''' the pixels to be replaced.  For each connected component in<para/>
+''' the mask, this function selects up to two tiles of neighboring<para/>
+''' pixels to be used for replacement of pixels represented by<para/>
+''' the component (i.e., under the FG of that component in the mask).<para/>
+''' After selection, mirror replication is used to generate an<para/>
+''' image that is large enough to cover the component.  Alpha<para/>
+''' blending can also be used outside of the component, but near the<para/>
+''' edge, to blur the transition between painted and original pixels.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixd">[in] - 8 bpp gray or 32 bpp rgb; not colormapped</param>
+'''  <param name="pixd">[in] - 8 bpp gray or 32 bpp rgb not colormapped</param>
 '''  <param name="pixm">[in] - 1 bpp mask</param>
-'''  <param name="x">[in] - origin of pixm relative to pixd; must not be negative</param>
-'''  <param name="y">[in] - origin of pixm relative to pixd; must not be negative</param>
+'''  <param name="x">[in] - origin of pixm relative to pixd must not be negative</param>
+'''  <param name="y">[in] - origin of pixm relative to pixd must not be negative</param>
 '''  <param name="searchdir">[in] - L_HORIZ, L_VERT or L_BOTH_DIRECTIONS</param>
-'''  <param name="mindist">[in] - min distance of nearest tile edge to box; GT= 0</param>
-'''  <param name="tilesize">[in] - requested size for tiling; may be reduced</param>
+'''  <param name="mindist">[in] - min distance of nearest tile edge to box  is greater = 0</param>
+'''  <param name="tilesize">[in] - requested size for tiling may be reduced</param>
 '''  <param name="ntiles">[in] - number of tiles tested in each row/column</param>
 '''  <param name="distblend">[in] - distance outside the fg used for blending with pixs</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixPaintSelfThroughMask(
 				ByVal pixd as Pix, 
 				ByVal pixm as Pix, 
@@ -340,14 +346,15 @@ End Function
 ' pixMakeMaskFromVal()
 ' pixMakeMaskFromVal(PIX *, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This generates a 1 bpp mask image, where a 1 is written in
-''' the mask for each pixel in pixs that has a value %val.
-''' (2) If no pixels have the value, an empty mask is generated.
+''' <para/>
+''' Notes:<para/>
+''' (1) This generates a 1 bpp mask image, where a 1 is written in<para/>
+''' the mask for each pixel in pixs that has a value %val.<para/>
+''' (2) If no pixels have the value, an empty mask is generated.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixs">[in] - 2, 4 or 8 bpp; can be colormapped</param>
+'''  <param name="pixs">[in] - 2, 4 or 8 bpp can be colormapped</param>
 '''  <param name="val">[in] - pixel value</param>
 '''   <returns>pixd 1 bpp mask, or NULL on error</returns>
 Public Shared Function pixMakeMaskFromVal(
@@ -367,16 +374,17 @@ End Function
 ' pixMakeMaskFromLUT()
 ' pixMakeMaskFromLUT(PIX *, l_int32 *) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This generates a 1 bpp mask image, where a 1 is written in
-''' the mask for each pixel in pixs that has a value corresponding
-''' to a 1 in the LUT.
-''' (2) The LUT should be of size 256.
+''' <para/>
+''' Notes:<para/>
+''' (1) This generates a 1 bpp mask image, where a 1 is written in<para/>
+''' the mask for each pixel in pixs that has a value corresponding<para/>
+''' to a 1 in the LUT.<para/>
+''' (2) The LUT should be of size 256.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixs">[in] - 2, 4 or 8 bpp; can be colormapped</param>
-'''  <param name="tab">[in] - 256-entry LUT; 1 means to write to mask</param>
+'''  <param name="pixs">[in] - 2, 4 or 8 bpp can be colormapped</param>
+'''  <param name="tab">[in] - 256-entry LUT 1 means to write to mask</param>
 '''   <returns>pixd 1 bpp mask, or NULL on error</returns>
 Public Shared Function pixMakeMaskFromLUT(
 				ByVal pixs as Pix, 
@@ -396,27 +404,28 @@ End Function
 ' pixMakeArbMaskFromRGB()
 ' pixMakeArbMaskFromRGB(PIX *, l_float32, l_float32, l_float32, l_float32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This generates a 1 bpp mask image, where a 1 is written in
-''' the mask for each pixel in pixs that satisfies
-''' rc  rval + gc  gval + bc  bval GT thresh
-''' where rval is the red component, etc.
-''' (2) Unlike with pixConvertToGray(), there are no constraints
-''' on the color coefficients, which can be negative.  For
-''' example, a mask that discriminates against red and in favor
-''' of blue will have rc LT 0.0 and bc GT 0.0.
-''' (3) To make the result independent of intensity (the 'V' in HSV),
-''' select coefficients so that %thresh = 0.  Then the result
-''' is not changed when all components are multiplied by the
-''' same constant (as long as nothing saturates).  This can be
-''' useful if, for example, the illumination is not uniform.
+''' <para/>
+''' Notes:<para/>
+''' (1) This generates a 1 bpp mask image, where a 1 is written in<para/>
+''' the mask for each pixel in pixs that satisfies<para/>
+''' rc  rval + gc  gval + bc  bval  is greater  thresh<para/>
+''' where rval is the red component, etc.<para/>
+''' (2) Unlike with pixConvertToGray(), there are no constraints<para/>
+''' on the color coefficients, which can be negative.  For<para/>
+''' example, a mask that discriminates against red and in favor<para/>
+''' of blue will have rc  is lower  0.0 and bc  is greater  0.0.<para/>
+''' (3) To make the result independent of intensity (the 'V' in HSV),<para/>
+''' select coefficients so that %thresh = 0.  Then the result<para/>
+''' is not changed when all components are multiplied by the<para/>
+''' same constant (as long as nothing saturates).  This can be<para/>
+''' useful if, for example, the illumination is not uniform.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
-'''  <param name="rc">[in] - arithmetic factors; can be negative</param>
-'''  <param name="gc">[in] - arithmetic factors; can be negative</param>
-'''  <param name="bc">[in] - arithmetic factors; can be negative</param>
+'''  <param name="rc">[in] - arithmetic factors can be negative</param>
+'''  <param name="gc">[in] - arithmetic factors can be negative</param>
+'''  <param name="bc">[in] - arithmetic factors can be negative</param>
 '''  <param name="thresh">[in] - lower threshold on weighted sum of components</param>
 '''   <returns>pixd 1 bpp mask, or NULL on error</returns>
 Public Shared Function pixMakeArbMaskFromRGB(
@@ -444,48 +453,49 @@ End Function
 ' pixSetUnderTransparency()
 ' pixSetUnderTransparency(PIX *, l_uint32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This sets the r, g and b components under every fully
-''' transparent alpha component to %val.  The alpha components
-''' are unchanged.
-''' (2) Full transparency is denoted by alpha == 0.  Setting
-''' all pixels to a constant %val where alpha is transparent
-''' can improve compressibility by reducing the entropy.
-''' (3) The visual result depends on how the image is displayed.
-''' (a) For display devices that respect the use of the alpha
-''' layer, this will not affect the appearance.
-''' (b) For typical leptonica operations, alpha is ignored,
-''' so there will be a change in appearance because this
-''' resets the rgb values in the fully transparent region.
-''' (4) pixRead() and pixWrite() will, by default, read and write
-''' 4-component (rgba) pix in png format.  To ignore the alpha
-''' component after reading, or omit it on writing, pixSetSpp(..., 3).
-''' (5) Here are some examples
-''' To convert all fully transparent pixels in a 4 component
-''' (rgba) png file to white
-''' pixs = pixRead(LTinfileGT);
-''' pixd = pixSetUnderTransparency(pixs, 0xffffff00, 0);
-''' To write pixd with the alpha component
-''' pixWrite(LToutfileGT, pixd, IFF_PNG);
-''' To write and rgba image without the alpha component, first do
-''' pixSetSpp(pixd, 3);
-''' If you later want to use the alpha, spp must be reset to 4.
-''' (fancier) To remove the alpha by blending the image over
-''' a white background
-''' pixRemoveAlpha()
-''' This changes all pixel values where the alpha component is
-''' not opaque (255).
-''' (6) Caution.  rgb images in leptonica typically have value 0 in
-''' the alpha channel, which is fully transparent.  If spp for
-''' such an image were changed from 3 to 4, the image becomes
-''' fully transparent, and this function will set each pixel to %val.
-''' If you really want to set every pixel to the same value,
-''' use pixSetAllArbitrary().
-''' (7) This is useful for compressing an RGBA image where the part
-''' of the image that is fully transparent is random junk; compression
-''' is typically improved by setting that region to a constant.
-''' For rendering as a 3 component RGB image over a uniform
-''' background of arbitrary color, use pixAlphaBlendUniform().
+''' <para/>
+''' Notes:<para/>
+''' (1) This sets the r, g and b components under every fully<para/>
+''' transparent alpha component to %val.  The alpha components<para/>
+''' are unchanged.<para/>
+''' (2) Full transparency is denoted by alpha == 0.  Setting<para/>
+''' all pixels to a constant %val where alpha is transparent<para/>
+''' can improve compressibility by reducing the entropy.<para/>
+''' (3) The visual result depends on how the image is displayed.<para/>
+''' (a) For display devices that respect the use of the alpha<para/>
+''' layer, this will not affect the appearance.<para/>
+''' (b) For typical leptonica operations, alpha is ignored,<para/>
+''' so there will be a change in appearance because this<para/>
+''' resets the rgb values in the fully transparent region.<para/>
+''' (4) pixRead() and pixWrite() will, by default, read and write<para/>
+''' 4-component (rgba) pix in png format.  To ignore the alpha<para/>
+''' component after reading, or omit it on writing, pixSetSpp(..., 3).<para/>
+''' (5) Here are some examples:<para/>
+''' To convert all fully transparent pixels in a 4 component<para/>
+''' (rgba) png file to white:<para/>
+''' pixs = pixRead( is lower infile is greater )<para/>
+''' pixd = pixSetUnderTransparency(pixs, 0xffffff00, 0)<para/>
+''' To write pixd with the alpha component:<para/>
+''' pixWrite( is lower outfile is greater , pixd, IFF_PNG)<para/>
+''' To write and rgba image without the alpha component, first do:<para/>
+''' pixSetSpp(pixd, 3)<para/>
+''' If you later want to use the alpha, spp must be reset to 4.<para/>
+''' (fancier) To remove the alpha by blending the image over<para/>
+''' a white background:<para/>
+''' pixRemoveAlpha()<para/>
+''' This changes all pixel values where the alpha component is<para/>
+''' not opaque (255).<para/>
+''' (6) Caution.  rgb images in leptonica typically have value 0 in<para/>
+''' the alpha channel, which is fully transparent.  If spp for<para/>
+''' such an image were changed from 3 to 4, the image becomes<para/>
+''' fully transparent, and this function will set each pixel to %val.<para/>
+''' If you really want to set every pixel to the same value,<para/>
+''' use pixSetAllArbitrary().<para/>
+''' (7) This is useful for compressing an RGBA image where the part<para/>
+''' of the image that is fully transparent is random junk compression<para/>
+''' is typically improved by setting that region to a constant.<para/>
+''' For rendering as a 3 component RGB image over a uniform<para/>
+''' background of arbitrary color, use pixAlphaBlendUniform().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -511,31 +521,32 @@ End Function
 ' pixMakeAlphaFromMask()
 ' pixMakeAlphaFromMask(PIX *, l_int32, BOX **) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This generates a 8 bpp alpha layer that is opaque (256)
-''' over the FG of pixs, and goes transparent linearly away
-''' from the FG pixels, decaying to 0 (transparent) is an
-''' 8-connected distance given by %dist.  If %dist == 0,
-''' this does a simple conversion from 1 to 8 bpp.
-''' (2) If box == NULL, this returns an alpha mask that is the
-''' full size of pixs.  Otherwise, the returned mask pixd covers
-''' just the FG pixels of pixs, expanded by %dist in each
-''' direction (if possible), and the returned box gives the
-''' location of the returned mask relative to pixs.
-''' (3) This is useful for painting through a mask and allowing
-''' blending of the painted image with an underlying image
-''' in the mask background for pixels near foreground mask pixels.
-''' For example, with an underlying rgb image pix1, an overlaying
-''' image rgb pix2, binary mask pixm, and dist GT 0, this
-''' blending is achieved with
-''' pix3 = pixMakeAlphaFromMask(pixm, dist, box);
-''' boxGetGeometry(box, x, y, NULL, NULL);
-''' pix4 = pixBlendWithGrayMask(pix1, pix2, pix3, x, y);
+''' <para/>
+''' Notes:<para/>
+''' (1) This generates a 8 bpp alpha layer that is opaque (256)<para/>
+''' over the FG of pixs, and goes transparent linearly away<para/>
+''' from the FG pixels, decaying to 0 (transparent) is an<para/>
+''' 8-connected distance given by %dist.  If %dist == 0,<para/>
+''' this does a simple conversion from 1 to 8 bpp.<para/>
+''' (2) If  and box == NULL, this returns an alpha mask that is the<para/>
+''' full size of pixs.  Otherwise, the returned mask pixd covers<para/>
+''' just the FG pixels of pixs, expanded by %dist in each<para/>
+''' direction (if possible), and the returned box gives the<para/>
+''' location of the returned mask relative to pixs.<para/>
+''' (3) This is useful for painting through a mask and allowing<para/>
+''' blending of the painted image with an underlying image<para/>
+''' in the mask background for pixels near foreground mask pixels.<para/>
+''' For example, with an underlying rgb image pix1, an overlaying<para/>
+''' image rgb pix2, binary mask pixm, and dist  is greater  0, this<para/>
+''' blending is achieved with:<para/>
+''' pix3 = pixMakeAlphaFromMask(pixm, dist,  and box)<para/>
+''' boxGetGeometry(box,  and x,  and y, NULL, NULL)<para/>
+''' pix4 = pixBlendWithGrayMask(pix1, pix2, pix3, x, y)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 1 bpp</param>
-'''  <param name="dist">[in] - blending distance; typically 10 - 30</param>
+'''  <param name="dist">[in] - blending distance typically 10 - 30</param>
 '''  <param name="pbox">[out][optional] - use NULL to get the full size</param>
 '''   <returns>pixd (8 bpp gray, or NULL on error</returns>
 Public Shared Function pixMakeAlphaFromMask(
@@ -559,16 +570,17 @@ End Function
 ' pixGetColorNearMaskBoundary()
 ' pixGetColorNearMaskBoundary(PIX *, PIX *, BOX *, l_int32, l_uint32 *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This finds the average color in a set of pixels that are
-''' roughly a distance %dist from the c.c. boundary and in the
-''' background of the mask image.
+''' <para/>
+''' Notes:<para/>
+''' (1) This finds the average color in a set of pixels that are<para/>
+''' roughly a distance %dist from the c.c. boundary and in the<para/>
+''' background of the mask image.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="pixm">[in] - 1 bpp mask, full image</param>
-'''  <param name="box">[in] - region of mask; typically b.b. of a component</param>
+'''  <param name="box">[in] - region of mask typically b.b. of a component</param>
 '''  <param name="dist">[in] - distance into BG from mask boundary to use</param>
 '''  <param name="pval">[out] - average pixel value</param>
 '''  <param name="debug">[in] - 1 to output mask images</param>
@@ -596,20 +608,21 @@ End Function
 ' pixInvert()
 ' pixInvert(PIX *, PIX *) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This inverts pixs, for all pixel depths.
-''' (2) There are 3 cases
-''' (a) pixd == null,   ~src --GT new pixd
-''' (b) pixd == pixs,   ~src --GT src  (in-place)
-''' (c) pixd != pixs,   ~src --GT input pixd
-''' (3) For clarity, if the case is known, use these patterns
-''' (a) pixd = pixInvert(NULL, pixs);
-''' (b) pixInvert(pixs, pixs);
-''' (c) pixInvert(pixd, pixs);
+''' <para/>
+''' Notes:<para/>
+''' (1) This inverts pixs, for all pixel depths.<para/>
+''' (2) There are 3 cases:<para/>
+''' (a) pixd == null, ~src -- is greater  new pixd<para/>
+''' (b) pixd == pixs, ~src -- is greater  src  (in-place)<para/>
+''' (c) pixd != pixs, ~src -- is greater  input pixd<para/>
+''' (3) For clarity, if the case is known, use these patterns:<para/>
+''' (a) pixd = pixInvert(NULL, pixs)<para/>
+''' (b) pixInvert(pixs, pixs)<para/>
+''' (c) pixInvert(pixd, pixs)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixd">[in][optional] - ; this can be null, equal to pixs, or different from pixs</param>
+'''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixInvert(
@@ -630,29 +643,30 @@ End Function
 ' pixOr()
 ' pixOr(PIX *, PIX *, PIX *) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This gives the union of two images with equal depth,
-''' aligning them to the the UL corner.  pixs1 and pixs2
-''' need not have the same width and height.
-''' (2) There are 3 cases
-''' (a) pixd == null,   (src1 | src2) --GT new pixd
-''' (b) pixd == pixs1,  (src1 | src2) --GT src1  (in-place)
-''' (c) pixd != pixs1,  (src1 | src2) --GT input pixd
-''' (3) For clarity, if the case is known, use these patterns
-''' (a) pixd = pixOr(NULL, pixs1, pixs2);
-''' (b) pixOr(pixs1, pixs1, pixs2);
-''' (c) pixOr(pixd, pixs1, pixs2);
-''' (4) The size of the result is determined by pixs1.
-''' (5) The depths of pixs1 and pixs2 must be equal.
-''' (6) Note carefully that the order of pixs1 and pixs2 only matters
-''' for the in-place case.  For in-place, you must have
-''' pixd == pixs1.  Setting pixd == pixs2 gives an incorrect
-''' result the copy puts pixs1 image data in pixs2, and
-''' the rasterop is then between pixs2 and pixs2 (a no-op).
+''' <para/>
+''' Notes:<para/>
+''' (1) This gives the union of two images with equal depth,<para/>
+''' aligning them to the the UL corner.  pixs1 and pixs2<para/>
+''' need not have the same width and height.<para/>
+''' (2) There are 3 cases:<para/>
+''' (a) pixd == null, (src1 | src2) -- is greater  new pixd<para/>
+''' (b) pixd == pixs1,  (src1 | src2) -- is greater  src1  (in-place)<para/>
+''' (c) pixd != pixs1,  (src1 | src2) -- is greater  input pixd<para/>
+''' (3) For clarity, if the case is known, use these patterns:<para/>
+''' (a) pixd = pixOr(NULL, pixs1, pixs2)<para/>
+''' (b) pixOr(pixs1, pixs1, pixs2)<para/>
+''' (c) pixOr(pixd, pixs1, pixs2)<para/>
+''' (4) The size of the result is determined by pixs1.<para/>
+''' (5) The depths of pixs1 and pixs2 must be equal.<para/>
+''' (6) Note carefully that the order of pixs1 and pixs2 only matters<para/>
+''' for the in-place case.  For in-place, you must have<para/>
+''' pixd == pixs1.  Setting pixd == pixs2 gives an incorrect<para/>
+''' result: the copy puts pixs1 image data in pixs2, and<para/>
+''' the rasterop is then between pixs2 and pixs2 (a no-op).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixd">[in][optional] - ; this can be null, equal to pixs1, different from pixs1</param>
+'''  <param name="pixd">[in][optional] - this can be null, equal to pixs1, different from pixs1</param>
 '''  <param name="pixs1">[in] - can be == pixd</param>
 '''  <param name="pixs2">[in] - must be != pixd</param>
 '''   <returns>pixd always</returns>
@@ -676,29 +690,30 @@ End Function
 ' pixAnd()
 ' pixAnd(PIX *, PIX *, PIX *) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This gives the intersection of two images with equal depth,
-''' aligning them to the the UL corner.  pixs1 and pixs2
-''' need not have the same width and height.
-''' (2) There are 3 cases
-''' (a) pixd == null,   (src1  src2) --GT new pixd
-''' (b) pixd == pixs1,  (src1  src2) --GT src1  (in-place)
-''' (c) pixd != pixs1,  (src1  src2) --GT input pixd
-''' (3) For clarity, if the case is known, use these patterns
-''' (a) pixd = pixAnd(NULL, pixs1, pixs2);
-''' (b) pixAnd(pixs1, pixs1, pixs2);
-''' (c) pixAnd(pixd, pixs1, pixs2);
-''' (4) The size of the result is determined by pixs1.
-''' (5) The depths of pixs1 and pixs2 must be equal.
-''' (6) Note carefully that the order of pixs1 and pixs2 only matters
-''' for the in-place case.  For in-place, you must have
-''' pixd == pixs1.  Setting pixd == pixs2 gives an incorrect
-''' result the copy puts pixs1 image data in pixs2, and
-''' the rasterop is then between pixs2 and pixs2 (a no-op).
+''' <para/>
+''' Notes:<para/>
+''' (1) This gives the intersection of two images with equal depth,<para/>
+''' aligning them to the the UL corner.  pixs1 and pixs2<para/>
+''' need not have the same width and height.<para/>
+''' (2) There are 3 cases:<para/>
+''' (a) pixd == null, (src1  and  src2) -- is greater  new pixd<para/>
+''' (b) pixd == pixs1,  (src1  and  src2) -- is greater  src1  (in-place)<para/>
+''' (c) pixd != pixs1,  (src1  and  src2) -- is greater  input pixd<para/>
+''' (3) For clarity, if the case is known, use these patterns:<para/>
+''' (a) pixd = pixAnd(NULL, pixs1, pixs2)<para/>
+''' (b) pixAnd(pixs1, pixs1, pixs2)<para/>
+''' (c) pixAnd(pixd, pixs1, pixs2)<para/>
+''' (4) The size of the result is determined by pixs1.<para/>
+''' (5) The depths of pixs1 and pixs2 must be equal.<para/>
+''' (6) Note carefully that the order of pixs1 and pixs2 only matters<para/>
+''' for the in-place case.  For in-place, you must have<para/>
+''' pixd == pixs1.  Setting pixd == pixs2 gives an incorrect<para/>
+''' result: the copy puts pixs1 image data in pixs2, and<para/>
+''' the rasterop is then between pixs2 and pixs2 (a no-op).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixd">[in][optional] - ; this can be null, equal to pixs1, different from pixs1</param>
+'''  <param name="pixd">[in][optional] - this can be null, equal to pixs1, different from pixs1</param>
 '''  <param name="pixs1">[in] - can be == pixd</param>
 '''  <param name="pixs2">[in] - must be != pixd</param>
 '''   <returns>pixd always</returns>
@@ -722,29 +737,30 @@ End Function
 ' pixXor()
 ' pixXor(PIX *, PIX *, PIX *) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This gives the XOR of two images with equal depth,
-''' aligning them to the the UL corner.  pixs1 and pixs2
-''' need not have the same width and height.
-''' (2) There are 3 cases
-''' (a) pixd == null,   (src1 ^ src2) --GT new pixd
-''' (b) pixd == pixs1,  (src1 ^ src2) --GT src1  (in-place)
-''' (c) pixd != pixs1,  (src1 ^ src2) --GT input pixd
-''' (3) For clarity, if the case is known, use these patterns
-''' (a) pixd = pixXor(NULL, pixs1, pixs2);
-''' (b) pixXor(pixs1, pixs1, pixs2);
-''' (c) pixXor(pixd, pixs1, pixs2);
-''' (4) The size of the result is determined by pixs1.
-''' (5) The depths of pixs1 and pixs2 must be equal.
-''' (6) Note carefully that the order of pixs1 and pixs2 only matters
-''' for the in-place case.  For in-place, you must have
-''' pixd == pixs1.  Setting pixd == pixs2 gives an incorrect
-''' result the copy puts pixs1 image data in pixs2, and
-''' the rasterop is then between pixs2 and pixs2 (a no-op).
+''' <para/>
+''' Notes:<para/>
+''' (1) This gives the XOR of two images with equal depth,<para/>
+''' aligning them to the the UL corner.  pixs1 and pixs2<para/>
+''' need not have the same width and height.<para/>
+''' (2) There are 3 cases:<para/>
+''' (a) pixd == null, (src1 ^ src2) -- is greater  new pixd<para/>
+''' (b) pixd == pixs1,  (src1 ^ src2) -- is greater  src1  (in-place)<para/>
+''' (c) pixd != pixs1,  (src1 ^ src2) -- is greater  input pixd<para/>
+''' (3) For clarity, if the case is known, use these patterns:<para/>
+''' (a) pixd = pixXor(NULL, pixs1, pixs2)<para/>
+''' (b) pixXor(pixs1, pixs1, pixs2)<para/>
+''' (c) pixXor(pixd, pixs1, pixs2)<para/>
+''' (4) The size of the result is determined by pixs1.<para/>
+''' (5) The depths of pixs1 and pixs2 must be equal.<para/>
+''' (6) Note carefully that the order of pixs1 and pixs2 only matters<para/>
+''' for the in-place case.  For in-place, you must have<para/>
+''' pixd == pixs1.  Setting pixd == pixs2 gives an incorrect<para/>
+''' result: the copy puts pixs1 image data in pixs2, and<para/>
+''' the rasterop is then between pixs2 and pixs2 (a no-op).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixd">[in][optional] - ; this can be null, equal to pixs1, different from pixs1</param>
+'''  <param name="pixd">[in][optional] - this can be null, equal to pixs1, different from pixs1</param>
 '''  <param name="pixs1">[in] - can be == pixd</param>
 '''  <param name="pixs2">[in] - must be != pixd</param>
 '''   <returns>pixd always</returns>
@@ -768,30 +784,31 @@ End Function
 ' pixSubtract()
 ' pixSubtract(PIX *, PIX *, PIX *) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This gives the set subtraction of two images with equal depth,
-''' aligning them to the the UL corner.  pixs1 and pixs2
-''' need not have the same width and height.
-''' (2) Source pixs2 is always subtracted from source pixs1.
-''' The result is
-''' pixs1 \ pixs2 = pixs1  (~pixs2)
-''' (3) There are 4 cases
-''' (a) pixd == null,   (src1 - src2) --GT new pixd
-''' (b) pixd == pixs1,  (src1 - src2) --GT src1  (in-place)
-''' (c) pixd == pixs2,  (src1 - src2) --GT src2  (in-place)
-''' (d) pixd != pixs1  pixd != pixs2),
-''' (src1 - src2) --GT input pixd
-''' (4) For clarity, if the case is known, use these patterns
-''' (a) pixd = pixSubtract(NULL, pixs1, pixs2);
-''' (b) pixSubtract(pixs1, pixs1, pixs2);
-''' (c) pixSubtract(pixs2, pixs1, pixs2);
-''' (d) pixSubtract(pixd, pixs1, pixs2);
-''' (5) The size of the result is determined by pixs1.
-''' (6) The depths of pixs1 and pixs2 must be equal.
+''' <para/>
+''' Notes:<para/>
+''' (1) This gives the set subtraction of two images with equal depth,<para/>
+''' aligning them to the the UL corner.  pixs1 and pixs2<para/>
+''' need not have the same width and height.<para/>
+''' (2) Source pixs2 is always subtracted from source pixs1.<para/>
+''' The result is<para/>
+''' pixs1 \ pixs2 = pixs1  and  (~pixs2)<para/>
+''' (3) There are 4 cases:<para/>
+''' (a) pixd == null, (src1 - src2) -- is greater  new pixd<para/>
+''' (b) pixd == pixs1,  (src1 - src2) -- is greater  src1  (in-place)<para/>
+''' (c) pixd == pixs2,  (src1 - src2) -- is greater  src2  (in-place)<para/>
+''' (d) pixd != pixs1  and  and  pixd != pixs2),<para/>
+''' (src1 - src2) -- is greater  input pixd<para/>
+''' (4) For clarity, if the case is known, use these patterns:<para/>
+''' (a) pixd = pixSubtract(NULL, pixs1, pixs2)<para/>
+''' (b) pixSubtract(pixs1, pixs1, pixs2)<para/>
+''' (c) pixSubtract(pixs2, pixs1, pixs2)<para/>
+''' (d) pixSubtract(pixd, pixs1, pixs2)<para/>
+''' (5) The size of the result is determined by pixs1.<para/>
+''' (6) The depths of pixs1 and pixs2 must be equal.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixd">[in][optional] - ; this can be null, equal to pixs1, equal to pixs2, or different from both pixs1 and pixs2</param>
+'''  <param name="pixd">[in][optional] - this can be null, equal to pixs1, equal to pixs2, or different from both pixs1 and pixs2</param>
 '''  <param name="pixs1">[in] - can be == pixd</param>
 '''  <param name="pixs2">[in] - can be == pixd</param>
 '''   <returns>pixd always</returns>
@@ -815,19 +832,20 @@ End Function
 ' pixZero()
 ' pixZero(PIX *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) For a binary image, if there are no fg (black) pixels, empty = 1.
-''' (2) For a grayscale image, if all pixels are black (0), empty = 1.
-''' (3) For an RGB image, if all 4 components in every pixel is 0,
-''' empty = 1.
-''' (4) For a colormapped image, pixel values are 0.  The colormap
-''' is ignored.
+''' <para/>
+''' Notes:<para/>
+''' (1) For a binary image, if there are no fg (black) pixels, empty = 1.<para/>
+''' (2) For a grayscale image, if all pixels are black (0), empty = 1.<para/>
+''' (3) For an RGB image, if all 4 components in every pixel is 0,<para/>
+''' empty = 1.<para/>
+''' (4) For a colormapped image, pixel values are 0.  The colormap<para/>
+''' is ignored.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pix">[in] - all depths; colormap OK</param>
-'''  <param name="pempty">[out] - 1 if all bits in image data field are 0; 0 otherwise</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''  <param name="pix">[in] - all depths colormap OK</param>
+'''  <param name="pempty">[out] - 1 if all bits in image data field are 0 0 otherwise</param>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixZero(
 				ByVal pix as Pix, 
 				ByRef pempty as Integer) as Integer
@@ -843,14 +861,11 @@ End Function
 ' SRC\pix3.c (1751, 1)
 ' pixForegroundFraction()
 ' pixForegroundFraction(PIX *, l_float32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="pfract">[out] - fraction of ON pixels</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixForegroundFraction(
 				ByVal pix as Pix, 
 				ByRef pfract as Single()) as Integer
@@ -867,9 +882,6 @@ End Function
 ' SRC\pix3.c (1778, 1)
 ' pixaCountPixels()
 ' pixaCountPixels(PIXA *) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixa">[in] - array of 1 bpp pix</param>
@@ -889,15 +901,12 @@ End Function
 ' SRC\pix3.c (1823, 1)
 ' pixCountPixels()
 ' pixCountPixels(PIX *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pcount">[out] - count of ON pixels</param>
 '''  <param name="tab8">[in][optional] - 8-bit pixel lookup table</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixCountPixels(
 				ByVal pixs as Pix, 
 				ByRef pcount as Integer, 
@@ -915,16 +924,13 @@ End Function
 ' SRC\pix3.c (1887, 1)
 ' pixCountPixelsInRect()
 ' pixCountPixelsInRect(PIX *, BOX *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="box">[in] - (can be null)</param>
 '''  <param name="pcount">[out] - count of ON pixels</param>
 '''  <param name="tab8">[in][optional] - 8-bit pixel lookup table</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixCountPixelsInRect(
 				ByVal pixs as Pix, 
 				ByVal box as Box, 
@@ -945,14 +951,15 @@ End Function
 ' pixCountByRow()
 ' pixCountByRow(PIX *, BOX *) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) To resample for a bin size different from 1, use
-''' numaUniformSampling() on the result of this function.
+''' <para/>
+''' Notes:<para/>
+''' (1) To resample for a bin size different from 1, use<para/>
+''' numaUniformSampling() on the result of this function.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - 1 bpp</param>
-'''  <param name="box">[in][optional] - clipping box for count; can be null</param>
+'''  <param name="box">[in][optional] - clipping box for count can be null</param>
 '''   <returns>na of number of ON pixels by row, or NULL on error</returns>
 Public Shared Function pixCountByRow(
 				ByVal pix as Pix, 
@@ -973,14 +980,15 @@ End Function
 ' pixCountByColumn()
 ' pixCountByColumn(PIX *, BOX *) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) To resample for a bin size different from 1, use
-''' numaUniformSampling() on the result of this function.
+''' <para/>
+''' Notes:<para/>
+''' (1) To resample for a bin size different from 1, use<para/>
+''' numaUniformSampling() on the result of this function.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - 1 bpp</param>
-'''  <param name="box">[in][optional] - clipping box for count; can be null</param>
+'''  <param name="box">[in][optional] - clipping box for count can be null</param>
 '''   <returns>na of number of ON pixels by column, or NULL on error</returns>
 Public Shared Function pixCountByColumn(
 				ByVal pix as Pix, 
@@ -1000,9 +1008,6 @@ End Function
 ' SRC\pix3.c (2029, 1)
 ' pixCountPixelsByRow()
 ' pixCountPixelsByRow(PIX *, l_int32 *) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - 1 bpp</param>
@@ -1025,9 +1030,6 @@ End Function
 ' SRC\pix3.c (2063, 1)
 ' pixCountPixelsByColumn()
 ' pixCountPixelsByColumn(PIX *) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - 1 bpp</param>
@@ -1048,16 +1050,13 @@ End Function
 ' SRC\pix3.c (2104, 1)
 ' pixCountPixelsInRow()
 ' pixCountPixelsInRow(PIX *, l_int32, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="row">[in] - number</param>
 '''  <param name="pcount">[out] - sum of ON pixels in raster line</param>
 '''  <param name="tab8">[in][optional] - 8-bit pixel lookup table</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixCountPixelsInRow(
 				ByVal pix as Pix, 
 				ByVal row as Integer, 
@@ -1076,9 +1075,6 @@ End Function
 ' SRC\pix3.c (2167, 1)
 ' pixGetMomentByColumn()
 ' pixGetMomentByColumn(PIX *, l_int32) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - 1 bpp</param>
@@ -1102,20 +1098,21 @@ End Function
 ' pixThresholdPixelSum()
 ' pixThresholdPixelSum(PIX *, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This sums the ON pixels and returns immediately if the count
-''' goes above threshold.  It is therefore more efficient
-''' for matching images (by running this function on the xor of
-''' the 2 images) than using pixCountPixels(), which counts all
-''' pixels before returning.
+''' <para/>
+''' Notes:<para/>
+''' (1) This sums the ON pixels and returns immediately if the count<para/>
+''' goes above threshold.  It is therefore more efficient<para/>
+''' for matching images (by running this function on the xor of<para/>
+''' the 2 images) than using pixCountPixels(), which counts all<para/>
+''' pixels before returning.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="thresh">[in] - threshold</param>
-'''  <param name="pabove">[out] - 1 if above threshold; 0 if equal to or less than threshold</param>
+'''  <param name="pabove">[out] - 1 if above threshold 0 if equal to or less than threshold</param>
 '''  <param name="tab8">[in][optional] - 8-bit pixel lookup table</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixThresholdPixelSum(
 				ByVal pix as Pix, 
 				ByVal thresh as Integer, 
@@ -1135,9 +1132,10 @@ End Function
 ' makePixelSumTab8()
 ' makePixelSumTab8() as l_int32 *
 '''  <summary>
-''' Notes
-''' (1) This table of integers gives the number of 1 bits
-''' in the 8 bit index.
+''' <para/>
+''' Notes:<para/>
+''' (1) This table of integers gives the number of 1 bits<para/>
+''' in the 8 bit index.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1155,15 +1153,16 @@ End Function
 ' makePixelCentroidTab8()
 ' makePixelCentroidTab8() as l_int32 *
 '''  <summary>
-''' Notes
-''' (1) This table of integers gives the centroid weight of the 1 bits
-''' in the 8 bit index.  In other words, if sumtab is obtained by
-''' makePixelSumTab8, and centroidtab is obtained by
-''' makePixelCentroidTab8, then, for 1 LT= i LT= 255,
-''' centroidtab[i] / (float)sumtab[i]
-''' is the centroid of the 1 bits in the 8-bit index i, where the
-''' MSB is considered to have position 0 and the LSB is considered
-''' to have position 7.
+''' <para/>
+''' Notes:<para/>
+''' (1) This table of integers gives the centroid weight of the 1 bits<para/>
+''' in the 8 bit index.  In other words, if sumtab is obtained by<para/>
+''' makePixelSumTab8, and centroidtab is obtained by<para/>
+''' makePixelCentroidTab8, then, for 1  is lower = i  is lower = 255,<para/>
+''' centroidtab[i] / (float)sumtab[i]<para/>
+''' is the centroid of the 1 bits in the 8-bit index i, where the<para/>
+''' MSB is considered to have position 0 and the LSB is considered<para/>
+''' to have position 7.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1181,16 +1180,17 @@ End Function
 ' pixAverageByRow()
 ' pixAverageByRow(PIX *, BOX *, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) To resample for a bin size different from 1, use
-''' numaUniformSampling() on the result of this function.
-''' (2) If type == L_BLACK_IS_MAX, black pixels get the maximum
-''' value (0xff for 8 bpp, 0xffff for 16 bpp) and white get 0.
+''' <para/>
+''' Notes:<para/>
+''' (1) To resample for a bin size different from 1, use<para/>
+''' numaUniformSampling() on the result of this function.<para/>
+''' (2) If type == L_BLACK_IS_MAX, black pixels get the maximum<para/>
+''' value (0xff for 8 bpp, 0xffff for 16 bpp) and white get 0.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pix">[in] - 8 or 16 bpp; no colormap</param>
-'''  <param name="box">[in][optional] - clipping box for sum; can be null</param>
+'''  <param name="pix">[in] - 8 or 16 bpp no colormap</param>
+'''  <param name="box">[in][optional] - clipping box for sum can be null</param>
 '''  <param name="type">[in] - L_WHITE_IS_MAX, L_BLACK_IS_MAX</param>
 '''   <returns>na of pixel averages by row, or NULL on error</returns>
 Public Shared Function pixAverageByRow(
@@ -1212,16 +1212,17 @@ End Function
 ' pixAverageByColumn()
 ' pixAverageByColumn(PIX *, BOX *, l_int32) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) To resample for a bin size different from 1, use
-''' numaUniformSampling() on the result of this function.
-''' (2) If type == L_BLACK_IS_MAX, black pixels get the maximum
-''' value (0xff for 8 bpp, 0xffff for 16 bpp) and white get 0.
+''' <para/>
+''' Notes:<para/>
+''' (1) To resample for a bin size different from 1, use<para/>
+''' numaUniformSampling() on the result of this function.<para/>
+''' (2) If type == L_BLACK_IS_MAX, black pixels get the maximum<para/>
+''' value (0xff for 8 bpp, 0xffff for 16 bpp) and white get 0.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pix">[in] - 8 or 16 bpp; no colormap</param>
-'''  <param name="box">[in][optional] - clipping box for sum; can be null</param>
+'''  <param name="pix">[in] - 8 or 16 bpp no colormap</param>
+'''  <param name="box">[in][optional] - clipping box for sum can be null</param>
 '''  <param name="type">[in] - L_WHITE_IS_MAX, L_BLACK_IS_MAX</param>
 '''   <returns>na of pixel averages by column, or NULL on error</returns>
 Public Shared Function pixAverageByColumn(
@@ -1242,15 +1243,12 @@ End Function
 ' SRC\pix3.c (2534, 1)
 ' pixAverageInRect()
 ' pixAverageInRect(PIX *, BOX *, l_float32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pix">[in] - 1, 2, 4, 8 bpp; not cmapped</param>
+'''  <param name="pix">[in] - 1, 2, 4, 8 bpp not cmapped</param>
 '''  <param name="box">[in][optional] - if null, use entire image</param>
 '''  <param name="pave">[out] - average of pixel values in region</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixAverageInRect(
 				ByVal pix as Pix, 
 				ByVal box as Box, 
@@ -1269,16 +1267,17 @@ End Function
 ' pixVarianceByRow()
 ' pixVarianceByRow(PIX *, BOX *) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) To resample for a bin size different from 1, use
-''' numaUniformSampling() on the result of this function.
-''' (2) We are actually computing the RMS deviation in each row.
-''' This is the square root of the variance.
+''' <para/>
+''' Notes:<para/>
+''' (1) To resample for a bin size different from 1, use<para/>
+''' numaUniformSampling() on the result of this function.<para/>
+''' (2) We are actually computing the RMS deviation in each row.<para/>
+''' This is the square root of the variance.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pix">[in] - 8 or 16 bpp; no colormap</param>
-'''  <param name="box">[in][optional] - clipping box for variance; can be null</param>
+'''  <param name="pix">[in] - 8 or 16 bpp no colormap</param>
+'''  <param name="box">[in][optional] - clipping box for variance can be null</param>
 '''   <returns>na of rmsdev by row, or NULL on error</returns>
 Public Shared Function pixVarianceByRow(
 				ByVal pix as Pix, 
@@ -1298,16 +1297,17 @@ End Function
 ' pixVarianceByColumn()
 ' pixVarianceByColumn(PIX *, BOX *) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) To resample for a bin size different from 1, use
-''' numaUniformSampling() on the result of this function.
-''' (2) We are actually computing the RMS deviation in each row.
-''' This is the square root of the variance.
+''' <para/>
+''' Notes:<para/>
+''' (1) To resample for a bin size different from 1, use<para/>
+''' numaUniformSampling() on the result of this function.<para/>
+''' (2) We are actually computing the RMS deviation in each row.<para/>
+''' This is the square root of the variance.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pix">[in] - 8 or 16 bpp; no colormap</param>
-'''  <param name="box">[in][optional] - clipping box for variance; can be null</param>
+'''  <param name="pix">[in] - 8 or 16 bpp no colormap</param>
+'''  <param name="box">[in][optional] - clipping box for variance can be null</param>
 '''   <returns>na of rmsdev by column, or NULL on error</returns>
 Public Shared Function pixVarianceByColumn(
 				ByVal pix as Pix, 
@@ -1326,15 +1326,12 @@ End Function
 ' SRC\pix3.c (2723, 1)
 ' pixVarianceInRect()
 ' pixVarianceInRect(PIX *, BOX *, l_float32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pix">[in] - 1, 2, 4, 8 bpp; not cmapped</param>
+'''  <param name="pix">[in] - 1, 2, 4, 8 bpp not cmapped</param>
 '''  <param name="box">[in][optional] - if null, use entire image</param>
 '''  <param name="prootvar">[out] - sqrt variance of pixel values in region</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixVarianceInRect(
 				ByVal pix as Pix, 
 				ByVal box as Box, 
@@ -1353,23 +1350,23 @@ End Function
 ' pixAbsDiffByRow()
 ' pixAbsDiffByRow(PIX *, BOX *) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) This is an average over differences of adjacent pixels along
-''' each row.
-''' (2) To resample for a bin size different from 1, use
-''' numaUniformSampling() on the result of this function.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is an average over differences of adjacent pixels along<para/>
+''' each row.<para/>
+''' (2) To resample for a bin size different from 1, use<para/>
+''' numaUniformSampling() on the result of this function.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pix">[in] - 8 bpp; no colormap</param>
-'''  <param name="box">[in][optional] - clipping box for region; can be null</param>
+'''  <param name="pix">[in] - 8 bpp no colormap</param>
+'''  <param name="box">[in][optional] - clipping box for region can be null</param>
 '''   <returns>na of abs val pixel difference averages by row, or NULL on error</returns>
 Public Shared Function pixAbsDiffByRow(
 				ByVal pix as Pix, 
 				ByVal box as Box) as Numa
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If {8}.contains (pix.d) = false then Throw New ArgumentException ("8 bpp; no colormap")
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -1383,23 +1380,23 @@ End Function
 ' pixAbsDiffByColumn()
 ' pixAbsDiffByColumn(PIX *, BOX *) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) This is an average over differences of adjacent pixels along
-''' each column.
-''' (2) To resample for a bin size different from 1, use
-''' numaUniformSampling() on the result of this function.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is an average over differences of adjacent pixels along<para/>
+''' each column.<para/>
+''' (2) To resample for a bin size different from 1, use<para/>
+''' numaUniformSampling() on the result of this function.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pix">[in] - 8 bpp; no colormap</param>
-'''  <param name="box">[in][optional] - clipping box for region; can be null</param>
+'''  <param name="pix">[in] - 8 bpp no colormap</param>
+'''  <param name="box">[in][optional] - clipping box for region can be null</param>
 '''   <returns>na of abs val pixel difference averages by column, or NULL on error</returns>
 Public Shared Function pixAbsDiffByColumn(
 				ByVal pix as Pix, 
 				ByVal box as Box) as Numa
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If {8}.contains (pix.d) = false then Throw New ArgumentException ("8 bpp; no colormap")
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -1413,19 +1410,20 @@ End Function
 ' pixAbsDiffInRect()
 ' pixAbsDiffInRect(PIX *, BOX *, l_int32, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This gives the average over the abs val of differences of
-''' adjacent pixels values, along either each
-''' row  dir == L_HORIZONTAL_LINE
-''' column  dir == L_VERTICAL_LINE
+''' <para/>
+''' Notes:<para/>
+''' (1) This gives the average over the abs val of differences of<para/>
+''' adjacent pixels values, along either each<para/>
+''' row: dir == L_HORIZONTAL_LINE<para/>
+''' column:  dir == L_VERTICAL_LINE<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pix">[in] - 8 bpp; not cmapped</param>
+'''  <param name="pix">[in] - 8 bpp not cmapped</param>
 '''  <param name="box">[in][optional] - if null, use entire image</param>
 '''  <param name="dir">[in] - differences along L_HORIZONTAL_LINE or L_VERTICAL_LINE</param>
 '''  <param name="pabsdiff">[out] - average of abs diff pixel values in region</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixAbsDiffInRect(
 				ByVal pix as Pix, 
 				ByVal box as Box, 
@@ -1445,21 +1443,22 @@ End Function
 ' pixAbsDiffOnLine()
 ' pixAbsDiffOnLine(PIX *, l_int32, l_int32, l_int32, l_int32, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This gives the average over the abs val of differences of
-''' adjacent pixels values, along a line that is either horizontal
-''' or vertical.
-''' (2) If horizontal, require x1 LT x2; if vertical, require y1 LT y2.
+''' <para/>
+''' Notes:<para/>
+''' (1) This gives the average over the abs val of differences of<para/>
+''' adjacent pixels values, along a line that is either horizontal<para/>
+''' or vertical.<para/>
+''' (2) If horizontal, require x1  is lower  x2 if vertical, require y1  is lower  y2.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pix">[in] - 8 bpp; not cmapped</param>
-'''  <param name="x1">[in] - first point; x1 LT= x2, y1 LT= y2</param>
-'''  <param name="y1">[in] - first point; x1 LT= x2, y1 LT= y2</param>
+'''  <param name="pix">[in] - 8 bpp not cmapped</param>
+'''  <param name="x1">[in] - first point x1  is lower = x2, y1  is lower = y2</param>
+'''  <param name="y1">[in] - first point x1  is lower = x2, y1  is lower = y2</param>
 '''  <param name="x2">[in] - first point</param>
 '''  <param name="y2">[in] - first point</param>
 '''  <param name="pabsdiff">[out] - average of abs diff pixel values on line</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixAbsDiffOnLine(
 				ByVal pix as Pix, 
 				ByVal x1 as Integer, 
@@ -1480,19 +1479,20 @@ End Function
 ' pixCountArbInRect()
 ' pixCountArbInRect(PIX *, BOX *, l_int32, l_int32, l_int32 *) as l_int32
 '''  <summary>
-''' Notes
-''' (1) If pixs is cmapped, %val is compared to the colormap index;
-''' otherwise, %val is compared to the grayscale value.
-''' (2) Set the subsampling %factor GT 1 to reduce the amount of computation.
-''' If %factor GT 1, multiply the count by %factor  %factor.
+''' <para/>
+''' Notes:<para/>
+''' (1) If pixs is cmapped, %val is compared to the colormap index<para/>
+''' otherwise, %val is compared to the grayscale value.<para/>
+''' (2) Set the subsampling %factor  is greater  1 to reduce the amount of computation.<para/>
+''' If %factor  is greater  1, multiply the count by %factor  %factor.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 8 bpp, or colormapped</param>
-'''  <param name="box">[in][optional] - over which count is made; use entire image if NULL</param>
+'''  <param name="box">[in][optional] - over which count is made use entire image if NULL</param>
 '''  <param name="val">[in] - pixel value to count</param>
-'''  <param name="factor">[in] - subsampling factor; integer GT= 1</param>
-'''  <param name="pcount">[out] - count; estimate it if factor GT 1</param>
+'''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
+'''  <param name="pcount">[out] - count estimate it if factor  is greater  1</param>
 '''   <returns>na histogram, or NULL on error</returns>
 Public Shared Function pixCountArbInRect(
 				ByVal pixs as Pix, 
@@ -1514,20 +1514,21 @@ End Function
 ' pixMirroredTiling()
 ' pixMirroredTiling(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This uses mirrored tiling, where each row alternates
-''' with LR flips and every column alternates with TB
-''' flips, such that the result is a tiling with identical
-''' 2 x 2 tiles, each of which is composed of these transforms
-''' -----------------
-''' | 1 |  LR |
-''' -----------------
-''' | TB   |  LR/TB |
-''' -----------------
+''' <para/>
+''' Notes:<para/>
+''' (1) This uses mirrored tiling, where each row alternates<para/>
+''' with LR flips and every column alternates with TB<para/>
+''' flips, such that the result is a tiling with identical<para/>
+''' 2 x 2 tiles, each of which is composed of these transforms:<para/>
+''' -----------------<para/>
+''' | 1  |  LR  |<para/>
+''' -----------------<para/>
+''' | TB |  LR/TB |<para/>
+''' -----------------<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixs">[in] - 8 or 32 bpp, small tile; to be replicated</param>
+'''  <param name="pixs">[in] - 8 or 32 bpp, small tile to be replicated</param>
 '''  <param name="w">[in] - dimensions of output pix</param>
 '''  <param name="h">[in] - dimensions of output pix</param>
 '''   <returns>pixd usually larger pix, mirror-tiled with pixs, or NULL on error</returns>
@@ -1549,26 +1550,27 @@ End Function
 ' pixFindRepCloseTile()
 ' pixFindRepCloseTile(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, BOX **, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This looks for one or two square tiles with conforming median
-''' intensity and low variance, that is outside but near the input box.
-''' (2) %mindist specifies the gap between the box and the
-''' potential tiles.  The tiles are given an overlap of 50%.
-''' %ntiles specifies the number of tiles that are tested
-''' beyond %mindist for each row or column.
-''' (3) For example, if %mindist = 20, %tilesize = 50 and %ntiles = 3,
-''' a horizontal search to the right will have 3 tiles in each row,
-''' with left edges at 20, 45 and 70 from the right edge of the
-''' input %box.  The number of rows of tiles is determined by
-''' the height of %box and %tsize, with the 50% overlap..
+''' <para/>
+''' Notes:<para/>
+''' (1) This looks for one or two square tiles with conforming median<para/>
+''' intensity and low variance, that is outside but near the input box.<para/>
+''' (2) %mindist specifies the gap between the box and the<para/>
+''' potential tiles.  The tiles are given an overlap of 50%.<para/>
+''' %ntiles specifies the number of tiles that are tested<para/>
+''' beyond %mindist for each row or column.<para/>
+''' (3) For example, if %mindist = 20, %tilesize = 50 and %ntiles = 3,<para/>
+''' a horizontal search to the right will have 3 tiles in each row,<para/>
+''' with left edges at 20, 45 and 70 from the right edge of the<para/>
+''' input %box.  The number of rows of tiles is determined by<para/>
+''' the height of %box and %tsize, with the 50% overlap..<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="box">[in] - region of pixs to search around</param>
-'''  <param name="searchdir">[in] - L_HORIZ or L_VERT; direction to search</param>
-'''  <param name="mindist">[in] - min distance of selected tile edge from box; GT= 0</param>
-'''  <param name="tsize">[in] - tile size; GT 1; even; typically ~50</param>
+'''  <param name="searchdir">[in] - L_HORIZ or L_VERT direction to search</param>
+'''  <param name="mindist">[in] - min distance of selected tile edge from box  is greater = 0</param>
+'''  <param name="tsize">[in] - tile size  is greater  1 even typically ~50</param>
 '''  <param name="ntiles">[in] - number of tiles tested in each row/column</param>
 '''  <param name="pboxtile">[out] - region of best tile</param>
 '''  <param name="debug">[in] - 1    for debug output</param>

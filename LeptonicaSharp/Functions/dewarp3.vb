@@ -1,46 +1,47 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\dewarp3.c (114, 1)
 ' dewarpaApplyDisparity()
 ' dewarpaApplyDisparity(L_DEWARPA *, l_int32, PIX *, l_int32, l_int32, l_int32, PIX **, const char *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This applies the disparity arrays to the specified image.
-''' (2) Specify gray color for pixels brought in from the outside
-''' 0 is black, 255 is white.  Use -1 to select pixels from the
-''' boundary of the source image.
-''' (3) If the models and ref models have not been validated, this
-''' will do so by calling dewarpaInsertRefModels().
-''' (4) This works with both stripped and full resolution page models.
-''' If the full res disparity array(s) are missing, they are remade.
-''' (5) The caller must handle errors that are returned because there
-''' are no valid models or ref models for the page -- typically
-''' by using the input pixs.
-''' (6) If there is no model for %pageno, this will use the model for
-''' 'refpage' and put the result in the dew for %pageno.
-''' (7) This populates the full resolution disparity arrays if
-''' necessary.  If x and/or y are positive, they are used,
-''' in conjunction with pixs, to determine the required
-''' slope-based extension of the full resolution disparity
-''' arrays in each direction.  When (x,y) == (0,0), all
-''' extension is to the right and down.  Nonzero values of (x,y)
-''' are useful for dewarping when pixs is deliberately undercropped.
-''' (8) Important when applying disparity to a number of images,
-''' after calling this function and saving the resulting pixd,
-''' you should call dewarpMinimize(dew) on the dew for %pageno.
-''' This will remove pixs and pixd (or their clones) stored in dew,
-''' as well as the full resolution disparity arrays.  Together,
-''' these hold approximately 16 bytes for each pixel in pixs.
+''' <para/>
+''' Notes:<para/>
+''' (1) This applies the disparity arrays to the specified image.<para/>
+''' (2) Specify gray color for pixels brought in from the outside:<para/>
+''' 0 is black, 255 is white.  Use -1 to select pixels from the<para/>
+''' boundary of the source image.<para/>
+''' (3) If the models and ref models have not been validated, this<para/>
+''' will do so by calling dewarpaInsertRefModels().<para/>
+''' (4) This works with both stripped and full resolution page models.<para/>
+''' If the full res disparity array(s) are missing, they are remade.<para/>
+''' (5) The caller must handle errors that are returned because there<para/>
+''' are no valid models or ref models for the page -- typically<para/>
+''' by using the input pixs.<para/>
+''' (6) If there is no model for %pageno, this will use the model for<para/>
+''' 'refpage' and put the result in the dew for %pageno.<para/>
+''' (7) This populates the full resolution disparity arrays if<para/>
+''' necessary.  If x and/or y are positive, they are used,<para/>
+''' in conjunction with pixs, to determine the required<para/>
+''' slope-based extension of the full resolution disparity<para/>
+''' arrays in each direction.  When (x,y) == (0,0), all<para/>
+''' extension is to the right and down.  Nonzero values of (x,y)<para/>
+''' are useful for dewarping when pixs is deliberately undercropped.<para/>
+''' (8) Important: when applying disparity to a number of images,<para/>
+''' after calling this function and saving the resulting pixd,<para/>
+''' you should call dewarpMinimize(dew) on the dew for %pageno.<para/>
+''' This will remove pixs and pixd (or their clones) stored in dew,<para/>
+''' as well as the full resolution disparity arrays.  Together,<para/>
+''' these hold approximately 16 bytes for each pixel in pixs.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dewa">[in] - </param>
-'''  <param name="pageno">[in] - of page model to be used; may be a ref model</param>
-'''  <param name="pixs">[in] - image to be modified; can be 1, 8 or 32 bpp</param>
-'''  <param name="grayin">[in] - gray value, from 0 to 255, for pixels brought in; use -1 to use pixels on the boundary of pixs</param>
+'''  <param name="pageno">[in] - of page model to be used may be a ref model</param>
+'''  <param name="pixs">[in] - image to be modified can be 1, 8 or 32 bpp</param>
+'''  <param name="grayin">[in] - gray value, from 0 to 255, for pixels brought in use -1 to use pixels on the boundary of pixs</param>
 '''  <param name="x">[in] - origin for generation of disparity arrays</param>
 '''  <param name="y">[in] - origin for generation of disparity arrays</param>
 '''  <param name="ppixd">[out] - disparity corrected image</param>
@@ -71,24 +72,25 @@ End Function
 ' dewarpaApplyDisparityBoxa()
 ' dewarpaApplyDisparityBoxa(L_DEWARPA *, l_int32, PIX *, BOXA *, l_int32, l_int32, l_int32, BOXA **, const char *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This applies the disparity arrays in one of two mapping directions
-''' to the specified boxa.  It can be used in the backward direction
-''' to locate a box in the original coordinates that would have
-''' been dewarped to to the specified image.
-''' (2) If there is no model for %pageno, this will use the model for
-''' 'refpage' and put the result in the dew for %pageno.
-''' (3) This works with both stripped and full resolution page models.
-''' If the full res disparity array(s) are missing, they are remade.
-''' (4) If an error occurs, a copy of the input boxa is returned.
+''' <para/>
+''' Notes:<para/>
+''' (1) This applies the disparity arrays in one of two mapping directions<para/>
+''' to the specified boxa.  It can be used in the backward direction<para/>
+''' to locate a box in the original coordinates that would have<para/>
+''' been dewarped to to the specified image.<para/>
+''' (2) If there is no model for %pageno, this will use the model for<para/>
+''' 'refpage' and put the result in the dew for %pageno.<para/>
+''' (3) This works with both stripped and full resolution page models.<para/>
+''' If the full res disparity array(s) are missing, they are remade.<para/>
+''' (4) If an error occurs, a copy of the input boxa is returned.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dewa">[in] - </param>
-'''  <param name="pageno">[in] - of page model to be used; may be a ref model</param>
-'''  <param name="pixs">[in] - initial pix reference; for alignment and debugging</param>
+'''  <param name="pageno">[in] - of page model to be used may be a ref model</param>
+'''  <param name="pixs">[in] - initial pix reference for alignment and debugging</param>
 '''  <param name="boxas">[in] - boxa to be mapped</param>
-'''  <param name="mapdir">[in] - 1 if mapping forward from original to dewarped; 0 if backward</param>
+'''  <param name="mapdir">[in] - 1 if mapping forward from original to dewarped 0 if backward</param>
 '''  <param name="x">[in] - origin for generation of disparity arrays with respect to the source region</param>
 '''  <param name="y">[in] - origin for generation of disparity arrays with respect to the source region</param>
 '''  <param name="pboxad">[out] - disparity corrected boxa</param>
@@ -121,10 +123,11 @@ End Function
 ' dewarpMinimize()
 ' dewarpMinimize(L_DEWARP *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This removes all data that is not needed for serialization.
-''' It keeps the subsampled disparity array(s), so the full
-''' resolution arrays can be reconstructed.
+''' <para/>
+''' Notes:<para/>
+''' (1) This removes all data that is not needed for serialization.<para/>
+''' It keeps the subsampled disparity array(s), so the full<para/>
+''' resolution arrays can be reconstructed.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -145,24 +148,25 @@ End Function
 ' dewarpPopulateFullRes()
 ' dewarpPopulateFullRes(L_DEWARP *, PIX *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) If the full resolution vertical and horizontal disparity
-''' arrays do not exist, they are built from the subsampled ones.
-''' (2) If pixs is not given, the size of the arrays is determined
-''' by the original image from which the sampled version was
-''' generated.  Any values of (x,y) are ignored.
-''' (3) If pixs is given, the full resolution disparity arrays must
-''' be large enough to accommodate it.
-''' (a) If the arrays do not exist, the value of (x,y) determines
-''' the origin of the full resolution arrays without extension,
-''' relative to pixs.  Thus, (x,y) gives the amount of
-''' slope extension in (left, top).  The (right, bottom)
-''' extension is then determined by the size of pixs and
-''' (x,y); the values should never be LT 0.
-''' (b) If the arrays exist and pixs is too large, the existing
-''' full res arrays are destroyed and new ones are made,
-''' again using (x,y) to determine the extension in the
-''' four directions.
+''' <para/>
+''' Notes:<para/>
+''' (1) If the full resolution vertical and horizontal disparity<para/>
+''' arrays do not exist, they are built from the subsampled ones.<para/>
+''' (2) If pixs is not given, the size of the arrays is determined<para/>
+''' by the original image from which the sampled version was<para/>
+''' generated.  Any values of (x,y) are ignored.<para/>
+''' (3) If pixs is given, the full resolution disparity arrays must<para/>
+''' be large enough to accommodate it.<para/>
+''' (a) If the arrays do not exist, the value of (x,y) determines<para/>
+''' the origin of the full resolution arrays without extension,<para/>
+''' relative to pixs.  Thus, (x,y) gives the amount of<para/>
+''' slope extension in (left, top).  The (right, bottom)<para/>
+''' extension is then determined by the size of pixs and<para/>
+''' (x,y) the values should never be  is lower  0.<para/>
+''' (b) If the arrays exist and pixs is too large, the existing<para/>
+''' full res arrays are destroyed and new ones are made,<para/>
+''' again using (x,y) to determine the extension in the<para/>
+''' four directions.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

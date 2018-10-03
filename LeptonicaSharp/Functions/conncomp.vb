@@ -1,16 +1,17 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\conncomp.c (144, 1)
 ' pixConnComp()
 ' pixConnComp(PIX *, PIXA **, l_int32) as BOXA *
 '''  <summary>
-''' Notes
-''' (1) This is the top-level call for getting bounding boxes or
-''' a pixa of the components, and it can be used instead
-''' of either pixConnCompBB() or pixConnCompPixa(), rsp.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is the top-level call for getting bounding boxes or<para/>
+''' a pixa of the components, and it can be used instead<para/>
+''' of either pixConnCompBB() or pixConnCompPixa(), rsp.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -39,18 +40,19 @@ End Function
 ' pixConnCompPixa()
 ' pixConnCompPixa(PIX *, PIXA **, l_int32) as BOXA *
 '''  <summary>
-''' Notes
-''' (1) This finds bounding boxes of 4- or 8-connected components
-''' in a binary image, and saves images of each c.c
-''' in a pixa array.
-''' (2) It sets up 2 temporary pix, and for each c.c. that is
-''' located in raster order, it erases the c.c. from one pix,
-''' then uses the b.b. to extract the c.c. from the two pix using
-''' an XOR, and finally erases the c.c. from the second pix.
-''' (3) A clone of the returned boxa (where all boxes in the array
-''' are clones) is inserted into the pixa.
-''' (4) If the input is valid, this always returns a boxa and a pixa.
-''' If pixs is empty, the boxa and pixa will be empty.
+''' <para/>
+''' Notes:<para/>
+''' (1) This finds bounding boxes of 4- or 8-connected components<para/>
+''' in a binary image, and saves images of each c.c<para/>
+''' in a pixa array.<para/>
+''' (2) It sets up 2 temporary pix, and for each c.c. that is<para/>
+''' located in raster order, it erases the c.c. from one pix,<para/>
+''' then uses the b.b. to extract the c.c. from the two pix using<para/>
+''' an XOR, and finally erases the c.c. from the second pix.<para/>
+''' (3) A clone of the returned boxa (where all boxes in the array<para/>
+''' are clones) is inserted into the pixa.<para/>
+''' (4) If the input is valid, this always returns a boxa and a pixa.<para/>
+''' If pixs is empty, the boxa and pixa will be empty.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -79,12 +81,13 @@ End Function
 ' pixConnCompBB()
 ' pixConnCompBB(PIX *, l_int32) as BOXA *
 '''  <summary>
-''' Notes
-''' (1) Finds bounding boxes of 4- or 8-connected components
-''' in a binary image.
-''' (2) This works on a copy of the input pix.  The c.c. are located
-''' in raster order and erased one at a time.  In the process,
-''' the b.b. is computed and saved.
+''' <para/>
+''' Notes:<para/>
+''' (1) Finds bounding boxes of 4- or 8-connected components<para/>
+''' in a binary image.<para/>
+''' (2) This works on a copy of the input pix.  The c.c. are located<para/>
+''' in raster order and erased one at a time.  In the process,<para/>
+''' the b.b. is computed and saved.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -108,15 +111,12 @@ End Function
 ' SRC\conncomp.c (387, 1)
 ' pixCountConnComp()
 ' pixCountConnComp(PIX *, l_int32, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''  <param name="pcount">[out] - </param>
-'''   <returns>0 if OK, 1 on error Notes (1 This is the top-level call for getting the number of 4- or 8-connected components in a 1 bpp image. 2 It works on a copy of the input pix.  The c.c. are located in raster order and erased one at a time.</returns>
+'''   <returns>0 if OK, 1 on error Notes: (1 This is the top-level call for getting the number of 4- or 8-connected components in a 1 bpp image. 2 It works on a copy of the input pix.  The c.c. are located in raster order and erased one at a time.</returns>
 Public Shared Function pixCountConnComp(
 				ByVal pixs as Pix, 
 				ByVal connectivity as Integer, 
@@ -134,9 +134,6 @@ End Function
 ' SRC\conncomp.c (449, 1)
 ' nextOnPixelInRaster()
 ' nextOnPixelInRaster(PIX *, l_int32, l_int32, l_int32 *, l_int32 *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 1 bpp</param>
@@ -144,7 +141,7 @@ End Function
 '''  <param name="ystart">[in] - starting point for search</param>
 '''  <param name="px">[out] - coord value of next ON pixel</param>
 '''  <param name="py">[out] - coord value of next ON pixel</param>
-'''   <returns>1 if a pixel is found; 0 otherwise or on error</returns>
+'''   <returns>1 if a pixel is found 0 otherwise or on error</returns>
 Public Shared Function nextOnPixelInRaster(
 				ByVal pixs as Pix, 
 				ByVal xstart as Integer, 
@@ -164,9 +161,6 @@ End Function
 ' SRC\conncomp.c (483, 1)
 ' nextOnPixelInRasterLow()
 ' nextOnPixelInRasterLow(l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32 *, l_int32 *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="data">[in] - pix data</param>
@@ -177,7 +171,7 @@ End Function
 '''  <param name="ystart">[in] - starting point for search</param>
 '''  <param name="px">[out] - coord value of next ON pixel</param>
 '''  <param name="py">[out] - coord value of next ON pixel</param>
-'''   <returns>1 if a pixel is found; 0 otherwise or on error</returns>
+'''   <returns>1 if a pixel is found 0 otherwise or on error</returns>
 Public Shared Function nextOnPixelInRasterLow(
 				ByVal data as Byte(), 
 				ByVal w as Integer, 
@@ -201,9 +195,10 @@ End Function
 ' pixSeedfillBB()
 ' pixSeedfillBB(PIX *, L_STACK *, l_int32, l_int32, l_int32) as BOX *
 '''  <summary>
-''' Notes
-''' (1) This is the high-level interface to Paul Heckbert's
-''' stack-based seedfill algorithm.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is the high-level interface to Paul Heckbert's<para/>
+''' stack-based seedfill algorithm.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -216,7 +211,7 @@ Public Shared Function pixSeedfillBB(
 				ByVal pixs as Pix, 
 				ByVal stack as L_Stack, 
 				ByVal x as Integer, 
-				ByRef y as Integer, 
+				ByVal y as Integer, 
 				ByVal connectivity as Integer) as Box
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -234,26 +229,27 @@ End Function
 ' pixSeedfill4BB()
 ' pixSeedfill4BB(PIX *, L_STACK *, l_int32, l_int32) as BOX *
 '''  <summary>
-''' Notes
-''' (1) This is Paul Heckbert's stack-based 4-cc seedfill algorithm.
-''' (2) This operates on the input 1 bpp pix to remove the fg seed
-''' pixel, at (x,y), and all pixels that are 4-connected to it.
-''' The seed pixel at (x,y) must initially be ON.
-''' (3) Returns the bounding box of the erased 4-cc component.
-''' (4) Reference see Paul Heckbert's stack-based seed fill algorithm
-''' in "Graphic Gems", ed. Andrew Glassner, Academic
-''' Press, 1990.  The algorithm description is given
-''' on pp. 275-277; working C code is on pp. 721-722.)
-''' The code here follows Heckbert's exactly, except
-''' we use function calls instead of macros for
-''' pushing data on and popping data off the stack.
-''' This makes sense to do because Heckbert's fixed-size
-''' stack with macros is dangerous images exist that
-''' will overrun the stack and crash.   The stack utility
-''' here grows dynamically as needed, and the fillseg
-''' structures that are not in use are stored in another
-''' stack for reuse.  It should be noted that the
-''' overhead in the function calls (vs. macros) is negligible.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is Paul Heckbert's stack-based 4-cc seedfill algorithm.<para/>
+''' (2) This operates on the input 1 bpp pix to remove the fg seed<para/>
+''' pixel, at (x,y), and all pixels that are 4-connected to it.<para/>
+''' The seed pixel at (x,y) must initially be ON.<para/>
+''' (3) Returns the bounding box of the erased 4-cc component.<para/>
+''' (4) Reference: see Paul Heckbert's stack-based seed fill algorithm<para/>
+''' in "Graphic Gems", ed. Andrew Glassner, Academic<para/>
+''' Press, 1990.  The algorithm description is given<para/>
+''' on pp. 275-277 working C code is on pp. 721-722.)<para/>
+''' The code here follows Heckbert's exactly, except<para/>
+''' we use function calls instead of macros for<para/>
+''' pushing data on and popping data off the stack.<para/>
+''' This makes sense to do because Heckbert's fixed-size<para/>
+''' stack with macros is dangerous: images exist that<para/>
+''' will overrun the stack and crash. The stack utility<para/>
+''' here grows dynamically as needed, and the fillseg<para/>
+''' structures that are not in use are stored in another<para/>
+''' stack for reuse.  It should be noted that the<para/>
+''' overhead in the function calls (vs. macros) is negligible.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -265,7 +261,7 @@ Public Shared Function pixSeedfill4BB(
 				ByVal pixs as Pix, 
 				ByVal stack as L_Stack, 
 				ByVal x as Integer, 
-				ByRef y as Integer) as Box
+				ByVal y as Integer) as Box
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (stack) then Throw New ArgumentNullException  ("stack cannot be Nothing")
@@ -282,19 +278,20 @@ End Function
 ' pixSeedfill8BB()
 ' pixSeedfill8BB(PIX *, L_STACK *, l_int32, l_int32) as BOX *
 '''  <summary>
-''' Notes
-''' (1) This is Paul Heckbert's stack-based 8-cc seedfill algorithm.
-''' (2) This operates on the input 1 bpp pix to remove the fg seed
-''' pixel, at (x,y), and all pixels that are 8-connected to it.
-''' The seed pixel at (x,y) must initially be ON.
-''' (3) Returns the bounding box of the erased 8-cc component.
-''' (4) Reference see Paul Heckbert's stack-based seed fill algorithm
-''' in "Graphic Gems", ed. Andrew Glassner, Academic
-''' Press, 1990.  The algorithm description is given
-''' on pp. 275-277; working C code is on pp. 721-722.)
-''' The code here follows Heckbert's closely, except
-''' the leak checks are changed for 8 connectivity.
-''' See comments on pixSeedfill4BB() for more details.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is Paul Heckbert's stack-based 8-cc seedfill algorithm.<para/>
+''' (2) This operates on the input 1 bpp pix to remove the fg seed<para/>
+''' pixel, at (x,y), and all pixels that are 8-connected to it.<para/>
+''' The seed pixel at (x,y) must initially be ON.<para/>
+''' (3) Returns the bounding box of the erased 8-cc component.<para/>
+''' (4) Reference: see Paul Heckbert's stack-based seed fill algorithm<para/>
+''' in "Graphic Gems", ed. Andrew Glassner, Academic<para/>
+''' Press, 1990.  The algorithm description is given<para/>
+''' on pp. 275-277 working C code is on pp. 721-722.)<para/>
+''' The code here follows Heckbert's closely, except<para/>
+''' the leak checks are changed for 8 connectivity.<para/>
+''' See comments on pixSeedfill4BB() for more details.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -306,7 +303,7 @@ Public Shared Function pixSeedfill8BB(
 				ByVal pixs as Pix, 
 				ByVal stack as L_Stack, 
 				ByVal x as Integer, 
-				ByRef y as Integer) as Box
+				ByVal y as Integer) as Box
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (stack) then Throw New ArgumentNullException  ("stack cannot be Nothing")
@@ -323,9 +320,10 @@ End Function
 ' pixSeedfill()
 ' pixSeedfill(PIX *, L_STACK *, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This removes the component from pixs with a fg pixel at (x,y).
-''' (2) See pixSeedfill4() and pixSeedfill8() for details.
+''' <para/>
+''' Notes:<para/>
+''' (1) This removes the component from pixs with a fg pixel at (x,y).<para/>
+''' (2) See pixSeedfill4() and pixSeedfill8() for details.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -338,7 +336,7 @@ Public Shared Function pixSeedfill(
 				ByVal pixs as Pix, 
 				ByVal stack as L_Stack, 
 				ByVal x as Integer, 
-				ByRef y as Integer, 
+				ByVal y as Integer, 
 				ByVal connectivity as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -355,12 +353,13 @@ End Function
 ' pixSeedfill4()
 ' pixSeedfill4(PIX *, L_STACK *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This is Paul Heckbert's stack-based 4-cc seedfill algorithm.
-''' (2) This operates on the input 1 bpp pix to remove the fg seed
-''' pixel, at (x,y), and all pixels that are 4-connected to it.
-''' The seed pixel at (x,y) must initially be ON.
-''' (3) Reference see pixSeedFill4BB()
+''' <para/>
+''' Notes:<para/>
+''' (1) This is Paul Heckbert's stack-based 4-cc seedfill algorithm.<para/>
+''' (2) This operates on the input 1 bpp pix to remove the fg seed<para/>
+''' pixel, at (x,y), and all pixels that are 4-connected to it.<para/>
+''' The seed pixel at (x,y) must initially be ON.<para/>
+''' (3) Reference: see pixSeedFill4BB()<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -372,7 +371,7 @@ Public Shared Function pixSeedfill4(
 				ByVal pixs as Pix, 
 				ByVal stack as L_Stack, 
 				ByVal x as Integer, 
-				ByRef y as Integer) as Integer
+				ByVal y as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (stack) then Throw New ArgumentNullException  ("stack cannot be Nothing")
@@ -388,12 +387,13 @@ End Function
 ' pixSeedfill8()
 ' pixSeedfill8(PIX *, L_STACK *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This is Paul Heckbert's stack-based 8-cc seedfill algorithm.
-''' (2) This operates on the input 1 bpp pix to remove the fg seed
-''' pixel, at (x,y), and all pixels that are 8-connected to it.
-''' The seed pixel at (x,y) must initially be ON.
-''' (3) Reference see pixSeedFill8BB()
+''' <para/>
+''' Notes:<para/>
+''' (1) This is Paul Heckbert's stack-based 8-cc seedfill algorithm.<para/>
+''' (2) This operates on the input 1 bpp pix to remove the fg seed<para/>
+''' pixel, at (x,y), and all pixels that are 8-connected to it.<para/>
+''' The seed pixel at (x,y) must initially be ON.<para/>
+''' (3) Reference: see pixSeedFill8BB()<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -405,7 +405,7 @@ Public Shared Function pixSeedfill8(
 				ByVal pixs as Pix, 
 				ByVal stack as L_Stack, 
 				ByVal x as Integer, 
-				ByRef y as Integer) as Integer
+				ByVal y as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (stack) then Throw New ArgumentNullException  ("stack cannot be Nothing")

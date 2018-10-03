@@ -1,22 +1,23 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\dwacomb.2.c (37, 6)
 ' pixMorphDwa_2()
 ' pixMorphDwa_2(PIX *, PIX *, l_int32, char *) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This simply adds a border, calls the appropriate
-''' pixFMorphopGen_(), and removes the border.
-''' See the notes for that function.
-''' (2) The size of the border depends on the operation
-''' and the boundary conditions.
+''' <para/>
+''' Notes:<para/>
+''' (1) This simply adds a border, calls the appropriate<para/>
+''' pixFMorphopGen_(), and removes the border.<para/>
+''' See the notes for that function.<para/>
+''' (2) The size of the border depends on the operation<para/>
+''' and the boundary conditions.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixd">[in] - usual 3 choices null, == pixs, != pixs</param>
+'''  <param name="pixd">[in] - usual 3 choices: null, == pixs, != pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="operation">[in] - L_MORPH_DILATE, L_MORPH_ERODE, L_MORPH_OPEN, L_MORPH_CLOSE</param>
 '''   <returns>pixd</returns>
@@ -24,7 +25,7 @@ Public Shared Function pixMorphDwa_2(
 				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal operation as Enumerations.L_MORPH, 
-				ByRef selname as String) as Pix
+				ByVal selname as String) as Pix
 
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -42,20 +43,21 @@ End Function
 ' pixFMorphopGen_2()
 ' pixFMorphopGen_2(PIX *, PIX *, l_int32, char *) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This is a dwa operation, and the Sels must be limited in
-''' size to not more than 31 pixels about the origin.
-''' (2) A border of appropriate size (32 pixels, or 64 pixels
-''' for safe closing with asymmetric b.c.) must be added before
-''' this function is called.
-''' (3) This handles all required setting of the border pixels
-''' before erosion and dilation.
-''' (4) The closing operation is safe; no pixels can be removed
-''' near the boundary.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is a dwa operation, and the Sels must be limited in<para/>
+''' size to not more than 31 pixels about the origin.<para/>
+''' (2) A border of appropriate size (32 pixels, or 64 pixels<para/>
+''' for safe closing with asymmetric b.c.) must be added before<para/>
+''' this function is called.<para/>
+''' (3) This handles all required setting of the border pixels<para/>
+''' before erosion and dilation.<para/>
+''' (4) The closing operation is safe no pixels can be removed<para/>
+''' near the boundary.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixd">[in] - usual 3 choices null, == pixs, != pixs</param>
+'''  <param name="pixd">[in] - usual 3 choices: null, == pixs, != pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="operation">[in] - L_MORPH_DILATE, L_MORPH_ERODE, L_MORPH_OPEN, L_MORPH_CLOSE</param>
 '''   <returns>pixd</returns>
@@ -63,7 +65,7 @@ Public Shared Function pixFMorphopGen_2(
 				ByVal pixd as Pix, 
 				ByVal pixs as Pix, 
 				ByVal operation as Enumerations.L_MORPH, 
-				ByRef selname as String) as Pix
+				ByVal selname as String) as Pix
 
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -80,20 +82,17 @@ End Function
 ' SRC\dwacomb.2.c (39, 9)
 ' 
 ' fmorphopgen_low_2(l_uint32 *, l_int32, l_int32, l_int32, l_uint32 *, l_int32, l_int32) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function fmorphopgen_low_2(
-				ByRef datad as Object, 
-				ByRef w as Integer, 
-				ByRef h as Integer, 
-				ByRef wpld as Integer, 
-				ByRef datas as Object, 
-				ByRef wpls as Integer, 
-				ByRef index as Integer) as Integer
+				ByVal datad as Object, 
+				ByVal w as Integer, 
+				ByVal h as Integer, 
+				ByVal wpld as Integer, 
+				ByVal datas as Object, 
+				ByVal wpls as Integer, 
+				ByVal index as Integer) as Integer
 
 	If IsNothing (datad) then Throw New ArgumentNullException  ("datad cannot be Nothing")
 	If IsNothing (datas) then Throw New ArgumentNullException  ("datas cannot be Nothing")

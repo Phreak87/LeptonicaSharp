@@ -1,33 +1,34 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\recogdid.c (215, 1)
 ' recogDecode()
 ' recogDecode(L_RECOG *, PIX *, l_int32, PIX **) as BOXA *
 '''  <summary>
-''' Notes
-''' (1) The input pixs has been filtered so that it is likely to be
-''' composed of more than one touching character.  Specifically,
-''' its height can only slightly exceed that of the tallest
-''' unscaled template, the width is somewhat larger than the
-''' width of the widest unscaled template, and the w/h aspect ratio
-''' is bounded by max_wh_ratio.
-''' (2) This uses the DID mechanism with labeled templates to
-''' segment the input %pixs.  The resulting segmentation is
-''' returned.  (It is given by did-GTboxa).
-''' (3) In debug mode, the Viterbi path is rescored based on all
-''' the templates.  In non-debug mode, the same procedure is
-''' carried out by recogIdentifyPix() on the result of the
-''' segmentation.
+''' <para/>
+''' Notes:<para/>
+''' (1) The input pixs has been filtered so that it is likely to be<para/>
+''' composed of more than one touching character.  Specifically,<para/>
+''' its height can only slightly exceed that of the tallest<para/>
+''' unscaled template, the width is somewhat larger than the<para/>
+''' width of the widest unscaled template, and the w/h aspect ratio<para/>
+''' is bounded by max_wh_ratio.<para/>
+''' (2) This uses the DID mechanism with labeled templates to<para/>
+''' segment the input %pixs.  The resulting segmentation is<para/>
+''' returned.  (It is given by did- is greater boxa).<para/>
+''' (3) In debug mode, the Viterbi path is rescored based on all<para/>
+''' the templates.  In non-debug mode, the same procedure is<para/>
+''' carried out by recogIdentifyPix() on the result of the<para/>
+''' segmentation.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="recog">[in] - with LUT's pre-computed</param>
 '''  <param name="pixs">[in] - typically of multiple touching characters, 1 bpp</param>
-'''  <param name="nlevels">[in] - of templates; 2 for now</param>
-'''  <param name="ppixdb">[out][optional] - debug result; can be null</param>
+'''  <param name="nlevels">[in] - of templates 2 for now</param>
+'''  <param name="ppixdb">[out][optional] - debug result can be null</param>
 '''   <returns>boxa  segmentation of pixs into characters, or NULL on error</returns>
 Public Shared Function recogDecode(
 				ByVal recog as L_Recog, 
@@ -50,9 +51,6 @@ End Function
 ' SRC\recogdid.c (747, 1)
 ' recogCreateDid()
 ' recogCreateDid(L_RECOG *, PIX *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="recog">[in] - </param>
@@ -75,9 +73,10 @@ End Function
 ' recogDestroyDid()
 ' recogDestroyDid(L_RECOG *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) As the signature indicates, this is owned by the recog, and can
-''' only be destroyed using this function.
+''' <para/>
+''' Notes:<para/>
+''' (1) As the signature indicates, this is owned by the recog, and can<para/>
+''' only be destroyed using this function.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -97,13 +96,10 @@ End Function
 ' SRC\recogdid.c (874, 1)
 ' recogDidExists()
 ' recogDidExists(L_RECOG *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="recog">[in] - </param>
-'''   <returns>1 if recog-GTdid exists; 0 if not or on error.</returns>
+'''   <returns>1 if recog- is greater did exists 0 if not or on error.</returns>
 Public Shared Function recogDidExists(
 				ByVal recog as L_Recog) as Integer
 
@@ -119,8 +115,9 @@ End Function
 ' recogGetDid()
 ' recogGetDid(L_RECOG *) as L_RDID *
 '''  <summary>
-''' Notes
-''' (1) This also makes sure the arrays are defined.
+''' <para/>
+''' Notes:<para/>
+''' (1) This also makes sure the arrays are defined.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -142,13 +139,14 @@ End Function
 ' recogSetChannelParams()
 ' recogSetChannelParams(L_RECOG *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This converts the independent bit-flip probabilities in the
-''' "channel" into log-likelihood coefficients on image sums.
-''' These coefficients are only defined for the non-background
-''' template levels.  Thus for nlevels = 2 (one fg, one bg),
-''' only beta[1] and gamma[1] are used.  For nlevels = 4 (three
-''' fg templates), we use beta[1-3] and gamma[1-3].
+''' <para/>
+''' Notes:<para/>
+''' (1) This converts the independent bit-flip probabilities in the<para/>
+''' "channel" into log-likelihood coefficients on image sums.<para/>
+''' These coefficients are only defined for the non-background<para/>
+''' template levels.  Thus for nlevels = 2 (one fg, one bg),<para/>
+''' only beta[1] and gamma[1] are used.  For nlevels = 4 (three<para/>
+''' fg templates), we use beta[1-3] and gamma[1-3].<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

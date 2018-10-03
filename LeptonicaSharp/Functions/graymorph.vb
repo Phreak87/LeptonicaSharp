@@ -1,20 +1,21 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\graymorph.c (158, 1)
 ' pixErodeGray()
 ' pixErodeGray(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) Sel is a brick with all elements being hits
-''' (2) If hsize = vsize = 1, just returns a copy.
+''' <para/>
+''' Notes:<para/>
+''' (1) Sel is a brick with all elements being hits<para/>
+''' (2) If hsize = vsize = 1, just returns a copy.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - </param>
-'''  <param name="hsize">[in] - of Sel; must be odd; origin implicitly in center</param>
+'''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
 '''  <param name="vsize">[in] - ditto</param>
 '''   <returns>pixd</returns>
 Public Shared Function pixErodeGray(
@@ -35,14 +36,15 @@ End Function
 ' pixDilateGray()
 ' pixDilateGray(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) Sel is a brick with all elements being hits
-''' (2) If hsize = vsize = 1, just returns a copy.
+''' <para/>
+''' Notes:<para/>
+''' (1) Sel is a brick with all elements being hits<para/>
+''' (2) If hsize = vsize = 1, just returns a copy.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - </param>
-'''  <param name="hsize">[in] - of Sel; must be odd; origin implicitly in center</param>
+'''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
 '''  <param name="vsize">[in] - ditto</param>
 '''   <returns>pixd</returns>
 Public Shared Function pixDilateGray(
@@ -63,14 +65,15 @@ End Function
 ' pixOpenGray()
 ' pixOpenGray(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) Sel is a brick with all elements being hits
-''' (2) If hsize = vsize = 1, just returns a copy.
+''' <para/>
+''' Notes:<para/>
+''' (1) Sel is a brick with all elements being hits<para/>
+''' (2) If hsize = vsize = 1, just returns a copy.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - </param>
-'''  <param name="hsize">[in] - of Sel; must be odd; origin implicitly in center</param>
+'''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
 '''  <param name="vsize">[in] - ditto</param>
 '''   <returns>pixd</returns>
 Public Shared Function pixOpenGray(
@@ -91,14 +94,15 @@ End Function
 ' pixCloseGray()
 ' pixCloseGray(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) Sel is a brick with all elements being hits
-''' (2) If hsize = vsize = 1, just returns a copy.
+''' <para/>
+''' Notes:<para/>
+''' (1) Sel is a brick with all elements being hits<para/>
+''' (2) If hsize = vsize = 1, just returns a copy.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - </param>
-'''  <param name="hsize">[in] - of Sel; must be odd; origin implicitly in center</param>
+'''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
 '''  <param name="vsize">[in] - ditto</param>
 '''   <returns>pixd</returns>
 Public Shared Function pixCloseGray(
@@ -119,14 +123,15 @@ End Function
 ' pixErodeGray3()
 ' pixErodeGray3(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) Special case for 1x3, 3x1 or 3x3 brick sel (all hits)
-''' (2) If hsize = vsize = 1, just returns a copy.
-''' (3) It would be nice not to add a border, but it is required
-''' if we want the same results as from the general case.
-''' We add 4 bytes on the left to speed up the copying, and
-''' 8 bytes at the right and bottom to allow unrolling of
-''' the computation of 8 pixels.
+''' <para/>
+''' Notes:<para/>
+''' (1) Special case for 1x3, 3x1 or 3x3 brick sel (all hits)<para/>
+''' (2) If hsize = vsize = 1, just returns a copy.<para/>
+''' (3) It would be nice not to add a border, but it is required<para/>
+''' if we want the same results as from the general case.<para/>
+''' We add 4 bytes on the left to speed up the copying, and<para/>
+''' 8 bytes at the right and bottom to allow unrolling of<para/>
+''' the computation of 8 pixels.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -152,9 +157,10 @@ End Function
 ' pixDilateGray3()
 ' pixDilateGray3(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) Special case for 1x3, 3x1 or 3x3 brick sel (all hits)
-''' (2) If hsize = vsize = 1, just returns a copy.
+''' <para/>
+''' Notes:<para/>
+''' (1) Special case for 1x3, 3x1 or 3x3 brick sel (all hits)<para/>
+''' (2) If hsize = vsize = 1, just returns a copy.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -180,11 +186,12 @@ End Function
 ' pixOpenGray3()
 ' pixOpenGray3(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) Special case for 1x3, 3x1 or 3x3 brick sel (all hits)
-''' (2) If hsize = vsize = 1, just returns a copy.
-''' (3) It would be nice not to add a border, but it is required
-''' to get the same results as for the general case.
+''' <para/>
+''' Notes:<para/>
+''' (1) Special case for 1x3, 3x1 or 3x3 brick sel (all hits)<para/>
+''' (2) If hsize = vsize = 1, just returns a copy.<para/>
+''' (3) It would be nice not to add a border, but it is required<para/>
+''' to get the same results as for the general case.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -210,9 +217,10 @@ End Function
 ' pixCloseGray3()
 ' pixCloseGray3(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) Special case for 1x3, 3x1 or 3x3 brick sel (all hits)
-''' (2) If hsize = vsize = 1, just returns a copy.
+''' <para/>
+''' Notes:<para/>
+''' (1) Special case for 1x3, 3x1 or 3x3 brick sel (all hits)<para/>
+''' (2) If hsize = vsize = 1, just returns a copy.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

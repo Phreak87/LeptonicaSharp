@@ -1,14 +1,11 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\ptabasic.c (116, 1)
 ' ptaCreate()
 ' ptaCreate(l_int32) as PTA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="n">[in] - initial array sizes</param>
@@ -27,9 +24,6 @@ End Function
 ' SRC\ptabasic.c (149, 1)
 ' ptaCreateFromNuma()
 ' ptaCreateFromNuma(NUMA *, NUMA *) as PTA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nax">[in][optional] - can be null</param>
@@ -53,9 +47,10 @@ End Function
 ' ptaDestroy()
 ' ptaDestroy(PTA **) as void
 '''  <summary>
-''' Notes
-''' (1) Decrements the ref count and, if 0, destroys the pta.
-''' (2) Always nulls the input ptr.
+''' <para/>
+''' Notes:<para/>
+''' (1) Decrements the ref count and, if 0, destroys the pta.<para/>
+''' (2) Always nulls the input ptr.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -74,9 +69,6 @@ End Sub
 ' SRC\ptabasic.c (225, 1)
 ' ptaCopy()
 ' ptaCopy(PTA *) as PTA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pta">[in] - </param>
@@ -96,14 +88,11 @@ End Function
 ' SRC\ptabasic.c (257, 1)
 ' ptaCopyRange()
 ' ptaCopyRange(PTA *, l_int32, l_int32) as PTA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="istart">[in] - starting index in ptas</param>
-'''  <param name="iend">[in] - ending index in ptas; use 0 to copy to end</param>
+'''  <param name="iend">[in] - ending index in ptas use 0 to copy to end</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaCopyRange(
 				ByVal ptas as Pta, 
@@ -122,9 +111,6 @@ End Function
 ' SRC\ptabasic.c (296, 1)
 ' ptaClone()
 ' ptaClone(PTA *) as PTA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pta">[in] - </param>
@@ -145,8 +131,9 @@ End Function
 ' ptaEmpty()
 ' ptaEmpty(PTA *) as l_ok
 '''  <summary>
-''' Notes
-''' This only resets the Ptan field, for reuse
+''' <para/>
+''' Notes:<para/>
+''' This only resets the Pta::n field, for reuse<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -166,9 +153,6 @@ End Function
 ' SRC\ptabasic.c (342, 1)
 ' ptaAddPt()
 ' ptaAddPt(PTA *, l_float32, l_float32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pta">[in] - </param>
@@ -193,16 +177,13 @@ End Function
 ' SRC\ptabasic.c (404, 1)
 ' ptaInsertPt()
 ' ptaInsertPt(PTA *, l_int32, l_int32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pta">[in] - </param>
 '''  <param name="index">[in] - at which pt is to be inserted</param>
 '''  <param name="x">[in] - point values</param>
 '''  <param name="y">[in] - point values</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaInsertPt(
 				ByVal pta as Pta, 
 				ByVal index as Integer, 
@@ -221,10 +202,11 @@ End Function
 ' ptaRemovePt()
 ' ptaRemovePt(PTA *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This shifts pta[i] --GT pta[i - 1] for all i GT index.
-''' (2) It should not be used repeatedly on large arrays,
-''' because the function is O(n).
+''' <para/>
+''' Notes:<para/>
+''' (1) This shifts pta[i] -- is greater  pta[i - 1] for all i  is greater  index.<para/>
+''' (2) It should not be used repeatedly on large arrays,<para/>
+''' because the function is O(n).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -246,14 +228,11 @@ End Function
 ' SRC\ptabasic.c (474, 1)
 ' 
 ' ptaGetRefcount(PTA *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function ptaGetRefcount(
-				ByRef pta as Pta) as Integer
+				ByVal pta as Pta) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
@@ -267,15 +246,12 @@ End Function
 ' SRC\ptabasic.c (485, 1)
 ' 
 ' ptaChangeRefcount(PTA *, l_int32) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function ptaChangeRefcount(
-				ByRef pta as Pta, 
-				ByRef delta as Integer) as Integer
+				ByVal pta as Pta, 
+				ByVal delta as Integer) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
@@ -289,9 +265,6 @@ End Function
 ' SRC\ptabasic.c (504, 1)
 ' ptaGetCount()
 ' ptaGetCount(PTA *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pta">[in] - </param>
@@ -310,16 +283,13 @@ End Function
 ' SRC\ptabasic.c (525, 1)
 ' ptaGetPt()
 ' ptaGetPt(PTA *, l_int32, l_float32 *, l_float32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pta">[in] - </param>
 '''  <param name="index">[in] - into arrays</param>
 '''  <param name="px">[out][optional] - float x value</param>
 '''  <param name="py">[out][optional] - float y value</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaGetPt(
 				ByVal pta as Pta, 
 				ByVal index as Integer, 
@@ -337,16 +307,13 @@ End Function
 ' SRC\ptabasic.c (555, 1)
 ' ptaGetIPt()
 ' ptaGetIPt(PTA *, l_int32, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pta">[in] - </param>
 '''  <param name="index">[in] - into arrays</param>
 '''  <param name="px">[out][optional] - integer x value</param>
 '''  <param name="py">[out][optional] - integer y value</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaGetIPt(
 				ByVal pta as Pta, 
 				ByVal index as Integer, 
@@ -364,16 +331,13 @@ End Function
 ' SRC\ptabasic.c (584, 1)
 ' ptaSetPt()
 ' ptaSetPt(PTA *, l_int32, l_float32, l_float32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pta">[in] - </param>
 '''  <param name="index">[in] - into arrays</param>
 '''  <param name="x">[in] - </param>
 '''  <param name="y">[in] - </param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaSetPt(
 				ByVal pta as Pta, 
 				ByVal index as Integer, 
@@ -394,15 +358,16 @@ End Function
 ' ptaGetArrays()
 ' ptaGetArrays(PTA *, NUMA **, NUMA **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This copies the internal arrays into new Numas.
+''' <para/>
+''' Notes:<para/>
+''' (1) This copies the internal arrays into new Numas.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pta">[in] - </param>
 '''  <param name="pnax">[out][optional] - numa of x array</param>
 '''  <param name="pnay">[out][optional] - numa of y array</param>
-'''   <returns>0 if OK; 1 on error or if pta is empty</returns>
+'''   <returns>0 if OK 1 on error or if pta is empty</returns>
 Public Shared Function ptaGetArrays(
 				ByVal pta as Pta, 
 				ByRef pnax as Numa, 
@@ -423,9 +388,6 @@ End Function
 ' SRC\ptabasic.c (664, 1)
 ' ptaRead()
 ' ptaRead(const char *) as PTA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - </param>
@@ -446,9 +408,6 @@ End Function
 ' SRC\ptabasic.c (691, 1)
 ' ptaReadStream()
 ' ptaReadStream(FILE *) as PTA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
@@ -468,13 +427,10 @@ End Function
 ' SRC\ptabasic.c (744, 1)
 ' ptaReadMem()
 ' ptaReadMem(const l_uint8 *, size_t) as PTA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="data">[in] - serialization in ascii</param>
-'''  <param name="size">[in] - of data in bytes; can use strlen to get it</param>
+'''  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 '''   <returns>pta, or NULL on error</returns>
 Public Shared Function ptaReadMem(
 				ByVal data as Byte(), 
@@ -493,18 +449,19 @@ End Function
 ' ptaWriteDebug()
 ' ptaWriteDebug(const char *, PTA *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Debug version, intended for use in the library when writing
-''' to files in a temp directory with names that are compiled in.
-''' This is used instead of ptaWrite() for all such library calls.
-''' (2) The global variable LeptDebugOK defaults to 0, and can be set
-''' or cleared by the function setLeptDebugOK().
+''' <para/>
+''' Notes:<para/>
+''' (1) Debug version, intended for use in the library when writing<para/>
+''' to files in a temp directory with names that are compiled in.<para/>
+''' This is used instead of ptaWrite() for all such library calls.<para/>
+''' (2) The global variable LeptDebugOK defaults to 0, and can be set<para/>
+''' or cleared by the function setLeptDebugOK().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pta">[in] - </param>
-'''  <param name="type">[in] - 0 for float values; 1 for integer values</param>
+'''  <param name="type">[in] - 0 for float values 1 for integer values</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaWriteDebug(
 				ByVal filename as String, 
@@ -524,14 +481,11 @@ End Function
 ' SRC\ptabasic.c (806, 1)
 ' ptaWrite()
 ' ptaWrite(const char *, PTA *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pta">[in] - </param>
-'''  <param name="type">[in] - 0 for float values; 1 for integer values</param>
+'''  <param name="type">[in] - 0 for float values 1 for integer values</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaWrite(
 				ByVal filename as String, 
@@ -551,15 +505,12 @@ End Function
 ' SRC\ptabasic.c (839, 1)
 ' ptaWriteStream()
 ' ptaWriteStream(FILE *, PTA *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pta">[in] - </param>
-'''  <param name="type">[in] - 0 for float values; 1 for integer values</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''  <param name="type">[in] - 0 for float values 1 for integer values</param>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaWriteStream(
 				ByVal fp as FILE, 
 				ByVal pta as Pta, 
@@ -578,15 +529,16 @@ End Function
 ' ptaWriteMem()
 ' ptaWriteMem(l_uint8 **, size_t *, PTA *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Serializes a pta in memory and puts the result in a buffer.
+''' <para/>
+''' Notes:<para/>
+''' (1) Serializes a pta in memory and puts the result in a buffer.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pdata">[out] - data of serialized pta; ascii</param>
+'''  <param name="pdata">[out] - data of serialized pta ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pta">[in] - </param>
-'''  <param name="type">[in] - 0 for float values; 1 for integer values</param>
+'''  <param name="type">[in] - 0 for float values 1 for integer values</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaWriteMem(
 				ByRef pdata as Byte(), 
@@ -607,9 +559,6 @@ End Function
 ' SRC\ptabasic.c (939, 1)
 ' ptaaCreate()
 ' ptaaCreate(l_int32) as PTAA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="n">[in] - initial number of ptrs</param>
@@ -628,9 +577,6 @@ End Function
 ' SRC\ptabasic.c (967, 1)
 ' ptaaDestroy()
 ' ptaaDestroy(PTAA **) as void
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pptaa">[in,out] - to be nulled</param>
@@ -648,9 +594,6 @@ End Sub
 ' SRC\ptabasic.c (1004, 1)
 ' ptaaAddPta()
 ' ptaaAddPta(PTAA *, PTA *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="ptaa">[in] - </param>
@@ -674,9 +617,6 @@ End Function
 ' SRC\ptabasic.c (1074, 1)
 ' ptaaGetCount()
 ' ptaaGetCount(PTAA *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="ptaa">[in] - </param>
@@ -695,9 +635,6 @@ End Function
 ' SRC\ptabasic.c (1094, 1)
 ' ptaaGetPta()
 ' ptaaGetPta(PTAA *, l_int32, l_int32) as PTA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="ptaa">[in] - </param>
@@ -721,9 +658,6 @@ End Function
 ' SRC\ptabasic.c (1125, 1)
 ' ptaaGetPt()
 ' ptaaGetPt(PTAA *, l_int32, l_int32, l_float32 *, l_float32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="ptaa">[in] - </param>
@@ -731,7 +665,7 @@ End Function
 '''  <param name="jpt">[in] - index to the j-th pt in the pta</param>
 '''  <param name="px">[out][optional] - float x value</param>
 '''  <param name="py">[out][optional] - float y value</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaaGetPt(
 				ByVal ptaa as Ptaa, 
 				ByVal ipta as Integer, 
@@ -750,14 +684,11 @@ End Function
 ' SRC\ptabasic.c (1165, 1)
 ' ptaaInitFull()
 ' ptaaInitFull(PTAA *, PTA *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="ptaa">[in] - can have non-null ptrs in the ptr array</param>
 '''  <param name="pta">[in] - to be replicated into the entire ptr array</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaaInitFull(
 				ByVal ptaa as Ptaa, 
 				ByVal pta as Pta) as Integer
@@ -775,10 +706,11 @@ End Function
 ' ptaaReplacePta()
 ' ptaaReplacePta(PTAA *, l_int32, PTA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Any existing pta is destroyed, and the input one
-''' is inserted in its place.
-''' (2) If the index is invalid, return 1 (error)
+''' <para/>
+''' Notes:<para/>
+''' (1) Any existing pta is destroyed, and the input one<para/>
+''' is inserted in its place.<para/>
+''' (2) If the index is invalid, return 1 (error)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -803,20 +735,17 @@ End Function
 ' SRC\ptabasic.c (1235, 1)
 ' ptaaAddPt()
 ' ptaaAddPt(PTAA *, l_int32, l_float32, l_float32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="ptaa">[in] - </param>
 '''  <param name="ipta">[in] - to the i-th pta</param>
 '''  <param name="x">[in] - ,y point coordinates</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaaAddPt(
 				ByVal ptaa as Ptaa, 
 				ByVal ipta as Integer, 
 				ByVal x as Single, 
-				ByRef y as Single) as Integer
+				ByVal y as Single) as Integer
 
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
 	If IsNothing (x) then Throw New ArgumentNullException  ("x cannot be Nothing")
@@ -832,10 +761,11 @@ End Function
 ' ptaaTruncate()
 ' ptaaTruncate(PTAA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This identifies the largest index containing a pta that
-''' has any points within it, destroys all pta above that index,
-''' and resets the count.
+''' <para/>
+''' Notes:<para/>
+''' (1) This identifies the largest index containing a pta that<para/>
+''' has any points within it, destroys all pta above that index,<para/>
+''' and resets the count.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -855,9 +785,6 @@ End Function
 ' SRC\ptabasic.c (1310, 1)
 ' ptaaRead()
 ' ptaaRead(const char *) as PTAA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - </param>
@@ -878,9 +805,6 @@ End Function
 ' SRC\ptabasic.c (1337, 1)
 ' ptaaReadStream()
 ' ptaaReadStream(FILE *) as PTAA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
@@ -900,13 +824,10 @@ End Function
 ' SRC\ptabasic.c (1377, 1)
 ' ptaaReadMem()
 ' ptaaReadMem(const l_uint8 *, size_t) as PTAA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="data">[in] - serialization in ascii</param>
-'''  <param name="size">[in] - of data in bytes; can use strlen to get it</param>
+'''  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 '''   <returns>ptaa, or NULL on error</returns>
 Public Shared Function ptaaReadMem(
 				ByVal data as Byte(), 
@@ -925,18 +846,19 @@ End Function
 ' ptaaWriteDebug()
 ' ptaaWriteDebug(const char *, PTAA *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Debug version, intended for use in the library when writing
-''' to files in a temp directory with names that are compiled in.
-''' This is used instead of ptaaWrite() for all such library calls.
-''' (2) The global variable LeptDebugOK defaults to 0, and can be set
-''' or cleared by the function setLeptDebugOK().
+''' <para/>
+''' Notes:<para/>
+''' (1) Debug version, intended for use in the library when writing<para/>
+''' to files in a temp directory with names that are compiled in.<para/>
+''' This is used instead of ptaaWrite() for all such library calls.<para/>
+''' (2) The global variable LeptDebugOK defaults to 0, and can be set<para/>
+''' or cleared by the function setLeptDebugOK().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - </param>
 '''  <param name="ptaa">[in] - </param>
-'''  <param name="type">[in] - 0 for float values; 1 for integer values</param>
+'''  <param name="type">[in] - 0 for float values 1 for integer values</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaaWriteDebug(
 				ByVal filename as String, 
@@ -956,14 +878,11 @@ End Function
 ' SRC\ptabasic.c (1439, 1)
 ' ptaaWrite()
 ' ptaaWrite(const char *, PTAA *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - </param>
 '''  <param name="ptaa">[in] - </param>
-'''  <param name="type">[in] - 0 for float values; 1 for integer values</param>
+'''  <param name="type">[in] - 0 for float values 1 for integer values</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaaWrite(
 				ByVal filename as String, 
@@ -983,15 +902,12 @@ End Function
 ' SRC\ptabasic.c (1472, 1)
 ' ptaaWriteStream()
 ' ptaaWriteStream(FILE *, PTAA *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="ptaa">[in] - </param>
-'''  <param name="type">[in] - 0 for float values; 1 for integer values</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''  <param name="type">[in] - 0 for float values 1 for integer values</param>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaaWriteStream(
 				ByVal fp as FILE, 
 				ByVal ptaa as Ptaa, 
@@ -1010,15 +926,16 @@ End Function
 ' ptaaWriteMem()
 ' ptaaWriteMem(l_uint8 **, size_t *, PTAA *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Serializes a ptaa in memory and puts the result in a buffer.
+''' <para/>
+''' Notes:<para/>
+''' (1) Serializes a ptaa in memory and puts the result in a buffer.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pdata">[out] - data of serialized ptaa; ascii</param>
+'''  <param name="pdata">[out] - data of serialized ptaa ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="ptaa">[in] - </param>
-'''  <param name="type">[in] - 0 for float values; 1 for integer values</param>
+'''  <param name="type">[in] - 0 for float values 1 for integer values</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaaWriteMem(
 				ByRef pdata as Byte(), 

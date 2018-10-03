@@ -1,17 +1,18 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\stringcode.c (156, 1)
 ' strcodeCreate()
 ' strcodeCreate(l_int32) as L_STRCODE *
 '''  <summary>
-''' Notes
-''' (1) This struct exists to build two files containing code for
-''' any number of data objects.  The two files are named
-''' autogen.[fileno].c
-''' autogen.[fileno].h
+''' <para/>
+''' Notes:<para/>
+''' (1) This struct exists to build two files containing code for<para/>
+''' any number of data objects.  The two files are named<para/>
+''' autogen.[fileno].c<para/>
+''' autogen.[fileno].h<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -32,12 +33,13 @@ End Function
 ' strcodeCreateFromFile()
 ' strcodeCreateFromFile(const char *, l_int32, const char *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The %filein has one filename on each line.
-''' Comment lines begin with "#".
-''' (2) The output is 2 files
-''' autogen.[fileno].c
-''' autogen.[fileno].h
+''' <para/>
+''' Notes:<para/>
+''' (1) The %filein has one filename on each line.<para/>
+''' Comment lines begin with "#".<para/>
+''' (2) The output is 2 files:<para/>
+''' autogen.[fileno].c<para/>
+''' autogen.[fileno].h<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -62,19 +64,20 @@ End Function
 ' strcodeGenerate()
 ' strcodeGenerate(L_STRCODE *, const char *, const char *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The generated function name is
-''' l_autodecode_[fileno]()
-''' where [fileno] is the index label for the pair of output files.
-''' (2) To deserialize this data, the function is called with the
-''' argument 'ifunc', which increments each time strcodeGenerate()
-''' is called.
+''' <para/>
+''' Notes:<para/>
+''' (1) The generated function name is<para/>
+''' l_autodecode_[fileno]()<para/>
+''' where [fileno] is the index label for the pair of output files.<para/>
+''' (2) To deserialize this data, the function is called with the<para/>
+''' argument 'ifunc', which increments each time strcodeGenerate()<para/>
+''' is called.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="strcode">[in] - for accumulating data</param>
 '''  <param name="filein">[in] - input file with serialized data</param>
-'''  <param name="type">[in] - of data; use the typedef string</param>
+'''  <param name="type">[in] - of data use the typedef string</param>
 '''   <returns>0 if OK, 1 on error.</returns>
 Public Shared Function strcodeGenerate(
 				ByVal strcode as L_StrCode, 
@@ -94,9 +97,6 @@ End Function
 ' SRC\stringcode.c (336, 1)
 ' strcodeFinalize()
 ' strcodeFinalize(L_STRCODE **, const char *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pstrcode">[in,out] - destroys after .c and .h files have been generated</param>
@@ -119,10 +119,11 @@ End Function
 ' l_getStructStrFromFile()
 ' l_getStructStrFromFile(const char *, l_int32, char **) as l_int32
 '''  <summary>
-''' Notes
-''' (1) For example, if %field == L_STR_NAME, and the file is a serialized
-''' pixa, this will return "Pixa", the name of the struct.
-''' (2) Caller must free the returned string.
+''' <para/>
+''' Notes:<para/>
+''' (1) For example, if %field == L_STR_NAME, and the file is a serialized<para/>
+''' pixa, this will return "Pixa", the name of the struct.<para/>
+''' (2) Caller must free the returned string.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

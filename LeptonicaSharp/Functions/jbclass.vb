@@ -1,22 +1,19 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\jbclass.c (283, 1)
 ' jbRankHausInit()
 ' jbRankHausInit(l_int32, l_int32, l_int32, l_int32, l_float32) as JBCLASSER *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
-'''  <param name="maxwidth">[in] - of component; use 0 for default</param>
-'''  <param name="maxheight">[in] - of component; use 0 for default</param>
-'''  <param name="size">[in] - of square structuring element; 2, representing 2x2 sel, is necessary for reasonable accuracy of small components; combine this with rank ~ 0.97 to avoid undue class expansion</param>
-'''  <param name="rank">[in] - rank val of match, each way; in [0.5 - 1.0]; when using size = 2, 0.97 is a reasonable value</param>
-'''   <returns>jbclasser if OK; NULL on error</returns>
+'''  <param name="maxwidth">[in] - of component use 0 for default</param>
+'''  <param name="maxheight">[in] - of component use 0 for default</param>
+'''  <param name="size">[in] - of square structuring element 2, representing 2x2 sel, is necessary for reasonable accuracy of small components combine this with rank ~ 0.97 to avoid undue class expansion</param>
+'''  <param name="rank">[in] - rank val of match, each way in [0.5 - 1.0] when using size = 2, 0.97 is a reasonable value</param>
+'''   <returns>jbclasser if OK NULL on error</returns>
 Public Shared Function jbRankHausInit(
 				ByVal components as Enumerations.JB_S, 
 				ByVal maxwidth as Integer, 
@@ -37,22 +34,23 @@ End Function
 ' jbCorrelationInit()
 ' jbCorrelationInit(l_int32, l_int32, l_int32, l_float32, l_float32) as JBCLASSER *
 '''  <summary>
-''' Notes
-''' (1) For scanned text, suggested input values are
-''' thresh ~ [0.8 - 0.85]
-''' weightfactor ~ [0.5 - 0.6]
-''' (2) For electronically generated fonts (e.g., rasterized pdf),
-''' a very high thresh (e.g., 0.95) will not cause a significant
-''' increase in the number of classes.
+''' <para/>
+''' Notes:<para/>
+''' (1) For scanned text, suggested input values are:<para/>
+''' thresh ~ [0.8 - 0.85]<para/>
+''' weightfactor ~ [0.5 - 0.6]<para/>
+''' (2) For electronically generated fonts (e.g., rasterized pdf),<para/>
+''' a very high thresh (e.g., 0.95) will not cause a significant<para/>
+''' increase in the number of classes.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
-'''  <param name="maxwidth">[in] - of component; use 0 for default</param>
-'''  <param name="maxheight">[in] - of component; use 0 for default</param>
-'''  <param name="thresh">[in] - value for correlation score in [0.4 - 0.98]</param>
+'''  <param name="maxwidth">[in] - of component use 0 for default</param>
+'''  <param name="maxheight">[in] - of component use 0 for default</param>
+'''  <param name="thresh">[in] - value for correlation score: in [0.4 - 0.98]</param>
 '''  <param name="weightfactor">[in] - corrects thresh for thick characters [0.0 - 1.0]</param>
-'''   <returns>jbclasser if OK; NULL on error</returns>
+'''   <returns>jbclasser if OK NULL on error</returns>
 Public Shared Function jbCorrelationInit(
 				ByVal components as Enumerations.JB_S, 
 				ByVal maxwidth as Integer, 
@@ -74,18 +72,19 @@ End Function
 ' jbCorrelationInitWithoutComponents()
 ' jbCorrelationInitWithoutComponents(l_int32, l_int32, l_int32, l_float32, l_float32) as JBCLASSER *
 '''  <summary>
-''' Notes
-''' Acts the same as jbCorrelationInit(), but the resulting
-''' object doesn't keep a list of all the components.
+''' <para/>
+''' Notes:<para/>
+''' Acts the same as jbCorrelationInit(), but the resulting<para/>
+''' object doesn't keep a list of all the components.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
-'''  <param name="maxwidth">[in] - of component; use 0 for default</param>
-'''  <param name="maxheight">[in] - of component; use 0 for default</param>
-'''  <param name="thresh">[in] - value  for correlation score in [0.4 - 0.98]</param>
+'''  <param name="maxwidth">[in] - of component use 0 for default</param>
+'''  <param name="maxheight">[in] - of component use 0 for default</param>
+'''  <param name="thresh">[in] - value  for correlation score: in [0.4 - 0.98]</param>
 '''  <param name="weightfactor">[in] - corrects thresh for thick characters [0.0 - 1.0]</param>
-'''   <returns>jbclasser if OK; NULL on error</returns>
+'''   <returns>jbclasser if OK NULL on error</returns>
 Public Shared Function jbCorrelationInitWithoutComponents(
 				ByVal components as Enumerations.JB_S, 
 				ByVal maxwidth as Integer, 
@@ -107,16 +106,17 @@ End Function
 ' jbAddPages()
 ' jbAddPages(JBCLASSER *, SARRAY *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) jbclasser makes a copy of the array of file names.
-''' (2) The caller is still responsible for destroying the input array.
+''' <para/>
+''' Notes:<para/>
+''' (1) jbclasser makes a copy of the array of file names.<para/>
+''' (2) The caller is still responsible for destroying the input array.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="safiles">[in] - of page image file names</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function jbAddPages(
-				ByRef classer as JbClasser, 
+				ByVal classer as JbClasser, 
 				ByVal safiles as Sarray) as Integer
 
 	If IsNothing (classer) then Throw New ArgumentNullException  ("classer cannot be Nothing")
@@ -132,15 +132,12 @@ End Function
 ' SRC\jbclass.c (486, 1)
 ' jbAddPage()
 ' jbAddPage(JBCLASSER *, PIX *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - input page</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function jbAddPage(
-				ByRef classer as JbClasser, 
+				ByVal classer as JbClasser, 
 				ByVal pixs as Pix) as Integer
 
 	If IsNothing (classer) then Throw New ArgumentNullException  ("classer cannot be Nothing")
@@ -157,18 +154,19 @@ End Function
 ' jbAddPageComponents()
 ' jbAddPageComponents(JBCLASSER *, PIX *, BOXA *, PIXA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) If there are no components on the page, we don't require input
-''' of empty boxas or pixas, although that's the typical situation.
+''' <para/>
+''' Notes:<para/>
+''' (1) If there are no components on the page, we don't require input<para/>
+''' of empty boxas or pixas, although that's the typical situation.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - input page</param>
 '''  <param name="boxas">[in] - b.b. of components for this page</param>
 '''  <param name="pixas">[in] - components for this page</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function jbAddPageComponents(
-				ByRef classer as JbClasser, 
+				ByVal classer as JbClasser, 
 				ByVal pixs as Pix, 
 				ByVal boxas as Boxa, 
 				ByVal pixas as Pixa) as Integer
@@ -188,16 +186,13 @@ End Function
 ' SRC\jbclass.c (591, 1)
 ' jbClassifyRankHaus()
 ' jbClassifyRankHaus(JBCLASSER *, BOXA *, PIXA *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="boxa">[in] - new components for classification</param>
 '''  <param name="pixas">[in] - new components for classification</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function jbClassifyRankHaus(
-				ByRef classer as JbClasser, 
+				ByVal classer as JbClasser, 
 				ByVal boxa as Boxa, 
 				ByVal pixas as Pixa) as Integer
 
@@ -216,16 +211,17 @@ End Function
 ' pixHaustest()
 ' pixHaustest(PIX *, PIX *, PIX *, PIX *, l_float32, l_float32, l_int32, l_int32) as l_int32
 '''  <summary>
-''' Notes
-''' We check first that the two pix are roughly
-''' the same size.  Only if they meet that criterion do
-''' we compare the bitmaps.  The Hausdorff is a 2-way
-''' check.  The centroid difference is used to align the two
-''' images to the nearest integer for each of the checks.
-''' These check that the dilated image of one contains
-''' ALL the pixels of the undilated image of the other.
-''' Checks are done in both direction.  A single pixel not
-''' contained in either direction results in failure of the test.
+''' <para/>
+''' Notes:<para/>
+''' We check first that the two pix are roughly<para/>
+''' the same size.  Only if they meet that criterion do<para/>
+''' we compare the bitmaps.  The Hausdorff is a 2-way<para/>
+''' check.  The centroid difference is used to align the two<para/>
+''' images to the nearest integer for each of the checks.<para/>
+''' These check that the dilated image of one contains<para/>
+''' ALL the pixels of the undilated image of the other.<para/>
+''' Checks are done in both direction.  A single pixel not<para/>
+''' contained in either direction results in failure of the test.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -265,19 +261,20 @@ End Function
 ' pixRankHaustest()
 ' pixRankHaustest(PIX *, PIX *, PIX *, PIX *, l_float32, l_float32, l_int32, l_int32, l_int32, l_int32, l_float32, l_int32 *) as l_int32
 '''  <summary>
-''' Notes
-''' We check first that the two pix are roughly
-''' the same size.  Only if they meet that criterion do
-''' we compare the bitmaps.  We convert the rank value to
-''' a number of pixels by multiplying the rank fraction by the number
-''' of pixels in the undilated image.  The Hausdorff is a 2-way
-''' check.  The centroid difference is used to align the two
-''' images to the nearest integer for each of the checks.
-''' The rank hausdorff checks that the dilated image of one
-''' contains the rank fraction of the pixels of the undilated
-''' image of the other.   Checks are done in both direction.
-''' Failure of the test in either direction results in failure
-''' of the test.
+''' <para/>
+''' Notes:<para/>
+''' We check first that the two pix are roughly<para/>
+''' the same size.  Only if they meet that criterion do<para/>
+''' we compare the bitmaps.  We convert the rank value to<para/>
+''' a number of pixels by multiplying the rank fraction by the number<para/>
+''' of pixels in the undilated image.  The Hausdorff is a 2-way<para/>
+''' check.  The centroid difference is used to align the two<para/>
+''' images to the nearest integer for each of the checks.<para/>
+''' The rank hausdorff checks that the dilated image of one<para/>
+''' contains the rank fraction of the pixels of the undilated<para/>
+''' image of the other. Checks are done in both direction.<para/>
+''' Failure of the test in either direction results in failure<para/>
+''' of the test.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -326,16 +323,13 @@ End Function
 ' SRC\jbclass.c (1030, 1)
 ' jbClassifyCorrelation()
 ' jbClassifyCorrelation(JBCLASSER *, BOXA *, PIXA *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="boxa">[in] - new components for classification</param>
 '''  <param name="pixas">[in] - new components for classification</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function jbClassifyCorrelation(
-				ByRef classer as JbClasser, 
+				ByVal classer as JbClasser, 
 				ByVal boxa as Boxa, 
 				ByVal pixas as Pixa) as Integer
 
@@ -353,23 +347,20 @@ End Function
 ' SRC\jbclass.c (1312, 1)
 ' jbGetComponents()
 ' jbGetComponents(PIX *, l_int32, l_int32, l_int32, BOXA **, PIXA **) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
-'''  <param name="maxwidth">[in] - of saved components; larger are discarded</param>
-'''  <param name="maxheight">[in] - of saved components; larger are discarded</param>
+'''  <param name="maxwidth">[in] - of saved components larger are discarded</param>
+'''  <param name="maxheight">[in] - of saved components larger are discarded</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function jbGetComponents(
 				ByVal pixs as Pix, 
 				ByVal components as Enumerations.JB_S, 
 				ByVal maxwidth as Integer, 
 				ByVal maxheight as Integer, 
-				ByRef pboxad as Boxa, 
-				ByRef ppixad as Pixa) as Integer
+				ByVal pboxad as Boxa, 
+				ByVal ppixad as Pixa) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pboxad) then Throw New ArgumentNullException  ("pboxad cannot be Nothing")
@@ -388,35 +379,36 @@ End Function
 ' pixWordMaskByDilation()
 ' pixWordMaskByDilation(PIX *, PIX **, l_int32 *, PIXA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This gives an estimate of the word masks.  See
-''' pixWordBoxesByDilation() for further filtering of the word boxes.
-''' (2) The resolution should be between 75 and 150 ppi, and the optimal
-''' dilation will be between 3 and 10.
-''' (3) A good size for dilating to get word masks is optionally returned.
-''' (4) Typically, the number of c.c. reduced with each successive
-''' dilation (stored in nadiff) decreases quickly to a minimum
-''' (where the characters in a word are joined), and then
-''' increases again as the smaller number of words are joined.
-''' For the typical case, you can then look for this minimum
-''' and dilate to get the word mask.  However, there are many
-''' cases where the function is not so simple. For example, if the
-''' pix has been upscaled 2x, the nadiff function oscillates, with
-''' every other value being zero!  And for some images it tails
-''' off without a clear minimum to indicate where to break.
-''' So a more simple and robust method is to find the dilation
-''' where the initial number of c.c. has been reduced by some
-''' fraction (we use a 70% reduction).
+''' <para/>
+''' Notes:<para/>
+''' (1) This gives an estimate of the word masks.  See<para/>
+''' pixWordBoxesByDilation() for further filtering of the word boxes.<para/>
+''' (2) The resolution should be between 75 and 150 ppi, and the optimal<para/>
+''' dilation will be between 3 and 10.<para/>
+''' (3) A good size for dilating to get word masks is optionally returned.<para/>
+''' (4) Typically, the number of c.c. reduced with each successive<para/>
+''' dilation (stored in nadiff) decreases quickly to a minimum<para/>
+''' (where the characters in a word are joined), and then<para/>
+''' increases again as the smaller number of words are joined.<para/>
+''' For the typical case, you can then look for this minimum<para/>
+''' and dilate to get the word mask.  However, there are many<para/>
+''' cases where the function is not so simple. For example, if the<para/>
+''' pix has been upscaled 2x, the nadiff function oscillates, with<para/>
+''' every other value being zero!  And for some images it tails<para/>
+''' off without a clear minimum to indicate where to break.<para/>
+''' So a more simple and robust method is to find the dilation<para/>
+''' where the initial number of c.c. has been reduced by some<para/>
+''' fraction (we use a 70% reduction).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixs">[in] - 1 bpp; typ. at 75 to 150 ppi</param>
+'''  <param name="pixs">[in] - 1 bpp typ. at 75 to 150 ppi</param>
 '''  <param name="psize">[out][optional] - size of good horizontal dilation</param>
-'''  <param name="pixadb">[out][optional] - debug pixa of intermediate steps</param>
+'''  <param name="pixadb">[out][optional] - debug: pixa of intermediate steps</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixWordMaskByDilation(
 				ByVal pixs as Pix, 
-				ByRef ppixm as Pix, 
+				ByVal ppixm as Pix, 
 				ByRef psize as Integer, 
 				ByRef pixadb as Pixa) as Integer
 
@@ -436,20 +428,21 @@ End Function
 ' pixWordBoxesByDilation()
 ' pixWordBoxesByDilation(PIX *, l_int32, l_int32, l_int32, l_int32, BOXA **, l_int32 *, PIXA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Returns a pruned set of word boxes.
-''' (2) See pixWordMaskByDilation().
+''' <para/>
+''' Notes:<para/>
+''' (1) Returns a pruned set of word boxes.<para/>
+''' (2) See pixWordMaskByDilation().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixs">[in] - 1 bpp; typ. 75 - 200 ppi</param>
-'''  <param name="minwidth">[in] - saved components; smaller are discarded</param>
-'''  <param name="minheight">[in] - saved components; smaller are discarded</param>
-'''  <param name="maxwidth">[in] - saved components; larger are discarded</param>
-'''  <param name="maxheight">[in] - saved components; larger are discarded</param>
+'''  <param name="pixs">[in] - 1 bpp typ. 75 - 200 ppi</param>
+'''  <param name="minwidth">[in] - saved components smaller are discarded</param>
+'''  <param name="minheight">[in] - saved components smaller are discarded</param>
+'''  <param name="maxwidth">[in] - saved components larger are discarded</param>
+'''  <param name="maxheight">[in] - saved components larger are discarded</param>
 '''  <param name="pboxa">[out] - of dilated word mask</param>
 '''  <param name="psize">[out][optional] - size of good horizontal dilation</param>
-'''  <param name="pixadb">[out][optional] - debug pixa of intermediate steps</param>
+'''  <param name="pixadb">[out][optional] - debug: pixa of intermediate steps</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixWordBoxesByDilation(
 				ByVal pixs as Pix, 
@@ -476,9 +469,6 @@ End Function
 ' SRC\jbclass.c (1659, 1)
 ' jbAccumulateComposites()
 ' jbAccumulateComposites(PIXAA *, NUMA **, PTA **) as PIXA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixaa">[in] - one pixa for each class</param>
@@ -486,7 +476,7 @@ End Function
 '''   <returns>pixad accumulated sum of samples in each class, or NULL on error</returns>
 Public Shared Function jbAccumulateComposites(
 				ByVal pixaa as Pixaa, 
-				ByRef pna as Numa, 
+				ByVal pna as Numa, 
 				ByRef pptat as Pta) as Pixa
 
 	If IsNothing (pixaa) then Throw New ArgumentNullException  ("pixaa cannot be Nothing")
@@ -505,9 +495,6 @@ End Function
 ' SRC\jbclass.c (1749, 1)
 ' jbTemplatesFromComposites()
 ' jbTemplatesFromComposites(PIXA *, NUMA *) as PIXA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixac">[in] - one pix of composites for each class</param>
@@ -530,9 +517,6 @@ End Function
 ' SRC\jbclass.c (1794, 1)
 ' jbClasserCreate()
 ' jbClasserCreate(l_int32, l_int32) as JBCLASSER *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="method">[in] - JB_RANKHAUS, JB_CORRELATION</param>
@@ -553,13 +537,10 @@ End Function
 ' SRC\jbclass.c (1832, 1)
 ' 
 ' jbClasserDestroy(JBCLASSER **) as void
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 Public Shared Sub jbClasserDestroy(
-				ByRef pclasser as JbClasser)
+				ByVal pclasser as JbClasser)
 
 	If IsNothing (pclasser) then Throw New ArgumentNullException  ("pclasser cannot be Nothing")
 
@@ -573,20 +554,21 @@ End Sub
 ' jbDataSave()
 ' jbDataSave(JBCLASSER *) as JBDATA *
 '''  <summary>
-''' Notes
-''' (1) This routine stores the jbig2-type data required for
-''' generating a lossy jbig2 version of the image.
-''' It can be losslessly written to (and read from) two files.
-''' (2) It generates and stores the mosaic of templates.
-''' (3) It clones the Numa and Pta arrays, so these must all
-''' be destroyed by the caller.
-''' (4) Input 0 to use the default values for latticew and/or latticeh,
+''' <para/>
+''' Notes:<para/>
+''' (1) This routine stores the jbig2-type data required for<para/>
+''' generating a lossy jbig2 version of the image.<para/>
+''' It can be losslessly written to (and read from) two files.<para/>
+''' (2) It generates and stores the mosaic of templates.<para/>
+''' (3) It clones the Numa and Pta arrays, so these must all<para/>
+''' be destroyed by the caller.<para/>
+''' (4) Input 0 to use the default values for latticew and/or latticeh,<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns>jbdata, or NULL on error</returns>
 Public Shared Function jbDataSave(
-				ByRef classer as JbClasser) as JbData
+				ByVal classer as JbClasser) as JbData
 
 	If IsNothing (classer) then Throw New ArgumentNullException  ("classer cannot be Nothing")
 
@@ -601,13 +583,10 @@ End Function
 ' SRC\jbclass.c (1922, 1)
 ' 
 ' jbDataDestroy(JBDATA **) as void
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 Public Shared Sub jbDataDestroy(
-				ByRef pdata as JbData)
+				ByVal pdata as JbData)
 
 	If IsNothing (pdata) then Throw New ArgumentNullException  ("pdata cannot be Nothing")
 
@@ -621,15 +600,16 @@ End Sub
 ' jbDataWrite()
 ' jbDataWrite(const char *, JBDATA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Serialization function that writes data in jbdata to file.
+''' <para/>
+''' Notes:<para/>
+''' (1) Serialization function that writes data in jbdata to file.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="jbdata">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function jbDataWrite(
-				ByRef rootout as String, 
+				ByVal rootout as String, 
 				ByVal jbdata as JbData) as Integer
 
 	If IsNothing (rootout) then Throw New ArgumentNullException  ("rootout cannot be Nothing")
@@ -644,9 +624,6 @@ End Function
 ' SRC\jbclass.c (2014, 1)
 ' jbDataRead()
 ' jbDataRead(const char *) as JBDATA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="rootname">[in] - for template and data files</param>
@@ -666,15 +643,12 @@ End Function
 ' SRC\jbclass.c (2119, 1)
 ' jbDataRender()
 ' jbDataRender(JBDATA *, l_int32) as PIXA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="debugflag">[in] - if TRUE, writes into 2 bpp pix and adds component outlines in color</param>
 '''   <returns>pixa reconstruction of original images, using templates or NULL on error</returns>
 Public Shared Function jbDataRender(
-				ByRef data as JbData, 
+				ByVal data as JbData, 
 				ByVal debugflag as Integer) as Pixa
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
@@ -691,20 +665,21 @@ End Function
 ' jbGetULCorners()
 ' jbGetULCorners(JBCLASSER *, PIX *, BOXA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This computes the ptaul field, which has the global UL corners,
-''' adjusted for each specific component, so that each component
-''' can be replaced by the template for its class and have the
-''' centroid in the template in the same position as the
-''' centroid of the original connected component.  It is important
-''' that this be done properly to avoid a wavy baseline in the
-''' result.
-''' (2) The array fields ptac and ptact give the centroids of
-''' those components relative to the UL corner of each component.
-''' Here, we compute the difference in each component, round to
-''' nearest integer, and correct the box-GTx and box-GTy by
-''' the appropriate integral difference.
-''' (3) The templates and stored instances are all bordered.
+''' <para/>
+''' Notes:<para/>
+''' (1) This computes the ptaul field, which has the global UL corners,<para/>
+''' adjusted for each specific component, so that each component<para/>
+''' can be replaced by the template for its class and have the<para/>
+''' centroid in the template in the same position as the<para/>
+''' centroid of the original connected component.  It is important<para/>
+''' that this be done properly to avoid a wavy baseline in the<para/>
+''' result.<para/>
+''' (2) The array fields ptac and ptact give the centroids of<para/>
+''' those components relative to the UL corner of each component.<para/>
+''' Here, we compute the difference in each component, round to<para/>
+''' nearest integer, and correct the box- is greater x and box- is greater y by<para/>
+''' the appropriate integral difference.<para/>
+''' (3) The templates and stored instances are all bordered.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -712,7 +687,7 @@ End Function
 '''  <param name="boxa">[in] - of c.c. bounding rectangles for this page</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function jbGetULCorners(
-				ByRef classer as JbClasser, 
+				ByVal classer as JbClasser, 
 				ByVal pixs as Pix, 
 				ByVal boxa as Boxa) as Integer
 
@@ -731,29 +706,30 @@ End Function
 ' jbGetLLCorners()
 ' jbGetLLCorners(JBCLASSER *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This computes the ptall field, which has the global LL corners,
-''' adjusted for each specific component, so that each component
-''' can be replaced by the template for its class and have the
-''' centroid in the template in the same position as the
-''' centroid of the original connected component. It is important
-''' that this be done properly to avoid a wavy baseline in the result.
-''' (2) It is computed here from the corresponding UL corners, where
-''' the input templates and stored instances are all bordered.
-''' This should be done after all pages have been processed.
-''' (3) For proper substitution, the templates whose LL corners are
-''' placed in these locations must be UN-bordered.
-''' This is available for a realistic jbig2 encoder, which would
-''' (1) encode each template without a border, and (2) encode
-''' the position using the LL corner (rather than the UL
-''' corner) because the difference between y-values
-''' of successive instances is typically close to zero.
+''' <para/>
+''' Notes:<para/>
+''' (1) This computes the ptall field, which has the global LL corners,<para/>
+''' adjusted for each specific component, so that each component<para/>
+''' can be replaced by the template for its class and have the<para/>
+''' centroid in the template in the same position as the<para/>
+''' centroid of the original connected component. It is important<para/>
+''' that this be done properly to avoid a wavy baseline in the result.<para/>
+''' (2) It is computed here from the corresponding UL corners, where<para/>
+''' the input templates and stored instances are all bordered.<para/>
+''' This should be done after all pages have been processed.<para/>
+''' (3) For proper substitution, the templates whose LL corners are<para/>
+''' placed in these locations must be UN-bordered.<para/>
+''' This is available for a realistic jbig2 encoder, which would<para/>
+''' (1) encode each template without a border, and (2) encode<para/>
+''' the position using the LL corner (rather than the UL<para/>
+''' corner) because the difference between y-values<para/>
+''' of successive instances is typically close to zero.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function jbGetLLCorners(
-				ByRef classer as JbClasser) as Integer
+				ByVal classer as JbClasser) as Integer
 
 	If IsNothing (classer) then Throw New ArgumentNullException  ("classer cannot be Nothing")
 

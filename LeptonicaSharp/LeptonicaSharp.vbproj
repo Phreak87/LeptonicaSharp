@@ -20,7 +20,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>Full</DebugType>
-    <DefineDebug>true</DefineDebug>
+    <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>LeptonicaSharp.xml</DocumentationFile>

@@ -1,23 +1,24 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\dnafunc1.c (79, 1)
 ' l_dnaJoin()
 ' l_dnaJoin(L_DNA *, L_DNA *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) istart LT 0 is taken to mean 'read from the start' (istart = 0)
-''' (2) iend LT 0 means 'read to the end'
-''' (3) if das == NULL, this is a no-op
+''' <para/>
+''' Notes:<para/>
+''' (1) istart  is lower  0 is taken to mean 'read from the start' (istart = 0)<para/>
+''' (2) iend  is lower  0 means 'read to the end'<para/>
+''' (3) if das == NULL, this is a no-op<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="dad">[in] - dest dna; add to this one</param>
-'''  <param name="das">[in][optional] - source dna; add from this one</param>
+'''  <param name="dad">[in] - dest dna add to this one</param>
+'''  <param name="das">[in][optional] - source dna add from this one</param>
 '''  <param name="istart">[in] - starting index in das</param>
-'''  <param name="iend">[in] - ending index in das; use -1 to cat all</param>
+'''  <param name="iend">[in] - ending index in das use -1 to cat all</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function l_dnaJoin(
 				ByVal dad as L_Dna, 
@@ -38,10 +39,11 @@ End Function
 ' l_dnaaFlattenToDna()
 ' l_dnaaFlattenToDna(L_DNAA *) as L_DNA *
 '''  <summary>
-''' Notes
-''' (1) This 'flattens' the dnaa to a dna, by joining successively
-''' each dna in the dnaa.
-''' (2) It leaves the input dnaa unchanged.
+''' <para/>
+''' Notes:<para/>
+''' (1) This 'flattens' the dnaa to a dna, by joining successively<para/>
+''' each dna in the dnaa.<para/>
+''' (2) It leaves the input dnaa unchanged.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -62,9 +64,6 @@ End Function
 ' SRC\dnafunc1.c (159, 1)
 ' l_dnaConvertToNuma()
 ' l_dnaConvertToNuma(L_DNA *) as NUMA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="da">[in] - </param>
@@ -84,9 +83,6 @@ End Function
 ' SRC\dnafunc1.c (187, 1)
 ' numaConvertToDna
 ' numaConvertToDna(NUMA *) as L_DNA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - </param>
@@ -107,11 +103,12 @@ End Function
 ' l_dnaUnionByAset()
 ' l_dnaUnionByAset(L_DNA *, L_DNA *) as L_DNA *
 '''  <summary>
-''' Notes
-''' (1) See sarrayUnionByAset() for the approach.
-''' (2) Here, the key in building the sorted tree is the number itself.
-''' (3) Operations using an underlying tree are O(nlogn), which is
-''' typically less efficient than hashing, which is O(n).
+''' <para/>
+''' Notes:<para/>
+''' (1) See sarrayUnionByAset() for the approach.<para/>
+''' (2) Here, the key in building the sorted tree is the number itself.<para/>
+''' (3) Operations using an underlying tree are O(nlogn), which is<para/>
+''' typically less efficient than hashing, which is O(n).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -135,9 +132,6 @@ End Function
 ' SRC\dnafunc1.c (256, 1)
 ' l_dnaRemoveDupsByAset()
 ' l_dnaRemoveDupsByAset(L_DNA *) as L_DNA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="das">[in] - </param>
@@ -158,11 +152,12 @@ End Function
 ' l_dnaIntersectionByAset()
 ' l_dnaIntersectionByAset(L_DNA *, L_DNA *) as L_DNA *
 '''  <summary>
-''' Notes
-''' (1) See sarrayIntersection() for the approach.
-''' (2) Here, the key in building the sorted tree is the number itself.
-''' (3) Operations using an underlying tree are O(nlogn), which is
-''' typically less efficient than hashing, which is O(n).
+''' <para/>
+''' Notes:<para/>
+''' (1) See sarrayIntersection() for the approach.<para/>
+''' (2) Here, the key in building the sorted tree is the number itself.<para/>
+''' (3) Operations using an underlying tree are O(nlogn), which is<para/>
+''' typically less efficient than hashing, which is O(n).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -186,9 +181,6 @@ End Function
 ' SRC\dnafunc1.c (350, 1)
 ' l_asetCreateFromDna()
 ' l_asetCreateFromDna(L_DNA *) as L_ASET *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="da">[in] - source dna</param>
@@ -208,9 +200,6 @@ End Function
 ' SRC\dnafunc1.c (385, 1)
 ' l_dnaDiffAdjValues()
 ' l_dnaDiffAdjValues(L_DNA *) as L_DNA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="das">[in] - input l_dna</param>

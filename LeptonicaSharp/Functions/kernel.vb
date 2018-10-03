@@ -1,17 +1,18 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\kernel.c (106, 1)
 ' kernelCreate()
 ' kernelCreate(l_int32, l_int32) as L_KERNEL *
 '''  <summary>
-''' Notes
-''' (1) kernelCreate() initializes all values to 0.
-''' (2) After this call, (cy,cx) and nonzero data values must be
-''' assigned.
-''' (2) The number of kernel elements must be less than 2^29.
+''' <para/>
+''' Notes:<para/>
+''' (1) kernelCreate() initializes all values to 0.<para/>
+''' (2) After this call, (cy,cx) and nonzero data values must be<para/>
+''' assigned.<para/>
+''' (2) The number of kernel elements must be less than 2^29.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -33,9 +34,6 @@ End Function
 ' SRC\kernel.c (144, 1)
 ' kernelDestroy()
 ' kernelDestroy(L_KERNEL **) as void
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pkel">[in,out] - to be nulled</param>
@@ -53,9 +51,6 @@ End Sub
 ' SRC\kernel.c (175, 1)
 ' kernelCopy()
 ' kernelCopy(L_KERNEL *) as L_KERNEL *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="kels">[in] - source kernel</param>
@@ -75,16 +70,13 @@ End Function
 ' SRC\kernel.c (211, 1)
 ' kernelGetElement()
 ' kernelGetElement(L_KERNEL *, l_int32, l_int32, l_float32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="kel">[in] - </param>
 '''  <param name="row">[in] - </param>
 '''  <param name="col">[in] - </param>
 '''  <param name="pval">[out] - </param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function kernelGetElement(
 				ByVal kel as L_Kernel, 
 				ByVal row as Integer, 
@@ -102,16 +94,13 @@ End Function
 ' SRC\kernel.c (243, 1)
 ' kernelSetElement()
 ' kernelSetElement(L_KERNEL *, l_int32, l_int32, l_float32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="row">[in] - </param>
 '''  <param name="col">[in] - </param>
 '''  <param name="val">[in] - </param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function kernelSetElement(
 				ByVal kel as L_Kernel, 
 				ByVal row as Integer, 
@@ -130,9 +119,6 @@ End Function
 ' SRC\kernel.c (270, 1)
 ' kernelGetParameters()
 ' kernelGetParameters(L_KERNEL *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="kel">[in] - kernel</param>
@@ -159,15 +145,12 @@ End Function
 ' SRC\kernel.c (300, 1)
 ' kernelSetOrigin()
 ' kernelSetOrigin(L_KERNEL *, l_int32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="cy">[in] - </param>
 '''  <param name="cx">[in] - </param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function kernelSetOrigin(
 				ByVal kel as L_Kernel, 
 				ByVal cy as Integer, 
@@ -184,9 +167,6 @@ End Function
 ' SRC\kernel.c (322, 1)
 ' kernelGetSum()
 ' kernelGetSum(L_KERNEL *, l_float32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="kel">[in] - kernel</param>
@@ -207,9 +187,6 @@ End Function
 ' SRC\kernel.c (354, 1)
 ' kernelGetMinMax()
 ' kernelGetMinMax(L_KERNEL *, l_float32 *, l_float32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="kel">[in] - kernel</param>
@@ -233,10 +210,11 @@ End Function
 ' kernelNormalize()
 ' kernelNormalize(L_KERNEL *, l_float32) as L_KERNEL *
 '''  <summary>
-''' Notes
-''' (1) If the sum of kernel elements is close to 0, do not
-''' try to calculate the normalized kernel.  Instead,
-''' return a copy of the input kernel, with a warning.
+''' <para/>
+''' Notes:<para/>
+''' (1) If the sum of kernel elements is close to 0, do not<para/>
+''' try to calculate the normalized kernel.  Instead,<para/>
+''' return a copy of the input kernel, with a warning.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -261,9 +239,10 @@ End Function
 ' kernelInvert()
 ' kernelInvert(L_KERNEL *) as L_KERNEL *
 '''  <summary>
-''' Notes
-''' (1) For convolution, the kernel is spatially inverted before
-''' a "correlation" operation is done between the kernel and the image.
+''' <para/>
+''' Notes:<para/>
+''' (1) For convolution, the kernel is spatially inverted before<para/>
+''' a "correlation" operation is done between the kernel and the image.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -285,10 +264,11 @@ End Function
 ' create2dFloatArray()
 ' create2dFloatArray(l_int32, l_int32) as l_float32 **
 '''  <summary>
-''' Notes
-''' (1) The array[sy][sx] is indexed in standard "matrix notation",
-''' with the row index first.
-''' (2) The caller kernelCreate() limits the size to LT 2^29 pixels.
+''' <para/>
+''' Notes:<para/>
+''' (1) The array[sy][sx] is indexed in standard "matrix notation",<para/>
+''' with the row index first.<para/>
+''' (2) The caller kernelCreate() limits the size to  is lower  2^29 pixels.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -316,9 +296,6 @@ End Function
 ' SRC\kernel.c (526, 1)
 ' kernelRead()
 ' kernelRead(const char *) as L_KERNEL *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fname">[in] - filename</param>
@@ -338,9 +315,6 @@ End Function
 ' SRC\kernel.c (555, 1)
 ' kernelReadStream()
 ' kernelReadStream(FILE *) as L_KERNEL *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
@@ -360,9 +334,6 @@ End Function
 ' SRC\kernel.c (598, 1)
 ' kernelWrite()
 ' kernelWrite(const char *, L_KERNEL *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fname">[in] - output file</param>
@@ -384,9 +355,6 @@ End Function
 ' SRC\kernel.c (627, 1)
 ' kernelWriteStream()
 ' kernelWriteStream(FILE *, L_KERNEL *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
@@ -409,17 +377,18 @@ End Function
 ' kernelCreateFromString()
 ' kernelCreateFromString(l_int32, l_int32, l_int32, l_int32, const char *) as L_KERNEL *
 '''  <summary>
-''' Notes
-''' (1) The data is an array of chars, in row-major order, giving
-''' space separated integers in the range [-255 ... 255].
-''' (2) The only other formatting limitation is that you must
-''' leave space between the last number in each row and
-''' the double-quote.  If possible, it's also nice to have each
-''' line in the string represent a line in the kernel; e.g.,
-''' static const char kdata =
-''' " 20   50   20 "
-''' " 70  140   70 "
-''' " 20   50   20 ";
+''' <para/>
+''' Notes:<para/>
+''' (1) The data is an array of chars, in row-major order, giving<para/>
+''' space separated integers in the range [-255 ... 255].<para/>
+''' (2) The only other formatting limitation is that you must<para/>
+''' leave space between the last number in each row and<para/>
+''' the double-quote.  If possible, it's also nice to have each<para/>
+''' line in the string represent a line in the kernel e.g.,<para/>
+''' static const char kdata =<para/>
+''' " 20 50 20 "<para/>
+''' " 70  140 70 "<para/>
+''' " 20 50 20 "<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -449,32 +418,33 @@ End Function
 ' kernelCreateFromFile()
 ' kernelCreateFromFile(const char *) as L_KERNEL *
 '''  <summary>
-''' Notes
-''' (1) The file contains, in the following order
-''' ~ Any number of comment lines starting with '#' are ignored
-''' ~ The height and width of the kernel
-''' ~ The y and x values of the kernel origin
-''' ~ The kernel data, formatted as lines of numbers (integers
-''' or floats) for the kernel values in row-major order,
-''' and with no other punctuation.
-''' (Note this differs from kernelCreateFromString(),
-''' where each line must begin and end with a double-quote
-''' to tell the compiler it's part of a string.)
-''' ~ The kernel specification ends when a blank line,
-''' a comment line, or the end of file is reached.
-''' (2) All lines must be left-justified.
-''' (3) See kernelCreateFromString() for a description of the string
-''' format for the kernel data.  As an example, here are the lines
-''' of a valid kernel description file  In the file, all lines
-''' are left-justified
-''' \code
-''' # small 3x3 kernel
-''' 3 3
-''' 1 1
-''' 25.5   51 24.3
-''' 70.2  146.3  73.4
-''' 20  50.9  18.4
-''' \endcode
+''' <para/>
+''' Notes:<para/>
+''' (1) The file contains, in the following order:<para/>
+''' ~ Any number of comment lines starting with '#' are ignored<para/>
+''' ~ The height and width of the kernel<para/>
+''' ~ The y and x values of the kernel origin<para/>
+''' ~ The kernel data, formatted as lines of numbers (integers<para/>
+''' or floats) for the kernel values in row-major order,<para/>
+''' and with no other punctuation.<para/>
+''' (Note: this differs from kernelCreateFromString(),<para/>
+''' where each line must begin and end with a double-quote<para/>
+''' to tell the compiler it's part of a string.)<para/>
+''' ~ The kernel specification ends when a blank line,<para/>
+''' a comment line, or the end of file is reached.<para/>
+''' (2) All lines must be left-justified.<para/>
+''' (3) See kernelCreateFromString() for a description of the string<para/>
+''' format for the kernel data.  As an example, here are the lines<para/>
+''' of a valid kernel description file  In the file, all lines<para/>
+''' are left-justified:<para/>
+''' \code<para/>
+''' # small 3x3 kernel<para/>
+''' 3 3<para/>
+''' 1 1<para/>
+''' 25.5 51  24.3<para/>
+''' 70.2  146.3  73.4<para/>
+''' 20 50.9  18.4<para/>
+''' \endcode<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -497,8 +467,9 @@ End Function
 ' kernelCreateFromPix()
 ' kernelCreateFromPix(PIX *, l_int32, l_int32) as L_KERNEL *
 '''  <summary>
-''' Notes
-''' (1) The origin must be positive and within the dimensions of the pix.
+''' <para/>
+''' Notes:<para/>
+''' (1) The origin must be positive and within the dimensions of the pix.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -524,25 +495,26 @@ End Function
 ' kernelDisplayInPix()
 ' kernelDisplayInPix(L_KERNEL *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This gives a visual representation of a kernel.
-''' (2) There are two modes of display
-''' (a) Grid lines of minimum width 2, surrounding regions
-''' representing kernel elements of minimum size 17,
-''' with a "plus" mark at the kernel origin, or
-''' (b) A pix without grid lines and using 1 pixel per kernel element.
-''' (3) For both cases, the kernel absolute value is displayed,
-''' normalized such that the maximum absolute value is 255.
-''' (4) Large 2D separable kernels should be used for convolution
-''' with two 1D kernels.  However, for the bilateral filter,
-''' the computation time is independent of the size of the
-''' 2D content kernel.
+''' <para/>
+''' Notes:<para/>
+''' (1) This gives a visual representation of a kernel.<para/>
+''' (2) There are two modes of display:<para/>
+''' (a) Grid lines of minimum width 2, surrounding regions<para/>
+''' representing kernel elements of minimum size 17,<para/>
+''' with a "plus" mark at the kernel origin, or<para/>
+''' (b) A pix without grid lines and using 1 pixel per kernel element.<para/>
+''' (3) For both cases, the kernel absolute value is displayed,<para/>
+''' normalized such that the maximum absolute value is 255.<para/>
+''' (4) Large 2D separable kernels should be used for convolution<para/>
+''' with two 1D kernels.  However, for the bilateral filter,<para/>
+''' the computation time is independent of the size of the<para/>
+''' 2D content kernel.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="kel">[in] - kernel</param>
-'''  <param name="size">[in] - of grid interiors; odd; either 1 or a minimum size of 17 is enforced</param>
-'''  <param name="gthick">[in] - grid thickness; either 0 or a minimum size of 2 is enforced</param>
+'''  <param name="size">[in] - of grid interiors odd either 1 or a minimum size of 17 is enforced</param>
+'''  <param name="gthick">[in] - grid thickness either 0 or a minimum size of 2 is enforced</param>
 '''   <returns>pix display of kernel, or NULL on error</returns>
 Public Shared Function kernelDisplayInPix(
 				ByVal kel as L_Kernel, 
@@ -562,12 +534,13 @@ End Function
 ' parseStringForNumbers()
 ' parseStringForNumbers(const char *, const char *) as NUMA *
 '''  <summary>
-''' Notes
-''' (1) The numbers can be ints or floats.
+''' <para/>
+''' Notes:<para/>
+''' (1) The numbers can be ints or floats.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="str">[in] - string containing numbers; not changed</param>
+'''  <param name="str">[in] - string containing numbers not changed</param>
 '''  <param name="seps">[in] - string of characters that can be used between ints</param>
 '''   <returns>numa of numbers found, or NULL on error</returns>
 Public Shared Function parseStringForNumbers(
@@ -588,14 +561,15 @@ End Function
 ' makeFlatKernel()
 ' makeFlatKernel(l_int32, l_int32, l_int32, l_int32) as L_KERNEL *
 '''  <summary>
-''' Notes
-''' (1) This is the same low-pass filtering kernel that is used
-''' in the block convolution functions.
-''' (2) The kernel origin (%cy, %cx) is typically placed as near
-''' the center of the kernel as possible.  If height and
-''' width are odd, then using cy = height / 2 and
-''' cx = width / 2 places the origin at the exact center.
-''' (3) This returns a normalized kernel.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is the same low-pass filtering kernel that is used<para/>
+''' in the block convolution functions.<para/>
+''' (2) The kernel origin (%cy, %cx) is typically placed as near<para/>
+''' the center of the kernel as possible.  If height and<para/>
+''' width are odd, then using cy = height / 2 and<para/>
+''' cx = width / 2 places the origin at the exact center.<para/>
+''' (3) This returns a normalized kernel.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -622,14 +596,15 @@ End Function
 ' makeGaussianKernel()
 ' makeGaussianKernel(l_int32, l_int32, l_float32, l_float32) as L_KERNEL *
 '''  <summary>
-''' Notes
-''' (1) The kernel size (sx, sy) = (2  halfwidth + 1, 2  halfheight + 1).
-''' (2) The kernel center (cx, cy) = (halfwidth, halfheight).
-''' (3) The halfwidth and halfheight are typically equal, and
-''' are typically several times larger than the standard deviation.
-''' (4) If pixConvolve() is invoked with normalization (the sum of
-''' kernel elements = 1.0), use 1.0 for max (or any number that's
-''' not too small or too large).
+''' <para/>
+''' Notes:<para/>
+''' (1) The kernel size (sx, sy) = (2  halfwidth + 1, 2  halfheight + 1).<para/>
+''' (2) The kernel center (cx, cy) = (halfwidth, halfheight).<para/>
+''' (3) The halfwidth and halfheight are typically equal, and<para/>
+''' are typically several times larger than the standard deviation.<para/>
+''' (4) If pixConvolve() is invoked with normalization (the sum of<para/>
+''' kernel elements = 1.0), use 1.0 for max (or any number that's<para/>
+''' not too small or too large).<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -658,17 +633,18 @@ End Function
 ' makeGaussianKernelSep()
 ' makeGaussianKernelSep(l_int32, l_int32, l_float32, l_float32, L_KERNEL **, L_KERNEL **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) See makeGaussianKernel() for description of input parameters.
-''' (2) These kernels are constructed so that the result of both
-''' normalized and un-normalized convolution will be the same
-''' as when convolving with pixConvolve() using the full kernel.
-''' (3) The trick for the un-normalized convolution is to have the
-''' product of the two kernel elemets at (cx,cy) be equal to max,
-''' not max2.  That's why the max for kely is 1.0.  If instead
-''' we use sqrt(max) for both, the results are slightly less
-''' accurate, when compared to using the full kernel in
-''' makeGaussianKernel().
+''' <para/>
+''' Notes:<para/>
+''' (1) See makeGaussianKernel() for description of input parameters.<para/>
+''' (2) These kernels are constructed so that the result of both<para/>
+''' normalized and un-normalized convolution will be the same<para/>
+''' as when convolving with pixConvolve() using the full kernel.<para/>
+''' (3) The trick for the un-normalized convolution is to have the<para/>
+''' product of the two kernel elemets at (cx,cy) be equal to max,<para/>
+''' not max2.  That's why the max for kely is 1.0.  If instead<para/>
+''' we use sqrt(max) for both, the results are slightly less<para/>
+''' accurate, when compared to using the full kernel in<para/>
+''' makeGaussianKernel().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -704,21 +680,22 @@ End Function
 ' makeDoGKernel()
 ' makeDoGKernel(l_int32, l_int32, l_float32, l_float32) as L_KERNEL *
 '''  <summary>
-''' Notes
-''' (1) The DoG (difference of gaussians) is a wavelet mother
-''' function with null total sum.  By subtracting two blurred
-''' versions of the image, it acts as a bandpass filter for
-''' frequencies passed by the narrow gaussian but stopped
-''' by the wide one.See
-''' http//en.wikipedia.org/wiki/Difference_of_Gaussians
-''' (2) The kernel size (sx, sy) = (2  halfwidth + 1, 2  halfheight + 1).
-''' (3) The kernel center (cx, cy) = (halfwidth, halfheight).
-''' (4) The halfwidth and halfheight are typically equal, and
-''' are typically several times larger than the standard deviation.
-''' (5) The ratio is the ratio of standard deviations of the wide
-''' to narrow gaussian.  It must be GT= 1.0; 1.0 is a no-op.
-''' (6) Because the kernel is a null sum, it must be invoked without
-''' normalization in pixConvolve().
+''' <para/>
+''' Notes:<para/>
+''' (1) The DoG (difference of gaussians) is a wavelet mother<para/>
+''' function with null total sum.  By subtracting two blurred<para/>
+''' versions of the image, it acts as a bandpass filter for<para/>
+''' frequencies passed by the narrow gaussian but stopped<para/>
+''' by the wide one.See:<para/>
+''' http://en.wikipedia.org/wiki/Difference_of_Gaussians<para/>
+''' (2) The kernel size (sx, sy) = (2  halfwidth + 1, 2  halfheight + 1).<para/>
+''' (3) The kernel center (cx, cy) = (halfwidth, halfheight).<para/>
+''' (4) The halfwidth and halfheight are typically equal, and<para/>
+''' are typically several times larger than the standard deviation.<para/>
+''' (5) The ratio is the ratio of standard deviations of the wide<para/>
+''' to narrow gaussian.  It must be  is greater = 1.0 1.0 is a no-op.<para/>
+''' (6) Because the kernel is a null sum, it must be invoked without<para/>
+''' normalization in pixConvolve().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

@@ -1,26 +1,27 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\warper.c (107, 1)
 ' pixSimpleCaptcha()
 ' pixSimpleCaptcha(PIX *, l_int32, l_int32, l_uint32, l_uint32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This uses typical default values for generating captchas.
-''' The magnitudes of the harmonic warp are typically to be
-''' smaller when more terms are used, even though the phases
-''' are random.  See, for example, prog/warptest.c.
+''' <para/>
+''' Notes:<para/>
+''' (1) This uses typical default values for generating captchas.<para/>
+''' The magnitudes of the harmonic warp are typically to be<para/>
+''' smaller when more terms are used, even though the phases<para/>
+''' are random.  See, for example, prog/warptest.c.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixs">[in] - 8 bpp; no colormap</param>
+'''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="border">[in] - added white pixels on each side</param>
 '''  <param name="nterms">[in] - number of x and y harmonic terms</param>
 '''  <param name="seed">[in] - of random number generator</param>
-'''  <param name="color">[in] - for colorizing; in 0xrrggbb00 format; use 0 for black</param>
-'''  <param name="cmapflag">[in] - 1 for colormap output; 0 for rgb</param>
+'''  <param name="color">[in] - for colorizing in 0xrrggbb00 format use 0 for black</param>
+'''  <param name="cmapflag">[in] - 1 for colormap output 0 for rgb</param>
 '''   <returns>pixd 8 bpp cmap or 32 bpp rgb, or NULL on error</returns>
 Public Shared Function pixSimpleCaptcha(
 				ByVal pixs as Pix, 
@@ -31,7 +32,6 @@ Public Shared Function pixSimpleCaptcha(
 				ByVal cmapflag as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp; no colormap")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSimpleCaptcha( pixs.Pointer, border, nterms, seed, color, cmapflag)
@@ -44,30 +44,31 @@ End Function
 ' pixRandomHarmonicWarp()
 ' pixRandomHarmonicWarp(PIX *, l_float32, l_float32, l_float32, l_float32, l_int32, l_int32, l_uint32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) To generate the warped image p(x',y'), set up the transforms
-''' that are in getWarpTransform().  For each (x',y') in the
-''' dest, the warp function computes the originating location
-''' (x, y) in the src.  The differences (x - x') and (y - y')
-''' are given as a sum of products of sinusoidal terms.  Each
-''' term is multiplied by a maximum amplitude (in pixels), and the
-''' angle is determined by a frequency and phase, and depends
-''' on the (x', y') value of the dest.  Random numbers with
-''' a variable input seed are used to allow the warping to be
-''' unpredictable.  A linear interpolation is used to find
-''' the value for the source at (x, y); this value is written
-''' into the dest.
-''' (2) This can be used to generate 'captcha's, which are somewhat
-''' randomly distorted images of text.  A typical set of parameters
-''' for a captcha are
-''' xmag = 4.0  ymag = 6.0
-''' xfreq = 0.10   yfreq = 0.13
-''' nx = 3   ny = 3
-''' Other examples can be found in prog/warptest.c.
+''' <para/>
+''' Notes:<para/>
+''' (1) To generate the warped image p(x',y'), set up the transforms<para/>
+''' that are in getWarpTransform().  For each (x',y') in the<para/>
+''' dest, the warp function computes the originating location<para/>
+''' (x, y) in the src.  The differences (x - x') and (y - y')<para/>
+''' are given as a sum of products of sinusoidal terms.  Each<para/>
+''' term is multiplied by a maximum amplitude (in pixels), and the<para/>
+''' angle is determined by a frequency and phase, and depends<para/>
+''' on the (x', y') value of the dest.  Random numbers with<para/>
+''' a variable input seed are used to allow the warping to be<para/>
+''' unpredictable.  A linear interpolation is used to find<para/>
+''' the value for the source at (x, y) this value is written<para/>
+''' into the dest.<para/>
+''' (2) This can be used to generate 'captcha's, which are somewhat<para/>
+''' randomly distorted images of text.  A typical set of parameters<para/>
+''' for a captcha are:<para/>
+''' xmag = 4.0 ymag = 6.0<para/>
+''' xfreq = 0.10 yfreq = 0.13<para/>
+''' nx = 3 ny = 3<para/>
+''' Other examples can be found in prog/warptest.c.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixs">[in] - 8 bpp; no colormap</param>
+'''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="xmag">[in] - maximum magnitude of x and y distortion</param>
 '''  <param name="ymag">[in] - maximum magnitude of x and y distortion</param>
 '''  <param name="xfreq">[in] - maximum magnitude of x and y frequency</param>
@@ -75,8 +76,8 @@ End Function
 '''  <param name="nx">[in] - number of x and y harmonic terms</param>
 '''  <param name="ny">[in] - number of x and y harmonic terms</param>
 '''  <param name="seed">[in] - of random number generator</param>
-'''  <param name="grayval">[in] - color brought in from the outside; 0 for black, 255 for white</param>
-'''   <returns>pixd 8 bpp; no colormap, or NULL on error</returns>
+'''  <param name="grayval">[in] - color brought in from the outside 0 for black, 255 for white</param>
+'''   <returns>pixd 8 bpp no colormap, or NULL on error</returns>
 Public Shared Function pixRandomHarmonicWarp(
 				ByVal pixs as Pix, 
 				ByVal xmag as Single, 
@@ -93,7 +94,6 @@ Public Shared Function pixRandomHarmonicWarp(
 	If IsNothing (ymag) then Throw New ArgumentNullException  ("ymag cannot be Nothing")
 	If IsNothing (xfreq) then Throw New ArgumentNullException  ("xfreq cannot be Nothing")
 	If IsNothing (yfreq) then Throw New ArgumentNullException  ("yfreq cannot be Nothing")
-	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp; no colormap")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRandomHarmonicWarp( pixs.Pointer, xmag, ymag, xfreq, yfreq, nx, ny, seed, grayval)
@@ -106,79 +106,80 @@ End Function
 ' pixWarpStereoscopic()
 ' pixWarpStereoscopic(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This function splits out the red channel, mucks around with
-''' it, then recombines with the unmolested cyan channel.
-''' (2) By using a quadratically increasing shift of the red
-''' pixels horizontally and away from the vertical centerline,
-''' the image appears to bend quadratically out of the image
-''' plane, symmetrically with respect to the vertical center
-''' line.  A positive value of %zbend causes the plane to be
-''' curved away from the viewer.  We use linearly interpolated
-''' stretching to avoid the appearance of kinks in the curve.
-''' (3) The parameters %zshiftt and %zshiftb tilt the image plane
-''' about a horizontal line through the center, and at the
-''' same time move that line either in toward the viewer or away.
-''' This is implemented by a combination of horizontal shear
-''' about the center line (for the tilt) and horizontal
-''' translation (to move the entire plane in or out).
-''' A positive value of %zshiftt moves the top of the plane
-''' away from the viewer, and a positive value of %zshiftb
-''' moves the bottom of the plane away.  We use linear interpolated
-''' shear to avoid visible vertical steps in the tilted image.
-''' (4) The image can be bent in the plane and about the vertical
-''' centerline.  The centerline does not shift, and the
-''' parameter %ybend gives the relative shift at left and right
-''' edges, with a downward shift for positive values of %ybend.
-''' (6) When writing out a steroscopic (red/cyan) image in jpeg,
-''' first call pixSetChromaSampling(pix, 0) to get sufficient
-''' resolution in the red channel.
-''' (7) Typical values are
-''' zbend = 20
-''' zshiftt = 15
-''' zshiftb = -15
-''' ybendt = 30
-''' ybendb = 0
-''' If the disparity z-values are too large, it is difficult for
-''' the brain to register the two images.
-''' (8) This function has been cleverly reimplemented by Jeff Breidenbach.
-''' The original implementation used two 32 bpp rgb images,
-''' and merged them at the end.  The result is somewhat faded,
-''' and has a parameter "thresh" that controls the amount of
-''' color in the result.  (The present implementation avoids these
-''' two problems, skipping both the colorization and the alpha
-''' blending at the end, and is about 3x faster)
-''' The basic operations with 32 bpp are as follows
-''' // Immediate conversion to 32 bpp
-''' Pix pixt1 = pixConvertTo32(pixs);
-''' // Do vertical shear
-''' Pix pixr = pixQuadraticVerticalShear(pixt1, L_WARP_TO_RIGHT,
-''' ybendt, ybendb,
-''' L_BRING_IN_WHITE);
-''' // Colorize two versions, toward red and cyan
-''' Pix pixc = pixCopy(NULL, pixr);
-''' l_int32 thresh = 150;  // if higher, get less original color
-''' pixColorGray(pixr, NULL, L_PAINT_DARK, thresh, 255, 0, 0);
-''' pixColorGray(pixc, NULL, L_PAINT_DARK, thresh, 0, 255, 255);
-''' // Shift the red pixels; e.g., by stretching
-''' Pix pixrs = pixStretchHorizontal(pixr, L_WARP_TO_RIGHT,
-''' L_QUADRATIC_WARP, zbend,
-''' L_INTERPOLATED,
-''' L_BRING_IN_WHITE);
-''' // Blend the shifted red and unshifted cyan 5050
-''' Pix pixg = pixCreate(w, h, 8);
-''' pixSetAllArbitrary(pixg, 128);
-''' pixd = pixBlendWithGrayMask(pixrs, pixc, pixg, 0, 0);
+''' <para/>
+''' Notes:<para/>
+''' (1) This function splits out the red channel, mucks around with<para/>
+''' it, then recombines with the unmolested cyan channel.<para/>
+''' (2) By using a quadratically increasing shift of the red<para/>
+''' pixels horizontally and away from the vertical centerline,<para/>
+''' the image appears to bend quadratically out of the image<para/>
+''' plane, symmetrically with respect to the vertical center<para/>
+''' line.  A positive value of %zbend causes the plane to be<para/>
+''' curved away from the viewer.  We use linearly interpolated<para/>
+''' stretching to avoid the appearance of kinks in the curve.<para/>
+''' (3) The parameters %zshiftt and %zshiftb tilt the image plane<para/>
+''' about a horizontal line through the center, and at the<para/>
+''' same time move that line either in toward the viewer or away.<para/>
+''' This is implemented by a combination of horizontal shear<para/>
+''' about the center line (for the tilt) and horizontal<para/>
+''' translation (to move the entire plane in or out).<para/>
+''' A positive value of %zshiftt moves the top of the plane<para/>
+''' away from the viewer, and a positive value of %zshiftb<para/>
+''' moves the bottom of the plane away.  We use linear interpolated<para/>
+''' shear to avoid visible vertical steps in the tilted image.<para/>
+''' (4) The image can be bent in the plane and about the vertical<para/>
+''' centerline.  The centerline does not shift, and the<para/>
+''' parameter %ybend gives the relative shift at left and right<para/>
+''' edges, with a downward shift for positive values of %ybend.<para/>
+''' (6) When writing out a steroscopic (red/cyan) image in jpeg,<para/>
+''' first call pixSetChromaSampling(pix, 0) to get sufficient<para/>
+''' resolution in the red channel.<para/>
+''' (7) Typical values are:<para/>
+''' zbend = 20<para/>
+''' zshiftt = 15<para/>
+''' zshiftb = -15<para/>
+''' ybendt = 30<para/>
+''' ybendb = 0<para/>
+''' If the disparity z-values are too large, it is difficult for<para/>
+''' the brain to register the two images.<para/>
+''' (8) This function has been cleverly reimplemented by Jeff Breidenbach.<para/>
+''' The original implementation used two 32 bpp rgb images,<para/>
+''' and merged them at the end.  The result is somewhat faded,<para/>
+''' and has a parameter "thresh" that controls the amount of<para/>
+''' color in the result.  (The present implementation avoids these<para/>
+''' two problems, skipping both the colorization and the alpha<para/>
+''' blending at the end, and is about 3x faster)<para/>
+''' The basic operations with 32 bpp are as follows:<para/>
+''' // Immediate conversion to 32 bpp<para/>
+''' Pix pixt1 = pixConvertTo32(pixs)<para/>
+''' // Do vertical shear<para/>
+''' Pix pixr = pixQuadraticVerticalShear(pixt1, L_WARP_TO_RIGHT,<para/>
+''' ybendt, ybendb,<para/>
+''' L_BRING_IN_WHITE)<para/>
+''' // Colorize two versions, toward red and cyan<para/>
+''' Pix pixc = pixCopy(NULL, pixr)<para/>
+''' l_int32 thresh = 150  // if higher, get less original color<para/>
+''' pixColorGray(pixr, NULL, L_PAINT_DARK, thresh, 255, 0, 0)<para/>
+''' pixColorGray(pixc, NULL, L_PAINT_DARK, thresh, 0, 255, 255)<para/>
+''' // Shift the red pixels e.g., by stretching<para/>
+''' Pix pixrs = pixStretchHorizontal(pixr, L_WARP_TO_RIGHT,<para/>
+''' L_QUADRATIC_WARP, zbend,<para/>
+''' L_INTERPOLATED,<para/>
+''' L_BRING_IN_WHITE)<para/>
+''' // Blend the shifted red and unshifted cyan 50:50<para/>
+''' Pix pixg = pixCreate(w, h, 8)<para/>
+''' pixSetAllArbitrary(pixg, 128)<para/>
+''' pixd = pixBlendWithGrayMask(pixrs, pixc, pixg, 0, 0)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - any depth, colormap ok</param>
 '''  <param name="zbend">[in] - horizontal separation in pixels of red and cyan at the left and right sides, that gives rise to quadratic curvature out of the image plane</param>
-'''  <param name="zshiftt">[in] - uniform pixel translation difference between red and cyan, that pushes the top of the image plane away from the viewer (zshiftt GT 0) or towards the viewer (zshiftt LT 0)</param>
-'''  <param name="zshiftb">[in] - uniform pixel translation difference between red and cyan, that pushes the bottom of the image plane away from the viewer (zshiftb GT 0) or towards the viewer (zshiftb LT 0)</param>
-'''  <param name="ybendt">[in] - multiplicative parameter for in-plane vertical displacement at the left or right edge at the top y = ybendt  (2x/w - 1)^2</param>
+'''  <param name="zshiftt">[in] - uniform pixel translation difference between red and cyan, that pushes the top of the image plane away from the viewer (zshiftt  is greater  0) or towards the viewer (zshiftt  is lower  0)</param>
+'''  <param name="zshiftb">[in] - uniform pixel translation difference between red and cyan, that pushes the bottom of the image plane away from the viewer (zshiftb  is greater  0) or towards the viewer (zshiftb  is lower  0)</param>
+'''  <param name="ybendt">[in] - multiplicative parameter for in-plane vertical displacement at the left or right edge at the top: y = ybendt  (2x/w - 1)^2</param>
 '''  <param name="ybendb">[in] - same as ybendt, except at the left or right edge at the bottom</param>
-'''  <param name="redleft">[in] - 1 if the red filter is on the left; 0 otherwise</param>
+'''  <param name="redleft">[in] - 1 if the red filter is on the left 0 otherwise</param>
 '''   <returns>pixd 32 bpp, or NULL on error</returns>
 Public Shared Function pixWarpStereoscopic(
 				ByVal pixs as Pix, 
@@ -202,20 +203,21 @@ End Function
 ' pixStretchHorizontal()
 ' pixStretchHorizontal(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) If %hmax GT 0, this is an increase in the coordinate value of
-''' pixels in pixd, relative to the same pixel in pixs.
-''' (2) If %dir == L_WARP_TO_LEFT, the pixels on the right edge of
-''' the image are not moved. So, for example, if %hmax GT 0
-''' and %dir == L_WARP_TO_LEFT, the pixels in pixd are
-''' contracted toward the right edge of the image, relative
-''' to those in pixs.
-''' (3) If %type == L_LINEAR_WARP, the pixel positions are moved
-''' to the left or right by an amount that varies linearly with
-''' the horizontal location.
-''' (4) If %operation == L_SAMPLED, the dest pixels are taken from
-''' the nearest src pixel.  Otherwise, we use linear interpolation
-''' between pairs of sampled pixels.
+''' <para/>
+''' Notes:<para/>
+''' (1) If %hmax  is greater  0, this is an increase in the coordinate value of<para/>
+''' pixels in pixd, relative to the same pixel in pixs.<para/>
+''' (2) If %dir == L_WARP_TO_LEFT, the pixels on the right edge of<para/>
+''' the image are not moved. So, for example, if %hmax  is greater  0<para/>
+''' and %dir == L_WARP_TO_LEFT, the pixels in pixd are<para/>
+''' contracted toward the right edge of the image, relative<para/>
+''' to those in pixs.<para/>
+''' (3) If %type == L_LINEAR_WARP, the pixel positions are moved<para/>
+''' to the left or right by an amount that varies linearly with<para/>
+''' the horizontal location.<para/>
+''' (4) If %operation == L_SAMPLED, the dest pixels are taken from<para/>
+''' the nearest src pixel.  Otherwise, we use linear interpolation<para/>
+''' between pairs of sampled pixels.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -247,8 +249,9 @@ End Function
 ' pixStretchHorizontalSampled()
 ' pixStretchHorizontalSampled(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) See pixStretchHorizontal() for details.
+''' <para/>
+''' Notes:<para/>
+''' (1) See pixStretchHorizontal() for details.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -278,8 +281,9 @@ End Function
 ' pixStretchHorizontalLI()
 ' pixStretchHorizontalLI(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) See pixStretchHorizontal() for details.
+''' <para/>
+''' Notes:<para/>
+''' (1) See pixStretchHorizontal() for details.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -309,21 +313,22 @@ End Function
 ' pixQuadraticVShear()
 ' pixQuadraticVShear(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This gives a quadratic bending, upward or downward, as you
-''' move to the left or right.
-''' (2) If %dir == L_WARP_TO_LEFT, the right edge is unchanged, and
-''' the left edge pixels are moved maximally up or down.
-''' (3) Parameters %vmaxt and %vmaxb control the maximum amount of
-''' vertical pixel shear at the top and bottom, respectively.
-''' If %vmaxt GT 0, the vertical displacement of pixels at the
-''' top is downward.  Likewise, if %vmaxb GT 0, the vertical
-''' displacement of pixels at the bottom is downward.
-''' (4) If %operation == L_SAMPLED, the dest pixels are taken from
-''' the nearest src pixel.  Otherwise, we use linear interpolation
-''' between pairs of sampled pixels.
-''' (5) This is for quadratic shear.  For uniform (linear) shear,
-''' use the standard shear operators.
+''' <para/>
+''' Notes:<para/>
+''' (1) This gives a quadratic bending, upward or downward, as you<para/>
+''' move to the left or right.<para/>
+''' (2) If %dir == L_WARP_TO_LEFT, the right edge is unchanged, and<para/>
+''' the left edge pixels are moved maximally up or down.<para/>
+''' (3) Parameters %vmaxt and %vmaxb control the maximum amount of<para/>
+''' vertical pixel shear at the top and bottom, respectively.<para/>
+''' If %vmaxt  is greater  0, the vertical displacement of pixels at the<para/>
+''' top is downward.  Likewise, if %vmaxb  is greater  0, the vertical<para/>
+''' displacement of pixels at the bottom is downward.<para/>
+''' (4) If %operation == L_SAMPLED, the dest pixels are taken from<para/>
+''' the nearest src pixel.  Otherwise, we use linear interpolation<para/>
+''' between pairs of sampled pixels.<para/>
+''' (5) This is for quadratic shear.  For uniform (linear) shear,<para/>
+''' use the standard shear operators.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -355,8 +360,9 @@ End Function
 ' pixQuadraticVShearSampled()
 ' pixQuadraticVShearSampled(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) See pixQuadraticVShear() for details.
+''' <para/>
+''' Notes:<para/>
+''' (1) See pixQuadraticVShear() for details.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -386,8 +392,9 @@ End Function
 ' pixQuadraticVShearLI()
 ' pixQuadraticVShearLI(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) See pixQuadraticVShear() for details.
+''' <para/>
+''' Notes:<para/>
+''' (1) See pixQuadraticVShear() for details.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -417,24 +424,25 @@ End Function
 ' pixStereoFromPair()
 ' pixStereoFromPair(PIX *, PIX *, l_float32, l_float32, l_float32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) pix1 and pix2 are a pair of stereo images, ideally taken
-''' concurrently in the same plane, with some lateral translation.
-''' (2) The output red channel is determined from %pix1.
-''' The output green and blue channels are taken from the green
-''' and blue channels, respectively, of %pix2.
-''' (3) The weights determine how much of each component in %pix1
-''' goes into the output red channel.  The sum of weights
-''' must be 1.0.  If it's not, we scale the weights to
-''' satisfy this criterion.
-''' (4) The most general pixel mapping allowed here is
-''' rval = rwt  r1 + gwt  g1 + bwt  b1  (from pix1)
-''' gval = g2   (from pix2)
-''' bval = b2   (from pix2)
-''' (5) The simplest method is to use rwt = 1.0, gwt = 0.0, bwt = 0.0,
-''' but this causes unpleasant visual artifacts with red in the image.
-''' Use of green and blue from %pix1 in the red channel,
-''' instead of red, tends to fix that problem.
+''' <para/>
+''' Notes:<para/>
+''' (1) pix1 and pix2 are a pair of stereo images, ideally taken<para/>
+''' concurrently in the same plane, with some lateral translation.<para/>
+''' (2) The output red channel is determined from %pix1.<para/>
+''' The output green and blue channels are taken from the green<para/>
+''' and blue channels, respectively, of %pix2.<para/>
+''' (3) The weights determine how much of each component in %pix1<para/>
+''' goes into the output red channel.  The sum of weights<para/>
+''' must be 1.0.  If it's not, we scale the weights to<para/>
+''' satisfy this criterion.<para/>
+''' (4) The most general pixel mapping allowed here is:<para/>
+''' rval = rwt  r1 + gwt  g1 + bwt  b1  (from pix1)<para/>
+''' gval = g2 (from pix2)<para/>
+''' bval = b2 (from pix2)<para/>
+''' (5) The simplest method is to use rwt = 1.0, gwt = 0.0, bwt = 0.0,<para/>
+''' but this causes unpleasant visual artifacts with red in the image.<para/>
+''' Use of green and blue from %pix1 in the red channel,<para/>
+''' instead of red, tends to fix that problem.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

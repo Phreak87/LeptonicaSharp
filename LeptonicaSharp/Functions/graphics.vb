@@ -1,14 +1,15 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\graphics.c (138, 1)
 ' generatePtaLine()
 ' generatePtaLine(l_int32, l_int32, l_int32, l_int32) as PTA *
 '''  <summary>
-''' Notes
-''' (1) Uses Bresenham line drawing, which results in an 8-connected line.
+''' <para/>
+''' Notes:<para/>
+''' (1) Uses Bresenham line drawing, which results in an 8-connected line.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -34,9 +35,6 @@ End Function
 ' SRC\graphics.c (203, 1)
 ' generatePtaWideLine()
 ' generatePtaWideLine(l_int32, l_int32, l_int32, l_int32, l_int32) as PTA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="x1">[in] - end point 1</param>
@@ -64,9 +62,10 @@ End Function
 ' generatePtaBox()
 ' generatePtaBox(BOX *, l_int32) as PTA *
 '''  <summary>
-''' Notes
-''' (1) Because the box is constructed so that we don't have any
-''' overlapping lines, there is no need to remove duplicates.
+''' <para/>
+''' Notes:<para/>
+''' (1) Because the box is constructed so that we don't have any<para/>
+''' overlapping lines, there is no need to remove duplicates.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -90,11 +89,12 @@ End Function
 ' generatePtaBoxa()
 ' generatePtaBoxa(BOXA *, l_int32, l_int32) as PTA *
 '''  <summary>
-''' Notes
-''' (1) If the boxa has overlapping boxes, and if blending will
-''' be used to give a transparent effect, transparency
-''' artifacts at line intersections can be removed using
-''' removedups = 1.
+''' <para/>
+''' Notes:<para/>
+''' (1) If the boxa has overlapping boxes, and if blending will<para/>
+''' be used to give a transparent effect, transparency<para/>
+''' artifacts at line intersections can be removed using<para/>
+''' removedups = 1.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -120,17 +120,18 @@ End Function
 ' generatePtaHashBox()
 ' generatePtaHashBox(BOX *, l_int32, l_int32, l_int32, l_int32) as PTA *
 '''  <summary>
-''' Notes
-''' (1) The orientation takes on one of 4 orientations (horiz, vertical,
-''' slope +1, slope -1).
-''' (2) The full outline is also drawn if %outline = 1.
+''' <para/>
+''' Notes:<para/>
+''' (1) The orientation takes on one of 4 orientations (horiz, vertical,<para/>
+''' slope +1, slope -1).<para/>
+''' (2) The full outline is also drawn if %outline = 1.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="box">[in] - </param>
-'''  <param name="spacing">[in] - spacing between lines; must be GT 1</param>
+'''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
 '''  <param name="width">[in] - of line</param>
-'''  <param name="orient">[in] - orientation of lines L_HORIZONTAL_LINE, ...</param>
+'''  <param name="orient">[in] - orientation of lines: L_HORIZONTAL_LINE, ...</param>
 '''  <param name="outline">[in] - 0 to skip drawing box outline</param>
 '''   <returns>ptad, or NULL on error</returns>
 Public Shared Function generatePtaHashBox(
@@ -153,21 +154,22 @@ End Function
 ' generatePtaHashBoxa()
 ' generatePtaHashBoxa(BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32) as PTA *
 '''  <summary>
-''' Notes
-''' (1) The orientation takes on one of 4 orientations (horiz, vertical,
-''' slope +1, slope -1).
-''' (2) The full outline is also drawn if %outline = 1.
-''' (3) If the boxa has overlapping boxes, and if blending will
-''' be used to give a transparent effect, transparency
-''' artifacts at line intersections can be removed using
-''' removedups = 1.
+''' <para/>
+''' Notes:<para/>
+''' (1) The orientation takes on one of 4 orientations (horiz, vertical,<para/>
+''' slope +1, slope -1).<para/>
+''' (2) The full outline is also drawn if %outline = 1.<para/>
+''' (3) If the boxa has overlapping boxes, and if blending will<para/>
+''' be used to give a transparent effect, transparency<para/>
+''' artifacts at line intersections can be removed using<para/>
+''' removedups = 1.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="boxa">[in] - </param>
-'''  <param name="spacing">[in] - spacing between lines; must be GT 1</param>
+'''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
 '''  <param name="width">[in] - of line</param>
-'''  <param name="orient">[in] - orientation of lines L_HORIZONTAL_LINE, ...</param>
+'''  <param name="orient">[in] - orientation of lines: L_HORIZONTAL_LINE, ...</param>
 '''  <param name="outline">[in] - 0 to skip drawing box outline</param>
 '''  <param name="removedups">[in] - 1 to remove, 0 to leave</param>
 '''   <returns>ptad, or NULL on error</returns>
@@ -192,11 +194,12 @@ End Function
 ' generatePtaaBoxa()
 ' generatePtaaBoxa(BOXA *) as PTAA *
 '''  <summary>
-''' Notes
-''' (1) This generates a pta of the four corners for each box in
-''' the boxa.
-''' (2) Each of these pta can be rendered onto a pix with random colors,
-''' by using pixRenderRandomCmapPtaa() with closeflag = 1.
+''' <para/>
+''' Notes:<para/>
+''' (1) This generates a pta of the four corners for each box in<para/>
+''' the boxa.<para/>
+''' (2) Each of these pta can be rendered onto a pix with random colors,<para/>
+''' by using pixRenderRandomCmapPtaa() with closeflag = 1.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -218,19 +221,20 @@ End Function
 ' generatePtaaHashBoxa()
 ' generatePtaaHashBoxa(BOXA *, l_int32, l_int32, l_int32, l_int32) as PTAA *
 '''  <summary>
-''' Notes
-''' (1) The orientation takes on one of 4 orientations (horiz, vertical,
-''' slope +1, slope -1).
-''' (2) The full outline is also drawn if %outline = 1.
-''' (3) Each of these pta can be rendered onto a pix with random colors,
-''' by using pixRenderRandomCmapPtaa() with closeflag = 1.
+''' <para/>
+''' Notes:<para/>
+''' (1) The orientation takes on one of 4 orientations (horiz, vertical,<para/>
+''' slope +1, slope -1).<para/>
+''' (2) The full outline is also drawn if %outline = 1.<para/>
+''' (3) Each of these pta can be rendered onto a pix with random colors,<para/>
+''' by using pixRenderRandomCmapPtaa() with closeflag = 1.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="boxa">[in] - </param>
-'''  <param name="spacing">[in] - spacing between hash lines; must be GT 1</param>
+'''  <param name="spacing">[in] - spacing between hash lines must be  is greater  1</param>
 '''  <param name="width">[in] - hash line width</param>
-'''  <param name="orient">[in] - orientation of lines L_HORIZONTAL_LINE, ...</param>
+'''  <param name="orient">[in] - orientation of lines: L_HORIZONTAL_LINE, ...</param>
 '''  <param name="outline">[in] - 0 to skip drawing box outline</param>
 '''   <returns>ptaa, or NULL on error</returns>
 Public Shared Function generatePtaaHashBoxa(
@@ -252,14 +256,11 @@ End Function
 ' SRC\graphics.c (664, 1)
 ' generatePtaPolyline()
 ' generatePtaPolyline(PTA *, l_int32, l_int32, l_int32) as PTA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="ptas">[in] - vertices of polyline</param>
 '''  <param name="width">[in] - </param>
-'''  <param name="closeflag">[in] - 1 to close the contour; 0 otherwise</param>
+'''  <param name="closeflag">[in] - 1 to close the contour 0 otherwise</param>
 '''  <param name="removedups">[in] - 1 to remove, 0 to leave</param>
 '''   <returns>ptad, or NULL on error</returns>
 Public Shared Function generatePtaPolyline(
@@ -280,9 +281,6 @@ End Function
 ' SRC\graphics.c (722, 1)
 ' generatePtaGrid()
 ' generatePtaGrid(l_int32, l_int32, l_int32, l_int32, l_int32) as PTA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="w">[in] - of region where grid will be displayed</param>
@@ -310,12 +308,13 @@ End Function
 ' convertPtaLineTo4cc()
 ' convertPtaLineTo4cc(PTA *) as PTA *
 '''  <summary>
-''' Notes
-''' (1) When a polyline is generated with width = 1, the resulting
-''' line is not 4-connected in general.  This function adds
-''' points as necessary to convert the line to 4-cconnected.
-''' It is useful when rendering 1 bpp on a pix.
-''' (2) Do not use this for lines generated with width GT 1.
+''' <para/>
+''' Notes:<para/>
+''' (1) When a polyline is generated with width = 1, the resulting<para/>
+''' line is not 4-connected in general.  This function adds<para/>
+''' points as necessary to convert the line to 4-cconnected.<para/>
+''' It is useful when rendering 1 bpp on a pix.<para/>
+''' (2) Do not use this for lines generated with width  is greater  1.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -337,12 +336,13 @@ End Function
 ' generatePtaFilledCircle()
 ' generatePtaFilledCircle(l_int32) as PTA *
 '''  <summary>
-''' Notes
-''' (1) The circle is has diameter = 2  radius + 1.
-''' (2) It is located with the center of the circle at the
-''' point (radius, radius).
-''' (3) Consequently, it typically must be translated if
-''' it is to represent a set of pixels in an image.
+''' <para/>
+''' Notes:<para/>
+''' (1) The circle is has diameter = 2  radius + 1.<para/>
+''' (2) It is located with the center of the circle at the<para/>
+''' point (radius, radius).<para/>
+''' (3) Consequently, it typically must be translated if<para/>
+''' it is to represent a set of pixels in an image.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -363,10 +363,11 @@ End Function
 ' generatePtaFilledSquare()
 ' generatePtaFilledSquare(l_int32) as PTA *
 '''  <summary>
-''' Notes
-''' (1) The center of the square can be chosen to be at
-''' (side / 2, side / 2).  It must be translated by this amount
-''' when used for replication.
+''' <para/>
+''' Notes:<para/>
+''' (1) The center of the square can be chosen to be at<para/>
+''' (side / 2, side / 2).  It must be translated by this amount<para/>
+''' when used for replication.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -387,10 +388,11 @@ End Function
 ' generatePtaLineFromPt()
 ' generatePtaLineFromPt(l_int32, l_int32, l_float64, l_float64) as PTA *
 '''  <summary>
-''' Notes
-''' (1) The %length of the line is 1 greater than the distance
-''' used in locatePtRadially().  Example a distance of 1
-''' gives rise to a length of 2.
+''' <para/>
+''' Notes:<para/>
+''' (1) The %length of the line is 1 greater than the distance<para/>
+''' used in locatePtRadially().  Example: a distance of 1<para/>
+''' gives rise to a length of 2.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -418,9 +420,6 @@ End Function
 ' SRC\graphics.c (921, 1)
 ' locatePtRadially()
 ' locatePtRadially(l_int32, l_int32, l_float64, l_float64, l_float64 *, l_float64 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="xr">[in] - reference point</param>
@@ -451,21 +450,22 @@ End Function
 ' pixRenderPlotFromNuma()
 ' pixRenderPlotFromNuma(PIX **, NUMA *, l_int32, l_int32, l_int32, l_uint32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Simplified interface for plotting row or column aligned data
-''' on a pix.
-''' (2) This replaces %pix with a 32 bpp rgb version if it is not
-''' already 32 bpp.  It then draws the plot on the pix.
-''' (3) See makePlotPtaFromNumaGen() for more details.
+''' <para/>
+''' Notes:<para/>
+''' (1) Simplified interface for plotting row or column aligned data<para/>
+''' on a pix.<para/>
+''' (2) This replaces %pix with a 32 bpp rgb version if it is not<para/>
+''' already 32 bpp.  It then draws the plot on the pix.<para/>
+''' (3) See makePlotPtaFromNumaGen() for more details.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="ppix">[in,out] - any type; replaced if not 32 bpp rgb</param>
+'''  <param name="ppix">[in,out] - any type replaced if not 32 bpp rgb</param>
 '''  <param name="na">[in] - to be plotted</param>
-'''  <param name="plotloc">[in] - location of plot L_PLOT_AT_TOP, etc</param>
-'''  <param name="linewidth">[in] - width of "line" that is drawn; between 1 and 7</param>
+'''  <param name="plotloc">[in] - location of plot: L_PLOT_AT_TOP, etc</param>
+'''  <param name="linewidth">[in] - width of "line" that is drawn between 1 and 7</param>
 '''  <param name="max">[in] - maximum excursion in pixels from baseline</param>
-'''  <param name="color">[in] - plot color 0xrrggbb00</param>
+'''  <param name="color">[in] - plot color: 0xrrggbb00</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixRenderPlotFromNuma(
 				ByRef ppix as Pix, 
@@ -489,20 +489,21 @@ End Function
 ' makePlotPtaFromNuma()
 ' makePlotPtaFromNuma(NUMA *, l_int32, l_int32, l_int32, l_int32) as PTA *
 '''  <summary>
-''' Notes
-''' (1) This generates points from %numa representing y(x) or x(y)
-''' with respect to a pix.  A horizontal plot y(x) is drawn for
-''' a function of column position, and a vertical plot is drawn
-''' for a function x(y) of row position.  The baseline is located
-''' so that all plot points will fit in the pix.
-''' (2) See makePlotPtaFromNumaGen() for more details.
+''' <para/>
+''' Notes:<para/>
+''' (1) This generates points from %numa representing y(x) or x(y)<para/>
+''' with respect to a pix.  A horizontal plot y(x) is drawn for<para/>
+''' a function of column position, and a vertical plot is drawn<para/>
+''' for a function x(y) of row position.  The baseline is located<para/>
+''' so that all plot points will fit in the pix.<para/>
+''' (2) See makePlotPtaFromNumaGen() for more details.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - </param>
-'''  <param name="size">[in] - pix height for horizontal plot; width for vertical plot</param>
-'''  <param name="plotloc">[in] - location of plot L_PLOT_AT_TOP, etc</param>
-'''  <param name="linewidth">[in] - width of "line" that is drawn; between 1 and 7</param>
+'''  <param name="size">[in] - pix height for horizontal plot width for vertical plot</param>
+'''  <param name="plotloc">[in] - location of plot: L_PLOT_AT_TOP, etc</param>
+'''  <param name="linewidth">[in] - width of "line" that is drawn between 1 and 7</param>
 '''  <param name="max">[in] - maximum excursion in pixels from baseline</param>
 '''   <returns>ptad, or NULL on error</returns>
 Public Shared Function makePlotPtaFromNuma(
@@ -525,23 +526,24 @@ End Function
 ' pixRenderPlotFromNumaGen()
 ' pixRenderPlotFromNumaGen(PIX **, NUMA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_uint32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) General interface for plotting row or column aligned data
-''' on a pix.
-''' (2) This replaces %pix with a 32 bpp rgb version if it is not
-''' already 32 bpp.  It then draws the plot on the pix.
-''' (3) See makePlotPtaFromNumaGen() for other input parameters.
+''' <para/>
+''' Notes:<para/>
+''' (1) General interface for plotting row or column aligned data<para/>
+''' on a pix.<para/>
+''' (2) This replaces %pix with a 32 bpp rgb version if it is not<para/>
+''' already 32 bpp.  It then draws the plot on the pix.<para/>
+''' (3) See makePlotPtaFromNumaGen() for other input parameters.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="ppix">[in,out] - any type; replaced if not 32 bpp rgb</param>
+'''  <param name="ppix">[in,out] - any type replaced if not 32 bpp rgb</param>
 '''  <param name="na">[in] - to be plotted</param>
 '''  <param name="orient">[in] - L_HORIZONTAL_LINE, L_VERTICAL_LINE</param>
-'''  <param name="linewidth">[in] - width of "line" that is drawn; between 1 and 7</param>
-'''  <param name="refpos">[in] - reference position y for horizontal and x for vertical</param>
+'''  <param name="linewidth">[in] - width of "line" that is drawn between 1 and 7</param>
+'''  <param name="refpos">[in] - reference position: y for horizontal and x for vertical</param>
 '''  <param name="max">[in] - maximum excursion in pixels from baseline</param>
 '''  <param name="drawref">[in] - 1 to draw the reference line and the normal to it</param>
-'''  <param name="color">[in] - plot color 0xrrggbb00</param>
+'''  <param name="color">[in] - plot color: 0xrrggbb00</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixRenderPlotFromNumaGen(
 				ByRef ppix as Pix, 
@@ -567,27 +569,28 @@ End Function
 ' makePlotPtaFromNumaGen()
 ' makePlotPtaFromNumaGen(NUMA *, l_int32, l_int32, l_int32, l_int32, l_int32) as PTA *
 '''  <summary>
-''' Notes
-''' (1) This generates points from %numa representing y(x) or x(y)
-''' with respect to a pix.  For y(x), we draw a horizontal line
-''' at the reference position and a vertical line at the edge; then
-''' we draw the values of %numa, scaled so that the maximum
-''' excursion from the reference position is %max pixels.
-''' (2) The start and delx parameters of %numa are used to refer
-''' its values to the raster lines (L_VERTICAL_LINE) or columns
-''' (L_HORIZONTAL_LINE).
-''' (3) The linewidth is chosen in the interval [1 ... 7].
-''' (4) %refpos should be chosen so the plot is entirely within the pix
-''' that it will be painted onto.
-''' (5) This would typically be used to plot, in place, a function
-''' computed along pixel rows or columns.
+''' <para/>
+''' Notes:<para/>
+''' (1) This generates points from %numa representing y(x) or x(y)<para/>
+''' with respect to a pix.  For y(x), we draw a horizontal line<para/>
+''' at the reference position and a vertical line at the edge then<para/>
+''' we draw the values of %numa, scaled so that the maximum<para/>
+''' excursion from the reference position is %max pixels.<para/>
+''' (2) The start and delx parameters of %numa are used to refer<para/>
+''' its values to the raster lines (L_VERTICAL_LINE) or columns<para/>
+''' (L_HORIZONTAL_LINE).<para/>
+''' (3) The linewidth is chosen in the interval [1 ... 7].<para/>
+''' (4) %refpos should be chosen so the plot is entirely within the pix<para/>
+''' that it will be painted onto.<para/>
+''' (5) This would typically be used to plot, in place, a function<para/>
+''' computed along pixel rows or columns.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="na">[in] - </param>
 '''  <param name="orient">[in] - L_HORIZONTAL_LINE, L_VERTICAL_LINE</param>
-'''  <param name="linewidth">[in] - width of "line" that is drawn; between 1 and 7</param>
-'''  <param name="refpos">[in] - reference position y for horizontal and x for vertical</param>
+'''  <param name="linewidth">[in] - width of "line" that is drawn between 1 and 7</param>
+'''  <param name="refpos">[in] - reference position: y for horizontal and x for vertical</param>
 '''  <param name="max">[in] - maximum excursion in pixels from baseline</param>
 '''  <param name="drawref">[in] - 1 to draw the reference line and the normal to it</param>
 '''   <returns>ptad, or NULL on error</returns>
@@ -612,15 +615,16 @@ End Function
 ' pixRenderPta()
 ' pixRenderPta(PIX *, PTA *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) L_SET_PIXELS puts all image bits in each pixel to 1
-''' (black for 1 bpp; white for depth GT 1)
-''' (2) L_CLEAR_PIXELS puts all image bits in each pixel to 0
-''' (white for 1 bpp; black for depth GT 1)
-''' (3) L_FLIP_PIXELS reverses all image bits in each pixel
-''' (4) This function clips the rendering to the pix.  It performs
-''' clipping for functions such as pixRenderLine(),
-''' pixRenderBox() and pixRenderBoxa(), that call pixRenderPta().
+''' <para/>
+''' Notes:<para/>
+''' (1) L_SET_PIXELS puts all image bits in each pixel to 1<para/>
+''' (black for 1 bpp white for depth  is greater  1)<para/>
+''' (2) L_CLEAR_PIXELS puts all image bits in each pixel to 0<para/>
+''' (white for 1 bpp black for depth  is greater  1)<para/>
+''' (3) L_FLIP_PIXELS reverses all image bits in each pixel<para/>
+''' (4) This function clips the rendering to the pix.  It performs<para/>
+''' clipping for functions such as pixRenderLine(),<para/>
+''' pixRenderBox() and pixRenderBoxa(), that call pixRenderPta().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -646,16 +650,17 @@ End Function
 ' pixRenderPtaArb()
 ' pixRenderPtaArb(PIX *, PTA *, l_uint8, l_uint8, l_uint8) as l_ok
 '''  <summary>
-''' Notes
-''' (1) If pix is colormapped, render this color (or the nearest
-''' color if the cmap is full) on each pixel.
-''' (2) The rgb components have the standard dynamic range [0 ... 255]
-''' (3) If pix is not colormapped, do the best job you can using
-''' the input colors
-''' ~ d = 1 set the pixels
-''' ~ d = 2, 4, 8 average the input rgb value
-''' ~ d = 32 use the input rgb value
-''' (4) This function clips the rendering to the pix.
+''' <para/>
+''' Notes:<para/>
+''' (1) If pix is colormapped, render this color (or the nearest<para/>
+''' color if the cmap is full) on each pixel.<para/>
+''' (2) The rgb components have the standard dynamic range [0 ... 255]<para/>
+''' (3) If pix is not colormapped, do the best job you can using<para/>
+''' the input colors:<para/>
+''' ~ d = 1: set the pixels<para/>
+''' ~ d = 2, 4, 8: average the input rgb value<para/>
+''' ~ d = 32: use the input rgb value<para/>
+''' (4) This function clips the rendering to the pix.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -688,8 +693,9 @@ End Function
 ' pixRenderPtaBlend()
 ' pixRenderPtaBlend(PIX *, PTA *, l_uint8, l_uint8, l_uint8, l_float32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This function clips the rendering to the pix.
+''' <para/>
+''' Notes:<para/>
+''' (1) This function clips the rendering to the pix.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -725,9 +731,6 @@ End Function
 ' SRC\graphics.c (1483, 1)
 ' pixRenderLine()
 ' pixRenderLine(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
@@ -758,9 +761,6 @@ End Function
 ' SRC\graphics.c (1523, 1)
 ' pixRenderLineArb()
 ' pixRenderLineArb(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_uint8, l_uint8, l_uint8) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - any depth, cmapped ok</param>
@@ -798,9 +798,6 @@ End Function
 ' SRC\graphics.c (1564, 1)
 ' pixRenderLineBlend()
 ' pixRenderLineBlend(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_uint8, l_uint8, l_uint8, l_float32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
@@ -842,9 +839,6 @@ End Function
 ' SRC\graphics.c (1604, 1)
 ' pixRenderBox()
 ' pixRenderBox(PIX *, BOX *, l_int32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
@@ -870,9 +864,6 @@ End Function
 ' SRC\graphics.c (1642, 1)
 ' pixRenderBoxArb()
 ' pixRenderBoxArb(PIX *, BOX *, l_int32, l_uint8, l_uint8, l_uint8) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - any depth, cmapped ok</param>
@@ -905,9 +896,6 @@ End Function
 ' SRC\graphics.c (1682, 1)
 ' pixRenderBoxBlend()
 ' pixRenderBoxBlend(PIX *, BOX *, l_int32, l_uint8, l_uint8, l_uint8, l_float32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
@@ -916,7 +904,7 @@ End Function
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>
-'''  <param name="fract">[in] - in [0.0 - 1.0]; complete transparency (no effect if 0.0; no transparency if 1.0)</param>
+'''  <param name="fract">[in] - in [0.0 - 1.0] complete transparency (no effect if 0.0 no transparency if 1.0)</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixRenderBoxBlend(
 				ByVal pix as Pix, 
@@ -944,9 +932,6 @@ End Function
 ' SRC\graphics.c (1721, 1)
 ' pixRenderBoxa()
 ' pixRenderBoxa(PIX *, BOXA *, l_int32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
@@ -972,12 +957,9 @@ End Function
 ' SRC\graphics.c (1759, 1)
 ' pixRenderBoxaArb()
 ' pixRenderBoxaArb(PIX *, BOXA *, l_int32, l_uint8, l_uint8, l_uint8) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pix">[in] - any depth; colormapped is ok</param>
+'''  <param name="pix">[in] - any depth colormapped is ok</param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
 '''  <param name="rval">[in] - </param>
@@ -1007,9 +989,6 @@ End Function
 ' SRC\graphics.c (1800, 1)
 ' pixRenderBoxaBlend()
 ' pixRenderBoxaBlend(PIX *, BOXA *, l_int32, l_uint8, l_uint8, l_uint8, l_float32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
@@ -1018,8 +997,8 @@ End Function
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>
-'''  <param name="fract">[in] - in [0.0 - 1.0]; complete transparency (no effect if 0.0; no transparency if 1.0)</param>
-'''  <param name="removedups">[in] - 1 to remove; 0 otherwise</param>
+'''  <param name="fract">[in] - in [0.0 - 1.0] complete transparency (no effect if 0.0 no transparency if 1.0)</param>
+'''  <param name="removedups">[in] - 1 to remove 0 otherwise</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixRenderBoxaBlend(
 				ByVal pix as Pix, 
@@ -1048,16 +1027,13 @@ End Function
 ' SRC\graphics.c (1843, 1)
 ' pixRenderHashBox()
 ' pixRenderHashBox(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="box">[in] - </param>
-'''  <param name="spacing">[in] - spacing between lines; must be GT 1</param>
+'''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
 '''  <param name="width">[in] - thickness of box and hash lines</param>
-'''  <param name="orient">[in] - orientation of lines L_HORIZONTAL_LINE, ...</param>
+'''  <param name="orient">[in] - orientation of lines: L_HORIZONTAL_LINE, ...</param>
 '''  <param name="outline">[in] - 0 to skip drawing box outline</param>
 '''  <param name="op">[in] - one of L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1082,16 +1058,13 @@ End Function
 ' SRC\graphics.c (1893, 1)
 ' pixRenderHashBoxArb()
 ' pixRenderHashBoxArb(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pix">[in] - any depth; cmapped ok</param>
+'''  <param name="pix">[in] - any depth cmapped ok</param>
 '''  <param name="box">[in] - </param>
-'''  <param name="spacing">[in] - spacing between lines; must be GT 1</param>
+'''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
 '''  <param name="width">[in] - thickness of box and hash lines</param>
-'''  <param name="orient">[in] - orientation of lines L_HORIZONTAL_LINE, ...</param>
+'''  <param name="orient">[in] - orientation of lines: L_HORIZONTAL_LINE, ...</param>
 '''  <param name="outline">[in] - 0 to skip drawing box outline</param>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
@@ -1120,21 +1093,18 @@ End Function
 ' SRC\graphics.c (1945, 1)
 ' pixRenderHashBoxBlend()
 ' pixRenderHashBoxBlend(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_float32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - 32 bpp</param>
 '''  <param name="box">[in] - </param>
-'''  <param name="spacing">[in] - spacing between lines; must be GT 1</param>
+'''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
 '''  <param name="width">[in] - thickness of box and hash lines</param>
-'''  <param name="orient">[in] - orientation of lines L_HORIZONTAL_LINE, ...</param>
+'''  <param name="orient">[in] - orientation of lines: L_HORIZONTAL_LINE, ...</param>
 '''  <param name="outline">[in] - 0 to skip drawing box outline</param>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>
-'''  <param name="fract">[in] - in [0.0 - 1.0]; complete transparency (no effect if 0.0; no transparency if 1.0)</param>
+'''  <param name="fract">[in] - in [0.0 - 1.0] complete transparency (no effect if 0.0 no transparency if 1.0)</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixRenderHashBoxBlend(
 				ByVal pix as Pix, 
@@ -1162,19 +1132,20 @@ End Function
 ' pixRenderHashMaskArb()
 ' pixRenderHashMaskArb(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This is an in-place operation that renders hash lines
-''' through a mask %pixm onto %pix.  The mask origin is
-''' translated by (%x,%y) relative to the origin of %pix.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is an in-place operation that renders hash lines<para/>
+''' through a mask %pixm onto %pix.  The mask origin is<para/>
+''' translated by (%x,%y) relative to the origin of %pix.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pix">[in] - any depth; cmapped ok</param>
+'''  <param name="pix">[in] - any depth cmapped ok</param>
 '''  <param name="pixm">[in] - 1 bpp clipping mask for hash marks</param>
 '''  <param name="x">[in] - ,y   UL corner of %pixm with respect to %pix</param>
-'''  <param name="spacing">[in] - spacing between lines; must be GT 1</param>
+'''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
 '''  <param name="width">[in] - thickness of box and hash lines</param>
-'''  <param name="orient">[in] - orientation of lines L_HORIZONTAL_LINE, ...</param>
+'''  <param name="orient">[in] - orientation of lines: L_HORIZONTAL_LINE, ...</param>
 '''  <param name="outline">[in] - 0 to skip drawing box outline</param>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
@@ -1184,7 +1155,7 @@ Public Shared Function pixRenderHashMaskArb(
 				ByVal pix as Pix, 
 				ByVal pixm as Pix, 
 				ByVal x as Integer, 
-				ByRef y as Integer, 
+				ByVal y as Integer, 
 				ByVal spacing as Integer, 
 				ByVal width as Integer, 
 				ByVal orient as Enumerations.L_LINE, 
@@ -1205,16 +1176,13 @@ End Function
 ' SRC\graphics.c (2071, 1)
 ' pixRenderHashBoxa()
 ' pixRenderHashBoxa(PIX *, BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="boxa">[in] - </param>
-'''  <param name="spacing">[in] - spacing between lines; must be GT 1</param>
+'''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
 '''  <param name="width">[in] - thickness of box and hash lines</param>
-'''  <param name="orient">[in] - orientation of lines L_HORIZONTAL_LINE, ...</param>
+'''  <param name="orient">[in] - orientation of lines: L_HORIZONTAL_LINE, ...</param>
 '''  <param name="outline">[in] - 0 to skip drawing box outline</param>
 '''  <param name="op">[in] - one of L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1239,16 +1207,13 @@ End Function
 ' SRC\graphics.c (2121, 1)
 ' pixRenderHashBoxaArb()
 ' pixRenderHashBoxaArb(PIX *, BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pix">[in] - any depth; cmapped ok</param>
+'''  <param name="pix">[in] - any depth cmapped ok</param>
 '''  <param name="boxa">[in] - </param>
-'''  <param name="spacing">[in] - spacing between lines; must be GT 1</param>
+'''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
 '''  <param name="width">[in] - thickness of box and hash lines</param>
-'''  <param name="orient">[in] - orientation of lines L_HORIZONTAL_LINE, ...</param>
+'''  <param name="orient">[in] - orientation of lines: L_HORIZONTAL_LINE, ...</param>
 '''  <param name="outline">[in] - 0 to skip drawing box outline</param>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
@@ -1277,21 +1242,18 @@ End Function
 ' SRC\graphics.c (2173, 1)
 ' pixRenderHashBoxaBlend()
 ' pixRenderHashBoxaBlend(PIX *, BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_float32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="boxa">[in] - </param>
-'''  <param name="spacing">[in] - spacing between lines; must be GT 1</param>
+'''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
 '''  <param name="width">[in] - thickness of box and hash lines</param>
-'''  <param name="orient">[in] - orientation of lines L_HORIZONTAL_LINE, ...</param>
+'''  <param name="orient">[in] - orientation of lines: L_HORIZONTAL_LINE, ...</param>
 '''  <param name="outline">[in] - 0 to skip drawing box outline</param>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>
-'''  <param name="fract">[in] - in [0.0 - 1.0]; complete transparency (no effect if 0.0; no transparency if 1.0)</param>
+'''  <param name="fract">[in] - in [0.0 - 1.0] complete transparency (no effect if 0.0 no transparency if 1.0)</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixRenderHashBoxaBlend(
 				ByVal pix as Pix, 
@@ -1320,8 +1282,9 @@ End Function
 ' pixRenderPolyline()
 ' pixRenderPolyline(PIX *, PTA *, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' This renders a closed contour.
+''' <para/>
+''' Notes:<para/>
+''' This renders a closed contour.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1329,7 +1292,7 @@ End Function
 '''  <param name="ptas">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
 '''  <param name="op">[in] - one of L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
-'''  <param name="closeflag">[in] - 1 to close the contour; 0 otherwise</param>
+'''  <param name="closeflag">[in] - 1 to close the contour 0 otherwise</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixRenderPolyline(
 				ByVal pix as Pix, 
@@ -1351,18 +1314,19 @@ End Function
 ' pixRenderPolylineArb()
 ' pixRenderPolylineArb(PIX *, PTA *, l_int32, l_uint8, l_uint8, l_uint8, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' This renders a closed contour.
+''' <para/>
+''' Notes:<para/>
+''' This renders a closed contour.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pix">[in] - any depth; cmapped ok</param>
+'''  <param name="pix">[in] - any depth cmapped ok</param>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>
-'''  <param name="closeflag">[in] - 1 to close the contour; 0 otherwise</param>
+'''  <param name="closeflag">[in] - 1 to close the contour 0 otherwise</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixRenderPolylineArb(
 				ByVal pix as Pix, 
@@ -1388,9 +1352,6 @@ End Function
 ' SRC\graphics.c (2315, 1)
 ' pixRenderPolylineBlend()
 ' pixRenderPolylineBlend(PIX *, PTA *, l_int32, l_uint8, l_uint8, l_uint8, l_float32, l_int32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
@@ -1399,9 +1360,9 @@ End Function
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>
-'''  <param name="fract">[in] - in [0.0 - 1.0]; complete transparency (no effect if 0.0; no transparency if 1.0)</param>
-'''  <param name="closeflag">[in] - 1 to close the contour; 0 otherwise</param>
-'''  <param name="removedups">[in] - 1 to remove; 0 otherwise</param>
+'''  <param name="fract">[in] - in [0.0 - 1.0] complete transparency (no effect if 0.0 no transparency if 1.0)</param>
+'''  <param name="closeflag">[in] - 1 to close the contour 0 otherwise</param>
+'''  <param name="removedups">[in] - 1 to remove 0 otherwise</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixRenderPolylineBlend(
 				ByVal pix as Pix, 
@@ -1431,9 +1392,6 @@ End Function
 ' SRC\graphics.c (2356, 1)
 ' pixRenderGridArb()
 ' pixRenderGridArb(PIX *, l_int32, l_int32, l_int32, l_uint8, l_uint8, l_uint8) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - any depth, cmapped ok</param>
@@ -1468,27 +1426,28 @@ End Function
 ' pixRenderRandomCmapPtaa()
 ' pixRenderRandomCmapPtaa(PIX *, PTAA *, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This is a debugging routine, that displays a set of
-''' pixels, selected by the set of Ptas in a Ptaa,
-''' in a random color in a pix.
-''' (2) If %polyflag == 1, each Pta is considered to be a polyline,
-''' and is rendered using %width and %closeflag.  Each polyline
-''' is rendered in a random color.
-''' (3) If %polyflag == 0, all points in each Pta are rendered in a
-''' random color.  The %width and %closeflag parameters are ignored.
-''' (4) The output pix is 8 bpp and colormapped.  Up to 254
-''' different, randomly selected colors, can be used.
-''' (5) The rendered pixels replace the input pixels.  They will
-''' be clipped silently to the input pix.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is a debugging routine, that displays a set of<para/>
+''' pixels, selected by the set of Ptas in a Ptaa,<para/>
+''' in a random color in a pix.<para/>
+''' (2) If %polyflag == 1, each Pta is considered to be a polyline,<para/>
+''' and is rendered using %width and %closeflag.  Each polyline<para/>
+''' is rendered in a random color.<para/>
+''' (3) If %polyflag == 0, all points in each Pta are rendered in a<para/>
+''' random color.  The %width and %closeflag parameters are ignored.<para/>
+''' (4) The output pix is 8 bpp and colormapped.  Up to 254<para/>
+''' different, randomly selected colors, can be used.<para/>
+''' (5) The rendered pixels replace the input pixels.  They will<para/>
+''' be clipped silently to the input pix.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pix">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 '''  <param name="ptaa">[in] - </param>
-'''  <param name="polyflag">[in] - 1 to interpret each Pta as a polyline; 0 to simply render the Pta as a set of pixels</param>
-'''  <param name="width">[in] - thickness of line; use only for polyline</param>
-'''  <param name="closeflag">[in] - 1 to close the contour; 0 otherwise; use only for polyline mode</param>
+'''  <param name="polyflag">[in] - 1 to interpret each Pta as a polyline 0 to simply render the Pta as a set of pixels</param>
+'''  <param name="width">[in] - thickness of line use only for polyline</param>
+'''  <param name="closeflag">[in] - 1 to close the contour 0 otherwise use only for polyline mode</param>
 '''   <returns>pixd cmapped, 8 bpp or NULL on error</returns>
 Public Shared Function pixRenderRandomCmapPtaa(
 				ByVal pix as Pix, 
@@ -1499,7 +1458,7 @@ Public Shared Function pixRenderRandomCmapPtaa(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
-	If {1,2,4,8,16,32}.contains (pix.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16, 32 bpp")
+	If {1,2,4,8,16,24,32}.contains (pix.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16, 32 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRenderRandomCmapPtaa( pix.Pointer, ptaa.Pointer, polyflag, width, closeflag)
@@ -1512,12 +1471,13 @@ End Function
 ' pixRenderPolygon()
 ' pixRenderPolygon(PTA *, l_int32, l_int32 *, l_int32 *) as PIX *
 '''  <summary>
-''' Notes
-''' (1) The pix is the minimum size required to contain the origin
-''' and the polygon.  For example, the max x value of the input
-''' points is w - 1, where w is the pix width.
-''' (2) The rendered line is 4-connected, so that an interior or
-''' exterior 8-c.c. flood fill operation works properly.
+''' <para/>
+''' Notes:<para/>
+''' (1) The pix is the minimum size required to contain the origin<para/>
+''' and the polygon.  For example, the max x value of the input<para/>
+''' points is w - 1, where w is the pix width.<para/>
+''' (2) The rendered line is 4-connected, so that an interior or<para/>
+''' exterior 8-c.c. flood fill operation works properly.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1545,13 +1505,14 @@ End Function
 ' pixFillPolygon()
 ' pixFillPolygon(PIX *, PTA *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This fills the interior of the polygon, returning a
-''' new pix.  It works for both convex and non-convex polygons.
-''' (2) To generate a filled polygon from a pta
-''' PIX pixt = pixRenderPolygon(pta, 1, xmin, ymin);
-''' PIX pixd = pixFillPolygon(pixt, pta, xmin, ymin);
-''' pixDestroy(pixt);
+''' <para/>
+''' Notes:<para/>
+''' (1) This fills the interior of the polygon, returning a<para/>
+''' new pix.  It works for both convex and non-convex polygons.<para/>
+''' (2) To generate a filled polygon from a pta:<para/>
+''' PIX pixt = pixRenderPolygon(pta, 1,  and xmin,  and ymin)<para/>
+''' PIX pixd = pixFillPolygon(pixt, pta, xmin, ymin)<para/>
+''' pixDestroy( and pixt)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1580,16 +1541,17 @@ End Function
 ' pixRenderContours()
 ' pixRenderContours(PIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) The output can be either 1 bpp, showing just the contour
-''' lines, or a copy of the input pixs with the contour lines
-''' superposed.
+''' <para/>
+''' Notes:<para/>
+''' (1) The output can be either 1 bpp, showing just the contour<para/>
+''' lines, or a copy of the input pixs with the contour lines<para/>
+''' superposed.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixs">[in] - 8 or 16 bpp; no colormap</param>
-'''  <param name="startval">[in] - value of lowest contour; must be in [0 ... maxval]</param>
-'''  <param name="incr">[in] - increment to next contour; must be GT 0</param>
+'''  <param name="pixs">[in] - 8 or 16 bpp no colormap</param>
+'''  <param name="startval">[in] - value of lowest contour must be in [0 ... maxval]</param>
+'''  <param name="incr">[in] - increment to next contour must be  is greater  0</param>
 '''  <param name="outdepth">[in] - either 1 or depth of pixs</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixRenderContours(
@@ -1611,16 +1573,17 @@ End Function
 ' fpixAutoRenderContours()
 ' fpixAutoRenderContours(FPIX *, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) The increment is set to get approximately %ncontours.
-''' (2) The proximity to the target value for contour display
-''' is set to 0.15.
-''' (3) Negative values are rendered in red; positive values as black.
+''' <para/>
+''' Notes:<para/>
+''' (1) The increment is set to get approximately %ncontours.<para/>
+''' (2) The proximity to the target value for contour display<para/>
+''' is set to 0.15.<para/>
+''' (3) Negative values are rendered in red positive values as black.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpix">[in] - </param>
-'''  <param name="ncontours">[in] - GT 1, LT 500, typ. about 50</param>
+'''  <param name="ncontours">[in] - is greater  1,  is lower  500, typ. about 50</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
 Public Shared Function fpixAutoRenderContours(
 				ByVal fpix as FPix, 
@@ -1639,17 +1602,18 @@ End Function
 ' fpixRenderContours()
 ' fpixRenderContours(FPIX *, l_float32, l_float32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) Values are displayed when val/incr is within +-proxim
-''' to an integer.  The default value is 0.15; smaller values
-''' result in thinner contour lines.
-''' (2) Negative values are rendered in red; positive values as black.
+''' <para/>
+''' Notes:<para/>
+''' (1) Values are displayed when val/incr is within +-proxim<para/>
+''' to an integer.  The default value is 0.15 smaller values<para/>
+''' result in thinner contour lines.<para/>
+''' (2) Negative values are rendered in red positive values as black.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpixs">[in] - </param>
-'''  <param name="incr">[in] - increment between contours; must be GT 0.0</param>
-'''  <param name="proxim">[in] - required proximity to target value; default 0.15</param>
+'''  <param name="incr">[in] - increment between contours must be  is greater  0.0</param>
+'''  <param name="proxim">[in] - required proximity to target value default 0.15</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
 Public Shared Function fpixRenderContours(
 				ByVal fpixs as FPix, 
@@ -1671,15 +1635,16 @@ End Function
 ' pixGeneratePtaBoundary()
 ' pixGeneratePtaBoundary(PIX *, l_int32) as PTA *
 '''  <summary>
-''' Notes
-''' (1) Similar to ptaGetBoundaryPixels(), except here
-''' we only get pixels in the foreground
-''' we can have a "line" width greater than 1 pixel.
-''' (2) Once generated, this can be applied to a random 1 bpp image
-''' to add a color boundary as follows
-''' Pta pta = pixGeneratePtaBoundary(pixs, width);
-''' Pix pix1 = pixConvert1To8Cmap(pixs);
-''' pixRenderPtaArb(pix1, pta, rval, gval, bval);
+''' <para/>
+''' Notes:<para/>
+''' (1) Similar to ptaGetBoundaryPixels(), except here:<para/>
+''' we only get pixels in the foreground<para/>
+''' we can have a "line" width greater than 1 pixel.<para/>
+''' (2) Once generated, this can be applied to a random 1 bpp image<para/>
+''' to add a color boundary as follows:<para/>
+''' Pta pta = pixGeneratePtaBoundary(pixs, width)<para/>
+''' Pix pix1 = pixConvert1To8Cmap(pixs)<para/>
+''' pixRenderPtaArb(pix1, pta, rval, gval, bval)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

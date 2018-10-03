@@ -1,18 +1,19 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\tiffio.c (371, 1)
 ' pixReadTiff()
 ' pixReadTiff(const char *, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This is a version of pixRead(), specialized for tiff
-''' files, that allows specification of the page to be returned
-''' (2) No warning messages on failure, because of how multi-page
-''' TIFF reading works. You are supposed to keep trying until
-''' it stops working.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is a version of pixRead(), specialized for tiff<para/>
+''' files, that allows specification of the page to be returned<para/>
+''' (2) No warning messages on failure, because of how multi-page<para/>
+''' TIFF reading works. You are supposed to keep trying until<para/>
+''' it stops working.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -37,15 +38,16 @@ End Function
 ' pixReadStreamTiff()
 ' pixReadStreamTiff(FILE *, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) No warning messages on failure, because of how multi-page
-''' TIFF reading works. You are supposed to keep trying until
-''' it stops working.
+''' <para/>
+''' Notes:<para/>
+''' (1) No warning messages on failure, because of how multi-page<para/>
+''' TIFF reading works. You are supposed to keep trying until<para/>
+''' it stops working.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
-'''  <param name="n">[in] - page number 0 based</param>
+'''  <param name="n">[in] - page number: 0 based</param>
 '''   <returns>pix, or NULL on error or if there are no more images in the file</returns>
 Public Shared Function pixReadStreamTiff(
 				ByVal fp as FILE, 
@@ -64,13 +66,14 @@ End Function
 ' pixWriteTiff()
 ' pixWriteTiff(const char *, PIX *, l_int32, const char *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) For multipage tiff, write the first pix with mode "w" and
-''' all subsequent pix with mode "a".
-''' (2) For multipage tiff, there is considerable overhead in the
-''' machinery to append an image and add the directory entry,
-''' and the time required for each image increases linearly
-''' with the number of images in the file.
+''' <para/>
+''' Notes:<para/>
+''' (1) For multipage tiff, write the first pix with mode "w" and<para/>
+''' all subsequent pix with mode "a".<para/>
+''' (2) For multipage tiff, there is considerable overhead in the<para/>
+''' machinery to append an image and add the directory entry,<para/>
+''' and the time required for each image increases linearly<para/>
+''' with the number of images in the file.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -99,9 +102,6 @@ End Function
 ' SRC\tiffio.c (711, 1)
 ' pixWriteTiffCustom()
 ' pixWriteTiffCustom(const char *, PIX *, l_int32, const char *, NUMA *, SARRAY *, SARRAY *, NUMA *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - to write to</param>
@@ -112,7 +112,7 @@ End Function
 '''  <param name="savals">[in][optional] - SARRAY of values</param>
 '''  <param name="satypes">[in][optional] - SARRAY of types</param>
 '''  <param name="nasizes">[in][optional] - NUMA of sizes</param>
-'''   <returns>0 if OK, 1 on error Usage 1 This writes a page image to a tiff file, with optional extra tags defined in tiff.h 2 For multipage tiff, write the first pix with mode "w" and all subsequent pix with mode "a". 3 For the custom tiff tags a The three arrays {natags, savals, satypes} must all be either NULL or defined and of equal size. b If they are defined, the tags are an array of integers, the vals are an array of values in string format, and the types are an array of types in string format. c All valid tags are definined in tiff.h. d The types allowed are the set of strings "char" "l_uint8" "l_uint16" "l_uint32" "l_int32" "l_float64" "l_uint16-l_uint16" note the dash; use it between the two l_uint16 vals in the val string Of these, "char" and "l_uint16" are the most commonly used. e The last array, nasizes, is also optional.  It is for tags that take an array of bytes for a value, a number of elements in the array, and a type that is either "char" or "l_uint8" probably either will work. Use NULL if there are no such tags. f VERY IMPORTANT if there are any tags that require the extra size value, stored in nasizes, they must be written first!</returns>
+'''   <returns>0 if OK, 1 on error Usage: 1 This writes a page image to a tiff file, with optional extra tags defined in tiff.h 2 For multipage tiff, write the first pix with mode "w" and all subsequent pix with mode "a". 3 For the custom tiff tags: a The three arrays {natags, savals, satypes} must all be either NULL or defined and of equal size. b If they are defined, the tags are an array of integers, the vals are an array of values in string format, and the types are an array of types in string format. c All valid tags are definined in tiff.h. d The types allowed are the set of strings: "char" "l_uint8" "l_uint16" "l_uint32" "l_int32" "l_float64" "l_uint16-l_uint16" note the dash use it between the two l_uint16 vals in the val string Of these, "char" and "l_uint16" are the most commonly used. e The last array, nasizes, is also optional.  It is for tags that take an array of bytes for a value, a number of elements in the array, and a type that is either "char" or "l_uint8" probably either will work. Use NULL if there are no such tags. f VERY IMPORTANT: if there are any tags that require the extra size value, stored in nasizes, they must be written first!</returns>
 Public Shared Function pixWriteTiffCustom(
 				ByVal filename as String, 
 				ByVal pix as Pix, 
@@ -142,19 +142,20 @@ End Function
 ' pixWriteStreamTiff()
 ' pixWriteStreamTiff(FILE *, PIX *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This writes a single image to a file stream opened for writing.
-''' (2) For images with bpp GT 1, this resets the comptype, if
-''' necessary, to write uncompressed data.
-''' (3) G3 and G4 are only defined for 1 bpp.
-''' (4) We only allow PACKBITS for bpp = 1, because for bpp GT 1
-''' it typically expands images that are not synthetically generated.
-''' (5) G4 compression is typically about twice as good as G3.
-''' G4 is excellent for binary compression of text/line-art,
-''' but terrible for halftones and dithered patterns.  (In
-''' fact, G4 on halftones can give a file that is larger
-''' than uncompressed!)  If a binary image has dithered
-''' regions, it is usually better to compress with png.
+''' <para/>
+''' Notes:<para/>
+''' (1) This writes a single image to a file stream opened for writing.<para/>
+''' (2) For images with bpp  is greater  1, this resets the comptype, if<para/>
+''' necessary, to write uncompressed data.<para/>
+''' (3) G3 and G4 are only defined for 1 bpp.<para/>
+''' (4) We only allow PACKBITS for bpp = 1, because for bpp  is greater  1<para/>
+''' it typically expands images that are not synthetically generated.<para/>
+''' (5) G4 compression is typically about twice as good as G3.<para/>
+''' G4 is excellent for binary compression of text/line-art,<para/>
+''' but terrible for halftones and dithered patterns.  (In<para/>
+''' fact, G4 on halftones can give a file that is larger<para/>
+''' than uncompressed!)  If a binary image has dithered<para/>
+''' regions, it is usually better to compress with png.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -179,9 +180,6 @@ End Function
 ' SRC\tiffio.c (790, 1)
 ' pixWriteStreamTiffWA()
 ' pixWriteStreamTiffWA(FILE *, PIX *, l_int32, const char *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream opened for append or write</param>
@@ -209,27 +207,28 @@ End Function
 ' pixReadFromMultipageTiff()
 ' pixReadFromMultipageTiff(const char *, size_t *) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This allows overhead for traversal of a multipage tiff file
-''' to be linear in the number of images.  This will also work
-''' with a singlepage tiff file.
-''' (2) No TIFF internal data structures are exposed to the caller
-''' (thanks to Jeff Breidenbach).
-''' (3) offset is the byte offset of a particular image in a multipage
-''' tiff file. To get the first image in the file, input the
-''' special offset value of 0.
-''' (4) The offset is updated to point to the next image, for a
-''' subsequent call.
-''' (5) On the last image, the offset returned is 0.  Exit the loop
-''' when the returned offset is 0.
-''' (6) For reading a multipage tiff from a memory buffer, see
-''' pixReadMemFromMultipageTiff()
-''' (7) Example usage for reading all the images in the tif file
-''' size_t offset = 0;
-''' do {
-''' Pix pix = pixReadFromMultipageTiff(filename, offset);
-''' // do something with pix
-''' } while (offset != 0);
+''' <para/>
+''' Notes:<para/>
+''' (1) This allows overhead for traversal of a multipage tiff file<para/>
+''' to be linear in the number of images.  This will also work<para/>
+''' with a singlepage tiff file.<para/>
+''' (2) No TIFF internal data structures are exposed to the caller<para/>
+''' (thanks to Jeff Breidenbach).<para/>
+''' (3) offset is the byte offset of a particular image in a multipage<para/>
+''' tiff file. To get the first image in the file, input the<para/>
+''' special offset value of 0.<para/>
+''' (4) The offset is updated to point to the next image, for a<para/>
+''' subsequent call.<para/>
+''' (5) On the last image, the offset returned is 0.  Exit the loop<para/>
+''' when the returned offset is 0.<para/>
+''' (6) For reading a multipage tiff from a memory buffer, see<para/>
+''' pixReadMemFromMultipageTiff()<para/>
+''' (7) Example usage for reading all the images in the tif file:<para/>
+''' size_t offset = 0<para/>
+''' do {<para/>
+''' Pix pix = pixReadFromMultipageTiff(filename,  and offset)<para/>
+''' // do something with pix<para/>
+''' } while (offset != 0)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -254,9 +253,6 @@ End Function
 ' SRC\tiffio.c (1226, 1)
 ' pixaReadMultipageTiff()
 ' pixaReadMultipageTiff(const char *) as PIXA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - input tiff file</param>
@@ -278,15 +274,16 @@ End Function
 ' pixaWriteMultipageTiff()
 ' pixaWriteMultipageTiff(const char *, PIXA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The tiff directory overhead is O(n^2).  I have not been
-''' able to reduce it to O(n).  The overhead for n = 2000 is
-''' about 1 second.
+''' <para/>
+''' Notes:<para/>
+''' (1) The tiff directory overhead is O(n^2).  I have not been<para/>
+''' able to reduce it to O(n).  The overhead for n = 2000 is<para/>
+''' about 1 second.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fname">[in] - input tiff file</param>
-'''  <param name="pixa">[in] - any depth; colormap will be removed</param>
+'''  <param name="pixa">[in] - any depth colormap will be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaWriteMultipageTiff(
 				ByVal fname as String, 
@@ -305,24 +302,25 @@ End Function
 ' writeMultipageTiff()
 ' writeMultipageTiff(const char *, const char *, const char *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This writes a set of image files in a directory out
-''' as a multipage tiff file.  The images can be in any
-''' initial file format.
-''' (2) Images with a colormap have the colormap removed before
-''' re-encoding as tiff.
-''' (3) All images are encoded losslessly.  Those with 1 bpp are
-''' encoded 'g4'.  The rest are encoded as 'zip' (flate encoding).
-''' Because it is lossless, this is an expensive method for
-''' saving most rgb images.
-''' (4) The tiff directory overhead is quadratic in the number of
-''' images.  To avoid this for very large numbers of images to be
-''' written, apply the method used in pixaWriteMultipageTiff().
+''' <para/>
+''' Notes:<para/>
+''' (1) This writes a set of image files in a directory out<para/>
+''' as a multipage tiff file.  The images can be in any<para/>
+''' initial file format.<para/>
+''' (2) Images with a colormap have the colormap removed before<para/>
+''' re-encoding as tiff.<para/>
+''' (3) All images are encoded losslessly.  Those with 1 bpp are<para/>
+''' encoded 'g4'.  The rest are encoded as 'zip' (flate encoding).<para/>
+''' Because it is lossless, this is an expensive method for<para/>
+''' saving most rgb images.<para/>
+''' (4) The tiff directory overhead is quadratic in the number of<para/>
+''' images.  To avoid this for very large numbers of images to be<para/>
+''' written, apply the method used in pixaWriteMultipageTiff().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dirin">[in] - input directory</param>
-'''  <param name="substr">[in][optional] - substring filter on filenames; can be NULL</param>
+'''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="fileout">[in] - output multipage tiff file</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function writeMultipageTiff(
@@ -343,8 +341,9 @@ End Function
 ' writeMultipageTiffSA()
 ' writeMultipageTiffSA(SARRAY *, const char *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) See writeMultipageTiff()
+''' <para/>
+''' Notes:<para/>
+''' (1) See writeMultipageTiff()<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -367,14 +366,11 @@ End Function
 ' SRC\tiffio.c (1443, 1)
 ' fprintTiffInfo()
 ' fprintTiffInfo(FILE *, const char *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fpout">[in] - stream for output of tag data</param>
 '''  <param name="tiffile">[in] - input</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function fprintTiffInfo(
 				ByVal fpout as FILE, 
 				ByVal tiffile as String) as Integer
@@ -391,14 +387,11 @@ End Function
 ' SRC\tiffio.c (1476, 1)
 ' tiffGetCount()
 ' tiffGetCount(FILE *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream opened for read</param>
 '''  <param name="pn">[out] - number of images</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function tiffGetCount(
 				ByVal fp as FILE, 
 				ByRef pn as Integer) as Integer
@@ -415,16 +408,17 @@ End Function
 ' getTiffResolution()
 ' getTiffResolution(FILE *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) If neither resolution field is set, this is not an error;
-''' the returned resolution values are 0 (designating 'unknown').
+''' <para/>
+''' Notes:<para/>
+''' (1) If neither resolution field is set, this is not an error<para/>
+''' the returned resolution values are 0 (designating 'unknown').<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream opened for read</param>
 '''  <param name="pxres">[out] - resolution in ppi</param>
 '''  <param name="pyres">[out] - resolution in ppi</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function getTiffResolution(
 				ByVal fp as FILE, 
 				ByRef pxres as Integer, 
@@ -442,21 +436,22 @@ End Function
 ' readHeaderTiff()
 ' readHeaderTiff(const char *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) If there is a colormap, cmap is returned as 1; else 0.
-''' (2) If %n is equal to or greater than the number of images, returns 1.
+''' <para/>
+''' Notes:<para/>
+''' (1) If there is a colormap, cmap is returned as 1 else 0.<para/>
+''' (2) If %n is equal to or greater than the number of images, returns 1.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filename">[in] - </param>
-'''  <param name="n">[in] - page image number 0-based</param>
+'''  <param name="n">[in] - page image number: 0-based</param>
 '''  <param name="pw">[out][optional] - width</param>
 '''  <param name="ph">[out][optional] - height</param>
 '''  <param name="pbps">[out][optional] - bits per sample -- 1, 2, 4 or 8</param>
 '''  <param name="pspp">[out][optional] - samples per pixel -- 1 or 3</param>
-'''  <param name="pres">[out][optional] - resolution in x dir; NULL to ignore</param>
-'''  <param name="pcmap">[out][optional] - colormap exists; input NULL to ignore</param>
-'''  <param name="pformat">[out][optional] - tiff format; input NULL to ignore</param>
+'''  <param name="pres">[out][optional] - resolution in x dir NULL to ignore</param>
+'''  <param name="pcmap">[out][optional] - colormap exists input NULL to ignore</param>
+'''  <param name="pformat">[out][optional] - tiff format input NULL to ignore</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function readHeaderTiff(
 				ByVal filename as String, 
@@ -482,21 +477,22 @@ End Function
 ' freadHeaderTiff()
 ' freadHeaderTiff(FILE *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) If there is a colormap, cmap is returned as 1; else 0.
-''' (2) If %n is equal to or greater than the number of images, returns 1.
+''' <para/>
+''' Notes:<para/>
+''' (1) If there is a colormap, cmap is returned as 1 else 0.<para/>
+''' (2) If %n is equal to or greater than the number of images, returns 1.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
-'''  <param name="n">[in] - page image number 0-based</param>
+'''  <param name="n">[in] - page image number: 0-based</param>
 '''  <param name="pw">[out][optional] - width</param>
 '''  <param name="ph">[out][optional] - height</param>
 '''  <param name="pbps">[out][optional] - bits per sample -- 1, 2, 4 or 8</param>
 '''  <param name="pspp">[out][optional] - samples per pixel -- 1 or 3</param>
-'''  <param name="pres">[out][optional] - resolution in x dir; NULL to ignore</param>
-'''  <param name="pcmap">[out][optional] - colormap exists; input NULL to ignore</param>
-'''  <param name="pformat">[out][optional] - tiff format; input NULL to ignore</param>
+'''  <param name="pres">[out][optional] - resolution in x dir NULL to ignore</param>
+'''  <param name="pcmap">[out][optional] - colormap exists input NULL to ignore</param>
+'''  <param name="pformat">[out][optional] - tiff format input NULL to ignore</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function freadHeaderTiff(
 				ByVal fp as FILE, 
@@ -521,21 +517,22 @@ End Function
 ' readHeaderMemTiff()
 ' readHeaderMemTiff(const l_uint8 *, size_t, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Use TIFFClose(); TIFFCleanup() doesn't free internal memstream.
+''' <para/>
+''' Notes:<para/>
+''' (1) Use TIFFClose() TIFFCleanup() doesn't free internal memstream.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="cdata">[in] - const; tiff-encoded</param>
+'''  <param name="cdata">[in] - const tiff-encoded</param>
 '''  <param name="size">[in] - size of data</param>
-'''  <param name="n">[in] - page image number 0-based</param>
+'''  <param name="n">[in] - page image number: 0-based</param>
 '''  <param name="pw">[out][optional] - width</param>
 '''  <param name="ph">[out][optional] - height</param>
 '''  <param name="pbps">[out][optional] - bits per sample -- 1, 2, 4 or 8</param>
 '''  <param name="pspp">[out][optional] - samples per pixel -- 1 or 3</param>
-'''  <param name="pres">[out][optional] - resolution in x dir; NULL to ignore</param>
-'''  <param name="pcmap">[out][optional] - colormap exists; input NULL to ignore</param>
-'''  <param name="pformat">[out][optional] - tiff format; input NULL to ignore</param>
+'''  <param name="pres">[out][optional] - resolution in x dir NULL to ignore</param>
+'''  <param name="pcmap">[out][optional] - colormap exists input NULL to ignore</param>
+'''  <param name="pformat">[out][optional] - tiff format input NULL to ignore</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function readHeaderMemTiff(
 				ByVal cdata as Byte(), 
@@ -561,19 +558,20 @@ End Function
 ' findTiffCompression()
 ' findTiffCompression(FILE *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The returned compression type is that defined in
-''' the enum in imageio.h.  It is not the tiff flag value.
-''' (2) The compression type is initialized to IFF_UNKNOWN.
-''' If it is not one of the specified types, the returned
-''' type is IFF_TIFF, which indicates no compression.
-''' (3) When this function is called, the stream must be at BOF.
-''' If the opened stream is to be used again to read the
-''' file, it must be rewound to BOF after calling this function.
+''' <para/>
+''' Notes:<para/>
+''' (1) The returned compression type is that defined in<para/>
+''' the enum in imageio.h.  It is not the tiff flag value.<para/>
+''' (2) The compression type is initialized to IFF_UNKNOWN.<para/>
+''' If it is not one of the specified types, the returned<para/>
+''' type is IFF_TIFF, which indicates no compression.<para/>
+''' (3) When this function is called, the stream must be at BOF.<para/>
+''' If the opened stream is to be used again to read the<para/>
+''' file, it must be rewound to BOF after calling this function.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="fp">[in] - file stream; must be rewound to BOF</param>
+'''  <param name="fp">[in] - file stream must be rewound to BOF</param>
 '''  <param name="pcomptype">[out] - compression type</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function findTiffCompression(
@@ -591,9 +589,6 @@ End Function
 ' SRC\tiffio.c (1968, 1)
 ' extractG4DataFromFile()
 ' extractG4DataFromFile(const char *, l_uint8 **, size_t *, l_int32 *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="filein">[in] - </param>
@@ -625,21 +620,22 @@ End Function
 ' pixReadMemTiff()
 ' pixReadMemTiff(const l_uint8 *, size_t, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This is a version of pixReadTiff(), where the data is read
-''' from a memory buffer and uncompressed.
-''' (2) Use TIFFClose(); TIFFCleanup() doesn't free internal memstream.
-''' (3) No warning messages on failure, because of how multi-page
-''' TIFF reading works. You are supposed to keep trying until
-''' it stops working.
-''' (4) Tiff directory overhead is linear in the input page number.
-''' If reading many images, use pixReadMemFromMultipageTiff().
+''' <para/>
+''' Notes:<para/>
+''' (1) This is a version of pixReadTiff(), where the data is read<para/>
+''' from a memory buffer and uncompressed.<para/>
+''' (2) Use TIFFClose() TIFFCleanup() doesn't free internal memstream.<para/>
+''' (3) No warning messages on failure, because of how multi-page<para/>
+''' TIFF reading works. You are supposed to keep trying until<para/>
+''' it stops working.<para/>
+''' (4) Tiff directory overhead is linear in the input page number.<para/>
+''' If reading many images, use pixReadMemFromMultipageTiff().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="cdata">[in] - const; tiff-encoded</param>
+'''  <param name="cdata">[in] - const tiff-encoded</param>
 '''  <param name="size">[in] - size of cdata</param>
-'''  <param name="n">[in] - page image number 0-based</param>
+'''  <param name="n">[in] - page image number: 0-based</param>
 '''   <returns>pix, or NULL on error</returns>
 Public Shared Function pixReadMemTiff(
 				ByVal cdata as Byte(), 
@@ -659,22 +655,23 @@ End Function
 ' pixReadMemFromMultipageTiff()
 ' pixReadMemFromMultipageTiff(const l_uint8 *, size_t, size_t *) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This is a read-from-memory version of pixReadFromMultipageTiff().
-''' See that function for usage.
-''' (2) If reading sequentially from the tiff data, this is more
-''' efficient than pixReadMemTiff(), which has an overhead
-''' proportional to the image index n.
-''' (3) Example usage for reading all the images
-''' size_t offset = 0;
-''' do {
-''' Pix pix = pixReadMemFromMultipageTiff(data, size, offset);
-''' // do something with pix
-''' } while (offset != 0);
+''' <para/>
+''' Notes:<para/>
+''' (1) This is a read-from-memory version of pixReadFromMultipageTiff().<para/>
+''' See that function for usage.<para/>
+''' (2) If reading sequentially from the tiff data, this is more<para/>
+''' efficient than pixReadMemTiff(), which has an overhead<para/>
+''' proportional to the image index n.<para/>
+''' (3) Example usage for reading all the images:<para/>
+''' size_t offset = 0<para/>
+''' do {<para/>
+''' Pix pix = pixReadMemFromMultipageTiff(data, size,  and offset)<para/>
+''' // do something with pix<para/>
+''' } while (offset != 0)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="cdata">[in] - const; tiff-encoded</param>
+'''  <param name="cdata">[in] - const tiff-encoded</param>
 '''  <param name="size">[in] - size of cdata</param>
 '''  <param name="poffset">[in,out] - set offset to 0 for first image</param>
 '''   <returns>pix, or NULL on error or if previous call returned the last image</returns>
@@ -698,12 +695,13 @@ End Function
 ' pixaReadMemMultipageTiff()
 ' pixaReadMemMultipageTiff(const l_uint8 *, size_t) as PIXA *
 '''  <summary>
-''' Notes
-''' (1) This is an O(n) read-from-memory version of pixaReadMultipageTiff().
+''' <para/>
+''' Notes:<para/>
+''' (1) This is an O(n) read-from-memory version of pixaReadMultipageTiff().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="data">[in] - const; multiple pages; tiff-encoded</param>
+'''  <param name="data">[in] - const multiple pages tiff-encoded</param>
 '''  <param name="size">[in] - size of cdata</param>
 '''   <returns>pixa, or NULL on error</returns>
 Public Shared Function pixaReadMemMultipageTiff(
@@ -723,18 +721,19 @@ End Function
 ' pixaWriteMemMultipageTiff()
 ' pixaWriteMemMultipageTiff(l_uint8 **, size_t *, PIXA *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) fopenTiffMemstream() does not work in append mode, so we
-''' must work-around with a temporary file.
-''' (2) Getting a file stream from
-''' open_memstream((char )pdata, psize)
-''' does not work with the tiff directory.
+''' <para/>
+''' Notes:<para/>
+''' (1) fopenTiffMemstream() does not work in append mode, so we<para/>
+''' must work-around with a temporary file.<para/>
+''' (2) Getting a file stream from<para/>
+''' open_memstream((char )pdata, psize)<para/>
+''' does not work with the tiff directory.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pdata">[out] - const; tiff-encoded</param>
+'''  <param name="pdata">[out] - const tiff-encoded</param>
 '''  <param name="psize">[out] - size of data</param>
-'''  <param name="pixa">[in] - any depth; colormap will be removed</param>
+'''  <param name="pixa">[in] - any depth colormap will be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaWriteMemMultipageTiff(
 				ByRef pdata as Byte(), 
@@ -754,16 +753,13 @@ End Function
 ' SRC\tiffio.c (2672, 1)
 ' pixWriteMemTiff()
 ' pixWriteMemTiff(l_uint8 **, size_t *, PIX *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pdata">[out] - data of tiff compressed image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="comptype">[in] - IFF_TIFF, IFF_TIFF_RLE, IFF_TIFF_PACKBITS, IFF_TIFF_G3, IFF_TIFF_G4, IFF_TIFF_LZW, IFF_TIFF_ZIP</param>
-'''   <returns>0 if OK, 1 on error Usage 1) See pixWriteTiff(.  This version writes to memory instead of to a file.</returns>
+'''   <returns>0 if OK, 1 on error Usage: 1) See pixWriteTiff(.  This version writes to memory instead of to a file.</returns>
 Public Shared Function pixWriteMemTiff(
 				ByRef pdata as Byte(), 
 				ByRef psize as UInteger, 
@@ -783,9 +779,6 @@ End Function
 ' SRC\tiffio.c (2703, 1)
 ' pixWriteMemTiffCustom()
 ' pixWriteMemTiffCustom(l_uint8 **, size_t *, PIX *, l_int32, NUMA *, SARRAY *, SARRAY *, NUMA *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pdata">[out] - data of tiff compressed image</param>
@@ -796,7 +789,7 @@ End Function
 '''  <param name="savals">[in][optional] - SARRAY of values</param>
 '''  <param name="satypes">[in][optional] - SARRAY of types</param>
 '''  <param name="nasizes">[in][optional] - NUMA of sizes</param>
-'''   <returns>0 if OK, 1 on error Usage 1) See pixWriteTiffCustom(.  This version writes to memory instead of to a file. 2) Use TIFFClose(); TIFFCleanup( doesn't free internal memstream.</returns>
+'''   <returns>0 if OK, 1 on error Usage: 1) See pixWriteTiffCustom(.  This version writes to memory instead of to a file. 2) Use TIFFClose() TIFFCleanup( doesn't free internal memstream.</returns>
 Public Shared Function pixWriteMemTiffCustom(
 				ByRef pdata as Byte(), 
 				ByRef psize as UInteger, 

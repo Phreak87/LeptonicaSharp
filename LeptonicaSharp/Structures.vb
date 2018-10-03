@@ -177,7 +177,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: change in x value as i -- bigger  i + 1
+'''  Brf: change in x value as i --> i + 1
 '''  Loc: SRC/array.h (65, 22)
 '''  Org: [l_float32 delx]
 '''  Msh: l_float32 | 1:Float |
@@ -201,7 +201,7 @@ ReadOnly property array as Single()
 	Get
 		Marshal.PtrToStructure (Pointer, Values)
 		If Values.array <> IntPtr.Zero Then 
-	Dim _array(values.nalloc -1) as Single
+	Dim _array(values.n -1) as Single
 	Marshal.Copy(Values.array, _array, 0, _array.Length)
 	Return _array
 End if
@@ -290,8 +290,8 @@ ReadOnly property numa as List (of Numa)
 		Marshal.PtrToStructure (Pointer, Values)
 		If Values.numa <> IntPtr.Zero Then
 		Dim LST_numa As New List(Of Numa)
-		Dim ARR_numa(values.nalloc - 1) As IntPtr
-		Marshal.Copy(Values.numa, ARR_numa, 0, values.nalloc)
+		Dim ARR_numa(values.n - 1) As IntPtr
+		Marshal.Copy(Values.numa, ARR_numa, 0, values.n)
 		For Each Entry In ARR_numa
 			LST_numa.Add(New Numa(Entry))
 		Next
@@ -399,7 +399,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: change in x value as i -- bigger  i + 1
+'''  Brf: change in x value as i --> i + 1
 '''  Loc: SRC/array.h (89, 22)
 '''  Org: [l_float64 delx]
 '''  Msh: l_float64 | 1:Double |
@@ -423,7 +423,7 @@ ReadOnly property array as Double()
 	Get
 		Marshal.PtrToStructure (Pointer, Values)
 		If Values.array <> IntPtr.Zero Then 
-	Dim _array(values.nalloc -1) as Double
+	Dim _array(values.n -1) as Double
 	Marshal.Copy(Values.array, _array, 0, _array.Length)
 	Return _array
 End if
@@ -512,8 +512,8 @@ ReadOnly property dna as List (of L_Dna)
 		Marshal.PtrToStructure (Pointer, Values)
 		If Values.dna <> IntPtr.Zero Then
 		Dim LST_dna As New List(Of L_Dna)
-		Dim ARR_dna(values.nalloc - 1) As IntPtr
-		Marshal.Copy(Values.dna, ARR_dna, 0, values.nalloc)
+		Dim ARR_dna(values.n - 1) As IntPtr
+		Marshal.Copy(Values.dna, ARR_dna, 0, values.n)
 		For Each Entry In ARR_dna
 			LST_dna.Add(New L_Dna(Entry))
 		Next
@@ -704,7 +704,7 @@ ReadOnly property array as String()
 	Get
 		Marshal.PtrToStructure (Pointer, Values)
 		Dim LSTRET As New List(Of String)
-Dim LSTPTR(Values.n - 1) As IntPtr: Marshal.Copy(Values.array, LSTPTR, 0, values.nalloc)
+Dim LSTPTR(values.n - 1) As IntPtr: Marshal.Copy(Values.array, LSTPTR, 0, values.n)
 For Each Entry As IntPtr In LSTPTR: LSTRET.Add(Marshal.PtrToStringAnsi(Entry)): Next
 Return LSTRET.ToArray
 		Return nothing
@@ -894,7 +894,7 @@ ReadOnly property array as Byte()
 	Get
 		Marshal.PtrToStructure (Pointer, Values)
 		If Values.array <> IntPtr.Zero Then 
-	Dim _array(values.nalloc -1) as Byte
+	Dim _array(values.n -1) as Byte
 	Marshal.Copy(Values.array, _array, 0, _array.Length)
 	Return _array
 End if
@@ -969,8 +969,8 @@ ReadOnly property array as IntPtr()
 	Get
 		Marshal.PtrToStructure (Pointer, Values)
 			If Values.array <> IntPtr.Zero Then 
-		Dim _array(values.nalloc) as IntPtr
-		Marshal.Copy(Values.array, _array, 0, values.nalloc)
+		Dim _array(values.n) as IntPtr
+		Marshal.Copy(Values.array, _array, 0, values.n)
 		Return _array
 	End if
 		Return nothing
@@ -1150,8 +1150,8 @@ ReadOnly property array as IntPtr()
 	Get
 		Marshal.PtrToStructure (Pointer, Values)
 			If Values.array <> IntPtr.Zero Then 
-		Dim _array(values.nalloc) as IntPtr
-		Marshal.Copy(Values.array, _array, 0, values.nalloc)
+		Dim _array(values.nactual) as IntPtr
+		Marshal.Copy(Values.array, _array, 0, values.nactual)
 		Return _array
 	End if
 		Return nothing
@@ -1300,8 +1300,8 @@ ReadOnly property array as IntPtr()
 	Get
 		Marshal.PtrToStructure (Pointer, Values)
 			If Values.array <> IntPtr.Zero Then 
-		Dim _array(values.nalloc) as IntPtr
-		Marshal.Copy(Values.array, _array, 0, values.nalloc)
+		Dim _array(values.nelem) as IntPtr
+		Marshal.Copy(Values.array, _array, 0, values.nelem)
 		Return _array
 	End if
 		Return nothing
@@ -1670,8 +1670,8 @@ ReadOnly property array as IntPtr()
 	Get
 		Marshal.PtrToStructure (Pointer, Values)
 			If Values.array <> IntPtr.Zero Then 
-		Dim _array(values.nalloc) as IntPtr
-		Marshal.Copy(Values.array, _array, 0, values.nalloc)
+		Dim _array(values.n) as IntPtr
+		Marshal.Copy(Values.array, _array, 0, values.n)
 		Return _array
 	End if
 		Return nothing
@@ -1877,7 +1877,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: table mapping ascii -- bigger  font index
+'''  Brf: table mapping ascii --> font index
 '''  Loc: SRC/bmf.h (57, 19)
 '''  Org: [l_int32 * fonttab]
 '''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
@@ -1896,7 +1896,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: table mapping ascii -- bigger  baseline offset
+'''  Brf: table mapping ascii --> baseline offset
 '''  Loc: SRC/bmf.h (58, 19)
 '''  Org: [l_int32 * baselinetab]
 '''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
@@ -1915,7 +1915,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: table mapping ascii -- bigger  char width
+'''  Brf: table mapping ascii --> char width
 '''  Loc: SRC/bmf.h (59, 19)
 '''  Org: [l_int32 * widthtab]
 '''  Msh: l_int32 * | 2:Int | Integer() -  - Integer()
@@ -2020,7 +2020,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: number of handles; start at 1
+'''  Brf: number of handles start at 1
 '''  Loc: SRC/ccbord.h (96, 26)
 '''  Org: [l_int32 refcount]
 '''  Msh: l_int32 | 1:Int |
@@ -2236,8 +2236,8 @@ ReadOnly property ccb as List (of CCBord)
 		Marshal.PtrToStructure (Pointer, Values)
 		If Values.ccb <> IntPtr.Zero Then
 		Dim LST_ccb As New List(Of CCBord)
-		Dim ARR_ccb(values.nalloc - 1) As IntPtr
-		Marshal.Copy(Values.ccb, ARR_ccb, 0, values.nalloc)
+		Dim ARR_ccb(values.n - 1) As IntPtr
+		Marshal.Copy(Values.ccb, ARR_ccb, 0, values.n)
 		For Each Entry In ARR_ccb
 			LST_ccb.Add(New CCBord(Entry))
 		Next
@@ -2821,7 +2821,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: page number; important for reuse
+'''  Brf: page number important for reuse
 '''  Loc: SRC/dewarp.h (165, 24)
 '''  Org: [l_int32 pageno]
 '''  Msh: l_int32 | 1:Int |
@@ -3016,7 +3016,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: 0 if normal; 1 if has a refpage
+'''  Brf: 0 if normal 1 if has a refpage
 '''  Loc: SRC/dewarp.h (178, 24)
 '''  Org: [l_int32 hasref]
 '''  Msh: l_int32 | 1:Int |
@@ -3648,7 +3648,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: bits/sample; typ. 1, 2, 4 or 8
+'''  Brf: bits/sample typ. 1, 2, 4 or 8
 '''  Loc: SRC/imageio.h (178, 24)
 '''  Org: [l_int32 bps]
 '''  Msh: l_int32 | 1:Int |
@@ -3663,7 +3663,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: samples/pixel; typ. 1 or 3
+'''  Brf: samples/pixel typ. 1 or 3
 '''  Loc: SRC/imageio.h (179, 24)
 '''  Org: [l_int32 spp]
 '''  Msh: l_int32 | 1:Int |
@@ -4424,7 +4424,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: instances for each class; unbordered
+'''  Brf: instances for each class unbordered
 '''  Loc: SRC/jbclass.h (70, 22)
 '''  Org: [struct Pixaa * pixaa]
 '''  Msh: struct Pixaa * | 2:Struct |
@@ -4441,7 +4441,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: templates for each class; bordered
+'''  Brf: templates for each class bordered
 '''  Loc: SRC/jbclass.h (71, 22)
 '''  Org: [struct Pixa * pixat]
 '''  Msh: struct Pixa * | 2:Struct |
@@ -4458,7 +4458,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: templates for each class; bordered
+'''  Brf: templates for each class bordered
 '''  Loc: SRC/jbclass.h (73, 22)
 '''  Org: [struct Pixa * pixatd]
 '''  Msh: struct Pixa * | 2:Struct |
@@ -4492,7 +4492,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: fg areas of undilated templates;
+'''  Brf: fg areas of undilated templates
 '''  Loc: SRC/jbclass.h (76, 22)
 '''  Org: [struct Numa * nafgt]
 '''  Msh: struct Numa * | 2:Struct |  | Typedef: Numa = Numa
@@ -4935,7 +4935,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: {0,1,2}; data[i][j] in [row][col] order
+'''  Brf: {0,1,2} data[i][j] in [row][col] order
 '''  Loc: SRC/morph.h (68, 19)
 '''  Org: [l_int32 ** data]
 '''  Msh: l_int32 ** | 3:Integer | List (of Integer())
@@ -5054,8 +5054,8 @@ ReadOnly property sel as List (of Sel)
 		Marshal.PtrToStructure (Pointer, Values)
 		If Values.sel <> IntPtr.Zero Then
 		Dim LST_sel As New List(Of Sel)
-		Dim ARR_sel(values.nalloc - 1) As IntPtr
-		Marshal.Copy(Values.sel, ARR_sel, 0, values.nalloc)
+		Dim ARR_sel(values.n - 1) As IntPtr
+		Marshal.Copy(Values.sel, ARR_sel, 0, values.n)
 		For Each Entry In ARR_sel
 			LST_sel.Add(New Sel(Entry))
 		Next
@@ -5685,8 +5685,8 @@ ReadOnly property pix as List (of Pix)
 		Marshal.PtrToStructure (Pointer, Values)
 		If Values.pix <> IntPtr.Zero Then
 		Dim LST_pix As New List(Of Pix)
-		Dim ARR_pix(values.nalloc - 1) As IntPtr
-		Marshal.Copy(Values.pix, ARR_pix, 0, values.nalloc)
+		Dim ARR_pix(values.n - 1) As IntPtr
+		Marshal.Copy(Values.pix, ARR_pix, 0, values.n)
 		For Each Entry In ARR_pix
 			LST_pix.Add(New Pix(Entry))
 		Next
@@ -5793,8 +5793,8 @@ ReadOnly property pixa as List (of Pixa)
 		Marshal.PtrToStructure (Pointer, Values)
 		If Values.pixa <> IntPtr.Zero Then
 		Dim LST_pixa As New List(Of Pixa)
-		Dim ARR_pixa(values.nalloc - 1) As IntPtr
-		Marshal.Copy(Values.pixa, ARR_pixa, 0, values.nalloc)
+		Dim ARR_pixa(values.n - 1) As IntPtr
+		Marshal.Copy(Values.pixa, ARR_pixa, 0, values.n)
 		For Each Entry In ARR_pixa
 			LST_pixa.Add(New Pixa(Entry))
 		Next
@@ -6028,8 +6028,8 @@ ReadOnly property box as List (of Box)
 		Marshal.PtrToStructure (Pointer, Values)
 		If Values.box <> IntPtr.Zero Then
 		Dim LST_box As New List(Of Box)
-		Dim ARR_box(values.nalloc - 1) As IntPtr
-		Marshal.Copy(Values.box, ARR_box, 0, values.nalloc)
+		Dim ARR_box(values.n - 1) As IntPtr
+		Marshal.Copy(Values.box, ARR_box, 0, values.n)
 		For Each Entry In ARR_box
 			LST_box.Add(New Box(Entry))
 		Next
@@ -6118,8 +6118,8 @@ ReadOnly property boxa as List (of Boxa)
 		Marshal.PtrToStructure (Pointer, Values)
 		If Values.boxa <> IntPtr.Zero Then
 		Dim LST_boxa As New List(Of Boxa)
-		Dim ARR_boxa(values.nalloc - 1) As IntPtr
-		Marshal.Copy(Values.boxa, ARR_boxa, 0, values.nalloc)
+		Dim ARR_boxa(values.n - 1) As IntPtr
+		Marshal.Copy(Values.boxa, ARR_boxa, 0, values.n)
 		For Each Entry In ARR_boxa
 			LST_boxa.Add(New Boxa(Entry))
 		Next
@@ -6221,7 +6221,7 @@ ReadOnly property x as Single()
 	Get
 		Marshal.PtrToStructure (Pointer, Values)
 		If Values.x <> IntPtr.Zero Then 
-	Dim _x(values.nalloc -1) as Single
+	Dim _x(values.n -1) as Single
 	Marshal.Copy(Values.x, _x, 0, _x.Length)
 	Return _x
 End if
@@ -6240,7 +6240,7 @@ ReadOnly property y as Single()
 	Get
 		Marshal.PtrToStructure (Pointer, Values)
 		If Values.y <> IntPtr.Zero Then 
-	Dim _y(values.nalloc -1) as Single
+	Dim _y(values.n -1) as Single
 	Marshal.Copy(Values.y, _y, 0, _y.Length)
 	Return _y
 End if
@@ -6328,8 +6328,8 @@ ReadOnly property pta as List (of Pta)
 		Marshal.PtrToStructure (Pointer, Values)
 		If Values.pta <> IntPtr.Zero Then
 		Dim LST_pta As New List(Of Pta)
-		Dim ARR_pta(values.nalloc - 1) As IntPtr
-		Marshal.Copy(Values.pta, ARR_pta, 0, values.nalloc)
+		Dim ARR_pta(values.n - 1) As IntPtr
+		Marshal.Copy(Values.pta, ARR_pta, 0, values.n)
 		For Each Entry In ARR_pta
 			LST_pta.Add(New Pta(Entry))
 		Next
@@ -6583,7 +6583,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: strip for paint; default is TRUE
+'''  Brf: strip for paint default is TRUE
 '''  Loc: SRC/pix.h (571, 26)
 '''  Org: [l_int32 strip]
 '''  Msh: l_int32 | 1:Int |
@@ -6843,8 +6843,8 @@ ReadOnly property fpix as List (of FPix)
 		Marshal.PtrToStructure (Pointer, Values)
 		If Values.fpix <> IntPtr.Zero Then
 		Dim LST_fpix As New List(Of FPix)
-		Dim ARR_fpix(values.nalloc - 1) As IntPtr
-		Marshal.Copy(Values.fpix, ARR_fpix, 0, values.nalloc)
+		Dim ARR_fpix(values.n - 1) As IntPtr
+		Marshal.Copy(Values.fpix, ARR_fpix, 0, values.n)
 		For Each Entry In ARR_fpix
 			LST_fpix.Add(New FPix(Entry))
 		Next
@@ -7296,8 +7296,8 @@ ReadOnly property pixc as List (of PixComp)
 		Marshal.PtrToStructure (Pointer, Values)
 		If Values.pixc <> IntPtr.Zero Then
 		Dim LST_pixc As New List(Of PixComp)
-		Dim ARR_pixc(values.nalloc - 1) As IntPtr
-		Marshal.Copy(Values.pixc, ARR_pixc, 0, values.nalloc)
+		Dim ARR_pixc(values.n - 1) As IntPtr
+		Marshal.Copy(Values.pixc, ARR_pixc, 0, values.n)
 		For Each Entry In ARR_pixc
 			LST_pixc.Add(New PixComp(Entry))
 		Next
@@ -7353,7 +7353,7 @@ Public Class L_Recog
 	End Sub
 
 '''  <summary>
-'''  Brf: scale all examples to this width;
+'''  Brf: scale all examples to this width
 '''  Loc: SRC/recog.h (117, 20)
 '''  Org: [l_int32 scalew]
 '''  Msh: l_int32 | 1:Int |
@@ -7368,7 +7368,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: scale all examples to this height;
+'''  Brf: scale all examples to this height
 '''  Loc: SRC/recog.h (119, 20)
 '''  Org: [l_int32 scaleh]
 '''  Msh: l_int32 | 1:Int |
@@ -7383,7 +7383,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: use a value  bigger  0 to convert the bitmap
+'''  Brf: use a value > 0 to convert the bitmap
 '''  Loc: SRC/recog.h (121, 20)
 '''  Org: [l_int32 linew]
 '''  Msh: l_int32 | 1:Int |
@@ -7443,7 +7443,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: for binarizing if depth  bigger  1
+'''  Brf: for binarizing if depth > 1
 '''  Loc: SRC/recog.h (128, 20)
 '''  Org: [l_int32 threshold]
 '''  Msh: l_int32 | 1:Int |
@@ -8125,7 +8125,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: font size of bmf; default is 6 pt
+'''  Brf: font size of bmf default is 6 pt
 '''  Loc: SRC/recog.h (172, 20)
 '''  Org: [l_int32 bmf_size]
 '''  Msh: l_int32 | 1:Int |
@@ -8689,7 +8689,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: 1 if full arrays are made; 0 otherwise
+'''  Brf: 1 if full arrays are made 0 otherwise
 '''  Loc: SRC/recog.h (220, 20)
 '''  Org: [l_int32 fullarrays]
 '''  Msh: l_int32 | 1:Int |
@@ -9097,7 +9097,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: index into saved files for this test; 0-based
+'''  Brf: index into saved files for this test 0-based
 '''  Loc: SRC/regutils.h (123, 14)
 '''  Org: [l_int32 index]
 '''  Msh: l_int32 | 1:Int |
@@ -9127,7 +9127,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: 1 if in display mode; 0 otherwise
+'''  Brf: 1 if in display mode 0 otherwise
 '''  Loc: SRC/regutils.h (125, 14)
 '''  Org: [l_int32 display]
 '''  Msh: l_int32 | 1:Int |
@@ -9666,7 +9666,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: numa of seed indicators; 0 if completed
+'''  Brf: numa of seed indicators 0 if completed
 '''  Loc: SRC/watershed.h (51, 20)
 '''  Org: [struct Numa * nasi]
 '''  Msh: struct Numa * | 2:Struct |  | Typedef: Numa = Numa
@@ -10118,7 +10118,7 @@ End Property
 '''  Brf: lineptrs for pixac
 '''  Loc: SRC/bilateral.h (131, 21)
 '''  Org: [l_uint32 *** lineset]
-'''  Msh: l_uint32 *** | 3:UInt | List (of List ( of List (of Byte()))) ... UInt = bigger  Byte[4]
+'''  Msh: l_uint32 *** | 3:UInt | List (of List ( of List (of Byte()))) ... UInt => Byte[4]
 '''  </summary>
 ReadOnly property lineset as List (of List (of List (of Byte())))
 	Get
@@ -10175,7 +10175,7 @@ Public Class BMP_FileHeader
 	End Sub
 
 '''  <summary>
-'''  Brf: file type; must be "BM"
+'''  Brf: file type must be "BM"
 '''  Loc: SRC/bmp.h (52, 20)
 '''  Org: [l_int16 bfType]
 '''  Msh: l_int16 | 1:Short |
@@ -10190,7 +10190,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: length of the file; sizeof(BMP_FileHeader) + sizeof(BMP_InfoHeader) + size of color table + size of DIB bits
+'''  Brf: length of the file sizeof(BMP_FileHeader) + sizeof(BMP_InfoHeader) + size of color table + size of DIB bits
 '''  Loc: SRC/bmp.h (53, 20)
 '''  Org: [l_int16 bfSize]
 '''  Msh: l_int16 | 1:Short |
@@ -11912,7 +11912,7 @@ End Property
 
 
 '''  <summary>
-'''  Brf: pointer to the next node in the list;
+'''  Brf: pointer to the next node in the list
 '''  Loc: SRC\pngio.c (1298, 24)
 '''  Org: [struct MemIOData * m_Next]
 '''  Msh: struct MemIOData * | 2:Struct |

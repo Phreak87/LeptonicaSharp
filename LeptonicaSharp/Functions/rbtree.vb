@@ -1,14 +1,11 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\rbtree.c (132, 1)
 ' l_rbtreeCreate()
 ' l_rbtreeCreate(l_int32) as L_RBTREE *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="keytype">[in] - defined by an enum for an RB_TYPE union</param>
@@ -27,14 +24,11 @@ End Function
 ' SRC\rbtree.c (154, 1)
 ' l_rbtreeLookup()
 ' l_rbtreeLookup(L_RBTREE *, RB_TYPE) as RB_TYPE *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="t">[in] - rbtree, including root node</param>
 '''  <param name="key">[in] - find a node with this key</param>
-'''   <returns>value     a pointer to a union, if the node exists; else NULL</returns>
+'''   <returns> and value     a pointer to a union, if the node exists else NULL</returns>
 Public Shared Function l_rbtreeLookup(
 				ByVal t as L_Rbtree, 
 				ByVal key as Rb_Type) as RB_TYPE
@@ -53,8 +47,9 @@ End Function
 ' l_rbtreeInsert()
 ' l_rbtreeInsert(L_RBTREE *, RB_TYPE, RB_TYPE) as void
 '''  <summary>
-''' Notes
-''' (1) If a node with the key already exists, this just updates the value.
+''' <para/>
+''' Notes:<para/>
+''' (1) If a node with the key already exists, this just updates the value.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -78,9 +73,6 @@ End Sub
 ' SRC\rbtree.c (235, 1)
 ' l_rbtreeDelete()
 ' l_rbtreeDelete(L_RBTREE *, RB_TYPE) as void
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="t">[in] - rbtree, including root node</param>
@@ -101,8 +93,9 @@ End Sub
 ' l_rbtreeDestroy()
 ' l_rbtreeDestroy(L_RBTREE **) as void
 '''  <summary>
-''' Notes
-''' (1) Destroys the tree and nulls the input tree ptr.
+''' <para/>
+''' Notes:<para/>
+''' (1) Destroys the tree and nulls the input tree ptr.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -122,8 +115,9 @@ End Sub
 ' l_rbtreeGetFirst()
 ' l_rbtreeGetFirst(L_RBTREE *) as L_RBTREE_NODE *
 '''  <summary>
-''' Notes
-''' (1) This is the first node in an in-order traversal.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is the first node in an in-order traversal.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -145,11 +139,12 @@ End Function
 ' l_rbtreeGetNext()
 ' l_rbtreeGetNext(L_RBTREE_NODE *) as L_RBTREE_NODE *
 '''  <summary>
-''' Notes
-''' (1) This finds the next node, in an in-order traversal, from
-''' the current node.
-''' (2) It is useful as an iterator for a map.
-''' (3) Call l_rbtreeGetFirst() to get the first node.
+''' <para/>
+''' Notes:<para/>
+''' (1) This finds the next node, in an in-order traversal, from<para/>
+''' the current node.<para/>
+''' (2) It is useful as an iterator for a map.<para/>
+''' (3) Call l_rbtreeGetFirst() to get the first node.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -171,8 +166,9 @@ End Function
 ' l_rbtreeGetLast()
 ' l_rbtreeGetLast(L_RBTREE *) as L_RBTREE_NODE *
 '''  <summary>
-''' Notes
-''' (1) This is the last node in an in-order traversal.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is the last node in an in-order traversal.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -194,11 +190,12 @@ End Function
 ' l_rbtreeGetPrev()
 ' l_rbtreeGetPrev(L_RBTREE_NODE *) as L_RBTREE_NODE *
 '''  <summary>
-''' Notes
-''' (1) This finds the previous node, in an in-order traversal, from
-''' the current node.
-''' (2) It is useful as an iterator for a map.
-''' (3) Call l_rbtreeGetLast() to get the last node.
+''' <para/>
+''' Notes:<para/>
+''' (1) This finds the previous node, in an in-order traversal, from<para/>
+''' the current node.<para/>
+''' (2) It is useful as an iterator for a map.<para/>
+''' (3) Call l_rbtreeGetLast() to get the last node.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -219,9 +216,6 @@ End Function
 ' SRC\rbtree.c (453, 1)
 ' l_rbtreeGetCount()
 ' l_rbtreeGetCount(L_RBTREE *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="t">[in] - rbtree</param>
@@ -240,9 +234,6 @@ End Function
 ' SRC\rbtree.c (486, 1)
 ' l_rbtreePrint()
 ' l_rbtreePrint(FILE *, L_RBTREE *) as void
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>

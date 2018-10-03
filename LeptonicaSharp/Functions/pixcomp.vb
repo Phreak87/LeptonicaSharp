@@ -1,17 +1,18 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\pixcomp.c (185, 1)
 ' pixcompCreateFromPix()
 ' pixcompCreateFromPix(PIX *, l_int32) as PIXC *
 '''  <summary>
-''' Notes
-''' (1) Use %comptype == IFF_DEFAULT to have the compression
-''' type automatically determined.
-''' (2) To compress jpeg with a quality other than the default (75), use
-''' l_jpegSetQuality()
+''' <para/>
+''' Notes:<para/>
+''' (1) Use %comptype == IFF_DEFAULT to have the compression<para/>
+''' type automatically determined.<para/>
+''' (2) To compress jpeg with a quality other than the default (75), use<para/>
+''' l_jpegSetQuality()<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -35,10 +36,11 @@ End Function
 ' pixcompCreateFromString()
 ' pixcompCreateFromString(l_uint8 *, size_t, l_int32) as PIXC *
 '''  <summary>
-''' Notes
-''' (1) This works when the compressed string is png, jpeg or tiffg4.
-''' (2) The copyflag determines if the data in the new Pixcomp is
-''' a copy of the input data.
+''' <para/>
+''' Notes:<para/>
+''' (1) This works when the compressed string is png, jpeg or tiffg4.<para/>
+''' (2) The copyflag determines if the data in the new Pixcomp is<para/>
+''' a copy of the input data.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -64,11 +66,12 @@ End Function
 ' pixcompCreateFromFile()
 ' pixcompCreateFromFile(const char *, l_int32) as PIXC *
 '''  <summary>
-''' Notes
-''' (1) Use %comptype == IFF_DEFAULT to have the compression
-''' type automatically determined.
-''' (2) If the comptype is invalid for this file, the default will
-''' be substituted.
+''' <para/>
+''' Notes:<para/>
+''' (1) Use %comptype == IFF_DEFAULT to have the compression<para/>
+''' type automatically determined.<para/>
+''' (2) If the comptype is invalid for this file, the default will<para/>
+''' be substituted.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -93,8 +96,9 @@ End Function
 ' pixcompDestroy()
 ' pixcompDestroy(PIXC **) as void
 '''  <summary>
-''' Notes
-''' (1) Always nulls the input ptr.
+''' <para/>
+''' Notes:<para/>
+''' (1) Always nulls the input ptr.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -113,9 +117,6 @@ End Sub
 ' SRC\pixcomp.c (384, 1)
 ' pixcompCopy()
 ' pixcompCopy(PIXC *) as PIXC *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixcs">[in] - </param>
@@ -135,9 +136,6 @@ End Function
 ' SRC\pixcomp.c (429, 1)
 ' pixcompGetDimensions()
 ' pixcompGetDimensions(PIXC *, l_int32 *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixc">[in] - </param>
@@ -162,9 +160,6 @@ End Function
 ' SRC\pixcomp.c (453, 1)
 ' pixcompGetParameters()
 ' pixcompGetParameters(PIXC *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixc">[in] - </param>
@@ -192,22 +187,23 @@ End Function
 ' pixcompDetermineFormat()
 ' pixcompDetermineFormat(l_int32, l_int32, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This determines the best format for a pix, given both
-''' the request (%comptype) and the image characteristics.
-''' (2) If %comptype == IFF_DEFAULT, this does not necessarily result
-''' in png encoding.  Instead, it returns one of the three formats
-''' that is both valid and most likely to give best compression.
-''' (3) If the pix cannot be compressed by the input value of
-''' %comptype, this selects IFF_PNG, which can compress all pix.
+''' <para/>
+''' Notes:<para/>
+''' (1) This determines the best format for a pix, given both<para/>
+''' the request (%comptype) and the image characteristics.<para/>
+''' (2) If %comptype == IFF_DEFAULT, this does not necessarily result<para/>
+''' in png encoding.  Instead, it returns one of the three formats<para/>
+''' that is both valid and most likely to give best compression.<para/>
+''' (3) If the pix cannot be compressed by the input value of<para/>
+''' %comptype, this selects IFF_PNG, which can compress all pix.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 '''  <param name="d">[in] - pix depth</param>
-'''  <param name="cmapflag">[in] - 1 if pix to be compressed as a colormap; 0 otherwise</param>
+'''  <param name="cmapflag">[in] - 1 if pix to be compressed as a colormap 0 otherwise</param>
 '''  <param name="pformat">[out] - return IFF_TIFF, IFF_PNG or IFF_JFIF_JPEG</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcompDetermineFormat(
 				ByVal comptype as Enumerations.IFF, 
 				ByVal d as Integer, 
@@ -224,9 +220,6 @@ End Function
 ' SRC\pixcomp.c (537, 1)
 ' pixCreateFromPixcomp()
 ' pixCreateFromPixcomp(PIXC *) as PIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixc">[in] - </param>
@@ -246,9 +239,6 @@ End Function
 ' SRC\pixcomp.c (590, 1)
 ' pixacompCreate()
 ' pixacompCreate(l_int32) as PIXAC *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="n">[in] - initial number of ptrs</param>
@@ -268,37 +258,38 @@ End Function
 ' pixacompCreateWithInit()
 ' pixacompCreateWithInit(l_int32, l_int32, PIX *, l_int32) as PIXAC *
 '''  <summary>
-''' Notes
-''' (1) Initializes a pixacomp to be fully populated with %pix,
-''' compressed using %comptype.  If %pix == NULL, %comptype
-''' is ignored.
-''' (2) Typically, the array is initialized with a tiny pix.
-''' This is most easily done by setting %pix == NULL, causing
-''' initialization of each array element with a tiny placeholder
-''' pix (w = h = d = 1), using comptype = IFF_TIFF_G4 .
-''' (3) Example usage
-''' // Generate pixacomp for pages 30 - 49.  This has an array
-''' // size of 20 and the page number offset is 30.
-''' PixaComp pixac = pixacompCreateWithInit(20, 30, NULL,
-''' IFF_TIFF_G4);
-''' // Now insert png-compressed images into the initialized array
-''' for (pageno = 30; pageno LT 50; pageno++) {
-''' Pix pixt = ...   // derived from image[pageno]
-''' if (pixt)
-''' pixacompReplacePix(pixac, pageno, pixt, IFF_PNG);
-''' pixDestroy(pixt);
-''' }
-''' The result is a pixac with 20 compressed strings, and with
-''' selected pixt replacing the placeholders.
-''' To extract the image for page 38, which is decompressed
-''' from element 8 in the array, use
-''' pixt = pixacompGetPix(pixac, 38);
+''' <para/>
+''' Notes:<para/>
+''' (1) Initializes a pixacomp to be fully populated with %pix,<para/>
+''' compressed using %comptype.  If %pix == NULL, %comptype<para/>
+''' is ignored.<para/>
+''' (2) Typically, the array is initialized with a tiny pix.<para/>
+''' This is most easily done by setting %pix == NULL, causing<para/>
+''' initialization of each array element with a tiny placeholder<para/>
+''' pix (w = h = d = 1), using comptype = IFF_TIFF_G4 .<para/>
+''' (3) Example usage:<para/>
+''' // Generate pixacomp for pages 30 - 49.  This has an array<para/>
+''' // size of 20 and the page number offset is 30.<para/>
+''' PixaComp pixac = pixacompCreateWithInit(20, 30, NULL,<para/>
+''' IFF_TIFF_G4)<para/>
+''' // Now insert png-compressed images into the initialized array<para/>
+''' for (pageno = 30 pageno  is lower  50 pageno++) {<para/>
+''' Pix pixt = ... // derived from image[pageno]<para/>
+''' if (pixt)<para/>
+''' pixacompReplacePix(pixac, pageno, pixt, IFF_PNG)<para/>
+''' pixDestroy( and pixt)<para/>
+''' }<para/>
+''' The result is a pixac with 20 compressed strings, and with<para/>
+''' selected pixt replacing the placeholders.<para/>
+''' To extract the image for page 38, which is decompressed<para/>
+''' from element 8 in the array, use:<para/>
+''' pixt = pixacompGetPix(pixac, 38)<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="n">[in] - initial number of ptrs</param>
-'''  <param name="offset">[in] - difference accessor index - pixacomp array index</param>
-'''  <param name="pix">[in][optional] - initialize each ptr in pixacomp to this pix; can be NULL</param>
+'''  <param name="offset">[in] - difference: accessor index - pixacomp array index</param>
+'''  <param name="pix">[in][optional] - initialize each ptr in pixacomp to this pix can be NULL</param>
 '''  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 '''   <returns>pixac, or NULL on error</returns>
 Public Shared Function pixacompCreateWithInit(
@@ -320,15 +311,16 @@ End Function
 ' pixacompCreateFromPixa()
 ' pixacompCreateFromPixa(PIXA *, l_int32, l_int32) as PIXAC *
 '''  <summary>
-''' Notes
-''' (1) If %format == IFF_DEFAULT, the conversion format for each
-''' image is chosen automatically.  Otherwise, we use the
-''' specified format unless it can't be done (e.g., jpeg
-''' for a 1, 2 or 4 bpp pix, or a pix with a colormap),
-''' in which case we use the default (assumed best) compression.
-''' (2) %accesstype is used to extract a boxa from %pixa.
-''' (3) To compress jpeg with a quality other than the default (75), use
-''' l_jpegSetQuality()
+''' <para/>
+''' Notes:<para/>
+''' (1) If %format == IFF_DEFAULT, the conversion format for each<para/>
+''' image is chosen automatically.  Otherwise, we use the<para/>
+''' specified format unless it can't be done (e.g., jpeg<para/>
+''' for a 1, 2 or 4 bpp pix, or a pix with a colormap),<para/>
+''' in which case we use the default (assumed best) compression.<para/>
+''' (2) %accesstype is used to extract a boxa from %pixa.<para/>
+''' (3) To compress jpeg with a quality other than the default (75), use<para/>
+''' l_jpegSetQuality()<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -354,21 +346,22 @@ End Function
 ' pixacompCreateFromFiles()
 ' pixacompCreateFromFiles(const char *, const char *, l_int32) as PIXAC *
 '''  <summary>
-''' Notes
-''' (1) %dirname is the full path for the directory.
-''' (2) %substr is the part of the file name (excluding
-''' the directory) that is to be matched.  All matching
-''' filenames are read into the Pixa.  If substr is NULL,
-''' all filenames are read into the Pixa.
-''' (3) Use %comptype == IFF_DEFAULT to have the compression
-''' type automatically determined for each file.
-''' (4) If the comptype is invalid for a file, the default will
-''' be substituted.
+''' <para/>
+''' Notes:<para/>
+''' (1) %dirname is the full path for the directory.<para/>
+''' (2) %substr is the part of the file name (excluding<para/>
+''' the directory) that is to be matched.  All matching<para/>
+''' filenames are read into the Pixa.  If substr is NULL,<para/>
+''' all filenames are read into the Pixa.<para/>
+''' (3) Use %comptype == IFF_DEFAULT to have the compression<para/>
+''' type automatically determined for each file.<para/>
+''' (4) If the comptype is invalid for a file, the default will<para/>
+''' be substituted.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="dirname">[in] - </param>
-'''  <param name="substr">[in][optional] - substring filter on filenames; can be null</param>
+'''  <param name="substr">[in][optional] - substring filter on filenames can be null</param>
 '''  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 '''   <returns>pixac, or NULL on error</returns>
 Public Shared Function pixacompCreateFromFiles(
@@ -389,11 +382,12 @@ End Function
 ' pixacompCreateFromSA()
 ' pixacompCreateFromSA(SARRAY *, l_int32) as PIXAC *
 '''  <summary>
-''' Notes
-''' (1) Use %comptype == IFF_DEFAULT to have the compression
-''' type automatically determined for each file.
-''' (2) If the comptype is invalid for a file, the default will
-''' be substituted.
+''' <para/>
+''' Notes:<para/>
+''' (1) Use %comptype == IFF_DEFAULT to have the compression<para/>
+''' type automatically determined for each file.<para/>
+''' (2) If the comptype is invalid for a file, the default will<para/>
+''' be substituted.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -417,8 +411,9 @@ End Function
 ' pixacompDestroy()
 ' pixacompDestroy(PIXAC **) as void
 '''  <summary>
-''' Notes
-''' (1) Always nulls the input ptr.
+''' <para/>
+''' Notes:<para/>
+''' (1) Always nulls the input ptr.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -438,19 +433,20 @@ End Sub
 ' pixacompAddPix()
 ' pixacompAddPix(PIXAC *, PIX *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The array is filled up to the (n-1)-th element, and this
-''' converts the input pix to a pixc and adds it at
-''' the n-th position.
-''' (2) The pixc produced from the pix is owned by the pixac.
-''' The input pix is not affected.
+''' <para/>
+''' Notes:<para/>
+''' (1) The array is filled up to the (n-1)-th element, and this<para/>
+''' converts the input pix to a pixc and adds it at<para/>
+''' the n-th position.<para/>
+''' (2) The pixc produced from the pix is owned by the pixac.<para/>
+''' The input pix is not affected.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="pix">[in] - to be added</param>
 '''  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixacompAddPix(
 				ByVal pixac as PixaComp, 
 				ByVal pix as Pix, 
@@ -469,17 +465,18 @@ End Function
 ' pixacompAddPixcomp()
 ' pixacompAddPixcomp(PIXAC *, PIXC *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Anything added to a pixac is owned by the pixac.
-''' So do not L_INSERT a pixc that is owned by another pixac,
-''' or destroy a pixc that has been L_INSERTed.
+''' <para/>
+''' Notes:<para/>
+''' (1) Anything added to a pixac is owned by the pixac.<para/>
+''' So do not L_INSERT a pixc that is owned by another pixac,<para/>
+''' or destroy a pixc that has been L_INSERTed.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="pixc">[in] - to be added by insertion</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixacompAddPixcomp(
 				ByVal pixac as PixaComp, 
 				ByVal pixc as PixComp, 
@@ -498,19 +495,20 @@ End Function
 ' pixacompReplacePix()
 ' pixacompReplacePix(PIXAC *, l_int32, PIX *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The %index includes the offset, which must be subtracted
-''' to get the actual index into the ptr array.
-''' (2) The input %pix is converted to a pixc, which is then inserted
-''' into the pixac.
+''' <para/>
+''' Notes:<para/>
+''' (1) The %index includes the offset, which must be subtracted<para/>
+''' to get the actual index into the ptr array.<para/>
+''' (2) The input %pix is converted to a pixc, which is then inserted<para/>
+''' into the pixac.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixac">[in] - </param>
-'''  <param name="index">[in] - caller's view of index within pixac; includes offset</param>
+'''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''  <param name="pix">[in] - owned by the caller</param>
 '''  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixacompReplacePix(
 				ByVal pixac as PixaComp, 
 				ByVal index as Integer, 
@@ -530,18 +528,19 @@ End Function
 ' pixacompReplacePixcomp()
 ' pixacompReplacePixcomp(PIXAC *, l_int32, PIXC *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The %index includes the offset, which must be subtracted
-''' to get the actual index into the ptr array.
-''' (2) The inserted %pixc is now owned by the pixac.  The caller
-''' must not destroy it.
+''' <para/>
+''' Notes:<para/>
+''' (1) The %index includes the offset, which must be subtracted<para/>
+''' to get the actual index into the ptr array.<para/>
+''' (2) The inserted %pixc is now owned by the pixac.  The caller<para/>
+''' must not destroy it.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixac">[in] - </param>
-'''  <param name="index">[in] - caller's view of index within pixac; includes offset</param>
+'''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''  <param name="pixc">[in] - to replace existing one, which is destroyed</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixacompReplacePixcomp(
 				ByVal pixac as PixaComp, 
 				ByVal index as Integer, 
@@ -559,9 +558,6 @@ End Function
 ' SRC\pixcomp.c (1108, 1)
 ' pixacompAddBox()
 ' pixacompAddBox(PIXAC *, BOX *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixac">[in] - </param>
@@ -585,9 +581,6 @@ End Function
 ' SRC\pixcomp.c (1136, 1)
 ' pixacompGetCount()
 ' pixacompGetCount(PIXAC *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixac">[in] - </param>
@@ -607,16 +600,17 @@ End Function
 ' pixacompGetPixcomp()
 ' pixacompGetPixcomp(PIXAC *, l_int32, l_int32) as PIXC *
 '''  <summary>
-''' Notes
-''' (1) The %index includes the offset, which must be subtracted
-''' to get the actual index into the ptr array.
-''' (2) If copyflag == L_NOCOPY, the pixc is owned by %pixac; do
-''' not destroy.
+''' <para/>
+''' Notes:<para/>
+''' (1) The %index includes the offset, which must be subtracted<para/>
+''' to get the actual index into the ptr array.<para/>
+''' (2) If copyflag == L_NOCOPY, the pixc is owned by %pixac do<para/>
+''' not destroy.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixac">[in] - </param>
-'''  <param name="index">[in] - caller's view of index within pixac; includes offset</param>
+'''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''  <param name="copyflag">[in] - L_NOCOPY, L_COPY</param>
 '''   <returns>pixc, or NULL on error</returns>
 Public Shared Function pixacompGetPixcomp(
@@ -637,14 +631,15 @@ End Function
 ' pixacompGetPix()
 ' pixacompGetPix(PIXAC *, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) The %index includes the offset, which must be subtracted
-''' to get the actual index into the ptr array.
+''' <para/>
+''' Notes:<para/>
+''' (1) The %index includes the offset, which must be subtracted<para/>
+''' to get the actual index into the ptr array.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixac">[in] - </param>
-'''  <param name="index">[in] - caller's view of index within pixac; includes offset</param>
+'''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''   <returns>pix, or NULL on error</returns>
 Public Shared Function pixacompGetPix(
 				ByVal pixac as PixaComp, 
@@ -663,14 +658,15 @@ End Function
 ' pixacompGetPixDimensions()
 ' pixacompGetPixDimensions(PIXAC *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The %index includes the offset, which must be subtracted
-''' to get the actual index into the ptr array.
+''' <para/>
+''' Notes:<para/>
+''' (1) The %index includes the offset, which must be subtracted<para/>
+''' to get the actual index into the ptr array.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixac">[in] - </param>
-'''  <param name="index">[in] - caller's view of index within pixac; includes offset</param>
+'''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''  <param name="pw">[out][optional] - each can be null</param>
 '''  <param name="ph">[out][optional] - each can be null</param>
 '''  <param name="pd">[out][optional] - each can be null</param>
@@ -693,9 +689,6 @@ End Function
 ' SRC\pixcomp.c (1267, 1)
 ' pixacompGetBoxa()
 ' pixacompGetBoxa(PIXAC *, l_int32) as BOXA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixac">[in] - </param>
@@ -717,9 +710,6 @@ End Function
 ' SRC\pixcomp.c (1291, 1)
 ' pixacompGetBoxaCount()
 ' pixacompGetBoxaCount(PIXAC *) as l_int32
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixac">[in] - </param>
@@ -739,22 +729,23 @@ End Function
 ' pixacompGetBox()
 ' pixacompGetBox(PIXAC *, l_int32, l_int32) as BOX *
 '''  <summary>
-''' Notes
-''' (1) The %index includes the offset, which must be subtracted
-''' to get the actual index into the ptr array.
-''' (2) There is always a boxa with a pixac, and it is initialized so
-''' that each box ptr is NULL.
-''' (3) In general, we expect that there is either a box associated
-''' with each pixc, or no boxes at all in the boxa.
-''' (4) Having no boxes is thus not an automatic error.  Whether it
-''' is an actual error is determined by the calling program.
-''' If the caller expects to get a box, it is an error; see, e.g.,
-''' pixacGetBoxGeometry().
+''' <para/>
+''' Notes:<para/>
+''' (1) The %index includes the offset, which must be subtracted<para/>
+''' to get the actual index into the ptr array.<para/>
+''' (2) There is always a boxa with a pixac, and it is initialized so<para/>
+''' that each box ptr is NULL.<para/>
+''' (3) In general, we expect that there is either a box associated<para/>
+''' with each pixc, or no boxes at all in the boxa.<para/>
+''' (4) Having no boxes is thus not an automatic error.  Whether it<para/>
+''' is an actual error is determined by the calling program.<para/>
+''' If the caller expects to get a box, it is an error see, e.g.,<para/>
+''' pixacGetBoxGeometry().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixac">[in] - </param>
-'''  <param name="index">[in] - caller's view of index within pixac; includes offset</param>
+'''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''  <param name="accesstype">[in] - L_COPY or L_CLONE</param>
 '''   <returns>box if null, not automatically an error, or NULL on error</returns>
 Public Shared Function pixacompGetBox(
@@ -775,14 +766,15 @@ End Function
 ' pixacompGetBoxGeometry()
 ' pixacompGetBoxGeometry(PIXAC *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The %index includes the offset, which must be subtracted
-''' to get the actual index into the ptr array.
+''' <para/>
+''' Notes:<para/>
+''' (1) The %index includes the offset, which must be subtracted<para/>
+''' to get the actual index into the ptr array.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixac">[in] - </param>
-'''  <param name="index">[in] - caller's view of index within pixac; includes offset</param>
+'''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''  <param name="px">[out][optional] - each can be null</param>
 '''  <param name="py">[out][optional] - each can be null</param>
 '''  <param name="pw">[out][optional] - each can be null</param>
@@ -808,10 +800,11 @@ End Function
 ' pixacompGetOffset()
 ' pixacompGetOffset(PIXAC *) as l_int32
 '''  <summary>
-''' Notes
-''' (1) The offset is the difference between the caller's view of
-''' the index into the array and the actual array index.
-''' By default it is 0.
+''' <para/>
+''' Notes:<para/>
+''' (1) The offset is the difference between the caller's view of<para/>
+''' the index into the array and the actual array index.<para/>
+''' By default it is 0.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -832,10 +825,11 @@ End Function
 ' pixacompSetOffset()
 ' pixacompSetOffset(PIXAC *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The offset is the difference between the caller's view of
-''' the index into the array and the actual array index.
-''' By default it is 0.
+''' <para/>
+''' Notes:<para/>
+''' (1) The offset is the difference between the caller's view of<para/>
+''' the index into the array and the actual array index.<para/>
+''' By default it is 0.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -858,15 +852,16 @@ End Function
 ' pixaCreateFromPixacomp()
 ' pixaCreateFromPixacomp(PIXAC *, l_int32) as PIXA *
 '''  <summary>
-''' Notes
-''' (1) Because the pixa has no notion of offset, the offset must
-''' be set to 0 before the conversion, so that pixacompGetPix()
-''' fetches all the pixcomps.  It is reset at the end.
+''' <para/>
+''' Notes:<para/>
+''' (1) Because the pixa has no notion of offset, the offset must<para/>
+''' be set to 0 before the conversion, so that pixacompGetPix()<para/>
+''' fetches all the pixcomps.  It is reset at the end.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixac">[in] - </param>
-'''  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE; for boxa</param>
+'''  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE for boxa</param>
 '''   <returns>pixa if OK, or NULL on error</returns>
 Public Shared Function pixaCreateFromPixacomp(
 				ByVal pixac as PixaComp, 
@@ -885,18 +880,19 @@ End Function
 ' pixacompJoin()
 ' pixacompJoin(PIXAC *, PIXAC *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This appends a clone of each indicated pixc in pixcas to pixcad
-''' (2) istart LT 0 is taken to mean 'read from the start' (istart = 0)
-''' (3) iend LT 0 means 'read to the end'
-''' (4) If pixacs is NULL or contains no pixc, this is a no-op.
+''' <para/>
+''' Notes:<para/>
+''' (1) This appends a clone of each indicated pixc in pixcas to pixcad<para/>
+''' (2) istart  is lower  0 is taken to mean 'read from the start' (istart = 0)<para/>
+''' (3) iend  is lower  0 means 'read to the end'<para/>
+''' (4) If pixacs is NULL or contains no pixc, this is a no-op.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="pixacd">[in] - dest pixac; add to this one</param>
-'''  <param name="pixacs">[in][optional] - source pixac; add from this one</param>
+'''  <param name="pixacd">[in] - dest pixac add to this one</param>
+'''  <param name="pixacs">[in][optional] - source pixac add from this one</param>
 '''  <param name="istart">[in] - starting index in pixacs</param>
-'''  <param name="iend">[in] - ending index in pixacs; use -1 to cat all</param>
+'''  <param name="iend">[in] - ending index in pixacs use -1 to cat all</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixacompJoin(
 				ByVal pixacd as PixaComp, 
@@ -917,9 +913,10 @@ End Function
 ' pixacompInterleave()
 ' pixacompInterleave(PIXAC *, PIXAC *) as PIXAC *
 '''  <summary>
-''' Notes
-''' (1) If the two pixac have different sizes, a warning is issued,
-''' and the number of pairs returned is the minimum size.
+''' <para/>
+''' Notes:<para/>
+''' (1) If the two pixac have different sizes, a warning is issued,<para/>
+''' and the number of pairs returned is the minimum size.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -944,10 +941,11 @@ End Function
 ' pixacompRead()
 ' pixacompRead(const char *) as PIXAC *
 '''  <summary>
-''' Notes
-''' (1) Unlike the situation with serialized Pixa, where the image
-''' data is stored in png format, the Pixacomp image data
-''' can be stored in tiffg4, png and jpg formats.
+''' <para/>
+''' Notes:<para/>
+''' (1) Unlike the situation with serialized Pixa, where the image<para/>
+''' data is stored in png format, the Pixacomp image data<para/>
+''' can be stored in tiffg4, png and jpg formats.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -969,9 +967,6 @@ End Function
 ' SRC\pixcomp.c (1666, 1)
 ' pixacompReadStream()
 ' pixacompReadStream(FILE *) as PIXAC *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
@@ -992,12 +987,13 @@ End Function
 ' pixacompReadMem()
 ' pixacompReadMem(const l_uint8 *, size_t) as PIXAC *
 '''  <summary>
-''' Notes
-''' (1) Deseralizes a buffer of pixacomp data into a pixac in memory.
+''' <para/>
+''' Notes:<para/>
+''' (1) Deseralizes a buffer of pixacomp data into a pixac in memory.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="data">[in] - const; pixacomp format</param>
+'''  <param name="data">[in] - const pixacomp format</param>
 '''  <param name="size">[in] - of data</param>
 '''   <returns>pixac, or NULL on error</returns>
 Public Shared Function pixacompReadMem(
@@ -1017,10 +1013,11 @@ End Function
 ' pixacompWrite()
 ' pixacompWrite(const char *, PIXAC *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Unlike the situation with serialized Pixa, where the image
-''' data is stored in png format, the Pixacomp image data
-''' can be stored in tiffg4, png and jpg formats.
+''' <para/>
+''' Notes:<para/>
+''' (1) Unlike the situation with serialized Pixa, where the image<para/>
+''' data is stored in png format, the Pixacomp image data<para/>
+''' can be stored in tiffg4, png and jpg formats.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1044,9 +1041,6 @@ End Function
 ' SRC\pixcomp.c (1830, 1)
 ' pixacompWriteStream()
 ' pixacompWriteStream(FILE *, PIXAC *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
@@ -1069,8 +1063,9 @@ End Function
 ' pixacompWriteMem()
 ' pixacompWriteMem(l_uint8 **, size_t *, PIXAC *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Serializes a pixac in memory and puts the result in a buffer.
+''' <para/>
+''' Notes:<para/>
+''' (1) Serializes a pixac in memory and puts the result in a buffer.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1097,27 +1092,28 @@ End Function
 ' pixacompConvertToPdf()
 ' pixacompConvertToPdf(PIXAC *, l_int32, l_float32, l_int32, l_int32, const char *, const char *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This follows closely the function pixaConvertToPdf() in pdfio.c.
-''' (2) The images are encoded with G4 if 1 bpp; JPEG if 8 bpp without
-''' colormap and many colors, or 32 bpp; FLATE for anything else.
-''' (3) The scalefactor must be GT 0.0; otherwise it is set to 1.0.
-''' (4) Specifying one of the three encoding types for %type forces
-''' all images to be compressed with that type.  Use 0 to have
-''' the type determined for each image based on depth and whether
-''' or not it has a colormap.
-''' (5) If all images are jpeg compressed, don't require scaling
-''' and have the same resolution, it is much faster to skip
-''' transcoding with pixacompFastConvertToPdfData(), and then
-''' write the data out to file.
+''' <para/>
+''' Notes:<para/>
+''' (1) This follows closely the function pixaConvertToPdf() in pdfio.c.<para/>
+''' (2) The images are encoded with G4 if 1 bpp JPEG if 8 bpp without<para/>
+''' colormap and many colors, or 32 bpp FLATE for anything else.<para/>
+''' (3) The scalefactor must be  is greater  0.0 otherwise it is set to 1.0.<para/>
+''' (4) Specifying one of the three encoding types for %type forces<para/>
+''' all images to be compressed with that type.  Use 0 to have<para/>
+''' the type determined for each image based on depth and whether<para/>
+''' or not it has a colormap.<para/>
+''' (5) If all images are jpeg compressed, don't require scaling<para/>
+''' and have the same resolution, it is much faster to skip<para/>
+''' transcoding with pixacompFastConvertToPdfData(), and then<para/>
+''' write the data out to file.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixac">[in] - containing images all at the same resolution</param>
-'''  <param name="res">[in] - override the resolution of each input image, in ppi; use 0 to respect the resolution embedded in the input</param>
-'''  <param name="scalefactor">[in] - scaling factor applied to each image; GT 0.0</param>
+'''  <param name="res">[in] - override the resolution of each input image, in ppi use 0 to respect the resolution embedded in the input</param>
+'''  <param name="scalefactor">[in] - scaling factor applied to each image  is greater  0.0</param>
 '''  <param name="type">[in] - encoding type (L_JPEG_ENCODE, L_G4_ENCODE, L_FLATE_ENCODE, or L_DEFAULT_ENCODE for default</param>
-'''  <param name="quality">[in] - used for JPEG only; 0 for default (75)</param>
+'''  <param name="quality">[in] - used for JPEG only 0 for default (75)</param>
 '''  <param name="title">[in][optional] - pdf title</param>
 '''  <param name="fileout">[in] - pdf file of all images</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1144,16 +1140,17 @@ End Function
 ' pixacompConvertToPdfData()
 ' pixacompConvertToPdfData(PIXAC *, l_int32, l_float32, l_int32, l_int32, const char *, l_uint8 **, size_t *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) See pixacompConvertToPdf().
+''' <para/>
+''' Notes:<para/>
+''' (1) See pixacompConvertToPdf().<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixac">[in] - containing images all at the same resolution</param>
 '''  <param name="res">[in] - input resolution of all images</param>
-'''  <param name="scalefactor">[in] - scaling factor applied to each image; GT 0.0</param>
+'''  <param name="scalefactor">[in] - scaling factor applied to each image  is greater  0.0</param>
 '''  <param name="type">[in] - encoding type (L_JPEG_ENCODE, L_G4_ENCODE, L_FLATE_ENCODE, or L_DEFAULT_ENCODE for default</param>
-'''  <param name="quality">[in] - used for JPEG only; 0 for default (75)</param>
+'''  <param name="quality">[in] - used for JPEG only 0 for default (75)</param>
 '''  <param name="title">[in][optional] - pdf title</param>
 '''  <param name="pdata">[out] - output pdf data (of all images</param>
 '''  <param name="pnbytes">[out] - size of output pdf data</param>
@@ -1183,12 +1180,13 @@ End Function
 ' pixacompFastConvertToPdfData()
 ' pixacompFastConvertToPdfData(PIXAC *, const char *, l_uint8 **, size_t *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This generates the pdf without transcoding if all the
-''' images in %pixac are compressed with jpeg.
-''' Images not jpeg compressed are skipped.
-''' (2) It assumes all images have the same resolution, and that
-''' the resolution embedded in each jpeg file is correct.
+''' <para/>
+''' Notes:<para/>
+''' (1) This generates the pdf without transcoding if all the<para/>
+''' images in %pixac are compressed with jpeg.<para/>
+''' Images not jpeg compressed are skipped.<para/>
+''' (2) It assumes all images have the same resolution, and that<para/>
+''' the resolution embedded in each jpeg file is correct.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1216,14 +1214,11 @@ End Function
 ' SRC\pixcomp.c (2240, 1)
 ' pixacompWriteStreamInfo()
 ' pixacompWriteStreamInfo(FILE *, PIXAC *, const char *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pixac">[in] - </param>
-'''  <param name="text">[in][optional] - identifying string; can be null</param>
+'''  <param name="text">[in][optional] - identifying string can be null</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixacompWriteStreamInfo(
 				ByVal fp as FILE, 
@@ -1242,14 +1237,11 @@ End Function
 ' SRC\pixcomp.c (2284, 1)
 ' pixcompWriteStreamInfo()
 ' pixcompWriteStreamInfo(FILE *, PIXC *, const char *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pixc">[in] - </param>
-'''  <param name="text">[in][optional] - identifying string; can be null</param>
+'''  <param name="text">[in][optional] - identifying string can be null</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixcompWriteStreamInfo(
 				ByVal fp as FILE, 
@@ -1269,21 +1261,22 @@ End Function
 ' pixacompDisplayTiledAndScaled()
 ' pixacompDisplayTiledAndScaled(PIXAC *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This is the same function as pixaDisplayTiledAndScaled(),
-''' except it works on a Pixacomp instead of a Pix.  It is particularly
-''' useful for showing the images in a Pixacomp at reduced resolution.
-''' (2) See pixaDisplayTiledAndScaled() for details.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is the same function as pixaDisplayTiledAndScaled(),<para/>
+''' except it works on a Pixacomp instead of a Pix.  It is particularly<para/>
+''' useful for showing the images in a Pixacomp at reduced resolution.<para/>
+''' (2) See pixaDisplayTiledAndScaled() for details.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixac">[in] - </param>
-'''  <param name="outdepth">[in] - output depth 1, 8 or 32 bpp</param>
+'''  <param name="outdepth">[in] - output depth: 1, 8 or 32 bpp</param>
 '''  <param name="tilewidth">[in] - each pix is scaled to this width</param>
 '''  <param name="ncols">[in] - number of tiles in each row</param>
-'''  <param name="background">[in] - 0 for white, 1 for black; this is the color of the spacing between the images</param>
+'''  <param name="background">[in] - 0 for white, 1 for black this is the color of the spacing between the images</param>
 '''  <param name="spacing">[in] - between images, and on outside</param>
-'''  <param name="border">[in] - width of additional black border on each image; use 0 for no border</param>
+'''  <param name="border">[in] - width of additional black border on each image use 0 for no border</param>
 '''   <returns>pix of tiled images, or NULL on error</returns>
 Public Shared Function pixacompDisplayTiledAndScaled(
 				ByVal pixac as PixaComp, 
@@ -1306,9 +1299,6 @@ End Function
 ' SRC\pixcomp.c (2374, 1)
 ' pixacompWriteFiles()
 ' pixacompWriteFiles(PIXAC *, const char *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixac">[in] - </param>
@@ -1331,9 +1321,10 @@ End Function
 ' pixcompWriteFile()
 ' pixcompWriteFile(const char *, PIXC *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) The compressed data is written to file, and the filename is
-''' generated by appending the format extension to %rootname.
+''' <para/>
+''' Notes:<para/>
+''' (1) The compressed data is written to file, and the filename is<para/>
+''' generated by appending the format extension to %rootname.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

@@ -1,43 +1,44 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\regutils.c (119, 1)
 ' regTestSetup()
 ' regTestSetup(l_int32, char **, L_REGPARAMS **) as l_ok
 '''  <summary>
-''' Notes
-''' (1) Call this function with the args to the reg test.  The first arg
-''' is the name of the reg test.  There are three cases
-''' Case 1
-''' There is either only one arg, or the second arg is "compare".
-''' This is the mode in which you run a regression test
-''' (or a set of them), looking for failures and logging
-''' the results to a file.  The output, which includes
-''' logging of all reg test failures plus a SUCCESS or
-''' FAILURE summary for each test, is appended to the file
-''' "/tmp/lept/reg_results.txt.  For this case, as in Case 2,
-''' the display field in rp is set to FALSE, preventing
-''' image display.
-''' Case 2
-''' The second arg is "generate".  This will cause
-''' generation of new golden files for the reg test.
-''' The results of the reg test are not recorded, and
-''' the display field in rp is set to FALSE.
-''' Case 3
-''' The second arg is "display".  The test will run and
-''' files will be written.  Comparisons with golden files
-''' will not be carried out, so the only notion of success
-''' or failure is with tests that do not involve golden files.
-''' The display field in rp is TRUE, and this is used by
-''' pixDisplayWithTitle().
-''' (2) See regutils.h for examples of usage.
+''' <para/>
+''' Notes:<para/>
+''' (1) Call this function with the args to the reg test.  The first arg<para/>
+''' is the name of the reg test.  There are three cases:<para/>
+''' Case 1:<para/>
+''' There is either only one arg, or the second arg is "compare".<para/>
+''' This is the mode in which you run a regression test<para/>
+''' (or a set of them), looking for failures and logging<para/>
+''' the results to a file.  The output, which includes<para/>
+''' logging of all reg test failures plus a SUCCESS or<para/>
+''' FAILURE summary for each test, is appended to the file<para/>
+''' "/tmp/lept/reg_results.txt.  For this case, as in Case 2,<para/>
+''' the display field in rp is set to FALSE, preventing<para/>
+''' image display.<para/>
+''' Case 2:<para/>
+''' The second arg is "generate".  This will cause<para/>
+''' generation of new golden files for the reg test.<para/>
+''' The results of the reg test are not recorded, and<para/>
+''' the display field in rp is set to FALSE.<para/>
+''' Case 3:<para/>
+''' The second arg is "display".  The test will run and<para/>
+''' files will be written.  Comparisons with golden files<para/>
+''' will not be carried out, so the only notion of success<para/>
+''' or failure is with tests that do not involve golden files.<para/>
+''' The display field in rp is TRUE, and this is used by<para/>
+''' pixDisplayWithTitle().<para/>
+''' (2) See regutils.h for examples of usage.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <param name="argc">[in] - from invocation; can be either 1 or 2</param>
-'''  <param name="argv">[in] - to regtest %argv[1] is one of these "generate", "compare", "display"</param>
+'''  <param name="argc">[in] - from invocation can be either 1 or 2</param>
+'''  <param name="argv">[in] - to regtest: %argv[1] is one of these: "generate", "compare", "display"</param>
 '''  <param name="prp">[out] - all regression params</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function regTestSetup(
@@ -60,9 +61,10 @@ End Function
 ' regTestCleanup()
 ' regTestCleanup(L_REGPARAMS *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This copies anything written to the temporary file to the
-''' output file /tmp/lept/reg_results.txt.
+''' <para/>
+''' Notes:<para/>
+''' (1) This copies anything written to the temporary file to the<para/>
+''' output file /tmp/lept/reg_results.txt.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -82,9 +84,6 @@ End Function
 ' SRC\regutils.c (271, 1)
 ' regTestCompareValues()
 ' regTestCompareValues(L_REGPARAMS *, l_float32, l_float32, l_float32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="rp">[in] - regtest parameters</param>
@@ -112,9 +111,6 @@ End Function
 ' SRC\regutils.c (315, 1)
 ' regTestCompareStrings()
 ' regTestCompareStrings(L_REGPARAMS *, l_uint8 *, size_t, l_uint8 *, size_t) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="rp">[in] - regtest parameters</param>
@@ -144,9 +140,10 @@ End Function
 ' regTestComparePix()
 ' regTestComparePix(L_REGPARAMS *, PIX *, PIX *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This function compares two pix for equality.  On failure,
-''' this writes to stderr.
+''' <para/>
+''' Notes:<para/>
+''' (1) This function compares two pix for equality.  On failure,<para/>
+''' this writes to stderr.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -173,25 +170,26 @@ End Function
 ' regTestCompareSimilarPix()
 ' regTestCompareSimilarPix(L_REGPARAMS *, PIX *, PIX *, l_int32, l_float32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This function compares two pix for near equality.  On failure,
-''' this writes to stderr.
-''' (2) The pix are similar if the fraction of non-conforming pixels
-''' does not exceed %maxfract.  Pixels are non-conforming if
-''' the difference in pixel values equals or exceeds %mindiff.
-''' Typical values might be %mindiff = 15 and %maxfract = 0.01.
-''' (3) The input images must have the same size and depth.  The
-''' pixels for comparison are typically subsampled from the images.
-''' (4) Normally, use %printstats = 0.  In debugging mode, to see
-''' the relation between %mindiff and the minimum value of
-''' %maxfract for success, set this to 1.
+''' <para/>
+''' Notes:<para/>
+''' (1) This function compares two pix for near equality.  On failure,<para/>
+''' this writes to stderr.<para/>
+''' (2) The pix are similar if the fraction of non-conforming pixels<para/>
+''' does not exceed %maxfract.  Pixels are non-conforming if<para/>
+''' the difference in pixel values equals or exceeds %mindiff.<para/>
+''' Typical values might be %mindiff = 15 and %maxfract = 0.01.<para/>
+''' (3) The input images must have the same size and depth.  The<para/>
+''' pixels for comparison are typically subsampled from the images.<para/>
+''' (4) Normally, use %printstats = 0.  In debugging mode, to see<para/>
+''' the relation between %mindiff and the minimum value of<para/>
+''' %maxfract for success, set this to 1.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="pix1">[in] - to be tested for near equality</param>
 '''  <param name="pix2">[in] - to be tested for near equality</param>
-'''  <param name="mindiff">[in] - minimum pixel difference to be counted; GT 0</param>
+'''  <param name="mindiff">[in] - minimum pixel difference to be counted  is greater  0</param>
 '''  <param name="maxfract">[in] - maximum fraction of pixels allowed to have diff greater than or equal to mindiff</param>
 '''  <param name="printstats">[in] - use 1 to print normalized histogram to stderr</param>
 '''   <returns>0 if OK, 1 on error a failure in similarity comparison is not an error</returns>
@@ -218,18 +216,19 @@ End Function
 ' regTestCheckFile()
 ' regTestCheckFile(L_REGPARAMS *, const char *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This function does one of three things, depending on the mode
-''' "generate" makes a "golden" file as a copy %localname.
-''' "compare" compares %localname contents with the golden file
-''' "display" makes the %localname file but does no comparison
-''' (2) The canonical format of the golden filenames is
-''' /tmp/lept/golden/[root of main name]_golden.[index].
-''' [ext of localname]
-''' e.g.,
-''' /tmp/lept/golden/maze_golden.0.png
-''' It is important to add an extension to the local name, because
-''' the extension is added to the name of the golden file.
+''' <para/>
+''' Notes:<para/>
+''' (1) This function does one of three things, depending on the mode:<para/>
+''' "generate": makes a "golden" file as a copy %localname.<para/>
+''' "compare": compares %localname contents with the golden file<para/>
+''' "display": makes the %localname file but does no comparison<para/>
+''' (2) The canonical format of the golden filenames is:<para/>
+''' /tmp/lept/golden/[root of main name]_golden.[index].<para/>
+''' [ext of localname]<para/>
+''' e.g.,<para/>
+''' /tmp/lept/golden/maze_golden.0.png<para/>
+''' It is important to add an extension to the local name, because<para/>
+''' the extension is added to the name of the golden file.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -253,13 +252,14 @@ End Function
 ' regTestCompareFiles()
 ' regTestCompareFiles(L_REGPARAMS *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This only does something in "compare" mode.
-''' (2) The canonical format of the golden filenames is
-''' /tmp/lept/golden/[root of main name]_golden.[index].
-''' [ext of localname]
-''' e.g.,
-''' /tmp/lept/golden/maze_golden.0.png
+''' <para/>
+''' Notes:<para/>
+''' (1) This only does something in "compare" mode.<para/>
+''' (2) The canonical format of the golden filenames is:<para/>
+''' /tmp/lept/golden/[root of main name]_golden.[index].<para/>
+''' [ext of localname]<para/>
+''' e.g.,<para/>
+''' /tmp/lept/golden/maze_golden.0.png<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -284,20 +284,21 @@ End Function
 ' regTestWritePixAndCheck()
 ' regTestWritePixAndCheck(L_REGPARAMS *, PIX *, l_int32) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This function makes it easy to write the pix in a numbered
-''' sequence of files, and either to
-''' (a) write the golden file ("generate" arg to regression test)
-''' (b) make a local file and "compare" with the golden file
-''' (c) make a local file and "display" the results
-''' (2) The canonical format of the local filename is
-''' /tmp/lept/regout/[root of main name].[count].[format extension]
-''' e.g., for scale_reg,
-''' /tmp/lept/regout/scale.0.png
-''' The golden file name mirrors this in the usual way.
-''' (3) The check is done between the written files, which requires
-''' the files to be identical. The exception is for GIF, which
-''' only requires that all pixels in the decoded pix are identical.
+''' <para/>
+''' Notes:<para/>
+''' (1) This function makes it easy to write the pix in a numbered<para/>
+''' sequence of files, and either to:<para/>
+''' (a) write the golden file ("generate" arg to regression test)<para/>
+''' (b) make a local file and "compare" with the golden file<para/>
+''' (c) make a local file and "display" the results<para/>
+''' (2) The canonical format of the local filename is:<para/>
+''' /tmp/lept/regout/[root of main name].[count].[format extension]<para/>
+''' e.g., for scale_reg,<para/>
+''' /tmp/lept/regout/scale.0.png<para/>
+''' The golden file name mirrors this in the usual way.<para/>
+''' (3) The check is done between the written files, which requires<para/>
+''' the files to be identical. The exception is for GIF, which<para/>
+''' only requires that all pixels in the decoded pix are identical.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -323,30 +324,31 @@ End Function
 ' regTestWriteDataAndCheck()
 ' regTestWriteDataAndCheck(L_REGPARAMS *, void *, size_t, const char *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This function makes it easy to write data in a numbered
-''' sequence of files, and either to
-''' (a) write the golden file ("generate" arg to regression test)
-''' (b) make a local file and "compare" with the golden file
-''' (c) make a local file and "display" the results
-''' (2) The canonical format of the local filename is
-''' /tmp/lept/regout/[root of main name].[count].[ext]
-''' e.g., for the first boxaa in quadtree_reg,
-''' /tmp/lept/regout/quadtree.0.baa
-''' The golden file name mirrors this in the usual way.
-''' (3) The data can be anything.  It is most useful for serialized
-''' output of data, such as boxa, pta, etc.
-''' (4) The file extension is arbitrary.  It is included simply
-''' to make the content type obvious when examining written files.
-''' (5) The check is done between the written files, which requires
-''' the files to be identical.
+''' <para/>
+''' Notes:<para/>
+''' (1) This function makes it easy to write data in a numbered<para/>
+''' sequence of files, and either to:<para/>
+''' (a) write the golden file ("generate" arg to regression test)<para/>
+''' (b) make a local file and "compare" with the golden file<para/>
+''' (c) make a local file and "display" the results<para/>
+''' (2) The canonical format of the local filename is:<para/>
+''' /tmp/lept/regout/[root of main name].[count].[ext]<para/>
+''' e.g., for the first boxaa in quadtree_reg,<para/>
+''' /tmp/lept/regout/quadtree.0.baa<para/>
+''' The golden file name mirrors this in the usual way.<para/>
+''' (3) The data can be anything.  It is most useful for serialized<para/>
+''' output of data, such as boxa, pta, etc.<para/>
+''' (4) The file extension is arbitrary.  It is included simply<para/>
+''' to make the content type obvious when examining written files.<para/>
+''' (5) The check is done between the written files, which requires<para/>
+''' the files to be identical.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="data">[in] - to be written</param>
 '''  <param name="nbytes">[in] - of data to be written</param>
-'''  <param name="ext">[in] - filename extension (e.g. "ba", "pta")</param>
+'''  <param name="ext">[in] - filename extension (e.g.: "ba", "pta")</param>
 '''   <returns>0 if OK, 1 on error a failure in comparison is not an error</returns>
 Public Shared Function regTestWriteDataAndCheck(
 				ByVal rp as L_RegParams, 
@@ -369,20 +371,21 @@ End Function
 ' regTestGenLocalFilename()
 ' regTestGenLocalFilename(L_REGPARAMS *, l_int32, l_int32) as char *
 '''  <summary>
-''' Notes
-''' (1) This is used to get the name of a file in the regout
-''' subdirectory, that has been made and is used to test against
-''' the golden file.  You can either specify a particular index
-''' value, or with %index == -1, this returns the most recently
-''' written file.  The latter case lets you read a pix from a
-''' file that has just been written with regTestWritePixAndCheck(),
-''' which is useful for testing formatted read/write functions.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is used to get the name of a file in the regout<para/>
+''' subdirectory, that has been made and is used to test against<para/>
+''' the golden file.  You can either specify a particular index<para/>
+''' value, or with %index == -1, this returns the most recently<para/>
+''' written file.  The latter case lets you read a pix from a<para/>
+''' file that has just been written with regTestWritePixAndCheck(),<para/>
+''' which is useful for testing formatted read/write functions.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="index">[in] - use -1 for current index</param>
-'''  <param name="format">[in] - of image; e.g., IFF_PNG</param>
+'''  <param name="format">[in] - of image e.g., IFF_PNG</param>
 '''   <returns>filename if OK, or NULL on error</returns>
 Public Shared Function regTestGenLocalFilename(
 				ByVal rp as L_RegParams, 

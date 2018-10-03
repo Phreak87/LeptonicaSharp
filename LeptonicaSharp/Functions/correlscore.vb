@@ -1,54 +1,55 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\correlscore.c (125, 1)
 ' pixCorrelationScore()
 ' pixCorrelationScore(PIX *, PIX *, l_int32, l_int32, l_float32, l_float32, l_int32, l_int32, l_int32 *, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' We check first that the two pix are roughly the same size.
-''' For jbclass (jbig2) applications at roughly 300 ppi, maxdiffw and
-''' maxdiffh should be at least 2.
-''' Only if they meet that criterion do we compare the bitmaps.
-''' The centroid difference is used to align the two images to the
-''' nearest integer for the correlation.
-''' The correlation score is the ratio of the square of the number of
-''' pixels in the AND of the two bitmaps to the product of the number
-''' of ON pixels in each.  Denote the number of ON pixels in pix1
-''' by |1|, the number in pix2 by |2|, and the number in the AND
-''' of pix1 and pix2 by |1  2|.  The correlation score is then
-''' (|1  2|)2 / (|1||2|).
-''' This score is compared with an input threshold, which can
-''' be modified depending on the weight of the template.
-''' The modified threshold is
-''' thresh + (1.0 - thresh)  weight  R
-''' where
-''' weight is a fixed input factor between 0.0 and 1.0
-''' R = |2| / area(2)
-''' and area(2) is the total number of pixels in 2 (i.e., width x height).
-''' To understand why a weight factor is useful, consider what happens
-''' with thick, sans-serif characters that look similar and have a value
-''' of R near 1.  Different characters can have a high correlation value,
-''' and the classifier will make incorrect substitutions.  The weight
-''' factor raises the threshold for these characters.
-''' Yet another approach to reduce such substitutions is to run the classifier
-''' in a non-greedy way, matching to the template with the highest
-''' score, not the first template with a score satisfying the matching
-''' constraint.  However, this is not particularly effective.
-''' The implementation here gives the same result as in
-''' pixCorrelationScoreSimple(), where a temporary Pix is made to hold
-''' the AND and implementation uses rasterop
-''' pixt = pixCreateTemplate(pix1);
-''' pixRasterop(pixt, idelx, idely, wt, ht, PIX_SRC, pix2, 0, 0);
-''' pixRasterop(pixt, 0, 0, wi, hi, PIX_SRC  PIX_DST, pix1, 0, 0);
-''' pixCountPixels(pixt, count, tab);
-''' pixDestroy(pixt);
-''' However, here it is done in a streaming fashion, counting as it goes,
-''' and touching memory exactly once, giving a 3-4x speedup over the
-''' simple implementation.  This very fast correlation matcher was
-''' contributed by William Rucklidge.
+''' <para/>
+''' Notes:<para/>
+''' We check first that the two pix are roughly the same size.<para/>
+''' For jbclass (jbig2) applications at roughly 300 ppi, maxdiffw and<para/>
+''' maxdiffh should be at least 2.<para/>
+''' Only if they meet that criterion do we compare the bitmaps.<para/>
+''' The centroid difference is used to align the two images to the<para/>
+''' nearest integer for the correlation.<para/>
+''' The correlation score is the ratio of the square of the number of<para/>
+''' pixels in the AND of the two bitmaps to the product of the number<para/>
+''' of ON pixels in each.  Denote the number of ON pixels in pix1<para/>
+''' by |1|, the number in pix2 by |2|, and the number in the AND<para/>
+''' of pix1 and pix2 by |1  and  2|.  The correlation score is then<para/>
+''' (|1  and  2|)2 / (|1||2|).<para/>
+''' This score is compared with an input threshold, which can<para/>
+''' be modified depending on the weight of the template.<para/>
+''' The modified threshold is<para/>
+''' thresh + (1.0 - thresh)  weight  R<para/>
+''' where<para/>
+''' weight is a fixed input factor between 0.0 and 1.0<para/>
+''' R = |2| / area(2)<para/>
+''' and area(2) is the total number of pixels in 2 (i.e., width x height).<para/>
+''' To understand why a weight factor is useful, consider what happens<para/>
+''' with thick, sans-serif characters that look similar and have a value<para/>
+''' of R near 1.  Different characters can have a high correlation value,<para/>
+''' and the classifier will make incorrect substitutions.  The weight<para/>
+''' factor raises the threshold for these characters.<para/>
+''' Yet another approach to reduce such substitutions is to run the classifier<para/>
+''' in a non-greedy way, matching to the template with the highest<para/>
+''' score, not the first template with a score satisfying the matching<para/>
+''' constraint.  However, this is not particularly effective.<para/>
+''' The implementation here gives the same result as in<para/>
+''' pixCorrelationScoreSimple(), where a temporary Pix is made to hold<para/>
+''' the AND and implementation uses rasterop:<para/>
+''' pixt = pixCreateTemplate(pix1)<para/>
+''' pixRasterop(pixt, idelx, idely, wt, ht, PIX_SRC, pix2, 0, 0)<para/>
+''' pixRasterop(pixt, 0, 0, wi, hi, PIX_SRC  and  PIX_DST, pix1, 0, 0)<para/>
+''' pixCountPixels(pixt,  and count, tab)<para/>
+''' pixDestroy( and pixt)<para/>
+''' However, here it is done in a streaming fashion, counting as it goes,<para/>
+''' and touching memory exactly once, giving a 3-4x speedup over the<para/>
+''' simple implementation.  This very fast correlation matcher was<para/>
+''' contributed by William Rucklidge.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -91,35 +92,36 @@ End Function
 ' pixCorrelationScoreThresholded()
 ' pixCorrelationScoreThresholded(PIX *, PIX *, l_int32, l_int32, l_float32, l_float32, l_int32, l_int32, l_int32 *, l_int32 *, l_float32) as l_int32
 '''  <summary>
-''' Notes
-''' We check first that the two pix are roughly the same size.
-''' Only if they meet that criterion do we compare the bitmaps.
-''' The centroid difference is used to align the two images to the
-''' nearest integer for the correlation.
-''' The correlation score is the ratio of the square of the number of
-''' pixels in the AND of the two bitmaps to the product of the number
-''' of ON pixels in each.  Denote the number of ON pixels in pix1
-''' by |1|, the number in pix2 by |2|, and the number in the AND
-''' of pix1 and pix2 by |1  2|.  The correlation score is then
-''' (|1  2|)2 / (|1||2|).
-''' This score is compared with an input threshold, which can
-''' be modified depending on the weight of the template.
-''' The modified threshold is
-''' thresh + (1.0 - thresh)  weight  R
-''' where
-''' weight is a fixed input factor between 0.0 and 1.0
-''' R = |2| / area(2)
-''' and area(2) is the total number of pixels in 2 (i.e., width x height).
-''' To understand why a weight factor is useful, consider what happens
-''' with thick, sans-serif characters that look similar and have a value
-''' of R near 1.  Different characters can have a high correlation value,
-''' and the classifier will make incorrect substitutions.  The weight
-''' factor raises the threshold for these characters.
-''' Yet another approach to reduce such substitutions is to run the classifier
-''' in a non-greedy way, matching to the template with the highest
-''' score, not the first template with a score satisfying the matching
-''' constraint.  However, this is not particularly effective.
-''' This very fast correlation matcher was contributed by William Rucklidge.
+''' <para/>
+''' Notes:<para/>
+''' We check first that the two pix are roughly the same size.<para/>
+''' Only if they meet that criterion do we compare the bitmaps.<para/>
+''' The centroid difference is used to align the two images to the<para/>
+''' nearest integer for the correlation.<para/>
+''' The correlation score is the ratio of the square of the number of<para/>
+''' pixels in the AND of the two bitmaps to the product of the number<para/>
+''' of ON pixels in each.  Denote the number of ON pixels in pix1<para/>
+''' by |1|, the number in pix2 by |2|, and the number in the AND<para/>
+''' of pix1 and pix2 by |1  and  2|.  The correlation score is then<para/>
+''' (|1  and  2|)2 / (|1||2|).<para/>
+''' This score is compared with an input threshold, which can<para/>
+''' be modified depending on the weight of the template.<para/>
+''' The modified threshold is<para/>
+''' thresh + (1.0 - thresh)  weight  R<para/>
+''' where<para/>
+''' weight is a fixed input factor between 0.0 and 1.0<para/>
+''' R = |2| / area(2)<para/>
+''' and area(2) is the total number of pixels in 2 (i.e., width x height).<para/>
+''' To understand why a weight factor is useful, consider what happens<para/>
+''' with thick, sans-serif characters that look similar and have a value<para/>
+''' of R near 1.  Different characters can have a high correlation value,<para/>
+''' and the classifier will make incorrect substitutions.  The weight<para/>
+''' factor raises the threshold for these characters.<para/>
+''' Yet another approach to reduce such substitutions is to run the classifier<para/>
+''' in a non-greedy way, matching to the template with the highest<para/>
+''' score, not the first template with a score satisfying the matching<para/>
+''' constraint.  However, this is not particularly effective.<para/>
+''' This very fast correlation matcher was contributed by William Rucklidge.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -134,7 +136,7 @@ End Function
 '''  <param name="tab">[in] - sum tab for byte</param>
 '''  <param name="downcount">[in] - count of 1 pixels below each row of pix1</param>
 '''  <param name="score_threshold">[in] - </param>
-'''   <returns>whether the correlation score is GT= score_threshold</returns>
+'''   <returns>whether the correlation score is  is greater = score_threshold</returns>
 Public Shared Function pixCorrelationScoreThresholded(
 				ByVal pix1 as Pix, 
 				ByVal pix2 as Pix, 
@@ -166,11 +168,12 @@ End Function
 ' pixCorrelationScoreSimple()
 ' pixCorrelationScoreSimple(PIX *, PIX *, l_int32, l_int32, l_float32, l_float32, l_int32, l_int32, l_int32 *, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This calculates exactly the same value as pixCorrelationScore().
-''' It is 2-3x slower, but much simpler to understand.
-''' (2) The returned correlation score is 0.0 if the width or height
-''' exceed %maxdiffw or %maxdiffh.
+''' <para/>
+''' Notes:<para/>
+''' (1) This calculates exactly the same value as pixCorrelationScore().<para/>
+''' It is 2-3x slower, but much simpler to understand.<para/>
+''' (2) The returned correlation score is 0.0 if the width or height<para/>
+''' exceed %maxdiffw or %maxdiffh.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -213,23 +216,24 @@ End Function
 ' pixCorrelationScoreShifted()
 ' pixCorrelationScoreShifted(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_int32 *, l_float32 *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This finds the correlation between two 1 bpp images,
-''' when pix2 is shifted by (delx, dely) with respect
-''' to each other.
-''' (2) This is implemented by starting with a copy of pix1 and
-''' ANDing its pixels with those of a shifted pix2.
-''' (3) Get the pixel counts for area1 and area2 using piCountPixels().
-''' (4) A good estimate for a shift that would maximize the correlation
-''' is to align the centroids (cx1, cy1; cx2, cy2), giving the
-''' relative translations etransx and etransy
-''' etransx = cx1 - cx2
-''' etransy = cy1 - cy2
-''' Typically delx is chosen to be near etransx; ditto for dely.
-''' This function is used in pixBestCorrelation(), where the
-''' translations delx and dely are varied to find the best alignment.
-''' (5) We do not check the sizes of pix1 and pix2, because they should
-''' be comparable.
+''' <para/>
+''' Notes:<para/>
+''' (1) This finds the correlation between two 1 bpp images,<para/>
+''' when pix2 is shifted by (delx, dely) with respect<para/>
+''' to each other.<para/>
+''' (2) This is implemented by starting with a copy of pix1 and<para/>
+''' ANDing its pixels with those of a shifted pix2.<para/>
+''' (3) Get the pixel counts for area1 and area2 using piCountPixels().<para/>
+''' (4) A good estimate for a shift that would maximize the correlation<para/>
+''' is to align the centroids (cx1, cy1 cx2, cy2), giving the<para/>
+''' relative translations etransx and etransy:<para/>
+''' etransx = cx1 - cx2<para/>
+''' etransy = cy1 - cy2<para/>
+''' Typically delx is chosen to be near etransx ditto for dely.<para/>
+''' This function is used in pixBestCorrelation(), where the<para/>
+''' translations delx and dely are varied to find the best alignment.<para/>
+''' (5) We do not check the sizes of pix1 and pix2, because they should<para/>
+''' be comparable.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

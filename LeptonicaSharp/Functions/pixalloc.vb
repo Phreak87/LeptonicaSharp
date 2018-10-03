@@ -1,34 +1,35 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\pixalloc.c (168, 1)
 ' pmsCreate()
 ' pmsCreate(size_t, size_t, NUMA *, const char *) as l_ok
 '''  <summary>
-''' Notes
-''' (1) This computes the size of the block of memory required
-''' and allocates it.  Each chunk starts on a 32-bit word boundary.
-''' The chunk sizes are in powers of 2, starting at %smallest,
-''' and the number of levels and chunks at each level is
-''' specified by %numalloc.
-''' (2) This is intended to manage the image data for a small number
-''' of relatively large pix.  The system malloc is expected to
-''' handle very large numbers of small chunks efficiently.
-''' (3) Important set the allocators and call this function
-''' before any pix have been allocated.  Destroy all the pix
-''' in the normal way before calling pmsDestroy().
-''' (4) The pms struct is stored in a static global, so this function
-''' is not thread-safe.  When used, there must be only one thread
-''' per process.
+''' <para/>
+''' Notes:<para/>
+''' (1) This computes the size of the block of memory required<para/>
+''' and allocates it.  Each chunk starts on a 32-bit word boundary.<para/>
+''' The chunk sizes are in powers of 2, starting at %smallest,<para/>
+''' and the number of levels and chunks at each level is<para/>
+''' specified by %numalloc.<para/>
+''' (2) This is intended to manage the image data for a small number<para/>
+''' of relatively large pix.  The system malloc is expected to<para/>
+''' handle very large numbers of small chunks efficiently.<para/>
+''' (3) Important: set the allocators and call this function<para/>
+''' before any pix have been allocated.  Destroy all the pix<para/>
+''' in the normal way before calling pmsDestroy().<para/>
+''' (4) The pms struct is stored in a static global, so this function<para/>
+''' is not thread-safe.  When used, there must be only one thread<para/>
+''' per process.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="minsize">[in] - of data chunk that can be supplied by pms</param>
 '''  <param name="smallest">[in] - bytes of the smallest pre-allocated data chunk.</param>
 '''  <param name="numalloc">[in] - array with the number of data chunks for each size that are in the memory store</param>
-'''  <param name="logfile">[in] - use for debugging; null otherwise</param>
+'''  <param name="logfile">[in] - use for debugging null otherwise</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pmsCreate(
 				ByVal minsize as UInteger, 
@@ -49,9 +50,10 @@ End Function
 ' pmsDestroy()
 ' pmsDestroy() as void
 '''  <summary>
-''' Notes
-''' (1) Important call this function at the end of the program, after
-''' the last pix has been destroyed.
+''' <para/>
+''' Notes:<para/>
+''' (1) Important: call this function at the end of the program, after<para/>
+''' the last pix has been destroyed.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -67,12 +69,13 @@ End Sub
 ' pmsCustomAlloc()
 ' pmsCustomAlloc(size_t) as void *
 '''  <summary>
-''' Notes
-''' (1) This attempts to find a suitable pre-allocated chunk.
-''' If not found, it dynamically allocates the chunk.
-''' (2) If logging is turned on, the allocations that are not taken
-''' from the memory store, and are at least as large as the
-''' minimum size the store can handle, are logged to file.
+''' <para/>
+''' Notes:<para/>
+''' (1) This attempts to find a suitable pre-allocated chunk.<para/>
+''' If not found, it dynamically allocates the chunk.<para/>
+''' (2) If logging is turned on, the allocations that are not taken<para/>
+''' from the memory store, and are at least as large as the<para/>
+''' minimum size the store can handle, are logged to file.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -91,9 +94,6 @@ End Function
 ' SRC\pixalloc.c (355, 1)
 ' pmsCustomDealloc()
 ' pmsCustomDealloc(void *) as void
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="data">[in] - to be freed or returned to the storage</param>
@@ -112,16 +112,17 @@ End Sub
 ' pmsGetAlloc()
 ' pmsGetAlloc(size_t) as void *
 '''  <summary>
-''' Notes
-''' (1) This is called when a request for pix data cannot be
-''' obtained from the preallocated memory store.  After use it
-''' is freed like normal memory.
-''' (2) If logging is on, only write out allocs that are as large as
-''' the minimum size handled by the memory store.
-''' (3) size_t is %lu on 64 bit platforms and %u on 32 bit platforms.
-''' The C99 platform-independent format specifier for size_t is %zu,
-''' but windows hasn't conformed, so we are forced to go back to
-''' C89, use %lu, and cast to get platform-independence.  Ugh.
+''' <para/>
+''' Notes:<para/>
+''' (1) This is called when a request for pix data cannot be<para/>
+''' obtained from the preallocated memory store.  After use it<para/>
+''' is freed like normal memory.<para/>
+''' (2) If logging is on, only write out allocs that are as large as<para/>
+''' the minimum size handled by the memory store.<para/>
+''' (3) size_t is %lu on 64 bit platforms and %u on 32 bit platforms.<para/>
+''' The C99 platform-independent format specifier for size_t is %zu,<para/>
+''' but windows hasn't conformed, so we are forced to go back to<para/>
+''' C89, use %lu, and cast to get platform-independence.  Ugh.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -140,9 +141,6 @@ End Function
 ' SRC\pixalloc.c (437, 1)
 ' pmsGetLevelForAlloc()
 ' pmsGetLevelForAlloc(size_t, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="nbytes">[in] - min number of bytes in the chunk to be retrieved</param>
@@ -162,13 +160,10 @@ End Function
 ' SRC\pixalloc.c (476, 1)
 ' pmsGetLevelForDealloc()
 ' pmsGetLevelForDealloc(void *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="data">[in] - ptr to memory chunk</param>
-'''  <param name="plevel">[out] - level in memory store; -1 if allocated outside the store</param>
+'''  <param name="plevel">[out] - level in memory store -1 if allocated outside the store</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pmsGetLevelForDealloc(
 				ByVal data as Object, 
@@ -186,9 +181,6 @@ End Function
 ' SRC\pixalloc.c (511, 1)
 ' pmsLogInfo()
 ' pmsLogInfo() as void
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 Public Shared Sub pmsLogInfo()

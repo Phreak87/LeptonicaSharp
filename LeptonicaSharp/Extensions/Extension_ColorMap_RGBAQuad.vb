@@ -13,9 +13,8 @@ Partial Public Class PixColormap
         Get
             If IsNothing(Values) Then Return Nothing
             Dim QList As New List(Of RGBA_Quad)
-            For i As Integer = 0 To Array_Bytes.Count - 1 Step 4
-                Dim B(3) As Byte : System.Array.Copy(Array_Bytes, i, B, 0, B.Length)
-                QList.Add(New RGBA_Quad(B(1), B(2), B(3), B(0)))
+            For i As Integer = 0 To n - 1
+                QList.Add(New RGBA_Quad(Values.array + (4 * i)))
             Next
             Return QList.ToArray
         End Get

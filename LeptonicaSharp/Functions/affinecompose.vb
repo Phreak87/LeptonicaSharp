@@ -1,25 +1,26 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\affinecompose.c (90, 1)
 ' createMatrix2dTranslate()
 ' createMatrix2dTranslate(l_float32, l_float32) as l_float32 *
 '''  <summary>
-''' Notes
-''' (1) The translation is equivalent to
-''' v' = Av
-''' where v and v' are 1x3 column vectors in the form
-''' v = [x, y, 1]^ ^ denotes transpose
-''' and the affine translation matrix is
-''' A = [ 1   0   tx
-''' 0   1   ty
-''' 0   0 1  ]
-''' (2) We consider translation as with respect to a fixed origin.
-''' In a clipping operation, the origin moves and the points
-''' are fixed, and you use (-tx, -ty) where (tx, ty) is the
-''' translation vector of the origin.
+''' <para/>
+''' Notes:<para/>
+''' (1) The translation is equivalent to:<para/>
+''' v' = Av<para/>
+''' where v and v' are 1x3 column vectors in the form<para/>
+''' v = [x, y, 1]^  ^ denotes transpose<para/>
+''' and the affine translation matrix is<para/>
+''' A = [ 1 0 tx<para/>
+''' 0 1 ty<para/>
+''' 0 0  1  ]<para/>
+''' (2) We consider translation as with respect to a fixed origin.<para/>
+''' In a clipping operation, the origin moves and the points<para/>
+''' are fixed, and you use (-tx, -ty) where (tx, ty) is the<para/>
+''' translation vector of the origin.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -43,18 +44,19 @@ End Function
 ' createMatrix2dScale()
 ' createMatrix2dScale(l_float32, l_float32) as l_float32 *
 '''  <summary>
-''' Notes
-''' (1) The scaling is equivalent to
-''' v' = Av
-''' where v and v' are 1x3 column vectors in the form
-''' v = [x, y, 1]^ ^ denotes transpose
-''' and the affine scaling matrix is
-''' A = [ sx  0 0
-''' 0   sy   0
-''' 0   0 1  ]
-''' (2) We consider scaling as with respect to a fixed origin.
-''' In other words, the origin is the only point that doesn't
-''' move in the scaling transform.
+''' <para/>
+''' Notes:<para/>
+''' (1) The scaling is equivalent to:<para/>
+''' v' = Av<para/>
+''' where v and v' are 1x3 column vectors in the form<para/>
+''' v = [x, y, 1]^  ^ denotes transpose<para/>
+''' and the affine scaling matrix is<para/>
+''' A = [ sx  0  0<para/>
+''' 0 sy 0<para/>
+''' 0 0  1  ]<para/>
+''' (2) We consider scaling as with respect to a fixed origin.<para/>
+''' In other words, the origin is the only point that doesn't<para/>
+''' move in the scaling transform.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -76,34 +78,35 @@ End Function
 ' createMatrix2dRotate()
 ' createMatrix2dRotate(l_float32, l_float32, l_float32) as l_float32 *
 '''  <summary>
-''' Notes
-''' (1) The rotation is equivalent to
-''' v' = Av
-''' where v and v' are 1x3 column vectors in the form
-''' v = [x, y, 1]^ ^ denotes transpose
-''' and the affine rotation matrix is
-''' A = [ cosa   -sina xc1-cosa + ycsina
-''' sina cosa yc1-cosa - xcsina
-''' 0 0  1   ]
-''' If the rotation is about the origin, xc, yc) = (0, 0 and
-''' this simplifies to
-''' A = [ cosa   -sina 0
-''' sina cosa 0
-''' 0 0  1 ]
-''' These relations follow from the following equations, which
-''' you can convince yourself are correct as follows.  Draw a
-''' circle centered on xc,yc) and passing through (x,y), with
-''' (x',y') on the arc at an angle 'a' clockwise from (x,y).
-''' [ Hint cosa + b = cosa  cosb - sina  sinb
-''' sina + b = sina  cosb + cosa  sinb ]
-''' x' - xc =  x - xc)  cosa - (y - yc  sina
-''' y' - yc =  x - xc)  sina + (y - yc  cosa
+''' <para/>
+''' Notes:<para/>
+''' (1) The rotation is equivalent to:<para/>
+''' v' = Av<para/>
+''' where v and v' are 1x3 column vectors in the form<para/>
+''' v = [x, y, 1]^  ^ denotes transpose<para/>
+''' and the affine rotation matrix is<para/>
+''' A = [ cosa -sina  xc1-cosa + ycsina<para/>
+''' sina  cosa  yc1-cosa - xcsina<para/>
+''' 0 0   1 ]<para/>
+''' If the rotation is about the origin, xc, yc) = (0, 0 and<para/>
+''' this simplifies to<para/>
+''' A = [ cosa -sina  0<para/>
+''' sina  cosa  0<para/>
+''' 0 0 1 ]<para/>
+''' These relations follow from the following equations, which<para/>
+''' you can convince yourself are correct as follows.  Draw a<para/>
+''' circle centered on xc,yc) and passing through (x,y), with<para/>
+''' (x',y') on the arc at an angle 'a' clockwise from (x,y).<para/>
+''' [ Hint: cosa + b = cosa  cosb - sina  sinb<para/>
+''' sina + b = sina  cosb + cosa  sinb ]<para/>
+''' x' - xc =  x - xc)  cosa - (y - yc  sina<para/>
+''' y' - yc =  x - xc)  sina + (y - yc  cosa<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="xc">[in] - location of center of rotation</param>
 '''  <param name="yc">[in] - location of center of rotation</param>
-'''  <param name="angle">[in] - rotation in radians; clockwise is positive</param>
+'''  <param name="angle">[in] - rotation in radians clockwise is positive</param>
 '''   <returns>3x3 transform matrix, or NULL on error</returns>
 Public Shared Function createMatrix2dRotate(
 				ByVal xc as Single, 
@@ -124,8 +127,9 @@ End Function
 ' ptaTranslate()
 ' ptaTranslate(PTA *, l_float32, l_float32) as PTA *
 '''  <summary>
-''' Notes
-''' (1) See createMatrix2dTranslate() for details of transform.
+''' <para/>
+''' Notes:<para/>
+''' (1) See createMatrix2dTranslate() for details of transform.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -153,15 +157,16 @@ End Function
 ' ptaScale()
 ' ptaScale(PTA *, l_float32, l_float32) as PTA *
 '''  <summary>
-''' Notes
-''' (1) See createMatrix2dScale() for details of transform.
+''' <para/>
+''' Notes:<para/>
+''' (1) See createMatrix2dScale() for details of transform.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="ptas">[in] - for initial points</param>
 '''  <param name="scalex">[in] - horizontal scale factor</param>
 '''  <param name="scaley">[in] - vertical scale factor</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaScale(
 				ByVal ptas as Pta, 
 				ByVal scalex as Single, 
@@ -180,28 +185,29 @@ End Function
 ' ptaRotate()
 ' ptaRotate(PTA *, l_float32, l_float32, l_float32) as PTA *
 '''  <summary>
-''' Notes;
-''' (1) See createMatrix2dScale() for details of transform.
-''' (2) This transform can be thought of as composed of the
-''' sum of two parts
-''' a) an (x,y)-dependent rotation about the origin
-''' xr = x  cosa - y  sina
-''' yr = x  sina + y  cosa
-''' b) an (x,y)-independent translation that depends on the
-''' rotation center and the angle
-''' xt = xc - xc  cosa + yc  sina
-''' yt = yc - xc  sina - yc  cosa
-''' The translation part (xt,yt) is equal to the difference
-''' between the center (xc,yc) and the location of the
-''' center after it is rotated about the origin.
+''' <para/>
+''' Notes<para/>
+''' (1) See createMatrix2dScale() for details of transform.<para/>
+''' (2) This transform can be thought of as composed of the<para/>
+''' sum of two parts:<para/>
+''' a) an (x,y)-dependent rotation about the origin:<para/>
+''' xr = x  cosa - y  sina<para/>
+''' yr = x  sina + y  cosa<para/>
+''' b) an (x,y)-independent translation that depends on the<para/>
+''' rotation center and the angle:<para/>
+''' xt = xc - xc  cosa + yc  sina<para/>
+''' yt = yc - xc  sina - yc  cosa<para/>
+''' The translation part (xt,yt) is equal to the difference<para/>
+''' between the center (xc,yc) and the location of the<para/>
+''' center after it is rotated about the origin.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="ptas">[in] - for initial points</param>
 '''  <param name="xc">[in] - location of center of rotation</param>
 '''  <param name="yc">[in] - location of center of rotation</param>
-'''  <param name="angle">[in] - rotation in radians; clockwise is positive</param>
-'''   <returns>0 if OK; 1 on error</returns>
+'''  <param name="angle">[in] - rotation in radians clockwise is positive</param>
+'''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaRotate(
 				ByVal ptas as Pta, 
 				ByVal xc as Single, 
@@ -223,15 +229,12 @@ End Function
 ' SRC\affinecompose.c (358, 1)
 ' boxaTranslate()
 ' boxaTranslate(BOXA *, l_float32, l_float32) as BOXA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="transx">[in] - x component of translation wrt. the origin</param>
 '''  <param name="transy">[in] - y component of translation wrt. the origin</param>
-'''   <returns>boxad  translated boxas, or NULL on error Notes (1) See createMatrix2dTranslate() for details of transform.</returns>
+'''   <returns>boxad  translated boxas, or NULL on error Notes: (1) See createMatrix2dTranslate() for details of transform.</returns>
 Public Shared Function boxaTranslate(
 				ByVal boxas as Boxa, 
 				ByVal transx as Single, 
@@ -251,15 +254,12 @@ End Function
 ' SRC\affinecompose.c (391, 1)
 ' boxaScale()
 ' boxaScale(BOXA *, l_float32, l_float32) as BOXA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="scalex">[in] - horizontal scale factor</param>
 '''  <param name="scaley">[in] - vertical scale factor</param>
-'''   <returns>boxad  scaled boxas, or NULL on error Notes (1) See createMatrix2dScale() for details of transform.</returns>
+'''   <returns>boxad  scaled boxas, or NULL on error Notes: (1) See createMatrix2dScale() for details of transform.</returns>
 Public Shared Function boxaScale(
 				ByVal boxas as Boxa, 
 				ByVal scalex as Single, 
@@ -277,16 +277,13 @@ End Function
 ' SRC\affinecompose.c (424, 1)
 ' boxaRotate()
 ' boxaRotate(BOXA *, l_float32, l_float32, l_float32) as BOXA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="xc">[in] - location of center of rotation</param>
 '''  <param name="yc">[in] - location of center of rotation</param>
-'''  <param name="angle">[in] - rotation in radians; clockwise is positive</param>
-'''   <returns>boxad  scaled boxas, or NULL on error Notes (1) See createMatrix2dRotate() for details of transform.</returns>
+'''  <param name="angle">[in] - rotation in radians clockwise is positive</param>
+'''   <returns>boxad  scaled boxas, or NULL on error Notes: (1) See createMatrix2dRotate() for details of transform.</returns>
 Public Shared Function boxaRotate(
 				ByVal boxas as Boxa, 
 				ByVal xc as Single, 
@@ -308,13 +305,10 @@ End Function
 ' SRC\affinecompose.c (457, 1)
 ' ptaAffineTransform()
 ' ptaAffineTransform(PTA *, l_float32 *) as PTA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="ptas">[in] - for initial points</param>
-'''  <param name="mat">[in] - 3x3 transform matrix; canonical form</param>
+'''  <param name="mat">[in] - 3x3 transform matrix canonical form</param>
 '''   <returns>ptad  transformed points, or NULL on error</returns>
 Public Shared Function ptaAffineTransform(
 				ByVal ptas as Pta, 
@@ -333,13 +327,10 @@ End Function
 ' SRC\affinecompose.c (493, 1)
 ' boxaAffineTransform()
 ' boxaAffineTransform(BOXA *, l_float32 *) as BOXA *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="boxas">[in] - </param>
-'''  <param name="mat">[in] - 3x3 transform matrix; canonical form</param>
+'''  <param name="mat">[in] - 3x3 transform matrix canonical form</param>
 '''   <returns>boxad  transformed boxas, or NULL on error</returns>
 Public Shared Function boxaAffineTransform(
 				ByVal boxas as Boxa, 
@@ -358,15 +349,12 @@ End Function
 ' SRC\affinecompose.c (528, 1)
 ' l_productMatVec()
 ' l_productMatVec(l_float32 *, l_float32 *, l_float32 *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="mat">[in] - square matrix, as a 1-dimensional %size^2 array</param>
 '''  <param name="vecs">[in] - input column vector of length %size</param>
 '''  <param name="vecd">[in] - result column vector</param>
-'''  <param name="size">[in] - matrix is %size x %size; vectors are length %size</param>
+'''  <param name="size">[in] - matrix is %size x %size vectors are length %size</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function l_productMatVec(
 				ByVal mat as Single(), 
@@ -387,14 +375,11 @@ End Function
 ' SRC\affinecompose.c (564, 1)
 ' l_productMat2()
 ' l_productMat2(l_float32 *, l_float32 *, l_float32 *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="mat1">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat2">[in] - square matrix, as a 1-dimensional size^2 array</param>
-'''  <param name="matd">[in] - square matrix; product stored here</param>
+'''  <param name="matd">[in] - square matrix product stored here</param>
 '''  <param name="size">[in] - of matrices</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function l_productMat2(
@@ -416,15 +401,12 @@ End Function
 ' SRC\affinecompose.c (603, 1)
 ' l_productMat3()
 ' l_productMat3(l_float32 *, l_float32 *, l_float32 *, l_float32 *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="mat1">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat2">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat3">[in] - square matrix, as a 1-dimensional size^2 array</param>
-'''  <param name="matd">[in] - square matrix; product stored here</param>
+'''  <param name="matd">[in] - square matrix product stored here</param>
 '''  <param name="size">[in] - of matrices</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function l_productMat3(
@@ -448,16 +430,13 @@ End Function
 ' SRC\affinecompose.c (644, 1)
 ' l_productMat4()
 ' l_productMat4(l_float32 *, l_float32 *, l_float32 *, l_float32 *, l_float32 *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="mat1">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat2">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat3">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat4">[in] - square matrix, as a 1-dimensional size^2 array</param>
-'''  <param name="matd">[in] - square matrix; product stored here</param>
+'''  <param name="matd">[in] - square matrix product stored here</param>
 '''  <param name="size">[in] - of matrices</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function l_productMat4(

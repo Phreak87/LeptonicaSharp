@@ -1,19 +1,16 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\webpiostub.c (45, 7)
 ' 
 ' pixReadStreamWebP(FILE *) as PIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function pixReadStreamWebP(
-				ByRef fp as FILE) as Pix
+				ByVal fp as FILE) as Pix
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
@@ -28,15 +25,12 @@ End Function
 ' SRC\webpiostub.c (52, 7)
 ' 
 ' pixReadMemWebP(const l_uint8 *, size_t) as PIX *
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function pixReadMemWebP(
-				ByRef filedata as Byte(), 
-				ByRef filesize as UInteger) as Pix
+				ByVal filedata as Byte(), 
+				ByVal filesize as UInteger) as Pix
 
 	If IsNothing (filedata) then Throw New ArgumentNullException  ("filedata cannot be Nothing")
 
@@ -50,17 +44,14 @@ End Function
 ' SRC\webpiostub.c (59, 6)
 ' 
 ' readHeaderWebP(const char *, l_int32 *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function readHeaderWebP(
-				ByRef filename as String, 
-				ByRef pw as Object, 
-				ByRef ph as Object, 
-				ByRef pspp as Object) as Integer
+				ByVal filename as String, 
+				ByVal pw as Object, 
+				ByVal ph as Object, 
+				ByVal pspp as Object) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pw) then Throw New ArgumentNullException  ("pw cannot be Nothing")
@@ -77,18 +68,15 @@ End Function
 ' SRC\webpiostub.c (67, 6)
 ' 
 ' readHeaderMemWebP(const l_uint8 *, size_t, l_int32 *, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function readHeaderMemWebP(
-				ByRef data as Byte(), 
-				ByRef size as UInteger, 
-				ByRef pw as Object, 
-				ByRef ph as Object, 
-				ByRef pspp as Object) as Integer
+				ByVal data as Byte(), 
+				ByVal size as UInteger, 
+				ByVal pw as Object, 
+				ByVal ph as Object, 
+				ByVal pspp as Object) as Integer
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 	If IsNothing (pw) then Throw New ArgumentNullException  ("pw cannot be Nothing")
@@ -104,17 +92,14 @@ End Function
 ' SRC\webpiostub.c (75, 6)
 ' 
 ' pixWriteWebP(const char *, PIX *, l_int32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function pixWriteWebP(
-				ByRef filename as String, 
-				ByRef pixs as Pix, 
-				ByRef quality as Integer, 
-				ByRef lossless as Integer) as Integer
+				ByVal filename as String, 
+				ByVal pixs as Pix, 
+				ByVal quality as Integer, 
+				ByVal lossless as Integer) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -130,17 +115,14 @@ End Function
 ' SRC\webpiostub.c (83, 6)
 ' 
 ' pixWriteStreamWebP(FILE *, PIX *, l_int32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function pixWriteStreamWebP(
-				ByRef fp as FILE, 
-				ByRef pixs as Pix, 
-				ByRef quality as Integer, 
-				ByRef lossless as Integer) as Integer
+				ByVal fp as FILE, 
+				ByVal pixs as Pix, 
+				ByVal quality as Integer, 
+				ByVal lossless as Integer) as Integer
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
@@ -156,18 +138,15 @@ End Function
 ' SRC\webpiostub.c (91, 6)
 ' 
 ' pixWriteMemWebP(l_uint8 **, size_t *, PIX *, l_int32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function pixWriteMemWebP(
-				ByRef pencdata as Object, 
-				ByRef pencsize as Object, 
-				ByRef pixs as Pix, 
-				ByRef quality as Integer, 
-				ByRef lossless as Integer) as Integer
+				ByVal pencdata as Object, 
+				ByVal pencsize as Object, 
+				ByVal pixs as Pix, 
+				ByVal quality as Integer, 
+				ByVal lossless as Integer) as Integer
 
 	If IsNothing (pencdata) then Throw New ArgumentNullException  ("pencdata cannot be Nothing")
 	If IsNothing (pencsize) then Throw New ArgumentNullException  ("pencsize cannot be Nothing")

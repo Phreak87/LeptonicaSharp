@@ -1,21 +1,22 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\rotateam.c (149, 1)
 ' pixRotateAM()
 ' pixRotateAM(PIX *, l_float32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) Rotates about image center.
-''' (2) A positive angle gives a clockwise rotation.
-''' (3) Brings in either black or white pixels from the boundary.
+''' <para/>
+''' Notes:<para/>
+''' (1) Rotates about image center.<para/>
+''' (2) A positive angle gives a clockwise rotation.<para/>
+''' (3) Brings in either black or white pixels from the boundary.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 2, 4, 8 bpp gray or colormapped, or 32 bpp RGB</param>
-'''  <param name="angle">[in] - radians; clockwise is positive</param>
+'''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixRotateAM(
@@ -37,15 +38,16 @@ End Function
 ' pixRotateAMColor()
 ' pixRotateAMColor(PIX *, l_float32, l_uint32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) Rotates about image center.
-''' (2) A positive angle gives a clockwise rotation.
-''' (3) Specify the color to be brought in from outside the image.
+''' <para/>
+''' Notes:<para/>
+''' (1) Rotates about image center.<para/>
+''' (2) A positive angle gives a clockwise rotation.<para/>
+''' (3) Specify the color to be brought in from outside the image.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 32 bpp</param>
-'''  <param name="angle">[in] - radians; clockwise is positive</param>
+'''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixRotateAMColor(
@@ -67,15 +69,16 @@ End Function
 ' pixRotateAMGray()
 ' pixRotateAMGray(PIX *, l_float32, l_uint8) as PIX *
 '''  <summary>
-''' Notes
-''' (1) Rotates about image center.
-''' (2) A positive angle gives a clockwise rotation.
-''' (3) Specify the grayvalue to be brought in from outside the image.
+''' <para/>
+''' Notes:<para/>
+''' (1) Rotates about image center.<para/>
+''' (2) A positive angle gives a clockwise rotation.<para/>
+''' (3) Specify the grayvalue to be brought in from outside the image.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 8 bpp</param>
-'''  <param name="angle">[in] - radians; clockwise is positive</param>
+'''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixRotateAMGray(
@@ -99,15 +102,16 @@ End Function
 ' pixRotateAMCorner()
 ' pixRotateAMCorner(PIX *, l_float32, l_int32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) Rotates about the UL corner of the image.
-''' (2) A positive angle gives a clockwise rotation.
-''' (3) Brings in either black or white pixels from the boundary.
+''' <para/>
+''' Notes:<para/>
+''' (1) Rotates about the UL corner of the image.<para/>
+''' (2) A positive angle gives a clockwise rotation.<para/>
+''' (3) Brings in either black or white pixels from the boundary.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - 1, 2, 4, 8 bpp gray or colormapped, or 32 bpp RGB</param>
-'''  <param name="angle">[in] - radians; clockwise is positive</param>
+'''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixRotateAMCorner(
@@ -129,15 +133,16 @@ End Function
 ' pixRotateAMColorCorner()
 ' pixRotateAMColorCorner(PIX *, l_float32, l_uint32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) Rotates the image about the UL corner.
-''' (2) A positive angle gives a clockwise rotation.
-''' (3) Specify the color to be brought in from outside the image.
+''' <para/>
+''' Notes:<para/>
+''' (1) Rotates the image about the UL corner.<para/>
+''' (2) A positive angle gives a clockwise rotation.<para/>
+''' (3) Specify the color to be brought in from outside the image.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - </param>
-'''  <param name="angle">[in] - radians; clockwise is positive</param>
+'''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="fillval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixRotateAMColorCorner(
@@ -159,15 +164,16 @@ End Function
 ' pixRotateAMGrayCorner()
 ' pixRotateAMGrayCorner(PIX *, l_float32, l_uint8) as PIX *
 '''  <summary>
-''' Notes
-''' (1) Rotates the image about the UL corner.
-''' (2) A positive angle gives a clockwise rotation.
-''' (3) Specify the grayvalue to be brought in from outside the image.
+''' <para/>
+''' Notes:<para/>
+''' (1) Rotates the image about the UL corner.<para/>
+''' (2) A positive angle gives a clockwise rotation.<para/>
+''' (3) Specify the grayvalue to be brought in from outside the image.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - </param>
-'''  <param name="angle">[in] - radians; clockwise is positive</param>
+'''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixRotateAMGrayCorner(
@@ -190,21 +196,22 @@ End Function
 ' pixRotateAMColorFast()
 ' pixRotateAMColorFast(PIX *, l_float32, l_uint32) as PIX *
 '''  <summary>
-''' Notes
-''' (1) This rotates a color image about the image center.
-''' (2) A positive angle gives a clockwise rotation.
-''' (3) It uses area mapping, dividing each pixel into
-''' 16 subpixels.
-''' (4) It is about 10% to 20% faster than the more accurate linear
-''' interpolation function pixRotateAMColor(),
-''' which uses 256 subpixels.
-''' (5) For some reason it shifts the image center.
-''' No attempt is made to rotate the alpha component.
+''' <para/>
+''' Notes:<para/>
+''' (1) This rotates a color image about the image center.<para/>
+''' (2) A positive angle gives a clockwise rotation.<para/>
+''' (3) It uses area mapping, dividing each pixel into<para/>
+''' 16 subpixels.<para/>
+''' (4) It is about 10% to 20% faster than the more accurate linear<para/>
+''' interpolation function pixRotateAMColor(),<para/>
+''' which uses 256 subpixels.<para/>
+''' (5) For some reason it shifts the image center.<para/>
+''' No attempt is made to rotate the alpha component.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="pixs">[in] - </param>
-'''  <param name="angle">[in] - radians; clockwise is positive</param>
+'''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixRotateAMColorFast(

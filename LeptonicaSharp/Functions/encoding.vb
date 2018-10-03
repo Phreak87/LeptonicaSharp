@@ -1,16 +1,17 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\encoding.c (100, 1)
 ' encodeBase64()
 ' encodeBase64(l_uint8 *, l_int32, l_int32 *) as char *
 '''  <summary>
-''' Notes
-''' (1) The input character data is unrestricted binary.
-''' The output encoded data consists of the 64 characters
-''' in the base64 set, plus newlines and the pad character '='.
+''' <para/>
+''' Notes:<para/>
+''' (1) The input character data is unrestricted binary.<para/>
+''' The output encoded data consists of the 64 characters<para/>
+''' in the base64 set, plus newlines and the pad character '='.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -35,14 +36,15 @@ End Function
 ' decodeBase64()
 ' decodeBase64(const char *, l_int32, l_int32 *) as l_uint8 *
 '''  <summary>
-''' Notes
-''' (1) The input character data should have only 66 different characters
-''' The 64 character set for base64 encoding, plus the pad
-''' character '=' and newlines for formatting with fixed line
-''' lengths.  If there are any other characters, the decoder
-''' will declare the input data to be invalid and return NULL.
-''' (2) The decoder ignores newlines and, for a valid input string,
-''' stops reading input when a pad byte is found.
+''' <para/>
+''' Notes:<para/>
+''' (1) The input character data should have only 66 different characters:<para/>
+''' The 64 character set for base64 encoding, plus the pad<para/>
+''' character '=' and newlines for formatting with fixed line<para/>
+''' lengths.  If there are any other characters, the decoder<para/>
+''' will declare the input data to be invalid and return NULL.<para/>
+''' (2) The decoder ignores newlines and, for a valid input string,<para/>
+''' stops reading input when a pad byte is found.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -67,10 +69,11 @@ End Function
 ' encodeAscii85()
 ' encodeAscii85(l_uint8 *, l_int32, l_int32 *) as char *
 '''  <summary>
-''' Notes
-''' (1) Ghostscript has a stack break if the last line of
-''' data only has a 'GT', so we avoid the problem by
-''' always putting '~GT' on the last line.
+''' <para/>
+''' Notes:<para/>
+''' (1) Ghostscript has a stack break if the last line of<para/>
+''' data only has a ' is greater ', so we avoid the problem by<para/>
+''' always putting '~ is greater ' on the last line.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -95,11 +98,12 @@ End Function
 ' decodeAscii85()
 ' decodeAscii85(char *, l_int32, l_int32 *) as l_uint8 *
 '''  <summary>
-''' Notes
-''' (1) We assume the data is properly encoded, so we do not check
-''' for invalid characters or the final 'GT' character.
-''' (2) We permit whitespace to be added to the encoding in an
-''' arbitrary way.
+''' <para/>
+''' Notes:<para/>
+''' (1) We assume the data is properly encoded, so we do not check<para/>
+''' for invalid characters or the final ' is greater ' character.<para/>
+''' (2) We permit whitespace to be added to the encoding in an<para/>
+''' arbitrary way.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -124,21 +128,22 @@ End Function
 ' reformatPacked64()
 ' reformatPacked64(char *, l_int32, l_int32, l_int32, l_int32, l_int32 *) as char *
 '''  <summary>
-''' Notes
-''' (1) Each line in the output array has %leadspace space characters,
-''' followed optionally by a double-quote, followed by %linechars
-''' bytes of base64 data, followed optionally by a double-quote,
-''' followed by a newline.
-''' (2) This can be used to convert a base64 encoded string to a
-''' string formatted for inclusion in a C source file.
+''' <para/>
+''' Notes:<para/>
+''' (1) Each line in the output array has %leadspace space characters,<para/>
+''' followed optionally by a double-quote, followed by %linechars<para/>
+''' bytes of base64 data, followed optionally by a double-quote,<para/>
+''' followed by a newline.<para/>
+''' (2) This can be used to convert a base64 encoded string to a<para/>
+''' string formatted for inclusion in a C source file.<para/>
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <param name="inarray">[in] - base64 encoded string with newlines</param>
 '''  <param name="insize">[in] - number of bytes in input array</param>
 '''  <param name="leadspace">[in] - number of spaces in each line before the data</param>
-'''  <param name="linechars">[in] - number of bytes of data in each line; multiple of 4</param>
-'''  <param name="addquotes">[in] - 1 to add quotes to each line of data; 0 to skip</param>
+'''  <param name="linechars">[in] - number of bytes of data in each line multiple of 4</param>
+'''  <param name="addquotes">[in] - 1 to add quotes to each line of data 0 to skip</param>
 '''  <param name="poutsize">[out] - number of bytes in output char array</param>
 '''   <returns>outarray ascii</returns>
 Public Shared Function reformatPacked64(

@@ -1,22 +1,19 @@
 Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
-Partial Public Class _AllFunctions
+Partial Public Class _All
 
 
 ' SRC\psio1.c (154, 1)
 ' 
 ' convertFilesToPS(const char *, const char *, l_int32, const char *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function convertFilesToPS(
-				ByRef dirin as String, 
-				ByRef substr as String, 
-				ByRef res as Integer, 
-				ByRef fileout as String) as Integer
+				ByVal dirin as String, 
+				ByVal substr as String, 
+				ByVal res as Integer, 
+				ByVal fileout as String) as Integer
 
 	If IsNothing (dirin) then Throw New ArgumentNullException  ("dirin cannot be Nothing")
 	If IsNothing (substr) then Throw New ArgumentNullException  ("substr cannot be Nothing")
@@ -31,16 +28,13 @@ End Function
 ' SRC\psio1.c (201, 1)
 ' 
 ' sarrayConvertFilesToPS(SARRAY *, l_int32, const char *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function sarrayConvertFilesToPS(
-				ByRef sa as Sarray, 
-				ByRef res as Integer, 
-				ByRef fileout as String) as Integer
+				ByVal sa as Sarray, 
+				ByVal res as Integer, 
+				ByVal fileout as String) as Integer
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
@@ -55,18 +49,15 @@ End Function
 ' SRC\psio1.c (269, 1)
 ' 
 ' convertFilesFittedToPS(const char *, const char *, l_float32, l_float32, const char *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function convertFilesFittedToPS(
-				ByRef dirin as String, 
-				ByRef substr as String, 
-				ByRef xpts as Single, 
-				ByRef ypts as Single, 
-				ByRef fileout as String) as Integer
+				ByVal dirin as String, 
+				ByVal substr as String, 
+				ByVal xpts as Single, 
+				ByVal ypts as Single, 
+				ByVal fileout as String) as Integer
 
 	If IsNothing (dirin) then Throw New ArgumentNullException  ("dirin cannot be Nothing")
 	If IsNothing (substr) then Throw New ArgumentNullException  ("substr cannot be Nothing")
@@ -83,17 +74,14 @@ End Function
 ' SRC\psio1.c (321, 1)
 ' 
 ' sarrayConvertFilesFittedToPS(SARRAY *, l_float32, l_float32, const char *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function sarrayConvertFilesFittedToPS(
-				ByRef sa as Sarray, 
-				ByRef xpts as Single, 
-				ByRef ypts as Single, 
-				ByRef fileout as String) as Integer
+				ByVal sa as Sarray, 
+				ByVal xpts as Single, 
+				ByVal ypts as Single, 
+				ByVal fileout as String) as Integer
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 	If IsNothing (xpts) then Throw New ArgumentNullException  ("xpts cannot be Nothing")
@@ -110,18 +98,15 @@ End Function
 ' SRC\psio1.c (391, 1)
 ' 
 ' writeImageCompressedToPSFile(const char *, const char *, l_int32, l_int32 *, l_int32 *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function writeImageCompressedToPSFile(
-				ByRef filein as String, 
-				ByRef fileout as String, 
-				ByRef res as Integer, 
-				ByRef pfirstfile as Object, 
-				ByRef pindex as Object) as Integer
+				ByVal filein as String, 
+				ByVal fileout as String, 
+				ByVal res as Integer, 
+				ByVal pfirstfile as Object, 
+				ByVal pindex as Object) as Integer
 
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
@@ -137,25 +122,22 @@ End Function
 ' SRC\psio1.c (498, 1)
 ' 
 ' convertSegmentedPagesToPS(const char *, const char *, l_int32, const char *, const char *, l_int32, l_int32, l_int32, l_float32, l_float32, l_int32, const char *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function convertSegmentedPagesToPS(
-				ByRef pagedir as String, 
-				ByRef pagestr as String, 
-				ByRef page_numpre as Integer, 
-				ByRef maskdir as String, 
-				ByRef maskstr as String, 
-				ByRef mask_numpre as Integer, 
-				ByRef numpost as Integer, 
-				ByRef maxnum as Integer, 
-				ByRef textscale as Single, 
-				ByRef imagescale as Single, 
-				ByRef threshold as Integer, 
-				ByRef fileout as String) as Integer
+				ByVal pagedir as String, 
+				ByVal pagestr as String, 
+				ByVal page_numpre as Integer, 
+				ByVal maskdir as String, 
+				ByVal maskstr as String, 
+				ByVal mask_numpre as Integer, 
+				ByVal numpost as Integer, 
+				ByVal maxnum as Integer, 
+				ByVal textscale as Single, 
+				ByVal imagescale as Single, 
+				ByVal threshold as Integer, 
+				ByVal fileout as String) as Integer
 
 	If IsNothing (pagedir) then Throw New ArgumentNullException  ("pagedir cannot be Nothing")
 	If IsNothing (pagestr) then Throw New ArgumentNullException  ("pagestr cannot be Nothing")
@@ -174,20 +156,17 @@ End Function
 ' SRC\psio1.c (596, 1)
 ' 
 ' pixWriteSegmentedPageToPS(PIX *, PIX *, l_float32, l_float32, l_int32, l_int32, const char *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function pixWriteSegmentedPageToPS(
-				ByRef pixs as Pix, 
-				ByRef pixm as Pix, 
-				ByRef textscale as Single, 
-				ByRef imagescale as Single, 
-				ByRef threshold as Integer, 
-				ByRef pageno as Integer, 
-				ByRef fileout as String) as Integer
+				ByVal pixs as Pix, 
+				ByVal pixm as Pix, 
+				ByVal textscale as Single, 
+				ByVal imagescale as Single, 
+				ByVal threshold as Integer, 
+				ByVal pageno as Integer, 
+				ByVal fileout as String) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
@@ -206,18 +185,15 @@ End Function
 ' SRC\psio1.c (747, 1)
 ' 
 ' pixWriteMixedToPS(PIX *, PIX *, l_float32, l_int32, const char *) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function pixWriteMixedToPS(
-				ByRef pixb as Pix, 
-				ByRef pixc as Pix, 
-				ByRef scale as Single, 
-				ByRef pageno as Integer, 
-				ByRef fileout as String) as Integer
+				ByVal pixb as Pix, 
+				ByVal pixc as Pix, 
+				ByVal scale as Single, 
+				ByVal pageno as Integer, 
+				ByVal fileout as String) as Integer
 
 	If IsNothing (pixb) then Throw New ArgumentNullException  ("pixb cannot be Nothing")
 	If IsNothing (pixc) then Throw New ArgumentNullException  ("pixc cannot be Nothing")
@@ -235,16 +211,13 @@ End Function
 ' SRC\psio1.c (834, 1)
 ' 
 ' convertToPSEmbed(const char *, const char *, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function convertToPSEmbed(
-				ByRef filein as String, 
-				ByRef fileout as String, 
-				ByRef level as Integer) as Integer
+				ByVal filein as String, 
+				ByVal fileout as String, 
+				ByVal level as Integer) as Integer
 
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
@@ -258,17 +231,14 @@ End Function
 ' SRC\psio1.c (935, 1)
 ' 
 ' pixaWriteCompressedToPS(PIXA *, const char *, l_int32, l_int32) as l_ok
-'''  <summary>
-''' 
-'''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function pixaWriteCompressedToPS(
-				ByRef pixa as Pixa, 
-				ByRef fileout as String, 
-				ByRef res as Integer, 
-				ByRef level as Integer) as Integer
+				ByVal pixa as Pixa, 
+				ByVal fileout as String, 
+				ByVal res as Integer, 
+				ByVal level as Integer) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")

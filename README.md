@@ -1,24 +1,23 @@
-# LeptonicaSharp
-Full featured wrapper for leptonica 1.77.0 (Sep.2018)
+# LeptonicaSharp 1.77.0.2 (Oct. 2018) Wrapper
+Full featured wrapper for leptonica 1.77.0 (Sep.2018) Library
 
 # Functions:
 
-- .Net 4.0 and up Library
+- VB.Net and C# 4.0 and up Library
 - supports all (2677) Leptonica-Functions
-- well tested
 - view Pix directly in windows-forms
 - included all propertys from Leptonica classes
 - complete documentation and debug-informations from C-Files included
+- class extensions for the most used functions (with optional Parameters)
+- Developer Help-File (V1.77.0) available (Thanks to FDnCRed)
 
 # Todo:
 
 - more detailed checks of input parameters (e.g. specific pix depths)
-- bitmap to pix converter more speed and flexibility
-- define more optional parameters
 
 # Info:
-- Optional parameters moved to the back of the parameters list, this differs from C-Source definition.
-  Examples for the C-File may not work until you move the optional Parameters to the back!
+- Use the class functions to use the optional Parameters (optionals moved to the back) . 
+- Use _All to use the original Leptonica order for the Parameters.
 - Marshaling of Arrays needs a fixed array Size. If Parameter n oder nalloc exists, i use this one,
   else i use "1" instead. e.g. Pix needs to be initialized with ((w*h)*(d/8))-1 (Byte).
 - UInteger is not supported by the marshaller. I use Byte instead. (4 Bytes = 1 UInteger). 
@@ -26,13 +25,15 @@ Full featured wrapper for leptonica 1.77.0 (Sep.2018)
 
 # How to Implement (From Github)
 
-1. Copy the files from the Dll-folder into your project and add  a link to LeptonicaSharp. (x32)
+1. Clone the Repository and run the Project. if you like to Debug the Leptonica.dll
+   and the C-Source download the Debugging.Zip package from Releases and copy all files into
+   your default build directory.
    
 # How to Implement (Via Nuget)
 
 1. Load the Library from Nuget. 
 2. Run once LeptonicaSharp.Natives.Initialize() to copy the required dll´s
-3. Your ready to start.
+3. Your ready to start.If this dowsnt work load the missing Dll-File from Releases.
 
 # How to extend predefined classes:
 
@@ -46,7 +47,9 @@ Partial Class Pix
  End Class
  2. Compile again.
 dont extend the main classes. it will be overwritten
-from the generator next build.
+from the generator next build. Each Constructor can be
+exists once with the same Parameters. For easy extension
+to classes, checks and defaults check the BuildConfig.xml.
 
 # How to compile the C-DLL (Dynamic Version)
 

@@ -9,7 +9,7 @@ Module Module1
     Sub Main()
 
         ' ---------------------------------------------
-        ' Copy the required dll-files to your path if 
+        ' Copy the required dll-files to your path if
         ' they dont exists. (Nuget)
         ' ---------------------------------------------
         LeptonicaSharp.Natives.Initialize()
@@ -20,7 +20,7 @@ Module Module1
         ' ---------------------------------------------
         _All.setLeptDebugOK(1)
 
-        Dim PIX32 As New Pix("Test.jpg")    ' 32 BPP Pix
+        Dim PIX32 As New Pix("..\..\..\TestImages\feyn.tif")    ' 32 BPP Pix
         Dim BMP As Bitmap = PIX32.Bitmap    ' 5 Seconds until Destroy
         'PIX32.Display()
 
@@ -41,7 +41,7 @@ Module Module1
 
     Sub TestExtensions()
         ' --------------------------------------------------------------------------------
-        ' <Extend Name="pixRead" Type="Construct" Source="pixs"/> 
+        ' <Extend Name="pixRead" Type="Construct" Source="pixs"/>
         ' --------------------------------------------------------------------------------
         Dim PIX32 As New Pix("Test.jpg")
 
@@ -131,7 +131,7 @@ Module Module1
     Private Sub TestPixFunctions()
 
         Dim PIX32 As New Pix("test2.jpg")    ' 32 BPP Pix
-        Dim PIXG As Pix = Nothing           ' ByRef Result Pix 
+        Dim PIXG As Pix = Nothing           ' ByRef Result Pix
         Dim PIX8 As Pix = PIX32.pixConvertTo8(False) : PIX8.Display()
 
         ' -----------------------------------------------
@@ -169,9 +169,9 @@ Module Module1
         PIX32.Display()
         Dim SEL As New LeptonicaSharp.Sel("ooooCoooo", 3, 3, "TEST")                                                            ' OK
         PIXG = LeptonicaSharp._All.pixHMT(Nothing, PIXG.pixInvert, SEL)                                                        ' OK
-        PIXG = LeptonicaSharp._All.pixDilateBrick(Nothing, PIXG, 4, 4)                                                         ' OK   
+        PIXG = LeptonicaSharp._All.pixDilateBrick(Nothing, PIXG, 4, 4)                                                         ' OK
         PIXG.Display()
-        Sel.Display()
+        SEL.Display()
 
 
         Dim B As Byte() = LeptonicaSharp._All.pixExtractData(PIX32)                                                            ' Byte() Größe undefiniert, Fehler!
@@ -223,13 +223,13 @@ Module Module1
     Sub TestMem()
 
         ' ----------------------------------------
-        ' Tests: 
+        ' Tests:
         ' ----------------------------------------
-        ' Schreiben von Byte()                  => OK, Todo:    Byte()-Definition UInt **, 
+        ' Schreiben von Byte()                  => OK, Todo:    Byte()-Definition UInt **,
         '                                                       Funktion überladen
         '                                                       ByRef-Rückgabewerte fehlen
         ' Pix Display Fehler (1BPP)             => Todo:        Ansicht anpassen (Indexed ??=Fehler)
-        ' Datentypen: UInt8 * und UInt8 ** 
+        ' Datentypen: UInt8 * und UInt8 **
         ' ----------------------------------------
 
         ' ----------------------------------------------------------------
@@ -309,7 +309,7 @@ Module Module1
         ' Create Multipage-PDF from PIX-V2
         ' -----------------------------------
         Dim C0 As L_Pdf_Data = Nothing '        Init via L_First_Image
-        Dim PIX32 As New Pix("Test.jpg") '      The Pix 
+        Dim PIX32 As New Pix("Test.jpg") '      The Pix
         Dim pa_data = New L_Ptra(3) '           Pointer Array
         Dim imdata As Byte() = Nothing
         Dim imbytes As UInteger

@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{5141B932-2D30-47A6-87A6-557FA5F4E6A7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>LeptonicaSharp</RootNamespace>
+    <AssemblyName>LeptonicaSharp</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>LeptonicaSharp.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <PlatformTarget>x86</PlatformTarget>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>LeptonicaSharp.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DocumentationFile>LeptonicaSharp.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>Full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DocumentationFile>LeptonicaSharp.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>LeptonicaSharp.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>Full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>LeptonicaSharp.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enumerations.vb" />
+    <Compile Include="Extensions\BetterPictureBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Extensions\ExtensionEnumerations.vb" />
+    <Compile Include="Extensions\Extension_ColorMap_RGBAQuad.vb" />
+    <Compile Include="Extensions\Extension_Pix.vb" />
+    <Compile Include="Extensions\Konstruktoren.vb" />
+    <Compile Include="Extensions\MissingClass.vb" />
+    <Compile Include="Extensions\Natives.vb" />
+    <Compile Include="Extensions\ShowPix.Designer.vb">
+      <DependentUpon>ShowPix.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\ShowPix.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Functions\adaptmap.vb" />
+    <Compile Include="Functions\affine.vb" />
+    <Compile Include="Functions\affinecompose.vb" />
+    <Compile Include="Functions\arrayaccess.vb" />
+    <Compile Include="Functions\bardecode.vb" />
+    <Compile Include="Functions\baseline.vb" />
+    <Compile Include="Functions\bbuffer.vb" />
+    <Compile Include="Functions\bilateral.vb" />
+    <Compile Include="Functions\bilinear.vb" />
+    <Compile Include="Functions\binarize.vb" />
+    <Compile Include="Functions\binexpand.vb" />
+    <Compile Include="Functions\binreduce.vb" />
+    <Compile Include="Functions\blend.vb" />
+    <Compile Include="Functions\bmf.vb" />
+    <Compile Include="Functions\bmpio.vb" />
+    <Compile Include="Functions\bootnumgen1.vb" />
+    <Compile Include="Functions\bootnumgen2.vb" />
+    <Compile Include="Functions\bootnumgen3.vb" />
+    <Compile Include="Functions\boxbasic.vb" />
+    <Compile Include="Functions\boxfunc1.vb" />
+    <Compile Include="Functions\boxfunc2.vb" />
+    <Compile Include="Functions\boxfunc3.vb" />
+    <Compile Include="Functions\boxfunc4.vb" />
+    <Compile Include="Functions\bytearray.vb" />
+    <Compile Include="Functions\ccbord.vb" />
+    <Compile Include="Functions\ccthin.vb" />
+    <Compile Include="Functions\classapp.vb" />
+    <Compile Include="Functions\colorcontent.vb" />
+    <Compile Include="Functions\coloring.vb" />
+    <Compile Include="Functions\colormap.vb" />
+    <Compile Include="Functions\colormorph.vb" />
+    <Compile Include="Functions\colorquant1.vb" />
+    <Compile Include="Functions\colorquant2.vb" />
+    <Compile Include="Functions\colorseg.vb" />
+    <Compile Include="Functions\colorspace.vb" />
+    <Compile Include="Functions\compare.vb" />
+    <Compile Include="Functions\conncomp.vb" />
+    <Compile Include="Functions\convertfiles.vb" />
+    <Compile Include="Functions\convolve.vb" />
+    <Compile Include="Functions\correlscore.vb" />
+    <Compile Include="Functions\dewarp1.vb" />
+    <Compile Include="Functions\dewarp2.vb" />
+    <Compile Include="Functions\dewarp3.vb" />
+    <Compile Include="Functions\dewarp4.vb" />
+    <Compile Include="Functions\dnabasic.vb" />
+    <Compile Include="Functions\dnafunc1.vb" />
+    <Compile Include="Functions\dnahash.vb" />
+    <Compile Include="Functions\dwacomb.2.vb" />
+    <Compile Include="Functions\edge.vb" />
+    <Compile Include="Functions\encoding.vb" />
+    <Compile Include="Functions\enhance.vb" />
+    <Compile Include="Functions\fhmtauto.vb" />
+    <Compile Include="Functions\fhmtgen.1.vb" />
+    <Compile Include="Functions\finditalic.vb" />
+    <Compile Include="Functions\flipdetect.vb" />
+    <Compile Include="Functions\fliphmtgen.vb" />
+    <Compile Include="Functions\fmorphauto.vb" />
+    <Compile Include="Functions\fmorphgen.1.vb" />
+    <Compile Include="Functions\fpix1.vb" />
+    <Compile Include="Functions\fpix2.vb" />
+    <Compile Include="Functions\gifiostub.vb" />
+    <Compile Include="Functions\gplot.vb" />
+    <Compile Include="Functions\graphics.vb" />
+    <Compile Include="Functions\graymorph.vb" />
+    <Compile Include="Functions\grayquant.vb" />
+    <Compile Include="Functions\heap.vb" />
+    <Compile Include="Functions\jbclass.vb" />
+    <Compile Include="Functions\jp2kheader.vb" />
+    <Compile Include="Functions\jp2kiostub.vb" />
+    <Compile Include="Functions\jpegio.vb" />
+    <Compile Include="Functions\kernel.vb" />
+    <Compile Include="Functions\libversions.vb" />
+    <Compile Include="Functions\list.vb" />
+    <Compile Include="Functions\map.vb" />
+    <Compile Include="Functions\maze.vb" />
+    <Compile Include="Functions\morph.vb" />
+    <Compile Include="Functions\morphapp.vb" />
+    <Compile Include="Functions\morphdwa.vb" />
+    <Compile Include="Functions\morphseq.vb" />
+    <Compile Include="Functions\numabasic.vb" />
+    <Compile Include="Functions\numafunc1.vb" />
+    <Compile Include="Functions\numafunc2.vb" />
+    <Compile Include="Functions\pageseg.vb" />
+    <Compile Include="Functions\paintcmap.vb" />
+    <Compile Include="Functions\parseprotos.vb" />
+    <Compile Include="Functions\partition.vb" />
+    <Compile Include="Functions\pdfio1.vb" />
+    <Compile Include="Functions\pdfio2.vb" />
+    <Compile Include="Functions\pix1.vb" />
+    <Compile Include="Functions\pix2.vb" />
+    <Compile Include="Functions\pix3.vb" />
+    <Compile Include="Functions\pix4.vb" />
+    <Compile Include="Functions\pix5.vb" />
+    <Compile Include="Functions\pixabasic.vb" />
+    <Compile Include="Functions\pixacc.vb" />
+    <Compile Include="Functions\pixafunc1.vb" />
+    <Compile Include="Functions\pixafunc2.vb" />
+    <Compile Include="Functions\pixalloc.vb" />
+    <Compile Include="Functions\pixarith.vb" />
+    <Compile Include="Functions\pixcomp.vb" />
+    <Compile Include="Functions\pixconv.vb" />
+    <Compile Include="Functions\pixlabel.vb" />
+    <Compile Include="Functions\pixtiling.vb" />
+    <Compile Include="Functions\pngio.vb" />
+    <Compile Include="Functions\pnmio.vb" />
+    <Compile Include="Functions\projective.vb" />
+    <Compile Include="Functions\psio1.vb" />
+    <Compile Include="Functions\psio2.vb" />
+    <Compile Include="Functions\ptabasic.vb" />
+    <Compile Include="Functions\ptafunc1.vb" />
+    <Compile Include="Functions\ptafunc2.vb" />
+    <Compile Include="Functions\ptra.vb" />
+    <Compile Include="Functions\quadtree.vb" />
+    <Compile Include="Functions\queue.vb" />
+    <Compile Include="Functions\rank.vb" />
+    <Compile Include="Functions\rbtree.vb" />
+    <Compile Include="Functions\readbarcode.vb" />
+    <Compile Include="Functions\readfile.vb" />
+    <Compile Include="Functions\recogbasic.vb" />
+    <Compile Include="Functions\recogdid.vb" />
+    <Compile Include="Functions\recogident.vb" />
+    <Compile Include="Functions\recogtrain.vb" />
+    <Compile Include="Functions\regutils.vb" />
+    <Compile Include="Functions\rop.vb" />
+    <Compile Include="Functions\roplow.vb" />
+    <Compile Include="Functions\rotate.vb" />
+    <Compile Include="Functions\rotateam.vb" />
+    <Compile Include="Functions\rotateorth.vb" />
+    <Compile Include="Functions\rotateshear.vb" />
+    <Compile Include="Functions\runlength.vb" />
+    <Compile Include="Functions\sarray1.vb" />
+    <Compile Include="Functions\sarray2.vb" />
+    <Compile Include="Functions\scale1.vb" />
+    <Compile Include="Functions\scale2.vb" />
+    <Compile Include="Functions\seedfill.vb" />
+    <Compile Include="Functions\sel1.vb" />
+    <Compile Include="Functions\sel2.vb" />
+    <Compile Include="Functions\selgen.vb" />
+    <Compile Include="Functions\shear.vb" />
+    <Compile Include="Functions\skew.vb" />
+    <Compile Include="Functions\spixio.vb" />
+    <Compile Include="Functions\stack.vb" />
+    <Compile Include="Functions\stringcode.vb" />
+    <Compile Include="Functions\strokes.vb" />
+    <Compile Include="Functions\sudoku.vb" />
+    <Compile Include="Functions\textops.vb" />
+    <Compile Include="Functions\tiffio.vb" />
+    <Compile Include="Functions\utils1.vb" />
+    <Compile Include="Functions\utils2.vb" />
+    <Compile Include="Functions\warper.vb" />
+    <Compile Include="Functions\watershed.vb" />
+    <Compile Include="Functions\webpiostub.vb" />
+    <Compile Include="Functions\writefile.vb" />
+    <Compile Include="Functions\zlibmem.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Natives.vb" />
+    <Compile Include="StructExtensions.vb" />
+    <Compile Include="Structures.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Extensions\ShowPix.resx">
+      <DependentUpon>ShowPix.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

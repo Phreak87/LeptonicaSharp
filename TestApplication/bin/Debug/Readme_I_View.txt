@@ -1,1 +1,0 @@
-Download Irfanviewx32 and put it into this folder to use the Leptonica debug-functions

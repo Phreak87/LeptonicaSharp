@@ -24,10 +24,10 @@ namespace TestAppCSharp
             var b = pix.ToBitmap();
             var c = pix.Convert();
             var pixa = _All.pixaCreate(0);
-            //_All.pixGetRegionsBinary(pix, out Pix ppixhm, out Pix ppixtm, out Pix ppixtb, pixa);
-            //var b1 = ppixhm.Bitmap;
-            //var b2 = ppixtm.Bitmap;
-            //var b3 = ppixtb.Bitmap;
+            _All.pixGetRegionsBinary(pix, out Pix ppixhm, out Pix ppixtm, out Pix ppixtb, pixa);
+            var b1 = ppixhm.Bitmap;
+            var b2 = ppixtm.Bitmap;
+            var b3 = ppixtb.Bitmap;
             WriteAllPixaImages(ref pixa, "regions");
         }
 
@@ -37,8 +37,8 @@ namespace TestAppCSharp
             for (int i = 0; i < n; i++)
             {
                 var pix1 = _All.pixaGetPix(pixa, i, LeptonicaSharp.Enumerations.L_access_storage.L_CLONE);
-                //var fn = $"{prefix}-{i.ToString().PadLeft(2, '0')}.png";
-                //pix1.save_format(fn, LeptonicaSharp.Enumerations.IFF.IFF_PNG);
+                var fn = $"{prefix}-{i.ToString().PadLeft(2, '0')}.png";
+                pix1.save_format(fn, LeptonicaSharp.Enumerations.IFF.IFF_PNG);
                 _All.pixDestroy(ref pix1);
             }
         }

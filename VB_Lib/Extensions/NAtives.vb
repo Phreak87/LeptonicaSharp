@@ -1,5 +1,7 @@
 ﻿Partial Public Class Natives
     Private Shared Sub CopyNuget()
+        Console.WriteLine("Leptonica.dll missing - Copy from Nuget Package")
+
         ' Suche den Pfad der Nuget-Pakete
         Dim NugetP As String = Environment.CurrentDirectory
         Do Until My.Computer.FileSystem.DirectoryExists(NugetP & "\Packages")

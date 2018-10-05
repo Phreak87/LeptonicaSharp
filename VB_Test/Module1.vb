@@ -21,8 +21,12 @@ Module Module1
         _All.setLeptDebugOK(1)
 
         Dim PIX32 As New Pix("Test.jpg")    ' 32 BPP Pix
-        Dim BMP As Bitmap = PIX32.Bitmap
-        'PIX32.pixGetRegionsBinary(New Pixa(3), Nothing, Nothing, Nothing)
+        Dim PIX01 As Pix = PIX32.pixConvertTo1(128)
+
+        Dim BMP As Bitmap = PIX01.Bitmap
+
+
+
         PIX32.Dispose()
         'PIX32.Display()
 
@@ -37,7 +41,7 @@ Module Module1
         'TestPixFunctions()     ' OK
         'TestDewaFunctions()    ' OK
         'TestNumaFunctions()    ' OK
-        'TestExtensions()       ' OK
+        TestExtensions()       ' OK
 
     End Sub
 
@@ -190,6 +194,12 @@ Module Module1
         Dim pta = LeptonicaSharp._All.ptraCreate(3)
         Dim numa = New LeptonicaSharp.Numa("2.5,5,7")
         Dim SY = LeptonicaSharp._All.create2dIntArray(2, 5)
+
+        Dim PIXA As New Pixa(1)
+        Dim A As Pix = Nothing : Dim B As Pix = Nothing : Dim C As Pix = Nothing
+        PIX32.pixConvertTo1(128).pixGetRegionsBinary(PIXA, A, B, C)
+        For Each Pix In PIXA.pix : Pix.Display()
+        Next
 
         ' Speicher bereinigen
         SArray.Dispose()

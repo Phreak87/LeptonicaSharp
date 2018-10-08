@@ -6026,7 +6026,7 @@ End Property
 '''  Org: [l_int32 informat]
 '''  Msh: l_int32 | 1:Int |
 '''  </summary>
-ReadOnly property informat as Integer
+ReadOnly property informat as IFF
 	Get
 		If Pointer = IntPTR.Zero then Return Nothing
 		Marshal.PtrToStructure (Pointer, Values)

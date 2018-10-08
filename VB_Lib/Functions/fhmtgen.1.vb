@@ -28,6 +28,9 @@ Public Shared Function pixHMTDwa_1(
 	If IsNothing (selname) then Throw New ArgumentNullException  ("selname cannot be Nothing")
 
 
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixHMTDwa_1( pixd.Pointer, pixs.Pointer, selname)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -63,6 +66,9 @@ Public Shared Function pixFHMTGen_1(
 	If IsNothing (selname) then Throw New ArgumentNullException  ("selname cannot be Nothing")
 
 
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFHMTGen_1( pixd.Pointer, pixs.Pointer, selname)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -86,6 +92,8 @@ Public Shared Function fhmtgen_low_1(
 
 	If IsNothing (datad) then Throw New ArgumentNullException  ("datad cannot be Nothing")
 	If IsNothing (datas) then Throw New ArgumentNullException  ("datas cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fhmtgen_low_1( datad, w, h, wpld, datas, wpls, index)

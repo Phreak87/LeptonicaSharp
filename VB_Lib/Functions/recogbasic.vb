@@ -34,6 +34,8 @@ Public Shared Function recogCreateFromRecog(
 	If IsNothing (recs) then Throw New ArgumentNullException  ("recs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogCreateFromRecog( recs.Pointer, scalew, scaleh, linew, threshold, maxyshift)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -75,6 +77,8 @@ Public Shared Function recogCreateFromPixa(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogCreateFromPixa( pixa.Pointer, scalew, scaleh, linew, threshold, maxyshift)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -110,6 +114,8 @@ Public Shared Function recogCreateFromPixaNoFinish(
 				 ByVal maxyshift as Integer) as L_Recog
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogCreateFromPixaNoFinish( pixa.Pointer, scalew, scaleh, linew, threshold, maxyshift)
@@ -158,6 +164,8 @@ Public Shared Function recogCreate(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogCreate( scalew, scaleh, linew, threshold, maxyshift)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -172,6 +180,8 @@ End Function
 '''  <param name="precog">[in,out] - will be set to null before returning</param>
 Public Shared Sub recogDestroy(
 				 ByRef precog as L_Recog)
+
+
 
 
 	Dim precogPTR As IntPtr = IntPtr.Zero : If Not IsNothing(precog) Then precogPTR = precog.Pointer
@@ -192,6 +202,8 @@ Public Shared Function recogGetCount(
 				 ByVal recog as L_Recog) as Integer
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogGetCount( recog.Pointer)
@@ -231,8 +243,8 @@ Public Shared Function recogSetParams(
 				 ByVal max_ht_ratio as Single) as Integer
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
-	If IsNothing (max_wh_ratio) then Throw New ArgumentNullException  ("max_wh_ratio cannot be Nothing")
-	If IsNothing (max_ht_ratio) then Throw New ArgumentNullException  ("max_ht_ratio cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogSetParams( recog.Pointer, type, min_nopad, max_wh_ratio, max_ht_ratio)
@@ -275,6 +287,8 @@ Public Shared Function recogGetClassIndex(
 	If IsNothing (text) then Throw New ArgumentNullException  ("text cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogGetClassIndex( recog.Pointer, val, text, pindex)
 
 	Return _Result
@@ -296,6 +310,8 @@ Public Shared Function recogStringToIndex(
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (text) then Throw New ArgumentNullException  ("text cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogStringToIndex( recog.Pointer, text, pindex)
@@ -326,6 +342,8 @@ Public Shared Function recogGetClassString(
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 
+
+
 Dim pcharstrPTR As IntPtr = pcharstrPTR = Marshal.AllocHGlobal(Marshal.sizeOf(pcharstr.toArray))
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogGetClassString( recog.Pointer, index, pcharstrPTR)
@@ -346,6 +364,8 @@ Public Shared Function l_convertCharstrToInt(
 				<Out()> ByRef pval as Integer) as Integer
 
 	If IsNothing (str) then Throw New ArgumentNullException  ("str cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_convertCharstrToInt( str, pval)
@@ -383,6 +403,8 @@ Public Shared Function recogRead(
 				 ByVal filename as String) as L_Recog
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -405,6 +427,8 @@ Public Shared Function recogReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogReadStream( fp.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -424,6 +448,8 @@ Public Shared Function recogReadMem(
 				 ByVal size as UInteger) as L_Recog
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogReadMem( data, size)
@@ -455,6 +481,8 @@ Public Shared Function recogWrite(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -477,6 +505,8 @@ Public Shared Function recogWriteStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogWriteStream( fp.Pointer, recog.Pointer)
@@ -505,6 +535,8 @@ Public Shared Function recogWriteMem(
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 
+
+
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogWriteMem( pdataPTR, psize, recog.Pointer)
@@ -531,6 +563,8 @@ Public Shared Function recogExtractPixa(
 				 ByVal recog as L_Recog) as Pixa
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogExtractPixa( recog.Pointer)

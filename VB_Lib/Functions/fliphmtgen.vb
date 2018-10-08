@@ -18,6 +18,8 @@ Public Shared Function pixFlipFHMTGen(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (selname) then Throw New ArgumentNullException  ("selname cannot be Nothing")
 
+
+
 Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 

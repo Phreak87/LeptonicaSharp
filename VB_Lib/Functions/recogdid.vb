@@ -39,6 +39,8 @@ Public Shared Function recogDecode(
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogDecode( recog.Pointer, pixs.Pointer, nlevels, ppixdbPTR)
@@ -62,6 +64,8 @@ Public Shared Function recogCreateDid(
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogCreateDid( recog.Pointer, pixs.Pointer)
@@ -88,6 +92,8 @@ Public Shared Function recogDestroyDid(
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogDestroyDid( recog.Pointer)
 
 	Return _Result
@@ -104,6 +110,8 @@ Public Shared Function recogDidExists(
 				 ByVal recog as L_Recog) as Integer
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogDidExists( recog.Pointer)
@@ -127,6 +135,8 @@ Public Shared Function recogGetDid(
 				 ByVal recog as L_Recog) as L_Rdid
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogGetDid( recog.Pointer)
@@ -158,6 +168,8 @@ Public Shared Function recogSetChannelParams(
 				 ByVal nlevels as Integer) as Integer
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogSetChannelParams( recog.Pointer, nlevels)

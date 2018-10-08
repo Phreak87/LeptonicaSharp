@@ -46,6 +46,8 @@ Public Shared Function pixReadJpeg(
 				 ByVal hint as Integer) as Pix
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("scaling factor: 1, 2, 4 or 8")
 
@@ -80,6 +82,8 @@ Public Shared Function pixReadStreamJpeg(
 				 ByVal hint as Integer) as Pix
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
+
+
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("scaling factor: 1, 2, 4 or 8")
 
 
@@ -110,6 +114,8 @@ Public Shared Function readHeaderJpeg(
 				<Out()> ByRef pcmyk as Integer) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -141,6 +147,8 @@ Public Shared Function freadHeaderJpeg(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.freadHeaderJpeg( fp.Pointer, pw, ph, pspp, pycck, pcmyk)
 
 	Return _Result
@@ -161,6 +169,8 @@ Public Shared Function fgetJpegResolution(
 	If IsNothing (pxres) then Throw New ArgumentNullException  ("pxres cannot be Nothing")
 	If IsNothing (pyres) then Throw New ArgumentNullException  ("pyres cannot be Nothing")
 
+
+
 Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fgetJpegResolution( fp.Pointer, pxres, pyres)
@@ -180,6 +190,8 @@ Public Shared Function fgetJpegComment(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pcomment) then Throw New ArgumentNullException  ("pcomment cannot be Nothing")
+
+
 
 Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
 
@@ -206,6 +218,8 @@ Public Shared Function pixWriteJpeg(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -258,6 +272,8 @@ Public Shared Function pixWriteStreamJpeg(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamJpeg( fp.Pointer, pixs.Pointer, quality, progressive)
 
 	Return _Result
@@ -292,6 +308,8 @@ Public Shared Function pixReadMemJpeg(
 				 ByVal hint as Integer) as Pix
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
+
+
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("scaling factor: 1, 2, 4 or 8")
 
 
@@ -326,6 +344,8 @@ Public Shared Function readHeaderMemJpeg(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderMemJpeg( data, size, pw, ph, pspp, pycck, pcmyk)
 
 	Return _Result
@@ -348,6 +368,8 @@ Public Shared Function readResolutionMemJpeg(
 				<Out()> ByRef pyres as Integer) as Integer
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readResolutionMemJpeg( data, size, pxres, pyres)
@@ -381,6 +403,8 @@ Public Shared Function pixWriteMemJpeg(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
+
+
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMemJpeg( pdataPTR, psize, pix.Pointer, quality, progressive)
@@ -410,6 +434,8 @@ Public Shared Function pixSetChromaSampling(
 				 ByVal sampling as Integer) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetChromaSampling( pix.Pointer, sampling)

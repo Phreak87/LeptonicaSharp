@@ -18,6 +18,8 @@ Public Shared Function ptaSubsample(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaSubsample( ptas.Pointer, subfactor)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -49,6 +51,8 @@ Public Shared Function ptaJoin(
 
 	If IsNothing (ptad) then Throw New ArgumentNullException  ("ptad cannot be Nothing")
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaJoin( ptad.Pointer, ptas.Pointer, istart, iend)
@@ -83,6 +87,8 @@ Public Shared Function ptaaJoin(
 	If IsNothing (ptaas) then Throw New ArgumentNullException  ("ptaas cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaJoin( ptaad.Pointer, ptaas.Pointer, istart, iend)
 
 	Return _Result
@@ -103,6 +109,8 @@ Public Shared Function ptaReverse(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaReverse( ptas.Pointer, type)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -120,6 +128,8 @@ Public Shared Function ptaTranspose(
 				 ByVal ptas as Pta) as Pta
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaTranspose( ptas.Pointer)
@@ -153,6 +163,8 @@ Public Shared Function ptaCyclicPerm(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaCyclicPerm( ptas.Pointer, xs, ys)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -174,6 +186,8 @@ Public Shared Function ptaSelectRange(
 				 ByVal last as Integer) as Pta
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaSelectRange( ptas.Pointer, first, last)
@@ -200,6 +214,8 @@ Public Shared Function ptaGetBoundingRegion(
 				 ByVal pta as Pta) as Box
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaGetBoundingRegion( pta.Pointer)
@@ -236,6 +252,8 @@ Public Shared Function ptaGetRange(
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetRange( pta.Pointer, pminx, pmaxx, pminy, pmaxy)
 
 	Return _Result
@@ -255,6 +273,8 @@ Public Shared Function ptaGetInsideBox(
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaGetInsideBox( ptas.Pointer, box.Pointer)
@@ -282,6 +302,9 @@ Public Shared Function pixFindCornerPixels(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFindCornerPixels( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -305,6 +328,8 @@ Public Shared Function ptaContainsPt(
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaContainsPt( pta.Pointer, x, y)
 
 	Return _Result
@@ -324,6 +349,8 @@ Public Shared Function ptaTestIntersection(
 
 	If IsNothing (pta1) then Throw New ArgumentNullException  ("pta1 cannot be Nothing")
 	If IsNothing (pta2) then Throw New ArgumentNullException  ("pta2 cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaTestIntersection( pta1.Pointer, pta2.Pointer)
@@ -357,6 +384,8 @@ Public Shared Function ptaTransform(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaTransform( ptas.Pointer, shiftx, shifty, scalex, scaley)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -380,8 +409,8 @@ Public Shared Function ptaPtInsidePolygon(
 				<Out()> ByRef pinside as Integer) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-	If IsNothing (x) then Throw New ArgumentNullException  ("x cannot be Nothing")
-	If IsNothing (y) then Throw New ArgumentNullException  ("y cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaPtInsidePolygon( pta.Pointer, x, y, pinside)
@@ -413,10 +442,8 @@ Public Shared Function l_angleBetweenVectors(
 				 ByVal x2 as Single, 
 				 ByVal y2 as Single) as Single
 
-	If IsNothing (x1) then Throw New ArgumentNullException  ("x1 cannot be Nothing")
-	If IsNothing (y1) then Throw New ArgumentNullException  ("y1 cannot be Nothing")
-	If IsNothing (x2) then Throw New ArgumentNullException  ("x2 cannot be Nothing")
-	If IsNothing (y2) then Throw New ArgumentNullException  ("y2 cannot be Nothing")
+
+
 
 
 	Dim _Result as Single = LeptonicaSharp.Natives.l_angleBetweenVectors( x1, y1, x2, y2)
@@ -445,6 +472,8 @@ Public Shared Function ptaGetMinMax(
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetMinMax( pta.Pointer, pxmin, pymin, pxmax, pymax)
 
 	Return _Result
@@ -469,8 +498,8 @@ Public Shared Function ptaSelectByValue(
 				 ByVal relation as Enumerations.L_SELECT_IF) as Pta
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
-	If IsNothing (xth) then Throw New ArgumentNullException  ("xth cannot be Nothing")
-	If IsNothing (yth) then Throw New ArgumentNullException  ("yth cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaSelectByValue( ptas.Pointer, xth, yth, type, relation)
@@ -493,6 +522,8 @@ Public Shared Function ptaCropToMask(
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaCropToMask( ptas.Pointer, pixm.Pointer)
@@ -541,6 +572,8 @@ Public Shared Function ptaGetLinearLSF(
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
+
+
 Dim pnafitPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnafit) Then pnafitPTR = pnafit.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetLinearLSF( pta.Pointer, pa, pb, pnafitPTR)
@@ -588,6 +621,8 @@ Public Shared Function ptaGetQuadraticLSF(
 				<Out()> ByRef pnafit as Numa) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+
+
 
 Dim pnafitPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnafit) Then pnafitPTR = pnafit.Pointer
 
@@ -640,6 +675,8 @@ Public Shared Function ptaGetCubicLSF(
 				<Out()> ByRef pnafit as Numa) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+
+
 
 Dim pnafitPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnafit) Then pnafitPTR = pnafit.Pointer
 
@@ -696,6 +733,8 @@ Public Shared Function ptaGetQuarticLSF(
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
+
+
 Dim pnafitPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnafit) Then pnafitPTR = pnafit.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetQuarticLSF( pta.Pointer, pa, pb, pc, pd, pe, pnafitPTR)
@@ -739,7 +778,8 @@ Public Shared Function ptaNoisyLinearLSF(
 				<Out()> ByRef pnafit as Numa) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-	If IsNothing (factor) then Throw New ArgumentNullException  ("factor cannot be Nothing")
+
+
 
 Dim pptadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pptad) Then pptadPTR = pptad.Pointer
 Dim pnafitPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnafit) Then pnafitPTR = pnafit.Pointer
@@ -784,7 +824,8 @@ Public Shared Function ptaNoisyQuadraticLSF(
 				<Out()> ByRef pnafit as Numa) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-	If IsNothing (factor) then Throw New ArgumentNullException  ("factor cannot be Nothing")
+
+
 
 Dim pptadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pptad) Then pptadPTR = pptad.Pointer
 Dim pnafitPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnafit) Then pnafitPTR = pnafit.Pointer
@@ -812,9 +853,8 @@ Public Shared Function applyLinearFit(
 				 ByVal x as Single, 
 				<Out()> ByRef py as Single()) as Integer
 
-	If IsNothing (a) then Throw New ArgumentNullException  ("a cannot be Nothing")
-	If IsNothing (b) then Throw New ArgumentNullException  ("b cannot be Nothing")
-	If IsNothing (x) then Throw New ArgumentNullException  ("x cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.applyLinearFit( a, b, x, py)
@@ -840,10 +880,8 @@ Public Shared Function applyQuadraticFit(
 				 ByVal x as Single, 
 				<Out()> ByRef py as Single()) as Integer
 
-	If IsNothing (a) then Throw New ArgumentNullException  ("a cannot be Nothing")
-	If IsNothing (b) then Throw New ArgumentNullException  ("b cannot be Nothing")
-	If IsNothing (c) then Throw New ArgumentNullException  ("c cannot be Nothing")
-	If IsNothing (x) then Throw New ArgumentNullException  ("x cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.applyQuadraticFit( a, b, c, x, py)
@@ -871,11 +909,8 @@ Public Shared Function applyCubicFit(
 				 ByVal x as Single, 
 				<Out()> ByRef py as Single()) as Integer
 
-	If IsNothing (a) then Throw New ArgumentNullException  ("a cannot be Nothing")
-	If IsNothing (b) then Throw New ArgumentNullException  ("b cannot be Nothing")
-	If IsNothing (c) then Throw New ArgumentNullException  ("c cannot be Nothing")
-	If IsNothing (d) then Throw New ArgumentNullException  ("d cannot be Nothing")
-	If IsNothing (x) then Throw New ArgumentNullException  ("x cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.applyCubicFit( a, b, c, d, x, py)
@@ -905,12 +940,8 @@ Public Shared Function applyQuarticFit(
 				 ByVal x as Single, 
 				<Out()> ByRef py as Single()) as Integer
 
-	If IsNothing (a) then Throw New ArgumentNullException  ("a cannot be Nothing")
-	If IsNothing (b) then Throw New ArgumentNullException  ("b cannot be Nothing")
-	If IsNothing (c) then Throw New ArgumentNullException  ("c cannot be Nothing")
-	If IsNothing (d) then Throw New ArgumentNullException  ("d cannot be Nothing")
-	If IsNothing (e) then Throw New ArgumentNullException  ("e cannot be Nothing")
-	If IsNothing (x) then Throw New ArgumentNullException  ("x cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.applyQuarticFit( a, b, c, d, e, x, py)
@@ -945,6 +976,8 @@ Public Shared Function pixPlotAlongPta(
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixPlotAlongPta( pixs.Pointer, pta.Pointer, outformat, title)
 
 	Return _Result
@@ -969,6 +1002,9 @@ Public Shared Function ptaGetPixelsFromPix(
 				 ByVal box as Box) as Pta
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -1002,6 +1038,8 @@ Public Shared Function pixGenerateFromPta(
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenerateFromPta( pta.Pointer, w, h)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1028,6 +1066,9 @@ Public Shared Function ptaGetBoundaryPixels(
 				 ByVal type as Enumerations.L_BOUNDARY_G) as Pta
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaGetBoundaryPixels( pixs.Pointer, type)
@@ -1069,6 +1110,9 @@ Public Shared Function ptaaGetBoundaryPixels(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
 Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = pboxa.Pointer
 Dim ppixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixa) Then ppixaPTR = ppixa.Pointer
 
@@ -1109,6 +1153,8 @@ Public Shared Function ptaaIndexLabeledPixels(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaaIndexLabeledPixels( pixs.Pointer, pncc)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1140,6 +1186,8 @@ Public Shared Function ptaGetNeighborPixLocs(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaGetNeighborPixLocs( pixs.Pointer, x, y, conn)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1157,6 +1205,8 @@ Public Shared Function numaConvertToPta1(
 				 ByVal na as Numa) as Pta
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaConvertToPta1( na.Pointer)
@@ -1181,6 +1231,8 @@ Public Shared Function numaConvertToPta2(
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaConvertToPta2( nax.Pointer, nay.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1202,6 +1254,8 @@ Public Shared Function ptaConvertToNuma(
 				<Out()> ByRef pnay as Numa) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+
+
 
 	Dim pnaxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnax) Then pnaxPTR = pnax.Pointer
 	Dim pnayPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnay) Then pnayPTR = pnay.Pointer
@@ -1241,6 +1295,9 @@ Public Shared Function pixDisplayPta(
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+
+
+	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDisplayPta( pixd.Pointer, pixs.Pointer, pta.Pointer)
@@ -1287,6 +1344,8 @@ Public Shared Function pixDisplayPtaaPattern(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
 	If IsNothing (pixp) then Throw New ArgumentNullException  ("pixp cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDisplayPtaaPattern( pixd.Pointer, pixs.Pointer, ptaa.Pointer, pixp.Pointer, cx, cy)
@@ -1336,6 +1395,9 @@ Public Shared Function pixDisplayPtaPattern(
 	If IsNothing (pixp) then Throw New ArgumentNullException  ("pixp cannot be Nothing")
 
 
+	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDisplayPtaPattern( pixd.Pointer, pixs.Pointer, pta.Pointer, pixp.Pointer, cx, cy, color)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1375,6 +1437,8 @@ Public Shared Function ptaReplicatePattern(
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
+
+
 	Dim pixpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixp) Then pixpPTR = pixp.Pointer
 	Dim ptapPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ptap) Then ptapPTR = ptap.Pointer
 
@@ -1398,6 +1462,9 @@ Public Shared Function pixDisplayPtaa(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
+
+
+	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDisplayPtaa( pixs.Pointer, ptaa.Pointer)

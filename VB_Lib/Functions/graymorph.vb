@@ -26,6 +26,8 @@ Public Shared Function pixErodeGray(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixErodeGray( pixs.Pointer, hsize, vsize)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -53,6 +55,8 @@ Public Shared Function pixDilateGray(
 				 ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDilateGray( pixs.Pointer, hsize, vsize)
@@ -84,6 +88,8 @@ Public Shared Function pixOpenGray(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOpenGray( pixs.Pointer, hsize, vsize)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -111,6 +117,8 @@ Public Shared Function pixCloseGray(
 				 ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCloseGray( pixs.Pointer, hsize, vsize)
@@ -147,6 +155,8 @@ Public Shared Function pixErodeGray3(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixErodeGray3( pixs.Pointer, hsize, vsize)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -174,6 +184,8 @@ Public Shared Function pixDilateGray3(
 				 ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDilateGray3( pixs.Pointer, hsize, vsize)
@@ -207,6 +219,8 @@ Public Shared Function pixOpenGray3(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOpenGray3( pixs.Pointer, hsize, vsize)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -234,6 +248,8 @@ Public Shared Function pixCloseGray3(
 				 ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCloseGray3( pixs.Pointer, hsize, vsize)

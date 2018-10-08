@@ -35,7 +35,8 @@ Public Shared Function pixCleanBackgroundToWhite(
 				 ByVal whiteval as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (gamma) then Throw New ArgumentNullException  ("gamma cannot be Nothing")
+
+
 
 	Dim piximPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixim) Then piximPTR = pixim.Pointer
 	Dim pixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixg) Then pixgPTR = pixg.Pointer
@@ -69,6 +70,8 @@ Public Shared Function pixBackgroundNormSimple(
 				 ByVal pixg as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 	Dim piximPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixim) Then piximPTR = pixim.Pointer
 	Dim pixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixg) Then pixgPTR = pixg.Pointer
@@ -153,6 +156,8 @@ Public Shared Function pixBackgroundNorm(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 	Dim piximPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixim) Then piximPTR = pixim.Pointer
 	Dim pixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixg) Then pixgPTR = pixg.Pointer
 
@@ -210,6 +215,8 @@ Public Shared Function pixBackgroundNormMorph(
 				 ByVal bgval as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("at which morph closings are done between 2 and 16")
 
 	Dim piximPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixim) Then piximPTR = pixim.Pointer
@@ -257,6 +264,9 @@ Public Shared Function pixBackgroundNormGrayArray(
 				<Out()> ByRef ppixd as Pix) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale")
 
 	Dim piximPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixim) Then piximPTR = pixim.Pointer
 	Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
@@ -311,6 +321,9 @@ Public Shared Function pixBackgroundNormRGBArrays(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
+
 	Dim piximPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixim) Then piximPTR = pixim.Pointer
 	Dim pixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixg) Then pixgPTR = pixg.Pointer
 	Dim ppixrPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixr) Then ppixrPTR = ppixr.Pointer
@@ -354,6 +367,9 @@ Public Shared Function pixBackgroundNormGrayArrayMorph(
 				<Out()> ByRef ppixd as Pix) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale")
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("at which morph closings are done between 2 and 16")
 
 	Dim piximPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixim) Then piximPTR = pixim.Pointer
@@ -398,6 +414,9 @@ Public Shared Function pixBackgroundNormRGBArraysMorph(
 				<Out()> ByRef ppixb as Pix) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("at which morph closings are done between 2 and 16")
 
 	Dim piximPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixim) Then piximPTR = pixim.Pointer
@@ -443,6 +462,8 @@ Public Shared Function pixGetBackgroundGrayMap(
 				<Out()> ByRef ppixd as Pix) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 	Dim piximPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixim) Then piximPTR = pixim.Pointer
 	Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
@@ -491,6 +512,9 @@ Public Shared Function pixGetBackgroundRGBMap(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
+
 	Dim piximPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixim) Then piximPTR = pixim.Pointer
 	Dim pixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixg) Then pixgPTR = pixg.Pointer
 	Dim ppixmrPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixmr) Then ppixmrPTR = ppixmr.Pointer
@@ -524,6 +548,8 @@ Public Shared Function pixGetBackgroundGrayMapMorph(
 				<Out()> ByRef ppixm as Pix) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("factor at which closing is performed")
 
 	Dim piximPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixim) Then piximPTR = pixim.Pointer
@@ -558,6 +584,9 @@ Public Shared Function pixGetBackgroundRGBMapMorph(
 				<Out()> ByRef ppixmb as Pix) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("factor at which closing is performed")
 
 	Dim piximPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixim) Then piximPTR = pixim.Pointer
@@ -617,6 +646,8 @@ Public Shared Function pixFillMapHoles(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFillMapHoles( pix.Pointer, nx, ny, filltype)
 
 	Return _Result
@@ -642,6 +673,9 @@ Public Shared Function pixExtendByReplication(
 				 ByVal addh as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtendByReplication( pixs.Pointer, addw, addh)
@@ -678,6 +712,8 @@ Public Shared Function pixSmoothConnectedRegions(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSmoothConnectedRegions( pixs.Pointer, pixmPTR, factor)
@@ -711,6 +747,8 @@ Public Shared Function pixGetInvBackgroundMap(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetInvBackgroundMap( pixs.Pointer, bgval, smoothx, smoothy)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -735,6 +773,8 @@ Public Shared Function pixApplyInvBackgroundGrayMap(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixApplyInvBackgroundGrayMap( pixs.Pointer, pixm.Pointer, sx, sy)
@@ -767,6 +807,8 @@ Public Shared Function pixApplyInvBackgroundRGBMap(
 	If IsNothing (pixmr) then Throw New ArgumentNullException  ("pixmr cannot be Nothing")
 	If IsNothing (pixmg) then Throw New ArgumentNullException  ("pixmg cannot be Nothing")
 	If IsNothing (pixmb) then Throw New ArgumentNullException  ("pixmb cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixApplyInvBackgroundRGBMap( pixs.Pointer, pixmr.Pointer, pixmg.Pointer, pixmb.Pointer, sx, sy)
@@ -809,6 +851,9 @@ Public Shared Function pixApplyVariableGrayMap(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixg) then Throw New ArgumentNullException  ("pixg cannot be Nothing")
+
+
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixApplyVariableGrayMap( pixs.Pointer, pixg.Pointer, target)
@@ -863,6 +908,8 @@ Public Shared Function pixGlobalNormRGB(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGlobalNormRGB( pixdPTR, pixs.Pointer, rval, gval, bval, mapval)
@@ -916,7 +963,9 @@ Public Shared Function pixGlobalNormNoSatRGB(
 				 ByVal rank as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (rank) then Throw New ArgumentNullException  ("rank cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -983,7 +1032,8 @@ Public Shared Function pixThresholdSpreadNorm(
 				<Out()> ByRef ppixd as Pix) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (gamma) then Throw New ArgumentNullException  ("gamma cannot be Nothing")
+
+
 
 Dim ppixthPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixth) Then ppixthPTR = ppixth.Pointer
 Dim ppixbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixb) Then ppixbPTR = ppixb.Pointer
@@ -1035,6 +1085,8 @@ Public Shared Function pixBackgroundNormFlex(
 				 ByVal delta as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBackgroundNormFlex( pixs.Pointer, sx, sy, smoothx, smoothy, delta)
@@ -1095,6 +1147,8 @@ Public Shared Function pixContrastNorm(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixContrastNorm( pixdPTR, pixs.Pointer, sx, sy, mindiff, smoothx, smoothy)
@@ -1136,6 +1190,8 @@ Public Shared Function pixMinMaxTiles(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 	Dim ppixminPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixmin) Then ppixminPTR = ppixmin.Pointer
 	Dim ppixmaxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixmax) Then ppixmaxPTR = ppixmax.Pointer
 
@@ -1174,6 +1230,10 @@ Public Shared Function pixSetLowContrast(
 
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
+
+
+	If {8}.contains (pixs1.d) = false then Throw New ArgumentException ("8 bpp")
+	If {8}.contains (pixs2.d) = false then Throw New ArgumentException ("8 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetLowContrast( pixs1.Pointer, pixs2.Pointer, mindiff)
@@ -1217,6 +1277,9 @@ Public Shared Function pixLinearTRCTiled(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixmin) then Throw New ArgumentNullException  ("pixmin cannot be Nothing")
 	If IsNothing (pixmax) then Throw New ArgumentNullException  ("pixmax cannot be Nothing")
+
+
+	If {8}.contains (pixd.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 

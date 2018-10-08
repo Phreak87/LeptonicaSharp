@@ -81,6 +81,8 @@ Public Shared Function pixMorphSequence(
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMorphSequence( pixs.Pointer, sequence, dispsep)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -136,6 +138,8 @@ Public Shared Function pixMorphCompSequence(
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMorphCompSequence( pixs.Pointer, sequence, dispsep)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -170,6 +174,8 @@ Public Shared Function pixMorphSequenceDwa(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMorphSequenceDwa( pixs.Pointer, sequence, dispsep)
@@ -208,6 +214,8 @@ Public Shared Function pixMorphCompSequenceDwa(
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMorphCompSequenceDwa( pixs.Pointer, sequence, dispsep)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -233,6 +241,8 @@ Public Shared Function morphSequenceVerify(
 				 ByVal sa as Sarray) as Integer
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.morphSequenceVerify( sa.Pointer)
@@ -294,6 +304,8 @@ Public Shared Function pixGrayMorphSequence(
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGrayMorphSequence( pixs.Pointer, sequence, dispsep, dispy)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -347,6 +359,8 @@ Public Shared Function pixColorMorphSequence(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixColorMorphSequence( pixs.Pointer, sequence, dispsep, dispy)

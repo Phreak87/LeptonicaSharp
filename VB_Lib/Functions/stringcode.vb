@@ -23,6 +23,8 @@ Public Shared Function strcodeCreate(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.strcodeCreate( fileno)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -53,6 +55,8 @@ Public Shared Function strcodeCreateFromFile(
 				 ByVal outdir as String) as Integer
 
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.strcodeCreateFromFile( filein, fileno, outdir)
@@ -89,6 +93,8 @@ Public Shared Function strcodeGenerate(
 	If IsNothing (type) then Throw New ArgumentNullException  ("type cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.strcodeGenerate( strcode.Pointer, filein, type)
 
 	Return _Result
@@ -105,6 +111,8 @@ End Function
 Public Shared Function strcodeFinalize(
 				 ByRef pstrcode as L_StrCode, 
 				 ByVal outdir as String) as Integer
+
+
 
 
 	Dim pstrcodePTR As IntPtr = IntPtr.Zero : If Not IsNothing(pstrcode) Then pstrcodePTR = pstrcode.Pointer
@@ -137,6 +145,8 @@ Public Shared Function l_getStructStrFromFile(
 				<Out()> ByRef pstr as String()) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 Dim pstrPTR As IntPtr = pstrPTR = Marshal.AllocHGlobal(Marshal.sizeOf(pstr.toArray))

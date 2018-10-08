@@ -45,6 +45,8 @@ Public Shared Function pixFindBaselines(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixadb) then Throw New ArgumentNullException  ("pixadb cannot be Nothing")
 
+
+
 Dim pptaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppta) Then pptaPTR = ppta.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFindBaselines( pixs.Pointer, pptaPTR, pixadb.Pointer)
@@ -97,9 +99,9 @@ Public Shared Function pixDeskewLocal(
 				 ByVal minbsdelta as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (sweeprange) then Throw New ArgumentNullException  ("sweeprange cannot be Nothing")
-	If IsNothing (sweepdelta) then Throw New ArgumentNullException  ("sweepdelta cannot be Nothing")
-	If IsNothing (minbsdelta) then Throw New ArgumentNullException  ("minbsdelta cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 	If {0,1,2,4,8}.contains (redsweep) = false then Throw New ArgumentException ("sweep reduction factor: 1, 2, 4 or 8 use 0 for default value")
 	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("search reduction factor: 1, 2, 4 or 8, and not larger than redsweep use 0 for default value")
 
@@ -147,9 +149,8 @@ Public Shared Function pixGetLocalSkewTransform(
 				<Out()> ByRef pptad as Pta) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (sweeprange) then Throw New ArgumentNullException  ("sweeprange cannot be Nothing")
-	If IsNothing (sweepdelta) then Throw New ArgumentNullException  ("sweepdelta cannot be Nothing")
-	If IsNothing (minbsdelta) then Throw New ArgumentNullException  ("minbsdelta cannot be Nothing")
+
+
 	If {0,1,2,4,8}.contains (redsweep) = false then Throw New ArgumentException ("sweep reduction factor: 1, 2, 4 or 8 use 0 for default value")
 	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("search reduction factor: 1, 2, 4 or 8, and not larger than redsweep use 0 for default value")
 
@@ -208,9 +209,9 @@ Public Shared Function pixGetLocalSkewAngles(
 				 ByVal debug as Enumerations.DebugOnOff) as Numa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (sweeprange) then Throw New ArgumentNullException  ("sweeprange cannot be Nothing")
-	If IsNothing (sweepdelta) then Throw New ArgumentNullException  ("sweepdelta cannot be Nothing")
-	If IsNothing (minbsdelta) then Throw New ArgumentNullException  ("minbsdelta cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 	If {0,1,2,4,8}.contains (redsweep) = false then Throw New ArgumentException ("sweep reduction factor: 1, 2, 4 or 8 use 0 for default value")
 	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("search reduction factor: 1, 2, 4 or 8, and not larger than redsweep use 0 for default value")
 

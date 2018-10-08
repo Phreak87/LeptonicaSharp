@@ -21,7 +21,8 @@ Public Shared Function jbRankHausInit(
 				 ByVal size as Integer, 
 				 ByVal rank as Single) as JbClasser
 
-	If IsNothing (rank) then Throw New ArgumentNullException  ("rank cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.jbRankHausInit( components, maxwidth, maxheight, size, rank)
@@ -58,8 +59,8 @@ Public Shared Function jbCorrelationInit(
 				 ByVal thresh as Single, 
 				 ByVal weightfactor as Single) as JbClasser
 
-	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
-	If IsNothing (weightfactor) then Throw New ArgumentNullException  ("weightfactor cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.jbCorrelationInit( components, maxwidth, maxheight, thresh, weightfactor)
@@ -92,8 +93,8 @@ Public Shared Function jbCorrelationInitWithoutComponents(
 				 ByVal thresh as Single, 
 				 ByVal weightfactor as Single) as JbClasser
 
-	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
-	If IsNothing (weightfactor) then Throw New ArgumentNullException  ("weightfactor cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.jbCorrelationInitWithoutComponents( components, maxwidth, maxheight, thresh, weightfactor)
@@ -122,6 +123,8 @@ Public Shared Function jbAddPages(
 	If IsNothing (classer) then Throw New ArgumentNullException  ("classer cannot be Nothing")
 	If IsNothing (safiles) then Throw New ArgumentNullException  ("safiles cannot be Nothing")
 
+
+
 Dim classerPTR As IntPtr = IntPtr.Zero : If Not IsNothing(classer) Then classerPTR = classer.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.jbAddPages( classer.Pointer, safiles.Pointer)
@@ -142,6 +145,8 @@ Public Shared Function jbAddPage(
 
 	If IsNothing (classer) then Throw New ArgumentNullException  ("classer cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 Dim classerPTR As IntPtr = IntPtr.Zero : If Not IsNothing(classer) Then classerPTR = classer.Pointer
 
@@ -176,6 +181,8 @@ Public Shared Function jbAddPageComponents(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 
+
+
 Dim classerPTR As IntPtr = IntPtr.Zero : If Not IsNothing(classer) Then classerPTR = classer.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.jbAddPageComponents( classer.Pointer, pixs.Pointer, boxas.Pointer, pixas.Pointer)
@@ -199,6 +206,8 @@ Public Shared Function jbClassifyRankHaus(
 	If IsNothing (classer) then Throw New ArgumentNullException  ("classer cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
+
+
 
 Dim classerPTR As IntPtr = IntPtr.Zero : If Not IsNothing(classer) Then classerPTR = classer.Pointer
 
@@ -248,8 +257,8 @@ Public Shared Function pixHaustest(
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 	If IsNothing (pix3) then Throw New ArgumentNullException  ("pix3 cannot be Nothing")
 	If IsNothing (pix4) then Throw New ArgumentNullException  ("pix4 cannot be Nothing")
-	If IsNothing (delx) then Throw New ArgumentNullException  ("delx cannot be Nothing")
-	If IsNothing (dely) then Throw New ArgumentNullException  ("dely cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixHaustest( pix1.Pointer, pix2.Pointer, pix3.Pointer, pix4.Pointer, delx, dely, maxdiffw, maxdiffh)
@@ -309,10 +318,9 @@ Public Shared Function pixRankHaustest(
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 	If IsNothing (pix3) then Throw New ArgumentNullException  ("pix3 cannot be Nothing")
 	If IsNothing (pix4) then Throw New ArgumentNullException  ("pix4 cannot be Nothing")
-	If IsNothing (delx) then Throw New ArgumentNullException  ("delx cannot be Nothing")
-	If IsNothing (dely) then Throw New ArgumentNullException  ("dely cannot be Nothing")
-	If IsNothing (rank) then Throw New ArgumentNullException  ("rank cannot be Nothing")
 	If IsNothing (tab8) then Throw New ArgumentNullException  ("tab8 cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRankHaustest( pix1.Pointer, pix2.Pointer, pix3.Pointer, pix4.Pointer, delx, dely, maxdiffw, maxdiffh, area1, area3, rank, tab8)
@@ -336,6 +344,8 @@ Public Shared Function jbClassifyCorrelation(
 	If IsNothing (classer) then Throw New ArgumentNullException  ("classer cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
+
+
 
 Dim classerPTR As IntPtr = IntPtr.Zero : If Not IsNothing(classer) Then classerPTR = classer.Pointer
 
@@ -365,6 +375,9 @@ Public Shared Function jbGetComponents(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pboxad) then Throw New ArgumentNullException  ("pboxad cannot be Nothing")
 	If IsNothing (ppixad) then Throw New ArgumentNullException  ("ppixad cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pboxadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxad) Then pboxadPTR = pboxad.Pointer
 	Dim ppixadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixad) Then ppixadPTR = ppixad.Pointer
@@ -414,6 +427,8 @@ Public Shared Function pixWordMaskByDilation(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (ppixm) then Throw New ArgumentNullException  ("ppixm cannot be Nothing")
 
+
+
 	Dim ppixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixm) Then ppixmPTR = ppixm.Pointer
 	Dim pixadbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixadb) Then pixadbPTR = pixadb.Pointer
 
@@ -455,6 +470,8 @@ Public Shared Function pixWordBoxesByDilation(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 	Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = pboxa.Pointer
 	Dim pixadbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixadb) Then pixadbPTR = pixadb.Pointer
 
@@ -480,6 +497,8 @@ Public Shared Function jbAccumulateComposites(
 
 	If IsNothing (pixaa) then Throw New ArgumentNullException  ("pixaa cannot be Nothing")
 	If IsNothing (pna) then Throw New ArgumentNullException  ("pna cannot be Nothing")
+
+
 
 	Dim pnaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pna) Then pnaPTR = pna.Pointer
 	Dim pptatPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pptat) Then pptatPTR = pptat.Pointer
@@ -507,6 +526,8 @@ Public Shared Function jbTemplatesFromComposites(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.jbTemplatesFromComposites( pixac.Pointer, na.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -527,6 +548,8 @@ Public Shared Function jbClasserCreate(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.jbClasserCreate( method, components)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -542,6 +565,8 @@ Public Shared Sub jbClasserDestroy(
 				 ByVal pclasser as JbClasser)
 
 	If IsNothing (pclasser) then Throw New ArgumentNullException  ("pclasser cannot be Nothing")
+
+
 
 	Dim pclasserPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pclasser) Then pclasserPTR = pclasser.Pointer
 
@@ -571,6 +596,8 @@ Public Shared Function jbDataSave(
 
 	If IsNothing (classer) then Throw New ArgumentNullException  ("classer cannot be Nothing")
 
+
+
 Dim classerPTR As IntPtr = IntPtr.Zero : If Not IsNothing(classer) Then classerPTR = classer.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.jbDataSave( classer.Pointer)
@@ -588,6 +615,8 @@ Public Shared Sub jbDataDestroy(
 				 ByVal pdata as JbData)
 
 	If IsNothing (pdata) then Throw New ArgumentNullException  ("pdata cannot be Nothing")
+
+
 
 	Dim pdataPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdata) Then pdataPTR = pdata.Pointer
 
@@ -615,6 +644,8 @@ Public Shared Function jbDataWrite(
 	If IsNothing (jbdata) then Throw New ArgumentNullException  ("jbdata cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.jbDataWrite( rootout, jbdata.Pointer)
 
 	Return _Result
@@ -631,6 +662,8 @@ Public Shared Function jbDataRead(
 				 ByVal rootname as String) as JbData
 
 	If IsNothing (rootname) then Throw New ArgumentNullException  ("rootname cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.jbDataRead( rootname)
@@ -651,6 +684,8 @@ Public Shared Function jbDataRender(
 				 ByVal debugflag as Integer) as Pixa
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
+
+
 
 Dim dataPTR As IntPtr = IntPtr.Zero : If Not IsNothing(data) Then dataPTR = data.Pointer
 
@@ -694,6 +729,8 @@ Public Shared Function jbGetULCorners(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
+
+
 Dim classerPTR As IntPtr = IntPtr.Zero : If Not IsNothing(classer) Then classerPTR = classer.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.jbGetULCorners( classer.Pointer, pixs.Pointer, boxa.Pointer)
@@ -731,6 +768,8 @@ Public Shared Function jbGetLLCorners(
 				 ByVal classer as JbClasser) as Integer
 
 	If IsNothing (classer) then Throw New ArgumentNullException  ("classer cannot be Nothing")
+
+
 
 Dim classerPTR As IntPtr = IntPtr.Zero : If Not IsNothing(classer) Then classerPTR = classer.Pointer
 

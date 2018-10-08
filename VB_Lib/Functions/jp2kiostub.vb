@@ -18,6 +18,8 @@ Public Shared Function pixReadJp2k(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("")
 
@@ -44,6 +46,8 @@ Public Shared Function pixReadStreamJp2k(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
+
+
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("")
 
 Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
@@ -71,6 +75,8 @@ Public Shared Function pixWriteJp2k(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
@@ -97,6 +103,8 @@ Public Shared Function pixWriteStreamJp2k(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
+
+
 Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
@@ -121,6 +129,8 @@ Public Shared Function pixReadMemJp2k(
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
+
+
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("")
 
 Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
@@ -149,6 +159,8 @@ Public Shared Function pixWriteMemJp2k(
 	If IsNothing (pdata) then Throw New ArgumentNullException  ("pdata cannot be Nothing")
 	If IsNothing (psize) then Throw New ArgumentNullException  ("psize cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 

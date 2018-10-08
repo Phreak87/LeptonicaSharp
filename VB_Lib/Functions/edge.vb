@@ -34,6 +34,8 @@ Public Shared Function pixSobelEdgeFilter(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSobelEdgeFilter( pixs.Pointer, orientflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -74,6 +76,8 @@ Public Shared Function pixTwoSidedEdgeFilter(
 				 ByVal orientflag as Enumerations.L_L_EDGES) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixTwoSidedEdgeFilter( pixs.Pointer, orientflag)
@@ -125,6 +129,9 @@ Public Shared Function pixMeasureEdgeSmoothness(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixMeasureEdgeSmoothness( pixs.Pointer, side, minjump, minreversal, pjpl, pjspl, prpl, debugfile)
 
 	Return _Result
@@ -145,6 +152,9 @@ Public Shared Function pixGetEdgeProfile(
 				 ByVal debugfile as String) as Numa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetEdgeProfile( pixs.Pointer, side, debugfile)
@@ -169,6 +179,8 @@ Public Shared Function pixGetLastOffPixelInRun(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (ploc) then Throw New ArgumentNullException  ("ploc cannot be Nothing")
 
+
+
 Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetLastOffPixelInRun( pixs.Pointer, x, y, direction, ploc)
@@ -191,6 +203,8 @@ Public Shared Function pixGetLastOnPixelInRun(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (ploc) then Throw New ArgumentNullException  ("ploc cannot be Nothing")
+
+
 
 Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 

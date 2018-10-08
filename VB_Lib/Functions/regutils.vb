@@ -48,6 +48,8 @@ Public Shared Function regTestSetup(
 
 	If IsNothing (argv) then Throw New ArgumentNullException  ("argv cannot be Nothing")
 
+
+
 Dim argvPTR As IntPtr = argvPTR = Marshal.AllocHGlobal(Marshal.sizeOf(argv.toArray))
 	Dim prpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(prp) Then prpPTR = prp.Pointer
 
@@ -76,6 +78,8 @@ Public Shared Function regTestCleanup(
 	If IsNothing (rp) then Throw New ArgumentNullException  ("rp cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.regTestCleanup( rp.Pointer)
 
 	Return _Result
@@ -98,9 +102,8 @@ Public Shared Function regTestCompareValues(
 				 ByVal delta as Single) as Integer
 
 	If IsNothing (rp) then Throw New ArgumentNullException  ("rp cannot be Nothing")
-	If IsNothing (val1) then Throw New ArgumentNullException  ("val1 cannot be Nothing")
-	If IsNothing (val2) then Throw New ArgumentNullException  ("val2 cannot be Nothing")
-	If IsNothing (delta) then Throw New ArgumentNullException  ("delta cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.regTestCompareValues( rp.Pointer, val1, val2, delta)
@@ -131,6 +134,8 @@ Public Shared Function regTestCompareStrings(
 	If IsNothing (string2) then Throw New ArgumentNullException  ("string2 cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.regTestCompareStrings( rp.Pointer, string1, bytes1, string2, bytes2)
 
 	Return _Result
@@ -159,6 +164,8 @@ Public Shared Function regTestComparePix(
 	If IsNothing (rp) then Throw New ArgumentNullException  ("rp cannot be Nothing")
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.regTestComparePix( rp.Pointer, pix1.Pointer, pix2.Pointer)
@@ -204,7 +211,8 @@ Public Shared Function regTestCompareSimilarPix(
 	If IsNothing (rp) then Throw New ArgumentNullException  ("rp cannot be Nothing")
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
-	If IsNothing (maxfract) then Throw New ArgumentNullException  ("maxfract cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.regTestCompareSimilarPix( rp.Pointer, pix1.Pointer, pix2.Pointer, mindiff, maxfract, printstats)
@@ -243,6 +251,8 @@ Public Shared Function regTestCheckFile(
 	If IsNothing (localname) then Throw New ArgumentNullException  ("localname cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.regTestCheckFile( rp.Pointer, localname)
 
 	Return _Result
@@ -273,6 +283,8 @@ Public Shared Function regTestCompareFiles(
 				 ByVal index2 as Integer) as Integer
 
 	If IsNothing (rp) then Throw New ArgumentNullException  ("rp cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.regTestCompareFiles( rp.Pointer, index1, index2)
@@ -309,10 +321,12 @@ End Function
 Public Shared Function regTestWritePixAndCheck(
 				 ByVal rp as L_RegParams, 
 				 ByVal pix as Pix, 
-				 ByVal format as Integer) as Integer
+				 ByVal format as Enumerations.IFF) as Integer
 
 	If IsNothing (rp) then Throw New ArgumentNullException  ("rp cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.regTestWritePixAndCheck( rp.Pointer, pix.Pointer, format)
@@ -360,6 +374,8 @@ Public Shared Function regTestWriteDataAndCheck(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 	If IsNothing (ext) then Throw New ArgumentNullException  ("ext cannot be Nothing")
 
+
+
 Dim dataPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.regTestWriteDataAndCheck( rp.Pointer, dataPTR, nbytes, ext)
@@ -390,9 +406,11 @@ End Function
 Public Shared Function regTestGenLocalFilename(
 				 ByVal rp as L_RegParams, 
 				 ByVal index as Integer, 
-				 ByVal format as Integer) as String
+				 ByVal format as Enumerations.IFF) as String
 
 	If IsNothing (rp) then Throw New ArgumentNullException  ("rp cannot be Nothing")
+
+
 
 
 	Dim _Result as String = LeptonicaSharp.Natives.regTestGenLocalFilename( rp.Pointer, index, format)

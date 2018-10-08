@@ -42,6 +42,8 @@ Public Shared Function pixSetMasked(
 
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 
+
+
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetMasked( pixd.Pointer, pixmPTR, val)
@@ -88,6 +90,8 @@ Public Shared Function pixSetMaskedGeneral(
 
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 
+
+
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetMaskedGeneral( pixd.Pointer, pixmPTR, val, x, y)
@@ -132,6 +136,8 @@ Public Shared Function pixCombineMasked(
 
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
@@ -190,6 +196,8 @@ Public Shared Function pixCombineMaskedGeneral(
 
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
@@ -251,6 +259,8 @@ Public Shared Function pixPaintThroughMask(
 				 ByVal val as UInteger) as Integer
 
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
+
+
 
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
@@ -337,6 +347,8 @@ Public Shared Function pixPaintSelfThroughMask(
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixPaintSelfThroughMask( pixd.Pointer, pixm.Pointer, x, y, searchdir, mindist, tilesize, ntiles, distblend)
 
 	Return _Result
@@ -362,6 +374,8 @@ Public Shared Function pixMakeMaskFromVal(
 				 ByVal val as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMakeMaskFromVal( pixs.Pointer, val)
@@ -392,6 +406,8 @@ Public Shared Function pixMakeMaskFromLUT(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (tab) then Throw New ArgumentNullException  ("tab cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMakeMaskFromLUT( pixs.Pointer, tab)
@@ -436,10 +452,9 @@ Public Shared Function pixMakeArbMaskFromRGB(
 				 ByVal thresh as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (rc) then Throw New ArgumentNullException  ("rc cannot be Nothing")
-	If IsNothing (gc) then Throw New ArgumentNullException  ("gc cannot be Nothing")
-	If IsNothing (bc) then Throw New ArgumentNullException  ("bc cannot be Nothing")
-	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp RGB")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMakeArbMaskFromRGB( pixs.Pointer, rc, gc, bc, thresh)
@@ -510,6 +525,8 @@ Public Shared Function pixSetUnderTransparency(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSetUnderTransparency( pixs.Pointer, val, debug)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -555,6 +572,9 @@ Public Shared Function pixMakeAlphaFromMask(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
 Dim pboxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbox) Then pboxPTR = pbox.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMakeAlphaFromMask( pixs.Pointer, dist, pboxPTR)
@@ -596,6 +616,9 @@ Public Shared Function pixGetColorNearMaskBoundary(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetColorNearMaskBoundary( pixs.Pointer, pixm.Pointer, box.Pointer, dist, pval, debug)
 
 	Return _Result
@@ -627,6 +650,8 @@ Public Shared Function pixInvert(
 				 ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -675,6 +700,8 @@ Public Shared Function pixOr(
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
 
+
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOr( pixdPTR, pixs1.Pointer, pixs2.Pointer)
@@ -722,6 +749,8 @@ Public Shared Function pixAnd(
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
 
+
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAnd( pixdPTR, pixs1.Pointer, pixs2.Pointer)
@@ -768,6 +797,8 @@ Public Shared Function pixXor(
 
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
+
+
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -817,6 +848,8 @@ Public Shared Function pixSubtract(
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
 
+
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSubtract( pixdPTR, pixs1.Pointer, pixs2.Pointer)
@@ -850,6 +883,8 @@ Public Shared Function pixZero(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixZero( pix.Pointer, pempty)
 
 	Return _Result
@@ -870,6 +905,9 @@ Public Shared Function pixForegroundFraction(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+	If {1}.contains (pix.d) = false then Throw New ArgumentException ("1 bpp")
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixForegroundFraction( pix.Pointer, pfract)
 
 	Return _Result
@@ -886,6 +924,8 @@ Public Shared Function pixaCountPixels(
 				 ByVal pixa as Pixa) as Numa
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaCountPixels( pixa.Pointer)
@@ -909,6 +949,9 @@ Public Shared Function pixCountPixels(
 				 ByVal tab8 as Integer()) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCountPixels( pixs.Pointer, pcount, tab8)
@@ -936,6 +979,9 @@ Public Shared Function pixCountPixelsInRect(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCountPixelsInRect( pixs.Pointer, box.Pointer, pcount, tab8)
 
 	Return _Result
@@ -960,6 +1006,9 @@ Public Shared Function pixCountByRow(
 				 ByVal box as Box) as Numa
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
+	If {1}.contains (pix.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -989,6 +1038,9 @@ Public Shared Function pixCountByColumn(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
+
+	If {1}.contains (pix.d) = false then Throw New ArgumentException ("1 bpp")
+
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCountByColumn( pix.Pointer, boxPTR)
@@ -1012,6 +1064,9 @@ Public Shared Function pixCountPixelsByRow(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+	If {1}.contains (pix.d) = false then Throw New ArgumentException ("1 bpp")
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCountPixelsByRow( pix.Pointer, tab8)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1029,6 +1084,9 @@ Public Shared Function pixCountPixelsByColumn(
 				 ByVal pix as Pix) as Numa
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
+	If {1}.contains (pix.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCountPixelsByColumn( pix.Pointer)
@@ -1056,6 +1114,9 @@ Public Shared Function pixCountPixelsInRow(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+	If {1}.contains (pix.d) = false then Throw New ArgumentException ("1 bpp")
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCountPixelsInRow( pix.Pointer, row, pcount, tab8)
 
 	Return _Result
@@ -1074,6 +1135,9 @@ Public Shared Function pixGetMomentByColumn(
 				 ByVal order as Integer) as Numa
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
+	If {1}.contains (pix.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetMomentByColumn( pix.Pointer, order)
@@ -1110,6 +1174,9 @@ Public Shared Function pixThresholdPixelSum(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+	If {1}.contains (pix.d) = false then Throw New ArgumentException ("1 bpp")
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixThresholdPixelSum( pix.Pointer, thresh, pabove, tab8)
 
 	Return _Result
@@ -1128,6 +1195,8 @@ End Function
 '''  </remarks>
 '''   <returns>table of 256 l_int32, or NULL on error</returns>
 Public Shared Function makePixelSumTab8() as Integer()
+
+
 
 
 
@@ -1155,6 +1224,8 @@ End Function
 '''  </remarks>
 '''   <returns>table of 256 l_int32, or NULL on error</returns>
 Public Shared Function makePixelCentroidTab8() as Integer()
+
+
 
 
 
@@ -1186,6 +1257,8 @@ Public Shared Function pixAverageByRow(
 				 ByVal type as Enumerations.L_IS_MAX) as Numa
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -1219,6 +1292,8 @@ Public Shared Function pixAverageByColumn(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
+
+
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAverageByColumn( pix.Pointer, boxPTR, type)
@@ -1242,6 +1317,8 @@ Public Shared Function pixAverageInRect(
 				<Out()> ByRef pave as Single()) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -1271,6 +1348,8 @@ Public Shared Function pixVarianceByRow(
 				 ByVal box as Box) as Numa
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -1302,6 +1381,8 @@ Public Shared Function pixVarianceByColumn(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
+
+
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixVarianceByColumn( pix.Pointer, boxPTR)
@@ -1325,6 +1406,8 @@ Public Shared Function pixVarianceInRect(
 				<Out()> ByRef prootvar as Single()) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -1355,6 +1438,8 @@ Public Shared Function pixAbsDiffByRow(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
+
+
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAbsDiffByRow( pix.Pointer, boxPTR)
@@ -1384,6 +1469,8 @@ Public Shared Function pixAbsDiffByColumn(
 				 ByVal box as Box) as Numa
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -1418,6 +1505,8 @@ Public Shared Function pixAbsDiffInRect(
 				<Out()> ByRef pabsdiff as Single()) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -1457,6 +1546,8 @@ Public Shared Function pixAbsDiffOnLine(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixAbsDiffOnLine( pix.Pointer, x1, y1, x2, y2, pabsdiff)
 
 	Return _Result
@@ -1489,6 +1580,8 @@ Public Shared Function pixCountArbInRect(
 				<Out()> ByRef pcount as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -1525,6 +1618,8 @@ Public Shared Function pixMirroredTiling(
 				 ByVal h as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMirroredTiling( pixs.Pointer, w, h)
@@ -1574,6 +1669,9 @@ Public Shared Function pixFindRepCloseTile(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim pboxtilePTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxtile) Then pboxtilePTR = pboxtile.Pointer
 

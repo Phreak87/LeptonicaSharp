@@ -15,6 +15,8 @@ Public Shared Function l_dnaCreate(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaCreate( n)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -42,6 +44,8 @@ Public Shared Function l_dnaCreateFromIArray(
 				 ByVal size as Integer) as L_Dna
 
 	If IsNothing (iarray) then Throw New ArgumentNullException  ("iarray cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaCreateFromIArray( iarray, size)
@@ -74,6 +78,8 @@ Public Shared Function l_dnaCreateFromDArray(
 	If IsNothing (darray) then Throw New ArgumentNullException  ("darray cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaCreateFromDArray( darray, size, copyflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -98,6 +104,8 @@ Public Shared Function l_dnaMakeSequence(
 	If IsNothing (increment) then Throw New ArgumentNullException  ("increment cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaMakeSequence( startval, increment, size)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -118,6 +126,8 @@ End Function
 '''  <param name="pda">[in,out] - to be nulled if it exists</param>
 Public Shared Sub l_dnaDestroy(
 				 ByRef pda as L_Dna)
+
+
 
 
 	Dim pdaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pda) Then pdaPTR = pda.Pointer
@@ -145,6 +155,8 @@ Public Shared Function l_dnaCopy(
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaCopy( da.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -162,6 +174,8 @@ Public Shared Function l_dnaClone(
 				 ByVal da as L_Dna) as L_Dna
 
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaClone( da.Pointer)
@@ -190,6 +204,8 @@ Public Shared Function l_dnaEmpty(
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaEmpty( da.Pointer)
 
 	Return _Result
@@ -209,6 +225,8 @@ Public Shared Function l_dnaAddNumber(
 
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaAddNumber( da.Pointer, val)
@@ -242,6 +260,8 @@ Public Shared Function l_dnaInsertNumber(
 	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaInsertNumber( da.Pointer, index, val)
 
 	Return _Result
@@ -269,6 +289,8 @@ Public Shared Function l_dnaRemoveNumber(
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaRemoveNumber( da.Pointer, index)
 
 	Return _Result
@@ -292,6 +314,8 @@ Public Shared Function l_dnaReplaceNumber(
 	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaReplaceNumber( da.Pointer, index, val)
 
 	Return _Result
@@ -308,6 +332,8 @@ Public Shared Function l_dnaGetCount(
 				 ByVal da as L_Dna) as Integer
 
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaGetCount( da.Pointer)
@@ -339,6 +365,8 @@ Public Shared Function l_dnaSetCount(
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaSetCount( da.Pointer, newcount)
 
 	Return _Result
@@ -365,6 +393,8 @@ Public Shared Function l_dnaGetDValue(
 				<Out()> ByRef pval as Double()) as Integer
 
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaGetDValue( da.Pointer, index, pval)
@@ -395,6 +425,8 @@ Public Shared Function l_dnaGetIValue(
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaGetIValue( da.Pointer, index, pival)
 
 	Return _Result
@@ -418,6 +450,8 @@ Public Shared Function l_dnaSetValue(
 	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaSetValue( da.Pointer, index, val)
 
 	Return _Result
@@ -439,6 +473,8 @@ Public Shared Function l_dnaShiftValue(
 
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 	If IsNothing (diff) then Throw New ArgumentNullException  ("diff cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaShiftValue( da.Pointer, index, diff)
@@ -470,6 +506,8 @@ Public Shared Function l_dnaGetIArray(
 				 ByVal da as L_Dna) as Integer()
 
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer() = LeptonicaSharp.Natives.l_dnaGetIArray( da.Pointer)
@@ -506,6 +544,8 @@ Public Shared Function l_dnaGetDArray(
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
 
+
+
 	Dim _Result as Double() = LeptonicaSharp.Natives.l_dnaGetDArray( da.Pointer, copyflag)
 
 	Return _Result
@@ -522,6 +562,8 @@ Public Shared Function l_dnaGetRefcount(
 				 ByVal da as L_Dna) as Integer
 
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaGetRefcount( da.Pointer)
@@ -544,6 +586,8 @@ Public Shared Function l_dnaChangeRefcount(
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaChangeRefcount( da.Pointer, delta)
 
 	Return _Result
@@ -564,6 +608,8 @@ Public Shared Function l_dnaGetParameters(
 				<Out()> ByRef pdelx as Double()) as Integer
 
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaGetParameters( da.Pointer, pstartx, pdelx)
@@ -590,6 +636,8 @@ Public Shared Function l_dnaSetParameters(
 	If IsNothing (delx) then Throw New ArgumentNullException  ("delx cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaSetParameters( da.Pointer, startx, delx)
 
 	Return _Result
@@ -611,6 +659,8 @@ Public Shared Function l_dnaCopyParameters(
 	If IsNothing (das) then Throw New ArgumentNullException  ("das cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaCopyParameters( dad.Pointer, das.Pointer)
 
 	Return _Result
@@ -627,6 +677,8 @@ Public Shared Function l_dnaRead(
 				 ByVal filename as String) as L_Dna
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -654,6 +706,8 @@ Public Shared Function l_dnaReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaReadStream( fp.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -674,6 +728,8 @@ Public Shared Function l_dnaWrite(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -698,6 +754,8 @@ Public Shared Function l_dnaWriteStream(
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaWriteStream( fp.Pointer, da.Pointer)
 
 	Return _Result
@@ -712,6 +770,8 @@ End Function
 '''   <returns>daa, or NULL on error</returns>
 Public Shared Function l_dnaaCreate(
 				 ByVal n as Integer) as L_Dnaa
+
+
 
 
 
@@ -743,6 +803,8 @@ Public Shared Function l_dnaaCreateFull(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaaCreateFull( nptr, n)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -769,6 +831,8 @@ Public Shared Function l_dnaaTruncate(
 	If IsNothing (daa) then Throw New ArgumentNullException  ("daa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaaTruncate( daa.Pointer)
 
 	Return _Result
@@ -782,6 +846,8 @@ End Function
 '''  <param name="pdaa">[in,out] - to be nulled if it exists</param>
 Public Shared Sub l_dnaaDestroy(
 				 ByRef pdaa as L_Dnaa)
+
+
 
 
 	Dim pdaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdaa) Then pdaaPTR = pdaa.Pointer
@@ -809,6 +875,8 @@ Public Shared Function l_dnaaAddDna(
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaaAddDna( daa.Pointer, da.Pointer, copyflag)
 
 	Return _Result
@@ -825,6 +893,8 @@ Public Shared Function l_dnaaGetCount(
 				 ByVal daa as L_Dnaa) as Integer
 
 	If IsNothing (daa) then Throw New ArgumentNullException  ("daa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaaGetCount( daa.Pointer)
@@ -847,6 +917,8 @@ Public Shared Function l_dnaaGetDnaCount(
 	If IsNothing (daa) then Throw New ArgumentNullException  ("daa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaaGetDnaCount( daa.Pointer, index)
 
 	Return _Result
@@ -863,6 +935,8 @@ Public Shared Function l_dnaaGetNumberCount(
 				 ByVal daa as L_Dnaa) as Integer
 
 	If IsNothing (daa) then Throw New ArgumentNullException  ("daa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaaGetNumberCount( daa.Pointer)
@@ -885,6 +959,8 @@ Public Shared Function l_dnaaGetDna(
 				 ByVal accessflag as Enumerations.L_access_storage) as L_Dna
 
 	If IsNothing (daa) then Throw New ArgumentNullException  ("daa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaaGetDna( daa.Pointer, index, accessflag)
@@ -918,6 +994,8 @@ Public Shared Function l_dnaaReplaceDna(
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaaReplaceDna( daa.Pointer, index, da.Pointer)
 
 	Return _Result
@@ -940,6 +1018,8 @@ Public Shared Function l_dnaaGetValue(
 				<Out()> ByRef pval as Double()) as Integer
 
 	If IsNothing (daa) then Throw New ArgumentNullException  ("daa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaaGetValue( daa.Pointer, i, j, pval)
@@ -970,6 +1050,8 @@ Public Shared Function l_dnaaAddNumber(
 	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaaAddNumber( daa.Pointer, index, val)
 
 	Return _Result
@@ -986,6 +1068,8 @@ Public Shared Function l_dnaaRead(
 				 ByVal filename as String) as L_Dnaa
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -1008,6 +1092,8 @@ Public Shared Function l_dnaaReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaaReadStream( fp.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1028,6 +1114,8 @@ Public Shared Function l_dnaaWrite(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (daa) then Throw New ArgumentNullException  ("daa cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -1050,6 +1138,8 @@ Public Shared Function l_dnaaWriteStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (daa) then Throw New ArgumentNullException  ("daa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaaWriteStream( fp.Pointer, daa.Pointer)

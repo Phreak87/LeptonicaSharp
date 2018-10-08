@@ -26,6 +26,9 @@ Public Shared Function pixMaskConnComp(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
 Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = pboxa.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMaskConnComp( pixs.Pointer, connectivity, pboxaPTR)
@@ -71,6 +74,8 @@ Public Shared Function pixMaskBoxa(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
+
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMaskBoxa( pixdPTR, pixs.Pointer, boxa.Pointer, op)
@@ -114,6 +119,8 @@ Public Shared Function pixPaintBoxa(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixPaintBoxa( pixs.Pointer, boxa.Pointer, val)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -135,6 +142,8 @@ Public Shared Function pixSetBlackOrWhiteBoxa(
 				 ByVal op as Enumerations.L_SET) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 	Dim boxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(boxa) Then boxaPTR = boxa.Pointer
 
@@ -166,6 +175,8 @@ Public Shared Function pixPaintBoxaRandom(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixPaintBoxaRandom( pixs.Pointer, boxa.Pointer)
@@ -200,7 +211,8 @@ Public Shared Function pixBlendBoxaRandom(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlendBoxaRandom( pixs.Pointer, boxa.Pointer, fract)
@@ -236,6 +248,8 @@ Public Shared Function pixDrawBoxa(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDrawBoxa( pixs.Pointer, boxa.Pointer, width, val)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -266,6 +280,8 @@ Public Shared Function pixDrawBoxaRandom(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDrawBoxaRandom( pixs.Pointer, boxa.Pointer, width)
@@ -312,6 +328,9 @@ Public Shared Function boxaaDisplay(
 
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
 	Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaDisplay( pixsPTR, baa.Pointer, linewba, linewb, colorba, colorb, w, h)
@@ -350,6 +369,8 @@ Public Shared Function pixaDisplayBoxaa(
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaDisplayBoxaa( pixas.Pointer, baa.Pointer, colorflag, width)
@@ -403,6 +424,9 @@ Public Shared Function pixSplitIntoBoxa(
 				 ByVal remainder as Integer) as Boxa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSplitIntoBoxa( pixs.Pointer, minsum, skipdist, delta, maxbg, maxcomps, remainder)
@@ -493,6 +517,9 @@ Public Shared Function pixSplitComponentIntoBoxa(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
+
+	If {1}.contains (pix.d) = false then Throw New ArgumentException ("1 bpp")
+
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSplitComponentIntoBoxa( pix.Pointer, boxPTR, minsum, skipdist, delta, maxbg, maxcomps, remainder)
@@ -527,6 +554,8 @@ Public Shared Function makeMosaicStrips(
 				 ByVal h as Integer, 
 				 ByVal direction as Enumerations.L_scan_direction, 
 				 ByVal size as Integer) as Boxa
+
+
 
 
 
@@ -581,6 +610,8 @@ Public Shared Function boxaCompareRegions(
 	If IsNothing (boxa1) then Throw New ArgumentNullException  ("boxa1 cannot be Nothing")
 	If IsNothing (boxa2) then Throw New ArgumentNullException  ("boxa2 cannot be Nothing")
 
+
+
 Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaCompareRegions( boxa1.Pointer, boxa2.Pointer, areathresh, pnsame, pdiffarea, pdiffxor, ppixdbPTR)
@@ -622,7 +653,9 @@ Public Shared Function pixSelectLargeULComp(
 				 ByVal connectivity as Integer) as Box
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (areaslop) then Throw New ArgumentNullException  ("areaslop cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSelectLargeULComp( pixs.Pointer, areaslop, yslop, connectivity)
@@ -651,7 +684,8 @@ Public Shared Function boxaSelectLargeULBox(
 				 ByVal yslop as Integer) as Box
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
-	If IsNothing (areaslop) then Throw New ArgumentNullException  ("areaslop cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaSelectLargeULBox( boxas.Pointer, areaslop, yslop)

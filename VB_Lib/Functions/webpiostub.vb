@@ -14,6 +14,8 @@ Public Shared Function pixReadStreamWebP(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
+
+
 Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadStreamWebP( fp.Pointer)
@@ -33,6 +35,8 @@ Public Shared Function pixReadMemWebP(
 				 ByVal filesize as UInteger) as Pix
 
 	If IsNothing (filedata) then Throw New ArgumentNullException  ("filedata cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemWebP( filedata, filesize)
@@ -57,6 +61,8 @@ Public Shared Function readHeaderWebP(
 	If IsNothing (pw) then Throw New ArgumentNullException  ("pw cannot be Nothing")
 	If IsNothing (ph) then Throw New ArgumentNullException  ("ph cannot be Nothing")
 	If IsNothing (pspp) then Throw New ArgumentNullException  ("pspp cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -84,6 +90,8 @@ Public Shared Function readHeaderMemWebP(
 	If IsNothing (pspp) then Throw New ArgumentNullException  ("pspp cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderMemWebP( data, size, pw, ph, pspp)
 
 	Return _Result
@@ -103,6 +111,8 @@ Public Shared Function pixWriteWebP(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
@@ -126,6 +136,8 @@ Public Shared Function pixWriteStreamWebP(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
 Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
@@ -151,6 +163,8 @@ Public Shared Function pixWriteMemWebP(
 	If IsNothing (pencdata) then Throw New ArgumentNullException  ("pencdata cannot be Nothing")
 	If IsNothing (pencsize) then Throw New ArgumentNullException  ("pencsize cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 

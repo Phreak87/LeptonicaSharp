@@ -30,6 +30,8 @@ Public Shared Function pixGetRegionsBinary(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixadb) then Throw New ArgumentNullException  ("pixadb cannot be Nothing")
 
+
+
 Dim ppixhmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixhm) Then ppixhmPTR = ppixhm.Pointer
 Dim ppixtmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixtm) Then ppixtmPTR = ppixtm.Pointer
 Dim ppixtbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixtb) Then ppixtbPTR = ppixtb.Pointer
@@ -65,6 +67,8 @@ Public Shared Function pixGenHalftoneMask(
 	If IsNothing (ppixtext) then Throw New ArgumentNullException  ("ppixtext cannot be Nothing")
 	If IsNothing (phtfound) then Throw New ArgumentNullException  ("phtfound cannot be Nothing")
 
+
+
 Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 	Dim ppixtextPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixtext) Then ppixtextPTR = ppixtext.Pointer
 
@@ -98,6 +102,8 @@ Public Shared Function pixGenerateHalftoneMask(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixadb) then Throw New ArgumentNullException  ("pixadb cannot be Nothing")
+
+
 
 Dim ppixtextPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixtext) Then ppixtextPTR = ppixtext.Pointer
 
@@ -136,6 +142,8 @@ Public Shared Function pixGenTextlineMask(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixadb) then Throw New ArgumentNullException  ("pixadb cannot be Nothing")
+
+
 
 	Dim ppixvwsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixvws) Then ppixvwsPTR = ppixvws.Pointer
 
@@ -176,6 +184,8 @@ Public Shared Function pixGenTextblockMask(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixvws) then Throw New ArgumentNullException  ("pixvws cannot be Nothing")
 	If IsNothing (pixadb) then Throw New ArgumentNullException  ("pixadb cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenTextblockMask( pixs.Pointer, pixvws.Pointer, pixadb.Pointer)
@@ -223,6 +233,8 @@ Public Shared Function pixFindPageForeground(
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFindPageForeground( pixs.Pointer, threshold, mindist, erasedist, showmorph, pixac.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -261,6 +273,8 @@ Public Shared Function pixSplitIntoCharacters(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = pboxa.Pointer
 Dim ppixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixa) Then ppixaPTR = ppixa.Pointer
 Dim ppixdebugPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdebug) Then ppixdebugPTR = ppixdebug.Pointer
@@ -298,6 +312,8 @@ Public Shared Function pixSplitComponentWithProfile(
 				<Out()> ByRef ppixdebug as Pix) as Boxa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 Dim ppixdebugPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdebug) Then ppixdebugPTR = ppixdebug.Pointer
 
@@ -366,6 +382,8 @@ Public Shared Function pixExtractTextlines(
 	If IsNothing (pixadb) then Throw New ArgumentNullException  ("pixadb cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtractTextlines( pixs.Pointer, maxw, maxh, minw, minh, adjw, adjh, pixadb.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -420,6 +438,8 @@ Public Shared Function pixExtractRawTextlines(
 	If IsNothing (pixadb) then Throw New ArgumentNullException  ("pixadb cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtractRawTextlines( pixs.Pointer, maxw, maxh, adjw, adjh, pixadb.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -458,9 +478,9 @@ Public Shared Function pixCountTextColumns(
 				 ByVal pixadb as Pixa) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (deltafract) then Throw New ArgumentNullException  ("deltafract cannot be Nothing")
-	If IsNothing (peakfract) then Throw New ArgumentNullException  ("peakfract cannot be Nothing")
-	If IsNothing (clipfract) then Throw New ArgumentNullException  ("clipfract cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixadbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixadb) Then pixadbPTR = pixadb.Pointer
 
@@ -503,6 +523,8 @@ Public Shared Function pixDecideIfText(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 	Dim pixadbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixadb) Then pixadbPTR = pixadb.Pointer
 
@@ -528,6 +550,9 @@ Public Shared Function pixFindThreshFgExtent(
 				<Out()> ByRef pbot as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindThreshFgExtent( pixs.Pointer, thresh, ptop, pbot)
@@ -587,6 +612,8 @@ Public Shared Function pixDecideIfTable(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 	Dim pixadbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixadb) Then pixadbPTR = pixadb.Pointer
 
@@ -618,7 +645,8 @@ Public Shared Function pixPrepare1bpp(
 				 ByVal outres as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (cropfract) then Throw New ArgumentNullException  ("cropfract cannot be Nothing")
+
+
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -650,7 +678,8 @@ Public Shared Function pixEstimateBackground(
 				<Out()> ByRef pbg as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (edgecrop) then Throw New ArgumentNullException  ("edgecrop cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixEstimateBackground( pixs.Pointer, darkthresh, edgecrop, pbg)
@@ -693,6 +722,9 @@ Public Shared Function pixFindLargeRectangles(
 				 ByRef ppixdb as Pix) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = pboxa.Pointer
 	Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
@@ -762,6 +794,9 @@ Public Shared Function pixFindLargestRectangle(
 				 ByRef ppixdb as Pix) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pboxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbox) Then pboxPTR = pbox.Pointer
 	Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer

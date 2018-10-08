@@ -32,6 +32,8 @@ Public Shared Function recogTrainLabeled(
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogTrainLabeled( recog.Pointer, pixs.Pointer, boxPTR, text, debug)
@@ -65,6 +67,8 @@ Public Shared Function recogProcessLabeled(
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 	Dim ppixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppix) Then ppixPTR = ppix.Pointer
@@ -104,6 +108,8 @@ Public Shared Function recogAddSample(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogAddSample( recog.Pointer, pix.Pointer, debug)
 
 	Return _Result
@@ -123,6 +129,8 @@ Public Shared Function recogModifyTemplate(
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogModifyTemplate( recog.Pointer, pixs.Pointer)
@@ -161,6 +169,8 @@ Public Shared Function recogAverageSamples(
 
 	If IsNothing (precog) then Throw New ArgumentNullException  ("precog cannot be Nothing")
 
+
+
 	Dim precogPTR As IntPtr = IntPtr.Zero ' : If Not IsNothing(precog) Then precogPTR = precog.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogAverageSamples( precogPTR, debug)
@@ -196,6 +206,8 @@ Public Shared Function pixaAccumulateSamples(
 				<Out()> ByRef py as Single()) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
+
+
 
 	Dim ptaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pta) Then ptaPTR = pta.Pointer
 	Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
@@ -248,7 +260,8 @@ Public Shared Function recogTrainingFinished(
 				 ByVal minfract as Single) as Integer
 
 	If IsNothing (precog) then Throw New ArgumentNullException  ("precog cannot be Nothing")
-	If IsNothing (minfract) then Throw New ArgumentNullException  ("minfract cannot be Nothing")
+
+
 
 	Dim precogPTR As IntPtr = IntPtr.Zero ' : If Not IsNothing(precog) Then precogPTR = precog.Pointer
 
@@ -293,7 +306,8 @@ Public Shared Function recogFilterPixaBySize(
 				<Out()> ByRef pna as Numa) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
-	If IsNothing (max_ht_ratio) then Throw New ArgumentNullException  ("max_ht_ratio cannot be Nothing")
+
+
 
 Dim pnaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pna) Then pnaPTR = pna.Pointer
 
@@ -317,6 +331,8 @@ Public Shared Function recogSortPixaByClass(
 				 ByVal setsize as Integer) as Pixaa
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogSortPixaByClass( pixa.Pointer, setsize)
@@ -354,7 +370,8 @@ Public Shared Function recogRemoveOutliers1(
 				<Out()> ByRef ppixrem as Pix) as Integer
 
 	If IsNothing (precog) then Throw New ArgumentNullException  ("precog cannot be Nothing")
-	If IsNothing (minscore) then Throw New ArgumentNullException  ("minscore cannot be Nothing")
+
+
 
 	Dim precogPTR As IntPtr = IntPtr.Zero ' : If Not IsNothing(precog) Then precogPTR = precog.Pointer
 Dim ppixsavePTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixsave) Then ppixsavePTR = ppixsave.Pointer
@@ -413,7 +430,8 @@ Public Shared Function pixaRemoveOutliers1(
 				<Out()> ByRef ppixrem as Pix) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
-	If IsNothing (minscore) then Throw New ArgumentNullException  ("minscore cannot be Nothing")
+
+
 
 Dim ppixsavePTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixsave) Then ppixsavePTR = ppixsave.Pointer
 Dim ppixremPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixrem) Then ppixremPTR = ppixrem.Pointer
@@ -453,7 +471,8 @@ Public Shared Function recogRemoveOutliers2(
 				<Out()> ByRef ppixrem as Pix) as Integer
 
 	If IsNothing (precog) then Throw New ArgumentNullException  ("precog cannot be Nothing")
-	If IsNothing (minscore) then Throw New ArgumentNullException  ("minscore cannot be Nothing")
+
+
 
 	Dim precogPTR As IntPtr = IntPtr.Zero ' : If Not IsNothing(precog) Then precogPTR = precog.Pointer
 Dim ppixsavePTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixsave) Then ppixsavePTR = ppixsave.Pointer
@@ -500,7 +519,8 @@ Public Shared Function pixaRemoveOutliers2(
 				<Out()> ByRef ppixrem as Pix) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
-	If IsNothing (minscore) then Throw New ArgumentNullException  ("minscore cannot be Nothing")
+
+
 
 Dim ppixsavePTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixsave) Then ppixsavePTR = ppixsave.Pointer
 Dim ppixremPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixrem) Then ppixremPTR = ppixrem.Pointer
@@ -551,7 +571,8 @@ Public Shared Function recogTrainFromBoot(
 
 	If IsNothing (recogboot) then Throw New ArgumentNullException  ("recogboot cannot be Nothing")
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
-	If IsNothing (minscore) then Throw New ArgumentNullException  ("minscore cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogTrainFromBoot( recogboot.Pointer, pixas.Pointer, minscore, threshold, debug)
@@ -584,6 +605,8 @@ Public Shared Function recogPadDigitTrainingSet(
 				 ByVal linew as Integer) as Integer
 
 
+
+
 	Dim precogPTR As IntPtr = IntPtr.Zero : If Not IsNothing(precog) Then precogPTR = precog.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogPadDigitTrainingSet( precogPTR, scaleh, linew)
@@ -614,6 +637,8 @@ Public Shared Function recogIsPaddingNeeded(
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 
+
+
 	Dim psaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(psa) Then psaPTR = psa.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogIsPaddingNeeded( recog.Pointer, psaPTR)
@@ -643,6 +668,8 @@ Public Shared Function recogAddDigitPadTemplates(
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogAddDigitPadTemplates( recog.Pointer, sa.Pointer)
@@ -685,6 +712,8 @@ Public Shared Function recogMakeBootDigitRecog(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogMakeBootDigitRecog( scaleh, linew, maxyshift, debug)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -705,6 +734,8 @@ End Function
 '''   <returns>pixa   of templates or NULL on error</returns>
 Public Shared Function recogMakeBootDigitTemplates(
 				 ByVal debug as Enumerations.DebugOnOff) as Pixa
+
+
 
 
 
@@ -732,6 +763,8 @@ Public Shared Function recogShowContent(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogShowContent( fp.Pointer, recog.Pointer, index, display)
@@ -763,6 +796,8 @@ Public Shared Function recogDebugAverages(
 
 	If IsNothing (precog) then Throw New ArgumentNullException  ("precog cannot be Nothing")
 
+
+
 	Dim precogPTR As IntPtr = IntPtr.Zero ' : If Not IsNothing(precog) Then precogPTR = precog.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogDebugAverages( precogPTR, debug)
@@ -787,6 +822,8 @@ Public Shared Function recogShowAverageTemplates(
 				 ByVal recog as L_Recog) as Integer
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogShowAverageTemplates( recog.Pointer)
@@ -825,8 +862,8 @@ Public Shared Function recogShowMatchesInRange(
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-	If IsNothing (minscore) then Throw New ArgumentNullException  ("minscore cannot be Nothing")
-	If IsNothing (maxscore) then Throw New ArgumentNullException  ("maxscore cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogShowMatchesInRange( recog.Pointer, pixa.Pointer, minscore, maxscore, display)
@@ -870,7 +907,8 @@ Public Shared Function recogShowMatch(
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
-	If IsNothing (score) then Throw New ArgumentNullException  ("score cannot be Nothing")
+
+
 
 	Dim pix2PTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix2) Then pix2PTR = pix2.Pointer
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer

@@ -37,6 +37,8 @@ Public Shared Function convertFilesTo1bpp(
 	If IsNothing (dirout) then Throw New ArgumentNullException  ("dirout cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertFilesTo1bpp( dirin, substr, upscaling, thresh, firstpage, npages, dirout, outformat)
 
 	Return _Result

@@ -16,12 +16,14 @@ Partial Public Class _All
 '''   <returns>sarray text of barcodes, or NULL if none found or on error</returns>
 Public Shared Function pixProcessBarcodes(
 				 ByVal pixs as Pix, 
-				 ByVal format as Enumerations.L_BF, 
+				 ByVal format as Enumerations.IFF, 
 				 ByVal method as Enumerations.L_USE_WIS, 
 				<Out()> ByRef psaw as Sarray, 
 				 ByVal debugflag as Integer) as Sarray
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 Dim psawPTR As IntPtr = IntPtr.Zero : If Not IsNothing(psaw) Then psawPTR = psaw.Pointer
 
@@ -47,6 +49,8 @@ Public Shared Function pixExtractBarcodes(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtractBarcodes( pixs.Pointer, debugflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -66,12 +70,14 @@ End Function
 '''   <returns>sa sarray of widths, one string for each barcode found, or NULL on error</returns>
 Public Shared Function pixReadBarcodes(
 				 ByVal pixa as Pixa, 
-				 ByVal format as Enumerations.L_BF, 
+				 ByVal format as Enumerations.IFF, 
 				 ByVal method as Enumerations.L_USE_WIS, 
 				<Out()> ByRef psaw as Sarray, 
 				 ByVal debugflag as Integer) as Sarray
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
+
+
 
 Dim psawPTR As IntPtr = IntPtr.Zero : If Not IsNothing(psaw) Then psawPTR = psaw.Pointer
 
@@ -99,6 +105,8 @@ Public Shared Function pixReadBarcodeWidths(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadBarcodeWidths( pixs.Pointer, method, debugflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -122,6 +130,8 @@ Public Shared Function pixLocateBarcodes(
 				<Out()> ByRef ppixm as Pix) as Boxa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 Dim ppixbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixb) Then ppixbPTR = ppixb.Pointer
 Dim ppixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixm) Then ppixmPTR = ppixm.Pointer
@@ -167,6 +177,8 @@ Public Shared Function pixDeskewBarcode(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDeskewBarcode( pixs.Pointer, pixb.Pointer, box.Pointer, margin, threshold, pangle, pconf)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -204,8 +216,8 @@ Public Shared Function pixExtractBarcodeWidths1(
 				 ByVal debugflag as Integer) as Numa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
-	If IsNothing (binfract) then Throw New ArgumentNullException  ("binfract cannot be Nothing")
+
+
 
 Dim pnaehistPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaehist) Then pnaehistPTR = pnaehist.Pointer
 Dim pnaohistPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaohist) Then pnaohistPTR = pnaohist.Pointer
@@ -251,7 +263,8 @@ Public Shared Function pixExtractBarcodeWidths2(
 				 ByVal debugflag as Integer) as Numa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
+
+
 
 Dim pnacPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnac) Then pnacPTR = pnac.Pointer
 
@@ -277,7 +290,8 @@ Public Shared Function pixExtractBarcodeCrossings(
 				 ByVal debugflag as Integer) as Numa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtractBarcodeCrossings( pixs.Pointer, thresh, debugflag)
@@ -318,7 +332,8 @@ Public Shared Function numaQuantizeCrossingsByWidth(
 				 ByVal debugflag as Integer) as Numa
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
-	If IsNothing (binfract) then Throw New ArgumentNullException  ("binfract cannot be Nothing")
+
+
 
 Dim pnaehistPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaehist) Then pnaehistPTR = pnaehist.Pointer
 Dim pnaohistPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaohist) Then pnaohistPTR = pnaohist.Pointer
@@ -362,7 +377,8 @@ Public Shared Function numaQuantizeCrossingsByWindow(
 				 ByVal debugflag as Integer) as Numa
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
-	If IsNothing (ratio) then Throw New ArgumentNullException  ("ratio cannot be Nothing")
+
+
 
 Dim pnacPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnac) Then pnacPTR = pnac.Pointer
 

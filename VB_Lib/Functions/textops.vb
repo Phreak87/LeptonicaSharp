@@ -43,6 +43,8 @@ Public Shared Function pixAddSingleTextblock(
 	If IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAddSingleTextblock( pixs.Pointer, bmf.Pointer, textstr, val, location, poverflow)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -89,6 +91,8 @@ Public Shared Function pixAddTextlines(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAddTextlines( pixs.Pointer, bmf.Pointer, textstr, val, location)
@@ -144,6 +148,8 @@ Public Shared Function pixSetTextblock(
 	If IsNothing (textstr) then Throw New ArgumentNullException  ("textstr cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetTextblock( pixs.Pointer, bmf.Pointer, textstr, val, x0, y0, wtext, firstindent, poverflow)
 
 	Return _Result
@@ -194,6 +200,8 @@ Public Shared Function pixSetTextline(
 	If IsNothing (textstr) then Throw New ArgumentNullException  ("textstr cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetTextline( pixs.Pointer, bmf.Pointer, textstr, val, x0, y0, pwidth, poverflow)
 
 	Return _Result
@@ -235,6 +243,8 @@ Public Shared Function pixaAddTextNumber(
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 	If IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
+
+
 
 	Dim naPTR As IntPtr = IntPtr.Zero : If Not IsNothing(na) Then naPTR = na.Pointer
 
@@ -284,6 +294,8 @@ Public Shared Function pixaAddTextlines(
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 	If IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
 
+
+
 	Dim saPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sa) Then saPTR = sa.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaAddTextlines( pixas.Pointer, bmf.Pointer, saPTR, val, location)
@@ -332,6 +344,8 @@ Public Shared Function pixaAddPixWithText(
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("integer subsampling factor")
 
 	Dim bmfPTR As IntPtr = IntPtr.Zero : If Not IsNothing(bmf) Then bmfPTR = bmf.Pointer
@@ -369,6 +383,8 @@ Public Shared Function bmfGetLineStrings(
 	If IsNothing (textstr) then Throw New ArgumentNullException  ("textstr cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.bmfGetLineStrings( bmf.Pointer, textstr, maxw, firstindent, ph)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -392,6 +408,8 @@ Public Shared Function bmfGetWordWidths(
 	If IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
 	If IsNothing (textstr) then Throw New ArgumentNullException  ("textstr cannot be Nothing")
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.bmfGetWordWidths( bmf.Pointer, textstr, sa.Pointer)
@@ -418,6 +436,8 @@ Public Shared Function bmfGetStringWidth(
 	If IsNothing (textstr) then Throw New ArgumentNullException  ("textstr cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.bmfGetStringWidth( bmf.Pointer, textstr, pw)
 
 	Return _Result
@@ -436,6 +456,8 @@ Public Shared Function splitStringToParagraphs(
 				 ByVal splitflag as Integer) as Sarray
 
 	If IsNothing (textstr) then Throw New ArgumentNullException  ("textstr cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.splitStringToParagraphs( textstr, splitflag)

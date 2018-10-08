@@ -34,6 +34,8 @@ Public Shared Function pixProjectiveSampledPta(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixProjectiveSampledPta( pixs.Pointer, ptad.Pointer, ptas.Pointer, incolor)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -65,6 +67,8 @@ Public Shared Function pixProjectiveSampled(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixProjectiveSampled( pixs.Pointer, vc, incolor)
@@ -100,6 +104,8 @@ Public Shared Function pixProjectivePta(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixProjectivePta( pixs.Pointer, ptad.Pointer, ptas.Pointer, incolor)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -130,6 +136,8 @@ Public Shared Function pixProjective(
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixProjective( pixs.Pointer, vc, incolor)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -157,6 +165,8 @@ Public Shared Function pixProjectivePtaColor(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixProjectivePtaColor( pixs.Pointer, ptad.Pointer, ptas.Pointer, colorval)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -179,6 +189,8 @@ Public Shared Function pixProjectiveColor(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixProjectiveColor( pixs.Pointer, vc, colorval)
@@ -209,6 +221,9 @@ Public Shared Function pixProjectivePtaGray(
 	If IsNothing (grayval) then Throw New ArgumentNullException  ("grayval cannot be Nothing")
 
 
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixProjectivePtaGray( pixs.Pointer, ptad.Pointer, ptas.Pointer, grayval)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -232,6 +247,9 @@ Public Shared Function pixProjectiveGray(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
 	If IsNothing (grayval) then Throw New ArgumentNullException  ("grayval cannot be Nothing")
+
+
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixProjectiveGray( pixs.Pointer, vc, grayval)
@@ -295,7 +313,9 @@ Public Shared Function pixProjectivePtaWithAlpha(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (ptad) then Throw New ArgumentNullException  ("ptad cannot be Nothing")
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim pixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixg) Then pixgPTR = pixg.Pointer
 
@@ -321,6 +341,8 @@ Public Shared Function getProjectiveXformCoeffs(
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 	If IsNothing (ptad) then Throw New ArgumentNullException  ("ptad cannot be Nothing")
+
+
 
 Dim pvcPTR As IntPtr = Marshal.AllocHGlobal(0)
 
@@ -356,6 +378,8 @@ Public Shared Function projectiveXformSampledPt(
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.projectiveXformSampledPt( vc, x, y, pxp, pyp)
 
 	Return _Result
@@ -386,6 +410,8 @@ Public Shared Function projectiveXformPt(
 				<Out()> ByRef pyp as Single()) as Integer
 
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.projectiveXformPt( vc, x, y, pxp, pyp)

@@ -15,6 +15,8 @@ Public Shared Function selaCreate(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaCreate( n)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -29,6 +31,8 @@ End Function
 '''  <param name="psela">[in,out] - to be nulled</param>
 Public Shared Sub selaDestroy(
 				 ByRef psela as Sela)
+
+
 
 
 	Dim pselaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(psela) Then pselaPTR = psela.Pointer
@@ -62,6 +66,8 @@ Public Shared Function selCreate(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selCreate( height, width, name)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -76,6 +82,8 @@ End Function
 '''  <param name="psel">[in,out] - to be nulled</param>
 Public Shared Sub selDestroy(
 				 ByRef psel as Sel)
+
+
 
 
 	Dim pselPTR As IntPtr = IntPtr.Zero : If Not IsNothing(psel) Then pselPTR = psel.Pointer
@@ -96,6 +104,8 @@ Public Shared Function selCopy(
 				 ByVal sel as Sel) as Sel
 
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selCopy( sel.Pointer)
@@ -129,6 +139,8 @@ Public Shared Function selCreateBrick(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selCreateBrick( h, w, cy, cx, type)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -159,6 +171,8 @@ Public Shared Function selCreateComb(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selCreateComb( factor1, factor2, direction)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -182,6 +196,8 @@ End Function
 Public Shared Function create2dIntArray(
 				 ByVal sy as Integer, 
 				 ByVal sx as Integer) as List (of Integer())
+
+
 
 
 
@@ -226,6 +242,8 @@ Public Shared Function selaAddSel(
 	If IsNothing (selname) then Throw New ArgumentNullException  ("selname cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.selaAddSel( sela.Pointer, sel.Pointer, selname, copyflag)
 
 	Return _Result
@@ -242,6 +260,8 @@ Public Shared Function selaGetCount(
 				 ByVal sela as Sela) as Integer
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.selaGetCount( sela.Pointer)
@@ -270,6 +290,8 @@ Public Shared Function selaGetSel(
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaGetSel( sela.Pointer, i)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -287,6 +309,8 @@ Public Shared Function selGetName(
 				 ByVal sel as Sel) as String
 
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
+
+
 
 
 	Dim _Result as String = LeptonicaSharp.Natives.selGetName( sel.Pointer)
@@ -315,6 +339,8 @@ Public Shared Function selSetName(
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.selSetName( sel.Pointer, name)
 
 	Return _Result
@@ -338,6 +364,8 @@ Public Shared Function selaFindSelByName(
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
 	If IsNothing (name) then Throw New ArgumentNullException  ("name cannot be Nothing")
+
+
 
 Dim pselPTR As IntPtr = Marshal.AllocHGlobal(Marshal.Sizeof(psel.ToArray))
 
@@ -363,6 +391,8 @@ Public Shared Function selGetElement(
 				<Out()> ByRef ptype as Enumerations.SEL) as Integer
 
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.selGetElement( sel.Pointer, row, col, ptype)
@@ -397,6 +427,8 @@ Public Shared Function selSetElement(
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.selSetElement( sel.Pointer, row, col, type)
 
 	Return _Result
@@ -423,6 +455,8 @@ Public Shared Function selGetParameters(
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.selGetParameters( sel.Pointer, psy, psx, pcy, pcx)
 
 	Return _Result
@@ -445,6 +479,8 @@ Public Shared Function selSetOrigin(
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.selSetOrigin( sel.Pointer, cy, cx)
 
 	Return _Result
@@ -463,6 +499,8 @@ Public Shared Function selGetTypeAtOrigin(
 				<Out()> ByRef ptype as Enumerations.SEL) as Integer
 
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.selGetTypeAtOrigin( sel.Pointer, ptype)
@@ -485,6 +523,8 @@ Public Shared Function selaGetBrickName(
 				 ByVal vsize as Integer) as String
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
+
+
 
 
 	Dim _Result as String = LeptonicaSharp.Natives.selaGetBrickName( sela.Pointer, hsize, vsize)
@@ -513,6 +553,8 @@ Public Shared Function selaGetCombName(
 				 ByVal direction as Enumerations.L_direction) as String
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
+
+
 
 
 	Dim _Result as String = LeptonicaSharp.Natives.selaGetCombName( sela.Pointer, size, direction)
@@ -549,6 +591,8 @@ Public Shared Function getCompositeParameters(
 				<Out()> ByRef pnamev2 as String()) as Integer
 
 
+
+
 Dim pnameh1PTR As IntPtr = pnameh1PTR = Marshal.AllocHGlobal(Marshal.sizeOf(pnameh1.toArray))
 Dim pnameh2PTR As IntPtr = pnameh2PTR = Marshal.AllocHGlobal(Marshal.sizeOf(pnameh2.toArray))
 Dim pnamev1PTR As IntPtr = pnamev1PTR = Marshal.AllocHGlobal(Marshal.sizeOf(pnamev1.toArray))
@@ -570,6 +614,8 @@ Public Shared Function selaGetSelnames(
 				 ByVal sela as Sela) as Sarray
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaGetSelnames( sela.Pointer)
@@ -606,6 +652,8 @@ Public Shared Function selFindMaxTranslations(
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.selFindMaxTranslations( sel.Pointer, pxp, pyp, pxn, pyn)
 
 	Return _Result
@@ -624,6 +672,8 @@ Public Shared Function selRotateOrth(
 				 ByVal quads as Integer) as Sel
 
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selRotateOrth( sel.Pointer, quads)
@@ -645,6 +695,8 @@ Public Shared Function selaRead(
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaRead( fname)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -662,6 +714,8 @@ Public Shared Function selaReadStream(
 				 ByVal fp as FILE) as Sela
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaReadStream( fp.Pointer)
@@ -683,6 +737,8 @@ Public Shared Function selRead(
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selRead( fname)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -700,6 +756,8 @@ Public Shared Function selReadStream(
 				 ByVal fp as FILE) as Sel
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selReadStream( fp.Pointer)
@@ -724,6 +782,8 @@ Public Shared Function selaWrite(
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.selaWrite( fname, sela.Pointer)
 
 	Return _Result
@@ -743,6 +803,8 @@ Public Shared Function selaWriteStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.selaWriteStream( fp.Pointer, sela.Pointer)
@@ -766,6 +828,8 @@ Public Shared Function selWrite(
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.selWrite( fname, sel.Pointer)
 
 	Return _Result
@@ -785,6 +849,8 @@ Public Shared Function selWriteStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.selWriteStream( fp.Pointer, sel.Pointer)
@@ -832,6 +898,8 @@ Public Shared Function selCreateFromString(
 	If IsNothing (text) then Throw New ArgumentNullException  ("text cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selCreateFromString( text, h, w, name)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -862,6 +930,8 @@ Public Shared Function selPrintToString(
 				 ByVal sel as Sel) as String
 
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
+
+
 
 
 	Dim _Result as String = LeptonicaSharp.Natives.selPrintToString( sel.Pointer)
@@ -905,6 +975,8 @@ Public Shared Function selaCreateFromFile(
 				 ByVal filename as String) as Sela
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -938,6 +1010,8 @@ Public Shared Function selCreateFromPta(
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selCreateFromPta( pta.Pointer, cy, cx, name)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -968,6 +1042,8 @@ Public Shared Function selCreateFromPix(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selCreateFromPix( pix.Pointer, cy, cx, name)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -992,6 +1068,8 @@ Public Shared Function selReadFromColorImage(
 				 ByVal pathname as String) as Sel
 
 	If IsNothing (pathname) then Throw New ArgumentNullException  ("pathname cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selReadFromColorImage( pathname)
@@ -1030,6 +1108,8 @@ Public Shared Function selCreateFromColorPix(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selCreateFromColorPix( pixs.Pointer, selname)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1061,6 +1141,8 @@ Public Shared Function selDisplayInPix(
 				 ByVal gthick as Integer) as Pix
 
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selDisplayInPix( sel.Pointer, size, gthick)
@@ -1096,6 +1178,8 @@ Public Shared Function selaDisplayInPix(
 				 ByVal ncols as Integer) as Pix
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaDisplayInPix( sela.Pointer, size, gthick, spacing, ncols)

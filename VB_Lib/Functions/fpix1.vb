@@ -24,6 +24,8 @@ Public Shared Function fpixCreate(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixCreate( width, height)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -50,6 +52,8 @@ Public Shared Function fpixCreateTemplate(
 	If IsNothing (fpixs) then Throw New ArgumentNullException  ("fpixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixCreateTemplate( fpixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -72,6 +76,8 @@ Public Shared Function fpixClone(
 				 ByVal fpix as FPix) as FPix
 
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixClone( fpix.Pointer)
@@ -116,6 +122,8 @@ Public Shared Function fpixCopy(
 
 	If IsNothing (fpixs) then Throw New ArgumentNullException  ("fpixs cannot be Nothing")
 
+
+
 	Dim fpixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fpixd) Then fpixdPTR = fpixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixCopy( fpixdPTR, fpixs.Pointer)
@@ -148,6 +156,8 @@ Public Shared Function fpixResizeImageData(
 	If IsNothing (fpixs) then Throw New ArgumentNullException  ("fpixs cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixResizeImageData( fpixd.Pointer, fpixs.Pointer)
 
 	Return _Result
@@ -167,6 +177,8 @@ End Function
 '''  <param name="pfpix">[in,out] - will be nulled</param>
 Public Shared Sub fpixDestroy(
 				 ByRef pfpix as FPix)
+
+
 
 
 	Dim pfpixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pfpix) Then pfpixPTR = pfpix.Pointer
@@ -193,6 +205,8 @@ Public Shared Function fpixGetDimensions(
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixGetDimensions( fpix.Pointer, pw, ph)
 
 	Return _Result
@@ -215,6 +229,8 @@ Public Shared Function fpixSetDimensions(
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixSetDimensions( fpix.Pointer, w, h)
 
 	Return _Result
@@ -231,6 +247,8 @@ Public Shared Function fpixGetWpl(
 				 ByVal fpix as FPix) as Integer
 
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixGetWpl( fpix.Pointer)
@@ -253,6 +271,8 @@ Public Shared Function fpixSetWpl(
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixSetWpl( fpix.Pointer, wpl)
 
 	Return _Result
@@ -269,6 +289,8 @@ Public Shared Function fpixGetRefcount(
 				 ByVal fpix as FPix) as Integer
 
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixGetRefcount( fpix.Pointer)
@@ -289,6 +311,8 @@ Public Shared Function fpixChangeRefcount(
 				 ByVal delta as Integer) as Integer
 
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixChangeRefcount( fpix.Pointer, delta)
@@ -313,6 +337,8 @@ Public Shared Function fpixGetResolution(
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixGetResolution( fpix.Pointer, pxres, pyres)
 
 	Return _Result
@@ -333,6 +359,8 @@ Public Shared Function fpixSetResolution(
 				 ByVal yres as Integer) as Integer
 
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixSetResolution( fpix.Pointer, xres, yres)
@@ -356,6 +384,8 @@ Public Shared Function fpixCopyResolution(
 	If IsNothing (fpixs) then Throw New ArgumentNullException  ("fpixs cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixCopyResolution( fpixd.Pointer, fpixs.Pointer)
 
 	Return _Result
@@ -372,6 +402,8 @@ Public Shared Function fpixGetData(
 				 ByVal fpix as FPix) as Single()
 
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
+
+
 
 
 	Dim _Result as Single() = LeptonicaSharp.Natives.fpixGetData( fpix.Pointer)
@@ -393,6 +425,8 @@ Public Shared Function fpixSetData(
 
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixSetData( fpix.Pointer, data)
@@ -418,6 +452,8 @@ Public Shared Function fpixGetPixel(
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixGetPixel( fpix.Pointer, x, y, pval)
 
 	Return _Result
@@ -439,7 +475,8 @@ Public Shared Function fpixSetPixel(
 				 ByVal val as Single) as Integer
 
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixSetPixel( fpix.Pointer, x, y, val)
@@ -456,6 +493,8 @@ End Function
 '''   <returns>fpixa, or NULL on error</returns>
 Public Shared Function fpixaCreate(
 				 ByVal n as Integer) as FPixa
+
+
 
 
 
@@ -488,6 +527,8 @@ Public Shared Function fpixaCopy(
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixaCopy( fpixa.Pointer, copyflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -508,6 +549,8 @@ End Function
 '''  <param name="pfpixa">[in,out] - to be nulled</param>
 Public Shared Sub fpixaDestroy(
 				 ByRef pfpixa as FPixa)
+
+
 
 
 	Dim pfpixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pfpixa) Then pfpixaPTR = pfpixa.Pointer
@@ -535,6 +578,8 @@ Public Shared Function fpixaAddFPix(
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixaAddFPix( fpixa.Pointer, fpix.Pointer, copyflag)
 
 	Return _Result
@@ -551,6 +596,8 @@ Public Shared Function fpixaGetCount(
 				 ByVal fpixa as FPixa) as Integer
 
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixaGetCount( fpixa.Pointer)
@@ -573,6 +620,8 @@ Public Shared Function fpixaChangeRefcount(
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixaChangeRefcount( fpixa.Pointer, delta)
 
 	Return _Result
@@ -593,6 +642,8 @@ Public Shared Function fpixaGetFPix(
 				 ByVal accesstype as Enumerations.L_access_storage) as FPix
 
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixaGetFPix( fpixa.Pointer, index, accesstype)
@@ -620,6 +671,8 @@ Public Shared Function fpixaGetFPixDimensions(
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixaGetFPixDimensions( fpixa.Pointer, index, pw, ph)
 
 	Return _Result
@@ -638,6 +691,8 @@ Public Shared Function fpixaGetData(
 				 ByVal index as Integer) as Single()
 
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
+
+
 
 
 	Dim _Result as Single() = LeptonicaSharp.Natives.fpixaGetData( fpixa.Pointer, index)
@@ -665,6 +720,8 @@ Public Shared Function fpixaGetPixel(
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixaGetPixel( fpixa.Pointer, index, x, y, pval)
 
 	Return _Result
@@ -688,7 +745,8 @@ Public Shared Function fpixaSetPixel(
 				 ByVal val as Single) as Integer
 
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixaSetPixel( fpixa.Pointer, index, x, y, val)
@@ -714,6 +772,8 @@ End Function
 Public Shared Function dpixCreate(
 				 ByVal width as Integer, 
 				 ByVal height as Integer) as DPix
+
+
 
 
 
@@ -743,6 +803,8 @@ Public Shared Function dpixCreateTemplate(
 	If IsNothing (dpixs) then Throw New ArgumentNullException  ("dpixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dpixCreateTemplate( dpixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -765,6 +827,8 @@ Public Shared Function dpixClone(
 				 ByVal dpix as DPix) as DPix
 
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dpixClone( dpix.Pointer)
@@ -809,6 +873,8 @@ Public Shared Function dpixCopy(
 
 	If IsNothing (dpixs) then Throw New ArgumentNullException  ("dpixs cannot be Nothing")
 
+
+
 	Dim dpixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(dpixd) Then dpixdPTR = dpixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dpixCopy( dpixdPTR, dpixs.Pointer)
@@ -833,6 +899,8 @@ Public Shared Function dpixResizeImageData(
 	If IsNothing (dpixs) then Throw New ArgumentNullException  ("dpixs cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixResizeImageData( dpixd.Pointer, dpixs.Pointer)
 
 	Return _Result
@@ -852,6 +920,8 @@ End Function
 '''  <param name="pdpix">[in,out] - will be nulled</param>
 Public Shared Sub dpixDestroy(
 				 ByRef pdpix as DPix)
+
+
 
 
 	Dim pdpixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdpix) Then pdpixPTR = pdpix.Pointer
@@ -878,6 +948,8 @@ Public Shared Function dpixGetDimensions(
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixGetDimensions( dpix.Pointer, pw, ph)
 
 	Return _Result
@@ -900,6 +972,8 @@ Public Shared Function dpixSetDimensions(
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixSetDimensions( dpix.Pointer, w, h)
 
 	Return _Result
@@ -916,6 +990,8 @@ Public Shared Function dpixGetWpl(
 				 ByVal dpix as DPix) as Integer
 
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixGetWpl( dpix.Pointer)
@@ -938,6 +1014,8 @@ Public Shared Function dpixSetWpl(
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixSetWpl( dpix.Pointer, wpl)
 
 	Return _Result
@@ -954,6 +1032,8 @@ Public Shared Function dpixGetRefcount(
 				 ByVal dpix as DPix) as Integer
 
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixGetRefcount( dpix.Pointer)
@@ -974,6 +1054,8 @@ Public Shared Function dpixChangeRefcount(
 				 ByVal delta as Integer) as Integer
 
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixChangeRefcount( dpix.Pointer, delta)
@@ -998,6 +1080,8 @@ Public Shared Function dpixGetResolution(
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixGetResolution( dpix.Pointer, pxres, pyres)
 
 	Return _Result
@@ -1018,6 +1102,8 @@ Public Shared Function dpixSetResolution(
 				 ByVal yres as Integer) as Integer
 
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixSetResolution( dpix.Pointer, xres, yres)
@@ -1041,6 +1127,8 @@ Public Shared Function dpixCopyResolution(
 	If IsNothing (dpixs) then Throw New ArgumentNullException  ("dpixs cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixCopyResolution( dpixd.Pointer, dpixs.Pointer)
 
 	Return _Result
@@ -1057,6 +1145,8 @@ Public Shared Function dpixGetData(
 				 ByVal dpix as DPix) as Double()
 
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
+
+
 
 
 	Dim _Result as Double() = LeptonicaSharp.Natives.dpixGetData( dpix.Pointer)
@@ -1080,6 +1170,8 @@ Public Shared Function dpixSetData(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixSetData( dpix.Pointer, data)
 
 	Return _Result
@@ -1101,6 +1193,8 @@ Public Shared Function dpixGetPixel(
 				<Out()> ByRef pval as Double()) as Integer
 
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixGetPixel( dpix.Pointer, x, y, pval)
@@ -1127,6 +1221,8 @@ Public Shared Function dpixSetPixel(
 	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixSetPixel( dpix.Pointer, x, y, val)
 
 	Return _Result
@@ -1143,6 +1239,8 @@ Public Shared Function fpixRead(
 				 ByVal filename as String) as FPix
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -1163,6 +1261,8 @@ Public Shared Function fpixReadStream(
 				 ByVal fp as FILE) as FPix
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixReadStream( fp.Pointer)
@@ -1186,6 +1286,8 @@ Public Shared Function fpixReadMem(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixReadMem( data, size)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1206,6 +1308,8 @@ Public Shared Function fpixWrite(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -1228,6 +1332,8 @@ Public Shared Function fpixWriteStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixWriteStream( fp.Pointer, fpix.Pointer)
@@ -1255,6 +1361,8 @@ Public Shared Function fpixWriteMem(
 				 ByVal fpix as FPix) as Integer
 
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
+
+
 
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
@@ -1292,6 +1400,8 @@ Public Shared Function fpixEndianByteSwap(
 	If IsNothing (fpixs) then Throw New ArgumentNullException  ("fpixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixEndianByteSwap( fpixd.Pointer, fpixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1309,6 +1419,8 @@ Public Shared Function dpixRead(
 				 ByVal filename as String) as DPix
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -1329,6 +1441,8 @@ Public Shared Function dpixReadStream(
 				 ByVal fp as FILE) as DPix
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dpixReadStream( fp.Pointer)
@@ -1352,6 +1466,8 @@ Public Shared Function dpixReadMem(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dpixReadMem( data, size)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1372,6 +1488,8 @@ Public Shared Function dpixWrite(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -1394,6 +1512,8 @@ Public Shared Function dpixWriteStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixWriteStream( fp.Pointer, dpix.Pointer)
@@ -1421,6 +1541,8 @@ Public Shared Function dpixWriteMem(
 				 ByVal dpix as DPix) as Integer
 
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
+
+
 
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
@@ -1458,6 +1580,8 @@ Public Shared Function dpixEndianByteSwap(
 	If IsNothing (dpixs) then Throw New ArgumentNullException  ("dpixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dpixEndianByteSwap( dpixd.Pointer, dpixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1485,6 +1609,8 @@ Public Shared Function fpixPrintStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixPrintStream( fp.Pointer, fpix.Pointer, factor)

@@ -15,6 +15,8 @@ Public Shared Function lstackCreate(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.lstackCreate( nalloc)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -45,6 +47,8 @@ Public Shared Sub lstackDestroy(
 				 ByVal freeflag as Integer)
 
 
+
+
 	Dim plstackPTR As IntPtr = IntPtr.Zero : If Not IsNothing(plstack) Then plstackPTR = plstack.Pointer
 
 	LeptonicaSharp.Natives.lstackDestroy( plstackPTR, freeflag)
@@ -67,6 +71,8 @@ Public Shared Function lstackAdd(
 	If IsNothing (lstack) then Throw New ArgumentNullException  ("lstack cannot be Nothing")
 	If IsNothing (item) then Throw New ArgumentNullException  ("item cannot be Nothing")
 
+
+
 Dim itemPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lstackAdd( lstack.Pointer, itemPTR)
@@ -87,6 +93,8 @@ Public Shared Function lstackRemove(
 	If IsNothing (lstack) then Throw New ArgumentNullException  ("lstack cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.lstackRemove( lstack.Pointer)
 
 	Return _Result
@@ -103,6 +111,8 @@ Public Shared Function lstackGetCount(
 				 ByVal lstack as L_Stack) as Integer
 
 	If IsNothing (lstack) then Throw New ArgumentNullException  ("lstack cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lstackGetCount( lstack.Pointer)
@@ -124,6 +134,8 @@ Public Shared Function lstackPrint(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (lstack) then Throw New ArgumentNullException  ("lstack cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lstackPrint( fp.Pointer, lstack.Pointer)

@@ -33,7 +33,8 @@ Public Shared Function pixRotateShear(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (angle) then Throw New ArgumentNullException  ("angle cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotateShear( pixs.Pointer, xcen, ycen, angle, incolor)
@@ -77,7 +78,8 @@ Public Shared Function pixRotate2Shear(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (angle) then Throw New ArgumentNullException  ("angle cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotate2Shear( pixs.Pointer, xcen, ycen, angle, incolor)
@@ -127,7 +129,8 @@ Public Shared Function pixRotate3Shear(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (angle) then Throw New ArgumentNullException  ("angle cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotate3Shear( pixs.Pointer, xcen, ycen, angle, incolor)
@@ -173,7 +176,8 @@ Public Shared Function pixRotateShearIP(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (angle) then Throw New ArgumentNullException  ("angle cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRotateShearIP( pixs.Pointer, xcen, ycen, angle, incolor)
@@ -196,7 +200,8 @@ Public Shared Function pixRotateShearCenter(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (angle) then Throw New ArgumentNullException  ("angle cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotateShearCenter( pixs.Pointer, angle, incolor)
@@ -220,7 +225,8 @@ Public Shared Function pixRotateShearCenterIP(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (angle) then Throw New ArgumentNullException  ("angle cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRotateShearCenterIP( pixs.Pointer, angle, incolor)

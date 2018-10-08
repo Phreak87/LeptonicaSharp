@@ -14,6 +14,8 @@ Public Shared Function pixReadStreamGif(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
+
+
 Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadStreamGif( fp.Pointer)
@@ -35,6 +37,8 @@ Public Shared Function pixReadMemGif(
 	If IsNothing (cdata) then Throw New ArgumentNullException  ("cdata cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemGif( cdata, size)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -53,6 +57,8 @@ Public Shared Function pixWriteStreamGif(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
@@ -76,6 +82,8 @@ Public Shared Function pixWriteMemGif(
 	If IsNothing (pdata) then Throw New ArgumentNullException  ("pdata cannot be Nothing")
 	If IsNothing (psize) then Throw New ArgumentNullException  ("psize cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 

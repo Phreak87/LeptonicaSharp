@@ -25,6 +25,8 @@ Public Shared Function fhmtautogen(
 				 ByVal filename as String) as Integer
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -63,6 +65,8 @@ Public Shared Function fhmtautogen1(
 				 ByVal filename as String) as Integer
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -99,6 +103,8 @@ Public Shared Function fhmtautogen2(
 				 ByVal filename as String) as Integer
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 

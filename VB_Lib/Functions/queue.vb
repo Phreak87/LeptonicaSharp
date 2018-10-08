@@ -20,6 +20,8 @@ Public Shared Function lqueueCreate(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.lqueueCreate( nalloc)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -49,6 +51,8 @@ End Function
 Public Shared Sub lqueueDestroy(
 				 ByRef plq as L_Queue, 
 				 ByVal freeflag as Integer)
+
+
 
 
 	Dim plqPTR As IntPtr = IntPtr.Zero : If Not IsNothing(plq) Then plqPTR = plq.Pointer
@@ -83,6 +87,8 @@ Public Shared Function lqueueAdd(
 	If IsNothing (lq) then Throw New ArgumentNullException  ("lq cannot be Nothing")
 	If IsNothing (item) then Throw New ArgumentNullException  ("item cannot be Nothing")
 
+
+
 Dim itemPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lqueueAdd( lq.Pointer, itemPTR)
@@ -109,6 +115,8 @@ Public Shared Function lqueueRemove(
 	If IsNothing (lq) then Throw New ArgumentNullException  ("lq cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.lqueueRemove( lq.Pointer)
 
 	Return _Result
@@ -125,6 +133,8 @@ Public Shared Function lqueueGetCount(
 				 ByVal lq as L_Queue) as Integer
 
 	If IsNothing (lq) then Throw New ArgumentNullException  ("lq cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lqueueGetCount( lq.Pointer)
@@ -146,6 +156,8 @@ Public Shared Function lqueuePrint(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (lq) then Throw New ArgumentNullException  ("lq cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lqueuePrint( fp.Pointer, lq.Pointer)

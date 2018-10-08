@@ -240,6 +240,8 @@ Public Shared Function pixOctreeColorQuant(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOctreeColorQuant( pixs.Pointer, colors, ditherflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -295,8 +297,8 @@ Public Shared Function pixOctreeColorQuantGeneral(
 				 ByVal colorthresh as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (validthresh) then Throw New ArgumentNullException  ("validthresh cannot be Nothing")
-	If IsNothing (colorthresh) then Throw New ArgumentNullException  ("colorthresh cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOctreeColorQuantGeneral( pixs.Pointer, colors, ditherflag, validthresh, colorthresh)
@@ -341,6 +343,8 @@ Public Shared Function makeRGBToIndexTables(
 				 ByVal cqlevels as Integer) as Integer
 
 
+
+
 	Dim prtabPTR As IntPtr = IntPtr.Zero
 	Dim pgtabPTR As IntPtr = IntPtr.Zero
 	Dim pbtabPTR As IntPtr = IntPtr.Zero
@@ -382,6 +386,8 @@ Public Shared Sub getOctcubeIndexFromRGB(
 	If IsNothing (rtab) then Throw New ArgumentNullException  ("rtab cannot be Nothing")
 	If IsNothing (gtab) then Throw New ArgumentNullException  ("gtab cannot be Nothing")
 	If IsNothing (btab) then Throw New ArgumentNullException  ("btab cannot be Nothing")
+
+
 
 	Dim rtabPTR As IntPtr = Marshal.AllocHGlobal(rtab.Count) : Marshal.Copy(rtab, 0, rtabPTR, rtab.Length)
 	Dim gtabPTR As IntPtr = Marshal.AllocHGlobal(gtab.Count) : Marshal.Copy(gtab, 0, gtabPTR, gtab.Length)
@@ -452,6 +458,9 @@ Public Shared Function pixOctreeQuantByPopulation(
 				 ByVal ditherflag as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOctreeQuantByPopulation( pixs.Pointer, level, ditherflag)
@@ -548,6 +557,9 @@ Public Shared Function pixOctreeQuantNumColors(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOctreeQuantNumColors( pixs.Pointer, maxcolors, subsample)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -591,6 +603,9 @@ Public Shared Function pixOctcubeQuantMixedWithGray(
 				 ByVal delta as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOctcubeQuantMixedWithGray( pixs.Pointer, depth, graylevels, delta)
@@ -665,6 +680,8 @@ Public Shared Function pixFixedOctcubeQuant256(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFixedOctcubeQuant256( pixs.Pointer, ditherflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -707,6 +724,9 @@ Public Shared Function pixFewColorsOctcubeQuant1(
 				 ByVal level as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFewColorsOctcubeQuant1( pixs.Pointer, level)
@@ -766,6 +786,9 @@ Public Shared Function pixFewColorsOctcubeQuant2(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFewColorsOctcubeQuant2( pixs.Pointer, level, na.Pointer, ncolors, pnerrors)
@@ -834,7 +857,9 @@ Public Shared Function pixFewColorsOctcubeQuantMixed(
 				 ByVal maxspan as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (minfract) then Throw New ArgumentNullException  ("minfract cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFewColorsOctcubeQuantMixed( pixs.Pointer, level, darkthresh, lightthresh, diffthresh, minfract, maxspan)
@@ -865,6 +890,9 @@ Public Shared Function pixFixedOctcubeQuantGenRGB(
 				 ByVal level as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFixedOctcubeQuantGenRGB( pixs.Pointer, level)
@@ -904,6 +932,8 @@ Public Shared Function pixQuantFromCmap(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixQuantFromCmap( pixs.Pointer, cmap.Pointer, mindepth, level, metric)
@@ -986,6 +1016,9 @@ Public Shared Function pixOctcubeQuantFromCmap(
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
 
 
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOctcubeQuantFromCmap( pixs.Pointer, cmap.Pointer, mindepth, level, metric)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1012,6 +1045,9 @@ Public Shared Function pixOctcubeHistogram(
 				<Out()> ByRef pncolors as Integer) as Numa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOctcubeHistogram( pixs.Pointer, level, pncolors)
@@ -1074,6 +1110,8 @@ Public Shared Function pixcmapToOctcubeLUT(
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer() = LeptonicaSharp.Natives.pixcmapToOctcubeLUT( cmap.Pointer, level, metric)
 
 	Return _Result
@@ -1098,6 +1136,8 @@ Public Shared Function pixRemoveUnusedColors(
 				 ByVal pixs as Pix) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRemoveUnusedColors( pixs.Pointer)
@@ -1132,7 +1172,8 @@ Public Shared Function pixNumberOccupiedOctcubes(
 				<Out()> ByRef pncolors as Integer) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If IsNothing (minfract) then Throw New ArgumentNullException  ("minfract cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixNumberOccupiedOctcubes( pix.Pointer, level, mincount, minfract, pncolors)

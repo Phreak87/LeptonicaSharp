@@ -67,6 +67,8 @@ Public Shared Function pixGenerateSelWithRuns(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 Dim ppixePTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixe) Then ppixePTR = ppixe.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenerateSelWithRuns( pixs.Pointer, nhlines, nvlines, distance, minlength, toppix, botpix, leftpix, rightpix, ppixePTR)
@@ -122,8 +124,8 @@ Public Shared Function pixGenerateSelRandom(
 				<Out()> ByRef ppixe as Pix) as Sel
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (hitfract) then Throw New ArgumentNullException  ("hitfract cannot be Nothing")
-	If IsNothing (missfract) then Throw New ArgumentNullException  ("missfract cannot be Nothing")
+
+
 
 Dim ppixePTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixe) Then ppixePTR = ppixe.Pointer
 
@@ -190,6 +192,8 @@ Public Shared Function pixGenerateSelBoundary(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 Dim ppixePTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixe) Then ppixePTR = ppixe.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenerateSelBoundary( pixs.Pointer, hitdist, missdist, hitskip, missskip, topflag, botflag, leftflag, rightflag, ppixePTR)
@@ -239,6 +243,9 @@ Public Shared Function pixGetRunCentersOnLine(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetRunCentersOnLine( pixs.Pointer, x, y, minlength)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -274,6 +281,9 @@ Public Shared Function pixGetRunsOnLine(
 				 ByVal y2 as Integer) as Numa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetRunsOnLine( pixs.Pointer, x1, y1, x2, y2)
@@ -313,6 +323,8 @@ Public Shared Function pixSubsampleBoundaryPixels(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSubsampleBoundaryPixels( pixs.Pointer, skip)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -344,6 +356,9 @@ Public Shared Function adjacentOnPixelInRaster(
 				<Out()> ByRef pya as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.adjacentOnPixelInRaster( pixs.Pointer, x, y, pxa, pya)
@@ -378,6 +393,9 @@ Public Shared Function pixDisplayHitMissSel(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDisplayHitMissSel( pixs.Pointer, sel.Pointer, scalefactor, hitcolor, misscolor)

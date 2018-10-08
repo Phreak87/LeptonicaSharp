@@ -19,6 +19,8 @@ Public Shared Function l_bootnum_gen3() as Pixa
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_bootnum_gen3( )
 	If  _Result = IntPtr.Zero then Return Nothing
 

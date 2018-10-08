@@ -78,9 +78,9 @@ Public Shared Function pixCorrelationScore(
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
-	If IsNothing (delx) then Throw New ArgumentNullException  ("delx cannot be Nothing")
-	If IsNothing (dely) then Throw New ArgumentNullException  ("dely cannot be Nothing")
 	If IsNothing (tab) then Throw New ArgumentNullException  ("tab cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCorrelationScore( pix1.Pointer, pix2.Pointer, area1, area2, delx, dely, maxdiffw, maxdiffh, tab, pscore)
@@ -152,11 +152,10 @@ Public Shared Function pixCorrelationScoreThresholded(
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
-	If IsNothing (delx) then Throw New ArgumentNullException  ("delx cannot be Nothing")
-	If IsNothing (dely) then Throw New ArgumentNullException  ("dely cannot be Nothing")
 	If IsNothing (tab) then Throw New ArgumentNullException  ("tab cannot be Nothing")
 	If IsNothing (downcount) then Throw New ArgumentNullException  ("downcount cannot be Nothing")
-	If IsNothing (score_threshold) then Throw New ArgumentNullException  ("score_threshold cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCorrelationScoreThresholded( pix1.Pointer, pix2.Pointer, area1, area2, delx, dely, maxdiffw, maxdiffh, tab, downcount, score_threshold)
@@ -202,9 +201,9 @@ Public Shared Function pixCorrelationScoreSimple(
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
-	If IsNothing (delx) then Throw New ArgumentNullException  ("delx cannot be Nothing")
-	If IsNothing (dely) then Throw New ArgumentNullException  ("dely cannot be Nothing")
 	If IsNothing (tab) then Throw New ArgumentNullException  ("tab cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCorrelationScoreSimple( pix1.Pointer, pix2.Pointer, area1, area2, delx, dely, maxdiffw, maxdiffh, tab, pscore)
@@ -259,6 +258,10 @@ Public Shared Function pixCorrelationScoreShifted(
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 	If IsNothing (tab) then Throw New ArgumentNullException  ("tab cannot be Nothing")
+
+
+	If {1}.contains (pix1.d) = false then Throw New ArgumentException ("1 bpp")
+	If {1}.contains (pix2.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCorrelationScoreShifted( pix1.Pointer, pix2.Pointer, area1, area2, delx, dely, tab, pscore)

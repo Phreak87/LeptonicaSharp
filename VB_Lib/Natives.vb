@@ -27816,6 +27816,27 @@ Friend Shared Function makeDoGKernel(
 End Function
 
 #End Region
+#Region "SRC\leptwin.c"
+' SRC\leptwin.c (303, 1)
+' pixGetWindowsHBITMAP(pix) as IntPtr
+' pixGetWindowsHBITMAP(PIX *) as HBITMAP
+'''  <summary>
+''' <para/>
+''' Notes:<para/>
+''' (1) It's the responsibility of the caller to destroy the<para/>
+''' returned hBitmap with a call to DeleteObject (or with<para/>
+''' something that eventually calls DeleteObject).<para/>
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <param name="pix">[in] - </param>
+'''   <returns>Windows hBitmap, or NULL on error</returns>
+<DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="pixGetWindowsHBITMAP")> _
+Friend Shared Function pixGetWindowsHBITMAP(
+			ByVal pix as IntPtr) as IntPtr
+End Function
+
+#End Region
 #Region "SRC\libversions.c"
 ' SRC\libversions.c (101, 1)
 ' getImagelibVersions() as String

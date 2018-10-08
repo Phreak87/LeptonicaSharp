@@ -43,6 +43,8 @@ Public Shared Function pixEqual(
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixEqual( pix1.Pointer, pix2.Pointer, psame)
 
 	Return _Result
@@ -74,6 +76,8 @@ Public Shared Function pixEqualWithAlpha(
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixEqualWithAlpha( pix1.Pointer, pix2.Pointer, use_alpha, psame)
@@ -111,6 +115,8 @@ Public Shared Function pixEqualWithCmap(
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixEqualWithCmap( pix1.Pointer, pix2.Pointer, psame)
 
 	Return _Result
@@ -143,6 +149,8 @@ Public Shared Function cmapEqual(
 	If IsNothing (cmap2) then Throw New ArgumentNullException  ("cmap2 cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.cmapEqual( cmap1.Pointer, cmap2.Pointer, ncomps, psame)
 
 	Return _Result
@@ -172,6 +180,8 @@ Public Shared Function pixUsesCmapColor(
 				<Out()> ByRef pcolor as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixUsesCmapColor( pixs.Pointer, pcolor)
@@ -212,6 +222,10 @@ Public Shared Function pixCorrelationBinary(
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 
 
+	If {1}.contains (pix1.d) = false then Throw New ArgumentException ("1 bpp")
+	If {1}.contains (pix2.d) = false then Throw New ArgumentException ("1 bpp")
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCorrelationBinary( pix1.Pointer, pix2.Pointer, pval)
 
 	Return _Result
@@ -243,6 +257,10 @@ Public Shared Function pixDisplayDiffBinary(
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
+
+
+	If {1}.contains (pix1.d) = false then Throw New ArgumentException ("1 bpp")
+	If {1}.contains (pix2.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDisplayDiffBinary( pix1.Pointer, pix2.Pointer)
@@ -279,6 +297,10 @@ Public Shared Function pixCompareBinary(
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
+
+
+	If {1}.contains (pix1.d) = false then Throw New ArgumentException ("1 bpp")
+	If {1}.contains (pix2.d) = false then Throw New ArgumentException ("1 bpp")
 
 Dim ppixdiffPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdiff) Then ppixdiffPTR = ppixdiff.Pointer
 
@@ -339,6 +361,8 @@ Public Shared Function pixCompareGrayOrRGB(
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 
+
+
 Dim ppixdiffPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdiff) Then ppixdiffPTR = ppixdiff.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCompareGrayOrRGB( pix1.Pointer, pix2.Pointer, comptype, plottype, psame, pdiff, prmsdiff, ppixdiffPTR)
@@ -382,6 +406,8 @@ Public Shared Function pixCompareGray(
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 
+
+
 Dim ppixdiffPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdiff) Then ppixdiffPTR = ppixdiff.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCompareGray( pix1.Pointer, pix2.Pointer, comptype, plottype, psame, pdiff, prmsdiff, ppixdiffPTR)
@@ -423,6 +449,10 @@ Public Shared Function pixCompareRGB(
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
+
+
+	If {32}.contains (pix1.d) = false then Throw New ArgumentException ("32 bpp rgb")
+	If {32}.contains (pix2.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 Dim ppixdiffPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdiff) Then ppixdiffPTR = ppixdiff.Pointer
 
@@ -469,6 +499,8 @@ Public Shared Function pixCompareTiled(
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 
+
+
 	Dim ppixdiffPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdiff) Then ppixdiffPTR = ppixdiff.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCompareTiled( pix1.Pointer, pix2.Pointer, sx, sy, type, ppixdiffPTR)
@@ -511,6 +543,8 @@ Public Shared Function pixCompareRankDifference(
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCompareRankDifference( pix1.Pointer, pix2.Pointer, factor)
@@ -577,8 +611,8 @@ Public Shared Function pixTestForSimilarity(
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
-	If IsNothing (maxfract) then Throw New ArgumentNullException  ("maxfract cannot be Nothing")
-	If IsNothing (maxave) then Throw New ArgumentNullException  ("maxave cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixTestForSimilarity( pix1.Pointer, pix2.Pointer, factor, mindiff, maxfract, maxave, psimilar, details)
@@ -640,6 +674,8 @@ Public Shared Function pixGetDifferenceStats(
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetDifferenceStats( pix1.Pointer, pix2.Pointer, factor, mindiff, pfractdiff, pavediff, details)
 
 	Return _Result
@@ -672,6 +708,8 @@ Public Shared Function pixGetDifferenceHistogram(
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetDifferenceHistogram( pix1.Pointer, pix2.Pointer, factor)
@@ -741,6 +779,8 @@ Public Shared Function pixGetPerceptualDiff(
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
 
+
+
 Dim ppixdiff1PTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdiff1) Then ppixdiff1PTR = ppixdiff1.Pointer
 Dim ppixdiff2PTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdiff2) Then ppixdiff2PTR = ppixdiff2.Pointer
 
@@ -792,6 +832,8 @@ Public Shared Function pixGetPSNR(
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetPSNR( pix1.Pointer, pix2.Pointer, factor, ppsnr)
@@ -857,9 +899,8 @@ Public Shared Function pixaComparePhotoRegionsByHisto(
 				 ByVal debug as Enumerations.DebugOnOff) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-	If IsNothing (minratio) then Throw New ArgumentNullException  ("minratio cannot be Nothing")
-	If IsNothing (textthresh) then Throw New ArgumentNullException  ("textthresh cannot be Nothing")
-	If IsNothing (simthresh) then Throw New ArgumentNullException  ("simthresh cannot be Nothing")
+
+
 
 	Dim pnaiPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnai) Then pnaiPTR = pnai.Pointer
 Dim pscoresPTR As IntPtr = IntPtr.Zero: if not isNothing (pscores) then pscoresPTR = Marshal.AllocHGlobal(Marshal.SizeOf(pscores.toarray))
@@ -941,7 +982,8 @@ Public Shared Function pixComparePhotoRegionsByHisto(
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
-	If IsNothing (minratio) then Throw New ArgumentNullException  ("minratio cannot be Nothing")
+
+
 
 	Dim box1PTR As IntPtr = IntPtr.Zero : If Not IsNothing(box1) Then box1PTR = box1.Pointer
 	Dim box2PTR As IntPtr = IntPtr.Zero : If Not IsNothing(box2) Then box2PTR = box2.Pointer
@@ -996,7 +1038,8 @@ Public Shared Function pixGenPhotoHistos(
 				 ByVal debugindex as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
+
+
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 	Dim pnaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaa) Then pnaaPTR = pnaa.Pointer
@@ -1028,6 +1071,8 @@ Public Shared Function pixPadToCenterCentroid(
 				 ByVal factor as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixPadToCenterCentroid( pixs.Pointer, factor)
@@ -1062,6 +1107,9 @@ Public Shared Function pixCentroid8(
 				<Out()> ByRef pcy as Single()) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCentroid8( pixs.Pointer, factor, pcx, pcy)
@@ -1108,7 +1156,8 @@ Public Shared Function pixDecideIfPhotoImage(
 				 ByVal pixadebug as Pixa) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
+
+
 
 	Dim pnaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaa) Then pnaaPTR = pnaa.Pointer
 	Dim pixadebugPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixadebug) Then pixadebugPTR = pixadebug.Pointer
@@ -1159,7 +1208,8 @@ Public Shared Function compareTilesByHisto(
 
 	If IsNothing (naa1) then Throw New ArgumentNullException  ("naa1 cannot be Nothing")
 	If IsNothing (naa2) then Throw New ArgumentNullException  ("naa2 cannot be Nothing")
-	If IsNothing (minratio) then Throw New ArgumentNullException  ("minratio cannot be Nothing")
+
+
 
 	Dim pixadebugPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixadebug) Then pixadebugPTR = pixadebug.Pointer
 
@@ -1250,7 +1300,8 @@ Public Shared Function pixCompareGrayByHisto(
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
-	If IsNothing (minratio) then Throw New ArgumentNullException  ("minratio cannot be Nothing")
+
+
 
 	Dim box1PTR As IntPtr = IntPtr.Zero : If Not IsNothing(box1) Then box1PTR = box1.Pointer
 	Dim box2PTR As IntPtr = IntPtr.Zero : If Not IsNothing(box2) Then box2PTR = box2.Pointer
@@ -1287,6 +1338,8 @@ Public Shared Function pixCropAlignedToCentroid(
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
+
+
 
 	Dim pbox1PTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbox1) Then pbox1PTR = pbox1.Pointer
 	Dim pbox2PTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbox2) Then pbox2PTR = pbox2.Pointer
@@ -1330,6 +1383,8 @@ Public Shared Function l_compressGrayHistograms(
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
 
 
+
+
 	Dim _Result as Byte() = LeptonicaSharp.Natives.l_compressGrayHistograms( naa.Pointer, w, h, psize)
 
 	Return _Result
@@ -1362,6 +1417,8 @@ Public Shared Function l_uncompressGrayHistograms(
 				<Out()> ByRef ph as Integer) as Numaa
 
 	If IsNothing (bytea) then Throw New ArgumentNullException  ("bytea cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_uncompressGrayHistograms( bytea, size, pw, ph)
@@ -1413,6 +1470,8 @@ Public Shared Function pixCompareWithTranslation(
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCompareWithTranslation( pix1.Pointer, pix2.Pointer, thresh, pdelx, pdely, pscore, debugflag)
@@ -1475,6 +1534,10 @@ Public Shared Function pixBestCorrelation(
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
+
+
+	If {1}.contains (pix1.d) = false then Throw New ArgumentException ("1 bpp")
+	If {1}.contains (pix2.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixBestCorrelation( pix1.Pointer, pix2.Pointer, area1, area2, etransx, etransy, maxshift, tab8, pdelx, pdely, pscore, debugflag)

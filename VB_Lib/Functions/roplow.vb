@@ -32,6 +32,8 @@ Public Shared Sub rasteropUniLow(
 
 	If IsNothing (datad) then Throw New ArgumentNullException  ("datad cannot be Nothing")
 
+
+
 	Dim datadPTR As IntPtr = Marshal.AllocHGlobal(datad.Count) : Marshal.Copy(datad, 0, datadPTR, datad.Length)
 
 	LeptonicaSharp.Natives.rasteropUniLow( datadPTR, dpixw, dpixh, depth, dwpl, dx, dy, dw, dh, op)
@@ -80,6 +82,8 @@ Public Shared Sub rasteropLow(
 	If IsNothing (datad) then Throw New ArgumentNullException  ("datad cannot be Nothing")
 	If IsNothing (datas) then Throw New ArgumentNullException  ("datas cannot be Nothing")
 
+
+
 	Dim datadPTR As IntPtr = Marshal.AllocHGlobal(datad.Count) : Marshal.Copy(datad, 0, datadPTR, datad.Length)
 	Dim datasPTR As IntPtr = Marshal.AllocHGlobal(datas.Count) : Marshal.Copy(datas, 0, datasPTR, datas.Length)
 
@@ -125,6 +129,8 @@ Public Shared Sub rasteropVipLow(
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
+
+
 	Dim dataPTR As IntPtr = Marshal.AllocHGlobal(data.Count) : Marshal.Copy(data, 0, dataPTR, data.Length)
 
 	LeptonicaSharp.Natives.rasteropVipLow( dataPTR, pixw, pixh, depth, wpl, x, w, shift)
@@ -163,6 +169,8 @@ Public Shared Sub rasteropHipLow(
 				 ByVal shift as Integer)
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
+
+
 
 	Dim dataPTR As IntPtr = Marshal.AllocHGlobal(data.Count) : Marshal.Copy(data, 0, dataPTR, data.Length)
 

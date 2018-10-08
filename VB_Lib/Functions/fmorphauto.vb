@@ -25,6 +25,8 @@ Public Shared Function fmorphautogen(
 				 ByVal filename as String) as Integer
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -61,6 +63,8 @@ Public Shared Function fmorphautogen1(
 				 ByVal filename as String) as Integer
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -82,6 +86,8 @@ Public Shared Function fmorphautogen2(
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer

@@ -27,6 +27,8 @@ Public Shared Function encodeBase64(
 	If IsNothing (inarray) then Throw New ArgumentNullException  ("inarray cannot be Nothing")
 
 
+
+
 	Dim _Result as String = LeptonicaSharp.Natives.encodeBase64( inarray, insize, poutsize)
 
 	Return _Result
@@ -60,6 +62,8 @@ Public Shared Function decodeBase64(
 	If IsNothing (inarray) then Throw New ArgumentNullException  ("inarray cannot be Nothing")
 
 
+
+
 	Dim _Result as Byte() = LeptonicaSharp.Natives.decodeBase64( inarray, insize, poutsize)
 
 	Return _Result
@@ -87,6 +91,8 @@ Public Shared Function encodeAscii85(
 				<Out()> ByRef poutsize as Integer) as String
 
 	If IsNothing (inarray) then Throw New ArgumentNullException  ("inarray cannot be Nothing")
+
+
 
 
 	Dim _Result as String = LeptonicaSharp.Natives.encodeAscii85( inarray, insize, poutsize)
@@ -117,6 +123,8 @@ Public Shared Function decodeAscii85(
 				<Out()> ByRef poutsize as Integer) as Byte()
 
 	If IsNothing (inarray) then Throw New ArgumentNullException  ("inarray cannot be Nothing")
+
+
 
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.decodeAscii85( inarray, insize, poutsize)
@@ -155,6 +163,8 @@ Public Shared Function reformatPacked64(
 				<Out()> ByRef poutsize as Integer) as String
 
 	If IsNothing (inarray) then Throw New ArgumentNullException  ("inarray cannot be Nothing")
+
+
 
 
 	Dim _Result as String = LeptonicaSharp.Natives.reformatPacked64( inarray, insize, leadspace, linechars, addquotes, poutsize)

@@ -32,7 +32,8 @@ Public Shared Function pixRankFilter(
 				 ByVal rank as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (rank) then Throw New ArgumentNullException  ("rank cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRankFilter( pixs.Pointer, wf, hf, rank)
@@ -71,7 +72,8 @@ Public Shared Function pixRankFilterRGB(
 				 ByVal rank as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (rank) then Throw New ArgumentNullException  ("rank cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRankFilterRGB( pixs.Pointer, wf, hf, rank)
@@ -117,7 +119,8 @@ Public Shared Function pixRankFilterGray(
 				 ByVal rank as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (rank) then Throw New ArgumentNullException  ("rank cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRankFilterGray( pixs.Pointer, wf, hf, rank)
@@ -141,6 +144,8 @@ Public Shared Function pixMedianFilter(
 				 ByVal hf as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMedianFilter( pixs.Pointer, wf, hf)
@@ -178,8 +183,8 @@ Public Shared Function pixRankFilterWithScaling(
 				 ByVal scalefactor as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (rank) then Throw New ArgumentNullException  ("rank cannot be Nothing")
-	If IsNothing (scalefactor) then Throw New ArgumentNullException  ("scalefactor cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRankFilterWithScaling( pixs.Pointer, wf, hf, rank, scalefactor)

@@ -15,6 +15,8 @@ Public Shared Function numaCreate(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaCreate( n)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -42,6 +44,8 @@ Public Shared Function numaCreateFromIArray(
 				 ByVal size as Integer) as Numa
 
 	If IsNothing (iarray) then Throw New ArgumentNullException  ("iarray cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaCreateFromIArray( iarray, size)
@@ -74,6 +78,8 @@ Public Shared Function numaCreateFromFArray(
 	If IsNothing (farray) then Throw New ArgumentNullException  ("farray cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaCreateFromFArray( farray, size, copyflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -100,6 +106,8 @@ Public Shared Function numaCreateFromString(
 	If IsNothing (str) then Throw New ArgumentNullException  ("str cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaCreateFromString( str)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -122,6 +130,8 @@ Public Shared Sub numaDestroy(
 				 ByRef pna as Numa)
 
 
+
+
 	Dim pnaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pna) Then pnaPTR = pna.Pointer
 
 	LeptonicaSharp.Natives.numaDestroy( pnaPTR)
@@ -142,6 +152,8 @@ Public Shared Function numaCopy(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaCopy( na.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -159,6 +171,8 @@ Public Shared Function numaClone(
 				 ByVal na as Numa) as Numa
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaClone( na.Pointer)
@@ -187,6 +201,8 @@ Public Shared Function numaEmpty(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaEmpty( na.Pointer)
 
 	Return _Result
@@ -205,7 +221,8 @@ Public Shared Function numaAddNumber(
 				 ByVal val as Single) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaAddNumber( na.Pointer, val)
@@ -236,7 +253,8 @@ Public Shared Function numaInsertNumber(
 				 ByVal val as Single) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaInsertNumber( na.Pointer, index, val)
@@ -266,6 +284,8 @@ Public Shared Function numaRemoveNumber(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaRemoveNumber( na.Pointer, index)
 
 	Return _Result
@@ -286,7 +306,8 @@ Public Shared Function numaReplaceNumber(
 				 ByVal val as Single) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaReplaceNumber( na.Pointer, index, val)
@@ -305,6 +326,8 @@ Public Shared Function numaGetCount(
 				 ByVal na as Numa) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetCount( na.Pointer)
@@ -336,6 +359,8 @@ Public Shared Function numaSetCount(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaSetCount( na.Pointer, newcount)
 
 	Return _Result
@@ -362,6 +387,8 @@ Public Shared Function numaGetFValue(
 				<Out()> ByRef pval as Single()) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetFValue( na.Pointer, index, pval)
@@ -392,6 +419,8 @@ Public Shared Function numaGetIValue(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetIValue( na.Pointer, index, pival)
 
 	Return _Result
@@ -412,7 +441,8 @@ Public Shared Function numaSetValue(
 				 ByVal val as Single) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaSetValue( na.Pointer, index, val)
@@ -435,7 +465,8 @@ Public Shared Function numaShiftValue(
 				 ByVal diff as Single) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
-	If IsNothing (diff) then Throw New ArgumentNullException  ("diff cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaShiftValue( na.Pointer, index, diff)
@@ -467,6 +498,8 @@ Public Shared Function numaGetIArray(
 				 ByVal na as Numa) as Integer()
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer() = LeptonicaSharp.Natives.numaGetIArray( na.Pointer)
@@ -503,6 +536,8 @@ Public Shared Function numaGetFArray(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 
+
+
 	Dim _Result as Single() = LeptonicaSharp.Natives.numaGetFArray( na.Pointer, copyflag)
 
 	Return _Result
@@ -519,6 +554,8 @@ Public Shared Function numaGetRefcount(
 				 ByVal na as Numa) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetRefcount( na.Pointer)
@@ -539,6 +576,8 @@ Public Shared Function numaChangeRefcount(
 				 ByVal delta as Integer) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaChangeRefcount( na.Pointer, delta)
@@ -563,6 +602,8 @@ Public Shared Function numaGetParameters(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetParameters( na.Pointer, pstartx, pdelx)
 
 	Return _Result
@@ -583,8 +624,8 @@ Public Shared Function numaSetParameters(
 				 ByVal delx as Single) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
-	If IsNothing (startx) then Throw New ArgumentNullException  ("startx cannot be Nothing")
-	If IsNothing (delx) then Throw New ArgumentNullException  ("delx cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaSetParameters( na.Pointer, startx, delx)
@@ -606,6 +647,8 @@ Public Shared Function numaCopyParameters(
 
 	If IsNothing (nad) then Throw New ArgumentNullException  ("nad cannot be Nothing")
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaCopyParameters( nad.Pointer, nas.Pointer)
@@ -640,6 +683,8 @@ Public Shared Function numaConvertToSarray(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaConvertToSarray( na.Pointer, size1, size2, addzeros, type)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -657,6 +702,8 @@ Public Shared Function numaRead(
 				 ByVal filename as String) as Numa
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -679,6 +726,8 @@ Public Shared Function numaReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaReadStream( fp.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -698,6 +747,8 @@ Public Shared Function numaReadMem(
 				 ByVal size as UInteger) as Numa
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaReadMem( data, size)
@@ -729,6 +780,8 @@ Public Shared Function numaWriteDebug(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -751,6 +804,8 @@ Public Shared Function numaWrite(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -773,6 +828,8 @@ Public Shared Function numaWriteStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaWriteStream( fp.Pointer, na.Pointer)
@@ -801,6 +858,8 @@ Public Shared Function numaWriteMem(
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
+
+
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaWriteMem( pdataPTR, psize, na.Pointer)
@@ -818,6 +877,8 @@ End Function
 '''   <returns>naa, or NULL on error</returns>
 Public Shared Function numaaCreate(
 				 ByVal n as Integer) as Numaa
+
+
 
 
 
@@ -849,6 +910,8 @@ Public Shared Function numaaCreateFull(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaaCreateFull( nptr, n)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -875,6 +938,8 @@ Public Shared Function numaaTruncate(
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaTruncate( naa.Pointer)
 
 	Return _Result
@@ -888,6 +953,8 @@ End Function
 '''  <param name="pnaa">[in,out] - to be nulled if it exists</param>
 Public Shared Sub numaaDestroy(
 				 ByRef pnaa as Numaa)
+
+
 
 
 	Dim pnaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaa) Then pnaaPTR = pnaa.Pointer
@@ -915,6 +982,8 @@ Public Shared Function numaaAddNuma(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaAddNuma( naa.Pointer, na.Pointer, copyflag)
 
 	Return _Result
@@ -931,6 +1000,8 @@ Public Shared Function numaaGetCount(
 				 ByVal naa as Numaa) as Integer
 
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaGetCount( naa.Pointer)
@@ -953,6 +1024,8 @@ Public Shared Function numaaGetNumaCount(
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaGetNumaCount( naa.Pointer, index)
 
 	Return _Result
@@ -969,6 +1042,8 @@ Public Shared Function numaaGetNumberCount(
 				 ByVal naa as Numaa) as Integer
 
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaGetNumberCount( naa.Pointer)
@@ -1010,6 +1085,8 @@ Public Shared Function numaaGetPtrArray(
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaaGetPtrArray( naa.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 Dim B as new Numa(_Result)
@@ -1032,6 +1109,8 @@ Public Shared Function numaaGetNuma(
 				 ByVal accessflag as Enumerations.L_access_storage) as Numa
 
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaaGetNuma( naa.Pointer, index, accessflag)
@@ -1065,6 +1144,8 @@ Public Shared Function numaaReplaceNuma(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaReplaceNuma( naa.Pointer, index, na.Pointer)
 
 	Return _Result
@@ -1089,6 +1170,8 @@ Public Shared Function numaaGetValue(
 				<Out()> ByRef pival as Integer) as Integer
 
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaGetValue( naa.Pointer, i, j, pfval, pival)
@@ -1116,7 +1199,8 @@ Public Shared Function numaaAddNumber(
 				 ByVal val as Single) as Integer
 
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaAddNumber( naa.Pointer, index, val)
@@ -1135,6 +1219,8 @@ Public Shared Function numaaRead(
 				 ByVal filename as String) as Numaa
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -1155,6 +1241,8 @@ Public Shared Function numaaReadStream(
 				 ByVal fp as FILE) as Numaa
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaaReadStream( fp.Pointer)
@@ -1178,6 +1266,8 @@ Public Shared Function numaaReadMem(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaaReadMem( data, size)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1198,6 +1288,8 @@ Public Shared Function numaaWrite(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -1220,6 +1312,8 @@ Public Shared Function numaaWriteStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaWriteStream( fp.Pointer, naa.Pointer)
@@ -1247,6 +1341,8 @@ Public Shared Function numaaWriteMem(
 				 ByVal naa as Numaa) as Integer
 
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
+
+
 
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 

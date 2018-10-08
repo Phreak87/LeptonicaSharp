@@ -29,6 +29,8 @@ Public Shared Function pixaccCreate(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaccCreate( w, h, negflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -55,6 +57,8 @@ Public Shared Function pixaccCreateFromPix(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaccCreateFromPix( pix.Pointer, negflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -74,6 +78,8 @@ End Function
 '''  <param name="ppixacc">[in,out] - to be nulled</param>
 Public Shared Sub pixaccDestroy(
 				 ByRef ppixacc as Pixacc)
+
+
 
 
 	Dim ppixaccPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixacc) Then ppixaccPTR = ppixacc.Pointer
@@ -98,6 +104,8 @@ Public Shared Function pixaccFinal(
 	If IsNothing (pixacc) then Throw New ArgumentNullException  ("pixacc cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaccFinal( pixacc.Pointer, outdepth)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -117,6 +125,8 @@ Public Shared Function pixaccGetPix(
 	If IsNothing (pixacc) then Throw New ArgumentNullException  ("pixacc cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaccGetPix( pixacc.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -134,6 +144,8 @@ Public Shared Function pixaccGetOffset(
 				 ByVal pixacc as Pixacc) as Integer
 
 	If IsNothing (pixacc) then Throw New ArgumentNullException  ("pixacc cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaccGetOffset( pixacc.Pointer)
@@ -157,6 +169,8 @@ Public Shared Function pixaccAdd(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaccAdd( pixacc.Pointer, pix.Pointer)
 
 	Return _Result
@@ -178,6 +192,8 @@ Public Shared Function pixaccSubtract(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaccSubtract( pixacc.Pointer, pix.Pointer)
 
 	Return _Result
@@ -196,7 +212,8 @@ Public Shared Function pixaccMultConst(
 				 ByVal factor as Single) as Integer
 
 	If IsNothing (pixacc) then Throw New ArgumentNullException  ("pixacc cannot be Nothing")
-	If IsNothing (factor) then Throw New ArgumentNullException  ("factor cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaccMultConst( pixacc.Pointer, factor)
@@ -226,7 +243,8 @@ Public Shared Function pixaccMultConstAccumulate(
 
 	If IsNothing (pixacc) then Throw New ArgumentNullException  ("pixacc cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If IsNothing (factor) then Throw New ArgumentNullException  ("factor cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaccMultConstAccumulate( pixacc.Pointer, pix.Pointer, factor)

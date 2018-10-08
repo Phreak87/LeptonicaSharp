@@ -15,6 +15,8 @@ Public Shared Function ptraCreate(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptraCreate( n)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -51,6 +53,8 @@ Public Shared Sub ptraDestroy(
 				 ByVal warnflag as Integer)
 
 
+
+
 	Dim ppaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppa) Then ppaPTR = ppa.Pointer
 
 	LeptonicaSharp.Natives.ptraDestroy( ppaPTR, freeflag, warnflag)
@@ -81,6 +85,8 @@ Public Shared Function ptraAdd(
 
 	If IsNothing (pa) then Throw New ArgumentNullException  ("pa cannot be Nothing")
 	If IsNothing (item) then Throw New ArgumentNullException  ("item cannot be Nothing")
+
+
 
 Dim itemPTR As IntPtr = Marshal.AllocHGlobal(0)
 
@@ -146,6 +152,8 @@ Public Shared Function ptraInsert(
 	If IsNothing (pa) then Throw New ArgumentNullException  ("pa cannot be Nothing")
 	If IsNothing (item) then Throw New ArgumentNullException  ("item cannot be Nothing")
 
+
+
 Dim itemPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraInsert( pa.Pointer, index, itemPTR, shiftflag)
@@ -182,6 +190,8 @@ Public Shared Function ptraRemove(
 	If IsNothing (pa) then Throw New ArgumentNullException  ("pa cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptraRemove( pa.Pointer, index, flag)
 
 	Return _Result
@@ -198,6 +208,8 @@ Public Shared Function ptraRemoveLast(
 				 ByVal pa as L_Ptra) as Object
 
 	If IsNothing (pa) then Throw New ArgumentNullException  ("pa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptraRemoveLast( pa.Pointer)
@@ -224,6 +236,8 @@ Public Shared Function ptraReplace(
 	If IsNothing (pa) then Throw New ArgumentNullException  ("pa cannot be Nothing")
 	If IsNothing (item) then Throw New ArgumentNullException  ("item cannot be Nothing")
 
+
+
 Dim itemPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptraReplace( pa.Pointer, index, itemPTR, freeflag)
@@ -246,6 +260,8 @@ Public Shared Function ptraSwap(
 				 ByVal index2 as Integer) as Integer
 
 	If IsNothing (pa) then Throw New ArgumentNullException  ("pa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraSwap( pa.Pointer, index1, index2)
@@ -272,6 +288,8 @@ Public Shared Function ptraCompactArray(
 	If IsNothing (pa) then Throw New ArgumentNullException  ("pa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraCompactArray( pa.Pointer)
 
 	Return _Result
@@ -288,6 +306,8 @@ Public Shared Function ptraReverse(
 				 ByVal pa as L_Ptra) as Integer
 
 	If IsNothing (pa) then Throw New ArgumentNullException  ("pa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraReverse( pa.Pointer)
@@ -309,6 +329,8 @@ Public Shared Function ptraJoin(
 
 	If IsNothing (pa1) then Throw New ArgumentNullException  ("pa1 cannot be Nothing")
 	If IsNothing (pa2) then Throw New ArgumentNullException  ("pa2 cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraJoin( pa1.Pointer, pa2.Pointer)
@@ -346,6 +368,8 @@ Public Shared Function ptraGetMaxIndex(
 	If IsNothing (pa) then Throw New ArgumentNullException  ("pa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraGetMaxIndex( pa.Pointer, pmaxindex)
 
 	Return _Result
@@ -370,6 +394,8 @@ Public Shared Function ptraGetActualCount(
 				<Out()> ByRef pcount as Integer) as Integer
 
 	If IsNothing (pa) then Throw New ArgumentNullException  ("pa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraGetActualCount( pa.Pointer, pcount)
@@ -401,6 +427,8 @@ Public Shared Function ptraGetPtrToItem(
 	If IsNothing (pa) then Throw New ArgumentNullException  ("pa cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptraGetPtrToItem( pa.Pointer, index)
 
 	Return _Result
@@ -421,6 +449,8 @@ End Function
 '''   <returns>paa, or NULL on error</returns>
 Public Shared Function ptraaCreate(
 				 ByVal n as Integer) as L_Ptraa
+
+
 
 
 
@@ -451,6 +481,8 @@ Public Shared Sub ptraaDestroy(
 				 ByVal warnflag as Integer)
 
 
+
+
 	Dim ppaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppaa) Then ppaaPTR = ppaa.Pointer
 
 	LeptonicaSharp.Natives.ptraaDestroy( ppaaPTR, freeflag, warnflag)
@@ -471,6 +503,8 @@ Public Shared Function ptraaGetSize(
 				<Out()> ByRef psize as Integer) as Integer
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraaGetSize( paa.Pointer, psize)
@@ -501,6 +535,8 @@ Public Shared Function ptraaInsertPtra(
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 	If IsNothing (pa) then Throw New ArgumentNullException  ("pa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraaInsertPtra( paa.Pointer, index, pa.Pointer)
@@ -535,6 +571,8 @@ Public Shared Function ptraaGetPtra(
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptraaGetPtra( paa.Pointer, index, accessflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -560,6 +598,8 @@ Public Shared Function ptraaFlattenToPtra(
 				 ByVal paa as L_Ptraa) as L_Ptra
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptraaFlattenToPtra( paa.Pointer)

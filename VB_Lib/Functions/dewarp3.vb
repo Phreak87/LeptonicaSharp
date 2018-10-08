@@ -60,6 +60,8 @@ Public Shared Function dewarpaApplyDisparity(
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 	Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaApplyDisparity( dewa.Pointer, pageno, pixs.Pointer, grayin, x, y, ppixdPTR, debugfile)
@@ -111,6 +113,8 @@ Public Shared Function dewarpaApplyDisparityBoxa(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
+
+
 	Dim pboxadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxad) Then pboxadPTR = pboxad.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaApplyDisparityBoxa( dewa.Pointer, pageno, pixs.Pointer, boxas.Pointer, mapdir, x, y, pboxadPTR, debugfile)
@@ -137,6 +141,8 @@ Public Shared Function dewarpMinimize(
 				 ByVal dew as L_Dewarp) as Integer
 
 	If IsNothing (dew) then Throw New ArgumentNullException  ("dew cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpMinimize( dew.Pointer)
@@ -182,6 +188,8 @@ Public Shared Function dewarpPopulateFullRes(
 				 ByVal y as Integer) as Integer
 
 	If IsNothing (dew) then Throw New ArgumentNullException  ("dew cannot be Nothing")
+
+
 
 	Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 

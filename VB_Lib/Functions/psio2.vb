@@ -29,6 +29,8 @@ Public Shared Function pixWritePSEmbed(
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWritePSEmbed( filein, fileout)
 
 	Return _Result
@@ -62,7 +64,8 @@ Public Shared Function pixWriteStreamPS(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If IsNothing (scale) then Throw New ArgumentNullException  ("scale cannot be Nothing")
+
+
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -140,7 +143,8 @@ Public Shared Function pixWriteStringPS(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
-	If IsNothing (scale) then Throw New ArgumentNullException  ("scale cannot be Nothing")
+
+
 
 
 	Dim _Result as String = LeptonicaSharp.Natives.pixWriteStringPS( pixs.Pointer, box.Pointer, res, scale)
@@ -184,10 +188,8 @@ Public Shared Function generateUncompressedPS(
 				 ByVal boxflag as Integer) as String
 
 	If IsNothing (hexdata) then Throw New ArgumentNullException  ("hexdata cannot be Nothing")
-	If IsNothing (xpt) then Throw New ArgumentNullException  ("xpt cannot be Nothing")
-	If IsNothing (ypt) then Throw New ArgumentNullException  ("ypt cannot be Nothing")
-	If IsNothing (wpt) then Throw New ArgumentNullException  ("wpt cannot be Nothing")
-	If IsNothing (hpt) then Throw New ArgumentNullException  ("hpt cannot be Nothing")
+
+
 
 
 	Dim _Result as String = LeptonicaSharp.Natives.generateUncompressedPS( hexdata, w, h, d, psbpl, bps, xpt, ypt, wpt, hpt, boxflag)
@@ -227,7 +229,8 @@ Public Shared Sub getScaledParametersPS(
 				<Out()> ByRef pwpt as Single(), 
 				<Out()> ByRef phpt as Single())
 
-	If IsNothing (scale) then Throw New ArgumentNullException  ("scale cannot be Nothing")
+
+
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -249,6 +252,8 @@ Public Shared Sub convertByteToHexAscii(
 				<Out()> ByRef pnib2 as String)
 
 	If IsNothing (byteval) then Throw New ArgumentNullException  ("byteval cannot be Nothing")
+
+
 
 
 	LeptonicaSharp.Natives.convertByteToHexAscii( byteval, pnib1, pnib2)
@@ -279,6 +284,8 @@ Public Shared Function convertJpegToPSEmbed(
 
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertJpegToPSEmbed( filein, fileout)
@@ -364,7 +371,8 @@ Public Shared Function convertJpegToPS(
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 	If IsNothing (operation) then Throw New ArgumentNullException  ("operation cannot be Nothing")
-	If IsNothing (scale) then Throw New ArgumentNullException  ("scale cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertJpegToPS( filein, fileout, operation, x, y, res, scale, pageno, endpage)
@@ -404,7 +412,8 @@ Public Shared Function convertJpegToPSString(
 				 ByVal endpage as Integer) as Integer
 
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
-	If IsNothing (scale) then Throw New ArgumentNullException  ("scale cannot be Nothing")
+
+
 
 Dim poutstrPTR As IntPtr = poutstrPTR = Marshal.AllocHGlobal(Marshal.sizeOf(poutstr.toArray))
 
@@ -443,10 +452,8 @@ Public Shared Function generateJpegPS(
 				 ByVal endpage as Integer) as String
 
 	If IsNothing (cid) then Throw New ArgumentNullException  ("cid cannot be Nothing")
-	If IsNothing (xpt) then Throw New ArgumentNullException  ("xpt cannot be Nothing")
-	If IsNothing (ypt) then Throw New ArgumentNullException  ("ypt cannot be Nothing")
-	If IsNothing (wpt) then Throw New ArgumentNullException  ("wpt cannot be Nothing")
-	If IsNothing (hpt) then Throw New ArgumentNullException  ("hpt cannot be Nothing")
+
+
 
 
 	Dim _Result as String = LeptonicaSharp.Natives.generateJpegPS( filein, cid.Pointer, xpt, ypt, wpt, hpt, pageno, endpage)
@@ -480,6 +487,8 @@ Public Shared Function convertG4ToPSEmbed(
 
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertG4ToPSEmbed( filein, fileout)
@@ -555,7 +564,8 @@ Public Shared Function convertG4ToPS(
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 	If IsNothing (operation) then Throw New ArgumentNullException  ("operation cannot be Nothing")
-	If IsNothing (scale) then Throw New ArgumentNullException  ("scale cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertG4ToPS( filein, fileout, operation, x, y, res, scale, pageno, maskflag, endpage)
@@ -598,7 +608,8 @@ Public Shared Function convertG4ToPSString(
 				 ByVal endpage as Integer) as Integer
 
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
-	If IsNothing (scale) then Throw New ArgumentNullException  ("scale cannot be Nothing")
+
+
 
 Dim poutstrPTR As IntPtr = poutstrPTR = Marshal.AllocHGlobal(Marshal.sizeOf(poutstr.toArray))
 
@@ -639,10 +650,8 @@ Public Shared Function generateG4PS(
 				 ByVal endpage as Integer) as String
 
 	If IsNothing (cid) then Throw New ArgumentNullException  ("cid cannot be Nothing")
-	If IsNothing (xpt) then Throw New ArgumentNullException  ("xpt cannot be Nothing")
-	If IsNothing (ypt) then Throw New ArgumentNullException  ("ypt cannot be Nothing")
-	If IsNothing (wpt) then Throw New ArgumentNullException  ("wpt cannot be Nothing")
-	If IsNothing (hpt) then Throw New ArgumentNullException  ("hpt cannot be Nothing")
+
+
 
 
 	Dim _Result as String = LeptonicaSharp.Natives.generateG4PS( filein, cid.Pointer, xpt, ypt, wpt, hpt, maskflag, pageno, endpage)
@@ -675,7 +684,8 @@ Public Shared Function convertTiffMultipageToPS(
 
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
-	If IsNothing (fillfract) then Throw New ArgumentNullException  ("fillfract cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertTiffMultipageToPS( filein, fileout, fillfract)
@@ -707,6 +717,8 @@ Public Shared Function convertFlateToPSEmbed(
 
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertFlateToPSEmbed( filein, fileout)
@@ -791,7 +803,8 @@ Public Shared Function convertFlateToPS(
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 	If IsNothing (operation) then Throw New ArgumentNullException  ("operation cannot be Nothing")
-	If IsNothing (scale) then Throw New ArgumentNullException  ("scale cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertFlateToPS( filein, fileout, operation, x, y, res, scale, pageno, endpage)
@@ -838,7 +851,8 @@ Public Shared Function convertFlateToPSString(
 				 ByVal endpage as Integer) as Integer
 
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
-	If IsNothing (scale) then Throw New ArgumentNullException  ("scale cannot be Nothing")
+
+
 
 Dim poutstrPTR As IntPtr = poutstrPTR = Marshal.AllocHGlobal(Marshal.sizeOf(poutstr.toArray))
 
@@ -872,10 +886,8 @@ Public Shared Function generateFlatePS(
 				 ByVal endpage as Integer) as String
 
 	If IsNothing (cid) then Throw New ArgumentNullException  ("cid cannot be Nothing")
-	If IsNothing (xpt) then Throw New ArgumentNullException  ("xpt cannot be Nothing")
-	If IsNothing (ypt) then Throw New ArgumentNullException  ("ypt cannot be Nothing")
-	If IsNothing (wpt) then Throw New ArgumentNullException  ("wpt cannot be Nothing")
-	If IsNothing (hpt) then Throw New ArgumentNullException  ("hpt cannot be Nothing")
+
+
 
 
 	Dim _Result as String = LeptonicaSharp.Natives.generateFlatePS( filein, cid.Pointer, xpt, ypt, wpt, hpt, pageno, endpage)
@@ -911,7 +923,8 @@ Public Shared Function pixWriteMemPS(
 				 ByVal scale as Single) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If IsNothing (scale) then Throw New ArgumentNullException  ("scale cannot be Nothing")
+
+
 
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
@@ -936,7 +949,8 @@ Public Shared Function getResLetterPage(
 				 ByVal h as Integer, 
 				 ByVal fillfract as Single) as Integer
 
-	If IsNothing (fillfract) then Throw New ArgumentNullException  ("fillfract cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.getResLetterPage( w, h, fillfract)
@@ -958,7 +972,8 @@ Public Shared Function getResA4Page(
 				 ByVal h as Integer, 
 				 ByVal fillfract as Single) as Integer
 
-	If IsNothing (fillfract) then Throw New ArgumentNullException  ("fillfract cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.getResA4Page( w, h, fillfract)
@@ -973,6 +988,8 @@ End Function
 '''  </remarks>
 Public Shared Sub l_psWriteBoundingBox(
 				 ByVal flag as Integer)
+
+
 
 
 

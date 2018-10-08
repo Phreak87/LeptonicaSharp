@@ -23,6 +23,8 @@ Public Shared Function pixReadStreamBmp(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadStreamBmp( fp.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -42,6 +44,8 @@ Public Shared Function pixReadMemBmp(
 				 ByVal size as UInteger) as Pix
 
 	If IsNothing (cdata) then Throw New ArgumentNullException  ("cdata cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemBmp( cdata, size)
@@ -64,6 +68,8 @@ Public Shared Function pixWriteStreamBmp(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamBmp( fp.Pointer, pix.Pointer)
@@ -99,6 +105,9 @@ Public Shared Function pixWriteMemBmp(
 				 ByVal pixs as Pix) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16, 32 bpp")
 
 	Dim pfdataPTR As IntPtr = IntPtr.Zero
 

@@ -26,6 +26,8 @@ Public Shared Function generatePtaLine(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaLine( x1, y1, x2, y2)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -49,6 +51,8 @@ Public Shared Function generatePtaWideLine(
 				 ByVal x2 as Integer, 
 				 ByVal y2 as Integer, 
 				 ByVal width as Integer) as Pta
+
+
 
 
 
@@ -77,6 +81,8 @@ Public Shared Function generatePtaBox(
 				 ByVal width as Integer) as Pta
 
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaBox( box.Pointer, width)
@@ -108,6 +114,8 @@ Public Shared Function generatePtaBoxa(
 				 ByVal removedups as Integer) as Pta
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaBoxa( boxa.Pointer, width, removedups)
@@ -142,6 +150,8 @@ Public Shared Function generatePtaHashBox(
 				 ByVal outline as Integer) as Pta
 
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaHashBox( box.Pointer, spacing, width, orient, outline)
@@ -184,6 +194,8 @@ Public Shared Function generatePtaHashBoxa(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaHashBoxa( boxa.Pointer, spacing, width, orient, outline, removedups)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -209,6 +221,8 @@ Public Shared Function generatePtaaBoxa(
 				 ByVal boxa as Boxa) as Ptaa
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaaBoxa( boxa.Pointer)
@@ -247,6 +261,8 @@ Public Shared Function generatePtaaHashBoxa(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaaHashBoxa( boxa.Pointer, spacing, width, orient, outline)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -272,6 +288,8 @@ Public Shared Function generatePtaPolyline(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaPolyline( ptas.Pointer, width, closeflag, removedups)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -295,6 +313,8 @@ Public Shared Function generatePtaGrid(
 				 ByVal nx as Integer, 
 				 ByVal ny as Integer, 
 				 ByVal width as Integer) as Pta
+
+
 
 
 
@@ -326,6 +346,8 @@ Public Shared Function convertPtaLineTo4cc(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.convertPtaLineTo4cc( ptas.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -353,6 +375,8 @@ Public Shared Function generatePtaFilledCircle(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaFilledCircle( radius)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -375,6 +399,8 @@ End Function
 '''   <returns>pta, or NULL on error</returns>
 Public Shared Function generatePtaFilledSquare(
 				 ByVal side as Integer) as Pta
+
+
 
 
 
@@ -411,6 +437,8 @@ Public Shared Function generatePtaLineFromPt(
 	If IsNothing (radang) then Throw New ArgumentNullException  ("radang cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaLineFromPt( x, y, length, radang)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -439,6 +467,8 @@ Public Shared Function locatePtRadially(
 
 	If IsNothing (dist) then Throw New ArgumentNullException  ("dist cannot be Nothing")
 	If IsNothing (radang) then Throw New ArgumentNullException  ("radang cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.locatePtRadially( xr, yr, dist, radang, px, py)
@@ -477,6 +507,8 @@ Public Shared Function pixRenderPlotFromNuma(
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
+
+
 	Dim ppixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppix) Then ppixPTR = ppix.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderPlotFromNuma( ppixPTR, na.Pointer, plotloc, linewidth, max, color)
@@ -514,6 +546,8 @@ Public Shared Function makePlotPtaFromNuma(
 				 ByVal max as Integer) as Pta
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.makePlotPtaFromNuma( na.Pointer, size, plotloc, linewidth, max)
@@ -556,6 +590,8 @@ Public Shared Function pixRenderPlotFromNumaGen(
 				 ByVal color as UInteger) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
 
 	Dim ppixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppix) Then ppixPTR = ppix.Pointer
 
@@ -605,6 +641,8 @@ Public Shared Function makePlotPtaFromNumaGen(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.makePlotPtaFromNumaGen( na.Pointer, orient, linewidth, refpos, max, drawref)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -639,6 +677,8 @@ Public Shared Function pixRenderPta(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderPta( pix.Pointer, pta.Pointer, op)
@@ -684,6 +724,8 @@ Public Shared Function pixRenderPtaArb(
 	If IsNothing (bval) then Throw New ArgumentNullException  ("bval cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderPtaArb( pix.Pointer, pta.Pointer, rval, gval, bval)
 
 	Return _Result
@@ -719,7 +761,9 @@ Public Shared Function pixRenderPtaBlend(
 	If IsNothing (rval) then Throw New ArgumentNullException  ("rval cannot be Nothing")
 	If IsNothing (gval) then Throw New ArgumentNullException  ("gval cannot be Nothing")
 	If IsNothing (bval) then Throw New ArgumentNullException  ("bval cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
+	If {32}.contains (pix.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderPtaBlend( pix.Pointer, pta.Pointer, rval, gval, bval, fract)
@@ -750,6 +794,8 @@ Public Shared Function pixRenderLine(
 				 ByVal op as Enumerations.L_PIXELS) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderLine( pix.Pointer, x1, y1, x2, y2, width, op)
@@ -789,6 +835,8 @@ Public Shared Function pixRenderLineArb(
 	If IsNothing (bval) then Throw New ArgumentNullException  ("bval cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderLineArb( pix.Pointer, x1, y1, x2, y2, width, rval, gval, bval)
 
 	Return _Result
@@ -826,7 +874,9 @@ Public Shared Function pixRenderLineBlend(
 	If IsNothing (rval) then Throw New ArgumentNullException  ("rval cannot be Nothing")
 	If IsNothing (gval) then Throw New ArgumentNullException  ("gval cannot be Nothing")
 	If IsNothing (bval) then Throw New ArgumentNullException  ("bval cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
+	If {32}.contains (pix.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderLineBlend( pix.Pointer, x1, y1, x2, y2, width, rval, gval, bval, fract)
@@ -852,6 +902,8 @@ Public Shared Function pixRenderBox(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderBox( pix.Pointer, box.Pointer, width, op)
@@ -886,6 +938,8 @@ Public Shared Function pixRenderBoxArb(
 	If IsNothing (bval) then Throw New ArgumentNullException  ("bval cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderBoxArb( pix.Pointer, box.Pointer, width, rval, gval, bval)
 
 	Return _Result
@@ -918,7 +972,9 @@ Public Shared Function pixRenderBoxBlend(
 	If IsNothing (rval) then Throw New ArgumentNullException  ("rval cannot be Nothing")
 	If IsNothing (gval) then Throw New ArgumentNullException  ("gval cannot be Nothing")
 	If IsNothing (bval) then Throw New ArgumentNullException  ("bval cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
+	If {32}.contains (pix.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderBoxBlend( pix.Pointer, box.Pointer, width, rval, gval, bval, fract)
@@ -944,6 +1000,8 @@ Public Shared Function pixRenderBoxa(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderBoxa( pix.Pointer, boxa.Pointer, width, op)
@@ -976,6 +1034,8 @@ Public Shared Function pixRenderBoxaArb(
 	If IsNothing (rval) then Throw New ArgumentNullException  ("rval cannot be Nothing")
 	If IsNothing (gval) then Throw New ArgumentNullException  ("gval cannot be Nothing")
 	If IsNothing (bval) then Throw New ArgumentNullException  ("bval cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderBoxaArb( pix.Pointer, boxa.Pointer, width, rval, gval, bval)
@@ -1012,7 +1072,9 @@ Public Shared Function pixRenderBoxaBlend(
 	If IsNothing (rval) then Throw New ArgumentNullException  ("rval cannot be Nothing")
 	If IsNothing (gval) then Throw New ArgumentNullException  ("gval cannot be Nothing")
 	If IsNothing (bval) then Throw New ArgumentNullException  ("bval cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
+	If {32}.contains (pix.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderBoxaBlend( pix.Pointer, boxa.Pointer, width, rval, gval, bval, fract, removedups)
@@ -1044,6 +1106,8 @@ Public Shared Function pixRenderHashBox(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderHashBox( pix.Pointer, box.Pointer, spacing, width, orient, outline, op)
@@ -1081,6 +1145,8 @@ Public Shared Function pixRenderHashBoxArb(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderHashBoxArb( pix.Pointer, box.Pointer, spacing, width, orient, outline, rval, gval, bval)
 
 	Return _Result
@@ -1116,7 +1182,8 @@ Public Shared Function pixRenderHashBoxBlend(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderHashBoxBlend( pix.Pointer, box.Pointer, spacing, width, orient, outline, rval, gval, bval, fract)
@@ -1164,6 +1231,8 @@ Public Shared Function pixRenderHashMaskArb(
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderHashMaskArb( pix.Pointer, pixm.Pointer, x, y, spacing, width, orient, outline, rval, gval, bval)
 
 	Return _Result
@@ -1193,6 +1262,8 @@ Public Shared Function pixRenderHashBoxa(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderHashBoxa( pix.Pointer, boxa.Pointer, spacing, width, orient, outline, op)
@@ -1230,6 +1301,8 @@ Public Shared Function pixRenderHashBoxaArb(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderHashBoxaArb( pix.Pointer, boxa.Pointer, spacing, width, orient, outline, rval, gval, bval)
 
 	Return _Result
@@ -1265,7 +1338,9 @@ Public Shared Function pixRenderHashBoxaBlend(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
+	If {32}.contains (pix.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderHashBoxaBlend( pix.Pointer, boxa.Pointer, spacing, width, orient, outline, rval, gval, bval, fract)
@@ -1298,6 +1373,8 @@ Public Shared Function pixRenderPolyline(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderPolyline( pix.Pointer, ptas.Pointer, width, op, closeflag)
@@ -1339,6 +1416,8 @@ Public Shared Function pixRenderPolylineArb(
 	If IsNothing (bval) then Throw New ArgumentNullException  ("bval cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderPolylineArb( pix.Pointer, ptas.Pointer, width, rval, gval, bval, closeflag)
 
 	Return _Result
@@ -1375,7 +1454,9 @@ Public Shared Function pixRenderPolylineBlend(
 	If IsNothing (rval) then Throw New ArgumentNullException  ("rval cannot be Nothing")
 	If IsNothing (gval) then Throw New ArgumentNullException  ("gval cannot be Nothing")
 	If IsNothing (bval) then Throw New ArgumentNullException  ("bval cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
+	If {32}.contains (pix.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderPolylineBlend( pix.Pointer, ptas.Pointer, width, rval, gval, bval, fract, closeflag, removedups)
@@ -1409,6 +1490,8 @@ Public Shared Function pixRenderGridArb(
 	If IsNothing (rval) then Throw New ArgumentNullException  ("rval cannot be Nothing")
 	If IsNothing (gval) then Throw New ArgumentNullException  ("gval cannot be Nothing")
 	If IsNothing (bval) then Throw New ArgumentNullException  ("bval cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderGridArb( pix.Pointer, nx, ny, width, rval, gval, bval)
@@ -1454,6 +1537,9 @@ Public Shared Function pixRenderRandomCmapPtaa(
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
 
 
+	If {1,2,4,8,16,32}.contains (pix.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16, 32 bpp")
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRenderRandomCmapPtaa( pix.Pointer, ptaa.Pointer, polyflag, width, closeflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1486,6 +1572,8 @@ Public Shared Function pixRenderPolygon(
 				<Out()> ByRef pymin as Integer) as Pix
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRenderPolygon( ptas.Pointer, width, pxmin, pymin)
@@ -1524,6 +1612,8 @@ Public Shared Function pixFillPolygon(
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFillPolygon( pixs.Pointer, pta.Pointer, xmin, ymin)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1556,6 +1646,8 @@ Public Shared Function pixRenderContours(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRenderContours( pixs.Pointer, startval, incr, outdepth)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1583,6 +1675,8 @@ Public Shared Function fpixAutoRenderContours(
 				 ByVal ncontours as Integer) as Pix
 
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixAutoRenderContours( fpix.Pointer, ncontours)
@@ -1614,8 +1708,8 @@ Public Shared Function fpixRenderContours(
 				 ByVal proxim as Single) as Pix
 
 	If IsNothing (fpixs) then Throw New ArgumentNullException  ("fpixs cannot be Nothing")
-	If IsNothing (incr) then Throw New ArgumentNullException  ("incr cannot be Nothing")
-	If IsNothing (proxim) then Throw New ArgumentNullException  ("proxim cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixRenderContours( fpixs.Pointer, incr, proxim)
@@ -1649,6 +1743,9 @@ Public Shared Function pixGeneratePtaBoundary(
 				 ByVal width as Integer) as Pta
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGeneratePtaBoundary( pixs.Pointer, width)

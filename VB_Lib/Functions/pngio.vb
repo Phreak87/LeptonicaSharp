@@ -41,6 +41,8 @@ Public Shared Function pixReadStreamPng(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadStreamPng( fp.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -76,6 +78,8 @@ Public Shared Function readHeaderPng(
 				<Out()> ByRef piscmap as Integer) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -110,6 +114,8 @@ Public Shared Function freadHeaderPng(
 				<Out()> ByRef piscmap as Integer) as Integer
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.freadHeaderPng( fp.Pointer, pw, ph, pbps, pspp, piscmap)
@@ -156,6 +162,8 @@ Public Shared Function readHeaderMemPng(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderMemPng( data, size, pw, ph, pbps, pspp, piscmap)
 
 	Return _Result
@@ -175,6 +183,8 @@ Public Shared Function fgetPngResolution(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pxres) then Throw New ArgumentNullException  ("pxres cannot be Nothing")
 	If IsNothing (pyres) then Throw New ArgumentNullException  ("pyres cannot be Nothing")
+
+
 
 Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
 
@@ -196,6 +206,8 @@ Public Shared Function isPngInterlaced(
 				<Out()> ByRef pinterlaced as Integer) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -218,6 +230,8 @@ Public Shared Function fgetPngColormapInfo(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pcmap) then Throw New ArgumentNullException  ("pcmap cannot be Nothing")
 	If IsNothing (ptransparency) then Throw New ArgumentNullException  ("ptransparency cannot be Nothing")
+
+
 
 Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
 	Dim pcmapPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pcmap) Then pcmapPTR = pcmap.Pointer
@@ -249,7 +263,8 @@ Public Shared Function pixWritePng(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If IsNothing (gamma) then Throw New ArgumentNullException  ("gamma cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -339,7 +354,8 @@ Public Shared Function pixWriteStreamPng(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If IsNothing (gamma) then Throw New ArgumentNullException  ("gamma cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamPng( fp.Pointer, pix.Pointer, gamma)
@@ -376,6 +392,8 @@ Public Shared Function pixSetZlibCompression(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetZlibCompression( pix.Pointer, compval)
 
 	Return _Result
@@ -389,6 +407,8 @@ End Function
 '''  <param name="flag">[in] - 1 for stripping 16 bpp to 8 bpp on reading 0 for leaving 16 bpp</param>
 Public Shared Sub l_pngSetReadStrip16To8(
 				 ByVal flag as Integer)
+
+
 
 
 
@@ -414,6 +434,8 @@ Public Shared Function pixReadMemPng(
 				 ByVal filesize as UInteger) as Pix
 
 	If IsNothing (filedata) then Throw New ArgumentNullException  ("filedata cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemPng( filedata, filesize)
@@ -444,7 +466,8 @@ Public Shared Function pixWriteMemPng(
 				 ByVal gamma as Single) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If IsNothing (gamma) then Throw New ArgumentNullException  ("gamma cannot be Nothing")
+
+
 
 	Dim pfiledataPTR As IntPtr = IntPtr.Zero
 

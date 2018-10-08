@@ -14,6 +14,8 @@ Public Shared Function l_amapCreate(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_amapCreate( keytype)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -32,6 +34,8 @@ Public Shared Function l_amapFind(
 
 	If IsNothing (m) then Throw New ArgumentNullException  ("m cannot be Nothing")
 	If IsNothing (key) then Throw New ArgumentNullException  ("key cannot be Nothing")
+
+
 
 Dim mPTR As IntPtr = IntPtr.Zero : If Not IsNothing(m) Then mPTR = m.Pointer
 Dim keyPTR As IntPtr = IntPtr.Zero : If Not IsNothing(key) Then keyPTR = key.Pointer
@@ -56,6 +60,8 @@ Public Shared Sub l_amapInsert(
 	If IsNothing (key) then Throw New ArgumentNullException  ("key cannot be Nothing")
 	If IsNothing (value) then Throw New ArgumentNullException  ("value cannot be Nothing")
 
+
+
 Dim mPTR As IntPtr = IntPtr.Zero : If Not IsNothing(m) Then mPTR = m.Pointer
 Dim keyPTR As IntPtr = IntPtr.Zero : If Not IsNothing(key) Then keyPTR = key.Pointer
 Dim valuePTR As IntPtr = IntPtr.Zero : If Not IsNothing(value) Then valuePTR = value.Pointer
@@ -76,6 +82,8 @@ Public Shared Sub l_amapDelete(
 	If IsNothing (m) then Throw New ArgumentNullException  ("m cannot be Nothing")
 	If IsNothing (key) then Throw New ArgumentNullException  ("key cannot be Nothing")
 
+
+
 Dim mPTR As IntPtr = IntPtr.Zero : If Not IsNothing(m) Then mPTR = m.Pointer
 Dim keyPTR As IntPtr = IntPtr.Zero : If Not IsNothing(key) Then keyPTR = key.Pointer
 
@@ -93,6 +101,8 @@ Public Shared Sub l_amapDestroy(
 
 	If IsNothing (pm) then Throw New ArgumentNullException  ("pm cannot be Nothing")
 
+
+
 	Dim pmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pm) Then pmPTR = pm.Pointer
 
 	LeptonicaSharp.Natives.l_amapDestroy( pmPTR)
@@ -109,6 +119,8 @@ Public Shared Function l_amapGetFirst(
 				 ByVal m as L_Rbtree) as L_Rbtree_Node
 
 	If IsNothing (m) then Throw New ArgumentNullException  ("m cannot be Nothing")
+
+
 
 Dim mPTR As IntPtr = IntPtr.Zero : If Not IsNothing(m) Then mPTR = m.Pointer
 
@@ -129,6 +141,8 @@ Public Shared Function l_amapGetNext(
 
 	If IsNothing (n) then Throw New ArgumentNullException  ("n cannot be Nothing")
 
+
+
 Dim nPTR As IntPtr = IntPtr.Zero : If Not IsNothing(n) Then nPTR = n.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_amapGetNext( n.Pointer)
@@ -147,6 +161,8 @@ Public Shared Function l_amapGetLast(
 				 ByVal m as L_Rbtree) as L_Rbtree_Node
 
 	If IsNothing (m) then Throw New ArgumentNullException  ("m cannot be Nothing")
+
+
 
 Dim mPTR As IntPtr = IntPtr.Zero : If Not IsNothing(m) Then mPTR = m.Pointer
 
@@ -167,6 +183,8 @@ Public Shared Function l_amapGetPrev(
 
 	If IsNothing (n) then Throw New ArgumentNullException  ("n cannot be Nothing")
 
+
+
 Dim nPTR As IntPtr = IntPtr.Zero : If Not IsNothing(n) Then nPTR = n.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_amapGetPrev( n.Pointer)
@@ -186,6 +204,8 @@ Public Shared Function l_amapSize(
 
 	If IsNothing (m) then Throw New ArgumentNullException  ("m cannot be Nothing")
 
+
+
 Dim mPTR As IntPtr = IntPtr.Zero : If Not IsNothing(m) Then mPTR = m.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_amapSize( m.Pointer)
@@ -201,6 +221,8 @@ End Function
 '''   <returns></returns>
 Public Shared Function l_asetCreate(
 				 ByVal keytype as Integer) as L_Rbtree
+
+
 
 
 
@@ -223,6 +245,8 @@ Public Shared Function l_asetFind(
 	If IsNothing (s) then Throw New ArgumentNullException  ("s cannot be Nothing")
 	If IsNothing (key) then Throw New ArgumentNullException  ("key cannot be Nothing")
 
+
+
 Dim sPTR As IntPtr = IntPtr.Zero : If Not IsNothing(s) Then sPTR = s.Pointer
 Dim keyPTR As IntPtr = IntPtr.Zero : If Not IsNothing(key) Then keyPTR = key.Pointer
 
@@ -244,6 +268,8 @@ Public Shared Sub l_asetInsert(
 	If IsNothing (s) then Throw New ArgumentNullException  ("s cannot be Nothing")
 	If IsNothing (key) then Throw New ArgumentNullException  ("key cannot be Nothing")
 
+
+
 Dim sPTR As IntPtr = IntPtr.Zero : If Not IsNothing(s) Then sPTR = s.Pointer
 Dim keyPTR As IntPtr = IntPtr.Zero : If Not IsNothing(key) Then keyPTR = key.Pointer
 
@@ -263,6 +289,8 @@ Public Shared Sub l_asetDelete(
 	If IsNothing (s) then Throw New ArgumentNullException  ("s cannot be Nothing")
 	If IsNothing (key) then Throw New ArgumentNullException  ("key cannot be Nothing")
 
+
+
 Dim sPTR As IntPtr = IntPtr.Zero : If Not IsNothing(s) Then sPTR = s.Pointer
 Dim keyPTR As IntPtr = IntPtr.Zero : If Not IsNothing(key) Then keyPTR = key.Pointer
 
@@ -280,6 +308,8 @@ Public Shared Sub l_asetDestroy(
 
 	If IsNothing (ps) then Throw New ArgumentNullException  ("ps cannot be Nothing")
 
+
+
 	Dim psPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ps) Then psPTR = ps.Pointer
 
 	LeptonicaSharp.Natives.l_asetDestroy( psPTR)
@@ -296,6 +326,8 @@ Public Shared Function l_asetGetFirst(
 				 ByVal s as L_Rbtree) as L_Rbtree_Node
 
 	If IsNothing (s) then Throw New ArgumentNullException  ("s cannot be Nothing")
+
+
 
 Dim sPTR As IntPtr = IntPtr.Zero : If Not IsNothing(s) Then sPTR = s.Pointer
 
@@ -316,6 +348,8 @@ Public Shared Function l_asetGetNext(
 
 	If IsNothing (n) then Throw New ArgumentNullException  ("n cannot be Nothing")
 
+
+
 Dim nPTR As IntPtr = IntPtr.Zero : If Not IsNothing(n) Then nPTR = n.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_asetGetNext( n.Pointer)
@@ -334,6 +368,8 @@ Public Shared Function l_asetGetLast(
 				 ByVal s as L_Rbtree) as L_Rbtree_Node
 
 	If IsNothing (s) then Throw New ArgumentNullException  ("s cannot be Nothing")
+
+
 
 Dim sPTR As IntPtr = IntPtr.Zero : If Not IsNothing(s) Then sPTR = s.Pointer
 
@@ -354,6 +390,8 @@ Public Shared Function l_asetGetPrev(
 
 	If IsNothing (n) then Throw New ArgumentNullException  ("n cannot be Nothing")
 
+
+
 Dim nPTR As IntPtr = IntPtr.Zero : If Not IsNothing(n) Then nPTR = n.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_asetGetPrev( n.Pointer)
@@ -372,6 +410,8 @@ Public Shared Function l_asetSize(
 				 ByVal s as L_Rbtree) as Integer
 
 	If IsNothing (s) then Throw New ArgumentNullException  ("s cannot be Nothing")
+
+
 
 Dim sPTR As IntPtr = IntPtr.Zero : If Not IsNothing(s) Then sPTR = s.Pointer
 

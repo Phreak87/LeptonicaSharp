@@ -15,6 +15,8 @@ Public Shared Function l_rbtreeCreate(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_rbtreeCreate( keytype)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -35,6 +37,8 @@ Public Shared Function l_rbtreeLookup(
 
 	If IsNothing (t) then Throw New ArgumentNullException  ("t cannot be Nothing")
 	If IsNothing (key) then Throw New ArgumentNullException  ("key cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_rbtreeLookup( t.Pointer, key.Pointer)
@@ -66,6 +70,8 @@ Public Shared Sub l_rbtreeInsert(
 	If IsNothing (value) then Throw New ArgumentNullException  ("value cannot be Nothing")
 
 
+
+
 	LeptonicaSharp.Natives.l_rbtreeInsert( t.Pointer, key.Pointer, value.Pointer)
 
 End Sub
@@ -83,6 +89,8 @@ Public Shared Sub l_rbtreeDelete(
 
 	If IsNothing (t) then Throw New ArgumentNullException  ("t cannot be Nothing")
 	If IsNothing (key) then Throw New ArgumentNullException  ("key cannot be Nothing")
+
+
 
 
 	LeptonicaSharp.Natives.l_rbtreeDelete( t.Pointer, key.Pointer)
@@ -104,6 +112,8 @@ Public Shared Sub l_rbtreeDestroy(
 				 ByVal pt as List (of L_Rbtree))
 
 	If IsNothing (pt) then Throw New ArgumentNullException  ("pt cannot be Nothing")
+
+
 
 	Dim ptPTR As IntPtr = IntPtr.Zero ' : If Not IsNothing(pt) Then ptPTR = pt.Pointer
 
@@ -127,6 +137,8 @@ Public Shared Function l_rbtreeGetFirst(
 				 ByVal t as L_Rbtree) as L_Rbtree_Node
 
 	If IsNothing (t) then Throw New ArgumentNullException  ("t cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_rbtreeGetFirst( t.Pointer)
@@ -156,6 +168,8 @@ Public Shared Function l_rbtreeGetNext(
 	If IsNothing (n) then Throw New ArgumentNullException  ("n cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_rbtreeGetNext( n.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -178,6 +192,8 @@ Public Shared Function l_rbtreeGetLast(
 				 ByVal t as L_Rbtree) as L_Rbtree_Node
 
 	If IsNothing (t) then Throw New ArgumentNullException  ("t cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_rbtreeGetLast( t.Pointer)
@@ -207,6 +223,8 @@ Public Shared Function l_rbtreeGetPrev(
 	If IsNothing (n) then Throw New ArgumentNullException  ("n cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_rbtreeGetPrev( n.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -224,6 +242,8 @@ Public Shared Function l_rbtreeGetCount(
 				 ByVal t as L_Rbtree) as Integer
 
 	If IsNothing (t) then Throw New ArgumentNullException  ("t cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_rbtreeGetCount( t.Pointer)
@@ -244,6 +264,8 @@ Public Shared Sub l_rbtreePrint(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (t) then Throw New ArgumentNullException  ("t cannot be Nothing")
+
+
 
 
 	LeptonicaSharp.Natives.l_rbtreePrint( fp.Pointer, t.Pointer)

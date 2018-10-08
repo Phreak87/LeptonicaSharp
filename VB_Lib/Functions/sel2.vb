@@ -23,6 +23,8 @@ Public Shared Function selaAddBasic(
 				 ByVal sela as Sela) as Sela
 
 
+
+
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaAddBasic( selaPTR)
@@ -40,6 +42,8 @@ End Function
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function selaAddHitMiss(
 				 ByVal sela as Sela) as Sela
+
+
 
 
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
@@ -68,6 +72,8 @@ Public Shared Function selaAddDwaLinear(
 				 ByVal sela as Sela) as Sela
 
 
+
+
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaAddDwaLinear( selaPTR)
@@ -93,6 +99,8 @@ End Function
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function selaAddDwaCombs(
 				 ByVal sela as Sela) as Sela
+
+
 
 
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
@@ -137,8 +145,8 @@ Public Shared Function selaAddCrossJunctions(
 				 ByVal norient as Integer, 
 				 ByVal debugflag as Integer) as Sela
 
-	If IsNothing (hlsize) then Throw New ArgumentNullException  ("hlsize cannot be Nothing")
-	If IsNothing (mdist) then Throw New ArgumentNullException  ("mdist cannot be Nothing")
+
+
 
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
 
@@ -177,8 +185,8 @@ Public Shared Function selaAddTJunctions(
 				 ByVal norient as Integer, 
 				 ByVal debugflag as Integer) as Sela
 
-	If IsNothing (hlsize) then Throw New ArgumentNullException  ("hlsize cannot be Nothing")
-	If IsNothing (mdist) then Throw New ArgumentNullException  ("mdist cannot be Nothing")
+
+
 
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
 
@@ -202,6 +210,8 @@ End Function
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function sela4ccThin(
 				 ByVal sela as Sela) as Sela
+
+
 
 
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
@@ -228,6 +238,8 @@ Public Shared Function sela8ccThin(
 				 ByVal sela as Sela) as Sela
 
 
+
+
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sela8ccThin( selaPTR)
@@ -250,6 +262,8 @@ End Function
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function sela4and8ccThin(
 				 ByVal sela as Sela) as Sela
+
+
 
 
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer

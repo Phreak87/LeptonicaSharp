@@ -43,6 +43,8 @@ Public Shared Function pixSetSelectCmap(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetSelectCmap( pixs.Pointer, boxPTR, sindex, rval, gval, bval)
@@ -90,6 +92,8 @@ Public Shared Function pixColorGrayRegionsCmap(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixColorGrayRegionsCmap( pixs.Pointer, boxa.Pointer, type, rval, gval, bval)
@@ -148,6 +152,8 @@ Public Shared Function pixColorGrayCmap(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixColorGrayCmap( pixs.Pointer, boxPTR, type, rval, gval, bval)
@@ -190,6 +196,8 @@ Public Shared Function pixColorGrayMaskedCmap(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixColorGrayMaskedCmap( pixs.Pointer, pixm.Pointer, type, rval, gval, bval)
@@ -239,6 +247,8 @@ Public Shared Function addColorizedGrayToCmap(
 
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
 
+
+
 Dim pnaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pna) Then pnaPTR = pna.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.addColorizedGrayToCmap( cmap.Pointer, type, rval, gval, bval, pnaPTR)
@@ -286,6 +296,8 @@ Public Shared Function pixSetSelectMaskedCmap(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetSelectMaskedCmap( pixs.Pointer, pixmPTR, x, y, sindex, rval, gval, bval)
@@ -330,6 +342,8 @@ Public Shared Function pixSetMaskedCmap(
 				 ByVal bval as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 

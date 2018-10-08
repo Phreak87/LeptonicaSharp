@@ -29,6 +29,8 @@ Public Shared Function boxaTransform(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaTransform( boxas.Pointer, shiftx, shifty, scalex, scaley)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -60,6 +62,8 @@ Public Shared Function boxTransform(
 				 ByVal scaley as Single) as Box
 
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxTransform( box.Pointer, shiftx, shifty, scalex, scaley)
@@ -118,7 +122,8 @@ Public Shared Function boxaTransformOrdered(
 				 ByVal order as Enumerations.L_affine_transm_order) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
-	If IsNothing (angle) then Throw New ArgumentNullException  ("angle cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaTransformOrdered( boxas.Pointer, shiftx, shifty, scalex, scaley, xcen, ycen, angle, order)
@@ -194,7 +199,8 @@ Public Shared Function boxTransformOrdered(
 				 ByVal order as Enumerations.L_affine_transm_order) as Box
 
 	If IsNothing (boxs) then Throw New ArgumentNullException  ("boxs cannot be Nothing")
-	If IsNothing (angle) then Throw New ArgumentNullException  ("angle cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxTransformOrdered( boxs.Pointer, shiftx, shifty, scalex, scaley, xcen, ycen, angle, order)
@@ -225,6 +231,8 @@ Public Shared Function boxaRotateOrth(
 				 ByVal rotation as Integer) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaRotateOrth( boxas.Pointer, w, h, rotation)
@@ -259,6 +267,8 @@ Public Shared Function boxRotateOrth(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxRotateOrth( box.Pointer, w, h, rotation)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -287,6 +297,8 @@ Public Shared Function boxaSort(
 				<Out()> ByRef pnaindex as Numa) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
+
+
 
 Dim pnaindexPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaindex) Then pnaindexPTR = pnaindex.Pointer
 
@@ -324,6 +336,8 @@ Public Shared Function boxaBinSort(
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
+
+
 Dim pnaindexPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaindex) Then pnaindexPTR = pnaindex.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaBinSort( boxas.Pointer, sorttype, sortorder, pnaindexPTR)
@@ -347,6 +361,8 @@ Public Shared Function boxaSortByIndex(
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 	If IsNothing (naindex) then Throw New ArgumentNullException  ("naindex cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaSortByIndex( boxas.Pointer, naindex.Pointer)
@@ -407,6 +423,8 @@ Public Shared Function boxaSort2d(
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
+
+
 Dim pnaadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaad) Then pnaadPTR = pnaad.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaSort2d( boxas.Pointer, pnaadPTR, delta1, delta2, minh1)
@@ -430,6 +448,8 @@ Public Shared Function boxaSort2dByIndex(
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaSort2dByIndex( boxas.Pointer, naa.Pointer)
@@ -473,6 +493,8 @@ Public Shared Function boxaExtractAsNuma(
 				 ByVal keepinvalid as Integer) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 
 Dim pnalPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnal) Then pnalPTR = pnal.Pointer
 Dim pnatPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnat) Then pnatPTR = pnat.Pointer
@@ -530,6 +552,8 @@ Public Shared Function boxaExtractAsPta(
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
+
+
 Dim pptalPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pptal) Then pptalPTR = pptal.Pointer
 Dim pptatPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pptat) Then pptatPTR = pptat.Pointer
 Dim pptarPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pptar) Then pptarPTR = pptar.Pointer
@@ -584,7 +608,8 @@ Public Shared Function boxaGetRankVals(
 				<Out()> ByRef ph as Integer) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaGetRankVals( boxa.Pointer, fract, px, py, pw, ph)
@@ -618,6 +643,8 @@ Public Shared Function boxaGetMedianVals(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaGetMedianVals( boxa.Pointer, px, py, pw, ph)
 
 	Return _Result
@@ -638,6 +665,8 @@ Public Shared Function boxaGetAverageSize(
 				<Out()> ByRef ph as Single()) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaGetAverageSize( boxa.Pointer, pw, ph)
@@ -674,6 +703,8 @@ Public Shared Function boxaaGetExtent(
 				<Out()> ByRef pboxa as Boxa) as Integer
 
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
+
+
 
 Dim pboxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbox) Then pboxPTR = pbox.Pointer
 Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = pboxa.Pointer
@@ -714,6 +745,8 @@ Public Shared Function boxaaFlattenToBoxa(
 
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 
+
+
 Dim pnaindexPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaindex) Then pnaindexPTR = pnaindex.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaFlattenToBoxa( baa.Pointer, pnaindexPTR, copyflag)
@@ -751,6 +784,8 @@ Public Shared Function boxaaFlattenAligned(
 
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 
+
+
 	Dim fillerboxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fillerbox) Then fillerboxPTR = fillerbox.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaFlattenAligned( baa.Pointer, num, fillerboxPTR, copyflag)
@@ -781,6 +816,8 @@ Public Shared Function boxaEncapsulateAligned(
 				 ByVal copyflag as Enumerations.L_access_storage) as Boxaa
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaEncapsulateAligned( boxa.Pointer, num, copyflag)
@@ -815,6 +852,8 @@ Public Shared Function boxaaTranspose(
 	If IsNothing (baas) then Throw New ArgumentNullException  ("baas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaTranspose( baas.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -845,6 +884,8 @@ Public Shared Function boxaaAlignBox(
 
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaAlignBox( baa.Pointer, box.Pointer, delta, pindex)

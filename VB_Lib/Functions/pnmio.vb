@@ -16,6 +16,8 @@ Public Shared Function pixReadStreamPnm(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadStreamPnm( fp.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -45,6 +47,8 @@ Public Shared Function readHeaderPnm(
 				<Out()> ByRef pspp as Integer) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -78,6 +82,8 @@ Public Shared Function freadHeaderPnm(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.freadHeaderPnm( fp.Pointer, pw, ph, pd, ptype, pbps, pspp)
 
 	Return _Result
@@ -109,6 +115,8 @@ Public Shared Function pixWriteStreamPnm(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamPnm( fp.Pointer, pix.Pointer)
 
 	Return _Result
@@ -128,6 +136,8 @@ Public Shared Function pixWriteStreamAsciiPnm(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamAsciiPnm( fp.Pointer, pix.Pointer)
@@ -158,6 +168,8 @@ Public Shared Function pixWriteStreamPam(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamPam( fp.Pointer, pix.Pointer)
 
 	Return _Result
@@ -181,6 +193,8 @@ Public Shared Function pixReadMemPnm(
 				 ByVal size as UInteger) as Pix
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemPnm( data, size)
@@ -216,6 +230,8 @@ Public Shared Function readHeaderMemPnm(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderMemPnm( data, size, pw, ph, pd, ptype, pbps, pspp)
 
 	Return _Result
@@ -242,6 +258,8 @@ Public Shared Function pixWriteMemPnm(
 				 ByVal pix as Pix) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
@@ -272,6 +290,8 @@ Public Shared Function pixWriteMemPam(
 				 ByVal pix as Pix) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 

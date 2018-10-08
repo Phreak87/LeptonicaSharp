@@ -27,6 +27,8 @@ Public Shared Function pixAddConstantGray(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixAddConstantGray( pixs.Pointer, val)
 
 	Return _Result
@@ -52,7 +54,8 @@ Public Shared Function pixMultConstantGray(
 				 ByVal val as Single) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixMultConstantGray( pixs.Pointer, val)
@@ -90,6 +93,8 @@ Public Shared Function pixAddGray(
 
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
+
+
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -130,6 +135,8 @@ Public Shared Function pixSubtractGray(
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
 
+
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSubtractGray( pixdPTR, pixs1.Pointer, pixs2.Pointer)
@@ -163,6 +170,8 @@ Public Shared Function pixThresholdToValue(
 				 ByVal setval as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -203,6 +212,8 @@ Public Shared Function pixInitAccumulate(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixInitAccumulate( w, h, offset)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -234,6 +245,8 @@ Public Shared Function pixFinalAccumulate(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFinalAccumulate( pixs.Pointer, offset, depth)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -261,6 +274,8 @@ Public Shared Function pixFinalAccumulateThreshold(
 				 ByVal threshold as UInteger) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFinalAccumulateThreshold( pixs.Pointer, offset, threshold)
@@ -295,6 +310,8 @@ Public Shared Function pixAccumulate(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixAccumulate( pixd.Pointer, pixs.Pointer, op)
 
 	Return _Result
@@ -322,7 +339,8 @@ Public Shared Function pixMultConstAccumulate(
 				 ByVal offset as UInteger) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (factor) then Throw New ArgumentNullException  ("factor cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixMultConstAccumulate( pixs.Pointer, factor, offset)
@@ -357,6 +375,8 @@ Public Shared Function pixAbsDifference(
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAbsDifference( pixs1.Pointer, pixs2.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -387,6 +407,8 @@ Public Shared Function pixAddRGB(
 
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAddRGB( pixs1.Pointer, pixs2.Pointer)
@@ -426,6 +448,8 @@ Public Shared Function pixMinOrMax(
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
 
+
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMinOrMax( pixdPTR, pixs1.Pointer, pixs2.Pointer, type)
@@ -456,6 +480,8 @@ Public Shared Function pixMaxDynamicRange(
 				 ByVal type as Enumerations.L_L_SCALE) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMaxDynamicRange( pixs.Pointer, type)
@@ -489,6 +515,8 @@ Public Shared Function pixMaxDynamicRangeRGB(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMaxDynamicRangeRGB( pixs.Pointer, type)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -516,7 +544,8 @@ Public Shared Function linearScaleRGBVal(
 				 ByVal sval as UInteger, 
 				 ByVal factor as Single) as UInteger
 
-	If IsNothing (factor) then Throw New ArgumentNullException  ("factor cannot be Nothing")
+
+
 
 
 	Dim _Result as UInteger = LeptonicaSharp.Natives.linearScaleRGBVal( sval, factor)
@@ -550,7 +579,8 @@ Public Shared Function logScaleRGBVal(
 				 ByVal factor as Single) as UInteger
 
 	If IsNothing (tab) then Throw New ArgumentNullException  ("tab cannot be Nothing")
-	If IsNothing (factor) then Throw New ArgumentNullException  ("factor cannot be Nothing")
+
+
 
 
 	Dim _Result as UInteger = LeptonicaSharp.Natives.logScaleRGBVal( sval, tab, factor)
@@ -565,6 +595,8 @@ End Function
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function makeLogBase2Tab() as Single()
+
+
 
 
 
@@ -584,6 +616,8 @@ Public Shared Function getLogBase2(
 				 ByVal logtab as Single()) as Single
 
 	If IsNothing (logtab) then Throw New ArgumentNullException  ("logtab cannot be Nothing")
+
+
 
 
 	Dim _Result as Single = LeptonicaSharp.Natives.getLogBase2( val, logtab)

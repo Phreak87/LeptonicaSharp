@@ -37,6 +37,8 @@ Public Shared Function boxCreate(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxCreate( x, y, w, h)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -66,6 +68,8 @@ Public Shared Function boxCreateValid(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxCreateValid( x, y, w, h)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -85,6 +89,8 @@ Public Shared Function boxCopy(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxCopy( box.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -102,6 +108,8 @@ Public Shared Function boxClone(
 				 ByVal box as Box) as Box
 
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxClone( box.Pointer)
@@ -124,6 +132,8 @@ End Function
 '''  <param name="pbox">[in,out] - will be set to null before returning</param>
 Public Shared Sub boxDestroy(
 				 ByRef pbox as Box)
+
+
 
 
 	Dim pboxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbox) Then pboxPTR = pbox.Pointer
@@ -154,6 +164,8 @@ Public Shared Function boxGetGeometry(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxGetGeometry( box.Pointer, px, py, pw, ph)
 
 	Return _Result
@@ -178,6 +190,8 @@ Public Shared Function boxSetGeometry(
 				 ByVal h as Integer) as Integer
 
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxSetGeometry( box.Pointer, x, y, w, h)
@@ -211,6 +225,8 @@ Public Shared Function boxGetSideLocations(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxGetSideLocations( box.Pointer, pl, pr, pt, pb)
 
 	Return _Result
@@ -237,6 +253,8 @@ Public Shared Function boxSetSideLocations(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxSetSideLocations( box.Pointer, l, r, t, b)
 
 	Return _Result
@@ -253,6 +271,8 @@ Public Shared Function boxGetRefcount(
 				 ByVal box as Box) as Integer
 
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxGetRefcount( box.Pointer)
@@ -275,6 +295,8 @@ Public Shared Function boxChangeRefcount(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxChangeRefcount( box.Pointer, delta)
 
 	Return _Result
@@ -295,6 +317,8 @@ Public Shared Function boxIsValid(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxIsValid( box.Pointer, pvalid)
 
 	Return _Result
@@ -309,6 +333,8 @@ End Function
 '''   <returns>boxa, or NULL on error</returns>
 Public Shared Function boxaCreate(
 				 ByVal n as Integer) as Boxa
+
+
 
 
 
@@ -339,6 +365,8 @@ Public Shared Function boxaCopy(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaCopy( boxa.Pointer, copyflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -359,6 +387,8 @@ End Function
 '''  <param name="pboxa">[in,out] - will be set to null before returning</param>
 Public Shared Sub boxaDestroy(
 				 ByRef pboxa as Boxa)
+
+
 
 
 	Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = pboxa.Pointer
@@ -386,6 +416,8 @@ Public Shared Function boxaAddBox(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaAddBox( boxa.Pointer, box.Pointer, copyflag)
 
 	Return _Result
@@ -407,6 +439,8 @@ Public Shared Function boxaExtendArray(
 				 ByVal boxa as Boxa) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaExtendArray( boxa.Pointer)
@@ -434,6 +468,8 @@ Public Shared Function boxaExtendArrayToSize(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaExtendArrayToSize( boxa.Pointer, size)
 
 	Return _Result
@@ -452,6 +488,8 @@ Public Shared Function boxaGetCount(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaGetCount( boxa.Pointer)
 
 	Return _Result
@@ -468,6 +506,8 @@ Public Shared Function boxaGetValidCount(
 				 ByVal boxa as Boxa) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaGetValidCount( boxa.Pointer)
@@ -490,6 +530,8 @@ Public Shared Function boxaGetBox(
 				 ByVal accessflag as Enumerations.L_access_storage) as Box
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaGetBox( boxa.Pointer, index, accessflag)
@@ -525,6 +567,8 @@ Public Shared Function boxaGetValidBox(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaGetValidBox( boxa.Pointer, index, accessflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -542,6 +586,8 @@ Public Shared Function boxaFindInvalidBoxes(
 				 ByVal boxa as Boxa) as Numa
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaFindInvalidBoxes( boxa.Pointer)
@@ -573,6 +619,8 @@ Public Shared Function boxaGetBoxGeometry(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaGetBoxGeometry( boxa.Pointer, index, px, py, pw, ph)
 
 	Return _Result
@@ -591,6 +639,8 @@ Public Shared Function boxaIsFull(
 				<Out()> ByRef pfull as Integer) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaIsFull( boxa.Pointer, pfull)
@@ -620,6 +670,8 @@ Public Shared Function boxaReplaceBox(
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaReplaceBox( boxa.Pointer, index, box.Pointer)
@@ -655,6 +707,8 @@ Public Shared Function boxaInsertBox(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaInsertBox( boxa.Pointer, index, box.Pointer)
 
 	Return _Result
@@ -681,6 +735,8 @@ Public Shared Function boxaRemoveBox(
 				 ByVal index as Integer) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaRemoveBox( boxa.Pointer, index)
@@ -712,6 +768,8 @@ Public Shared Function boxaRemoveBoxAndSave(
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
+
+
 Dim pboxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbox) Then pboxPTR = pbox.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaRemoveBoxAndSave( boxa.Pointer, index, pboxPTR)
@@ -738,6 +796,8 @@ Public Shared Function boxaSaveValid(
 				 ByVal copyflag as Enumerations.L_access_storage) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaSaveValid( boxas.Pointer, copyflag)
@@ -791,6 +851,8 @@ Public Shared Function boxaInitFull(
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
+
+
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaInitFull( boxa.Pointer, boxPTR)
@@ -817,6 +879,8 @@ Public Shared Function boxaClear(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaClear( boxa.Pointer)
 
 	Return _Result
@@ -831,6 +895,8 @@ End Function
 '''   <returns>baa, or NULL on error</returns>
 Public Shared Function boxaaCreate(
 				 ByVal n as Integer) as Boxaa
+
+
 
 
 
@@ -861,6 +927,8 @@ Public Shared Function boxaaCopy(
 	If IsNothing (baas) then Throw New ArgumentNullException  ("baas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaCopy( baas.Pointer, copyflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -875,6 +943,8 @@ End Function
 '''  <param name="pbaa">[in,out] - will be set to null before returning</param>
 Public Shared Sub boxaaDestroy(
 				 ByRef pbaa as Boxaa)
+
+
 
 
 	Dim pbaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbaa) Then pbaaPTR = pbaa.Pointer
@@ -902,6 +972,8 @@ Public Shared Function boxaaAddBoxa(
 	If IsNothing (ba) then Throw New ArgumentNullException  ("ba cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaAddBoxa( baa.Pointer, ba.Pointer, copyflag)
 
 	Return _Result
@@ -918,6 +990,8 @@ Public Shared Function boxaaExtendArray(
 				 ByVal baa as Boxaa) as Integer
 
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaExtendArray( baa.Pointer)
@@ -945,6 +1019,8 @@ Public Shared Function boxaaExtendArrayToSize(
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaExtendArrayToSize( baa.Pointer, size)
 
 	Return _Result
@@ -963,6 +1039,8 @@ Public Shared Function boxaaGetCount(
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaGetCount( baa.Pointer)
 
 	Return _Result
@@ -979,6 +1057,8 @@ Public Shared Function boxaaGetBoxCount(
 				 ByVal baa as Boxaa) as Integer
 
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaGetBoxCount( baa.Pointer)
@@ -1001,6 +1081,8 @@ Public Shared Function boxaaGetBoxa(
 				 ByVal accessflag as Enumerations.L_access_storage) as Boxa
 
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaGetBoxa( baa.Pointer, index, accessflag)
@@ -1026,6 +1108,8 @@ Public Shared Function boxaaGetBox(
 				 ByVal accessflag as Enumerations.L_access_storage) as Box
 
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaGetBox( baa.Pointer, iboxa, ibox, accessflag)
@@ -1072,6 +1156,8 @@ Public Shared Function boxaaInitFull(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaInitFull( baa.Pointer, boxa.Pointer)
 
 	Return _Result
@@ -1103,6 +1189,8 @@ Public Shared Function boxaaExtendWithInit(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaExtendWithInit( baa.Pointer, maxindex, boxa.Pointer)
 
 	Return _Result
@@ -1131,6 +1219,8 @@ Public Shared Function boxaaReplaceBoxa(
 
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaReplaceBoxa( baa.Pointer, index, boxa.Pointer)
@@ -1166,6 +1256,8 @@ Public Shared Function boxaaInsertBoxa(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaInsertBoxa( baa.Pointer, index, boxa.Pointer)
 
 	Return _Result
@@ -1193,6 +1285,8 @@ Public Shared Function boxaaRemoveBoxa(
 				 ByVal index as Integer) as Integer
 
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaRemoveBoxa( baa.Pointer, index)
@@ -1223,6 +1317,8 @@ Public Shared Function boxaaAddBox(
 
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaAddBox( baa.Pointer, index, box.Pointer, accessflag)
@@ -1260,6 +1356,8 @@ Public Shared Function boxaaReadFromFiles(
 	If IsNothing (dirname) then Throw New ArgumentNullException  ("dirname cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaReadFromFiles( dirname, substr, first, nfiles)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1277,6 +1375,8 @@ Public Shared Function boxaaRead(
 				 ByVal filename as String) as Boxaa
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -1297,6 +1397,8 @@ Public Shared Function boxaaReadStream(
 				 ByVal fp as FILE) as Boxaa
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaReadStream( fp.Pointer)
@@ -1320,6 +1422,8 @@ Public Shared Function boxaaReadMem(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaReadMem( data, size)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1340,6 +1444,8 @@ Public Shared Function boxaaWrite(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -1362,6 +1468,8 @@ Public Shared Function boxaaWriteStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaWriteStream( fp.Pointer, baa.Pointer)
@@ -1390,6 +1498,8 @@ Public Shared Function boxaaWriteMem(
 
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 
+
+
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaWriteMem( pdataPTR, psize, baa.Pointer)
@@ -1409,6 +1519,8 @@ Public Shared Function boxaRead(
 				 ByVal filename as String) as Boxa
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -1431,6 +1543,8 @@ Public Shared Function boxaReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaReadStream( fp.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1450,6 +1564,8 @@ Public Shared Function boxaReadMem(
 				 ByVal size as UInteger) as Boxa
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaReadMem( data, size)
@@ -1481,6 +1597,8 @@ Public Shared Function boxaWriteDebug(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -1503,6 +1621,8 @@ Public Shared Function boxaWrite(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -1525,6 +1645,8 @@ Public Shared Function boxaWriteStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaWriteStream( fp.Pointer, boxa.Pointer)
@@ -1552,6 +1674,8 @@ Public Shared Function boxaWriteMem(
 				 ByVal boxa as Boxa) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
+
+
 
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
@@ -1581,6 +1705,8 @@ Public Shared Function boxPrintStreamInfo(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxPrintStreamInfo( fp.Pointer, box.Pointer)

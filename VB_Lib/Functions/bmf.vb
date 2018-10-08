@@ -28,6 +28,8 @@ Public Shared Function bmfCreate(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.bmfCreate( dir, fontsize)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -42,6 +44,8 @@ End Function
 '''  <param name="pbmf">[in,out] - set to null</param>
 Public Shared Sub bmfDestroy(
 				 ByRef pbmf as L_Bmf)
+
+
 
 
 	Dim pbmfPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbmf) Then pbmfPTR = pbmf.Pointer
@@ -65,6 +69,8 @@ Public Shared Function bmfGetPix(
 
 	If IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
 	If IsNothing (chr) then Throw New ArgumentNullException  ("chr cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.bmfGetPix( bmf.Pointer, chr)
@@ -91,6 +97,8 @@ Public Shared Function bmfGetWidth(
 	If IsNothing (chr) then Throw New ArgumentNullException  ("chr cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.bmfGetWidth( bmf.Pointer, chr, pw)
 
 	Return _Result
@@ -112,6 +120,8 @@ Public Shared Function bmfGetBaseline(
 
 	If IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
 	If IsNothing (chr) then Throw New ArgumentNullException  ("chr cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.bmfGetBaseline( bmf.Pointer, chr, pbaseline)
@@ -145,6 +155,8 @@ Public Shared Function pixaGetFont(
 	If IsNothing (dir) then Throw New ArgumentNullException  ("dir cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaGetFont( dir, fontsize, pbl0, pbl1, pbl2)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -175,6 +187,8 @@ Public Shared Function pixaSaveFont(
 				 ByVal fontsize as Integer) as Integer
 
 	If IsNothing (outdir) then Throw New ArgumentNullException  ("outdir cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaSaveFont( indir, outdir, fontsize)

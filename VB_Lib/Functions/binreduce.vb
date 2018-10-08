@@ -30,6 +30,8 @@ Public Shared Function pixReduceBinary2(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReduceBinary2( pixs.Pointer, intab)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -61,6 +63,9 @@ Public Shared Function pixReduceRankBinaryCascade(
 				 ByVal level4 as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReduceRankBinaryCascade( pixs.Pointer, level1, level2, level3, level4)
@@ -98,6 +103,9 @@ Public Shared Function pixReduceRankBinary2(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReduceRankBinary2( pixs.Pointer, level, intab)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -118,6 +126,8 @@ End Function
 '''  </remarks>
 '''   <returns>tab table of 256 permutations, or NULL on error</returns>
 Public Shared Function makeSubsampleTab2x() as Byte()
+
+
 
 
 

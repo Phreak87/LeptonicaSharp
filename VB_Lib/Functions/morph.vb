@@ -34,6 +34,9 @@ Public Shared Function pixDilate(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
 
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDilate( pixdPTR, pixs.Pointer, sel.Pointer)
@@ -72,6 +75,9 @@ Public Shared Function pixErode(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -114,6 +120,9 @@ Public Shared Function pixHMT(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
 
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixHMT( pixdPTR, pixs.Pointer, sel.Pointer)
@@ -152,6 +161,9 @@ Public Shared Function pixOpen(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -194,6 +206,9 @@ Public Shared Function pixClose(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -241,6 +256,9 @@ Public Shared Function pixCloseSafe(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
 
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCloseSafe( pixdPTR, pixs.Pointer, sel.Pointer)
@@ -282,6 +300,9 @@ Public Shared Function pixOpenGeneralized(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -326,6 +347,9 @@ Public Shared Function pixCloseGeneralized(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
 
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCloseGeneralized( pixdPTR, pixs.Pointer, sel.Pointer)
@@ -367,6 +391,9 @@ Public Shared Function pixDilateBrick(
 				 ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -410,6 +437,9 @@ Public Shared Function pixErodeBrick(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixErodeBrick( pixdPTR, pixs.Pointer, hsize, vsize)
@@ -452,6 +482,9 @@ Public Shared Function pixOpenBrick(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOpenBrick( pixdPTR, pixs.Pointer, hsize, vsize)
@@ -493,6 +526,9 @@ Public Shared Function pixCloseBrick(
 				 ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -541,6 +577,9 @@ Public Shared Function pixCloseSafeBrick(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCloseSafeBrick( pixdPTR, pixs.Pointer, hsize, vsize)
@@ -563,6 +602,8 @@ Public Shared Function selectComposableSels(
 
 	If IsNothing (psel1) then Throw New ArgumentNullException  ("psel1 cannot be Nothing")
 	If IsNothing (psel2) then Throw New ArgumentNullException  ("psel2 cannot be Nothing")
+
+
 
 	Dim psel1PTR As IntPtr = IntPtr.Zero : If Not IsNothing(psel1) Then psel1PTR = psel1.Pointer
 	Dim psel2PTR As IntPtr = IntPtr.Zero : If Not IsNothing(psel2) Then psel2PTR = psel2.Pointer
@@ -598,6 +639,8 @@ Public Shared Function selectComposableSizes(
 				 ByVal size as Integer, 
 				<Out()> ByRef pfactor1 as Integer, 
 				<Out()> ByRef pfactor2 as Integer) as Integer
+
+
 
 
 
@@ -653,6 +696,9 @@ Public Shared Function pixDilateCompBrick(
 				 ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -710,6 +756,9 @@ Public Shared Function pixErodeCompBrick(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixErodeCompBrick( pixdPTR, pixs.Pointer, hsize, vsize)
@@ -766,6 +815,9 @@ Public Shared Function pixOpenCompBrick(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOpenCompBrick( pixdPTR, pixs.Pointer, hsize, vsize)
@@ -821,6 +873,9 @@ Public Shared Function pixCloseCompBrick(
 				 ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -883,6 +938,9 @@ Public Shared Function pixCloseSafeCompBrick(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCloseSafeCompBrick( pixdPTR, pixs.Pointer, hsize, vsize)
@@ -902,6 +960,8 @@ Public Shared Sub resetMorphBoundaryCondition(
 
 
 
+
+
 	LeptonicaSharp.Natives.resetMorphBoundaryCondition( bc)
 
 End Sub
@@ -917,6 +977,8 @@ End Sub
 Public Shared Function getMorphBorderPixelColor(
 				 ByVal type as Enumerations.L_MORPH, 
 				 ByVal depth as Integer) as UInteger
+
+
 
 
 

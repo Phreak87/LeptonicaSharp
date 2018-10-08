@@ -23,13 +23,24 @@ Module Module1
         Dim PIX32 As New Pix("Test.jpg")    ' 32 BPP Pix
         Dim PIX01 As Pix = PIX32.pixConvertTo1(128)
 
-        Dim BMP As Bitmap = PIX01.Bitmap
+        Dim BMP As Bitmap = PIX01.BitmapStatic
 
+        Dim PIxs As New Pix("..\..\..\All_Images\contrast-orig-60.jpg")
+        Dim pixt1 As Pix = LeptonicaSharp._All.pixCloseGray(PIxs, 11, 11)
+        Dim pixt2 As Pix = LeptonicaSharp._All.pixOpenGray(PIxs, 11, 11)
+        Dim pixt3 As Integer = LeptonicaSharp._All.pixCombineMasked(PIxs, pixt1, Nothing)
+        Dim PixG1 As Pix = LeptonicaSharp._All.pixConvertRGBToGray(PIX32, 0, 0, 0)
 
+        PIX32.pixBackgroundNormSimple()
+        Dim bmp1 As Bitmap = PIxs.ToBitmap
 
         PIX32.Dispose()
         'PIX32.Display()
 
+        TestErrorChecks()  ' Vor Release immer prüfen!
+
+        'TestPix01()
+        'TestPix24()
         'TestPDF()              ' OK
         'TestPDF2()             ' OK
         'TestPix()              ' OK
@@ -41,10 +52,93 @@ Module Module1
         'TestPixFunctions()     ' OK
         'TestDewaFunctions()    ' OK
         'TestNumaFunctions()    ' OK
-        TestExtensions()       ' OK
+        'TestExtensions()       ' OK
 
     End Sub
 
+    Sub TestErrorChecks()
+        ' ------------------------------------------------------------------------------
+        ' Teste Raw-Check wenn "I_View32.exe" nicht existiert                   => OK
+        ' ------------------------------------------------------------------------------
+        _All.setLeptDebugOK(1)              ' Muss Dateiprüfung oder RawCode enthalten
+
+        ' ------------------------------------------------------------------------------
+        ' Teste Config-Extension Konstruktur: PixRead()                         => OK
+        ' ------------------------------------------------------------------------------
+        Dim PIX32 As New Pix("Test2.jpg")                                ' Muss laden
+
+        ' ------------------------------------------------------------------------------
+        ' Teste Arraygröße per Config                                           => OK
+        ' ------------------------------------------------------------------------------
+        If LeptonicaSharp._All.pixGetData(PIX32).Count < 3 Then Throw New Exception ' = OK
+
+        ' ------------------------------------------------------------------------------
+        ' Teste Dateiprüfung per Config                                         => OK                                    
+        ' ------------------------------------------------------------------------------
+        Dim PIXER As New Pix("MissingFile.jpg")                 ' Muss fehler ausgeben
+
+        ' ------------------------------------------------------------------------------
+        ' Teste Extension Funktion mit Klasse als PixS-Default                  => OK
+        ' Teste CommentCheck Deklaration (Nur 1 oder 8 Bpp)                     => OK
+        ' ------------------------------------------------------------------------------
+        PIX32.pixConvertTo16()                                  ' Muss Fehler ausgeben
+
+        ' ------------------------------------------------------------------------------
+        ' Teste Kommentar zu Optional "0.0 for default" => 0                    => OK
+        ' ------------------------------------------------------------------------------
+        PIX32.pixConvertRGBToGray()                                 ' muss funktionieren
+
+        ' ------------------------------------------------------------------------------
+        ' Teste Enumeration von Config                                          => ##
+        ' Teste isNothing                                                       => OK
+        ' ------------------------------------------------------------------------------
+        LeptonicaSharp._All.pixWrite(Nothing, PIX32, IFF.IFF_JFIF_JPEG)
+        ' Muss Fehler wegen Nothing ausgeben und IFF as Enum enthalten
+
+        ' ------------------------------------------------------------------------------
+        ' Teste Extension SUB                                                   => OK
+        ' Teste Funktion/Sub Defaults per Parameter                             => OK
+        ' ------------------------------------------------------------------------------
+        PIX32.pixConvertToPdf(L_ENCODE.L_JPEG_ENCODE, "Test.pdf", Nothing, L_T_IMAGE.L_FIRST_IMAGE)
+        ' Muss Funktionieren
+
+        ' ------------------------------------------------------------------------------
+        ' Teste CheckRange (2-16)                                               => OK
+        ' ------------------------------------------------------------------------------
+        PIX32.pixDeskew(64)                             ' Muss Fehler ausgeben (2 - 8)
+
+        ' ------------------------------------------------------------------------------
+        ' Teste CheckArray
+        ' Teste explizite Defaults für Parameternamen für jede Funktion
+        ' ------------------------------------------------------------------------------
+        '<Parameter Name="redsearch"> 		
+        '	<Default>0</Default>
+        '	<CheckArray>{0,1,2,4,8}</CheckArray>
+        '</Parameter>
+
+    End Sub
+    Sub TestPix01()
+        Dim PIX32 As New Pix("Test2.jpg")    ' 32 BPP Pix
+        Dim PIX01 As Pix = PIX32.pixConvertTo1(128)
+
+        ' Save Pix01 as BMP and load from Bytes - OK
+        PIX01.save_format("01Test.bmp", IFF.IFF_BMP)
+        Dim PixB01 As Byte() = My.Computer.FileSystem.ReadAllBytes("01Test.bmp")
+        Dim BMP1 As Bitmap = Bitmap.FromStream(New IO.MemoryStream(PixB01))
+
+        Dim B02 As Byte()
+        Dim INT As Integer
+        LeptonicaSharp._All.pixWriteMemBmp(B02, INT, PIX01)
+        Dim BMP2 As Bitmap = New Bitmap(New IO.MemoryStream(B02))
+
+    End Sub
+    Sub TestPix24()
+        Dim PIX32 As New Pix("Test.jpg")    ' 32 BPP Pix
+        Dim PIX24 As Pix = LeptonicaSharp._All.pixConvert32To24(PIX32)
+        PIX24.Display(24)
+        PIX24.pixConvertTo1(128).Display()
+        PIX24.Dispose() : PIX32.Dispose()
+    End Sub
     Sub TestExtensions()
         ' --------------------------------------------------------------------------------
         ' <Extend Name="pixRead" Type="Construct" Source="pixs"/>
@@ -55,6 +149,7 @@ Module Module1
         ' <Extend Name="PixConvert32to16" Type="Function" Source="pixs" return="return"/>
         ' --------------------------------------------------------------------------------
         Dim PIX16 As Pix = PIX32.pixConvertTo16() ' Nur 1-8 Bpp
+        Dim PIX24 As Pix = LeptonicaSharp._All.pixConvert32To24(PIX32)
 
         ' --------------------------------------------------------------------------------
         ' <Extend Name="dewarpSinglePage" Type="Function" Source="pixs" return="ppixd"/>
@@ -65,6 +160,12 @@ Module Module1
         ' <Extend Name="pixConvertToPdf" Type="Sub" Source="pix"/>
         ' --------------------------------------------------------------------------------
         Dim LPDFDATA As L_Pdf_Data = Nothing
+        '<Function Name="pixConvertToPdf">
+        '	<Parameter Name="x"><Default>0</Default></Parameter>
+        '	<Parameter Name="y"><Default>0</Default></Parameter>
+        '	<Parameter Name="res"><Default>0</Default></Parameter>
+        '	<Parameter Name="quality"><Default>0</Default></Parameter>
+        '</Function>
         PIX32.pixConvertToPdf(L_ENCODE.L_JPEG_ENCODE, "Test.pdf", LPDFDATA, L_T_IMAGE.L_FIRST_IMAGE)
 
         ' --------------------------------------------------------------------------------
@@ -75,28 +176,35 @@ Module Module1
     End Sub
     Private Sub TestDisplay()
         Dim PIX32 As New Pix("test2.jpg")
-        PIX32.save_autoformat("PIX32.jpg", IFF.IFF_JFIF_JPEG)
+        PIX32.save_autoformat("PIX32.jpg")
         Dim B As Byte() = LeptonicaSharp._All.pixGetData(PIX32)
         PIX32.Display(32)
 
+        ' -------------------------------------------------------------
+        ' Leptonica-WriteMemory schreibt kein 24Bpp in den speicher
+        ' -------------------------------------------------------------
+        Dim PIX24 As Pix = LeptonicaSharp._All.pixConvert32To24(PIX32)
+        PIX24.save_autoformat("Pix24.bmp")
+        PIX24.Display()
+
         Dim PIX16 As Pix = _All.pixConvert32To16(PIX32, L_16_bit_conversion.L_CLIP_TO_FFFF)
-        PIX16.save_autoformat("Pix16.jpg", IFF.IFF_JFIF_JPEG)
+        PIX16.save_autoformat("Pix16.jpg")
         PIX16.Display(16)
 
         Dim PIX8 As Pix = _All.pixConvert32To8(PIX32, L_16_bit_conversion.L_MS_TWO_BYTES, L_16_bit_conversion.L_MS_BYTE)
-        PIX8.save_autoformat("Pix8.jpg", IFF.IFF_JFIF_JPEG)
+        PIX8.save_autoformat("Pix8.jpg")
         PIX8.Display(8)
 
         Dim PIX4 As Pix = _All.pixConvert8To4(PIX8)
-        PIX4.save_autoformat("Pix4.jpg", IFF.IFF_JFIF_JPEG)
+        PIX4.save_autoformat("Pix4.jpg")
         PIX4.Display(4)
 
         Dim PIX2 As Pix = _All.pixConvert8To2(PIX8)
-        PIX2.save_autoformat("Pix2.jpg", IFF.IFF_JFIF_JPEG)
+        PIX2.save_autoformat("Pix2.jpg")
         PIX2.Display(2)
 
         Dim PIX1 As Pix = _All.pixConvertTo1(PIX8, 128)
-        PIX1.save_autoformat("Pix1.jpg", IFF.IFF_JFIF_JPEG)
+        PIX1.save_autoformat("Pix1.jpg")
         PIX1.ToBitmap.Save("PixToBMP1.jpg", Imaging.ImageFormat.Jpeg)
         PIX1.Display(1)
 
@@ -134,6 +242,7 @@ Module Module1
         Dim closed As LeptonicaSharp.Numa = _All.numaDilate(norma, 5)                                          ' OK
 
     End Sub
+
     Private Sub TestPixFunctions()
 
         Dim PIX32 As New Pix("test2.jpg")    ' 32 BPP Pix
@@ -198,8 +307,7 @@ Module Module1
         Dim PIXA As New Pixa(1)
         Dim A As Pix = Nothing : Dim B As Pix = Nothing : Dim C As Pix = Nothing
         PIX32.pixConvertTo1(128).pixGetRegionsBinary(PIXA, A, B, C)
-        For Each Pix In PIXA.pix : Pix.Display()
-        Next
+        For Each Pix In PIXA.pix : Pix.Display() : Next
 
         ' Speicher bereinigen
         SArray.Dispose()
@@ -207,6 +315,7 @@ Module Module1
         Box.Dispose()
         numa.Dispose()
         PIX32.Dispose()
+        PIXA.Dispose()
     End Sub
     Sub TestColorMap()
         Dim PIX32_2 As New Pix("img\weasel4.16c.png") ' : PIX32_2.Display()
@@ -221,9 +330,9 @@ Module Module1
         Dim PIX8 As Pix = LeptonicaSharp._All.pixConvert32To8(PIX32, L_16_bit_conversion.L_CLIP_TO_FFFF, L_16_bit_conversion.L_CLIP_TO_FF)
         Dim PIXD As New Pix(1, 1)
 
-        PIX32.save_autoformat("Test_Format_JPG.jpg", IFF.IFF_JFIF_JPEG)
-        PIX32.save_autoformat("Test_Format_JP2.jp2", IFF.IFF_JP2)
-        PIX32.save_autoformat("Test_Format_PNG.png", IFF.IFF_PNG)
+        PIX32.save_autoformat("Test_Format_JPG.jpg")
+        PIX32.save_autoformat("Test_Format_JP2.jp2")
+        PIX32.save_autoformat("Test_Format_PNG.png")
     End Sub
     Sub TestString()
         Dim Stri = LeptonicaSharp._All.sarrayCreateWordsFromString("Das ist ein Test")

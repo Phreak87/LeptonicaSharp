@@ -61,6 +61,8 @@ Public Shared Function dewarpBuildPageModel(
 	If IsNothing (dew) then Throw New ArgumentNullException  ("dew cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpBuildPageModel( dew.Pointer, debugfile)
 
 	Return _Result
@@ -104,6 +106,8 @@ Public Shared Function dewarpFindVertDisparity(
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpFindVertDisparity( dew.Pointer, ptaa.Pointer, rotflag)
 
 	Return _Result
@@ -139,6 +143,8 @@ Public Shared Function dewarpFindHorizDisparity(
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpFindHorizDisparity( dew.Pointer, ptaa.Pointer)
 
 	Return _Result
@@ -167,6 +173,9 @@ Public Shared Function dewarpGetTextlineCenters(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpGetTextlineCenters( pixs.Pointer, debugflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -191,7 +200,9 @@ Public Shared Function dewarpRemoveShortLines(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (ptaas) then Throw New ArgumentNullException  ("ptaas cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpRemoveShortLines( pixs.Pointer, ptaas.Pointer, fract, debugflag)
@@ -247,7 +258,8 @@ Public Shared Function dewarpFindHorizSlopeDisparity(
 
 	If IsNothing (dew) then Throw New ArgumentNullException  ("dew cannot be Nothing")
 	If IsNothing (pixb) then Throw New ArgumentNullException  ("pixb cannot be Nothing")
-	If IsNothing (fractthresh) then Throw New ArgumentNullException  ("fractthresh cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpFindHorizSlopeDisparity( dew.Pointer, pixb.Pointer, fractthresh, parity)
@@ -292,6 +304,8 @@ Public Shared Function dewarpBuildLineModel(
 	If IsNothing (dew) then Throw New ArgumentNullException  ("dew cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpBuildLineModel( dew.Pointer, opensize, debugfile)
 
 	Return _Result
@@ -319,6 +333,8 @@ Public Shared Function dewarpaModelStatus(
 				<Out()> ByRef phsuccess as Integer) as Integer
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaModelStatus( dewa.Pointer, pageno, pvsuccess, phsuccess)

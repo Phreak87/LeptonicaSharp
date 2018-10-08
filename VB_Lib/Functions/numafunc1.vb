@@ -30,6 +30,8 @@ Public Shared Function numaArithOp(
 	If IsNothing (na1) then Throw New ArgumentNullException  ("na1 cannot be Nothing")
 	If IsNothing (na2) then Throw New ArgumentNullException  ("na2 cannot be Nothing")
 
+
+
 	Dim nadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nad) Then nadPTR = nad.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaArithOp( nadPTR, na1.Pointer, na2.Pointer, op)
@@ -69,6 +71,8 @@ Public Shared Function numaLogicalOp(
 	If IsNothing (na1) then Throw New ArgumentNullException  ("na1 cannot be Nothing")
 	If IsNothing (na2) then Throw New ArgumentNullException  ("na2 cannot be Nothing")
 
+
+
 	Dim nadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nad) Then nadPTR = nad.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaLogicalOp( nadPTR, na1.Pointer, na2.Pointer, op)
@@ -99,6 +103,8 @@ Public Shared Function numaInvert(
 				 ByVal nas as Numa) as Numa
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
+
+
 
 	Dim nadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nad) Then nadPTR = nad.Pointer
 
@@ -133,7 +139,8 @@ Public Shared Function numaSimilar(
 
 	If IsNothing (na1) then Throw New ArgumentNullException  ("na1 cannot be Nothing")
 	If IsNothing (na2) then Throw New ArgumentNullException  ("na2 cannot be Nothing")
-	If IsNothing (maxdiff) then Throw New ArgumentNullException  ("maxdiff cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaSimilar( na1.Pointer, na2.Pointer, maxdiff, psimilar)
@@ -165,7 +172,8 @@ Public Shared Function numaAddToNumber(
 				 ByVal val as Single) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaAddToNumber( na.Pointer, index, val)
@@ -190,6 +198,8 @@ Public Shared Function numaGetMin(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetMin( na.Pointer, pminval, piminloc)
 
 	Return _Result
@@ -212,6 +222,8 @@ Public Shared Function numaGetMax(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetMax( na.Pointer, pmaxval, pimaxloc)
 
 	Return _Result
@@ -230,6 +242,8 @@ Public Shared Function numaGetSum(
 				<Out()> ByRef psum as Single()) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetSum( na.Pointer, psum)
@@ -258,6 +272,8 @@ Public Shared Function numaGetPartialSums(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaGetPartialSums( na.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -281,6 +297,8 @@ Public Shared Function numaGetSumOnInterval(
 				<Out()> ByRef psum as Single()) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetSumOnInterval( na.Pointer, first, last, psum)
@@ -311,6 +329,8 @@ Public Shared Function numaHasOnlyIntegers(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaHasOnlyIntegers( na.Pointer, maxsamples, pallints)
 
 	Return _Result
@@ -331,6 +351,8 @@ Public Shared Function numaSubsample(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaSubsample( nas.Pointer, subfactor)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -348,6 +370,8 @@ Public Shared Function numaMakeDelta(
 				 ByVal nas as Numa) as Numa
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaMakeDelta( nas.Pointer)
@@ -370,8 +394,8 @@ Public Shared Function numaMakeSequence(
 				 ByVal increment as Single, 
 				 ByVal size as Integer) as Numa
 
-	If IsNothing (startval) then Throw New ArgumentNullException  ("startval cannot be Nothing")
-	If IsNothing (increment) then Throw New ArgumentNullException  ("increment cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaMakeSequence( startval, increment, size)
@@ -392,7 +416,8 @@ Public Shared Function numaMakeConstant(
 				 ByVal val as Single, 
 				 ByVal size as Integer) as Numa
 
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaMakeConstant( val, size)
@@ -414,6 +439,8 @@ Public Shared Function numaMakeAbsValue(
 				 ByVal nas as Numa) as Numa
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
+
+
 
 	Dim nadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nad) Then nadPTR = nad.Pointer
 
@@ -440,7 +467,8 @@ Public Shared Function numaAddBorder(
 				 ByVal val as Single) as Numa
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
-	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaAddBorder( nas.Pointer, left, right, val)
@@ -468,6 +496,8 @@ Public Shared Function numaAddSpecifiedBorder(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaAddSpecifiedBorder( nas.Pointer, left, right, type)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -491,6 +521,8 @@ Public Shared Function numaRemoveBorder(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaRemoveBorder( nas.Pointer, left, right)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -510,6 +542,8 @@ Public Shared Function numaCountNonzeroRuns(
 				<Out()> ByRef pcount as Integer) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaCountNonzeroRuns( na.Pointer, pcount)
@@ -534,7 +568,8 @@ Public Shared Function numaGetNonzeroRange(
 				<Out()> ByRef plast as Integer) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
-	If IsNothing (eps) then Throw New ArgumentNullException  ("eps cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetNonzeroRange( na.Pointer, eps, pfirst, plast)
@@ -557,6 +592,8 @@ Public Shared Function numaGetCountRelativeToZero(
 				<Out()> ByRef pcount as Integer) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetCountRelativeToZero( na.Pointer, type, pcount)
@@ -590,6 +627,8 @@ Public Shared Function numaClipToInterval(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaClipToInterval( nas.Pointer, first, last)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -618,7 +657,8 @@ Public Shared Function numaMakeThresholdIndicator(
 				 ByVal type as Enumerations.L_SELECT_IF) as Numa
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
-	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaMakeThresholdIndicator( nas.Pointer, thresh, type)
@@ -648,6 +688,8 @@ Public Shared Function numaUniformSampling(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaUniformSampling( nas.Pointer, nsamp)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -674,6 +716,8 @@ Public Shared Function numaReverse(
 				 ByVal nas as Numa) as Numa
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
+
+
 
 	Dim nadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nad) Then nadPTR = nad.Pointer
 
@@ -705,8 +749,8 @@ Public Shared Function numaLowPassIntervals(
 				 ByVal maxn as Single) as Numa
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
-	If IsNothing (thresh) then Throw New ArgumentNullException  ("thresh cannot be Nothing")
-	If IsNothing (maxn) then Throw New ArgumentNullException  ("maxn cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaLowPassIntervals( nas.Pointer, thresh, maxn)
@@ -747,9 +791,8 @@ Public Shared Function numaThresholdEdges(
 				 ByVal maxn as Single) as Numa
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
-	If IsNothing (thresh1) then Throw New ArgumentNullException  ("thresh1 cannot be Nothing")
-	If IsNothing (thresh2) then Throw New ArgumentNullException  ("thresh2 cannot be Nothing")
-	If IsNothing (maxn) then Throw New ArgumentNullException  ("maxn cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaThresholdEdges( nas.Pointer, thresh1, thresh2, maxn)
@@ -777,6 +820,8 @@ Public Shared Function numaGetSpanValues(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetSpanValues( na.Pointer, span, pstart, pend)
 
 	Return _Result
@@ -801,6 +846,8 @@ Public Shared Function numaGetEdgeValues(
 				<Out()> ByRef psign as Integer) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetEdgeValues( na.Pointer, edge, pstart, pend, psign)
@@ -841,10 +888,9 @@ Public Shared Function numaInterpolateEqxVal(
 				 ByVal xval as Single, 
 				<Out()> ByRef pyval as Single()) as Integer
 
-	If IsNothing (startx) then Throw New ArgumentNullException  ("startx cannot be Nothing")
-	If IsNothing (deltax) then Throw New ArgumentNullException  ("deltax cannot be Nothing")
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
-	If IsNothing (xval) then Throw New ArgumentNullException  ("xval cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaInterpolateEqxVal( startx, deltax, nay.Pointer, type, xval, pyval)
@@ -882,7 +928,8 @@ Public Shared Function numaInterpolateArbxVal(
 
 	If IsNothing (nax) then Throw New ArgumentNullException  ("nax cannot be Nothing")
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
-	If IsNothing (xval) then Throw New ArgumentNullException  ("xval cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaInterpolateArbxVal( nax.Pointer, nay.Pointer, type, xval, pyval)
@@ -930,11 +977,9 @@ Public Shared Function numaInterpolateEqxInterval(
 				<Out()> ByRef pnax as Numa, 
 				<Out()> ByRef pnay as Numa) as Integer
 
-	If IsNothing (startx) then Throw New ArgumentNullException  ("startx cannot be Nothing")
-	If IsNothing (deltax) then Throw New ArgumentNullException  ("deltax cannot be Nothing")
 	If IsNothing (nasy) then Throw New ArgumentNullException  ("nasy cannot be Nothing")
-	If IsNothing (x0) then Throw New ArgumentNullException  ("x0 cannot be Nothing")
-	If IsNothing (x1) then Throw New ArgumentNullException  ("x1 cannot be Nothing")
+
+
 
 Dim pnaxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnax) Then pnaxPTR = pnax.Pointer
 	Dim pnayPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnay) Then pnayPTR = pnay.Pointer
@@ -987,8 +1032,8 @@ Public Shared Function numaInterpolateArbxInterval(
 
 	If IsNothing (nax) then Throw New ArgumentNullException  ("nax cannot be Nothing")
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
-	If IsNothing (x0) then Throw New ArgumentNullException  ("x0 cannot be Nothing")
-	If IsNothing (x1) then Throw New ArgumentNullException  ("x1 cannot be Nothing")
+
+
 
 Dim pnadxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnadx) Then pnadxPTR = pnadx.Pointer
 	Dim pnadyPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnady) Then pnadyPTR = pnady.Pointer
@@ -1037,6 +1082,8 @@ Public Shared Function numaFitMax(
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
+
+
 	Dim nalocPTR As IntPtr = IntPtr.Zero : If Not IsNothing(naloc) Then nalocPTR = naloc.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaFitMax( na.Pointer, pmaxval, nalocPTR, pmaxloc)
@@ -1076,8 +1123,8 @@ Public Shared Function numaDifferentiateInterval(
 
 	If IsNothing (nax) then Throw New ArgumentNullException  ("nax cannot be Nothing")
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
-	If IsNothing (x0) then Throw New ArgumentNullException  ("x0 cannot be Nothing")
-	If IsNothing (x1) then Throw New ArgumentNullException  ("x1 cannot be Nothing")
+
+
 
 Dim pnadxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnadx) Then pnadxPTR = pnadx.Pointer
 	Dim pnadyPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnady) Then pnadyPTR = pnady.Pointer
@@ -1119,8 +1166,8 @@ Public Shared Function numaIntegrateInterval(
 
 	If IsNothing (nax) then Throw New ArgumentNullException  ("nax cannot be Nothing")
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
-	If IsNothing (x0) then Throw New ArgumentNullException  ("x0 cannot be Nothing")
-	If IsNothing (x1) then Throw New ArgumentNullException  ("x1 cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaIntegrateInterval( nax.Pointer, nay.Pointer, x0, x1, npts, psum)
@@ -1180,6 +1227,8 @@ Public Shared Function numaSortGeneral(
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
+
+
 Dim pnasortPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnasort) Then pnasortPTR = pnasort.Pointer
 Dim pnaindexPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaindex) Then pnaindexPTR = pnaindex.Pointer
 Dim pnainvertPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnainvert) Then pnainvertPTR = pnainvert.Pointer
@@ -1213,6 +1262,8 @@ Public Shared Function numaSortAutoSelect(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaSortAutoSelect( nas.Pointer, sortorder)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1240,6 +1291,8 @@ Public Shared Function numaSortIndexAutoSelect(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaSortIndexAutoSelect( nas.Pointer, sortorder)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1264,6 +1317,8 @@ Public Shared Function numaChooseSortType(
 				 ByVal nas as Numa) as Integer
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaChooseSortType( nas.Pointer)
@@ -1296,6 +1351,8 @@ Public Shared Function numaSort(
 	If IsNothing (nain) then Throw New ArgumentNullException  ("nain cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaSort( naout.Pointer, nain.Pointer, sortorder)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1326,6 +1383,8 @@ Public Shared Function numaBinSort(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaBinSort( nas.Pointer, sortorder)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1345,6 +1404,8 @@ Public Shared Function numaGetSortIndex(
 				 ByVal sortorder as Enumerations.L_SORT_CREASING) as Numa
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaGetSortIndex( na.Pointer, sortorder)
@@ -1379,6 +1440,8 @@ Public Shared Function numaGetBinSortIndex(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaGetBinSortIndex( nas.Pointer, sortorder)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1399,6 +1462,8 @@ Public Shared Function numaSortByIndex(
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 	If IsNothing (naindex) then Throw New ArgumentNullException  ("naindex cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaSortByIndex( nas.Pointer, naindex.Pointer)
@@ -1429,6 +1494,8 @@ Public Shared Function numaIsSorted(
 				<Out()> ByRef psorted as Integer) as Integer
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaIsSorted( nas.Pointer, sortorder, psorted)
@@ -1463,6 +1530,8 @@ Public Shared Function numaSortPair(
 	If IsNothing (nax) then Throw New ArgumentNullException  ("nax cannot be Nothing")
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
 
+
+
 	Dim pnasxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnasx) Then pnasxPTR = pnasx.Pointer
 	Dim pnasyPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnasy) Then pnasyPTR = pnasy.Pointer
 
@@ -1493,6 +1562,8 @@ Public Shared Function numaInvertMap(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaInvertMap( nas.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1521,6 +1592,8 @@ Public Shared Function numaPseudorandomSequence(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaPseudorandomSequence( size, seed)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1540,6 +1613,8 @@ Public Shared Function numaRandomPermutation(
 				 ByVal seed as Integer) as Numa
 
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaRandomPermutation( nas.Pointer, seed)
@@ -1584,7 +1659,8 @@ Public Shared Function numaGetRankValue(
 				<Out()> ByRef pval as Single()) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
 
 	Dim nasortPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nasort) Then nasortPTR = nasort.Pointer
 
@@ -1612,6 +1688,8 @@ Public Shared Function numaGetMedian(
 				<Out()> ByRef pval as Single()) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetMedian( na.Pointer, pval)
@@ -1642,6 +1720,8 @@ Public Shared Function numaGetBinnedMedian(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetBinnedMedian( na.Pointer, pval)
 
 	Return _Result
@@ -1670,6 +1750,8 @@ Public Shared Function numaGetMode(
 				<Out()> ByRef pcount as Integer) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetMode( na.Pointer, pval, pcount)
@@ -1704,6 +1786,8 @@ Public Shared Function numaGetMedianVariation(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetMedianVariation( na.Pointer, pmedval, pmedvar)
 
 	Return _Result
@@ -1733,6 +1817,8 @@ Public Shared Function numaJoin(
 				 ByVal iend as Integer) as Integer
 
 	If IsNothing (nad) then Throw New ArgumentNullException  ("nad cannot be Nothing")
+
+
 
 	Dim nasPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nas) Then nasPTR = nas.Pointer
 
@@ -1766,6 +1852,8 @@ Public Shared Function numaaJoin(
 
 	If IsNothing (naad) then Throw New ArgumentNullException  ("naad cannot be Nothing")
 
+
+
 	Dim naasPTR As IntPtr = IntPtr.Zero : If Not IsNothing(naas) Then naasPTR = naas.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaJoin( naad.Pointer, naasPTR, istart, iend)
@@ -1793,6 +1881,8 @@ Public Shared Function numaaFlattenToNuma(
 				 ByVal naa as Numaa) as Numa
 
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaaFlattenToNuma( naa.Pointer)

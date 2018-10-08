@@ -22,7 +22,7 @@ Partial Public Class Pix
     ''' this value is cached. For Bitmaps from Pointer
     ''' use the ToBitmap-Function.
     ''' </summary>
-    ReadOnly Property Bitmap As Bitmap
+    ReadOnly Property BitmapStatic As Bitmap
         Get
             If Pointer = IntPtr.Zero Then Return Nothing
             If Caching.ContainsKey("Bitmap") Then Caching("Bitmap").dispose() : Caching.Remove("Bitmap")
@@ -55,7 +55,7 @@ Partial Public Class Pix
     Public Function save_format(ByVal filename As String, ByVal format As LeptonicaSharp.Enumerations.IFF) As Boolean
         Return LeptonicaSharp.Natives.pixWrite(filename, Pointer, format)
     End Function
-    Public Function save_autoformat(ByVal filename As String, ByVal format As LeptonicaSharp.Enumerations.IFF) As Boolean
+    Public Function save_autoformat(ByVal filename As String) As Boolean
         Return LeptonicaSharp.Natives.pixWriteAutoFormat(filename, Pointer)
     End Function
 #End Region

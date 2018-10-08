@@ -69,7 +69,9 @@ Public Shared Function pixScaleToGray(
 				 ByVal scalefactor as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (scalefactor) then Throw New ArgumentNullException  ("scalefactor cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleToGray( pixs.Pointer, scalefactor)
@@ -105,7 +107,9 @@ Public Shared Function pixScaleToGrayFast(
 				 ByVal scalefactor as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (scalefactor) then Throw New ArgumentNullException  ("scalefactor cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleToGrayFast( pixs.Pointer, scalefactor)
@@ -125,6 +129,9 @@ Public Shared Function pixScaleToGray2(
 				 ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleToGray2( pixs.Pointer)
@@ -154,6 +161,9 @@ Public Shared Function pixScaleToGray3(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleToGray3( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -176,6 +186,9 @@ Public Shared Function pixScaleToGray4(
 				 ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleToGray4( pixs.Pointer)
@@ -202,6 +215,9 @@ Public Shared Function pixScaleToGray6(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleToGray6( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -221,6 +237,9 @@ Public Shared Function pixScaleToGray8(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleToGray8( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -238,6 +257,9 @@ Public Shared Function pixScaleToGray16(
 				 ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleToGray16( pixs.Pointer)
@@ -280,7 +302,9 @@ Public Shared Function pixScaleToGrayMipmap(
 				 ByVal scalefactor as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (scalefactor) then Throw New ArgumentNullException  ("scalefactor cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleToGrayMipmap( pixs.Pointer, scalefactor)
@@ -312,7 +336,8 @@ Public Shared Function pixScaleMipmap(
 
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
-	If IsNothing (scale) then Throw New ArgumentNullException  ("scale cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleMipmap( pixs1.Pointer, pixs2.Pointer, scale)
@@ -334,6 +359,9 @@ Public Shared Function pixExpandReplicate(
 				 ByVal factor as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16, 32 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExpandReplicate( pixs.Pointer, factor)
@@ -373,6 +401,8 @@ Public Shared Function pixScaleGrayMinMax(
 				 ByVal type as Enumerations.L_CHOOSE_M) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleGrayMinMax( pixs.Pointer, xfact, yfact, type)
@@ -415,6 +445,8 @@ Public Shared Function pixScaleGrayMinMax2(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleGrayMinMax2( pixs.Pointer, type)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -446,6 +478,8 @@ Public Shared Function pixScaleGrayRankCascade(
 				 ByVal level4 as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleGrayRankCascade( pixs.Pointer, level1, level2, level3, level4)
@@ -484,6 +518,8 @@ Public Shared Function pixScaleGrayRank2(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleGrayRank2( pixs.Pointer, rank)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -513,6 +549,8 @@ Public Shared Function pixScaleAndTransferAlpha(
 
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixScaleAndTransferAlpha( pixd.Pointer, pixs.Pointer, scalex, scaley)
@@ -573,7 +611,8 @@ Public Shared Function pixScaleWithAlpha(
 				 ByVal fract as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
 
 	Dim pixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixg) Then pixgPTR = pixg.Pointer
 

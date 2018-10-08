@@ -43,7 +43,8 @@ Public Shared Function pixRotate(
 				 ByVal height as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (angle) then Throw New ArgumentNullException  ("angle cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotate( pixs.Pointer, angle, type, incolor, width, height)
@@ -103,7 +104,8 @@ Public Shared Function pixEmbedForRotation(
 				 ByVal height as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (angle) then Throw New ArgumentNullException  ("angle cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixEmbedForRotation( pixs.Pointer, angle, incolor, width, height)
@@ -139,7 +141,8 @@ Public Shared Function pixRotateBySampling(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (angle) then Throw New ArgumentNullException  ("angle cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotateBySampling( pixs.Pointer, xcen, ycen, angle, incolor)
@@ -180,7 +183,9 @@ Public Shared Function pixRotateBinaryNice(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (angle) then Throw New ArgumentNullException  ("angle cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotateBinaryNice( pixs.Pointer, angle, incolor)
@@ -244,8 +249,8 @@ Public Shared Function pixRotateWithAlpha(
 				 ByVal fract as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (angle) then Throw New ArgumentNullException  ("angle cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
 
 	Dim pixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixg) Then pixgPTR = pixg.Pointer
 

@@ -22,6 +22,8 @@ Public Shared Function readHeaderJp2k(
 				<Out()> ByRef pspp as Integer) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -49,6 +51,8 @@ Public Shared Function freadHeaderJp2k(
 				<Out()> ByRef pspp as Integer) as Integer
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.freadHeaderJp2k( fp.Pointer, pw, ph, pbps, pspp)
@@ -93,6 +97,8 @@ Public Shared Function readHeaderMemJp2k(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderMemJp2k( data, size, pw, ph, pbps, pspp)
 
 	Return _Result
@@ -112,6 +118,8 @@ Public Shared Function fgetJp2kResolution(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pxres) then Throw New ArgumentNullException  ("pxres cannot be Nothing")
 	If IsNothing (pyres) then Throw New ArgumentNullException  ("pyres cannot be Nothing")
+
+
 
 Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
 

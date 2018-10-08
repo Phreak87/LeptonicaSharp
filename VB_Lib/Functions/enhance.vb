@@ -53,7 +53,8 @@ Public Shared Function pixGammaTRC(
 				 ByVal maxval as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (gamma) then Throw New ArgumentNullException  ("gamma cannot be Nothing")
+
+
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -92,7 +93,8 @@ Public Shared Function pixGammaTRCMasked(
 				 ByVal maxval as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (gamma) then Throw New ArgumentNullException  ("gamma cannot be Nothing")
+
+
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
@@ -129,7 +131,8 @@ Public Shared Function pixGammaTRCWithAlpha(
 				 ByVal maxval as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (gamma) then Throw New ArgumentNullException  ("gamma cannot be Nothing")
+
+
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -164,7 +167,8 @@ Public Shared Function numaGammaTRC(
 				 ByVal minval as Integer, 
 				 ByVal maxval as Integer) as Numa
 
-	If IsNothing (gamma) then Throw New ArgumentNullException  ("gamma cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaGammaTRC( gamma, minval, maxval)
@@ -209,7 +213,8 @@ Public Shared Function pixContrastTRC(
 				 ByVal factor as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (factor) then Throw New ArgumentNullException  ("factor cannot be Nothing")
+
+
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -244,7 +249,8 @@ Public Shared Function pixContrastTRCMasked(
 				 ByVal factor as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (factor) then Throw New ArgumentNullException  ("factor cannot be Nothing")
+
+
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
@@ -274,7 +280,8 @@ End Function
 Public Shared Function numaContrastTRC(
 				 ByVal factor as Single) as Numa
 
-	If IsNothing (factor) then Throw New ArgumentNullException  ("factor cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaContrastTRC( factor)
@@ -324,7 +331,8 @@ Public Shared Function pixEqualizeTRC(
 				 ByVal factor as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -359,7 +367,8 @@ Public Shared Function numaEqualizeTRC(
 				 ByVal factor as Integer) as Numa
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaEqualizeTRC( pix.Pointer, fract, factor)
@@ -398,6 +407,8 @@ Public Shared Function pixTRCMap(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
+
+
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixTRCMap( pixs.Pointer, pixmPTR, na.Pointer)
@@ -430,7 +441,8 @@ Public Shared Function pixUnsharpMasking(
 				 ByVal fract as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixUnsharpMasking( pixs.Pointer, halfwidth, fract)
@@ -464,7 +476,8 @@ Public Shared Function pixUnsharpMaskingGray(
 				 ByVal fract as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixUnsharpMaskingGray( pixs.Pointer, halfwidth, fract)
@@ -519,7 +532,8 @@ Public Shared Function pixUnsharpMaskingFast(
 				 ByVal direction as Enumerations.L_direction) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixUnsharpMaskingFast( pixs.Pointer, halfwidth, fract, direction)
@@ -552,7 +566,8 @@ Public Shared Function pixUnsharpMaskingGrayFast(
 				 ByVal direction as Enumerations.L_direction) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixUnsharpMaskingGrayFast( pixs.Pointer, halfwidth, fract, direction)
@@ -585,7 +600,8 @@ Public Shared Function pixUnsharpMaskingGray1D(
 				 ByVal direction as Enumerations.L_direction) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixUnsharpMaskingGray1D( pixs.Pointer, halfwidth, fract, direction)
@@ -616,7 +632,8 @@ Public Shared Function pixUnsharpMaskingGray2D(
 				 ByVal fract as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixUnsharpMaskingGray2D( pixs.Pointer, halfwidth, fract)
@@ -654,7 +671,9 @@ Public Shared Function pixModifyHue(
 				 ByVal fract as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -692,7 +711,9 @@ Public Shared Function pixModifySaturation(
 				 ByVal fract as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -717,6 +738,9 @@ Public Shared Function pixMeasureSaturation(
 				<Out()> ByRef psat as Single()) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixMeasureSaturation( pixs.Pointer, factor, psat)
@@ -752,7 +776,9 @@ Public Shared Function pixModifyBrightness(
 				 ByVal fract as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -799,10 +825,9 @@ Public Shared Function pixMosaicColorShiftRGB(
 				 ByVal nincr as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (roff) then Throw New ArgumentNullException  ("roff cannot be Nothing")
-	If IsNothing (goff) then Throw New ArgumentNullException  ("goff cannot be Nothing")
-	If IsNothing (boff) then Throw New ArgumentNullException  ("boff cannot be Nothing")
-	If IsNothing (delta) then Throw New ArgumentNullException  ("delta cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMosaicColorShiftRGB( pixs.Pointer, roff, goff, boff, delta, nincr)
@@ -844,9 +869,9 @@ Public Shared Function pixColorShiftRGB(
 				 ByVal bfract as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (rfract) then Throw New ArgumentNullException  ("rfract cannot be Nothing")
-	If IsNothing (gfract) then Throw New ArgumentNullException  ("gfract cannot be Nothing")
-	If IsNothing (bfract) then Throw New ArgumentNullException  ("bfract cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixColorShiftRGB( pixs.Pointer, rfract, gfract, bfract)
@@ -888,6 +913,9 @@ Public Shared Function pixDarkenGray(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDarkenGray( pixdPTR, pixs.Pointer, thresh, satlimit)
@@ -922,9 +950,8 @@ Public Shared Function pixMultConstantColor(
 				 ByVal bfact as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (rfact) then Throw New ArgumentNullException  ("rfact cannot be Nothing")
-	If IsNothing (gfact) then Throw New ArgumentNullException  ("gfact cannot be Nothing")
-	If IsNothing (bfact) then Throw New ArgumentNullException  ("bfact cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMultConstantColor( pixs.Pointer, rfact, gfact, bfact)
@@ -975,6 +1002,8 @@ Public Shared Function pixMultMatrixColor(
 	If IsNothing (kel) then Throw New ArgumentNullException  ("kel cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMultMatrixColor( pixs.Pointer, kel.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1023,6 +1052,8 @@ Public Shared Function pixHalfEdgeByBandpass(
 				 ByVal sm2v as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixHalfEdgeByBandpass( pixs.Pointer, sm1h, sm1v, sm2h, sm2v)

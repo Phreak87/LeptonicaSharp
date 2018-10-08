@@ -293,6 +293,27 @@ Public Function pixGetRegionsBinary(
 	Dim RetObj = _All.pixGetRegionsBinary(me, ppixhm, ppixtm, ppixtb, pixadb)
 	Return RetObj
 End Function
+' SRC\pixconv.c (753, 1)
+' pixConvertRGBToGray(pixs, rwt, gwt, bwt) as Pix
+' pixConvertRGBToGray(PIX *, l_float32, l_float32, l_float32) as PIX *
+'''  <summary>
+''' <para/>
+''' Notes:<para/>
+''' (1) Use a weighted average of the RGB values.<para/>
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <param name="rwt">[in] - non-negative these should add to 1.0, or use 0.0 for default</param>
+'''  <param name="gwt">[in] - non-negative these should add to 1.0, or use 0.0 for default</param>
+'''  <param name="bwt">[in] - non-negative these should add to 1.0, or use 0.0 for default</param>
+'''   <returns>8 bpp pix, or NULL on error</returns>
+Public Function pixConvertRGBToGray(
+				 Optional ByVal rwt as Single = 0, 
+				 Optional ByVal gwt as Single = 0, 
+				 Optional ByVal bwt as Single = 0) as Pix
+	Dim RetObj = _All.pixConvertRGBToGray(me, rwt, gwt, bwt)
+	Return RetObj
+End Function
 ' SRC\dewarp4.c (97, 1)
 ' dewarpSinglePage(pixs, thresh, adaptive, useboth, check_columns, ppixd, pdewa, debug) as Integer
 ' dewarpSinglePage(PIX *, l_int32, l_int32, l_int32, l_int32, PIX **, L_DEWARPA **, l_int32) as l_ok

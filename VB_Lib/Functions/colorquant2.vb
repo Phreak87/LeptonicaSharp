@@ -24,6 +24,8 @@ Public Shared Function pixMedianCutQuant(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMedianCutQuant( pixs.Pointer, ditherflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -83,6 +85,8 @@ Public Shared Function pixMedianCutQuantGeneral(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMedianCutQuantGeneral( pixs.Pointer, ditherflag, outdepth, maxcolors, sigbits, maxsub, checkbw)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -136,6 +140,8 @@ Public Shared Function pixMedianCutQuantMixed(
 				 ByVal diffthresh as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMedianCutQuantMixed( pixs.Pointer, ncolor, ngray, darkthresh, lightthresh, diffthresh)
@@ -197,6 +203,9 @@ Public Shared Function pixFewColorsMedianCutQuantMixed(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFewColorsMedianCutQuantMixed( pixs.Pointer, ncolor, ngray, maxncolors, darkthresh, lightthresh, diffthresh)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -226,6 +235,8 @@ Public Shared Function pixMedianCutHisto(
 				 ByVal subsample as Integer) as Integer()
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer() = LeptonicaSharp.Natives.pixMedianCutHisto( pixs.Pointer, sigbits, subsample)

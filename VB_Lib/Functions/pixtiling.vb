@@ -45,6 +45,8 @@ Public Shared Function pixTilingCreate(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixTilingCreate( pixs.Pointer, nx, ny, w, h, xoverlap, yoverlap)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -59,6 +61,8 @@ End Function
 '''  <param name="ppt">[in,out] - will be set to null before returning</param>
 Public Shared Sub pixTilingDestroy(
 				 ByRef ppt as PixTiling)
+
+
 
 
 	Dim pptPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppt) Then pptPTR = ppt.Pointer
@@ -85,6 +89,8 @@ Public Shared Function pixTilingGetCount(
 	If IsNothing (pt) then Throw New ArgumentNullException  ("pt cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixTilingGetCount( pt.Pointer, pnx, pny)
 
 	Return _Result
@@ -107,6 +113,8 @@ Public Shared Function pixTilingGetSize(
 	If IsNothing (pt) then Throw New ArgumentNullException  ("pt cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixTilingGetSize( pt.Pointer, pw, ph)
 
 	Return _Result
@@ -127,6 +135,8 @@ Public Shared Function pixTilingGetTile(
 				 ByVal j as Integer) as Pix
 
 	If IsNothing (pt) then Throw New ArgumentNullException  ("pt cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixTilingGetTile( pt.Pointer, i, j)
@@ -157,6 +167,8 @@ Public Shared Function pixTilingNoStripOnPaint(
 	If IsNothing (pt) then Throw New ArgumentNullException  ("pt cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixTilingNoStripOnPaint( pt.Pointer)
 
 	Return _Result
@@ -183,6 +195,8 @@ Public Shared Function pixTilingPaintTile(
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pt) then Throw New ArgumentNullException  ("pt cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixTilingPaintTile( pixd.Pointer, i, j, pixs.Pointer, pt.Pointer)

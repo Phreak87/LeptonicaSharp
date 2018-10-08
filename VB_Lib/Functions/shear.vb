@@ -50,7 +50,8 @@ Public Shared Function pixHShear(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (radang) then Throw New ArgumentNullException  ("radang cannot be Nothing")
+
+
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -107,7 +108,8 @@ Public Shared Function pixVShear(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (radang) then Throw New ArgumentNullException  ("radang cannot be Nothing")
+
+
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -141,7 +143,8 @@ Public Shared Function pixHShearCorner(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (radang) then Throw New ArgumentNullException  ("radang cannot be Nothing")
+
+
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -175,7 +178,8 @@ Public Shared Function pixVShearCorner(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (radang) then Throw New ArgumentNullException  ("radang cannot be Nothing")
+
+
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -209,7 +213,8 @@ Public Shared Function pixHShearCenter(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (radang) then Throw New ArgumentNullException  ("radang cannot be Nothing")
+
+
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -243,7 +248,8 @@ Public Shared Function pixVShearCenter(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (radang) then Throw New ArgumentNullException  ("radang cannot be Nothing")
+
+
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -280,7 +286,8 @@ Public Shared Function pixHShearIP(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (radang) then Throw New ArgumentNullException  ("radang cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixHShearIP( pixs.Pointer, yloc, radang, incolor)
@@ -315,7 +322,8 @@ Public Shared Function pixVShearIP(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (radang) then Throw New ArgumentNullException  ("radang cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixVShearIP( pixs.Pointer, xloc, radang, incolor)
@@ -355,7 +363,8 @@ Public Shared Function pixHShearLI(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (radang) then Throw New ArgumentNullException  ("radang cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixHShearLI( pixs.Pointer, yloc, radang, incolor)
@@ -396,7 +405,8 @@ Public Shared Function pixVShearLI(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (radang) then Throw New ArgumentNullException  ("radang cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixVShearLI( pixs.Pointer, xloc, radang, incolor)

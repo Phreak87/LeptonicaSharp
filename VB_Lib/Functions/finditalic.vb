@@ -45,6 +45,9 @@ Public Shared Function pixItalicWords(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
 	Dim boxawPTR As IntPtr = IntPtr.Zero : If Not IsNothing(boxaw) Then boxawPTR = boxaw.Pointer
 	Dim pixwPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixw) Then pixwPTR = pixw.Pointer
 	Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = pboxa.Pointer

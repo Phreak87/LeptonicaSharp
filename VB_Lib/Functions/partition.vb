@@ -113,8 +113,8 @@ Public Shared Function boxaGetWhiteblocks(
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
-	If IsNothing (maxoverlap) then Throw New ArgumentNullException  ("maxoverlap cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaGetWhiteblocks( boxas.Pointer, box.Pointer, sortflag, maxboxes, maxoverlap, maxperim, fract, maxpops)
@@ -146,7 +146,8 @@ Public Shared Function boxaPruneSortedOnOverlap(
 				 ByVal maxoverlap as Single) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
-	If IsNothing (maxoverlap) then Throw New ArgumentNullException  ("maxoverlap cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaPruneSortedOnOverlap( boxas.Pointer, maxoverlap)

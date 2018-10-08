@@ -34,6 +34,9 @@ Public Shared Function pixConnCompTransform(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConnCompTransform( pixs.Pointer, connect, depth)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -61,6 +64,9 @@ Public Shared Function pixConnCompAreaTransform(
 				 ByVal connect as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConnCompAreaTransform( pixs.Pointer, connect)
@@ -102,6 +108,9 @@ Public Shared Function pixConnCompIncrInit(
 				<Out()> ByRef pncc as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 	Dim pptaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pptaa) Then pptaaPTR = pptaa.Pointer
@@ -158,8 +167,8 @@ Public Shared Function pixConnCompIncrAdd(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
-	If IsNothing (x) then Throw New ArgumentNullException  ("x cannot be Nothing")
-	If IsNothing (y) then Throw New ArgumentNullException  ("y cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixConnCompIncrAdd( pixs.Pointer, ptaa.Pointer, pncc, x, y, debug)
@@ -201,6 +210,8 @@ Public Shared Function pixGetSortedNeighborValues(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 Dim pneighPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetSortedNeighborValues( pixs.Pointer, x, y, conn, pneighPTR, pnvals)
@@ -232,6 +243,9 @@ Public Shared Function pixLocToColorTransform(
 				 ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixLocToColorTransform( pixs.Pointer)

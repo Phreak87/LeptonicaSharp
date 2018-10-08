@@ -50,6 +50,8 @@ Public Shared Function pixColorContent(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 Dim ppixrPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixr) Then ppixrPTR = ppixr.Pointer
 Dim ppixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixg) Then ppixgPTR = ppixg.Pointer
 Dim ppixbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixb) Then ppixbPTR = ppixb.Pointer
@@ -122,6 +124,8 @@ Public Shared Function pixColorMagnitude(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixColorMagnitude( pixs.Pointer, rwhite, gwhite, bwhite, type)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -164,6 +168,8 @@ Public Shared Function pixMaskOverColorPixels(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMaskOverColorPixels( pixs.Pointer, threshdiff, mindist)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -193,6 +199,8 @@ Public Shared Function pixMaskOverColorRange(
 				 ByVal bmax as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMaskOverColorRange( pixs.Pointer, rmin, rmax, gmin, gmax, bmin, bmax)
@@ -258,6 +266,9 @@ Public Shared Function pixColorFraction(
 				<Out()> ByRef pcolorfract as Single()) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixColorFraction( pixs.Pointer, darkthresh, lightthresh, diffthresh, factor, ppixfract, pcolorfract)
@@ -341,7 +352,9 @@ Public Shared Function pixFindColorRegions(
 				<Out()> ByRef pixadb as Pixa) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (edgefract) then Throw New ArgumentNullException  ("edgefract cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 Dim pcolormask1PTR As IntPtr = IntPtr.Zero : If Not IsNothing(pcolormask1) Then pcolormask1PTR = pcolormask1.Pointer
@@ -394,7 +407,8 @@ Public Shared Function pixNumSignificantGrayColors(
 				<Out()> ByRef pncolors as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (minfract) then Throw New ArgumentNullException  ("minfract cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixNumSignificantGrayColors( pixs.Pointer, darkthresh, lightthresh, minfract, factor, pncolors)
@@ -483,6 +497,8 @@ Public Shared Function pixColorsForQuantization(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixColorsForQuantization( pixs.Pointer, thresh, pncolors, piscolor, debug)
 
 	Return _Result
@@ -517,6 +533,8 @@ Public Shared Function pixNumColors(
 				<Out()> ByRef pncolors as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixNumColors( pixs.Pointer, factor, pncolors)
@@ -555,6 +573,9 @@ Public Shared Function pixGetMostPopulatedColors(
 				<Out()> ByRef pcmap as PixColormap) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim parrayPTR As IntPtr = IntPtr.Zero
 Dim pcmapPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pcmap) Then pcmapPTR = pcmap.Pointer
@@ -602,6 +623,9 @@ Public Shared Function pixSimpleColorQuantize(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSimpleColorQuantize( pixs.Pointer, sigbits, factor, ncolors)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -631,6 +655,9 @@ Public Shared Function pixGetRGBHistogram(
 				 ByVal factor as Integer) as Numa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetRGBHistogram( pixs.Pointer, sigbits, factor)
@@ -663,6 +690,8 @@ Public Shared Function makeRGBIndexTables(
 				<Out()> ByRef pgtab as Byte(), 
 				<Out()> ByRef pbtab as Byte(), 
 				 ByVal sigbits as Integer) as Integer
+
+
 
 
 	Dim prtabPTR As IntPtr = IntPtr.Zero
@@ -703,6 +732,8 @@ Public Shared Function getRGBFromIndex(
 				<Out()> ByRef prval as Integer, 
 				<Out()> ByRef pgval as Integer, 
 				<Out()> ByRef pbval as Integer) as Integer
+
+
 
 
 
@@ -749,8 +780,9 @@ Public Shared Function pixHasHighlightRed(
 				<Out()> ByRef ppixdb as Pix) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-	If IsNothing (fract) then Throw New ArgumentNullException  ("fract cannot be Nothing")
-	If IsNothing (fthresh) then Throw New ArgumentNullException  ("fthresh cannot be Nothing")
+
+
+	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
 

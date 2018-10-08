@@ -26,6 +26,8 @@ Public Shared Function pixcompCreateFromPix(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixcompCreateFromPix( pix.Pointer, comptype)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -56,6 +58,8 @@ Public Shared Function pixcompCreateFromString(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixcompCreateFromString( data, size, copyflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -83,6 +87,8 @@ Public Shared Function pixcompCreateFromFile(
 				 ByVal comptype as Enumerations.IFF) as PixComp
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -107,6 +113,8 @@ Public Shared Sub pixcompDestroy(
 				 ByRef ppixc as PixComp)
 
 
+
+
 	Dim ppixcPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixc) Then ppixcPTR = ppixc.Pointer
 
 	LeptonicaSharp.Natives.pixcompDestroy( ppixcPTR)
@@ -125,6 +133,8 @@ Public Shared Function pixcompCopy(
 				 ByVal pixcs as PixComp) as PixComp
 
 	If IsNothing (pixcs) then Throw New ArgumentNullException  ("pixcs cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixcompCopy( pixcs.Pointer)
@@ -152,6 +162,8 @@ Public Shared Function pixcompGetDimensions(
 	If IsNothing (pixc) then Throw New ArgumentNullException  ("pixc cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixcompGetDimensions( pixc.Pointer, pw, ph, pd)
 
 	Return _Result
@@ -176,6 +188,8 @@ Public Shared Function pixcompGetParameters(
 				<Out()> ByRef pcmapflag as Integer) as Integer
 
 	If IsNothing (pixc) then Throw New ArgumentNullException  ("pixc cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixcompGetParameters( pixc.Pointer, pxres, pyres, pcomptype, pcmapflag)
@@ -212,6 +226,8 @@ Public Shared Function pixcompDetermineFormat(
 
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixcompDetermineFormat( comptype, d, cmapflag, pformat)
 
 	Return _Result
@@ -230,6 +246,8 @@ Public Shared Function pixCreateFromPixcomp(
 	If IsNothing (pixc) then Throw New ArgumentNullException  ("pixc cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCreateFromPixcomp( pixc.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -245,6 +263,8 @@ End Function
 '''   <returns>pixac, or NULL on error</returns>
 Public Shared Function pixacompCreate(
 				 ByVal n as Integer) as PixaComp
+
+
 
 
 
@@ -299,6 +319,8 @@ Public Shared Function pixacompCreateWithInit(
 				 ByVal comptype as Enumerations.IFF) as PixaComp
 
 
+
+
 	Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixacompCreateWithInit( n, offset, pixPTR, comptype)
@@ -334,6 +356,8 @@ Public Shared Function pixacompCreateFromPixa(
 				 ByVal accesstype as Enumerations.L_access_storage) as PixaComp
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixacompCreateFromPixa( pixa.Pointer, comptype, accesstype)
@@ -372,6 +396,8 @@ Public Shared Function pixacompCreateFromFiles(
 	If IsNothing (dirname) then Throw New ArgumentNullException  ("dirname cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixacompCreateFromFiles( dirname, substr, comptype)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -401,6 +427,8 @@ Public Shared Function pixacompCreateFromSA(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixacompCreateFromSA( sa.Pointer, comptype)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -420,6 +448,8 @@ End Function
 '''  <param name="ppixac">[in,out] - to be nulled</param>
 Public Shared Sub pixacompDestroy(
 				 ByRef ppixac as PixaComp)
+
+
 
 
 	Dim ppixacPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixac) Then ppixacPTR = ppixac.Pointer
@@ -456,6 +486,8 @@ Public Shared Function pixacompAddPix(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompAddPix( pixac.Pointer, pix.Pointer, comptype)
 
 	Return _Result
@@ -484,6 +516,8 @@ Public Shared Function pixacompAddPixcomp(
 
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
 	If IsNothing (pixc) then Throw New ArgumentNullException  ("pixc cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompAddPixcomp( pixac.Pointer, pixc.Pointer, copyflag)
@@ -519,6 +553,8 @@ Public Shared Function pixacompReplacePix(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompReplacePix( pixac.Pointer, index, pix.Pointer, comptype)
 
 	Return _Result
@@ -550,6 +586,8 @@ Public Shared Function pixacompReplacePixcomp(
 	If IsNothing (pixc) then Throw New ArgumentNullException  ("pixc cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompReplacePixcomp( pixac.Pointer, index, pixc.Pointer)
 
 	Return _Result
@@ -573,6 +611,8 @@ Public Shared Function pixacompAddBox(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompAddBox( pixac.Pointer, box.Pointer, copyflag)
 
 	Return _Result
@@ -589,6 +629,8 @@ Public Shared Function pixacompGetCount(
 				 ByVal pixac as PixaComp) as Integer
 
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompGetCount( pixac.Pointer)
@@ -621,6 +663,8 @@ Public Shared Function pixacompGetPixcomp(
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixacompGetPixcomp( pixac.Pointer, index, copyflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -646,6 +690,8 @@ Public Shared Function pixacompGetPix(
 				 ByVal index as Integer) as Pix
 
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixacompGetPix( pixac.Pointer, index)
@@ -681,6 +727,8 @@ Public Shared Function pixacompGetPixDimensions(
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompGetPixDimensions( pixac.Pointer, index, pw, ph, pd)
 
 	Return _Result
@@ -701,6 +749,8 @@ Public Shared Function pixacompGetBoxa(
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixacompGetBoxa( pixac.Pointer, accesstype)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -718,6 +768,8 @@ Public Shared Function pixacompGetBoxaCount(
 				 ByVal pixac as PixaComp) as Integer
 
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompGetBoxaCount( pixac.Pointer)
@@ -756,6 +808,8 @@ Public Shared Function pixacompGetBox(
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixacompGetBox( pixac.Pointer, index, accesstype)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -791,6 +845,8 @@ Public Shared Function pixacompGetBoxGeometry(
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompGetBoxGeometry( pixac.Pointer, index, px, py, pw, ph)
 
 	Return _Result
@@ -814,6 +870,8 @@ Public Shared Function pixacompGetOffset(
 				 ByVal pixac as PixaComp) as Integer
 
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompGetOffset( pixac.Pointer)
@@ -843,6 +901,8 @@ Public Shared Function pixacompSetOffset(
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompSetOffset( pixac.Pointer, offset)
 
 	Return _Result
@@ -868,6 +928,8 @@ Public Shared Function pixaCreateFromPixacomp(
 				 ByVal accesstype as Enumerations.L_access_storage) as Pixa
 
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaCreateFromPixacomp( pixac.Pointer, accesstype)
@@ -902,6 +964,8 @@ Public Shared Function pixacompJoin(
 
 	If IsNothing (pixacd) then Throw New ArgumentNullException  ("pixacd cannot be Nothing")
 
+
+
 	Dim pixacsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixacs) Then pixacsPTR = pixacs.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompJoin( pixacd.Pointer, pixacsPTR, istart, iend)
@@ -931,6 +995,8 @@ Public Shared Function pixacompInterleave(
 	If IsNothing (pixac2) then Throw New ArgumentNullException  ("pixac2 cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixacompInterleave( pixac1.Pointer, pixac2.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -955,6 +1021,8 @@ Public Shared Function pixacompRead(
 				 ByVal filename as String) as PixaComp
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -975,6 +1043,8 @@ Public Shared Function pixacompReadStream(
 				 ByVal fp as FILE) as PixaComp
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixacompReadStream( fp.Pointer)
@@ -1001,6 +1071,8 @@ Public Shared Function pixacompReadMem(
 				 ByVal size as UInteger) as PixaComp
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixacompReadMem( data, size)
@@ -1030,6 +1102,8 @@ Public Shared Function pixacompWrite(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
+
+
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
 
@@ -1052,6 +1126,8 @@ Public Shared Function pixacompWriteStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompWriteStream( fp.Pointer, pixac.Pointer)
@@ -1079,6 +1155,8 @@ Public Shared Function pixacompWriteMem(
 				 ByVal pixac as PixaComp) as Integer
 
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
+
+
 
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
@@ -1127,8 +1205,9 @@ Public Shared Function pixacompConvertToPdf(
 				 ByVal fileout as String) as Integer
 
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
-	If IsNothing (scalefactor) then Throw New ArgumentNullException  ("scalefactor cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompConvertToPdf( pixac.Pointer, res, scalefactor, type, quality, title, fileout)
@@ -1166,7 +1245,8 @@ Public Shared Function pixacompConvertToPdfData(
 				<Out()> ByRef pnbytes as UInteger) as Integer
 
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
-	If IsNothing (scalefactor) then Throw New ArgumentNullException  ("scalefactor cannot be Nothing")
+
+
 
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
@@ -1203,6 +1283,8 @@ Public Shared Function pixacompFastConvertToPdfData(
 
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
 
+
+
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompFastConvertToPdfData( pixac.Pointer, title, pdataPTR, pnbytes)
@@ -1229,6 +1311,8 @@ Public Shared Function pixacompWriteStreamInfo(
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompWriteStreamInfo( fp.Pointer, pixac.Pointer, text)
 
 	Return _Result
@@ -1250,6 +1334,8 @@ Public Shared Function pixcompWriteStreamInfo(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pixc) then Throw New ArgumentNullException  ("pixc cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixcompWriteStreamInfo( fp.Pointer, pixc.Pointer, text)
@@ -1290,6 +1376,8 @@ Public Shared Function pixacompDisplayTiledAndScaled(
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixacompDisplayTiledAndScaled( pixac.Pointer, outdepth, tilewidth, ncols, background, spacing, border)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1310,6 +1398,8 @@ Public Shared Function pixacompWriteFiles(
 
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
 	If IsNothing (subdir) then Throw New ArgumentNullException  ("subdir cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixacompWriteFiles( pixac.Pointer, subdir)
@@ -1337,6 +1427,8 @@ Public Shared Function pixcompWriteFile(
 
 	If IsNothing (rootname) then Throw New ArgumentNullException  ("rootname cannot be Nothing")
 	If IsNothing (pixc) then Throw New ArgumentNullException  ("pixc cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixcompWriteFile( rootname, pixc.Pointer)

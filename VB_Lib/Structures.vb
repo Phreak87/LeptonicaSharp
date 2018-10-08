@@ -26,7 +26,7 @@ Public Class L_WallTimer
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -135,7 +135,7 @@ Public Class Numa
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -280,7 +280,7 @@ Public Class Numaa
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -378,7 +378,7 @@ Public Class L_Dna
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -523,7 +523,7 @@ Public Class L_Dnaa
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -621,7 +621,7 @@ Public Class L_DnaHash
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -719,7 +719,7 @@ Public Class Sarray
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -829,7 +829,7 @@ Public Class L_Bytea
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -942,7 +942,7 @@ Public Class L_ByteBuffer
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -1055,7 +1055,7 @@ Public Class L_Heap
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -1168,7 +1168,7 @@ Public Class DoubleLinkedList
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -1266,7 +1266,7 @@ Public Class L_Ptra
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -1377,7 +1377,7 @@ Public Class L_Ptraa
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -1460,7 +1460,7 @@ Public Class L_Queue
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -1592,7 +1592,7 @@ Public Class Rb_Type
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -1701,7 +1701,7 @@ Public Class L_Rbtree
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -1776,7 +1776,7 @@ Public Class L_Rbtree_Node
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -1925,7 +1925,7 @@ Public Class L_Stack
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -2040,7 +2040,7 @@ Public Class L_Bmf
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -2318,7 +2318,7 @@ Public Class CCBord
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -2526,7 +2526,7 @@ Public Class CCBorda
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -2679,7 +2679,7 @@ Public Class L_Dewarpa
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -3061,7 +3061,7 @@ Public Class L_Dewarp
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -3700,7 +3700,7 @@ Public Class GPlot
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -4001,7 +4001,7 @@ Public Class L_Compressed_Data
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -4322,7 +4322,7 @@ Public Class L_Pdf_Data
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -4737,7 +4737,7 @@ Public Class JbClasser
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -5280,7 +5280,7 @@ Public Class JbData
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -5499,7 +5499,7 @@ Public Class Sel
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -5650,7 +5650,7 @@ Public Class Sela
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -5748,7 +5748,7 @@ Public Class L_Kernel
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -5882,7 +5882,7 @@ Public Class Pix
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -6026,7 +6026,7 @@ End Property
 '''  Org: [l_int32 informat]
 '''  Msh: l_int32 | 1:Int |
 '''  </summary>
-ReadOnly property informat as IFF
+ReadOnly property informat as Integer
 	Get
 		If Pointer = IntPTR.Zero then Return Nothing
 		Marshal.PtrToStructure (Pointer, Values)
@@ -6148,7 +6148,7 @@ Public Class PixColormap
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -6257,7 +6257,7 @@ Public Class RGBA_Quad
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -6364,7 +6364,7 @@ Public Class Pixa
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -6498,7 +6498,7 @@ Public Class Pixaa
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -6615,7 +6615,7 @@ Public Class Box
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -6739,7 +6739,7 @@ Public Class Boxa
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -6854,7 +6854,7 @@ Public Class Boxaa
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -6952,7 +6952,7 @@ Public Class Pta
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -7084,7 +7084,7 @@ Public Class Ptaa
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -7182,7 +7182,7 @@ Public Class Pixacc
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -7291,7 +7291,7 @@ Public Class PixTiling
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -7468,7 +7468,7 @@ Public Class FPix
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -7630,7 +7630,7 @@ Public Class FPixa
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -7745,7 +7745,7 @@ Public Class DPix
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -7907,7 +7907,7 @@ Public Class PixComp
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -8122,7 +8122,7 @@ Public Class PixaComp
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -8258,7 +8258,7 @@ Public Class L_Recog
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -9239,7 +9239,7 @@ Public Class L_Rch
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -9399,7 +9399,7 @@ Public Class L_Rcha
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -9571,7 +9571,7 @@ Public Class L_Rdid
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -10103,7 +10103,7 @@ Public Class L_RegParams
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -10286,7 +10286,7 @@ Public Class L_StrCode
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -10435,7 +10435,7 @@ Public Class L_Sudoku
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -10624,7 +10624,7 @@ Public Class L_WShed
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -11070,7 +11070,7 @@ Public Class L_Bilateral
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -11400,7 +11400,7 @@ Public Class BMP_FileHeader
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -11558,7 +11558,7 @@ Public Class BMP_InfoHeader
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -11786,7 +11786,7 @@ Public Class ColorQuantCell
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-        Dispose(True) 'GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -11944,7 +11944,7 @@ Public Class OctcubeQuantCell
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -12119,7 +12119,7 @@ Public Class L_OctcubePop
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -12245,7 +12245,7 @@ Public Class L_Box3d
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -12439,7 +12439,7 @@ Public Class FillSeg
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -12548,7 +12548,7 @@ Public Class JbFindTemplatesState
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -12695,7 +12695,7 @@ Public Class callback_data
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -12774,7 +12774,7 @@ Public Class MazeElement
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -12900,7 +12900,7 @@ Public Class PartitionElement
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -12996,7 +12996,7 @@ Public Class PixMemoryManager
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -13071,7 +13071,7 @@ Public Class PixMemoryStore
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -13422,7 +13422,7 @@ Public Class MemIOData
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -13554,7 +13554,7 @@ Public Class L_Pixel
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -13629,7 +13629,7 @@ Public Class CompParameterMap
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -13789,7 +13789,7 @@ Public Class L_GenAssoc
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -13915,7 +13915,7 @@ Public Class tiff_transform
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -14005,7 +14005,7 @@ Public Class L_Memstream
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -14162,7 +14162,7 @@ Public Class L_NewPixel
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -14235,7 +14235,7 @@ Public Class L_WSPixel
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region
@@ -14344,7 +14344,7 @@ Public Class ExtensionMap
 	End Sub
 
 	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : GC.SuppressFinalize(Me)
+		Dispose(True) : System.GC.SuppressFinalize(Me)
 	End Sub
 
 	#End Region

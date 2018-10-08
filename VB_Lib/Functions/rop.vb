@@ -141,6 +141,8 @@ Public Shared Function pixRasterop(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRasterop( pixd.Pointer, dx, dy, dw, dh, op, pixs.Pointer, sx, sy)
 
 	Return _Result
@@ -177,6 +179,8 @@ Public Shared Function pixRasteropVip(
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRasteropVip( pixd.Pointer, bx, bw, vshift, incolor)
 
 	Return _Result
@@ -211,6 +215,8 @@ Public Shared Function pixRasteropHip(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Integer
 
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRasteropHip( pixd.Pointer, by, bh, hshift, incolor)
@@ -250,6 +256,8 @@ Public Shared Function pixTranslate(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixTranslate( pixdPTR, pixs.Pointer, hshift, vshift, incolor)
@@ -275,6 +283,8 @@ Public Shared Function pixRasteropIP(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Integer
 
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRasteropIP( pixd.Pointer, hshift, vshift, incolor)
@@ -307,6 +317,8 @@ Public Shared Function pixRasteropFullImage(
 
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRasteropFullImage( pixd.Pointer, pixs.Pointer, op)

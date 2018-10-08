@@ -22,6 +22,8 @@ Public Shared Function l_dnaHashCreate(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaHashCreate( nbuckets, initsize)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -36,6 +38,8 @@ End Function
 '''  <param name="pdahash">[in,out] - to be nulled, if it exists</param>
 Public Shared Sub l_dnaHashDestroy(
 				 ByRef pdahash as L_DnaHash)
+
+
 
 
 	Dim pdahashPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdahash) Then pdahashPTR = pdahash.Pointer
@@ -58,6 +62,8 @@ Public Shared Function l_dnaHashGetCount(
 	If IsNothing (dahash) then Throw New ArgumentNullException  ("dahash cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaHashGetCount( dahash.Pointer)
 
 	Return _Result
@@ -74,6 +80,8 @@ Public Shared Function l_dnaHashGetTotalCount(
 				 ByVal dahash as L_DnaHash) as Integer
 
 	If IsNothing (dahash) then Throw New ArgumentNullException  ("dahash cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaHashGetTotalCount( dahash.Pointer)
@@ -97,6 +105,8 @@ Public Shared Function l_dnaHashGetDna(
 
 	If IsNothing (dahash) then Throw New ArgumentNullException  ("dahash cannot be Nothing")
 	If IsNothing (key) then Throw New ArgumentNullException  ("key cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaHashGetDna( dahash.Pointer, key, copyflag)
@@ -124,6 +134,8 @@ Public Shared Function l_dnaHashAdd(
 	If IsNothing (value) then Throw New ArgumentNullException  ("value cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaHashAdd( dahash.Pointer, key, value)
 
 	Return _Result
@@ -146,6 +158,8 @@ Public Shared Function l_dnaHashCreateFromDna(
 				 ByVal da as L_Dna) as L_DnaHash
 
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaHashCreateFromDna( da.Pointer)
@@ -177,6 +191,8 @@ Public Shared Function l_dnaRemoveDupsByHash(
 				<Out()> ByRef pdahash as L_DnaHash) as Integer
 
 	If IsNothing (das) then Throw New ArgumentNullException  ("das cannot be Nothing")
+
+
 
 	Dim pdadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdad) Then pdadPTR = pdad.Pointer
 Dim pdahashPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdahash) Then pdahashPTR = pdahash.Pointer
@@ -223,6 +239,8 @@ Public Shared Function l_dnaMakeHistoByHash(
 
 	If IsNothing (das) then Throw New ArgumentNullException  ("das cannot be Nothing")
 
+
+
 	Dim pdahashPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdahash) Then pdahashPTR = pdahash.Pointer
 	Dim pdavPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdav) Then pdavPTR = pdav.Pointer
 	Dim pdacPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdac) Then pdacPTR = pdac.Pointer
@@ -257,6 +275,8 @@ Public Shared Function l_dnaIntersectionByHash(
 	If IsNothing (da2) then Throw New ArgumentNullException  ("da2 cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaIntersectionByHash( da1.Pointer, da2.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -289,6 +309,8 @@ Public Shared Function l_dnaFindValByHash(
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 	If IsNothing (dahash) then Throw New ArgumentNullException  ("dahash cannot be Nothing")
 	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaFindValByHash( da.Pointer, dahash.Pointer, val, pindex)

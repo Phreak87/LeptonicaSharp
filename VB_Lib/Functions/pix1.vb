@@ -34,6 +34,8 @@ Public Shared Sub setPixMemoryManager(
 
 
 
+
+
 	LeptonicaSharp.Natives.setPixMemoryManager( allocator, deallocator)
 
 End Sub
@@ -51,6 +53,8 @@ Public Shared Function pixCreate(
 				 ByVal width as Integer, 
 				 ByVal height as Integer, 
 				 ByVal depth as Integer) as Pix
+
+
 
 
 
@@ -82,6 +86,8 @@ Public Shared Function pixCreateNoInit(
 
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCreateNoInit( width, height, depth)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -108,6 +114,8 @@ Public Shared Function pixCreateTemplate(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCreateTemplate( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -132,6 +140,8 @@ Public Shared Function pixCreateTemplateNoInit(
 				 ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCreateTemplateNoInit( pixs.Pointer)
@@ -166,6 +176,8 @@ Public Shared Function pixCreateHeader(
 				 ByVal width as Integer, 
 				 ByVal height as Integer, 
 				 ByVal depth as Integer) as Pix
+
+
 
 
 
@@ -206,6 +218,8 @@ Public Shared Function pixClone(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixClone( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -226,6 +240,8 @@ End Function
 '''  <param name="ppix">[in,out] - will be nulled</param>
 Public Shared Sub pixDestroy(
 				 ByRef ppix as Pix)
+
+
 
 
 	Dim ppixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppix) Then ppixPTR = ppix.Pointer
@@ -271,6 +287,8 @@ Public Shared Function pixCopy(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
+
+
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCopy( pixdPTR, pixs.Pointer)
@@ -305,6 +323,8 @@ Public Shared Function pixResizeImageData(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixResizeImageData( pixd.Pointer, pixs.Pointer)
 
 	Return _Result
@@ -332,6 +352,8 @@ Public Shared Function pixCopyColormap(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCopyColormap( pixd.Pointer, pixs.Pointer)
 
 	Return _Result
@@ -351,6 +373,8 @@ Public Shared Function pixSizesEqual(
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSizesEqual( pix1.Pointer, pix2.Pointer)
@@ -420,6 +444,8 @@ Public Shared Function pixTransferAllData(
 
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 
+
+
 	Dim ppixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixs) Then ppixsPTR = ppixs.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixTransferAllData( pixd.Pointer, ppixsPTR, copytext, copyformat)
@@ -471,6 +497,8 @@ Public Shared Function pixSwapAndDestroy(
 				 ByRef ppixs as Pix) as Integer
 
 
+
+
 Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 	Dim ppixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixs) Then ppixsPTR = ppixs.Pointer
 
@@ -492,6 +520,8 @@ Public Shared Function pixGetWidth(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
+
+
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetWidth( pix.Pointer)
@@ -511,6 +541,8 @@ Public Shared Function pixSetWidth(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
+
+
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetWidth( pix.Pointer, width)
@@ -528,6 +560,8 @@ Public Shared Function pixGetHeight(
 				 ByVal pix as Pix) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
@@ -548,6 +582,8 @@ Public Shared Function pixSetHeight(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
+
+
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetHeight( pix.Pointer, height)
@@ -565,6 +601,8 @@ Public Shared Function pixGetDepth(
 				 ByVal pix as Pix) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
@@ -584,6 +622,8 @@ Public Shared Function pixSetDepth(
 				 ByVal depth as Integer) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
@@ -611,6 +651,8 @@ Public Shared Function pixGetDimensions(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetDimensions( pix.Pointer, pw, ph, pd)
 
 	Return _Result
@@ -635,6 +677,8 @@ Public Shared Function pixSetDimensions(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetDimensions( pix.Pointer, w, h, d)
 
 	Return _Result
@@ -656,6 +700,8 @@ Public Shared Function pixCopyDimensions(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCopyDimensions( pixd.Pointer, pixs.Pointer)
 
 	Return _Result
@@ -671,6 +717,8 @@ Public Shared Function pixGetSpp(
 				 ByVal pix as Pix) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
@@ -690,6 +738,8 @@ Public Shared Function pixSetSpp(
 				 ByVal spp as Integer) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
@@ -714,6 +764,8 @@ Public Shared Function pixCopySpp(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCopySpp( pixd.Pointer, pixs.Pointer)
 
 	Return _Result
@@ -729,6 +781,8 @@ Public Shared Function pixGetWpl(
 				 ByVal pix as Pix) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
@@ -749,6 +803,8 @@ Public Shared Function pixSetWpl(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
+
+
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetWpl( pix.Pointer, wpl)
@@ -766,6 +822,8 @@ Public Shared Function pixGetRefcount(
 				 ByVal pix as Pix) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
@@ -786,6 +844,8 @@ Public Shared Function pixChangeRefcount(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
+
+
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixChangeRefcount( pix.Pointer, delta)
@@ -803,6 +863,8 @@ Public Shared Function pixGetXRes(
 				 ByVal pix as Pix) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
@@ -823,6 +885,8 @@ Public Shared Function pixSetXRes(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
+
+
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetXRes( pix.Pointer, res)
@@ -840,6 +904,8 @@ Public Shared Function pixGetYRes(
 				 ByVal pix as Pix) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
@@ -859,6 +925,8 @@ Public Shared Function pixSetYRes(
 				 ByVal res as Integer) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
@@ -884,6 +952,8 @@ Public Shared Function pixGetResolution(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetResolution( pix.Pointer, pxres, pyres)
 
 	Return _Result
@@ -906,6 +976,8 @@ Public Shared Function pixSetResolution(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 
+
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetResolution( pix.Pointer, xres, yres)
 
 	Return _Result
@@ -923,6 +995,8 @@ Public Shared Function pixCopyResolution(
 
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
+
+
 
 Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
@@ -944,8 +1018,8 @@ Public Shared Function pixScaleResolution(
 				 ByVal yscale as Single) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If IsNothing (xscale) then Throw New ArgumentNullException  ("xscale cannot be Nothing")
-	If IsNothing (yscale) then Throw New ArgumentNullException  ("yscale cannot be Nothing")
+
+
 
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
@@ -965,6 +1039,8 @@ Public Shared Function pixGetInputFormat(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
+
+
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetInputFormat( pix.Pointer)
@@ -978,414 +1054,444 @@ End Function
 '''  <remarks>
 '''  </remarks>
 '''   <returns></returns>
-Public Shared Function pixSetInputFormat(
-				 ByVal pix as Pix, 
-				 ByVal informat as Integer) as Integer
-
-	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetInputFormat( pix.Pointer, informat)
-
-	Return _Result
-End Function
-
-' SRC\pix1.c (1414, 1)
-' pixCopyInputFormat(pixd, pixs) as Integer
-' pixCopyInputFormat(PIX *, PIX *) as l_int32
-'''  <remarks>
-'''  </remarks>
-'''   <returns></returns>
-Public Shared Function pixCopyInputFormat(
-				 ByVal pixd as Pix, 
-				 ByVal pixs as Pix) as Integer
-
-	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
-	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
-Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.pixCopyInputFormat( pixd.Pointer, pixs.Pointer)
-
-	Return _Result
-End Function
-
-' SRC\pix1.c (1432, 1)
-' pixSetSpecial(pix, special) as Integer
-' pixSetSpecial(PIX *, l_int32) as l_int32
-'''  <remarks>
-'''  </remarks>
-'''   <returns></returns>
-Public Shared Function pixSetSpecial(
-				 ByVal pix as Pix, 
-				 ByVal special as Integer) as Integer
-
-	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetSpecial( pix.Pointer, special)
-
-	Return _Result
-End Function
-
-' SRC\pix1.c (1457, 1)
-' pixGetText(pix) as String
-' pixGetText(PIX *) as char *
-'''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' (1) The text string belongs to the pix.  The caller must<para/>
-''' NOT free it!<para/>
-'''  </summary>
-'''  <remarks>
-'''  </remarks>
-'''  <param name="pix">[in] - </param>
-'''   <returns>ptr to existing text string</returns>
-Public Shared Function pixGetText(
-				 ByVal pix as Pix) as String
-
-	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-
-	Dim _Result as String = LeptonicaSharp.Natives.pixGetText( pix.Pointer)
-
-	Return _Result
-End Function
-
-' SRC\pix1.c (1481, 1)
-' pixSetText(pix, textstring) as Integer
-' pixSetText(PIX *, const char *) as l_ok
-'''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' (1) This removes any existing textstring and puts a copy of<para/>
-''' the input textstring there.<para/>
-'''  </summary>
-'''  <remarks>
-'''  </remarks>
-'''  <param name="pix">[in] - </param>
-'''  <param name="textstring">[in]can be null - </param>
-'''   <returns>0 if OK, 1 on error</returns>
-Public Shared Function pixSetText(
-				 ByVal pix as Pix, 
-				 ByVal textstring as String) as Integer
-
-	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetText( pix.Pointer, textstring)
-
-	Return _Result
-End Function
-
-' SRC\pix1.c (1509, 1)
-' pixAddText(pix, textstring) as Integer
-' pixAddText(PIX *, const char *) as l_ok
-'''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' (1) This adds the new textstring to any existing text.<para/>
-''' (2) Either or both the existing text and the new text<para/>
-''' string can be null.<para/>
-'''  </summary>
-'''  <remarks>
-'''  </remarks>
-'''  <param name="pix">[in] - </param>
-'''  <param name="textstring">[in]can be null - </param>
-'''   <returns>0 if OK, 1 on error</returns>
-Public Shared Function pixAddText(
-				 ByVal pix as Pix, 
-				 ByVal textstring as String) as Integer
-
-	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.pixAddText( pix.Pointer, textstring)
-
-	Return _Result
-End Function
-
-' SRC\pix1.c (1527, 1)
-' pixCopyText(pixd, pixs) as Integer
-' pixCopyText(PIX *, PIX *) as l_int32
-'''  <remarks>
-'''  </remarks>
-'''   <returns></returns>
-Public Shared Function pixCopyText(
-				 ByVal pixd as Pix, 
-				 ByVal pixs as Pix) as Integer
-
-	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
-	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
-Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.pixCopyText( pixd.Pointer, pixs.Pointer)
-
-	Return _Result
-End Function
-
-' SRC\pix1.c (1545, 1)
-' pixGetColormap(pix) as PixColormap
-' pixGetColormap(PIX *) as PIXCMAP *
-'''  <remarks>
-'''  </remarks>
-'''   <returns></returns>
-Public Shared Function pixGetColormap(
-				 ByVal pix as Pix) as PixColormap
-
-	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
-
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetColormap( pix.Pointer)
-	If  _Result = IntPtr.Zero then Return Nothing
-
-	Return  new PixColormap(_Result)
-End Function
-
-' SRC\pix1.c (1571, 1)
-' pixSetColormap(pix, colormap) as Integer
-' pixSetColormap(PIX *, PIXCMAP *) as l_ok
-'''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' (1) Unlike with the pix data field, pixSetColormap() destroys<para/>
-''' any existing colormap before assigning the new one.<para/>
-''' Because colormaps are not ref counted, it is important that<para/>
-''' the new colormap does not belong to any other pix.<para/>
-'''  </summary>
-'''  <remarks>
-'''  </remarks>
-'''  <param name="pix">[in] - </param>
-'''  <param name="colormap">[in] - to be assigned</param>
-'''   <returns>0 if OK, 1 on error.</returns>
-Public Shared Function pixSetColormap(
-				 ByVal pix as Pix, 
-				 ByVal colormap as PixColormap) as Integer
-
-	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If IsNothing (colormap) then Throw New ArgumentNullException  ("colormap cannot be Nothing")
-
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetColormap( pix.Pointer, colormap.Pointer)
-
-	Return _Result
-End Function
-
-' SRC\pix1.c (1592, 1)
-' pixDestroyColormap(pix) as Integer
-' pixDestroyColormap(PIX *) as l_ok
-'''  <remarks>
-'''  </remarks>
-'''  <param name="pix">[in] - </param>
-'''   <returns>0 if OK, 1 on error</returns>
-Public Shared Function pixDestroyColormap(
-				 ByVal pix as Pix) as Integer
-
-	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.pixDestroyColormap( pix.Pointer)
-
-	Return _Result
-End Function
-
-' SRC\pix1.c (1622, 1)
-' pixGetData(pix) as Byte()
-' pixGetData(PIX *) as l_uint32 *
-'''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' (1) This gives a new handle for the data.  The data is still<para/>
-''' owned by the pix, so do not call LEPT_FREE() on it.<para/>
-'''  </summary>
-'''  <remarks>
-'''  </remarks>
-'''  <param name="pix">[in] - </param>
-'''   <returns>ptr to image data</returns>
-Public Shared Function pixGetData(
-				 ByVal pix as Pix) as Byte()
-
-	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetData( pix.Pointer)
-Dim B(1) As Byte : Marshal.Copy(_Result, B, 0, B.Length)
-
-	Return B
-End Function
-
-' SRC\pix1.c (1646, 1)
-' pixSetData(pix, data) as Integer
-' pixSetData(PIX *, l_uint32 *) as l_int32
-'''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' (1) This does not free any existing data.  To free existing<para/>
-''' data, use pixFreeData() before pixSetData().<para/>
-'''  </summary>
-'''  <remarks>
-'''  </remarks>
-'''  <param name="pix">[in] - </param>
-'''  <param name="data">[in] - </param>
-'''   <returns>0 if OK, 1 on error</returns>
-Public Shared Function pixSetData(
-				 ByVal pix as Pix, 
-				 ByVal data as Byte()) as Integer
-
-	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-
-	Dim dataPTR As IntPtr = Marshal.AllocHGlobal(data.Count) : Marshal.Copy(data, 0, dataPTR, data.Length)
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetData( pix.Pointer, dataPTR)
-
-	Return _Result
-End Function
-
-' SRC\pix1.c (1676, 1)
-' pixExtractData(pixs) as Byte()
-' pixExtractData(PIX *) as l_uint32 *
-'''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' (1) This extracts the pix image data for use in another context.<para/>
-''' The caller still needs to use pixDestroy() on the input pix.<para/>
-''' (2) If refcount == 1, the data is extracted and the<para/>
-''' pix- is greater data ptr is set to NULL.<para/>
-''' (3) If refcount  is greater  1, this simply returns a copy of the data,<para/>
-''' using the pix allocator, and leaving the input pix unchanged.<para/>
-'''  </summary>
-'''  <remarks>
-'''  </remarks>
-'''   <returns>ptr to data, or null on error</returns>
-Public Shared Function pixExtractData(
-				 ByVal pixs as Pix) as Byte()
-
-	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
-
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtractData( pixs.Pointer)
-Dim B(1) As Byte : Marshal.Copy(_Result, B, 0, B.Length)
-
-	Return B
-End Function
-
-' SRC\pix1.c (1717, 1)
-' pixFreeData(pix) as Integer
-' pixFreeData(PIX *) as l_int32
-'''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' (1) This frees the data and sets the pix data ptr to null.<para/>
-''' It should be used before pixSetData() in the situation where<para/>
-''' you want to free any existing data before doing<para/>
-''' a subsequent assignment with pixSetData().<para/>
-'''  </summary>
-'''  <remarks>
-'''  </remarks>
-'''  <param name="pix">[in] - </param>
-'''   <returns>0 if OK, 1 on error</returns>
-Public Shared Function pixFreeData(
-				 ByVal pix as Pix) as Integer
-
-	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-
-	Dim _Result as Integer = LeptonicaSharp.Natives.pixFreeData( pix.Pointer)
-
-	Return _Result
-End Function
-
-' SRC\pix1.c (1808, 1)
-' pixGetLinePtrs(pix, psize) as IntPtr()
-' pixGetLinePtrs(PIX *, l_int32 *) as void **
-'''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' (1) This is intended to be used for fast random pixel access.<para/>
-''' For example, for an 8 bpp image,<para/>
-''' val = GET_DATA_BYTE(lines8[i], j)<para/>
-''' is equivalent to, but much faster than,<para/>
-''' pixGetPixel(pix, j, i,  and val)<para/>
-''' (2) How much faster?  For 1 bpp, it's from 6 to 10x faster.<para/>
-''' For 8 bpp, it's an amazing 30x faster.  So if you are<para/>
-''' doing random access over a substantial part of the image,<para/>
-''' use this line ptr array.<para/>
-''' (3) When random access is used in conjunction with a stack,<para/>
-''' queue or heap, the overall computation time depends on<para/>
-''' the operations performed on each struct that is popped<para/>
-''' or pushed, and whether we are using a priority queue (O(logn))<para/>
-''' or a queue or stack (O(1)).  For example, for maze search,<para/>
-''' the overall ratio of time for line ptrs vs. pixGet/Set is<para/>
-''' Maze type Type   Time ratio<para/>
-''' binary  queue   0.4<para/>
-''' gray  heap (priority queue) 0.6<para/>
-''' (4) Because this returns a void and the accessors take void,<para/>
-''' the compiler cannot check the pointer types.  It is<para/>
-''' strongly recommended that you adopt a naming scheme for<para/>
-''' the returned ptr arrays that indicates the pixel depth.<para/>
-''' (This follows the original intent of Simonyi's "Hungarian"<para/>
-''' application notation, where naming is used proactively<para/>
-''' to make errors visibly obvious.)  By doing this, you can<para/>
-''' tell by inspection if the correct accessor is used.<para/>
-''' For example, for an 8 bpp pixg:<para/>
-''' void lineg8 = pixGetLinePtrs(pixg, NULL)<para/>
-''' val = GET_DATA_BYTE(lineg8[i], j)  // fast access BYTE, 8<para/>
-''' ...<para/>
-''' LEPT_FREE(lineg8)  // don't forget this<para/>
-''' (5) These are convenient for accessing bytes sequentially in an<para/>
-''' 8 bpp grayscale image.  People who write image processing code<para/>
-''' on 8 bpp images are accustomed to grabbing pixels directly out<para/>
-''' of the raster array.  Note that for little endians, you first<para/>
-''' need to reverse the byte order in each 32-bit word.<para/>
-''' Here's a typical usage pattern:<para/>
-''' pixEndianByteSwap(pix) // always safe no-op on big-endians<para/>
-''' l_uint8 lineptrs = (l_uint8 )pixGetLinePtrs(pix, NULL)<para/>
-''' pixGetDimensions(pix,  and w,  and h, NULL)<para/>
-''' for (i = 0 i  is lower  h i++) {<para/>
-''' l_uint8 line = lineptrs[i]<para/>
-''' for (j = 0 j  is lower  w j++) {<para/>
-''' val = line[j]<para/>
-''' ...<para/>
-''' }<para/>
-''' }<para/>
-''' pixEndianByteSwap(pix)  // restore big-endian order<para/>
-''' LEPT_FREE(lineptrs)<para/>
-''' This can be done even more simply as follows:<para/>
-''' l_uint8 lineptrs = pixSetupByteProcessing(pix,  and w,  and h)<para/>
-''' for (i = 0 i  is lower  h i++) {<para/>
-''' l_uint8 line = lineptrs[i]<para/>
-''' for (j = 0 j  is lower  w j++) {<para/>
-''' val = line[j]<para/>
-''' ...<para/>
-''' }<para/>
-''' }<para/>
-''' pixCleanupByteProcessing(pix, lineptrs)<para/>
-'''  </summary>
-'''  <remarks>
-'''  </remarks>
-'''  <param name="pix">[in] - </param>
-'''  <param name="psize">[out][optional] - array size, which is the pix height</param>
-'''   <returns>array of line ptrs, or NULL on error</returns>
-Public Shared Function pixGetLinePtrs(
-				 ByVal pix as Pix, 
-				<Out()> ByRef psize as Integer) as IntPtr()
-
-	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-
-	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetLinePtrs( pix.Pointer, psize)
-Dim B(1) As IntPtr : Marshal.Copy(_Result, B, 0, B.Length)
-
-	Return B
-End Function
+    Public Shared Function pixSetInputFormat(
+         ByVal pix As Pix,
+         ByVal informat As Enumerations.IFF) As Integer
+
+        If IsNothing(pix) Then Throw New ArgumentNullException("pix cannot be Nothing")
+
+
+
+        Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
+
+        Dim _Result As Integer = LeptonicaSharp.Natives.pixSetInputFormat(pix.Pointer, informat)
+
+        Return _Result
+    End Function
+
+    ' SRC\pix1.c (1414, 1)
+    ' pixCopyInputFormat(pixd, pixs) as Integer
+    ' pixCopyInputFormat(PIX *, PIX *) as l_int32
+    '''  <remarks>
+    '''  </remarks>
+    '''   <returns></returns>
+    Public Shared Function pixCopyInputFormat(
+         ByVal pixd As Pix,
+         ByVal pixs As Pix) As Integer
+
+        If IsNothing(pixd) Then Throw New ArgumentNullException("pixd cannot be Nothing")
+        If IsNothing(pixs) Then Throw New ArgumentNullException("pixs cannot be Nothing")
+
+
+
+        Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
+        Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
+
+        Dim _Result As Integer = LeptonicaSharp.Natives.pixCopyInputFormat(pixd.Pointer, pixs.Pointer)
+
+        Return _Result
+    End Function
+
+    ' SRC\pix1.c (1432, 1)
+    ' pixSetSpecial(pix, special) as Integer
+    ' pixSetSpecial(PIX *, l_int32) as l_int32
+    '''  <remarks>
+    '''  </remarks>
+    '''   <returns></returns>
+    Public Shared Function pixSetSpecial(
+         ByVal pix As Pix,
+         ByVal special As Integer) As Integer
+
+        If IsNothing(pix) Then Throw New ArgumentNullException("pix cannot be Nothing")
+
+
+
+        Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
+
+        Dim _Result As Integer = LeptonicaSharp.Natives.pixSetSpecial(pix.Pointer, special)
+
+        Return _Result
+    End Function
+
+    ' SRC\pix1.c (1457, 1)
+    ' pixGetText(pix) as String
+    ' pixGetText(PIX *) as char *
+    '''  <summary>
+    ''' <para/>
+    ''' Notes:<para/>
+    ''' (1) The text string belongs to the pix.  The caller must<para/>
+    ''' NOT free it!<para/>
+    '''  </summary>
+    '''  <remarks>
+    '''  </remarks>
+    '''  <param name="pix">[in] - </param>
+    '''   <returns>ptr to existing text string</returns>
+    Public Shared Function pixGetText(
+         ByVal pix As Pix) As String
+
+        If IsNothing(pix) Then Throw New ArgumentNullException("pix cannot be Nothing")
+
+
+
+
+        Dim _Result As String = LeptonicaSharp.Natives.pixGetText(pix.Pointer)
+
+        Return _Result
+    End Function
+
+    ' SRC\pix1.c (1481, 1)
+    ' pixSetText(pix, textstring) as Integer
+    ' pixSetText(PIX *, const char *) as l_ok
+    '''  <summary>
+    ''' <para/>
+    ''' Notes:<para/>
+    ''' (1) This removes any existing textstring and puts a copy of<para/>
+    ''' the input textstring there.<para/>
+    '''  </summary>
+    '''  <remarks>
+    '''  </remarks>
+    '''  <param name="pix">[in] - </param>
+    '''  <param name="textstring">[in]can be null - </param>
+    '''   <returns>0 if OK, 1 on error</returns>
+    Public Shared Function pixSetText(
+         ByVal pix As Pix,
+         ByVal textstring As String) As Integer
+
+        If IsNothing(pix) Then Throw New ArgumentNullException("pix cannot be Nothing")
+
+
+
+
+        Dim _Result As Integer = LeptonicaSharp.Natives.pixSetText(pix.Pointer, textstring)
+
+        Return _Result
+    End Function
+
+    ' SRC\pix1.c (1509, 1)
+    ' pixAddText(pix, textstring) as Integer
+    ' pixAddText(PIX *, const char *) as l_ok
+    '''  <summary>
+    ''' <para/>
+    ''' Notes:<para/>
+    ''' (1) This adds the new textstring to any existing text.<para/>
+    ''' (2) Either or both the existing text and the new text<para/>
+    ''' string can be null.<para/>
+    '''  </summary>
+    '''  <remarks>
+    '''  </remarks>
+    '''  <param name="pix">[in] - </param>
+    '''  <param name="textstring">[in]can be null - </param>
+    '''   <returns>0 if OK, 1 on error</returns>
+    Public Shared Function pixAddText(
+         ByVal pix As Pix,
+         ByVal textstring As String) As Integer
+
+        If IsNothing(pix) Then Throw New ArgumentNullException("pix cannot be Nothing")
+
+
+
+
+        Dim _Result As Integer = LeptonicaSharp.Natives.pixAddText(pix.Pointer, textstring)
+
+        Return _Result
+    End Function
+
+    ' SRC\pix1.c (1527, 1)
+    ' pixCopyText(pixd, pixs) as Integer
+    ' pixCopyText(PIX *, PIX *) as l_int32
+    '''  <remarks>
+    '''  </remarks>
+    '''   <returns></returns>
+    Public Shared Function pixCopyText(
+         ByVal pixd As Pix,
+         ByVal pixs As Pix) As Integer
+
+        If IsNothing(pixd) Then Throw New ArgumentNullException("pixd cannot be Nothing")
+        If IsNothing(pixs) Then Throw New ArgumentNullException("pixs cannot be Nothing")
+
+
+
+        Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
+        Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
+
+        Dim _Result As Integer = LeptonicaSharp.Natives.pixCopyText(pixd.Pointer, pixs.Pointer)
+
+        Return _Result
+    End Function
+
+    ' SRC\pix1.c (1545, 1)
+    ' pixGetColormap(pix) as PixColormap
+    ' pixGetColormap(PIX *) as PIXCMAP *
+    '''  <remarks>
+    '''  </remarks>
+    '''   <returns></returns>
+    Public Shared Function pixGetColormap(
+         ByVal pix As Pix) As PixColormap
+
+        If IsNothing(pix) Then Throw New ArgumentNullException("pix cannot be Nothing")
+
+
+
+        Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
+
+        Dim _Result As IntPtr = LeptonicaSharp.Natives.pixGetColormap(pix.Pointer)
+        If _Result = IntPtr.Zero Then Return Nothing
+
+        Return New PixColormap(_Result)
+    End Function
+
+    ' SRC\pix1.c (1571, 1)
+    ' pixSetColormap(pix, colormap) as Integer
+    ' pixSetColormap(PIX *, PIXCMAP *) as l_ok
+    '''  <summary>
+    ''' <para/>
+    ''' Notes:<para/>
+    ''' (1) Unlike with the pix data field, pixSetColormap() destroys<para/>
+    ''' any existing colormap before assigning the new one.<para/>
+    ''' Because colormaps are not ref counted, it is important that<para/>
+    ''' the new colormap does not belong to any other pix.<para/>
+    '''  </summary>
+    '''  <remarks>
+    '''  </remarks>
+    '''  <param name="pix">[in] - </param>
+    '''  <param name="colormap">[in] - to be assigned</param>
+    '''   <returns>0 if OK, 1 on error.</returns>
+    Public Shared Function pixSetColormap(
+         ByVal pix As Pix,
+         ByVal colormap As PixColormap) As Integer
+
+        If IsNothing(pix) Then Throw New ArgumentNullException("pix cannot be Nothing")
+        If IsNothing(colormap) Then Throw New ArgumentNullException("colormap cannot be Nothing")
+
+
+
+
+        Dim _Result As Integer = LeptonicaSharp.Natives.pixSetColormap(pix.Pointer, colormap.Pointer)
+
+        Return _Result
+    End Function
+
+    ' SRC\pix1.c (1592, 1)
+    ' pixDestroyColormap(pix) as Integer
+    ' pixDestroyColormap(PIX *) as l_ok
+    '''  <remarks>
+    '''  </remarks>
+    '''  <param name="pix">[in] - </param>
+    '''   <returns>0 if OK, 1 on error</returns>
+    Public Shared Function pixDestroyColormap(
+         ByVal pix As Pix) As Integer
+
+        If IsNothing(pix) Then Throw New ArgumentNullException("pix cannot be Nothing")
+
+
+
+
+        Dim _Result As Integer = LeptonicaSharp.Natives.pixDestroyColormap(pix.Pointer)
+
+        Return _Result
+    End Function
+
+    ' SRC\pix1.c (1622, 1)
+    ' pixGetData(pix) as Byte()
+    ' pixGetData(PIX *) as l_uint32 *
+    '''  <summary>
+    ''' <para/>
+    ''' Notes:<para/>
+    ''' (1) This gives a new handle for the data.  The data is still<para/>
+    ''' owned by the pix, so do not call LEPT_FREE() on it.<para/>
+    '''  </summary>
+    '''  <remarks>
+    '''  </remarks>
+    '''  <param name="pix">[in] - </param>
+    '''   <returns>ptr to image data</returns>
+    Public Shared Function pixGetData(
+         ByVal pix As Pix) As Byte()
+
+        If IsNothing(pix) Then Throw New ArgumentNullException("pix cannot be Nothing")
+
+
+
+
+        Dim _Result As IntPtr = LeptonicaSharp.Natives.pixGetData(pix.Pointer)
+        Dim B(pix.w * pix.h * (pix.d / 8)) As Byte : Marshal.Copy(_Result, B, 0, B.Length)
+
+        Return B
+    End Function
+
+    ' SRC\pix1.c (1646, 1)
+    ' pixSetData(pix, data) as Integer
+    ' pixSetData(PIX *, l_uint32 *) as l_int32
+    '''  <summary>
+    ''' <para/>
+    ''' Notes:<para/>
+    ''' (1) This does not free any existing data.  To free existing<para/>
+    ''' data, use pixFreeData() before pixSetData().<para/>
+    '''  </summary>
+    '''  <remarks>
+    '''  </remarks>
+    '''  <param name="pix">[in] - </param>
+    '''  <param name="data">[in] - </param>
+    '''   <returns>0 if OK, 1 on error</returns>
+    Public Shared Function pixSetData(
+         ByVal pix As Pix,
+         ByVal data As Byte()) As Integer
+
+        If IsNothing(pix) Then Throw New ArgumentNullException("pix cannot be Nothing")
+        If IsNothing(data) Then Throw New ArgumentNullException("data cannot be Nothing")
+
+
+
+        Dim dataPTR As IntPtr = Marshal.AllocHGlobal(data.Count) : Marshal.Copy(data, 0, dataPTR, data.Length)
+
+        Dim _Result As Integer = LeptonicaSharp.Natives.pixSetData(pix.Pointer, dataPTR)
+
+        Return _Result
+    End Function
+
+    ' SRC\pix1.c (1676, 1)
+    ' pixExtractData(pixs) as Byte()
+    ' pixExtractData(PIX *) as l_uint32 *
+    '''  <summary>
+    ''' <para/>
+    ''' Notes:<para/>
+    ''' (1) This extracts the pix image data for use in another context.<para/>
+    ''' The caller still needs to use pixDestroy() on the input pix.<para/>
+    ''' (2) If refcount == 1, the data is extracted and the<para/>
+    ''' pix- is greater data ptr is set to NULL.<para/>
+    ''' (3) If refcount  is greater  1, this simply returns a copy of the data,<para/>
+    ''' using the pix allocator, and leaving the input pix unchanged.<para/>
+    '''  </summary>
+    '''  <remarks>
+    '''  </remarks>
+    '''   <returns>ptr to data, or null on error</returns>
+    Public Shared Function pixExtractData(
+         ByVal pixs As Pix) As Byte()
+
+        If IsNothing(pixs) Then Throw New ArgumentNullException("pixs cannot be Nothing")
+
+
+
+        Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
+
+        Dim _Result As IntPtr = LeptonicaSharp.Natives.pixExtractData(pixs.Pointer)
+        Dim B(1) As Byte : Marshal.Copy(_Result, B, 0, B.Length)
+
+        Return B
+    End Function
+
+    ' SRC\pix1.c (1717, 1)
+    ' pixFreeData(pix) as Integer
+    ' pixFreeData(PIX *) as l_int32
+    '''  <summary>
+    ''' <para/>
+    ''' Notes:<para/>
+    ''' (1) This frees the data and sets the pix data ptr to null.<para/>
+    ''' It should be used before pixSetData() in the situation where<para/>
+    ''' you want to free any existing data before doing<para/>
+    ''' a subsequent assignment with pixSetData().<para/>
+    '''  </summary>
+    '''  <remarks>
+    '''  </remarks>
+    '''  <param name="pix">[in] - </param>
+    '''   <returns>0 if OK, 1 on error</returns>
+    Public Shared Function pixFreeData(
+         ByVal pix As Pix) As Integer
+
+        If IsNothing(pix) Then Throw New ArgumentNullException("pix cannot be Nothing")
+
+
+
+
+        Dim _Result As Integer = LeptonicaSharp.Natives.pixFreeData(pix.Pointer)
+
+        Return _Result
+    End Function
+
+    ' SRC\pix1.c (1808, 1)
+    ' pixGetLinePtrs(pix, psize) as IntPtr()
+    ' pixGetLinePtrs(PIX *, l_int32 *) as void **
+    '''  <summary>
+    ''' <para/>
+    ''' Notes:<para/>
+    ''' (1) This is intended to be used for fast random pixel access.<para/>
+    ''' For example, for an 8 bpp image,<para/>
+    ''' val = GET_DATA_BYTE(lines8[i], j)<para/>
+    ''' is equivalent to, but much faster than,<para/>
+    ''' pixGetPixel(pix, j, i,  and val)<para/>
+    ''' (2) How much faster?  For 1 bpp, it's from 6 to 10x faster.<para/>
+    ''' For 8 bpp, it's an amazing 30x faster.  So if you are<para/>
+    ''' doing random access over a substantial part of the image,<para/>
+    ''' use this line ptr array.<para/>
+    ''' (3) When random access is used in conjunction with a stack,<para/>
+    ''' queue or heap, the overall computation time depends on<para/>
+    ''' the operations performed on each struct that is popped<para/>
+    ''' or pushed, and whether we are using a priority queue (O(logn))<para/>
+    ''' or a queue or stack (O(1)).  For example, for maze search,<para/>
+    ''' the overall ratio of time for line ptrs vs. pixGet/Set is<para/>
+    ''' Maze type Type   Time ratio<para/>
+    ''' binary  queue   0.4<para/>
+    ''' gray  heap (priority queue) 0.6<para/>
+    ''' (4) Because this returns a void and the accessors take void,<para/>
+    ''' the compiler cannot check the pointer types.  It is<para/>
+    ''' strongly recommended that you adopt a naming scheme for<para/>
+    ''' the returned ptr arrays that indicates the pixel depth.<para/>
+    ''' (This follows the original intent of Simonyi's "Hungarian"<para/>
+    ''' application notation, where naming is used proactively<para/>
+    ''' to make errors visibly obvious.)  By doing this, you can<para/>
+    ''' tell by inspection if the correct accessor is used.<para/>
+    ''' For example, for an 8 bpp pixg:<para/>
+    ''' void lineg8 = pixGetLinePtrs(pixg, NULL)<para/>
+    ''' val = GET_DATA_BYTE(lineg8[i], j)  // fast access BYTE, 8<para/>
+    ''' ...<para/>
+    ''' LEPT_FREE(lineg8)  // don't forget this<para/>
+    ''' (5) These are convenient for accessing bytes sequentially in an<para/>
+    ''' 8 bpp grayscale image.  People who write image processing code<para/>
+    ''' on 8 bpp images are accustomed to grabbing pixels directly out<para/>
+    ''' of the raster array.  Note that for little endians, you first<para/>
+    ''' need to reverse the byte order in each 32-bit word.<para/>
+    ''' Here's a typical usage pattern:<para/>
+    ''' pixEndianByteSwap(pix) // always safe no-op on big-endians<para/>
+    ''' l_uint8 lineptrs = (l_uint8 )pixGetLinePtrs(pix, NULL)<para/>
+    ''' pixGetDimensions(pix,  and w,  and h, NULL)<para/>
+    ''' for (i = 0 i  is lower  h i++) {<para/>
+    ''' l_uint8 line = lineptrs[i]<para/>
+    ''' for (j = 0 j  is lower  w j++) {<para/>
+    ''' val = line[j]<para/>
+    ''' ...<para/>
+    ''' }<para/>
+    ''' }<para/>
+    ''' pixEndianByteSwap(pix)  // restore big-endian order<para/>
+    ''' LEPT_FREE(lineptrs)<para/>
+    ''' This can be done even more simply as follows:<para/>
+    ''' l_uint8 lineptrs = pixSetupByteProcessing(pix,  and w,  and h)<para/>
+    ''' for (i = 0 i  is lower  h i++) {<para/>
+    ''' l_uint8 line = lineptrs[i]<para/>
+    ''' for (j = 0 j  is lower  w j++) {<para/>
+    ''' val = line[j]<para/>
+    ''' ...<para/>
+    ''' }<para/>
+    ''' }<para/>
+    ''' pixCleanupByteProcessing(pix, lineptrs)<para/>
+    '''  </summary>
+    '''  <remarks>
+    '''  </remarks>
+    '''  <param name="pix">[in] - </param>
+    '''  <param name="psize">[out][optional] - array size, which is the pix height</param>
+    '''   <returns>array of line ptrs, or NULL on error</returns>
+    Public Shared Function pixGetLinePtrs(
+         ByVal pix As Pix,
+        <Out()> ByRef psize As Integer) As IntPtr()
+
+        If IsNothing(pix) Then Throw New ArgumentNullException("pix cannot be Nothing")
+
+
+
+
+        Dim _Result As IntPtr = LeptonicaSharp.Natives.pixGetLinePtrs(pix.Pointer, psize)
+        Dim B(psize) As IntPtr : Marshal.Copy(_Result, B, 0, B.Length)
+
+        Return B
+    End Function
 
 ' SRC\pix1.c (1848, 1)
 ' pixPrintStreamInfo(fp, pix, text) as Integer
@@ -1403,6 +1509,8 @@ Public Shared Function pixPrintStreamInfo(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
+
+
 
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixPrintStreamInfo( fp.Pointer, pix.Pointer, text)

@@ -87,7 +87,7 @@ Find the Testapplication.exe and run the Examples included.
 
 # Special thanks
 - [FDnCRed](https://github.com/fdncred) for the support, binaries, and helpfile
-- (http://www.leptonica.org/) Leptonica for this great c-library
+- (http://www.leptonica.org/) and (https://github.com/DanBloomberg/leptonica) Leptonica for this great c-library
 - (https://github.com/tvn-cosine/leptonica.net) Leptonica.Net for inspiration and implementation comparison
 - (https://github.com/charlesw/tesseract) for a few snippets from tesseract (works with leptonica)
 - (http://www.icsharpcode.net/) SharpDevelop to convert C# snippets to VB.Net (Use Version 4.4)

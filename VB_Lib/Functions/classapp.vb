@@ -38,9 +38,6 @@ Public Shared Function jbCorrelation(
 	If IsNothing (dirin) then Throw New ArgumentNullException  ("dirin cannot be Nothing")
 	If IsNothing (rootname) then Throw New ArgumentNullException  ("rootname cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.jbCorrelation( dirin, thresh, weight, components, rootname, firstpage, npages, renderflag)
 
 	Return _Result
@@ -78,9 +75,6 @@ Public Shared Function jbRankHaus(
 
 	If IsNothing (dirin) then Throw New ArgumentNullException  ("dirin cannot be Nothing")
 	If IsNothing (rootname) then Throw New ArgumentNullException  ("rootname cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.jbRankHaus( dirin, size, rank, components, rootname, firstpage, npages, renderflag)
 
@@ -121,7 +115,6 @@ Public Shared Function jbWordsInTextlines(
 				 ByVal npages as Integer) as JbClasser
 
 	If IsNothing (dirin) then Throw New ArgumentNullException  ("dirin cannot be Nothing")
-
 
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("1 for full res 2 for half-res")
 
@@ -193,8 +186,6 @@ Public Shared Function pixGetWordsInTextlines(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
 	Dim pboxadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxad) Then pboxadPTR = pboxad.Pointer
 	Dim ppixadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixad) Then ppixadPTR = ppixad.Pointer
 	Dim pnaiPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnai) Then pnaiPTR = pnai.Pointer
@@ -236,11 +227,9 @@ Public Shared Function pixGetWordBoxesInTextlines(
 				 ByVal maxwidth as Integer, 
 				 ByVal maxheight as Integer, 
 				<Out()> ByRef pboxad as Boxa, 
-				<Out()> ByRef pnai as Numa) as Integer
+				<Out()> Optional ByRef pnai as Numa = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim pboxadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxad) Then pboxadPTR = pboxad.Pointer
 Dim pnaiPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnai) Then pnaiPTR = pnai.Pointer
@@ -275,9 +264,6 @@ Public Shared Function boxaExtractSortedPattern(
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaExtractSortedPattern( boxa.Pointer, na.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -344,9 +330,6 @@ Public Shared Function numaaCompareImagesByBoxes(
 
 	If IsNothing (naa1) then Throw New ArgumentNullException  ("naa1 cannot be Nothing")
 	If IsNothing (naa2) then Throw New ArgumentNullException  ("naa2 cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaCompareImagesByBoxes( naa1.Pointer, naa2.Pointer, nperline, nreq, maxshiftx, maxshifty, delx, dely, psame, debugflag)
 

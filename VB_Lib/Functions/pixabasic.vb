@@ -18,10 +18,6 @@ Partial Public Class _All
 Public Shared Function pixaCreate(
 				 ByVal n as Integer) as Pixa
 
-
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaCreate( n)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -52,9 +48,6 @@ Public Shared Function pixaCreateFromPix(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaCreateFromPix( pixs.Pointer, n, cellw, cellh)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -84,13 +77,10 @@ End Function
 Public Shared Function pixaCreateFromBoxa(
 				 ByVal pixs as Pix, 
 				 ByVal boxa as Boxa, 
-				<Out()> ByRef pcropwarn as Integer) as Pixa
+				<Out()> Optional ByRef pcropwarn as Integer = Nothing) as Pixa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaCreateFromBoxa( pixs.Pointer, boxa.Pointer, pcropwarn)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -132,9 +122,6 @@ Public Shared Function pixaSplitPix(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaSplitPix( pixs.Pointer, nx, ny, borderwidth, bordercolor)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -156,9 +143,6 @@ End Function
 Public Shared Sub pixaDestroy(
 				 ByRef ppixa as Pixa)
 
-
-
-
 Dim ppixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixa) Then ppixaPTR = ppixa.Pointer
 
 	LeptonicaSharp.Natives.pixaDestroy( ppixaPTR)
@@ -179,9 +163,6 @@ Public Shared Function pixaCopy(
 				 ByVal copyflag as Enumerations.L_access_storage) as Pixa
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaCopy( pixa.Pointer, copyflag)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -206,9 +187,6 @@ Public Shared Function pixaAddPix(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaAddPix( pixa.Pointer, pix.Pointer, copyflag)
 
 	Return _Result
@@ -230,9 +208,6 @@ Public Shared Function pixaAddBox(
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaAddBox( pixa.Pointer, box.Pointer, copyflag)
 
@@ -259,9 +234,6 @@ Public Shared Function pixaExtendArrayToSize(
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaExtendArrayToSize( pixa.Pointer, size)
 
 	Return _Result
@@ -278,9 +250,6 @@ Public Shared Function pixaGetCount(
 				 ByVal pixa as Pixa) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaGetCount( pixa.Pointer)
 
@@ -300,9 +269,6 @@ Public Shared Function pixaChangeRefcount(
 				 ByVal delta as Integer) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaChangeRefcount( pixa.Pointer, delta)
 
@@ -325,9 +291,6 @@ Public Shared Function pixaGetPix(
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaGetPix( pixa.Pointer, index, accesstype)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -348,14 +311,11 @@ End Function
 Public Shared Function pixaGetPixDimensions(
 				 ByVal pixa as Pixa, 
 				 ByVal index as Integer, 
-				<Out()> ByRef pw as Integer, 
-				<Out()> ByRef ph as Integer, 
-				<Out()> ByRef pd as Integer) as Integer
+				<Out()> Optional ByRef pw as Integer = Nothing, 
+				<Out()> Optional ByRef ph as Integer = Nothing, 
+				<Out()> Optional ByRef pd as Integer = Nothing) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaGetPixDimensions( pixa.Pointer, index, pw, ph, pd)
 
@@ -376,9 +336,6 @@ Public Shared Function pixaGetBoxa(
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaGetBoxa( pixa.Pointer, accesstype)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -396,9 +353,6 @@ Public Shared Function pixaGetBoxaCount(
 				 ByVal pixa as Pixa) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaGetBoxaCount( pixa.Pointer)
 
@@ -433,9 +387,6 @@ Public Shared Function pixaGetBox(
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaGetBox( pixa.Pointer, index, accesstype)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -457,15 +408,12 @@ End Function
 Public Shared Function pixaGetBoxGeometry(
 				 ByVal pixa as Pixa, 
 				 ByVal index as Integer, 
-				<Out()> ByRef px as Integer, 
-				<Out()> ByRef py as Integer, 
-				<Out()> ByRef pw as Integer, 
-				<Out()> ByRef ph as Integer) as Integer
+				<Out()> Optional ByRef px as Integer = Nothing, 
+				<Out()> Optional ByRef py as Integer = Nothing, 
+				<Out()> Optional ByRef pw as Integer = Nothing, 
+				<Out()> Optional ByRef ph as Integer = Nothing) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaGetBoxGeometry( pixa.Pointer, index, px, py, pw, ph)
 
@@ -494,9 +442,6 @@ Public Shared Function pixaSetBoxa(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaSetBoxa( pixa.Pointer, boxa.Pointer, accesstype)
 
 	Return _Result
@@ -522,9 +467,6 @@ Public Shared Function pixaGetPixArray(
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaGetPixArray( pixa.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 Dim B as new Pix(_Result)
@@ -549,12 +491,9 @@ End Function
 Public Shared Function pixaVerifyDepth(
 				 ByVal pixa as Pixa, 
 				<Out()> ByRef psame as Integer, 
-				<Out()> ByRef pmaxd as Integer) as Integer
+				<Out()> Optional ByRef pmaxd as Integer = Nothing) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaVerifyDepth( pixa.Pointer, psame, pmaxd)
 
@@ -579,13 +518,10 @@ End Function
 Public Shared Function pixaVerifyDimensions(
 				 ByVal pixa as Pixa, 
 				<Out()> ByRef psame as Integer, 
-				<Out()> ByRef pmaxw as Integer, 
-				<Out()> ByRef pmaxh as Integer) as Integer
+				<Out()> Optional ByRef pmaxw as Integer = Nothing, 
+				<Out()> Optional ByRef pmaxh as Integer = Nothing) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaVerifyDimensions( pixa.Pointer, psame, pmaxw, pmaxh)
 
@@ -609,13 +545,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaIsFull(
 				 ByVal pixa as Pixa, 
-				<Out()> ByRef pfullpa as Integer, 
-				<Out()> ByRef pfullba as Integer) as Integer
+				<Out()> Optional ByRef pfullpa as Integer = Nothing, 
+				<Out()> Optional ByRef pfullba as Integer = Nothing) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaIsFull( pixa.Pointer, pfullpa, pfullba)
 
@@ -642,9 +575,6 @@ Public Shared Function pixaCountText(
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaCountText( pixa.Pointer, pntext)
 
 	Return _Result
@@ -666,11 +596,9 @@ End Function
 '''   <returns>0 if OK, 1 on error.</returns>
 Public Shared Function pixaSetText(
 				 ByVal pixa as Pixa, 
-				 ByVal sa as Sarray) as Integer
+				 Optional ByVal sa as Sarray = Nothing) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-
-
 
 	Dim saPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sa) Then saPTR = sa.Pointer
 
@@ -701,12 +629,9 @@ End Function
 '''   <returns>array of array of line ptrs, or NULL on error</returns>
 Public Shared Function pixaGetLinePtrs(
 				 ByVal pixa as Pixa, 
-				<Out()> ByRef psize as Integer) as IntPtr
+				<Out()> Optional ByRef psize as Integer = Nothing) as IntPtr
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaGetLinePtrs( pixa.Pointer, psize)
 
@@ -734,9 +659,6 @@ Public Shared Function pixaWriteStreamInfo(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaWriteStreamInfo( fp.Pointer, pixa.Pointer)
 
 	Return _Result
@@ -762,12 +684,10 @@ Public Shared Function pixaReplacePix(
 				 ByVal pixa as Pixa, 
 				 ByVal index as Integer, 
 				 ByVal pix as Pix, 
-				 ByVal box as Box) as Integer
+				 Optional ByVal box as Box = Nothing) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -800,12 +720,10 @@ Public Shared Function pixaInsertPix(
 				 ByVal pixa as Pixa, 
 				 ByVal index as Integer, 
 				 ByVal pixs as Pix, 
-				 ByVal box as Box) as Integer
+				 Optional ByVal box as Box = Nothing) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -836,9 +754,6 @@ Public Shared Function pixaRemovePix(
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaRemovePix( pixa.Pointer, index)
 
 	Return _Result
@@ -866,12 +781,10 @@ End Function
 Public Shared Function pixaRemovePixAndSave(
 				 ByVal pixa as Pixa, 
 				 ByVal index as Integer, 
-				<Out()> ByRef ppix as Pix, 
-				<Out()> ByRef pbox as Box) as Integer
+				<Out()> Optional ByRef ppix as Pix = Nothing, 
+				<Out()> Optional ByRef pbox as Box = Nothing) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-
-
 
 Dim ppixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppix) Then ppixPTR = ppix.Pointer
 Dim pboxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbox) Then pboxPTR = pbox.Pointer
@@ -921,12 +834,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaInitFull(
 				 ByVal pixa as Pixa, 
-				 ByVal pix as Pix, 
-				 ByVal box as Box) as Integer
+				 Optional ByVal pix as Pix = Nothing, 
+				 Optional ByVal box as Box = Nothing) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-
-
 
 	Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
@@ -954,9 +865,6 @@ Public Shared Function pixaClear(
 				 ByVal pixa as Pixa) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaClear( pixa.Pointer)
 
@@ -988,8 +896,6 @@ Public Shared Function pixaJoin(
 				 ByVal iend as Integer) as Integer
 
 	If IsNothing (pixad) then Throw New ArgumentNullException  ("pixad cannot be Nothing")
-
-
 
 	Dim pixasPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixas) Then pixasPTR = pixas.Pointer
 
@@ -1023,9 +929,6 @@ Public Shared Function pixaInterleave(
 	If IsNothing (pixa1) then Throw New ArgumentNullException  ("pixa1 cannot be Nothing")
 	If IsNothing (pixa2) then Throw New ArgumentNullException  ("pixa2 cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaInterleave( pixa1.Pointer, pixa2.Pointer, copyflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1056,8 +959,6 @@ Public Shared Function pixaaJoin(
 				 ByVal iend as Integer) as Integer
 
 	If IsNothing (paad) then Throw New ArgumentNullException  ("paad cannot be Nothing")
-
-
 
 	Dim paasPTR As IntPtr = IntPtr.Zero : If Not IsNothing(paas) Then paasPTR = paas.Pointer
 
@@ -1091,10 +992,6 @@ End Function
 '''   <returns>paa, or NULL on error</returns>
 Public Shared Function pixaaCreate(
 				 ByVal n as Integer) as Pixaa
-
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaaCreate( n)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1131,9 +1028,6 @@ Public Shared Function pixaaCreateFromPixa(
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaaCreateFromPixa( pixa.Pointer, n, type, copyflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1148,9 +1042,6 @@ End Function
 '''  <param name="ppaa">[in,out] - to be nulled</param>
 Public Shared Sub pixaaDestroy(
 				 ByRef ppaa as Pixaa)
-
-
-
 
 	Dim ppaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppaa) Then ppaaPTR = ppaa.Pointer
 
@@ -1176,9 +1067,6 @@ Public Shared Function pixaaAddPixa(
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaAddPixa( paa.Pointer, pixa.Pointer, copyflag)
 
 	Return _Result
@@ -1195,9 +1083,6 @@ Public Shared Function pixaaExtendArray(
 				 ByVal paa as Pixaa) as Integer
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaExtendArray( paa.Pointer)
 
@@ -1224,8 +1109,6 @@ Public Shared Function pixaaAddPix(
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -1257,9 +1140,6 @@ Public Shared Function pixaaAddBox(
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaAddBox( paa.Pointer, box.Pointer, copyflag)
 
 	Return _Result
@@ -1280,11 +1160,9 @@ End Function
 '''   <returns>count, or 0 if no pixaa</returns>
 Public Shared Function pixaaGetCount(
 				 ByVal paa as Pixaa, 
-				<Out()> ByRef pna as Numa) as Integer
+				<Out()> Optional ByRef pna as Numa = Nothing) as Integer
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
-
-
 
 Dim pnaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pna) Then pnaPTR = pna.Pointer
 
@@ -1322,9 +1200,6 @@ Public Shared Function pixaaGetPixa(
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaaGetPixa( paa.Pointer, index, accesstype)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1351,9 +1226,6 @@ Public Shared Function pixaaGetBoxa(
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaaGetBoxa( paa.Pointer, accesstype)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1378,9 +1250,6 @@ Public Shared Function pixaaGetPix(
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaaGetPix( paa.Pointer, index, ipix, accessflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1404,12 +1273,9 @@ End Function
 Public Shared Function pixaaVerifyDepth(
 				 ByVal paa as Pixaa, 
 				<Out()> ByRef psame as Integer, 
-				<Out()> ByRef pmaxd as Integer) as Integer
+				<Out()> Optional ByRef pmaxd as Integer = Nothing) as Integer
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaVerifyDepth( paa.Pointer, psame, pmaxd)
 
@@ -1434,13 +1300,10 @@ End Function
 Public Shared Function pixaaVerifyDimensions(
 				 ByVal paa as Pixaa, 
 				<Out()> ByRef psame as Integer, 
-				<Out()> ByRef pmaxw as Integer, 
-				<Out()> ByRef pmaxh as Integer) as Integer
+				<Out()> Optional ByRef pmaxw as Integer = Nothing, 
+				<Out()> Optional ByRef pmaxh as Integer = Nothing) as Integer
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaVerifyDimensions( paa.Pointer, psame, pmaxw, pmaxh)
 
@@ -1465,9 +1328,6 @@ Public Shared Function pixaaIsFull(
 				<Out()> ByRef pfull as Integer) as Integer
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaIsFull( paa.Pointer, pfull)
 
@@ -1503,9 +1363,6 @@ Public Shared Function pixaaInitFull(
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaInitFull( paa.Pointer, pixa.Pointer)
 
 	Return _Result
@@ -1537,9 +1394,6 @@ Public Shared Function pixaaReplacePixa(
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaReplacePixa( paa.Pointer, index, pixa.Pointer)
 
 	Return _Result
@@ -1562,9 +1416,6 @@ Public Shared Function pixaaClear(
 				 ByVal paa as Pixaa) as Integer
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaClear( paa.Pointer)
 
@@ -1590,9 +1441,6 @@ Public Shared Function pixaaTruncate(
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaTruncate( paa.Pointer)
 
 	Return _Result
@@ -1616,9 +1464,7 @@ Public Shared Function pixaRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaRead( filename)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1644,9 +1490,6 @@ Public Shared Function pixaReadStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaReadStream( fp.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1666,9 +1509,6 @@ Public Shared Function pixaReadMem(
 				 ByVal size as UInteger) as Pixa
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaReadMem( data, size)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1700,9 +1540,6 @@ Public Shared Function pixaWriteDebug(
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaWriteDebug( fname, pixa.Pointer)
 
 	Return _Result
@@ -1729,9 +1566,7 @@ Public Shared Function pixaWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaWrite( filename, pixa.Pointer)
 
@@ -1759,9 +1594,6 @@ Public Shared Function pixaWriteStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaWriteStream( fp.Pointer, pixa.Pointer)
 
 	Return _Result
@@ -1787,8 +1619,6 @@ Public Shared Function pixaWriteMem(
 				 ByVal pixa as Pixa) as Integer
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-
-
 
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
@@ -1816,9 +1646,7 @@ Public Shared Function pixaReadBoth(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaReadBoth( filename)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1855,9 +1683,6 @@ Public Shared Function pixaaReadFromFiles(
 
 	If IsNothing (dirname) then Throw New ArgumentNullException  ("dirname cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaaReadFromFiles( dirname, substr, first, nfiles)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1882,9 +1707,7 @@ Public Shared Function pixaaRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaaRead( filename)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1910,9 +1733,6 @@ Public Shared Function pixaaReadStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaaReadStream( fp.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1932,9 +1752,6 @@ Public Shared Function pixaaReadMem(
 				 ByVal size as UInteger) as Pixaa
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaaReadMem( data, size)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1963,9 +1780,7 @@ Public Shared Function pixaaWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaWrite( filename, paa.Pointer)
 
@@ -1993,9 +1808,6 @@ Public Shared Function pixaaWriteStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaWriteStream( fp.Pointer, paa.Pointer)
 
 	Return _Result
@@ -2021,8 +1833,6 @@ Public Shared Function pixaaWriteMem(
 				 ByVal paa as Pixaa) as Integer
 
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
-
-
 
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 

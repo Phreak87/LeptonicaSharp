@@ -19,9 +19,7 @@ Public Shared Function pixExpandBinaryReplicate(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExpandBinaryReplicate( pixs.Pointer, xfact, yfact)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -43,9 +41,7 @@ Public Shared Function pixExpandBinaryPower2(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExpandBinaryPower2( pixs.Pointer, factor)
 	If  _Result = IntPtr.Zero then Return Nothing

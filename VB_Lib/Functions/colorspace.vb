@@ -44,8 +44,6 @@ Public Shared Function pixConvertRGBToHSV(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToHSV( pixdPTR, pixs.Pointer)
@@ -78,8 +76,6 @@ Public Shared Function pixConvertHSVToRGB(
 				 ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -127,10 +123,6 @@ Public Shared Function convertRGBToHSV(
 				<Out()> ByRef psval as Integer, 
 				<Out()> ByRef pvval as Integer) as Integer
 
-
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertRGBToHSV( rval, gval, bval, phval, psval, pvval)
 
 	Return _Result
@@ -162,10 +154,6 @@ Public Shared Function convertHSVToRGB(
 				<Out()> ByRef pgval as Integer, 
 				<Out()> ByRef pbval as Integer) as Integer
 
-
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertHSVToRGB( hval, sval, vval, prval, pgval, pbval)
 
 	Return _Result
@@ -190,9 +178,6 @@ Public Shared Function pixcmapConvertRGBToHSV(
 
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixcmapConvertRGBToHSV( cmap.Pointer)
 
 	Return _Result
@@ -216,9 +201,6 @@ Public Shared Function pixcmapConvertHSVToRGB(
 				 ByVal cmap as PixColormap) as Integer
 
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixcmapConvertHSVToRGB( cmap.Pointer)
 
@@ -246,9 +228,6 @@ Public Shared Function pixConvertRGBToHue(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToHue( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -275,9 +254,6 @@ Public Shared Function pixConvertRGBToSaturation(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToSaturation( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -303,9 +279,6 @@ Public Shared Function pixConvertRGBToValue(
 				 ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToValue( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -347,9 +320,7 @@ Public Shared Function pixMakeRangeMaskHS(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMakeRangeMaskHS( pixs.Pointer, huecenter, huehw, satcenter, sathw, regionflag)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -391,9 +362,7 @@ Public Shared Function pixMakeRangeMaskHV(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMakeRangeMaskHV( pixs.Pointer, huecenter, huehw, valcenter, valhw, regionflag)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -434,9 +403,7 @@ Public Shared Function pixMakeRangeMaskSV(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMakeRangeMaskSV( pixs.Pointer, satcenter, sathw, valcenter, valhw, regionflag)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -467,12 +434,10 @@ End Function
 Public Shared Function pixMakeHistoHS(
 				 ByVal pixs as Pix, 
 				 ByVal factor as Integer, 
-				<Out()> ByRef pnahue as Numa, 
-				<Out()> ByRef pnasat as Numa) as Pix
+				<Out()> Optional ByRef pnahue as Numa = Nothing, 
+				<Out()> Optional ByRef pnasat as Numa = Nothing) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 Dim pnahuePTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnahue) Then pnahuePTR = pnahue.Pointer
 Dim pnasatPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnasat) Then pnasatPTR = pnasat.Pointer
@@ -508,12 +473,10 @@ End Function
 Public Shared Function pixMakeHistoHV(
 				 ByVal pixs as Pix, 
 				 ByVal factor as Integer, 
-				<Out()> ByRef pnahue as Numa, 
-				<Out()> ByRef pnaval as Numa) as Pix
+				<Out()> Optional ByRef pnahue as Numa = Nothing, 
+				<Out()> Optional ByRef pnaval as Numa = Nothing) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 Dim pnahuePTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnahue) Then pnahuePTR = pnahue.Pointer
 Dim pnavalPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaval) Then pnavalPTR = pnaval.Pointer
@@ -549,12 +512,10 @@ End Function
 Public Shared Function pixMakeHistoSV(
 				 ByVal pixs as Pix, 
 				 ByVal factor as Integer, 
-				<Out()> ByRef pnasat as Numa, 
-				<Out()> ByRef pnaval as Numa) as Pix
+				<Out()> Optional ByRef pnasat as Numa = Nothing, 
+				<Out()> Optional ByRef pnaval as Numa = Nothing) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 Dim pnasatPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnasat) Then pnasatPTR = pnasat.Pointer
 Dim pnavalPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaval) Then pnavalPTR = pnaval.Pointer
@@ -604,11 +565,9 @@ Public Shared Function pixFindHistoPeaksHSV(
 				 ByVal erasefactor as Single, 
 				<Out()> ByRef ppta as Pta, 
 				<Out()> ByRef pnatot as Numa, 
-				<Out()> ByRef ppixa as Pixa) as Integer
+				<Out()> Optional ByRef ppixa as Pixa = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim pptaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppta) Then pptaPTR = ppta.Pointer
 	Dim pnatotPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnatot) Then pnatotPTR = pnatot.Pointer
@@ -650,10 +609,6 @@ Public Shared Function displayHSVColorRange(
 				 ByVal nsamp as Integer, 
 				 ByVal factor as Integer) as Pix
 
-
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.displayHSVColorRange( hval, sval, vval, huehw, sathw, nsamp, factor)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -694,8 +649,6 @@ Public Shared Function pixConvertRGBToYUV(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToYUV( pixdPTR, pixs.Pointer)
@@ -727,8 +680,6 @@ Public Shared Function pixConvertYUVToRGB(
 				 ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -765,10 +716,6 @@ Public Shared Function convertRGBToYUV(
 				<Out()> ByRef pyval as Integer, 
 				<Out()> ByRef puval as Integer, 
 				<Out()> ByRef pvval as Integer) as Integer
-
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertRGBToYUV( rval, gval, bval, pyval, puval, pvval)
 
@@ -807,10 +754,6 @@ Public Shared Function convertYUVToRGB(
 				<Out()> ByRef pgval as Integer, 
 				<Out()> ByRef pbval as Integer) as Integer
 
-
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertYUVToRGB( yval, uval, vval, prval, pgval, pbval)
 
 	Return _Result
@@ -835,9 +778,6 @@ Public Shared Function pixcmapConvertRGBToYUV(
 
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixcmapConvertRGBToYUV( cmap.Pointer)
 
 	Return _Result
@@ -861,9 +801,6 @@ Public Shared Function pixcmapConvertYUVToRGB(
 				 ByVal cmap as PixColormap) as Integer
 
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixcmapConvertYUVToRGB( cmap.Pointer)
 
@@ -904,9 +841,6 @@ Public Shared Function pixConvertRGBToXYZ(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToXYZ( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -931,9 +865,6 @@ Public Shared Function fpixaConvertXYZToRGB(
 				 ByVal fpixa as FPixa) as Pix
 
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixaConvertXYZToRGB( fpixa.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -963,13 +894,9 @@ Public Shared Function convertRGBToXYZ(
 				 ByVal rval as Integer, 
 				 ByVal gval as Integer, 
 				 ByVal bval as Integer, 
-				<Out()> ByRef pfxval as Single(), 
-				<Out()> ByRef pfyval as Single(), 
-				<Out()> ByRef pfzval as Single()) as Integer
-
-
-
-
+				<Out()> ByRef pfxval as Single, 
+				<Out()> ByRef pfyval as Single, 
+				<Out()> ByRef pfzval as Single) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertRGBToXYZ( rval, gval, bval, pfxval, pfyval, pfzval)
 
@@ -1008,10 +935,6 @@ Public Shared Function convertXYZToRGB(
 				<Out()> ByRef pgval as Integer, 
 				<Out()> ByRef pbval as Integer) as Integer
 
-
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertXYZToRGB( fxval, fyval, fzval, blackout, prval, pgval, pbval)
 
 	Return _Result
@@ -1042,9 +965,6 @@ Public Shared Function fpixaConvertXYZToLAB(
 
 	If IsNothing (fpixas) then Throw New ArgumentNullException  ("fpixas cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixaConvertXYZToLAB( fpixas.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1069,9 +989,6 @@ Public Shared Function fpixaConvertLABToXYZ(
 
 	If IsNothing (fpixas) then Throw New ArgumentNullException  ("fpixas cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixaConvertLABToXYZ( fpixas.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1094,13 +1011,9 @@ Public Shared Function convertXYZToLAB(
 				 ByVal xval as Single, 
 				 ByVal yval as Single, 
 				 ByVal zval as Single, 
-				<Out()> ByRef plval as Single(), 
-				<Out()> ByRef paval as Single(), 
-				<Out()> ByRef pbval as Single()) as Integer
-
-
-
-
+				<Out()> ByRef plval as Single, 
+				<Out()> ByRef paval as Single, 
+				<Out()> ByRef pbval as Single) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertXYZToLAB( xval, yval, zval, plval, paval, pbval)
 
@@ -1123,13 +1036,9 @@ Public Shared Function convertLABToXYZ(
 				 ByVal lval as Single, 
 				 ByVal aval as Single, 
 				 ByVal bval as Single, 
-				<Out()> ByRef pxval as Single(), 
-				<Out()> ByRef pyval as Single(), 
-				<Out()> ByRef pzval as Single()) as Integer
-
-
-
-
+				<Out()> ByRef pxval as Single, 
+				<Out()> ByRef pyval as Single, 
+				<Out()> ByRef pzval as Single) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertLABToXYZ( lval, aval, bval, pxval, pyval, pzval)
 
@@ -1154,9 +1063,6 @@ Public Shared Function pixConvertRGBToLAB(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToLAB( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1179,9 +1085,6 @@ Public Shared Function fpixaConvertLABToRGB(
 				 ByVal fpixa as FPixa) as Pix
 
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixaConvertLABToRGB( fpixa.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1211,13 +1114,9 @@ Public Shared Function convertRGBToLAB(
 				 ByVal rval as Integer, 
 				 ByVal gval as Integer, 
 				 ByVal bval as Integer, 
-				<Out()> ByRef pflval as Single(), 
-				<Out()> ByRef pfaval as Single(), 
-				<Out()> ByRef pfbval as Single()) as Integer
-
-
-
-
+				<Out()> ByRef pflval as Single, 
+				<Out()> ByRef pfaval as Single, 
+				<Out()> ByRef pfbval as Single) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertRGBToLAB( rval, gval, bval, pflval, pfaval, pfbval)
 
@@ -1249,10 +1148,6 @@ Public Shared Function convertLABToRGB(
 				<Out()> ByRef prval as Integer, 
 				<Out()> ByRef pgval as Integer, 
 				<Out()> ByRef pbval as Integer) as Integer
-
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertLABToRGB( flval, faval, fbval, prval, pgval, pbval)
 

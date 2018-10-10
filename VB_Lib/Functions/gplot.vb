@@ -24,14 +24,11 @@ Partial Public Class _All
 Public Shared Function gplotCreate(
 				 ByVal rootname as String, 
 				 ByVal outformat as Enumerations.GPLOT_OUTPUT, 
-				 ByVal title as String, 
-				 ByVal xlabel as String, 
-				 ByVal ylabel as String) as GPlot
+				 Optional ByVal title as String = Nothing, 
+				 Optional ByVal xlabel as String = Nothing, 
+				 Optional ByVal ylabel as String = Nothing) as GPlot
 
 	If IsNothing (rootname) then Throw New ArgumentNullException  ("rootname cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.gplotCreate( rootname, outformat, title, xlabel, ylabel)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -47,9 +44,6 @@ End Function
 '''  <param name="pgplot">[in,out] - to be nulled</param>
 Public Shared Sub gplotDestroy(
 				 ByRef pgplot as GPlot)
-
-
-
 
 	Dim pgplotPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pgplot) Then pgplotPTR = pgplot.Pointer
 
@@ -92,12 +86,10 @@ Public Shared Function gplotAddPlot(
 				 ByVal nax as Numa, 
 				 ByVal nay as Numa, 
 				 ByVal plotstyle as Enumerations.GPLOT_STYLE, 
-				 ByVal plottitle as String) as Integer
+				 Optional ByVal plottitle as String = Nothing) as Integer
 
 	If IsNothing (gplot) then Throw New ArgumentNullException  ("gplot cannot be Nothing")
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
-
-
 
 	Dim naxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nax) Then naxPTR = nax.Pointer
 
@@ -125,9 +117,6 @@ Public Shared Function gplotSetScaling(
 				 ByVal scaling as Enumerations.GPLOT_SCALING) as Integer
 
 	If IsNothing (gplot) then Throw New ArgumentNullException  ("gplot cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotSetScaling( gplot.Pointer, scaling)
 
@@ -158,9 +147,6 @@ Public Shared Function gplotMakeOutput(
 
 	If IsNothing (gplot) then Throw New ArgumentNullException  ("gplot cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotMakeOutput( gplot.Pointer)
 
 	Return _Result
@@ -177,9 +163,6 @@ Public Shared Function gplotGenCommandFile(
 				 ByVal gplot as GPlot) as Integer
 
 	If IsNothing (gplot) then Throw New ArgumentNullException  ("gplot cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotGenCommandFile( gplot.Pointer)
 
@@ -204,9 +187,6 @@ Public Shared Function gplotGenDataFiles(
 				 ByVal gplot as GPlot) as Integer
 
 	If IsNothing (gplot) then Throw New ArgumentNullException  ("gplot cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotGenDataFiles( gplot.Pointer)
 
@@ -236,13 +216,10 @@ Public Shared Function gplotSimple1(
 				 ByVal na as Numa, 
 				 ByVal outformat as Enumerations.GPLOT_OUTPUT, 
 				 ByVal outroot as String, 
-				 ByVal title as String) as Integer
+				 Optional ByVal title as String = Nothing) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 	If IsNothing (outroot) then Throw New ArgumentNullException  ("outroot cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotSimple1( na.Pointer, outformat, outroot, title)
 
@@ -274,14 +251,11 @@ Public Shared Function gplotSimple2(
 				 ByVal na2 as Numa, 
 				 ByVal outformat as Enumerations.GPLOT_OUTPUT, 
 				 ByVal outroot as String, 
-				 ByVal title as String) as Integer
+				 Optional ByVal title as String = Nothing) as Integer
 
 	If IsNothing (na1) then Throw New ArgumentNullException  ("na1 cannot be Nothing")
 	If IsNothing (na2) then Throw New ArgumentNullException  ("na2 cannot be Nothing")
 	If IsNothing (outroot) then Throw New ArgumentNullException  ("outroot cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotSimple2( na1.Pointer, na2.Pointer, outformat, outroot, title)
 
@@ -312,13 +286,10 @@ Public Shared Function gplotSimpleN(
 				 ByVal naa as Numaa, 
 				 ByVal outformat as Enumerations.GPLOT_OUTPUT, 
 				 ByVal outroot as String, 
-				 ByVal title as String) as Integer
+				 Optional ByVal title as String = Nothing) as Integer
 
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
 	If IsNothing (outroot) then Throw New ArgumentNullException  ("outroot cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotSimpleN( naa.Pointer, outformat, outroot, title)
 
@@ -354,12 +325,10 @@ Public Shared Function gplotSimpleXY1(
 				 ByVal plotstyle as Enumerations.GPLOT_STYLE, 
 				 ByVal outformat as Enumerations.GPLOT_OUTPUT, 
 				 ByVal outroot as String, 
-				 ByVal title as String) as Integer
+				 Optional ByVal title as String = Nothing) as Integer
 
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
 	If IsNothing (outroot) then Throw New ArgumentNullException  ("outroot cannot be Nothing")
-
-
 
 	Dim naxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nax) Then naxPTR = nax.Pointer
 
@@ -399,15 +368,12 @@ Public Shared Function gplotSimpleXY2(
 				 ByVal plotstyle as Enumerations.GPLOT_STYLE, 
 				 ByVal outformat as Enumerations.GPLOT_OUTPUT, 
 				 ByVal outroot as String, 
-				 ByVal title as String) as Integer
+				 Optional ByVal title as String = Nothing) as Integer
 
 	If IsNothing (nax) then Throw New ArgumentNullException  ("nax cannot be Nothing")
 	If IsNothing (nay1) then Throw New ArgumentNullException  ("nay1 cannot be Nothing")
 	If IsNothing (nay2) then Throw New ArgumentNullException  ("nay2 cannot be Nothing")
 	If IsNothing (outroot) then Throw New ArgumentNullException  ("outroot cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotSimpleXY2( nax.Pointer, nay1.Pointer, nay2.Pointer, plotstyle, outformat, outroot, title)
 
@@ -443,12 +409,10 @@ Public Shared Function gplotSimpleXYN(
 				 ByVal plotstyle as Enumerations.GPLOT_STYLE, 
 				 ByVal outformat as Enumerations.GPLOT_OUTPUT, 
 				 ByVal outroot as String, 
-				 ByVal title as String) as Integer
+				 Optional ByVal title as String = Nothing) as Integer
 
 	If IsNothing (naay) then Throw New ArgumentNullException  ("naay cannot be Nothing")
 	If IsNothing (outroot) then Throw New ArgumentNullException  ("outroot cannot be Nothing")
-
-
 
 	Dim naxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nax) Then naxPTR = nax.Pointer
 
@@ -469,9 +433,7 @@ Public Shared Function gplotRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.gplotRead( filename)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -494,9 +456,7 @@ Public Shared Function gplotWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (gplot) then Throw New ArgumentNullException  ("gplot cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotWrite( filename, gplot.Pointer)
 

@@ -32,12 +32,10 @@ Public Shared Function dewarpSinglePage(
 				 ByVal useboth as Integer, 
 				 ByVal check_columns as Integer, 
 				<Out()> ByRef ppixd as Pix, 
-				<Out()> ByRef pdewa as L_Dewarpa, 
-				 ByVal debug as Enumerations.DebugOnOff) as Integer
+				<Out()> Optional ByRef pdewa as L_Dewarpa = Nothing, 
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 Dim pdewaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdewa) Then pdewaPTR = pdewa.Pointer
@@ -88,8 +86,6 @@ Public Shared Function dewarpSinglePageInit(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
 	Dim ppixbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixb) Then ppixbPTR = ppixb.Pointer
 	Dim pdewaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdewa) Then pdewaPTR = pdewa.Pointer
 
@@ -125,12 +121,11 @@ Public Shared Function dewarpSinglePageRun(
 				 ByVal pixb as Pix, 
 				 ByVal dewa as L_Dewarpa, 
 				<Out()> ByRef ppixd as Pix, 
-				 ByVal debug as Enumerations.DebugOnOff) as Integer
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixb) then Throw New ArgumentNullException  ("pixb cannot be Nothing")
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
-
 
 	If {1}.contains (pixb.d) = false then Throw New ArgumentException ("1 bpp")
 
@@ -164,9 +159,6 @@ Public Shared Function dewarpaListPages(
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaListPages( dewa.Pointer)
 
 	Return _Result
@@ -199,12 +191,9 @@ End Function
 Public Shared Function dewarpaSetValidModels(
 				 ByVal dewa as L_Dewarpa, 
 				 ByVal notests as Integer, 
-				 ByVal debug as Enumerations.DebugOnOff) as Integer
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaSetValidModels( dewa.Pointer, notests, debug)
 
@@ -254,12 +243,9 @@ End Function
 Public Shared Function dewarpaInsertRefModels(
 				 ByVal dewa as L_Dewarpa, 
 				 ByVal notests as Integer, 
-				 ByVal debug as Enumerations.DebugOnOff) as Integer
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaInsertRefModels( dewa.Pointer, notests, debug)
 
@@ -285,9 +271,6 @@ Public Shared Function dewarpaStripRefModels(
 				 ByVal dewa as L_Dewarpa) as Integer
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaStripRefModels( dewa.Pointer)
 
@@ -316,9 +299,6 @@ Public Shared Function dewarpaRestoreModels(
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaRestoreModels( dewa.Pointer)
 
 	Return _Result
@@ -338,9 +318,6 @@ Public Shared Function dewarpaInfo(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaInfo( fp.Pointer, dewa.Pointer)
 
@@ -385,17 +362,14 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function dewarpaModelStats(
 				 ByVal dewa as L_Dewarpa, 
-				<Out()> ByRef pnnone as Integer, 
-				<Out()> ByRef pnvsuccess as Integer, 
-				<Out()> ByRef pnvvalid as Integer, 
-				<Out()> ByRef pnhsuccess as Integer, 
-				<Out()> ByRef pnhvalid as Integer, 
-				<Out()> ByRef pnref as Integer) as Integer
+				<Out()> Optional ByRef pnnone as Integer = Nothing, 
+				<Out()> Optional ByRef pnvsuccess as Integer = Nothing, 
+				<Out()> Optional ByRef pnvvalid as Integer = Nothing, 
+				<Out()> Optional ByRef pnhsuccess as Integer = Nothing, 
+				<Out()> Optional ByRef pnhvalid as Integer = Nothing, 
+				<Out()> Optional ByRef pnref as Integer = Nothing) as Integer
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaModelStats( dewa.Pointer, pnnone, pnvsuccess, pnvvalid, pnhsuccess, pnhvalid, pnref)
 
@@ -426,9 +400,6 @@ Public Shared Function dewarpaShowArrays(
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaShowArrays( dewa.Pointer, scalefact, first, last)
 
 	Return _Result
@@ -457,9 +428,6 @@ Public Shared Function dewarpDebug(
 
 	If IsNothing (dew) then Throw New ArgumentNullException  ("dew cannot be Nothing")
 	If IsNothing (subdirs) then Throw New ArgumentNullException  ("subdirs cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpDebug( dew.Pointer, subdirs, index)
 
@@ -500,9 +468,6 @@ Public Shared Function dewarpShowResults(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 	If IsNothing (pdfout) then Throw New ArgumentNullException  ("pdfout cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpShowResults( dewa.Pointer, sa.Pointer, boxa.Pointer, firstpage, lastpage, pdfout)
 

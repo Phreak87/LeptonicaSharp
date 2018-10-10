@@ -54,10 +54,6 @@ Public Shared Function generateBinaryMaze(
 				 ByVal wallps as Single, 
 				 ByVal ranis as Single) as Pix
 
-
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generateBinaryMaze( w, h, xi, yi, wallps, ranis)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -114,11 +110,9 @@ Public Shared Function pixSearchBinaryMaze(
 				 ByVal yi as Integer, 
 				 ByVal xf as Integer, 
 				 ByVal yf as Integer, 
-				<Out()> ByRef ppixd as Pix) as Pta
+				<Out()> Optional ByRef ppixd as Pix = Nothing) as Pta
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
@@ -147,11 +141,9 @@ Public Shared Function pixSearchGrayMaze(
 				 ByVal yi as Integer, 
 				 ByVal xf as Integer, 
 				 ByVal yf as Integer, 
-				<Out()> ByRef ppixd as Pix) as Pta
+				<Out()> Optional ByRef ppixd as Pix = Nothing) as Pta
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 

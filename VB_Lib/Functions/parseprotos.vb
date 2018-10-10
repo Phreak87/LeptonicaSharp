@@ -16,9 +16,6 @@ Public Shared Function parseForProtos(
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
 	If IsNothing (prestring) then Throw New ArgumentNullException  ("prestring cannot be Nothing")
 
-
-
-
 	Dim _Result as String = LeptonicaSharp.Natives.parseForProtos( filein, prestring)
 
 	Return _Result

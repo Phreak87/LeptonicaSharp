@@ -8,11 +8,13 @@ Module Module1
 
     Sub Main()
 
+        Dim Dave As New LineRemoval_Reg() : Dave.Test()
+
         ' ---------------------------------------------
         ' Copy the required dll-files to your path if
         ' they dont exists. (Nuget)
         ' ---------------------------------------------
-        LeptonicaSharp.Natives.Initialize()
+        ' LeptonicaSharp.Natives.Initialize()
 
         ' ---------------------------------------------
         ' Set to 1 to enable debug images.
@@ -25,13 +27,13 @@ Module Module1
 
         Dim BMP As Bitmap = PIX01.BitmapStatic
 
-        Dim PIxs As New Pix("..\..\..\All_Images\contrast-orig-60.jpg")
+        Dim PIxs As New Pix("..\..\..\All_Images\Leptonica\contrast-orig-60.jpg")
         Dim pixt1 As Pix = LeptonicaSharp._All.pixCloseGray(PIxs, 11, 11)
         Dim pixt2 As Pix = LeptonicaSharp._All.pixOpenGray(PIxs, 11, 11)
         Dim pixt3 As Integer = LeptonicaSharp._All.pixCombineMasked(PIxs, pixt1, Nothing)
         Dim PixG1 As Pix = LeptonicaSharp._All.pixConvertRGBToGray(PIX32, 0, 0, 0)
 
-        PIX32.pixBackgroundNormSimple()
+        PIxs = PIxs.pixBackgroundNormSimple()
         Dim bmp1 As Bitmap = PIxs.ToBitmap
 
         PIX32.Dispose()
@@ -50,7 +52,13 @@ Module Module1
         'TestColorMap()         ' OK
         'TestSimpleClass()      ' OK
         'TestPixFunctions()     ' OK
-        'TestDewaFunctions()    ' OK
+
+        'Dim Quan As New Examples_Quantization
+        'Quan.QuantizationTest()
+
+        'Dim Dewa As New Examples_Dewarping
+        'Dewa.TestDewarp()
+
         'TestNumaFunctions()    ' OK
         'TestExtensions()       ' OK
 
@@ -126,7 +134,7 @@ Module Module1
         Dim PixB01 As Byte() = My.Computer.FileSystem.ReadAllBytes("01Test.bmp")
         Dim BMP1 As Bitmap = Bitmap.FromStream(New IO.MemoryStream(PixB01))
 
-        Dim B02 As Byte()
+        Dim B02 As Byte() = Nothing
         Dim INT As Integer
         LeptonicaSharp._All.pixWriteMemBmp(B02, INT, PIX01)
         Dim BMP2 As Bitmap = New Bitmap(New IO.MemoryStream(B02))

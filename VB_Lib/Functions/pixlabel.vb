@@ -33,9 +33,7 @@ Public Shared Function pixConnCompTransform(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConnCompTransform( pixs.Pointer, connect, depth)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -65,9 +63,7 @@ Public Shared Function pixConnCompAreaTransform(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConnCompAreaTransform( pixs.Pointer, connect)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -108,7 +104,6 @@ Public Shared Function pixConnCompIncrInit(
 				<Out()> ByRef pncc as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
 
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
@@ -163,13 +158,10 @@ Public Shared Function pixConnCompIncrAdd(
 				<Out()> ByRef pncc as Integer, 
 				 ByVal x as Single, 
 				 ByVal y as Single, 
-				 ByVal debug as Enumerations.DebugOnOff) as Integer
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixConnCompIncrAdd( pixs.Pointer, ptaa.Pointer, pncc, x, y, debug)
 
@@ -210,8 +202,6 @@ Public Shared Function pixGetSortedNeighborValues(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
 Dim pneighPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetSortedNeighborValues( pixs.Pointer, x, y, conn, pneighPTR, pnvals)
@@ -244,9 +234,7 @@ Public Shared Function pixLocToColorTransform(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixLocToColorTransform( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing

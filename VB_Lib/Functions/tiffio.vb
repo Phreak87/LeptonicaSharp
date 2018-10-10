@@ -26,9 +26,7 @@ Public Shared Function pixReadTiff(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadTiff( filename, n)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -56,9 +54,6 @@ Public Shared Function pixReadStreamTiff(
 				 ByVal n as Integer) as Pix
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadStreamTiff( fp.Pointer, n)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -96,9 +91,7 @@ Public Shared Function pixWriteTiff(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 	If IsNothing (modestr) then Throw New ArgumentNullException  ("modestr cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteTiff( filename, pix.Pointer, comptype, modestr)
 
@@ -124,15 +117,14 @@ Public Shared Function pixWriteTiffCustom(
 				 ByVal pix as Pix, 
 				 ByVal comptype as Enumerations.IFF, 
 				 ByVal modestr as String, 
-				 ByVal natags as Numa, 
-				 ByVal savals as Sarray, 
-				 ByVal satypes as Sarray, 
-				 ByVal nasizes as Numa) as Integer
+				 Optional ByVal natags as Numa = Nothing, 
+				 Optional ByVal savals as Sarray = Nothing, 
+				 Optional ByVal satypes as Sarray = Nothing, 
+				 Optional ByVal nasizes as Numa = Nothing) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 	If IsNothing (modestr) then Throw New ArgumentNullException  ("modestr cannot be Nothing")
-
 
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
@@ -179,9 +171,6 @@ Public Shared Function pixWriteStreamTiff(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamTiff( fp.Pointer, pix.Pointer, comptype)
 
 	Return _Result
@@ -206,9 +195,6 @@ Public Shared Function pixWriteStreamTiffWA(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 	If IsNothing (modestr) then Throw New ArgumentNullException  ("modestr cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamTiffWA( fp.Pointer, pix.Pointer, comptype, modestr)
 
@@ -253,8 +239,6 @@ Public Shared Function pixReadFromMultipageTiff(
 
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 
-
-
 	Dim poffsetPTR As IntPtr = Marshal.AllocHGlobal(poffset.Count) : Marshal.Copy(poffset, 0, poffsetPTR, poffset.Length)
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadFromMultipageTiff( fname, poffsetPTR)
@@ -276,9 +260,7 @@ Public Shared Function pixaReadMultipageTiff(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaReadMultipageTiff( filename)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -307,9 +289,6 @@ Public Shared Function pixaWriteMultipageTiff(
 
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaWriteMultipageTiff( fname, pixa.Pointer)
 
@@ -349,9 +328,6 @@ Public Shared Function writeMultipageTiff(
 	If IsNothing (dirin) then Throw New ArgumentNullException  ("dirin cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.writeMultipageTiff( dirin, substr, fileout)
 
 	Return _Result
@@ -377,9 +353,6 @@ Public Shared Function writeMultipageTiffSA(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.writeMultipageTiffSA( sa.Pointer, fileout)
 
 	Return _Result
@@ -400,9 +373,6 @@ Public Shared Function fprintTiffInfo(
 	If IsNothing (fpout) then Throw New ArgumentNullException  ("fpout cannot be Nothing")
 	If IsNothing (tiffile) then Throw New ArgumentNullException  ("tiffile cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.fprintTiffInfo( fpout.Pointer, tiffile)
 
 	Return _Result
@@ -421,9 +391,6 @@ Public Shared Function tiffGetCount(
 				<Out()> ByRef pn as Integer) as Integer
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.tiffGetCount( fp.Pointer, pn)
 
@@ -451,9 +418,6 @@ Public Shared Function getTiffResolution(
 				<Out()> ByRef pyres as Integer) as Integer
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.getTiffResolution( fp.Pointer, pxres, pyres)
 
@@ -484,19 +448,17 @@ End Function
 Public Shared Function readHeaderTiff(
 				 ByVal filename as String, 
 				 ByVal n as Integer, 
-				<Out()> ByRef pw as Integer, 
-				<Out()> ByRef ph as Integer, 
-				<Out()> ByRef pbps as Integer, 
-				<Out()> ByRef pspp as Integer, 
-				<Out()> ByRef pres as Integer, 
-				<Out()> ByRef pcmap as Integer, 
-				<Out()> ByRef pformat as Integer) as Integer
+				<Out()> Optional ByRef pw as Integer = Nothing, 
+				<Out()> Optional ByRef ph as Integer = Nothing, 
+				<Out()> Optional ByRef pbps as Integer = Nothing, 
+				<Out()> Optional ByRef pspp as Integer = Nothing, 
+				<Out()> Optional ByRef pres as Integer = Nothing, 
+				<Out()> Optional ByRef pcmap as Integer = Nothing, 
+				<Out()> Optional ByRef pformat as Integer = Nothing) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderTiff( filename, n, pw, ph, pbps, pspp, pres, pcmap, pformat)
 
@@ -527,18 +489,15 @@ End Function
 Public Shared Function freadHeaderTiff(
 				 ByVal fp as FILE, 
 				 ByVal n as Integer, 
-				<Out()> ByRef pw as Integer, 
-				<Out()> ByRef ph as Integer, 
-				<Out()> ByRef pbps as Integer, 
-				<Out()> ByRef pspp as Integer, 
-				<Out()> ByRef pres as Integer, 
-				<Out()> ByRef pcmap as Integer, 
-				<Out()> ByRef pformat as Integer) as Integer
+				<Out()> Optional ByRef pw as Integer = Nothing, 
+				<Out()> Optional ByRef ph as Integer = Nothing, 
+				<Out()> Optional ByRef pbps as Integer = Nothing, 
+				<Out()> Optional ByRef pspp as Integer = Nothing, 
+				<Out()> Optional ByRef pres as Integer = Nothing, 
+				<Out()> Optional ByRef pcmap as Integer = Nothing, 
+				<Out()> Optional ByRef pformat as Integer = Nothing) as Integer
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.freadHeaderTiff( fp.Pointer, n, pw, ph, pbps, pspp, pres, pcmap, pformat)
 
@@ -570,18 +529,15 @@ Public Shared Function readHeaderMemTiff(
 				 ByVal cdata as Byte(), 
 				 ByVal size as UInteger, 
 				 ByVal n as Integer, 
-				<Out()> ByRef pw as Integer, 
-				<Out()> ByRef ph as Integer, 
-				<Out()> ByRef pbps as Integer, 
-				<Out()> ByRef pspp as Integer, 
-				<Out()> ByRef pres as Integer, 
-				<Out()> ByRef pcmap as Integer, 
-				<Out()> ByRef pformat as Integer) as Integer
+				<Out()> Optional ByRef pw as Integer = Nothing, 
+				<Out()> Optional ByRef ph as Integer = Nothing, 
+				<Out()> Optional ByRef pbps as Integer = Nothing, 
+				<Out()> Optional ByRef pspp as Integer = Nothing, 
+				<Out()> Optional ByRef pres as Integer = Nothing, 
+				<Out()> Optional ByRef pcmap as Integer = Nothing, 
+				<Out()> Optional ByRef pformat as Integer = Nothing) as Integer
 
 	If IsNothing (cdata) then Throw New ArgumentNullException  ("cdata cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderMemTiff( cdata, size, n, pw, ph, pbps, pspp, pres, pcmap, pformat)
 
@@ -614,9 +570,6 @@ Public Shared Function findTiffCompression(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.findTiffCompression( fp.Pointer, pcomptype)
 
 	Return _Result
@@ -638,13 +591,11 @@ Public Shared Function extractG4DataFromFile(
 				 ByVal filein as String, 
 				<Out()> ByRef pdata as Byte(), 
 				<Out()> ByRef pnbytes as UInteger, 
-				<Out()> ByRef pw as Integer, 
-				<Out()> ByRef ph as Integer, 
-				<Out()> ByRef pminisblack as Integer) as Integer
+				<Out()> Optional ByRef pw as Integer = Nothing, 
+				<Out()> Optional ByRef ph as Integer = Nothing, 
+				<Out()> Optional ByRef pminisblack as Integer = Nothing) as Integer
 
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
-
-
 
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
@@ -681,9 +632,6 @@ Public Shared Function pixReadMemTiff(
 				 ByVal n as Integer) as Pix
 
 	If IsNothing (cdata) then Throw New ArgumentNullException  ("cdata cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemTiff( cdata, size, n)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -722,8 +670,6 @@ Public Shared Function pixReadMemFromMultipageTiff(
 
 	If IsNothing (cdata) then Throw New ArgumentNullException  ("cdata cannot be Nothing")
 
-
-
 	Dim poffsetPTR As IntPtr = Marshal.AllocHGlobal(poffset.Count) : Marshal.Copy(poffset, 0, poffsetPTR, poffset.Length)
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemFromMultipageTiff( cdata, size, poffsetPTR)
@@ -751,9 +697,6 @@ Public Shared Function pixaReadMemMultipageTiff(
 				 ByVal size as UInteger) as Pixa
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaReadMemMultipageTiff( data, size)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -786,8 +729,6 @@ Public Shared Function pixaWriteMemMultipageTiff(
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-
-
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaWriteMemMultipageTiff( pdataPTR, psize, pixa.Pointer)
@@ -813,8 +754,6 @@ Public Shared Function pixWriteMemTiff(
 				 ByVal comptype as Enumerations.IFF) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-
 
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
@@ -843,14 +782,12 @@ Public Shared Function pixWriteMemTiffCustom(
 				<Out()> ByRef psize as UInteger, 
 				 ByVal pix as Pix, 
 				 ByVal comptype as Enumerations.IFF, 
-				 ByVal natags as Numa, 
-				 ByVal savals as Sarray, 
-				 ByVal satypes as Sarray, 
-				 ByVal nasizes as Numa) as Integer
+				 Optional ByVal natags as Numa = Nothing, 
+				 Optional ByVal savals as Sarray = Nothing, 
+				 Optional ByVal satypes as Sarray = Nothing, 
+				 Optional ByVal nasizes as Numa = Nothing) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-
 
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 	Dim natagsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(natags) Then natagsPTR = natags.Pointer

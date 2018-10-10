@@ -31,15 +31,12 @@ Public Shared Function pixOrientCorrect(
 				 ByVal pixs as Pix, 
 				 ByVal minupconf as Single, 
 				 ByVal minratio as Single, 
-				<Out()> ByRef pupconf as Single(), 
-				<Out()> ByRef pleftconf as Single(), 
-				<Out()> ByRef protation as Integer, 
-				 ByVal debug as Enumerations.DebugOnOff) as Pix
+				<Out()> Optional ByRef pupconf as Single = Nothing, 
+				<Out()> Optional ByRef pleftconf as Single = Nothing, 
+				<Out()> Optional ByRef protation as Integer = Nothing, 
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOrientCorrect( pixs.Pointer, minupconf, minratio, pupconf, pleftconf, protation, debug)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -108,15 +105,12 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixOrientDetect(
 				 ByVal pixs as Pix, 
-				<Out()> ByRef pupconf as Single(), 
-				<Out()> ByRef pleftconf as Single(), 
+				<Out()> ByRef pupconf as Single, 
+				<Out()> ByRef pleftconf as Single, 
 				 ByVal mincount as Integer, 
-				 ByVal debug as Enumerations.DebugOnOff) as Integer
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixOrientDetect( pixs.Pointer, pupconf, pleftconf, mincount, debug)
 
@@ -159,11 +153,7 @@ Public Shared Function makeOrientDecision(
 				 ByVal minupconf as Single, 
 				 ByVal minratio as Single, 
 				<Out()> ByRef porient as Integer, 
-				 ByVal debug as Enumerations.DebugOnOff) as Integer
-
-
-
-
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.makeOrientDecision( upconf, leftconf, minupconf, minratio, porient, debug)
 
@@ -194,14 +184,11 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixUpDownDetect(
 				 ByVal pixs as Pix, 
-				<Out()> ByRef pconf as Single(), 
+				<Out()> ByRef pconf as Single, 
 				 ByVal mincount as Integer, 
-				 ByVal debug as Enumerations.DebugOnOff) as Integer
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixUpDownDetect( pixs.Pointer, pconf, mincount, debug)
 
@@ -249,15 +236,12 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixUpDownDetectGeneral(
 				 ByVal pixs as Pix, 
-				<Out()> ByRef pconf as Single(), 
+				<Out()> ByRef pconf as Single, 
 				 ByVal mincount as Integer, 
 				 ByVal npixels as Integer, 
-				 ByVal debug as Enumerations.DebugOnOff) as Integer
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixUpDownDetectGeneral( pixs.Pointer, pconf, mincount, npixels, debug)
 
@@ -288,15 +272,12 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixOrientDetectDwa(
 				 ByVal pixs as Pix, 
-				<Out()> ByRef pupconf as Single(), 
-				<Out()> ByRef pleftconf as Single(), 
+				<Out()> ByRef pupconf as Single, 
+				<Out()> ByRef pleftconf as Single, 
 				 ByVal mincount as Integer, 
-				 ByVal debug as Enumerations.DebugOnOff) as Integer
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixOrientDetectDwa( pixs.Pointer, pupconf, pleftconf, mincount, debug)
 
@@ -329,14 +310,11 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixUpDownDetectDwa(
 				 ByVal pixs as Pix, 
-				<Out()> ByRef pconf as Single(), 
+				<Out()> ByRef pconf as Single, 
 				 ByVal mincount as Integer, 
-				 ByVal debug as Enumerations.DebugOnOff) as Integer
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixUpDownDetectDwa( pixs.Pointer, pconf, mincount, debug)
 
@@ -361,15 +339,12 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixUpDownDetectGeneralDwa(
 				 ByVal pixs as Pix, 
-				<Out()> ByRef pconf as Single(), 
+				<Out()> ByRef pconf as Single, 
 				 ByVal mincount as Integer, 
 				 ByVal npixels as Integer, 
-				 ByVal debug as Enumerations.DebugOnOff) as Integer
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixUpDownDetectGeneralDwa( pixs.Pointer, pconf, mincount, npixels, debug)
 
@@ -418,14 +393,11 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixMirrorDetect(
 				 ByVal pixs as Pix, 
-				<Out()> ByRef pconf as Single(), 
+				<Out()> ByRef pconf as Single, 
 				 ByVal mincount as Integer, 
-				 ByVal debug as Enumerations.DebugOnOff) as Integer
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixMirrorDetect( pixs.Pointer, pconf, mincount, debug)
 
@@ -451,14 +423,11 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixMirrorDetectDwa(
 				 ByVal pixs as Pix, 
-				<Out()> ByRef pconf as Single(), 
+				<Out()> ByRef pconf as Single, 
 				 ByVal mincount as Integer, 
-				 ByVal debug as Enumerations.DebugOnOff) as Integer
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixMirrorDetectDwa( pixs.Pointer, pconf, mincount, debug)
 

@@ -40,9 +40,6 @@ Public Shared Function pmsCreate(
 	If IsNothing (numalloc) then Throw New ArgumentNullException  ("numalloc cannot be Nothing")
 	If IsNothing (logfile) then Throw New ArgumentNullException  ("logfile cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pmsCreate( minsize, smallest, numalloc.Pointer, logfile)
 
 	Return _Result
@@ -60,10 +57,6 @@ End Function
 '''  <remarks>
 '''  </remarks>
 Public Shared Sub pmsDestroy()
-
-
-
-
 
 	LeptonicaSharp.Natives.pmsDestroy( )
 
@@ -88,10 +81,6 @@ End Sub
 Public Shared Function pmsCustomAlloc(
 				 ByVal nbytes as UInteger) as Object
 
-
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pmsCustomAlloc( nbytes)
 
 	Return _Result
@@ -107,8 +96,6 @@ Public Shared Sub pmsCustomDealloc(
 				 ByVal data as Object)
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-
-
 
 Dim dataPTR As IntPtr = Marshal.AllocHGlobal(0)
 
@@ -139,10 +126,6 @@ End Sub
 Public Shared Function pmsGetAlloc(
 				 ByVal nbytes as UInteger) as Object
 
-
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pmsGetAlloc( nbytes)
 
 	Return _Result
@@ -159,10 +142,6 @@ End Function
 Public Shared Function pmsGetLevelForAlloc(
 				 ByVal nbytes as UInteger, 
 				<Out()> ByRef plevel as Integer) as Integer
-
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pmsGetLevelForAlloc( nbytes, plevel)
 
@@ -183,8 +162,6 @@ Public Shared Function pmsGetLevelForDealloc(
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
-
-
 Dim dataPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pmsGetLevelForDealloc( dataPTR, plevel)
@@ -198,10 +175,6 @@ End Function
 '''  <remarks>
 '''  </remarks>
 Public Shared Sub pmsLogInfo()
-
-
-
-
 
 	LeptonicaSharp.Natives.pmsLogInfo( )
 

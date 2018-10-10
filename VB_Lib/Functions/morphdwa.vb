@@ -43,7 +43,6 @@ Public Shared Function pixDilateBrickDwa(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
@@ -97,7 +96,6 @@ Public Shared Function pixErodeBrickDwa(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
@@ -150,7 +148,6 @@ Public Shared Function pixOpenBrickDwa(
 				 ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
 
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
@@ -206,7 +203,6 @@ Public Shared Function pixCloseBrickDwa(
 				 ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
 
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
@@ -270,7 +266,6 @@ Public Shared Function pixDilateCompBrickDwa(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
@@ -333,7 +328,6 @@ Public Shared Function pixErodeCompBrickDwa(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
@@ -395,7 +389,6 @@ Public Shared Function pixOpenCompBrickDwa(
 				 ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
 
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
@@ -460,7 +453,6 @@ Public Shared Function pixCloseCompBrickDwa(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
@@ -509,7 +501,6 @@ Public Shared Function pixDilateCompBrickExtendDwa(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
@@ -545,7 +536,6 @@ Public Shared Function pixErodeCompBrickExtendDwa(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
@@ -574,7 +564,6 @@ Public Shared Function pixOpenCompBrickExtendDwa(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
@@ -602,7 +591,6 @@ Public Shared Function pixCloseCompBrickExtendDwa(
 				 ByVal vsize as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
 
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
@@ -658,11 +646,7 @@ Public Shared Function getExtendedCompositeParameters(
 				 ByVal size as Integer, 
 				<Out()> ByRef pn as Integer, 
 				<Out()> ByRef pextra as Integer, 
-				<Out()> ByRef pactualsize as Integer) as Integer
-
-
-
-
+				<Out()> Optional ByRef pactualsize as Integer = Nothing) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.getExtendedCompositeParameters( size, pn, pextra, pactualsize)
 

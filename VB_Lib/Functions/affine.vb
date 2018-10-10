@@ -44,9 +44,6 @@ Public Shared Function pixAffineSampledPta(
 	If IsNothing (ptad) then Throw New ArgumentNullException  ("ptad cannot be Nothing")
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAffineSampledPta( pixs.Pointer, ptad.Pointer, ptas.Pointer, incolor)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -78,9 +75,6 @@ Public Shared Function pixAffineSampled(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAffineSampled( pixs.Pointer, vc, incolor)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -114,9 +108,6 @@ Public Shared Function pixAffinePta(
 	If IsNothing (ptad) then Throw New ArgumentNullException  ("ptad cannot be Nothing")
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAffinePta( pixs.Pointer, ptad.Pointer, ptas.Pointer, incolor)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -146,9 +137,6 @@ Public Shared Function pixAffine(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAffine( pixs.Pointer, vc, incolor)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -175,9 +163,6 @@ Public Shared Function pixAffinePtaColor(
 	If IsNothing (ptad) then Throw New ArgumentNullException  ("ptad cannot be Nothing")
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAffinePtaColor( pixs.Pointer, ptad.Pointer, ptas.Pointer, colorval)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -200,9 +185,6 @@ Public Shared Function pixAffineColor(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAffineColor( pixs.Pointer, vc, colorval)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -231,9 +213,7 @@ Public Shared Function pixAffinePtaGray(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 	If IsNothing (grayval) then Throw New ArgumentNullException  ("grayval cannot be Nothing")
 
-
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAffinePtaGray( pixs.Pointer, ptad.Pointer, ptas.Pointer, grayval)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -259,9 +239,7 @@ Public Shared Function pixAffineGray(
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
 	If IsNothing (grayval) then Throw New ArgumentNullException  ("grayval cannot be Nothing")
 
-
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAffineGray( pixs.Pointer, vc, grayval)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -323,7 +301,6 @@ Public Shared Function pixAffinePtaWithAlpha(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (ptad) then Throw New ArgumentNullException  ("ptad cannot be Nothing")
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
-
 
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
@@ -401,8 +378,6 @@ Public Shared Function getAffineXformCoeffs(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 	If IsNothing (ptad) then Throw New ArgumentNullException  ("ptad cannot be Nothing")
 
-
-
 Dim pvcPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.getAffineXformCoeffs( ptas.Pointer, ptad.Pointer, pvcPTR)
@@ -447,8 +422,6 @@ Public Shared Function affineInvertXform(
 
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
 
-
-
 Dim pvciPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.affineInvertXform( vc, pvciPTR)
@@ -482,9 +455,6 @@ Public Shared Function affineXformSampledPt(
 
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.affineXformSampledPt( vc, x, y, pxp, pyp)
 
 	Return _Result
@@ -511,13 +481,10 @@ Public Shared Function affineXformPt(
 				 ByVal vc as Single(), 
 				 ByVal x as Integer, 
 				 ByVal y as Integer, 
-				<Out()> ByRef pxp as Single(), 
-				<Out()> ByRef pyp as Single()) as Integer
+				<Out()> ByRef pxp as Single, 
+				<Out()> ByRef pyp as Single) as Integer
 
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.affineXformPt( vc, x, y, pxp, pyp)
 
@@ -556,8 +523,6 @@ Public Shared Function linearInterpolatePixelColor(
 				<Out()> ByRef pval as UInteger) as Integer
 
 	If IsNothing (datas) then Throw New ArgumentNullException  ("datas cannot be Nothing")
-
-
 
 	Dim datasPTR As IntPtr = Marshal.AllocHGlobal(datas.Count) : Marshal.Copy(datas, 0, datasPTR, datas.Length)
 
@@ -599,8 +564,6 @@ Public Shared Function linearInterpolatePixelGray(
 
 	If IsNothing (datas) then Throw New ArgumentNullException  ("datas cannot be Nothing")
 
-
-
 	Dim datasPTR As IntPtr = Marshal.AllocHGlobal(datas.Count) : Marshal.Copy(datas, 0, datasPTR, datas.Length)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.linearInterpolatePixelGray( datasPTR, wpls, w, h, x, y, grayval, pval)
@@ -636,8 +599,6 @@ Public Shared Function gaussjordan(
 
 	If IsNothing (a) then Throw New ArgumentNullException  ("a cannot be Nothing")
 	If IsNothing (b) then Throw New ArgumentNullException  ("b cannot be Nothing")
-
-
 
 Dim aPTR As IntPtr = Marshal.AllocHGlobal(0)
 
@@ -685,9 +646,6 @@ Public Shared Function pixAffineSequential(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (ptad) then Throw New ArgumentNullException  ("ptad cannot be Nothing")
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAffineSequential( pixs.Pointer, ptad.Pointer, ptas.Pointer, bw, bh)
 	If  _Result = IntPtr.Zero then Return Nothing

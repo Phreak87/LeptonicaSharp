@@ -67,9 +67,7 @@ Public Shared Function pixBilateral(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("1, 2 or 4")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBilateral( pixs.Pointer, spatial_stdev, range_stdev, ncomps, reduction)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -103,9 +101,7 @@ Public Shared Function pixBilateralGray(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("1, 2 or 4")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBilateralGray( pixs.Pointer, spatial_stdev, range_stdev, ncomps, reduction)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -140,12 +136,10 @@ End Function
 Public Shared Function pixBilateralExact(
 				 ByVal pixs as Pix, 
 				 ByVal spatial_kel as L_Kernel, 
-				 ByVal range_kel as L_Kernel) as Pix
+				 Optional ByVal range_kel as L_Kernel = Nothing) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (spatial_kel) then Throw New ArgumentNullException  ("spatial_kel cannot be Nothing")
-
-
 
 	Dim range_kelPTR As IntPtr = IntPtr.Zero : If Not IsNothing(range_kel) Then range_kelPTR = range_kel.Pointer
 
@@ -172,12 +166,10 @@ End Function
 Public Shared Function pixBilateralGrayExact(
 				 ByVal pixs as Pix, 
 				 ByVal spatial_kel as L_Kernel, 
-				 ByVal range_kel as L_Kernel) as Pix
+				 Optional ByVal range_kel as L_Kernel = Nothing) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (spatial_kel) then Throw New ArgumentNullException  ("spatial_kel cannot be Nothing")
-
-
 
 	Dim range_kelPTR As IntPtr = IntPtr.Zero : If Not IsNothing(range_kel) Then range_kelPTR = range_kel.Pointer
 
@@ -231,9 +223,6 @@ Public Shared Function pixBlockBilateralExact(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlockBilateralExact( pixs.Pointer, spatial_stdev, range_stdev)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -259,10 +248,6 @@ End Function
 '''   <returns>kel, or NULL on error</returns>
 Public Shared Function makeRangeKernel(
 				 ByVal range_stdev as Single) as L_Kernel
-
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.makeRangeKernel( range_stdev)
 	If  _Result = IntPtr.Zero then Return Nothing

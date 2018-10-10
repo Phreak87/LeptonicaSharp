@@ -19,9 +19,6 @@ Public Shared Function convertFilesToPS(
 	If IsNothing (substr) then Throw New ArgumentNullException  ("substr cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertFilesToPS( dirin, substr, res, fileout)
 
 	Return _Result
@@ -40,8 +37,6 @@ Public Shared Function sarrayConvertFilesToPS(
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
-
-
 
 Dim saPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sa) Then saPTR = sa.Pointer
 
@@ -67,9 +62,6 @@ Public Shared Function convertFilesFittedToPS(
 	If IsNothing (substr) then Throw New ArgumentNullException  ("substr cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertFilesFittedToPS( dirin, substr, xpts, ypts, fileout)
 
 	Return _Result
@@ -89,8 +81,6 @@ Public Shared Function sarrayConvertFilesFittedToPS(
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
-
-
 
 Dim saPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sa) Then saPTR = sa.Pointer
 
@@ -116,9 +106,6 @@ Public Shared Function writeImageCompressedToPSFile(
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 	If IsNothing (pfirstfile) then Throw New ArgumentNullException  ("pfirstfile cannot be Nothing")
 	If IsNothing (pindex) then Throw New ArgumentNullException  ("pindex cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.writeImageCompressedToPSFile( filein, fileout, res, pfirstfile, pindex)
 
@@ -151,9 +138,6 @@ Public Shared Function convertSegmentedPagesToPS(
 	If IsNothing (maskstr) then Throw New ArgumentNullException  ("maskstr cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertSegmentedPagesToPS( pagedir, pagestr, page_numpre, maskdir, maskstr, mask_numpre, numpost, maxnum, textscale, imagescale, threshold, fileout)
 
 	Return _Result
@@ -177,8 +161,6 @@ Public Shared Function pixWriteSegmentedPageToPS(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
-
-
 
 Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
@@ -205,8 +187,6 @@ Public Shared Function pixWriteMixedToPS(
 	If IsNothing (pixc) then Throw New ArgumentNullException  ("pixc cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 
-
-
 Dim pixbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixb) Then pixbPTR = pixb.Pointer
 Dim pixcPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixc) Then pixcPTR = pixc.Pointer
 
@@ -229,9 +209,6 @@ Public Shared Function convertToPSEmbed(
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertToPSEmbed( filein, fileout, level)
 
 	Return _Result
@@ -251,8 +228,6 @@ Public Shared Function pixaWriteCompressedToPS(
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
-
-
 
 Dim pixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixa) Then pixaPTR = pixa.Pointer
 

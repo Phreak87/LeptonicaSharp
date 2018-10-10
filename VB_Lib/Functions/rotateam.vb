@@ -26,9 +26,6 @@ Public Shared Function pixRotateAM(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotateAM( pixs.Pointer, angle, incolor)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -57,9 +54,6 @@ Public Shared Function pixRotateAMColor(
 				 ByVal colorval as UInteger) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotateAMColor( pixs.Pointer, angle, colorval)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -91,9 +85,7 @@ Public Shared Function pixRotateAMGray(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (grayval) then Throw New ArgumentNullException  ("grayval cannot be Nothing")
 
-
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotateAMGray( pixs.Pointer, angle, grayval)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -124,9 +116,6 @@ Public Shared Function pixRotateAMCorner(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotateAMCorner( pixs.Pointer, angle, incolor)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -155,9 +144,6 @@ Public Shared Function pixRotateAMColorCorner(
 				 ByVal fillval as UInteger) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotateAMColorCorner( pixs.Pointer, angle, fillval)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -188,9 +174,6 @@ Public Shared Function pixRotateAMGrayCorner(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (grayval) then Throw New ArgumentNullException  ("grayval cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotateAMGrayCorner( pixs.Pointer, angle, grayval)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -226,9 +209,6 @@ Public Shared Function pixRotateAMColorFast(
 				 ByVal colorval as UInteger) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotateAMColorFast( pixs.Pointer, angle, colorval)
 	If  _Result = IntPtr.Zero then Return Nothing

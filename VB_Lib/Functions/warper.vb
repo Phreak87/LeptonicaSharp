@@ -33,9 +33,6 @@ Public Shared Function pixSimpleCaptcha(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSimpleCaptcha( pixs.Pointer, border, nterms, seed, color, cmapflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -92,9 +89,6 @@ Public Shared Function pixRandomHarmonicWarp(
 				 ByVal grayval as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRandomHarmonicWarp( pixs.Pointer, xmag, ymag, xfreq, yfreq, nx, ny, seed, grayval)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -192,9 +186,6 @@ Public Shared Function pixWarpStereoscopic(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixWarpStereoscopic( pixs.Pointer, zbend, zshiftt, zshiftb, ybendt, ybendb, redleft)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -240,9 +231,6 @@ Public Shared Function pixStretchHorizontal(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixStretchHorizontal( pixs.Pointer, dir, type, hmax, operation, incolor)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -274,9 +262,6 @@ Public Shared Function pixStretchHorizontalSampled(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixStretchHorizontalSampled( pixs.Pointer, dir, type, hmax, incolor)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -307,9 +292,6 @@ Public Shared Function pixStretchHorizontalLI(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixStretchHorizontalLI( pixs.Pointer, dir, type, hmax, incolor)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -357,9 +339,6 @@ Public Shared Function pixQuadraticVShear(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixQuadraticVShear( pixs.Pointer, dir, vmaxt, vmaxb, operation, incolor)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -391,9 +370,6 @@ Public Shared Function pixQuadraticVShearSampled(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixQuadraticVShearSampled( pixs.Pointer, dir, vmaxt, vmaxb, incolor)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -424,9 +400,6 @@ Public Shared Function pixQuadraticVShearLI(
 				 ByVal incolor as Enumerations.L_BRING_IN) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixQuadraticVShearLI( pixs.Pointer, dir, vmaxt, vmaxb, incolor)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -476,10 +449,8 @@ Public Shared Function pixStereoFromPair(
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 
-
 	If {32}.contains (pix1.d) = false then Throw New ArgumentException ("32 bpp rgb")
 	If {32}.contains (pix2.d) = false then Throw New ArgumentException ("32 bpp rgb")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixStereoFromPair( pix1.Pointer, pix2.Pointer, rwt, gwt, bwt)
 	If  _Result = IntPtr.Zero then Return Nothing

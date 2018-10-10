@@ -36,9 +36,6 @@ Public Shared Function wshedCreate(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.wshedCreate( pixs.Pointer, pixm.Pointer, mindepth, debugflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -53,9 +50,6 @@ End Function
 '''  <param name="pwshed">[in,out] - will be set to null before returning</param>
 Public Shared Sub wshedDestroy(
 				 ByRef pwshed as L_WShed)
-
-
-
 
 	Dim pwshedPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pwshed) Then pwshedPTR = pwshed.Pointer
 
@@ -76,9 +70,6 @@ Public Shared Function wshedApply(
 
 	If IsNothing (wshed) then Throw New ArgumentNullException  ("wshed cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.wshedApply( wshed.Pointer)
 
 	Return _Result
@@ -95,12 +86,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function wshedBasins(
 				 ByVal wshed as L_WShed, 
-				<Out()> ByRef ppixa as Pixa, 
-				<Out()> ByRef pnalevels as Numa) as Integer
+				<Out()> Optional ByRef ppixa as Pixa = Nothing, 
+				<Out()> Optional ByRef pnalevels as Numa = Nothing) as Integer
 
 	If IsNothing (wshed) then Throw New ArgumentNullException  ("wshed cannot be Nothing")
-
-
 
 Dim ppixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixa) Then ppixaPTR = ppixa.Pointer
 Dim pnalevelsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnalevels) Then pnalevelsPTR = pnalevels.Pointer
@@ -124,9 +113,6 @@ Public Shared Function wshedRenderFill(
 
 	If IsNothing (wshed) then Throw New ArgumentNullException  ("wshed cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.wshedRenderFill( wshed.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -144,9 +130,6 @@ Public Shared Function wshedRenderColors(
 				 ByVal wshed as L_WShed) as Pix
 
 	If IsNothing (wshed) then Throw New ArgumentNullException  ("wshed cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.wshedRenderColors( wshed.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing

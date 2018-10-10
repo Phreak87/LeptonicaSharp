@@ -13,10 +13,6 @@ Partial Public Class _All
 Public Shared Function ptaCreate(
 				 ByVal n as Integer) as Pta
 
-
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaCreate( n)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -36,8 +32,6 @@ Public Shared Function ptaCreateFromNuma(
 				 ByVal nay as Numa) as Pta
 
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
-
-
 
 	Dim naxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nax) Then naxPTR = nax.Pointer
 
@@ -62,9 +56,6 @@ End Function
 Public Shared Sub ptaDestroy(
 				 ByRef ppta as Pta)
 
-
-
-
 	Dim pptaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppta) Then pptaPTR = ppta.Pointer
 
 	LeptonicaSharp.Natives.ptaDestroy( pptaPTR)
@@ -83,9 +74,6 @@ Public Shared Function ptaCopy(
 				 ByVal pta as Pta) as Pta
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaCopy( pta.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -109,9 +97,6 @@ Public Shared Function ptaCopyRange(
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaCopyRange( ptas.Pointer, istart, iend)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -129,9 +114,6 @@ Public Shared Function ptaClone(
 				 ByVal pta as Pta) as Pta
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaClone( pta.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -156,9 +138,6 @@ Public Shared Function ptaEmpty(
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaEmpty( pta.Pointer)
 
 	Return _Result
@@ -179,9 +158,6 @@ Public Shared Function ptaAddPt(
 				 ByVal y as Single) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaAddPt( pta.Pointer, x, y)
 
@@ -205,9 +181,6 @@ Public Shared Function ptaInsertPt(
 				 ByVal y as Integer) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaInsertPt( pta.Pointer, index, x, y)
 
@@ -235,9 +208,6 @@ Public Shared Function ptaRemovePt(
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaRemovePt( pta.Pointer, index)
 
 	Return _Result
@@ -253,8 +223,6 @@ Public Shared Function ptaGetRefcount(
 				 ByVal pta as Pta) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-
 
 Dim ptaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pta) Then ptaPTR = pta.Pointer
 
@@ -275,8 +243,6 @@ Public Shared Function ptaChangeRefcount(
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
-
-
 Dim ptaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pta) Then ptaPTR = pta.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaChangeRefcount( pta.Pointer, delta)
@@ -296,9 +262,6 @@ Public Shared Function ptaGetCount(
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetCount( pta.Pointer)
 
 	Return _Result
@@ -317,13 +280,10 @@ End Function
 Public Shared Function ptaGetPt(
 				 ByVal pta as Pta, 
 				 ByVal index as Integer, 
-				<Out()> ByRef px as Single(), 
-				<Out()> ByRef py as Single()) as Integer
+				<Out()> Optional ByRef px as Single = Nothing, 
+				<Out()> Optional ByRef py as Single = Nothing) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetPt( pta.Pointer, index, px, py)
 
@@ -343,13 +303,10 @@ End Function
 Public Shared Function ptaGetIPt(
 				 ByVal pta as Pta, 
 				 ByVal index as Integer, 
-				<Out()> ByRef px as Integer, 
-				<Out()> ByRef py as Integer) as Integer
+				<Out()> Optional ByRef px as Integer = Nothing, 
+				<Out()> Optional ByRef py as Integer = Nothing) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetIPt( pta.Pointer, index, px, py)
 
@@ -374,9 +331,6 @@ Public Shared Function ptaSetPt(
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaSetPt( pta.Pointer, index, x, y)
 
 	Return _Result
@@ -398,12 +352,10 @@ End Function
 '''   <returns>0 if OK 1 on error or if pta is empty</returns>
 Public Shared Function ptaGetArrays(
 				 ByVal pta as Pta, 
-				<Out()> ByRef pnax as Numa, 
-				<Out()> ByRef pnay as Numa) as Integer
+				<Out()> Optional ByRef pnax as Numa = Nothing, 
+				<Out()> Optional ByRef pnay as Numa = Nothing) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-
 
 Dim pnaxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnax) Then pnaxPTR = pnax.Pointer
 Dim pnayPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnay) Then pnayPTR = pnay.Pointer
@@ -427,9 +379,7 @@ Public Shared Function ptaRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaRead( filename)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -448,9 +398,6 @@ Public Shared Function ptaReadStream(
 				 ByVal fp as FILE) as Pta
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaReadStream( fp.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -471,9 +418,6 @@ Public Shared Function ptaReadMem(
 				 ByVal size as UInteger) as Pta
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaReadMem( data, size)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -507,9 +451,7 @@ Public Shared Function ptaWriteDebug(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaWriteDebug( filename, pta.Pointer, type)
 
@@ -533,9 +475,7 @@ Public Shared Function ptaWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaWrite( filename, pta.Pointer, type)
 
@@ -558,9 +498,6 @@ Public Shared Function ptaWriteStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaWriteStream( fp.Pointer, pta.Pointer, type)
 
@@ -590,8 +527,6 @@ Public Shared Function ptaWriteMem(
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
-
-
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaWriteMem( pdataPTR, psize, pta.Pointer, type)
@@ -610,10 +545,6 @@ End Function
 Public Shared Function ptaaCreate(
 				 ByVal n as Integer) as Ptaa
 
-
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaaCreate( n)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -628,9 +559,6 @@ End Function
 '''  <param name="pptaa">[in,out] - to be nulled</param>
 Public Shared Sub ptaaDestroy(
 				 ByRef pptaa as Ptaa)
-
-
-
 
 	Dim pptaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pptaa) Then pptaaPTR = pptaa.Pointer
 
@@ -656,9 +584,6 @@ Public Shared Function ptaaAddPta(
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaAddPta( ptaa.Pointer, pta.Pointer, copyflag)
 
 	Return _Result
@@ -675,9 +600,6 @@ Public Shared Function ptaaGetCount(
 				 ByVal ptaa as Ptaa) as Integer
 
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaGetCount( ptaa.Pointer)
 
@@ -700,9 +622,6 @@ Public Shared Function ptaaGetPta(
 
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaaGetPta( ptaa.Pointer, index, accessflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -724,13 +643,10 @@ Public Shared Function ptaaGetPt(
 				 ByVal ptaa as Ptaa, 
 				 ByVal ipta as Integer, 
 				 ByVal jpt as Integer, 
-				<Out()> ByRef px as Single(), 
-				<Out()> ByRef py as Single()) as Integer
+				<Out()> Optional ByRef px as Single = Nothing, 
+				<Out()> Optional ByRef py as Single = Nothing) as Integer
 
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaGetPt( ptaa.Pointer, ipta, jpt, px, py)
 
@@ -751,9 +667,6 @@ Public Shared Function ptaaInitFull(
 
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaInitFull( ptaa.Pointer, pta.Pointer)
 
@@ -784,9 +697,6 @@ Public Shared Function ptaaReplacePta(
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaReplacePta( ptaa.Pointer, index, pta.Pointer)
 
 	Return _Result
@@ -808,9 +718,6 @@ Public Shared Function ptaaAddPt(
 				 ByVal y as Single) as Integer
 
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaAddPt( ptaa.Pointer, ipta, x, y)
 
@@ -836,9 +743,6 @@ Public Shared Function ptaaTruncate(
 
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaTruncate( ptaa.Pointer)
 
 	Return _Result
@@ -856,9 +760,7 @@ Public Shared Function ptaaRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaaRead( filename)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -877,9 +779,6 @@ Public Shared Function ptaaReadStream(
 				 ByVal fp as FILE) as Ptaa
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaaReadStream( fp.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -900,9 +799,6 @@ Public Shared Function ptaaReadMem(
 				 ByVal size as UInteger) as Ptaa
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaaReadMem( data, size)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -936,9 +832,7 @@ Public Shared Function ptaaWriteDebug(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaWriteDebug( filename, ptaa.Pointer, type)
 
@@ -962,9 +856,7 @@ Public Shared Function ptaaWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaWrite( filename, ptaa.Pointer, type)
 
@@ -987,9 +879,6 @@ Public Shared Function ptaaWriteStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaWriteStream( fp.Pointer, ptaa.Pointer, type)
 
@@ -1018,8 +907,6 @@ Public Shared Function ptaaWriteMem(
 				 ByVal type as Integer) as Integer
 
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
-
-
 
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 

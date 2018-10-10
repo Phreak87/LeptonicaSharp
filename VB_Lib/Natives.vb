@@ -1359,8 +1359,8 @@ Friend Shared Function affineXformPt(
 			ByVal vc as Single(), 
 			ByVal x as Integer, 
 			ByVal y as Integer, 
-			ByRef pxp as Single(), 
-			ByRef pyp as Single()) as Integer
+			ByRef pxp as Single, 
+			ByRef pyp as Single) as Integer
 End Function
 
 ' SRC\affine.c (1180, 1)
@@ -2264,8 +2264,8 @@ Friend Shared Function pixGetLocalSkewAngles(
 			ByVal sweeprange as Single, 
 			ByVal sweepdelta as Single, 
 			ByVal minbsdelta as Single, 
-			ByRef pa as Single(), 
-			ByRef pb as Single(), 
+			ByRef pa as Single, 
+			ByRef pb as Single, 
 			ByVal debug as Integer) as IntPtr
 End Function
 
@@ -2959,8 +2959,8 @@ Friend Shared Function bilinearXformPt(
 			ByVal vc as Single(), 
 			ByVal x as Integer, 
 			ByVal y as Integer, 
-			ByRef pxp as Single(), 
-			ByRef pyp as Single()) as Integer
+			ByRef pxp as Single, 
+			ByRef pyp as Single) as Integer
 End Function
 
 #End Region
@@ -5761,7 +5761,7 @@ End Function
 Friend Shared Function boxOverlapFraction(
 			ByVal box1 as IntPtr, 
 			ByVal box2 as IntPtr, 
-			ByRef pfract as Single()) as Integer
+			ByRef pfract as Single) as Integer
 End Function
 
 ' SRC\boxfunc1.c (792, 1)
@@ -6008,8 +6008,8 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="boxGetCenter")> _
 Friend Shared Function boxGetCenter(
 			ByVal box as IntPtr, 
-			ByRef pcx as Single(), 
-			ByRef pcy as Single()) as Integer
+			ByRef pcx as Single, 
+			ByRef pcy as Single) as Integer
 End Function
 
 ' SRC\boxfunc1.c (1485, 1)
@@ -7015,8 +7015,8 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="boxaGetAverageSize")> _
 Friend Shared Function boxaGetAverageSize(
 			ByVal boxa as IntPtr, 
-			ByRef pw as Single(), 
-			ByRef ph as Single()) as Integer
+			ByRef pw as Single, 
+			ByRef ph as Single) as Integer
 End Function
 
 ' SRC\boxfunc2.c (1398, 1)
@@ -7648,8 +7648,8 @@ Friend Shared Function boxaCompareRegions(
 			ByVal boxa2 as IntPtr, 
 			ByVal areathresh as Integer, 
 			ByRef pnsame as Integer, 
-			ByRef pdiffarea as Single(), 
-			ByRef pdiffxor as Single(), 
+			ByRef pdiffarea as Single, 
+			ByRef pdiffxor as Single, 
 			ByRef ppixdb as IntPtr) as Integer
 End Function
 
@@ -8566,10 +8566,10 @@ End Function
 Friend Shared Function boxaSizeVariation(
 			ByVal boxa as IntPtr, 
 			ByVal type as Integer, 
-			ByRef pdel_evenodd as Single(), 
-			ByRef prms_even as Single(), 
-			ByRef prms_odd as Single(), 
-			ByRef prms_all as Single()) as Integer
+			ByRef pdel_evenodd as Single, 
+			ByRef prms_even as Single, 
+			ByRef prms_odd as Single, 
+			ByRef prms_all as Single) as Integer
 End Function
 
 ' SRC\boxfunc4.c (2419, 1)
@@ -8629,7 +8629,7 @@ Friend Shared Function boxaGetCoverage(
 			ByVal wc as Integer, 
 			ByVal hc as Integer, 
 			ByVal exactflag as Integer, 
-			ByRef pfract as Single()) as Integer
+			ByRef pfract as Single) as Integer
 End Function
 
 ' SRC\boxfunc4.c (2544, 1)
@@ -10344,8 +10344,8 @@ Friend Shared Function pixColorFraction(
 			ByVal lightthresh as Integer, 
 			ByVal diffthresh as Integer, 
 			ByVal factor as Integer, 
-			ByRef ppixfract as Single(), 
-			ByRef pcolorfract as Single()) as Integer
+			ByRef ppixfract as Single, 
+			ByRef pcolorfract as Single) as Integer
 End Function
 
 ' SRC\colorcontent.c (805, 1)
@@ -10419,7 +10419,7 @@ Friend Shared Function pixFindColorRegions(
 			ByVal mindiff as Integer, 
 			ByVal colordiff as Integer, 
 			ByVal edgefract as Single, 
-			ByRef pcolorfract as Single(), 
+			ByRef pcolorfract as Single, 
 			ByRef pcolormask1 as IntPtr, 
 			ByRef pcolormask2 as IntPtr, 
 			ByRef pixadb as IntPtr) as Integer
@@ -10756,7 +10756,7 @@ Friend Shared Function pixHasHighlightRed(
 			ByVal fract as Single, 
 			ByVal fthresh as Single, 
 			ByRef phasred as Integer, 
-			ByRef pratio as Single(), 
+			ByRef pratio as Single, 
 			ByRef ppixdb as IntPtr) as Integer
 End Function
 
@@ -14343,9 +14343,9 @@ Friend Shared Function convertRGBToXYZ(
 			ByVal rval as Integer, 
 			ByVal gval as Integer, 
 			ByVal bval as Integer, 
-			ByRef pfxval as Single(), 
-			ByRef pfyval as Single(), 
-			ByRef pfzval as Single()) as Integer
+			ByRef pfxval as Single, 
+			ByRef pfyval as Single, 
+			ByRef pfzval as Single) as Integer
 End Function
 
 ' SRC\colorspace.c (1921, 1)
@@ -14442,9 +14442,9 @@ Friend Shared Function convertXYZToLAB(
 			ByVal xval as Single, 
 			ByVal yval as Single, 
 			ByVal zval as Single, 
-			ByRef plval as Single(), 
-			ByRef paval as Single(), 
-			ByRef pbval as Single()) as Integer
+			ByRef plval as Single, 
+			ByRef paval as Single, 
+			ByRef pbval as Single) as Integer
 End Function
 
 ' SRC\colorspace.c (2149, 1)
@@ -14464,9 +14464,9 @@ Friend Shared Function convertLABToXYZ(
 			ByVal lval as Single, 
 			ByVal aval as Single, 
 			ByVal bval as Single, 
-			ByRef pxval as Single(), 
-			ByRef pyval as Single(), 
-			ByRef pzval as Single()) as Integer
+			ByRef pxval as Single, 
+			ByRef pyval as Single, 
+			ByRef pzval as Single) as Integer
 End Function
 
 ' SRC\colorspace.c (2243, 1)
@@ -14527,9 +14527,9 @@ Friend Shared Function convertRGBToLAB(
 			ByVal rval as Integer, 
 			ByVal gval as Integer, 
 			ByVal bval as Integer, 
-			ByRef pflval as Single(), 
-			ByRef pfaval as Single(), 
-			ByRef pfbval as Single()) as Integer
+			ByRef pflval as Single, 
+			ByRef pfaval as Single, 
+			ByRef pfbval as Single) as Integer
 End Function
 
 ' SRC\colorspace.c (2395, 1)
@@ -14732,7 +14732,7 @@ End Function
 Friend Shared Function pixCorrelationBinary(
 			ByVal pix1 as IntPtr, 
 			ByVal pix2 as IntPtr, 
-			ByRef pval as Single()) as Integer
+			ByRef pval as Single) as Integer
 End Function
 
 ' SRC\compare.c (656, 1)
@@ -14785,7 +14785,7 @@ Friend Shared Function pixCompareBinary(
 			ByVal pix1 as IntPtr, 
 			ByVal pix2 as IntPtr, 
 			ByVal comptype as Integer, 
-			ByRef pfract as Single(), 
+			ByRef pfract as Single, 
 			ByRef ppixdiff as IntPtr) as Integer
 End Function
 
@@ -14834,8 +14834,8 @@ Friend Shared Function pixCompareGrayOrRGB(
 			ByVal comptype as Integer, 
 			ByVal plottype as Integer, 
 			ByRef psame as Integer, 
-			ByRef pdiff as Single(), 
-			ByRef prmsdiff as Single(), 
+			ByRef pdiff as Single, 
+			ByRef prmsdiff as Single, 
 			ByRef ppixdiff as IntPtr) as Integer
 End Function
 
@@ -14868,8 +14868,8 @@ Friend Shared Function pixCompareGray(
 			ByVal comptype as Integer, 
 			ByVal plottype as Integer, 
 			ByRef psame as Integer, 
-			ByRef pdiff as Single(), 
-			ByRef prmsdiff as Single(), 
+			ByRef pdiff as Single, 
+			ByRef prmsdiff as Single, 
 			ByRef ppixdiff as IntPtr) as Integer
 End Function
 
@@ -14901,8 +14901,8 @@ Friend Shared Function pixCompareRGB(
 			ByVal comptype as Integer, 
 			ByVal plottype as Integer, 
 			ByRef psame as Integer, 
-			ByRef pdiff as Single(), 
-			ByRef prmsdiff as Single(), 
+			ByRef pdiff as Single, 
+			ByRef prmsdiff as Single, 
 			ByRef ppixdiff as IntPtr) as Integer
 End Function
 
@@ -15081,8 +15081,8 @@ Friend Shared Function pixGetDifferenceStats(
 			ByVal pix2 as IntPtr, 
 			ByVal factor as Integer, 
 			ByVal mindiff as Integer, 
-			ByRef pfractdiff as Single(), 
-			ByRef pavediff as Single(), 
+			ByRef pfractdiff as Single, 
+			ByRef pavediff as Single, 
 			ByVal details as Integer) as Integer
 End Function
 
@@ -15168,7 +15168,7 @@ Friend Shared Function pixGetPerceptualDiff(
 			ByVal sampling as Integer, 
 			ByVal dilation as Integer, 
 			ByVal mindiff as Integer, 
-			ByRef pfract as Single(), 
+			ByRef pfract as Single, 
 			ByRef ppixdiff1 as IntPtr, 
 			ByRef ppixdiff2 as IntPtr) as Integer
 End Function
@@ -15211,7 +15211,7 @@ Friend Shared Function pixGetPSNR(
 			ByVal pix1 as IntPtr, 
 			ByVal pix2 as IntPtr, 
 			ByVal factor as Integer, 
-			ByRef ppsnr as Single()) as Integer
+			ByRef ppsnr as Single) as Integer
 End Function
 
 ' SRC\compare.c (1893, 1)
@@ -15338,7 +15338,7 @@ Friend Shared Function pixComparePhotoRegionsByHisto(
 			ByVal factor as Integer, 
 			ByVal nx as Integer, 
 			ByVal ny as Integer, 
-			ByRef pscore as Single(), 
+			ByRef pscore as Single, 
 			ByVal debugflag as Integer) as Integer
 End Function
 
@@ -15433,8 +15433,8 @@ End Function
 Friend Shared Function pixCentroid8(
 			ByVal pixs as IntPtr, 
 			ByVal factor as Integer, 
-			ByRef pcx as Single(), 
-			ByRef pcy as Single()) as Integer
+			ByRef pcx as Single, 
+			ByRef pcy as Single) as Integer
 End Function
 
 ' SRC\compare.c (2458, 1)
@@ -15513,7 +15513,7 @@ Friend Shared Function compareTilesByHisto(
 			ByVal h1 as Integer, 
 			ByVal w2 as Integer, 
 			ByVal h2 as Integer, 
-			ByRef pscore as Single(), 
+			ByRef pscore as Single, 
 			ByVal pixadebug as IntPtr) as Integer
 End Function
 
@@ -15595,7 +15595,7 @@ Friend Shared Function pixCompareGrayByHisto(
 			ByVal factor as Integer, 
 			ByVal nx as Integer, 
 			ByVal ny as Integer, 
-			ByRef pscore as Single(), 
+			ByRef pscore as Single, 
 			ByVal debugflag as Integer) as Integer
 End Function
 
@@ -15724,7 +15724,7 @@ Friend Shared Function pixCompareWithTranslation(
 			ByVal thresh as Integer, 
 			ByRef pdelx as Integer, 
 			ByRef pdely as Integer, 
-			ByRef pscore as Single(), 
+			ByRef pscore as Single, 
 			ByVal debugflag as Integer) as Integer
 End Function
 
@@ -15779,7 +15779,7 @@ Friend Shared Function pixBestCorrelation(
 			ByVal tab8 as Integer(), 
 			ByRef pdelx as Integer, 
 			ByRef pdely as Integer, 
-			ByRef pscore as Single(), 
+			ByRef pscore as Single, 
 			ByVal debugflag as Integer) as Integer
 End Function
 
@@ -17036,7 +17036,7 @@ Friend Shared Function pixCorrelationScore(
 			ByVal maxdiffw as Integer, 
 			ByVal maxdiffh as Integer, 
 			ByVal tab as Integer(), 
-			ByRef pscore as Single()) as Integer
+			ByRef pscore as Single) as Integer
 End Function
 
 ' SRC\correlscore.c (423, 1)
@@ -17138,7 +17138,7 @@ Friend Shared Function pixCorrelationScoreSimple(
 			ByVal maxdiffw as Integer, 
 			ByVal maxdiffh as Integer, 
 			ByVal tab as Integer(), 
-			ByRef pscore as Single()) as Integer
+			ByRef pscore as Single) as Integer
 End Function
 
 ' SRC\correlscore.c (835, 1)
@@ -17184,7 +17184,7 @@ Friend Shared Function pixCorrelationScoreShifted(
 			ByVal delx as Integer, 
 			ByVal dely as Integer, 
 			ByVal tab as Integer(), 
-			ByRef pscore as Single()) as Integer
+			ByRef pscore as Single) as Integer
 End Function
 
 #End Region
@@ -19824,9 +19824,9 @@ Friend Shared Function pixMeasureEdgeSmoothness(
 			ByVal side as Integer, 
 			ByVal minjump as Integer, 
 			ByVal minreversal as Integer, 
-			ByRef pjpl as Single(), 
-			ByRef pjspl as Single(), 
-			ByRef prpl as Single(), 
+			ByRef pjpl as Single, 
+			ByRef pjspl as Single, 
+			ByRef prpl as Single, 
 			ByVal debugfile as String) as Integer
 End Function
 
@@ -20569,7 +20569,7 @@ End Function
 Friend Shared Function pixMeasureSaturation(
 			ByVal pixs as IntPtr, 
 			ByVal factor as Integer, 
-			ByRef psat as Single()) as Integer
+			ByRef psat as Single) as Integer
 End Function
 
 ' SRC\enhance.c (1658, 1)
@@ -21043,8 +21043,8 @@ Friend Shared Function pixOrientCorrect(
 			ByVal pixs as IntPtr, 
 			ByVal minupconf as Single, 
 			ByVal minratio as Single, 
-			ByRef pupconf as Single(), 
-			ByRef pleftconf as Single(), 
+			ByRef pupconf as Single, 
+			ByRef pleftconf as Single, 
 			ByRef protation as Integer, 
 			ByVal debug as Integer) as IntPtr
 End Function
@@ -21111,8 +21111,8 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="pixOrientDetect")> _
 Friend Shared Function pixOrientDetect(
 			ByVal pixs as IntPtr, 
-			ByRef pupconf as Single(), 
-			ByRef pleftconf as Single(), 
+			ByRef pupconf as Single, 
+			ByRef pleftconf as Single, 
 			ByVal mincount as Integer, 
 			ByVal debug as Integer) as Integer
 End Function
@@ -21182,7 +21182,7 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="pixUpDownDetect")> _
 Friend Shared Function pixUpDownDetect(
 			ByVal pixs as IntPtr, 
-			ByRef pconf as Single(), 
+			ByRef pconf as Single, 
 			ByVal mincount as Integer, 
 			ByVal debug as Integer) as Integer
 End Function
@@ -21229,7 +21229,7 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="pixUpDownDetectGeneral")> _
 Friend Shared Function pixUpDownDetectGeneral(
 			ByVal pixs as IntPtr, 
-			ByRef pconf as Single(), 
+			ByRef pconf as Single, 
 			ByVal mincount as Integer, 
 			ByVal npixels as Integer, 
 			ByVal debug as Integer) as Integer
@@ -21260,8 +21260,8 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="pixOrientDetectDwa")> _
 Friend Shared Function pixOrientDetectDwa(
 			ByVal pixs as IntPtr, 
-			ByRef pupconf as Single(), 
-			ByRef pleftconf as Single(), 
+			ByRef pupconf as Single, 
+			ByRef pleftconf as Single, 
 			ByVal mincount as Integer, 
 			ByVal debug as Integer) as Integer
 End Function
@@ -21293,7 +21293,7 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="pixUpDownDetectDwa")> _
 Friend Shared Function pixUpDownDetectDwa(
 			ByVal pixs as IntPtr, 
-			ByRef pconf as Single(), 
+			ByRef pconf as Single, 
 			ByVal mincount as Integer, 
 			ByVal debug as Integer) as Integer
 End Function
@@ -21317,7 +21317,7 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="pixUpDownDetectGeneralDwa")> _
 Friend Shared Function pixUpDownDetectGeneralDwa(
 			ByVal pixs as IntPtr, 
-			ByRef pconf as Single(), 
+			ByRef pconf as Single, 
 			ByVal mincount as Integer, 
 			ByVal npixels as Integer, 
 			ByVal debug as Integer) as Integer
@@ -21366,7 +21366,7 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="pixMirrorDetect")> _
 Friend Shared Function pixMirrorDetect(
 			ByVal pixs as IntPtr, 
-			ByRef pconf as Single(), 
+			ByRef pconf as Single, 
 			ByVal mincount as Integer, 
 			ByVal debug as Integer) as Integer
 End Function
@@ -21391,7 +21391,7 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="pixMirrorDetectDwa")> _
 Friend Shared Function pixMirrorDetectDwa(
 			ByVal pixs as IntPtr, 
-			ByRef pconf as Single(), 
+			ByRef pconf as Single, 
 			ByVal mincount as Integer, 
 			ByVal debug as Integer) as Integer
 End Function
@@ -21857,7 +21857,7 @@ Friend Shared Function fpixGetPixel(
 			ByVal fpix as IntPtr, 
 			ByVal x as Integer, 
 			ByVal y as Integer, 
-			ByRef pval as Single()) as Integer
+			ByRef pval as Single) as Integer
 End Function
 
 ' SRC\fpix1.c (673, 1)
@@ -22034,7 +22034,7 @@ Friend Shared Function fpixaGetPixel(
 			ByVal index as Integer, 
 			ByVal x as Integer, 
 			ByVal y as Integer, 
-			ByRef pval as Single()) as Integer
+			ByRef pval as Single) as Integer
 End Function
 
 ' SRC\fpix1.c (1107, 1)
@@ -22776,7 +22776,7 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="fpixGetMin")> _
 Friend Shared Function fpixGetMin(
 			ByVal fpix as IntPtr, 
-			ByRef pminval as Single(), 
+			ByRef pminval as Single, 
 			ByRef pxminloc as Integer, 
 			ByRef pyminloc as Integer) as Integer
 End Function
@@ -22794,7 +22794,7 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="fpixGetMax")> _
 Friend Shared Function fpixGetMax(
 			ByVal fpix as IntPtr, 
-			ByRef pmaxval as Single(), 
+			ByRef pmaxval as Single, 
 			ByRef pxmaxloc as Integer, 
 			ByRef pymaxloc as Integer) as Integer
 End Function
@@ -23441,7 +23441,7 @@ Friend Shared Function linearInterpolatePixelFloat(
 			ByVal x as Single, 
 			ByVal y as Single, 
 			ByVal inval as Single, 
-			ByRef pval as Single()) as Integer
+			ByRef pval as Single) as Integer
 End Function
 
 ' SRC\fpix2.c (2333, 1)
@@ -27339,7 +27339,7 @@ Friend Shared Function kernelGetElement(
 			ByVal kel as IntPtr, 
 			ByVal row as Integer, 
 			ByVal col as Integer, 
-			ByRef pval as Single()) as Integer
+			ByRef pval as Single) as Integer
 End Function
 
 ' SRC\kernel.c (243, 1)
@@ -27407,7 +27407,7 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="kernelGetSum")> _
 Friend Shared Function kernelGetSum(
 			ByVal kel as IntPtr, 
-			ByRef psum as Single()) as Integer
+			ByRef psum as Single) as Integer
 End Function
 
 ' SRC\kernel.c (354, 1)
@@ -27422,8 +27422,8 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="kernelGetMinMax")> _
 Friend Shared Function kernelGetMinMax(
 			ByVal kel as IntPtr, 
-			ByRef pmin as Single(), 
-			ByRef pmax as Single()) as Integer
+			ByRef pmin as Single, 
+			ByRef pmax as Single) as Integer
 End Function
 
 ' SRC\kernel.c (410, 1)
@@ -29830,8 +29830,8 @@ Friend Shared Function pixCentroid(
 			ByVal pix as IntPtr, 
 			ByVal centtab as Integer(), 
 			ByVal sumtab as Integer(), 
-			ByRef pxave as Single(), 
-			ByRef pyave as Single()) as Integer
+			ByRef pxave as Single, 
+			ByRef pyave as Single) as Integer
 End Function
 
 #End Region
@@ -30930,7 +30930,7 @@ End Function
 Friend Shared Function numaGetFValue(
 			ByVal na as IntPtr, 
 			ByVal index as Integer, 
-			ByRef pval as Single()) as Integer
+			ByRef pval as Single) as Integer
 End Function
 
 ' SRC\numabasic.c (727, 1)
@@ -31078,8 +31078,8 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="numaGetParameters")> _
 Friend Shared Function numaGetParameters(
 			ByVal na as IntPtr, 
-			ByRef pstartx as Single(), 
-			ByRef pdelx as Single()) as Integer
+			ByRef pstartx as Single, 
+			ByRef pdelx as Single) as Integer
 End Function
 
 ' SRC\numabasic.c (966, 1)
@@ -31454,7 +31454,7 @@ Friend Shared Function numaaGetValue(
 			ByVal naa as IntPtr, 
 			ByVal i as Integer, 
 			ByVal j as Integer, 
-			ByRef pfval as Single(), 
+			ByRef pfval as Single, 
 			ByRef pival as Integer) as Integer
 End Function
 
@@ -31709,7 +31709,7 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="numaGetMin")> _
 Friend Shared Function numaGetMin(
 			ByVal na as IntPtr, 
-			ByRef pminval as Single(), 
+			ByRef pminval as Single, 
 			ByRef piminloc as Integer) as Integer
 End Function
 
@@ -31725,7 +31725,7 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="numaGetMax")> _
 Friend Shared Function numaGetMax(
 			ByVal na as IntPtr, 
-			ByRef pmaxval as Single(), 
+			ByRef pmaxval as Single, 
 			ByRef pimaxloc as Integer) as Integer
 End Function
 
@@ -31740,7 +31740,7 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="numaGetSum")> _
 Friend Shared Function numaGetSum(
 			ByVal na as IntPtr, 
-			ByRef psum as Single()) as Integer
+			ByRef psum as Single) as Integer
 End Function
 
 ' SRC\numafunc1.c (553, 1)
@@ -31778,7 +31778,7 @@ Friend Shared Function numaGetSumOnInterval(
 			ByVal na as IntPtr, 
 			ByVal first as Integer, 
 			ByVal last as Integer, 
-			ByRef psum as Single()) as Integer
+			ByRef psum as Single) as Integer
 End Function
 
 ' SRC\numafunc1.c (632, 1)
@@ -32188,7 +32188,7 @@ Friend Shared Function numaInterpolateEqxVal(
 			ByVal nay as IntPtr, 
 			ByVal type as Integer, 
 			ByVal xval as Single, 
-			ByRef pyval as Single()) as Integer
+			ByRef pyval as Single) as Integer
 End Function
 
 ' SRC\numafunc1.c (1695, 1)
@@ -32218,7 +32218,7 @@ Friend Shared Function numaInterpolateArbxVal(
 			ByVal nay as IntPtr, 
 			ByVal type as Integer, 
 			ByVal xval as Single, 
-			ByRef pyval as Single()) as Integer
+			ByRef pyval as Single) as Integer
 End Function
 
 ' SRC\numafunc1.c (1812, 1)
@@ -32336,9 +32336,9 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="numaFitMax")> _
 Friend Shared Function numaFitMax(
 			ByVal na as IntPtr, 
-			ByRef pmaxval as Single(), 
+			ByRef pmaxval as Single, 
 			ByVal naloc as IntPtr, 
-			ByRef pmaxloc as Single()) as Integer
+			ByRef pmaxloc as Single) as Integer
 End Function
 
 ' SRC\numafunc1.c (2166, 1)
@@ -32400,7 +32400,7 @@ Friend Shared Function numaIntegrateInterval(
 			ByVal x0 as Single, 
 			ByVal x1 as Single, 
 			ByVal npts as Integer, 
-			ByRef psum as Single()) as Integer
+			ByRef psum as Single) as Integer
 End Function
 
 ' SRC\numafunc1.c (2354, 1)
@@ -32751,7 +32751,7 @@ Friend Shared Function numaGetRankValue(
 			ByVal fract as Single, 
 			ByVal nasort as IntPtr, 
 			ByVal usebins as Integer, 
-			ByRef pval as Single()) as Integer
+			ByRef pval as Single) as Integer
 End Function
 
 ' SRC\numafunc1.c (3119, 1)
@@ -32771,7 +32771,7 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="numaGetMedian")> _
 Friend Shared Function numaGetMedian(
 			ByVal na as IntPtr, 
-			ByRef pval as Single()) as Integer
+			ByRef pval as Single) as Integer
 End Function
 
 ' SRC\numafunc1.c (3150, 1)
@@ -32816,7 +32816,7 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="numaGetMode")> _
 Friend Shared Function numaGetMode(
 			ByVal na as IntPtr, 
-			ByRef pval as Single(), 
+			ByRef pval as Single, 
 			ByRef pcount as Integer) as Integer
 End Function
 
@@ -32842,8 +32842,8 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="numaGetMedianVariation")> _
 Friend Shared Function numaGetMedianVariation(
 			ByVal na as IntPtr, 
-			ByRef pmedval as Single(), 
-			ByRef pmedvar as Single()) as Integer
+			ByRef pmedval as Single, 
+			ByRef pmedvar as Single) as Integer
 End Function
 
 ' SRC\numafunc1.c (3319, 1)
@@ -33050,9 +33050,9 @@ Friend Shared Function numaSimpleStats(
 			ByVal na as IntPtr, 
 			ByVal first as Integer, 
 			ByVal last as Integer, 
-			ByRef pmean as Single(), 
-			ByRef pvar as Single(), 
-			ByRef prvar as Single()) as Integer
+			ByRef pmean as Single, 
+			ByRef pvar as Single, 
+			ByRef prvar as Single) as Integer
 End Function
 
 ' SRC\numafunc2.c (511, 1)
@@ -33366,13 +33366,13 @@ End Function
 Friend Shared Function numaGetStatsUsingHistogram(
 			ByVal na as IntPtr, 
 			ByVal maxbins as Integer, 
-			ByRef pmin as Single(), 
-			ByRef pmax as Single(), 
-			ByRef pmean as Single(), 
-			ByRef pvariance as Single(), 
-			ByRef pmedian as Single(), 
+			ByRef pmin as Single, 
+			ByRef pmax as Single, 
+			ByRef pmean as Single, 
+			ByRef pvariance as Single, 
+			ByRef pmedian as Single, 
 			ByVal rank as Single, 
-			ByRef prval as Single(), 
+			ByRef prval as Single, 
 			ByRef phisto as IntPtr) as Integer
 End Function
 
@@ -33403,10 +33403,10 @@ Friend Shared Function numaGetHistogramStats(
 			ByVal nahisto as IntPtr, 
 			ByVal startx as Single, 
 			ByVal deltax as Single, 
-			ByRef pxmean as Single(), 
-			ByRef pxmedian as Single(), 
-			ByRef pxmode as Single(), 
-			ByRef pxvariance as Single()) as Integer
+			ByRef pxmean as Single, 
+			ByRef pxmedian as Single, 
+			ByRef pxmode as Single, 
+			ByRef pxvariance as Single) as Integer
 End Function
 
 ' SRC\numafunc2.c (1375, 1)
@@ -33440,10 +33440,10 @@ Friend Shared Function numaGetHistogramStatsOnInterval(
 			ByVal deltax as Single, 
 			ByVal ifirst as Integer, 
 			ByVal ilast as Integer, 
-			ByRef pxmean as Single(), 
-			ByRef pxmedian as Single(), 
-			ByRef pxmode as Single(), 
-			ByRef pxvariance as Single()) as Integer
+			ByRef pxmean as Single, 
+			ByRef pxmedian as Single, 
+			ByRef pxmode as Single, 
+			ByRef pxvariance as Single) as Integer
 End Function
 
 ' SRC\numafunc2.c (1462, 1)
@@ -33495,7 +33495,7 @@ End Function
 Friend Shared Function numaHistogramGetRankFromVal(
 			ByVal na as IntPtr, 
 			ByVal rval as Single, 
-			ByRef prank as Single()) as Integer
+			ByRef prank as Single) as Integer
 End Function
 
 ' SRC\numafunc2.c (1601, 1)
@@ -33525,7 +33525,7 @@ End Function
 Friend Shared Function numaHistogramGetValFromRank(
 			ByVal na as IntPtr, 
 			ByVal rank as Single, 
-			ByRef prval as Single()) as Integer
+			ByRef prval as Single) as Integer
 End Function
 
 ' SRC\numafunc2.c (1681, 1)
@@ -33646,10 +33646,10 @@ Friend Shared Function numaSplitDistribution(
 			ByVal na as IntPtr, 
 			ByVal scorefract as Single, 
 			ByRef psplitindex as Integer, 
-			ByRef pave1 as Single(), 
-			ByRef pave2 as Single(), 
-			ByRef pnum1 as Single(), 
-			ByRef pnum2 as Single(), 
+			ByRef pave1 as Single, 
+			ByRef pave2 as Single, 
+			ByRef pnum1 as Single, 
+			ByRef pnum2 as Single, 
 			ByRef pnascore as IntPtr) as Integer
 End Function
 
@@ -33718,7 +33718,7 @@ End Function
 Friend Shared Function numaEarthMoverDistance(
 			ByVal na1 as IntPtr, 
 			ByVal na2 as IntPtr, 
-			ByRef pdist as Single()) as Integer
+			ByRef pdist as Single) as Integer
 End Function
 
 ' SRC\numafunc2.c (2243, 1)
@@ -33858,7 +33858,7 @@ Friend Shared Function numaCountReversals(
 			ByVal nas as IntPtr, 
 			ByVal minreversal as Single, 
 			ByRef pnr as Integer, 
-			ByRef pnrpl as Single()) as Integer
+			ByRef pnrpl as Single) as Integer
 End Function
 
 ' SRC\numafunc2.c (2606, 1)
@@ -33891,7 +33891,7 @@ Friend Shared Function numaSelectCrossingThreshold(
 			ByVal nax as IntPtr, 
 			ByVal nay as IntPtr, 
 			ByVal estthresh as Single, 
-			ByRef pbestthresh as Single()) as Integer
+			ByRef pbestthresh as Single) as Integer
 End Function
 
 ' SRC\numafunc2.c (2713, 1)
@@ -33981,9 +33981,9 @@ Friend Shared Function numaEvalBestHaarParameters(
 			ByVal nshift as Integer, 
 			ByVal minwidth as Single, 
 			ByVal maxwidth as Single, 
-			ByRef pbestwidth as Single(), 
-			ByRef pbestshift as Single(), 
-			ByRef pbestscore as Single()) as Integer
+			ByRef pbestwidth as Single, 
+			ByRef pbestshift as Single, 
+			ByRef pbestscore as Single) as Integer
 End Function
 
 ' SRC\numafunc2.c (2975, 1)
@@ -34022,7 +34022,7 @@ Friend Shared Function numaEvalHaarSum(
 			ByVal width as Single, 
 			ByVal shift as Single, 
 			ByVal relweight as Single, 
-			ByRef pscore as Single()) as Integer
+			ByRef pscore as Single) as Integer
 End Function
 
 ' SRC\numafunc2.c (3032, 1)
@@ -39675,7 +39675,7 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="pixForegroundFraction")> _
 Friend Shared Function pixForegroundFraction(
 			ByVal pix as IntPtr, 
-			ByRef pfract as Single()) as Integer
+			ByRef pfract as Single) as Integer
 End Function
 
 ' SRC\pix3.c (1778, 1)
@@ -39948,7 +39948,7 @@ End Function
 Friend Shared Function pixAverageInRect(
 			ByVal pix as IntPtr, 
 			ByVal box as IntPtr, 
-			ByRef pave as Single()) as Integer
+			ByRef pave as Single) as Integer
 End Function
 
 ' SRC\pix3.c (2600, 1)
@@ -40008,7 +40008,7 @@ End Function
 Friend Shared Function pixVarianceInRect(
 			ByVal pix as IntPtr, 
 			ByVal box as IntPtr, 
-			ByRef prootvar as Single()) as Integer
+			ByRef prootvar as Single) as Integer
 End Function
 
 ' SRC\pix3.c (2800, 1)
@@ -40078,7 +40078,7 @@ Friend Shared Function pixAbsDiffInRect(
 			ByVal pix as IntPtr, 
 			ByVal box as IntPtr, 
 			ByVal dir as Integer, 
-			ByRef pabsdiff as Single()) as Integer
+			ByRef pabsdiff as Single) as Integer
 End Function
 
 ' SRC\pix3.c (3001, 1)
@@ -40108,7 +40108,7 @@ Friend Shared Function pixAbsDiffOnLine(
 			ByVal y1 as Integer, 
 			ByVal x2 as Integer, 
 			ByVal y2 as Integer, 
-			ByRef pabsdiff as Single()) as Integer
+			ByRef pabsdiff as Single) as Integer
 End Function
 
 ' SRC\pix3.c (3083, 1)
@@ -40562,9 +40562,9 @@ Friend Shared Function pixGetRankValueMaskedRGB(
 			ByVal y as Integer, 
 			ByVal factor as Integer, 
 			ByVal rank as Single, 
-			ByRef prval as Single(), 
-			ByRef pgval as Single(), 
-			ByRef pbval as Single()) as Integer
+			ByRef prval as Single, 
+			ByRef pgval as Single, 
+			ByRef pbval as Single) as Integer
 End Function
 
 ' SRC\pix4.c (1107, 1)
@@ -40607,7 +40607,7 @@ Friend Shared Function pixGetRankValueMasked(
 			ByVal y as Integer, 
 			ByVal factor as Integer, 
 			ByVal rank as Single, 
-			ByRef pval as Single(), 
+			ByRef pval as Single, 
 			ByRef pna as IntPtr) as Integer
 End Function
 
@@ -40706,9 +40706,9 @@ Friend Shared Function pixGetAverageMaskedRGB(
 			ByVal y as Integer, 
 			ByVal factor as Integer, 
 			ByVal type as Integer, 
-			ByRef prval as Single(), 
-			ByRef pgval as Single(), 
-			ByRef pbval as Single()) as Integer
+			ByRef prval as Single, 
+			ByRef pgval as Single, 
+			ByRef pbval as Single) as Integer
 End Function
 
 ' SRC\pix4.c (1457, 1)
@@ -40751,7 +40751,7 @@ Friend Shared Function pixGetAverageMasked(
 			ByVal y as Integer, 
 			ByVal factor as Integer, 
 			ByVal type as Integer, 
-			ByRef pval as Single()) as Integer
+			ByRef pval as Single) as Integer
 End Function
 
 ' SRC\pix4.c (1576, 1)
@@ -41382,7 +41382,7 @@ End Function
 Friend Shared Function pixFindAreaPerimRatio(
 			ByVal pixs as IntPtr, 
 			ByVal tab as Integer(), 
-			ByRef pfract as Single()) as Integer
+			ByRef pfract as Single) as Integer
 End Function
 
 ' SRC\pix5.c (231, 1)
@@ -41430,7 +41430,7 @@ End Function
 Friend Shared Function pixFindPerimToAreaRatio(
 			ByVal pixs as IntPtr, 
 			ByVal tab as Integer(), 
-			ByRef pfract as Single()) as Integer
+			ByRef pfract as Single) as Integer
 End Function
 
 ' SRC\pix5.c (335, 1)
@@ -41481,7 +41481,7 @@ End Function
 Friend Shared Function pixFindPerimSizeRatio(
 			ByVal pixs as IntPtr, 
 			ByVal tab as Integer(), 
-			ByRef pratio as Single()) as Integer
+			ByRef pratio as Single) as Integer
 End Function
 
 ' SRC\pix5.c (431, 1)
@@ -41522,7 +41522,7 @@ End Function
 Friend Shared Function pixFindAreaFraction(
 			ByVal pixs as IntPtr, 
 			ByVal tab as Integer(), 
-			ByRef pfract as Single()) as Integer
+			ByRef pfract as Single) as Integer
 End Function
 
 ' SRC\pix5.c (522, 1)
@@ -41581,7 +41581,7 @@ Friend Shared Function pixFindAreaFractionMasked(
 			ByVal box as IntPtr, 
 			ByVal pixm as IntPtr, 
 			ByVal tab as Integer(), 
-			ByRef pfract as Single()) as Integer
+			ByRef pfract as Single) as Integer
 End Function
 
 ' SRC\pix5.c (660, 1)
@@ -41646,7 +41646,7 @@ Friend Shared Function pixFindOverlapFraction(
 			ByVal x2 as Integer, 
 			ByVal y2 as Integer, 
 			ByVal tab as Integer(), 
-			ByRef pratio as Single(), 
+			ByRef pratio as Single, 
 			ByRef pnoverlap as Integer) as Integer
 End Function
 
@@ -42000,7 +42000,7 @@ End Function
 Friend Shared Function pixFractionFgInMask(
 			ByVal pix1 as IntPtr, 
 			ByVal pix2 as IntPtr, 
-			ByRef pfract as Single()) as Integer
+			ByRef pfract as Single) as Integer
 End Function
 
 ' SRC\pix5.c (1524, 1)
@@ -42424,8 +42424,8 @@ Friend Shared Function pixMinMaxNearLine(
 			ByVal direction as Integer, 
 			ByRef pnamin as IntPtr, 
 			ByRef pnamax as IntPtr, 
-			ByRef pminave as Single(), 
-			ByRef pmaxave as Single()) as Integer
+			ByRef pminave as Single, 
+			ByRef pmaxave as Single) as Integer
 End Function
 
 ' SRC\pix5.c (2873, 1)
@@ -50287,8 +50287,8 @@ Friend Shared Function projectiveXformPt(
 			ByVal vc as Single(), 
 			ByVal x as Integer, 
 			ByVal y as Integer, 
-			ByRef pxp as Single(), 
-			ByRef pyp as Single()) as Integer
+			ByRef pxp as Single, 
+			ByRef pyp as Single) as Integer
 End Function
 
 #End Region
@@ -50633,10 +50633,10 @@ Friend Shared Function getScaledParametersPS(
 			ByVal hpix as Integer, 
 			ByVal res as Integer, 
 			ByVal scale as Single, 
-			ByRef pxpt as Single(), 
-			ByRef pypt as Single(), 
-			ByRef pwpt as Single(), 
-			ByRef phpt as Single()) as IntPtr
+			ByRef pxpt as Single, 
+			ByRef pypt as Single, 
+			ByRef pwpt as Single, 
+			ByRef phpt as Single) as IntPtr
 End Function
 
 ' SRC\psio2.c (601, 1)
@@ -51449,8 +51449,8 @@ End Function
 Friend Shared Function ptaGetPt(
 			ByVal pta as IntPtr, 
 			ByVal index as Integer, 
-			ByRef px as Single(), 
-			ByRef py as Single()) as Integer
+			ByRef px as Single, 
+			ByRef py as Single) as Integer
 End Function
 
 ' SRC\ptabasic.c (555, 1)
@@ -51711,8 +51711,8 @@ Friend Shared Function ptaaGetPt(
 			ByVal ptaa as IntPtr, 
 			ByVal ipta as Integer, 
 			ByVal jpt as Integer, 
-			ByRef px as Single(), 
-			ByRef py as Single()) as Integer
+			ByRef px as Single, 
+			ByRef py as Single) as Integer
 End Function
 
 ' SRC\ptabasic.c (1165, 1)
@@ -52078,10 +52078,10 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="ptaGetRange")> _
 Friend Shared Function ptaGetRange(
 			ByVal pta as IntPtr, 
-			ByRef pminx as Single(), 
-			ByRef pmaxx as Single(), 
-			ByRef pminy as Single(), 
-			ByRef pmaxy as Single()) as Integer
+			ByRef pminx as Single, 
+			ByRef pmaxx as Single, 
+			ByRef pminy as Single, 
+			ByRef pmaxy as Single) as Integer
 End Function
 
 ' SRC\ptafunc1.c (518, 1)
@@ -52229,10 +52229,10 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="ptaGetMinMax")> _
 Friend Shared Function ptaGetMinMax(
 			ByVal pta as IntPtr, 
-			ByRef pxmin as Single(), 
-			ByRef pymin as Single(), 
-			ByRef pxmax as Single(), 
-			ByRef pymax as Single()) as Integer
+			ByRef pxmin as Single, 
+			ByRef pymin as Single, 
+			ByRef pxmax as Single, 
+			ByRef pymax as Single) as Integer
 End Function
 
 ' SRC\ptafunc1.c (894, 1)
@@ -52304,8 +52304,8 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="ptaGetLinearLSF")> _
 Friend Shared Function ptaGetLinearLSF(
 			ByVal pta as IntPtr, 
-			ByRef pa as Single(), 
-			ByRef pb as Single(), 
+			ByRef pa as Single, 
+			ByRef pb as Single, 
 			ByRef pnafit as IntPtr) as Integer
 End Function
 
@@ -52343,9 +52343,9 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="ptaGetQuadraticLSF")> _
 Friend Shared Function ptaGetQuadraticLSF(
 			ByVal pta as IntPtr, 
-			ByRef pa as Single(), 
-			ByRef pb as Single(), 
-			ByRef pc as Single(), 
+			ByRef pa as Single, 
+			ByRef pb as Single, 
+			ByRef pc as Single, 
 			ByRef pnafit as IntPtr) as Integer
 End Function
 
@@ -52386,10 +52386,10 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="ptaGetCubicLSF")> _
 Friend Shared Function ptaGetCubicLSF(
 			ByVal pta as IntPtr, 
-			ByRef pa as Single(), 
-			ByRef pb as Single(), 
-			ByRef pc as Single(), 
-			ByRef pd as Single(), 
+			ByRef pa as Single, 
+			ByRef pb as Single, 
+			ByRef pc as Single, 
+			ByRef pd as Single, 
 			ByRef pnafit as IntPtr) as Integer
 End Function
 
@@ -52432,11 +52432,11 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="ptaGetQuarticLSF")> _
 Friend Shared Function ptaGetQuarticLSF(
 			ByVal pta as IntPtr, 
-			ByRef pa as Single(), 
-			ByRef pb as Single(), 
-			ByRef pc as Single(), 
-			ByRef pd as Single(), 
-			ByRef pe as Single(), 
+			ByRef pa as Single, 
+			ByRef pb as Single, 
+			ByRef pc as Single, 
+			ByRef pd as Single, 
+			ByRef pe as Single, 
 			ByRef pnafit as IntPtr) as Integer
 End Function
 
@@ -52470,9 +52470,9 @@ Friend Shared Function ptaNoisyLinearLSF(
 			ByVal pta as IntPtr, 
 			ByVal factor as Single, 
 			ByRef pptad as IntPtr, 
-			ByRef pa as Single(), 
-			ByRef pb as Single(), 
-			ByRef pmederr as Single(), 
+			ByRef pa as Single, 
+			ByRef pb as Single, 
+			ByRef pmederr as Single, 
 			ByRef pnafit as IntPtr) as Integer
 End Function
 
@@ -52503,10 +52503,10 @@ Friend Shared Function ptaNoisyQuadraticLSF(
 			ByVal pta as IntPtr, 
 			ByVal factor as Single, 
 			ByRef pptad as IntPtr, 
-			ByRef pa as Single(), 
-			ByRef pb as Single(), 
-			ByRef pc as Single(), 
-			ByRef pmederr as Single(), 
+			ByRef pa as Single, 
+			ByRef pb as Single, 
+			ByRef pc as Single, 
+			ByRef pmederr as Single, 
 			ByRef pnafit as IntPtr) as Integer
 End Function
 
@@ -52525,7 +52525,7 @@ Friend Shared Function applyLinearFit(
 			ByVal a as Single, 
 			ByVal b as Single, 
 			ByVal x as Single, 
-			ByRef py as Single()) as Integer
+			ByRef py as Single) as Integer
 End Function
 
 ' SRC\ptafunc1.c (1700, 1)
@@ -52545,7 +52545,7 @@ Friend Shared Function applyQuadraticFit(
 			ByVal b as Single, 
 			ByVal c as Single, 
 			ByVal x as Single, 
-			ByRef py as Single()) as Integer
+			ByRef py as Single) as Integer
 End Function
 
 ' SRC\ptafunc1.c (1725, 1)
@@ -52567,7 +52567,7 @@ Friend Shared Function applyCubicFit(
 			ByVal c as Single, 
 			ByVal d as Single, 
 			ByVal x as Single, 
-			ByRef py as Single()) as Integer
+			ByRef py as Single) as Integer
 End Function
 
 ' SRC\ptafunc1.c (1751, 1)
@@ -52591,7 +52591,7 @@ Friend Shared Function applyQuarticFit(
 			ByVal d as Single, 
 			ByVal e as Single, 
 			ByVal x as Single, 
-			ByRef py as Single()) as Integer
+			ByRef py as Single) as Integer
 End Function
 
 ' SRC\ptafunc1.c (1792, 1)
@@ -53040,7 +53040,7 @@ Friend Shared Function ptaGetRankValue(
 			ByVal fract as Single, 
 			ByVal ptasort as IntPtr, 
 			ByVal sorttype as Integer, 
-			ByRef pval as Single()) as Integer
+			ByRef pval as Single) as Integer
 End Function
 
 ' SRC\ptafunc2.c (317, 1)
@@ -53759,7 +53759,7 @@ Friend Shared Function pixMeanInRectangle(
 			ByVal pixs as IntPtr, 
 			ByVal box as IntPtr, 
 			ByVal pixma as IntPtr, 
-			ByRef pval as Single()) as Integer
+			ByRef pval as Single) as Integer
 End Function
 
 ' SRC\quadtree.c (341, 1)
@@ -53788,8 +53788,8 @@ Friend Shared Function pixVarianceInRectangle(
 			ByVal box as IntPtr, 
 			ByVal pix_ma as IntPtr, 
 			ByVal dpix_msa as IntPtr, 
-			ByRef pvar as Single(), 
-			ByRef prvar as Single()) as Integer
+			ByRef pvar as Single, 
+			ByRef prvar as Single) as Integer
 End Function
 
 ' SRC\quadtree.c (449, 1)
@@ -53842,7 +53842,7 @@ Friend Shared Function quadtreeGetParent(
 			ByVal level as Integer, 
 			ByVal x as Integer, 
 			ByVal y as Integer, 
-			ByRef pval as Single()) as Integer
+			ByRef pval as Single) as Integer
 End Function
 
 ' SRC\quadtree.c (573, 1)
@@ -53871,10 +53871,10 @@ Friend Shared Function quadtreeGetChildren(
 			ByVal level as Integer, 
 			ByVal x as Integer, 
 			ByVal y as Integer, 
-			ByRef pval00 as Single(), 
-			ByRef pval10 as Single(), 
-			ByRef pval01 as Single(), 
-			ByRef pval11 as Single()) as Integer
+			ByRef pval00 as Single, 
+			ByRef pval10 as Single, 
+			ByRef pval01 as Single, 
+			ByRef pval11 as Single) as Integer
 End Function
 
 ' SRC\quadtree.c (619, 1)
@@ -54475,8 +54475,8 @@ Friend Shared Function pixDeskewBarcode(
 			ByVal box as IntPtr, 
 			ByVal margin as Integer, 
 			ByVal threshold as Integer, 
-			ByRef pangle as Single(), 
-			ByRef pconf as Single()) as IntPtr
+			ByRef pangle as Single, 
+			ByRef pconf as Single) as IntPtr
 End Function
 
 ' SRC\readbarcode.c (626, 1)
@@ -54540,7 +54540,7 @@ End Function
 Friend Shared Function pixExtractBarcodeWidths2(
 			ByVal pixs as IntPtr, 
 			ByVal thresh as Single, 
-			ByRef pwidth as Single(), 
+			ByRef pwidth as Single, 
 			ByRef pnac as IntPtr, 
 			ByVal debugflag as Integer) as IntPtr
 End Function
@@ -54620,8 +54620,8 @@ End Function
 Friend Shared Function numaQuantizeCrossingsByWindow(
 			ByVal nas as IntPtr, 
 			ByVal ratio as Single, 
-			ByRef pwidth as Single(), 
-			ByRef pfirstloc as Single(), 
+			ByRef pwidth as Single, 
+			ByRef pfirstloc as Single, 
 			ByRef pnac as IntPtr, 
 			ByVal debugflag as Integer) as IntPtr
 End Function
@@ -55645,7 +55645,7 @@ Friend Shared Function recogCorrelationBestChar(
 			ByVal recog as IntPtr, 
 			ByVal pixs as IntPtr, 
 			ByRef pbox as IntPtr, 
-			ByRef pscore as Single(), 
+			ByRef pscore as Single, 
 			ByRef pindex as Integer, 
 			ByRef pcharstr as IntPtr, 
 			ByRef ppixdb as IntPtr) as Integer
@@ -55801,7 +55801,7 @@ End Function
 Friend Shared Function rchExtract(
 			ByVal rch as IntPtr, 
 			ByRef pindex as Integer, 
-			ByRef pscore as Single(), 
+			ByRef pscore as Single, 
 			ByRef ptext as IntPtr, 
 			ByRef psample as Integer, 
 			ByRef pxloc as Integer, 
@@ -56056,8 +56056,8 @@ Friend Shared Function pixaAccumulateSamples(
 			ByVal pixa as IntPtr, 
 			ByVal pta as IntPtr, 
 			ByRef ppixd as IntPtr, 
-			ByRef px as Single(), 
-			ByRef py as Single()) as Integer
+			ByRef px as Single, 
+			ByRef py as Single) as Integer
 End Function
 
 ' SRC\recogtrain.c (783, 1)
@@ -62855,8 +62855,8 @@ End Function
 Friend Shared Function pixFindSkewAndDeskew(
 			ByVal pixs as IntPtr, 
 			ByVal redsearch as Integer, 
-			ByRef pangle as Single(), 
-			ByRef pconf as Single()) as IntPtr
+			ByRef pangle as Single, 
+			ByRef pconf as Single) as IntPtr
 End Function
 
 ' SRC\skew.c (285, 1)
@@ -62888,8 +62888,8 @@ Friend Shared Function pixDeskewGeneral(
 			ByVal sweepdelta as Single, 
 			ByVal redsearch as Integer, 
 			ByVal thresh as Integer, 
-			ByRef pangle as Single(), 
-			ByRef pconf as Single()) as IntPtr
+			ByRef pangle as Single, 
+			ByRef pconf as Single) as IntPtr
 End Function
 
 ' SRC\skew.c (370, 1)
@@ -62913,8 +62913,8 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="pixFindSkew")> _
 Friend Shared Function pixFindSkew(
 			ByVal pixs as IntPtr, 
-			ByRef pangle as Single(), 
-			ByRef pconf as Single()) as Integer
+			ByRef pangle as Single, 
+			ByRef pconf as Single) as Integer
 End Function
 
 ' SRC\skew.c (414, 1)
@@ -62937,7 +62937,7 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="pixFindSkewSweep")> _
 Friend Shared Function pixFindSkewSweep(
 			ByVal pixs as IntPtr, 
-			ByRef pangle as Single(), 
+			ByRef pangle as Single, 
 			ByVal reduction as Integer, 
 			ByVal sweeprange as Single, 
 			ByVal sweepdelta as Single) as Integer
@@ -62974,8 +62974,8 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="pixFindSkewSweepAndSearch")> _
 Friend Shared Function pixFindSkewSweepAndSearch(
 			ByVal pixs as IntPtr, 
-			ByRef pangle as Single(), 
-			ByRef pconf as Single(), 
+			ByRef pangle as Single, 
+			ByRef pconf as Single, 
 			ByVal redsweep as Integer, 
 			ByVal redsearch as Integer, 
 			ByVal sweeprange as Single, 
@@ -63023,9 +63023,9 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="pixFindSkewSweepAndSearchScore")> _
 Friend Shared Function pixFindSkewSweepAndSearchScore(
 			ByVal pixs as IntPtr, 
-			ByRef pangle as Single(), 
-			ByRef pconf as Single(), 
-			ByRef pendscore as Single(), 
+			ByRef pangle as Single, 
+			ByRef pconf as Single, 
+			ByRef pendscore as Single, 
 			ByVal redsweep as Integer, 
 			ByVal redsearch as Integer, 
 			ByVal sweepcenter as Single, 
@@ -63065,9 +63065,9 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="pixFindSkewSweepAndSearchScorePivot")> _
 Friend Shared Function pixFindSkewSweepAndSearchScorePivot(
 			ByVal pixs as IntPtr, 
-			ByRef pangle as Single(), 
-			ByRef pconf as Single(), 
-			ByRef pendscore as Single(), 
+			ByRef pangle as Single, 
+			ByRef pconf as Single, 
+			ByRef pendscore as Single, 
 			ByVal redsweep as Integer, 
 			ByVal redsearch as Integer, 
 			ByVal sweepcenter as Single, 
@@ -63115,7 +63115,7 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="pixFindDifferentialSquareSum")> _
 Friend Shared Function pixFindDifferentialSquareSum(
 			ByVal pixs as IntPtr, 
-			ByRef psum as Single()) as Integer
+			ByRef psum as Single) as Integer
 End Function
 
 ' SRC\skew.c (1178, 1)
@@ -63143,9 +63143,9 @@ End Function
 <DllImport(DllPath, CallingConvention:=CConv, EntryPoint:="pixFindNormalizedSquareSum")> _
 Friend Shared Function pixFindNormalizedSquareSum(
 			ByVal pixs as IntPtr, 
-			ByRef phratio as Single(), 
-			ByRef pvratio as Single(), 
-			ByRef pfract as Single()) as Integer
+			ByRef phratio as Single, 
+			ByRef pvratio as Single, 
+			ByRef pfract as Single) as Integer
 End Function
 
 #End Region
@@ -63596,7 +63596,7 @@ Friend Shared Function pixFindStrokeWidth(
 			ByVal pixs as IntPtr, 
 			ByVal thresh as Single, 
 			ByVal tab8 as Integer(), 
-			ByRef pwidth as Single(), 
+			ByRef pwidth as Single, 
 			ByRef pnahisto as IntPtr) as Integer
 End Function
 

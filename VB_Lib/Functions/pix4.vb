@@ -27,9 +27,6 @@ Public Shared Function pixGetGrayHistogram(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetGrayHistogram( pixs.Pointer, factor)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -67,8 +64,6 @@ Public Shared Function pixGetGrayHistogramMasked(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetGrayHistogramMasked( pixs.Pointer, pixmPTR, x, y, factor)
@@ -101,8 +96,6 @@ Public Shared Function pixGetGrayHistogramInRect(
 				 ByVal factor as Integer) as Numa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -137,9 +130,6 @@ Public Shared Function pixGetGrayHistogramTiled(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetGrayHistogramTiled( pixs.Pointer, factor, nx, ny)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -172,8 +162,6 @@ Public Shared Function pixGetColorHistogram(
 				<Out()> ByRef pnab as Numa) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim pnarPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnar) Then pnarPTR = pnar.Pointer
 	Dim pnagPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnag) Then pnagPTR = pnag.Pointer
@@ -221,8 +209,6 @@ Public Shared Function pixGetColorHistogramMasked(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 	Dim pnarPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnar) Then pnarPTR = pnar.Pointer
 	Dim pnagPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnag) Then pnagPTR = pnag.Pointer
@@ -256,9 +242,6 @@ Public Shared Function pixGetCmapHistogram(
 				 ByVal factor as Integer) as Numa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetCmapHistogram( pixs.Pointer, factor)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -294,8 +277,6 @@ Public Shared Function pixGetCmapHistogramMasked(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetCmapHistogramMasked( pixs.Pointer, pixmPTR, x, y, factor)
@@ -328,8 +309,6 @@ Public Shared Function pixGetCmapHistogramInRect(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetCmapHistogramInRect( pixs.Pointer, boxPTR, factor)
@@ -349,9 +328,6 @@ Public Shared Function pixCountRGBColors(
 				 ByVal pixs as Pix) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCountRGBColors( pixs.Pointer)
 
@@ -378,9 +354,6 @@ Public Shared Function pixGetColorAmapHistogram(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetColorAmapHistogram( pixs.Pointer, factor)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -405,9 +378,6 @@ Public Shared Function amapGetCountForColor(
 				 ByVal val as UInteger) as Integer
 
 	If IsNothing (amap) then Throw New ArgumentNullException  ("amap cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.amapGetCountForColor( amap.Pointer, val)
 
@@ -439,9 +409,6 @@ Public Shared Function pixGetRankValue(
 				<Out()> ByRef pvalue as UInteger) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetRankValue( pixs.Pointer, factor, rank, pvalue)
 
@@ -482,13 +449,11 @@ Public Shared Function pixGetRankValueMaskedRGB(
 				 ByVal y as Integer, 
 				 ByVal factor as Integer, 
 				 ByVal rank as Single, 
-				<Out()> ByRef prval as Single(), 
-				<Out()> ByRef pgval as Single(), 
-				<Out()> ByRef pbval as Single()) as Integer
+				<Out()> Optional ByRef prval as Single = Nothing, 
+				<Out()> Optional ByRef pgval as Single = Nothing, 
+				<Out()> Optional ByRef pbval as Single = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
@@ -536,12 +501,10 @@ Public Shared Function pixGetRankValueMasked(
 				 ByVal y as Integer, 
 				 ByVal factor as Integer, 
 				 ByVal rank as Single, 
-				<Out()> ByRef pval as Single(), 
-				<Out()> ByRef pna as Numa) as Integer
+				<Out()> ByRef pval as Single, 
+				<Out()> Optional ByRef pna as Numa = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 Dim pnaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pna) Then pnaPTR = pna.Pointer
@@ -590,8 +553,6 @@ Public Shared Function pixGetPixelAverage(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetPixelAverage( pixs.Pointer, pixmPTR, x, y, factor, pval)
@@ -624,9 +585,6 @@ Public Shared Function pixGetPixelStats(
 				<Out()> ByRef pvalue as UInteger) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetPixelStats( pixs.Pointer, factor, type, pvalue)
 
@@ -663,13 +621,11 @@ Public Shared Function pixGetAverageMaskedRGB(
 				 ByVal y as Integer, 
 				 ByVal factor as Integer, 
 				 ByVal type as Enumerations.L_statistical_measures, 
-				<Out()> ByRef prval as Single(), 
-				<Out()> ByRef pgval as Single(), 
-				<Out()> ByRef pbval as Single()) as Integer
+				<Out()> Optional ByRef prval as Single = Nothing, 
+				<Out()> Optional ByRef pgval as Single = Nothing, 
+				<Out()> Optional ByRef pbval as Single = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
@@ -717,11 +673,9 @@ Public Shared Function pixGetAverageMasked(
 				 ByVal y as Integer, 
 				 ByVal factor as Integer, 
 				 ByVal type as Enumerations.L_statistical_measures, 
-				<Out()> ByRef pval as Single()) as Integer
+				<Out()> ByRef pval as Single) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
@@ -755,13 +709,11 @@ Public Shared Function pixGetAverageTiledRGB(
 				 ByVal sx as Integer, 
 				 ByVal sy as Integer, 
 				 ByVal type as Enumerations.L_statistical_measures, 
-				<Out()> ByRef ppixr as Pix, 
-				<Out()> ByRef ppixg as Pix, 
-				<Out()> ByRef ppixb as Pix) as Integer
+				<Out()> Optional ByRef ppixr as Pix = Nothing, 
+				<Out()> Optional ByRef ppixg as Pix = Nothing, 
+				<Out()> Optional ByRef ppixb as Pix = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 Dim ppixrPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixr) Then ppixrPTR = ppixr.Pointer
 Dim ppixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixg) Then ppixgPTR = ppixg.Pointer
@@ -803,9 +755,6 @@ Public Shared Function pixGetAverageTiled(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetAverageTiled( pixs.Pointer, sx, sy, type)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -840,17 +789,15 @@ End Function
 '''   <returns>na numa of requested statistic for each row, or NULL on error</returns>
 Public Shared Function pixRowStats(
 				 ByVal pixs as Pix, 
-				 ByVal box as Box, 
-				<Out()> ByRef pnamean as Numa, 
-				<Out()> ByRef pnamedian as Numa, 
-				<Out()> ByRef pnamode as Numa, 
-				<Out()> ByRef pnamodecount as Numa, 
-				<Out()> ByRef pnavar as Numa, 
-				<Out()> ByRef pnarootvar as Numa) as Integer
+				 Optional ByVal box as Box = Nothing, 
+				<Out()> Optional ByRef pnamean as Numa = Nothing, 
+				<Out()> Optional ByRef pnamedian as Numa = Nothing, 
+				<Out()> Optional ByRef pnamode as Numa = Nothing, 
+				<Out()> Optional ByRef pnamodecount as Numa = Nothing, 
+				<Out()> Optional ByRef pnavar as Numa = Nothing, 
+				<Out()> Optional ByRef pnarootvar as Numa = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 Dim pnameanPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnamean) Then pnameanPTR = pnamean.Pointer
@@ -899,17 +846,15 @@ End Function
 '''   <returns>na numa of requested statistic for each column, or NULL on error</returns>
 Public Shared Function pixColumnStats(
 				 ByVal pixs as Pix, 
-				 ByVal box as Box, 
-				<Out()> ByRef pnamean as Numa, 
-				<Out()> ByRef pnamedian as Numa, 
-				<Out()> ByRef pnamode as Numa, 
-				<Out()> ByRef pnamodecount as Numa, 
-				<Out()> ByRef pnavar as Numa, 
-				<Out()> ByRef pnarootvar as Numa) as Integer
+				 Optional ByVal box as Box = Nothing, 
+				<Out()> Optional ByRef pnamean as Numa = Nothing, 
+				<Out()> Optional ByRef pnamedian as Numa = Nothing, 
+				<Out()> Optional ByRef pnamode as Numa = Nothing, 
+				<Out()> Optional ByRef pnamodecount as Numa = Nothing, 
+				<Out()> Optional ByRef pnavar as Numa = Nothing, 
+				<Out()> Optional ByRef pnarootvar as Numa = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 Dim pnameanPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnamean) Then pnameanPTR = pnamean.Pointer
@@ -950,14 +895,12 @@ Public Shared Function pixGetRangeValues(
 				 ByVal pixs as Pix, 
 				 ByVal factor as Integer, 
 				 ByVal color as Enumerations.L_SELECT_, 
-				<Out()> ByRef pminval as Integer, 
-				<Out()> ByRef pmaxval as Integer) as Integer
+				<Out()> Optional ByRef pminval as Integer = Nothing, 
+				<Out()> Optional ByRef pmaxval as Integer = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {8,16}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale, 32 bpp rgb, or colormapped")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetRangeValues( pixs.Pointer, factor, color, pminval, pmaxval)
 
@@ -989,16 +932,14 @@ Public Shared Function pixGetExtremeValue(
 				 ByVal pixs as Pix, 
 				 ByVal factor as Integer, 
 				 ByVal type as Enumerations.L_SELECT_, 
-				<Out()> ByRef prval as Integer, 
-				<Out()> ByRef pgval as Integer, 
-				<Out()> ByRef pbval as Integer, 
-				<Out()> ByRef pgrayval as Integer) as Integer
+				<Out()> Optional ByRef prval as Integer = Nothing, 
+				<Out()> Optional ByRef pgval as Integer = Nothing, 
+				<Out()> Optional ByRef pbval as Integer = Nothing, 
+				<Out()> Optional ByRef pgrayval as Integer = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {8,16}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale, 32 bpp rgb, or colormapped")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetExtremeValue( pixs.Pointer, factor, type, prval, pgval, pbval, pgrayval)
 
@@ -1027,14 +968,12 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixGetMaxValueInRect(
 				 ByVal pixs as Pix, 
-				 ByVal box as Box, 
-				<Out()> ByRef pmaxval as UInteger, 
-				<Out()> ByRef pxmax as Integer, 
-				<Out()> ByRef pymax as Integer) as Integer
+				 Optional ByVal box as Box = Nothing, 
+				<Out()> Optional ByRef pmaxval as UInteger = Nothing, 
+				<Out()> Optional ByRef pxmax as Integer = Nothing, 
+				<Out()> Optional ByRef pymax as Integer = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -1069,13 +1008,12 @@ Public Shared Function pixGetBinnedComponentRange(
 				 ByVal nbins as Integer, 
 				 ByVal factor as Integer, 
 				 ByVal color as Enumerations.L_SELECT_, 
-				<Out()> ByRef pminval as Integer, 
-				<Out()> ByRef pmaxval as Integer, 
-				<Out()> ByRef pcarray as Byte(), 
-				 ByVal fontsize as Integer) as Integer
+				<Out()> Optional ByRef pminval as Integer = Nothing, 
+				<Out()> Optional ByRef pmaxval as Integer = Nothing, 
+				<Out()> Optional ByRef pcarray as Byte() = Nothing, 
+				 Optional ByVal fontsize as Integer = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
 
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
@@ -1129,11 +1067,9 @@ Public Shared Function pixGetRankColorArray(
 				 ByVal factor as Integer, 
 				<Out()> ByRef pcarray as Byte(), 
 				 ByVal debugflag as Integer, 
-				 ByVal fontsize as Integer) as Integer
+				 Optional ByVal fontsize as Integer = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim pcarrayPTR As IntPtr = IntPtr.Zero
 
@@ -1184,8 +1120,6 @@ Public Shared Function pixGetBinnedColor(
 	If IsNothing (pixg) then Throw New ArgumentNullException  ("pixg cannot be Nothing")
 	If IsNothing (nalut) then Throw New ArgumentNullException  ("nalut cannot be Nothing")
 
-
-
 	Dim pcarrayPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetBinnedColor( pixs.Pointer, pixg.Pointer, factor, nbins, nalut.Pointer, pcarrayPTR, debugflag)
@@ -1213,8 +1147,6 @@ Public Shared Function pixDisplayColorArray(
 				 ByVal fontsize as Integer) as Pix
 
 	If IsNothing (carray) then Throw New ArgumentNullException  ("carray cannot be Nothing")
-
-
 
 	Dim carrayPTR As IntPtr = Marshal.AllocHGlobal(carray.Count) : Marshal.Copy(carray, 0, carrayPTR, carray.Length)
 
@@ -1262,9 +1194,6 @@ Public Shared Function pixRankBinByStrip(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRankBinByStrip( pixs.Pointer, direction, size, nbins, type)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1301,9 +1230,6 @@ Public Shared Function pixaGetAlignedStats(
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaGetAlignedStats( pixa.Pointer, type, nbins, thresh)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1326,9 +1252,6 @@ Public Shared Function pixaExtractColumnFromEachPix(
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaExtractColumnFromEachPix( pixa.Pointer, col, pixd.Pointer)
 
@@ -1378,9 +1301,6 @@ Public Shared Function pixGetRowStats(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (colvect) then Throw New ArgumentNullException  ("colvect cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetRowStats( pixs.Pointer, type, nbins, thresh, colvect)
 
 	Return _Result
@@ -1424,9 +1344,6 @@ Public Shared Function pixGetColumnStats(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (rowvect) then Throw New ArgumentNullException  ("rowvect cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetColumnStats( pixs.Pointer, type, nbins, thresh, rowvect)
 
 	Return _Result
@@ -1449,9 +1366,6 @@ Public Shared Function pixSetPixelColumn(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 	If IsNothing (colvect) then Throw New ArgumentNullException  ("colvect cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetPixelColumn( pix.Pointer, col, colvect)
 
 	Return _Result
@@ -1472,13 +1386,10 @@ Public Shared Function pixThresholdForFgBg(
 				 ByVal pixs as Pix, 
 				 ByVal factor as Integer, 
 				 ByVal thresh as Integer, 
-				<Out()> ByRef pfgval as Integer, 
-				<Out()> ByRef pbgval as Integer) as Integer
+				<Out()> Optional ByRef pfgval as Integer = Nothing, 
+				<Out()> Optional ByRef pbgval as Integer = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixThresholdForFgBg( pixs.Pointer, factor, thresh, pfgval, pbgval)
 
@@ -1508,14 +1419,12 @@ Public Shared Function pixSplitDistributionFgBg(
 				 ByVal pixs as Pix, 
 				 ByVal scorefract as Single, 
 				 ByVal factor as Integer, 
-				<Out()> ByRef pthresh as Integer, 
-				<Out()> ByRef pfgval as Integer, 
-				<Out()> ByRef pbgval as Integer, 
-				<Out()> ByRef ppixdb as Pix) as Integer
+				<Out()> Optional ByRef pthresh as Integer = Nothing, 
+				<Out()> Optional ByRef pfgval as Integer = Nothing, 
+				<Out()> Optional ByRef pbgval as Integer = Nothing, 
+				<Out()> Optional ByRef ppixdb as Pix = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
 

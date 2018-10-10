@@ -15,10 +15,6 @@ Public Shared Function lheapCreate(
 				 ByVal nalloc as Integer, 
 				 ByVal direction as Enumerations.L_SORT_CREASING) as L_Heap
 
-
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.lheapCreate( nalloc, direction)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -47,9 +43,6 @@ Public Shared Sub lheapDestroy(
 				 ByRef plh as L_Heap, 
 				 ByVal freeflag as Integer)
 
-
-
-
 	Dim plhPTR As IntPtr = IntPtr.Zero : If Not IsNothing(plh) Then plhPTR = plh.Pointer
 
 	LeptonicaSharp.Natives.lheapDestroy( plhPTR, freeflag)
@@ -72,8 +65,6 @@ Public Shared Function lheapAdd(
 	If IsNothing (lh) then Throw New ArgumentNullException  ("lh cannot be Nothing")
 	If IsNothing (item) then Throw New ArgumentNullException  ("item cannot be Nothing")
 
-
-
 Dim itemPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lheapAdd( lh.Pointer, itemPTR)
@@ -93,9 +84,6 @@ Public Shared Function lheapRemove(
 
 	If IsNothing (lh) then Throw New ArgumentNullException  ("lh cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.lheapRemove( lh.Pointer)
 
 	Return _Result
@@ -112,9 +100,6 @@ Public Shared Function lheapGetCount(
 				 ByVal lh as L_Heap) as Integer
 
 	If IsNothing (lh) then Throw New ArgumentNullException  ("lh cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lheapGetCount( lh.Pointer)
 
@@ -144,9 +129,6 @@ Public Shared Function lheapSwapUp(
 				 ByVal index as Integer) as Integer
 
 	If IsNothing (lh) then Throw New ArgumentNullException  ("lh cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lheapSwapUp( lh.Pointer, index)
 
@@ -180,9 +162,6 @@ Public Shared Function lheapSwapDown(
 
 	If IsNothing (lh) then Throw New ArgumentNullException  ("lh cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.lheapSwapDown( lh.Pointer)
 
 	Return _Result
@@ -205,9 +184,6 @@ Public Shared Function lheapSort(
 				 ByVal lh as L_Heap) as Integer
 
 	If IsNothing (lh) then Throw New ArgumentNullException  ("lh cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lheapSort( lh.Pointer)
 
@@ -237,9 +213,6 @@ Public Shared Function lheapSortStrictOrder(
 
 	If IsNothing (lh) then Throw New ArgumentNullException  ("lh cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.lheapSortStrictOrder( lh.Pointer)
 
 	Return _Result
@@ -259,9 +232,6 @@ Public Shared Function lheapPrint(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (lh) then Throw New ArgumentNullException  ("lh cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lheapPrint( fp.Pointer, lh.Pointer)
 

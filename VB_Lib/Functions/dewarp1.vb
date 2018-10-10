@@ -25,9 +25,7 @@ Public Shared Function dewarpCreate(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpCreate( pixs.Pointer, pageno)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -57,10 +55,6 @@ Public Shared Function dewarpCreateRef(
 				 ByVal pageno as Integer, 
 				 ByVal refpage as Integer) as L_Dewarp
 
-
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpCreateRef( pageno, refpage)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -75,9 +69,6 @@ End Function
 '''  <param name="pdew">[in,out] - will be set to null before returning</param>
 Public Shared Sub dewarpDestroy(
 				 ByRef pdew as L_Dewarp)
-
-
-
 
 	Dim pdewPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdew) Then pdewPTR = pdew.Pointer
 
@@ -125,10 +116,6 @@ Public Shared Function dewarpaCreate(
 				 ByVal minlines as Integer, 
 				 ByVal maxdist as Integer) as L_Dewarpa
 
-
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpaCreate( nptrs, sampling, redfactor, minlines, maxdist)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -175,9 +162,6 @@ Public Shared Function dewarpaCreateFromPixacomp(
 
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpaCreateFromPixacomp( pixac.Pointer, useboth, sampling, minlines, maxdist)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -192,9 +176,6 @@ End Function
 '''  <param name="pdewa">[in,out] - will be set to null before returning</param>
 Public Shared Sub dewarpaDestroy(
 				 ByRef pdewa as L_Dewarpa)
-
-
-
 
 	Dim pdewaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdewa) Then pdewaPTR = pdewa.Pointer
 
@@ -216,9 +197,6 @@ Public Shared Function dewarpaDestroyDewarp(
 				 ByVal pageno as Integer) as Integer
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaDestroyDewarp( dewa.Pointer, pageno)
 
@@ -252,9 +230,6 @@ Public Shared Function dewarpaInsertDewarp(
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 	If IsNothing (dew) then Throw New ArgumentNullException  ("dew cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaInsertDewarp( dewa.Pointer, dew.Pointer)
 
 	Return _Result
@@ -273,9 +248,6 @@ Public Shared Function dewarpaGetDewarp(
 				 ByVal index as Integer) as L_Dewarp
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpaGetDewarp( dewa.Pointer, index)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -338,9 +310,6 @@ Public Shared Function dewarpaSetCurvatures(
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaSetCurvatures( dewa.Pointer, max_linecurv, min_diff_linecurv, max_diff_linecurv, max_edgecurv, max_diff_edgecurv, max_edgeslope)
 
 	Return _Result
@@ -367,9 +336,6 @@ Public Shared Function dewarpaUseBothArrays(
 				 ByVal useboth as Integer) as Integer
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaUseBothArrays( dewa.Pointer, useboth)
 
@@ -406,9 +372,6 @@ Public Shared Function dewarpaSetCheckColumns(
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaSetCheckColumns( dewa.Pointer, check_columns)
 
 	Return _Result
@@ -433,9 +396,6 @@ Public Shared Function dewarpaSetMaxDistance(
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaSetMaxDistance( dewa.Pointer, maxdist)
 
 	Return _Result
@@ -453,9 +413,7 @@ Public Shared Function dewarpRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpRead( filename)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -486,9 +444,6 @@ Public Shared Function dewarpReadStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpReadStream( fp.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -508,9 +463,6 @@ Public Shared Function dewarpReadMem(
 				 ByVal size as UInteger) as L_Dewarp
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpReadMem( data, size)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -533,9 +485,7 @@ Public Shared Function dewarpWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (dew) then Throw New ArgumentNullException  ("dew cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpWrite( filename, dew.Pointer)
 
@@ -564,9 +514,6 @@ Public Shared Function dewarpWriteStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (dew) then Throw New ArgumentNullException  ("dew cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpWriteStream( fp.Pointer, dew.Pointer)
 
 	Return _Result
@@ -593,8 +540,6 @@ Public Shared Function dewarpWriteMem(
 
 	If IsNothing (dew) then Throw New ArgumentNullException  ("dew cannot be Nothing")
 
-
-
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpWriteMem( pdataPTR, psize, dew.Pointer)
@@ -615,9 +560,7 @@ Public Shared Function dewarpaRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpaRead( filename)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -645,9 +588,6 @@ Public Shared Function dewarpaReadStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpaReadStream( fp.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -667,9 +607,6 @@ Public Shared Function dewarpaReadMem(
 				 ByVal size as UInteger) as L_Dewarpa
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpaReadMem( data, size)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -692,9 +629,7 @@ Public Shared Function dewarpaWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaWrite( filename, dewa.Pointer)
 
@@ -715,9 +650,6 @@ Public Shared Function dewarpaWriteStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaWriteStream( fp.Pointer, dewa.Pointer)
 
@@ -744,8 +676,6 @@ Public Shared Function dewarpaWriteMem(
 				 ByVal dewa as L_Dewarpa) as Integer
 
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
-
-
 
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 

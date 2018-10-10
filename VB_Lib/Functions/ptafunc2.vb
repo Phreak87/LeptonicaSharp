@@ -17,11 +17,9 @@ Public Shared Function ptaSort(
 				 ByVal ptas as Pta, 
 				 ByVal sorttype as Enumerations.L_SORT_BY, 
 				 ByVal sortorder as Enumerations.L_SORT_CREASING, 
-				<Out()> ByRef pnaindex as Numa) as Pta
+				<Out()> Optional ByRef pnaindex as Numa = Nothing) as Pta
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
-
-
 
 Dim pnaindexPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaindex) Then pnaindexPTR = pnaindex.Pointer
 
@@ -50,8 +48,6 @@ Public Shared Function ptaGetSortIndex(
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
-
-
 	Dim pnaindexPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaindex) Then pnaindexPTR = pnaindex.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetSortIndex( ptas.Pointer, sorttype, sortorder, pnaindexPTR)
@@ -75,9 +71,6 @@ Public Shared Function ptaSortByIndex(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 	If IsNothing (naindex) then Throw New ArgumentNullException  ("naindex cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaSortByIndex( ptas.Pointer, naindex.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -98,9 +91,6 @@ Public Shared Function ptaaSortByIndex(
 
 	If IsNothing (ptaas) then Throw New ArgumentNullException  ("ptaas cannot be Nothing")
 	If IsNothing (naindex) then Throw New ArgumentNullException  ("naindex cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaaSortByIndex( ptaas.Pointer, naindex.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -124,11 +114,9 @@ Public Shared Function ptaGetRankValue(
 				 ByVal fract as Single, 
 				 ByVal ptasort as Pta, 
 				 ByVal sorttype as Enumerations.L_SORT_BY, 
-				<Out()> ByRef pval as Single()) as Integer
+				<Out()> ByRef pval as Single) as Integer
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-
 
 	Dim ptasortPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ptasort) Then ptasortPTR = ptasort.Pointer
 
@@ -163,9 +151,6 @@ Public Shared Function ptaUnionByAset(
 	If IsNothing (pta1) then Throw New ArgumentNullException  ("pta1 cannot be Nothing")
 	If IsNothing (pta2) then Throw New ArgumentNullException  ("pta2 cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaUnionByAset( pta1.Pointer, pta2.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -190,9 +175,6 @@ Public Shared Function ptaRemoveDupsByAset(
 				 ByVal ptas as Pta) as Pta
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaRemoveDupsByAset( ptas.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -224,9 +206,6 @@ Public Shared Function ptaIntersectionByAset(
 	If IsNothing (pta1) then Throw New ArgumentNullException  ("pta1 cannot be Nothing")
 	If IsNothing (pta2) then Throw New ArgumentNullException  ("pta2 cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaIntersectionByAset( pta1.Pointer, pta2.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -244,9 +223,6 @@ Public Shared Function l_asetCreateFromPta(
 				 ByVal pta as Pta) as L_Rbtree
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_asetCreateFromPta( pta.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -275,9 +251,6 @@ Public Shared Function ptaUnionByHash(
 
 	If IsNothing (pta1) then Throw New ArgumentNullException  ("pta1 cannot be Nothing")
 	If IsNothing (pta2) then Throw New ArgumentNullException  ("pta2 cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaUnionByHash( pta1.Pointer, pta2.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -315,11 +288,9 @@ End Function
 Public Shared Function ptaRemoveDupsByHash(
 				 ByVal ptas as Pta, 
 				<Out()> ByRef pptad as Pta, 
-				<Out()> ByRef pdahash as L_DnaHash) as Integer
+				<Out()> Optional ByRef pdahash as L_DnaHash = Nothing) as Integer
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
-
-
 
 	Dim pptadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pptad) Then pptadPTR = pptad.Pointer
 Dim pdahashPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdahash) Then pdahashPTR = pdahash.Pointer
@@ -352,9 +323,6 @@ Public Shared Function ptaIntersectionByHash(
 
 	If IsNothing (pta1) then Throw New ArgumentNullException  ("pta1 cannot be Nothing")
 	If IsNothing (pta2) then Throw New ArgumentNullException  ("pta2 cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaIntersectionByHash( pta1.Pointer, pta2.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -397,9 +365,6 @@ Public Shared Function ptaFindPtByHash(
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 	If IsNothing (dahash) then Throw New ArgumentNullException  ("dahash cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaFindPtByHash( pta.Pointer, dahash.Pointer, x, y, pindex)
 
 	Return _Result
@@ -416,9 +381,6 @@ Public Shared Function l_dnaHashCreateFromPta(
 				 ByVal pta as Pta) as L_DnaHash
 
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaHashCreateFromPta( pta.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing

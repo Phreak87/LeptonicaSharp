@@ -41,9 +41,7 @@ Public Shared Function pixStrokeWidthTransform(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixStrokeWidthTransform( pixs.Pointer, color, depth, nangles)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -82,9 +80,7 @@ Public Shared Function pixRunlengthTransform(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRunlengthTransform( pixs.Pointer, color, direction, depth)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -124,9 +120,7 @@ Public Shared Function pixFindHorizontalRuns(
 	If IsNothing (xstart) then Throw New ArgumentNullException  ("xstart cannot be Nothing")
 	If IsNothing (xend) then Throw New ArgumentNullException  ("xend cannot be Nothing")
 
-
 	If {1}.contains (pix.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindHorizontalRuns( pix.Pointer, y, xstart, xend, pn)
 
@@ -165,9 +159,7 @@ Public Shared Function pixFindVerticalRuns(
 	If IsNothing (ystart) then Throw New ArgumentNullException  ("ystart cannot be Nothing")
 	If IsNothing (yend) then Throw New ArgumentNullException  ("yend cannot be Nothing")
 
-
 	If {1}.contains (pix.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindVerticalRuns( pix.Pointer, x, ystart, yend, pn)
 
@@ -193,10 +185,9 @@ End Function
 Public Shared Function pixFindMaxRuns(
 				 ByVal pix as Pix, 
 				 ByVal direction as Enumerations.L_AL_RUNS, 
-				<Out()> ByRef pnastart as Numa) as Numa
+				<Out()> Optional ByRef pnastart as Numa = Nothing) as Numa
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
 
 	If {1}.contains (pix.d) = false then Throw New ArgumentException ("1 bpp")
 
@@ -234,9 +225,7 @@ Public Shared Function pixFindMaxHorizontalRunOnLine(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-
 	If {1}.contains (pix.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindMaxHorizontalRunOnLine( pix.Pointer, y, pxstart, psize)
 
@@ -268,9 +257,7 @@ Public Shared Function pixFindMaxVerticalRunOnLine(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-
 	If {1}.contains (pix.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindMaxVerticalRunOnLine( pix.Pointer, x, pystart, psize)
 
@@ -308,9 +295,6 @@ Public Shared Function runlengthMembershipOnLine(
 	If IsNothing (start) then Throw New ArgumentNullException  ("start cannot be Nothing")
 	If IsNothing (_end_) then Throw New ArgumentNullException  ("_end_ cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.runlengthMembershipOnLine( buffer, size, depth, start, _end_, n)
 
 	Return _Result
@@ -333,10 +317,6 @@ End Function
 '''   <returns>table giving, for an input byte, the MS bit location, starting at 0 with the MSBit in the byte, or NULL on error.</returns>
 Public Shared Function makeMSBitLocTab(
 				 ByVal bitval as Integer) as Integer()
-
-
-
-
 
 	Dim _Result as Integer() = LeptonicaSharp.Natives.makeMSBitLocTab( bitval)
 

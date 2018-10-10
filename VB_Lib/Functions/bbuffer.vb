@@ -23,10 +23,6 @@ Public Shared Function bbufferCreate(
 				 ByVal indata as Byte(), 
 				 ByVal nalloc as Integer) as L_ByteBuffer
 
-
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.bbufferCreate( indata, nalloc)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -47,9 +43,6 @@ End Function
 '''  <param name="pbb">[in,out] - buffer to be nulled</param>
 Public Shared Sub bbufferDestroy(
 				 ByRef pbb as L_ByteBuffer)
-
-
-
 
 	Dim pbbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbb) Then pbbPTR = pbb.Pointer
 
@@ -74,9 +67,6 @@ End Sub
 Public Shared Function bbufferDestroyAndSaveData(
 				 ByRef pbb as L_ByteBuffer, 
 				<Out()> ByRef pnbytes as UInteger) as Byte()
-
-
-
 
 	Dim pbbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbb) Then pbbPTR = pbb.Pointer
 
@@ -114,9 +104,6 @@ Public Shared Function bbufferRead(
 	If IsNothing (bb) then Throw New ArgumentNullException  ("bb cannot be Nothing")
 	If IsNothing (src) then Throw New ArgumentNullException  ("src cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.bbufferRead( bb.Pointer, src, nbytes)
 
 	Return _Result
@@ -138,9 +125,6 @@ Public Shared Function bbufferReadStream(
 
 	If IsNothing (bb) then Throw New ArgumentNullException  ("bb cannot be Nothing")
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.bbufferReadStream( bb.Pointer, fp.Pointer, nbytes)
 
@@ -167,9 +151,6 @@ Public Shared Function bbufferExtendArray(
 
 	If IsNothing (bb) then Throw New ArgumentNullException  ("bb cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.bbufferExtendArray( bb.Pointer, nbytes)
 
 	Return _Result
@@ -194,9 +175,6 @@ Public Shared Function bbufferWrite(
 	If IsNothing (bb) then Throw New ArgumentNullException  ("bb cannot be Nothing")
 	If IsNothing (dest) then Throw New ArgumentNullException  ("dest cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.bbufferWrite( bb.Pointer, dest, nbytes, pnout)
 
 	Return _Result
@@ -220,9 +198,6 @@ Public Shared Function bbufferWriteStream(
 
 	If IsNothing (bb) then Throw New ArgumentNullException  ("bb cannot be Nothing")
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.bbufferWriteStream( bb.Pointer, fp.Pointer, nbytes, pnout)
 

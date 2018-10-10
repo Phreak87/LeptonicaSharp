@@ -19,9 +19,6 @@ Public Shared Function barcodeDispatchDecoder(
 
 	If IsNothing (barstr) then Throw New ArgumentNullException  ("barstr cannot be Nothing")
 
-
-
-
 	Dim _Result as String = LeptonicaSharp.Natives.barcodeDispatchDecoder( barstr, format, debugflag)
 
 	Return _Result
@@ -36,10 +33,6 @@ End Function
 '''   <returns>1 if format is one of those supported 0 otherwise</returns>
 Public Shared Function barcodeFormatIsSupported(
 				 ByVal format as Enumerations.IFF) as Integer
-
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.barcodeFormatIsSupported( format)
 

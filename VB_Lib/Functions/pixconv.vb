@@ -41,9 +41,7 @@ Public Shared Function pixThreshold8(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixThreshold8( pixs.Pointer, d, nlevels, cmapflag)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -73,9 +71,6 @@ Public Shared Function pixRemoveColormapGeneral(
 				 ByVal ifnocmap as Enumerations.L_access_storage) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRemoveColormapGeneral( pixs.Pointer, type, ifnocmap)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -114,9 +109,6 @@ Public Shared Function pixRemoveColormap(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRemoveColormap( pixs.Pointer, type)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -140,9 +132,7 @@ Public Shared Function pixAddGrayColormap8(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixAddGrayColormap8( pixs.Pointer)
 
@@ -168,9 +158,7 @@ Public Shared Function pixAddMinimalGrayColormap8(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAddMinimalGrayColormap8( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -195,9 +183,7 @@ Public Shared Function pixConvertRGBToLuminance(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp RGB")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToLuminance( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -222,15 +208,13 @@ End Function
 '''   <returns>8 bpp pix, or NULL on error</returns>
 Public Shared Function pixConvertRGBToGray(
 				 ByVal pixs as Pix, 
-				 ByVal rwt as Single, 
-				 ByVal gwt as Single, 
-				 ByVal bwt as Single) as Pix
+				 Optional ByVal rwt as Single = 0, 
+				 Optional ByVal gwt as Single = 0, 
+				 Optional ByVal bwt as Single = 0) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp RGB")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToGray( pixs.Pointer, rwt, gwt, bwt)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -260,9 +244,7 @@ Public Shared Function pixConvertRGBToGrayFast(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp RGB")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToGrayFast( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -295,9 +277,7 @@ Public Shared Function pixConvertRGBToGrayMinMax(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp RGB")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToGrayMinMax( pixs.Pointer, type)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -340,9 +320,7 @@ Public Shared Function pixConvertRGBToGraySatBoost(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToGraySatBoost( pixs.Pointer, refval)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -376,9 +354,7 @@ Public Shared Function pixConvertRGBToGrayArb(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp RGB")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToGrayArb( pixs.Pointer, rc, gc, bc)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -416,9 +392,7 @@ Public Shared Function pixConvertRGBToBinaryArb(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp RGB")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToBinaryArb( pixs.Pointer, rc, gc, bc, thresh, relation)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -454,9 +428,7 @@ Public Shared Function pixConvertGrayToColormap(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {2,4,8}.contains (pixs.d) = false then Throw New ArgumentException ("2, 4 or 8 bpp grayscale")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertGrayToColormap( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -493,9 +465,7 @@ Public Shared Function pixConvertGrayToColormap8(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertGrayToColormap8( pixs.Pointer, mindepth)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -525,9 +495,6 @@ Public Shared Function pixColorizeGray(
 				 ByVal cmapflag as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixColorizeGray( pixs.Pointer, color, cmapflag)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -572,9 +539,7 @@ Public Shared Function pixConvertRGBToColormap(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToColormap( pixs.Pointer, ditherflag)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -602,9 +567,6 @@ Public Shared Function pixConvertCmapTo1(
 				 ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertCmapTo1( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -648,8 +610,6 @@ Public Shared Function pixQuantizeIfFewColors(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
 	Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixQuantizeIfFewColors( pixs.Pointer, maxcolors, mingraycolors, octlevel, ppixdPTR)
@@ -680,9 +640,7 @@ Public Shared Function pixConvert16To8(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {16}.contains (pixs.d) = false then Throw New ArgumentException ("16 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert16To8( pixs.Pointer, type)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -712,9 +670,7 @@ Public Shared Function pixConvertGrayToFalseColor(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {8,16}.contains (pixs.d) = false then Throw New ArgumentException ("8 or 16 bpp grayscale")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertGrayToFalseColor( pixs.Pointer, gamma)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -744,9 +700,7 @@ Public Shared Function pixUnpackBinary(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixUnpackBinary( pixs.Pointer, depth, invert)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -780,7 +734,6 @@ Public Shared Function pixConvert1To16(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (val0) then Throw New ArgumentNullException  ("val0 cannot be Nothing")
 	If IsNothing (val1) then Throw New ArgumentNullException  ("val1 cannot be Nothing")
-
 
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
@@ -817,7 +770,6 @@ Public Shared Function pixConvert1To32(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
@@ -845,9 +797,7 @@ Public Shared Function pixConvert1To2Cmap(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert1To2Cmap( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -882,7 +832,6 @@ Public Shared Function pixConvert1To2(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
@@ -910,9 +859,7 @@ Public Shared Function pixConvert1To4Cmap(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert1To4Cmap( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -947,7 +894,6 @@ Public Shared Function pixConvert1To4(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {4}.contains (pixd.d) = false then Throw New ArgumentException ("4 bpp, can be null")
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
@@ -976,9 +922,7 @@ Public Shared Function pixConvert1To8Cmap(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert1To8Cmap( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1015,7 +959,6 @@ Public Shared Function pixConvert1To8(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (val0) then Throw New ArgumentNullException  ("val0 cannot be Nothing")
 	If IsNothing (val1) then Throw New ArgumentNullException  ("val1 cannot be Nothing")
-
 
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
@@ -1072,9 +1015,6 @@ Public Shared Function pixConvert2To8(
 	If IsNothing (val2) then Throw New ArgumentNullException  ("val2 cannot be Nothing")
 	If IsNothing (val3) then Throw New ArgumentNullException  ("val3 cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert2To8( pixs.Pointer, val0, val1, val2, val3, cmapflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1112,9 +1052,7 @@ Public Shared Function pixConvert4To8(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {4}.contains (pixs.d) = false then Throw New ArgumentException ("4 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert4To8( pixs.Pointer, cmapflag)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1144,9 +1082,6 @@ Public Shared Function pixConvert8To16(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert8To16( pixs.Pointer, leftshift)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1174,9 +1109,7 @@ Public Shared Function pixConvertTo2(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1,2,4,8,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 32 bpp colormap OK but will be removed")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo2( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1201,9 +1134,7 @@ Public Shared Function pixConvert8To2(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-
 	If {8}.contains (pix.d) = false then Throw New ArgumentException ("8 bpp colormap OK")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert8To2( pix.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1232,9 +1163,7 @@ Public Shared Function pixConvertTo4(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1,2,4,8,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 32 bpp colormap OK but will be removed")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo4( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1259,9 +1188,7 @@ Public Shared Function pixConvert8To4(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-
 	If {8}.contains (pix.d) = false then Throw New ArgumentException ("8 bpp colormap OK")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert8To4( pix.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1292,9 +1219,7 @@ Public Shared Function pixConvertTo1(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo1( pixs.Pointer, threshold)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1324,9 +1249,7 @@ Public Shared Function pixConvertTo1BySampling(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo1BySampling( pixs.Pointer, factor, threshold)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1366,9 +1289,7 @@ Public Shared Function pixConvertTo8(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo8( pixs.Pointer, cmapflag)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1398,9 +1319,7 @@ Public Shared Function pixConvertTo8BySampling(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo8BySampling( pixs.Pointer, factor, cmapflag)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1435,9 +1354,7 @@ Public Shared Function pixConvertTo8Colormap(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo8Colormap( pixs.Pointer, dither)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1457,9 +1374,7 @@ Public Shared Function pixConvertTo16(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1,8}.contains (pixs.d) = false then Throw New ArgumentException ("1, 8 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo16( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1484,9 +1399,7 @@ Public Shared Function pixConvertTo32(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo32( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1514,9 +1427,7 @@ Public Shared Function pixConvertTo32BySampling(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo32BySampling( pixs.Pointer, factor)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1542,9 +1453,7 @@ Public Shared Function pixConvert8To32(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert8To32( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1578,9 +1487,7 @@ Public Shared Function pixConvertTo8Or32(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16, with or without colormap or 32 bpp rgb")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo8Or32( pixs.Pointer, copyflag, warnflag)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1615,9 +1522,7 @@ Public Shared Function pixConvert24To32(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {24}.contains (pixs.d) = false then Throw New ArgumentException ("24 bpp rgb")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert24To32( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1642,9 +1547,7 @@ Public Shared Function pixConvert32To24(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert32To24( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1672,9 +1575,7 @@ Public Shared Function pixConvert32To16(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp, single component")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert32To16( pixs.Pointer, type)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1698,9 +1599,7 @@ Public Shared Function pixConvert32To8(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp, single component")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert32To8( pixs.Pointer, type16, type8)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1724,9 +1623,6 @@ Public Shared Function pixRemoveAlpha(
 				 ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRemoveAlpha( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1758,7 +1654,6 @@ Public Shared Function pixAddAlphaTo1bpp(
 				 ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
 
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
@@ -1794,9 +1689,7 @@ Public Shared Function pixConvertLossless(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1,2,4,8}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8 bpp, not cmapped")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertLossless( pixs.Pointer, d)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1827,9 +1720,7 @@ Public Shared Function pixConvertForPSWrap(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16, 32 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertForPSWrap( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1872,9 +1763,7 @@ Public Shared Function pixConvertToSubpixelRGB(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {8,16}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale, 32 bpp rgb, or colormapped")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertToSubpixelRGB( pixs.Pointer, scalex, scaley, order)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1918,9 +1807,6 @@ Public Shared Function pixConvertGrayToSubpixelRGB(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertGrayToSubpixelRGB( pixs.Pointer, scalex, scaley, order)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1961,9 +1847,7 @@ Public Shared Function pixConvertColorToSubpixelRGB(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp or colormapped")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertColorToSubpixelRGB( pixs.Pointer, scalex, scaley, order)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1985,10 +1869,6 @@ End Function
 '''  <param name="val">[in] - between 1 and 255 typical value is 180</param>
 Public Shared Sub l_setNeutralBoostVal(
 				 ByVal val as Integer)
-
-
-
-
 
 	LeptonicaSharp.Natives.l_setNeutralBoostVal( val)
 

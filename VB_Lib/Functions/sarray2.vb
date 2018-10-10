@@ -27,9 +27,6 @@ Public Shared Function sarraySort(
 	If IsNothing (saout) then Throw New ArgumentNullException  ("saout cannot be Nothing")
 	If IsNothing (sain) then Throw New ArgumentNullException  ("sain cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarraySort( saout.Pointer, sain.Pointer, sortorder)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -50,9 +47,6 @@ Public Shared Function sarraySortByIndex(
 
 	If IsNothing (sain) then Throw New ArgumentNullException  ("sain cannot be Nothing")
 	If IsNothing (naindex) then Throw New ArgumentNullException  ("naindex cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarraySortByIndex( sain.Pointer, naindex.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -80,9 +74,6 @@ Public Shared Function stringCompareLexical(
 
 	If IsNothing (str1) then Throw New ArgumentNullException  ("str1 cannot be Nothing")
 	If IsNothing (str2) then Throw New ArgumentNullException  ("str2 cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.stringCompareLexical( str1, str2)
 
@@ -114,9 +105,6 @@ Public Shared Function sarrayUnionByAset(
 	If IsNothing (sa1) then Throw New ArgumentNullException  ("sa1 cannot be Nothing")
 	If IsNothing (sa2) then Throw New ArgumentNullException  ("sa2 cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayUnionByAset( sa1.Pointer, sa2.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -144,9 +132,6 @@ Public Shared Function sarrayRemoveDupsByAset(
 				 ByVal sas as Sarray) as Sarray
 
 	If IsNothing (sas) then Throw New ArgumentNullException  ("sas cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayRemoveDupsByAset( sas.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -181,9 +166,6 @@ Public Shared Function sarrayIntersectionByAset(
 	If IsNothing (sa1) then Throw New ArgumentNullException  ("sa1 cannot be Nothing")
 	If IsNothing (sa2) then Throw New ArgumentNullException  ("sa2 cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayIntersectionByAset( sa1.Pointer, sa2.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -201,9 +183,6 @@ Public Shared Function l_asetCreateFromSarray(
 				 ByVal sa as Sarray) as L_Rbtree
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_asetCreateFromSarray( sa.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -237,11 +216,9 @@ End Function
 Public Shared Function sarrayRemoveDupsByHash(
 				 ByVal sas as Sarray, 
 				<Out()> ByRef psad as Sarray, 
-				<Out()> ByRef pdahash as L_DnaHash) as Integer
+				<Out()> Optional ByRef pdahash as L_DnaHash = Nothing) as Integer
 
 	If IsNothing (sas) then Throw New ArgumentNullException  ("sas cannot be Nothing")
-
-
 
 	Dim psadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(psad) Then psadPTR = psad.Pointer
 Dim pdahashPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdahash) Then pdahashPTR = pdahash.Pointer
@@ -273,9 +250,6 @@ Public Shared Function sarrayIntersectionByHash(
 
 	If IsNothing (sa1) then Throw New ArgumentNullException  ("sa1 cannot be Nothing")
 	If IsNothing (sa2) then Throw New ArgumentNullException  ("sa2 cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayIntersectionByHash( sa1.Pointer, sa2.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -317,9 +291,6 @@ Public Shared Function sarrayFindStringByHash(
 	If IsNothing (dahash) then Throw New ArgumentNullException  ("dahash cannot be Nothing")
 	If IsNothing (str) then Throw New ArgumentNullException  ("str cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayFindStringByHash( sa.Pointer, dahash.Pointer, str, pindex)
 
 	Return _Result
@@ -337,9 +308,6 @@ Public Shared Function l_dnaHashCreateFromSarray(
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaHashCreateFromSarray( sa.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -355,10 +323,6 @@ End Function
 '''   <returns>sa  (of printed numbers, 1 - n, or NULL on error</returns>
 Public Shared Function sarrayGenerateIntegers(
 				 ByVal n as Integer) as Sarray
-
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayGenerateIntegers( n)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -393,8 +357,6 @@ Public Shared Function sarrayLookupCSKV(
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 	If IsNothing (keystring) then Throw New ArgumentNullException  ("keystring cannot be Nothing")
-
-
 
 Dim pvalstringPTR As IntPtr = pvalstringPTR = Marshal.AllocHGlobal(Marshal.sizeOf(pvalstring.toArray))
 

@@ -44,9 +44,6 @@ Public Shared Function pixTilingCreate(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixTilingCreate( pixs.Pointer, nx, ny, w, h, xoverlap, yoverlap)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -61,9 +58,6 @@ End Function
 '''  <param name="ppt">[in,out] - will be set to null before returning</param>
 Public Shared Sub pixTilingDestroy(
 				 ByRef ppt as PixTiling)
-
-
-
 
 	Dim pptPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppt) Then pptPTR = ppt.Pointer
 
@@ -83,13 +77,10 @@ End Sub
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixTilingGetCount(
 				 ByVal pt as PixTiling, 
-				<Out()> ByRef pnx as Integer, 
-				<Out()> ByRef pny as Integer) as Integer
+				<Out()> Optional ByRef pnx as Integer = Nothing, 
+				<Out()> Optional ByRef pny as Integer = Nothing) as Integer
 
 	If IsNothing (pt) then Throw New ArgumentNullException  ("pt cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixTilingGetCount( pt.Pointer, pnx, pny)
 
@@ -107,13 +98,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixTilingGetSize(
 				 ByVal pt as PixTiling, 
-				<Out()> ByRef pw as Integer, 
-				<Out()> ByRef ph as Integer) as Integer
+				<Out()> Optional ByRef pw as Integer = Nothing, 
+				<Out()> Optional ByRef ph as Integer = Nothing) as Integer
 
 	If IsNothing (pt) then Throw New ArgumentNullException  ("pt cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixTilingGetSize( pt.Pointer, pw, ph)
 
@@ -135,9 +123,6 @@ Public Shared Function pixTilingGetTile(
 				 ByVal j as Integer) as Pix
 
 	If IsNothing (pt) then Throw New ArgumentNullException  ("pt cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixTilingGetTile( pt.Pointer, i, j)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -166,9 +151,6 @@ Public Shared Function pixTilingNoStripOnPaint(
 
 	If IsNothing (pt) then Throw New ArgumentNullException  ("pt cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixTilingNoStripOnPaint( pt.Pointer)
 
 	Return _Result
@@ -195,9 +177,6 @@ Public Shared Function pixTilingPaintTile(
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pt) then Throw New ArgumentNullException  ("pt cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixTilingPaintTile( pixd.Pointer, i, j, pixs.Pointer, pt.Pointer)
 

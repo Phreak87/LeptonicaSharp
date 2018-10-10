@@ -45,9 +45,6 @@ Public Shared Function pixColorGrayRegions(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixColorGrayRegions( pixs.Pointer, boxa.Pointer, type, thresh, rval, gval, bval)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -108,8 +105,6 @@ Public Shared Function pixColorGray(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixColorGray( pixs.Pointer, boxPTR, type, thresh, rval, gval, bval)
@@ -161,9 +156,6 @@ Public Shared Function pixColorGrayMasked(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixColorGrayMasked( pixs.Pointer, pixm.Pointer, type, thresh, rval, gval, bval)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -200,8 +192,6 @@ Public Shared Function pixSnapColor(
 				 ByVal diff as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -241,8 +231,6 @@ Public Shared Function pixSnapColorCmap(
 				 ByVal diff as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
@@ -289,7 +277,6 @@ Public Shared Function pixLinearMapToTargetColor(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
@@ -334,10 +321,6 @@ Public Shared Function pixelLinearMapToTargetColor(
 				 ByVal srcmap as UInteger, 
 				 ByVal dstmap as UInteger, 
 				<Out()> ByRef pdcolor as UInteger) as Integer
-
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixelLinearMapToTargetColor( scolor, srcmap, dstmap, pdcolor)
 
@@ -394,7 +377,6 @@ Public Shared Function pixShiftByComponent(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
@@ -435,10 +417,6 @@ Public Shared Function pixelShiftByComponent(
 				 ByVal dstval as UInteger, 
 				<Out()> ByRef ppixel as UInteger) as Integer
 
-
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixelShiftByComponent( rval, gval, bval, srcval, dstval, ppixel)
 
 	Return _Result
@@ -472,10 +450,6 @@ Public Shared Function pixelFractionalShift(
 				 ByVal bval as Integer, 
 				 ByVal fraction as Single, 
 				<Out()> ByRef ppixel as UInteger) as Integer
-
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixelFractionalShift( rval, gval, bval, fraction, ppixel)
 

@@ -64,11 +64,10 @@ Public Shared Function pixOtsuAdaptiveThreshold(
 				 ByVal smoothx as Integer, 
 				 ByVal smoothy as Integer, 
 				 ByVal scorefract as Single, 
-				<Out()> ByRef ppixth as Pix, 
-				<Out()> ByRef ppixd as Pix) as Integer
+				<Out()> Optional ByRef ppixth as Pix = Nothing, 
+				<Out()> Optional ByRef ppixd as Pix = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
 
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
@@ -129,11 +128,9 @@ Public Shared Function pixOtsuThreshOnBackgroundNorm(
 				 ByVal smoothx as Integer, 
 				 ByVal smoothy as Integer, 
 				 ByVal scorefract as Single, 
-				<Out()> ByRef pthresh as Integer) as Pix
+				<Out()> Optional ByRef pthresh as Integer = Nothing) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim piximPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixim) Then piximPTR = pixim.Pointer
 
@@ -193,11 +190,9 @@ Public Shared Function pixMaskedThreshOnBackgroundNorm(
 				 ByVal smoothx as Integer, 
 				 ByVal smoothy as Integer, 
 				 ByVal scorefract as Single, 
-				<Out()> ByRef pthresh as Integer) as Pix
+				<Out()> Optional ByRef pthresh as Integer = Nothing) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim piximPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixim) Then piximPTR = pixim.Pointer
 
@@ -244,12 +239,10 @@ Public Shared Function pixSauvolaBinarizeTiled(
 				 ByVal factor as Single, 
 				 ByVal nx as Integer, 
 				 ByVal ny as Integer, 
-				<Out()> ByRef ppixth as Pix, 
-				<Out()> ByRef ppixd as Pix) as Integer
+				<Out()> Optional ByRef ppixth as Pix = Nothing, 
+				<Out()> Optional ByRef ppixd as Pix = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 Dim ppixthPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixth) Then ppixthPTR = ppixth.Pointer
 Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
@@ -303,16 +296,14 @@ End Function
 Public Shared Function pixSauvolaBinarize(
 				 ByVal pixs as Pix, 
 				 ByVal whsize as Integer, 
-				 ByVal factor as Single, 
-				 ByVal addborder as Integer, 
-				<Out()> ByRef ppixm as Pix, 
-				<Out()> ByRef ppixsd as Pix, 
-				<Out()> ByRef ppixth as Pix, 
-				<Out()> ByRef ppixd as Pix) as Integer
+				 Optional ByVal factor as Single = 0.35, 
+				 Optional ByVal addborder as Integer = 0, 
+				<Out()> Optional ByRef ppixm as Pix = Nothing, 
+				<Out()> Optional ByRef ppixsd as Pix = Nothing, 
+				<Out()> Optional ByRef ppixth as Pix = Nothing, 
+				<Out()> Optional ByRef ppixd as Pix = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 Dim ppixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixm) Then ppixmPTR = ppixm.Pointer
 Dim ppixsdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixsd) Then ppixsdPTR = ppixsd.Pointer
@@ -370,12 +361,10 @@ Public Shared Function pixSauvolaGetThreshold(
 				 ByVal pixm as Pix, 
 				 ByVal pixms as Pix, 
 				 ByVal factor as Single, 
-				<Out()> ByRef ppixsd as Pix) as Pix
+				<Out()> Optional ByRef ppixsd as Pix = Nothing) as Pix
 
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 	If IsNothing (pixms) then Throw New ArgumentNullException  ("pixms cannot be Nothing")
-
-
 
 Dim ppixsdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixsd) Then ppixsdPTR = ppixsd.Pointer
 
@@ -402,9 +391,6 @@ Public Shared Function pixApplyLocalThreshold(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixth) then Throw New ArgumentNullException  ("pixth cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixApplyLocalThreshold( pixs.Pointer, pixth.Pointer, redfactor)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -476,8 +462,6 @@ Public Shared Function pixThresholdByConnComp(
 				 ByVal debugflag as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer

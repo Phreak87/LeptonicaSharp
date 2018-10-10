@@ -20,9 +20,6 @@ Public Shared Function boxContains(
 	If IsNothing (box1) then Throw New ArgumentNullException  ("box1 cannot be Nothing")
 	If IsNothing (box2) then Throw New ArgumentNullException  ("box2 cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxContains( box1.Pointer, box2.Pointer, presult)
 
 	Return _Result
@@ -44,9 +41,6 @@ Public Shared Function boxIntersects(
 
 	If IsNothing (box1) then Throw New ArgumentNullException  ("box1 cannot be Nothing")
 	If IsNothing (box2) then Throw New ArgumentNullException  ("box2 cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxIntersects( box1.Pointer, box2.Pointer, presult)
 
@@ -73,9 +67,6 @@ Public Shared Function boxaContainedInBox(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaContainedInBox( boxas.Pointer, box.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -99,9 +90,6 @@ Public Shared Function boxaContainedInBoxCount(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaContainedInBoxCount( boxa.Pointer, box.Pointer, pcount)
 
 	Return _Result
@@ -123,9 +111,6 @@ Public Shared Function boxaContainedInBoxa(
 
 	If IsNothing (boxa1) then Throw New ArgumentNullException  ("boxa1 cannot be Nothing")
 	If IsNothing (boxa2) then Throw New ArgumentNullException  ("boxa2 cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaContainedInBoxa( boxa1.Pointer, boxa2.Pointer, pcontained)
 
@@ -153,9 +138,6 @@ Public Shared Function boxaIntersectsBox(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaIntersectsBox( boxas.Pointer, box.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -178,9 +160,6 @@ Public Shared Function boxaIntersectsBoxCount(
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaIntersectsBoxCount( boxa.Pointer, box.Pointer, pcount)
 
@@ -207,9 +186,6 @@ Public Shared Function boxaClipToBox(
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaClipToBox( boxas.Pointer, box.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -249,8 +225,6 @@ Public Shared Function boxaCombineOverlaps(
 				 ByRef pixadb as Pixa) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
-
-
 
 Dim pixadbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixadb) Then pixadbPTR = pixadb.Pointer
 
@@ -298,8 +272,6 @@ Public Shared Function boxaCombineOverlapsInPair(
 	If IsNothing (boxas1) then Throw New ArgumentNullException  ("boxas1 cannot be Nothing")
 	If IsNothing (boxas2) then Throw New ArgumentNullException  ("boxas2 cannot be Nothing")
 
-
-
 	Dim pboxad1PTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxad1) Then pboxad1PTR = pboxad1.Pointer
 	Dim pboxad2PTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxad2) Then pboxad2PTR = pboxad2.Pointer
 Dim pixadbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixadb) Then pixadbPTR = pixadb.Pointer
@@ -332,9 +304,6 @@ Public Shared Function boxOverlapRegion(
 	If IsNothing (box1) then Throw New ArgumentNullException  ("box1 cannot be Nothing")
 	If IsNothing (box2) then Throw New ArgumentNullException  ("box2 cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxOverlapRegion( box1.Pointer, box2.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -361,9 +330,6 @@ Public Shared Function boxBoundingRegion(
 	If IsNothing (box1) then Throw New ArgumentNullException  ("box1 cannot be Nothing")
 	If IsNothing (box2) then Throw New ArgumentNullException  ("box2 cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxBoundingRegion( box1.Pointer, box2.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -388,13 +354,10 @@ End Function
 Public Shared Function boxOverlapFraction(
 				 ByVal box1 as Box, 
 				 ByVal box2 as Box, 
-				<Out()> ByRef pfract as Single()) as Integer
+				<Out()> ByRef pfract as Single) as Integer
 
 	If IsNothing (box1) then Throw New ArgumentNullException  ("box1 cannot be Nothing")
 	If IsNothing (box2) then Throw New ArgumentNullException  ("box2 cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxOverlapFraction( box1.Pointer, box2.Pointer, pfract)
 
@@ -417,9 +380,6 @@ Public Shared Function boxOverlapArea(
 
 	If IsNothing (box1) then Throw New ArgumentNullException  ("box1 cannot be Nothing")
 	If IsNothing (box2) then Throw New ArgumentNullException  ("box2 cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxOverlapArea( box1.Pointer, box2.Pointer, parea)
 
@@ -464,11 +424,9 @@ Public Shared Function boxaHandleOverlaps(
 				 ByVal range as Integer, 
 				 ByVal min_overlap as Single, 
 				 ByVal max_ratio as Single, 
-				<Out()> ByRef pnamap as Numa) as Boxa
+				<Out()> Optional ByRef pnamap as Numa = Nothing) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
-
-
 
 Dim pnamapPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnamap) Then pnamapPTR = pnamap.Pointer
 
@@ -500,14 +458,11 @@ End Function
 Public Shared Function boxSeparationDistance(
 				 ByVal box1 as Box, 
 				 ByVal box2 as Box, 
-				<Out()> ByRef ph_sep as Integer, 
-				<Out()> ByRef pv_sep as Integer) as Integer
+				<Out()> Optional ByRef ph_sep as Integer = Nothing, 
+				<Out()> Optional ByRef pv_sep as Integer = Nothing) as Integer
 
 	If IsNothing (box1) then Throw New ArgumentNullException  ("box1 cannot be Nothing")
 	If IsNothing (box2) then Throw New ArgumentNullException  ("box2 cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxSeparationDistance( box1.Pointer, box2.Pointer, ph_sep, pv_sep)
 
@@ -538,9 +493,6 @@ Public Shared Function boxCompareSize(
 	If IsNothing (box1) then Throw New ArgumentNullException  ("box1 cannot be Nothing")
 	If IsNothing (box2) then Throw New ArgumentNullException  ("box2 cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxCompareSize( box1.Pointer, box2.Pointer, type, prel)
 
 	Return _Result
@@ -563,9 +515,6 @@ Public Shared Function boxContainsPt(
 				<Out()> ByRef pcontains as Integer) as Integer
 
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxContainsPt( box.Pointer, x, y, pcontains)
 
@@ -592,9 +541,6 @@ Public Shared Function boxaGetNearestToPt(
 				 ByVal y as Integer) as Box
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaGetNearestToPt( boxa.Pointer, x, y)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -627,9 +573,6 @@ Public Shared Function boxaGetNearestToLine(
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaGetNearestToLine( boxa.Pointer, x, y)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -661,8 +604,6 @@ Public Shared Function boxaFindNearestBoxes(
 				<Out()> ByRef pnaadist as Numaa) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
-
-
 
 	Dim pnaaindexPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaaindex) Then pnaaindexPTR = pnaaindex.Pointer
 	Dim pnaadistPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaadist) Then pnaadistPTR = pnaadist.Pointer
@@ -709,9 +650,6 @@ Public Shared Function boxaGetNearestByDirection(
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaGetNearestByDirection( boxa.Pointer, i, dir, dist_select, range, pindex, pdist)
 
 	Return _Result
@@ -728,13 +666,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxGetCenter(
 				 ByVal box as Box, 
-				<Out()> ByRef pcx as Single(), 
-				<Out()> ByRef pcy as Single()) as Integer
+				<Out()> ByRef pcx as Single, 
+				<Out()> ByRef pcy as Single) as Integer
 
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxGetCenter( box.Pointer, pcx, pcy)
 
@@ -776,9 +711,6 @@ Public Shared Function boxIntersectByLine(
 
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxIntersectByLine( box.Pointer, x, y, slope, px1, py1, px2, py2, pn)
 
 	Return _Result
@@ -806,9 +738,6 @@ Public Shared Function boxClipToRectangle(
 				 ByVal hi as Integer) as Box
 
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxClipToRectangle( box.Pointer, wi, hi)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -851,11 +780,8 @@ Public Shared Function boxClipToRectangleParams(
 				<Out()> ByRef pystart as Integer, 
 				<Out()> ByRef pxend as Integer, 
 				<Out()> ByRef pyend as Integer, 
-				<Out()> ByRef pbw as Integer, 
-				<Out()> ByRef pbh as Integer) as Integer
-
-
-
+				<Out()> Optional ByRef pbw as Integer = Nothing, 
+				<Out()> Optional ByRef pbh as Integer = Nothing) as Integer
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -892,8 +818,6 @@ Public Shared Function boxRelocateOneSide(
 
 	If IsNothing (boxs) then Throw New ArgumentNullException  ("boxs cannot be Nothing")
 
-
-
 	Dim boxdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(boxd) Then boxdPTR = boxd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxRelocateOneSide( boxdPTR, boxs.Pointer, loc, sideflag)
@@ -929,9 +853,6 @@ Public Shared Function boxaAdjustSides(
 				 ByVal delbot as Integer) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaAdjustSides( boxas.Pointer, delleft, delright, deltop, delbot)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -974,8 +895,6 @@ Public Shared Function boxAdjustSides(
 
 	If IsNothing (boxs) then Throw New ArgumentNullException  ("boxs cannot be Nothing")
 
-
-
 	Dim boxdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(boxd) Then boxdPTR = boxd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxAdjustSides( boxdPTR, boxs.Pointer, delleft, delright, deltop, delbot)
@@ -1013,9 +932,6 @@ Public Shared Function boxaSetSide(
 
 	If IsNothing (boxad) then Throw New ArgumentNullException  ("boxad cannot be Nothing")
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaSetSide( boxad.Pointer, boxas.Pointer, side, val, thresh)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -1055,9 +971,6 @@ Public Shared Function boxaAdjustWidthToTarget(
 	If IsNothing (boxad) then Throw New ArgumentNullException  ("boxad cannot be Nothing")
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaAdjustWidthToTarget( boxad.Pointer, boxas.Pointer, sides, target, thresh)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1096,9 +1009,6 @@ Public Shared Function boxaAdjustHeightToTarget(
 	If IsNothing (boxad) then Throw New ArgumentNullException  ("boxad cannot be Nothing")
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaAdjustHeightToTarget( boxad.Pointer, boxas.Pointer, sides, target, thresh)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1121,9 +1031,6 @@ Public Shared Function boxEqual(
 
 	If IsNothing (box1) then Throw New ArgumentNullException  ("box1 cannot be Nothing")
 	If IsNothing (box2) then Throw New ArgumentNullException  ("box2 cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxEqual( box1.Pointer, box2.Pointer, psame)
 
@@ -1169,8 +1076,6 @@ Public Shared Function boxaEqual(
 	If IsNothing (boxa1) then Throw New ArgumentNullException  ("boxa1 cannot be Nothing")
 	If IsNothing (boxa2) then Throw New ArgumentNullException  ("boxa2 cannot be Nothing")
 
-
-
 Dim pnaindexPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaindex) Then pnaindexPTR = pnaindex.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaEqual( boxa1.Pointer, boxa2.Pointer, maxdist, pnaindexPTR, psame)
@@ -1211,9 +1116,6 @@ Public Shared Function boxSimilar(
 	If IsNothing (box1) then Throw New ArgumentNullException  ("box1 cannot be Nothing")
 	If IsNothing (box2) then Throw New ArgumentNullException  ("box2 cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxSimilar( box1.Pointer, box2.Pointer, leftdiff, rightdiff, topdiff, botdiff, psimilar)
 
 	Return _Result
@@ -1252,12 +1154,10 @@ Public Shared Function boxaSimilar(
 				 ByVal botdiff as Integer, 
 				 ByVal debug as Enumerations.DebugOnOff, 
 				<Out()> ByRef psimilar as Integer, 
-				<Out()> ByRef pnasim as Numa) as Integer
+				<Out()> Optional ByRef pnasim as Numa = Nothing) as Integer
 
 	If IsNothing (boxa1) then Throw New ArgumentNullException  ("boxa1 cannot be Nothing")
 	If IsNothing (boxa2) then Throw New ArgumentNullException  ("boxa2 cannot be Nothing")
-
-
 
 Dim pnasimPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnasim) Then pnasimPTR = pnasim.Pointer
 
@@ -1294,9 +1194,6 @@ Public Shared Function boxaJoin(
 	If IsNothing (boxad) then Throw New ArgumentNullException  ("boxad cannot be Nothing")
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaJoin( boxad.Pointer, boxas.Pointer, istart, iend)
 
 	Return _Result
@@ -1329,9 +1226,6 @@ Public Shared Function boxaaJoin(
 	If IsNothing (baad) then Throw New ArgumentNullException  ("baad cannot be Nothing")
 	If IsNothing (baas) then Throw New ArgumentNullException  ("baas cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaJoin( baad.Pointer, baas.Pointer, istart, iend)
 
 	Return _Result
@@ -1362,8 +1256,6 @@ Public Shared Function boxaSplitEvenOdd(
 				<Out()> ByRef pboxao as Boxa) as Integer
 
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
-
-
 
 	Dim pboxaePTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxae) Then pboxaePTR = pboxae.Pointer
 	Dim pboxaoPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxao) Then pboxaoPTR = pboxao.Pointer
@@ -1400,9 +1292,6 @@ Public Shared Function boxaMergeEvenOdd(
 
 	If IsNothing (boxae) then Throw New ArgumentNullException  ("boxae cannot be Nothing")
 	If IsNothing (boxao) then Throw New ArgumentNullException  ("boxao cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaMergeEvenOdd( boxae.Pointer, boxao.Pointer, fillflag)
 	If  _Result = IntPtr.Zero then Return Nothing

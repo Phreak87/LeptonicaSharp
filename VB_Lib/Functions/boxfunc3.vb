@@ -22,10 +22,9 @@ Partial Public Class _All
 Public Shared Function pixMaskConnComp(
 				 ByVal pixs as Pix, 
 				 ByVal connectivity as Integer, 
-				<Out()> ByRef pboxa as Boxa) as Pix
+				<Out()> Optional ByRef pboxa as Boxa = Nothing) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
 
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
@@ -74,8 +73,6 @@ Public Shared Function pixMaskBoxa(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
-
-
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMaskBoxa( pixdPTR, pixs.Pointer, boxa.Pointer, op)
@@ -118,9 +115,6 @@ Public Shared Function pixPaintBoxa(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixPaintBoxa( pixs.Pointer, boxa.Pointer, val)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -142,8 +136,6 @@ Public Shared Function pixSetBlackOrWhiteBoxa(
 				 ByVal op as Enumerations.L_SET) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim boxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(boxa) Then boxaPTR = boxa.Pointer
 
@@ -175,9 +167,6 @@ Public Shared Function pixPaintBoxaRandom(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixPaintBoxaRandom( pixs.Pointer, boxa.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -212,9 +201,6 @@ Public Shared Function pixBlendBoxaRandom(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlendBoxaRandom( pixs.Pointer, boxa.Pointer, fract)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -247,9 +233,6 @@ Public Shared Function pixDrawBoxa(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDrawBoxa( pixs.Pointer, boxa.Pointer, width, val)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -280,9 +263,6 @@ Public Shared Function pixDrawBoxaRandom(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDrawBoxaRandom( pixs.Pointer, boxa.Pointer, width)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -328,7 +308,6 @@ Public Shared Function boxaaDisplay(
 
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
@@ -369,9 +348,6 @@ Public Shared Function pixaDisplayBoxaa(
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaDisplayBoxaa( pixas.Pointer, baa.Pointer, colorflag, width)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -425,9 +401,7 @@ Public Shared Function pixSplitIntoBoxa(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSplitIntoBoxa( pixs.Pointer, minsum, skipdist, delta, maxbg, maxcomps, remainder)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -517,7 +491,6 @@ Public Shared Function pixSplitComponentIntoBoxa(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-
 	If {1}.contains (pix.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
@@ -554,10 +527,6 @@ Public Shared Function makeMosaicStrips(
 				 ByVal h as Integer, 
 				 ByVal direction as Enumerations.L_scan_direction, 
 				 ByVal size as Integer) as Boxa
-
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.makeMosaicStrips( w, h, direction, size)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -603,14 +572,12 @@ Public Shared Function boxaCompareRegions(
 				 ByVal boxa2 as Boxa, 
 				 ByVal areathresh as Integer, 
 				<Out()> ByRef pnsame as Integer, 
-				<Out()> ByRef pdiffarea as Single(), 
-				<Out()> ByRef pdiffxor as Single(), 
-				<Out()> ByRef ppixdb as Pix) as Integer
+				<Out()> ByRef pdiffarea as Single, 
+				<Out()> Optional ByRef pdiffxor as Single = Nothing, 
+				<Out()> Optional ByRef ppixdb as Pix = Nothing) as Integer
 
 	If IsNothing (boxa1) then Throw New ArgumentNullException  ("boxa1 cannot be Nothing")
 	If IsNothing (boxa2) then Throw New ArgumentNullException  ("boxa2 cannot be Nothing")
-
-
 
 Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
 
@@ -654,9 +621,7 @@ Public Shared Function pixSelectLargeULComp(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSelectLargeULComp( pixs.Pointer, areaslop, yslop, connectivity)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -684,9 +649,6 @@ Public Shared Function boxaSelectLargeULBox(
 				 ByVal yslop as Integer) as Box
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaSelectLargeULBox( boxas.Pointer, areaslop, yslop)
 	If  _Result = IntPtr.Zero then Return Nothing

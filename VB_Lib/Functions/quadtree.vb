@@ -29,8 +29,6 @@ Public Shared Function pixQuadtreeMean(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pix_ma) then Throw New ArgumentNullException  ("pix_ma cannot be Nothing")
 
-
-
 	Dim pfpixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pfpixa) Then pfpixaPTR = pfpixa.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixQuadtreeMean( pixs.Pointer, nlevels, pix_ma.Pointer, pfpixaPTR)
@@ -63,14 +61,12 @@ Public Shared Function pixQuadtreeVariance(
 				 ByVal nlevels as Integer, 
 				 ByVal pix_ma as Pix, 
 				 ByVal dpix_msa as DPix, 
-				<Out()> ByRef pfpixa_v as FPixa, 
-				<Out()> ByRef pfpixa_rv as FPixa) as Integer
+				<Out()> Optional ByRef pfpixa_v as FPixa = Nothing, 
+				<Out()> Optional ByRef pfpixa_rv as FPixa = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pix_ma) then Throw New ArgumentNullException  ("pix_ma cannot be Nothing")
 	If IsNothing (dpix_msa) then Throw New ArgumentNullException  ("dpix_msa cannot be Nothing")
-
-
 
 Dim pfpixa_vPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pfpixa_v) Then pfpixa_vPTR = pfpixa_v.Pointer
 Dim pfpixa_rvPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pfpixa_rv) Then pfpixa_rvPTR = pfpixa_rv.Pointer
@@ -103,15 +99,13 @@ Public Shared Function pixMeanInRectangle(
 				 ByVal pixs as Pix, 
 				 ByVal box as Box, 
 				 ByVal pixma as Pix, 
-				<Out()> ByRef pval as Single()) as Integer
+				<Out()> ByRef pval as Single) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 	If IsNothing (pixma) then Throw New ArgumentNullException  ("pixma cannot be Nothing")
 
-
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixMeanInRectangle( pixs.Pointer, box.Pointer, pixma.Pointer, pval)
 
@@ -143,17 +137,15 @@ Public Shared Function pixVarianceInRectangle(
 				 ByVal box as Box, 
 				 ByVal pix_ma as Pix, 
 				 ByVal dpix_msa as DPix, 
-				<Out()> ByRef pvar as Single(), 
-				<Out()> ByRef prvar as Single()) as Integer
+				<Out()> Optional ByRef pvar as Single = Nothing, 
+				<Out()> Optional ByRef prvar as Single = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 	If IsNothing (pix_ma) then Throw New ArgumentNullException  ("pix_ma cannot be Nothing")
 	If IsNothing (dpix_msa) then Throw New ArgumentNullException  ("dpix_msa cannot be Nothing")
 
-
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixVarianceInRectangle( pixs.Pointer, box.Pointer, pix_ma.Pointer, dpix_msa.Pointer, pvar, prvar)
 
@@ -185,10 +177,6 @@ Public Shared Function boxaaQuadtreeRegions(
 				 ByVal h as Integer, 
 				 ByVal nlevels as Integer) as Boxaa
 
-
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaQuadtreeRegions( w, h, nlevels)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -217,12 +205,9 @@ Public Shared Function quadtreeGetParent(
 				 ByVal level as Integer, 
 				 ByVal x as Integer, 
 				 ByVal y as Integer, 
-				<Out()> ByRef pval as Single()) as Integer
+				<Out()> ByRef pval as Single) as Integer
 
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.quadtreeGetParent( fpixa.Pointer, level, x, y, pval)
 
@@ -254,15 +239,12 @@ Public Shared Function quadtreeGetChildren(
 				 ByVal level as Integer, 
 				 ByVal x as Integer, 
 				 ByVal y as Integer, 
-				<Out()> ByRef pval00 as Single(), 
-				<Out()> ByRef pval10 as Single(), 
-				<Out()> ByRef pval01 as Single(), 
-				<Out()> ByRef pval11 as Single()) as Integer
+				<Out()> ByRef pval00 as Single, 
+				<Out()> ByRef pval10 as Single, 
+				<Out()> ByRef pval01 as Single, 
+				<Out()> ByRef pval11 as Single) as Integer
 
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.quadtreeGetChildren( fpixa.Pointer, level, x, y, pval00, pval10, pval01, pval11)
 
@@ -288,10 +270,6 @@ End Function
 Public Shared Function quadtreeMaxLevels(
 				 ByVal w as Integer, 
 				 ByVal h as Integer) as Integer
-
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.quadtreeMaxLevels( w, h)
 
@@ -321,9 +299,6 @@ Public Shared Function fpixaDisplayQuadtree(
 				 ByVal fontsize as Integer) as Pix
 
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixaDisplayQuadtree( fpixa.Pointer, factor, fontsize)
 	If  _Result = IntPtr.Zero then Return Nothing

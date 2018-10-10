@@ -14,11 +14,10 @@ Public Shared Function pixReadJp2k(
 				 ByVal reduction as UInteger, 
 				 ByVal box as Box, 
 				 ByVal hint as Integer, 
-				 ByVal debug as Enumerations.DebugOnOff) as Pix
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
-
 
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("")
@@ -42,11 +41,10 @@ Public Shared Function pixReadStreamJp2k(
 				 ByVal reduction as UInteger, 
 				 ByVal box as Box, 
 				 ByVal hint as Integer, 
-				 ByVal debug as Enumerations.DebugOnOff) as Pix
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
-
 
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("")
 
@@ -71,11 +69,10 @@ Public Shared Function pixWriteJp2k(
 				 ByVal quality as Integer, 
 				 ByVal nlevels as Integer, 
 				 ByVal hint as Integer, 
-				 ByVal debug as Enumerations.DebugOnOff) as Integer
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
 
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 
@@ -98,12 +95,10 @@ Public Shared Function pixWriteStreamJp2k(
 				 ByVal quality as Integer, 
 				 ByVal nlevels as Integer, 
 				 ByVal hint as Integer, 
-				 ByVal debug as Enumerations.DebugOnOff) as Integer
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-
 
 Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
@@ -125,11 +120,10 @@ Public Shared Function pixReadMemJp2k(
 				 ByVal reduction as UInteger, 
 				 ByVal box as Box, 
 				 ByVal hint as Integer, 
-				 ByVal debug as Enumerations.DebugOnOff) as Pix
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
-
 
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("")
 
@@ -154,13 +148,11 @@ Public Shared Function pixWriteMemJp2k(
 				 ByVal quality as Integer, 
 				 ByVal nlevels as Integer, 
 				 ByVal hint as Integer, 
-				 ByVal debug as Enumerations.DebugOnOff) as Integer
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 	If IsNothing (pdata) then Throw New ArgumentNullException  ("pdata cannot be Nothing")
 	If IsNothing (psize) then Throw New ArgumentNullException  ("psize cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-
 
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 

@@ -24,10 +24,6 @@ Partial Public Class _All
 Public Shared Function l_jpegSetQuality(
 				 ByVal new_quality as Integer) as Integer
 
-
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_jpegSetQuality( new_quality)
 
 	Return _Result
@@ -51,10 +47,7 @@ End Function
 Public Shared Sub setLeptDebugOK(
 				 ByVal allow as Integer)
 
-
 if My.Computer.Filesystem.FileExists ("i_view32.exe") = False then throw new exception ("I_View32.exe missing")
-
-
 	LeptonicaSharp.Natives.setLeptDebugOK( allow)
 
 End Sub
@@ -81,9 +74,6 @@ Public Shared Function pixaWriteFiles(
 
 	If IsNothing (rootname) then Throw New ArgumentNullException  ("rootname cannot be Nothing")
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaWriteFiles( rootname, pixa.Pointer, format)
 
@@ -115,9 +105,6 @@ Public Shared Function pixWriteDebug(
 
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteDebug( fname, pix.Pointer, format)
 
@@ -154,9 +141,6 @@ Public Shared Function pixWrite(
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWrite( fname, pix.Pointer, format)
 
 	Return _Result
@@ -177,9 +161,7 @@ Public Shared Function pixWriteAutoFormat(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteAutoFormat( filename, pix.Pointer)
 
@@ -202,9 +184,6 @@ Public Shared Function pixWriteStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStream( fp.Pointer, pix.Pointer, format)
 
@@ -237,9 +216,7 @@ Public Shared Function pixWriteImpliedFormat(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteImpliedFormat( filename, pix.Pointer, quality, progressive)
 
@@ -266,9 +243,6 @@ Public Shared Function pixChooseOutputFormat(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixChooseOutputFormat( pix.Pointer)
 
 	Return _Result
@@ -292,9 +266,7 @@ Public Shared Function getImpliedFileFormat(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.getImpliedFileFormat( filename)
 
@@ -326,9 +298,6 @@ Public Shared Function pixGetAutoFormat(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 	If IsNothing (pformat) then Throw New ArgumentNullException  ("pformat cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetAutoFormat( pix.Pointer, pformat)
 
 	Return _Result
@@ -349,10 +318,6 @@ End Function
 '''   <returns>extension string, or NULL if format is out of range</returns>
 Public Shared Function getFormatExtension(
 				 ByVal format as Enumerations.IFF) as String
-
-
-
-
 
 	Dim _Result as String = LeptonicaSharp.Natives.getFormatExtension( format)
 
@@ -388,8 +353,6 @@ Public Shared Function pixWriteMem(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-
-
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMem( pdataPTR, psize, pix.Pointer, format)
@@ -423,9 +386,6 @@ Public Shared Function l_fileDisplay(
 				 ByVal scale as Single) as Integer
 
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_fileDisplay( fname, x, y, scale)
 
@@ -479,8 +439,6 @@ Public Shared Function pixDisplay(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
 Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixDisplay( pixs.Pointer, x, y)
@@ -513,8 +471,6 @@ Public Shared Function pixDisplayWithTitle(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
 Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixDisplayWithTitle( pixs.Pointer, x, y, title, dispflag)
@@ -545,9 +501,7 @@ Public Shared Function pixSaveTiled(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-
 	If {1,2,4,8,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 32 bpp")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSaveTiled( pixs.Pointer, pixa.Pointer, scalefactor, newrow, space, dp)
 
@@ -605,9 +559,7 @@ Public Shared Function pixSaveTiledOutline(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-
 	If {1,2,4,8,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 32 bpp")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSaveTiledOutline( pixs.Pointer, pixa.Pointer, scalefactor, newrow, space, linewidth, dp)
 
@@ -666,7 +618,6 @@ Public Shared Function pixSaveTiledWithText(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-
 	If {1,2,4,8,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 32 bpp")
 
 	Dim bmfPTR As IntPtr = IntPtr.Zero : If Not IsNothing(bmf) Then bmfPTR = bmf.Pointer
@@ -683,10 +634,6 @@ End Function
 '''  </remarks>
 Public Shared Sub l_chooseDisplayProg(
 				 ByVal selection as Integer)
-
-
-
-
 
 	LeptonicaSharp.Natives.l_chooseDisplayProg( selection)
 
@@ -724,7 +671,6 @@ Public Shared Function pixDisplayWrite(
 				 ByVal reduction as Integer) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
 
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("-1 to reset/erase 0 to disable otherwise this is a  factor")
 

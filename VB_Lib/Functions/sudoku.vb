@@ -23,9 +23,7 @@ Public Shared Function sudokuReadFile(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer() = LeptonicaSharp.Natives.sudokuReadFile( filename)
 
@@ -49,9 +47,6 @@ Public Shared Function sudokuReadString(
 				 ByVal str as String) as Integer()
 
 	If IsNothing (str) then Throw New ArgumentNullException  ("str cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer() = LeptonicaSharp.Natives.sudokuReadString( str)
 
@@ -78,9 +73,6 @@ Public Shared Function sudokuCreate(
 
 	If IsNothing (array) then Throw New ArgumentNullException  ("array cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sudokuCreate( array)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -95,9 +87,6 @@ End Function
 '''  <param name="psud">[in,out] - to be nulled</param>
 Public Shared Sub sudokuDestroy(
 				 ByRef psud as L_Sudoku)
-
-
-
 
 	Dim psudPTR As IntPtr = IntPtr.Zero : If Not IsNothing(psud) Then psudPTR = psud.Pointer
 
@@ -117,9 +106,6 @@ Public Shared Function sudokuSolve(
 				 ByVal sud as L_Sudoku) as Integer
 
 	If IsNothing (sud) then Throw New ArgumentNullException  ("sud cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sudokuSolve( sud.Pointer)
 
@@ -148,9 +134,6 @@ Public Shared Function sudokuTestUniqueness(
 				<Out()> ByRef punique as Integer) as Integer
 
 	If IsNothing (array) then Throw New ArgumentNullException  ("array cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sudokuTestUniqueness( array, punique)
 
@@ -186,9 +169,6 @@ Public Shared Function sudokuGenerate(
 
 	If IsNothing (array) then Throw New ArgumentNullException  ("array cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sudokuGenerate( array, seed, minelems, maxtries)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -214,9 +194,6 @@ Public Shared Function sudokuOutput(
 				 ByVal arraytype as Enumerations.L_SUDOKU) as Integer
 
 	If IsNothing (sud) then Throw New ArgumentNullException  ("sud cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sudokuOutput( sud.Pointer, arraytype)
 

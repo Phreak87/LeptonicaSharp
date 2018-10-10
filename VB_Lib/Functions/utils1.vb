@@ -23,10 +23,6 @@ Partial Public Class _All
 Public Shared Function setMsgSeverity(
 				 ByVal newsev as Integer) as Integer
 
-
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.setMsgSeverity( newsev)
 
 	Return _Result
@@ -48,9 +44,6 @@ Public Shared Function returnErrorInt(
 
 	If IsNothing (msg) then Throw New ArgumentNullException  ("msg cannot be Nothing")
 	If IsNothing (procname) then Throw New ArgumentNullException  ("procname cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.returnErrorInt( msg, procname, ival)
 
@@ -74,9 +67,6 @@ Public Shared Function returnErrorFloat(
 	If IsNothing (msg) then Throw New ArgumentNullException  ("msg cannot be Nothing")
 	If IsNothing (procname) then Throw New ArgumentNullException  ("procname cannot be Nothing")
 
-
-
-
 	Dim _Result as Single = LeptonicaSharp.Natives.returnErrorFloat( msg, procname, fval)
 
 	Return _Result
@@ -99,8 +89,6 @@ Public Shared Function returnErrorPtr(
 	If IsNothing (msg) then Throw New ArgumentNullException  ("msg cannot be Nothing")
 	If IsNothing (procname) then Throw New ArgumentNullException  ("procname cannot be Nothing")
 	If IsNothing (pval) then Throw New ArgumentNullException  ("pval cannot be Nothing")
-
-
 
 Dim pvalPTR As IntPtr = Marshal.AllocHGlobal(0)
 
@@ -126,9 +114,6 @@ Public Shared Function filesAreIdentical(
 	If IsNothing (fname1) then Throw New ArgumentNullException  ("fname1 cannot be Nothing")
 	If IsNothing (fname2) then Throw New ArgumentNullException  ("fname2 cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.filesAreIdentical( fname1, fname2, psame)
 
 	Return _Result
@@ -144,9 +129,6 @@ Public Shared Function convertOnLittleEnd16(
 				 ByVal shortin as UShort) as UShort
 
 	If IsNothing (shortin) then Throw New ArgumentNullException  ("shortin cannot be Nothing")
-
-
-
 
 	Dim _Result as UShort = LeptonicaSharp.Natives.convertOnLittleEnd16( shortin)
 
@@ -164,9 +146,6 @@ Public Shared Function convertOnBigEnd16(
 
 	If IsNothing (shortin) then Throw New ArgumentNullException  ("shortin cannot be Nothing")
 
-
-
-
 	Dim _Result as UShort = LeptonicaSharp.Natives.convertOnBigEnd16( shortin)
 
 	Return _Result
@@ -181,10 +160,6 @@ End Function
 Public Shared Function convertOnLittleEnd32(
 				 ByVal wordin as UInteger) as UInteger
 
-
-
-
-
 	Dim _Result as UInteger = LeptonicaSharp.Natives.convertOnLittleEnd32( wordin)
 
 	Return _Result
@@ -198,10 +173,6 @@ End Function
 '''   <returns></returns>
 Public Shared Function convertOnBigEnd32(
 				 ByVal wordin as UInteger) as UInteger
-
-
-
-
 
 	Dim _Result as UInteger = LeptonicaSharp.Natives.convertOnBigEnd32( wordin)
 
@@ -238,9 +209,6 @@ Public Shared Function fileCorruptByDeletion(
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.fileCorruptByDeletion( filein, loc, size, fileout)
 
 	Return _Result
@@ -276,9 +244,6 @@ Public Shared Function fileCorruptByMutation(
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.fileCorruptByMutation( filein, loc, size, fileout)
 
 	Return _Result
@@ -304,10 +269,6 @@ Public Shared Function genRandomIntegerInRange(
 				 ByVal seed as Integer, 
 				<Out()> ByRef pval as Integer) as Integer
 
-
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.genRandomIntegerInRange( range, seed, pval)
 
 	Return _Result
@@ -330,10 +291,6 @@ End Function
 '''   <returns>value rounded to int</returns>
 Public Shared Function lept_roundftoi(
 				 ByVal fval as Single) as Integer
-
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lept_roundftoi( fval)
 
@@ -368,8 +325,6 @@ Public Shared Function l_hashStringToUint64(
 				<Out()> ByRef phash as ULong) as Integer
 
 	If IsNothing (str) then Throw New ArgumentNullException  ("str cannot be Nothing")
-
-
 
 Dim phashPTR As IntPtr = Marshal.AllocHGlobal(0)
 
@@ -406,9 +361,6 @@ Public Shared Function l_hashPtToUint64(
 				 ByVal x as Integer, 
 				 ByVal y as Integer, 
 				<Out()> ByRef phash as ULong) as Integer
-
-
-
 
 Dim phashPTR As IntPtr = Marshal.AllocHGlobal(0)
 
@@ -450,8 +402,6 @@ Public Shared Function l_hashFloat64ToUint64(
 
 	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
-
-
 Dim phashPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_hashFloat64ToUint64( nbuckets, val, phashPTR)
@@ -471,10 +421,6 @@ Public Shared Function findNextLargerPrime(
 				 ByVal start as Integer, 
 				<Out()> ByRef pprime as UInteger) as Integer
 
-
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.findNextLargerPrime( start, pprime)
 
 	Return _Result
@@ -492,12 +438,9 @@ End Function
 Public Shared Function lept_isPrime(
 				 ByVal n as ULong, 
 				<Out()> ByRef pis_prime as Integer, 
-				<Out()> ByRef pfactor as UInteger) as Integer
+				<Out()> Optional ByRef pfactor as UInteger = Nothing) as Integer
 
 	If IsNothing (n) then Throw New ArgumentNullException  ("n cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lept_isPrime( n, pis_prime, pfactor)
 
@@ -520,10 +463,6 @@ End Function
 Public Shared Function convertIntToGrayCode(
 				 ByVal val as UInteger) as UInteger
 
-
-
-
-
 	Dim _Result as UInteger = LeptonicaSharp.Natives.convertIntToGrayCode( val)
 
 	Return _Result
@@ -539,10 +478,6 @@ End Function
 Public Shared Function convertGrayCodeToInt(
 				 ByVal val as UInteger) as UInteger
 
-
-
-
-
 	Dim _Result as UInteger = LeptonicaSharp.Natives.convertGrayCodeToInt( val)
 
 	Return _Result
@@ -556,10 +491,6 @@ End Function
 '''   <returns></returns>
 Public Shared Function getLeptonicaVersion() as String
 
-
-
-
-
 	Dim _Result as String = LeptonicaSharp.Natives.getLeptonicaVersion( )
 
 	Return _Result
@@ -571,10 +502,6 @@ End Function
 '''  <remarks>
 '''  </remarks>
 Public Shared Sub startTimer()
-
-
-
-
 
 	LeptonicaSharp.Natives.startTimer( )
 
@@ -588,10 +515,6 @@ End Sub
 '''   <returns></returns>
 Public Shared Function stopTimer() as Single
 
-
-
-
-
 	Dim _Result as Single = LeptonicaSharp.Natives.stopTimer( )
 
 	Return _Result
@@ -604,10 +527,6 @@ End Function
 '''  </remarks>
 '''   <returns></returns>
 Public Shared Function startTimerNested() as IntPtr
-
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.startTimerNested( )
 
@@ -625,9 +544,6 @@ Public Shared Function stopTimerNested(
 
 	If IsNothing (utime_start) then Throw New ArgumentNullException  ("utime_start cannot be Nothing")
 
-
-
-
 	Dim _Result as Single = LeptonicaSharp.Natives.stopTimerNested( utime_start)
 
 	Return _Result
@@ -644,9 +560,6 @@ Public Shared Sub l_getCurrentTime(
 
 	If IsNothing (sec) then Throw New ArgumentNullException  ("sec cannot be Nothing")
 	If IsNothing (usec) then Throw New ArgumentNullException  ("usec cannot be Nothing")
-
-
-
 
 	LeptonicaSharp.Natives.l_getCurrentTime( sec, usec)
 
@@ -669,10 +582,6 @@ End Sub
 '''   <returns>walltimer-ptr</returns>
 Public Shared Function startWallTimer() as L_WallTimer
 
-
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.startWallTimer( )
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -688,9 +597,6 @@ End Function
 '''   <returns>time wall time elapsed in seconds</returns>
 Public Shared Function stopWallTimer(
 				 ByRef ptimer as L_WallTimer) as Single
-
-
-
 
 	Dim ptimerPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ptimer) Then ptimerPTR = ptimer.Pointer
 
@@ -714,10 +620,6 @@ End Function
 '''  </remarks>
 '''   <returns>formatted date string, or NULL on error</returns>
 Public Shared Function l_getFormattedDate() as String
-
-
-
-
 
 	Dim _Result as String = LeptonicaSharp.Natives.l_getFormattedDate( )
 

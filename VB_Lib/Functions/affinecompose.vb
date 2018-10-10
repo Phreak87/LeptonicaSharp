@@ -31,10 +31,6 @@ Public Shared Function createMatrix2dTranslate(
 				 ByVal transx as Single, 
 				 ByVal transy as Single) as Single()
 
-
-
-
-
 	Dim _Result as Single() = LeptonicaSharp.Natives.createMatrix2dTranslate( transx, transy)
 
 	Return _Result
@@ -66,10 +62,6 @@ End Function
 Public Shared Function createMatrix2dScale(
 				 ByVal scalex as Single, 
 				 ByVal scaley as Single) as Single()
-
-
-
-
 
 	Dim _Result as Single() = LeptonicaSharp.Natives.createMatrix2dScale( scalex, scaley)
 
@@ -115,10 +107,6 @@ Public Shared Function createMatrix2dRotate(
 				 ByVal yc as Single, 
 				 ByVal angle as Single) as Single()
 
-
-
-
-
 	Dim _Result as Single() = LeptonicaSharp.Natives.createMatrix2dRotate( xc, yc, angle)
 
 	Return _Result
@@ -145,9 +133,6 @@ Public Shared Function ptaTranslate(
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaTranslate( ptas.Pointer, transx, transy)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -170,13 +155,10 @@ End Function
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function ptaScale(
 				 ByVal ptas as Pta, 
-				 ByVal scalex as Single, 
-				 ByVal scaley as Single) as Pta
+				 Optional ByVal scalex as Single = 1, 
+				 Optional ByVal scaley as Single = 1) as Pta
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaScale( ptas.Pointer, scalex, scaley)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -219,9 +201,6 @@ Public Shared Function ptaRotate(
 
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaRotate( ptas.Pointer, xc, yc, angle)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -244,9 +223,6 @@ Public Shared Function boxaTranslate(
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaTranslate( boxas.Pointer, transx, transy)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -264,13 +240,10 @@ End Function
 '''   <returns>boxad  scaled boxas, or NULL on error Notes: (1) See createMatrix2dScale() for details of transform.</returns>
 Public Shared Function boxaScale(
 				 ByVal boxas as Boxa, 
-				 ByVal scalex as Single, 
-				 ByVal scaley as Single) as Boxa
+				 Optional ByVal scalex as Single = 1, 
+				 Optional ByVal scaley as Single = 1) as Boxa
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaScale( boxas.Pointer, scalex, scaley)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -296,9 +269,6 @@ Public Shared Function boxaRotate(
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaRotate( boxas.Pointer, xc, yc, angle)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -320,9 +290,6 @@ Public Shared Function ptaAffineTransform(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 	If IsNothing (mat) then Throw New ArgumentNullException  ("mat cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaAffineTransform( ptas.Pointer, mat)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -343,9 +310,6 @@ Public Shared Function boxaAffineTransform(
 
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 	If IsNothing (mat) then Throw New ArgumentNullException  ("mat cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaAffineTransform( boxas.Pointer, mat)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -373,9 +337,6 @@ Public Shared Function l_productMatVec(
 	If IsNothing (vecs) then Throw New ArgumentNullException  ("vecs cannot be Nothing")
 	If IsNothing (vecd) then Throw New ArgumentNullException  ("vecd cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_productMatVec( mat, vecs, vecd, size)
 
 	Return _Result
@@ -400,9 +361,6 @@ Public Shared Function l_productMat2(
 	If IsNothing (mat1) then Throw New ArgumentNullException  ("mat1 cannot be Nothing")
 	If IsNothing (mat2) then Throw New ArgumentNullException  ("mat2 cannot be Nothing")
 	If IsNothing (matd) then Throw New ArgumentNullException  ("matd cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_productMat2( mat1, mat2, matd, size)
 
@@ -431,9 +389,6 @@ Public Shared Function l_productMat3(
 	If IsNothing (mat2) then Throw New ArgumentNullException  ("mat2 cannot be Nothing")
 	If IsNothing (mat3) then Throw New ArgumentNullException  ("mat3 cannot be Nothing")
 	If IsNothing (matd) then Throw New ArgumentNullException  ("matd cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_productMat3( mat1, mat2, mat3, matd, size)
 
@@ -465,9 +420,6 @@ Public Shared Function l_productMat4(
 	If IsNothing (mat3) then Throw New ArgumentNullException  ("mat3 cannot be Nothing")
 	If IsNothing (mat4) then Throw New ArgumentNullException  ("mat4 cannot be Nothing")
 	If IsNothing (matd) then Throw New ArgumentNullException  ("matd cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_productMat4( mat1, mat2, mat3, mat4, matd, size)
 

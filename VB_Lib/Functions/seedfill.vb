@@ -43,8 +43,6 @@ Public Shared Function pixSeedfillBinary(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 
-
-
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSeedfillBinary( pixdPTR, pixs.Pointer, pixm.Pointer, connectivity)
@@ -97,8 +95,6 @@ Public Shared Function pixSeedfillBinaryRestricted(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 
-
-
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSeedfillBinaryRestricted( pixdPTR, pixs.Pointer, pixm.Pointer, connectivity, xmax, ymax)
@@ -128,9 +124,7 @@ Public Shared Function pixHolesByFilling(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixHolesByFilling( pixs.Pointer, connectivity)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -166,9 +160,7 @@ Public Shared Function pixFillClosedBorders(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFillClosedBorders( pixs.Pointer, connectivity)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -190,9 +182,7 @@ Public Shared Function pixExtractBorderConnComps(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtractBorderConnComps( pixs.Pointer, connectivity)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -219,9 +209,7 @@ Public Shared Function pixRemoveBorderConnComps(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRemoveBorderConnComps( pixs.Pointer, connectivity)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -262,9 +250,7 @@ Public Shared Function pixFillBgFromBorder(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFillBgFromBorder( pixs.Pointer, connectivity)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -310,9 +296,7 @@ Public Shared Function pixFillHolesToBoundingRect(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFillHolesToBoundingRect( pixs.Pointer, minsize, maxhfract, minfgfract)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -352,9 +336,6 @@ Public Shared Function pixSeedfillGray(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSeedfillGray( pixs.Pointer, pixm.Pointer, connectivity)
 
@@ -397,9 +378,6 @@ Public Shared Function pixSeedfillGrayInv(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSeedfillGrayInv( pixs.Pointer, pixm.Pointer, connectivity)
 
 	Return _Result
@@ -438,9 +416,6 @@ Public Shared Function pixSeedfillGraySimple(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSeedfillGraySimple( pixs.Pointer, pixm.Pointer, connectivity)
 
 	Return _Result
@@ -477,9 +452,6 @@ Public Shared Function pixSeedfillGrayInvSimple(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSeedfillGrayInvSimple( pixs.Pointer, pixm.Pointer, connectivity)
 
@@ -526,9 +498,6 @@ Public Shared Function pixSeedfillGrayBasin(
 
 	If IsNothing (pixb) then Throw New ArgumentNullException  ("pixb cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSeedfillGrayBasin( pixb.Pointer, pixm.Pointer, delta, connectivity)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -588,9 +557,6 @@ Public Shared Function pixDistanceFunction(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDistanceFunction( pixs.Pointer, connectivity, outdepth, boundcond)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -644,9 +610,6 @@ Public Shared Function pixSeedspread(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSeedspread( pixs.Pointer, connectivity)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -693,11 +656,10 @@ Public Shared Function pixLocalExtrema(
 				 ByVal pixs as Pix, 
 				 ByVal maxmin as Integer, 
 				 ByVal minmax as Integer, 
-				<Out()> ByRef ppixmin as Pix, 
-				<Out()> ByRef ppixmax as Pix) as Integer
+				<Out()> Optional ByRef ppixmin as Pix = Nothing, 
+				<Out()> Optional ByRef ppixmax as Pix = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
 
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
@@ -752,7 +714,6 @@ Public Shared Function pixSelectedLocalExtrema(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim ppixminPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixmin) Then ppixminPTR = ppixmin.Pointer
@@ -787,10 +748,8 @@ Public Shared Function pixFindEqualValues(
 	If IsNothing (pixs1) then Throw New ArgumentNullException  ("pixs1 cannot be Nothing")
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
 
-
 	If {8}.contains (pixs1.d) = false then Throw New ArgumentException ("8 bpp")
 	If {8}.contains (pixs2.d) = false then Throw New ArgumentException ("8 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFindEqualValues( pixs1.Pointer, pixs2.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -824,11 +783,10 @@ Public Shared Function pixSelectMinInConnComp(
 				 ByVal pixs as Pix, 
 				 ByVal pixm as Pix, 
 				<Out()> ByRef ppta as Pta, 
-				<Out()> ByRef pnav as Numa) as Integer
+				<Out()> Optional ByRef pnav as Numa = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
-
 
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 	If {1}.contains (pixm.d) = false then Throw New ArgumentException ("1 bpp")
@@ -876,8 +834,6 @@ Public Shared Function pixRemoveSeededComponents(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
-
-
 
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 

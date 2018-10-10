@@ -31,6 +31,11 @@ Partial Public Class Pix
     End Property
 
 #Region "Constructors"
+    ''' <summary>
+    ''' Use this for Construct a empty Pix (to be filled ByRef)
+    ''' </summary>
+    Sub New()
+    End Sub
     Sub New(w As Integer, h As Integer)
         Dim OBJ = LeptonicaSharp._All.pixCreate(w, h, 32)
         Pointer = OBJ.Pointer
@@ -62,7 +67,12 @@ Partial Public Class Pix
 #End Region
 
 #Region "Functions"
-    Sub Display(Optional Text As String = "")
+    Sub RefreshStatic()
+        For Each Entry In Caching
+            Try : Entry.Value.dispose() : Catch : End Try
+        Next : Caching.Clear()
+    End Sub
+    Sub Display(Optional ByVal Text As String = "")
         Dim n As New ShowPix(Me, Text)
     End Sub
     Public Function ToBitmap() As Image
@@ -70,7 +80,7 @@ Partial Public Class Pix
         Dim Bytes As Byte() = Nothing
 
         If Me.d = 1 Then Return ConvertTo1BPPBMP(Me)
-        _All.pixWriteMemBmp(Bytes, Size, Me)
+        _All.pixWriteMemBmp(Bytes, Size, IIf(Me.d = 24, Me.pixConvertTo32, Me))
         Dim MemStrm As New IO.MemoryStream(Bytes)
         Return New Bitmap(MemStrm, True)
     End Function

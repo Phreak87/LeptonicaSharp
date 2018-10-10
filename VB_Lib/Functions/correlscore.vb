@@ -74,14 +74,11 @@ Public Shared Function pixCorrelationScore(
 				 ByVal maxdiffw as Integer, 
 				 ByVal maxdiffh as Integer, 
 				 ByVal tab as Integer(), 
-				<Out()> ByRef pscore as Single()) as Integer
+				<Out()> ByRef pscore as Single) as Integer
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 	If IsNothing (tab) then Throw New ArgumentNullException  ("tab cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCorrelationScore( pix1.Pointer, pix2.Pointer, area1, area2, delx, dely, maxdiffw, maxdiffh, tab, pscore)
 
@@ -155,9 +152,6 @@ Public Shared Function pixCorrelationScoreThresholded(
 	If IsNothing (tab) then Throw New ArgumentNullException  ("tab cannot be Nothing")
 	If IsNothing (downcount) then Throw New ArgumentNullException  ("downcount cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCorrelationScoreThresholded( pix1.Pointer, pix2.Pointer, area1, area2, delx, dely, maxdiffw, maxdiffh, tab, downcount, score_threshold)
 
 	Return _Result
@@ -197,14 +191,11 @@ Public Shared Function pixCorrelationScoreSimple(
 				 ByVal maxdiffw as Integer, 
 				 ByVal maxdiffh as Integer, 
 				 ByVal tab as Integer(), 
-				<Out()> ByRef pscore as Single()) as Integer
+				<Out()> ByRef pscore as Single) as Integer
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 	If IsNothing (tab) then Throw New ArgumentNullException  ("tab cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCorrelationScoreSimple( pix1.Pointer, pix2.Pointer, area1, area2, delx, dely, maxdiffw, maxdiffh, tab, pscore)
 
@@ -253,16 +244,14 @@ Public Shared Function pixCorrelationScoreShifted(
 				 ByVal delx as Integer, 
 				 ByVal dely as Integer, 
 				 ByVal tab as Integer(), 
-				<Out()> ByRef pscore as Single()) as Integer
+				<Out()> ByRef pscore as Single) as Integer
 
 	If IsNothing (pix1) then Throw New ArgumentNullException  ("pix1 cannot be Nothing")
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 	If IsNothing (tab) then Throw New ArgumentNullException  ("tab cannot be Nothing")
 
-
 	If {1}.contains (pix1.d) = false then Throw New ArgumentException ("1 bpp")
 	If {1}.contains (pix2.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCorrelationScoreShifted( pix1.Pointer, pix2.Pointer, area1, area2, delx, dely, tab, pscore)
 

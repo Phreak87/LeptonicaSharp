@@ -42,8 +42,6 @@ Public Shared Function recogIdentifyMultiple(
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
 Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = pboxa.Pointer
 Dim ppixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixa) Then ppixaPTR = ppixa.Pointer
 Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
@@ -92,12 +90,10 @@ Public Shared Function recogSplitIntoCharacters(
 				 ByVal skipsplit as Integer, 
 				<Out()> ByRef pboxa as Boxa, 
 				<Out()> ByRef ppixa as Pixa, 
-				 ByVal debug as Enumerations.DebugOnOff) as Integer
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = pboxa.Pointer
 	Dim ppixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixa) Then ppixaPTR = ppixa.Pointer
@@ -134,15 +130,13 @@ Public Shared Function recogCorrelationBestRow(
 				 ByVal recog as L_Recog, 
 				 ByVal pixs as Pix, 
 				<Out()> ByRef pboxa as Boxa, 
-				<Out()> ByRef pnascore as Numa, 
-				<Out()> ByRef pnaindex as Numa, 
-				<Out()> ByRef psachar as Sarray, 
-				 ByVal debug as Enumerations.DebugOnOff) as Integer
+				<Out()> Optional ByRef pnascore as Numa = Nothing, 
+				<Out()> Optional ByRef pnaindex as Numa = Nothing, 
+				<Out()> Optional ByRef psachar as Sarray = Nothing, 
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = pboxa.Pointer
 Dim pnascorePTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnascore) Then pnascorePTR = pnascore.Pointer
@@ -185,15 +179,13 @@ Public Shared Function recogCorrelationBestChar(
 				 ByVal recog as L_Recog, 
 				 ByVal pixs as Pix, 
 				<Out()> ByRef pbox as Box, 
-				<Out()> ByRef pscore as Single(), 
-				<Out()> ByRef pindex as Integer, 
-				<Out()> ByRef pcharstr as String(), 
-				<Out()> ByRef ppixdb as Pix) as Integer
+				<Out()> ByRef pscore as Single, 
+				<Out()> Optional ByRef pindex as Integer = Nothing, 
+				<Out()> Optional ByRef pcharstr as String() = Nothing, 
+				<Out()> Optional ByRef ppixdb as Pix = Nothing) as Integer
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim pboxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbox) Then pboxPTR = pbox.Pointer
 Dim pcharstrPTR As IntPtr = pcharstrPTR = Marshal.AllocHGlobal(Marshal.sizeOf(pcharstr.toArray))
@@ -228,12 +220,10 @@ End Function
 Public Shared Function recogIdentifyPixa(
 				 ByVal recog as L_Recog, 
 				 ByVal pixa as Pixa, 
-				<Out()> ByRef ppixdb as Pix) as Integer
+				<Out()> Optional ByRef ppixdb as Pix = Nothing) as Integer
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-
-
 
 Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
 
@@ -273,12 +263,10 @@ End Function
 Public Shared Function recogIdentifyPix(
 				 ByVal recog as L_Recog, 
 				 ByVal pixs as Pix, 
-				<Out()> ByRef ppixdb as Pix) as Integer
+				<Out()> Optional ByRef ppixdb as Pix = Nothing) as Integer
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
 
@@ -306,9 +294,6 @@ Public Shared Function recogSkipIdentify(
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogSkipIdentify( recog.Pointer)
 
 	Return _Result
@@ -322,9 +307,6 @@ End Function
 '''  <param name="prcha">[in,out] - to be nulled</param>
 Public Shared Sub rchaDestroy(
 				 ByRef prcha as L_Rcha)
-
-
-
 
 	Dim prchaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(prcha) Then prchaPTR = prcha.Pointer
 
@@ -341,9 +323,6 @@ End Sub
 '''  <param name="prch">[in,out] - to be nulled</param>
 Public Shared Sub rchDestroy(
 				 ByRef prch as L_Rch)
-
-
-
 
 	Dim prchPTR As IntPtr = IntPtr.Zero : If Not IsNothing(prch) Then prchPTR = prch.Pointer
 
@@ -374,17 +353,15 @@ End Sub
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function rchaExtract(
 				 ByVal rcha as L_Rcha, 
-				<Out()> ByRef pnaindex as Numa, 
-				<Out()> ByRef pnascore as Numa, 
-				<Out()> ByRef psatext as Sarray, 
-				<Out()> ByRef pnasample as Numa, 
-				<Out()> ByRef pnaxloc as Numa, 
-				<Out()> ByRef pnayloc as Numa, 
-				<Out()> ByRef pnawidth as Numa) as Integer
+				<Out()> Optional ByRef pnaindex as Numa = Nothing, 
+				<Out()> Optional ByRef pnascore as Numa = Nothing, 
+				<Out()> Optional ByRef psatext as Sarray = Nothing, 
+				<Out()> Optional ByRef pnasample as Numa = Nothing, 
+				<Out()> Optional ByRef pnaxloc as Numa = Nothing, 
+				<Out()> Optional ByRef pnayloc as Numa = Nothing, 
+				<Out()> Optional ByRef pnawidth as Numa = Nothing) as Integer
 
 	If IsNothing (rcha) then Throw New ArgumentNullException  ("rcha cannot be Nothing")
-
-
 
 Dim pnaindexPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaindex) Then pnaindexPTR = pnaindex.Pointer
 Dim pnascorePTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnascore) Then pnascorePTR = pnascore.Pointer
@@ -422,17 +399,15 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function rchExtract(
 				 ByVal rch as L_Rch, 
-				<Out()> ByRef pindex as Integer, 
-				<Out()> ByRef pscore as Single(), 
-				<Out()> ByRef ptext as String(), 
-				<Out()> ByRef psample as Integer, 
-				<Out()> ByRef pxloc as Integer, 
-				<Out()> ByRef pyloc as Integer, 
-				<Out()> ByRef pwidth as Integer) as Integer
+				<Out()> Optional ByRef pindex as Integer = Nothing, 
+				<Out()> Optional ByRef pscore as Single = Nothing, 
+				<Out()> Optional ByRef ptext as String() = Nothing, 
+				<Out()> Optional ByRef psample as Integer = Nothing, 
+				<Out()> Optional ByRef pxloc as Integer = Nothing, 
+				<Out()> Optional ByRef pyloc as Integer = Nothing, 
+				<Out()> Optional ByRef pwidth as Integer = Nothing) as Integer
 
 	If IsNothing (rch) then Throw New ArgumentNullException  ("rch cannot be Nothing")
-
-
 
 Dim ptextPTR As IntPtr = ptextPTR = Marshal.AllocHGlobal(Marshal.sizeOf(ptext.toArray))
 
@@ -464,9 +439,6 @@ Public Shared Function recogProcessToIdentify(
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogProcessToIdentify( recog.Pointer, pixs.Pointer, pad)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -513,13 +485,11 @@ Public Shared Function recogExtractNumbers(
 				 ByVal boxas as Boxa, 
 				 ByVal scorethresh as Single, 
 				 ByVal spacethresh as Integer, 
-				<Out()> ByRef pbaa as Boxaa, 
-				<Out()> ByRef pnaa as Numaa) as Sarray
+				<Out()> Optional ByRef pbaa as Boxaa = Nothing, 
+				<Out()> Optional ByRef pnaa as Numaa = Nothing) as Sarray
 
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
-
-
 
 Dim pbaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbaa) Then pbaaPTR = pbaa.Pointer
 Dim pnaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaa) Then pnaaPTR = pnaa.Pointer
@@ -556,14 +526,12 @@ Public Shared Function showExtractNumbers(
 				 ByVal sa as Sarray, 
 				 ByVal baa as Boxaa, 
 				 ByVal naa as Numaa, 
-				<Out()> ByRef ppixdb as Pix) as Pixa
+				<Out()> Optional ByRef ppixdb as Pix = Nothing) as Pixa
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
-
-
 
 Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
 

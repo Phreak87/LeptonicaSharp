@@ -23,10 +23,6 @@ Public Shared Function kernelCreate(
 				 ByVal height as Integer, 
 				 ByVal width as Integer) as L_Kernel
 
-
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelCreate( height, width)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -41,9 +37,6 @@ End Function
 '''  <param name="pkel">[in,out] - to be nulled</param>
 Public Shared Sub kernelDestroy(
 				 ByRef pkel as L_Kernel)
-
-
-
 
 	Dim pkelPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pkel) Then pkelPTR = pkel.Pointer
 
@@ -63,9 +56,6 @@ Public Shared Function kernelCopy(
 				 ByVal kels as L_Kernel) as L_Kernel
 
 	If IsNothing (kels) then Throw New ArgumentNullException  ("kels cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelCopy( kels.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -87,12 +77,9 @@ Public Shared Function kernelGetElement(
 				 ByVal kel as L_Kernel, 
 				 ByVal row as Integer, 
 				 ByVal col as Integer, 
-				<Out()> ByRef pval as Single()) as Integer
+				<Out()> ByRef pval as Single) as Integer
 
 	If IsNothing (kel) then Throw New ArgumentNullException  ("kel cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.kernelGetElement( kel.Pointer, row, col, pval)
 
@@ -117,9 +104,6 @@ Public Shared Function kernelSetElement(
 
 	If IsNothing (kel) then Throw New ArgumentNullException  ("kel cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.kernelSetElement( kel.Pointer, row, col, val)
 
 	Return _Result
@@ -138,15 +122,12 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function kernelGetParameters(
 				 ByVal kel as L_Kernel, 
-				<Out()> ByRef psy as Integer, 
-				<Out()> ByRef psx as Integer, 
-				<Out()> ByRef pcy as Integer, 
-				<Out()> ByRef pcx as Integer) as Integer
+				<Out()> Optional ByRef psy as Integer = Nothing, 
+				<Out()> Optional ByRef psx as Integer = Nothing, 
+				<Out()> Optional ByRef pcy as Integer = Nothing, 
+				<Out()> Optional ByRef pcx as Integer = Nothing) as Integer
 
 	If IsNothing (kel) then Throw New ArgumentNullException  ("kel cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.kernelGetParameters( kel.Pointer, psy, psx, pcy, pcx)
 
@@ -169,9 +150,6 @@ Public Shared Function kernelSetOrigin(
 
 	If IsNothing (kel) then Throw New ArgumentNullException  ("kel cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.kernelSetOrigin( kel.Pointer, cy, cx)
 
 	Return _Result
@@ -187,12 +165,9 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function kernelGetSum(
 				 ByVal kel as L_Kernel, 
-				<Out()> ByRef psum as Single()) as Integer
+				<Out()> ByRef psum as Single) as Integer
 
 	If IsNothing (kel) then Throw New ArgumentNullException  ("kel cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.kernelGetSum( kel.Pointer, psum)
 
@@ -210,13 +185,10 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function kernelGetMinMax(
 				 ByVal kel as L_Kernel, 
-				<Out()> ByRef pmin as Single(), 
-				<Out()> ByRef pmax as Single()) as Integer
+				<Out()> Optional ByRef pmin as Single = Nothing, 
+				<Out()> Optional ByRef pmax as Single = Nothing) as Integer
 
 	If IsNothing (kel) then Throw New ArgumentNullException  ("kel cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.kernelGetMinMax( kel.Pointer, pmin, pmax)
 
@@ -244,9 +216,6 @@ Public Shared Function kernelNormalize(
 
 	If IsNothing (kels) then Throw New ArgumentNullException  ("kels cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelNormalize( kels.Pointer, normsum)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -270,9 +239,6 @@ Public Shared Function kernelInvert(
 				 ByVal kels as L_Kernel) as L_Kernel
 
 	If IsNothing (kels) then Throw New ArgumentNullException  ("kels cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelInvert( kels.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -299,10 +265,6 @@ Public Shared Function create2dFloatArray(
 				 ByVal sy as Integer, 
 				 ByVal sx as Integer) as List(Of Single())
 
-
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.create2dFloatArray( sy, sx)
 Dim PTRArr(1) As IntPtr : Marshal.Copy(_Result, PTRArr, 0, PTRArr.Length)
 Dim B As New List(Of Single())
@@ -327,9 +289,6 @@ Public Shared Function kernelRead(
 
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelRead( fname)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -347,9 +306,6 @@ Public Shared Function kernelReadStream(
 				 ByVal fp as FILE) as L_Kernel
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelReadStream( fp.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -372,9 +328,6 @@ Public Shared Function kernelWrite(
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 	If IsNothing (kel) then Throw New ArgumentNullException  ("kel cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.kernelWrite( fname, kel.Pointer)
 
 	Return _Result
@@ -394,9 +347,6 @@ Public Shared Function kernelWriteStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (kel) then Throw New ArgumentNullException  ("kel cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.kernelWriteStream( fp.Pointer, kel.Pointer)
 
@@ -436,9 +386,6 @@ Public Shared Function kernelCreateFromString(
 				 ByVal kdata as String) as L_Kernel
 
 	If IsNothing (kdata) then Throw New ArgumentNullException  ("kdata cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelCreateFromString( h, w, cy, cx, kdata)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -487,9 +434,7 @@ Public Shared Function kernelCreateFromFile(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelCreateFromFile( filename)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -517,9 +462,6 @@ Public Shared Function kernelCreateFromPix(
 				 ByVal cx as Integer) as L_Kernel
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelCreateFromPix( pix.Pointer, cy, cx)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -559,9 +501,6 @@ Public Shared Function kernelDisplayInPix(
 
 	If IsNothing (kel) then Throw New ArgumentNullException  ("kel cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelDisplayInPix( kel.Pointer, size, gthick)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -587,9 +526,6 @@ Public Shared Function parseStringForNumbers(
 
 	If IsNothing (str) then Throw New ArgumentNullException  ("str cannot be Nothing")
 	If IsNothing (seps) then Throw New ArgumentNullException  ("seps cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.parseStringForNumbers( str, seps)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -624,10 +560,6 @@ Public Shared Function makeFlatKernel(
 				 ByVal cy as Integer, 
 				 ByVal cx as Integer) as L_Kernel
 
-
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.makeFlatKernel( height, width, cy, cx)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -660,10 +592,6 @@ Public Shared Function makeGaussianKernel(
 				 ByVal halfwidth as Integer, 
 				 ByVal stdev as Single, 
 				 ByVal max as Single) as L_Kernel
-
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.makeGaussianKernel( halfheight, halfwidth, stdev, max)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -704,9 +632,6 @@ Public Shared Function makeGaussianKernelSep(
 				 ByVal max as Single, 
 				<Out()> ByRef pkelx as L_Kernel, 
 				<Out()> ByRef pkely as L_Kernel) as Integer
-
-
-
 
 	Dim pkelxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pkelx) Then pkelxPTR = pkelx.Pointer
 	Dim pkelyPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pkely) Then pkelyPTR = pkely.Pointer
@@ -751,10 +676,6 @@ Public Shared Function makeDoGKernel(
 				 ByVal halfwidth as Integer, 
 				 ByVal stdev as Single, 
 				 ByVal ratio as Single) as L_Kernel
-
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.makeDoGKernel( halfheight, halfwidth, stdev, ratio)
 	If  _Result = IntPtr.Zero then Return Nothing

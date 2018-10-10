@@ -71,9 +71,6 @@ Public Shared Function pixColorSegment(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixColorSegment( pixs.Pointer, maxdist, maxcolors, selsize, finalcolors, debugflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -110,9 +107,6 @@ Public Shared Function pixColorSegmentCluster(
 				 ByVal debugflag as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixColorSegmentCluster( pixs.Pointer, maxdist, maxcolors, debugflag)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -166,11 +160,10 @@ Public Shared Function pixAssignToNearestColor(
 				 ByVal pixs as Pix, 
 				 ByVal pixm as Pix, 
 				 ByVal level as Integer, 
-				 ByVal countarray as Integer()) as Integer
+				 Optional ByVal countarray as Integer() = Nothing) as Integer
 
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
 
 	If {1}.contains (pixm.d) = false then Throw New ArgumentException ("1 bpp")
 
@@ -207,9 +200,6 @@ Public Shared Function pixColorSegmentClean(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (countarray) then Throw New ArgumentNullException  ("countarray cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixColorSegmentClean( pixs.Pointer, selsize, countarray)
 
 	Return _Result
@@ -242,9 +232,6 @@ Public Shared Function pixColorSegmentRemoveColors(
 
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixColorSegmentRemoveColors( pixd.Pointer, pixs.Pointer, finalcolors)
 

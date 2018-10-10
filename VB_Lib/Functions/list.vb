@@ -21,9 +21,6 @@ Partial Public Class _All
 Public Shared Sub listDestroy(
 				 ByRef phead as DoubleLinkedList)
 
-
-
-
 	Dim pheadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(phead) Then pheadPTR = phead.Pointer
 
 	LeptonicaSharp.Natives.listDestroy( pheadPTR)
@@ -52,8 +49,6 @@ Public Shared Function listAddToHead(
 				 ByVal data as Object) as Integer
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-
-
 
 Dim pheadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(phead) Then pheadPTR = phead.Pointer
 Dim dataPTR As IntPtr = Marshal.AllocHGlobal(0)
@@ -94,8 +89,6 @@ Public Shared Function listAddToTail(
 				 ByVal data as Object) as Integer
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-
-
 
 	Dim pheadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(phead) Then pheadPTR = phead.Pointer
 	Dim ptailPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ptail) Then ptailPTR = ptail.Pointer
@@ -139,8 +132,6 @@ Public Shared Function listInsertBefore(
 	If IsNothing (elem) then Throw New ArgumentNullException  ("elem cannot be Nothing")
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
-
-
 Dim pheadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(phead) Then pheadPTR = phead.Pointer
 Dim dataPTR As IntPtr = Marshal.AllocHGlobal(0)
 
@@ -182,8 +173,6 @@ Public Shared Function listInsertAfter(
 	If IsNothing (elem) then Throw New ArgumentNullException  ("elem cannot be Nothing")
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
-
-
 Dim pheadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(phead) Then pheadPTR = phead.Pointer
 Dim dataPTR As IntPtr = Marshal.AllocHGlobal(0)
 
@@ -215,8 +204,6 @@ Public Shared Function listRemoveElement(
 
 	If IsNothing (elem) then Throw New ArgumentNullException  ("elem cannot be Nothing")
 
-
-
 	Dim pheadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(phead) Then pheadPTR = phead.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.listRemoveElement( pheadPTR, elem.Pointer)
@@ -242,9 +229,6 @@ End Function
 '''   <returns>data  void struct on cell, or NULL on error</returns>
 Public Shared Function listRemoveFromHead(
 				 ByRef phead as DoubleLinkedList) as Object
-
-
-
 
 	Dim pheadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(phead) Then pheadPTR = phead.Pointer
 
@@ -280,9 +264,6 @@ End Function
 Public Shared Function listRemoveFromTail(
 				 ByRef phead as DoubleLinkedList, 
 				 ByRef ptail as DoubleLinkedList) as Object
-
-
-
 
 	Dim pheadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(phead) Then pheadPTR = phead.Pointer
 	Dim ptailPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ptail) Then ptailPTR = ptail.Pointer
@@ -320,8 +301,6 @@ Public Shared Function listFindElement(
 	If IsNothing (head) then Throw New ArgumentNullException  ("head cannot be Nothing")
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
-
-
 Dim dataPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.listFindElement( head.Pointer, dataPTR)
@@ -342,9 +321,6 @@ Public Shared Function listFindTail(
 
 	If IsNothing (head) then Throw New ArgumentNullException  ("head cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.listFindTail( head.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -362,9 +338,6 @@ Public Shared Function listGetCount(
 				 ByVal head as DoubleLinkedList) as Integer
 
 	If IsNothing (head) then Throw New ArgumentNullException  ("head cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.listGetCount( head.Pointer)
 
@@ -385,9 +358,6 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function listReverse(
 				 ByRef phead as DoubleLinkedList) as Integer
-
-
-
 
 	Dim pheadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(phead) Then pheadPTR = phead.Pointer
 
@@ -414,9 +384,6 @@ End Function
 Public Shared Function listJoin(
 				 ByRef phead1 as DoubleLinkedList, 
 				 ByRef phead2 as DoubleLinkedList) as Integer
-
-
-
 
 	Dim phead1PTR As IntPtr = IntPtr.Zero : If Not IsNothing(phead1) Then phead1PTR = phead1.Pointer
 	Dim phead2PTR As IntPtr = IntPtr.Zero : If Not IsNothing(phead2) Then phead2PTR = phead2.Pointer

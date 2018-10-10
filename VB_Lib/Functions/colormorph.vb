@@ -29,9 +29,6 @@ Public Shared Function pixColorMorph(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixColorMorph( pixs.Pointer, type, hsize, vsize)
 	If  _Result = IntPtr.Zero then Return Nothing
 

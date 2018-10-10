@@ -14,13 +14,10 @@ Partial Public Class _All
 '''   <returns>pixd, or NULL on error This function scales 32 bpp RGB 2, 4 or 8 bpp palette color 2, 4, 8 or 16 bpp gray and binary images. When the input has palette color, the colormap is removed and the result is either 8 bpp gray or 32 bpp RGB, depending on whether the colormap has color entries.  Images with 2, 4 or 16 bpp are converted to 8 bpp. Because pixScale is meant to be a very simple interface to a number of scaling functions, including the use of unsharp masking, the type of scaling and the sharpening parameters are chosen by default.  Grayscale and color images are scaled using one of four methods, depending on the scale factors: 1 antialiased subsampling (lowpass filtering followed by subsampling, implemented here by area mapping), for scale factors less than 0.2 2 antialiased subsampling with sharpening, for scale factors between 0.2 and 0.7 3 linear interpolation with sharpening, for scale factors between 0.7 and 1.4 4 linear interpolation without sharpening, for scale factors  is greater = 1.4. One could use subsampling for scale factors very close to 1.0, because it preserves sharp edges.  Linear interpolation blurs edges because the dest pixels will typically straddle two src edge pixels.  Subsmpling removes entire columns and rows, so the edge is not blurred.  However, there are two reasons for not doing this. First, it moves edges, so that a straight line at a large angle to both horizontal and vertical will have noticeable kinks where horizontal and vertical rasters are removed.  Second, although it is very fast, you get good results on sharp edges by applying a sharpening filter. For images with sharp edges, sharpening substantially improves the image quality for scale factors between about 0.2 and about 2.0. pixScale uses a small amount of sharpening by default because it strengthens edge pixels that are weak due to anti-aliasing. The default sharpening factors are: for scaling factors  is lower  0.7:   sharpfract = 0.2    sharpwidth = 1 for scaling factors  is greater = 0.7:  sharpfract = 0.4    sharpwidth = 2 The cases where the sharpening halfwidth is 1 or 2 have special implementations and are about twice as fast as the general case. However, sharpening is computationally expensive, and one needs to consider the speed-quality tradeoff: For upscaling of RGB images, linear interpolation plus default sharpening is about 5 times slower than upscaling alone. For downscaling, area mapping plus default sharpening is about 10 times slower than downscaling alone. When the scale factor is larger than 1.4, the cost of sharpening, which is proportional to image area, is very large compared to the incremental quality improvement, so we cut off the default use of sharpening at 1.4.  Thus, for scale factors greater than 1.4, pixScale only does linear interpolation. In many situations you will get a satisfactory result by scaling without sharpening: call pixScaleGeneral with %sharpfract = 0.0. Alternatively, if you wish to sharpen but not use the default value, first call pixScaleGeneral with %sharpfract = 0.0, and then sharpen explicitly using pixUnsharpMasking. Binary images are scaled to binary by sampling the closest pixel, without any low-pass filtering averaging of neighboring pixels. This will introduce aliasing for reductions.  Aliasing can be prevented by using pixScaleToGray instead.</returns>
 Public Shared Function pixScale(
 				 ByVal pixs as Pix, 
-				 ByVal scalex as Single, 
-				 ByVal scaley as Single) as Pix
+				 Optional ByVal scalex as Single = 1, 
+				 Optional ByVal scaley as Single = 1) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScale( pixs.Pointer, scalex, scaley)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -43,9 +40,6 @@ Public Shared Function pixScaleToSizeRel(
 				 ByVal delh as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleToSizeRel( pixs.Pointer, delw, delh)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -78,9 +72,6 @@ Public Shared Function pixScaleToSize(
 				 ByVal hd as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleToSize( pixs.Pointer, wd, hd)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -126,9 +117,6 @@ Public Shared Function pixScaleGeneral(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleGeneral( pixs.Pointer, scalex, scaley, sharpfract, sharpwidth)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -162,13 +150,10 @@ End Function
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixScaleLI(
 				 ByVal pixs as Pix, 
-				 ByVal scalex as Single, 
-				 ByVal scaley as Single) as Pix
+				 Optional ByVal scalex as Single = 1, 
+				 Optional ByVal scaley as Single = 1) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleLI( pixs.Pointer, scalex, scaley)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -203,13 +188,10 @@ End Function
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixScaleColorLI(
 				 ByVal pixs as Pix, 
-				 ByVal scalex as Single, 
-				 ByVal scaley as Single) as Pix
+				 Optional ByVal scalex as Single = 1, 
+				 Optional ByVal scaley as Single = 1) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleColorLI( pixs.Pointer, scalex, scaley)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -239,9 +221,6 @@ Public Shared Function pixScaleColor2xLI(
 				 ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleColor2xLI( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -274,9 +253,6 @@ Public Shared Function pixScaleColor4xLI(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleColor4xLI( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -294,13 +270,10 @@ End Function
 '''   <returns>pixd, or NULL on error This function is appropriate for upscaling magnification, where the scale factor is  is greater  1, as well as for a small amount of downscaling reduction, with scale factor  is greater  0.7.  If the scale factor is  is lower  0.7, the best result is obtained by area mapping, but this is relatiely expensive.  A less expensive alternative with scale factor  is lower  0.7 is low-pass filtering followed by subsampling (pixScaleSmooth()), which is effectively a cheap form of area mapping. Some more details follow. For each pixel in the dest, this does a linear interpolation of 4 neighboring pixels in the src. Specifically, consider the UL corner of src and dest pixels.  The UL corner of the dest falls within a src pixel, whose four corners are the UL corners of 4 adjacent src pixels.  The value of the dest is taken by linear interpolation using the values of the four src pixels and the distance of the UL corner of the dest from each corner. If the image is expanded so that the dest pixel is smaller than the src pixel, such interpolation is a reasonable approach.  This interpolation is also good for a small image reduction factor that is not more than a 2x reduction. Note that the linear interpolation algorithm for scaling is identical in form to the area-mapping algorithm for grayscale rotation.  The latter corresponds to a translation of each pixel without scaling. This function is NOT optimal if the scaling involves a large reduction.    If the image is significantly reduced, so that the dest pixel is much larger than the src pixels, this interpolation, which is over src pixels only near the UL corner of the dest pixel, is not going to give a good area-mapping average. Because area mapping for image scaling is considerably more computationally intensive than linear interpolation, we choose not to use it.   For large image reduction, linear interpolation over adjacent src pixels degenerates asymptotically to subsampling.  But subsampling without a low-pass pre-filter causes aliasing by the nyquist theorem.  To avoid aliasing, a low-pass filter e.g., an averaging filter of size roughly equal to the dest pixel i.e., the reduction factor should be applied to the src before subsampling. As an alternative to low-pass filtering and subsampling for large reduction factors, linear interpolation can also be done between the widely separated src pixels in which the corners of the dest pixel lie.  This also is not optimal, as it samples src pixels only near the corners of the dest pixel, and it is not implemented. The speed on circa 2005 Intel hardware for the general case (not 2x) is about 13  10^6 dest-pixels/sec/GHz.  The special 2x case runs at about 100  10^6 dest-pixels/sec/GHz.</returns>
 Public Shared Function pixScaleGrayLI(
 				 ByVal pixs as Pix, 
-				 ByVal scalex as Single, 
-				 ByVal scaley as Single) as Pix
+				 Optional ByVal scalex as Single = 1, 
+				 Optional ByVal scaley as Single = 1) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleGrayLI( pixs.Pointer, scalex, scaley)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -329,9 +302,6 @@ Public Shared Function pixScaleGray2xLI(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleGray2xLI( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -359,9 +329,6 @@ Public Shared Function pixScaleGray4xLI(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleGray4xLI( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -388,9 +355,6 @@ Public Shared Function pixScaleGray2xLIThresh(
 				 ByVal thresh as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleGray2xLIThresh( pixs.Pointer, thresh)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -421,9 +385,6 @@ Public Shared Function pixScaleGray2xLIDither(
 				 ByVal pixs as Pix) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleGray2xLIDither( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -456,9 +417,7 @@ Public Shared Function pixScaleGray4xLIThresh(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleGray4xLIThresh( pixs.Pointer, thresh)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -495,9 +454,6 @@ Public Shared Function pixScaleGray4xLIDither(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleGray4xLIDither( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -523,14 +479,12 @@ End Function
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixScaleBySampling(
 				 ByVal pixs as Pix, 
-				 ByVal scalex as Single, 
-				 ByVal scaley as Single) as Pix
+				 Optional ByVal scalex as Single = 1, 
+				 Optional ByVal scaley as Single = 1) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16, 32 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleBySampling( pixs.Pointer, scalex, scaley)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -565,9 +519,6 @@ Public Shared Function pixScaleBySamplingToSize(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleBySamplingToSize( pixs.Pointer, wd, hd)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -595,9 +546,7 @@ Public Shared Function pixScaleByIntSampling(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16, 32 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleByIntSampling( pixs.Pointer, factor)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -631,9 +580,7 @@ Public Shared Function pixScaleRGBToGrayFast(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleRGBToGrayFast( pixs.Pointer, factor, color)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -667,9 +614,7 @@ Public Shared Function pixScaleRGBToBinaryFast(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp RGB")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleRGBToBinaryFast( pixs.Pointer, factor, thresh)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -702,9 +647,7 @@ Public Shared Function pixScaleGrayToBinaryFast(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleGrayToBinaryFast( pixs.Pointer, factor, thresh)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -747,13 +690,10 @@ End Function
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixScaleSmooth(
 				 ByVal pix as Pix, 
-				 ByVal scalex as Single, 
-				 ByVal scaley as Single) as Pix
+				 Optional ByVal scalex as Single = 1, 
+				 Optional ByVal scaley as Single = 1) as Pix
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleSmooth( pix.Pointer, scalex, scaley)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -788,9 +728,6 @@ Public Shared Function pixScaleSmoothToSize(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleSmoothToSize( pixs.Pointer, wd, hd)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -815,9 +752,7 @@ Public Shared Function pixScaleRGBToGray2(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleRGBToGray2( pixs.Pointer, rwt, gwt, bwt)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -858,13 +793,10 @@ End Function
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixScaleAreaMap(
 				 ByVal pix as Pix, 
-				 ByVal scalex as Single, 
-				 ByVal scaley as Single) as Pix
+				 Optional ByVal scalex as Single = 1, 
+				 Optional ByVal scaley as Single = 1) as Pix
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleAreaMap( pix.Pointer, scalex, scaley)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -903,9 +835,6 @@ Public Shared Function pixScaleAreaMap2(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleAreaMap2( pix.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -939,9 +868,6 @@ Public Shared Function pixScaleAreaMapToSize(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleAreaMapToSize( pixs.Pointer, wd, hd)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -966,14 +892,12 @@ End Function
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixScaleBinary(
 				 ByVal pixs as Pix, 
-				 ByVal scalex as Single, 
-				 ByVal scaley as Single) as Pix
+				 Optional ByVal scalex as Single = 1, 
+				 Optional ByVal scaley as Single = 1) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleBinary( pixs.Pointer, scalex, scaley)
 	If  _Result = IntPtr.Zero then Return Nothing

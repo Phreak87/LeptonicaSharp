@@ -22,13 +22,11 @@ Partial Public Class _All
 Public Shared Function fmorphautogen(
 				 ByVal sela as Sela, 
 				 ByVal fileindex as Integer, 
-				 ByVal filename as String) as Integer
+				 Optional ByVal filename as String = Nothing) as Integer
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fmorphautogen( sela.Pointer, fileindex, filename)
 
@@ -60,13 +58,11 @@ End Function
 Public Shared Function fmorphautogen1(
 				 ByVal sela as Sela, 
 				 ByVal fileindex as Integer, 
-				 ByVal filename as String) as Integer
+				 Optional ByVal filename as String = Nothing) as Integer
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fmorphautogen1( sela.Pointer, fileindex, filename)
 
@@ -86,7 +82,6 @@ Public Shared Function fmorphautogen2(
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
-
 
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 

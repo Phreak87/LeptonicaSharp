@@ -28,8 +28,6 @@ Public Shared Function l_dnaJoin(
 
 	If IsNothing (dad) then Throw New ArgumentNullException  ("dad cannot be Nothing")
 
-
-
 	Dim dasPTR As IntPtr = IntPtr.Zero : If Not IsNothing(das) Then dasPTR = das.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaJoin( dad.Pointer, dasPTR, istart, iend)
@@ -56,9 +54,6 @@ Public Shared Function l_dnaaFlattenToDna(
 
 	If IsNothing (daa) then Throw New ArgumentNullException  ("daa cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaaFlattenToDna( daa.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -77,9 +72,6 @@ Public Shared Function l_dnaConvertToNuma(
 
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaConvertToNuma( da.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -97,9 +89,6 @@ Public Shared Function numaConvertToDna(
 				 ByVal na as Numa) as L_Dna
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaConvertToDna( na.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -130,9 +119,6 @@ Public Shared Function l_dnaUnionByAset(
 	If IsNothing (da1) then Throw New ArgumentNullException  ("da1 cannot be Nothing")
 	If IsNothing (da2) then Throw New ArgumentNullException  ("da2 cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaUnionByAset( da1.Pointer, da2.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -150,9 +136,6 @@ Public Shared Function l_dnaRemoveDupsByAset(
 				 ByVal das as L_Dna) as L_Dna
 
 	If IsNothing (das) then Throw New ArgumentNullException  ("das cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaRemoveDupsByAset( das.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -183,9 +166,6 @@ Public Shared Function l_dnaIntersectionByAset(
 	If IsNothing (da1) then Throw New ArgumentNullException  ("da1 cannot be Nothing")
 	If IsNothing (da2) then Throw New ArgumentNullException  ("da2 cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaIntersectionByAset( da1.Pointer, da2.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -204,9 +184,6 @@ Public Shared Function l_asetCreateFromDna(
 
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_asetCreateFromDna( da.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -224,9 +201,6 @@ Public Shared Function l_dnaDiffAdjValues(
 				 ByVal das as L_Dna) as L_Dna
 
 	If IsNothing (das) then Throw New ArgumentNullException  ("das cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaDiffAdjValues( das.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing

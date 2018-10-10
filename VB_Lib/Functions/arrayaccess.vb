@@ -17,8 +17,6 @@ Public Shared Function l_getDataBit(
 
 	If IsNothing (line) then Throw New ArgumentNullException  ("line cannot be Nothing")
 
-
-
 Dim linePTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_getDataBit( linePTR, n)
@@ -39,8 +37,6 @@ Public Shared Sub l_setDataBit(
 
 	If IsNothing (line) then Throw New ArgumentNullException  ("line cannot be Nothing")
 
-
-
 Dim linePTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	LeptonicaSharp.Natives.l_setDataBit( linePTR, n)
@@ -59,8 +55,6 @@ Public Shared Sub l_clearDataBit(
 				 ByVal n as Integer)
 
 	If IsNothing (line) then Throw New ArgumentNullException  ("line cannot be Nothing")
-
-
 
 Dim linePTR As IntPtr = Marshal.AllocHGlobal(0)
 
@@ -93,8 +87,6 @@ Public Shared Sub l_setDataBitVal(
 
 	If IsNothing (line) then Throw New ArgumentNullException  ("line cannot be Nothing")
 
-
-
 Dim linePTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	LeptonicaSharp.Natives.l_setDataBitVal( linePTR, n, val)
@@ -114,8 +106,6 @@ Public Shared Function l_getDataDibit(
 				 ByVal n as Integer) as Integer
 
 	If IsNothing (line) then Throw New ArgumentNullException  ("line cannot be Nothing")
-
-
 
 Dim linePTR As IntPtr = Marshal.AllocHGlobal(0)
 
@@ -139,8 +129,6 @@ Public Shared Sub l_setDataDibit(
 
 	If IsNothing (line) then Throw New ArgumentNullException  ("line cannot be Nothing")
 
-
-
 Dim linePTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	LeptonicaSharp.Natives.l_setDataDibit( linePTR, n, val)
@@ -159,8 +147,6 @@ Public Shared Sub l_clearDataDibit(
 				 ByVal n as Integer)
 
 	If IsNothing (line) then Throw New ArgumentNullException  ("line cannot be Nothing")
-
-
 
 Dim linePTR As IntPtr = Marshal.AllocHGlobal(0)
 
@@ -181,8 +167,6 @@ Public Shared Function l_getDataQbit(
 				 ByVal n as Integer) as Integer
 
 	If IsNothing (line) then Throw New ArgumentNullException  ("line cannot be Nothing")
-
-
 
 Dim linePTR As IntPtr = Marshal.AllocHGlobal(0)
 
@@ -206,8 +190,6 @@ Public Shared Sub l_setDataQbit(
 
 	If IsNothing (line) then Throw New ArgumentNullException  ("line cannot be Nothing")
 
-
-
 Dim linePTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	LeptonicaSharp.Natives.l_setDataQbit( linePTR, n, val)
@@ -226,8 +208,6 @@ Public Shared Sub l_clearDataQbit(
 				 ByVal n as Integer)
 
 	If IsNothing (line) then Throw New ArgumentNullException  ("line cannot be Nothing")
-
-
 
 Dim linePTR As IntPtr = Marshal.AllocHGlobal(0)
 
@@ -248,8 +228,6 @@ Public Shared Function l_getDataByte(
 				 ByVal n as Integer) as Integer
 
 	If IsNothing (line) then Throw New ArgumentNullException  ("line cannot be Nothing")
-
-
 
 Dim linePTR As IntPtr = Marshal.AllocHGlobal(0)
 
@@ -273,8 +251,6 @@ Public Shared Sub l_setDataByte(
 
 	If IsNothing (line) then Throw New ArgumentNullException  ("line cannot be Nothing")
 
-
-
 Dim linePTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	LeptonicaSharp.Natives.l_setDataByte( linePTR, n, val)
@@ -294,8 +270,6 @@ Public Shared Function l_getDataTwoBytes(
 				 ByVal n as Integer) as Integer
 
 	If IsNothing (line) then Throw New ArgumentNullException  ("line cannot be Nothing")
-
-
 
 Dim linePTR As IntPtr = Marshal.AllocHGlobal(0)
 
@@ -319,8 +293,6 @@ Public Shared Sub l_setDataTwoBytes(
 
 	If IsNothing (line) then Throw New ArgumentNullException  ("line cannot be Nothing")
 
-
-
 Dim linePTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	LeptonicaSharp.Natives.l_setDataTwoBytes( linePTR, n, val)
@@ -340,8 +312,6 @@ Public Shared Function l_getDataFourBytes(
 				 ByVal n as Integer) as Integer
 
 	If IsNothing (line) then Throw New ArgumentNullException  ("line cannot be Nothing")
-
-
 
 Dim linePTR As IntPtr = Marshal.AllocHGlobal(0)
 
@@ -364,8 +334,6 @@ Public Shared Sub l_setDataFourBytes(
 				 ByVal val as Integer)
 
 	If IsNothing (line) then Throw New ArgumentNullException  ("line cannot be Nothing")
-
-
 
 Dim linePTR As IntPtr = Marshal.AllocHGlobal(0)
 

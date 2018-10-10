@@ -15,9 +15,6 @@ Public Shared Function pixDitherToBinary(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDitherToBinary( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -48,9 +45,6 @@ Public Shared Function pixDitherToBinarySpec(
 				 ByVal upperclip as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDitherToBinarySpec( pixs.Pointer, lowerclip, upperclip)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -83,8 +77,6 @@ Public Shared Sub ditherToBinaryLineLow(
 	If IsNothing (bufs1) then Throw New ArgumentNullException  ("bufs1 cannot be Nothing")
 	If IsNothing (bufs2) then Throw New ArgumentNullException  ("bufs2 cannot be Nothing")
 
-
-
 	Dim linedPTR As IntPtr = Marshal.AllocHGlobal(lined.Count) : Marshal.Copy(lined, 0, linedPTR, lined.Length)
 	Dim bufs1PTR As IntPtr = Marshal.AllocHGlobal(bufs1.Count) : Marshal.Copy(bufs1, 0, bufs1PTR, bufs1.Length)
 	Dim bufs2PTR As IntPtr = Marshal.AllocHGlobal(bufs2.Count) : Marshal.Copy(bufs2, 0, bufs2PTR, bufs2.Length)
@@ -116,9 +108,7 @@ Public Shared Function pixThresholdToBinary(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {4,8}.contains (pixs.d) = false then Throw New ArgumentException ("4 or 8 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixThresholdToBinary( pixs.Pointer, thresh)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -140,9 +130,6 @@ Public Shared Sub thresholdToBinaryLineLow(
 
 	If IsNothing (lined) then Throw New ArgumentNullException  ("lined cannot be Nothing")
 	If IsNothing (lines) then Throw New ArgumentNullException  ("lines cannot be Nothing")
-
-
-
 
 	LeptonicaSharp.Natives.thresholdToBinaryLineLow( lined, w, lines, d, thresh)
 
@@ -169,9 +156,7 @@ Public Shared Function pixVarThresholdToBinary(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (pixg) then Throw New ArgumentNullException  ("pixg cannot be Nothing")
 
-
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixVarThresholdToBinary( pixs.Pointer, pixg.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -213,7 +198,6 @@ Public Shared Function pixAdaptThresholdToBinary(
 				 ByVal gamma as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
 
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
@@ -262,7 +246,6 @@ Public Shared Function pixAdaptThresholdToBinaryGen(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
@@ -299,9 +282,6 @@ Public Shared Function pixGenerateMaskByValue(
 				 ByVal usecmap as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenerateMaskByValue( pixs.Pointer, val, usecmap)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -342,9 +322,6 @@ Public Shared Function pixGenerateMaskByBand(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenerateMaskByBand( pixs.Pointer, lower, upper, inband, usecmap)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -365,9 +342,7 @@ Public Shared Function pixDitherTo2bpp(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDitherTo2bpp( pixs.Pointer, cmapflag)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -402,9 +377,7 @@ Public Shared Function pixDitherTo2bppSpec(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDitherTo2bppSpec( pixs.Pointer, lowerclip, upperclip, cmapflag)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -464,9 +437,7 @@ Public Shared Function pixThresholdTo2bpp(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixThresholdTo2bpp( pixs.Pointer, nlevels, cmapflag)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -528,9 +499,6 @@ Public Shared Function pixThresholdTo4bpp(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixThresholdTo4bpp( pixs.Pointer, nlevels, cmapflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -564,9 +532,6 @@ Public Shared Function pixThresholdOn8bpp(
 				 ByVal cmapflag as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixThresholdOn8bpp( pixs.Pointer, nlevels, cmapflag)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -628,9 +593,6 @@ Public Shared Function pixThresholdGrayArb(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (edgevals) then Throw New ArgumentNullException  ("edgevals cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixThresholdGrayArb( pixs.Pointer, edgevals, outdepth, use_average, setblack, setwhite)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -653,10 +615,6 @@ End Function
 '''   <returns>table maps input gray level to colormap index, or NULL on error</returns>
 Public Shared Function makeGrayQuantIndexTable(
 				 ByVal nlevels as Integer) as Integer()
-
-
-
-
 
 	Dim _Result as Integer() = LeptonicaSharp.Natives.makeGrayQuantIndexTable( nlevels)
 
@@ -695,8 +653,6 @@ Public Shared Function makeGrayQuantTableArb(
 				<Out()> ByRef pcmap as PixColormap) as Integer
 
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
-
-
 
 Dim ptabPTR As IntPtr = Marshal.AllocHGlobal(0)
 	Dim pcmapPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pcmap) Then pcmapPTR = pcmap.Pointer
@@ -744,9 +700,6 @@ Public Shared Function pixGenerateMaskByBand32(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenerateMaskByBand32( pixs.Pointer, refval, delm, delp, fractm, fractp)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -782,9 +735,6 @@ Public Shared Function pixGenerateMaskByDiscr32(
 				 ByVal distflag as Enumerations.L_AN_DISTANCE) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenerateMaskByDiscr32( pixs.Pointer, refval1, refval2, distflag)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -847,8 +797,6 @@ Public Shared Function pixGrayQuantFromHisto(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
@@ -881,9 +829,6 @@ Public Shared Function pixGrayQuantFromCmap(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGrayQuantFromCmap( pixs.Pointer, cmap.Pointer, mindepth)
 	If  _Result = IntPtr.Zero then Return Nothing

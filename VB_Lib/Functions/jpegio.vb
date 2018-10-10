@@ -47,10 +47,8 @@ Public Shared Function pixReadJpeg(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("scaling factor: 1, 2, 4 or 8")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadJpeg( filename, cmapflag, reduction, pnwarn, hint)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -83,9 +81,7 @@ Public Shared Function pixReadStreamJpeg(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
-
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("scaling factor: 1, 2, 4 or 8")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadStreamJpeg( fp.Pointer, cmapflag, reduction, pnwarn, hint)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -107,17 +103,15 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function readHeaderJpeg(
 				 ByVal filename as String, 
-				<Out()> ByRef pw as Integer, 
-				<Out()> ByRef ph as Integer, 
-				<Out()> ByRef pspp as Integer, 
-				<Out()> ByRef pycck as Integer, 
-				<Out()> ByRef pcmyk as Integer) as Integer
+				<Out()> Optional ByRef pw as Integer = Nothing, 
+				<Out()> Optional ByRef ph as Integer = Nothing, 
+				<Out()> Optional ByRef pspp as Integer = Nothing, 
+				<Out()> Optional ByRef pycck as Integer = Nothing, 
+				<Out()> Optional ByRef pcmyk as Integer = Nothing) as Integer
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderJpeg( filename, pw, ph, pspp, pycck, pcmyk)
 
@@ -138,16 +132,13 @@ End Function
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function freadHeaderJpeg(
 				 ByVal fp as FILE, 
-				<Out()> ByRef pw as Integer, 
-				<Out()> ByRef ph as Integer, 
-				<Out()> ByRef pspp as Integer, 
-				<Out()> ByRef pycck as Integer, 
-				<Out()> ByRef pcmyk as Integer) as Integer
+				<Out()> Optional ByRef pw as Integer = Nothing, 
+				<Out()> Optional ByRef ph as Integer = Nothing, 
+				<Out()> Optional ByRef pspp as Integer = Nothing, 
+				<Out()> Optional ByRef pycck as Integer = Nothing, 
+				<Out()> Optional ByRef pcmyk as Integer = Nothing) as Integer
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.freadHeaderJpeg( fp.Pointer, pw, ph, pspp, pycck, pcmyk)
 
@@ -169,8 +160,6 @@ Public Shared Function fgetJpegResolution(
 	If IsNothing (pxres) then Throw New ArgumentNullException  ("pxres cannot be Nothing")
 	If IsNothing (pyres) then Throw New ArgumentNullException  ("pyres cannot be Nothing")
 
-
-
 Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fgetJpegResolution( fp.Pointer, pxres, pyres)
@@ -190,8 +179,6 @@ Public Shared Function fgetJpegComment(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pcomment) then Throw New ArgumentNullException  ("pcomment cannot be Nothing")
-
-
 
 Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
 
@@ -219,9 +206,7 @@ Public Shared Function pixWriteJpeg(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteJpeg( filename, pix.Pointer, quality, progressive)
 
@@ -271,9 +256,6 @@ Public Shared Function pixWriteStreamJpeg(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamJpeg( fp.Pointer, pixs.Pointer, quality, progressive)
 
 	Return _Result
@@ -309,9 +291,7 @@ Public Shared Function pixReadMemJpeg(
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
-
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("scaling factor: 1, 2, 4 or 8")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemJpeg( data, size, cmflag, reduction, pnwarn, hint)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -335,16 +315,13 @@ End Function
 Public Shared Function readHeaderMemJpeg(
 				 ByVal data as Byte(), 
 				 ByVal size as UInteger, 
-				<Out()> ByRef pw as Integer, 
-				<Out()> ByRef ph as Integer, 
-				<Out()> ByRef pspp as Integer, 
-				<Out()> ByRef pycck as Integer, 
-				<Out()> ByRef pcmyk as Integer) as Integer
+				<Out()> Optional ByRef pw as Integer = Nothing, 
+				<Out()> Optional ByRef ph as Integer = Nothing, 
+				<Out()> Optional ByRef pspp as Integer = Nothing, 
+				<Out()> Optional ByRef pycck as Integer = Nothing, 
+				<Out()> Optional ByRef pcmyk as Integer = Nothing) as Integer
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderMemJpeg( data, size, pw, ph, pspp, pycck, pcmyk)
 
@@ -364,13 +341,10 @@ End Function
 Public Shared Function readResolutionMemJpeg(
 				 ByVal data as Byte(), 
 				 ByVal size as UInteger, 
-				<Out()> ByRef pxres as Integer, 
-				<Out()> ByRef pyres as Integer) as Integer
+				<Out()> Optional ByRef pxres as Integer = Nothing, 
+				<Out()> Optional ByRef pyres as Integer = Nothing) as Integer
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readResolutionMemJpeg( data, size, pxres, pyres)
 
@@ -403,8 +377,6 @@ Public Shared Function pixWriteMemJpeg(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-
-
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMemJpeg( pdataPTR, psize, pix.Pointer, quality, progressive)
@@ -434,9 +406,6 @@ Public Shared Function pixSetChromaSampling(
 				 ByVal sampling as Integer) as Integer
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetChromaSampling( pix.Pointer, sampling)
 

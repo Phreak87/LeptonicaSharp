@@ -24,9 +24,7 @@ Public Shared Function pixFindStrokeLength(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindStrokeLength( pixs.Pointer, tab8, plength)
 
@@ -59,11 +57,10 @@ Public Shared Function pixFindStrokeWidth(
 				 ByVal pixs as Pix, 
 				 ByVal thresh as Single, 
 				 ByVal tab8 as Integer(), 
-				<Out()> ByRef pwidth as Single(), 
-				<Out()> ByRef pnahisto as Numa) as Integer
+				<Out()> ByRef pwidth as Single, 
+				<Out()> Optional ByRef pnahisto as Numa = Nothing) as Integer
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
 
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
@@ -93,13 +90,10 @@ End Function
 Public Shared Function pixaFindStrokeWidth(
 				 ByVal pixa as Pixa, 
 				 ByVal thresh as Single, 
-				 ByVal tab8 as Integer(), 
-				 ByVal debug as Enumerations.DebugOnOff) as Numa
+				 Optional ByVal tab8 as Integer() = Nothing, 
+				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Numa
 
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaFindStrokeWidth( pixa.Pointer, thresh, tab8, debug)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -120,9 +114,6 @@ Public Shared Function pixaModifyStrokeWidth(
 				<Out()> ByRef targetw as Single) as Pixa
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaModifyStrokeWidth( pixas.Pointer, targetw)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -145,9 +136,6 @@ Public Shared Function pixModifyStrokeWidth(
 				 ByVal targetw as Single) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixModifyStrokeWidth( pixs.Pointer, width, targetw)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -184,9 +172,6 @@ Public Shared Function pixaSetStrokeWidth(
 
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaSetStrokeWidth( pixas.Pointer, width, thinfirst, connectivity)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -218,9 +203,6 @@ Public Shared Function pixSetStrokeWidth(
 				 ByVal connectivity as Integer) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSetStrokeWidth( pixs.Pointer, width, thinfirst, connectivity)
 	If  _Result = IntPtr.Zero then Return Nothing

@@ -17,10 +17,6 @@ Partial Public Class _All
 '''   <returns>pixa  of labeled digits</returns>
 Public Shared Function l_bootnum_gen1() as Pixa
 
-
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_bootnum_gen1( )
 	If  _Result = IntPtr.Zero then Return Nothing
 

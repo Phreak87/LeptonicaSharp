@@ -17,9 +17,6 @@ Public Shared Function ccbaCreate(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ccbaCreate( pixs.Pointer, n)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -34,9 +31,6 @@ End Function
 '''  <param name="pccba">[in,out] - to be nulled</param>
 Public Shared Sub ccbaDestroy(
 				 ByRef pccba as CCBorda)
-
-
-
 
 	Dim pccbaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pccba) Then pccbaPTR = pccba.Pointer
 
@@ -55,9 +49,6 @@ End Sub
 Public Shared Function ccbCreate(
 				 ByVal pixs as Pix) as CCBord
 
-
-
-
 	Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ccbCreate( pixsPTR)
@@ -74,9 +65,6 @@ End Function
 '''  <param name="pccb">[in,out] - to be nulled</param>
 Public Shared Sub ccbDestroy(
 				 ByRef pccb as CCBord)
-
-
-
 
 	Dim pccbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pccb) Then pccbPTR = pccb.Pointer
 
@@ -100,9 +88,6 @@ Public Shared Function ccbaAddCcb(
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 	If IsNothing (ccb) then Throw New ArgumentNullException  ("ccb cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.ccbaAddCcb( ccba.Pointer, ccb.Pointer)
 
 	Return _Result
@@ -119,9 +104,6 @@ Public Shared Function ccbaGetCount(
 				 ByVal ccba as CCBorda) as Integer
 
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ccbaGetCount( ccba.Pointer)
 
@@ -147,9 +129,6 @@ Public Shared Function ccbaGetCcb(
 
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ccbaGetCcb( ccba.Pointer, index)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -168,9 +147,7 @@ Public Shared Function pixGetAllCCBorders(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetAllCCBorders( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -212,9 +189,6 @@ Public Shared Function pixGetCCBorders(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetCCBorders( pixs.Pointer, box.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -233,9 +207,7 @@ Public Shared Function pixGetOuterBordersPtaa(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetOuterBordersPtaa( pixs.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -263,11 +235,9 @@ End Function
 '''   <returns>pta of outer border, in global coords, or NULL on error</returns>
 Public Shared Function pixGetOuterBorderPta(
 				 ByVal pixs as Pix, 
-				 ByVal box as Box) as Pta
+				 Optional ByVal box as Box = Nothing) as Pta
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
-
-
 
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
@@ -307,9 +277,6 @@ Public Shared Function pixGetOuterBorder(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetOuterBorder( ccb.Pointer, pixs.Pointer, box.Pointer)
 
 	Return _Result
@@ -345,9 +312,6 @@ Public Shared Function pixGetHoleBorder(
 	If IsNothing (ccb) then Throw New ArgumentNullException  ("ccb cannot be Nothing")
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetHoleBorder( ccb.Pointer, pixs.Pointer, box.Pointer, xs, ys)
 
@@ -390,8 +354,6 @@ Public Shared Function findNextBorderPixel(
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
-
-
 	Dim dataPTR As IntPtr = Marshal.AllocHGlobal(data.Count) : Marshal.Copy(data, 0, dataPTR, data.Length)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.findNextBorderPixel( w, h, dataPTR, wpl, px, py, pqpos, pnpx, pnpy)
@@ -429,10 +391,6 @@ Public Shared Sub locateOutsideSeedPixel(
 				<Out()> ByRef pxs as Integer, 
 				<Out()> ByRef pys as Integer)
 
-
-
-
-
 	LeptonicaSharp.Natives.locateOutsideSeedPixel( fpx, fpy, spx, spy, pxs, pys)
 
 End Sub
@@ -448,9 +406,6 @@ Public Shared Function ccbaGenerateGlobalLocs(
 				 ByVal ccba as CCBorda) as Integer
 
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ccbaGenerateGlobalLocs( ccba.Pointer)
 
@@ -485,9 +440,6 @@ Public Shared Function ccbaGenerateStepChains(
 
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.ccbaGenerateStepChains( ccba.Pointer)
 
 	Return _Result
@@ -515,9 +467,6 @@ Public Shared Function ccbaStepChainsToPixCoords(
 				 ByVal coordtype as Enumerations.CCB_AL_COORDS) as Integer
 
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ccbaStepChainsToPixCoords( ccba.Pointer, coordtype)
 
@@ -549,9 +498,6 @@ Public Shared Function ccbaGenerateSPGlobalLocs(
 				 ByVal ptsflag as Enumerations.CCB_SAVE_PTS) as Integer
 
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ccbaGenerateSPGlobalLocs( ccba.Pointer, ptsflag)
 
@@ -599,9 +545,6 @@ Public Shared Function ccbaGenerateSinglePath(
 
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.ccbaGenerateSinglePath( ccba.Pointer)
 
 	Return _Result
@@ -642,9 +585,6 @@ Public Shared Function getCutPathForHole(
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 	If IsNothing (boxinner) then Throw New ArgumentNullException  ("boxinner cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.getCutPathForHole( pix.Pointer, pta.Pointer, boxinner.Pointer, pdir, plen)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -670,9 +610,6 @@ Public Shared Function ccbaDisplayBorder(
 
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ccbaDisplayBorder( ccba.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -697,9 +634,6 @@ Public Shared Function ccbaDisplaySPBorder(
 				 ByVal ccba as CCBorda) as Pix
 
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ccbaDisplaySPBorder( ccba.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -763,9 +697,6 @@ Public Shared Function ccbaDisplayImage1(
 
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ccbaDisplayImage1( ccba.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -799,9 +730,6 @@ Public Shared Function ccbaDisplayImage2(
 
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ccbaDisplayImage2( ccba.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -823,9 +751,7 @@ Public Shared Function ccbaWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ccbaWrite( filename, ccba.Pointer)
 
@@ -847,9 +773,6 @@ Public Shared Function ccbaWriteStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.ccbaWriteStream( fp.Pointer, ccba.Pointer)
 
 	Return _Result
@@ -867,9 +790,7 @@ Public Shared Function ccbaRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ccbaRead( filename)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -888,9 +809,6 @@ Public Shared Function ccbaReadStream(
 				 ByVal fp as FILE) as CCBorda
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ccbaReadStream( fp.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -913,9 +831,7 @@ Public Shared Function ccbaWriteSVG(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ccbaWriteSVG( filename, ccba.Pointer)
 
@@ -937,9 +853,7 @@ Public Shared Function ccbaWriteSVGString(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as String = LeptonicaSharp.Natives.ccbaWriteSVGString( filename, ccba.Pointer)
 

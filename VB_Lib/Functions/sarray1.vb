@@ -13,10 +13,6 @@ Partial Public Class _All
 Public Shared Function sarrayCreate(
 				 ByVal n as Integer) as Sarray
 
-
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayCreate( n)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -36,9 +32,6 @@ Public Shared Function sarrayCreateInitialized(
 				 ByVal initstr as String) as Sarray
 
 	If IsNothing (initstr) then Throw New ArgumentNullException  ("initstr cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayCreateInitialized( n, initstr)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -62,9 +55,6 @@ Public Shared Function sarrayCreateWordsFromString(
 				 ByVal _string_ as String) as Sarray
 
 	If IsNothing (_string_) then Throw New ArgumentNullException  ("_string_ cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayCreateWordsFromString( _string_)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -93,9 +83,6 @@ Public Shared Function sarrayCreateLinesFromString(
 
 	If IsNothing (_string_) then Throw New ArgumentNullException  ("_string_ cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayCreateLinesFromString( _string_, blankflag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -117,9 +104,6 @@ End Function
 Public Shared Sub sarrayDestroy(
 				 ByRef psa as Sarray)
 
-
-
-
 	Dim psaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(psa) Then psaPTR = psa.Pointer
 
 	LeptonicaSharp.Natives.sarrayDestroy( psaPTR)
@@ -139,9 +123,6 @@ Public Shared Function sarrayCopy(
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayCopy( sa.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -159,9 +140,6 @@ Public Shared Function sarrayClone(
 				 ByVal sa as Sarray) as Sarray
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayClone( sa.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -191,9 +169,6 @@ Public Shared Function sarrayAddString(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 	If IsNothing (_string_) then Throw New ArgumentNullException  ("_string_ cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayAddString( sa.Pointer, _string_, copyflag)
 
 	Return _Result
@@ -212,9 +187,6 @@ Public Shared Function sarrayRemoveString(
 				 ByVal index as Integer) as String
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
-
-
-
 
 	Dim _Result as String = LeptonicaSharp.Natives.sarrayRemoveString( sa.Pointer, index)
 
@@ -249,9 +221,6 @@ Public Shared Function sarrayReplaceString(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 	If IsNothing (newstr) then Throw New ArgumentNullException  ("newstr cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayReplaceString( sa.Pointer, index, newstr, copyflag)
 
 	Return _Result
@@ -269,9 +238,6 @@ Public Shared Function sarrayClear(
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayClear( sa.Pointer)
 
 	Return _Result
@@ -288,9 +254,6 @@ Public Shared Function sarrayGetCount(
 				 ByVal sa as Sarray) as Integer
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayGetCount( sa.Pointer)
 
@@ -314,13 +277,10 @@ End Function
 '''   <returns>ptr to string array, or NULL on error</returns>
 Public Shared Function sarrayGetArray(
 				 ByVal sa as Sarray, 
-				<Out()> ByRef pnalloc as Integer, 
-				<Out()> ByRef pn as Integer) as String()
+				<Out()> Optional ByRef pnalloc as Integer = Nothing, 
+				<Out()> Optional ByRef pn as Integer = Nothing) as String()
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayGetArray( sa.Pointer, pnalloc, pn)
 	Dim PTRARR(pnalloc-1) As IntPtr : Marshal.Copy(_Result, PTRARR, 0, PTRARR.Length)
@@ -353,9 +313,6 @@ Public Shared Function sarrayGetString(
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
-
-
-
 	Dim _Result as String = LeptonicaSharp.Natives.sarrayGetString( sa.Pointer, index, copyflag)
 
 	Return _Result
@@ -372,9 +329,6 @@ Public Shared Function sarrayGetRefcount(
 				 ByVal sa as Sarray) as Integer
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayGetRefcount( sa.Pointer)
 
@@ -394,9 +348,6 @@ Public Shared Function sarrayChangeRefcount(
 				 ByVal delta as Integer) as Integer
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayChangeRefcount( sa.Pointer, delta)
 
@@ -428,9 +379,6 @@ Public Shared Function sarrayToString(
 				 ByVal addnlflag as Integer) as String
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
-
-
-
 
 	Dim _Result as String = LeptonicaSharp.Natives.sarrayToString( sa.Pointer, addnlflag)
 
@@ -465,9 +413,6 @@ Public Shared Function sarrayToStringRange(
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
-
-
-
 	Dim _Result as String = LeptonicaSharp.Natives.sarrayToStringRange( sa.Pointer, first, nstrings, addnlflag)
 
 	Return _Result
@@ -492,9 +437,6 @@ Public Shared Function sarrayJoin(
 
 	If IsNothing (sa1) then Throw New ArgumentNullException  ("sa1 cannot be Nothing")
 	If IsNothing (sa2) then Throw New ArgumentNullException  ("sa2 cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayJoin( sa1.Pointer, sa2.Pointer)
 
@@ -525,9 +467,6 @@ Public Shared Function sarrayAppendRange(
 
 	If IsNothing (sa1) then Throw New ArgumentNullException  ("sa1 cannot be Nothing")
 	If IsNothing (sa2) then Throw New ArgumentNullException  ("sa2 cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayAppendRange( sa1.Pointer, sa2.Pointer, start, _end_)
 
@@ -561,9 +500,6 @@ Public Shared Function sarrayPadToSameSize(
 	If IsNothing (sa2) then Throw New ArgumentNullException  ("sa2 cannot be Nothing")
 	If IsNothing (padstring) then Throw New ArgumentNullException  ("padstring cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayPadToSameSize( sa1.Pointer, sa2.Pointer, padstring)
 
 	Return _Result
@@ -582,9 +518,6 @@ Public Shared Function sarrayConvertWordsToLines(
 				 ByVal linesize as Integer) as Sarray
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayConvertWordsToLines( sa.Pointer, linesize)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -606,8 +539,6 @@ Public Shared Function sarraySplitString(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 	If IsNothing (str) then Throw New ArgumentNullException  ("str cannot be Nothing")
 	If IsNothing (separators) then Throw New ArgumentNullException  ("separators cannot be Nothing")
-
-
 
 Dim saPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sa) Then saPTR = sa.Pointer
 
@@ -634,12 +565,9 @@ End Function
 '''   <returns>saout output sarray, filtered with substring or NULL on error</returns>
 Public Shared Function sarraySelectBySubstring(
 				 ByVal sain as Sarray, 
-				 ByVal substr as String) as Sarray
+				 Optional ByVal substr as String = Nothing) as Sarray
 
 	If IsNothing (sain) then Throw New ArgumentNullException  ("sain cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarraySelectBySubstring( sain.Pointer, substr)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -669,9 +597,6 @@ Public Shared Function sarraySelectByRange(
 				 ByVal last as Integer) as Sarray
 
 	If IsNothing (sain) then Throw New ArgumentNullException  ("sain cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarraySelectByRange( sain.Pointer, first, last)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -727,9 +652,6 @@ Public Shared Function sarrayParseRange(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 	If IsNothing (substr) then Throw New ArgumentNullException  ("substr cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayParseRange( sa.Pointer, start, pactualstart, pend, pnewstart, substr, loc)
 
 	Return _Result
@@ -747,9 +669,7 @@ Public Shared Function sarrayRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayRead( filename)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -779,9 +699,6 @@ Public Shared Function sarrayReadStream(
 
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayReadStream( fp.Pointer)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -801,9 +718,6 @@ Public Shared Function sarrayReadMem(
 				 ByVal size as UInteger) as Sarray
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayReadMem( data, size)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -826,9 +740,7 @@ Public Shared Function sarrayWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayWrite( filename, sa.Pointer)
 
@@ -856,9 +768,6 @@ Public Shared Function sarrayWriteStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
-
-
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayWriteStream( fp.Pointer, sa.Pointer)
 
 	Return _Result
@@ -885,8 +794,6 @@ Public Shared Function sarrayWriteMem(
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
-
-
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayWriteMem( pdataPTR, psize, sa.Pointer)
@@ -910,9 +817,7 @@ Public Shared Function sarrayAppend(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
-
 	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayAppend( filename, sa.Pointer)
 
@@ -968,9 +873,6 @@ Public Shared Function getNumberedPathnamesInDirectory(
 
 	If IsNothing (dirname) then Throw New ArgumentNullException  ("dirname cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.getNumberedPathnamesInDirectory( dirname, substr, numpre, numpost, maxnum)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1006,9 +908,6 @@ Public Shared Function getSortedPathnamesInDirectory(
 
 	If IsNothing (dirname) then Throw New ArgumentNullException  ("dirname cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.getSortedPathnamesInDirectory( dirname, substr, first, nfiles)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1039,9 +938,6 @@ Public Shared Function convertSortedToNumberedPathnames(
 
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.convertSortedToNumberedPathnames( sa.Pointer, numpre, numpost, maxnum)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -1058,9 +954,6 @@ Public Shared Function getFilenamesInDirectory(
 				 ByVal dirname as String) as Sarray
 
 	If IsNothing (dirname) then Throw New ArgumentNullException  ("dirname cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.getFilenamesInDirectory( dirname)
 	If  _Result = IntPtr.Zero then Return Nothing

@@ -44,8 +44,6 @@ Public Shared Function pixConvertToPdfData(
 
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-
-
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 	Dim plpdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(plpd) Then plpdPTR = plpd.Pointer
 
@@ -99,8 +97,6 @@ Public Shared Function ptraConcatenatePdfToData(
 
 	If IsNothing (pa_data) then Throw New ArgumentNullException  ("pa_data cannot be Nothing")
 
-
-
 	Dim saPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sa) Then saPTR = sa.Pointer
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
@@ -130,9 +126,6 @@ Public Shared Function convertTiffMultipageToPdf(
 
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
-
-
-
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertTiffMultipageToPdf( filein, fileout)
 
@@ -168,9 +161,6 @@ Public Shared Function l_generateCIDataForPdf(
 				 ByVal quality as Integer, 
 				<Out()> ByRef pcid as L_Compressed_Data) as Integer
 
-
-
-
 	Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 	Dim pcidPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pcid) Then pcidPTR = pcid.Pointer
 
@@ -201,11 +191,9 @@ End Function
 '''   <returns>cid containing png data, or NULL on error</returns>
 Public Shared Function l_generateFlateDataPdf(
 				 ByVal fname as String, 
-				 ByVal pixs as Pix) as L_Compressed_Data
+				 Optional ByVal pixs as Pix = Nothing) as L_Compressed_Data
 
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
-
-
 
 	Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 
@@ -239,9 +227,6 @@ Public Shared Function l_generateJpegData(
 
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_generateJpegData( fname, ascii85flag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -268,9 +253,6 @@ Public Shared Function l_generateJpegDataMem(
 				 ByVal ascii85flag as Integer) as L_Compressed_Data
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_generateJpegDataMem( data, nbytes, ascii85flag)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -310,8 +292,6 @@ Public Shared Function l_generateCIData(
 
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 
-
-
 	Dim pcidPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pcid) Then pcidPTR = pcid.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_generateCIData( fname, type, quality, ascii85, pcidPTR)
@@ -347,8 +327,6 @@ Public Shared Function pixGenerateCIData(
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
-
-
 	Dim pcidPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pcid) Then pcidPTR = pcid.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGenerateCIData( pixs.Pointer, type, quality, ascii85, pcidPTR)
@@ -383,9 +361,6 @@ Public Shared Function l_generateFlateData(
 
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 
-
-
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_generateFlateData( fname, ascii85flag)
 	If  _Result = IntPtr.Zero then Return Nothing
 
@@ -413,9 +388,6 @@ Public Shared Function l_generateG4Data(
 				 ByVal ascii85flag as Integer) as L_Compressed_Data
 
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
-
-
-
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_generateG4Data( fname, ascii85flag)
 	If  _Result = IntPtr.Zero then Return Nothing
@@ -447,8 +419,6 @@ Public Shared Function cidConvertToPdfData(
 
 	If IsNothing (cid) then Throw New ArgumentNullException  ("cid cannot be Nothing")
 
-
-
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.cidConvertToPdfData( cid.Pointer, title, pdataPTR, pnbytes)
@@ -465,9 +435,6 @@ End Function
 '''  <param name="pcid">[in,out] - will be set to null before returning</param>
 Public Shared Sub l_CIDataDestroy(
 				 ByRef pcid as L_Compressed_Data)
-
-
-
 
 	Dim pcidPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pcid) Then pcidPTR = pcid.Pointer
 
@@ -492,10 +459,6 @@ End Sub
 Public Shared Sub l_pdfSetG4ImageMask(
 				 ByVal flag as Integer)
 
-
-
-
-
 	LeptonicaSharp.Natives.l_pdfSetG4ImageMask( flag)
 
 End Sub
@@ -514,10 +477,6 @@ End Sub
 '''  <param name="flag">[in] - 1 for writing date/time and leptonica version 0 for omitting this from the metadata</param>
 Public Shared Sub l_pdfSetDateAndVersion(
 				 ByVal flag as Integer)
-
-
-
-
 
 	LeptonicaSharp.Natives.l_pdfSetDateAndVersion( flag)
 

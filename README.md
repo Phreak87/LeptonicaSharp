@@ -71,7 +71,7 @@ cmake/cmake-gui
 3. Modify cppan.yml and point storage_dir to where you want your cppan dependencies
 4. cd leptonica
 5. Run ccpan.exe
-6. Run cmake-gui here
+6. Run cmake-gui here and add Property "VERSION_PLAIN" with the version number
 7. Update the CMAKE_INSTALL_PREFIX with your install path. I usually put it under the build folder.
 8. set CPPAN_BUILD_SHARED_LIBS=0 - This makes leptonica link statically so you don't have extra cppan dlls.
 9. set CPPAN_USE_CACHE=0

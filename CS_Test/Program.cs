@@ -9,11 +9,11 @@ namespace TestAppCSharp
 {
     class Program
     {
-        private const string img1bpp = @"..\..\..\..\ALL_Images\feyn.tif";
-        private const string img8bpp = @"..\..\..\..\ALL_Images\w91frag.jpg";
-        private const string img24bpp = @"..\..\..\..\ALL_Images\zanotti-78.jpg";
-        private const string img32bpp = @"..\..\..\..\ALL_Images\books_logo.png";
-        private const string cat007 = @"..\..\..\..\ALL_Images\cat.007.jpg";
+        private const string img1bpp = @"..\..\..\..\ALL_Images\Leptonica\feyn.tif";
+        private const string img8bpp = @"..\..\..\..\ALL_Images\Leptonica\w91frag.jpg";
+        private const string img24bpp = @"..\..\..\..\ALL_Images\Leptonica\zanotti-78.jpg";
+        private const string img32bpp = @"..\..\..\..\ALL_Images\Leptonica\books_logo.png";
+        private const string cat007 = @"..\..\..\..\ALL_Images\Leptonica\cat.007.jpg";
 
         static void Main(string[] args)
         {

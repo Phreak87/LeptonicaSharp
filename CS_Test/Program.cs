@@ -9,25 +9,25 @@ namespace TestAppCSharp
 {
     class Program
     {
-        private const string img1bpp = @"..\..\..\..\TestImages\feyn.tif";
-        private const string img8bpp = @"..\..\..\..\TestImages\w91frag.jpg";
-        private const string img24bpp = @"..\..\..\..\TestImages\zanotti-78.jpg";
-        private const string img32bpp = @"..\..\..\..\TestImages\books_logo.png";
-        private const string cat007 = @"..\..\..\..\TestImages\cat.007.jpg";
+        private const string img1bpp = @"..\..\..\..\ALL_Images\feyn.tif";
+        private const string img8bpp = @"..\..\..\..\ALL_Images\w91frag.jpg";
+        private const string img24bpp = @"..\..\..\..\ALL_Images\zanotti-78.jpg";
+        private const string img32bpp = @"..\..\..\..\ALL_Images\books_logo.png";
+        private const string cat007 = @"..\..\..\..\ALL_Images\cat.007.jpg";
 
         static void Main(string[] args)
         {
             Natives.Initialize();
             _All.setLeptDebugOK(1);
             var pix = new Pix(img1bpp);
-            var a = pix.Bitmap;
+            //var a = pix.Bitmap;
             var b = pix.ToBitmap();
-            var c = pix.Convert();
+            //var c = pix.Convert();
             var pixa = _All.pixaCreate(0);
             _All.pixGetRegionsBinary(pix, out Pix ppixhm, out Pix ppixtm, out Pix ppixtb, pixa);
-            var b1 = ppixhm.Bitmap;
-            var b2 = ppixtm.Bitmap;
-            var b3 = ppixtb.Bitmap;
+            //var b1 = ppixhm.Bitmap;
+            //var b2 = ppixtm.Bitmap;
+            //var b3 = ppixtb.Bitmap;
             WriteAllPixaImages(ref pixa, "regions");
         }
 

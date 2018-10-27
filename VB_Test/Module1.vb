@@ -8,6 +8,14 @@ Module Module1
 
     Sub Main()
 
+        Dim N1 As New NoteShrink()
+        N1.CleanUp2(New Pix("img\Examples\Notea1.jpg"))
+
+
+        Dim NotesA1 As Pix = New Pix("img\Examples\Note1.jpg")
+        Dim SNoteasA1 As Pix = LeptonicaSharp._All.pixOctcubeQuantMixedWithGray(NotesA1, 8, 2, 64).pixConvertTo32
+        LeptonicaSharp._All.pixGammaTRC(SNoteasA1, SNoteasA1, 0.7F, 0, 255)
+
         Dim Dave As New LineRemoval_Reg() : Dave.Test()
 
         ' ---------------------------------------------

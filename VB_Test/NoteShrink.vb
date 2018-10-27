@@ -2,18 +2,18 @@
 
 Public Class NoteShrink
     Sub CleanUp2(Pix As LeptonicaSharp.Pix)
-        Dim px = LeptonicaSharp._All.pixOctcubeQuantMixedWithGray(Pix, 8, 2, 36)
+        Dim px = Pix.pixOctcubeQuantMixedWithGray(8, 2, 36)
 
         Dim palette = ProcessColorMap(px)
         SaturatePalette(palette)
         Dim cm = CreateNewColorMap(px, palette)
-        LeptonicaSharp._All.pixSetColormap(px, cm)
+        px.pixSetColormap(cm)
         px.Display()
     End Sub
     Private Function CreateNewColorMap(px As Pix, ByRef aPalette As Byte()()) As PixColormap
         Dim newCmap = LeptonicaSharp._All.pixcmapCreate(px.d)
         For i As Integer = 0 To aPalette.Length - 1
-            LeptonicaSharp._All.pixcmapAddColor(newCmap, aPalette(i)(0), aPalette(i)(1), aPalette(i)(2))
+            newCmap.pixcmapAddColor(aPalette(i)(0), aPalette(i)(1), aPalette(i)(2))
         Next
         Return newCmap
     End Function
@@ -53,8 +53,8 @@ Public Class NoteShrink
     End Sub
 
     Function ProcessColorMap(px As Pix) As Byte()()
-        Dim cmap = LeptonicaSharp._All.pixGetColormap(px)
-        Dim cmapCnt = LeptonicaSharp._All.pixcmapGetCount(cmap)
+        Dim cmap = px.pixGetColormap()
+        Dim cmapCnt = cmap.pixcmapGetCount()
 
         Dim pal(cmapCnt - 1)() As Byte
         Dim b(cmapCnt - 1)() As Byte
@@ -62,7 +62,7 @@ Public Class NoteShrink
             Dim RVal As Integer = 0
             Dim GVal As Integer = 0
             Dim BVal As Integer = 0
-            LeptonicaSharp._All.pixcmapGetColor(cmap, i, RVal, GVal, BVal)
+            cmap.pixcmapGetColor(i, RVal, GVal, BVal)
             pal(i) = New Byte() {RVal, GVal, BVal}
         Next
         Return pal

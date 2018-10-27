@@ -9,7 +9,7 @@ Module Module1
     Sub Main()
 
         Dim N1 As New NoteShrink()
-        N1.CleanUp2(New Pix("img\Examples\Notea1.jpg"))
+        N1.CleanUp2(New Pix("img\Examples\Note1.jpg"))
 
 
         Dim NotesA1 As Pix = New Pix("img\Examples\Note1.jpg")

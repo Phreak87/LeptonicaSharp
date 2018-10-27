@@ -209,8 +209,8 @@ End Function
 Public Function pixOrientCorrect(
 				 ByVal minupconf as Single, 
 				 ByVal minratio as Single, 
-				<Out()> Optional ByRef pupconf as Single() = Nothing, 
-				<Out()> Optional ByRef pleftconf as Single() = Nothing, 
+				<Out()> Optional ByRef pupconf as Single = Nothing, 
+				<Out()> Optional ByRef pleftconf as Single = Nothing, 
 				<Out()> Optional ByRef protation as Integer = Nothing, 
 				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Pix
 	Dim RetObj = _All.pixOrientCorrect(me, minupconf, minratio, pupconf, pleftconf, protation, debug)
@@ -314,6 +314,73 @@ Public Function pixConvertRGBToGray(
 	Dim RetObj = _All.pixConvertRGBToGray(me, rwt, gwt, bwt)
 	Return RetObj
 End Function
+' SRC\colorquant1.c (2587, 1)
+' pixOctcubeQuantMixedWithGray(pixs, depth, graylevels, delta) as Pix
+' pixOctcubeQuantMixedWithGray(PIX *, l_int32, l_int32, l_int32) as PIX *
+'''  <summary>
+''' <para/>
+''' Notes:<para/>
+''' (1) Generates a colormapped image, where the colormap table values<para/>
+''' have two components: octcube values representing pixels with<para/>
+''' color content, and grayscale values for the rest.<para/>
+''' (2) The threshold (delta) is the maximum allowable difference of<para/>
+''' the max abs value of | r - g |, | r - b | and | g - b |.<para/>
+''' (3) The octcube values are the averages of all pixels that are<para/>
+''' found in the octcube, and that are far enough from gray to<para/>
+''' be considered color.  This can roughly be visualized as all<para/>
+''' the points in the rgb color cube that are not within a "cylinder"<para/>
+''' of diameter approximately 'delta' along the main diagonal.<para/>
+''' (4) We want to guarantee full coverage of the rgb color space thus,<para/>
+''' if the output depth is 4, the octlevel is 1 (2 x 2 x 2 = 8 cubes)<para/>
+''' and if the output depth is 8, the octlevel is 2 (4 x 4 x 4<para/>
+''' = 64 cubes).<para/>
+''' (5) Consequently, we have the following constraint on the number<para/>
+''' of allowed gray levels: for 4 bpp, 8 for 8 bpp, 192.<para/>
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <param name="depth">[in] - of output pix</param>
+'''  <param name="graylevels">[in] - graylevels (must be  is greater  1)</param>
+'''  <param name="delta">[in] - threshold for deciding if a pix is color or gray</param>
+'''   <returns>pixd     quantized to octcube and gray levels or NULL on error</returns>
+Public Function pixOctcubeQuantMixedWithGray(
+				 ByVal depth as Integer, 
+				 ByVal graylevels as Integer, 
+				 ByVal delta as Integer) as Pix
+	Dim RetObj = _All.pixOctcubeQuantMixedWithGray(me, depth, graylevels, delta)
+	Return RetObj
+End Function
+' SRC\pix1.c (1545, 1)
+' pixGetColormap(pix) as PixColormap
+' pixGetColormap(PIX *) as PIXCMAP *
+'''  <remarks>
+'''  </remarks>
+'''   <returns></returns>
+Public Function pixGetColormap(
+) as PixColormap
+	Dim RetObj = _All.pixGetColormap(me)
+	Return RetObj
+End Function
+' SRC\pix1.c (1571, 1)
+' pixSetColormap(pix, colormap) as Integer
+' pixSetColormap(PIX *, PIXCMAP *) as l_ok
+'''  <summary>
+''' <para/>
+''' Notes:<para/>
+''' (1) Unlike with the pix data field, pixSetColormap() destroys<para/>
+''' any existing colormap before assigning the new one.<para/>
+''' Because colormaps are not ref counted, it is important that<para/>
+''' the new colormap does not belong to any other pix.<para/>
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <param name="colormap">[in] - to be assigned</param>
+'''   <returns>0 if OK, 1 on error.</returns>
+Public Function pixSetColormap(
+				 ByVal colormap as PixColormap) as Integer
+	Dim RetObj = _All.pixSetColormap(me, colormap)
+	Return RetObj
+End Function
 ' SRC\dewarp4.c (97, 1)
 ' dewarpSinglePage(pixs, thresh, adaptive, useboth, check_columns, ppixd, pdewa, debug) as Integer
 ' dewarpSinglePage(PIX *, l_int32, l_int32, l_int32, l_int32, PIX **, L_DEWARPA **, l_int32) as l_ok
@@ -380,5 +447,70 @@ Public Sub pixConvertToPdf(
 				 Optional ByVal title as String = Nothing)
 	Dim RetObj = _All.pixConvertToPdf(me, type, quality, fileout, x, y, res, title, plpd, position)
 End Sub
+
+End Class
+Partial Public Class PixColormap
+' SRC\colormap.c (110, 1)
+' pixcmapCreate(depth) as PixColormap
+' pixcmapCreate(l_int32) as PIXCMAP *
+'''  <remarks>
+'''  </remarks>
+'''  <param name="depth">[in] - bpp, of pix</param>
+Sub New (
+				 ByVal depth as Integer)
+	Dim RetObj = _All.pixcmapCreate(depth)
+	Pointer = RetObj.Pointer
+End Sub
+' SRC\colormap.c (593, 1)
+' pixcmapGetCount(cmap) as Integer
+' pixcmapGetCount(PIXCMAP *) as l_int32
+'''  <remarks>
+'''  </remarks>
+'''   <returns>count, or 0 on error</returns>
+Public Function pixcmapGetCount(
+) as Integer
+	Dim RetObj = _All.pixcmapGetCount(me)
+	Return RetObj
+End Function
+' SRC\colormap.c (709, 1)
+' pixcmapGetColor(cmap, index, prval, pgval, pbval) as Integer
+' pixcmapGetColor(PIXCMAP *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
+'''  <remarks>
+'''  </remarks>
+'''  <param name="index">[in] - </param>
+'''  <param name="prval">[out] - each color value</param>
+'''  <param name="pgval">[out] - each color value</param>
+'''  <param name="pbval">[out] - each color value</param>
+'''   <returns>0 if OK, 1 if not accessible caller should check</returns>
+Public Function pixcmapGetColor(
+				 ByVal index as Integer, 
+				<Out()> ByRef prval as Integer, 
+				<Out()> ByRef pgval as Integer, 
+				<Out()> ByRef pbval as Integer) as Integer
+	Dim RetObj = _All.pixcmapGetColor(me, index, prval, pgval, pbval)
+	Return RetObj
+End Function
+' SRC\colormap.c (299, 1)
+' pixcmapAddColor(cmap, rval, gval, bval) as Integer
+' pixcmapAddColor(PIXCMAP *, l_int32, l_int32, l_int32) as l_ok
+'''  <summary>
+''' <para/>
+''' Notes:<para/>
+''' (1) This always adds the color if there is room.<para/>
+''' (2) The alpha component is 255 (opaque)<para/>
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <param name="rval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
+'''  <param name="gval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
+'''  <param name="bval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
+'''   <returns>0 if OK, 1 on error</returns>
+Public Function pixcmapAddColor(
+				 ByVal rval as Integer, 
+				 ByVal gval as Integer, 
+				 ByVal bval as Integer) as Integer
+	Dim RetObj = _All.pixcmapAddColor(me, rval, gval, bval)
+	Return RetObj
+End Function
 
 End Class

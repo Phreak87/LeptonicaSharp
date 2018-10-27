@@ -85193,7 +85193,7 @@ End Function
 Public Shared Sub setLeptDebugOK(
 				 ByVal allow as Integer)
 
-if My.Computer.Filesystem.FileExists ("i_view32.exe") = False then throw new exception ("I_View32.exe missing")
+If IsNothing(Natives.GetFullPathFromWindows("i_view32.exe")) Then MsgBox("I_View32.exe missing", MsgBoxStyle.Exclamation)
 	LeptonicaSharp.Natives.setLeptDebugOK( allow)
 
 End Sub

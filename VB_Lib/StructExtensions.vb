@@ -261,11 +261,11 @@ End Function
 '''  <param name="whiteval">[in] - light value to set to white (255)</param>
 '''   <returns>pixd 8 bpp or 32 bpp rgb, or NULL on error</returns>
 Public Function pixCleanBackgroundToWhite(
-				 ByVal gamma as Single, 
-				 ByVal blackval as Integer, 
-				 ByVal whiteval as Integer, 
 				 Optional ByVal pixim as Pix = Nothing, 
-				 Optional ByVal pixg as Pix = Nothing) as Pix
+				 Optional ByVal pixg as Pix = Nothing, 
+				 Optional ByVal gamma as Single = 1.0, 
+				 Optional ByVal blackval as Integer = 70, 
+				 Optional ByVal whiteval as Integer = 180) as Pix
 	Dim RetObj = _All.pixCleanBackgroundToWhite(me, pixim, pixg, gamma, blackval, whiteval)
 	Return RetObj
 End Function

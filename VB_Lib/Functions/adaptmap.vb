@@ -28,11 +28,11 @@ Partial Public Class _All
 '''   <returns>pixd 8 bpp or 32 bpp rgb, or NULL on error</returns>
 Public Shared Function pixCleanBackgroundToWhite(
 				 ByVal pixs as Pix, 
-				 ByVal pixim as Pix, 
-				 ByVal pixg as Pix, 
-				 ByVal gamma as Single, 
-				 ByVal blackval as Integer, 
-				 ByVal whiteval as Integer) as Pix
+				 Optional ByVal pixim as Pix = Nothing, 
+				 Optional ByVal pixg as Pix = Nothing, 
+				 Optional ByVal gamma as Single = 1.0, 
+				 Optional ByVal blackval as Integer = 70, 
+				 Optional ByVal whiteval as Integer = 180) as Pix
 
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 

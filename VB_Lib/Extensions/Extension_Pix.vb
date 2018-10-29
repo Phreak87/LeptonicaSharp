@@ -105,3 +105,9 @@ Partial Public Class Pix
     End Function
 #End Region
 End Class
+Partial Public Class Pixa
+    Sub display(w As Integer, h As Integer)
+        Dim pixc = LeptonicaSharp._All.pixaDisplayRandomCmap(Me, w, h)
+        pixc.pixInvert.Display()
+    End Sub
+End Class

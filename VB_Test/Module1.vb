@@ -8,15 +8,25 @@ Module Module1
 
     Sub Main()
 
-        Dim N1 As New NoteShrink()
-        N1.CleanUp2(New Pix("img\Examples\Note1.jpg"))
+        Dim P1 As New Example1 : P1.Test1()
+        ' Dim N1 As New NoteShrink(): N1.CleanUp2(New Pix("img\Examples\Notea1.jpg"))
 
+        Dim pixs = New Pix("contrast-orig-60.jpg")
+        Dim pixt1 = LeptonicaSharp._All.pixCloseGray(pixs, 11, 11)
+        ' or ... Dim pixt2 = LeptonicaSharp._All.pixScaleGrayMinMax(pixs, 11, 11, L_CHOOSE_M.L_CHOOSE_MAX)
+        Dim pixt2 = LeptonicaSharp._All.pixBlockconv(pixt1, 15, 15)
+        Dim PixT3 = LeptonicaSharp._All.pixSubtract(Nothing, pixs, pixt2.pixInvert)
+        PixT3.Display()
+        Dim pa As New Pixa(3)
+        pixs.pixCleanBackgroundToWhite().Display()
+        pa.display(50, 50)
 
         Dim NotesA1 As Pix = New Pix("img\Examples\Note1.jpg")
         Dim SNoteasA1 As Pix = LeptonicaSharp._All.pixOctcubeQuantMixedWithGray(NotesA1, 8, 2, 64).pixConvertTo32
         LeptonicaSharp._All.pixGammaTRC(SNoteasA1, SNoteasA1, 0.7F, 0, 255)
 
         Dim Dave As New LineRemoval_Reg() : Dave.Test()
+
 
         ' ---------------------------------------------
         ' Copy the required dll-files to your path if
@@ -35,10 +45,10 @@ Module Module1
 
         Dim BMP As Bitmap = PIX01.BitmapStatic
 
-        Dim PIxs As New Pix("..\..\..\All_Images\Leptonica\contrast-orig-60.jpg")
-        Dim pixt1 As Pix = LeptonicaSharp._All.pixCloseGray(PIxs, 11, 11)
-        Dim pixt2 As Pix = LeptonicaSharp._All.pixOpenGray(PIxs, 11, 11)
-        Dim pixt3 As Integer = LeptonicaSharp._All.pixCombineMasked(PIxs, pixt1, Nothing)
+        'Dim PIxs As New Pix("..\..\..\All_Images\Leptonica\contrast-orig-60.jpg")
+        'Dim pixt1 As Pix = LeptonicaSharp._All.pixCloseGray(PIxs, 11, 11)
+        'Dim pixt2 As Pix = LeptonicaSharp._All.pixOpenGray(PIxs, 11, 11)
+        'Dim pixt3 As Integer = LeptonicaSharp._All.pixCombineMasked(PIxs, pixt1, Nothing)
         Dim PixG1 As Pix = LeptonicaSharp._All.pixConvertRGBToGray(PIX32, 0, 0, 0)
 
         PIxs = PIxs.pixBackgroundNormSimple()
@@ -274,7 +284,7 @@ Module Module1
         PIX32 = LeptonicaSharp._All.pixBackgroundNormSimple(PIX32, Nothing, Nothing) : PIX32.Display()                         ' OK
         PIX32 = PIX32.pixBackgroundNormSimple                                                                                           ' OK, Short Extension
         PIX32 = LeptonicaSharp._All.pixCleanBackgroundToWhite(PIX32, Nothing, Nothing, 1, 30, 190) : PIX32.Display()           ' OK
-        PIX32 = PIX32.pixCleanBackgroundToWhite(1, 30, 190)                                                                             ' OK, Short Extension
+        PIX32 = PIX32.pixCleanBackgroundToWhite()                                                                              ' OK, Short Extension
         PIX32 = LeptonicaSharp._All.pixClipRectangle(PIX32, New Box(280, 280, 100, 100), Nothing) : PIX32.Display()            ' OK
         PIX32 = LeptonicaSharp._All.pixUnsharpMasking(PIX32, 3, 0.1) : PIX32.Display()                                         ' OK
         PIX32 = LeptonicaSharp._All.pixEqualizeTRC(PIX32, PIX32, 0.5, 3) : PIX32.Display()                                     ' OK

@@ -2,6 +2,7 @@
 
 Public Class NoteShrink
     Sub CleanUp2(Pix As LeptonicaSharp.Pix)
+        Pix.Display()
         Dim px = Pix.pixOctcubeQuantMixedWithGray(8, 2, 36)
 
         Dim palette = ProcessColorMap(px)

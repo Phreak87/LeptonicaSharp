@@ -19,19 +19,64 @@ namespace TestAppCSharp
         {
             Natives.Initialize();
             _All.setLeptDebugOK(1);
-            var pix = new Pix(img1bpp);
-            //var a = pix.Bitmap;
-            var b = pix.ToBitmap();
-            //var c = pix.Convert();
+
+            var app = new Program();
+            //app.TestBitmapAccess(img1bpp);
+            //app.TestpixGetRegionsBinary(img1bpp);
+            app.TestProjections(img1bpp);
+        }
+
+        private void TestBitmapAccess(string pixfn)
+        {
+            var pixs = new Pix(pixfn);
+            var bmp = pixs.ToBitmap();
+            var bmp2 = pixs.BitmapStatic;
+        }
+
+        private void TestpixGetRegionsBinary(string pixfn)
+        {
             var pixa = _All.pixaCreate(0);
-            _All.pixGetRegionsBinary(pix, out Pix ppixhm, out Pix ppixtm, out Pix ppixtb, pixa);
-            //var b1 = ppixhm.Bitmap;
-            //var b2 = ppixtm.Bitmap;
-            //var b3 = ppixtb.Bitmap;
+            var pixs = new Pix(pixfn);
+            _All.pixGetRegionsBinary(pixs, out Pix ppixhm, out Pix ppixtm, out Pix ppixtb, pixa);
             WriteAllPixaImages(ref pixa, "regions");
         }
 
-        private static void WriteAllPixaImages(ref Pixa pixa, string prefix)
+        private Pix BinarizeWithSauvola(Pix pixs)
+        {
+            var pixGray = _All.pixConvertTo8(pixs, 0);
+            var retVal = _All.pixSauvolaBinarize(pixGray, 7, 0.25f, 0, out Pix ppixm, out Pix ppixsd, out Pix ppixth, out Pix pixBinary);
+            _All.pixDestroy(ref ppixm);
+            _All.pixDestroy(ref ppixsd);
+            _All.pixDestroy(ref ppixth);
+            if (retVal == 0)
+                return pixBinary;
+            else
+                return null;
+        }
+
+        private void TestProjections(string pixfn)
+        {
+            // This method creates Row and Column Projections
+            // also known as Horizontal and Vertical Histograms
+
+            var pixs = new Pix(pixfn);
+            Pix pixBinary = default;
+            if (pixs.d > 1)
+                pixBinary = BinarizeWithSauvola(pixs);
+            else
+                pixBinary = pixs;
+
+            if (pixBinary != null)
+            {
+                var pxByCol = _All.pixCountPixelsByColumn(pixBinary);
+                var pxByRow = _All.pixCountPixelsByRow(pixBinary, null);
+                var colProjections = pxByCol.array;
+                var rowProjections = pxByRow.array;
+            }
+        }
+
+        #region [ Helper Methods ]
+        private void WriteAllPixaImages(ref Pixa pixa, string prefix)
         {
             var n = _All.pixaGetCount(pixa);
             for (int i = 0; i < n; i++)
@@ -42,5 +87,6 @@ namespace TestAppCSharp
                 _All.pixDestroy(ref pix1);
             }
         }
+        #endregion
     }
 }

@@ -1,4 +1,12 @@
-﻿Partial Public Class Natives
+﻿Imports System.Runtime.InteropServices
+
+Partial Public Class Natives
+    <DllImport("shlwapi.dll", CharSet:=CharSet.Unicode, SetLastError:=False, EntryPoint:="PathFindOnPath")>
+    Friend Shared Function PathFindOnPath(
+        ByVal pszFile As System.Text.StringBuilder,
+        ByVal ppszOtherDirs As String()) As Boolean
+    End Function
+
     Private Shared Sub CopyNuget()
         Console.WriteLine("Leptonica.dll missing - Copy from Nuget Package")
 
@@ -36,4 +44,14 @@
         CopyNuget()
         CopyFiles()
     End Sub
+    Const MAX_PATH = 260
+
+    Public Shared Function GetFullPathFromWindows(ByVal exeName As String) As String
+        If exeName.Length > MAX_PATH Then
+            Throw New ArgumentException("The exe name is longer than Max Path")
+        End If
+        Dim sb As Text.StringBuilder = New Text.StringBuilder(exeName, MAX_PATH)
+        Dim retStr = If(Natives.PathFindOnPath(sb, Nothing) = True, sb.ToString(), Nothing)
+        Return retStr
+    End Function
 End Class

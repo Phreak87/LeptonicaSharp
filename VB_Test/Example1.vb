@@ -24,4 +24,28 @@ Public Class Example1
         Dim PixPD = LeptonicaSharp._All.pixGetDimensions(pixt01, W, H, Nothing)
         Pixa.display(W, H)
     End Function
+    Sub Test2()
+        Dim pixa = _All.pixaCreate(0)
+        Dim pixs = New Pix("test.jpg")
+        Dim ppixhm, ppixtm, ppixtb, ppixm, ppixsd, ppixth, pixBinary As Pix
+
+        Dim pixGray = _All.pixConvertTo8(pixs, 0)
+        Dim retVal = _All.pixSauvolaBinarize(pixGray, 7, 0.25F, 0, ppixm, ppixsd, ppixth, pixBinary)
+
+        _All.pixGetRegionsBinary(pixBinary, ppixhm, ppixtm, ppixtb, pixa)
+        _All.pixaDisplayTiledAndScaled(pixa, 32, 250, 4, 255, 1, 1).Display()
+
+        Dim PixaD As New Pixa(1)
+        Dim PixLines As Pixa = LeptonicaSharp._All.pixExtractTextlines(pixBinary, 255, 30, 15, 15, 0, 0, PixaD)
+        PixaD.display(150, 150)
+        PixLines.display(150, 150)
+
+        Dim pxByCol = _All.pixCountPixelsByColumn(pixBinary)
+        Dim pxByRow = _All.pixCountPixelsByRow(pixBinary, Nothing)
+        Dim colProjections = pxByCol.array
+        Dim rowProjections = pxByRow.array
+        pxByCol.DisplayasHistogram()
+        pxByRow.DisplayasHistogram()
+
+    End Sub
 End Class

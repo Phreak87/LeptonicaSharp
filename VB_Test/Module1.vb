@@ -8,7 +8,9 @@ Module Module1
 
     Sub Main()
 
-        Dim P1 As New Example1 : P1.Test1()
+        Dim P1 As New Example1
+        'P1.Test1()
+        P1.Test2()
         ' Dim N1 As New NoteShrink(): N1.CleanUp2(New Pix("img\Examples\Notea1.jpg"))
 
         Dim pixs = New Pix("contrast-orig-60.jpg")

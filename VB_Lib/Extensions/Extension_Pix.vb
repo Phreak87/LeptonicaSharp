@@ -107,7 +107,24 @@ Partial Public Class Pix
 End Class
 Partial Public Class Pixa
     Sub display(w As Integer, h As Integer)
-        Dim pixc = LeptonicaSharp._All.pixaDisplayRandomCmap(Me, w, h)
-        pixc.pixInvert.Display()
+        Dim pixc = LeptonicaSharp._All.pixaDisplayTiledAndScaled(Me, 32, 1000, 3, 0, 1, 3)
+        pixc.Display()
+    End Sub
+End Class
+Partial Public Class Numa
+    Sub DisplayasHistogram()
+        Dim Max As Integer = Me.array.Max
+        Dim Dif As Double = 1
+        If Me.array.Max > 2000 Then
+            Dif = 2000 / Max : Max = 2000
+        End If
+        Dim n As Bitmap = New Bitmap(Max, Me.n, PixelFormat.Format24bppRgb)
+        Dim g As Graphics = Graphics.FromImage(n)
+        For i As Integer = 0 To Me.n - 1
+            g.DrawLine(Pens.GreenYellow, New Drawing.Point(0, i), New Drawing.Point(Me.array(i) * Dif, i))
+        Next
+        Dim PX As New Pix(n)
+        PX.Display()
+        PX.Dispose()
     End Sub
 End Class

@@ -44,8 +44,7 @@ Public Class Example1
         Dim pxByRow = _All.pixCountPixelsByRow(pixBinary, Nothing)
         Dim colProjections = pxByCol.array
         Dim rowProjections = pxByRow.array
-        pxByCol.DisplayasHistogram()
-        pxByRow.DisplayasHistogram()
+        pxByCol.DisplayasHistogram(pxByRow)
 
     End Sub
 End Class

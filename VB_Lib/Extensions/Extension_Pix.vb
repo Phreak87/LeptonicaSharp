@@ -112,6 +112,21 @@ Partial Public Class Pixa
     End Sub
 End Class
 Partial Public Class Numa
+    Sub DisplayAsHistogram(NumaW As Numa)
+        Dim MaxH As Integer = Math.Max(Me.array.Max, NumaW.n)
+        Dim MaxW As Integer = Math.Max(NumaW.array.Max, Me.n)
+        Dim n As Bitmap = New Bitmap(MaxW, MaxH, PixelFormat.Format24bppRgb)
+        Dim g As Graphics = Graphics.FromImage(n)
+        For i As Integer = 0 To NumaW.n - 1
+            g.DrawLine(Pens.GreenYellow, New Drawing.Point(0, i), New Drawing.Point(NumaW.array(i), i))
+        Next
+        For i As Integer = 0 To Me.n - 1
+            g.DrawLine(Pens.OrangeRed, New Drawing.Point(i, 0), New Drawing.Point(i, Me.array(i)))
+        Next
+        Dim PX As New Pix(n)
+        PX.Display()
+        PX.Dispose()
+    End Sub
     Sub DisplayasHistogram()
         Dim Max As Integer = Me.array.Max
         Dim Dif As Double = 1

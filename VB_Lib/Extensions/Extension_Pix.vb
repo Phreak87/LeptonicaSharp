@@ -112,32 +112,98 @@ Partial Public Class Pixa
     End Sub
 End Class
 Partial Public Class Numa
-    Sub DisplayAsHistogram(NumaW As Numa)
-        Dim MaxH As Integer = Math.Max(Me.array.Max, NumaW.n)
-        Dim MaxW As Integer = Math.Max(NumaW.array.Max, Me.n)
-        Dim n As Bitmap = New Bitmap(MaxW, MaxH, PixelFormat.Format24bppRgb)
+    Sub DisplayNumaBarGraph(Optional ByVal NumaH As Numa = Nothing,
+                            Optional ByVal BgPix As Pix = Nothing,
+                            Optional ByVal Swap As Boolean = False)
+
+        Dim NumaW As Numa = Me
+        If Swap = True Then
+            Dim TMpH = NumaH
+            Dim TmpW = Me
+            NumaH = TmpW
+            NumaW = TMpH
+        End If
+        Dim NumaHCnt As Integer = 1 : If Not IsNothing(NumaH) Then NumaHCnt = NumaH.n
+        Dim NumaWCnt As Integer = 1 : If Not IsNothing(NumaW) Then NumaWCnt = NumaW.n
+        Dim NumaHMax As Double = 1 : If Not IsNothing(NumaH) Then NumaHMax = NumaH.array.Max
+        Dim NumaWMax As Double = 1 : If Not IsNothing(NumaW) Then NumaWMax = NumaW.array.Max
+        Dim VMaxH As Integer = Math.Max(NumaHMax, NumaWCnt) : If VMaxH > 2000 Then VMaxH = 2000
+        Dim VMaxW As Integer = Math.Max(NumaWMax, NumaHCnt) : If VMaxW > 2000 Then VMaxW = 2000
+        If Not IsNothing(BgPix) Then VMaxH = BgPix.h : VMaxW = BgPix.w
+        Dim DiffH As Double = VMaxH / NumaHMax
+        Dim DiffW As Double = VMaxW / NumaWMax
+
+        Dim n As Bitmap = New Bitmap(VMaxW, VMaxH, PixelFormat.Format32bppArgb)
+        Dim Pen1 As New Pen(Drawing.Color.FromArgb(150, 0, 255, 0), 1)
+        Dim Pen2 As New Pen(Drawing.Color.FromArgb(150, 255, 0, 0), 1)
         Dim g As Graphics = Graphics.FromImage(n)
-        For i As Integer = 0 To NumaW.n - 1
-            g.DrawLine(Pens.GreenYellow, New Drawing.Point(0, i), New Drawing.Point(NumaW.array(i), i))
-        Next
-        For i As Integer = 0 To Me.n - 1
-            g.DrawLine(Pens.OrangeRed, New Drawing.Point(i, 0), New Drawing.Point(i, Me.array(i)))
-        Next
+
+        If IsNothing(BgPix) Then g.FillRectangle(Brushes.WhiteSmoke, New Rectangle(0, 0, VMaxW, VMaxH))
+        If Not IsNothing(BgPix) Then g.DrawImage(BgPix.ToBitmap, New System.Drawing.Point(0, 0))
+
+        If Not IsNothing(NumaW) Then
+            For i As Integer = 0 To NumaW.n - 1
+                g.DrawLine(Pen1, New Drawing.Point(0, i + 1), New Drawing.Point(NumaW.array(i) * DiffW, i + 1))
+            Next
+        End If
+        If Not IsNothing(NumaH) Then
+            For i As Integer = 0 To NumaH.n - 1
+                g.DrawLine(Pen2, New Drawing.Point(i + 1, VMaxH - (NumaH.array(i) * DiffH)), New Drawing.Point(i + 1, VMaxH))
+            Next
+        End If
         Dim PX As New Pix(n)
         PX.Display()
         PX.Dispose()
     End Sub
-    Sub DisplayasHistogram()
-        Dim Max As Integer = Me.array.Max
-        Dim Dif As Double = 1
-        If Me.array.Max > 2000 Then
-            Dif = 2000 / Max : Max = 2000
+    Sub DisplayNumaHeatmap(Optional ByVal NumaH As Numa = Nothing,
+                           Optional ByVal BgPix As Pix = Nothing,
+                           Optional ByVal Swap As Boolean = False)
+
+        Dim NumaW As Numa = Me
+        If Swap = True Then
+            Dim TMpH = NumaH
+            Dim TmpW = NumaW
+            NumaH = TmpW
+            NumaW = TMpH
         End If
-        Dim n As Bitmap = New Bitmap(Max, Me.n, PixelFormat.Format24bppRgb)
+        Dim NumaHCnt As Integer = 1 : If Not IsNothing(NumaH) Then NumaHCnt = NumaH.n
+        Dim NumaWCnt As Integer = 1 : If Not IsNothing(NumaW) Then NumaWCnt = NumaW.n
+        Dim NumaHMax As Double = 1 : If Not IsNothing(NumaH) Then NumaHMax = NumaH.array.Max
+        Dim NumaWMax As Double = 1 : If Not IsNothing(NumaW) Then NumaWMax = NumaW.array.Max
+        Dim VMaxH As Integer = Math.Max(NumaHMax, NumaWCnt) : If VMaxH > 2000 Then VMaxH = 2000
+        Dim VMaxW As Integer = Math.Max(NumaWMax, NumaHCnt) : If VMaxW > 2000 Then VMaxW = 2000
+        If Not IsNothing(BgPix) Then VMaxH = BgPix.h : VMaxW = BgPix.w
+        Dim VDiffH As Double = VMaxH / NumaHMax
+        Dim VDiffW As Double = VMaxW / NumaWMax
+
+        Dim n As Bitmap = New Bitmap(VMaxW, VMaxH, PixelFormat.Format32bppArgb)
         Dim g As Graphics = Graphics.FromImage(n)
-        For i As Integer = 0 To Me.n - 1
-            g.DrawLine(Pens.GreenYellow, New Drawing.Point(0, i), New Drawing.Point(Me.array(i) * Dif, i))
-        Next
+
+        If IsNothing(BgPix) Then g.FillRectangle(Brushes.WhiteSmoke, New Rectangle(0, 0, VMaxW, VMaxH))
+        If Not IsNothing(BgPix) Then g.DrawImage(BgPix.ToBitmap, New System.Drawing.Point(0, 0))
+
+        If Not IsNothing(NumaW) Then
+            Dim BarHeight As Integer = CInt(VMaxH / NumaWCnt)
+            For i As Integer = 0 To NumaW.n - 1
+                Dim BarPos As Integer = ((i) * BarHeight) + IIf(BarHeight = 1, 0, (BarHeight / 2))
+                Dim Pen As New Pen(Color.FromArgb(CInt((130 / NumaWMax) * NumaW.array(i)), 0, 255, 0), BarHeight)
+                Dim P1 As New Drawing.Point(0, BarPos)
+                Dim P2 As New Drawing.Point(VMaxW, BarPos)
+                g.DrawLine(Pen, P1, P2)
+            Next
+        End If
+
+        If Not IsNothing(NumaH) Then
+            Dim BarWidth As Integer = Math.Max(CInt(VMaxW / NumaHCnt), 1)
+            For i As Integer = 0 To NumaH.n - 1
+                Dim BarPos As Integer = ((i) * BarWidth) + IIf(BarWidth = 1, 0, (BarWidth / 2))
+                Dim Pen As New Pen(Color.FromArgb(CInt((130 / NumaHMax) * NumaH.array(i)), 0, 0, 255), BarWidth)
+                Dim P1 As New Drawing.Point(BarPos, 0)
+                Dim P2 As New Drawing.Point(BarPos, VMaxH)
+                g.DrawLine(Pen, P1, P2)
+            Next
+        End If
+
         Dim PX As New Pix(n)
         PX.Display()
         PX.Dispose()

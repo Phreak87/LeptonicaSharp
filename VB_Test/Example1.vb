@@ -44,7 +44,7 @@ Public Class Example1
         Dim pxByRow = _All.pixCountPixelsByRow(pixBinary, Nothing)
         Dim colProjections = pxByCol.array
         Dim rowProjections = pxByRow.array
-        pxByCol.DisplayasHistogram(pxByRow)
+        pxByRow.DisplayNumaHeatmap(pxByCol, pixBinary)
 
     End Sub
 End Class

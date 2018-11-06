@@ -14,6 +14,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_bootnum_gen1/*"/>
 '''   <returns>pixa  of labeled digits</returns>
 Public Shared Function l_bootnum_gen1() as Pixa
 

@@ -16,6 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelCreate/*"/>
 '''  <param name="height">[in] - </param>
 '''  <param name="width">[in] - </param>
 '''   <returns>kernel, or NULL on error</returns>
@@ -34,6 +35,7 @@ End Function
 ' kernelDestroy(L_KERNEL **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelDestroy/*"/>
 '''  <param name="pkel">[in,out] - to be nulled</param>
 Public Shared Sub kernelDestroy(
 				 ByRef pkel as L_Kernel)
@@ -50,6 +52,7 @@ End Sub
 ' kernelCopy(L_KERNEL *) as L_KERNEL *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelCopy/*"/>
 '''  <param name="kels">[in] - source kernel</param>
 '''   <returns>keld copy of kels, or NULL on error</returns>
 Public Shared Function kernelCopy(
@@ -68,6 +71,7 @@ End Function
 ' kernelGetElement(L_KERNEL *, l_int32, l_int32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelGetElement/*"/>
 '''  <param name="kel">[in] - </param>
 '''  <param name="row">[in] - </param>
 '''  <param name="col">[in] - </param>
@@ -91,6 +95,7 @@ End Function
 ' kernelSetElement(L_KERNEL *, l_int32, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelSetElement/*"/>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="row">[in] - </param>
 '''  <param name="col">[in] - </param>
@@ -114,6 +119,7 @@ End Function
 ' kernelGetParameters(L_KERNEL *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelGetParameters/*"/>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="psy">[out][optional] - each can be null</param>
 '''  <param name="psx">[out][optional] - each can be null</param>
@@ -139,6 +145,7 @@ End Function
 ' kernelSetOrigin(L_KERNEL *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelSetOrigin/*"/>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="cy">[in] - </param>
 '''  <param name="cx">[in] - </param>
@@ -160,6 +167,7 @@ End Function
 ' kernelGetSum(L_KERNEL *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelGetSum/*"/>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="psum">[out] - sum of all kernel values</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -179,6 +187,7 @@ End Function
 ' kernelGetMinMax(L_KERNEL *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelGetMinMax/*"/>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="pmin">[out][optional] - minimum value</param>
 '''  <param name="pmax">[out][optional] - maximum value</param>
@@ -207,6 +216,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelNormalize/*"/>
 '''  <param name="kels">[in] - source kel, to be normalized</param>
 '''  <param name="normsum">[in] - desired sum of elements in keld</param>
 '''   <returns>keld normalized version of kels, or NULL on error or if sum of elements is very close to 0)</returns>
@@ -233,6 +243,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelInvert/*"/>
 '''  <param name="kels">[in] - source kel, to be inverted</param>
 '''   <returns>keld spatially inverted, about the origin, or NULL on error</returns>
 Public Shared Function kernelInvert(
@@ -258,6 +269,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/create2dFloatArray/*"/>
 '''  <param name="sy">[in] - rows == height</param>
 '''  <param name="sx">[in] - columns == width</param>
 '''   <returns>doubly indexed array i.e., an array of sy row pointers, each of which points to an array of sx floats</returns>
@@ -282,6 +294,7 @@ End Function
 ' kernelRead(const char *) as L_KERNEL *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelRead/*"/>
 '''  <param name="fname">[in] - filename</param>
 '''   <returns>kernel, or NULL on error</returns>
 Public Shared Function kernelRead(
@@ -300,6 +313,7 @@ End Function
 ' kernelReadStream(FILE *) as L_KERNEL *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>kernel, or NULL on error</returns>
 Public Shared Function kernelReadStream(
@@ -318,6 +332,7 @@ End Function
 ' kernelWrite(const char *, L_KERNEL *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelWrite/*"/>
 '''  <param name="fname">[in] - output file</param>
 '''  <param name="kel">[in] - kernel</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -338,6 +353,7 @@ End Function
 ' kernelWriteStream(FILE *, L_KERNEL *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="kel">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -372,6 +388,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelCreateFromString/*"/>
 '''  <param name="h">[in] - height, width</param>
 '''  <param name="w">[in] - height, width</param>
 '''  <param name="cy">[in] - origin</param>
@@ -427,6 +444,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelCreateFromFile/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>kernel, or NULL on error</returns>
 Public Shared Function kernelCreateFromFile(
@@ -452,6 +470,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelCreateFromPix/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="cy">[in] - origin of kernel</param>
 '''  <param name="cx">[in] - origin of kernel</param>
@@ -490,6 +509,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelDisplayInPix/*"/>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="size">[in] - of grid interiors odd either 1 or a minimum size of 17 is enforced</param>
 '''  <param name="gthick">[in] - grid thickness either 0 or a minimum size of 2 is enforced</param>
@@ -517,6 +537,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/parseStringForNumbers/*"/>
 '''  <param name="str">[in] - string containing numbers not changed</param>
 '''  <param name="seps">[in] - string of characters that can be used between ints</param>
 '''   <returns>numa of numbers found, or NULL on error</returns>
@@ -549,6 +570,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeFlatKernel/*"/>
 '''  <param name="height">[in] - </param>
 '''  <param name="width">[in] - </param>
 '''  <param name="cy">[in] - origin of kernel</param>
@@ -582,6 +604,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeGaussianKernel/*"/>
 '''  <param name="halfheight">[in] - sx = 2  halfwidth + 1, etc</param>
 '''  <param name="halfwidth">[in] - sx = 2  halfwidth + 1, etc</param>
 '''  <param name="stdev">[in] - standard deviation</param>
@@ -618,6 +641,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeGaussianKernelSep/*"/>
 '''  <param name="halfheight">[in] - sx = 2  halfwidth + 1, etc</param>
 '''  <param name="halfwidth">[in] - sx = 2  halfwidth + 1, etc</param>
 '''  <param name="stdev">[in] - standard deviation</param>
@@ -666,6 +690,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeDoGKernel/*"/>
 '''  <param name="halfheight">[in] - sx = 2  halfwidth + 1, etc</param>
 '''  <param name="halfwidth">[in] - sx = 2  halfwidth + 1, etc</param>
 '''  <param name="stdev">[in] - standard deviation of narrower gaussian</param>

@@ -20,6 +20,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplay/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="w">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
 '''  <param name="h">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
@@ -53,6 +54,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayOnColor/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="w">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
 '''  <param name="h">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
@@ -86,6 +88,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayRandomCmap/*"/>
 '''  <param name="pixa">[in] - 1 bpp regions, with boxa delineating those regions</param>
 '''  <param name="w">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
 '''  <param name="h">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
@@ -116,6 +119,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayLinearly/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="direction">[in] - L_HORIZ or L_VERT</param>
 '''  <param name="scalefactor">[in] - applied to every pix use 1.0 for no scaling</param>
@@ -162,6 +166,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayOnLattice/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="cellw">[in] - lattice cell width</param>
 '''  <param name="cellh">[in] - lattice cell height</param>
@@ -204,6 +209,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayUnsplit/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="nx">[in] - number of mosaic cells horizontally</param>
 '''  <param name="ny">[in] - number of mosaic cells vertically</param>
@@ -245,6 +251,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayTiled/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="maxwidth">[in] - of output image</param>
 '''  <param name="background">[in] - 0 for white, 1 for black</param>
@@ -292,6 +299,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayTiledInRows/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="outdepth">[in] - output depth: 1, 8 or 32 bpp</param>
 '''  <param name="maxwidth">[in] - of output image</param>
@@ -344,6 +352,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayTiledInColumns/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="nx">[in] - number of columns in output image</param>
 '''  <param name="scalefactor">[in] - applied to every pix use 1.0 for no scaling</param>
@@ -380,6 +389,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayTiledAndScaled/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="outdepth">[in] - output depth: 1, 8 or 32 bpp</param>
 '''  <param name="tilewidth">[in] - each pix is scaled to this width</param>
@@ -424,6 +434,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayTiledWithText/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="maxwidth">[in] - of output image</param>
 '''  <param name="scalefactor">[in] - applied to every pix use 1.0 for no scaling</param>
@@ -469,6 +480,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayTiledByIndex/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="na">[in] - numa with indices corresponding to the pix in pixa</param>
 '''  <param name="width">[in] - each pix is scaled to this width</param>
@@ -507,6 +519,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaDisplay/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="w">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
 '''  <param name="h">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
@@ -539,6 +552,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaDisplayByPixa/*"/>
 '''  <param name="paa">[in] - with pix that may have different depths</param>
 '''  <param name="xspace">[in] - between pix in pixa</param>
 '''  <param name="yspace">[in] - between pixa</param>
@@ -570,6 +584,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaDisplayTiledAndScaled/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="outdepth">[in] - output depth: 1, 8 or 32 bpp</param>
 '''  <param name="tilewidth">[in] - each pix is scaled to this width</param>
@@ -600,6 +615,7 @@ End Function
 ' pixaConvertTo1(PIXA *, l_int32) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaConvertTo1/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="thresh">[in] - threshold for final binarization from 8 bpp gray</param>
 '''   <returns>pixad, or NULL on error</returns>
@@ -625,6 +641,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaConvertTo8/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="cmapflag">[in] - 1 to give pixd a colormap 0 otherwise</param>
 '''   <returns>pixad each pix is 8 bpp, or NULL on error</returns>
@@ -650,6 +667,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaConvertTo8Colormap/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="dither">[in] - 1 to dither if necessary 0 otherwise</param>
 '''   <returns>pixad each pix is 8 bpp, or NULL on error</returns>
@@ -677,6 +695,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaConvertTo32/*"/>
 '''  <param name="pixas">[in] - </param>
 '''   <returns>pixad 32 bpp rgb, or NULL on error</returns>
 Public Shared Function pixaConvertTo32(
@@ -704,6 +723,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaConstrainedSelect/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="first">[in] - first index to choose  is greater = 0</param>
 '''  <param name="last">[in] - biggest possible index to reach use -1 to go to the end otherwise, last  is greater = first</param>
@@ -743,6 +763,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSelectToPdf/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="first">[in] - first index to choose  is greater = 0</param>
 '''  <param name="last">[in] - biggest possible index to reach use -1 to go to the end otherwise, last  is greater = first</param>
@@ -788,6 +809,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayMultiTiled/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="nx">[in] - in [1, ... 50], tiling factors in each direction</param>
 '''  <param name="ny">[in] - in [1, ... 50], tiling factors in each direction</param>
@@ -829,6 +851,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSplitIntoFiles/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="nsplit">[in] - split pixas into this number of pixa  is greater = 2</param>
 '''  <param name="scale">[in] - scalefactor applied to each pix</param>
@@ -872,6 +895,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertToNUpFiles/*"/>
 '''  <param name="dir">[in] - full path to directory of images</param>
 '''  <param name="substr">[in][optional] - can be null</param>
 '''  <param name="nx">[in] - in [1, ... 50], tiling factors in each direction</param>
@@ -911,6 +935,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertToNUpPixa/*"/>
 '''  <param name="dir">[in] - full path to directory of images</param>
 '''  <param name="substr">[in][optional] - can be null</param>
 '''  <param name="nx">[in] - in [1, ... 50], tiling factors in each direction</param>
@@ -951,6 +976,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaConvertToNUpPixa/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="sa">[in][optional] - array of strings associated with each pix</param>
 '''  <param name="nx">[in] - in [1, ... 50], tiling factors in each direction</param>
@@ -1009,6 +1035,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaCompareInPdf/*"/>
 '''  <param name="pixa1">[in] - </param>
 '''  <param name="pixa2">[in] - </param>
 '''  <param name="nx">[in] - in [1, ... 20], tiling factors in each direction</param>

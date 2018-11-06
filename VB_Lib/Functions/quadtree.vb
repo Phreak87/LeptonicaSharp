@@ -15,6 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixQuadtreeMean/*"/>
 '''  <param name="pixs">[in] - 8 bpp, no colormap</param>
 '''  <param name="nlevels">[in] - in quadtree max allowed depends on image size</param>
 '''  <param name="pix_ma">[in] - input mean accumulator can be null</param>
@@ -49,6 +50,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixQuadtreeVariance/*"/>
 '''  <param name="pixs">[in] - 8 bpp, no colormap</param>
 '''  <param name="nlevels">[in] - in quadtree</param>
 '''  <param name="pix_ma">[in] - input mean accumulator can be null</param>
@@ -90,6 +92,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMeanInRectangle/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="box">[in] - region to compute mean value</param>
 '''  <param name="pixma">[in] - mean accumulator</param>
@@ -125,6 +128,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixVarianceInRectangle/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="box">[in] - region to compute variance and/or root variance</param>
 '''  <param name="pix_ma">[in] - mean accumulator</param>
@@ -168,6 +172,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaQuadtreeRegions/*"/>
 '''  <param name="w">[in] - size of pix that is being quadtree-ized</param>
 '''  <param name="h">[in] - size of pix that is being quadtree-ized</param>
 '''  <param name="nlevels">[in] - number of levels in quadtree</param>
@@ -196,6 +201,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/quadtreeGetParent/*"/>
 '''  <param name="fpixa">[in] - mean, variance or root variance</param>
 '''  <param name="level">[in] - x, y of current pixel</param>
 '''  <param name="pval">[out] - parent pixel value, or 0.0 on error</param>
@@ -227,6 +233,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/quadtreeGetChildren/*"/>
 '''  <param name="fpixa">[in] - mean, variance or root variance</param>
 '''  <param name="level">[in] - x, y of current pixel</param>
 '''  <param name="pval00">[out] - four child pixel values</param>
@@ -264,6 +271,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/quadtreeMaxLevels/*"/>
 '''  <param name="w">[in] - dimensions of image</param>
 '''  <param name="h">[in] - dimensions of image</param>
 '''   <returns>maxlevels maximum number of levels allowed, or -1 on error</returns>
@@ -289,6 +297,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaDisplayQuadtree/*"/>
 '''  <param name="fpixa">[in] - mean, variance or root variance</param>
 '''  <param name="factor">[in] - replication factor at lowest level</param>
 '''  <param name="fontsize">[in] - 4, ... 20</param>

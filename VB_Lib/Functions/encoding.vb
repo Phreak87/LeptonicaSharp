@@ -15,6 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/encodeBase64/*"/>
 '''  <param name="inarray">[in] - input binary data</param>
 '''  <param name="insize">[in] - number of bytes in input array</param>
 '''  <param name="poutsize">[out] - number of bytes in output char array</param>
@@ -47,6 +48,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/decodeBase64/*"/>
 '''  <param name="inarray">[in] - input encoded char data, with 72 chars/line)</param>
 '''  <param name="insize">[in] - number of bytes in input array</param>
 '''  <param name="poutsize">[out] - number of bytes in output byte array</param>
@@ -75,6 +77,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/encodeAscii85/*"/>
 '''  <param name="inarray">[in] - input data</param>
 '''  <param name="insize">[in] - number of bytes in input array</param>
 '''  <param name="poutsize">[out] - number of bytes in output char array</param>
@@ -104,6 +107,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/decodeAscii85/*"/>
 '''  <param name="inarray">[in] - ascii85 input data</param>
 '''  <param name="insize">[in] - number of bytes in input array</param>
 '''  <param name="poutsize">[out] - number of bytes in output l_uint8 array</param>
@@ -135,6 +139,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/reformatPacked64/*"/>
 '''  <param name="inarray">[in] - base64 encoded string with newlines</param>
 '''  <param name="insize">[in] - number of bytes in input array</param>
 '''  <param name="leadspace">[in] - number of spaces in each line before the data</param>

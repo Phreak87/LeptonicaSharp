@@ -14,6 +14,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertFilesTo1bpp/*"/>
 '''  <param name="dirin">[in] - </param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="upscaling">[in] - 1, 2 or 4 only for input color or grayscale</param>

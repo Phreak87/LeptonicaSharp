@@ -22,6 +22,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConnCompTransform/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connect">[in] - connectivity: 4 or 8</param>
 '''  <param name="depth">[in] - of pixd: 8 or 16 bpp use 0 for auto determination</param>
@@ -54,6 +55,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConnCompAreaTransform/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connect">[in] - connectivity: 4 or 8</param>
 '''   <returns>pixd 32 bpp, 1 spp, or NULL on error</returns>
@@ -90,6 +92,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConnCompIncrInit/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="conn">[in] - connectivity: 4 or 8</param>
 '''  <param name="ppixd">[out] - 32 bpp, with c.c. labelled</param>
@@ -146,6 +149,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConnCompIncrAdd/*"/>
 '''  <param name="pixs">[in] - 32 bpp, with pixels labeled by c.c.</param>
 '''  <param name="ptaa">[in] - with each pta of pixel locations indexed by c.c.</param>
 '''  <param name="pncc">[out] - number of c.c</param>
@@ -185,6 +189,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetSortedNeighborValues/*"/>
 '''  <param name="pixs">[in] - 8, 16 or 32 bpp, with pixels labeled by c.c.</param>
 '''  <param name="x">[in] - location of pixel</param>
 '''  <param name="y">[in] - location of pixel</param>
@@ -227,6 +232,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixLocToColorTransform/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 32 bpp rgb, or NULL on error</returns>
 Public Shared Function pixLocToColorTransform(

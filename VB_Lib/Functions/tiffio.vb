@@ -17,6 +17,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadTiff/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="n">[in] - page number 0 based</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -46,6 +47,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamTiff/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="n">[in] - page number: 0 based</param>
 '''   <returns>pix, or NULL on error or if there are no more images in the file</returns>
@@ -76,6 +78,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteTiff/*"/>
 '''  <param name="filename">[in] - to write to</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="comptype">[in] - IFF_TIFF, IFF_TIFF_RLE, IFF_TIFF_PACKBITS, IFF_TIFF_G3, IFF_TIFF_G4, IFF_TIFF_LZW, IFF_TIFF_ZIP</param>
@@ -103,6 +106,7 @@ End Function
 ' pixWriteTiffCustom(const char *, PIX *, l_int32, const char *, NUMA *, SARRAY *, SARRAY *, NUMA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteTiffCustom/*"/>
 '''  <param name="filename">[in] - to write to</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="comptype">[in] - IFF_TIFF, IFF_TIFF_RLE, IFF_TIFF_PACKBITS, IFF_TIFF_G3, IFF_TIFF_G4, IFF_TIFF_LZW, IFF_TIFF_ZIP</param>
@@ -159,6 +163,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamTiff/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="comptype">[in] - IFF_TIFF, IFF_TIFF_RLE, IFF_TIFF_PACKBITS, IFF_TIFF_G3, IFF_TIFF_G4, IFF_TIFF_LZW, IFF_TIFF_ZIP</param>
@@ -181,6 +186,7 @@ End Function
 ' pixWriteStreamTiffWA(FILE *, PIX *, l_int32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamTiffWA/*"/>
 '''  <param name="fp">[in] - file stream opened for append or write</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="comptype">[in] - IFF_TIFF, IFF_TIFF_RLE, IFF_TIFF_PACKBITS, IFF_TIFF_G3, IFF_TIFF_G4, IFF_TIFF_LZW, IFF_TIFF_ZIP</param>
@@ -230,6 +236,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadFromMultipageTiff/*"/>
 '''  <param name="fname">[in] - filename</param>
 '''  <param name="poffset">[in,out] - set offset to 0 for first image</param>
 '''   <returns>pix, or NULL on error or if previous call returned the last image</returns>
@@ -253,6 +260,7 @@ End Function
 ' pixaReadMultipageTiff(const char *) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaReadMultipageTiff/*"/>
 '''  <param name="filename">[in] - input tiff file</param>
 '''   <returns>pixa of page images, or NULL on error</returns>
 Public Shared Function pixaReadMultipageTiff(
@@ -280,6 +288,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaWriteMultipageTiff/*"/>
 '''  <param name="fname">[in] - input tiff file</param>
 '''  <param name="pixa">[in] - any depth colormap will be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -316,6 +325,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/writeMultipageTiff/*"/>
 '''  <param name="dirin">[in] - input directory</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="fileout">[in] - output multipage tiff file</param>
@@ -343,6 +353,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/writeMultipageTiffSA/*"/>
 '''  <param name="sa">[in] - string array of full path names</param>
 '''  <param name="fileout">[in] - output ps file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -363,6 +374,7 @@ End Function
 ' fprintTiffInfo(FILE *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fprintTiffInfo/*"/>
 '''  <param name="fpout">[in] - stream for output of tag data</param>
 '''  <param name="tiffile">[in] - input</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -383,6 +395,7 @@ End Function
 ' tiffGetCount(FILE *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/tiffGetCount/*"/>
 '''  <param name="fp">[in] - file stream opened for read</param>
 '''  <param name="pn">[out] - number of images</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -408,6 +421,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getTiffResolution/*"/>
 '''  <param name="fp">[in] - file stream opened for read</param>
 '''  <param name="pxres">[out] - resolution in ppi</param>
 '''  <param name="pyres">[out] - resolution in ppi</param>
@@ -435,6 +449,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderTiff/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="n">[in] - page image number: 0-based</param>
 '''  <param name="pw">[out][optional] - width</param>
@@ -476,6 +491,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/freadHeaderTiff/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="n">[in] - page image number: 0-based</param>
 '''  <param name="pw">[out][optional] - width</param>
@@ -514,6 +530,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderMemTiff/*"/>
 '''  <param name="cdata">[in] - const tiff-encoded</param>
 '''  <param name="size">[in] - size of data</param>
 '''  <param name="n">[in] - page image number: 0-based</param>
@@ -561,6 +578,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/findTiffCompression/*"/>
 '''  <param name="fp">[in] - file stream must be rewound to BOF</param>
 '''  <param name="pcomptype">[out] - compression type</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -580,6 +598,7 @@ End Function
 ' extractG4DataFromFile(const char *, l_uint8 **, size_t *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/extractG4DataFromFile/*"/>
 '''  <param name="filein">[in] - </param>
 '''  <param name="pdata">[out] - binary data of ccitt g4 encoded stream</param>
 '''  <param name="pnbytes">[out] - size of binary data</param>
@@ -622,6 +641,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMemTiff/*"/>
 '''  <param name="cdata">[in] - const tiff-encoded</param>
 '''  <param name="size">[in] - size of cdata</param>
 '''  <param name="n">[in] - page image number: 0-based</param>
@@ -659,6 +679,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMemFromMultipageTiff/*"/>
 '''  <param name="cdata">[in] - const tiff-encoded</param>
 '''  <param name="size">[in] - size of cdata</param>
 '''  <param name="poffset">[in,out] - set offset to 0 for first image</param>
@@ -689,6 +710,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaReadMemMultipageTiff/*"/>
 '''  <param name="data">[in] - const multiple pages tiff-encoded</param>
 '''  <param name="size">[in] - size of cdata</param>
 '''   <returns>pixa, or NULL on error</returns>
@@ -718,6 +740,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaWriteMemMultipageTiff/*"/>
 '''  <param name="pdata">[out] - const tiff-encoded</param>
 '''  <param name="psize">[out] - size of data</param>
 '''  <param name="pixa">[in] - any depth colormap will be removed</param>
@@ -742,6 +765,7 @@ End Function
 ' pixWriteMemTiff(l_uint8 **, size_t *, PIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemTiff/*"/>
 '''  <param name="pdata">[out] - data of tiff compressed image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - </param>
@@ -768,6 +792,7 @@ End Function
 ' pixWriteMemTiffCustom(l_uint8 **, size_t *, PIX *, l_int32, NUMA *, SARRAY *, SARRAY *, NUMA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemTiffCustom/*"/>
 '''  <param name="pdata">[out] - data of tiff compressed image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - </param>

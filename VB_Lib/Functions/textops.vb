@@ -24,6 +24,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddSingleTextblock/*"/>
 '''  <param name="pixs">[in] - input pix colormap ok</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
 '''  <param name="textstr">[in][optional] - text string to be added</param>
@@ -73,6 +74,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddTextlines/*"/>
 '''  <param name="pixs">[in] - input pix colormap ok</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
 '''  <param name="textstr">[in][optional] - text string to be added</param>
@@ -116,6 +118,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetTextblock/*"/>
 '''  <param name="pixs">[in] - input image</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
 '''  <param name="textstr">[in] - block text string to be set</param>
@@ -167,6 +170,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetTextline/*"/>
 '''  <param name="pixs">[in] - input image</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
 '''  <param name="textstr">[in] - text string to be set on the line</param>
@@ -216,6 +220,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaAddTextNumber/*"/>
 '''  <param name="pixas">[in] - input pixa colormap ok</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
 '''  <param name="na">[in][optional] - number array use 1 ... n if null</param>
@@ -264,6 +269,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaAddTextlines/*"/>
 '''  <param name="pixas">[in] - input pixa colormap ok</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
 '''  <param name="sa">[in][optional] - sarray use text embedded in each pix if null</param>
@@ -309,6 +315,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaAddPixWithText/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pixs">[in] - any depth, colormap ok</param>
 '''  <param name="reduction">[in] - integer subsampling factor</param>
@@ -349,6 +356,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bmfGetLineStrings/*"/>
 '''  <param name="bmf">[in] - </param>
 '''  <param name="textstr">[in] - </param>
 '''  <param name="maxw">[in] - max width of a text line in pixels</param>
@@ -376,6 +384,7 @@ End Function
 ' bmfGetWordWidths(L_BMF *, const char *, SARRAY *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bmfGetWordWidths/*"/>
 '''  <param name="bmf">[in] - </param>
 '''  <param name="textstr">[in] - </param>
 '''  <param name="sa">[in] - of individual words</param>
@@ -400,6 +409,7 @@ End Function
 ' bmfGetStringWidth(L_BMF *, const char *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bmfGetStringWidth/*"/>
 '''  <param name="bmf">[in] - </param>
 '''  <param name="textstr">[in] - </param>
 '''  <param name="pw">[out] - width of text string, in pixels for the font represented by the bmf</param>
@@ -422,6 +432,7 @@ End Function
 ' splitStringToParagraphs(char *, l_int32) as SARRAY *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/splitStringToParagraphs/*"/>
 '''  <param name="textstr">[in] - text string</param>
 '''  <param name="splitflag">[in] - see enum in bmf.h valid values in {1,2,3}</param>
 '''   <returns>sarray where each string is a paragraph of the input, or NULL on error.</returns>

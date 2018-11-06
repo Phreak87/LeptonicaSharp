@@ -15,6 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateAM/*"/>
 '''  <param name="pixs">[in] - 2, 4, 8 bpp gray or colormapped, or 32 bpp RGB</param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -44,6 +45,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateAMColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
@@ -73,6 +75,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateAMGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
@@ -105,6 +108,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateAMCorner/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8 bpp gray or colormapped, or 32 bpp RGB</param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -134,6 +138,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateAMColorCorner/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="fillval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
@@ -163,6 +168,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateAMGrayCorner/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
@@ -199,6 +205,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateAMColorFast/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>

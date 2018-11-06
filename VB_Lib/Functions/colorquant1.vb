@@ -228,6 +228,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOctreeColorQuant/*"/>
 '''  <param name="pixs">[in] - 32 bpp 24-bit color</param>
 '''  <param name="colors">[in] - in colormap some number in range [128 ... 256] the actual number of colors used will be smaller</param>
 '''  <param name="ditherflag">[in] - 1 to dither, 0 otherwise</param>
@@ -280,6 +281,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOctreeColorQuantGeneral/*"/>
 '''  <param name="pixs">[in] - 32 bpp 24-bit color</param>
 '''  <param name="colors">[in] - in colormap some number in range [128 ... 240] the actual number of colors used will be smaller</param>
 '''  <param name="ditherflag">[in] - 1 to dither, 0 otherwise</param>
@@ -325,6 +327,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeRGBToIndexTables/*"/>
 '''  <param name="prtab">[out] - tables</param>
 '''  <param name="pgtab">[out] - tables</param>
 '''  <param name="pbtab">[out] - tables</param>
@@ -358,6 +361,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getOctcubeIndexFromRGB/*"/>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>
@@ -437,6 +441,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOctreeQuantByPopulation/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="level">[in] - significant bits for each of RGB valid for {3,4}, Use 0 for default (level 4 recommended</param>
 '''  <param name="ditherflag">[in] - 1 to dither, 0 otherwise</param>
@@ -532,6 +537,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOctreeQuantNumColors/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="maxcolors">[in] - 8 to 256 the actual number of colors used may be less than this</param>
 '''  <param name="subsample">[in] - factor for computing color distribution use 0 for default</param>
@@ -576,6 +582,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOctcubeQuantMixedWithGray/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="depth">[in] - of output pix</param>
 '''  <param name="graylevels">[in] - graylevels (must be  is greater  1)</param>
@@ -653,6 +660,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFixedOctcubeQuant256/*"/>
 '''  <param name="pixs">[in] - 32 bpp 24-bit color</param>
 '''  <param name="ditherflag">[in] - 1 for dithering 0 for no dithering</param>
 '''   <returns>pixd 8 bit with colormap, or NULL on error</returns>
@@ -696,6 +704,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFewColorsOctcubeQuant1/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="level">[in] - significant bits for each of RGB valid in [1...6]</param>
 '''   <returns>pixd quantized to octcube or NULL on error</returns>
@@ -749,6 +758,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFewColorsOctcubeQuant2/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="level">[in] - of octcube indexing, for histogram: 3, 4, 5, 6</param>
 '''  <param name="na">[in] - histogram of pixel occupation in octree leaves at given level</param>
@@ -815,6 +825,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFewColorsOctcubeQuantMixed/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="level">[in] - significant octcube bits for each of RGB valid in [1...6] use 0 for default</param>
 '''  <param name="darkthresh">[in] - threshold near black if the lightest component is below this, the pixel is not considered to be gray or color uses 0 for default</param>
@@ -856,6 +867,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFixedOctcubeQuantGenRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="level">[in] - significant bits for each of r,g,b</param>
 '''   <returns>pixd rgb quantized to octcube centers, or NULL on error</returns>
@@ -889,6 +901,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixQuantFromCmap/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale without cmap, or 32 bpp rgb</param>
 '''  <param name="cmap">[in] - to quantize to insert copy into dest pix</param>
 '''  <param name="mindepth">[in] - minimum depth of pixd: can be 2, 4 or 8 bpp</param>
@@ -968,6 +981,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOctcubeQuantFromCmap/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="cmap">[in] - to quantize to insert copy into dest pix</param>
 '''  <param name="mindepth">[in] - minimum depth of pixd: can be 2, 4 or 8 bpp</param>
@@ -1002,6 +1016,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOctcubeHistogram/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="level">[in] - significant bits for each of RGB valid in [1...6]</param>
 '''  <param name="pncolors">[out][optional] - number of occupied cubes</param>
@@ -1063,6 +1078,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapToOctcubeLUT/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="level">[in] - significant bits for each of RGB valid in [1...6]</param>
 '''  <param name="metric">[in] - L_MANHATTAN_DISTANCE, L_EUCLIDEAN_DISTANCE</param>
@@ -1092,6 +1108,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveUnusedColors/*"/>
 '''  <param name="pixs">[in] - colormapped</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixRemoveUnusedColors(
@@ -1117,6 +1134,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixNumberOccupiedOctcubes/*"/>
 '''  <param name="pix">[in] - 32 bpp</param>
 '''  <param name="level">[in] - of octcube</param>
 '''  <param name="mincount">[in] - minimum num pixels in an octcube to be counted -1 to not use</param>

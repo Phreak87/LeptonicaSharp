@@ -16,6 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/strcodeCreate/*"/>
 '''  <param name="fileno">[in] - integer that labels the two output files</param>
 '''   <returns>initialized L_StrCode, or NULL on error</returns>
 Public Shared Function strcodeCreate(
@@ -41,6 +42,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/strcodeCreateFromFile/*"/>
 '''  <param name="filein">[in] - containing filenames of serialized data</param>
 '''  <param name="fileno">[in] - integer that labels the two output files</param>
 '''  <param name="outdir">[in][optional] - if null, files are made in /tmp/lept/auto</param>
@@ -72,6 +74,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/strcodeGenerate/*"/>
 '''  <param name="strcode">[in] - for accumulating data</param>
 '''  <param name="filein">[in] - input file with serialized data</param>
 '''  <param name="type">[in] - of data use the typedef string</param>
@@ -95,6 +98,7 @@ End Function
 ' strcodeFinalize(L_STRCODE **, const char *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/strcodeFinalize/*"/>
 '''  <param name="pstrcode">[in,out] - destroys after .c and .h files have been generated</param>
 '''  <param name="outdir">[in][optional] - if NULL, files are made in /tmp/lept/auto</param>
 '''   <returns>void</returns>
@@ -122,6 +126,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_getStructStrFromFile/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="field">[in] - (L_STR_TYPE, L_STR_NAME, L_STR_READER, L_STR_MEMREADER)</param>
 '''  <param name="pstr">[out] - struct string for this file</param>

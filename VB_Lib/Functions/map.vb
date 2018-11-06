@@ -8,6 +8,7 @@ Partial Public Class _All
 ' l_amapCreate(l_int32) as L_AMAP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_amapCreate/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapCreate(
 				 ByVal keytype as Integer) as L_Rbtree
@@ -23,6 +24,7 @@ End Function
 ' l_amapFind(L_AMAP *, RB_TYPE) as RB_TYPE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_amapFind/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapFind(
 				 ByVal m as L_Rbtree, 
@@ -45,6 +47,7 @@ End Function
 ' l_amapInsert(L_AMAP *, RB_TYPE, RB_TYPE) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_amapInsert/*"/>
 Public Shared Sub l_amapInsert(
 				 ByVal m as L_Rbtree, 
 				 ByVal key as Rb_Type, 
@@ -67,6 +70,7 @@ End Sub
 ' l_amapDelete(L_AMAP *, RB_TYPE) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_amapDelete/*"/>
 Public Shared Sub l_amapDelete(
 				 ByVal m as L_Rbtree, 
 				 ByVal key as Rb_Type)
@@ -86,6 +90,7 @@ End Sub
 ' l_amapDestroy(L_AMAP **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_amapDestroy/*"/>
 Public Shared Sub l_amapDestroy(
 				 ByVal pm as L_Rbtree)
 
@@ -102,6 +107,7 @@ End Sub
 ' l_amapGetFirst(L_AMAP *) as L_AMAP_NODE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_amapGetFirst/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapGetFirst(
 				 ByVal m as L_Rbtree) as L_Rbtree_Node
@@ -121,6 +127,7 @@ End Function
 ' l_amapGetNext(L_AMAP_NODE *) as L_AMAP_NODE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_amapGetNext/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapGetNext(
 				 ByVal n as L_Rbtree_Node) as L_Rbtree_Node
@@ -140,6 +147,7 @@ End Function
 ' l_amapGetLast(L_AMAP *) as L_AMAP_NODE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_amapGetLast/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapGetLast(
 				 ByVal m as L_Rbtree) as L_Rbtree_Node
@@ -159,6 +167,7 @@ End Function
 ' l_amapGetPrev(L_AMAP_NODE *) as L_AMAP_NODE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_amapGetPrev/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapGetPrev(
 				 ByVal n as L_Rbtree_Node) as L_Rbtree_Node
@@ -178,6 +187,7 @@ End Function
 ' l_amapSize(L_AMAP *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_amapSize/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapSize(
 				 ByVal m as L_Rbtree) as Integer
@@ -196,6 +206,7 @@ End Function
 ' l_asetCreate(l_int32) as L_ASET *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetCreate/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetCreate(
 				 ByVal keytype as Integer) as L_Rbtree
@@ -211,6 +222,7 @@ End Function
 ' l_asetFind(L_ASET *, RB_TYPE) as RB_TYPE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetFind/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetFind(
 				 ByVal s as L_Rbtree, 
@@ -233,6 +245,7 @@ End Function
 ' l_asetInsert(L_ASET *, RB_TYPE) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetInsert/*"/>
 Public Shared Sub l_asetInsert(
 				 ByVal s as L_Rbtree, 
 				 ByVal key as Rb_Type)
@@ -252,6 +265,7 @@ End Sub
 ' l_asetDelete(L_ASET *, RB_TYPE) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetDelete/*"/>
 Public Shared Sub l_asetDelete(
 				 ByVal s as L_Rbtree, 
 				 ByVal key as Rb_Type)
@@ -271,6 +285,7 @@ End Sub
 ' l_asetDestroy(L_ASET **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetDestroy/*"/>
 Public Shared Sub l_asetDestroy(
 				 ByVal ps as L_Rbtree)
 
@@ -287,6 +302,7 @@ End Sub
 ' l_asetGetFirst(L_ASET *) as L_ASET_NODE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetGetFirst/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetGetFirst(
 				 ByVal s as L_Rbtree) as L_Rbtree_Node
@@ -306,6 +322,7 @@ End Function
 ' l_asetGetNext(L_ASET_NODE *) as L_ASET_NODE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetGetNext/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetGetNext(
 				 ByVal n as L_Rbtree_Node) as L_Rbtree_Node
@@ -325,6 +342,7 @@ End Function
 ' l_asetGetLast(L_ASET *) as L_ASET_NODE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetGetLast/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetGetLast(
 				 ByVal s as L_Rbtree) as L_Rbtree_Node
@@ -344,6 +362,7 @@ End Function
 ' l_asetGetPrev(L_ASET_NODE *) as L_ASET_NODE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetGetPrev/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetGetPrev(
 				 ByVal n as L_Rbtree_Node) as L_Rbtree_Node
@@ -363,6 +382,7 @@ End Function
 ' l_asetSize(L_ASET *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetSize/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetSize(
 				 ByVal s as L_Rbtree) as Integer

@@ -28,6 +28,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixStrokeWidthTransform/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="color">[in] - 0 for white runs, 1 for black runs</param>
 '''  <param name="depth">[in] - of pixd: 8 or 16 bpp</param>
@@ -67,6 +68,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRunlengthTransform/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="color">[in] - 0 for white runs, 1 for black runs</param>
 '''  <param name="direction">[in] - L_HORIZONTAL_RUNS, L_VERTICAL_RUNS</param>
@@ -103,6 +105,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindHorizontalRuns/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="y">[in] - line to traverse</param>
 '''  <param name="xstart">[in] - returns array of start positions for fg runs</param>
@@ -142,6 +145,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindVerticalRuns/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="x">[in] - line to traverse</param>
 '''  <param name="ystart">[in] - returns array of start positions for fg runs</param>
@@ -178,6 +182,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindMaxRuns/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="direction">[in] - L_HORIZONTAL_RUNS or L_VERTICAL_RUNS</param>
 '''  <param name="pnastart">[out][optional] - start locations of longest runs</param>
@@ -212,6 +217,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindMaxHorizontalRunOnLine/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="y">[in] - line to traverse</param>
 '''  <param name="pxstart">[out][optional] - start position</param>
@@ -244,6 +250,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindMaxVerticalRunOnLine/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="x">[in] - column to traverse</param>
 '''  <param name="pystart">[out][optional] - start position</param>
@@ -277,6 +284,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/runlengthMembershipOnLine/*"/>
 '''  <param name="buffer">[in] - into which full line of data is placed</param>
 '''  <param name="size">[in] - full size of line w or h</param>
 '''  <param name="depth">[in] - 8 or 16 bpp</param>
@@ -313,6 +321,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeMSBitLocTab/*"/>
 '''  <param name="bitval">[in] - either 0 or 1</param>
 '''   <returns>table giving, for an input byte, the MS bit location, starting at 0 with the MSBit in the byte, or NULL on error.</returns>
 Public Shared Function makeMSBitLocTab(

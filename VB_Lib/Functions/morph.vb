@@ -22,6 +22,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDilate/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sel">[in] - </param>
@@ -63,6 +64,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixErode/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sel">[in] - </param>
@@ -106,6 +108,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHMT/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sel">[in] - </param>
@@ -147,6 +150,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOpen/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sel">[in] - </param>
@@ -191,6 +195,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClose/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sel">[in] - </param>
@@ -239,6 +244,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCloseSafe/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sel">[in] - </param>
@@ -283,6 +289,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOpenGeneralized/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sel">[in] - </param>
@@ -328,6 +335,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCloseGeneralized/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sel">[in] - </param>
@@ -371,6 +379,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDilateBrick/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -415,6 +424,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixErodeBrick/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -459,6 +469,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOpenBrick/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -503,6 +514,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCloseBrick/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -552,6 +564,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCloseSafeBrick/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -580,6 +593,7 @@ End Function
 ' selectComposableSels(l_int32, l_int32, SEL **, SEL **) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selectComposableSels/*"/>
 '''   <returns></returns>
 Public Shared Function selectComposableSels(
 				 ByVal size as Integer, 
@@ -616,6 +630,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selectComposableSizes/*"/>
 '''  <param name="size">[in] - of sel to be decomposed</param>
 '''  <param name="pfactor1">[out] - larger factor</param>
 '''  <param name="pfactor2">[out] - smaller factor</param>
@@ -665,6 +680,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDilateCompBrick/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -723,6 +739,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixErodeCompBrick/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -781,6 +798,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOpenCompBrick/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -839,6 +857,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCloseCompBrick/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -902,6 +921,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCloseSafeCompBrick/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -930,6 +950,7 @@ End Function
 ' resetMorphBoundaryCondition(l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/resetMorphBoundaryCondition/*"/>
 '''  <param name="bc">[in] - SYMMETRIC_MORPH_BC, ASYMMETRIC_MORPH_BC</param>
 Public Shared Sub resetMorphBoundaryCondition(
 				 ByVal bc as Enumerations.MMETRIC_MORPH_BC)
@@ -943,6 +964,7 @@ End Sub
 ' getMorphBorderPixelColor(l_int32, l_int32) as l_uint32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getMorphBorderPixelColor/*"/>
 '''  <param name="type">[in] - L_MORPH_DILATE, L_MORPH_ERODE</param>
 '''  <param name="depth">[in] - of pix</param>
 '''   <returns>color of border pixels for this operation</returns>

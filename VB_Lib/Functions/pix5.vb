@@ -8,6 +8,7 @@ Partial Public Class _All
 ' pixaFindDimensions(PIXA *, NUMA **, NUMA **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaFindDimensions/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pnaw">[out][optional] - numa of pix widths</param>
 '''  <param name="pnah">[out][optional] - numa of pix heights</param>
@@ -43,6 +44,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindAreaPerimRatio/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="tab">[in][optional] - pixel sum table, can be NULL</param>
 '''  <param name="pfract">[out] - area/perimeter ratio</param>
@@ -72,6 +74,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaFindPerimToAreaRatio/*"/>
 '''  <param name="pixa">[in] - of 1 bpp pix</param>
 '''   <returns>na   of perimeter/arear ratio for each pix, or NULL on error</returns>
 Public Shared Function pixaFindPerimToAreaRatio(
@@ -104,6 +107,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindPerimToAreaRatio/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="tab">[in][optional] - pixel sum table, can be NULL</param>
 '''  <param name="pfract">[out] - perimeter/area ratio</param>
@@ -136,6 +140,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaFindPerimSizeRatio/*"/>
 '''  <param name="pixa">[in] - of 1 bpp pix</param>
 '''   <returns>na   of fg perimeter/(2(w+h)) ratio for each pix, or NULL on error</returns>
 Public Shared Function pixaFindPerimSizeRatio(
@@ -168,6 +173,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindPerimSizeRatio/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="tab">[in][optional] - pixel sum table, can be NULL</param>
 '''  <param name="pratio">[out] - perimeter/size ratio</param>
@@ -197,6 +203,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaFindAreaFraction/*"/>
 '''  <param name="pixa">[in] - of 1 bpp pix</param>
 '''   <returns>na  of area fractions for each pix, or NULL on error</returns>
 Public Shared Function pixaFindAreaFraction(
@@ -222,6 +229,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindAreaFraction/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="tab">[in][optional] - pixel sum table, can be NULL</param>
 '''  <param name="pfract">[out] - fg area/size ratio</param>
@@ -255,6 +263,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaFindAreaFractionMasked/*"/>
 '''  <param name="pixa">[in] - of 1 bpp pix</param>
 '''  <param name="pixm">[in] - mask image</param>
 '''  <param name="debug">[in] - 1 for output, 0 to suppress</param>
@@ -291,6 +300,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindAreaFractionMasked/*"/>
 '''  <param name="pixs">[in] - 1 bpp, typically a single component</param>
 '''  <param name="box">[in][optional] - for pixs relative to pixm</param>
 '''  <param name="pixm">[in] - 1 bpp mask, typically over the entire image from which the component pixs was extracted</param>
@@ -325,6 +335,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaFindWidthHeightRatio/*"/>
 '''  <param name="pixa">[in] - of 1 bpp pix</param>
 '''   <returns>na of width/height ratios for each pix, or NULL on error</returns>
 Public Shared Function pixaFindWidthHeightRatio(
@@ -349,6 +360,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaFindWidthHeightProduct/*"/>
 '''  <param name="pixa">[in] - of 1 bpp pix</param>
 '''   <returns>na of widthheight products for each pix, or NULL on error</returns>
 Public Shared Function pixaFindWidthHeightProduct(
@@ -373,6 +385,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindOverlapFraction/*"/>
 '''  <param name="pixs1">[in] - 1 bpp</param>
 '''  <param name="pixs2">[in] - 1 bpp</param>
 '''  <param name="x2">[in] - location in pixs1 of UL corner of pixs2</param>
@@ -416,6 +429,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindRectangleComps/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="dist">[in] - max distance allowed between bounding box and nearest foreground pixel within it</param>
 '''  <param name="minw">[in] - minimum size in each direction as a requirement for a conforming rectangle</param>
@@ -467,6 +481,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConformsToRectangle/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="box">[in][optional] - if null, use the entire pixs</param>
 '''  <param name="dist">[in] - max distance allowed between bounding box and nearest foreground pixel within it</param>
@@ -500,6 +515,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClipRectangles/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="boxa">[in] - requested clipping regions</param>
 '''   <returns>pixa consisting of requested regions, or NULL on error</returns>
@@ -544,6 +560,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClipRectangle/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="box">[in] - requested clipping region const</param>
 '''  <param name="pboxc">[out][optional] - actual box of clipped region</param>
@@ -589,6 +606,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClipMasked/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp colormap ok</param>
 '''  <param name="pixm">[in] - clipping mask, 1 bpp</param>
 '''  <param name="x">[in] - origin of clipping mask relative to pixs</param>
@@ -624,6 +642,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCropToMatch/*"/>
 '''  <param name="pixs1">[in] - any depth, colormap OK</param>
 '''  <param name="pixs2">[in] - any depth, colormap OK</param>
 '''  <param name="ppixd1">[out] - may be a clone</param>
@@ -660,6 +679,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCropToSize/*"/>
 '''  <param name="pixs">[in] - any depth, colormap OK</param>
 '''  <param name="w">[in] - max dimensions of cropped image</param>
 '''  <param name="h">[in] - max dimensions of cropped image</param>
@@ -698,6 +718,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixResizeToMatch/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp colormap ok</param>
 '''  <param name="pixt">[in]can be null - we use only the size</param>
 '''  <param name="w">[in] - ignored if pixt is defined</param>
@@ -746,6 +767,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeFrameMask/*"/>
 '''  <param name="w">[in] - dimensions of output 1 bpp pix</param>
 '''  <param name="h">[in] - dimensions of output 1 bpp pix</param>
 '''  <param name="hf1">[in] - horizontal fraction of half-width at outer frame bdry</param>
@@ -783,6 +805,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeCoveringOfRectangles/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="maxiters">[in] - max iterations: use 0 to iterate to completion</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -821,6 +844,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFractionFgInMask/*"/>
 '''  <param name="pix1">[in] - 1 bpp</param>
 '''  <param name="pix2">[in] - 1 bpp</param>
 '''  <param name="pfract">[out] - fraction of fg pixels in 1 that are aligned with the fg of 2</param>
@@ -852,6 +876,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClipToForeground/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="ppixd">[out][optional] - clipped pix returned</param>
 '''  <param name="pbox">[out][optional] - bounding box</param>
@@ -890,6 +915,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTestClipToForeground/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pcanclip">[out] - 1 if fg does not extend to all four edges</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -919,6 +945,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClipBoxToForeground/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="boxs">[in][optional] - use full image if null</param>
 '''  <param name="ppixd">[out][optional] - clipped pix returned</param>
@@ -957,6 +984,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScanForForeground/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="box">[in][optional] - within which the search is conducted</param>
 '''  <param name="scanflag">[in] - direction of scan e.g., L_FROM_LEFT</param>
@@ -1003,6 +1031,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClipBoxToEdges/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="boxs">[in][optional] - use full image if null</param>
 '''  <param name="lowthresh">[in] - threshold to choose clipping location</param>
@@ -1058,6 +1087,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScanForEdge/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="box">[in][optional] - within which the search is conducted</param>
 '''  <param name="lowthresh">[in] - threshold to choose clipping location</param>
@@ -1105,6 +1135,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtractOnLine/*"/>
 '''  <param name="pixs">[in] - 1 bpp or 8 bpp no colormap</param>
 '''  <param name="x1">[in] - one end point for line</param>
 '''  <param name="y1">[in] - one end point for line</param>
@@ -1143,6 +1174,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAverageOnLine/*"/>
 '''  <param name="pixs">[in] - 1 bpp or 8 bpp no colormap</param>
 '''  <param name="x1">[in] - starting pt for line</param>
 '''  <param name="y1">[in] - starting pt for line</param>
@@ -1188,6 +1220,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAverageIntensityProfile/*"/>
 '''  <param name="pixs">[in] - any depth colormap OK</param>
 '''  <param name="fract">[in] - fraction of image width or height to be used</param>
 '''  <param name="dir">[in] - averaging direction: L_HORIZONTAL_LINE or L_VERTICAL_LINE</param>
@@ -1242,6 +1275,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReversalProfile/*"/>
 '''  <param name="pixs">[in] - any depth colormap OK</param>
 '''  <param name="fract">[in] - fraction of image width or height to be used</param>
 '''  <param name="dir">[in] - profile direction: L_HORIZONTAL_LINE or L_VERTICAL_LINE</param>
@@ -1286,6 +1320,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWindowedVarianceOnLine/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="dir">[in] - L_HORIZONTAL_LINE or L_VERTICAL_LINE</param>
 '''  <param name="loc">[in] - location of the constant coordinate for the line</param>
@@ -1333,6 +1368,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMinMaxNearLine/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="x1">[in] - starting pt for line</param>
 '''  <param name="y1">[in] - starting pt for line</param>
@@ -1381,6 +1417,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRankRowTransform/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''   <returns>pixd with pixels sorted in each row, from min to max value</returns>
 Public Shared Function pixRankRowTransform(
@@ -1405,6 +1442,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRankColumnTransform/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''   <returns>pixd with pixels sorted in each column, from min to max value</returns>
 Public Shared Function pixRankColumnTransform(

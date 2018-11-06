@@ -24,6 +24,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertFilesToPdf/*"/>
 '''  <param name="dirname">[in] - directory name containing images</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="res">[in] - input resolution of all images</param>
@@ -61,6 +62,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/saConvertFilesToPdf/*"/>
 '''  <param name="sa">[in] - string array of pathnames for images</param>
 '''  <param name="res">[in] - input resolution of all images</param>
 '''  <param name="scalefactor">[in] - scaling factor applied to each image  is greater  0.0</param>
@@ -96,6 +98,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/saConvertFilesToPdfData/*"/>
 '''  <param name="sa">[in] - string array of pathnames for images</param>
 '''  <param name="res">[in] - input resolution of all images</param>
 '''  <param name="scalefactor">[in] - scaling factor applied to each image  is greater  0.0</param>
@@ -143,6 +146,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selectDefaultPdfEncoding/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="ptype">[out] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -175,6 +179,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertUnscaledFilesToPdf/*"/>
 '''  <param name="dirname">[in] - directory name containing images</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="title">[in][optional] - pdf title if null, taken from the first image filename</param>
@@ -204,6 +209,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/saConvertUnscaledFilesToPdf/*"/>
 '''  <param name="sa">[in] - string array of pathnames for images</param>
 '''  <param name="title">[in][optional] - pdf title if null, taken from the first image filename</param>
 '''  <param name="fileout">[in] - pdf file of all images</param>
@@ -226,6 +232,7 @@ End Function
 ' saConvertUnscaledFilesToPdfData(SARRAY *, const char *, l_uint8 **, size_t *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/saConvertUnscaledFilesToPdfData/*"/>
 '''  <param name="sa">[in] - string array of pathnames for images</param>
 '''  <param name="title">[in][optional] - pdf title if null, taken from the first image filename</param>
 '''  <param name="pdata">[out] - output pdf data (of all images)</param>
@@ -252,6 +259,7 @@ End Function
 ' convertUnscaledToPdfData(const char *, const char *, l_uint8 **, size_t *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertUnscaledToPdfData/*"/>
 '''  <param name="fname">[in] - of image file</param>
 '''  <param name="title">[in][optional] - pdf title can be NULL</param>
 '''  <param name="pdata">[out] - output pdf data for image</param>
@@ -289,6 +297,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaConvertToPdf/*"/>
 '''  <param name="pixa">[in] - containing images all at the same resolution</param>
 '''  <param name="res">[in] - override the resolution of each input image, in ppi use 0 to respect the resolution embedded in the input</param>
 '''  <param name="scalefactor">[in] - scaling factor applied to each image  is greater  0.0</param>
@@ -324,6 +333,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaConvertToPdfData/*"/>
 '''  <param name="pixa">[in] - containing images all at the same resolution</param>
 '''  <param name="res">[in] - input resolution of all images</param>
 '''  <param name="scalefactor">[in] - scaling factor applied to each image  is greater  0.0</param>
@@ -393,6 +403,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertToPdf/*"/>
 '''  <param name="filein">[in] - input image file -- any format</param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 '''  <param name="quality">[in] - used for JPEG only 0 for default (75)</param>
@@ -439,6 +450,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertImageDataToPdf/*"/>
 '''  <param name="imdata">[in] - array of formatted image data e.g., png, jpeg</param>
 '''  <param name="size">[in] - size of image data</param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
@@ -487,6 +499,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertToPdfData/*"/>
 '''  <param name="filein">[in] - input image file -- any format</param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 '''  <param name="quality">[in] - used for JPEG only 0 for default (75)</param>
@@ -536,6 +549,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertImageDataToPdfData/*"/>
 '''  <param name="imdata">[in] - array of formatted image data e.g., png, jpeg</param>
 '''  <param name="size">[in] - size of image data</param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
@@ -589,6 +603,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertToPdf/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 '''  <param name="quality">[in] - used for JPEG only 0 for default (75)</param>
@@ -636,6 +651,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamPdf/*"/>
 '''  <param name="fp">[in] - file stream opened for writing</param>
 '''  <param name="pix">[in] - all depths, cmap OK</param>
 '''  <param name="res">[in] - override the resolution of the input image, in ppi use 0 to respect the resolution embedded in the input</param>
@@ -668,6 +684,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemPdf/*"/>
 '''  <param name="pdata">[out] - pdf as byte array</param>
 '''  <param name="pnbytes">[out] - number of bytes in pdf array</param>
 '''  <param name="pix">[in] - all depths, cmap OK</param>
@@ -720,6 +737,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertSegmentedFilesToPdf/*"/>
 '''  <param name="dirname">[in] - directory name containing images</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="res">[in] - input resolution of all images</param>
@@ -766,6 +784,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertNumberedMasksToBoxaa/*"/>
 '''  <param name="dirname">[in] - directory name containing mask images</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="numpre">[in] - number of characters in name before number</param>
@@ -833,6 +852,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertToPdfSegmented/*"/>
 '''  <param name="filein">[in] - input image file -- any format</param>
 '''  <param name="res">[in] - input image resolution typ. 300 ppi use 0 for default</param>
 '''  <param name="type">[in] - compression type for non-image regions the image regions are always compressed with L_JPEG_ENCODE</param>
@@ -874,6 +894,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertToPdfSegmented/*"/>
 '''  <param name="pixs">[in] - any depth, cmap OK</param>
 '''  <param name="res">[in] - input image resolution typ. 300 ppi use 0 for default</param>
 '''  <param name="type">[in] - compression type for non-image regions the image regions are always compressed with L_JPEG_ENCODE</param>
@@ -917,6 +938,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertToPdfDataSegmented/*"/>
 '''  <param name="filein">[in] - input image file -- any format</param>
 '''  <param name="res">[in] - input image resolution typ. 300 ppi use 0 for default</param>
 '''  <param name="type">[in] - compression type for non-image regions the image regions are always compressed with L_JPEG_ENCODE</param>
@@ -961,6 +983,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertToPdfDataSegmented/*"/>
 '''  <param name="pixs">[in] - any depth, cmap OK</param>
 '''  <param name="res">[in] - input image resolution typ. 300 ppi use 0 for default</param>
 '''  <param name="type">[in] - compression type for non-image regions the image regions are always compressed with L_JPEG_ENCODE</param>
@@ -1011,6 +1034,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/concatenatePdf/*"/>
 '''  <param name="dirname">[in] - directory name containing single-page pdf files</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="fileout">[in] - concatenated pdf file</param>
@@ -1038,6 +1062,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/saConcatenatePdf/*"/>
 '''  <param name="sa">[in] - string array of pathnames for single-page pdf files</param>
 '''  <param name="fileout">[in] - concatenated pdf file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1063,6 +1088,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraConcatenatePdf/*"/>
 '''  <param name="pa">[in] - array of pdf strings, each for a single-page pdf file</param>
 '''  <param name="fileout">[in] - concatenated pdf file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1094,6 +1120,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/concatenatePdfToData/*"/>
 '''  <param name="dirname">[in] - directory name containing single-page pdf files</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="pdata">[out] - concatenated pdf data in memory</param>
@@ -1125,6 +1152,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/saConcatenatePdfToData/*"/>
 '''  <param name="sa">[in] - string array of pathnames for single-page pdf files</param>
 '''  <param name="pdata">[out] - concatenated pdf data in memory</param>
 '''  <param name="pnbytes">[out] - number of bytes in pdf data</param>

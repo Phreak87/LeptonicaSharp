@@ -53,6 +53,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCorrelationScore/*"/>
 '''  <param name="pix1">[in] - test pix, 1 bpp</param>
 '''  <param name="pix2">[in] - exemplar pix, 1 bpp</param>
 '''  <param name="area1">[in] - number of on pixels in pix1</param>
@@ -122,6 +123,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCorrelationScoreThresholded/*"/>
 '''  <param name="pix1">[in] - test pix, 1 bpp</param>
 '''  <param name="pix2">[in] - exemplar pix, 1 bpp</param>
 '''  <param name="area1">[in] - number of on pixels in pix1</param>
@@ -170,6 +172,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCorrelationScoreSimple/*"/>
 '''  <param name="pix1">[in] - test pix, 1 bpp</param>
 '''  <param name="pix2">[in] - exemplar pix, 1 bpp</param>
 '''  <param name="area1">[in] - number of on pixels in pix1</param>
@@ -227,6 +230,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCorrelationScoreShifted/*"/>
 '''  <param name="pix1">[in] - 1 bpp</param>
 '''  <param name="pix2">[in] - 1 bpp</param>
 '''  <param name="area1">[in] - number of on pixels in pix1</param>

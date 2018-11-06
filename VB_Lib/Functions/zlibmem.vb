@@ -21,6 +21,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/zlibCompress/*"/>
 '''  <param name="datain">[in] - byte buffer with input data</param>
 '''  <param name="nin">[in] - number of bytes of input data</param>
 '''  <param name="pnout">[out] - number of bytes of output data</param>
@@ -47,6 +48,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/zlibUncompress/*"/>
 '''  <param name="datain">[in] - byte buffer with compressed input data</param>
 '''  <param name="nin">[in] - number of bytes of input data</param>
 '''  <param name="pnout">[out] - number of bytes of output data</param>

@@ -18,6 +18,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaccCreate/*"/>
 '''  <param name="w">[in] - of 32 bpp internal Pix</param>
 '''  <param name="h">[in] - of 32 bpp internal Pix</param>
 '''  <param name="negflag">[in] - 0 if only positive numbers are involved 1 if there will be negative numbers</param>
@@ -43,6 +44,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaccCreateFromPix/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="negflag">[in] - 0 if only positive numbers are involved 1 if there will be negative numbers</param>
 '''   <returns>pixacc, or NULL on error</returns>
@@ -68,6 +70,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaccDestroy/*"/>
 '''  <param name="ppixacc">[in,out] - to be nulled</param>
 Public Shared Sub pixaccDestroy(
 				 ByRef ppixacc as Pixacc)
@@ -84,6 +87,7 @@ End Sub
 ' pixaccFinal(PIXACC *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaccFinal/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''  <param name="outdepth">[in] - 8, 16 or 32 bpp</param>
 '''   <returns>pixd 8 , 16 or 32 bpp, or NULL on error</returns>
@@ -104,6 +108,7 @@ End Function
 ' pixaccGetPix(PIXACC *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaccGetPix/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''   <returns>pix, or NULL on error</returns>
 Public Shared Function pixaccGetPix(
@@ -122,6 +127,7 @@ End Function
 ' pixaccGetOffset(PIXACC *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaccGetOffset/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''   <returns>offset, or -1 on error</returns>
 Public Shared Function pixaccGetOffset(
@@ -139,6 +145,7 @@ End Function
 ' pixaccAdd(PIXACC *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaccAdd/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''  <param name="pix">[in] - to be added</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -159,6 +166,7 @@ End Function
 ' pixaccSubtract(PIXACC *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaccSubtract/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''  <param name="pix">[in] - to be subtracted</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -179,6 +187,7 @@ End Function
 ' pixaccMultConst(PIXACC *, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaccMultConst/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''  <param name="factor">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -204,6 +213,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaccMultConstAccumulate/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="factor">[in] - </param>

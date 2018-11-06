@@ -68,6 +68,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMorphSequence/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is lower  0: pdf output abs(dispsep) is used for naming</param>
@@ -122,6 +123,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMorphCompSequence/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is lower  0: pdf output abs(dispsep) is used for naming</param>
@@ -157,6 +159,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMorphSequenceDwa/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is lower  0: pdf output abs(dispsep) is used for naming</param>
@@ -192,6 +195,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMorphCompSequenceDwa/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is lower  0: pdf output abs(dispsep) is used for naming</param>
@@ -223,6 +227,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/morphSequenceVerify/*"/>
 '''  <param name="sa">[in] - string array of operation sequence</param>
 '''   <returns>TRUE if valid FALSE otherwise or on error</returns>
 Public Shared Function morphSequenceVerify(
@@ -274,6 +279,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGrayMorphSequence/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is lower  0: pdf output abs(dispsep) is used for naming</param>
@@ -328,6 +334,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorMorphSequence/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is lower  0: pdf output abs(dispsep) is used for naming</param>

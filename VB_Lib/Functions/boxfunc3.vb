@@ -15,6 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMaskConnComp/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''  <param name="pboxa">[out][optional] - bounding boxes of c.c.</param>
@@ -59,6 +60,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMaskBoxa/*"/>
 '''  <param name="pixd">[in][optional] - may be NULL</param>
 '''  <param name="pixs">[in] - any depth not cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to paint</param>
@@ -103,6 +105,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixPaintBoxa/*"/>
 '''  <param name="pixs">[in] - any depth, can be cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to paint</param>
 '''  <param name="val">[in] - rgba color to paint</param>
@@ -126,6 +129,7 @@ End Function
 ' pixSetBlackOrWhiteBoxa(PIX *, BOXA *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetBlackOrWhiteBoxa/*"/>
 '''  <param name="pixs">[in] - any depth, can be cmapped</param>
 '''  <param name="boxa">[in][optional] - of boxes, to clear or set</param>
 '''  <param name="op">[in] - L_SET_BLACK, L_SET_WHITE</param>
@@ -158,6 +162,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixPaintBoxaRandom/*"/>
 '''  <param name="pixs">[in] - any depth, can be cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to paint</param>
 '''   <returns>pixd with painted boxes, or NULL on error</returns>
@@ -189,6 +194,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendBoxaRandom/*"/>
 '''  <param name="pixs">[in] - any depth can be cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to blend/paint</param>
 '''  <param name="fract">[in] - of box color to use</param>
@@ -219,6 +225,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDrawBoxa/*"/>
 '''  <param name="pixs">[in] - any depth can be cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to draw</param>
 '''  <param name="width">[in] - of lines</param>
@@ -252,6 +259,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDrawBoxaRandom/*"/>
 '''  <param name="pixs">[in] - any depth, can be cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to draw</param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -287,6 +295,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaDisplay/*"/>
 '''  <param name="pixs">[in][optional] - 1 bpp</param>
 '''  <param name="baa">[in] - boxaa, typically from a 2d sort</param>
 '''  <param name="linewba">[in] - line width to display outline of each boxa</param>
@@ -335,6 +344,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayBoxaa/*"/>
 '''  <param name="pixas">[in] - any depth, can be cmapped</param>
 '''  <param name="baa">[in] - boxes to draw on input pixa</param>
 '''  <param name="colorflag">[in] - (L_DRAW_RED, L_DRAW_GREEN, etc)</param>
@@ -382,6 +392,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSplitIntoBoxa/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="minsum">[in] - minimum pixels to trigger propagation</param>
 '''  <param name="skipdist">[in] - distance before computing sum for propagation</param>
@@ -470,6 +481,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSplitComponentIntoBoxa/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="box">[in][optional] - location of pix w/rt an origin</param>
 '''  <param name="minsum">[in] - minimum pixels to trigger propagation</param>
@@ -517,6 +529,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeMosaicStrips/*"/>
 '''  <param name="w">[in] - </param>
 '''  <param name="h">[in] - </param>
 '''  <param name="direction">[in] - L_SCAN_HORIZONTAL or L_SCAN_VERTICAL</param>
@@ -559,6 +572,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaCompareRegions/*"/>
 '''  <param name="boxa1">[in] - </param>
 '''  <param name="boxa2">[in] - </param>
 '''  <param name="areathresh">[in] - minimum area of boxes to be considered</param>
@@ -608,6 +622,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSelectLargeULComp/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="areaslop">[in] - fraction near but less than 1.0</param>
 '''  <param name="yslop">[in] - number of pixels in y direction</param>
@@ -639,6 +654,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSelectLargeULBox/*"/>
 '''  <param name="boxas">[in] - 1 bpp</param>
 '''  <param name="areaslop">[in] - fraction near but less than 1.0</param>
 '''  <param name="yslop">[in] - number of pixels in y direction</param>

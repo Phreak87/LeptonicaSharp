@@ -42,6 +42,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenerateSelWithRuns/*"/>
 '''  <param name="pixs">[in] - 1 bpp, typically small, to be used as a pattern</param>
 '''  <param name="nhlines">[in] - number of hor lines along which elements are found</param>
 '''  <param name="nvlines">[in] - number of vert lines along which elements are found</param>
@@ -100,6 +101,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenerateSelRandom/*"/>
 '''  <param name="pixs">[in] - 1 bpp, typically small, to be used as a pattern</param>
 '''  <param name="hitfract">[in] - fraction of allowable fg pixels that are hits</param>
 '''  <param name="missfract">[in] - fraction of allowable bg pixels that are misses</param>
@@ -163,6 +165,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenerateSelBoundary/*"/>
 '''  <param name="pixs">[in] - 1 bpp, typically small, to be used as a pattern</param>
 '''  <param name="hitdist">[in] - min distance from fg boundary pixel</param>
 '''  <param name="missdist">[in] - min distance from bg boundary pixel</param>
@@ -223,6 +226,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRunCentersOnLine/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="x">[in] - set one of these to -1 see notes</param>
 '''  <param name="y">[in] - set one of these to -1 see notes</param>
@@ -259,6 +263,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRunsOnLine/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="x1">[in] - </param>
 '''  <param name="y1">[in] - </param>
@@ -303,6 +308,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSubsampleBoundaryPixels/*"/>
 '''  <param name="pixs">[in] - 1 bpp, with only boundary pixels in fg</param>
 '''  <param name="skip">[in] - number to skip between samples as you traverse boundary</param>
 '''   <returns>pta, or NULL on error</returns>
@@ -329,6 +335,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/adjacentOnPixelInRaster/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="x">[in] - current pixel</param>
 '''  <param name="y">[in] - current pixel</param>
@@ -363,6 +370,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDisplayHitMissSel/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sel">[in] - hit-miss in general</param>
 '''  <param name="scalefactor">[in] - an integer  is greater = 1 use 0 for default</param>

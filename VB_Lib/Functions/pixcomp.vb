@@ -16,6 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcompCreateFromPix/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 '''   <returns>pixc, or NULL on error</returns>
@@ -43,6 +44,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcompCreateFromString/*"/>
 '''  <param name="data">[in] - compressed string</param>
 '''  <param name="size">[in] - number of bytes</param>
 '''  <param name="copyflag">[in] - L_INSERT or L_COPY</param>
@@ -73,6 +75,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcompCreateFromFile/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 '''   <returns>pixc, or NULL on error</returns>
@@ -100,6 +103,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcompDestroy/*"/>
 '''  <param name="ppixc">[in,out] - will be nulled</param>
 Public Shared Sub pixcompDestroy(
 				 ByRef ppixc as PixComp)
@@ -116,6 +120,7 @@ End Sub
 ' pixcompCopy(PIXC *) as PIXC *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcompCopy/*"/>
 '''  <param name="pixcs">[in] - </param>
 '''   <returns>pixcd, or NULL on error</returns>
 Public Shared Function pixcompCopy(
@@ -134,6 +139,7 @@ End Function
 ' pixcompGetDimensions(PIXC *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcompGetDimensions/*"/>
 '''  <param name="pixc">[in] - </param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -157,6 +163,7 @@ End Function
 ' pixcompGetParameters(PIXC *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcompGetParameters/*"/>
 '''  <param name="pixc">[in] - </param>
 '''  <param name="pxres">[out][all optional] - </param>
 '''  <param name="pyres">[out][all optional] - </param>
@@ -193,6 +200,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcompDetermineFormat/*"/>
 '''  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 '''  <param name="d">[in] - pix depth</param>
 '''  <param name="cmapflag">[in] - 1 if pix to be compressed as a colormap 0 otherwise</param>
@@ -214,6 +222,7 @@ End Function
 ' pixCreateFromPixcomp(PIXC *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCreateFromPixcomp/*"/>
 '''  <param name="pixc">[in] - </param>
 '''   <returns>pix, or NULL on error</returns>
 Public Shared Function pixCreateFromPixcomp(
@@ -232,6 +241,7 @@ End Function
 ' pixacompCreate(l_int32) as PIXAC *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompCreate/*"/>
 '''  <param name="n">[in] - initial number of ptrs</param>
 '''   <returns>pixac, or NULL on error</returns>
 Public Shared Function pixacompCreate(
@@ -276,6 +286,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompCreateWithInit/*"/>
 '''  <param name="n">[in] - initial number of ptrs</param>
 '''  <param name="offset">[in] - difference: accessor index - pixacomp array index</param>
 '''  <param name="pix">[in][optional] - initialize each ptr in pixacomp to this pix can be NULL</param>
@@ -312,6 +323,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompCreateFromPixa/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 '''  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
@@ -347,6 +359,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompCreateFromFiles/*"/>
 '''  <param name="dirname">[in] - </param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be null</param>
 '''  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
@@ -377,6 +390,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompCreateFromSA/*"/>
 '''  <param name="sa">[in] - full pathnames for all files</param>
 '''  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 '''   <returns>pixac, or NULL on error</returns>
@@ -402,6 +416,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompDestroy/*"/>
 '''  <param name="ppixac">[in,out] - to be nulled</param>
 Public Shared Sub pixacompDestroy(
 				 ByRef ppixac as PixaComp)
@@ -427,6 +442,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompAddPix/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="pix">[in] - to be added</param>
 '''  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
@@ -456,6 +472,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompAddPixcomp/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="pixc">[in] - to be added by insertion</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY</param>
@@ -486,6 +503,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompReplacePix/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''  <param name="pix">[in] - owned by the caller</param>
@@ -518,6 +536,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompReplacePixcomp/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''  <param name="pixc">[in] - to replace existing one, which is destroyed</param>
@@ -540,6 +559,7 @@ End Function
 ' pixacompAddBox(PIXAC *, BOX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompAddBox/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="box">[in] - </param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY</param>
@@ -562,6 +582,7 @@ End Function
 ' pixacompGetCount(PIXAC *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompGetCount/*"/>
 '''  <param name="pixac">[in] - </param>
 '''   <returns>count, or 0 if no pixa</returns>
 Public Shared Function pixacompGetCount(
@@ -587,6 +608,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompGetPixcomp/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''  <param name="copyflag">[in] - L_NOCOPY, L_COPY</param>
@@ -615,6 +637,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompGetPix/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -641,6 +664,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompGetPixDimensions/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''  <param name="pw">[out][optional] - each can be null</param>
@@ -666,6 +690,7 @@ End Function
 ' pixacompGetBoxa(PIXAC *, l_int32) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompGetBoxa/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
 '''   <returns>boxa, or NULL on error</returns>
@@ -686,6 +711,7 @@ End Function
 ' pixacompGetBoxaCount(PIXAC *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompGetBoxaCount/*"/>
 '''  <param name="pixac">[in] - </param>
 '''   <returns>count, or 0 on error</returns>
 Public Shared Function pixacompGetBoxaCount(
@@ -717,6 +743,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompGetBox/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''  <param name="accesstype">[in] - L_COPY or L_CLONE</param>
@@ -745,6 +772,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompGetBoxGeometry/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''  <param name="px">[out][optional] - each can be null</param>
@@ -779,6 +807,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompGetOffset/*"/>
 '''  <param name="pixac">[in] - </param>
 '''   <returns>offset, or 0 on error</returns>
 Public Shared Function pixacompGetOffset(
@@ -803,6 +832,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompSetOffset/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="offset">[in] - non-negative</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -829,6 +859,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaCreateFromPixacomp/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE for boxa</param>
 '''   <returns>pixa if OK, or NULL on error</returns>
@@ -857,6 +888,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompJoin/*"/>
 '''  <param name="pixacd">[in] - dest pixac add to this one</param>
 '''  <param name="pixacs">[in][optional] - source pixac add from this one</param>
 '''  <param name="istart">[in] - starting index in pixacs</param>
@@ -888,6 +920,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompInterleave/*"/>
 '''  <param name="pixac1">[in] - first src pixac</param>
 '''  <param name="pixac2">[in] - second src pixac</param>
 '''   <returns>pixacd  interleaved from sources, or NULL on error.</returns>
@@ -916,6 +949,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>pixac, or NULL on error</returns>
 Public Shared Function pixacompRead(
@@ -936,6 +970,7 @@ End Function
 ' pixacompReadStream(FILE *) as PIXAC *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>pixac, or NULL on error</returns>
 Public Shared Function pixacompReadStream(
@@ -959,6 +994,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompReadMem/*"/>
 '''  <param name="data">[in] - const pixacomp format</param>
 '''  <param name="size">[in] - of data</param>
 '''   <returns>pixac, or NULL on error</returns>
@@ -986,6 +1022,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pixac">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1008,6 +1045,7 @@ End Function
 ' pixacompWriteStream(FILE *, PIXAC *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pixac">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1033,6 +1071,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompWriteMem/*"/>
 '''  <param name="pdata">[out] - serialized data of pixac</param>
 '''  <param name="psize">[out] - size of serialized data</param>
 '''  <param name="pixac">[in] - </param>
@@ -1073,6 +1112,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompConvertToPdf/*"/>
 '''  <param name="pixac">[in] - containing images all at the same resolution</param>
 '''  <param name="res">[in] - override the resolution of each input image, in ppi use 0 to respect the resolution embedded in the input</param>
 '''  <param name="scalefactor">[in] - scaling factor applied to each image  is greater  0.0</param>
@@ -1108,6 +1148,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompConvertToPdfData/*"/>
 '''  <param name="pixac">[in] - containing images all at the same resolution</param>
 '''  <param name="res">[in] - input resolution of all images</param>
 '''  <param name="scalefactor">[in] - scaling factor applied to each image  is greater  0.0</param>
@@ -1151,6 +1192,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompFastConvertToPdfData/*"/>
 '''  <param name="pixac">[in] - containing images all at the same resolution</param>
 '''  <param name="title">[in][optional] - pdf title</param>
 '''  <param name="pdata">[out] - output pdf data (of all images</param>
@@ -1177,6 +1219,7 @@ End Function
 ' pixacompWriteStreamInfo(FILE *, PIXAC *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompWriteStreamInfo/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="text">[in][optional] - identifying string can be null</param>
@@ -1199,6 +1242,7 @@ End Function
 ' pixcompWriteStreamInfo(FILE *, PIXC *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcompWriteStreamInfo/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pixc">[in] - </param>
 '''  <param name="text">[in][optional] - identifying string can be null</param>
@@ -1229,6 +1273,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompDisplayTiledAndScaled/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="outdepth">[in] - output depth: 1, 8 or 32 bpp</param>
 '''  <param name="tilewidth">[in] - each pix is scaled to this width</param>
@@ -1259,6 +1304,7 @@ End Function
 ' pixacompWriteFiles(PIXAC *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompWriteFiles/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="subdir">[in] - (subdirectory of /tmp)</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1285,6 +1331,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcompWriteFile/*"/>
 '''  <param name="rootname">[in] - </param>
 '''  <param name="pixc">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>

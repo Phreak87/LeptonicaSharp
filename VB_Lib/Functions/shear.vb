@@ -36,6 +36,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHShear/*"/>
 '''  <param name="pixd">[in][optional] - , this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - no restrictions on depth</param>
 '''  <param name="yloc">[in] - location of horizontal line, measured from origin</param>
@@ -92,6 +93,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixVShear/*"/>
 '''  <param name="pixd">[in][optional] - , this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - no restrictions on depth</param>
 '''  <param name="xloc">[in] - location of vertical line, measured from origin</param>
@@ -127,6 +129,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHShearCorner/*"/>
 '''  <param name="pixd">[in][optional] - , if not null, must be equal to pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="radang">[in] - angle in radians</param>
@@ -160,6 +163,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixVShearCorner/*"/>
 '''  <param name="pixd">[in][optional] - , if not null, must be equal to pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="radang">[in] - angle in radians</param>
@@ -193,6 +197,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHShearCenter/*"/>
 '''  <param name="pixd">[in][optional] - , if not null, must be equal to pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="radang">[in] - angle in radians</param>
@@ -226,6 +231,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixVShearCenter/*"/>
 '''  <param name="pixd">[in][optional] - , if not null, must be equal to pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="radang">[in] - angle in radians</param>
@@ -262,6 +268,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHShearIP/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="yloc">[in] - location of horizontal line, measured from origin</param>
 '''  <param name="radang">[in] - angle in radians</param>
@@ -295,6 +302,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixVShearIP/*"/>
 '''  <param name="pixs">[in] - all depths not colormapped</param>
 '''  <param name="xloc">[in] - location of vertical line, measured from origin</param>
 '''  <param name="radang">[in] - angle in radians</param>
@@ -333,6 +341,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHShearLI/*"/>
 '''  <param name="pixs">[in] - 8 bpp or 32 bpp, or colormapped</param>
 '''  <param name="yloc">[in] - location of horizontal line, measured from origin</param>
 '''  <param name="radang">[in] - angle in radians, in range (-pi/2 ... pi/2)</param>
@@ -372,6 +381,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixVShearLI/*"/>
 '''  <param name="pixs">[in] - 8 bpp or 32 bpp, or colormapped</param>
 '''  <param name="xloc">[in] - location of vertical line, measured from origin</param>
 '''  <param name="radang">[in] - angle in radians, in range (-pi/2 ... pi/2)</param>

@@ -8,6 +8,7 @@ Partial Public Class _All
 ' pixRotateOrth(PIX *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateOrth/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="quads">[in] - 0-3 number of 90 degree cw rotations</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -44,6 +45,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotate180/*"/>
 '''  <param name="pixd">[in][optional] - can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - all depths</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -73,6 +75,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotate90/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="direction">[in] - 1 = clockwise,  -1 = counter-clockwise</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -128,6 +131,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFlipLR/*"/>
 '''  <param name="pixd">[in][optional] - can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - all depths</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -170,6 +174,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFlipTB/*"/>
 '''  <param name="pixd">[in][optional] - can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - all depths</param>
 '''   <returns>pixd, or NULL on error</returns>

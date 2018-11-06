@@ -30,6 +30,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixEqual/*"/>
 '''  <param name="pix1">[in] - </param>
 '''  <param name="pix2">[in] - </param>
 '''  <param name="psame">[out] - 1 if same 0 if different</param>
@@ -60,6 +61,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixEqualWithAlpha/*"/>
 '''  <param name="pix1">[in] - </param>
 '''  <param name="pix2">[in] - </param>
 '''  <param name="use_alpha">[in] - 1 to compare alpha in RGBA 0 to ignore</param>
@@ -96,6 +98,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixEqualWithCmap/*"/>
 '''  <param name="pix1">[in] - </param>
 '''  <param name="pix2">[in] - </param>
 '''  <param name="psame">[out] - </param>
@@ -125,6 +128,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/cmapEqual/*"/>
 '''  <param name="cmap1">[in] - </param>
 '''  <param name="cmap2">[in] - </param>
 '''  <param name="ncomps">[in] - 3 for RGB, 4 for RGBA</param>
@@ -160,6 +164,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUsesCmapColor/*"/>
 '''  <param name="pixs">[in] - any depth, colormap</param>
 '''  <param name="pcolor">[out] - TRUE if color found</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -194,6 +199,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCorrelationBinary/*"/>
 '''  <param name="pix1">[in] - 1 bpp</param>
 '''  <param name="pix2">[in] - 1 bpp</param>
 '''  <param name="pval">[out] - correlation</param>
@@ -231,6 +237,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDisplayDiffBinary/*"/>
 '''  <param name="pix1">[in] - 1 bpp</param>
 '''  <param name="pix2">[in] - 1 bpp</param>
 '''   <returns>pixd 4 bpp cmapped, or NULL on error</returns>
@@ -263,6 +270,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCompareBinary/*"/>
 '''  <param name="pix1">[in] - 1 bpp</param>
 '''  <param name="pix2">[in] - 1 bpp</param>
 '''  <param name="comptype">[in] - L_COMPARE_XOR, L_COMPARE_SUBTRACT</param>
@@ -319,6 +327,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCompareGrayOrRGB/*"/>
 '''  <param name="pix1">[in] - 8 or 16 bpp gray, 32 bpp rgb, or colormapped</param>
 '''  <param name="pix2">[in] - 8 or 16 bpp gray, 32 bpp rgb, or colormapped</param>
 '''  <param name="comptype">[in] - L_COMPARE_SUBTRACT, L_COMPARE_ABS_DIFF</param>
@@ -362,6 +371,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCompareGray/*"/>
 '''  <param name="pix1">[in] - 8 or 16 bpp, not cmapped</param>
 '''  <param name="pix2">[in] - 8 or 16 bpp, not cmapped</param>
 '''  <param name="comptype">[in] - L_COMPARE_SUBTRACT, L_COMPARE_ABS_DIFF</param>
@@ -404,6 +414,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCompareRGB/*"/>
 '''  <param name="pix1">[in] - 32 bpp rgb</param>
 '''  <param name="pix2">[in] - 32 bpp rgb</param>
 '''  <param name="comptype">[in] - L_COMPARE_SUBTRACT, L_COMPARE_ABS_DIFF</param>
@@ -456,6 +467,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCompareTiled/*"/>
 '''  <param name="pix1">[in] - 8 bpp or 32 bpp rgb</param>
 '''  <param name="pix2">[in] - 8 bpp 32 bpp rgb</param>
 '''  <param name="sx">[in] - tile size must be  is greater  1 in each dimension</param>
@@ -505,6 +517,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCompareRankDifference/*"/>
 '''  <param name="pix1">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="pix2">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor use 0 or 1 for no subsampling</param>
@@ -560,6 +573,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTestForSimilarity/*"/>
 '''  <param name="pix1">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="pix2">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor use 0 or 1 for no subsampling</param>
@@ -620,6 +634,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetDifferenceStats/*"/>
 '''  <param name="pix1">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="pix2">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor use 0 or 1 for no subsampling</param>
@@ -661,6 +676,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetDifferenceHistogram/*"/>
 '''  <param name="pix1">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="pix2">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor use 0 or 1 for no subsampling</param>
@@ -718,6 +734,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetPerceptualDiff/*"/>
 '''  <param name="pixs1">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="pixs2">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="sampling">[in] - subsampling factor use 0 or 1 for no subsampling</param>
@@ -778,6 +795,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetPSNR/*"/>
 '''  <param name="pix1">[in] - 8 or 32 bpp no colormap</param>
 '''  <param name="pix2">[in] - 8 or 32 bpp no colormap</param>
 '''  <param name="factor">[in] - sampling factor  is greater = 1</param>
@@ -829,6 +847,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaComparePhotoRegionsByHisto/*"/>
 '''  <param name="pixa">[in] - any depth colormap OK</param>
 '''  <param name="minratio">[in] - requiring sizes be compatible  is lower  1.0</param>
 '''  <param name="textthresh">[in] - threshold for text/photo use 0 for default</param>
@@ -911,6 +930,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixComparePhotoRegionsByHisto/*"/>
 '''  <param name="pix1">[in] - any depth colormap OK</param>
 '''  <param name="pix2">[in] - any depth colormap OK</param>
 '''  <param name="box1">[in][optional] - photo regions from each can be null</param>
@@ -966,6 +986,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenPhotoHistos/*"/>
 '''  <param name="pixs">[in] - depth  is greater  1 bpp colormap OK</param>
 '''  <param name="box">[in][optional] - region to be selected can be null</param>
 '''  <param name="factor">[in] - subsampling  is greater = 1</param>
@@ -1013,6 +1034,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixPadToCenterCentroid/*"/>
 '''  <param name="pixs">[in] - any depth, colormap OK</param>
 '''  <param name="factor">[in] - subsampling for centroid  is greater = 1</param>
 '''   <returns>pixd padded with white pixels, or NULL on error.</returns>
@@ -1042,6 +1064,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCentroid8/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="factor">[in] - subsampling factor  is greater = 1</param>
 '''  <param name="pcx">[out] - x value of centroid</param>
@@ -1083,6 +1106,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDecideIfPhotoImage/*"/>
 '''  <param name="pix">[in] - 8 bpp, centroid in center</param>
 '''  <param name="factor">[in] - subsampling for histograms  is greater = 1</param>
 '''  <param name="nx">[in] - number of subregions to use for histograms</param>
@@ -1128,6 +1152,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/compareTilesByHisto/*"/>
 '''  <param name="naa1">[in] - each is a set of 256 entry histograms</param>
 '''  <param name="naa2">[in] - each is a set of 256 entry histograms</param>
 '''  <param name="minratio">[in] - requiring image sizes be compatible  is lower  1.0</param>
@@ -1214,6 +1239,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCompareGrayByHisto/*"/>
 '''  <param name="pix1">[in] - any depth colormap OK</param>
 '''  <param name="pix2">[in] - any depth colormap OK</param>
 '''  <param name="box1">[in][optional] - region selected from each can be null</param>
@@ -1262,6 +1288,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCropAlignedToCentroid/*"/>
 '''  <param name="pix1">[in] - any depth colormap OK</param>
 '''  <param name="pix2">[in] - any depth colormap OK</param>
 '''  <param name="factor">[in] - subsampling  is greater = 1</param>
@@ -1306,6 +1333,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_compressGrayHistograms/*"/>
 '''  <param name="naa">[in] - set of 256-entry histograms</param>
 '''  <param name="w">[in] - size of image</param>
 '''  <param name="h">[in] - size of image</param>
@@ -1339,6 +1367,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_uncompressGrayHistograms/*"/>
 '''  <param name="bytea">[in] - byte array of size 8 + 256  N, N an integer</param>
 '''  <param name="size">[in] - size of byte array</param>
 '''  <param name="pw">[out] - width of the image that generated the histograms</param>
@@ -1382,6 +1411,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCompareWithTranslation/*"/>
 '''  <param name="pix1">[in] - any depth colormap OK</param>
 '''  <param name="pix2">[in] - any depth colormap OK</param>
 '''  <param name="thresh">[in] - threshold for converting to 1 bpp</param>
@@ -1433,6 +1463,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBestCorrelation/*"/>
 '''  <param name="pix1">[in] - 1 bpp</param>
 '''  <param name="pix2">[in] - 1 bpp</param>
 '''  <param name="area1">[in] - number of on pixels in pix1</param>

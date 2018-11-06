@@ -23,6 +23,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetPixel/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="x">[in] - ,y    pixel coords</param>
 '''  <param name="pval">[out] - pixel value</param>
@@ -55,6 +56,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetPixel/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="x">[in] - ,y   pixel coords</param>
 '''  <param name="val">[in] - value to be inserted</param>
@@ -77,6 +79,7 @@ End Function
 ' pixGetRGBPixel(PIX *, l_int32, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRGBPixel/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb, not colormapped</param>
 '''  <param name="x">[in] - ,y    pixel coords</param>
 '''  <param name="prval">[out][optional] - red component</param>
@@ -105,6 +108,7 @@ End Function
 ' pixSetRGBPixel(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetRGBPixel/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="x">[in] - ,y    pixel coords</param>
 '''  <param name="rval">[in] - red component</param>
@@ -138,6 +142,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRandomPixel/*"/>
 '''  <param name="pix">[in] - any depth can be colormapped</param>
 '''  <param name="pval">[out][optional] - pixel value</param>
 '''  <param name="px">[out][optional] - x coordinate chosen can be null</param>
@@ -161,6 +166,7 @@ End Function
 ' pixClearPixel(PIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClearPixel/*"/>
 '''  <param name="pix">[in] - any depth warning if colormapped</param>
 '''  <param name="x">[in] - ,y   pixel coords</param>
 '''   <returns>0 if OK 1 on error.</returns>
@@ -181,6 +187,7 @@ End Function
 ' pixFlipPixel(PIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFlipPixel/*"/>
 '''  <param name="pix">[in] - any depth, warning if colormapped</param>
 '''  <param name="x">[in] - ,y   pixel coords</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -206,6 +213,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/setPixelLow/*"/>
 '''  <param name="line">[in] - ptr to beginning of line,</param>
 '''  <param name="x">[in] - pixel location in line</param>
 '''  <param name="depth">[in] - bpp</param>
@@ -237,6 +245,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetBlackOrWhiteVal/*"/>
 '''  <param name="pixs">[in] - all depths cmap ok</param>
 '''  <param name="op">[in] - L_GET_BLACK_VAL, L_GET_WHITE_VAL</param>
 '''  <param name="pval">[out] - pixel value</param>
@@ -266,6 +275,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClearAll/*"/>
 '''  <param name="pix">[in] - all depths use cmapped with caution</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixClearAll(
@@ -292,6 +302,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetAll/*"/>
 '''  <param name="pix">[in] - all depths use cmapped with caution</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixSetAll(
@@ -323,6 +334,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetAllGray/*"/>
 '''  <param name="pix">[in] - all depths, cmap ok</param>
 '''  <param name="grayval">[in] - in range 0 ... 255</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -364,6 +376,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetAllArbitrary/*"/>
 '''  <param name="pix">[in] - all depths use cmapped with caution</param>
 '''  <param name="val">[in] - value to set all pixels</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -393,6 +406,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetBlackOrWhite/*"/>
 '''  <param name="pixs">[in] - all depths cmap ok</param>
 '''  <param name="op">[in] - L_SET_BLACK, L_SET_WHITE</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -418,6 +432,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetComponentArbitrary/*"/>
 '''  <param name="pix">[in] - 32 bpp</param>
 '''  <param name="comp">[in] - COLOR_RED, COLOR_GREEN, COLOR_BLUE, L_ALPHA_CHANNEL</param>
 '''  <param name="val">[in] - value to set this component</param>
@@ -447,6 +462,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClearInRect/*"/>
 '''  <param name="pix">[in] - all depths can be cmapped</param>
 '''  <param name="box">[in] - in which all pixels will be cleared</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -476,6 +492,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetInRect/*"/>
 '''  <param name="pix">[in] - all depths, can be cmapped</param>
 '''  <param name="box">[in] - in which all pixels will be set</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -505,6 +522,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetInRectArbitrary/*"/>
 '''  <param name="pix">[in] - all depths can be cmapped</param>
 '''  <param name="box">[in] - in which all pixels will be set to val</param>
 '''  <param name="val">[in] - value to set all pixels</param>
@@ -534,6 +552,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendInRect/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="box">[in][optional] - in which all pixels will be blended</param>
 '''  <param name="val">[in] - blend value 0xrrggbb00</param>
@@ -582,6 +601,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetPadBits/*"/>
 '''  <param name="pix">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 '''  <param name="val">[in] - 0 or 1</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -615,6 +635,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetPadBitsBand/*"/>
 '''  <param name="pix">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 '''  <param name="by">[in] - starting y value of band</param>
 '''  <param name="bh">[in] - height of band</param>
@@ -652,6 +673,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetOrClearBorder/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="left">[in] - right, top, bot amount to set or clear</param>
 '''  <param name="op">[in] - operation PIX_SET or PIX_CLR</param>
@@ -690,6 +712,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetBorderVal/*"/>
 '''  <param name="pixs">[in] - 8, 16 or 32 bpp</param>
 '''  <param name="left">[in] - amount to set</param>
 '''  <param name="right">[in] - amount to set</param>
@@ -724,6 +747,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetBorderRingVal/*"/>
 '''  <param name="pixs">[in] - any depth cmap OK</param>
 '''  <param name="dist">[in] - distance from outside must be  is greater  0 first ring is 1</param>
 '''  <param name="val">[in] - value to set at each border pixel</param>
@@ -755,6 +779,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetMirroredBorder/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="left">[in] - number of pixels to set</param>
 '''  <param name="right">[in] - number of pixels to set</param>
@@ -791,6 +816,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCopyBorder/*"/>
 '''  <param name="pixd">[in] - all depths colormap ok can be NULL</param>
 '''  <param name="pixs">[in] - same depth and size as pixd</param>
 '''  <param name="left">[in] - number of pixels to copy</param>
@@ -825,6 +851,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddBorder/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="npix">[in] - number of pixels to be added to each side</param>
 '''  <param name="val">[in] - value of added border pixels</param>
@@ -864,6 +891,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddBlackOrWhiteBorder/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="left">[in] - number of pixels added</param>
 '''  <param name="right">[in] - number of pixels added</param>
@@ -916,6 +944,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddBorderGeneral/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="left">[in] - number of pixels added</param>
 '''  <param name="right">[in] - number of pixels added</param>
@@ -944,6 +973,7 @@ End Function
 ' pixRemoveBorder(PIX *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveBorder/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="npix">[in] - number to be removed from each of the 4 sides</param>
 '''   <returns>pixd with pixels removed around border, or NULL on error</returns>
@@ -964,6 +994,7 @@ End Function
 ' pixRemoveBorderGeneral(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveBorderGeneral/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="left">[in] - number of pixels removed</param>
 '''  <param name="right">[in] - number of pixels removed</param>
@@ -998,6 +1029,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveBorderToSize/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="wd">[in] - target width use 0 if only removing from height</param>
 '''  <param name="hd">[in] - target height use 0 if only removing from width</param>
@@ -1037,6 +1069,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddMirroredBorder/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="left">[in] - number of pixels added</param>
 '''  <param name="right">[in] - number of pixels added</param>
@@ -1072,6 +1105,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddRepeatedBorder/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="left">[in] - number of pixels added</param>
 '''  <param name="right">[in] - number of pixels added</param>
@@ -1117,6 +1151,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddMixedBorder/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="left">[in] - number of pixels added</param>
 '''  <param name="right">[in] - number of pixels added</param>
@@ -1149,6 +1184,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddContinuedBorder/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="left">[in] - pixels on each side to be added</param>
 '''  <param name="right">[in] - pixels on each side to be added</param>
@@ -1175,6 +1211,7 @@ End Function
 ' pixShiftAndTransferAlpha(PIX *, PIX *, l_float32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixShiftAndTransferAlpha/*"/>
 '''  <param name="pixd">[in] - 32 bpp</param>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="shiftx">[in] - </param>
@@ -1208,6 +1245,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDisplayLayersRGBA/*"/>
 '''  <param name="pixs">[in] - cmap or 32 bpp rgba</param>
 '''  <param name="val">[in] - 32 bit unsigned color to use as background</param>
 '''  <param name="maxw">[in] - max output image width 0 for no scaling</param>
@@ -1244,6 +1282,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCreateRGBImage/*"/>
 '''  <param name="pixr">[in] - 8 bpp red pix</param>
 '''  <param name="pixg">[in] - 8 bpp green pix</param>
 '''  <param name="pixb">[in] - 8 bpp blue pix</param>
@@ -1278,6 +1317,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRGBComponent/*"/>
 '''  <param name="pixs">[in] - 32 bpp, or colormapped</param>
 '''  <param name="comp">[in] - one of {COLOR_RED, COLOR_GREEN, COLOR_BLUE, L_ALPHA_CHANNEL}</param>
 '''   <returns>pixd the selected 8 bpp component image of the input 32 bpp image or NULL on error</returns>
@@ -1306,6 +1346,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetRGBComponent/*"/>
 '''  <param name="pixd">[in] - 32 bpp</param>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="comp">[in] - one of the set: {COLOR_RED, COLOR_GREEN, COLOR_BLUE, L_ALPHA_CHANNEL}</param>
@@ -1335,6 +1376,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRGBComponentCmap/*"/>
 '''  <param name="pixs">[in] - colormapped</param>
 '''  <param name="comp">[in] - one of the set: {COLOR_RED, COLOR_GREEN, COLOR_BLUE}</param>
 '''   <returns>pixd  the selected 8 bpp component image of the input cmapped image, or NULL on error</returns>
@@ -1361,6 +1403,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCopyRGBComponent/*"/>
 '''  <param name="pixd">[in] - 32 bpp</param>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="comp">[in] - one of the set: {COLOR_RED, COLOR_GREEN, COLOR_BLUE, L_ALPHA_CHANNEL}</param>
@@ -1394,6 +1437,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/composeRGBPixel/*"/>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>
@@ -1422,6 +1466,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/composeRGBAPixel/*"/>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>
@@ -1453,6 +1498,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/extractRGBValues/*"/>
 '''  <param name="pixel">[in] - 32 bit</param>
 '''  <param name="prval">[out][optional] - red component</param>
 '''  <param name="pgval">[out][optional] - green component</param>
@@ -1472,6 +1518,7 @@ End Sub
 ' extractRGBAValues(l_uint32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/extractRGBAValues/*"/>
 '''  <param name="pixel">[in] - 32 bit</param>
 '''  <param name="prval">[out][optional] - red component</param>
 '''  <param name="pgval">[out][optional] - green component</param>
@@ -1493,6 +1540,7 @@ End Sub
 ' extractMinMaxComponent(l_uint32, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/extractMinMaxComponent/*"/>
 '''  <param name="pixel">[in] - 32 bpp RGB</param>
 '''  <param name="type">[in] - L_CHOOSE_MIN or L_CHOOSE_MAX</param>
 '''   <returns>component in range [0 ... 255], or NULL on error</returns>
@@ -1516,6 +1564,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRGBLine/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="row">[in] - </param>
 '''  <param name="bufr">[in] - array of red samples size w bytes</param>
@@ -1562,6 +1611,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixEndianByteSwapNew/*"/>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixEndianByteSwapNew(
@@ -1596,6 +1646,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixEndianByteSwap/*"/>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixEndianByteSwap(
@@ -1625,6 +1676,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lineEndianByteSwap/*"/>
 '''  <param name="datad">[in] - dest byte array data, reordered on little-endians</param>
 '''  <param name="datas">[in] - a src line of pix data)</param>
 '''  <param name="wpl">[in] - number of 32 bit words in the line</param>
@@ -1663,6 +1715,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixEndianTwoByteSwapNew/*"/>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixEndianTwoByteSwapNew(
@@ -1690,6 +1743,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixEndianTwoByteSwap/*"/>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixEndianTwoByteSwap(
@@ -1715,6 +1769,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRasterData/*"/>
 '''  <param name="pixs">[in] - 1, 8, 32 bpp</param>
 '''  <param name="pdata">[out] - raster data in memory</param>
 '''  <param name="pnbytes">[out] - number of bytes in data string</param>
@@ -1741,6 +1796,7 @@ End Function
 ' pixAlphaIsOpaque(PIX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAlphaIsOpaque/*"/>
 '''  <param name="pix">[in] - 32 bpp, spp == 4</param>
 '''  <param name="popaque">[out] - 1 if spp == 4 and all alpha component values are 255 (opaque) 0 otherwise</param>
 '''   <returns>0 if OK, 1 on error Notes: 1) On error, opaque is returned as 0 (FALSE).</returns>
@@ -1778,6 +1834,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetupByteProcessing/*"/>
 '''  <param name="pix">[in] - 8 bpp, no colormap</param>
 '''  <param name="pw">[out][optional] - width</param>
 '''  <param name="ph">[out][optional] - height</param>
@@ -1808,6 +1865,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCleanupByteProcessing/*"/>
 '''  <param name="pix">[in] - 8 bpp, no colormap</param>
 '''  <param name="lineptrs">[in] - ptrs to the beginning of each raster line of data</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1846,6 +1904,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_setAlphaMaskBorder/*"/>
 '''  <param name="val1">[in] - in [0.0 ... 1.0]</param>
 '''  <param name="val2">[in] - in [0.0 ... 1.0]</param>
 Public Shared Sub l_setAlphaMaskBorder(

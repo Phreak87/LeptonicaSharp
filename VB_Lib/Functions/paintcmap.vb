@@ -26,6 +26,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetSelectCmap/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4 or 8 bpp, with colormap</param>
 '''  <param name="box">[in][optional] - region to set color can be NULL</param>
 '''  <param name="sindex">[in] - colormap index of pixels to be changed</param>
@@ -73,6 +74,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorGrayRegionsCmap/*"/>
 '''  <param name="pixs">[in] - 8 bpp, with colormap</param>
 '''  <param name="boxa">[in] - of regions in which to apply color</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
@@ -130,6 +132,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorGrayCmap/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp, with colormap</param>
 '''  <param name="box">[in][optional] - region to set color can be NULL</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
@@ -172,6 +175,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorGrayMaskedCmap/*"/>
 '''  <param name="pixs">[in] - 8 bpp, with colormap</param>
 '''  <param name="pixm">[in] - 1 bpp mask, through which to apply color</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
@@ -220,6 +224,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/addColorizedGrayToCmap/*"/>
 '''  <param name="cmap">[in] - from 2 or 4 bpp pix</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
 '''  <param name="rval">[in] - target color</param>
@@ -263,6 +268,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetSelectMaskedCmap/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp, with colormap</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask no-op if NULL</param>
 '''  <param name="x">[in] - UL corner of mask relative to pixs</param>
@@ -310,6 +316,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetMaskedCmap/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp, colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask no-op if NULL</param>
 '''  <param name="x">[in] - origin of pixm relative to pixs can be negative</param>

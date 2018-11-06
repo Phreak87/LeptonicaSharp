@@ -35,6 +35,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToHSV/*"/>
 '''  <param name="pixd">[in]can be NULL - if not NULL, must == pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd always</returns>
@@ -68,6 +69,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertHSVToRGB/*"/>
 '''  <param name="pixd">[in]can be NULL - if not NULL, must == pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd always</returns>
@@ -108,6 +110,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertRGBToHSV/*"/>
 '''  <param name="rval">[in] - RGB input</param>
 '''  <param name="gval">[in] - RGB input</param>
 '''  <param name="bval">[in] - RGB input</param>
@@ -139,6 +142,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertHSVToRGB/*"/>
 '''  <param name="hval">[in] - </param>
 '''  <param name="sval">[in] - </param>
 '''  <param name="vval">[in] - </param>
@@ -171,6 +175,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapConvertRGBToHSV/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcmapConvertRGBToHSV(
@@ -195,6 +200,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapConvertHSVToRGB/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcmapConvertHSVToRGB(
@@ -221,6 +227,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToHue/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB or 8 bpp with colormap</param>
 '''   <returns>pixd 8 bpp hue of HSV, or NULL on error</returns>
 Public Shared Function pixConvertRGBToHue(
@@ -247,6 +254,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToSaturation/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB or 8 bpp with colormap</param>
 '''   <returns>pixd 8 bpp sat of HSV, or NULL on error</returns>
 Public Shared Function pixConvertRGBToSaturation(
@@ -273,6 +281,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToValue/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB or 8 bpp with colormap</param>
 '''   <returns>pixd 8 bpp max component intensity of HSV, or NULL on error</returns>
 Public Shared Function pixConvertRGBToValue(
@@ -303,6 +312,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeRangeMaskHS/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="huecenter">[in] - center value of hue range</param>
 '''  <param name="huehw">[in] - half-width of hue range</param>
@@ -345,6 +355,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeRangeMaskHV/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="huecenter">[in] - center value of hue range</param>
 '''  <param name="huehw">[in] - half-width of hue range</param>
@@ -386,6 +397,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeRangeMaskSV/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="satcenter">[in] - center value of saturation range</param>
 '''  <param name="sathw">[in] - half-width of saturation range</param>
@@ -426,6 +438,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeHistoHS/*"/>
 '''  <param name="pixs">[in] - HSV colorspace</param>
 '''  <param name="factor">[in] - subsampling factor integer</param>
 '''  <param name="pnahue">[out][optional] - hue histogram</param>
@@ -465,6 +478,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeHistoHV/*"/>
 '''  <param name="pixs">[in] - HSV colorspace</param>
 '''  <param name="factor">[in] - subsampling factor integer</param>
 '''  <param name="pnahue">[out][optional] - hue histogram</param>
@@ -504,6 +518,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeHistoSV/*"/>
 '''  <param name="pixs">[in] - HSV colorspace</param>
 '''  <param name="factor">[in] - subsampling factor integer</param>
 '''  <param name="pnasat">[out][optional] - sat histogram</param>
@@ -546,6 +561,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindHistoPeaksHSV/*"/>
 '''  <param name="pixs">[in] - 32 bpp HS, HV or SV histogram not changed</param>
 '''  <param name="type">[in] - L_HS_HISTO, L_HV_HISTO or L_SV_HISTO</param>
 '''  <param name="width">[in] - half width of sliding window</param>
@@ -592,6 +608,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/displayHSVColorRange/*"/>
 '''  <param name="hval">[in] - hue center value in range [0 ... 240]</param>
 '''  <param name="sval">[in] - saturation center value in range [0 ... 255]</param>
 '''  <param name="vval">[in] - max intensity value in range [0 ... 255]</param>
@@ -640,6 +657,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToYUV/*"/>
 '''  <param name="pixd">[in]can be NULL - if not NULL, must == pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd always</returns>
@@ -672,6 +690,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertYUVToRGB/*"/>
 '''  <param name="pixd">[in]can be NULL - if not NULL, must == pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd always</returns>
@@ -702,6 +721,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertRGBToYUV/*"/>
 '''  <param name="rval">[in] - RGB input</param>
 '''  <param name="gval">[in] - RGB input</param>
 '''  <param name="bval">[in] - RGB input</param>
@@ -739,6 +759,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertYUVToRGB/*"/>
 '''  <param name="yval">[in] - </param>
 '''  <param name="uval">[in] - </param>
 '''  <param name="vval">[in] - </param>
@@ -771,6 +792,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapConvertRGBToYUV/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcmapConvertRGBToYUV(
@@ -795,6 +817,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapConvertYUVToRGB/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcmapConvertYUVToRGB(
@@ -834,6 +857,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToXYZ/*"/>
 '''  <param name="pixs">[in] - rgb</param>
 '''   <returns>fpixa xyz</returns>
 Public Shared Function pixConvertRGBToXYZ(
@@ -859,6 +883,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaConvertXYZToRGB/*"/>
 '''  <param name="fpixa">[in] - three fpix: x,y,z</param>
 '''   <returns>pixd rgb</returns>
 Public Shared Function fpixaConvertXYZToRGB(
@@ -883,6 +908,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertRGBToXYZ/*"/>
 '''  <param name="rval">[in] - rgb input</param>
 '''  <param name="gval">[in] - rgb input</param>
 '''  <param name="bval">[in] - rgb input</param>
@@ -918,6 +944,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertXYZToRGB/*"/>
 '''  <param name="fxval">[in] - </param>
 '''  <param name="fyval">[in] - </param>
 '''  <param name="fzval">[in] - </param>
@@ -958,6 +985,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaConvertXYZToLAB/*"/>
 '''  <param name="fpixas">[in] - xyz</param>
 '''   <returns>fpixa lab</returns>
 Public Shared Function fpixaConvertXYZToLAB(
@@ -982,6 +1010,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaConvertLABToXYZ/*"/>
 '''  <param name="fpixas">[in] - lab</param>
 '''   <returns>fpixa xyz</returns>
 Public Shared Function fpixaConvertLABToXYZ(
@@ -1000,6 +1029,7 @@ End Function
 ' convertXYZToLAB(l_float32, l_float32, l_float32, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertXYZToLAB/*"/>
 '''  <param name="xval">[in] - xyz input</param>
 '''  <param name="yval">[in] - xyz input</param>
 '''  <param name="zval">[in] - xyz input</param>
@@ -1025,6 +1055,7 @@ End Function
 ' convertLABToXYZ(l_float32, l_float32, l_float32, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertLABToXYZ/*"/>
 '''  <param name="lval">[in] - </param>
 '''  <param name="aval">[in] - </param>
 '''  <param name="bval">[in] - </param>
@@ -1056,6 +1087,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToLAB/*"/>
 '''  <param name="pixs">[in] - rgb</param>
 '''   <returns>fpixa lab</returns>
 Public Shared Function pixConvertRGBToLAB(
@@ -1079,6 +1111,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaConvertLABToRGB/*"/>
 '''  <param name="fpixa">[in] - three fpix: l,a,b</param>
 '''   <returns>pixd rgb</returns>
 Public Shared Function fpixaConvertLABToRGB(
@@ -1103,6 +1136,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertRGBToLAB/*"/>
 '''  <param name="rval">[in] - rgb input</param>
 '''  <param name="gval">[in] - rgb input</param>
 '''  <param name="bval">[in] - rgb input</param>
@@ -1134,6 +1168,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertLABToRGB/*"/>
 '''  <param name="flval">[in] - </param>
 '''  <param name="faval">[in] - </param>
 '''  <param name="fbval">[in] - </param>

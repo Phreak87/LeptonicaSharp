@@ -15,6 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarraySort/*"/>
 '''  <param name="saout">[in] - output sarray can be NULL or equal to sain</param>
 '''  <param name="sain">[in] - input sarray</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
@@ -38,6 +39,7 @@ End Function
 ' sarraySortByIndex(SARRAY *, NUMA *) as SARRAY *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarraySortByIndex/*"/>
 '''  <param name="sain">[in] - </param>
 '''  <param name="naindex">[in] - na that maps from the new sarray to the input sarray</param>
 '''   <returns>saout sorted, or NULL on error</returns>
@@ -65,6 +67,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringCompareLexical/*"/>
 '''  <param name="str1">[in] - </param>
 '''  <param name="str2">[in] - </param>
 '''   <returns>1 if str1  is greater  str2 lexically 0 otherwise</returns>
@@ -95,6 +98,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayUnionByAset/*"/>
 '''  <param name="sa1">[in] - </param>
 '''  <param name="sa2">[in] - </param>
 '''   <returns>sad with the union of the string set, or NULL on error</returns>
@@ -126,6 +130,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayRemoveDupsByAset/*"/>
 '''  <param name="sas">[in] - </param>
 '''   <returns>sad with duplicates removed, or NULL on error</returns>
 Public Shared Function sarrayRemoveDupsByAset(
@@ -156,6 +161,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayIntersectionByAset/*"/>
 '''  <param name="sa1">[in] - </param>
 '''  <param name="sa2">[in] - </param>
 '''   <returns>sad with the intersection of the string set, or NULL on error</returns>
@@ -177,6 +183,7 @@ End Function
 ' l_asetCreateFromSarray(SARRAY *) as L_ASET *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetCreateFromSarray/*"/>
 '''  <param name="sa">[in] - </param>
 '''   <returns>set using a string hash into a uint64 as the key</returns>
 Public Shared Function l_asetCreateFromSarray(
@@ -209,6 +216,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayRemoveDupsByHash/*"/>
 '''  <param name="sas">[in] - </param>
 '''  <param name="psad">[out] - unique set of strings duplicates removed</param>
 '''  <param name="pdahash">[out][optional] - dnahash used for lookup</param>
@@ -241,6 +249,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayIntersectionByHash/*"/>
 '''  <param name="sa1">[in] - </param>
 '''  <param name="sa2">[in] - </param>
 '''   <returns>sad intersection of the strings, or NULL on error</returns>
@@ -276,6 +285,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayFindStringByHash/*"/>
 '''  <param name="sa">[in] - </param>
 '''  <param name="dahash">[in] - built from sa</param>
 '''  <param name="str">[in] - arbitrary string</param>
@@ -301,6 +311,7 @@ End Function
 ' l_dnaHashCreateFromSarray(SARRAY *) as L_DNAHASH *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashCreateFromSarray/*"/>
 '''  <param name="sa">[in] - </param>
 '''   <returns>dahash, or NULL on error</returns>
 Public Shared Function l_dnaHashCreateFromSarray(
@@ -319,6 +330,7 @@ End Function
 ' sarrayGenerateIntegers(l_int32) as SARRAY *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayGenerateIntegers/*"/>
 '''  <param name="n">[in] - </param>
 '''   <returns>sa  (of printed numbers, 1 - n, or NULL on error</returns>
 Public Shared Function sarrayGenerateIntegers(
@@ -346,6 +358,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayLookupCSKV/*"/>
 '''  <param name="sa">[in] - (of strings, each being a comma-separated pair of strings, the first being a key and the second a value)</param>
 '''  <param name="keystring">[in] - (an input string to match with each key in %sa</param>
 '''  <param name="pvalstring">[out] - (the returned value string corresponding to the input key string, if found otherwise NULL)</param>

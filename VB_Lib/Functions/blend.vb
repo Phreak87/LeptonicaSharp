@@ -14,6 +14,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlend/*"/>
 '''  <param name="pixs1">[in] - blendee</param>
 '''  <param name="pixs2">[in] - blender typ. smaller</param>
 '''  <param name="x">[in] - ,y  origin [UL corner] of pixs2 relative to the origin of pixs1 can be  is lower  0</param>
@@ -53,6 +54,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendMask/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs1 for in-place</param>
 '''  <param name="pixs1">[in] - blendee, depth  is greater  1</param>
 '''  <param name="pixs2">[in] - blender, 1 bpp typ. smaller in size than pixs1</param>
@@ -111,6 +113,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendGray/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs1 for in-place</param>
 '''  <param name="pixs1">[in] - blendee, depth  is greater  1</param>
 '''  <param name="pixs2">[in] - blender, any depth typ. smaller in size than pixs1</param>
@@ -171,6 +174,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendGrayInverse/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs1 for in-place</param>
 '''  <param name="pixs1">[in] - blendee, depth  is greater  1</param>
 '''  <param name="pixs2">[in] - blender, any depth typ. smaller in size than pixs1</param>
@@ -217,6 +221,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendColor/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs1 for in-place</param>
 '''  <param name="pixs1">[in] - blendee depth  is greater  1</param>
 '''  <param name="pixs2">[in] - blender, any depth typ. smaller in size than pixs1</param>
@@ -251,6 +256,7 @@ End Function
 ' pixBlendColorByChannel(PIX *, PIX *, PIX *, l_int32, l_int32, l_float32, l_float32, l_float32, l_int32, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendColorByChannel/*"/>
 '''   <returns></returns>
 Public Shared Function pixBlendColorByChannel(
 				 ByVal pixd as Pix, 
@@ -313,6 +319,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendGrayAdapt/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs1 for in-place</param>
 '''  <param name="pixs1">[in] - blendee, depth  is greater  1</param>
 '''  <param name="pixs2">[in] - blender, any depth typ. smaller in size than pixs1</param>
@@ -355,6 +362,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFadeWithGray/*"/>
 '''  <param name="pixs">[in] - colormapped or 8 bpp or 32 bpp</param>
 '''  <param name="pixb">[in] - 8 bpp blender</param>
 '''  <param name="factor">[in] - multiplicative factor to apply to blender value</param>
@@ -380,6 +388,7 @@ End Function
 ' pixBlendHardLight(PIX *, PIX *, PIX *, l_int32, l_int32, l_float32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendHardLight/*"/>
 '''   <returns></returns>
 Public Shared Function pixBlendHardLight(
 				 ByVal pixd as Pix, 
@@ -426,6 +435,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendCmap/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp, with colormap</param>
 '''  <param name="pixb">[in] - colormapped blender</param>
 '''  <param name="x">[in] - UL corner of blender relative to pixs</param>
@@ -476,6 +486,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendWithGrayMask/*"/>
 '''  <param name="pixs1">[in] - 8 bpp gray, rgb, rgba or colormapped</param>
 '''  <param name="pixs2">[in] - 8 bpp gray, rgb, rgba or colormapped</param>
 '''  <param name="pixg">[in][optional] - 8 bpp gray, for transparency of pixs2 can be null</param>
@@ -520,6 +531,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendBackgroundToColor/*"/>
 '''  <param name="pixd">[in]can be NULL - or pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="box">[in] - region for blending can be NULL)</param>
@@ -565,6 +577,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMultiplyByColor/*"/>
 '''  <param name="pixd">[in]can be NULL - or pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="box">[in] - region for filtering can be NULL)</param>
@@ -604,6 +617,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAlphaBlendUniform/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgba, with alpha</param>
 '''  <param name="color">[in] - 32 bit color in 0xrrggbb00 format</param>
 '''   <returns>pixd 32 bpp rgb: pixs blended over uniform color %color, a clone of pixs if no alpha, and NULL on error</returns>
@@ -639,6 +653,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddAlphaToBlend/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="fract">[in] - fade fraction in the alpha component</param>
 '''  <param name="invert">[in] - 1 to photometrically invert pixs</param>
@@ -673,6 +688,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetAlphaOverWhite/*"/>
 '''  <param name="pixs">[in] - colormapped or 32 bpp rgb no alpha</param>
 '''   <returns>pixd new pix with meaningful alpha component, or NULL on error</returns>
 Public Shared Function pixSetAlphaOverWhite(
@@ -700,6 +716,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixLinearEdgeFade/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp no colormap</param>
 '''  <param name="dir">[in] - L_FROM_LEFT, L_FROM_RIGHT, L_FROM_TOP, L_FROM_BOT</param>
 '''  <param name="fadeto">[in] - L_BLEND_TO_WHITE, L_BLEND_TO_BLACK</param>

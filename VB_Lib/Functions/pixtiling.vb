@@ -25,6 +25,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTilingCreate/*"/>
 '''  <param name="pixs">[in] - pix to be tiled any depth colormap OK</param>
 '''  <param name="nx">[in] - number of tiles across image</param>
 '''  <param name="ny">[in] - number of tiles down image</param>
@@ -55,6 +56,7 @@ End Function
 ' pixTilingDestroy(PIXTILING **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTilingDestroy/*"/>
 '''  <param name="ppt">[in,out] - will be set to null before returning</param>
 Public Shared Sub pixTilingDestroy(
 				 ByRef ppt as PixTiling)
@@ -71,6 +73,7 @@ End Sub
 ' pixTilingGetCount(PIXTILING *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTilingGetCount/*"/>
 '''  <param name="pt">[in] - pixtiling</param>
 '''  <param name="pnx">[out][optional] - nx can be null</param>
 '''  <param name="pny">[out][optional] - ny can be null</param>
@@ -92,6 +95,7 @@ End Function
 ' pixTilingGetSize(PIXTILING *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTilingGetSize/*"/>
 '''  <param name="pt">[in] - pixtiling</param>
 '''  <param name="pw">[out][optional] - tile width can be null</param>
 '''  <param name="ph">[out][optional] - tile height can be null</param>
@@ -113,6 +117,7 @@ End Function
 ' pixTilingGetTile(PIXTILING *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTilingGetTile/*"/>
 '''  <param name="pt">[in] - pixtiling</param>
 '''  <param name="i">[in] - tile row index</param>
 '''  <param name="j">[in] - tile column index</param>
@@ -144,6 +149,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTilingNoStripOnPaint/*"/>
 '''  <param name="pt">[in] - pixtiling</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixTilingNoStripOnPaint(
@@ -161,6 +167,7 @@ End Function
 ' pixTilingPaintTile(PIX *, l_int32, l_int32, PIX *, PIXTILING *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTilingPaintTile/*"/>
 '''  <param name="pixd">[in] - dest: paint tile onto this, without overlap</param>
 '''  <param name="i">[in] - tile row index</param>
 '''  <param name="j">[in] - tile column index</param>

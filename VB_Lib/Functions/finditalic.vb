@@ -30,6 +30,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixItalicWords/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="boxaw">[in][optional] - word bounding boxes can be NULL</param>
 '''  <param name="pixw">[in][optional] - word box mask can be NULL</param>

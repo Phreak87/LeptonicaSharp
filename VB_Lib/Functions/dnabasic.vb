@@ -8,6 +8,7 @@ Partial Public Class _All
 ' l_dnaCreate(l_int32) as L_DNA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaCreate/*"/>
 '''  <param name="n">[in] - size of number array to be alloc'd 0 for default</param>
 '''   <returns>da, or NULL on error</returns>
 Public Shared Function l_dnaCreate(
@@ -32,6 +33,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaCreateFromIArray/*"/>
 '''  <param name="iarray">[in] - integer</param>
 '''  <param name="size">[in] - of the array</param>
 '''   <returns>da, or NULL on error</returns>
@@ -59,6 +61,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaCreateFromDArray/*"/>
 '''  <param name="darray">[in] - float</param>
 '''  <param name="size">[in] - of the array</param>
 '''  <param name="copyflag">[in] - L_INSERT or L_COPY</param>
@@ -81,6 +84,7 @@ End Function
 ' l_dnaMakeSequence(l_float64, l_float64, l_int32) as L_DNA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaMakeSequence/*"/>
 '''  <param name="startval">[in] - </param>
 '''  <param name="increment">[in] - </param>
 '''  <param name="size">[in] - of sequence</param>
@@ -110,6 +114,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaDestroy/*"/>
 '''  <param name="pda">[in,out] - to be nulled if it exists</param>
 Public Shared Sub l_dnaDestroy(
 				 ByRef pda as L_Dna)
@@ -131,6 +136,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaCopy/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>copy of da, or NULL on error</returns>
 Public Shared Function l_dnaCopy(
@@ -149,6 +155,7 @@ End Function
 ' l_dnaClone(L_DNA *) as L_DNA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaClone/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>ptr to same da, or NULL on error</returns>
 Public Shared Function l_dnaClone(
@@ -174,6 +181,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaEmpty/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function l_dnaEmpty(
@@ -191,6 +199,7 @@ End Function
 ' l_dnaAddNumber(L_DNA *, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaAddNumber/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="val">[in] - float or int to be added stored as a float</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -219,6 +228,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaInsertNumber/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - location in da to insert new value</param>
 '''  <param name="val">[in] - float64 or integer to be added</param>
@@ -248,6 +258,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaRemoveNumber/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - element to be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -267,6 +278,7 @@ End Function
 ' l_dnaReplaceNumber(L_DNA *, l_int32, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaReplaceNumber/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - element to be replaced</param>
 '''  <param name="val">[in] - new value to replace old one</param>
@@ -289,6 +301,7 @@ End Function
 ' l_dnaGetCount(L_DNA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetCount/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>count, or 0 if no numbers or on error</returns>
 Public Shared Function l_dnaGetCount(
@@ -315,6 +328,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaSetCount/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="newcount">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -340,6 +354,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetDValue/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - into l_dna</param>
 '''  <param name="pval">[out] - double value 0.0 on error</param>
@@ -367,6 +382,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetIValue/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - into l_dna</param>
 '''  <param name="pival">[out] - integer value 0 on error</param>
@@ -388,6 +404,7 @@ End Function
 ' l_dnaSetValue(L_DNA *, l_int32, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaSetValue/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - to element to be set</param>
 '''  <param name="val">[in] - to set element</param>
@@ -410,6 +427,7 @@ End Function
 ' l_dnaShiftValue(L_DNA *, l_int32, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaShiftValue/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - to element to change relative to the current value</param>
 '''  <param name="diff">[in] - increment if diff  is greater  0 or decrement if diff  is lower  0</param>
@@ -445,6 +463,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetIArray/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>a copy of the bare internal array, integerized by rounding, or NULL on error</returns>
 Public Shared Function l_dnaGetIArray(
@@ -476,6 +495,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetDArray/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="copyflag">[in] - L_NOCOPY or L_COPY</param>
 '''   <returns>either the bare internal array or a copy of it, or NULL on error</returns>
@@ -495,6 +515,7 @@ End Function
 ' l_dnaGetRefcount(L_DNA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetRefcount/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>refcount, or UNDEF on error</returns>
 Public Shared Function l_dnaGetRefcount(
@@ -512,6 +533,7 @@ End Function
 ' l_dnaChangeRefcount(L_DNA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaChangeRefcount/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="delta">[in] - change to be applied</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -531,6 +553,7 @@ End Function
 ' l_dnaGetParameters(L_DNA *, l_float64 *, l_float64 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetParameters/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="pstartx">[out][optional] - startx</param>
 '''  <param name="pdelx">[out][optional] - delx</param>
@@ -552,6 +575,7 @@ End Function
 ' l_dnaSetParameters(L_DNA *, l_float64, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaSetParameters/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="startx">[in] - x value corresponding to da[0]</param>
 '''  <param name="delx">[in] - difference in x values for the situation where the elements of da correspond to the evaulation of a function at equal intervals of size %delx</param>
@@ -575,6 +599,7 @@ End Function
 ' l_dnaCopyParameters(L_DNA *, L_DNA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaCopyParameters/*"/>
 '''  <param name="dad">[in] - destination DNuma</param>
 '''  <param name="das">[in] - source DNuma</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -595,6 +620,7 @@ End Function
 ' l_dnaRead(const char *) as L_DNA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>da, or NULL on error</returns>
 Public Shared Function l_dnaRead(
@@ -620,6 +646,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>da, or NULL on error</returns>
 Public Shared Function l_dnaReadStream(
@@ -638,6 +665,7 @@ End Function
 ' l_dnaWrite(const char *, L_DNA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="da">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -660,6 +688,7 @@ End Function
 ' l_dnaWriteStream(FILE *, L_DNA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="da">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -680,6 +709,7 @@ End Function
 ' l_dnaaCreate(l_int32) as L_DNAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaCreate/*"/>
 '''  <param name="n">[in] - size of l_dna ptr array to be alloc'd 0 for default</param>
 '''   <returns>daa, or NULL on error</returns>
 Public Shared Function l_dnaaCreate(
@@ -704,6 +734,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaCreateFull/*"/>
 '''  <param name="nptr">[in] - : size of dna ptr array to be alloc'd</param>
 '''  <param name="n">[in] - : size of individual dna arrays to be alloc'd 0 for default</param>
 '''   <returns>daa, or NULL on error</returns>
@@ -729,6 +760,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaTruncate/*"/>
 '''  <param name="daa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function l_dnaaTruncate(
@@ -746,6 +778,7 @@ End Function
 ' l_dnaaDestroy(L_DNAA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaDestroy/*"/>
 '''  <param name="pdaa">[in,out] - to be nulled if it exists</param>
 Public Shared Sub l_dnaaDestroy(
 				 ByRef pdaa as L_Dnaa)
@@ -762,6 +795,7 @@ End Sub
 ' l_dnaaAddDna(L_DNAA *, L_DNA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaAddDna/*"/>
 '''  <param name="daa">[in] - </param>
 '''  <param name="da">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -784,6 +818,7 @@ End Function
 ' l_dnaaGetCount(L_DNAA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaGetCount/*"/>
 '''  <param name="daa">[in] - </param>
 '''   <returns>count number of l_dna, or 0 if no l_dna or on error</returns>
 Public Shared Function l_dnaaGetCount(
@@ -801,6 +836,7 @@ End Function
 ' l_dnaaGetDnaCount(L_DNAA *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaGetDnaCount/*"/>
 '''  <param name="daa">[in] - </param>
 '''  <param name="index">[in] - of l_dna in daa</param>
 '''   <returns>count of numbers in the referenced l_dna, or 0 on error.</returns>
@@ -820,6 +856,7 @@ End Function
 ' l_dnaaGetNumberCount(L_DNAA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaGetNumberCount/*"/>
 '''  <param name="daa">[in] - </param>
 '''   <returns>count total number of numbers in the l_dnaa, or 0 if no numbers or on error</returns>
 Public Shared Function l_dnaaGetNumberCount(
@@ -837,6 +874,7 @@ End Function
 ' l_dnaaGetDna(L_DNAA *, l_int32, l_int32) as L_DNA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaGetDna/*"/>
 '''  <param name="daa">[in] - </param>
 '''  <param name="index">[in] - to the index-th l_dna</param>
 '''  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
@@ -866,6 +904,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaReplaceDna/*"/>
 '''  <param name="daa">[in] - </param>
 '''  <param name="index">[in] - to the index-th l_dna</param>
 '''  <param name="da">[in] - insert and replace any existing one</param>
@@ -888,6 +927,7 @@ End Function
 ' l_dnaaGetValue(L_DNAA *, l_int32, l_int32, l_float64 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaGetValue/*"/>
 '''  <param name="daa">[in] - </param>
 '''  <param name="i">[in] - index of l_dna within l_dnaa</param>
 '''  <param name="j">[in] - index into l_dna</param>
@@ -916,6 +956,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaAddNumber/*"/>
 '''  <param name="daa">[in] - </param>
 '''  <param name="index">[in] - of l_dna within l_dnaa</param>
 '''  <param name="val">[in] - number to be added stored as a double</param>
@@ -938,6 +979,7 @@ End Function
 ' l_dnaaRead(const char *) as L_DNAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>daa, or NULL on error</returns>
 Public Shared Function l_dnaaRead(
@@ -958,6 +1000,7 @@ End Function
 ' l_dnaaReadStream(FILE *) as L_DNAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>daa, or NULL on error</returns>
 Public Shared Function l_dnaaReadStream(
@@ -976,6 +1019,7 @@ End Function
 ' l_dnaaWrite(const char *, L_DNAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="daa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -998,6 +1042,7 @@ End Function
 ' l_dnaaWriteStream(FILE *, L_DNAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="daa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>

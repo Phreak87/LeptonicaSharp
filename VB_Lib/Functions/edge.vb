@@ -24,6 +24,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSobelEdgeFilter/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="orientflag">[in] - L_HORIZONTAL_EDGES, L_VERTICAL_EDGES, L_ALL_EDGES</param>
 '''   <returns>pixd 8 bpp, edges are brighter, or NULL on error</returns>
@@ -65,6 +66,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTwoSidedEdgeFilter/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="orientflag">[in] - L_HORIZONTAL_EDGES, L_VERTICAL_EDGES</param>
 '''   <returns>pixd 8 bpp, edges are brighter, or NULL on error</returns>
@@ -101,6 +103,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMeasureEdgeSmoothness/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="side">[in] - L_FROM_LEFT, L_FROM_RIGHT, L_FROM_TOP, L_FROM_BOT</param>
 '''  <param name="minjump">[in] - minimum jump to be counted  is greater = 1</param>
@@ -134,6 +137,7 @@ End Function
 ' pixGetEdgeProfile(PIX *, l_int32, const char *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetEdgeProfile/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="side">[in] - L_FROM_LEFT, L_FROM_RIGHT, L_FROM_TOP, L_FROM_BOT</param>
 '''  <param name="debugfile">[in][optional] - displays constructed edge use NULL for no output</param>
@@ -158,6 +162,7 @@ End Function
 ' pixGetLastOffPixelInRun(PIX *, l_int32, l_int32, l_int32, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetLastOffPixelInRun/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetLastOffPixelInRun(
 				 ByVal pixs as Pix, 
@@ -181,6 +186,7 @@ End Function
 ' pixGetLastOnPixelInRun(PIX *, l_int32, l_int32, l_int32, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetLastOnPixelInRun/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetLastOnPixelInRun(
 				 ByVal pixs as Pix, 

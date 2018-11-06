@@ -20,6 +20,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRankFilter/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp no colormap</param>
 '''  <param name="wf">[in] - width and height of filter each is  is greater = 1</param>
 '''  <param name="hf">[in] - width and height of filter each is  is greater = 1</param>
@@ -57,6 +58,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRankFilterRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="wf">[in] - width and height of filter each is  is greater = 1</param>
 '''  <param name="hf">[in] - width and height of filter each is  is greater = 1</param>
@@ -101,6 +103,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRankFilterGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="wf">[in] - width and height of filter each is  is greater = 1</param>
 '''  <param name="hf">[in] - width and height of filter each is  is greater = 1</param>
@@ -125,6 +128,7 @@ End Function
 ' pixMedianFilter(PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMedianFilter/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp no colormap</param>
 '''  <param name="wf">[in] - width and height of filter each is  is greater = 1</param>
 '''  <param name="hf">[in] - width and height of filter each is  is greater = 1</param>
@@ -157,6 +161,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRankFilterWithScaling/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp no colormap</param>
 '''  <param name="wf">[in] - width and height of filter each is  is greater = 1</param>
 '''  <param name="hf">[in] - width and height of filter each is  is greater = 1</param>

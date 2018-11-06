@@ -16,6 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sudokuReadFile/*"/>
 '''  <param name="filename">[in] - of formatted sudoku file</param>
 '''   <returns>array of 81 numbers, or NULL on error</returns>
 Public Shared Function sudokuReadFile(
@@ -41,6 +42,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sudokuReadString/*"/>
 '''  <param name="str">[in] - of input data</param>
 '''   <returns>array of 81 numbers, or NULL on error</returns>
 Public Shared Function sudokuReadString(
@@ -66,6 +68,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sudokuCreate/*"/>
 '''  <param name="array">[in] - of 81 numbers, 9 rows of 9 numbers each</param>
 '''   <returns>l_sudoku, or NULL on error</returns>
 Public Shared Function sudokuCreate(
@@ -84,6 +87,7 @@ End Function
 ' sudokuDestroy(L_SUDOKU **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sudokuDestroy/*"/>
 '''  <param name="psud">[in,out] - to be nulled</param>
 Public Shared Sub sudokuDestroy(
 				 ByRef psud as L_Sudoku)
@@ -100,6 +104,7 @@ End Sub
 ' sudokuSolve(L_SUDOKU *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sudokuSolve/*"/>
 '''  <param name="sud">[in] - l_sudoku starting in initial state</param>
 '''   <returns>1 on success, 0 on failure to solve note reversal of typical unix returns</returns>
 Public Shared Function sudokuSolve(
@@ -126,6 +131,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sudokuTestUniqueness/*"/>
 '''  <param name="array">[in] - of 81 numbers, 9 lines of 9 numbers each</param>
 '''  <param name="punique">[out] - 1 if unique, 0 if not</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -156,6 +162,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sudokuGenerate/*"/>
 '''  <param name="array">[in] - of 81 numbers, 9 rows of 9 numbers each</param>
 '''  <param name="seed">[in] - random number</param>
 '''  <param name="minelems">[in] - min non-zero elements allowed  is lower = 80</param>
@@ -186,6 +193,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sudokuOutput/*"/>
 '''  <param name="sud">[in] - l_sudoku at any stage</param>
 '''  <param name="arraytype">[in] - L_SUDOKU_INIT, L_SUDOKU_STATE</param>
 '''   <returns>void</returns>

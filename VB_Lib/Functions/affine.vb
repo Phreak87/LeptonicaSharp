@@ -29,6 +29,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAffineSampledPta/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="ptad">[in] - 3 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
@@ -64,6 +65,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAffineSampled/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="vc">[in] - vector of 6 coefficients for affine transformation</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -93,6 +95,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAffinePta/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="ptad">[in] - 3 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
@@ -125,6 +128,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAffine/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="vc">[in] - vector of 6 coefficients for affine transformation</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -148,6 +152,7 @@ End Function
 ' pixAffinePtaColor(PIX *, PTA *, PTA *, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAffinePtaColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="ptad">[in] - 3 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
@@ -174,6 +179,7 @@ End Function
 ' pixAffineColor(PIX *, l_float32 *, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAffineColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="vc">[in] - vector of 6 coefficients for affine transformation</param>
 '''  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
@@ -197,6 +203,7 @@ End Function
 ' pixAffinePtaGray(PIX *, PTA *, PTA *, l_uint8) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAffinePtaGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="ptad">[in] - 3 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
@@ -226,6 +233,7 @@ End Function
 ' pixAffineGray(PIX *, l_float32 *, l_uint8) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAffineGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="vc">[in] - vector of 6 coefficients for affine transformation</param>
 '''  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
@@ -283,6 +291,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAffinePtaWithAlpha/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="ptad">[in] - 3 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
@@ -366,6 +375,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getAffineXformCoeffs/*"/>
 '''  <param name="ptas">[in] - source 3 points unprimed</param>
 '''  <param name="ptad">[in] - transformed 3 points primed</param>
 '''  <param name="pvc">[out] - vector of coefficients of transform</param>
@@ -413,6 +423,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/affineInvertXform/*"/>
 '''  <param name="vc">[in] - vector of 6 coefficients</param>
 '''  <param name="pvci">[out] - inverted transform</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -440,6 +451,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/affineXformSampledPt/*"/>
 '''  <param name="vc">[in] - vector of 6 coefficients</param>
 '''  <param name="x">[in] - initial point</param>
 '''  <param name="y">[in] - initial point</param>
@@ -471,6 +483,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/affineXformPt/*"/>
 '''  <param name="vc">[in] - vector of 6 coefficients</param>
 '''  <param name="x">[in] - initial point</param>
 '''  <param name="y">[in] - initial point</param>
@@ -503,6 +516,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/linearInterpolatePixelColor/*"/>
 '''  <param name="datas">[in] - ptr to beginning of image data</param>
 '''  <param name="wpls">[in] - 32-bit word/line for this data array</param>
 '''  <param name="w">[in] - of image</param>
@@ -543,6 +557,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/linearInterpolatePixelGray/*"/>
 '''  <param name="datas">[in] - ptr to beginning of image data</param>
 '''  <param name="wpls">[in] - 32-bit word/line for this data array</param>
 '''  <param name="w">[in] - of image</param>
@@ -588,6 +603,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gaussjordan/*"/>
 '''  <param name="a">[in] - n x n matrix</param>
 '''  <param name="b">[in] - n x 1 right-hand side column vector</param>
 '''  <param name="n">[in] - dimension</param>
@@ -630,6 +646,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAffineSequential/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="ptad">[in] - 3 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 3 pts of initial coordinate space</param>

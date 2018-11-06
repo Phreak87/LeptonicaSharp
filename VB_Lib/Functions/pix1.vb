@@ -26,6 +26,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/setPixMemoryManager/*"/>
 '''  <param name="allocator">[in][optional] - use NULL to skip</param>
 '''  <param name="deallocator">[in][optional] - use NULL to skip</param>
 Public Shared Sub setPixMemoryManager(
@@ -41,6 +42,7 @@ End Sub
 ' pixCreate(l_int32, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCreate/*"/>
 '''  <param name="width">[in] - </param>
 '''  <param name="height">[in] - </param>
 '''  <param name="depth">[in] - </param>
@@ -67,6 +69,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCreateNoInit/*"/>
 '''  <param name="width">[in] - </param>
 '''  <param name="height">[in] - </param>
 '''  <param name="depth">[in] - </param>
@@ -94,6 +97,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCreateTemplate/*"/>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixCreateTemplate(
@@ -119,6 +123,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCreateTemplateNoInit/*"/>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixCreateTemplateNoInit(
@@ -150,6 +155,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCreateHeader/*"/>
 '''  <param name="width">[in] - </param>
 '''  <param name="height">[in] - </param>
 '''  <param name="depth">[in] - </param>
@@ -188,6 +194,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClone/*"/>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>same pix ptr, or NULL on error</returns>
 Public Shared Function pixClone(
@@ -212,6 +219,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDestroy/*"/>
 '''  <param name="ppix">[in,out] - will be nulled</param>
 Public Shared Sub pixDestroy(
 				 ByRef ppix as Pix)
@@ -250,6 +258,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCopy/*"/>
 '''  <param name="pixd">[in][optional] - can be null, equal to pixs, different from pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -282,6 +291,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixResizeImageData/*"/>
 '''  <param name="pixd">[in] - gets new uninitialized buffer for image data</param>
 '''  <param name="pixs">[in] - determines the size of the buffer not changed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -308,6 +318,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCopyColormap/*"/>
 '''  <param name="pixd">[in] - </param>
 '''  <param name="pixs">[in] - copies the colormap to %pixd</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -328,6 +339,7 @@ End Function
 ' pixSizesEqual(PIX *, PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSizesEqual/*"/>
 '''  <param name="pix1">[in] - </param>
 '''  <param name="pix2">[in] - </param>
 '''   <returns>1 if the two pix have same {h, w, d} 0 otherwise.</returns>
@@ -392,6 +404,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTransferAllData/*"/>
 '''  <param name="pixd">[in] - must be different from pixs</param>
 '''  <param name="ppixs">[in,out] - will be nulled if refcount goes to 0</param>
 '''  <param name="copytext">[in] - 1 to copy the text field 0 to skip</param>
@@ -448,6 +461,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSwapAndDestroy/*"/>
 '''  <param name="ppixd">[out][optional] - input pixd can be null, and it must be different from pixs</param>
 '''  <param name="ppixs">[in,out] - will be nulled after the swap</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -470,6 +484,7 @@ End Function
 ' pixGetWidth(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetWidth/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetWidth(
 				 ByVal pix as Pix) as Integer
@@ -488,6 +503,7 @@ End Function
 ' pixSetWidth(PIX *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetWidth/*"/>
 '''   <returns></returns>
 Public Shared Function pixSetWidth(
 				 ByVal pix as Pix, 
@@ -507,6 +523,7 @@ End Function
 ' pixGetHeight(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetHeight/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetHeight(
 				 ByVal pix as Pix) as Integer
@@ -525,6 +542,7 @@ End Function
 ' pixSetHeight(PIX *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetHeight/*"/>
 '''   <returns></returns>
 Public Shared Function pixSetHeight(
 				 ByVal pix as Pix, 
@@ -544,6 +562,7 @@ End Function
 ' pixGetDepth(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetDepth/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetDepth(
 				 ByVal pix as Pix) as Integer
@@ -562,6 +581,7 @@ End Function
 ' pixSetDepth(PIX *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetDepth/*"/>
 '''   <returns></returns>
 Public Shared Function pixSetDepth(
 				 ByVal pix as Pix, 
@@ -581,6 +601,7 @@ End Function
 ' pixGetDimensions(PIX *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetDimensions/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="pw">[out][optional] - each can be null</param>
 '''  <param name="ph">[out][optional] - each can be null</param>
@@ -604,6 +625,7 @@ End Function
 ' pixSetDimensions(PIX *, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetDimensions/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="w">[in] - use 0 to skip the setting for any of these</param>
 '''  <param name="h">[in] - use 0 to skip the setting for any of these</param>
@@ -627,6 +649,7 @@ End Function
 ' pixCopyDimensions(PIX *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCopyDimensions/*"/>
 '''  <param name="pixd">[in] - </param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -647,6 +670,7 @@ End Function
 ' pixGetSpp(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetSpp/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetSpp(
 				 ByVal pix as Pix) as Integer
@@ -665,6 +689,7 @@ End Function
 ' pixSetSpp(PIX *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetSpp/*"/>
 '''   <returns></returns>
 Public Shared Function pixSetSpp(
 				 ByVal pix as Pix, 
@@ -684,6 +709,7 @@ End Function
 ' pixCopySpp(PIX *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCopySpp/*"/>
 '''  <param name="pixd">[in] - </param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -704,6 +730,7 @@ End Function
 ' pixGetWpl(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetWpl/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetWpl(
 				 ByVal pix as Pix) as Integer
@@ -722,6 +749,7 @@ End Function
 ' pixSetWpl(PIX *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetWpl/*"/>
 '''   <returns></returns>
 Public Shared Function pixSetWpl(
 				 ByVal pix as Pix, 
@@ -741,6 +769,7 @@ End Function
 ' pixGetRefcount(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRefcount/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetRefcount(
 				 ByVal pix as Pix) as Integer
@@ -759,6 +788,7 @@ End Function
 ' pixChangeRefcount(PIX *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixChangeRefcount/*"/>
 '''   <returns></returns>
 Public Shared Function pixChangeRefcount(
 				 ByVal pix as Pix, 
@@ -778,6 +808,7 @@ End Function
 ' pixGetXRes(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetXRes/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetXRes(
 				 ByVal pix as Pix) as Integer
@@ -796,6 +827,7 @@ End Function
 ' pixSetXRes(PIX *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetXRes/*"/>
 '''   <returns></returns>
 Public Shared Function pixSetXRes(
 				 ByVal pix as Pix, 
@@ -815,6 +847,7 @@ End Function
 ' pixGetYRes(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetYRes/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetYRes(
 				 ByVal pix as Pix) as Integer
@@ -833,6 +866,7 @@ End Function
 ' pixSetYRes(PIX *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetYRes/*"/>
 '''   <returns></returns>
 Public Shared Function pixSetYRes(
 				 ByVal pix as Pix, 
@@ -852,6 +886,7 @@ End Function
 ' pixGetResolution(PIX *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetResolution/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="pxres">[out][optional] - each can be null</param>
 '''  <param name="pyres">[out][optional] - each can be null</param>
@@ -873,6 +908,7 @@ End Function
 ' pixSetResolution(PIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetResolution/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="xres">[in] - use 0 to skip setting a value for either of these</param>
 '''  <param name="yres">[in] - use 0 to skip setting a value for either of these</param>
@@ -894,6 +930,7 @@ End Function
 ' pixCopyResolution(PIX *, PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCopyResolution/*"/>
 '''   <returns></returns>
 Public Shared Function pixCopyResolution(
 				 ByVal pixd as Pix, 
@@ -915,6 +952,7 @@ End Function
 ' pixScaleResolution(PIX *, l_float32, l_float32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleResolution/*"/>
 '''   <returns></returns>
 Public Shared Function pixScaleResolution(
 				 ByVal pix as Pix, 
@@ -935,6 +973,7 @@ End Function
 ' pixGetInputFormat(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetInputFormat/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetInputFormat(
 				 ByVal pix as Pix) as Integer
@@ -953,6 +992,7 @@ End Function
 ' pixSetInputFormat(PIX *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetInputFormat/*"/>
 '''   <returns></returns>
 Public Shared Function pixSetInputFormat(
 				 ByVal pix as Pix, 
@@ -972,6 +1012,7 @@ End Function
 ' pixCopyInputFormat(PIX *, PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCopyInputFormat/*"/>
 '''   <returns></returns>
 Public Shared Function pixCopyInputFormat(
 				 ByVal pixd as Pix, 
@@ -993,6 +1034,7 @@ End Function
 ' pixSetSpecial(PIX *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetSpecial/*"/>
 '''   <returns></returns>
 Public Shared Function pixSetSpecial(
 				 ByVal pix as Pix, 
@@ -1018,6 +1060,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetText/*"/>
 '''  <param name="pix">[in] - </param>
 '''   <returns>ptr to existing text string</returns>
 Public Shared Function pixGetText(
@@ -1041,6 +1084,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetText/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="textstring">[in]can be null - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1067,6 +1111,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddText/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="textstring">[in]can be null - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1086,6 +1131,7 @@ End Function
 ' pixCopyText(PIX *, PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCopyText/*"/>
 '''   <returns></returns>
 Public Shared Function pixCopyText(
 				 ByVal pixd as Pix, 
@@ -1107,6 +1153,7 @@ End Function
 ' pixGetColormap(PIX *) as PIXCMAP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetColormap/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetColormap(
 				 ByVal pix as Pix) as PixColormap
@@ -1134,6 +1181,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetColormap/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="colormap">[in] - to be assigned</param>
 '''   <returns>0 if OK, 1 on error.</returns>
@@ -1154,6 +1202,7 @@ End Function
 ' pixDestroyColormap(PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDestroyColormap/*"/>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixDestroyColormap(
@@ -1177,6 +1226,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetData/*"/>
 '''  <param name="pix">[in] - </param>
 '''   <returns>ptr to image data</returns>
 Public Shared Function pixGetData(
@@ -1201,6 +1251,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetData/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="data">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1233,6 +1284,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtractData/*"/>
 '''   <returns>ptr to data, or null on error</returns>
 Public Shared Function pixExtractData(
 				 ByVal pixs as Pix) as Byte()
@@ -1260,6 +1312,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFreeData/*"/>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixFreeData(
@@ -1340,6 +1393,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetLinePtrs/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="psize">[out][optional] - array size, which is the pix height</param>
 '''   <returns>array of line ptrs, or NULL on error</returns>
@@ -1360,6 +1414,7 @@ End Function
 ' pixPrintStreamInfo(FILE *, PIX *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixPrintStreamInfo/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="text">[in][optional] - identifying string can be null</param>

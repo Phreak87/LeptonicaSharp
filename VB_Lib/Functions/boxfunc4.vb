@@ -15,6 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSelectRange/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="first">[in] - use 0 to select from the beginning</param>
 '''  <param name="last">[in] - use 0 to select to the end</param>
@@ -46,6 +47,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaSelectRange/*"/>
 '''  <param name="baas">[in] - </param>
 '''  <param name="first">[in] - use 0 to select from the beginning</param>
 '''  <param name="last">[in] - use 0 to select to the end</param>
@@ -83,6 +85,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSelectBySize/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="width">[in] - threshold dimensions</param>
 '''  <param name="height">[in] - threshold dimensions</param>
@@ -123,6 +126,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaMakeSizeIndicator/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="width">[in] - threshold dimensions</param>
 '''  <param name="height">[in] - threshold dimensions</param>
@@ -158,6 +162,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSelectByArea/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="area">[in] - threshold value of width  height</param>
 '''  <param name="relation">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -190,6 +195,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaMakeAreaIndicator/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="area">[in] - threshold value of width  height</param>
 '''  <param name="relation">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -221,6 +227,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSelectByWHRatio/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="ratio">[in] - width/height threshold value</param>
 '''  <param name="relation">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -253,6 +260,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaMakeWHRatioIndicator/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="ratio">[in] - width/height threshold value</param>
 '''  <param name="relation">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -282,6 +290,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSelectWithIndicator/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="na">[in] - indicator numa</param>
 '''  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
@@ -313,6 +322,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaPermutePseudorandom/*"/>
 '''  <param name="boxas">[in] - input boxa</param>
 '''   <returns>boxad with boxes permuted, or NULL on error</returns>
 Public Shared Function boxaPermutePseudorandom(
@@ -345,6 +355,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaPermuteRandom/*"/>
 '''  <param name="boxad">[in][optional] - can be null or equal to boxas</param>
 '''  <param name="boxas">[in] - input boxa</param>
 '''   <returns>boxad with boxes permuted, or NULL on error</returns>
@@ -367,6 +378,7 @@ End Function
 ' boxaSwapBoxes(BOXA *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSwapBoxes/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="i">[in] - two indices of boxes, that are to be swapped</param>
 '''  <param name="j">[in] - two indices of boxes, that are to be swapped</param>
@@ -394,6 +406,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaConvertToPta/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="ncorners">[in] - 2 or 4 for the representation of each box</param>
 '''   <returns>pta with %ncorners points for each box in the boxa, or NULL on error</returns>
@@ -421,6 +434,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaConvertToBoxa/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="ncorners">[in] - 2 or 4 for the representation of each box</param>
 '''   <returns>boxa with one box for each 2 or 4 points in the pta, or NULL on error</returns>
@@ -447,6 +461,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxConvertToPta/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="ncorners">[in] - 2 or 4 for the representation of the box</param>
 '''   <returns>pta with %ncorners points, or NULL on error</returns>
@@ -473,6 +488,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaConvertToBox/*"/>
 '''  <param name="pta">[in] - </param>
 '''   <returns>box minimum containing all points in the pta, or NULL on error</returns>
 Public Shared Function ptaConvertToBox(
@@ -506,6 +522,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSmoothSequenceLS/*"/>
 '''  <param name="boxas">[in] - source boxa</param>
 '''  <param name="factor">[in] - reject outliers with widths and heights deviating from the median by more than %factor times the median variation from the median typically ~3</param>
 '''  <param name="subflag">[in] - L_USE_MINSIZE, L_USE_MAXSIZE, L_SUB_ON_LOC_DIFF, L_SUB_ON_SIZE_DIFF, L_USE_CAPPED_MIN, L_USE_CAPPED_MAX</param>
@@ -558,6 +575,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSmoothSequenceMedian/*"/>
 '''  <param name="boxas">[in] - source boxa</param>
 '''  <param name="halfwin">[in] - half-width of sliding window used to find median</param>
 '''  <param name="subflag">[in] - L_USE_MINSIZE, L_USE_MAXSIZE, L_SUB_ON_LOC_DIFF, L_SUB_ON_SIZE_DIFF, L_USE_CAPPED_MIN, L_USE_CAPPED_MAX</param>
@@ -609,6 +627,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaLinearFit/*"/>
 '''  <param name="boxas">[in] - source boxa</param>
 '''  <param name="factor">[in] - reject outliers with widths and heights deviating from the median by more than %factor times the median deviation from the median typically ~3</param>
 '''  <param name="debug">[in] - 1 for debug output</param>
@@ -641,6 +660,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaWindowedMedian/*"/>
 '''  <param name="boxas">[in] - source boxa</param>
 '''  <param name="halfwin">[in] - half width of window over which the median is found</param>
 '''  <param name="debug">[in] - 1 for debug output</param>
@@ -720,6 +740,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaModifyWithBoxa/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="boxam">[in] - boxa with boxes used to modify those in boxas</param>
 '''  <param name="subflag">[in] - L_USE_MINSIZE, L_USE_MAXSIZE, L_SUB_ON_LOC_DIFF, L_SUB_ON_SIZE_DIFF, L_USE_CAPPED_MIN, L_USE_CAPPED_MAX</param>
@@ -761,6 +782,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaConstrainSize/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="width">[in] - force width of all boxes to this size input 0 to use the median width</param>
 '''  <param name="widthflag">[in] - L_ADJUST_SKIP, L_ADJUST_LEFT, L_ADJUST_RIGHT, or L_ADJUST_LEFT_AND_RIGHT</param>
@@ -819,6 +841,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaReconcileEvenOddHeight/*"/>
 '''  <param name="boxas">[in] - containing at least 3 valid boxes in even and odd</param>
 '''  <param name="sides">[in] - L_ADJUST_TOP, L_ADJUST_BOT, L_ADJUST_TOP_AND_BOT</param>
 '''  <param name="delh">[in] - threshold on median height difference</param>
@@ -865,6 +888,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaReconcilePairWidth/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="delw">[in] - threshold on adjacent width difference</param>
 '''  <param name="op">[in] - L_ADJUST_CHOOSE_MIN, L_ADJUST_CHOOSE_MAX</param>
@@ -904,6 +928,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaPlotSides/*"/>
 '''  <param name="boxa">[in] - source boxa</param>
 '''  <param name="plotname">[in][optional] - , can be NULL</param>
 '''  <param name="pnal">[out][optional] - na of left sides</param>
@@ -956,6 +981,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaPlotSizes/*"/>
 '''  <param name="boxa">[in] - source boxa</param>
 '''  <param name="plotname">[in][optional] - , can be NULL</param>
 '''  <param name="pnaw">[out][optional] - na of widths</param>
@@ -998,6 +1024,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaFillSequence/*"/>
 '''  <param name="boxas">[in] - with at least 3 boxes</param>
 '''  <param name="useflag">[in] - L_USE_ALL_BOXES, L_USE_SAME_PARITY_BOXES</param>
 '''  <param name="debug">[in] - 1 for debug output</param>
@@ -1031,6 +1058,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSizeVariation/*"/>
 '''  <param name="boxa">[in] - at least 4 boxes</param>
 '''  <param name="type">[in] - L_SELECT_WIDTH, L_SELECT_HEIGHT</param>
 '''  <param name="pdel_evenodd">[out][optional] - average absolute value of (even - odd) size pairs</param>
@@ -1068,6 +1096,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetExtent/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pw">[out][optional] - width</param>
 '''  <param name="ph">[out][optional] - height</param>
@@ -1106,6 +1135,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetCoverage/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="wc">[in] - dimensions of overall clipping rectangle with UL corner at (0, 0 that is covered by the boxes.</param>
 '''  <param name="hc">[in] - dimensions of overall clipping rectangle with UL corner at (0, 0 that is covered by the boxes.</param>
@@ -1131,6 +1161,7 @@ End Function
 ' boxaaSizeRange(BOXAA *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaSizeRange/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="pminw">[out][optional] - range of dimensions of all boxes</param>
 '''  <param name="pminh">[out][optional] - range of dimensions of all boxes</param>
@@ -1156,6 +1187,7 @@ End Function
 ' boxaSizeRange(BOXA *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSizeRange/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pminw">[out][optional] - range of dimensions of box in the array</param>
 '''  <param name="pminh">[out][optional] - range of dimensions of box in the array</param>
@@ -1181,6 +1213,7 @@ End Function
 ' boxaLocationRange(BOXA *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaLocationRange/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pminx">[out][optional] - range of UL corner positions</param>
 '''  <param name="pminy">[out][optional] - range of UL corner positions</param>
@@ -1206,6 +1239,7 @@ End Function
 ' boxaGetSizes(BOXA *, NUMA **, NUMA **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetSizes/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pnaw">[out][optional] - widths and heights of valid boxes</param>
 '''  <param name="pnah">[out][optional] - widths and heights of valid boxes</param>
@@ -1237,6 +1271,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetArea/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="parea">[out] - total area of all boxes</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1266,6 +1301,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaDisplayTiled/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="pixa">[in][optional] - background for each box</param>
 '''  <param name="maxwidth">[in] - of output image</param>

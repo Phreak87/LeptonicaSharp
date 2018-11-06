@@ -8,6 +8,7 @@ Partial Public Class _All
 ' pixReadStreamPnm(FILE *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamPnm/*"/>
 '''  <param name="fp">[in] - file stream opened for read</param>
 '''   <returns>pix, or NULL on error</returns>
 Public Shared Function pixReadStreamPnm(
@@ -26,6 +27,7 @@ End Function
 ' readHeaderPnm(const char *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderPnm/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -57,6 +59,7 @@ End Function
 ' freadHeaderPnm(FILE *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/freadHeaderPnm/*"/>
 '''  <param name="fp">[in] - file stream opened for read</param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -96,6 +99,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamPnm/*"/>
 '''  <param name="fp">[in] - file stream opened for write</param>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -116,6 +120,7 @@ End Function
 ' pixWriteStreamAsciiPnm(FILE *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamAsciiPnm/*"/>
 '''  <param name="fp">[in] - file stream opened for write</param>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK 1 on error Writes "ASCII" format only: 1 bpp -- is greater  pbm P1 2, 4, 8, 16 bpp, no colormap or grayscale colormap -- is greater  pgm P2 2, 4, 8 bpp with color-valued colormap, or rgb -- is greater  rgb ppm P3</returns>
@@ -143,6 +148,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamPam/*"/>
 '''  <param name="fp">[in] - file stream opened for write</param>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -168,6 +174,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMemPnm/*"/>
 '''  <param name="data">[in] - const pnm-encoded</param>
 '''  <param name="size">[in] - of data</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -188,6 +195,7 @@ End Function
 ' readHeaderMemPnm(const l_uint8 *, size_t, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderMemPnm/*"/>
 '''  <param name="data">[in] - const pnm-encoded</param>
 '''  <param name="size">[in] - of data</param>
 '''  <param name="pw">[out][optional] - </param>
@@ -225,6 +233,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemPnm/*"/>
 '''  <param name="pdata">[out] - data of PNM image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - </param>
@@ -255,6 +264,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemPam/*"/>
 '''  <param name="pdata">[out] - data of PAM image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - </param>

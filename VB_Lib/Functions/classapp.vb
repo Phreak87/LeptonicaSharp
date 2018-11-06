@@ -16,6 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbCorrelation/*"/>
 '''  <param name="dirin">[in] - directory of input images</param>
 '''  <param name="thresh">[in] - typically ~0.8</param>
 '''  <param name="weight">[in] - typically ~0.6</param>
@@ -54,6 +55,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbRankHaus/*"/>
 '''  <param name="dirin">[in] - directory of input images</param>
 '''  <param name="size">[in] - of Sel used for dilation typ. 2</param>
 '''  <param name="rank">[in] - rank value of match typ. 0.97</param>
@@ -93,6 +95,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbWordsInTextlines/*"/>
 '''  <param name="dirin">[in] - directory of input pages</param>
 '''  <param name="reduction">[in] - 1 for full res 2 for half-res</param>
 '''  <param name="maxwidth">[in] - of word mask components, to be kept</param>
@@ -165,6 +168,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetWordsInTextlines/*"/>
 '''  <param name="pixs">[in] - 1 bpp, typ. 75 - 150 ppi</param>
 '''  <param name="minwidth">[in] - of saved components smaller are discarded</param>
 '''  <param name="minheight">[in] - of saved components smaller are discarded</param>
@@ -212,6 +216,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetWordBoxesInTextlines/*"/>
 '''  <param name="pixs">[in] - 1 bpp, typ. 300 ppi</param>
 '''  <param name="minwidth">[in] - of saved components smaller are discarded</param>
 '''  <param name="minheight">[in] - of saved components smaller are discarded</param>
@@ -255,6 +260,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaExtractSortedPattern/*"/>
 '''  <param name="boxa">[in] - typ. of word bounding boxes, in textline order</param>
 '''  <param name="na">[in] - index of textline for each box in boxa</param>
 '''   <returns>naa NUMAA, where each numa represents one textline, or NULL on error</returns>
@@ -305,6 +311,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaCompareImagesByBoxes/*"/>
 '''  <param name="naa1">[in] - for image 1, formatted by boxaExtractSortedPattern()</param>
 '''  <param name="naa2">[in] - ditto for image 2</param>
 '''  <param name="nperline">[in] - number of box regions to be used in each textline</param>

@@ -8,6 +8,7 @@ Partial Public Class _All
 ' selaCreate(l_int32) as SELA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaCreate/*"/>
 '''  <param name="n">[in] - initial number of sel ptrs use 0 for default</param>
 '''   <returns>sela, or NULL on error</returns>
 Public Shared Function selaCreate(
@@ -24,6 +25,7 @@ End Function
 ' selaDestroy(SELA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaDestroy/*"/>
 '''  <param name="psela">[in,out] - to be nulled</param>
 Public Shared Sub selaDestroy(
 				 ByRef psela as Sela)
@@ -48,6 +50,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selCreate/*"/>
 '''  <param name="height">[in] - </param>
 '''  <param name="width">[in] - </param>
 '''  <param name="name">[in][optional] - sel name can be null</param>
@@ -68,6 +71,7 @@ End Function
 ' selDestroy(SEL **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selDestroy/*"/>
 '''  <param name="psel">[in,out] - to be nulled</param>
 Public Shared Sub selDestroy(
 				 ByRef psel as Sel)
@@ -84,6 +88,7 @@ End Sub
 ' selCopy(SEL *) as SEL *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selCopy/*"/>
 '''  <param name="sel">[in] - </param>
 '''   <returns>a copy of the sel, or NULL on error</returns>
 Public Shared Function selCopy(
@@ -107,6 +112,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selCreateBrick/*"/>
 '''  <param name="h">[in] - height, width</param>
 '''  <param name="w">[in] - height, width</param>
 '''  <param name="cy">[in] - origin, relative to UL corner at 0,0</param>
@@ -139,6 +145,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selCreateComb/*"/>
 '''  <param name="factor1">[in] - contiguous space between comb tines</param>
 '''  <param name="factor2">[in] - number of comb tines</param>
 '''  <param name="direction">[in] - L_HORIZ, L_VERT</param>
@@ -165,6 +172,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/create2dIntArray/*"/>
 '''  <param name="sy">[in] - rows == height</param>
 '''  <param name="sx">[in] - columns == width</param>
 '''   <returns>doubly indexed array i.e., an array of sy row pointers, each of which points to an array of sx ints</returns>
@@ -197,6 +205,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaAddSel/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="sel">[in] - to be added</param>
 '''  <param name="selname">[in] - ignored if already defined in sel req'd in sel when added to a sela</param>
@@ -222,6 +231,7 @@ End Function
 ' selaGetCount(SELA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaGetCount/*"/>
 '''  <param name="sela">[in] - </param>
 '''   <returns>count, or 0 on error</returns>
 Public Shared Function selaGetCount(
@@ -245,6 +255,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaGetSel/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="i">[in] - index of sel to be retrieved not copied</param>
 '''   <returns>sel, or NULL on error</returns>
@@ -265,6 +276,7 @@ End Function
 ' selGetName(SEL *) as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selGetName/*"/>
 '''  <param name="sel">[in] - </param>
 '''   <returns>sel name not copied, or NULL if no name or on error</returns>
 Public Shared Function selGetName(
@@ -288,6 +300,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selSetName/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="name">[in][optional] - can be null</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -307,6 +320,7 @@ End Function
 ' selaFindSelByName(SELA *, const char *, l_int32 *, SEL **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaFindSelByName/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="name">[in] - sel name</param>
 '''  <param name="pindex">[out][optional] - </param>
@@ -333,6 +347,7 @@ End Function
 ' selGetElement(SEL *, l_int32, l_int32, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selGetElement/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="row">[in] - </param>
 '''  <param name="col">[in] - </param>
@@ -364,6 +379,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selSetElement/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="row">[in] - </param>
 '''  <param name="col">[in] - </param>
@@ -387,6 +403,7 @@ End Function
 ' selGetParameters(SEL *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selGetParameters/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="psy">[out][optional] - each can be null</param>
 '''  <param name="psx">[out][optional] - each can be null</param>
@@ -412,6 +429,7 @@ End Function
 ' selSetOrigin(SEL *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selSetOrigin/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="cy">[in] - </param>
 '''  <param name="cx">[in] - </param>
@@ -433,6 +451,7 @@ End Function
 ' selGetTypeAtOrigin(SEL *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selGetTypeAtOrigin/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="ptype">[out] - SEL_HIT, SEL_MISS, SEL_DONT_CARE</param>
 '''   <returns>0 if OK 1 on error or if origin is not found</returns>
@@ -452,6 +471,7 @@ End Function
 ' selaGetBrickName(SELA *, l_int32, l_int32) as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaGetBrickName/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="hsize">[in] - of brick sel</param>
 '''  <param name="vsize">[in] - of brick sel</param>
@@ -479,6 +499,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaGetCombName/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="size">[in] - the product of sizes of the brick and comb parts</param>
 '''  <param name="direction">[in] - L_HORIZ, L_VERT</param>
@@ -506,6 +527,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getCompositeParameters/*"/>
 '''  <param name="size">[in] - </param>
 '''  <param name="psize1">[out][optional] - brick factor size</param>
 '''  <param name="psize2">[out][optional] - comb factor size</param>
@@ -538,6 +560,7 @@ End Function
 ' selaGetSelnames(SELA *) as SARRAY *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaGetSelnames/*"/>
 '''  <param name="sela">[in] - </param>
 '''   <returns>sa of all sel names, or NULL on error</returns>
 Public Shared Function selaGetSelnames(
@@ -563,6 +586,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selFindMaxTranslations/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="pxp">[out] - max shifts</param>
 '''  <param name="pyp">[out] - max shifts</param>
@@ -588,6 +612,7 @@ End Function
 ' selRotateOrth(SEL *, l_int32) as SEL *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selRotateOrth/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="quads">[in] - 0 - 4 number of 90 degree cw rotations</param>
 '''   <returns>seld, or NULL on error</returns>
@@ -608,6 +633,7 @@ End Function
 ' selaRead(const char *) as SELA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaRead/*"/>
 '''  <param name="fname">[in] - filename</param>
 '''   <returns>sela, or NULL on error</returns>
 Public Shared Function selaRead(
@@ -626,6 +652,7 @@ End Function
 ' selaReadStream(FILE *) as SELA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>sela, or NULL on error</returns>
 Public Shared Function selaReadStream(
@@ -644,6 +671,7 @@ End Function
 ' selRead(const char *) as SEL *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selRead/*"/>
 '''  <param name="fname">[in] - filename</param>
 '''   <returns>sel, or NULL on error</returns>
 Public Shared Function selRead(
@@ -662,6 +690,7 @@ End Function
 ' selReadStream(FILE *) as SEL *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>sel, or NULL on error</returns>
 Public Shared Function selReadStream(
@@ -680,6 +709,7 @@ End Function
 ' selaWrite(const char *, SELA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaWrite/*"/>
 '''  <param name="fname">[in] - filename</param>
 '''  <param name="sela">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -700,6 +730,7 @@ End Function
 ' selaWriteStream(FILE *, SELA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="sela">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -720,6 +751,7 @@ End Function
 ' selWrite(const char *, SEL *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selWrite/*"/>
 '''  <param name="fname">[in] - filename</param>
 '''  <param name="sel">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -740,6 +772,7 @@ End Function
 ' selWriteStream(FILE *, SEL *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="sel">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -781,6 +814,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selCreateFromString/*"/>
 '''  <param name="text">[in] - </param>
 '''  <param name="h">[in] - height, width</param>
 '''  <param name="w">[in] - height, width</param>
@@ -818,6 +852,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selPrintToString/*"/>
 '''  <param name="sel">[in] - </param>
 '''   <returns>str string caller must free</returns>
 Public Shared Function selPrintToString(
@@ -860,6 +895,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaCreateFromFile/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>sela, or NULL on error</returns>
 Public Shared Function selaCreateFromFile(
@@ -885,6 +921,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selCreateFromPta/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="cy">[in] - origin of sel</param>
 '''  <param name="cx">[in] - origin of sel</param>
@@ -914,6 +951,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selCreateFromPix/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="cy">[in] - origin of sel</param>
 '''  <param name="cx">[in] - origin of sel</param>
@@ -945,6 +983,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selReadFromColorImage/*"/>
 '''  <param name="pathname">[in] - </param>
 '''   <returns>sel if OK NULL on error</returns>
 Public Shared Function selReadFromColorImage(
@@ -978,6 +1017,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selCreateFromColorPix/*"/>
 '''  <param name="pixs">[in] - cmapped or rgb</param>
 '''  <param name="selname">[in][optional] - sel name can be null</param>
 '''   <returns>sel if OK, NULL on error</returns>
@@ -1008,6 +1048,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selDisplayInPix/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="size">[in] - of grid interiors odd minimum size of 13 is enforced</param>
 '''  <param name="gthick">[in] - grid thickness minimum size of 2 is enforced</param>
@@ -1038,6 +1079,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaDisplayInPix/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="size">[in] - of grid interiors odd minimum size of 13 is enforced</param>
 '''  <param name="gthick">[in] - grid thickness minimum size of 2 is enforced</param>

@@ -8,6 +8,7 @@ Partial Public Class _All
 ' readHeaderJp2k(const char *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderJp2k/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -35,6 +36,7 @@ End Function
 ' freadHeaderJp2k(FILE *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/freadHeaderJp2k/*"/>
 '''  <param name="fp">[in] - file stream opened for read</param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -74,6 +76,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderMemJp2k/*"/>
 '''  <param name="data">[in] - </param>
 '''  <param name="size">[in] - at least 80</param>
 '''  <param name="pw">[out][optional] - </param>
@@ -101,6 +104,7 @@ End Function
 ' fgetJp2kResolution(FILE *, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fgetJp2kResolution/*"/>
 '''   <returns></returns>
 Public Shared Function fgetJp2kResolution(
 				 ByVal fp as FILE, 

@@ -14,6 +14,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtractBoundary/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="type">[in] - 0 for background pixels 1 for foreground pixels</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -43,6 +44,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMorphSequenceMasked/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask</param>
 '''  <param name="sequence">[in] - string specifying sequence of operations</param>
@@ -84,6 +86,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMorphSequenceByComponent/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -128,6 +131,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaMorphSequenceByComponent/*"/>
 '''  <param name="pixas">[in] - of 1 bpp pix</param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="minw">[in] - minimum width to consider use 0 or 1 for any width</param>
@@ -169,6 +173,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMorphSequenceByRegion/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pixm">[in] - mask specifying regions</param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
@@ -218,6 +223,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaMorphSequenceByRegion/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pixam">[in] - of 1 bpp mask elements</param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
@@ -248,6 +254,7 @@ End Function
 ' pixUnionOfMorphOps(PIX *, SELA *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUnionOfMorphOps/*"/>
 '''  <param name="pixs">[in] - binary</param>
 '''  <param name="sela">[in] - </param>
 '''  <param name="type">[in] - L_MORPH_DILATE, etc.</param>
@@ -271,6 +278,7 @@ End Function
 ' pixIntersectionOfMorphOps(PIX *, SELA *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixIntersectionOfMorphOps/*"/>
 '''  <param name="pixs">[in] - binary</param>
 '''  <param name="sela">[in] - </param>
 '''  <param name="type">[in] - L_MORPH_DILATE, etc.</param>
@@ -294,6 +302,7 @@ End Function
 ' pixSelectiveConnCompFill(PIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSelectiveConnCompFill/*"/>
 '''  <param name="pixs">[in] - binary</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''  <param name="minw">[in] - minimum width to consider use 0 or 1 for any width</param>
@@ -329,6 +338,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveMatchedPattern/*"/>
 '''  <param name="pixs">[in] - input image, 1 bpp</param>
 '''  <param name="pixp">[in] - pattern to be removed from image, 1 bpp</param>
 '''  <param name="pixe">[in] - image after erosion by Sel that approximates pixp, 1 bpp</param>
@@ -372,6 +382,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDisplayMatchedPattern/*"/>
 '''  <param name="pixs">[in] - input image, 1 bpp</param>
 '''  <param name="pixp">[in] - pattern to be removed from image, 1 bpp</param>
 '''  <param name="pixe">[in] - image after erosion by Sel that approximates pixp, 1 bpp</param>
@@ -417,6 +428,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaExtendByMorph/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="type">[in] - L_MORPH_DILATE, L_MORPH_ERODE</param>
 '''  <param name="niters">[in] - </param>
@@ -453,6 +465,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaExtendByScaling/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="nasc">[in] - numa of scaling factors</param>
 '''  <param name="type">[in] - L_HORIZ, L_VERT, L_BOTH_DIRECTIONS</param>
@@ -487,6 +500,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillMorph/*"/>
 '''  <param name="pixs">[in] - seed</param>
 '''  <param name="pixm">[in] - mask</param>
 '''  <param name="maxiters">[in] - use 0 to go to completion</param>
@@ -512,6 +526,7 @@ End Function
 ' pixRunHistogramMorph(PIX *, l_int32, l_int32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRunHistogramMorph/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="runtype">[in] - L_RUN_OFF, L_RUN_ON</param>
 '''  <param name="direction">[in] - L_HORIZ, L_VERT</param>
@@ -546,6 +561,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTophat/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
 '''  <param name="vsize">[in] - ditto</param>
@@ -610,6 +626,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHDome/*"/>
 '''  <param name="pixs">[in] - 8 bpp, filling mask</param>
 '''  <param name="height">[in] - of seed below the filling maskhdome must be  is greater = 0</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -650,6 +667,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFastTophat/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="xsize">[in] - width of max/min op, smoothing any integer  is greater = 1</param>
 '''  <param name="ysize">[in] - height of max/min op, smoothing any integer  is greater = 1</param>
@@ -674,6 +692,7 @@ End Function
 ' pixMorphGradient(PIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMorphGradient/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
 '''  <param name="vsize">[in] - ditto</param>
@@ -705,6 +724,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaCentroids/*"/>
 '''  <param name="pixa">[in] - of components 1 or 8 bpp</param>
 '''   <returns>pta of centroids relative to the UL corner of each pix, or NULL on error</returns>
 Public Shared Function pixaCentroids(
@@ -729,6 +749,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCentroid/*"/>
 '''  <param name="pix">[in] - 1 or 8 bpp</param>
 '''  <param name="centtab">[in][optional] - table for finding centroids can be null</param>
 '''  <param name="sumtab">[in][optional] - table for finding pixel sums can be null</param>

@@ -8,6 +8,7 @@ Partial Public Class _All
 ' parseForProtos(const char *, const char *) as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/parseForProtos/*"/>
 '''   <returns></returns>
 Public Shared Function parseForProtos(
 				 ByVal filein as String, 

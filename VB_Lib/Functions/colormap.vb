@@ -8,6 +8,7 @@ Partial Public Class _All
 ' pixcmapCreate(l_int32) as PIXCMAP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapCreate/*"/>
 '''  <param name="depth">[in] - bpp, of pix</param>
 '''   <returns>cmap, or NULL on error</returns>
 Public Shared Function pixcmapCreate(
@@ -42,6 +43,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapCreateRandom/*"/>
 '''  <param name="depth">[in] - bpp, of pix 2, 4 or 8</param>
 '''  <param name="hasblack">[in] - 1 if the first color is black 0 if no black</param>
 '''  <param name="haswhite">[in] - 1 if the last color is white 0 if no white</param>
@@ -68,6 +70,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapCreateLinear/*"/>
 '''  <param name="d">[in] - depth of pix for this colormap 1, 2, 4 or 8</param>
 '''  <param name="nlevels">[in] - valid in range [2, 2^d]</param>
 '''   <returns>cmap, or NULL on error</returns>
@@ -86,6 +89,7 @@ End Function
 ' pixcmapCopy(PIXCMAP *) as PIXCMAP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapCopy/*"/>
 '''  <param name="cmaps">[in] - </param>
 '''   <returns>cmapd, or NULL on error</returns>
 Public Shared Function pixcmapCopy(
@@ -104,6 +108,7 @@ End Function
 ' pixcmapDestroy(PIXCMAP **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapDestroy/*"/>
 '''  <param name="pcmap">[in,out] - set to null</param>
 Public Shared Sub pixcmapDestroy(
 				 ByRef pcmap as PixColormap)
@@ -126,6 +131,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapAddColor/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="rval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 '''  <param name="gval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
@@ -154,6 +160,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapAddRGBA/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="rval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 '''  <param name="gval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
@@ -188,6 +195,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapAddNewColor/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="rval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 '''  <param name="gval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
@@ -221,6 +229,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapAddNearestColor/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="rval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 '''  <param name="gval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
@@ -252,6 +261,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapUsableColor/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="rval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 '''  <param name="gval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
@@ -286,6 +296,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapAddBlackOrWhite/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="color">[in] - 0 for black, 1 for white</param>
 '''  <param name="pindex">[out][optional] - index of color can be null</param>
@@ -307,6 +318,7 @@ End Function
 ' pixcmapSetBlackAndWhite(PIXCMAP *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapSetBlackAndWhite/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="setblack">[in] - 0 for no operation 1 to set darkest color to black</param>
 '''  <param name="setwhite">[in] - 0 for no operation 1 to set lightest color to white</param>
@@ -328,6 +340,7 @@ End Function
 ' pixcmapGetCount(PIXCMAP *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetCount/*"/>
 '''  <param name="cmap">[in] - </param>
 '''   <returns>count, or 0 on error</returns>
 Public Shared Function pixcmapGetCount(
@@ -345,6 +358,7 @@ End Function
 ' pixcmapGetFreeCount(PIXCMAP *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetFreeCount/*"/>
 '''  <param name="cmap">[in] - </param>
 '''   <returns>free entries, or 0 on error</returns>
 Public Shared Function pixcmapGetFreeCount(
@@ -362,6 +376,7 @@ End Function
 ' pixcmapGetDepth(PIXCMAP *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetDepth/*"/>
 '''  <param name="cmap">[in] - </param>
 '''   <returns>depth, or 0 on error</returns>
 Public Shared Function pixcmapGetDepth(
@@ -384,6 +399,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetMinDepth/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="pmindepth">[out] - minimum depth to support the colormap</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -408,6 +424,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapClear/*"/>
 '''  <param name="cmap">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixcmapClear(
@@ -425,6 +442,7 @@ End Function
 ' pixcmapGetColor(PIXCMAP *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetColor/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="index">[in] - </param>
 '''  <param name="prval">[out] - each color value</param>
@@ -455,6 +473,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetColor32/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="index">[in] - </param>
 '''  <param name="pval32">[out] - 32-bit rgb color value</param>
@@ -476,6 +495,7 @@ End Function
 ' pixcmapGetRGBA(PIXCMAP *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetRGBA/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="index">[in] - </param>
 '''  <param name="prval">[out] - each color value</param>
@@ -503,6 +523,7 @@ End Function
 ' pixcmapGetRGBA32(PIXCMAP *, l_int32, l_uint32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetRGBA32/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="index">[in] - </param>
 '''  <param name="pval32">[out] - 32-bit rgba color value</param>
@@ -531,6 +552,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapResetColor/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="index">[in] - </param>
 '''  <param name="rval">[in] - colormap entry to be reset each number is in range [0, ... 255]</param>
@@ -564,6 +586,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapSetAlpha/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="index">[in] - </param>
 '''  <param name="aval">[in] - in range [0, ... 255]</param>
@@ -585,6 +608,7 @@ End Function
 ' pixcmapGetIndex(PIXCMAP *, l_int32, l_int32, l_int32, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetIndex/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="rval">[in] - colormap colors to search for each number is in range [0, ... 255]</param>
 '''  <param name="gval">[in] - colormap colors to search for each number is in range [0, ... 255]</param>
@@ -610,6 +634,7 @@ End Function
 ' pixcmapHasColor(PIXCMAP *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapHasColor/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="pcolor">[out] - TRUE if cmap has color FALSE otherwise</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -629,6 +654,7 @@ End Function
 ' pixcmapIsOpaque(PIXCMAP *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapIsOpaque/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="popaque">[out] - TRUE if fully opaque: all entries are 255</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -648,6 +674,7 @@ End Function
 ' pixcmapIsBlackAndWhite(PIXCMAP *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapIsBlackAndWhite/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="pblackwhite">[out] - TRUE if the cmap has only two colors: black (0,0,0) and white (255,255,255)</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -672,6 +699,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapCountGrayColors/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="pngray">[out] - number of gray colors</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -691,6 +719,7 @@ End Function
 ' pixcmapGetRankIntensity(PIXCMAP *, l_float32, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetRankIntensity/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="rankval">[in] - 0.0 for darkest, 1.0 for lightest color</param>
 '''  <param name="pindex">[out] - the index into the colormap that corresponds to the rank intensity color</param>
@@ -720,6 +749,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetNearestIndex/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="rval">[in] - colormap colors to search for each number is in range [0, ... 255]</param>
 '''  <param name="gval">[in] - colormap colors to search for each number is in range [0, ... 255]</param>
@@ -753,6 +783,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetNearestGrayIndex/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="val">[in] - gray value to search for in range [0, ... 255]</param>
 '''  <param name="pindex">[out] - the index of the nearest color</param>
@@ -780,6 +811,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetDistanceToColor/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="index">[in] - </param>
 '''  <param name="rval">[in] - target color</param>
@@ -814,6 +846,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetRangeValues/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="pminval">[out][optional] - minimum value of component</param>
 '''  <param name="pmaxval">[out][optional] - maximum value of component</param>
@@ -849,6 +882,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGrayToColor/*"/>
 '''  <param name="color">[in] - </param>
 '''   <returns>cmap, or NULL on error</returns>
 Public Shared Function pixcmapGrayToColor(
@@ -872,6 +906,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapColorToGray/*"/>
 '''  <param name="cmaps">[in] - </param>
 '''  <param name="rwt">[in] - non-negative these should add to 1.0</param>
 '''  <param name="gwt">[in] - non-negative these should add to 1.0</param>
@@ -902,6 +937,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapConvertTo4/*"/>
 '''  <param name="cmaps">[in] - colormap for 2 bpp pix</param>
 '''   <returns>cmapd   (4 bpp)</returns>
 Public Shared Function pixcmapConvertTo4(
@@ -926,6 +962,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapConvertTo8/*"/>
 '''  <param name="cmaps">[in] - colormap for 2 bpp or 4 bpp pix</param>
 '''   <returns>cmapd   (8 bpp)</returns>
 Public Shared Function pixcmapConvertTo8(
@@ -944,6 +981,7 @@ End Function
 ' pixcmapRead(const char *) as PIXCMAP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>cmap, or NULL on error</returns>
 Public Shared Function pixcmapRead(
@@ -964,6 +1002,7 @@ End Function
 ' pixcmapReadStream(FILE *) as PIXCMAP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>cmap, or NULL on error</returns>
 Public Shared Function pixcmapReadStream(
@@ -982,6 +1021,7 @@ End Function
 ' pixcmapReadMem(const l_uint8 *, size_t) as PIXCMAP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapReadMem/*"/>
 '''  <param name="data">[in] - serialization of pixcmap in ascii</param>
 '''  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 '''   <returns>cmap, or NULL on error</returns>
@@ -1002,6 +1042,7 @@ End Function
 ' pixcmapWrite(const char *, PIXCMAP *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="cmap">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1024,6 +1065,7 @@ End Function
 ' pixcmapWriteStream(FILE *, PIXCMAP *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapWriteStream/*"/>
 '''  <param name="fp">[in] - file stream    \param[in]    cmap</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixcmapWriteStream(
@@ -1050,6 +1092,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized pixcmap ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="cmap">[in] - </param>
@@ -1074,6 +1117,7 @@ End Function
 ' pixcmapToArrays(PIXCMAP *, l_int32 **, l_int32 **, l_int32 **, l_int32 **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapToArrays/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''  <param name="prmap">[out] - colormap arrays</param>
 '''  <param name="pgmap">[out] - colormap arrays</param>
@@ -1104,6 +1148,7 @@ End Function
 ' pixcmapToRGBTable(PIXCMAP *, l_uint32 **, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapToRGBTable/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''  <param name="ptab">[out] - table of rgba values for the colormap</param>
 '''  <param name="pncolors">[out][optional] - size of table</param>
@@ -1133,6 +1178,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapSerializeToMemory/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''  <param name="cpc">[in] - components/color: 3 for rgb, 4 for rgba</param>
 '''  <param name="pncolors">[out] - number of colors in table</param>
@@ -1159,6 +1205,7 @@ End Function
 ' pixcmapDeserializeFromMemory(l_uint8 *, l_int32, l_int32) as PIXCMAP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapDeserializeFromMemory/*"/>
 '''  <param name="data">[in] - binary string, 3 or 4 bytes per color</param>
 '''  <param name="cpc">[in] - components/color: 3 for rgb, 4 for rgba</param>
 '''  <param name="ncolors">[in] - </param>
@@ -1191,6 +1238,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapConvertToHex/*"/>
 '''  <param name="data">[in] - binary serialized data</param>
 '''  <param name="ncolors">[in] - in colormap</param>
 '''   <returns>hexdata bracketed, space-separated ascii hex string, or NULL on error.</returns>
@@ -1217,6 +1265,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGammaTRC/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''  <param name="gamma">[in] - gamma correction must be  is greater  0.0</param>
 '''  <param name="minval">[in] - input value that gives 0 for output can be  is lower  0</param>
@@ -1247,6 +1296,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapContrastTRC/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''  <param name="factor">[in] - generally between 0.0 [no enhancement] and 1.0, but can be larger than 1.0</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -1278,6 +1328,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapShiftIntensity/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''  <param name="fraction">[in] - between -1.0 and +1.0</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -1307,6 +1358,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapShiftByComponent/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''  <param name="srcval">[in] - source color: 0xrrggbb00</param>
 '''  <param name="dstval">[in] - target color: 0xrrggbb00</param>

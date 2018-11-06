@@ -8,6 +8,7 @@ Partial Public Class _All
 ' ptraCreate(l_int32) as L_PTRA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraCreate/*"/>
 '''  <param name="n">[in] - size of ptr array to be alloc'd 0 for default</param>
 '''   <returns>pa, or NULL on error</returns>
 Public Shared Function ptraCreate(
@@ -40,6 +41,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraDestroy/*"/>
 '''  <param name="ppa">[in,out] - ptra to be nulled</param>
 '''  <param name="freeflag">[in] - TRUE to free each remaining item in the array</param>
 '''  <param name="warnflag">[in] - TRUE to warn if any remaining items are not destroyed</param>
@@ -69,6 +71,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraAdd/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="item">[in] - generic ptr to a struct</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -129,6 +132,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraInsert/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="index">[in] - location in ptra to insert new value</param>
 '''  <param name="item">[in] - generic ptr to a struct can be null</param>
@@ -167,6 +171,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraRemove/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="index">[in] - element to be removed</param>
 '''  <param name="flag">[in] - L_NO_COMPACTION, L_COMPACTION</param>
@@ -188,6 +193,7 @@ End Function
 ' ptraRemoveLast(L_PTRA *) as void *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraRemoveLast/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''   <returns>item, or NULL on error or if the array is empty</returns>
 Public Shared Function ptraRemoveLast(
@@ -205,6 +211,7 @@ End Function
 ' ptraReplace(L_PTRA *, l_int32, void *, l_int32) as void *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraReplace/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="index">[in] - element to be replaced</param>
 '''  <param name="item">[in] - new generic ptr to a struct can be null</param>
@@ -231,6 +238,7 @@ End Function
 ' ptraSwap(L_PTRA *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraSwap/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="index1">[in] - </param>
 '''  <param name="index2">[in] - </param>
@@ -258,6 +266,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraCompactArray/*"/>
 '''  <param name="pa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptraCompactArray(
@@ -275,6 +284,7 @@ End Function
 ' ptraReverse(L_PTRA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraReverse/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptraReverse(
@@ -292,6 +302,7 @@ End Function
 ' ptraJoin(L_PTRA *, L_PTRA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraJoin/*"/>
 '''  <param name="pa1">[in] - add to this one</param>
 '''  <param name="pa2">[in] - appended to pa1, and emptied of items can be null</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -327,6 +338,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraGetMaxIndex/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="pmaxindex">[out] - index of last item in the array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -352,6 +364,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraGetActualCount/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="pcount">[out] - actual number of items on the ptr array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -380,6 +393,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraGetPtrToItem/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="index">[in] - of element to be retrieved</param>
 '''   <returns>a ptr to the element, or NULL on error</returns>
@@ -405,6 +419,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraaCreate/*"/>
 '''  <param name="n">[in] - size of ptr array to be alloc'd</param>
 '''   <returns>paa, or NULL on error</returns>
 Public Shared Function ptraaCreate(
@@ -428,6 +443,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraaDestroy/*"/>
 '''  <param name="ppaa">[in,out] - to be nulled</param>
 '''  <param name="freeflag">[in] - TRUE to free each remaining item in each ptra</param>
 '''  <param name="warnflag">[in] - TRUE to warn if any remaining items are not destroyed</param>
@@ -448,6 +464,7 @@ End Sub
 ' ptraaGetSize(L_PTRAA *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraaGetSize/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="psize">[out] - size of ptr array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -474,6 +491,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraaInsertPtra/*"/>
 '''  <param name="paa">[in] - ptraa</param>
 '''  <param name="index">[in] - location in array for insertion</param>
 '''  <param name="pa">[in] - to be inserted</param>
@@ -506,6 +524,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraaGetPtra/*"/>
 '''  <param name="paa">[in] - ptraa</param>
 '''  <param name="index">[in] - location in array</param>
 '''  <param name="accessflag">[in] - L_HANDLE_ONLY, L_REMOVE</param>
@@ -536,6 +555,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraaFlattenToPtra/*"/>
 '''  <param name="paa">[in] - ptraa</param>
 '''   <returns>ptra, or NULL on error</returns>
 Public Shared Function ptraaFlattenToPtra(

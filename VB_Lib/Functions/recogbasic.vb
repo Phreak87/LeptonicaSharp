@@ -16,6 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogCreateFromRecog/*"/>
 '''  <param name="recs">[in] - source recog with arbitrary input parameters</param>
 '''  <param name="scalew">[in] - scale all widths to this use 0 otherwise</param>
 '''  <param name="scaleh">[in] - scale all heights to this use 0 otherwise</param>
@@ -56,6 +57,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogCreateFromPixa/*"/>
 '''  <param name="pixa">[in] - of labeled, 1 bpp images</param>
 '''  <param name="scalew">[in] - scale all widths to this use 0 otherwise</param>
 '''  <param name="scaleh">[in] - scale all heights to this use 0 otherwise</param>
@@ -92,6 +94,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogCreateFromPixaNoFinish/*"/>
 '''  <param name="pixa">[in] - of labeled, 1 bpp images</param>
 '''  <param name="scalew">[in] - scale all widths to this use 0 otherwise</param>
 '''  <param name="scaleh">[in] - scale all heights to this use 0 otherwise</param>
@@ -140,6 +143,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogCreate/*"/>
 '''  <param name="scalew">[in] - scale all widths to this use 0 otherwise</param>
 '''  <param name="scaleh">[in] - scale all heights to this use 0 otherwise</param>
 '''  <param name="linew">[in] - width of normalized strokes use 0 to skip</param>
@@ -164,6 +168,7 @@ End Function
 ' recogDestroy(L_RECOG **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogDestroy/*"/>
 '''  <param name="precog">[in,out] - will be set to null before returning</param>
 Public Shared Sub recogDestroy(
 				 ByRef precog as L_Recog)
@@ -180,6 +185,7 @@ End Sub
 ' recogGetCount(L_RECOG *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogGetCount/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>count of classes in recog 0 if no recog or on error</returns>
 Public Shared Function recogGetCount(
@@ -210,6 +216,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogSetParams/*"/>
 '''  <param name="recog">[in] - to be padded, if necessary</param>
 '''  <param name="type">[in] - type of char set -1 for default see enum in recog.h</param>
 '''  <param name="min_nopad">[in] - min number in a class without padding use -1 for default</param>
@@ -250,6 +257,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogGetClassIndex/*"/>
 '''  <param name="recog">[in] - with LUT's pre-computed</param>
 '''  <param name="val">[in] - integer value can be up to 3 bytes for UTF-8</param>
 '''  <param name="text">[in] - text from which %val was derived used if not found</param>
@@ -274,6 +282,7 @@ End Function
 ' recogStringToIndex(L_RECOG *, char *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogStringToIndex/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="text">[in] - text string for some class</param>
 '''  <param name="pindex">[out] - index for that class -1 if not found</param>
@@ -303,6 +312,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogGetClassString/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="index">[in] - into array of char types</param>
 '''  <param name="pcharstr">[out] - string representation returns an empty string on error</param>
@@ -326,6 +336,7 @@ End Function
 ' l_convertCharstrToInt(const char *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_convertCharstrToInt/*"/>
 '''  <param name="str">[in] - input string representing one UTF-8 character not more than 4 bytes</param>
 '''  <param name="pval">[out] - integer value for the input.  Think of it as a 1-to-1 hash code.</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -364,6 +375,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>recog, or NULL on error</returns>
 Public Shared Function recogRead(
@@ -384,6 +396,7 @@ End Function
 ' recogReadStream(FILE *) as L_RECOG *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>recog, or NULL on error</returns>
 Public Shared Function recogReadStream(
@@ -402,6 +415,7 @@ End Function
 ' recogReadMem(const l_uint8 *, size_t) as L_RECOG *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogReadMem/*"/>
 '''  <param name="data">[in] - serialization of recog (not ascii)</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>recog, or NULL on error</returns>
@@ -431,6 +445,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="recog">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -453,6 +468,7 @@ End Function
 ' recogWriteStream(FILE *, L_RECOG *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="recog">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -478,6 +494,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized recog (not ascii)</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="recog">[in] - </param>
@@ -509,6 +526,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogExtractPixa/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>pixa if OK, NULL on error</returns>
 Public Shared Function recogExtractPixa(

@@ -18,6 +18,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilinearSampledPta/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -53,6 +54,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilinearSampled/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for bilinear transformation</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -82,6 +84,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilinearPta/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -114,6 +117,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilinear/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for bilinear transformation</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -137,6 +141,7 @@ End Function
 ' pixBilinearPtaColor(PIX *, PTA *, PTA *, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilinearPtaColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -163,6 +168,7 @@ End Function
 ' pixBilinearColor(PIX *, l_float32 *, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilinearColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for bilinear transformation</param>
 '''  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
@@ -186,6 +192,7 @@ End Function
 ' pixBilinearPtaGray(PIX *, PTA *, PTA *, l_uint8) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilinearPtaGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -215,6 +222,7 @@ End Function
 ' pixBilinearGray(PIX *, l_float32 *, l_uint8) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilinearGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for bilinear transformation</param>
 '''  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
@@ -272,6 +280,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilinearPtaWithAlpha/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -341,6 +350,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getBilinearXformCoeffs/*"/>
 '''  <param name="ptas">[in] - source 4 points unprimed</param>
 '''  <param name="ptad">[in] - transformed 4 points primed</param>
 '''  <param name="pvc">[out] - vector of coefficients of transform</param>
@@ -371,6 +381,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bilinearXformSampledPt/*"/>
 '''  <param name="vc">[in] - vector of 8 coefficients</param>
 '''  <param name="x">[in] - initial point</param>
 '''  <param name="y">[in] - initial point</param>
@@ -402,6 +413,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bilinearXformPt/*"/>
 '''  <param name="vc">[in] - vector of 8 coefficients</param>
 '''  <param name="x">[in] - initial point</param>
 '''  <param name="y">[in] - initial point</param>

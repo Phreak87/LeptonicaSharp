@@ -116,6 +116,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRasterop/*"/>
 '''  <param name="pixd">[in] - dest pix</param>
 '''  <param name="dx">[in] - x val of UL corner of dest rectangle</param>
 '''  <param name="dy">[in] - y val of UL corner of dest rectangle</param>
@@ -160,6 +161,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRasteropVip/*"/>
 '''  <param name="pixd">[in] - in-place</param>
 '''  <param name="bx">[in] - left edge of vertical band</param>
 '''  <param name="bw">[in] - width of vertical band</param>
@@ -195,6 +197,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRasteropHip/*"/>
 '''  <param name="pixd">[in] - in-place operation</param>
 '''  <param name="by">[in] - top of horizontal band</param>
 '''  <param name="bh">[in] - height of horizontal band</param>
@@ -232,6 +235,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTranslate/*"/>
 '''  <param name="pixd">[in][optional] - destination: this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="hshift">[in] - horizontal shift hshift  is greater  0 is to right</param>
@@ -260,6 +264,7 @@ End Function
 ' pixRasteropIP(PIX *, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRasteropIP/*"/>
 '''  <param name="pixd">[in] - in-place translation</param>
 '''  <param name="hshift">[in] - horizontal shift hshift  is greater  0 is to right</param>
 '''  <param name="vshift">[in] - vertical shift vshift  is greater  0 is down</param>
@@ -292,6 +297,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRasteropFullImage/*"/>
 '''  <param name="pixd">[in] - </param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="op">[in] - any of the op-codes</param>

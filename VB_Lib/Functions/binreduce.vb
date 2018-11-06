@@ -20,6 +20,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReduceBinary2/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="intab">[in][optional] - if null, a table is made here and destroyed before exit</param>
 '''   <returns>pixd 2x subsampled, or NULL on error</returns>
@@ -46,6 +47,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReduceRankBinaryCascade/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="level1">[in] - threshold, in the set {0, 1, 2, 3, 4}</param>
 '''  <param name="level2">[in] - threshold, in the set {0, 1, 2, 3, 4}</param>
@@ -86,6 +88,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReduceRankBinary2/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="level">[in] - rank threshold: 1, 2, 3, 4</param>
 '''  <param name="intab">[in][optional] - if null, a table is made here and destroyed before exit</param>
@@ -117,6 +120,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeSubsampleTab2x/*"/>
 '''   <returns>tab table of 256 permutations, or NULL on error</returns>
 Public Shared Function makeSubsampleTab2x() as Byte()
 

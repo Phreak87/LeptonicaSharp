@@ -39,6 +39,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGammaTRC/*"/>
 '''  <param name="pixd">[in][optional] - null or equal to pixs</param>
 '''  <param name="pixs">[in] - 8 or 32 bpp or 2, 4 or 8 bpp with colormap</param>
 '''  <param name="gamma">[in] - gamma correction must be  is greater  0.0</param>
@@ -75,6 +76,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGammaTRCMasked/*"/>
 '''  <param name="pixd">[in][optional] - null or equal to pixs</param>
 '''  <param name="pixs">[in] - 8 or 32 bpp not colormapped</param>
 '''  <param name="pixm">[in][optional] - null or 1 bpp</param>
@@ -113,6 +115,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGammaTRCWithAlpha/*"/>
 '''  <param name="pixd">[in][optional] - null or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="gamma">[in] - gamma correction must be  is greater  0.0</param>
@@ -152,6 +155,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGammaTRC/*"/>
 '''  <param name="gamma">[in] - gamma factor must be  is greater  0.0</param>
 '''  <param name="minval">[in] - input value that gives 0 for output</param>
 '''  <param name="maxval">[in] - input value that gives 255 for output</param>
@@ -193,6 +197,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixContrastTRC/*"/>
 '''  <param name="pixd">[in][optional] - null or equal to pixs</param>
 '''  <param name="pixs">[in] - 8 or 32 bpp or 2, 4 or 8 bpp with colormap</param>
 '''  <param name="factor">[in] - 0.0 is no enhancement</param>
@@ -225,6 +230,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixContrastTRCMasked/*"/>
 '''  <param name="pixd">[in][optional] - null or equal to pixs</param>
 '''  <param name="pixs">[in] - 8 or 32 bpp or 2, 4 or 8 bpp with colormap</param>
 '''  <param name="pixm">[in][optional] - null or 1 bpp</param>
@@ -261,6 +267,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaContrastTRC/*"/>
 '''  <param name="factor">[in] - generally between 0.0 [no enhancement] and 1.0, but can be larger than 1.0</param>
 '''   <returns>na, or NULL on error</returns>
 Public Shared Function numaContrastTRC(
@@ -301,6 +308,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixEqualizeTRC/*"/>
 '''  <param name="pixd">[in][optional] - null or equal to pixs</param>
 '''  <param name="pixs">[in] - 8 bpp gray, 32 bpp rgb, or colormapped</param>
 '''  <param name="fract">[in] - fraction of equalization movement of pixel values</param>
@@ -337,6 +345,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaEqualizeTRC/*"/>
 '''  <param name="pix">[in] - 8 bpp, no colormap</param>
 '''  <param name="fract">[in] - fraction of equalization movement of pixel values</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
@@ -372,6 +381,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTRCMap/*"/>
 '''  <param name="pixs">[in] - 8 grayscale or 32 bpp rgb not colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask</param>
 '''  <param name="na">[in] - mapping array</param>
@@ -406,6 +416,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUnsharpMasking/*"/>
 '''  <param name="pixs">[in] - all depths except 1 bpp with or without colormaps</param>
 '''  <param name="halfwidth">[in] - "half-width" of smoothing filter</param>
 '''  <param name="fract">[in] - fraction of edge added back into image</param>
@@ -438,6 +449,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUnsharpMaskingGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="halfwidth">[in] - "half-width" of smoothing filter</param>
 '''  <param name="fract">[in] - fraction of edge added back into image</param>
@@ -489,6 +501,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUnsharpMaskingFast/*"/>
 '''  <param name="pixs">[in] - all depths except 1 bpp with or without colormaps</param>
 '''  <param name="halfwidth">[in] - "half-width" of smoothing filter 1 and 2 only</param>
 '''  <param name="fract">[in] - fraction of high frequency added to image</param>
@@ -520,6 +533,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUnsharpMaskingGrayFast/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="halfwidth">[in] - "half-width" of smoothing filter: 1 or 2</param>
 '''  <param name="fract">[in] - fraction of high frequency added to image</param>
@@ -551,6 +565,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUnsharpMaskingGray1D/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="halfwidth">[in] - "half-width" of smoothing filter: 1 or 2</param>
 '''  <param name="fract">[in] - fraction of high frequency added to image</param>
@@ -582,6 +597,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUnsharpMaskingGray2D/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="halfwidth">[in] - "half-width" of smoothing filter: 1 or 2</param>
 '''  <param name="fract">[in] - fraction of high frequency added to image</param>
@@ -618,6 +634,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixModifyHue/*"/>
 '''  <param name="pixd">[in][optional] - can be null or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="fract">[in] - between -1.0 and 1.0</param>
@@ -657,6 +674,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixModifySaturation/*"/>
 '''  <param name="pixd">[in][optional] - can be null, existing or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="fract">[in] - between -1.0 and 1.0</param>
@@ -683,6 +701,7 @@ End Function
 ' pixMeasureSaturation(PIX *, l_int32, l_float32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMeasureSaturation/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
 '''  <param name="psat">[out] - average saturation</param>
@@ -719,6 +738,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixModifyBrightness/*"/>
 '''  <param name="pixd">[in][optional] - can be null, existing or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="fract">[in] - between -1.0 and 1.0</param>
@@ -761,6 +781,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMosaicColorShiftRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="roff">[in] - center offset of red component</param>
 '''  <param name="goff">[in] - center offset of green component</param>
@@ -807,6 +828,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorShiftRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="rfract">[in] - fractional shift in red component</param>
 '''  <param name="gfract">[in] - fractional shift in green component</param>
@@ -848,6 +870,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDarkenGray/*"/>
 '''  <param name="pixd">[in][optional] - can be null or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="thresh">[in] - pixels with max component  is greater = %thresh are unchanged</param>
@@ -885,6 +908,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMultConstantColor/*"/>
 '''  <param name="pixs">[in] - colormapped or rgb</param>
 '''  <param name="rfact">[in] - red multiplicative factor</param>
 '''  <param name="gfact">[in] - green multiplicative factor</param>
@@ -935,6 +959,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMultMatrixColor/*"/>
 '''  <param name="pixs">[in] - colormapped or rgb</param>
 '''  <param name="kel">[in] - kernel 3x3 matrix of floats</param>
 '''   <returns>pixd colormapped or rgb, or NULL on error</returns>
@@ -979,6 +1004,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHalfEdgeByBandpass/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="sm1h">[in] - "half-widths" of smoothing filter sm1</param>
 '''  <param name="sm1v">[in] - "half-widths" of smoothing filter sm1</param>

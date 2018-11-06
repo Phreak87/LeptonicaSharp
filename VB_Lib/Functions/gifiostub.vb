@@ -8,6 +8,7 @@ Partial Public Class _All
 ' pixReadStreamGif(FILE *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamGif/*"/>
 '''   <returns></returns>
 Public Shared Function pixReadStreamGif(
 				 ByVal fp as FILE) as Pix
@@ -27,6 +28,7 @@ End Function
 ' pixReadMemGif(const l_uint8 *, size_t) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMemGif/*"/>
 '''   <returns></returns>
 Public Shared Function pixReadMemGif(
 				 ByVal cdata as Byte(), 
@@ -45,6 +47,7 @@ End Function
 ' pixWriteStreamGif(FILE *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamGif/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteStreamGif(
 				 ByVal fp as FILE, 
@@ -66,6 +69,7 @@ End Function
 ' pixWriteMemGif(l_uint8 **, size_t *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemGif/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteMemGif(
 				 ByVal pdata as Object, 

@@ -13,6 +13,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindStrokeLength/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="tab8">[in][optional] - table for counting fg pixels can be NULL</param>
 '''  <param name="plength">[out] - estimated length of the strokes</param>
@@ -47,6 +48,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindStrokeWidth/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="thresh">[in] - fractional count threshold relative to distance 1</param>
 '''  <param name="tab8">[in][optional] - table for counting fg pixels can be NULL</param>
@@ -82,6 +84,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaFindStrokeWidth/*"/>
 '''  <param name="pixa">[in] - of 1 bpp images</param>
 '''  <param name="thresh">[in] - fractional count threshold relative to distance 1</param>
 '''  <param name="tab8">[in][optional] - table for counting fg pixels can be NULL</param>
@@ -106,6 +109,7 @@ End Function
 ' pixaModifyStrokeWidth(PIXA *, l_float32) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaModifyStrokeWidth/*"/>
 '''  <param name="pixas">[in] - of 1 bpp pix</param>
 '''  <param name="targetw">[out] - desired width for strokes in each pix</param>
 '''   <returns>pixa  with modified stroke widths, or NULL on error</returns>
@@ -126,6 +130,7 @@ End Function
 ' pixModifyStrokeWidth(PIX *, l_float32, l_float32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixModifyStrokeWidth/*"/>
 '''  <param name="pixs">[in] - of 1 bpp pix</param>
 '''  <param name="width">[in] - measured average stroke width</param>
 '''  <param name="targetw">[in] - desired stroke width</param>
@@ -159,6 +164,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSetStrokeWidth/*"/>
 '''  <param name="pixas">[in] - of 1 bpp pix</param>
 '''  <param name="width">[in] - set stroke width to this value, in [1 ... 100].</param>
 '''  <param name="thinfirst">[in] - 1 to thin all pix to a skeleton first 0 to skip</param>
@@ -191,6 +197,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetStrokeWidth/*"/>
 '''  <param name="pixs">[in] - 1 bpp pix</param>
 '''  <param name="width">[in] - set stroke width to this value, in [1 ... 100].</param>
 '''  <param name="thinfirst">[in] - 1 to thin all pix to a skeleton first 0 to skip</param>

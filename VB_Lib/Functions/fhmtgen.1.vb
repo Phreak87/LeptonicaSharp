@@ -15,6 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHMTDwa_1/*"/>
 '''  <param name="pixd">[in] - usual 3 choices: null, == pixs, != pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd</returns>
@@ -51,6 +52,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFHMTGen_1/*"/>
 '''  <param name="pixd">[in] - usual 3 choices: null, == pixs, != pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd</returns>
@@ -76,6 +78,7 @@ End Function
 ' fhmtgen_low_1(l_uint32 *, l_int32, l_int32, l_int32, l_uint32 *, l_int32, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fhmtgen_low_1/*"/>
 '''   <returns></returns>
 Public Shared Function fhmtgen_low_1(
 				 ByVal datad as Object, 

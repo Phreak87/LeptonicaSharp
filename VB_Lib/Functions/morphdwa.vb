@@ -30,6 +30,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDilateBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -83,6 +84,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixErodeBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -136,6 +138,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOpenBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -191,6 +194,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCloseBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -253,6 +257,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDilateCompBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -315,6 +320,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixErodeCompBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -377,6 +383,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOpenCompBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -440,6 +447,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCloseCompBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -488,6 +496,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDilateCompBrickExtendDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -523,6 +532,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixErodeCompBrickExtendDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -551,6 +561,7 @@ End Function
 ' pixOpenCompBrickExtendDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOpenCompBrickExtendDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -579,6 +590,7 @@ End Function
 ' pixCloseCompBrickExtendDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCloseCompBrickExtendDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -637,6 +649,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getExtendedCompositeParameters/*"/>
 '''  <param name="size">[in] - of linear Sel</param>
 '''  <param name="pn">[out] - number of 63 wide convolutions</param>
 '''  <param name="pextra">[out] - size of extra Sel</param>

@@ -20,6 +20,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogIdentifyMultiple/*"/>
 '''  <param name="recog">[in] - with training finished</param>
 '''  <param name="pixs">[in] - containing typically a small number of characters</param>
 '''  <param name="minh">[in] - remove shorter components use 0 for default</param>
@@ -75,6 +76,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogSplitIntoCharacters/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pixs">[in] - 1 bpp, contains only mostly deskewed text</param>
 '''  <param name="minh">[in] - remove shorter components use 0 for default</param>
@@ -118,6 +120,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogCorrelationBestRow/*"/>
 '''  <param name="recog">[in] - with LUT's pre-computed</param>
 '''  <param name="pixs">[in] - typically of multiple touching characters, 1 bpp</param>
 '''  <param name="pboxa">[out] - bounding boxs of best fit character</param>
@@ -167,6 +170,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogCorrelationBestChar/*"/>
 '''  <param name="recog">[in] - with LUT's pre-computed</param>
 '''  <param name="pixs">[in] - can be of multiple touching characters, 1 bpp</param>
 '''  <param name="pbox">[out] - bounding box of best fit character</param>
@@ -213,6 +217,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogIdentifyPixa/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pixa">[in] - of 1 bpp images to match</param>
 '''  <param name="ppixdb">[out][optional] - pix showing inputs and best fits</param>
@@ -256,6 +261,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogIdentifyPix/*"/>
 '''  <param name="recog">[in] - with LUT's pre-computed</param>
 '''  <param name="pixs">[in] - of a single character, 1 bpp</param>
 '''  <param name="ppixdb">[out][optional] - debug pix showing input and best fit</param>
@@ -287,6 +293,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogSkipIdentify/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function recogSkipIdentify(
@@ -304,6 +311,7 @@ End Function
 ' rchaDestroy(L_RCHA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/rchaDestroy/*"/>
 '''  <param name="prcha">[in,out] - to be nulled</param>
 Public Shared Sub rchaDestroy(
 				 ByRef prcha as L_Rcha)
@@ -320,6 +328,7 @@ End Sub
 ' rchDestroy(L_RCH **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/rchDestroy/*"/>
 '''  <param name="prch">[in,out] - to be nulled</param>
 Public Shared Sub rchDestroy(
 				 ByRef prch as L_Rch)
@@ -342,6 +351,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/rchaExtract/*"/>
 '''  <param name="rcha">[in] - </param>
 '''  <param name="pnaindex">[out][optional] - indices of best templates</param>
 '''  <param name="pnascore">[out][optional] - correl scores of best templates</param>
@@ -388,6 +398,7 @@ End Function
 ' rchExtract(L_RCH *, l_int32 *, l_float32 *, char **, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/rchExtract/*"/>
 '''  <param name="rch">[in] - </param>
 '''  <param name="pindex">[out][optional] - index of best template</param>
 '''  <param name="pscore">[out][optional] - correlation score of best template</param>
@@ -428,6 +439,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogProcessToIdentify/*"/>
 '''  <param name="recog">[in] - with LUT's pre-computed</param>
 '''  <param name="pixs">[in] - typ. single character, possibly d  is greater  1 and uncropped</param>
 '''  <param name="pad">[in] - extra pixels added to left and right sides</param>
@@ -473,6 +485,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogExtractNumbers/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="boxas">[in] - location of components</param>
 '''  <param name="scorethresh">[in] - min score for which we accept a component</param>
@@ -515,6 +528,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/showExtractNumbers/*"/>
 '''  <param name="pixs">[in] - input 1 bpp image</param>
 '''  <param name="sa">[in] - recognized text strings</param>
 '''  <param name="baa">[in] - boxa array for location of characters in each string</param>

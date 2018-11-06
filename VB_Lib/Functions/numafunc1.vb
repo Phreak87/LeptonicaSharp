@@ -16,6 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaArithOp/*"/>
 '''  <param name="nad">[in][optional] - can be null or equal to na1 (in-place</param>
 '''  <param name="na1">[in] - </param>
 '''  <param name="na2">[in] - </param>
@@ -55,6 +56,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaLogicalOp/*"/>
 '''  <param name="nad">[in][optional] - can be null or equal to na1 (in-place</param>
 '''  <param name="na1">[in] - </param>
 '''  <param name="na2">[in] - </param>
@@ -91,6 +93,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaInvert/*"/>
 '''  <param name="nad">[in][optional] - can be null or equal to nas (in-place</param>
 '''  <param name="nas">[in] - </param>
 '''   <returns>nad always: 'inverts' nas</returns>
@@ -120,6 +123,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSimilar/*"/>
 '''  <param name="na1">[in] - </param>
 '''  <param name="na2">[in] - </param>
 '''  <param name="maxdiff">[in] - use 0.0 for exact equality</param>
@@ -153,6 +157,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaAddToNumber/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="index">[in] - element to be changed</param>
 '''  <param name="val">[in] - new value to be added</param>
@@ -174,6 +179,7 @@ End Function
 ' numaGetMin(NUMA *, l_float32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetMin/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pminval">[out][optional] - min value</param>
 '''  <param name="piminloc">[out][optional] - index of min location</param>
@@ -195,6 +201,7 @@ End Function
 ' numaGetMax(NUMA *, l_float32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetMax/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pmaxval">[out][optional] - max value</param>
 '''  <param name="pimaxloc">[out][optional] - index of max location</param>
@@ -216,6 +223,7 @@ End Function
 ' numaGetSum(NUMA *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetSum/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="psum">[out] - sum of values</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -243,6 +251,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetPartialSums/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''   <returns>nasum, or NULL on error</returns>
 Public Shared Function numaGetPartialSums(
@@ -261,6 +270,7 @@ End Function
 ' numaGetSumOnInterval(NUMA *, l_int32, l_int32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetSumOnInterval/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="first">[in] - beginning index</param>
 '''  <param name="last">[in] - final index</param>
@@ -290,6 +300,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaHasOnlyIntegers/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="maxsamples">[in] - maximum number of samples to check</param>
 '''  <param name="pallints">[out] - 1 if all sampled values are ints else 0</param>
@@ -311,6 +322,7 @@ End Function
 ' numaSubsample(NUMA *, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSubsample/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="subfactor">[in] - subsample factor,  is greater = 1</param>
 '''   <returns>nad evenly sampled values from nas, or NULL on error</returns>
@@ -331,6 +343,7 @@ End Function
 ' numaMakeDelta(NUMA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaMakeDelta/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''   <returns>numa of difference values val[i+1] - val[i], or NULL on error</returns>
 Public Shared Function numaMakeDelta(
@@ -349,6 +362,7 @@ End Function
 ' numaMakeSequence(l_float32, l_float32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaMakeSequence/*"/>
 '''  <param name="startval">[in] - </param>
 '''  <param name="increment">[in] - </param>
 '''  <param name="size">[in] - of sequence</param>
@@ -369,6 +383,7 @@ End Function
 ' numaMakeConstant(l_float32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaMakeConstant/*"/>
 '''  <param name="val">[in] - </param>
 '''  <param name="size">[in] - of numa</param>
 '''   <returns>numa of given size with all entries equal to 'val', or NULL on error</returns>
@@ -387,6 +402,7 @@ End Function
 ' numaMakeAbsValue(NUMA *, NUMA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaMakeAbsValue/*"/>
 '''  <param name="nad">[in]can be null - for new array, or the same as nas for inplace</param>
 '''  <param name="nas">[in] - input numa</param>
 '''   <returns>nad with all numbers being the absval of the input, or NULL on error</returns>
@@ -409,6 +425,7 @@ End Function
 ' numaAddBorder(NUMA *, l_int32, l_int32, l_float32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaAddBorder/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="left">[in] - number of elements to add on each side</param>
 '''  <param name="right">[in] - number of elements to add on each side</param>
@@ -433,6 +450,7 @@ End Function
 ' numaAddSpecifiedBorder(NUMA *, l_int32, l_int32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaAddSpecifiedBorder/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="left">[in] - number of elements to add on each side</param>
 '''  <param name="right">[in] - number of elements to add on each side</param>
@@ -457,6 +475,7 @@ End Function
 ' numaRemoveBorder(NUMA *, l_int32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaRemoveBorder/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="left">[in] - number of elements to remove from each side</param>
 '''  <param name="right">[in] - number of elements to remove from each side</param>
@@ -479,6 +498,7 @@ End Function
 ' numaCountNonzeroRuns(NUMA *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaCountNonzeroRuns/*"/>
 '''  <param name="na">[in] - e.g., of pixel counts in rows or columns</param>
 '''  <param name="pcount">[out] - number of nonzero runs</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -498,6 +518,7 @@ End Function
 ' numaGetNonzeroRange(NUMA *, l_float32, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetNonzeroRange/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="eps">[in] - largest value considered to be zero</param>
 '''  <param name="pfirst">[out] - interval of array indices where values are nonzero</param>
@@ -521,6 +542,7 @@ End Function
 ' numaGetCountRelativeToZero(NUMA *, l_int32, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetCountRelativeToZero/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="type">[in] - L_LESS_THAN_ZERO, L_EQUAL_TO_ZERO, L_GREATER_THAN_ZERO</param>
 '''  <param name="pcount">[out] - count of values of given type</param>
@@ -551,6 +573,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaClipToInterval/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="first">[in] - clipping interval</param>
 '''  <param name="last">[in] - clipping interval</param>
@@ -580,6 +603,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaMakeThresholdIndicator/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''  <param name="thresh">[in] - threshold value</param>
 '''  <param name="type">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -608,6 +632,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaUniformSampling/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''  <param name="nsamp">[in] - number of samples</param>
 '''   <returns></returns>
@@ -635,6 +660,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaReverse/*"/>
 '''  <param name="nad">[in][optional] - can be null or equal to nas</param>
 '''  <param name="nas">[in] - input numa</param>
 '''   <returns></returns>
@@ -664,6 +690,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaLowPassIntervals/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''  <param name="thresh">[in] - threshold fraction of max in [0.0 ... 1.0]</param>
 '''  <param name="maxn">[in] - for normalizing set maxn = 0.0 to use the max in nas</param>
@@ -701,6 +728,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaThresholdEdges/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''  <param name="thresh1">[in] - low threshold as fraction of max in [0.0 ... 1.0]</param>
 '''  <param name="thresh2">[in] - high threshold as fraction of max in [0.0 ... 1.0]</param>
@@ -725,6 +753,7 @@ End Function
 ' numaGetSpanValues(NUMA *, l_int32, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetSpanValues/*"/>
 '''  <param name="na">[in] - numa that is output of numaLowPassIntervals()</param>
 '''  <param name="span">[in] - span number, zero-based</param>
 '''  <param name="pstart">[out][optional] - location of start of transition</param>
@@ -748,6 +777,7 @@ End Function
 ' numaGetEdgeValues(NUMA *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetEdgeValues/*"/>
 '''  <param name="na">[in] - numa that is output of numaThresholdEdges()</param>
 '''  <param name="edge">[in] - edge number, zero-based</param>
 '''  <param name="pstart">[out][optional] - location of start of transition</param>
@@ -786,6 +816,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaInterpolateEqxVal/*"/>
 '''  <param name="startx">[in] - xval corresponding to first element in array</param>
 '''  <param name="deltax">[in] - x increment between array elements</param>
 '''  <param name="nay">[in] - numa of ordinate values, assumed equally spaced</param>
@@ -823,6 +854,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaInterpolateArbxVal/*"/>
 '''  <param name="nax">[in] - numa of abscissa values</param>
 '''  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 '''  <param name="type">[in] - L_LINEAR_INTERP, L_QUADRATIC_INTERP</param>
@@ -863,6 +895,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaInterpolateEqxInterval/*"/>
 '''  <param name="startx">[in] - xval corresponding to first element in nas</param>
 '''  <param name="deltax">[in] - x increment between array elements in nas</param>
 '''  <param name="nasy">[in] - numa of ordinate values, assumed equally spaced</param>
@@ -916,6 +949,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaInterpolateArbxInterval/*"/>
 '''  <param name="nax">[in] - numa of abscissa values</param>
 '''  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 '''  <param name="type">[in] - L_LINEAR_INTERP, L_QUADRATIC_INTERP</param>
@@ -972,6 +1006,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaFitMax/*"/>
 '''  <param name="na">[in] - numa of ordinate values, to fit a max to</param>
 '''  <param name="pmaxval">[out] - max value</param>
 '''  <param name="naloc">[in][optional] - associated numa of abscissa values</param>
@@ -1005,6 +1040,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaDifferentiateInterval/*"/>
 '''  <param name="nax">[in] - numa of abscissa values</param>
 '''  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 '''  <param name="x0">[in] - start value of interval</param>
@@ -1048,6 +1084,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaIntegrateInterval/*"/>
 '''  <param name="nax">[in] - numa of abscissa values</param>
 '''  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 '''  <param name="x0">[in] - start value of interval</param>
@@ -1106,6 +1143,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSortGeneral/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pnasort">[out][optional] - sorted numa</param>
 '''  <param name="pnaindex">[out][optional] - index of elements in na associated with each element of nasort</param>
@@ -1146,6 +1184,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSortAutoSelect/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 '''   <returns>naout output sorted numa, or NULL on error</returns>
@@ -1172,6 +1211,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSortIndexAutoSelect/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 '''   <returns>nad indices of nas, sorted by value in nas, or NULL on error</returns>
@@ -1199,6 +1239,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaChooseSortType/*"/>
 '''  <param name="nas">[in] - to be sorted</param>
 '''   <returns>sorttype L_SHELL_SORT or L_BIN_SORT, or UNDEF on error.</returns>
 Public Shared Function numaChooseSortType(
@@ -1223,6 +1264,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSort/*"/>
 '''  <param name="naout">[in] - output numa can be NULL or equal to nain</param>
 '''  <param name="nain">[in] - input numa</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
@@ -1255,6 +1297,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaBinSort/*"/>
 '''  <param name="nas">[in] - of non-negative integers with a max that is typically less than 50,000</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 '''   <returns>na sorted, or NULL on error</returns>
@@ -1275,6 +1318,7 @@ End Function
 ' numaGetSortIndex(NUMA *, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetSortIndex/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 '''   <returns>na giving an array of indices that would sort the input array, or NULL on error</returns>
@@ -1306,6 +1350,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetBinSortIndex/*"/>
 '''  <param name="nas">[in] - of non-negative integers with a max that is typically less than 1,000,000</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 '''   <returns>na sorted, or NULL on error</returns>
@@ -1326,6 +1371,7 @@ End Function
 ' numaSortByIndex(NUMA *, NUMA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSortByIndex/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="naindex">[in] - na that maps from the new numa to the input numa</param>
 '''   <returns>nad sorted, or NULL on error</returns>
@@ -1354,6 +1400,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaIsSorted/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 '''  <param name="psorted">[out] - 1 if sorted 0 if not</param>
@@ -1381,6 +1428,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSortPair/*"/>
 '''  <param name="nax">[in] - input arrays</param>
 '''  <param name="nay">[in] - input arrays</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
@@ -1419,6 +1467,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaInvertMap/*"/>
 '''  <param name="nas">[in] - </param>
 '''   <returns>nad the inverted map, or NULL on error or if not invertible</returns>
 Public Shared Function numaInvertMap(
@@ -1445,6 +1494,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaPseudorandomSequence/*"/>
 '''  <param name="size">[in] - of sequence</param>
 '''  <param name="seed">[in] - for random number generation</param>
 '''   <returns>na pseudorandom on {0,...,size - 1}, or NULL on error</returns>
@@ -1463,6 +1513,7 @@ End Function
 ' numaRandomPermutation(NUMA *, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaRandomPermutation/*"/>
 '''  <param name="nas">[in] - input array</param>
 '''  <param name="seed">[in] - for random number generation</param>
 '''   <returns>nas randomly shuffled array, or NULL on error</returns>
@@ -1500,6 +1551,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetRankValue/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="fract">[in] - use 0.0 for smallest, 1.0 for largest</param>
 '''  <param name="nasort">[in][optional] - increasing sorted version of na</param>
@@ -1533,6 +1585,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetMedian/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pval">[out] - median value</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -1560,6 +1613,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetBinnedMedian/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pval">[out] - integer median value</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -1587,6 +1641,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetMode/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pval">[out] - mode val</param>
 '''  <param name="pcount">[out][optional] - mode count</param>
@@ -1618,6 +1673,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetMedianVariation/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pmedval">[out][optional] - median value</param>
 '''  <param name="pmedvar">[out] - median variation from median val</param>
@@ -1646,6 +1702,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaJoin/*"/>
 '''  <param name="nad">[in] - dest numa add to this one</param>
 '''  <param name="nas">[in][optional] - source numa add from this one</param>
 '''  <param name="istart">[in] - starting index in nas</param>
@@ -1678,6 +1735,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaJoin/*"/>
 '''  <param name="naad">[in] - dest naa add to this one</param>
 '''  <param name="naas">[in][optional] - source naa add from this one</param>
 '''  <param name="istart">[in] - starting index in nas</param>
@@ -1712,6 +1770,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaFlattenToNuma/*"/>
 '''  <param name="naa">[in] - </param>
 '''   <returns>numa, or NULL on error</returns>
 Public Shared Function numaaFlattenToNuma(

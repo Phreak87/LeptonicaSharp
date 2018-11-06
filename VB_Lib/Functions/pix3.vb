@@ -31,6 +31,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetMasked/*"/>
 '''  <param name="pixd">[in] - 1, 2, 4, 8, 16 or 32 bpp or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask no operation if NULL</param>
 '''  <param name="val">[in] - value to set at each masked pixel</param>
@@ -73,6 +74,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetMaskedGeneral/*"/>
 '''  <param name="pixd">[in] - 8, 16 or 32 bpp</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask no operation if null</param>
 '''  <param name="val">[in] - value to set at each masked pixel</param>
@@ -121,6 +123,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCombineMasked/*"/>
 '''  <param name="pixd">[in] - 1 bpp, 8 bpp gray or 32 bpp rgb no cmap</param>
 '''  <param name="pixs">[in] - 1 bpp, 8 bpp gray or 32 bpp rgb no cmap</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask no operation if NULL</param>
@@ -175,6 +178,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCombineMaskedGeneral/*"/>
 '''  <param name="pixd">[in] - 1 bpp, 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="pixs">[in] - 1 bpp, 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask</param>
@@ -237,6 +241,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixPaintThroughMask/*"/>
 '''  <param name="pixd">[in] - 1, 2, 4, 8, 16 or 32 bpp or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask</param>
 '''  <param name="x">[in] - origin of pixm relative to pixd can be negative</param>
@@ -312,6 +317,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixPaintSelfThroughMask/*"/>
 '''  <param name="pixd">[in] - 8 bpp gray or 32 bpp rgb not colormapped</param>
 '''  <param name="pixm">[in] - 1 bpp mask</param>
 '''  <param name="x">[in] - origin of pixm relative to pixd must not be negative</param>
@@ -353,6 +359,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeMaskFromVal/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp can be colormapped</param>
 '''  <param name="val">[in] - pixel value</param>
 '''   <returns>pixd 1 bpp mask, or NULL on error</returns>
@@ -381,6 +388,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeMaskFromLUT/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp can be colormapped</param>
 '''  <param name="tab">[in] - 256-entry LUT 1 means to write to mask</param>
 '''   <returns>pixd 1 bpp mask, or NULL on error</returns>
@@ -419,6 +427,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeArbMaskFromRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''  <param name="rc">[in] - arithmetic factors can be negative</param>
 '''  <param name="gc">[in] - arithmetic factors can be negative</param>
@@ -492,6 +501,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetUnderTransparency/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgba</param>
 '''  <param name="val">[in] - 32 bit unsigned color to use where alpha == 0</param>
 '''  <param name="debug">[in] - displays layers of pixs</param>
@@ -537,6 +547,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeAlphaFromMask/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="dist">[in] - blending distance typically 10 - 30</param>
 '''  <param name="pbox">[out][optional] - use NULL to get the full size</param>
@@ -571,6 +582,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetColorNearMaskBoundary/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="pixm">[in] - 1 bpp mask, full image</param>
 '''  <param name="box">[in] - region of mask typically b.b. of a component</param>
@@ -615,6 +627,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixInvert/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -659,6 +672,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOr/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs1, different from pixs1</param>
 '''  <param name="pixs1">[in] - can be == pixd</param>
 '''  <param name="pixs2">[in] - must be != pixd</param>
@@ -706,6 +720,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAnd/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs1, different from pixs1</param>
 '''  <param name="pixs1">[in] - can be == pixd</param>
 '''  <param name="pixs2">[in] - must be != pixd</param>
@@ -753,6 +768,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixXor/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs1, different from pixs1</param>
 '''  <param name="pixs1">[in] - can be == pixd</param>
 '''  <param name="pixs2">[in] - must be != pixd</param>
@@ -801,6 +817,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSubtract/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs1, equal to pixs2, or different from both pixs1 and pixs2</param>
 '''  <param name="pixs1">[in] - can be == pixd</param>
 '''  <param name="pixs2">[in] - can be == pixd</param>
@@ -836,6 +853,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixZero/*"/>
 '''  <param name="pix">[in] - all depths colormap OK</param>
 '''  <param name="pempty">[out] - 1 if all bits in image data field are 0 0 otherwise</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -855,6 +873,7 @@ End Function
 ' pixForegroundFraction(PIX *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixForegroundFraction/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="pfract">[out] - fraction of ON pixels</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -876,6 +895,7 @@ End Function
 ' pixaCountPixels(PIXA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaCountPixels/*"/>
 '''  <param name="pixa">[in] - array of 1 bpp pix</param>
 '''   <returns>na of ON pixels in each pix, or NULL on error</returns>
 Public Shared Function pixaCountPixels(
@@ -894,6 +914,7 @@ End Function
 ' pixCountPixels(PIX *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountPixels/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pcount">[out] - count of ON pixels</param>
 '''  <param name="tab8">[in][optional] - 8-bit pixel lookup table</param>
@@ -917,6 +938,7 @@ End Function
 ' pixCountPixelsInRect(PIX *, BOX *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountPixelsInRect/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="box">[in] - (can be null)</param>
 '''  <param name="pcount">[out] - count of ON pixels</param>
@@ -949,6 +971,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountByRow/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="box">[in][optional] - clipping box for count can be null</param>
 '''   <returns>na of number of ON pixels by row, or NULL on error</returns>
@@ -979,6 +1002,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountByColumn/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="box">[in][optional] - clipping box for count can be null</param>
 '''   <returns>na of number of ON pixels by column, or NULL on error</returns>
@@ -1003,6 +1027,7 @@ End Function
 ' pixCountPixelsByRow(PIX *, l_int32 *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountPixelsByRow/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="tab8">[in][optional] - 8-bit pixel lookup table</param>
 '''   <returns>na of counts, or NULL on error</returns>
@@ -1025,6 +1050,7 @@ End Function
 ' pixCountPixelsByColumn(PIX *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountPixelsByColumn/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''   <returns>na of counts in each column, or NULL on error</returns>
 Public Shared Function pixCountPixelsByColumn(
@@ -1045,6 +1071,7 @@ End Function
 ' pixCountPixelsInRow(PIX *, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountPixelsInRow/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="row">[in] - number</param>
 '''  <param name="pcount">[out] - sum of ON pixels in raster line</param>
@@ -1070,6 +1097,7 @@ End Function
 ' pixGetMomentByColumn(PIX *, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetMomentByColumn/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="order">[in] - of moment, either 1 or 2</param>
 '''   <returns>na of first moment of fg pixels, by column, or NULL on error</returns>
@@ -1101,6 +1129,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThresholdPixelSum/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="thresh">[in] - threshold</param>
 '''  <param name="pabove">[out] - 1 if above threshold 0 if equal to or less than threshold</param>
@@ -1132,6 +1161,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makePixelSumTab8/*"/>
 '''   <returns>table of 256 l_int32, or NULL on error</returns>
 Public Shared Function makePixelSumTab8() as Integer()
 
@@ -1157,6 +1187,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makePixelCentroidTab8/*"/>
 '''   <returns>table of 256 l_int32, or NULL on error</returns>
 Public Shared Function makePixelCentroidTab8() as Integer()
 
@@ -1178,6 +1209,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAverageByRow/*"/>
 '''  <param name="pix">[in] - 8 or 16 bpp no colormap</param>
 '''  <param name="box">[in][optional] - clipping box for sum can be null</param>
 '''  <param name="type">[in] - L_WHITE_IS_MAX, L_BLACK_IS_MAX</param>
@@ -1210,6 +1242,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAverageByColumn/*"/>
 '''  <param name="pix">[in] - 8 or 16 bpp no colormap</param>
 '''  <param name="box">[in][optional] - clipping box for sum can be null</param>
 '''  <param name="type">[in] - L_WHITE_IS_MAX, L_BLACK_IS_MAX</param>
@@ -1234,6 +1267,7 @@ End Function
 ' pixAverageInRect(PIX *, BOX *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAverageInRect/*"/>
 '''  <param name="pix">[in] - 1, 2, 4, 8 bpp not cmapped</param>
 '''  <param name="box">[in][optional] - if null, use entire image</param>
 '''  <param name="pave">[out] - average of pixel values in region</param>
@@ -1265,6 +1299,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixVarianceByRow/*"/>
 '''  <param name="pix">[in] - 8 or 16 bpp no colormap</param>
 '''  <param name="box">[in][optional] - clipping box for variance can be null</param>
 '''   <returns>na of rmsdev by row, or NULL on error</returns>
@@ -1295,6 +1330,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixVarianceByColumn/*"/>
 '''  <param name="pix">[in] - 8 or 16 bpp no colormap</param>
 '''  <param name="box">[in][optional] - clipping box for variance can be null</param>
 '''   <returns>na of rmsdev by column, or NULL on error</returns>
@@ -1317,6 +1353,7 @@ End Function
 ' pixVarianceInRect(PIX *, BOX *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixVarianceInRect/*"/>
 '''  <param name="pix">[in] - 1, 2, 4, 8 bpp not cmapped</param>
 '''  <param name="box">[in][optional] - if null, use entire image</param>
 '''  <param name="prootvar">[out] - sqrt variance of pixel values in region</param>
@@ -1348,6 +1385,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAbsDiffByRow/*"/>
 '''  <param name="pix">[in] - 8 bpp no colormap</param>
 '''  <param name="box">[in][optional] - clipping box for region can be null</param>
 '''   <returns>na of abs val pixel difference averages by row, or NULL on error</returns>
@@ -1378,6 +1416,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAbsDiffByColumn/*"/>
 '''  <param name="pix">[in] - 8 bpp no colormap</param>
 '''  <param name="box">[in][optional] - clipping box for region can be null</param>
 '''   <returns>na of abs val pixel difference averages by column, or NULL on error</returns>
@@ -1408,6 +1447,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAbsDiffInRect/*"/>
 '''  <param name="pix">[in] - 8 bpp not cmapped</param>
 '''  <param name="box">[in][optional] - if null, use entire image</param>
 '''  <param name="dir">[in] - differences along L_HORIZONTAL_LINE or L_VERTICAL_LINE</param>
@@ -1441,6 +1481,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAbsDiffOnLine/*"/>
 '''  <param name="pix">[in] - 8 bpp not cmapped</param>
 '''  <param name="x1">[in] - first point x1  is lower = x2, y1  is lower = y2</param>
 '''  <param name="y1">[in] - first point x1  is lower = x2, y1  is lower = y2</param>
@@ -1476,6 +1517,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountArbInRect/*"/>
 '''  <param name="pixs">[in] - 8 bpp, or colormapped</param>
 '''  <param name="box">[in][optional] - over which count is made use entire image if NULL</param>
 '''  <param name="val">[in] - pixel value to count</param>
@@ -1516,6 +1558,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMirroredTiling/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp, small tile to be replicated</param>
 '''  <param name="w">[in] - dimensions of output pix</param>
 '''  <param name="h">[in] - dimensions of output pix</param>
@@ -1553,6 +1596,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindRepCloseTile/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="box">[in] - region of pixs to search around</param>
 '''  <param name="searchdir">[in] - L_HORIZ or L_VERT direction to search</param>

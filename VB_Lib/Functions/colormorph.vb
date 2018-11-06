@@ -16,6 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorMorph/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="type">[in] - L_MORPH_DILATE, L_MORPH_ERODE, L_MORPH_OPEN, or L_MORPH_CLOSE</param>
 '''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>

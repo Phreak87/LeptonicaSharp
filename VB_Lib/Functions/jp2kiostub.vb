@@ -8,6 +8,7 @@ Partial Public Class _All
 ' pixReadJp2k(const char *, l_uint32, BOX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadJp2k/*"/>
 '''   <returns></returns>
 Public Shared Function pixReadJp2k(
 				 ByVal filename as String, 
@@ -35,6 +36,7 @@ End Function
 ' pixReadStreamJp2k(FILE *, l_uint32, BOX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamJp2k/*"/>
 '''   <returns></returns>
 Public Shared Function pixReadStreamJp2k(
 				 ByVal fp as FILE, 
@@ -62,6 +64,7 @@ End Function
 ' pixWriteJp2k(const char *, PIX *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteJp2k/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteJp2k(
 				 ByVal filename as String, 
@@ -88,6 +91,7 @@ End Function
 ' pixWriteStreamJp2k(FILE *, PIX *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamJp2k/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteStreamJp2k(
 				 ByVal fp as FILE, 
@@ -113,6 +117,7 @@ End Function
 ' pixReadMemJp2k(const l_uint8 *, size_t, l_uint32, BOX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMemJp2k/*"/>
 '''   <returns></returns>
 Public Shared Function pixReadMemJp2k(
 				 ByVal data as Byte(), 
@@ -140,6 +145,7 @@ End Function
 ' pixWriteMemJp2k(l_uint8 **, size_t *, PIX *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemJp2k/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteMemJp2k(
 				 ByVal pdata as Object, 

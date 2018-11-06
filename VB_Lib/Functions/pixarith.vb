@@ -17,6 +17,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddConstantGray/*"/>
 '''  <param name="pixs">[in] - 8, 16 or 32 bpp</param>
 '''  <param name="val">[in] - amount to add to each pixel</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -43,6 +44,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMultConstantGray/*"/>
 '''  <param name="pixs">[in] - 8, 16 or 32 bpp</param>
 '''  <param name="val">[in] - is greater = 0.0 amount to multiply by each pixel</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -76,6 +78,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddGray/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs1, or different from pixs1</param>
 '''  <param name="pixs1">[in] - can be == to pixd</param>
 '''  <param name="pixs2">[in] - </param>
@@ -115,6 +118,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSubtractGray/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs1, or different from pixs1</param>
 '''  <param name="pixs1">[in] - can be == to pixd</param>
 '''  <param name="pixs2">[in] - </param>
@@ -148,6 +152,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThresholdToValue/*"/>
 '''  <param name="pixd">[in][optional] - if not null, must be equal to pixs</param>
 '''  <param name="pixs">[in] - 8, 16, 32 bpp</param>
 '''  <param name="threshval">[in] - </param>
@@ -189,6 +194,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixInitAccumulate/*"/>
 '''  <param name="w">[in] - of accumulate array</param>
 '''  <param name="h">[in] - of accumulate array</param>
 '''  <param name="offset">[in] - initialize the 32 bpp to have this value not more than 0x40000000</param>
@@ -217,6 +223,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFinalAccumulate/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="offset">[in] - same as used for initialization</param>
 '''  <param name="depth">[in] - 8, 16 or 32 bpp, of destination</param>
@@ -245,6 +252,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFinalAccumulateThreshold/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="offset">[in] - same as used for initialization</param>
 '''  <param name="threshold">[in] - values less than this are set in the destination</param>
@@ -275,6 +283,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAccumulate/*"/>
 '''  <param name="pixd">[in] - 32 bpp</param>
 '''  <param name="pixs">[in] - 1, 8, 16 or 32 bpp</param>
 '''  <param name="op">[in] - L_ARITH_ADD or L_ARITH_SUBTRACT</param>
@@ -304,6 +313,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMultConstAccumulate/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="factor">[in] - </param>
 '''  <param name="offset">[in] - same as used for initialization</param>
@@ -336,6 +346,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAbsDifference/*"/>
 '''  <param name="pixs1">[in] - both either 8 or 16 bpp gray, or 32 bpp RGB</param>
 '''  <param name="pixs2">[in] - both either 8 or 16 bpp gray, or 32 bpp RGB</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -367,6 +378,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddRGB/*"/>
 '''  <param name="pixs1">[in] - 32 bpp RGB, or colormapped</param>
 '''  <param name="pixs2">[in] - 32 bpp RGB, or colormapped</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -400,6 +412,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMinOrMax/*"/>
 '''  <param name="pixd">[in][optional] - destination: this can be null, equal to pixs1, or different from pixs1</param>
 '''  <param name="pixs1">[in] - can be == to pixd</param>
 '''  <param name="pixs2">[in] - </param>
@@ -436,6 +449,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMaxDynamicRange/*"/>
 '''  <param name="pixs">[in] - 4, 8, 16 or 32 bpp source</param>
 '''  <param name="type">[in] - L_LINEAR_SCALE or L_LOG_SCALE</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
@@ -466,6 +480,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMaxDynamicRangeRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb source</param>
 '''  <param name="type">[in] - L_LINEAR_SCALE or L_LOG_SCALE</param>
 '''   <returns>pixd 32 bpp, or NULL on error</returns>
@@ -495,6 +510,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/linearScaleRGBVal/*"/>
 '''  <param name="sval">[in] - 32-bit rgb pixel value</param>
 '''  <param name="factor">[in] - multiplication factor on each component</param>
 '''   <returns>dval  linearly scaled version of %sval</returns>
@@ -523,6 +539,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/logScaleRGBVal/*"/>
 '''  <param name="sval">[in] - 32-bit rgb pixel value</param>
 '''  <param name="tab">[in] - 256 entry log-base-2 table</param>
 '''  <param name="factor">[in] - multiplication factor on each component</param>
@@ -544,6 +561,7 @@ End Function
 ' makeLogBase2Tab() as l_float32 *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeLogBase2Tab/*"/>
 '''   <returns></returns>
 Public Shared Function makeLogBase2Tab() as Single()
 
@@ -557,6 +575,7 @@ End Function
 ' getLogBase2(l_int32, l_float32 *) as l_float32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getLogBase2/*"/>
 '''   <returns></returns>
 Public Shared Function getLogBase2(
 				 ByVal val as Integer, 

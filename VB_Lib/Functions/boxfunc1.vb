@@ -8,6 +8,7 @@ Partial Public Class _All
 ' boxContains(BOX *, BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxContains/*"/>
 '''  <param name="box1">[in] - </param>
 '''  <param name="box2">[in] - </param>
 '''  <param name="presult">[out] - 1 if box2 is entirely contained within box1, and 0 otherwise</param>
@@ -30,6 +31,7 @@ End Function
 ' boxIntersects(BOX *, BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxIntersects/*"/>
 '''  <param name="box1">[in] - </param>
 '''  <param name="box2">[in] - </param>
 '''  <param name="presult">[out] - 1 if any part of box2 is contained in box1, and 0 otherwise</param>
@@ -57,6 +59,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaContainedInBox/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="box">[in] - for containment</param>
 '''   <returns>boxad boxa with all boxes in boxas that are entirely contained in box, or NULL on error</returns>
@@ -78,6 +81,7 @@ End Function
 ' boxaContainedInBoxCount(BOXA *, BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaContainedInBoxCount/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="box">[in] - for selecting contained boxes in %boxa</param>
 '''  <param name="pcount">[out] - number of boxes intersecting the box</param>
@@ -100,6 +104,7 @@ End Function
 ' boxaContainedInBoxa(BOXA *, BOXA *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaContainedInBoxa/*"/>
 '''  <param name="boxa1">[in] - </param>
 '''  <param name="boxa2">[in] - </param>
 '''  <param name="pcontained">[out] - 1 if every box in boxa2 is contained in some box in boxa1 0 otherwise</param>
@@ -128,6 +133,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaIntersectsBox/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="box">[in] - for intersecting</param>
 '''   <returns>boxad boxa with all boxes in boxas that intersect box, or NULL on error</returns>
@@ -149,6 +155,7 @@ End Function
 ' boxaIntersectsBoxCount(BOXA *, BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaIntersectsBoxCount/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="box">[in] - for selecting intersecting boxes in %boxa</param>
 '''  <param name="pcount">[out] - number of boxes intersecting the box</param>
@@ -177,6 +184,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaClipToBox/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="box">[in] - for clipping</param>
 '''   <returns>boxad boxa with boxes in boxas clipped to box, or NULL on error</returns>
@@ -217,6 +225,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaCombineOverlaps/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="pixadb">[in,out] - debug output</param>
 '''   <returns>boxad where each set of boxes in boxas that overlap are combined into a single bounding box in boxad, or NULL on error.</returns>
@@ -256,6 +265,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaCombineOverlapsInPair/*"/>
 '''  <param name="boxas1">[in] - input boxa1</param>
 '''  <param name="boxas2">[in] - input boxa2</param>
 '''  <param name="pboxad1">[out] - output boxa1</param>
@@ -294,6 +304,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxOverlapRegion/*"/>
 '''  <param name="box1">[in] - two boxes</param>
 '''  <param name="box2">[in] - two boxes</param>
 '''   <returns>box of overlap region between input boxes, or NULL if no overlap or on error</returns>
@@ -320,6 +331,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxBoundingRegion/*"/>
 '''  <param name="box1">[in] - two boxes</param>
 '''  <param name="box2">[in] - two boxes</param>
 '''   <returns>box of bounding region containing the input boxes, or NULL on error</returns>
@@ -347,6 +359,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxOverlapFraction/*"/>
 '''  <param name="box1">[in] - two boxes</param>
 '''  <param name="box2">[in] - two boxes</param>
 '''  <param name="pfract">[out] - the fraction of box2 overlapped by box1</param>
@@ -369,6 +382,7 @@ End Function
 ' boxOverlapArea(BOX *, BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxOverlapArea/*"/>
 '''  <param name="box1">[in] - two boxes</param>
 '''  <param name="box2">[in] - two boxes</param>
 '''  <param name="parea">[out] - the number of pixels in the overlap</param>
@@ -411,6 +425,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaHandleOverlaps/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="op">[in] - L_COMBINE, L_REMOVE_SMALL</param>
 '''  <param name="range">[in] - is greater  0, forward distance over which overlaps are checked</param>
@@ -450,6 +465,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxSeparationDistance/*"/>
 '''  <param name="box1">[in] - two boxes, in any order</param>
 '''  <param name="box2">[in] - two boxes, in any order</param>
 '''  <param name="ph_sep">[out][optional] - horizontal separation</param>
@@ -479,6 +495,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxCompareSize/*"/>
 '''  <param name="box1">[in] - </param>
 '''  <param name="box2">[in] - </param>
 '''  <param name="type">[in] - L_SORT_BY_WIDTH, L_SORT_BY_HEIGHT, L_SORT_BY_MAX_DIMENSION, L_SORT_BY_PERIMETER, L_SORT_BY_AREA,</param>
@@ -503,6 +520,7 @@ End Function
 ' boxContainsPt(BOX *, l_float32, l_float32, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxContainsPt/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="x">[in] - a point</param>
 '''  <param name="y">[in] - a point</param>
@@ -531,6 +549,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetNearestToPt/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="x">[in] - point</param>
 '''  <param name="y">[in] - point</param>
@@ -562,6 +581,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetNearestToLine/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="x">[in] - (y = -1 for vertical line x = -1 for horiz line)</param>
 '''  <param name="y">[in] - (y = -1 for vertical line x = -1 for horiz line)</param>
@@ -590,6 +610,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaFindNearestBoxes/*"/>
 '''  <param name="boxa">[in] - either unsorted, or 2D sorted in LR/TB scan order</param>
 '''  <param name="dist_select">[in] - L_NON_NEGATIVE, L_ALL</param>
 '''  <param name="range">[in] - search distance from box i use 0 to search entire boxa (e.g., if it's not 2D sorted)</param>
@@ -631,6 +652,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetNearestByDirection/*"/>
 '''  <param name="boxa">[in] - either unsorted, or 2D sorted in LR/TB scan order</param>
 '''  <param name="i">[in] - box we test against</param>
 '''  <param name="dir">[in] - direction to look: L_FROM_LEFT, L_FROM_RIGHT, L_FROM_TOP, L_FROM_BOT</param>
@@ -660,6 +682,7 @@ End Function
 ' boxGetCenter(BOX *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxGetCenter/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="pcx">[out] - location of center of box</param>
 '''  <param name="pcy">[out] - location of center of box</param>
@@ -688,6 +711,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxIntersectByLine/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="x">[in] - point that line goes through</param>
 '''  <param name="y">[in] - point that line goes through</param>
@@ -728,6 +752,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxClipToRectangle/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="wi">[in] - rectangle representing image</param>
 '''  <param name="hi">[in] - rectangle representing image</param>
@@ -762,6 +787,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxClipToRectangleParams/*"/>
 '''  <param name="box">[in][optional] - requested box can be null</param>
 '''  <param name="w">[in] - clipping box size typ. the size of an image</param>
 '''  <param name="h">[in] - clipping box size typ. the size of an image</param>
@@ -805,6 +831,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxRelocateOneSide/*"/>
 '''  <param name="boxd">[in][optional] - this can be null, equal to boxs, or different from boxs</param>
 '''  <param name="boxs">[in] - starting box to have one side relocated</param>
 '''  <param name="loc">[in] - new location of the side that is changing</param>
@@ -839,6 +866,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaAdjustSides/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="delleft">[in] - changes in location of each side for each box</param>
 '''  <param name="delright">[in] - changes in location of each side for each box</param>
@@ -878,6 +906,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxAdjustSides/*"/>
 '''  <param name="boxd">[in][optional] - this can be null, equal to boxs, or different from boxs</param>
 '''  <param name="boxs">[in] - starting box to have sides adjusted</param>
 '''  <param name="delleft">[in] - changes in location of each side</param>
@@ -917,6 +946,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSetSide/*"/>
 '''  <param name="boxad">[in] - use NULL to get a new one same as boxas for in-place</param>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="side">[in] - L_SET_LEFT, L_SET_RIGHT, L_SET_TOP, L_SET_BOT</param>
@@ -955,6 +985,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaAdjustWidthToTarget/*"/>
 '''  <param name="boxad">[in] - use NULL to get a new one same as boxas for in-place</param>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="sides">[in] - L_ADJUST_LEFT, L_ADJUST_RIGHT, L_ADJUST_LEFT_AND_RIGHT</param>
@@ -993,6 +1024,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaAdjustHeightToTarget/*"/>
 '''  <param name="boxad">[in] - use NULL to get a new one</param>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="sides">[in] - L_ADJUST_TOP, L_ADJUST_BOT, L_ADJUST_TOP_AND_BOT</param>
@@ -1020,6 +1052,7 @@ End Function
 ' boxEqual(BOX *, BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxEqual/*"/>
 '''  <param name="box1">[in] - </param>
 '''  <param name="box2">[in] - </param>
 '''  <param name="psame">[out] - 1 if equal 0 otherwise</param>
@@ -1060,6 +1093,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaEqual/*"/>
 '''  <param name="boxa1">[in] - </param>
 '''  <param name="boxa2">[in] - </param>
 '''  <param name="maxdist">[in] - </param>
@@ -1096,6 +1130,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxSimilar/*"/>
 '''  <param name="box1">[in] - </param>
 '''  <param name="box2">[in] - </param>
 '''  <param name="leftdiff">[in] - </param>
@@ -1135,6 +1170,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSimilar/*"/>
 '''  <param name="boxa1">[in] - </param>
 '''  <param name="boxa2">[in] - </param>
 '''  <param name="leftdiff">[in] - </param>
@@ -1180,6 +1216,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaJoin/*"/>
 '''  <param name="boxad">[in] - dest boxa add to this one</param>
 '''  <param name="boxas">[in] - source boxa add from this one</param>
 '''  <param name="istart">[in] - starting index in boxas</param>
@@ -1212,6 +1249,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaJoin/*"/>
 '''  <param name="baad">[in] - dest boxaa add to this one</param>
 '''  <param name="baas">[in] - source boxaa add from this one</param>
 '''  <param name="istart">[in] - starting index in baas</param>
@@ -1244,6 +1282,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSplitEvenOdd/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="fillflag">[in] - 1 to put invalid boxes in place 0 to omit</param>
 '''  <param name="pboxae">[out] - save even and odd boxes in their separate boxa, setting the other type to invalid boxes.</param>
@@ -1281,6 +1320,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaMergeEvenOdd/*"/>
 '''  <param name="boxae">[in] - boxes to go in even positions in merged boxa</param>
 '''  <param name="boxao">[in] - boxes to go in odd positions in merged boxa</param>
 '''  <param name="fillflag">[in] - 1 if there are invalid boxes in placeholders</param>

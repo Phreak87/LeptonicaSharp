@@ -13,6 +13,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaCreate/*"/>
 '''  <param name="n">[in] - initial number of ptrs</param>
 '''   <returns>pixa, or NULL on error</returns>
 Public Shared Function pixaCreate(
@@ -35,6 +36,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaCreateFromPix/*"/>
 '''  <param name="pixs">[in] - with individual components on a lattice</param>
 '''  <param name="n">[in] - number of components</param>
 '''  <param name="cellw">[in] - width of each cell</param>
@@ -70,6 +72,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaCreateFromBoxa/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pcropwarn">[out][optional] - TRUE if the boxa extent is larger than pixs.</param>
@@ -107,6 +110,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSplitPix/*"/>
 '''  <param name="pixs">[in] - with individual components on a lattice</param>
 '''  <param name="nx">[in] - number of mosaic cells horizontally</param>
 '''  <param name="ny">[in] - number of mosaic cells vertically</param>
@@ -139,6 +143,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDestroy/*"/>
 '''  <param name="ppixa">[in,out]can be null - ed</param>
 Public Shared Sub pixaDestroy(
 				 ByRef ppixa as Pixa)
@@ -155,6 +160,7 @@ End Sub
 ' pixaCopy(PIXA *, l_int32) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaCopy/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="copyflag">[in] - see pix.h for details: L_COPY makes a new pixa and copies each pix and each box L_CLONE gives a new ref-counted handle to the input pixa L_COPY_CLONE makes a new pixa and inserts clones of all pix and boxes</param>
 '''   <returns>new pixa, or NULL on error</returns>
@@ -175,6 +181,7 @@ End Function
 ' pixaAddPix(PIXA *, PIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaAddPix/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pix">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -197,6 +204,7 @@ End Function
 ' pixaAddBox(PIXA *, BOX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaAddBox/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="box">[in] - </param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -225,6 +233,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaExtendArrayToSize/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="size">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -244,6 +253,7 @@ End Function
 ' pixaGetCount(PIXA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetCount/*"/>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>count, or 0 if no pixa</returns>
 Public Shared Function pixaGetCount(
@@ -261,6 +271,7 @@ End Function
 ' pixaChangeRefcount(PIXA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaChangeRefcount/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="delta">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -280,6 +291,7 @@ End Function
 ' pixaGetPix(PIXA *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetPix/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th pix</param>
 '''  <param name="accesstype">[in] - L_COPY or L_CLONE</param>
@@ -302,6 +314,7 @@ End Function
 ' pixaGetPixDimensions(PIXA *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetPixDimensions/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="pw">[out][optional] - each can be null</param>
@@ -327,6 +340,7 @@ End Function
 ' pixaGetBoxa(PIXA *, l_int32) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetBoxa/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
 '''   <returns>boxa, or NULL on error</returns>
@@ -347,6 +361,7 @@ End Function
 ' pixaGetBoxaCount(PIXA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetBoxaCount/*"/>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>count, or 0 on error</returns>
 Public Shared Function pixaGetBoxaCount(
@@ -376,6 +391,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetBox/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th pix</param>
 '''  <param name="accesstype">[in] - L_COPY or L_CLONE</param>
@@ -398,6 +414,7 @@ End Function
 ' pixaGetBoxGeometry(PIXA *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetBoxGeometry/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="px">[out][optional] - each can be null</param>
@@ -430,6 +447,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSetBoxa/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="accesstype">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -460,6 +478,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetPixArray/*"/>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>pix array, or NULL on error</returns>
 Public Shared Function pixaGetPixArray(
@@ -484,6 +503,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaVerifyDepth/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="psame">[out] - 1 if depth is the same for all pix 0 otherwise</param>
 '''  <param name="pmaxd">[out][optional] - max depth of all pix</param>
@@ -510,6 +530,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaVerifyDimensions/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="psame">[out] - 1 if dimensions are the same for all pix 0 otherwise</param>
 '''  <param name="pmaxw">[out][optional] - max width of all pix</param>
@@ -539,6 +560,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaIsFull/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pfullpa">[out][optional] - 1 if pixa is full</param>
 '''  <param name="pfullba">[out][optional] - 1 if boxa is full</param>
@@ -566,6 +588,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaCountText/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pntext">[out] - number of pix with non-empty text strings</param>
 '''   <returns>0 if OK, 1 on error.</returns>
@@ -591,6 +614,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSetText/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="sa">[in][optional] - array of text strings, to insert in each pix</param>
 '''   <returns>0 if OK, 1 on error.</returns>
@@ -624,6 +648,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetLinePtrs/*"/>
 '''  <param name="pixa">[in] - of pix that all have the same depth</param>
 '''  <param name="psize">[out][optional] - number of pix in the pixa</param>
 '''   <returns>array of array of line ptrs, or NULL on error</returns>
@@ -649,6 +674,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaWriteStreamInfo/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>0 if OK, 1 on error.</returns>
@@ -675,6 +701,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaReplacePix/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th pix</param>
 '''  <param name="pix">[in] - insert to replace existing one</param>
@@ -711,6 +738,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaInsertPix/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - at which pix is to be inserted</param>
 '''  <param name="pixs">[in] - new pix to be inserted</param>
@@ -745,6 +773,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaRemovePix/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - of pix to be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -773,6 +802,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaRemovePixAndSave/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - of pix to be removed</param>
 '''  <param name="ppix">[out][optional] - removed pix</param>
@@ -828,6 +858,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaInitFull/*"/>
 '''  <param name="pixa">[in] - typically empty</param>
 '''  <param name="pix">[in][optional] - to be replicated into the entire pixa ptr array</param>
 '''  <param name="box">[in][optional] - to be replicated into the entire boxa ptr array</param>
@@ -859,6 +890,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaClear/*"/>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaClear(
@@ -884,6 +916,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaJoin/*"/>
 '''  <param name="pixad">[in] - dest pixa add to this one</param>
 '''  <param name="pixas">[in][optional] - source pixa add from this one</param>
 '''  <param name="istart">[in] - starting index in pixas</param>
@@ -917,6 +950,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaInterleave/*"/>
 '''  <param name="pixa1">[in] - first src pixa</param>
 '''  <param name="pixa2">[in] - second src pixa</param>
 '''  <param name="copyflag">[in] - L_CLONE, L_COPY</param>
@@ -947,6 +981,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaJoin/*"/>
 '''  <param name="paad">[in] - dest pixaa add to this one</param>
 '''  <param name="paas">[in][optional] - source pixaa add from this one</param>
 '''  <param name="istart">[in] - starting index in pixaas</param>
@@ -988,6 +1023,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaCreate/*"/>
 '''  <param name="n">[in] - initial number of pixa ptrs</param>
 '''   <returns>paa, or NULL on error</returns>
 Public Shared Function pixaaCreate(
@@ -1015,6 +1051,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaCreateFromPixa/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="n">[in] - number specifying subdivision of pixa</param>
 '''  <param name="type">[in] - L_CHOOSE_CONSECUTIVE, L_CHOOSE_SKIP_BY</param>
@@ -1039,6 +1076,7 @@ End Function
 ' pixaaDestroy(PIXAA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaDestroy/*"/>
 '''  <param name="ppaa">[in,out] - to be nulled</param>
 Public Shared Sub pixaaDestroy(
 				 ByRef ppaa as Pixaa)
@@ -1055,6 +1093,7 @@ End Sub
 ' pixaaAddPixa(PIXAA *, PIXA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaAddPixa/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="pixa">[in] - to be added</param>
 '''  <param name="copyflag">[in] - : L_INSERT inserts the pixa directly L_COPY makes a new pixa and copies each pix and each box L_CLONE gives a new handle to the input pixa L_COPY_CLONE makes a new pixa and inserts clones of all pix and boxes</param>
@@ -1077,6 +1116,7 @@ End Function
 ' pixaaExtendArray(PIXAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaExtendArray/*"/>
 '''  <param name="paa">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixaaExtendArray(
@@ -1094,6 +1134,7 @@ End Function
 ' pixaaAddPix(PIXAA *, l_int32, PIX *, BOX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaAddPix/*"/>
 '''  <param name="paa">[in] - input paa</param>
 '''  <param name="index">[in] - index of pixa in paa</param>
 '''  <param name="pix">[in] - to be added</param>
@@ -1128,6 +1169,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaAddBox/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="box">[in] - </param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -1155,6 +1197,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaGetCount/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="pna">[out][optional] - number of pix in each pixa</param>
 '''   <returns>count, or 0 if no pixaa</returns>
@@ -1189,6 +1232,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaGetPixa/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="index">[in] - to the index-th pixa</param>
 '''  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
@@ -1217,6 +1261,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaGetBoxa/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="accesstype">[in] - L_COPY, L_CLONE</param>
 '''   <returns>boxa, or NULL on error</returns>
@@ -1237,6 +1282,7 @@ End Function
 ' pixaaGetPix(PIXAA *, l_int32, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaGetPix/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="index">[in] - index into the pixa array in the pixaa</param>
 '''  <param name="ipix">[in] - index into the pix array in the pixa</param>
@@ -1266,6 +1312,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaVerifyDepth/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="psame">[out] - 1 if all pix have the same depth 0 otherwise</param>
 '''  <param name="pmaxd">[out][optional] - max depth of all pix in pixaa</param>
@@ -1292,6 +1339,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaVerifyDimensions/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="psame">[out] - 1 if all pix have the same depth 0 otherwise</param>
 '''  <param name="pmaxw">[out][optional] - max width of all pix in pixaa</param>
@@ -1320,6 +1368,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaIsFull/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="pfull">[out] - 1 if all pixa in the paa have full pix arrays</param>
 '''   <returns>return 0 if OK, 1 on error</returns>
@@ -1353,6 +1402,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaInitFull/*"/>
 '''  <param name="paa">[in] - typically empty</param>
 '''  <param name="pixa">[in] - to be replicated into the entire pixa ptr array</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1382,6 +1432,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaReplacePixa/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="index">[in] - to the index-th pixa</param>
 '''  <param name="pixa">[in] - insert to replace existing one</param>
@@ -1410,6 +1461,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaClear/*"/>
 '''  <param name="paa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaaClear(
@@ -1434,6 +1486,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaTruncate/*"/>
 '''  <param name="paa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaaTruncate(
@@ -1457,6 +1510,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>pixa, or NULL on error</returns>
 Public Shared Function pixaRead(
@@ -1483,6 +1537,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>pixa, or NULL on error</returns>
 Public Shared Function pixaReadStream(
@@ -1501,6 +1556,7 @@ End Function
 ' pixaReadMem(const l_uint8 *, size_t) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaReadMem/*"/>
 '''  <param name="data">[in] - of serialized pixa</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>pixa, or NULL on error</returns>
@@ -1530,6 +1586,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaWriteDebug/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -1556,6 +1613,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1584,6 +1642,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1609,6 +1668,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized pixa</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pixa">[in] - </param>
@@ -1639,6 +1699,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaReadBoth/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>pixa, or NULL on error</returns>
 Public Shared Function pixaReadBoth(
@@ -1670,6 +1731,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaReadFromFiles/*"/>
 '''  <param name="dirname">[in] - directory</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="first">[in] - 0-based</param>
@@ -1700,6 +1762,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>paa, or NULL on error</returns>
 Public Shared Function pixaaRead(
@@ -1726,6 +1789,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>paa, or NULL on error</returns>
 Public Shared Function pixaaReadStream(
@@ -1744,6 +1808,7 @@ End Function
 ' pixaaReadMem(const l_uint8 *, size_t) as PIXAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaReadMem/*"/>
 '''  <param name="data">[in] - of serialized pixaa</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>paa, or NULL on error</returns>
@@ -1770,6 +1835,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="paa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1798,6 +1864,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="paa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1823,6 +1890,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized pixaa</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="paa">[in] - </param>

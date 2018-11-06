@@ -33,6 +33,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamPng/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>pix, or NULL on error</returns>
 Public Shared Function pixReadStreamPng(
@@ -59,6 +60,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderPng/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -93,6 +95,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/freadHeaderPng/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -134,6 +137,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderMemPng/*"/>
 '''  <param name="data">[in] - </param>
 '''  <param name="size">[in] - 40 bytes is sufficient</param>
 '''  <param name="pw">[out][optional] - </param>
@@ -163,6 +167,7 @@ End Function
 ' fgetPngResolution(FILE *, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fgetPngResolution/*"/>
 '''   <returns></returns>
 Public Shared Function fgetPngResolution(
 				 ByVal fp as FILE, 
@@ -185,6 +190,7 @@ End Function
 ' isPngInterlaced(const char *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/isPngInterlaced/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pinterlaced">[out] - 1 if interlaced png 0 otherwise</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -206,6 +212,7 @@ End Function
 ' fgetPngColormapInfo(FILE *, PIXCMAP **, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fgetPngColormapInfo/*"/>
 '''   <returns></returns>
 Public Shared Function fgetPngColormapInfo(
 				 ByVal fp as FILE, 
@@ -235,6 +242,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWritePng/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="gamma">[in] - </param>
@@ -324,6 +332,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamPng/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="gamma">[in] - use 0.0 if gamma is not defined</param>
@@ -360,6 +369,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetZlibCompression/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="compval">[in] - zlib compression value</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -379,6 +389,7 @@ End Function
 ' l_pngSetReadStrip16To8(l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_pngSetReadStrip16To8/*"/>
 '''  <param name="flag">[in] - 1 for stripping 16 bpp to 8 bpp on reading 0 for leaving 16 bpp</param>
 Public Shared Sub l_pngSetReadStrip16To8(
 				 ByVal flag as Integer)
@@ -397,6 +408,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMemPng/*"/>
 '''  <param name="filedata">[in] - png compressed data in memory</param>
 '''  <param name="filesize">[in] - number of bytes in data</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -422,6 +434,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemPng/*"/>
 '''  <param name="pfiledata">[out] - png encoded data of pix</param>
 '''  <param name="pfilesize">[out] - size of png encoded data</param>
 '''  <param name="pix">[in] - </param>

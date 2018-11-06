@@ -14,6 +14,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaCreate/*"/>
 '''  <param name="nbytes">[in] - determines initial size of data array</param>
 '''   <returns>l_bytea, or NULL on error</returns>
 Public Shared Function l_byteaCreate(
@@ -30,6 +31,7 @@ End Function
 ' l_byteaInitFromMem(const l_uint8 *, size_t) as L_BYTEA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaInitFromMem/*"/>
 '''  <param name="data">[in] - to be copied to the array</param>
 '''  <param name="size">[in] - amount of data</param>
 '''   <returns>l_bytea, or NULL on error</returns>
@@ -50,6 +52,7 @@ End Function
 ' l_byteaInitFromFile(const char *) as L_BYTEA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaInitFromFile/*"/>
 '''  <param name="fname">[in] - </param>
 '''   <returns>l_bytea, or NULL on error</returns>
 Public Shared Function l_byteaInitFromFile(
@@ -68,6 +71,7 @@ End Function
 ' l_byteaInitFromStream(FILE *) as L_BYTEA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaInitFromStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>l_bytea, or NULL on error</returns>
 Public Shared Function l_byteaInitFromStream(
@@ -91,6 +95,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaCopy/*"/>
 '''  <param name="bas">[in] - source lba</param>
 '''  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 '''   <returns>clone or copy of bas, or NULL on error</returns>
@@ -119,6 +124,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaDestroy/*"/>
 '''  <param name="pba">[in,out] - will be set to null before returning</param>
 Public Shared Sub l_byteaDestroy(
 				 ByRef pba as L_Bytea)
@@ -135,6 +141,7 @@ End Sub
 ' l_byteaGetSize(L_BYTEA *) as size_t
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaGetSize/*"/>
 '''  <param name="ba">[in] - </param>
 '''   <returns>size of stored byte array, or 0 on error</returns>
 Public Shared Function l_byteaGetSize(
@@ -157,6 +164,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaGetData/*"/>
 '''  <param name="ba">[in] - </param>
 '''  <param name="psize">[out] - size of data in lba</param>
 '''   <returns>ptr to existing data array, or NULL on error</returns>
@@ -182,6 +190,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaCopyData/*"/>
 '''  <param name="ba">[in] - </param>
 '''  <param name="psize">[out] - size of data in lba</param>
 '''   <returns>copy of data in use in the data array, or NULL on error.</returns>
@@ -201,6 +210,7 @@ End Function
 ' l_byteaAppendData(L_BYTEA *, const l_uint8 *, size_t) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaAppendData/*"/>
 '''  <param name="ba">[in] - </param>
 '''  <param name="newdata">[in] - byte array to be appended</param>
 '''  <param name="newbytes">[in] - size of data array</param>
@@ -223,6 +233,7 @@ End Function
 ' l_byteaAppendString(L_BYTEA *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaAppendString/*"/>
 '''  <param name="ba">[in] - </param>
 '''  <param name="str">[in] - null-terminated string to be appended</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -248,6 +259,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaJoin/*"/>
 '''  <param name="ba1">[in] - </param>
 '''  <param name="pba2">[in,out] - data array is added to the one in ba1, and then ba2 is destroyed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -270,6 +282,7 @@ End Function
 ' l_byteaSplit(L_BYTEA *, size_t, L_BYTEA **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaSplit/*"/>
 '''  <param name="ba1">[in] - lba to split array bytes nulled beyond the split loc</param>
 '''  <param name="splitloc">[in] - location in ba1 to split ba2 begins there</param>
 '''  <param name="pba2">[out] - with data starting at splitloc</param>
@@ -294,6 +307,7 @@ End Function
 ' l_byteaFindEachSequence(L_BYTEA *, const l_uint8 *, size_t, L_DNA **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaFindEachSequence/*"/>
 '''  <param name="ba">[in] - </param>
 '''  <param name="sequence">[in] - subarray of bytes to find in data</param>
 '''  <param name="seqlen">[in] - length of sequence, in bytes</param>
@@ -321,6 +335,7 @@ End Function
 ' l_byteaWrite(const char *, L_BYTEA *, size_t, size_t) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaWrite/*"/>
 '''  <param name="fname">[in] - output file</param>
 '''  <param name="ba">[in] - </param>
 '''  <param name="startloc">[in] - first byte to output</param>
@@ -345,6 +360,7 @@ End Function
 ' l_byteaWriteStream(FILE *, L_BYTEA *, size_t, size_t) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for binary write</param>
 '''  <param name="ba">[in] - </param>
 '''  <param name="startloc">[in] - first byte to output</param>

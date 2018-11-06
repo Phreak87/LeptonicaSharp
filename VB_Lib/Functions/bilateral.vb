@@ -52,6 +52,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilateral/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb, no colormap</param>
 '''  <param name="spatial_stdev">[in] - of gaussian kernel in pixels,  is greater  0.5</param>
 '''  <param name="range_stdev">[in] - of gaussian range kernel  is greater  5.0 typ. 50.0</param>
@@ -86,6 +87,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilateralGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray</param>
 '''  <param name="spatial_stdev">[in] - of gaussian kernel in pixels,  is greater  0.5</param>
 '''  <param name="range_stdev">[in] - of gaussian range kernel  is greater  5.0 typ. 50.0</param>
@@ -129,6 +131,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilateralExact/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="spatial_kel">[in] - gaussian kernel</param>
 '''  <param name="range_kel">[in][optional] - 256 x 1, monotonically decreasing</param>
@@ -159,6 +162,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilateralGrayExact/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray</param>
 '''  <param name="spatial_kel">[in] - gaussian kernel</param>
 '''  <param name="range_kel">[in][optional] - 256 x 1, monotonically decreasing</param>
@@ -212,6 +216,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlockBilateralExact/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="spatial_stdev">[in] - is greater  0.0</param>
 '''  <param name="range_stdev">[in] - is greater  0.0</param>
@@ -244,6 +249,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeRangeKernel/*"/>
 '''  <param name="range_stdev">[in] - is greater  0</param>
 '''   <returns>kel, or NULL on error</returns>
 Public Shared Function makeRangeKernel(

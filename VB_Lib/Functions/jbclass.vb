@@ -8,6 +8,7 @@ Partial Public Class _All
 ' jbRankHausInit(l_int32, l_int32, l_int32, l_int32, l_float32) as JBCLASSER *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbRankHausInit/*"/>
 '''  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
 '''  <param name="maxwidth">[in] - of component use 0 for default</param>
 '''  <param name="maxheight">[in] - of component use 0 for default</param>
@@ -42,6 +43,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbCorrelationInit/*"/>
 '''  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
 '''  <param name="maxwidth">[in] - of component use 0 for default</param>
 '''  <param name="maxheight">[in] - of component use 0 for default</param>
@@ -72,6 +74,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbCorrelationInitWithoutComponents/*"/>
 '''  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
 '''  <param name="maxwidth">[in] - of component use 0 for default</param>
 '''  <param name="maxheight">[in] - of component use 0 for default</param>
@@ -102,6 +105,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbAddPages/*"/>
 '''  <param name="safiles">[in] - of page image file names</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function jbAddPages(
@@ -123,6 +127,7 @@ End Function
 ' jbAddPage(JBCLASSER *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbAddPage/*"/>
 '''  <param name="pixs">[in] - input page</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function jbAddPage(
@@ -150,6 +155,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbAddPageComponents/*"/>
 '''  <param name="pixs">[in] - input page</param>
 '''  <param name="boxas">[in] - b.b. of components for this page</param>
 '''  <param name="pixas">[in] - components for this page</param>
@@ -177,6 +183,7 @@ End Function
 ' jbClassifyRankHaus(JBCLASSER *, BOXA *, PIXA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbClassifyRankHaus/*"/>
 '''  <param name="boxa">[in] - new components for classification</param>
 '''  <param name="pixas">[in] - new components for classification</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -214,6 +221,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHaustest/*"/>
 '''  <param name="pix1">[in] - new pix, not dilated</param>
 '''  <param name="pix2">[in] - new pix, dilated</param>
 '''  <param name="pix3">[in] - exemplar pix, not dilated</param>
@@ -264,6 +272,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRankHaustest/*"/>
 '''  <param name="pix1">[in] - new pix, not dilated</param>
 '''  <param name="pix2">[in] - new pix, dilated</param>
 '''  <param name="pix3">[in] - exemplar pix, not dilated</param>
@@ -307,6 +316,7 @@ End Function
 ' jbClassifyCorrelation(JBCLASSER *, BOXA *, PIXA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbClassifyCorrelation/*"/>
 '''  <param name="boxa">[in] - new components for classification</param>
 '''  <param name="pixas">[in] - new components for classification</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -331,6 +341,7 @@ End Function
 ' jbGetComponents(PIX *, l_int32, l_int32, l_int32, BOXA **, PIXA **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbGetComponents/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
 '''  <param name="maxwidth">[in] - of saved components larger are discarded</param>
@@ -385,6 +396,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWordMaskByDilation/*"/>
 '''  <param name="pixs">[in] - 1 bpp typ. at 75 to 150 ppi</param>
 '''  <param name="psize">[out][optional] - size of good horizontal dilation</param>
 '''  <param name="pixadb">[out][optional] - debug: pixa of intermediate steps</param>
@@ -418,6 +430,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWordBoxesByDilation/*"/>
 '''  <param name="pixs">[in] - 1 bpp typ. 75 - 200 ppi</param>
 '''  <param name="minwidth">[in] - saved components smaller are discarded</param>
 '''  <param name="minheight">[in] - saved components smaller are discarded</param>
@@ -454,6 +467,7 @@ End Function
 ' jbAccumulateComposites(PIXAA *, NUMA **, PTA **) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbAccumulateComposites/*"/>
 '''  <param name="pixaa">[in] - one pixa for each class</param>
 '''  <param name="pptat">[out] - centroids of bordered composites</param>
 '''   <returns>pixad accumulated sum of samples in each class, or NULL on error</returns>
@@ -480,6 +494,7 @@ End Function
 ' jbTemplatesFromComposites(PIXA *, NUMA *) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbTemplatesFromComposites/*"/>
 '''  <param name="pixac">[in] - one pix of composites for each class</param>
 '''  <param name="na">[in] - number of samples used for each class composite</param>
 '''   <returns>pixad 8 bpp templates for each class, or NULL on error</returns>
@@ -501,6 +516,7 @@ End Function
 ' jbClasserCreate(l_int32, l_int32) as JBCLASSER *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbClasserCreate/*"/>
 '''  <param name="method">[in] - JB_RANKHAUS, JB_CORRELATION</param>
 '''  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
 '''   <returns>jbclasser, or NULL on error</returns>
@@ -519,6 +535,7 @@ End Function
 ' jbClasserDestroy(JBCLASSER **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbClasserDestroy/*"/>
 Public Shared Sub jbClasserDestroy(
 				 ByVal pclasser as JbClasser)
 
@@ -546,6 +563,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbDataSave/*"/>
 '''   <returns>jbdata, or NULL on error</returns>
 Public Shared Function jbDataSave(
 				 ByVal classer as JbClasser) as JbData
@@ -565,6 +583,7 @@ End Function
 ' jbDataDestroy(JBDATA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbDataDestroy/*"/>
 Public Shared Sub jbDataDestroy(
 				 ByVal pdata as JbData)
 
@@ -586,6 +605,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbDataWrite/*"/>
 '''  <param name="jbdata">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function jbDataWrite(
@@ -605,6 +625,7 @@ End Function
 ' jbDataRead(const char *) as JBDATA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbDataRead/*"/>
 '''  <param name="rootname">[in] - for template and data files</param>
 '''   <returns>jbdata, or NULL on error</returns>
 Public Shared Function jbDataRead(
@@ -623,6 +644,7 @@ End Function
 ' jbDataRender(JBDATA *, l_int32) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbDataRender/*"/>
 '''  <param name="debugflag">[in] - if TRUE, writes into 2 bpp pix and adds component outlines in color</param>
 '''   <returns>pixa reconstruction of original images, using templates or NULL on error</returns>
 Public Shared Function jbDataRender(
@@ -661,6 +683,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbGetULCorners/*"/>
 '''  <param name="pixs">[in] - full res image</param>
 '''  <param name="boxa">[in] - of c.c. bounding rectangles for this page</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -705,6 +728,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbGetLLCorners/*"/>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function jbGetLLCorners(
 				 ByVal classer as JbClasser) as Integer

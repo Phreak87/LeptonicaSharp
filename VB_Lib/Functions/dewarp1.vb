@@ -16,6 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpCreate/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pageno">[in] - page number</param>
 '''   <returns>dew or NULL on error</returns>
@@ -48,6 +49,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpCreateRef/*"/>
 '''  <param name="pageno">[in] - this page number</param>
 '''  <param name="refpage">[in] - page number of dewarp disparity arrays to be used</param>
 '''   <returns>dew or NULL on error</returns>
@@ -66,6 +68,7 @@ End Function
 ' dewarpDestroy(L_DEWARP **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpDestroy/*"/>
 '''  <param name="pdew">[in,out] - will be set to null before returning</param>
 Public Shared Sub dewarpDestroy(
 				 ByRef pdew as L_Dewarp)
@@ -103,6 +106,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaCreate/*"/>
 '''  <param name="nptrs">[in] - number of dewarp page ptrs typically the number of pages</param>
 '''  <param name="sampling">[in] - use 0 for default value the minimum allowed is 8</param>
 '''  <param name="redfactor">[in] - of input images: 1 is full resolution 2 is 2x reduced</param>
@@ -147,6 +151,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaCreateFromPixacomp/*"/>
 '''  <param name="pixac">[in] - pixacomp of G4, 1 bpp images with 1x1x1 placeholders</param>
 '''  <param name="useboth">[in] - 0 for only vert disparity 1 for both vert and horiz</param>
 '''  <param name="sampling">[in] - use -1 or 0 for default value otherwise minimum of 5</param>
@@ -173,6 +178,7 @@ End Function
 ' dewarpaDestroy(L_DEWARPA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaDestroy/*"/>
 '''  <param name="pdewa">[in,out] - will be set to null before returning</param>
 Public Shared Sub dewarpaDestroy(
 				 ByRef pdewa as L_Dewarpa)
@@ -189,6 +195,7 @@ End Sub
 ' dewarpaDestroyDewarp(L_DEWARPA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaDestroyDewarp/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="pageno">[in] - of dew to be destroyed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -220,6 +227,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaInsertDewarp/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="dew">[in] - to be added</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -240,6 +248,7 @@ End Function
 ' dewarpaGetDewarp(L_DEWARPA *, l_int32) as L_DEWARP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaGetDewarp/*"/>
 '''  <param name="dewa">[in] - populated with dewarp structs for pages</param>
 '''  <param name="index">[in] - into dewa: this is the pageno</param>
 '''   <returns>dew handle still owned by dewa, or NULL on error</returns>
@@ -291,6 +300,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaSetCurvatures/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="max_linecurv">[in] - -1 for default</param>
 '''  <param name="min_diff_linecurv">[in] - -1 for default 0 to accept all models</param>
@@ -328,6 +338,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaUseBothArrays/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="useboth">[in] - 0 for false, 1 for true</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -363,6 +374,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaSetCheckColumns/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="check_columns">[in] - 0 for false, 1 for true</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -387,6 +399,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaSetMaxDistance/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="maxdist">[in] - for using ref models</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -406,6 +419,7 @@ End Function
 ' dewarpRead(const char *) as L_DEWARP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>dew, or NULL on error</returns>
 Public Shared Function dewarpRead(
@@ -437,6 +451,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>dew, or NULL on error</returns>
 Public Shared Function dewarpReadStream(
@@ -455,6 +470,7 @@ End Function
 ' dewarpReadMem(const l_uint8 *, size_t) as L_DEWARP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpReadMem/*"/>
 '''  <param name="data">[in] - serialization of dewarp</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>dew  dewarp, or NULL on error</returns>
@@ -475,6 +491,7 @@ End Function
 ' dewarpWrite(const char *, L_DEWARP *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="dew">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -504,6 +521,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="dew">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -529,6 +547,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized dewarp (not ascii)</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="dew">[in] - </param>
@@ -553,6 +572,7 @@ End Function
 ' dewarpaRead(const char *) as L_DEWARPA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>dewa, or NULL on error</returns>
 Public Shared Function dewarpaRead(
@@ -581,6 +601,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>dewa, or NULL on error</returns>
 Public Shared Function dewarpaReadStream(
@@ -599,6 +620,7 @@ End Function
 ' dewarpaReadMem(const l_uint8 *, size_t) as L_DEWARPA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaReadMem/*"/>
 '''  <param name="data">[in] - serialization of dewarpa</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>dewa  dewarpa, or NULL on error</returns>
@@ -619,6 +641,7 @@ End Function
 ' dewarpaWrite(const char *, L_DEWARPA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="dewa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -641,6 +664,7 @@ End Function
 ' dewarpaWriteStream(FILE *, L_DEWARPA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="dewa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -666,6 +690,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized dewarpa (not ascii)</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="dewa">[in] - </param>

@@ -14,6 +14,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMedianCutQuant/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb color</param>
 '''  <param name="ditherflag">[in] - 1 for dither 0 for no dither</param>
 '''   <returns>pixd 8 bit with colormap, or NULL on error</returns>
@@ -62,6 +63,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMedianCutQuantGeneral/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb color</param>
 '''  <param name="ditherflag">[in] - 1 for dither 0 for no dither</param>
 '''  <param name="outdepth">[in] - output depth valid: 0, 1, 2, 4, 8</param>
@@ -118,6 +120,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMedianCutQuantMixed/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb color</param>
 '''  <param name="ncolor">[in] - maximum number of colors assigned to pixels with significant color</param>
 '''  <param name="ngray">[in] - number of gray colors to be used must be  is greater = 2</param>
@@ -174,6 +177,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFewColorsMedianCutQuantMixed/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="ncolor">[in] - number of colors to be assigned to pixels with significant color</param>
 '''  <param name="ngray">[in] - number of gray colors to be used must be  is greater = 2</param>
@@ -214,6 +218,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMedianCutHisto/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb color</param>
 '''  <param name="sigbits">[in] - valid: 5 or 6</param>
 '''  <param name="subsample">[in] - integer  is greater  0</param>

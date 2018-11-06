@@ -15,6 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fmorphautogen/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="fileindex">[in] - </param>
 '''  <param name="filename">[in][optional] - can be null</param>
@@ -51,6 +52,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fmorphautogen1/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="fileindex">[in] - </param>
 '''  <param name="filename">[in][optional] - can be null</param>
@@ -74,6 +76,7 @@ End Function
 ' fmorphautogen2(SELA *, l_int32, const char *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fmorphautogen2/*"/>
 '''   <returns></returns>
 Public Shared Function fmorphautogen2(
 				 ByVal sela as Sela, 

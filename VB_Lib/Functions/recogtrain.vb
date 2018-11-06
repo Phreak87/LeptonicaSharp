@@ -16,6 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogTrainLabeled/*"/>
 '''  <param name="recog">[in] - in training mode</param>
 '''  <param name="pixs">[in] - if depth  is greater  1, will be thresholded to 1 bpp</param>
 '''  <param name="box">[in][optional] - cropping box</param>
@@ -50,6 +51,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogProcessLabeled/*"/>
 '''  <param name="recog">[in] - in training mode</param>
 '''  <param name="pixs">[in] - if depth  is greater  1, will be thresholded to 1 bpp</param>
 '''  <param name="box">[in][optional] - cropping box</param>
@@ -91,6 +93,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogAddSample/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pix">[in] - a single character, 1 bpp</param>
 '''  <param name="debug">[in] - </param>
@@ -113,6 +116,7 @@ End Function
 ' recogModifyTemplate(L_RECOG *, PIX *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogModifyTemplate/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pixs">[in] - 1 bpp, to be optionally scaled and turned into strokes of fixed width</param>
 '''   <returns>pixd   modified pix if OK, NULL on error</returns>
@@ -150,6 +154,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogAverageSamples/*"/>
 '''  <param name="precog">[in] - addr of existing recog may be destroyed</param>
 '''  <param name="debug">[in] - </param>
 '''   <returns>0 on success, 1 on failure</returns>
@@ -180,6 +185,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaAccumulateSamples/*"/>
 '''  <param name="pixa">[in] - of samples from the same class, 1 bpp</param>
 '''  <param name="pta">[in][optional] - of centroids of the samples</param>
 '''  <param name="ppixd">[out] - accumulated samples, 8 bpp</param>
@@ -234,6 +240,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogTrainingFinished/*"/>
 '''  <param name="precog">[in] - addr of recog</param>
 '''  <param name="modifyflag">[in] - 1 to use recogModifyTemplate() 0 otherwise</param>
 '''  <param name="minsize">[in] - set to -1 for default</param>
@@ -276,6 +283,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogFilterPixaBySize/*"/>
 '''  <param name="pixas">[in] - labeled templates</param>
 '''  <param name="setsize">[in] - size of character set (number of classes)</param>
 '''  <param name="maxkeep">[in] - max number of templates to keep in a class</param>
@@ -305,6 +313,7 @@ End Function
 ' recogSortPixaByClass(PIXA *, l_int32) as PIXAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogSortPixaByClass/*"/>
 '''  <param name="pixa">[in] - labeled templates</param>
 '''  <param name="setsize">[in] - size of character set (number of classes)</param>
 '''   <returns>paa   pixaa where each pixa has templates for one class, or null on error</returns>
@@ -333,6 +342,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogRemoveOutliers1/*"/>
 '''  <param name="precog">[in] - addr of recog with unscaled labeled templates</param>
 '''  <param name="minscore">[in] - keep everything with at least this score</param>
 '''  <param name="mintarget">[in] - minimum desired number to retain if possible</param>
@@ -391,6 +401,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaRemoveOutliers1/*"/>
 '''  <param name="pixas">[in] - unscaled labeled templates</param>
 '''  <param name="minscore">[in] - keep everything with at least this score use -1.0 for default.</param>
 '''  <param name="mintarget">[in] - minimum desired number to retain if possible use -1 for default.</param>
@@ -432,6 +443,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogRemoveOutliers2/*"/>
 '''  <param name="precog">[in] - addr of recog with unscaled labeled templates</param>
 '''  <param name="minscore">[in] - keep everything with at least this score</param>
 '''  <param name="minsize">[in] - minimum number of samples required for a class</param>
@@ -478,6 +490,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaRemoveOutliers2/*"/>
 '''  <param name="pixas">[in] - unscaled labeled templates</param>
 '''  <param name="minscore">[in] - keep everything with at least this score use -1.0 for default.</param>
 '''  <param name="minsize">[in] - minimum number of samples required for a class use -1 for default.</param>
@@ -527,6 +540,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogTrainFromBoot/*"/>
 '''  <param name="recogboot">[in] - labeled boot recognizer</param>
 '''  <param name="pixas">[in] - set of unlabeled input characters</param>
 '''  <param name="minscore">[in] - min score for accepting the example e.g., 0.75</param>
@@ -563,6 +577,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogPadDigitTrainingSet/*"/>
 '''  <param name="precog">[in,out] - trained if padding is needed, it is replaced by a a new padded recog</param>
 '''  <param name="scaleh">[in] - must be  is greater  0 suggest ~40.</param>
 '''  <param name="linew">[in] - use 0 for original scanned images</param>
@@ -593,6 +608,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogIsPaddingNeeded/*"/>
 '''  <param name="recog">[in] - trained</param>
 '''  <param name="psa">[out] - addr of returned string containing text value</param>
 '''   <returns>1 on error 0 if OK, whether or not additional padding templates are required.</returns>
@@ -622,6 +638,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogAddDigitPadTemplates/*"/>
 '''  <param name="recog">[in] - trained</param>
 '''  <param name="sa">[in] - set of text strings that need to be padded</param>
 '''   <returns>pixa   of all templates from %recog and the additional pad templates from a boot recognizer or NULL on error</returns>
@@ -659,6 +676,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogMakeBootDigitRecog/*"/>
 '''  <param name="scaleh">[in] - scale all heights to this typ. use 40</param>
 '''  <param name="linew">[in] - normalized line width typ. use 5 0 to skip</param>
 '''  <param name="maxyshift">[in] - from nominal centroid alignment typically 0 or 1</param>
@@ -686,6 +704,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogMakeBootDigitTemplates/*"/>
 '''  <param name="debug">[in] - 1 for display of templates</param>
 '''   <returns>pixa   of templates or NULL on error</returns>
 Public Shared Function recogMakeBootDigitTemplates(
@@ -702,6 +721,7 @@ End Function
 ' recogShowContent(FILE *, L_RECOG *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogShowContent/*"/>
 '''  <param name="fp">[in] - file  stream</param>
 '''  <param name="recog">[in] - </param>
 '''  <param name="index">[in] - for naming of output files of template images</param>
@@ -736,6 +756,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogDebugAverages/*"/>
 '''  <param name="precog">[in] - addr of recog</param>
 '''  <param name="debug">[in] - 0 no output 1 for images 2 for text 3 for both</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -763,6 +784,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogShowAverageTemplates/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>0 on success, 1 on failure</returns>
 Public Shared Function recogShowAverageTemplates(
@@ -791,6 +813,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogShowMatchesInRange/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pixa">[in] - of 1 bpp images to match</param>
 '''  <param name="minscore">[in] - range to include output</param>
@@ -831,6 +854,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogShowMatch/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pix1">[in] - input pix several possibilities</param>
 '''  <param name="pix2">[in][optional] - matching template</param>

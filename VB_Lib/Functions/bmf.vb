@@ -19,6 +19,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bmfCreate/*"/>
 '''  <param name="dir">[in][optional] - directory holding pixa of character set</param>
 '''  <param name="fontsize">[in] - 4, 6, 8, ... , 20</param>
 '''   <returns>bmf holding the bitmap font and associated information</returns>
@@ -37,6 +38,7 @@ End Function
 ' bmfDestroy(L_BMF **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bmfDestroy/*"/>
 '''  <param name="pbmf">[in,out] - set to null</param>
 Public Shared Sub bmfDestroy(
 				 ByRef pbmf as L_Bmf)
@@ -53,6 +55,7 @@ End Sub
 ' bmfGetPix(L_BMF *, char) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bmfGetPix/*"/>
 '''  <param name="bmf">[in] - </param>
 '''  <param name="chr">[in] - should be one of the 95 supported printable bitmaps</param>
 '''   <returns>pix clone of pix in bmf, or NULL on error</returns>
@@ -74,6 +77,7 @@ End Function
 ' bmfGetWidth(L_BMF *, char, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bmfGetWidth/*"/>
 '''  <param name="bmf">[in] - </param>
 '''  <param name="chr">[in] - should be one of the 95 supported bitmaps</param>
 '''  <param name="pw">[out] - character width -1 if not printable</param>
@@ -96,6 +100,7 @@ End Function
 ' bmfGetBaseline(L_BMF *, char, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bmfGetBaseline/*"/>
 '''  <param name="bmf">[in] - </param>
 '''  <param name="chr">[in] - should be one of the 95 supported bitmaps</param>
 '''  <param name="pbaseline">[out] - distance below UL corner of bitmap char</param>
@@ -123,6 +128,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetFont/*"/>
 '''  <param name="dir">[in] - directory holding pixa of character set</param>
 '''  <param name="fontsize">[in] - 4, 6, 8, ... , 20</param>
 '''  <param name="pbl0">[out] - baseline of row 1</param>
@@ -158,6 +164,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSaveFont/*"/>
 '''  <param name="indir">[in][optional] - directory holding image of character set</param>
 '''  <param name="outdir">[in] - directory into which the output pixa file will be written</param>
 '''  <param name="fontsize">[in] - in pts, at 300 ppi</param>

@@ -54,6 +54,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorSegment/*"/>
 '''  <param name="pixs">[in] - 32 bpp 24-bit color</param>
 '''  <param name="maxdist">[in] - max euclidean dist to existing cluster</param>
 '''  <param name="maxcolors">[in] - max number of colors allowed in first pass</param>
@@ -95,6 +96,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorSegmentCluster/*"/>
 '''  <param name="pixs">[in] - 32 bpp 24-bit color</param>
 '''  <param name="maxdist">[in] - max euclidean dist to existing cluster</param>
 '''  <param name="maxcolors">[in] - max number of colors allowed in first pass</param>
@@ -149,6 +151,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAssignToNearestColor/*"/>
 '''  <param name="pixd">[in] - 8 bpp, colormapped</param>
 '''  <param name="pixs">[in] - 32 bpp 24-bit color</param>
 '''  <param name="pixm">[in][optional] - 1 bpp</param>
@@ -188,6 +191,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorSegmentClean/*"/>
 '''  <param name="pixs">[in] - 8 bpp, colormapped</param>
 '''  <param name="selsize">[in] - for closing</param>
 '''  <param name="countarray">[in] - ptr to array containing the number of pixels found in each color in the colormap</param>
@@ -221,6 +225,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorSegmentRemoveColors/*"/>
 '''  <param name="pixd">[in] - 8 bpp, colormapped</param>
 '''  <param name="pixs">[in] - 32 bpp rgb, with initial pixel values</param>
 '''  <param name="finalcolors">[in] - max number of colors to retain</param>

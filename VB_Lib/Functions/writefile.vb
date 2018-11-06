@@ -19,6 +19,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_jpegSetQuality/*"/>
 '''  <param name="new_quality">[in] - 1 - 100 75 is default 0 defaults to 75</param>
 '''   <returns>prev           previous quality</returns>
 Public Shared Function l_jpegSetQuality(
@@ -43,6 +44,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/setLeptDebugOK/*"/>
 '''  <param name="allow">[in] - TRUE (1) or FALSE (0)</param>
 Public Shared Sub setLeptDebugOK(
 				 ByVal allow as Integer)
@@ -63,6 +65,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaWriteFiles/*"/>
 '''  <param name="rootname">[in] - </param>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="format">[in] - defined in imageio.h see notes for default</param>
@@ -94,6 +97,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteDebug/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="format">[in] - defined in imageio.h</param>
@@ -129,6 +133,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWrite/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="format">[in] - defined in imageio.h</param>
@@ -151,6 +156,7 @@ End Function
 ' pixWriteAutoFormat(const char *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteAutoFormat/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -173,6 +179,7 @@ End Function
 ' pixWriteStream(FILE *, PIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="format">[in] - </param>
@@ -202,6 +209,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteImpliedFormat/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="quality">[in] - iff JPEG 1 - 100, 0 for default</param>
@@ -236,6 +244,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixChooseOutputFormat/*"/>
 '''  <param name="pix">[in] - </param>
 '''   <returns>output format, or 0 on error</returns>
 Public Shared Function pixChooseOutputFormat(
@@ -259,6 +268,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getImpliedFileFormat/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>output format, or IFF_UNKNOWN on error or invalid extension.</returns>
 Public Shared Function getImpliedFileFormat(
@@ -289,6 +299,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetAutoFormat/*"/>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixGetAutoFormat(
@@ -314,6 +325,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getFormatExtension/*"/>
 '''  <param name="format">[in] - integer</param>
 '''   <returns>extension string, or NULL if format is out of range</returns>
 Public Shared Function getFormatExtension(
@@ -340,6 +352,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMem/*"/>
 '''  <param name="pdata">[out] - data of tiff compressed image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - </param>
@@ -374,6 +387,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_fileDisplay/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="x">[in] - location of display frame on the screen</param>
 '''  <param name="y">[in] - location of display frame on the screen</param>
@@ -429,6 +443,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDisplay/*"/>
 '''  <param name="x">[in] - location of display frame on the screen</param>
 '''  <param name="y">[in] - location of display frame on the screen</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -457,6 +472,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDisplayWithTitle/*"/>
 '''  <param name="x">[in] - location of display frame</param>
 '''  <param name="y">[in] - location of display frame</param>
 '''  <param name="title">[in][optional] - on frame can be NULL</param>
@@ -483,6 +499,7 @@ End Function
 ' pixSaveTiled(PIX *, PIXA *, l_float32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSaveTiled/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp</param>
 '''  <param name="pixa">[in] - the pix are accumulated here</param>
 '''  <param name="scalefactor">[in] - 0.0 to disable otherwise this is a scale factor</param>
@@ -539,6 +556,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSaveTiledOutline/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp</param>
 '''  <param name="pixa">[in] - the pix are accumulated here</param>
 '''  <param name="scalefactor">[in] - 0.0 to disable otherwise this is a scale factor</param>
@@ -592,6 +610,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSaveTiledWithText/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp</param>
 '''  <param name="pixa">[in] - the pix are accumulated here as 32 bpp</param>
 '''  <param name="outwidth">[in] - in pixels use 0 to disable entirely</param>
@@ -632,6 +651,7 @@ End Function
 ' l_chooseDisplayProg(l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_chooseDisplayProg/*"/>
 Public Shared Sub l_chooseDisplayProg(
 				 ByVal selection as Integer)
 
@@ -664,6 +684,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDisplayWrite/*"/>
 '''  <param name="reduction">[in] - -1 to reset/erase 0 to disable otherwise this is a reduction factor</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixDisplayWrite(

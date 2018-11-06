@@ -18,6 +18,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetGrayHistogram/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 bpp can be colormapped</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
 '''   <returns>na histogram, or NULL on error</returns>
@@ -49,6 +50,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetGrayHistogramMasked/*"/>
 '''  <param name="pixs">[in] - 8 bpp, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which histogram is to be computed use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0 these values are ignored if pixm is null</param>
@@ -86,6 +88,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetGrayHistogramInRect/*"/>
 '''  <param name="pixs">[in] - 8 bpp, or colormapped</param>
 '''  <param name="box">[in][optional] - over which histogram is to be computed use full image if NULL</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
@@ -117,6 +120,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetGrayHistogramTiled/*"/>
 '''  <param name="pixs">[in] - any depth, colormap OK</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
 '''  <param name="nx">[in] - tiling  is greater = 1 typically small</param>
@@ -148,6 +152,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetColorHistogram/*"/>
 '''  <param name="pixs">[in] - rgb or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
 '''  <param name="pnar">[out] - red histogram</param>
@@ -188,6 +193,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetColorHistogramMasked/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which histogram is to be computed use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0 these values are ignored if pixm is null</param>
@@ -234,6 +240,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetCmapHistogram/*"/>
 '''  <param name="pixs">[in] - colormapped: d = 2, 4 or 8</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
 '''   <returns>na histogram of cmap indices, or NULL on error</returns>
@@ -262,6 +269,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetCmapHistogramMasked/*"/>
 '''  <param name="pixs">[in] - colormapped: d = 2, 4 or 8</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which histogram is to be computed use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0 these values are ignored if pixm is null</param>
@@ -298,6 +306,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetCmapHistogramInRect/*"/>
 '''  <param name="pixs">[in] - colormapped: d = 2, 4 or 8</param>
 '''  <param name="box">[in][optional] - over which histogram is to be computed use full image if NULL</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
@@ -322,6 +331,7 @@ End Function
 ' pixCountRGBColors(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountRGBColors/*"/>
 '''  <param name="pixs">[in] - rgb or rgba</param>
 '''   <returns>ncolors, or -1 on error</returns>
 Public Shared Function pixCountRGBColors(
@@ -345,6 +355,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetColorAmapHistogram/*"/>
 '''  <param name="pixs">[in] - rgb or rgba</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
 '''   <returns>amap, or NULL on error</returns>
@@ -370,6 +381,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/amapGetCountForColor/*"/>
 '''  <param name="amap">[in] - map from pixel value to count</param>
 '''  <param name="val">[in] - rgb or rgba pixel value</param>
 '''   <returns>count, or -1 on error</returns>
@@ -397,6 +409,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRankValue/*"/>
 '''  <param name="pixs">[in] - 8 bpp, 32 bpp or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
 '''  <param name="rank">[in] - between 0.0 and 1.0 1.0 is brightest, 0.0 is darkest</param>
@@ -432,6 +445,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRankValueMaskedRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which rank val is to be taken use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0 these values are ignored if pixm is null</param>
@@ -485,6 +499,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRankValueMasked/*"/>
 '''  <param name="pixs">[in] - 8 bpp, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask, over which the rank val is to be taken use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0 these values are ignored if pixm is null</param>
@@ -536,6 +551,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetPixelAverage/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which average is to be taken use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0</param>
@@ -573,6 +589,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetPixelStats/*"/>
 '''  <param name="pixs">[in] - 8 bpp, 32 bpp or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
 '''  <param name="type">[in] - L_MEAN_ABSVAL, L_ROOT_MEAN_SQUARE, L_STANDARD_DEVIATION, L_VARIANCE</param>
@@ -604,6 +621,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetAverageMaskedRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which average is to be taken use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0</param>
@@ -658,6 +676,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetAverageMasked/*"/>
 '''  <param name="pixs">[in] - 8 or 16 bpp, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which average is to be taken use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0</param>
@@ -696,6 +715,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetAverageTiledRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp, or colormapped</param>
 '''  <param name="sx">[in] - tile size must be at least 2 x 2</param>
 '''  <param name="sy">[in] - tile size must be at least 2 x 2</param>
@@ -742,6 +762,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetAverageTiled/*"/>
 '''  <param name="pixs">[in] - 8 bpp, or colormapped</param>
 '''  <param name="sx">[in] - tile size must be at least 2 x 2</param>
 '''  <param name="sy">[in] - tile size must be at least 2 x 2</param>
@@ -778,6 +799,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRowStats/*"/>
 '''  <param name="pixs">[in] - 8 bpp not cmapped</param>
 '''  <param name="box">[in][optional] - clipping box can be null</param>
 '''  <param name="pnamean">[out][optional] - numa of mean values</param>
@@ -835,6 +857,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColumnStats/*"/>
 '''  <param name="pixs">[in] - 8 bpp not cmapped</param>
 '''  <param name="box">[in][optional] - clipping box can be null</param>
 '''  <param name="pnamean">[out][optional] - numa of mean values</param>
@@ -885,6 +908,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRangeValues/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale, 32 bpp rgb, or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor  is greater = 1 ignored if colormapped</param>
 '''  <param name="color">[in] - L_SELECT_RED, L_SELECT_GREEN or L_SELECT_BLUE</param>
@@ -920,6 +944,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetExtremeValue/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale, 32 bpp rgb, or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor  is greater = 1 ignored if colormapped</param>
 '''  <param name="type">[in] - L_SELECT_MIN or L_SELECT_MAX</param>
@@ -960,6 +985,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetMaxValueInRect/*"/>
 '''  <param name="pixs">[in] - 8, 16 or 32 bpp grayscale no color space components</param>
 '''  <param name="box">[in][optional] - region set box = NULL to use entire pixs</param>
 '''  <param name="pmaxval">[out][optional] - max value in region</param>
@@ -994,6 +1020,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetBinnedComponentRange/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="nbins">[in] - number of equal population bins must be  is greater  1</param>
 '''  <param name="factor">[in] - subsampling factor  is greater = 1</param>
@@ -1052,6 +1079,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRankColorArray/*"/>
 '''  <param name="pixs">[in] - 32 bpp or cmapped</param>
 '''  <param name="nbins">[in] - number of equal population bins must be  is greater  1</param>
 '''  <param name="type">[in] - color selection flag</param>
@@ -1099,6 +1127,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetBinnedColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="pixg">[in] - 8 bpp grayscale version of pixs</param>
 '''  <param name="factor">[in] - sampling factor along pixel counting direction</param>
@@ -1133,6 +1162,7 @@ End Function
 ' pixDisplayColorArray(l_uint32 *, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDisplayColorArray/*"/>
 '''  <param name="carray">[in] - array of colors: 0xrrggbb00</param>
 '''  <param name="ncolors">[in] - size of array</param>
 '''  <param name="side">[in] - size of each color square suggest 200</param>
@@ -1179,6 +1209,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRankBinByStrip/*"/>
 '''  <param name="pixs">[in] - 32 bpp or cmapped</param>
 '''  <param name="direction">[in] - L_SCAN_HORIZONTAL or L_SCAN_VERTICAL</param>
 '''  <param name="size">[in] - of strips in scan direction</param>
@@ -1217,6 +1248,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetAlignedStats/*"/>
 '''  <param name="pixa">[in] - of identically sized, 8 bpp pix not cmapped</param>
 '''  <param name="type">[in] - L_MEAN_ABSVAL, L_MEDIAN_VAL, L_MODE_VAL, L_MODE_COUNT</param>
 '''  <param name="nbins">[in] - of histogram for median and mode ignored for mean</param>
@@ -1241,6 +1273,7 @@ End Function
 ' pixaExtractColumnFromEachPix(PIXA *, l_int32, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaExtractColumnFromEachPix/*"/>
 '''  <param name="pixa">[in] - of identically sized, 8 bpp not cmapped</param>
 '''  <param name="col">[in] - column index</param>
 '''  <param name="pixd">[in] - pix into which each column is inserted</param>
@@ -1285,6 +1318,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRowStats/*"/>
 '''  <param name="pixs">[in] - 8 bpp not cmapped</param>
 '''  <param name="type">[in] - L_MEAN_ABSVAL, L_MEDIAN_VAL, L_MODE_VAL, L_MODE_COUNT</param>
 '''  <param name="nbins">[in] - of histogram for median and mode ignored for mean</param>
@@ -1328,6 +1362,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetColumnStats/*"/>
 '''  <param name="pixs">[in] - 8 bpp not cmapped</param>
 '''  <param name="type">[in] - L_MEAN_ABSVAL, L_MEDIAN_VAL, L_MODE_VAL, L_MODE_COUNT</param>
 '''  <param name="nbins">[in] - of histogram for median and mode ignored for mean</param>
@@ -1354,6 +1389,7 @@ End Function
 ' pixSetPixelColumn(PIX *, l_int32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetPixelColumn/*"/>
 '''  <param name="pix">[in] - 8 bpp not cmapped</param>
 '''  <param name="col">[in] - column index</param>
 '''  <param name="colvect">[in] - vector of floats</param>
@@ -1376,6 +1412,7 @@ End Function
 ' pixThresholdForFgBg(PIX *, l_int32, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThresholdForFgBg/*"/>
 '''  <param name="pixs">[in] - any depth cmapped ok</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
 '''  <param name="thresh">[in] - threshold for generating foreground mask</param>
@@ -1407,6 +1444,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSplitDistributionFgBg/*"/>
 '''  <param name="pixs">[in] - any depth cmapped ok</param>
 '''  <param name="scorefract">[in] - fraction of the max score, used to determine the range over which the histogram min is searched</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>

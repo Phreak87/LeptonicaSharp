@@ -16,6 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bbufferCreate/*"/>
 '''  <param name="indata">[in] - address in memory [optional]</param>
 '''  <param name="nalloc">[in] - size of byte array to be alloc'd 0 for default</param>
 '''   <returns>bbuffer, or NULL on error</returns>
@@ -40,6 +41,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bbufferDestroy/*"/>
 '''  <param name="pbb">[in,out] - buffer to be nulled</param>
 Public Shared Sub bbufferDestroy(
 				 ByRef pbb as L_ByteBuffer)
@@ -61,6 +63,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bbufferDestroyAndSaveData/*"/>
 '''  <param name="pbb">[in,out] - buffer to be nulled</param>
 '''  <param name="pnbytes">[out] - number of bytes saved in array</param>
 '''   <returns>barray newly allocated array of data</returns>
@@ -92,6 +95,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bbufferRead/*"/>
 '''  <param name="bb">[in] - bbuffer</param>
 '''  <param name="src">[in] - source memory buffer from which bytes are read</param>
 '''  <param name="nbytes">[in] - bytes to be read</param>
@@ -114,6 +118,7 @@ End Function
 ' bbufferReadStream(L_BBUFFER *, FILE *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bbufferReadStream/*"/>
 '''  <param name="bb">[in] - bbuffer</param>
 '''  <param name="fp">[in] - source stream from which bytes are read</param>
 '''  <param name="nbytes">[in] - bytes to be read</param>
@@ -142,6 +147,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bbufferExtendArray/*"/>
 '''  <param name="bb">[in] - bbuffer</param>
 '''  <param name="nbytes">[in] - number of bytes to extend array size</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -161,6 +167,7 @@ End Function
 ' bbufferWrite(L_BBUFFER *, l_uint8 *, size_t, size_t *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bbufferWrite/*"/>
 '''  <param name="bb">[in] - bbuffer</param>
 '''  <param name="dest">[in] - dest memory buffer to which bytes are written</param>
 '''  <param name="nbytes">[in] - bytes requested to be written</param>
@@ -185,6 +192,7 @@ End Function
 ' bbufferWriteStream(L_BBUFFER *, FILE *, size_t, size_t *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bbufferWriteStream/*"/>
 '''  <param name="bb">[in] - bbuffer</param>
 '''  <param name="fp">[in] - dest stream to which bytes are written</param>
 '''  <param name="nbytes">[in] - bytes requested to be written</param>

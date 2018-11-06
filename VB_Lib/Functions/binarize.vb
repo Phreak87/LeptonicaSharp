@@ -48,6 +48,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOtsuAdaptiveThreshold/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="sx">[in] - desired tile dimensions actual size may vary</param>
 '''  <param name="sy">[in] - desired tile dimensions actual size may vary</param>
@@ -105,6 +106,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOtsuThreshOnBackgroundNorm/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="sx">[in] - tile size in pixels</param>
@@ -169,6 +171,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMaskedThreshOnBackgroundNorm/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="sx">[in] - tile size in pixels</param>
@@ -225,6 +228,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSauvolaBinarizeTiled/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale, not colormapped</param>
 '''  <param name="whsize">[in] - window half-width for measuring local statistics</param>
 '''  <param name="factor">[in] - factor for reducing threshold due to variance  is greater = 0</param>
@@ -284,6 +288,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSauvolaBinarize/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="whsize">[in] - window half-width for measuring local statistics</param>
 '''  <param name="factor">[in] - factor for reducing threshold due to variance  is greater = 0</param>
@@ -352,6 +357,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSauvolaGetThreshold/*"/>
 '''  <param name="pixm">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="pixms">[in] - 32 bpp</param>
 '''  <param name="factor">[in] - factor for reducing threshold due to variance  is greater = 0</param>
@@ -380,6 +386,7 @@ End Function
 ' pixApplyLocalThreshold(PIX *, PIX *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixApplyLocalThreshold/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="pixth">[in] - 8 bpp array of local thresholds</param>
 '''  <param name="redfactor">[in] - ...</param>
@@ -439,6 +446,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThresholdByConnComp/*"/>
 '''  <param name="pixs">[in] - depth  is greater  1, colormap OK</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask giving region to ignore by setting pixels to white use NULL if no mask</param>
 '''  <param name="start">[in] - binarization threshold levels to test</param>

@@ -20,6 +20,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCleanBackgroundToWhite/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale or 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
@@ -59,6 +60,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormSimple/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale or 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
@@ -128,6 +130,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNorm/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale or 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
@@ -196,6 +199,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormMorph/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale or 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="reduction">[in] - at which morph closings are done between 2 and 16</param>
@@ -234,6 +238,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormGrayArray/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="sx">[in] - tile size in pixels</param>
@@ -283,6 +288,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormRGBArrays/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
@@ -343,6 +349,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormGrayArrayMorph/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="reduction">[in] - at which morph closings are done between 2 and 16</param>
@@ -385,6 +392,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormRGBArraysMorph/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="reduction">[in] - at which morph closings are done between 2 and 16</param>
@@ -434,6 +442,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetBackgroundGrayMap/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not cmapped</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null it should not have all foreground pixels</param>
 '''  <param name="sx">[in] - tile size in pixels</param>
@@ -475,6 +484,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetBackgroundRGBMap/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null it should not have all foreground pixels</param>
 '''  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
@@ -521,6 +531,7 @@ End Function
 ' pixGetBackgroundGrayMapMorph(PIX *, PIX *, l_int32, l_int32, PIX **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetBackgroundGrayMapMorph/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not cmapped</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null it should not have all foreground pixels</param>
 '''  <param name="reduction">[in] - factor at which closing is performed</param>
@@ -552,6 +563,7 @@ End Function
 ' pixGetBackgroundRGBMapMorph(PIX *, PIX *, l_int32, l_int32, PIX **, PIX **, PIX **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetBackgroundRGBMapMorph/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null it should not have all foreground pixels</param>
 '''  <param name="reduction">[in] - factor at which closing is performed</param>
@@ -617,6 +629,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFillMapHoles/*"/>
 '''  <param name="pix">[in] - 8 bpp a map, with one pixel for each tile in a larger image</param>
 '''  <param name="nx">[in] - number of horizontal pixel tiles that are entirely covered with pixels in the original source image</param>
 '''  <param name="ny">[in] - ditto for the number of vertical pixel tiles</param>
@@ -645,6 +658,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtendByReplication/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="addw">[in] - number of extra pixels horizontally to add</param>
 '''  <param name="addh">[in] - number of extra pixels vertically to add</param>
@@ -681,6 +695,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSmoothConnectedRegions/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale no colormap</param>
 '''  <param name="pixm">[in][optional] - 1 bpp if null, this is a no-op</param>
 '''  <param name="factor">[in] - subsampling factor for getting average  is greater = 1</param>
@@ -711,6 +726,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetInvBackgroundMap/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale no colormap</param>
 '''  <param name="bgval">[in] - target bg val typ.  is greater  128</param>
 '''  <param name="smoothx">[in] - half-width of block convolution kernel width</param>
@@ -735,6 +751,7 @@ End Function
 ' pixApplyInvBackgroundGrayMap(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixApplyInvBackgroundGrayMap/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale no colormap</param>
 '''  <param name="pixm">[in] - 16 bpp, inverse background map</param>
 '''  <param name="sx">[in] - tile width in pixels</param>
@@ -760,6 +777,7 @@ End Function
 ' pixApplyInvBackgroundRGBMap(PIX *, PIX *, PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixApplyInvBackgroundRGBMap/*"/>
 '''  <param name="pixs">[in] - 32 bpp rbg</param>
 '''  <param name="pixmr">[in] - 16 bpp, red inverse background map</param>
 '''  <param name="pixmg">[in] - 16 bpp, green inverse background map</param>
@@ -809,6 +827,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixApplyVariableGrayMap/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="pixg">[in] - 8 bpp, variable map</param>
 '''  <param name="target">[in] - typ. 128 for threshold</param>
@@ -858,6 +877,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGlobalNormRGB/*"/>
 '''  <param name="pixd">[in][optional] - null, existing or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb, or colormapped</param>
 '''  <param name="rval">[in] - pixel values in pixs that are linearly mapped to mapval</param>
@@ -910,6 +930,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGlobalNormNoSatRGB/*"/>
 '''  <param name="pixd">[in][optional] - null, existing or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="rval">[in] - pixel values in pixs that are linearly mapped to mapval but see below</param>
@@ -968,6 +989,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThresholdSpreadNorm/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="filtertype">[in] - L_SOBEL_EDGE or L_TWO_SIDED_EDGE</param>
 '''  <param name="edgethresh">[in] - threshold on magnitude of edge filter typ 10-20</param>
@@ -1031,6 +1053,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormFlex/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="sx">[in] - desired tile dimensions actual size may vary use values between 3 and 10</param>
 '''  <param name="sy">[in] - desired tile dimensions actual size may vary use values between 3 and 10</param>
@@ -1087,6 +1110,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixContrastNorm/*"/>
 '''  <param name="pixd">[in][optional] - 8 bpp null or equal to pixs</param>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="sx">[in] - tile dimensions</param>
@@ -1126,6 +1150,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMinMaxTiles/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="sx">[in] - tile dimensions</param>
 '''  <param name="sy">[in] - tile dimensions</param>
@@ -1174,6 +1199,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetLowContrast/*"/>
 '''  <param name="pixs1">[in] - 8 bpp</param>
 '''  <param name="pixs2">[in] - 8 bpp</param>
 '''  <param name="mindiff">[in] - minimum difference to accept as valid</param>
@@ -1212,6 +1238,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixLinearTRCTiled/*"/>
 '''  <param name="pixd">[in][optional] - 8 bpp</param>
 '''  <param name="pixs">[in] - 8 bpp, not colormapped</param>
 '''  <param name="sx">[in] - tile dimensions</param>
@@ -1269,6 +1296,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAffineSampledPta/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="ptad">[in] - 3 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
@@ -1304,6 +1332,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAffineSampled/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="vc">[in] - vector of 6 coefficients for affine transformation</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -1333,6 +1362,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAffinePta/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="ptad">[in] - 3 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
@@ -1365,6 +1395,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAffine/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="vc">[in] - vector of 6 coefficients for affine transformation</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -1388,6 +1419,7 @@ End Function
 ' pixAffinePtaColor(PIX *, PTA *, PTA *, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAffinePtaColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="ptad">[in] - 3 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
@@ -1414,6 +1446,7 @@ End Function
 ' pixAffineColor(PIX *, l_float32 *, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAffineColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="vc">[in] - vector of 6 coefficients for affine transformation</param>
 '''  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
@@ -1437,6 +1470,7 @@ End Function
 ' pixAffinePtaGray(PIX *, PTA *, PTA *, l_uint8) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAffinePtaGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="ptad">[in] - 3 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
@@ -1466,6 +1500,7 @@ End Function
 ' pixAffineGray(PIX *, l_float32 *, l_uint8) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAffineGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="vc">[in] - vector of 6 coefficients for affine transformation</param>
 '''  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
@@ -1523,6 +1558,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAffinePtaWithAlpha/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="ptad">[in] - 3 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
@@ -1606,6 +1642,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getAffineXformCoeffs/*"/>
 '''  <param name="ptas">[in] - source 3 points unprimed</param>
 '''  <param name="ptad">[in] - transformed 3 points primed</param>
 '''  <param name="pvc">[out] - vector of coefficients of transform</param>
@@ -1653,6 +1690,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/affineInvertXform/*"/>
 '''  <param name="vc">[in] - vector of 6 coefficients</param>
 '''  <param name="pvci">[out] - inverted transform</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -1680,6 +1718,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/affineXformSampledPt/*"/>
 '''  <param name="vc">[in] - vector of 6 coefficients</param>
 '''  <param name="x">[in] - initial point</param>
 '''  <param name="y">[in] - initial point</param>
@@ -1711,6 +1750,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/affineXformPt/*"/>
 '''  <param name="vc">[in] - vector of 6 coefficients</param>
 '''  <param name="x">[in] - initial point</param>
 '''  <param name="y">[in] - initial point</param>
@@ -1743,6 +1783,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/linearInterpolatePixelColor/*"/>
 '''  <param name="datas">[in] - ptr to beginning of image data</param>
 '''  <param name="wpls">[in] - 32-bit word/line for this data array</param>
 '''  <param name="w">[in] - of image</param>
@@ -1783,6 +1824,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/linearInterpolatePixelGray/*"/>
 '''  <param name="datas">[in] - ptr to beginning of image data</param>
 '''  <param name="wpls">[in] - 32-bit word/line for this data array</param>
 '''  <param name="w">[in] - of image</param>
@@ -1828,6 +1870,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gaussjordan/*"/>
 '''  <param name="a">[in] - n x n matrix</param>
 '''  <param name="b">[in] - n x 1 right-hand side column vector</param>
 '''  <param name="n">[in] - dimension</param>
@@ -1870,6 +1913,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAffineSequential/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="ptad">[in] - 3 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
@@ -1916,6 +1960,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/createMatrix2dTranslate/*"/>
 '''  <param name="transx">[in] - x component of translation wrt. the origin</param>
 '''  <param name="transy">[in] - y component of translation wrt. the origin</param>
 '''   <returns>3x3 transform matrix, or NULL on error</returns>
@@ -1948,6 +1993,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/createMatrix2dScale/*"/>
 '''  <param name="scalex">[in] - horizontal scale factor</param>
 '''  <param name="scaley">[in] - vertical scale factor</param>
 '''   <returns>3x3 transform matrix, or NULL on error</returns>
@@ -1990,6 +2036,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/createMatrix2dRotate/*"/>
 '''  <param name="xc">[in] - location of center of rotation</param>
 '''  <param name="yc">[in] - location of center of rotation</param>
 '''  <param name="angle">[in] - rotation in radians clockwise is positive</param>
@@ -2014,6 +2061,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaTranslate/*"/>
 '''  <param name="ptas">[in] - for initial points</param>
 '''  <param name="transx">[in] - x component of translation wrt. the origin</param>
 '''  <param name="transy">[in] - y component of translation wrt. the origin</param>
@@ -2041,6 +2089,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaScale/*"/>
 '''  <param name="ptas">[in] - for initial points</param>
 '''  <param name="scalex">[in] - horizontal scale factor</param>
 '''  <param name="scaley">[in] - vertical scale factor</param>
@@ -2080,6 +2129,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaRotate/*"/>
 '''  <param name="ptas">[in] - for initial points</param>
 '''  <param name="xc">[in] - location of center of rotation</param>
 '''  <param name="yc">[in] - location of center of rotation</param>
@@ -2104,6 +2154,7 @@ End Function
 ' boxaTranslate(BOXA *, l_float32, l_float32) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaTranslate/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="transx">[in] - x component of translation wrt. the origin</param>
 '''  <param name="transy">[in] - y component of translation wrt. the origin</param>
@@ -2126,6 +2177,7 @@ End Function
 ' boxaScale(BOXA *, l_float32, l_float32) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaScale/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="scalex">[in] - horizontal scale factor</param>
 '''  <param name="scaley">[in] - vertical scale factor</param>
@@ -2148,6 +2200,7 @@ End Function
 ' boxaRotate(BOXA *, l_float32, l_float32, l_float32) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaRotate/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="xc">[in] - location of center of rotation</param>
 '''  <param name="yc">[in] - location of center of rotation</param>
@@ -2172,6 +2225,7 @@ End Function
 ' ptaAffineTransform(PTA *, l_float32 *) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaAffineTransform/*"/>
 '''  <param name="ptas">[in] - for initial points</param>
 '''  <param name="mat">[in] - 3x3 transform matrix canonical form</param>
 '''   <returns>ptad  transformed points, or NULL on error</returns>
@@ -2193,6 +2247,7 @@ End Function
 ' boxaAffineTransform(BOXA *, l_float32 *) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaAffineTransform/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="mat">[in] - 3x3 transform matrix canonical form</param>
 '''   <returns>boxad  transformed boxas, or NULL on error</returns>
@@ -2214,6 +2269,7 @@ End Function
 ' l_productMatVec(l_float32 *, l_float32 *, l_float32 *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_productMatVec/*"/>
 '''  <param name="mat">[in] - square matrix, as a 1-dimensional %size^2 array</param>
 '''  <param name="vecs">[in] - input column vector of length %size</param>
 '''  <param name="vecd">[in] - result column vector</param>
@@ -2239,6 +2295,7 @@ End Function
 ' l_productMat2(l_float32 *, l_float32 *, l_float32 *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_productMat2/*"/>
 '''  <param name="mat1">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat2">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="matd">[in] - square matrix product stored here</param>
@@ -2264,6 +2321,7 @@ End Function
 ' l_productMat3(l_float32 *, l_float32 *, l_float32 *, l_float32 *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_productMat3/*"/>
 '''  <param name="mat1">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat2">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat3">[in] - square matrix, as a 1-dimensional size^2 array</param>
@@ -2292,6 +2350,7 @@ End Function
 ' l_productMat4(l_float32 *, l_float32 *, l_float32 *, l_float32 *, l_float32 *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_productMat4/*"/>
 '''  <param name="mat1">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat2">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat3">[in] - square matrix, as a 1-dimensional size^2 array</param>
@@ -2325,6 +2384,7 @@ End Function
 ' l_getDataBit(void *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_getDataBit/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''   <returns>val of the nth 1-bit pixel.</returns>
@@ -2346,6 +2406,7 @@ End Function
 ' l_setDataBit(void *, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_setDataBit/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 Public Shared Sub l_setDataBit(
@@ -2365,6 +2426,7 @@ End Sub
 ' l_clearDataBit(void *, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_clearDataBit/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 Public Shared Sub l_clearDataBit(
@@ -2394,6 +2456,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_setDataBitVal/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''  <param name="val">[in] - val to be inserted: 0 or 1</param>
@@ -2415,6 +2478,7 @@ End Sub
 ' l_getDataDibit(void *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_getDataDibit/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''   <returns>val of the nth 2-bit pixel.</returns>
@@ -2436,6 +2500,7 @@ End Function
 ' l_setDataDibit(void *, l_int32, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_setDataDibit/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''  <param name="val">[in] - val to be inserted: 0 - 3</param>
@@ -2457,6 +2522,7 @@ End Sub
 ' l_clearDataDibit(void *, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_clearDataDibit/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 Public Shared Sub l_clearDataDibit(
@@ -2476,6 +2542,7 @@ End Sub
 ' l_getDataQbit(void *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_getDataQbit/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''   <returns>val of the nth 4-bit pixel.</returns>
@@ -2497,6 +2564,7 @@ End Function
 ' l_setDataQbit(void *, l_int32, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_setDataQbit/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''  <param name="val">[in] - val to be inserted: 0 - 0xf</param>
@@ -2518,6 +2586,7 @@ End Sub
 ' l_clearDataQbit(void *, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_clearDataQbit/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 Public Shared Sub l_clearDataQbit(
@@ -2537,6 +2606,7 @@ End Sub
 ' l_getDataByte(void *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_getDataByte/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''   <returns>value of the n-th byte pixel</returns>
@@ -2558,6 +2628,7 @@ End Function
 ' l_setDataByte(void *, l_int32, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_setDataByte/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''  <param name="val">[in] - val to be inserted: 0 - 0xff</param>
@@ -2579,6 +2650,7 @@ End Sub
 ' l_getDataTwoBytes(void *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_getDataTwoBytes/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''   <returns>value of the n-th 2-byte pixel</returns>
@@ -2600,6 +2672,7 @@ End Function
 ' l_setDataTwoBytes(void *, l_int32, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_setDataTwoBytes/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''  <param name="val">[in] - val to be inserted: 0 - 0xffff</param>
@@ -2621,6 +2694,7 @@ End Sub
 ' l_getDataFourBytes(void *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_getDataFourBytes/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''   <returns>value of the n-th 4-byte pixel</returns>
@@ -2642,6 +2716,7 @@ End Function
 ' l_setDataFourBytes(void *, l_int32, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_setDataFourBytes/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''  <param name="val">[in] - val to be inserted: 0 - 0xffffffff</param>
@@ -2665,6 +2740,7 @@ End Sub
 ' barcodeDispatchDecoder(char *, l_int32, l_int32) as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/barcodeDispatchDecoder/*"/>
 '''  <param name="barstr">[in] - string of integers in set {1,2,3,4} of bar widths</param>
 '''  <param name="format">[in] - L_BF_ANY, L_BF_CODEI2OF5, L_BF_CODE93, ...</param>
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
@@ -2686,6 +2762,7 @@ End Function
 ' barcodeFormatIsSupported(l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/barcodeFormatIsSupported/*"/>
 '''  <param name="format">[in] - </param>
 '''   <returns>1 if format is one of those supported 0 otherwise</returns>
 Public Shared Function barcodeFormatIsSupported(
@@ -2728,6 +2805,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindBaselines/*"/>
 '''  <param name="pixs">[in] - 1 bpp, 300 ppi</param>
 '''  <param name="ppta">[out][optional] - pairs of pts corresponding to approx. ends of each text line</param>
 '''  <param name="pixadb">[in] - for debug output use NULL to skip</param>
@@ -2774,6 +2852,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDeskewLocal/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="nslices">[in] - the number of horizontal overlapping slices must be larger than 1 and not exceed 20 use 0 for default</param>
 '''  <param name="redsweep">[in] - sweep reduction factor: 1, 2, 4 or 8 use 0 for default value</param>
@@ -2818,6 +2897,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetLocalSkewTransform/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="nslices">[in] - the number of horizontal overlapping slices must be larger than 1 and not exceed 20 use 0 for default</param>
 '''  <param name="redsweep">[in] - sweep reduction factor: 1, 2, 4 or 8 use 0 for default value</param>
@@ -2875,6 +2955,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetLocalSkewAngles/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="nslices">[in] - the number of horizontal overlapping slices must be larger than 1 and not exceed 20 0 for default</param>
 '''  <param name="redsweep">[in] - sweep reduction factor: 1, 2, 4 or 8 use 0 for default value</param>
@@ -2925,6 +3006,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bbufferCreate/*"/>
 '''  <param name="indata">[in] - address in memory [optional]</param>
 '''  <param name="nalloc">[in] - size of byte array to be alloc'd 0 for default</param>
 '''   <returns>bbuffer, or NULL on error</returns>
@@ -2949,6 +3031,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bbufferDestroy/*"/>
 '''  <param name="pbb">[in,out] - buffer to be nulled</param>
 Public Shared Sub bbufferDestroy(
 				 ByRef pbb as L_ByteBuffer)
@@ -2970,6 +3053,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bbufferDestroyAndSaveData/*"/>
 '''  <param name="pbb">[in,out] - buffer to be nulled</param>
 '''  <param name="pnbytes">[out] - number of bytes saved in array</param>
 '''   <returns>barray newly allocated array of data</returns>
@@ -3001,6 +3085,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bbufferRead/*"/>
 '''  <param name="bb">[in] - bbuffer</param>
 '''  <param name="src">[in] - source memory buffer from which bytes are read</param>
 '''  <param name="nbytes">[in] - bytes to be read</param>
@@ -3023,6 +3108,7 @@ End Function
 ' bbufferReadStream(L_BBUFFER *, FILE *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bbufferReadStream/*"/>
 '''  <param name="bb">[in] - bbuffer</param>
 '''  <param name="fp">[in] - source stream from which bytes are read</param>
 '''  <param name="nbytes">[in] - bytes to be read</param>
@@ -3051,6 +3137,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bbufferExtendArray/*"/>
 '''  <param name="bb">[in] - bbuffer</param>
 '''  <param name="nbytes">[in] - number of bytes to extend array size</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -3070,6 +3157,7 @@ End Function
 ' bbufferWrite(L_BBUFFER *, l_uint8 *, size_t, size_t *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bbufferWrite/*"/>
 '''  <param name="bb">[in] - bbuffer</param>
 '''  <param name="dest">[in] - dest memory buffer to which bytes are written</param>
 '''  <param name="nbytes">[in] - bytes requested to be written</param>
@@ -3094,6 +3182,7 @@ End Function
 ' bbufferWriteStream(L_BBUFFER *, FILE *, size_t, size_t *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bbufferWriteStream/*"/>
 '''  <param name="bb">[in] - bbuffer</param>
 '''  <param name="fp">[in] - dest stream to which bytes are written</param>
 '''  <param name="nbytes">[in] - bytes requested to be written</param>
@@ -3164,6 +3253,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilateral/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb, no colormap</param>
 '''  <param name="spatial_stdev">[in] - of gaussian kernel in pixels,  is greater  0.5</param>
 '''  <param name="range_stdev">[in] - of gaussian range kernel  is greater  5.0 typ. 50.0</param>
@@ -3198,6 +3288,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilateralGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray</param>
 '''  <param name="spatial_stdev">[in] - of gaussian kernel in pixels,  is greater  0.5</param>
 '''  <param name="range_stdev">[in] - of gaussian range kernel  is greater  5.0 typ. 50.0</param>
@@ -3241,6 +3332,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilateralExact/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="spatial_kel">[in] - gaussian kernel</param>
 '''  <param name="range_kel">[in][optional] - 256 x 1, monotonically decreasing</param>
@@ -3271,6 +3363,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilateralGrayExact/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray</param>
 '''  <param name="spatial_kel">[in] - gaussian kernel</param>
 '''  <param name="range_kel">[in][optional] - 256 x 1, monotonically decreasing</param>
@@ -3324,6 +3417,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlockBilateralExact/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="spatial_stdev">[in] - is greater  0.0</param>
 '''  <param name="range_stdev">[in] - is greater  0.0</param>
@@ -3356,6 +3450,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeRangeKernel/*"/>
 '''  <param name="range_stdev">[in] - is greater  0</param>
 '''   <returns>kel, or NULL on error</returns>
 Public Shared Function makeRangeKernel(
@@ -3384,6 +3479,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilinearSampledPta/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -3419,6 +3515,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilinearSampled/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for bilinear transformation</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -3448,6 +3545,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilinearPta/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -3480,6 +3578,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilinear/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for bilinear transformation</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -3503,6 +3602,7 @@ End Function
 ' pixBilinearPtaColor(PIX *, PTA *, PTA *, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilinearPtaColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -3529,6 +3629,7 @@ End Function
 ' pixBilinearColor(PIX *, l_float32 *, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilinearColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for bilinear transformation</param>
 '''  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
@@ -3552,6 +3653,7 @@ End Function
 ' pixBilinearPtaGray(PIX *, PTA *, PTA *, l_uint8) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilinearPtaGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -3581,6 +3683,7 @@ End Function
 ' pixBilinearGray(PIX *, l_float32 *, l_uint8) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilinearGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for bilinear transformation</param>
 '''  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
@@ -3638,6 +3741,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBilinearPtaWithAlpha/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -3707,6 +3811,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getBilinearXformCoeffs/*"/>
 '''  <param name="ptas">[in] - source 4 points unprimed</param>
 '''  <param name="ptad">[in] - transformed 4 points primed</param>
 '''  <param name="pvc">[out] - vector of coefficients of transform</param>
@@ -3737,6 +3842,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bilinearXformSampledPt/*"/>
 '''  <param name="vc">[in] - vector of 8 coefficients</param>
 '''  <param name="x">[in] - initial point</param>
 '''  <param name="y">[in] - initial point</param>
@@ -3768,6 +3874,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bilinearXformPt/*"/>
 '''  <param name="vc">[in] - vector of 8 coefficients</param>
 '''  <param name="x">[in] - initial point</param>
 '''  <param name="y">[in] - initial point</param>
@@ -3835,6 +3942,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOtsuAdaptiveThreshold/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="sx">[in] - desired tile dimensions actual size may vary</param>
 '''  <param name="sy">[in] - desired tile dimensions actual size may vary</param>
@@ -3892,6 +4000,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOtsuThreshOnBackgroundNorm/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="sx">[in] - tile size in pixels</param>
@@ -3956,6 +4065,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMaskedThreshOnBackgroundNorm/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="sx">[in] - tile size in pixels</param>
@@ -4012,6 +4122,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSauvolaBinarizeTiled/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale, not colormapped</param>
 '''  <param name="whsize">[in] - window half-width for measuring local statistics</param>
 '''  <param name="factor">[in] - factor for reducing threshold due to variance  is greater = 0</param>
@@ -4071,6 +4182,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSauvolaBinarize/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="whsize">[in] - window half-width for measuring local statistics</param>
 '''  <param name="factor">[in] - factor for reducing threshold due to variance  is greater = 0</param>
@@ -4139,6 +4251,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSauvolaGetThreshold/*"/>
 '''  <param name="pixm">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="pixms">[in] - 32 bpp</param>
 '''  <param name="factor">[in] - factor for reducing threshold due to variance  is greater = 0</param>
@@ -4167,6 +4280,7 @@ End Function
 ' pixApplyLocalThreshold(PIX *, PIX *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixApplyLocalThreshold/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="pixth">[in] - 8 bpp array of local thresholds</param>
 '''  <param name="redfactor">[in] - ...</param>
@@ -4226,6 +4340,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThresholdByConnComp/*"/>
 '''  <param name="pixs">[in] - depth  is greater  1, colormap OK</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask giving region to ignore by setting pixels to white use NULL if no mask</param>
 '''  <param name="start">[in] - binarization threshold levels to test</param>
@@ -4266,6 +4381,7 @@ End Function
 ' pixExpandBinaryReplicate(PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExpandBinaryReplicate/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="xfact">[in] - integer scale factor for horiz. replicative expansion</param>
 '''  <param name="yfact">[in] - integer scale factor for vertical replicative expansion</param>
@@ -4290,6 +4406,7 @@ End Function
 ' pixExpandBinaryPower2(PIX *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExpandBinaryPower2/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="factor">[in] - expansion factor: 1, 2, 4, 8, 16</param>
 '''   <returns>pixd expanded 1 bpp by replication, or NULL on error</returns>
@@ -4326,6 +4443,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReduceBinary2/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="intab">[in][optional] - if null, a table is made here and destroyed before exit</param>
 '''   <returns>pixd 2x subsampled, or NULL on error</returns>
@@ -4352,6 +4470,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReduceRankBinaryCascade/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="level1">[in] - threshold, in the set {0, 1, 2, 3, 4}</param>
 '''  <param name="level2">[in] - threshold, in the set {0, 1, 2, 3, 4}</param>
@@ -4392,6 +4511,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReduceRankBinary2/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="level">[in] - rank threshold: 1, 2, 3, 4</param>
 '''  <param name="intab">[in][optional] - if null, a table is made here and destroyed before exit</param>
@@ -4423,6 +4543,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeSubsampleTab2x/*"/>
 '''   <returns>tab table of 256 permutations, or NULL on error</returns>
 Public Shared Function makeSubsampleTab2x() as Byte()
 
@@ -4444,6 +4565,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlend/*"/>
 '''  <param name="pixs1">[in] - blendee</param>
 '''  <param name="pixs2">[in] - blender typ. smaller</param>
 '''  <param name="x">[in] - ,y  origin [UL corner] of pixs2 relative to the origin of pixs1 can be  is lower  0</param>
@@ -4483,6 +4605,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendMask/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs1 for in-place</param>
 '''  <param name="pixs1">[in] - blendee, depth  is greater  1</param>
 '''  <param name="pixs2">[in] - blender, 1 bpp typ. smaller in size than pixs1</param>
@@ -4541,6 +4664,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendGray/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs1 for in-place</param>
 '''  <param name="pixs1">[in] - blendee, depth  is greater  1</param>
 '''  <param name="pixs2">[in] - blender, any depth typ. smaller in size than pixs1</param>
@@ -4601,6 +4725,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendGrayInverse/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs1 for in-place</param>
 '''  <param name="pixs1">[in] - blendee, depth  is greater  1</param>
 '''  <param name="pixs2">[in] - blender, any depth typ. smaller in size than pixs1</param>
@@ -4647,6 +4772,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendColor/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs1 for in-place</param>
 '''  <param name="pixs1">[in] - blendee depth  is greater  1</param>
 '''  <param name="pixs2">[in] - blender, any depth typ. smaller in size than pixs1</param>
@@ -4681,6 +4807,7 @@ End Function
 ' pixBlendColorByChannel(PIX *, PIX *, PIX *, l_int32, l_int32, l_float32, l_float32, l_float32, l_int32, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendColorByChannel/*"/>
 '''   <returns></returns>
 Public Shared Function pixBlendColorByChannel(
 				 ByVal pixd as Pix, 
@@ -4743,6 +4870,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendGrayAdapt/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs1 for in-place</param>
 '''  <param name="pixs1">[in] - blendee, depth  is greater  1</param>
 '''  <param name="pixs2">[in] - blender, any depth typ. smaller in size than pixs1</param>
@@ -4785,6 +4913,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFadeWithGray/*"/>
 '''  <param name="pixs">[in] - colormapped or 8 bpp or 32 bpp</param>
 '''  <param name="pixb">[in] - 8 bpp blender</param>
 '''  <param name="factor">[in] - multiplicative factor to apply to blender value</param>
@@ -4810,6 +4939,7 @@ End Function
 ' pixBlendHardLight(PIX *, PIX *, PIX *, l_int32, l_int32, l_float32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendHardLight/*"/>
 '''   <returns></returns>
 Public Shared Function pixBlendHardLight(
 				 ByVal pixd as Pix, 
@@ -4856,6 +4986,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendCmap/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp, with colormap</param>
 '''  <param name="pixb">[in] - colormapped blender</param>
 '''  <param name="x">[in] - UL corner of blender relative to pixs</param>
@@ -4906,6 +5037,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendWithGrayMask/*"/>
 '''  <param name="pixs1">[in] - 8 bpp gray, rgb, rgba or colormapped</param>
 '''  <param name="pixs2">[in] - 8 bpp gray, rgb, rgba or colormapped</param>
 '''  <param name="pixg">[in][optional] - 8 bpp gray, for transparency of pixs2 can be null</param>
@@ -4950,6 +5082,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendBackgroundToColor/*"/>
 '''  <param name="pixd">[in]can be NULL - or pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="box">[in] - region for blending can be NULL)</param>
@@ -4995,6 +5128,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMultiplyByColor/*"/>
 '''  <param name="pixd">[in]can be NULL - or pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="box">[in] - region for filtering can be NULL)</param>
@@ -5034,6 +5168,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAlphaBlendUniform/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgba, with alpha</param>
 '''  <param name="color">[in] - 32 bit color in 0xrrggbb00 format</param>
 '''   <returns>pixd 32 bpp rgb: pixs blended over uniform color %color, a clone of pixs if no alpha, and NULL on error</returns>
@@ -5069,6 +5204,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddAlphaToBlend/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="fract">[in] - fade fraction in the alpha component</param>
 '''  <param name="invert">[in] - 1 to photometrically invert pixs</param>
@@ -5103,6 +5239,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetAlphaOverWhite/*"/>
 '''  <param name="pixs">[in] - colormapped or 32 bpp rgb no alpha</param>
 '''   <returns>pixd new pix with meaningful alpha component, or NULL on error</returns>
 Public Shared Function pixSetAlphaOverWhite(
@@ -5130,6 +5267,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixLinearEdgeFade/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp no colormap</param>
 '''  <param name="dir">[in] - L_FROM_LEFT, L_FROM_RIGHT, L_FROM_TOP, L_FROM_BOT</param>
 '''  <param name="fadeto">[in] - L_BLEND_TO_WHITE, L_BLEND_TO_BLACK</param>
@@ -5168,6 +5306,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bmfCreate/*"/>
 '''  <param name="dir">[in][optional] - directory holding pixa of character set</param>
 '''  <param name="fontsize">[in] - 4, 6, 8, ... , 20</param>
 '''   <returns>bmf holding the bitmap font and associated information</returns>
@@ -5186,6 +5325,7 @@ End Function
 ' bmfDestroy(L_BMF **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bmfDestroy/*"/>
 '''  <param name="pbmf">[in,out] - set to null</param>
 Public Shared Sub bmfDestroy(
 				 ByRef pbmf as L_Bmf)
@@ -5202,6 +5342,7 @@ End Sub
 ' bmfGetPix(L_BMF *, char) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bmfGetPix/*"/>
 '''  <param name="bmf">[in] - </param>
 '''  <param name="chr">[in] - should be one of the 95 supported printable bitmaps</param>
 '''   <returns>pix clone of pix in bmf, or NULL on error</returns>
@@ -5223,6 +5364,7 @@ End Function
 ' bmfGetWidth(L_BMF *, char, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bmfGetWidth/*"/>
 '''  <param name="bmf">[in] - </param>
 '''  <param name="chr">[in] - should be one of the 95 supported bitmaps</param>
 '''  <param name="pw">[out] - character width -1 if not printable</param>
@@ -5245,6 +5387,7 @@ End Function
 ' bmfGetBaseline(L_BMF *, char, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bmfGetBaseline/*"/>
 '''  <param name="bmf">[in] - </param>
 '''  <param name="chr">[in] - should be one of the 95 supported bitmaps</param>
 '''  <param name="pbaseline">[out] - distance below UL corner of bitmap char</param>
@@ -5272,6 +5415,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetFont/*"/>
 '''  <param name="dir">[in] - directory holding pixa of character set</param>
 '''  <param name="fontsize">[in] - 4, 6, 8, ... , 20</param>
 '''  <param name="pbl0">[out] - baseline of row 1</param>
@@ -5307,6 +5451,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSaveFont/*"/>
 '''  <param name="indir">[in][optional] - directory holding image of character set</param>
 '''  <param name="outdir">[in] - directory into which the output pixa file will be written</param>
 '''  <param name="fontsize">[in] - in pts, at 300 ppi</param>
@@ -5337,6 +5482,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamBmp/*"/>
 '''  <param name="fp">[in] - file stream opened for read</param>
 '''   <returns>pix, or NULL on error</returns>
 Public Shared Function pixReadStreamBmp(
@@ -5355,6 +5501,7 @@ End Function
 ' pixReadMemBmp(const l_uint8 *, size_t) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMemBmp/*"/>
 '''  <param name="cdata">[in] - bmp data</param>
 '''  <param name="size">[in] - number of bytes of bmp-formatted data</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -5375,6 +5522,7 @@ End Function
 ' pixWriteStreamBmp(FILE *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamBmp/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pix">[in] - all depths</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -5408,6 +5556,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemBmp/*"/>
 '''  <param name="pfdata">[out] - data of bmp formatted image</param>
 '''  <param name="pfsize">[out] - size of returned data</param>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
@@ -5442,6 +5591,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_bootnum_gen1/*"/>
 '''   <returns>pixa  of labeled digits</returns>
 Public Shared Function l_bootnum_gen1() as Pixa
 
@@ -5464,6 +5614,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_bootnum_gen2/*"/>
 '''   <returns>pixa  of labeled digits</returns>
 Public Shared Function l_bootnum_gen2() as Pixa
 
@@ -5486,6 +5637,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_bootnum_gen3/*"/>
 '''   <returns>pixa  of labeled digits</returns>
 Public Shared Function l_bootnum_gen3() as Pixa
 
@@ -5518,6 +5670,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxCreate/*"/>
 '''  <param name="x">[in] - </param>
 '''  <param name="y">[in] - </param>
 '''  <param name="w">[in] - </param>
@@ -5545,6 +5698,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxCreateValid/*"/>
 '''  <param name="x">[in] - </param>
 '''  <param name="y">[in] - </param>
 '''  <param name="w">[in] - </param>
@@ -5567,6 +5721,7 @@ End Function
 ' boxCopy(BOX *) as BOX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxCopy/*"/>
 '''  <param name="box">[in] - </param>
 '''   <returns>copy of box, or NULL on error</returns>
 Public Shared Function boxCopy(
@@ -5585,6 +5740,7 @@ End Function
 ' boxClone(BOX *) as BOX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxClone/*"/>
 '''  <param name="box">[in] - </param>
 '''   <returns>ptr to same box, or NULL on error</returns>
 Public Shared Function boxClone(
@@ -5609,6 +5765,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxDestroy/*"/>
 '''  <param name="pbox">[in,out] - will be set to null before returning</param>
 Public Shared Sub boxDestroy(
 				 ByRef pbox as Box)
@@ -5625,6 +5782,7 @@ End Sub
 ' boxGetGeometry(BOX *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxGetGeometry/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="px">[out][optional] - each can be null</param>
 '''  <param name="py">[out][optional] - each can be null</param>
@@ -5650,6 +5808,7 @@ End Function
 ' boxSetGeometry(BOX *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxSetGeometry/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="x">[in][optional] - use -1 to leave unchanged</param>
 '''  <param name="y">[in][optional] - use -1 to leave unchanged</param>
@@ -5680,6 +5839,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxGetSideLocations/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="pl">[out][optional] - each can be null</param>
 '''  <param name="pr">[out][optional] - each can be null</param>
@@ -5705,6 +5865,7 @@ End Function
 ' boxSetSideLocations(BOX *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxSetSideLocations/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="l">[in][optional] - use -1 to leave unchanged</param>
 '''  <param name="r">[in][optional] - use -1 to leave unchanged</param>
@@ -5730,6 +5891,7 @@ End Function
 ' boxGetRefcount(BOX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxGetRefcount/*"/>
 '''  <param name="box">[in] - ptr to Box</param>
 '''   <returns>refcount</returns>
 Public Shared Function boxGetRefcount(
@@ -5747,6 +5909,7 @@ End Function
 ' boxChangeRefcount(BOX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxChangeRefcount/*"/>
 '''  <param name="box">[in] - ptr to box</param>
 '''  <param name="delta">[in] - adjustment, usually -1 or 1</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -5766,6 +5929,7 @@ End Function
 ' boxIsValid(BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxIsValid/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="pvalid">[out] - 1 if valid 0 otherwise</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -5785,6 +5949,7 @@ End Function
 ' boxaCreate(l_int32) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaCreate/*"/>
 '''  <param name="n">[in] - initial number of ptrs</param>
 '''   <returns>boxa, or NULL on error</returns>
 Public Shared Function boxaCreate(
@@ -5807,6 +5972,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaCopy/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="copyflag">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
 '''   <returns>new boxa, or NULL on error</returns>
@@ -5833,6 +5999,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaDestroy/*"/>
 '''  <param name="pboxa">[in,out] - will be set to null before returning</param>
 Public Shared Sub boxaDestroy(
 				 ByRef pboxa as Boxa)
@@ -5849,6 +6016,7 @@ End Sub
 ' boxaAddBox(BOXA *, BOX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaAddBox/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="box">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -5876,6 +6044,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaExtendArray/*"/>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function boxaExtendArray(
@@ -5898,6 +6067,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaExtendArrayToSize/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="size">[in] - new size of boxa array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -5917,6 +6087,7 @@ End Function
 ' boxaGetCount(BOXA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetCount/*"/>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>count of all boxes 0 if no boxes or on error</returns>
 Public Shared Function boxaGetCount(
@@ -5934,6 +6105,7 @@ End Function
 ' boxaGetValidCount(BOXA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetValidCount/*"/>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>count of valid boxes 0 if no valid boxes or on error</returns>
 Public Shared Function boxaGetValidCount(
@@ -5951,6 +6123,7 @@ End Function
 ' boxaGetBox(BOXA *, l_int32, l_int32) as BOX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetBox/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
@@ -5983,6 +6156,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetValidBox/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
@@ -6005,6 +6179,7 @@ End Function
 ' boxaFindInvalidBoxes(BOXA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaFindInvalidBoxes/*"/>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>na   numa of invalid boxes NULL if there are none or on error</returns>
 Public Shared Function boxaFindInvalidBoxes(
@@ -6023,6 +6198,7 @@ End Function
 ' boxaGetBoxGeometry(BOXA *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetBoxGeometry/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="px">[out][optional] - each can be null</param>
@@ -6050,6 +6226,7 @@ End Function
 ' boxaIsFull(BOXA *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaIsFull/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pfull">[out] - 1 if boxa is full</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -6075,6 +6252,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaReplaceBox/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="box">[in] - insert to replace existing one</param>
@@ -6107,6 +6285,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaInsertBox/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - location in boxa to insert new value</param>
 '''  <param name="box">[in] - new box to be inserted</param>
@@ -6137,6 +6316,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaRemoveBox/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - of box to be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -6164,6 +6344,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaRemoveBoxAndSave/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - of box to be removed</param>
 '''  <param name="pbox">[out][optional] - removed box</param>
@@ -6193,6 +6374,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSaveValid/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="copyflag">[in] - L_COPY or L_CLONE</param>
 '''   <returns>boxad if OK, NULL on error</returns>
@@ -6244,6 +6426,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaInitFull/*"/>
 '''  <param name="boxa">[in] - typically empty</param>
 '''  <param name="box">[in][optional] - to be replicated into the entire ptr array</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -6271,6 +6454,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaClear/*"/>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaClear(
@@ -6288,6 +6472,7 @@ End Function
 ' boxaaCreate(l_int32) as BOXAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaCreate/*"/>
 '''  <param name="n">[in] - size of boxa ptr array to be alloc'd 0 for default</param>
 '''   <returns>baa, or NULL on error</returns>
 Public Shared Function boxaaCreate(
@@ -6310,6 +6495,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaCopy/*"/>
 '''  <param name="baas">[in] - input boxaa to be copied</param>
 '''  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 '''   <returns>baad new boxaa, composed of copies or clones of the boxa in baas, or NULL on error</returns>
@@ -6330,6 +6516,7 @@ End Function
 ' boxaaDestroy(BOXAA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaDestroy/*"/>
 '''  <param name="pbaa">[in,out] - will be set to null before returning</param>
 Public Shared Sub boxaaDestroy(
 				 ByRef pbaa as Boxaa)
@@ -6346,6 +6533,7 @@ End Sub
 ' boxaaAddBoxa(BOXAA *, BOXA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaAddBoxa/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="ba">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -6368,6 +6556,7 @@ End Function
 ' boxaaExtendArray(BOXAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaExtendArray/*"/>
 '''  <param name="baa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaaExtendArray(
@@ -6390,6 +6579,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaExtendArrayToSize/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="size">[in] - new size of boxa array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -6409,6 +6599,7 @@ End Function
 ' boxaaGetCount(BOXAA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaGetCount/*"/>
 '''  <param name="baa">[in] - </param>
 '''   <returns>count number of boxa, or 0 if no boxa or on error</returns>
 Public Shared Function boxaaGetCount(
@@ -6426,6 +6617,7 @@ End Function
 ' boxaaGetBoxCount(BOXAA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaGetBoxCount/*"/>
 '''  <param name="baa">[in] - </param>
 '''   <returns>count number of boxes, or 0 if no boxes or on error</returns>
 Public Shared Function boxaaGetBoxCount(
@@ -6443,6 +6635,7 @@ End Function
 ' boxaaGetBoxa(BOXAA *, l_int32, l_int32) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaGetBoxa/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="index">[in] - to the index-th boxa</param>
 '''  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
@@ -6465,6 +6658,7 @@ End Function
 ' boxaaGetBox(BOXAA *, l_int32, l_int32, l_int32) as BOX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaGetBox/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="iboxa">[in] - index into the boxa array in the boxaa</param>
 '''  <param name="ibox">[in] - index into the box array in the boxa</param>
@@ -6511,6 +6705,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaInitFull/*"/>
 '''  <param name="baa">[in] - typically empty</param>
 '''  <param name="boxa">[in] - to be replicated into the entire ptr array</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -6539,6 +6734,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaExtendWithInit/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="maxindex">[in] - </param>
 '''  <param name="boxa">[in] - to be replicated into the extended ptr array</param>
@@ -6568,6 +6764,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaReplaceBoxa/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="index">[in] - to the index-th boxa</param>
 '''  <param name="boxa">[in] - insert and replace any existing one</param>
@@ -6600,6 +6797,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaInsertBoxa/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="index">[in] - location in boxaa to insert new boxa</param>
 '''  <param name="boxa">[in] - new boxa to be inserted</param>
@@ -6631,6 +6829,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaRemoveBoxa/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="index">[in] - of the boxa to be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -6655,6 +6854,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaAddBox/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="index">[in] - of boxa with boxaa</param>
 '''  <param name="box">[in] - to be added</param>
@@ -6690,6 +6890,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaReadFromFiles/*"/>
 '''  <param name="dirname">[in] - directory</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="first">[in] - 0-based</param>
@@ -6714,6 +6915,7 @@ End Function
 ' boxaaRead(const char *) as BOXAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>boxaa, or NULL on error</returns>
 Public Shared Function boxaaRead(
@@ -6734,6 +6936,7 @@ End Function
 ' boxaaReadStream(FILE *) as BOXAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>boxaa, or NULL on error</returns>
 Public Shared Function boxaaReadStream(
@@ -6752,6 +6955,7 @@ End Function
 ' boxaaReadMem(const l_uint8 *, size_t) as BOXAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaReadMem/*"/>
 '''  <param name="data">[in] - serialization of boxaa in ascii</param>
 '''  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 '''   <returns>baa, or NULL on error</returns>
@@ -6772,6 +6976,7 @@ End Function
 ' boxaaWrite(const char *, BOXAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="baa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -6794,6 +6999,7 @@ End Function
 ' boxaaWriteStream(FILE *, BOXAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="baa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -6819,6 +7025,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized boxaa ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="baa">[in] - </param>
@@ -6843,6 +7050,7 @@ End Function
 ' boxaRead(const char *) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>boxa, or NULL on error</returns>
 Public Shared Function boxaRead(
@@ -6863,6 +7071,7 @@ End Function
 ' boxaReadStream(FILE *) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>boxa, or NULL on error</returns>
 Public Shared Function boxaReadStream(
@@ -6881,6 +7090,7 @@ End Function
 ' boxaReadMem(const l_uint8 *, size_t) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaReadMem/*"/>
 '''  <param name="data">[in] - serialization of boxa in ascii</param>
 '''  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 '''   <returns>boxa, or NULL on error</returns>
@@ -6910,6 +7120,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaWriteDebug/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -6932,6 +7143,7 @@ End Function
 ' boxaWrite(const char *, BOXA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -6954,6 +7166,7 @@ End Function
 ' boxaWriteStream(FILE *, BOXA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -6979,6 +7192,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized boxa ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="boxa">[in] - </param>
@@ -7009,6 +7223,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxPrintStreamInfo/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="box">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -7031,6 +7246,7 @@ End Function
 ' boxContains(BOX *, BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxContains/*"/>
 '''  <param name="box1">[in] - </param>
 '''  <param name="box2">[in] - </param>
 '''  <param name="presult">[out] - 1 if box2 is entirely contained within box1, and 0 otherwise</param>
@@ -7053,6 +7269,7 @@ End Function
 ' boxIntersects(BOX *, BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxIntersects/*"/>
 '''  <param name="box1">[in] - </param>
 '''  <param name="box2">[in] - </param>
 '''  <param name="presult">[out] - 1 if any part of box2 is contained in box1, and 0 otherwise</param>
@@ -7080,6 +7297,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaContainedInBox/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="box">[in] - for containment</param>
 '''   <returns>boxad boxa with all boxes in boxas that are entirely contained in box, or NULL on error</returns>
@@ -7101,6 +7319,7 @@ End Function
 ' boxaContainedInBoxCount(BOXA *, BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaContainedInBoxCount/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="box">[in] - for selecting contained boxes in %boxa</param>
 '''  <param name="pcount">[out] - number of boxes intersecting the box</param>
@@ -7123,6 +7342,7 @@ End Function
 ' boxaContainedInBoxa(BOXA *, BOXA *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaContainedInBoxa/*"/>
 '''  <param name="boxa1">[in] - </param>
 '''  <param name="boxa2">[in] - </param>
 '''  <param name="pcontained">[out] - 1 if every box in boxa2 is contained in some box in boxa1 0 otherwise</param>
@@ -7151,6 +7371,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaIntersectsBox/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="box">[in] - for intersecting</param>
 '''   <returns>boxad boxa with all boxes in boxas that intersect box, or NULL on error</returns>
@@ -7172,6 +7393,7 @@ End Function
 ' boxaIntersectsBoxCount(BOXA *, BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaIntersectsBoxCount/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="box">[in] - for selecting intersecting boxes in %boxa</param>
 '''  <param name="pcount">[out] - number of boxes intersecting the box</param>
@@ -7200,6 +7422,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaClipToBox/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="box">[in] - for clipping</param>
 '''   <returns>boxad boxa with boxes in boxas clipped to box, or NULL on error</returns>
@@ -7240,6 +7463,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaCombineOverlaps/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="pixadb">[in,out] - debug output</param>
 '''   <returns>boxad where each set of boxes in boxas that overlap are combined into a single bounding box in boxad, or NULL on error.</returns>
@@ -7279,6 +7503,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaCombineOverlapsInPair/*"/>
 '''  <param name="boxas1">[in] - input boxa1</param>
 '''  <param name="boxas2">[in] - input boxa2</param>
 '''  <param name="pboxad1">[out] - output boxa1</param>
@@ -7317,6 +7542,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxOverlapRegion/*"/>
 '''  <param name="box1">[in] - two boxes</param>
 '''  <param name="box2">[in] - two boxes</param>
 '''   <returns>box of overlap region between input boxes, or NULL if no overlap or on error</returns>
@@ -7343,6 +7569,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxBoundingRegion/*"/>
 '''  <param name="box1">[in] - two boxes</param>
 '''  <param name="box2">[in] - two boxes</param>
 '''   <returns>box of bounding region containing the input boxes, or NULL on error</returns>
@@ -7370,6 +7597,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxOverlapFraction/*"/>
 '''  <param name="box1">[in] - two boxes</param>
 '''  <param name="box2">[in] - two boxes</param>
 '''  <param name="pfract">[out] - the fraction of box2 overlapped by box1</param>
@@ -7392,6 +7620,7 @@ End Function
 ' boxOverlapArea(BOX *, BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxOverlapArea/*"/>
 '''  <param name="box1">[in] - two boxes</param>
 '''  <param name="box2">[in] - two boxes</param>
 '''  <param name="parea">[out] - the number of pixels in the overlap</param>
@@ -7434,6 +7663,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaHandleOverlaps/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="op">[in] - L_COMBINE, L_REMOVE_SMALL</param>
 '''  <param name="range">[in] - is greater  0, forward distance over which overlaps are checked</param>
@@ -7473,6 +7703,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxSeparationDistance/*"/>
 '''  <param name="box1">[in] - two boxes, in any order</param>
 '''  <param name="box2">[in] - two boxes, in any order</param>
 '''  <param name="ph_sep">[out][optional] - horizontal separation</param>
@@ -7502,6 +7733,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxCompareSize/*"/>
 '''  <param name="box1">[in] - </param>
 '''  <param name="box2">[in] - </param>
 '''  <param name="type">[in] - L_SORT_BY_WIDTH, L_SORT_BY_HEIGHT, L_SORT_BY_MAX_DIMENSION, L_SORT_BY_PERIMETER, L_SORT_BY_AREA,</param>
@@ -7526,6 +7758,7 @@ End Function
 ' boxContainsPt(BOX *, l_float32, l_float32, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxContainsPt/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="x">[in] - a point</param>
 '''  <param name="y">[in] - a point</param>
@@ -7554,6 +7787,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetNearestToPt/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="x">[in] - point</param>
 '''  <param name="y">[in] - point</param>
@@ -7585,6 +7819,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetNearestToLine/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="x">[in] - (y = -1 for vertical line x = -1 for horiz line)</param>
 '''  <param name="y">[in] - (y = -1 for vertical line x = -1 for horiz line)</param>
@@ -7613,6 +7848,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaFindNearestBoxes/*"/>
 '''  <param name="boxa">[in] - either unsorted, or 2D sorted in LR/TB scan order</param>
 '''  <param name="dist_select">[in] - L_NON_NEGATIVE, L_ALL</param>
 '''  <param name="range">[in] - search distance from box i use 0 to search entire boxa (e.g., if it's not 2D sorted)</param>
@@ -7654,6 +7890,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetNearestByDirection/*"/>
 '''  <param name="boxa">[in] - either unsorted, or 2D sorted in LR/TB scan order</param>
 '''  <param name="i">[in] - box we test against</param>
 '''  <param name="dir">[in] - direction to look: L_FROM_LEFT, L_FROM_RIGHT, L_FROM_TOP, L_FROM_BOT</param>
@@ -7683,6 +7920,7 @@ End Function
 ' boxGetCenter(BOX *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxGetCenter/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="pcx">[out] - location of center of box</param>
 '''  <param name="pcy">[out] - location of center of box</param>
@@ -7711,6 +7949,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxIntersectByLine/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="x">[in] - point that line goes through</param>
 '''  <param name="y">[in] - point that line goes through</param>
@@ -7751,6 +7990,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxClipToRectangle/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="wi">[in] - rectangle representing image</param>
 '''  <param name="hi">[in] - rectangle representing image</param>
@@ -7785,6 +8025,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxClipToRectangleParams/*"/>
 '''  <param name="box">[in][optional] - requested box can be null</param>
 '''  <param name="w">[in] - clipping box size typ. the size of an image</param>
 '''  <param name="h">[in] - clipping box size typ. the size of an image</param>
@@ -7828,6 +8069,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxRelocateOneSide/*"/>
 '''  <param name="boxd">[in][optional] - this can be null, equal to boxs, or different from boxs</param>
 '''  <param name="boxs">[in] - starting box to have one side relocated</param>
 '''  <param name="loc">[in] - new location of the side that is changing</param>
@@ -7862,6 +8104,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaAdjustSides/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="delleft">[in] - changes in location of each side for each box</param>
 '''  <param name="delright">[in] - changes in location of each side for each box</param>
@@ -7901,6 +8144,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxAdjustSides/*"/>
 '''  <param name="boxd">[in][optional] - this can be null, equal to boxs, or different from boxs</param>
 '''  <param name="boxs">[in] - starting box to have sides adjusted</param>
 '''  <param name="delleft">[in] - changes in location of each side</param>
@@ -7940,6 +8184,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSetSide/*"/>
 '''  <param name="boxad">[in] - use NULL to get a new one same as boxas for in-place</param>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="side">[in] - L_SET_LEFT, L_SET_RIGHT, L_SET_TOP, L_SET_BOT</param>
@@ -7978,6 +8223,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaAdjustWidthToTarget/*"/>
 '''  <param name="boxad">[in] - use NULL to get a new one same as boxas for in-place</param>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="sides">[in] - L_ADJUST_LEFT, L_ADJUST_RIGHT, L_ADJUST_LEFT_AND_RIGHT</param>
@@ -8016,6 +8262,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaAdjustHeightToTarget/*"/>
 '''  <param name="boxad">[in] - use NULL to get a new one</param>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="sides">[in] - L_ADJUST_TOP, L_ADJUST_BOT, L_ADJUST_TOP_AND_BOT</param>
@@ -8043,6 +8290,7 @@ End Function
 ' boxEqual(BOX *, BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxEqual/*"/>
 '''  <param name="box1">[in] - </param>
 '''  <param name="box2">[in] - </param>
 '''  <param name="psame">[out] - 1 if equal 0 otherwise</param>
@@ -8083,6 +8331,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaEqual/*"/>
 '''  <param name="boxa1">[in] - </param>
 '''  <param name="boxa2">[in] - </param>
 '''  <param name="maxdist">[in] - </param>
@@ -8119,6 +8368,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxSimilar/*"/>
 '''  <param name="box1">[in] - </param>
 '''  <param name="box2">[in] - </param>
 '''  <param name="leftdiff">[in] - </param>
@@ -8158,6 +8408,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSimilar/*"/>
 '''  <param name="boxa1">[in] - </param>
 '''  <param name="boxa2">[in] - </param>
 '''  <param name="leftdiff">[in] - </param>
@@ -8203,6 +8454,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaJoin/*"/>
 '''  <param name="boxad">[in] - dest boxa add to this one</param>
 '''  <param name="boxas">[in] - source boxa add from this one</param>
 '''  <param name="istart">[in] - starting index in boxas</param>
@@ -8235,6 +8487,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaJoin/*"/>
 '''  <param name="baad">[in] - dest boxaa add to this one</param>
 '''  <param name="baas">[in] - source boxaa add from this one</param>
 '''  <param name="istart">[in] - starting index in baas</param>
@@ -8267,6 +8520,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSplitEvenOdd/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="fillflag">[in] - 1 to put invalid boxes in place 0 to omit</param>
 '''  <param name="pboxae">[out] - save even and odd boxes in their separate boxa, setting the other type to invalid boxes.</param>
@@ -8304,6 +8558,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaMergeEvenOdd/*"/>
 '''  <param name="boxae">[in] - boxes to go in even positions in merged boxa</param>
 '''  <param name="boxao">[in] - boxes to go in odd positions in merged boxa</param>
 '''  <param name="fillflag">[in] - 1 if there are invalid boxes in placeholders</param>
@@ -8334,6 +8589,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaTransform/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="shiftx">[in] - </param>
 '''  <param name="shifty">[in] - </param>
@@ -8366,6 +8622,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxTransform/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="shiftx">[in] - </param>
 '''  <param name="shifty">[in] - </param>
@@ -8415,6 +8672,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaTransformOrdered/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="shiftx">[in] - </param>
 '''  <param name="shifty">[in] - </param>
@@ -8489,6 +8747,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxTransformOrdered/*"/>
 '''  <param name="boxs">[in] - </param>
 '''  <param name="shiftx">[in] - </param>
 '''  <param name="shifty">[in] - </param>
@@ -8528,6 +8787,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaRotateOrth/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="w">[in] - of image in which the boxa is embedded</param>
 '''  <param name="h">[in] - of image in which the boxa is embedded</param>
@@ -8559,6 +8819,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxRotateOrth/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="w">[in] - of image in which the box is embedded</param>
 '''  <param name="h">[in] - of image in which the box is embedded</param>
@@ -8588,6 +8849,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSort/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="sorttype">[in] - L_SORT_BY_X, L_SORT_BY_Y, L_SORT_BY_RIGHT, L_SORT_BY_BOT, L_SORT_BY_WIDTH, L_SORT_BY_HEIGHT, L_SORT_BY_MIN_DIMENSION, L_SORT_BY_MAX_DIMENSION, L_SORT_BY_PERIMETER, L_SORT_BY_AREA, L_SORT_BY_ASPECT_RATIO</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
@@ -8624,6 +8886,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaBinSort/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="sorttype">[in] - L_SORT_BY_X, L_SORT_BY_Y, L_SORT_BY_WIDTH, L_SORT_BY_HEIGHT, L_SORT_BY_PERIMETER</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
@@ -8651,6 +8914,7 @@ End Function
 ' boxaSortByIndex(BOXA *, NUMA *) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSortByIndex/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="naindex">[in] - na that maps from the new boxa to the input boxa</param>
 '''   <returns>boxad sorted, or NULL on error</returns>
@@ -8704,6 +8968,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSort2d/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="pnaad">[out][optional] - numaa with sorted indices whose values are the indices of the input array</param>
 '''  <param name="delta1">[in] - min overlap that permits aggregation of a box onto a boxa of horizontally-aligned boxes pass 1</param>
@@ -8733,6 +8998,7 @@ End Function
 ' boxaSort2dByIndex(BOXA *, NUMAA *) as BOXAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSort2dByIndex/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="naa">[in] - numaa that maps from the new baa to the input boxa</param>
 '''   <returns>baa sorted boxaa, or NULL on error</returns>
@@ -8764,6 +9030,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaExtractAsNuma/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pnal">[out][optional] - array of left locations</param>
 '''  <param name="pnat">[out][optional] - array of top locations</param>
@@ -8820,6 +9087,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaExtractAsPta/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pptal">[out][optional] - array of left locations vs. index</param>
 '''  <param name="pptat">[out][optional] - array of top locations vs. index</param>
@@ -8879,6 +9147,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetRankVals/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="fract">[in] - use 0.0 for smallest, 1.0 for largest width and height</param>
 '''  <param name="px">[out][optional] - rank value of x</param>
@@ -8911,6 +9180,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetMedianVals/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="px">[out][optional] - median value of x</param>
 '''  <param name="py">[out][optional] - median value of y</param>
@@ -8936,6 +9206,7 @@ End Function
 ' boxaGetAverageSize(BOXA *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetAverageSize/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pw">[out][optional] - average width</param>
 '''  <param name="ph">[out][optional] - average height</param>
@@ -8967,6 +9238,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaGetExtent/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="pw">[out][optional] - width</param>
 '''  <param name="ph">[out][optional] - height</param>
@@ -9010,6 +9282,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaFlattenToBoxa/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="pnaindex">[out][optional] - the boxa index in the baa</param>
 '''  <param name="copyflag">[in] - L_COPY or L_CLONE</param>
@@ -9045,6 +9318,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaFlattenAligned/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="num">[in] - number extracted from each</param>
 '''  <param name="fillerbox">[in][optional] - that fills if necessary</param>
@@ -9078,6 +9352,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaEncapsulateAligned/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="num">[in] - number put into each boxa in the baa</param>
 '''  <param name="copyflag">[in] - L_COPY or L_CLONE</param>
@@ -9113,6 +9388,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaTranspose/*"/>
 '''  <param name="baas">[in] - </param>
 '''   <returns>baad, or NULL on error</returns>
 Public Shared Function boxaaTranspose(
@@ -9137,6 +9413,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaAlignBox/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="box">[in] - to be aligned with the bext boxa in the baa, if possible</param>
 '''  <param name="delta">[in] - amount by which consecutive components can miss in overlap and still be included in the array</param>
@@ -9170,6 +9447,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMaskConnComp/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''  <param name="pboxa">[out][optional] - bounding boxes of c.c.</param>
@@ -9214,6 +9492,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMaskBoxa/*"/>
 '''  <param name="pixd">[in][optional] - may be NULL</param>
 '''  <param name="pixs">[in] - any depth not cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to paint</param>
@@ -9258,6 +9537,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixPaintBoxa/*"/>
 '''  <param name="pixs">[in] - any depth, can be cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to paint</param>
 '''  <param name="val">[in] - rgba color to paint</param>
@@ -9281,6 +9561,7 @@ End Function
 ' pixSetBlackOrWhiteBoxa(PIX *, BOXA *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetBlackOrWhiteBoxa/*"/>
 '''  <param name="pixs">[in] - any depth, can be cmapped</param>
 '''  <param name="boxa">[in][optional] - of boxes, to clear or set</param>
 '''  <param name="op">[in] - L_SET_BLACK, L_SET_WHITE</param>
@@ -9313,6 +9594,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixPaintBoxaRandom/*"/>
 '''  <param name="pixs">[in] - any depth, can be cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to paint</param>
 '''   <returns>pixd with painted boxes, or NULL on error</returns>
@@ -9344,6 +9626,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendBoxaRandom/*"/>
 '''  <param name="pixs">[in] - any depth can be cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to blend/paint</param>
 '''  <param name="fract">[in] - of box color to use</param>
@@ -9374,6 +9657,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDrawBoxa/*"/>
 '''  <param name="pixs">[in] - any depth can be cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to draw</param>
 '''  <param name="width">[in] - of lines</param>
@@ -9407,6 +9691,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDrawBoxaRandom/*"/>
 '''  <param name="pixs">[in] - any depth, can be cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to draw</param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -9442,6 +9727,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaDisplay/*"/>
 '''  <param name="pixs">[in][optional] - 1 bpp</param>
 '''  <param name="baa">[in] - boxaa, typically from a 2d sort</param>
 '''  <param name="linewba">[in] - line width to display outline of each boxa</param>
@@ -9490,6 +9776,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayBoxaa/*"/>
 '''  <param name="pixas">[in] - any depth, can be cmapped</param>
 '''  <param name="baa">[in] - boxes to draw on input pixa</param>
 '''  <param name="colorflag">[in] - (L_DRAW_RED, L_DRAW_GREEN, etc)</param>
@@ -9537,6 +9824,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSplitIntoBoxa/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="minsum">[in] - minimum pixels to trigger propagation</param>
 '''  <param name="skipdist">[in] - distance before computing sum for propagation</param>
@@ -9625,6 +9913,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSplitComponentIntoBoxa/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="box">[in][optional] - location of pix w/rt an origin</param>
 '''  <param name="minsum">[in] - minimum pixels to trigger propagation</param>
@@ -9672,6 +9961,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeMosaicStrips/*"/>
 '''  <param name="w">[in] - </param>
 '''  <param name="h">[in] - </param>
 '''  <param name="direction">[in] - L_SCAN_HORIZONTAL or L_SCAN_VERTICAL</param>
@@ -9714,6 +10004,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaCompareRegions/*"/>
 '''  <param name="boxa1">[in] - </param>
 '''  <param name="boxa2">[in] - </param>
 '''  <param name="areathresh">[in] - minimum area of boxes to be considered</param>
@@ -9763,6 +10054,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSelectLargeULComp/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="areaslop">[in] - fraction near but less than 1.0</param>
 '''  <param name="yslop">[in] - number of pixels in y direction</param>
@@ -9794,6 +10086,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSelectLargeULBox/*"/>
 '''  <param name="boxas">[in] - 1 bpp</param>
 '''  <param name="areaslop">[in] - fraction near but less than 1.0</param>
 '''  <param name="yslop">[in] - number of pixels in y direction</param>
@@ -9825,6 +10118,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSelectRange/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="first">[in] - use 0 to select from the beginning</param>
 '''  <param name="last">[in] - use 0 to select to the end</param>
@@ -9856,6 +10150,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaSelectRange/*"/>
 '''  <param name="baas">[in] - </param>
 '''  <param name="first">[in] - use 0 to select from the beginning</param>
 '''  <param name="last">[in] - use 0 to select to the end</param>
@@ -9893,6 +10188,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSelectBySize/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="width">[in] - threshold dimensions</param>
 '''  <param name="height">[in] - threshold dimensions</param>
@@ -9933,6 +10229,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaMakeSizeIndicator/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="width">[in] - threshold dimensions</param>
 '''  <param name="height">[in] - threshold dimensions</param>
@@ -9968,6 +10265,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSelectByArea/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="area">[in] - threshold value of width  height</param>
 '''  <param name="relation">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -10000,6 +10298,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaMakeAreaIndicator/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="area">[in] - threshold value of width  height</param>
 '''  <param name="relation">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -10031,6 +10330,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSelectByWHRatio/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="ratio">[in] - width/height threshold value</param>
 '''  <param name="relation">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -10063,6 +10363,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaMakeWHRatioIndicator/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="ratio">[in] - width/height threshold value</param>
 '''  <param name="relation">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -10092,6 +10393,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSelectWithIndicator/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="na">[in] - indicator numa</param>
 '''  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
@@ -10123,6 +10425,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaPermutePseudorandom/*"/>
 '''  <param name="boxas">[in] - input boxa</param>
 '''   <returns>boxad with boxes permuted, or NULL on error</returns>
 Public Shared Function boxaPermutePseudorandom(
@@ -10155,6 +10458,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaPermuteRandom/*"/>
 '''  <param name="boxad">[in][optional] - can be null or equal to boxas</param>
 '''  <param name="boxas">[in] - input boxa</param>
 '''   <returns>boxad with boxes permuted, or NULL on error</returns>
@@ -10177,6 +10481,7 @@ End Function
 ' boxaSwapBoxes(BOXA *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSwapBoxes/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="i">[in] - two indices of boxes, that are to be swapped</param>
 '''  <param name="j">[in] - two indices of boxes, that are to be swapped</param>
@@ -10204,6 +10509,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaConvertToPta/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="ncorners">[in] - 2 or 4 for the representation of each box</param>
 '''   <returns>pta with %ncorners points for each box in the boxa, or NULL on error</returns>
@@ -10231,6 +10537,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaConvertToBoxa/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="ncorners">[in] - 2 or 4 for the representation of each box</param>
 '''   <returns>boxa with one box for each 2 or 4 points in the pta, or NULL on error</returns>
@@ -10257,6 +10564,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxConvertToPta/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="ncorners">[in] - 2 or 4 for the representation of the box</param>
 '''   <returns>pta with %ncorners points, or NULL on error</returns>
@@ -10283,6 +10591,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaConvertToBox/*"/>
 '''  <param name="pta">[in] - </param>
 '''   <returns>box minimum containing all points in the pta, or NULL on error</returns>
 Public Shared Function ptaConvertToBox(
@@ -10316,6 +10625,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSmoothSequenceLS/*"/>
 '''  <param name="boxas">[in] - source boxa</param>
 '''  <param name="factor">[in] - reject outliers with widths and heights deviating from the median by more than %factor times the median variation from the median typically ~3</param>
 '''  <param name="subflag">[in] - L_USE_MINSIZE, L_USE_MAXSIZE, L_SUB_ON_LOC_DIFF, L_SUB_ON_SIZE_DIFF, L_USE_CAPPED_MIN, L_USE_CAPPED_MAX</param>
@@ -10368,6 +10678,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSmoothSequenceMedian/*"/>
 '''  <param name="boxas">[in] - source boxa</param>
 '''  <param name="halfwin">[in] - half-width of sliding window used to find median</param>
 '''  <param name="subflag">[in] - L_USE_MINSIZE, L_USE_MAXSIZE, L_SUB_ON_LOC_DIFF, L_SUB_ON_SIZE_DIFF, L_USE_CAPPED_MIN, L_USE_CAPPED_MAX</param>
@@ -10419,6 +10730,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaLinearFit/*"/>
 '''  <param name="boxas">[in] - source boxa</param>
 '''  <param name="factor">[in] - reject outliers with widths and heights deviating from the median by more than %factor times the median deviation from the median typically ~3</param>
 '''  <param name="debug">[in] - 1 for debug output</param>
@@ -10451,6 +10763,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaWindowedMedian/*"/>
 '''  <param name="boxas">[in] - source boxa</param>
 '''  <param name="halfwin">[in] - half width of window over which the median is found</param>
 '''  <param name="debug">[in] - 1 for debug output</param>
@@ -10530,6 +10843,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaModifyWithBoxa/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="boxam">[in] - boxa with boxes used to modify those in boxas</param>
 '''  <param name="subflag">[in] - L_USE_MINSIZE, L_USE_MAXSIZE, L_SUB_ON_LOC_DIFF, L_SUB_ON_SIZE_DIFF, L_USE_CAPPED_MIN, L_USE_CAPPED_MAX</param>
@@ -10571,6 +10885,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaConstrainSize/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="width">[in] - force width of all boxes to this size input 0 to use the median width</param>
 '''  <param name="widthflag">[in] - L_ADJUST_SKIP, L_ADJUST_LEFT, L_ADJUST_RIGHT, or L_ADJUST_LEFT_AND_RIGHT</param>
@@ -10629,6 +10944,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaReconcileEvenOddHeight/*"/>
 '''  <param name="boxas">[in] - containing at least 3 valid boxes in even and odd</param>
 '''  <param name="sides">[in] - L_ADJUST_TOP, L_ADJUST_BOT, L_ADJUST_TOP_AND_BOT</param>
 '''  <param name="delh">[in] - threshold on median height difference</param>
@@ -10675,6 +10991,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaReconcilePairWidth/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="delw">[in] - threshold on adjacent width difference</param>
 '''  <param name="op">[in] - L_ADJUST_CHOOSE_MIN, L_ADJUST_CHOOSE_MAX</param>
@@ -10714,6 +11031,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaPlotSides/*"/>
 '''  <param name="boxa">[in] - source boxa</param>
 '''  <param name="plotname">[in][optional] - , can be NULL</param>
 '''  <param name="pnal">[out][optional] - na of left sides</param>
@@ -10766,6 +11084,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaPlotSizes/*"/>
 '''  <param name="boxa">[in] - source boxa</param>
 '''  <param name="plotname">[in][optional] - , can be NULL</param>
 '''  <param name="pnaw">[out][optional] - na of widths</param>
@@ -10808,6 +11127,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaFillSequence/*"/>
 '''  <param name="boxas">[in] - with at least 3 boxes</param>
 '''  <param name="useflag">[in] - L_USE_ALL_BOXES, L_USE_SAME_PARITY_BOXES</param>
 '''  <param name="debug">[in] - 1 for debug output</param>
@@ -10841,6 +11161,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSizeVariation/*"/>
 '''  <param name="boxa">[in] - at least 4 boxes</param>
 '''  <param name="type">[in] - L_SELECT_WIDTH, L_SELECT_HEIGHT</param>
 '''  <param name="pdel_evenodd">[out][optional] - average absolute value of (even - odd) size pairs</param>
@@ -10878,6 +11199,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetExtent/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pw">[out][optional] - width</param>
 '''  <param name="ph">[out][optional] - height</param>
@@ -10916,6 +11238,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetCoverage/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="wc">[in] - dimensions of overall clipping rectangle with UL corner at (0, 0 that is covered by the boxes.</param>
 '''  <param name="hc">[in] - dimensions of overall clipping rectangle with UL corner at (0, 0 that is covered by the boxes.</param>
@@ -10941,6 +11264,7 @@ End Function
 ' boxaaSizeRange(BOXAA *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaSizeRange/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="pminw">[out][optional] - range of dimensions of all boxes</param>
 '''  <param name="pminh">[out][optional] - range of dimensions of all boxes</param>
@@ -10966,6 +11290,7 @@ End Function
 ' boxaSizeRange(BOXA *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSizeRange/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pminw">[out][optional] - range of dimensions of box in the array</param>
 '''  <param name="pminh">[out][optional] - range of dimensions of box in the array</param>
@@ -10991,6 +11316,7 @@ End Function
 ' boxaLocationRange(BOXA *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaLocationRange/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pminx">[out][optional] - range of UL corner positions</param>
 '''  <param name="pminy">[out][optional] - range of UL corner positions</param>
@@ -11016,6 +11342,7 @@ End Function
 ' boxaGetSizes(BOXA *, NUMA **, NUMA **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetSizes/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pnaw">[out][optional] - widths and heights of valid boxes</param>
 '''  <param name="pnah">[out][optional] - widths and heights of valid boxes</param>
@@ -11047,6 +11374,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetArea/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="parea">[out] - total area of all boxes</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -11076,6 +11404,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaDisplayTiled/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="pixa">[in][optional] - background for each box</param>
 '''  <param name="maxwidth">[in] - of output image</param>
@@ -11118,6 +11447,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaCreate/*"/>
 '''  <param name="nbytes">[in] - determines initial size of data array</param>
 '''   <returns>l_bytea, or NULL on error</returns>
 Public Shared Function l_byteaCreate(
@@ -11134,6 +11464,7 @@ End Function
 ' l_byteaInitFromMem(const l_uint8 *, size_t) as L_BYTEA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaInitFromMem/*"/>
 '''  <param name="data">[in] - to be copied to the array</param>
 '''  <param name="size">[in] - amount of data</param>
 '''   <returns>l_bytea, or NULL on error</returns>
@@ -11154,6 +11485,7 @@ End Function
 ' l_byteaInitFromFile(const char *) as L_BYTEA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaInitFromFile/*"/>
 '''  <param name="fname">[in] - </param>
 '''   <returns>l_bytea, or NULL on error</returns>
 Public Shared Function l_byteaInitFromFile(
@@ -11172,6 +11504,7 @@ End Function
 ' l_byteaInitFromStream(FILE *) as L_BYTEA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaInitFromStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>l_bytea, or NULL on error</returns>
 Public Shared Function l_byteaInitFromStream(
@@ -11195,6 +11528,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaCopy/*"/>
 '''  <param name="bas">[in] - source lba</param>
 '''  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 '''   <returns>clone or copy of bas, or NULL on error</returns>
@@ -11223,6 +11557,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaDestroy/*"/>
 '''  <param name="pba">[in,out] - will be set to null before returning</param>
 Public Shared Sub l_byteaDestroy(
 				 ByRef pba as L_Bytea)
@@ -11239,6 +11574,7 @@ End Sub
 ' l_byteaGetSize(L_BYTEA *) as size_t
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaGetSize/*"/>
 '''  <param name="ba">[in] - </param>
 '''   <returns>size of stored byte array, or 0 on error</returns>
 Public Shared Function l_byteaGetSize(
@@ -11261,6 +11597,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaGetData/*"/>
 '''  <param name="ba">[in] - </param>
 '''  <param name="psize">[out] - size of data in lba</param>
 '''   <returns>ptr to existing data array, or NULL on error</returns>
@@ -11286,6 +11623,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaCopyData/*"/>
 '''  <param name="ba">[in] - </param>
 '''  <param name="psize">[out] - size of data in lba</param>
 '''   <returns>copy of data in use in the data array, or NULL on error.</returns>
@@ -11305,6 +11643,7 @@ End Function
 ' l_byteaAppendData(L_BYTEA *, const l_uint8 *, size_t) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaAppendData/*"/>
 '''  <param name="ba">[in] - </param>
 '''  <param name="newdata">[in] - byte array to be appended</param>
 '''  <param name="newbytes">[in] - size of data array</param>
@@ -11327,6 +11666,7 @@ End Function
 ' l_byteaAppendString(L_BYTEA *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaAppendString/*"/>
 '''  <param name="ba">[in] - </param>
 '''  <param name="str">[in] - null-terminated string to be appended</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -11352,6 +11692,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaJoin/*"/>
 '''  <param name="ba1">[in] - </param>
 '''  <param name="pba2">[in,out] - data array is added to the one in ba1, and then ba2 is destroyed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -11374,6 +11715,7 @@ End Function
 ' l_byteaSplit(L_BYTEA *, size_t, L_BYTEA **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaSplit/*"/>
 '''  <param name="ba1">[in] - lba to split array bytes nulled beyond the split loc</param>
 '''  <param name="splitloc">[in] - location in ba1 to split ba2 begins there</param>
 '''  <param name="pba2">[out] - with data starting at splitloc</param>
@@ -11398,6 +11740,7 @@ End Function
 ' l_byteaFindEachSequence(L_BYTEA *, const l_uint8 *, size_t, L_DNA **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaFindEachSequence/*"/>
 '''  <param name="ba">[in] - </param>
 '''  <param name="sequence">[in] - subarray of bytes to find in data</param>
 '''  <param name="seqlen">[in] - length of sequence, in bytes</param>
@@ -11425,6 +11768,7 @@ End Function
 ' l_byteaWrite(const char *, L_BYTEA *, size_t, size_t) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaWrite/*"/>
 '''  <param name="fname">[in] - output file</param>
 '''  <param name="ba">[in] - </param>
 '''  <param name="startloc">[in] - first byte to output</param>
@@ -11449,6 +11793,7 @@ End Function
 ' l_byteaWriteStream(FILE *, L_BYTEA *, size_t, size_t) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_byteaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for binary write</param>
 '''  <param name="ba">[in] - </param>
 '''  <param name="startloc">[in] - first byte to output</param>
@@ -11475,6 +11820,7 @@ End Function
 ' ccbaCreate(PIX *, l_int32) as CCBORDA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaCreate/*"/>
 '''  <param name="pixs">[in] - binary image can be null</param>
 '''  <param name="n">[in] - initial number of ptrs</param>
 '''   <returns>ccba, or NULL on error</returns>
@@ -11495,6 +11841,7 @@ End Function
 ' ccbaDestroy(CCBORDA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaDestroy/*"/>
 '''  <param name="pccba">[in,out] - to be nulled</param>
 Public Shared Sub ccbaDestroy(
 				 ByRef pccba as CCBorda)
@@ -11511,6 +11858,7 @@ End Sub
 ' ccbCreate(PIX *) as CCBORD *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbCreate/*"/>
 '''  <param name="pixs">[in][optional] - </param>
 '''   <returns>ccb or NULL on error</returns>
 Public Shared Function ccbCreate(
@@ -11529,6 +11877,7 @@ End Function
 ' ccbDestroy(CCBORD **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbDestroy/*"/>
 '''  <param name="pccb">[in,out] - to be nulled</param>
 Public Shared Sub ccbDestroy(
 				 ByRef pccb as CCBord)
@@ -11545,6 +11894,7 @@ End Sub
 ' ccbaAddCcb(CCBORDA *, CCBORD *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaAddCcb/*"/>
 '''  <param name="ccba">[in] - </param>
 '''  <param name="ccb">[in] - to be added by insertion</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -11565,6 +11915,7 @@ End Function
 ' ccbaGetCount(CCBORDA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaGetCount/*"/>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>count, with 0 on error</returns>
 Public Shared Function ccbaGetCount(
@@ -11587,6 +11938,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaGetCcb/*"/>
 '''  <param name="ccba">[in] - </param>
 '''  <param name="index">[in] - </param>
 '''   <returns>ccb, or NULL on error</returns>
@@ -11607,6 +11959,7 @@ End Function
 ' pixGetAllCCBorders(PIX *) as CCBORDA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetAllCCBorders/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>ccborda, or NULL on error</returns>
 Public Shared Function pixGetAllCCBorders(
@@ -11646,6 +11999,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetCCBorders/*"/>
 '''  <param name="pixs">[in] - 1 bpp, one 8-connected component</param>
 '''  <param name="box">[in] - xul, yul, width, height in global coords</param>
 '''   <returns>ccbord, or NULL on error</returns>
@@ -11667,6 +12021,7 @@ End Function
 ' pixGetOuterBordersPtaa(PIX *) as PTAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetOuterBordersPtaa/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>ptaa of outer borders, in global coords, or NULL on error</returns>
 Public Shared Function pixGetOuterBordersPtaa(
@@ -11697,6 +12052,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetOuterBorderPta/*"/>
 '''  <param name="pixs">[in] - 1 bpp, one 8-connected component</param>
 '''  <param name="box">[in][optional] - of pixs, in global coordinates</param>
 '''   <returns>pta of outer border, in global coords, or NULL on error</returns>
@@ -11731,6 +12087,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetOuterBorder/*"/>
 '''  <param name="ccb">[in] - unfilled</param>
 '''  <param name="pixs">[in] - for the component at hand</param>
 '''  <param name="box">[in] - for the component, in global coords</param>
@@ -11763,6 +12120,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetHoleBorder/*"/>
 '''  <param name="ccb">[in] - the exterior border is already made</param>
 '''  <param name="pixs">[in] - for the connected component at hand</param>
 '''  <param name="box">[in] - for the specific hole border, in relative coordinates to the c.c.</param>
@@ -11798,6 +12156,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/findNextBorderPixel/*"/>
 '''  <param name="w">[in] - </param>
 '''  <param name="h">[in] - </param>
 '''  <param name="data">[in] - </param>
@@ -11844,6 +12203,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/locateOutsideSeedPixel/*"/>
 '''  <param name="fpx">[in] - location of first pixel</param>
 '''  <param name="fpy">[in] - location of first pixel</param>
 '''  <param name="spx">[in] - location of second pixel</param>
@@ -11867,6 +12227,7 @@ End Sub
 ' ccbaGenerateGlobalLocs(CCBORDA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaGenerateGlobalLocs/*"/>
 '''  <param name="ccba">[in] - with local chain ptaa of borders computed</param>
 '''   <returns>0 if OK, 1 on error Action: this uses the pixel locs in the local ptaa, which are all relative to each c.c., to find the global pixel locations, and stores them in the global ptaa.</returns>
 Public Shared Function ccbaGenerateGlobalLocs(
@@ -11900,6 +12261,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaGenerateStepChains/*"/>
 '''  <param name="ccba">[in] - with local chain ptaa of borders computed</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ccbaGenerateStepChains(
@@ -11926,6 +12288,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaStepChainsToPixCoords/*"/>
 '''  <param name="ccba">[in] - with step chains numaa of borders</param>
 '''  <param name="coordtype">[in] - CCB_GLOBAL_COORDS or CCB_LOCAL_COORDS</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -11957,6 +12320,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaGenerateSPGlobalLocs/*"/>
 '''  <param name="ccba">[in] - </param>
 '''  <param name="ptsflag">[in] - CCB_SAVE_ALL_PTS or CCB_SAVE_TURNING_PTS</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -12005,6 +12369,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaGenerateSinglePath/*"/>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ccbaGenerateSinglePath(
@@ -12035,6 +12400,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getCutPathForHole/*"/>
 '''  <param name="pix">[in] - of c.c.</param>
 '''  <param name="pta">[in] - of outer border</param>
 '''  <param name="boxinner">[in] - b.b. of hole path</param>
@@ -12070,6 +12436,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaDisplayBorder/*"/>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>pix of border pixels, or NULL on error</returns>
 Public Shared Function ccbaDisplayBorder(
@@ -12095,6 +12462,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaDisplaySPBorder/*"/>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>pix of border pixels, or NULL on error</returns>
 Public Shared Function ccbaDisplaySPBorder(
@@ -12157,6 +12525,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaDisplayImage1/*"/>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>pix of image, or NULL on error</returns>
 Public Shared Function ccbaDisplayImage1(
@@ -12190,6 +12559,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaDisplayImage2/*"/>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>pix of image, or NULL on error</returns>
 Public Shared Function ccbaDisplayImage2(
@@ -12208,6 +12578,7 @@ End Function
 ' ccbaWrite(const char *, CCBORDA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -12230,6 +12601,7 @@ End Function
 ' ccbaWriteStream(FILE *, CCBORDA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>0 if OK 1 on error Format: \code ccba: %7d cc\n num. c.c.) (ascii)   (18B pix width 4B pix height 4B [for i = 1, ncc] ulx  4B uly  4B w    4B       -- not req'd for reconstruction h    4B       -- not req'd for reconstruction number of borders 4B [for j = 1, nb] startx  4B starty  4B [for k = 1, nb] 2 steps 1B end in z8 or 88  1B \endcode</returns>
@@ -12250,6 +12622,7 @@ End Function
 ' ccbaRead(const char *) as CCBORDA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>ccba, or NULL on error</returns>
 Public Shared Function ccbaRead(
@@ -12270,6 +12643,7 @@ End Function
 ' ccbaReadStream(FILE *) as CCBORDA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>ccba, or NULL on error \code Format:  ccba: %7d cc\n num. c.c.) (ascii)   (17B pix width 4B pix height 4B [for i = 1, ncc] ulx  4B uly  4B w    4B       -- not req'd for reconstruction h    4B       -- not req'd for reconstruction number of borders 4B [for j = 1, nb] startx  4B starty  4B [for k = 1, nb] 2 steps 1B end in z8 or 88  1B \endcode</returns>
 Public Shared Function ccbaReadStream(
@@ -12288,6 +12662,7 @@ End Function
 ' ccbaWriteSVG(const char *, CCBORDA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaWriteSVG/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -12310,6 +12685,7 @@ End Function
 ' ccbaWriteSVGString(const char *, CCBORDA *) as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaWriteSVGString/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>string in svg-formatted, that can be written to file, or NULL on error.</returns>
@@ -12339,6 +12715,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaThinConnected/*"/>
 '''  <param name="pixas">[in] - of 1 bpp pix</param>
 '''  <param name="type">[in] - L_THIN_FG, L_THIN_BG</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -12399,6 +12776,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThinConnected/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="type">[in] - L_THIN_FG, L_THIN_BG</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -12444,6 +12822,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThinConnectedBySet/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="type">[in] - L_THIN_FG, L_THIN_BG</param>
 '''  <param name="sela">[in] - of Sels for parallel composite HMTs</param>
@@ -12493,6 +12872,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaMakeThinSets/*"/>
 '''  <param name="index">[in] - into specific sets</param>
 '''  <param name="debug">[in] - 1 to output display of sela</param>
 '''   <returns>sela, or NULL on error</returns>
@@ -12521,6 +12901,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbCorrelation/*"/>
 '''  <param name="dirin">[in] - directory of input images</param>
 '''  <param name="thresh">[in] - typically ~0.8</param>
 '''  <param name="weight">[in] - typically ~0.6</param>
@@ -12559,6 +12940,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbRankHaus/*"/>
 '''  <param name="dirin">[in] - directory of input images</param>
 '''  <param name="size">[in] - of Sel used for dilation typ. 2</param>
 '''  <param name="rank">[in] - rank value of match typ. 0.97</param>
@@ -12598,6 +12980,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbWordsInTextlines/*"/>
 '''  <param name="dirin">[in] - directory of input pages</param>
 '''  <param name="reduction">[in] - 1 for full res 2 for half-res</param>
 '''  <param name="maxwidth">[in] - of word mask components, to be kept</param>
@@ -12670,6 +13053,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetWordsInTextlines/*"/>
 '''  <param name="pixs">[in] - 1 bpp, typ. 75 - 150 ppi</param>
 '''  <param name="minwidth">[in] - of saved components smaller are discarded</param>
 '''  <param name="minheight">[in] - of saved components smaller are discarded</param>
@@ -12717,6 +13101,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetWordBoxesInTextlines/*"/>
 '''  <param name="pixs">[in] - 1 bpp, typ. 300 ppi</param>
 '''  <param name="minwidth">[in] - of saved components smaller are discarded</param>
 '''  <param name="minheight">[in] - of saved components smaller are discarded</param>
@@ -12760,6 +13145,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaExtractSortedPattern/*"/>
 '''  <param name="boxa">[in] - typ. of word bounding boxes, in textline order</param>
 '''  <param name="na">[in] - index of textline for each box in boxa</param>
 '''   <returns>naa NUMAA, where each numa represents one textline, or NULL on error</returns>
@@ -12810,6 +13196,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaCompareImagesByBoxes/*"/>
 '''  <param name="naa1">[in] - for image 1, formatted by boxaExtractSortedPattern()</param>
 '''  <param name="naa2">[in] - ditto for image 2</param>
 '''  <param name="nperline">[in] - number of box regions to be used in each textline</param>
@@ -12869,6 +13256,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorContent/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb or 8 bpp colormapped</param>
 '''  <param name="rwhite">[in] - color value associated with white point</param>
 '''  <param name="gwhite">[in] - color value associated with white point</param>
@@ -12946,6 +13334,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorMagnitude/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb or 8 bpp colormapped</param>
 '''  <param name="rwhite">[in] - color value associated with white point</param>
 '''  <param name="gwhite">[in] - color value associated with white point</param>
@@ -12991,6 +13380,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMaskOverColorPixels/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb or 8 bpp colormapped</param>
 '''  <param name="threshdiff">[in] - threshold for minimum of the max difference between components</param>
 '''  <param name="mindist">[in] - minimum allowed distance from nearest non-color pixel</param>
@@ -13013,6 +13403,7 @@ End Function
 ' pixMaskOverColorRange(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMaskOverColorRange/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb or 8 bpp colormapped</param>
 '''  <param name="rmin">[in] - min and max allowed values for red component</param>
 '''  <param name="rmax">[in] - min and max allowed values for red component</param>
@@ -13077,6 +13468,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorFraction/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="darkthresh">[in] - threshold near black if the lightest component is below this, the pixel is not considered in the statistics typ. 20</param>
 '''  <param name="lightthresh">[in] - threshold near white if the darkest component is above this, the pixel is not considered in the statistics typ. 244</param>
@@ -13151,6 +13543,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindColorRegions/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask image</param>
 '''  <param name="factor">[in] - subsample factor integer  is greater = 1</param>
@@ -13217,6 +13610,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixNumSignificantGrayColors/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray</param>
 '''  <param name="darkthresh">[in] - dark threshold for minimum intensity to be considered typ. 20</param>
 '''  <param name="lightthresh">[in] - threshold near white, for maximum intensity to be considered typ. 236</param>
@@ -13304,6 +13698,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorsForQuantization/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb with or without colormap</param>
 '''  <param name="thresh">[in] - binary threshold on edge gradient 0 for default</param>
 '''  <param name="pncolors">[out] - the number of colors found</param>
@@ -13343,6 +13738,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixNumColors/*"/>
 '''  <param name="pixs">[in] - 2, 4, 8, 32 bpp</param>
 '''  <param name="factor">[in] - subsampling factor integer</param>
 '''  <param name="pncolors">[out] - the number of colors found, or 0 if there are more than 256</param>
@@ -13374,6 +13770,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetMostPopulatedColors/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="sigbits">[in] - 2-6, significant bits retained in the quantizer for each component of the input image</param>
 '''  <param name="factor">[in] - subsampling factor use 1 for no subsampling</param>
@@ -13425,6 +13822,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSimpleColorQuantize/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="sigbits">[in] - 2-4, significant bits retained in the quantizer for each component of the input image</param>
 '''  <param name="factor">[in] - subsampling factor use 1 for no subsampling</param>
@@ -13459,6 +13857,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRGBHistogram/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="sigbits">[in] - 2-6, significant bits retained in the quantizer for each component of the input image</param>
 '''  <param name="factor">[in] - subsampling factor use 1 for no subsampling</param>
@@ -13492,6 +13891,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeRGBIndexTables/*"/>
 '''  <param name="prtab">[out] - 256-entry index tables</param>
 '''  <param name="pgtab">[out] - 256-entry index tables</param>
 '''  <param name="pbtab">[out] - 256-entry index tables</param>
@@ -13529,6 +13929,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getRGBFromIndex/*"/>
 '''  <param name="index">[in] - rgbindex</param>
 '''  <param name="sigbits">[in] - 2-6, significant bits retained in the quantizer for each component of the input image</param>
 '''  <param name="prval">[out] - rgb values</param>
@@ -13567,6 +13968,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHasHighlightRed/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="factor">[in] - subsampling an integer  is greater = 1 use 1 for all pixels</param>
 '''  <param name="fract">[in] - threshold fraction of all image pixels</param>
@@ -13620,6 +14022,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorGrayRegions/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp gray, rgb, or colormapped</param>
 '''  <param name="boxa">[in] - of regions in which to apply color</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
@@ -13681,6 +14084,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray, rgb or colormapped image</param>
 '''  <param name="box">[in][optional] - region in which to apply color can be NULL</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
@@ -13731,6 +14135,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorGrayMasked/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray, rgb or colormapped image</param>
 '''  <param name="pixm">[in] - 1 bpp mask, through which to apply color</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
@@ -13773,6 +14178,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSnapColor/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs for in-place</param>
 '''  <param name="pixs">[in] - colormapped or 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="srcval">[in] - color center to be selected for change: 0xrrggbb00</param>
@@ -13812,6 +14218,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSnapColorCmap/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs for in-place</param>
 '''  <param name="pixs">[in] - colormapped</param>
 '''  <param name="srcval">[in] - color center to be selected for change: 0xrrggbb00</param>
@@ -13859,6 +14266,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixLinearMapToTargetColor/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs for in-place</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="srcval">[in] - source color: 0xrrggbb00</param>
@@ -13906,6 +14314,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixelLinearMapToTargetColor/*"/>
 '''  <param name="scolor">[in] - rgb source color: 0xrrggbb00</param>
 '''  <param name="srcmap">[in] - source mapping color: 0xrrggbb00</param>
 '''  <param name="dstmap">[in] - target mapping color: 0xrrggbb00</param>
@@ -13959,6 +14368,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixShiftByComponent/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs for in-place</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="srcval">[in] - source color: 0xrrggbb00</param>
@@ -13997,6 +14407,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixelShiftByComponent/*"/>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>
@@ -14033,6 +14444,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixelFractionalShift/*"/>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>
@@ -14058,6 +14470,7 @@ End Function
 ' pixcmapCreate(l_int32) as PIXCMAP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapCreate/*"/>
 '''  <param name="depth">[in] - bpp, of pix</param>
 '''   <returns>cmap, or NULL on error</returns>
 Public Shared Function pixcmapCreate(
@@ -14092,6 +14505,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapCreateRandom/*"/>
 '''  <param name="depth">[in] - bpp, of pix 2, 4 or 8</param>
 '''  <param name="hasblack">[in] - 1 if the first color is black 0 if no black</param>
 '''  <param name="haswhite">[in] - 1 if the last color is white 0 if no white</param>
@@ -14118,6 +14532,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapCreateLinear/*"/>
 '''  <param name="d">[in] - depth of pix for this colormap 1, 2, 4 or 8</param>
 '''  <param name="nlevels">[in] - valid in range [2, 2^d]</param>
 '''   <returns>cmap, or NULL on error</returns>
@@ -14136,6 +14551,7 @@ End Function
 ' pixcmapCopy(PIXCMAP *) as PIXCMAP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapCopy/*"/>
 '''  <param name="cmaps">[in] - </param>
 '''   <returns>cmapd, or NULL on error</returns>
 Public Shared Function pixcmapCopy(
@@ -14154,6 +14570,7 @@ End Function
 ' pixcmapDestroy(PIXCMAP **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapDestroy/*"/>
 '''  <param name="pcmap">[in,out] - set to null</param>
 Public Shared Sub pixcmapDestroy(
 				 ByRef pcmap as PixColormap)
@@ -14176,6 +14593,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapAddColor/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="rval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 '''  <param name="gval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
@@ -14204,6 +14622,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapAddRGBA/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="rval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 '''  <param name="gval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
@@ -14238,6 +14657,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapAddNewColor/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="rval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 '''  <param name="gval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
@@ -14271,6 +14691,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapAddNearestColor/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="rval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 '''  <param name="gval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
@@ -14302,6 +14723,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapUsableColor/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="rval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 '''  <param name="gval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
@@ -14336,6 +14758,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapAddBlackOrWhite/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="color">[in] - 0 for black, 1 for white</param>
 '''  <param name="pindex">[out][optional] - index of color can be null</param>
@@ -14357,6 +14780,7 @@ End Function
 ' pixcmapSetBlackAndWhite(PIXCMAP *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapSetBlackAndWhite/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="setblack">[in] - 0 for no operation 1 to set darkest color to black</param>
 '''  <param name="setwhite">[in] - 0 for no operation 1 to set lightest color to white</param>
@@ -14378,6 +14802,7 @@ End Function
 ' pixcmapGetCount(PIXCMAP *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetCount/*"/>
 '''  <param name="cmap">[in] - </param>
 '''   <returns>count, or 0 on error</returns>
 Public Shared Function pixcmapGetCount(
@@ -14395,6 +14820,7 @@ End Function
 ' pixcmapGetFreeCount(PIXCMAP *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetFreeCount/*"/>
 '''  <param name="cmap">[in] - </param>
 '''   <returns>free entries, or 0 on error</returns>
 Public Shared Function pixcmapGetFreeCount(
@@ -14412,6 +14838,7 @@ End Function
 ' pixcmapGetDepth(PIXCMAP *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetDepth/*"/>
 '''  <param name="cmap">[in] - </param>
 '''   <returns>depth, or 0 on error</returns>
 Public Shared Function pixcmapGetDepth(
@@ -14434,6 +14861,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetMinDepth/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="pmindepth">[out] - minimum depth to support the colormap</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -14458,6 +14886,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapClear/*"/>
 '''  <param name="cmap">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixcmapClear(
@@ -14475,6 +14904,7 @@ End Function
 ' pixcmapGetColor(PIXCMAP *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetColor/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="index">[in] - </param>
 '''  <param name="prval">[out] - each color value</param>
@@ -14505,6 +14935,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetColor32/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="index">[in] - </param>
 '''  <param name="pval32">[out] - 32-bit rgb color value</param>
@@ -14526,6 +14957,7 @@ End Function
 ' pixcmapGetRGBA(PIXCMAP *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetRGBA/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="index">[in] - </param>
 '''  <param name="prval">[out] - each color value</param>
@@ -14553,6 +14985,7 @@ End Function
 ' pixcmapGetRGBA32(PIXCMAP *, l_int32, l_uint32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetRGBA32/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="index">[in] - </param>
 '''  <param name="pval32">[out] - 32-bit rgba color value</param>
@@ -14581,6 +15014,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapResetColor/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="index">[in] - </param>
 '''  <param name="rval">[in] - colormap entry to be reset each number is in range [0, ... 255]</param>
@@ -14614,6 +15048,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapSetAlpha/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="index">[in] - </param>
 '''  <param name="aval">[in] - in range [0, ... 255]</param>
@@ -14635,6 +15070,7 @@ End Function
 ' pixcmapGetIndex(PIXCMAP *, l_int32, l_int32, l_int32, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetIndex/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="rval">[in] - colormap colors to search for each number is in range [0, ... 255]</param>
 '''  <param name="gval">[in] - colormap colors to search for each number is in range [0, ... 255]</param>
@@ -14660,6 +15096,7 @@ End Function
 ' pixcmapHasColor(PIXCMAP *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapHasColor/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="pcolor">[out] - TRUE if cmap has color FALSE otherwise</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -14679,6 +15116,7 @@ End Function
 ' pixcmapIsOpaque(PIXCMAP *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapIsOpaque/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="popaque">[out] - TRUE if fully opaque: all entries are 255</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -14698,6 +15136,7 @@ End Function
 ' pixcmapIsBlackAndWhite(PIXCMAP *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapIsBlackAndWhite/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="pblackwhite">[out] - TRUE if the cmap has only two colors: black (0,0,0) and white (255,255,255)</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -14722,6 +15161,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapCountGrayColors/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="pngray">[out] - number of gray colors</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -14741,6 +15181,7 @@ End Function
 ' pixcmapGetRankIntensity(PIXCMAP *, l_float32, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetRankIntensity/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="rankval">[in] - 0.0 for darkest, 1.0 for lightest color</param>
 '''  <param name="pindex">[out] - the index into the colormap that corresponds to the rank intensity color</param>
@@ -14770,6 +15211,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetNearestIndex/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="rval">[in] - colormap colors to search for each number is in range [0, ... 255]</param>
 '''  <param name="gval">[in] - colormap colors to search for each number is in range [0, ... 255]</param>
@@ -14803,6 +15245,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetNearestGrayIndex/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="val">[in] - gray value to search for in range [0, ... 255]</param>
 '''  <param name="pindex">[out] - the index of the nearest color</param>
@@ -14830,6 +15273,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetDistanceToColor/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="index">[in] - </param>
 '''  <param name="rval">[in] - target color</param>
@@ -14864,6 +15308,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetRangeValues/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="pminval">[out][optional] - minimum value of component</param>
 '''  <param name="pmaxval">[out][optional] - maximum value of component</param>
@@ -14899,6 +15344,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGrayToColor/*"/>
 '''  <param name="color">[in] - </param>
 '''   <returns>cmap, or NULL on error</returns>
 Public Shared Function pixcmapGrayToColor(
@@ -14922,6 +15368,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapColorToGray/*"/>
 '''  <param name="cmaps">[in] - </param>
 '''  <param name="rwt">[in] - non-negative these should add to 1.0</param>
 '''  <param name="gwt">[in] - non-negative these should add to 1.0</param>
@@ -14952,6 +15399,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapConvertTo4/*"/>
 '''  <param name="cmaps">[in] - colormap for 2 bpp pix</param>
 '''   <returns>cmapd   (4 bpp)</returns>
 Public Shared Function pixcmapConvertTo4(
@@ -14976,6 +15424,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapConvertTo8/*"/>
 '''  <param name="cmaps">[in] - colormap for 2 bpp or 4 bpp pix</param>
 '''   <returns>cmapd   (8 bpp)</returns>
 Public Shared Function pixcmapConvertTo8(
@@ -14994,6 +15443,7 @@ End Function
 ' pixcmapRead(const char *) as PIXCMAP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>cmap, or NULL on error</returns>
 Public Shared Function pixcmapRead(
@@ -15014,6 +15464,7 @@ End Function
 ' pixcmapReadStream(FILE *) as PIXCMAP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>cmap, or NULL on error</returns>
 Public Shared Function pixcmapReadStream(
@@ -15032,6 +15483,7 @@ End Function
 ' pixcmapReadMem(const l_uint8 *, size_t) as PIXCMAP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapReadMem/*"/>
 '''  <param name="data">[in] - serialization of pixcmap in ascii</param>
 '''  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 '''   <returns>cmap, or NULL on error</returns>
@@ -15052,6 +15504,7 @@ End Function
 ' pixcmapWrite(const char *, PIXCMAP *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="cmap">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -15074,6 +15527,7 @@ End Function
 ' pixcmapWriteStream(FILE *, PIXCMAP *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapWriteStream/*"/>
 '''  <param name="fp">[in] - file stream    \param[in]    cmap</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixcmapWriteStream(
@@ -15100,6 +15554,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized pixcmap ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="cmap">[in] - </param>
@@ -15124,6 +15579,7 @@ End Function
 ' pixcmapToArrays(PIXCMAP *, l_int32 **, l_int32 **, l_int32 **, l_int32 **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapToArrays/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''  <param name="prmap">[out] - colormap arrays</param>
 '''  <param name="pgmap">[out] - colormap arrays</param>
@@ -15154,6 +15610,7 @@ End Function
 ' pixcmapToRGBTable(PIXCMAP *, l_uint32 **, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapToRGBTable/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''  <param name="ptab">[out] - table of rgba values for the colormap</param>
 '''  <param name="pncolors">[out][optional] - size of table</param>
@@ -15183,6 +15640,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapSerializeToMemory/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''  <param name="cpc">[in] - components/color: 3 for rgb, 4 for rgba</param>
 '''  <param name="pncolors">[out] - number of colors in table</param>
@@ -15209,6 +15667,7 @@ End Function
 ' pixcmapDeserializeFromMemory(l_uint8 *, l_int32, l_int32) as PIXCMAP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapDeserializeFromMemory/*"/>
 '''  <param name="data">[in] - binary string, 3 or 4 bytes per color</param>
 '''  <param name="cpc">[in] - components/color: 3 for rgb, 4 for rgba</param>
 '''  <param name="ncolors">[in] - </param>
@@ -15241,6 +15700,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapConvertToHex/*"/>
 '''  <param name="data">[in] - binary serialized data</param>
 '''  <param name="ncolors">[in] - in colormap</param>
 '''   <returns>hexdata bracketed, space-separated ascii hex string, or NULL on error.</returns>
@@ -15267,6 +15727,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGammaTRC/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''  <param name="gamma">[in] - gamma correction must be  is greater  0.0</param>
 '''  <param name="minval">[in] - input value that gives 0 for output can be  is lower  0</param>
@@ -15297,6 +15758,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapContrastTRC/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''  <param name="factor">[in] - generally between 0.0 [no enhancement] and 1.0, but can be larger than 1.0</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -15328,6 +15790,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapShiftIntensity/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''  <param name="fraction">[in] - between -1.0 and +1.0</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -15357,6 +15820,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapShiftByComponent/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''  <param name="srcval">[in] - source color: 0xrrggbb00</param>
 '''  <param name="dstval">[in] - target color: 0xrrggbb00</param>
@@ -15388,6 +15852,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorMorph/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="type">[in] - L_MORPH_DILATE, L_MORPH_ERODE, L_MORPH_OPEN, or L_MORPH_CLOSE</param>
 '''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
@@ -15634,6 +16099,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOctreeColorQuant/*"/>
 '''  <param name="pixs">[in] - 32 bpp 24-bit color</param>
 '''  <param name="colors">[in] - in colormap some number in range [128 ... 256] the actual number of colors used will be smaller</param>
 '''  <param name="ditherflag">[in] - 1 to dither, 0 otherwise</param>
@@ -15686,6 +16152,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOctreeColorQuantGeneral/*"/>
 '''  <param name="pixs">[in] - 32 bpp 24-bit color</param>
 '''  <param name="colors">[in] - in colormap some number in range [128 ... 240] the actual number of colors used will be smaller</param>
 '''  <param name="ditherflag">[in] - 1 to dither, 0 otherwise</param>
@@ -15731,6 +16198,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeRGBToIndexTables/*"/>
 '''  <param name="prtab">[out] - tables</param>
 '''  <param name="pgtab">[out] - tables</param>
 '''  <param name="pbtab">[out] - tables</param>
@@ -15764,6 +16232,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getOctcubeIndexFromRGB/*"/>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>
@@ -15843,6 +16312,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOctreeQuantByPopulation/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="level">[in] - significant bits for each of RGB valid for {3,4}, Use 0 for default (level 4 recommended</param>
 '''  <param name="ditherflag">[in] - 1 to dither, 0 otherwise</param>
@@ -15938,6 +16408,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOctreeQuantNumColors/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="maxcolors">[in] - 8 to 256 the actual number of colors used may be less than this</param>
 '''  <param name="subsample">[in] - factor for computing color distribution use 0 for default</param>
@@ -15982,6 +16453,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOctcubeQuantMixedWithGray/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="depth">[in] - of output pix</param>
 '''  <param name="graylevels">[in] - graylevels (must be  is greater  1)</param>
@@ -16059,6 +16531,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFixedOctcubeQuant256/*"/>
 '''  <param name="pixs">[in] - 32 bpp 24-bit color</param>
 '''  <param name="ditherflag">[in] - 1 for dithering 0 for no dithering</param>
 '''   <returns>pixd 8 bit with colormap, or NULL on error</returns>
@@ -16102,6 +16575,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFewColorsOctcubeQuant1/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="level">[in] - significant bits for each of RGB valid in [1...6]</param>
 '''   <returns>pixd quantized to octcube or NULL on error</returns>
@@ -16155,6 +16629,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFewColorsOctcubeQuant2/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="level">[in] - of octcube indexing, for histogram: 3, 4, 5, 6</param>
 '''  <param name="na">[in] - histogram of pixel occupation in octree leaves at given level</param>
@@ -16221,6 +16696,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFewColorsOctcubeQuantMixed/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="level">[in] - significant octcube bits for each of RGB valid in [1...6] use 0 for default</param>
 '''  <param name="darkthresh">[in] - threshold near black if the lightest component is below this, the pixel is not considered to be gray or color uses 0 for default</param>
@@ -16262,6 +16738,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFixedOctcubeQuantGenRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="level">[in] - significant bits for each of r,g,b</param>
 '''   <returns>pixd rgb quantized to octcube centers, or NULL on error</returns>
@@ -16295,6 +16772,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixQuantFromCmap/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale without cmap, or 32 bpp rgb</param>
 '''  <param name="cmap">[in] - to quantize to insert copy into dest pix</param>
 '''  <param name="mindepth">[in] - minimum depth of pixd: can be 2, 4 or 8 bpp</param>
@@ -16374,6 +16852,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOctcubeQuantFromCmap/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="cmap">[in] - to quantize to insert copy into dest pix</param>
 '''  <param name="mindepth">[in] - minimum depth of pixd: can be 2, 4 or 8 bpp</param>
@@ -16408,6 +16887,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOctcubeHistogram/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="level">[in] - significant bits for each of RGB valid in [1...6]</param>
 '''  <param name="pncolors">[out][optional] - number of occupied cubes</param>
@@ -16469,6 +16949,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapToOctcubeLUT/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="level">[in] - significant bits for each of RGB valid in [1...6]</param>
 '''  <param name="metric">[in] - L_MANHATTAN_DISTANCE, L_EUCLIDEAN_DISTANCE</param>
@@ -16498,6 +16979,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveUnusedColors/*"/>
 '''  <param name="pixs">[in] - colormapped</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixRemoveUnusedColors(
@@ -16523,6 +17005,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixNumberOccupiedOctcubes/*"/>
 '''  <param name="pix">[in] - 32 bpp</param>
 '''  <param name="level">[in] - of octcube</param>
 '''  <param name="mincount">[in] - minimum num pixels in an octcube to be counted -1 to not use</param>
@@ -16556,6 +17039,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMedianCutQuant/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb color</param>
 '''  <param name="ditherflag">[in] - 1 for dither 0 for no dither</param>
 '''   <returns>pixd 8 bit with colormap, or NULL on error</returns>
@@ -16604,6 +17088,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMedianCutQuantGeneral/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb color</param>
 '''  <param name="ditherflag">[in] - 1 for dither 0 for no dither</param>
 '''  <param name="outdepth">[in] - output depth valid: 0, 1, 2, 4, 8</param>
@@ -16660,6 +17145,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMedianCutQuantMixed/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb color</param>
 '''  <param name="ncolor">[in] - maximum number of colors assigned to pixels with significant color</param>
 '''  <param name="ngray">[in] - number of gray colors to be used must be  is greater = 2</param>
@@ -16716,6 +17202,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFewColorsMedianCutQuantMixed/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="ncolor">[in] - number of colors to be assigned to pixels with significant color</param>
 '''  <param name="ngray">[in] - number of gray colors to be used must be  is greater = 2</param>
@@ -16756,6 +17243,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMedianCutHisto/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb color</param>
 '''  <param name="sigbits">[in] - valid: 5 or 6</param>
 '''  <param name="subsample">[in] - integer  is greater  0</param>
@@ -16825,6 +17313,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorSegment/*"/>
 '''  <param name="pixs">[in] - 32 bpp 24-bit color</param>
 '''  <param name="maxdist">[in] - max euclidean dist to existing cluster</param>
 '''  <param name="maxcolors">[in] - max number of colors allowed in first pass</param>
@@ -16866,6 +17355,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorSegmentCluster/*"/>
 '''  <param name="pixs">[in] - 32 bpp 24-bit color</param>
 '''  <param name="maxdist">[in] - max euclidean dist to existing cluster</param>
 '''  <param name="maxcolors">[in] - max number of colors allowed in first pass</param>
@@ -16920,6 +17410,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAssignToNearestColor/*"/>
 '''  <param name="pixd">[in] - 8 bpp, colormapped</param>
 '''  <param name="pixs">[in] - 32 bpp 24-bit color</param>
 '''  <param name="pixm">[in][optional] - 1 bpp</param>
@@ -16959,6 +17450,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorSegmentClean/*"/>
 '''  <param name="pixs">[in] - 8 bpp, colormapped</param>
 '''  <param name="selsize">[in] - for closing</param>
 '''  <param name="countarray">[in] - ptr to array containing the number of pixels found in each color in the colormap</param>
@@ -16992,6 +17484,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorSegmentRemoveColors/*"/>
 '''  <param name="pixd">[in] - 8 bpp, colormapped</param>
 '''  <param name="pixs">[in] - 32 bpp rgb, with initial pixel values</param>
 '''  <param name="finalcolors">[in] - max number of colors to retain</param>
@@ -17043,6 +17536,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToHSV/*"/>
 '''  <param name="pixd">[in]can be NULL - if not NULL, must == pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd always</returns>
@@ -17076,6 +17570,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertHSVToRGB/*"/>
 '''  <param name="pixd">[in]can be NULL - if not NULL, must == pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd always</returns>
@@ -17116,6 +17611,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertRGBToHSV/*"/>
 '''  <param name="rval">[in] - RGB input</param>
 '''  <param name="gval">[in] - RGB input</param>
 '''  <param name="bval">[in] - RGB input</param>
@@ -17147,6 +17643,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertHSVToRGB/*"/>
 '''  <param name="hval">[in] - </param>
 '''  <param name="sval">[in] - </param>
 '''  <param name="vval">[in] - </param>
@@ -17179,6 +17676,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapConvertRGBToHSV/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcmapConvertRGBToHSV(
@@ -17203,6 +17701,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapConvertHSVToRGB/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcmapConvertHSVToRGB(
@@ -17229,6 +17728,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToHue/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB or 8 bpp with colormap</param>
 '''   <returns>pixd 8 bpp hue of HSV, or NULL on error</returns>
 Public Shared Function pixConvertRGBToHue(
@@ -17255,6 +17755,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToSaturation/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB or 8 bpp with colormap</param>
 '''   <returns>pixd 8 bpp sat of HSV, or NULL on error</returns>
 Public Shared Function pixConvertRGBToSaturation(
@@ -17281,6 +17782,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToValue/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB or 8 bpp with colormap</param>
 '''   <returns>pixd 8 bpp max component intensity of HSV, or NULL on error</returns>
 Public Shared Function pixConvertRGBToValue(
@@ -17311,6 +17813,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeRangeMaskHS/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="huecenter">[in] - center value of hue range</param>
 '''  <param name="huehw">[in] - half-width of hue range</param>
@@ -17353,6 +17856,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeRangeMaskHV/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="huecenter">[in] - center value of hue range</param>
 '''  <param name="huehw">[in] - half-width of hue range</param>
@@ -17394,6 +17898,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeRangeMaskSV/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="satcenter">[in] - center value of saturation range</param>
 '''  <param name="sathw">[in] - half-width of saturation range</param>
@@ -17434,6 +17939,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeHistoHS/*"/>
 '''  <param name="pixs">[in] - HSV colorspace</param>
 '''  <param name="factor">[in] - subsampling factor integer</param>
 '''  <param name="pnahue">[out][optional] - hue histogram</param>
@@ -17473,6 +17979,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeHistoHV/*"/>
 '''  <param name="pixs">[in] - HSV colorspace</param>
 '''  <param name="factor">[in] - subsampling factor integer</param>
 '''  <param name="pnahue">[out][optional] - hue histogram</param>
@@ -17512,6 +18019,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeHistoSV/*"/>
 '''  <param name="pixs">[in] - HSV colorspace</param>
 '''  <param name="factor">[in] - subsampling factor integer</param>
 '''  <param name="pnasat">[out][optional] - sat histogram</param>
@@ -17554,6 +18062,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindHistoPeaksHSV/*"/>
 '''  <param name="pixs">[in] - 32 bpp HS, HV or SV histogram not changed</param>
 '''  <param name="type">[in] - L_HS_HISTO, L_HV_HISTO or L_SV_HISTO</param>
 '''  <param name="width">[in] - half width of sliding window</param>
@@ -17600,6 +18109,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/displayHSVColorRange/*"/>
 '''  <param name="hval">[in] - hue center value in range [0 ... 240]</param>
 '''  <param name="sval">[in] - saturation center value in range [0 ... 255]</param>
 '''  <param name="vval">[in] - max intensity value in range [0 ... 255]</param>
@@ -17648,6 +18158,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToYUV/*"/>
 '''  <param name="pixd">[in]can be NULL - if not NULL, must == pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd always</returns>
@@ -17680,6 +18191,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertYUVToRGB/*"/>
 '''  <param name="pixd">[in]can be NULL - if not NULL, must == pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd always</returns>
@@ -17710,6 +18222,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertRGBToYUV/*"/>
 '''  <param name="rval">[in] - RGB input</param>
 '''  <param name="gval">[in] - RGB input</param>
 '''  <param name="bval">[in] - RGB input</param>
@@ -17747,6 +18260,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertYUVToRGB/*"/>
 '''  <param name="yval">[in] - </param>
 '''  <param name="uval">[in] - </param>
 '''  <param name="vval">[in] - </param>
@@ -17779,6 +18293,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapConvertRGBToYUV/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcmapConvertRGBToYUV(
@@ -17803,6 +18318,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapConvertYUVToRGB/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcmapConvertYUVToRGB(
@@ -17842,6 +18358,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToXYZ/*"/>
 '''  <param name="pixs">[in] - rgb</param>
 '''   <returns>fpixa xyz</returns>
 Public Shared Function pixConvertRGBToXYZ(
@@ -17867,6 +18384,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaConvertXYZToRGB/*"/>
 '''  <param name="fpixa">[in] - three fpix: x,y,z</param>
 '''   <returns>pixd rgb</returns>
 Public Shared Function fpixaConvertXYZToRGB(
@@ -17891,6 +18409,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertRGBToXYZ/*"/>
 '''  <param name="rval">[in] - rgb input</param>
 '''  <param name="gval">[in] - rgb input</param>
 '''  <param name="bval">[in] - rgb input</param>
@@ -17926,6 +18445,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertXYZToRGB/*"/>
 '''  <param name="fxval">[in] - </param>
 '''  <param name="fyval">[in] - </param>
 '''  <param name="fzval">[in] - </param>
@@ -17966,6 +18486,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaConvertXYZToLAB/*"/>
 '''  <param name="fpixas">[in] - xyz</param>
 '''   <returns>fpixa lab</returns>
 Public Shared Function fpixaConvertXYZToLAB(
@@ -17990,6 +18511,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaConvertLABToXYZ/*"/>
 '''  <param name="fpixas">[in] - lab</param>
 '''   <returns>fpixa xyz</returns>
 Public Shared Function fpixaConvertLABToXYZ(
@@ -18008,6 +18530,7 @@ End Function
 ' convertXYZToLAB(l_float32, l_float32, l_float32, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertXYZToLAB/*"/>
 '''  <param name="xval">[in] - xyz input</param>
 '''  <param name="yval">[in] - xyz input</param>
 '''  <param name="zval">[in] - xyz input</param>
@@ -18033,6 +18556,7 @@ End Function
 ' convertLABToXYZ(l_float32, l_float32, l_float32, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertLABToXYZ/*"/>
 '''  <param name="lval">[in] - </param>
 '''  <param name="aval">[in] - </param>
 '''  <param name="bval">[in] - </param>
@@ -18064,6 +18588,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToLAB/*"/>
 '''  <param name="pixs">[in] - rgb</param>
 '''   <returns>fpixa lab</returns>
 Public Shared Function pixConvertRGBToLAB(
@@ -18087,6 +18612,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaConvertLABToRGB/*"/>
 '''  <param name="fpixa">[in] - three fpix: l,a,b</param>
 '''   <returns>pixd rgb</returns>
 Public Shared Function fpixaConvertLABToRGB(
@@ -18111,6 +18637,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertRGBToLAB/*"/>
 '''  <param name="rval">[in] - rgb input</param>
 '''  <param name="gval">[in] - rgb input</param>
 '''  <param name="bval">[in] - rgb input</param>
@@ -18142,6 +18669,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertLABToRGB/*"/>
 '''  <param name="flval">[in] - </param>
 '''  <param name="faval">[in] - </param>
 '''  <param name="fbval">[in] - </param>
@@ -18191,6 +18719,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixEqual/*"/>
 '''  <param name="pix1">[in] - </param>
 '''  <param name="pix2">[in] - </param>
 '''  <param name="psame">[out] - 1 if same 0 if different</param>
@@ -18221,6 +18750,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixEqualWithAlpha/*"/>
 '''  <param name="pix1">[in] - </param>
 '''  <param name="pix2">[in] - </param>
 '''  <param name="use_alpha">[in] - 1 to compare alpha in RGBA 0 to ignore</param>
@@ -18257,6 +18787,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixEqualWithCmap/*"/>
 '''  <param name="pix1">[in] - </param>
 '''  <param name="pix2">[in] - </param>
 '''  <param name="psame">[out] - </param>
@@ -18286,6 +18817,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/cmapEqual/*"/>
 '''  <param name="cmap1">[in] - </param>
 '''  <param name="cmap2">[in] - </param>
 '''  <param name="ncomps">[in] - 3 for RGB, 4 for RGBA</param>
@@ -18321,6 +18853,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUsesCmapColor/*"/>
 '''  <param name="pixs">[in] - any depth, colormap</param>
 '''  <param name="pcolor">[out] - TRUE if color found</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -18355,6 +18888,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCorrelationBinary/*"/>
 '''  <param name="pix1">[in] - 1 bpp</param>
 '''  <param name="pix2">[in] - 1 bpp</param>
 '''  <param name="pval">[out] - correlation</param>
@@ -18392,6 +18926,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDisplayDiffBinary/*"/>
 '''  <param name="pix1">[in] - 1 bpp</param>
 '''  <param name="pix2">[in] - 1 bpp</param>
 '''   <returns>pixd 4 bpp cmapped, or NULL on error</returns>
@@ -18424,6 +18959,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCompareBinary/*"/>
 '''  <param name="pix1">[in] - 1 bpp</param>
 '''  <param name="pix2">[in] - 1 bpp</param>
 '''  <param name="comptype">[in] - L_COMPARE_XOR, L_COMPARE_SUBTRACT</param>
@@ -18480,6 +19016,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCompareGrayOrRGB/*"/>
 '''  <param name="pix1">[in] - 8 or 16 bpp gray, 32 bpp rgb, or colormapped</param>
 '''  <param name="pix2">[in] - 8 or 16 bpp gray, 32 bpp rgb, or colormapped</param>
 '''  <param name="comptype">[in] - L_COMPARE_SUBTRACT, L_COMPARE_ABS_DIFF</param>
@@ -18523,6 +19060,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCompareGray/*"/>
 '''  <param name="pix1">[in] - 8 or 16 bpp, not cmapped</param>
 '''  <param name="pix2">[in] - 8 or 16 bpp, not cmapped</param>
 '''  <param name="comptype">[in] - L_COMPARE_SUBTRACT, L_COMPARE_ABS_DIFF</param>
@@ -18565,6 +19103,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCompareRGB/*"/>
 '''  <param name="pix1">[in] - 32 bpp rgb</param>
 '''  <param name="pix2">[in] - 32 bpp rgb</param>
 '''  <param name="comptype">[in] - L_COMPARE_SUBTRACT, L_COMPARE_ABS_DIFF</param>
@@ -18617,6 +19156,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCompareTiled/*"/>
 '''  <param name="pix1">[in] - 8 bpp or 32 bpp rgb</param>
 '''  <param name="pix2">[in] - 8 bpp 32 bpp rgb</param>
 '''  <param name="sx">[in] - tile size must be  is greater  1 in each dimension</param>
@@ -18666,6 +19206,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCompareRankDifference/*"/>
 '''  <param name="pix1">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="pix2">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor use 0 or 1 for no subsampling</param>
@@ -18721,6 +19262,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTestForSimilarity/*"/>
 '''  <param name="pix1">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="pix2">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor use 0 or 1 for no subsampling</param>
@@ -18781,6 +19323,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetDifferenceStats/*"/>
 '''  <param name="pix1">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="pix2">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor use 0 or 1 for no subsampling</param>
@@ -18822,6 +19365,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetDifferenceHistogram/*"/>
 '''  <param name="pix1">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="pix2">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor use 0 or 1 for no subsampling</param>
@@ -18879,6 +19423,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetPerceptualDiff/*"/>
 '''  <param name="pixs1">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="pixs2">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="sampling">[in] - subsampling factor use 0 or 1 for no subsampling</param>
@@ -18939,6 +19484,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetPSNR/*"/>
 '''  <param name="pix1">[in] - 8 or 32 bpp no colormap</param>
 '''  <param name="pix2">[in] - 8 or 32 bpp no colormap</param>
 '''  <param name="factor">[in] - sampling factor  is greater = 1</param>
@@ -18990,6 +19536,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaComparePhotoRegionsByHisto/*"/>
 '''  <param name="pixa">[in] - any depth colormap OK</param>
 '''  <param name="minratio">[in] - requiring sizes be compatible  is lower  1.0</param>
 '''  <param name="textthresh">[in] - threshold for text/photo use 0 for default</param>
@@ -19072,6 +19619,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixComparePhotoRegionsByHisto/*"/>
 '''  <param name="pix1">[in] - any depth colormap OK</param>
 '''  <param name="pix2">[in] - any depth colormap OK</param>
 '''  <param name="box1">[in][optional] - photo regions from each can be null</param>
@@ -19127,6 +19675,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenPhotoHistos/*"/>
 '''  <param name="pixs">[in] - depth  is greater  1 bpp colormap OK</param>
 '''  <param name="box">[in][optional] - region to be selected can be null</param>
 '''  <param name="factor">[in] - subsampling  is greater = 1</param>
@@ -19174,6 +19723,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixPadToCenterCentroid/*"/>
 '''  <param name="pixs">[in] - any depth, colormap OK</param>
 '''  <param name="factor">[in] - subsampling for centroid  is greater = 1</param>
 '''   <returns>pixd padded with white pixels, or NULL on error.</returns>
@@ -19203,6 +19753,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCentroid8/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="factor">[in] - subsampling factor  is greater = 1</param>
 '''  <param name="pcx">[out] - x value of centroid</param>
@@ -19244,6 +19795,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDecideIfPhotoImage/*"/>
 '''  <param name="pix">[in] - 8 bpp, centroid in center</param>
 '''  <param name="factor">[in] - subsampling for histograms  is greater = 1</param>
 '''  <param name="nx">[in] - number of subregions to use for histograms</param>
@@ -19289,6 +19841,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/compareTilesByHisto/*"/>
 '''  <param name="naa1">[in] - each is a set of 256 entry histograms</param>
 '''  <param name="naa2">[in] - each is a set of 256 entry histograms</param>
 '''  <param name="minratio">[in] - requiring image sizes be compatible  is lower  1.0</param>
@@ -19375,6 +19928,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCompareGrayByHisto/*"/>
 '''  <param name="pix1">[in] - any depth colormap OK</param>
 '''  <param name="pix2">[in] - any depth colormap OK</param>
 '''  <param name="box1">[in][optional] - region selected from each can be null</param>
@@ -19423,6 +19977,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCropAlignedToCentroid/*"/>
 '''  <param name="pix1">[in] - any depth colormap OK</param>
 '''  <param name="pix2">[in] - any depth colormap OK</param>
 '''  <param name="factor">[in] - subsampling  is greater = 1</param>
@@ -19467,6 +20022,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_compressGrayHistograms/*"/>
 '''  <param name="naa">[in] - set of 256-entry histograms</param>
 '''  <param name="w">[in] - size of image</param>
 '''  <param name="h">[in] - size of image</param>
@@ -19500,6 +20056,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_uncompressGrayHistograms/*"/>
 '''  <param name="bytea">[in] - byte array of size 8 + 256  N, N an integer</param>
 '''  <param name="size">[in] - size of byte array</param>
 '''  <param name="pw">[out] - width of the image that generated the histograms</param>
@@ -19543,6 +20100,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCompareWithTranslation/*"/>
 '''  <param name="pix1">[in] - any depth colormap OK</param>
 '''  <param name="pix2">[in] - any depth colormap OK</param>
 '''  <param name="thresh">[in] - threshold for converting to 1 bpp</param>
@@ -19594,6 +20152,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBestCorrelation/*"/>
 '''  <param name="pix1">[in] - 1 bpp</param>
 '''  <param name="pix2">[in] - 1 bpp</param>
 '''  <param name="area1">[in] - number of on pixels in pix1</param>
@@ -19646,6 +20205,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConnComp/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="ppixa">[out][optional] - pixa of each c.c.</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -19688,6 +20248,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConnCompPixa/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="ppixa">[out] - pixa of each c.c.</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -19724,6 +20285,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConnCompBB/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''   <returns>boxa, or NULL on error</returns>
@@ -19746,6 +20308,7 @@ End Function
 ' pixCountConnComp(PIX *, l_int32, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountConnComp/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''  <param name="pcount">[out] - </param>
@@ -19769,6 +20332,7 @@ End Function
 ' nextOnPixelInRaster(PIX *, l_int32, l_int32, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/nextOnPixelInRaster/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="xstart">[in] - starting point for search</param>
 '''  <param name="ystart">[in] - starting point for search</param>
@@ -19796,6 +20360,7 @@ End Function
 ' nextOnPixelInRasterLow(l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/nextOnPixelInRasterLow/*"/>
 '''  <param name="data">[in] - pix data</param>
 '''  <param name="w">[in] - width and height</param>
 '''  <param name="h">[in] - width and height</param>
@@ -19835,6 +20400,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillBB/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="stack">[in] - for holding fillsegs</param>
 '''  <param name="x">[in] - ,y   location of seed pixel</param>
@@ -19886,6 +20452,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfill4BB/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="stack">[in] - for holding fillsegs</param>
 '''  <param name="x">[in] - ,y   location of seed pixel</param>
@@ -19928,6 +20495,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfill8BB/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="stack">[in] - for holding fillsegs</param>
 '''  <param name="x">[in] - ,y   location of seed pixel</param>
@@ -19960,6 +20528,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfill/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="stack">[in] - for holding fillsegs</param>
 '''  <param name="x">[in] - ,y   location of seed pixel</param>
@@ -19996,6 +20565,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfill4/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="stack">[in] - for holding fillsegs</param>
 '''  <param name="x">[in] - ,y   location of seed pixel</param>
@@ -20030,6 +20600,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfill8/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="stack">[in] - for holding fillsegs</param>
 '''  <param name="x">[in] - ,y   location of seed pixel</param>
@@ -20063,6 +20634,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertFilesTo1bpp/*"/>
 '''  <param name="dirin">[in] - </param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="upscaling">[in] - 1, 2 or 4 only for input color or grayscale</param>
@@ -20106,6 +20678,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlockconv/*"/>
 '''  <param name="pix">[in] - 8 or 32 bpp or 2, 4 or 8 bpp with colormap</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
 '''  <param name="hc">[in] - half width/height of convolution kernel</param>
@@ -20139,6 +20712,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlockconvGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="pixacc">[in] - pix 32 bpp can be null</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
@@ -20176,6 +20750,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlockconvAccum/*"/>
 '''  <param name="pixs">[in] - 1, 8 or 32 bpp</param>
 '''   <returns>accum pix 32 bpp, or NULL on error.</returns>
 Public Shared Function pixBlockconvAccum(
@@ -20222,6 +20797,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlockconvGrayUnnormalized/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
 '''  <param name="hc">[in] - half width/height of convolution kernel</param>
@@ -20268,6 +20844,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlockconvTiled/*"/>
 '''  <param name="pix">[in] - 8 or 32 bpp or 2, 4 or 8 bpp with colormap</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
 '''  <param name="hc">[in] - half width/height of convolution kernel</param>
@@ -20307,6 +20884,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlockconvGrayTile/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray</param>
 '''  <param name="pixacc">[in] - 32 bpp accum pix</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
@@ -20357,6 +20935,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWindowedStats/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
 '''  <param name="hc">[in] - half width/height of convolution kernel</param>
@@ -20418,6 +20997,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWindowedMean/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp grayscale</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
 '''  <param name="hc">[in] - half width/height of convolution kernel</param>
@@ -20467,6 +21047,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWindowedMeanSquare/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
 '''  <param name="hc">[in] - half width/height of convolution kernel</param>
@@ -20507,6 +21088,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWindowedVariance/*"/>
 '''  <param name="pixm">[in] - mean over window 8 or 32 bpp grayscale</param>
 '''  <param name="pixms">[in] - mean square over window 32 bpp</param>
 '''  <param name="pfpixv">[out][optional] - float variance -- the ms deviation from the mean</param>
@@ -20550,6 +21132,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMeanSquareAccum/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''   <returns>dpix 64 bit array, or NULL on error</returns>
 Public Shared Function pixMeanSquareAccum(
@@ -20588,6 +21171,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlockrank/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pixacc">[in] - pix [optional] 32 bpp</param>
 '''  <param name="wc">[in] - half width/height of block sum/rank kernel</param>
@@ -20641,6 +21225,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlocksum/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pixacc">[in] - pix [optional] 32 bpp</param>
 '''  <param name="wc">[in] - half width/height of block sum/rank kernel</param>
@@ -20689,6 +21274,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCensusTransform/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="halfsize">[in] - of square over which neighbors are averaged</param>
 '''  <param name="pixacc">[in] - pix [optional] 32 bpp</param>
@@ -20749,6 +21335,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvolve/*"/>
 '''  <param name="pixs">[in] - 8, 16, 32 bpp no colormap</param>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="outdepth">[in] - of pixd: 8, 16 or 32</param>
@@ -20807,6 +21394,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvolveSep/*"/>
 '''  <param name="pixs">[in] - 8, 16, 32 bpp no colormap</param>
 '''  <param name="kelx">[in] - x-dependent kernel</param>
 '''  <param name="kely">[in] - y-dependent kernel</param>
@@ -20852,6 +21440,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvolveRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="kel">[in] - kernel</param>
 '''   <returns>pixd 32 bpp rgb</returns>
@@ -20893,6 +21482,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvolveRGBSep/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="kelx">[in] - x-dependent kernel</param>
 '''  <param name="kely">[in] - y-dependent kernel</param>
@@ -20936,6 +21526,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixConvolve/*"/>
 '''  <param name="fpixs">[in] - 32 bit float array</param>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="normflag">[in] - 1 to normalize kernel to unit sum 0 otherwise</param>
@@ -20979,6 +21570,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixConvolveSep/*"/>
 '''  <param name="fpixs">[in] - 32 bit float array</param>
 '''  <param name="kelx">[in] - x-dependent kernel</param>
 '''  <param name="kely">[in] - y-dependent kernel</param>
@@ -21025,6 +21617,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvolveWithBias/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="kel1">[in] - </param>
 '''  <param name="kel2">[in]can be null - use if separable</param>
@@ -21060,6 +21653,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_setConvolveSampling/*"/>
 '''  <param name="xfact">[in] - integer  is greater = 1</param>
 '''  <param name="yfact">[in] - integer  is greater = 1</param>
 Public Shared Sub l_setConvolveSampling(
@@ -21081,6 +21675,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddGaussianNoise/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb no colormap</param>
 '''  <param name="stdev">[in] - of noise</param>
 '''   <returns>pixd 8 or 32 bpp, or NULL on error</returns>
@@ -21101,6 +21696,7 @@ End Function
 ' gaussDistribSampling() as l_float32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gaussDistribSampling/*"/>
 '''   <returns></returns>
 Public Shared Function gaussDistribSampling() as Single
 
@@ -21161,6 +21757,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCorrelationScore/*"/>
 '''  <param name="pix1">[in] - test pix, 1 bpp</param>
 '''  <param name="pix2">[in] - exemplar pix, 1 bpp</param>
 '''  <param name="area1">[in] - number of on pixels in pix1</param>
@@ -21230,6 +21827,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCorrelationScoreThresholded/*"/>
 '''  <param name="pix1">[in] - test pix, 1 bpp</param>
 '''  <param name="pix2">[in] - exemplar pix, 1 bpp</param>
 '''  <param name="area1">[in] - number of on pixels in pix1</param>
@@ -21278,6 +21876,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCorrelationScoreSimple/*"/>
 '''  <param name="pix1">[in] - test pix, 1 bpp</param>
 '''  <param name="pix2">[in] - exemplar pix, 1 bpp</param>
 '''  <param name="area1">[in] - number of on pixels in pix1</param>
@@ -21335,6 +21934,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCorrelationScoreShifted/*"/>
 '''  <param name="pix1">[in] - 1 bpp</param>
 '''  <param name="pix2">[in] - 1 bpp</param>
 '''  <param name="area1">[in] - number of on pixels in pix1</param>
@@ -21381,6 +21981,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpCreate/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pageno">[in] - page number</param>
 '''   <returns>dew or NULL on error</returns>
@@ -21413,6 +22014,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpCreateRef/*"/>
 '''  <param name="pageno">[in] - this page number</param>
 '''  <param name="refpage">[in] - page number of dewarp disparity arrays to be used</param>
 '''   <returns>dew or NULL on error</returns>
@@ -21431,6 +22033,7 @@ End Function
 ' dewarpDestroy(L_DEWARP **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpDestroy/*"/>
 '''  <param name="pdew">[in,out] - will be set to null before returning</param>
 Public Shared Sub dewarpDestroy(
 				 ByRef pdew as L_Dewarp)
@@ -21468,6 +22071,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaCreate/*"/>
 '''  <param name="nptrs">[in] - number of dewarp page ptrs typically the number of pages</param>
 '''  <param name="sampling">[in] - use 0 for default value the minimum allowed is 8</param>
 '''  <param name="redfactor">[in] - of input images: 1 is full resolution 2 is 2x reduced</param>
@@ -21512,6 +22116,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaCreateFromPixacomp/*"/>
 '''  <param name="pixac">[in] - pixacomp of G4, 1 bpp images with 1x1x1 placeholders</param>
 '''  <param name="useboth">[in] - 0 for only vert disparity 1 for both vert and horiz</param>
 '''  <param name="sampling">[in] - use -1 or 0 for default value otherwise minimum of 5</param>
@@ -21538,6 +22143,7 @@ End Function
 ' dewarpaDestroy(L_DEWARPA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaDestroy/*"/>
 '''  <param name="pdewa">[in,out] - will be set to null before returning</param>
 Public Shared Sub dewarpaDestroy(
 				 ByRef pdewa as L_Dewarpa)
@@ -21554,6 +22160,7 @@ End Sub
 ' dewarpaDestroyDewarp(L_DEWARPA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaDestroyDewarp/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="pageno">[in] - of dew to be destroyed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -21585,6 +22192,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaInsertDewarp/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="dew">[in] - to be added</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -21605,6 +22213,7 @@ End Function
 ' dewarpaGetDewarp(L_DEWARPA *, l_int32) as L_DEWARP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaGetDewarp/*"/>
 '''  <param name="dewa">[in] - populated with dewarp structs for pages</param>
 '''  <param name="index">[in] - into dewa: this is the pageno</param>
 '''   <returns>dew handle still owned by dewa, or NULL on error</returns>
@@ -21656,6 +22265,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaSetCurvatures/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="max_linecurv">[in] - -1 for default</param>
 '''  <param name="min_diff_linecurv">[in] - -1 for default 0 to accept all models</param>
@@ -21693,6 +22303,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaUseBothArrays/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="useboth">[in] - 0 for false, 1 for true</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -21728,6 +22339,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaSetCheckColumns/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="check_columns">[in] - 0 for false, 1 for true</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -21752,6 +22364,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaSetMaxDistance/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="maxdist">[in] - for using ref models</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -21771,6 +22384,7 @@ End Function
 ' dewarpRead(const char *) as L_DEWARP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>dew, or NULL on error</returns>
 Public Shared Function dewarpRead(
@@ -21802,6 +22416,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>dew, or NULL on error</returns>
 Public Shared Function dewarpReadStream(
@@ -21820,6 +22435,7 @@ End Function
 ' dewarpReadMem(const l_uint8 *, size_t) as L_DEWARP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpReadMem/*"/>
 '''  <param name="data">[in] - serialization of dewarp</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>dew  dewarp, or NULL on error</returns>
@@ -21840,6 +22456,7 @@ End Function
 ' dewarpWrite(const char *, L_DEWARP *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="dew">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -21869,6 +22486,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="dew">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -21894,6 +22512,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized dewarp (not ascii)</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="dew">[in] - </param>
@@ -21918,6 +22537,7 @@ End Function
 ' dewarpaRead(const char *) as L_DEWARPA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>dewa, or NULL on error</returns>
 Public Shared Function dewarpaRead(
@@ -21946,6 +22566,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>dewa, or NULL on error</returns>
 Public Shared Function dewarpaReadStream(
@@ -21964,6 +22585,7 @@ End Function
 ' dewarpaReadMem(const l_uint8 *, size_t) as L_DEWARPA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaReadMem/*"/>
 '''  <param name="data">[in] - serialization of dewarpa</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>dewa  dewarpa, or NULL on error</returns>
@@ -21984,6 +22606,7 @@ End Function
 ' dewarpaWrite(const char *, L_DEWARPA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="dewa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -22006,6 +22629,7 @@ End Function
 ' dewarpaWriteStream(FILE *, L_DEWARPA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="dewa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -22031,6 +22655,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized dewarpa (not ascii)</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="dewa">[in] - </param>
@@ -22100,6 +22725,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpBuildPageModel/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="debugfile">[in]use NULL to skip - writing this</param>
 '''   <returns>0 if OK, 1 if unable to build the model or on error</returns>
@@ -22139,6 +22765,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpFindVertDisparity/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="ptaa">[in] - unsmoothed lines, not vertically ordered</param>
 '''  <param name="rotflag">[in] - 0 if using dew- is greater pixs 1 if rotated by 90 degrees cw</param>
@@ -22175,6 +22802,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpFindHorizDisparity/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="ptaa">[in] - unsmoothed lines, not vertically ordered</param>
 '''   <returns>0 if OK, 1 if horizontal disparity array is not built, or on error</returns>
@@ -22203,6 +22831,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpGetTextlineCenters/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="debugflag">[in] - 1 for debug output</param>
 '''   <returns>ptaa of center values of textlines</returns>
@@ -22225,6 +22854,7 @@ End Function
 ' dewarpRemoveShortLines(PIX *, PTAA *, l_float32, l_int32) as PTAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpRemoveShortLines/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="ptaas">[in] - input lines</param>
 '''  <param name="fract">[in] - minimum fraction of longest line to keep</param>
@@ -22281,6 +22911,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpFindHorizSlopeDisparity/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="pixb">[in] - (1 bpp, with vertical and horizontal disparity removed)</param>
 '''  <param name="fractthresh">[in] - (threshold fractional difference in density)</param>
@@ -22325,6 +22956,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpBuildLineModel/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="opensize">[in] - size of opening to remove perpendicular lines</param>
 '''  <param name="debugfile">[in]use NULL to skip - writing this</param>
@@ -22351,6 +22983,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaModelStatus/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="pageno">[in] - </param>
 '''  <param name="pvsuccess">[out][optional] - 1 on success</param>
@@ -22406,6 +23039,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaApplyDisparity/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="pageno">[in] - of page model to be used may be a ref model</param>
 '''  <param name="pixs">[in] - image to be modified can be 1, 8 or 32 bpp</param>
@@ -22454,6 +23088,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaApplyDisparityBoxa/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="pageno">[in] - of page model to be used may be a ref model</param>
 '''  <param name="pixs">[in] - initial pix reference for alignment and debugging</param>
@@ -22499,6 +23134,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpMinimize/*"/>
 '''  <param name="dew">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function dewarpMinimize(
@@ -22537,6 +23173,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpPopulateFullRes/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="pix">[in][optional] - , to give size of actual image</param>
 '''  <param name="x">[in] - origin for generation of disparity arrays</param>
@@ -22572,6 +23209,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpSinglePage/*"/>
 '''  <param name="pixs">[in] - with text, any depth</param>
 '''  <param name="thresh">[in] - for global thresholding to 1 bpp ignored otherwise</param>
 '''  <param name="adaptive">[in] - 1 for adaptive thresholding 0 for global threshold</param>
@@ -22623,6 +23261,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpSinglePageInit/*"/>
 '''  <param name="pixs">[in] - with text, any depth</param>
 '''  <param name="thresh">[in] - for global thresholding to 1 bpp ignored otherwise</param>
 '''  <param name="adaptive">[in] - 1 for adaptive thresholding 0 for global threshold</param>
@@ -22666,6 +23305,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpSinglePageRun/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="pixb">[in] - 1 bpp</param>
 '''  <param name="dewa">[in] - initialized</param>
@@ -22708,6 +23348,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaListPages/*"/>
 '''  <param name="dewa">[in] - populated with dewarp structs for pages</param>
 '''   <returns>0 if OK, 1 on error list of page numbers, or NULL on error</returns>
 Public Shared Function dewarpaListPages(
@@ -22740,6 +23381,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaSetValidModels/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="notests">[in] - </param>
 '''  <param name="debug">[in] - 1 to output information on invalid page models</param>
@@ -22792,6 +23434,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaInsertRefModels/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="notests">[in] - if 1, ignore curvature constraints on model</param>
 '''  <param name="debug">[in] - 1 to output information on invalid page models</param>
@@ -22821,6 +23464,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaStripRefModels/*"/>
 '''  <param name="dewa">[in] - populated with dewarp structs for pages</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function dewarpaStripRefModels(
@@ -22848,6 +23492,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaRestoreModels/*"/>
 '''  <param name="dewa">[in] - populated with dewarp structs for pages</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function dewarpaRestoreModels(
@@ -22865,6 +23510,7 @@ End Function
 ' dewarpaInfo(FILE *, L_DEWARPA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaInfo/*"/>
 '''  <param name="fp">[in] - </param>
 '''  <param name="dewa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -22908,6 +23554,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaModelStats/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="pnnone">[out][optional] - number without any model</param>
 '''  <param name="pnvsuccess">[out][optional] - number with a vert model</param>
@@ -22943,6 +23590,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaShowArrays/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="scalefact">[in] - on contour images typ. 0.5</param>
 '''  <param name="first">[in] - first page model to render</param>
@@ -22973,6 +23621,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpDebug/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="subdirs">[in] - one or more subdirectories of /tmp e.g., "dew1"</param>
 '''  <param name="index">[in] - to help label output images e.g., the page number</param>
@@ -23005,6 +23654,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpShowResults/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="sa">[in] - of indexed input images</param>
 '''  <param name="boxa">[in] - crop boxes for input images can be null</param>
@@ -23037,6 +23687,7 @@ End Function
 ' l_dnaCreate(l_int32) as L_DNA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaCreate/*"/>
 '''  <param name="n">[in] - size of number array to be alloc'd 0 for default</param>
 '''   <returns>da, or NULL on error</returns>
 Public Shared Function l_dnaCreate(
@@ -23061,6 +23712,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaCreateFromIArray/*"/>
 '''  <param name="iarray">[in] - integer</param>
 '''  <param name="size">[in] - of the array</param>
 '''   <returns>da, or NULL on error</returns>
@@ -23088,6 +23740,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaCreateFromDArray/*"/>
 '''  <param name="darray">[in] - float</param>
 '''  <param name="size">[in] - of the array</param>
 '''  <param name="copyflag">[in] - L_INSERT or L_COPY</param>
@@ -23110,6 +23763,7 @@ End Function
 ' l_dnaMakeSequence(l_float64, l_float64, l_int32) as L_DNA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaMakeSequence/*"/>
 '''  <param name="startval">[in] - </param>
 '''  <param name="increment">[in] - </param>
 '''  <param name="size">[in] - of sequence</param>
@@ -23139,6 +23793,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaDestroy/*"/>
 '''  <param name="pda">[in,out] - to be nulled if it exists</param>
 Public Shared Sub l_dnaDestroy(
 				 ByRef pda as L_Dna)
@@ -23160,6 +23815,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaCopy/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>copy of da, or NULL on error</returns>
 Public Shared Function l_dnaCopy(
@@ -23178,6 +23834,7 @@ End Function
 ' l_dnaClone(L_DNA *) as L_DNA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaClone/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>ptr to same da, or NULL on error</returns>
 Public Shared Function l_dnaClone(
@@ -23203,6 +23860,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaEmpty/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function l_dnaEmpty(
@@ -23220,6 +23878,7 @@ End Function
 ' l_dnaAddNumber(L_DNA *, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaAddNumber/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="val">[in] - float or int to be added stored as a float</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -23248,6 +23907,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaInsertNumber/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - location in da to insert new value</param>
 '''  <param name="val">[in] - float64 or integer to be added</param>
@@ -23277,6 +23937,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaRemoveNumber/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - element to be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -23296,6 +23957,7 @@ End Function
 ' l_dnaReplaceNumber(L_DNA *, l_int32, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaReplaceNumber/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - element to be replaced</param>
 '''  <param name="val">[in] - new value to replace old one</param>
@@ -23318,6 +23980,7 @@ End Function
 ' l_dnaGetCount(L_DNA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetCount/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>count, or 0 if no numbers or on error</returns>
 Public Shared Function l_dnaGetCount(
@@ -23344,6 +24007,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaSetCount/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="newcount">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -23369,6 +24033,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetDValue/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - into l_dna</param>
 '''  <param name="pval">[out] - double value 0.0 on error</param>
@@ -23396,6 +24061,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetIValue/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - into l_dna</param>
 '''  <param name="pival">[out] - integer value 0 on error</param>
@@ -23417,6 +24083,7 @@ End Function
 ' l_dnaSetValue(L_DNA *, l_int32, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaSetValue/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - to element to be set</param>
 '''  <param name="val">[in] - to set element</param>
@@ -23439,6 +24106,7 @@ End Function
 ' l_dnaShiftValue(L_DNA *, l_int32, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaShiftValue/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - to element to change relative to the current value</param>
 '''  <param name="diff">[in] - increment if diff  is greater  0 or decrement if diff  is lower  0</param>
@@ -23474,6 +24142,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetIArray/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>a copy of the bare internal array, integerized by rounding, or NULL on error</returns>
 Public Shared Function l_dnaGetIArray(
@@ -23505,6 +24174,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetDArray/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="copyflag">[in] - L_NOCOPY or L_COPY</param>
 '''   <returns>either the bare internal array or a copy of it, or NULL on error</returns>
@@ -23524,6 +24194,7 @@ End Function
 ' l_dnaGetRefcount(L_DNA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetRefcount/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>refcount, or UNDEF on error</returns>
 Public Shared Function l_dnaGetRefcount(
@@ -23541,6 +24212,7 @@ End Function
 ' l_dnaChangeRefcount(L_DNA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaChangeRefcount/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="delta">[in] - change to be applied</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -23560,6 +24232,7 @@ End Function
 ' l_dnaGetParameters(L_DNA *, l_float64 *, l_float64 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetParameters/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="pstartx">[out][optional] - startx</param>
 '''  <param name="pdelx">[out][optional] - delx</param>
@@ -23581,6 +24254,7 @@ End Function
 ' l_dnaSetParameters(L_DNA *, l_float64, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaSetParameters/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="startx">[in] - x value corresponding to da[0]</param>
 '''  <param name="delx">[in] - difference in x values for the situation where the elements of da correspond to the evaulation of a function at equal intervals of size %delx</param>
@@ -23604,6 +24278,7 @@ End Function
 ' l_dnaCopyParameters(L_DNA *, L_DNA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaCopyParameters/*"/>
 '''  <param name="dad">[in] - destination DNuma</param>
 '''  <param name="das">[in] - source DNuma</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -23624,6 +24299,7 @@ End Function
 ' l_dnaRead(const char *) as L_DNA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>da, or NULL on error</returns>
 Public Shared Function l_dnaRead(
@@ -23649,6 +24325,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>da, or NULL on error</returns>
 Public Shared Function l_dnaReadStream(
@@ -23667,6 +24344,7 @@ End Function
 ' l_dnaWrite(const char *, L_DNA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="da">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -23689,6 +24367,7 @@ End Function
 ' l_dnaWriteStream(FILE *, L_DNA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="da">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -23709,6 +24388,7 @@ End Function
 ' l_dnaaCreate(l_int32) as L_DNAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaCreate/*"/>
 '''  <param name="n">[in] - size of l_dna ptr array to be alloc'd 0 for default</param>
 '''   <returns>daa, or NULL on error</returns>
 Public Shared Function l_dnaaCreate(
@@ -23733,6 +24413,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaCreateFull/*"/>
 '''  <param name="nptr">[in] - : size of dna ptr array to be alloc'd</param>
 '''  <param name="n">[in] - : size of individual dna arrays to be alloc'd 0 for default</param>
 '''   <returns>daa, or NULL on error</returns>
@@ -23758,6 +24439,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaTruncate/*"/>
 '''  <param name="daa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function l_dnaaTruncate(
@@ -23775,6 +24457,7 @@ End Function
 ' l_dnaaDestroy(L_DNAA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaDestroy/*"/>
 '''  <param name="pdaa">[in,out] - to be nulled if it exists</param>
 Public Shared Sub l_dnaaDestroy(
 				 ByRef pdaa as L_Dnaa)
@@ -23791,6 +24474,7 @@ End Sub
 ' l_dnaaAddDna(L_DNAA *, L_DNA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaAddDna/*"/>
 '''  <param name="daa">[in] - </param>
 '''  <param name="da">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -23813,6 +24497,7 @@ End Function
 ' l_dnaaGetCount(L_DNAA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaGetCount/*"/>
 '''  <param name="daa">[in] - </param>
 '''   <returns>count number of l_dna, or 0 if no l_dna or on error</returns>
 Public Shared Function l_dnaaGetCount(
@@ -23830,6 +24515,7 @@ End Function
 ' l_dnaaGetDnaCount(L_DNAA *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaGetDnaCount/*"/>
 '''  <param name="daa">[in] - </param>
 '''  <param name="index">[in] - of l_dna in daa</param>
 '''   <returns>count of numbers in the referenced l_dna, or 0 on error.</returns>
@@ -23849,6 +24535,7 @@ End Function
 ' l_dnaaGetNumberCount(L_DNAA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaGetNumberCount/*"/>
 '''  <param name="daa">[in] - </param>
 '''   <returns>count total number of numbers in the l_dnaa, or 0 if no numbers or on error</returns>
 Public Shared Function l_dnaaGetNumberCount(
@@ -23866,6 +24553,7 @@ End Function
 ' l_dnaaGetDna(L_DNAA *, l_int32, l_int32) as L_DNA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaGetDna/*"/>
 '''  <param name="daa">[in] - </param>
 '''  <param name="index">[in] - to the index-th l_dna</param>
 '''  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
@@ -23895,6 +24583,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaReplaceDna/*"/>
 '''  <param name="daa">[in] - </param>
 '''  <param name="index">[in] - to the index-th l_dna</param>
 '''  <param name="da">[in] - insert and replace any existing one</param>
@@ -23917,6 +24606,7 @@ End Function
 ' l_dnaaGetValue(L_DNAA *, l_int32, l_int32, l_float64 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaGetValue/*"/>
 '''  <param name="daa">[in] - </param>
 '''  <param name="i">[in] - index of l_dna within l_dnaa</param>
 '''  <param name="j">[in] - index into l_dna</param>
@@ -23945,6 +24635,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaAddNumber/*"/>
 '''  <param name="daa">[in] - </param>
 '''  <param name="index">[in] - of l_dna within l_dnaa</param>
 '''  <param name="val">[in] - number to be added stored as a double</param>
@@ -23967,6 +24658,7 @@ End Function
 ' l_dnaaRead(const char *) as L_DNAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>daa, or NULL on error</returns>
 Public Shared Function l_dnaaRead(
@@ -23987,6 +24679,7 @@ End Function
 ' l_dnaaReadStream(FILE *) as L_DNAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>daa, or NULL on error</returns>
 Public Shared Function l_dnaaReadStream(
@@ -24005,6 +24698,7 @@ End Function
 ' l_dnaaWrite(const char *, L_DNAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="daa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -24027,6 +24721,7 @@ End Function
 ' l_dnaaWriteStream(FILE *, L_DNAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="daa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -24056,6 +24751,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaJoin/*"/>
 '''  <param name="dad">[in] - dest dna add to this one</param>
 '''  <param name="das">[in][optional] - source dna add from this one</param>
 '''  <param name="istart">[in] - starting index in das</param>
@@ -24088,6 +24784,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaFlattenToDna/*"/>
 '''  <param name="daa">[in] - </param>
 '''   <returns>dad, or NULL on error</returns>
 Public Shared Function l_dnaaFlattenToDna(
@@ -24106,6 +24803,7 @@ End Function
 ' l_dnaConvertToNuma(L_DNA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaConvertToNuma/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>na, or NULL on error</returns>
 Public Shared Function l_dnaConvertToNuma(
@@ -24124,6 +24822,7 @@ End Function
 ' numaConvertToDna(NUMA *) as L_DNA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaConvertToDna/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>da, or NULL on error</returns>
 Public Shared Function numaConvertToDna(
@@ -24150,6 +24849,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaUnionByAset/*"/>
 '''  <param name="da1">[in] - </param>
 '''  <param name="da2">[in] - </param>
 '''   <returns>dad with the union of the set of numbers, or NULL on error</returns>
@@ -24171,6 +24871,7 @@ End Function
 ' l_dnaRemoveDupsByAset(L_DNA *) as L_DNA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaRemoveDupsByAset/*"/>
 '''  <param name="das">[in] - </param>
 '''   <returns>dad with duplicates removed, or NULL on error</returns>
 Public Shared Function l_dnaRemoveDupsByAset(
@@ -24197,6 +24898,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaIntersectionByAset/*"/>
 '''  <param name="da1">[in] - </param>
 '''  <param name="da2">[in] - </param>
 '''   <returns>dad with the intersection of the two arrays, or NULL on error</returns>
@@ -24218,6 +24920,7 @@ End Function
 ' l_asetCreateFromDna(L_DNA *) as L_ASET *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetCreateFromDna/*"/>
 '''  <param name="da">[in] - source dna</param>
 '''   <returns>set using the doubles in %da as keys</returns>
 Public Shared Function l_asetCreateFromDna(
@@ -24236,6 +24939,7 @@ End Function
 ' l_dnaDiffAdjValues(L_DNA *) as L_DNA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaDiffAdjValues/*"/>
 '''  <param name="das">[in] - input l_dna</param>
 '''   <returns>dad of difference values val[i+1] - val[i], or NULL on error</returns>
 Public Shared Function l_dnaDiffAdjValues(
@@ -24261,6 +24965,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashCreate/*"/>
 '''  <param name="nbuckets">[in] - the number of buckets in the hash table, which should be prime.</param>
 '''  <param name="initsize">[in] - initial size of each allocated dna 0 for default</param>
 '''   <returns>ptr to new dnahash, or NULL on error</returns>
@@ -24279,6 +24984,7 @@ End Function
 ' l_dnaHashDestroy(L_DNAHASH **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashDestroy/*"/>
 '''  <param name="pdahash">[in,out] - to be nulled, if it exists</param>
 Public Shared Sub l_dnaHashDestroy(
 				 ByRef pdahash as L_DnaHash)
@@ -24295,6 +25001,7 @@ End Sub
 ' l_dnaHashGetCount(L_DNAHASH *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashGetCount/*"/>
 '''  <param name="dahash">[in] - </param>
 '''   <returns>nbuckets allocated, or 0 on error</returns>
 Public Shared Function l_dnaHashGetCount(
@@ -24312,6 +25019,7 @@ End Function
 ' l_dnaHashGetTotalCount(L_DNAHASH *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashGetTotalCount/*"/>
 '''  <param name="dahash">[in] - </param>
 '''   <returns>n number of numbers in all dna, or 0 on error</returns>
 Public Shared Function l_dnaHashGetTotalCount(
@@ -24329,6 +25037,7 @@ End Function
 ' l_dnaHashGetDna(L_DNAHASH *, l_uint64, l_int32) as L_DNA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashGetDna/*"/>
 '''  <param name="dahash">[in] - </param>
 '''  <param name="key">[in] - key to be hashed into a bucket number</param>
 '''  <param name="copyflag">[in] - L_NOCOPY, L_COPY, L_CLONE</param>
@@ -24352,6 +25061,7 @@ End Function
 ' l_dnaHashAdd(L_DNAHASH *, l_uint64, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashAdd/*"/>
 '''  <param name="dahash">[in] - </param>
 '''  <param name="key">[in] - key to be hashed into a bucket number</param>
 '''  <param name="value">[in] - float value to be appended to the specific dna</param>
@@ -24381,6 +25091,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashCreateFromDna/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>dahash if OK 1 on error</returns>
 Public Shared Function l_dnaHashCreateFromDna(
@@ -24407,6 +25118,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaRemoveDupsByHash/*"/>
 '''  <param name="das">[in] - </param>
 '''  <param name="pdad">[out] - hash set</param>
 '''  <param name="pdahash">[out][optional] - dnahash used for lookup</param>
@@ -24450,6 +25162,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaMakeHistoByHash/*"/>
 '''  <param name="das">[in] - </param>
 '''  <param name="pdahash">[out] - hash map: val -- is greater  index</param>
 '''  <param name="pdav">[out] - array of values: index -- is greater  val</param>
@@ -24486,6 +25199,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaIntersectionByHash/*"/>
 '''  <param name="da1">[in] - </param>
 '''  <param name="da2">[in] - </param>
 '''   <returns>dad intersection of the number arrays, or NULL on error</returns>
@@ -24514,6 +25228,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaFindValByHash/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="dahash">[in] - containing indices into %da</param>
 '''  <param name="val">[in] - searching for this number in %da</param>
@@ -24550,6 +25265,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMorphDwa_2/*"/>
 '''  <param name="pixd">[in] - usual 3 choices: null, == pixs, != pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="operation">[in] - L_MORPH_DILATE, L_MORPH_ERODE, L_MORPH_OPEN, L_MORPH_CLOSE</param>
@@ -24590,6 +25306,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFMorphopGen_2/*"/>
 '''  <param name="pixd">[in] - usual 3 choices: null, == pixs, != pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="operation">[in] - L_MORPH_DILATE, L_MORPH_ERODE, L_MORPH_OPEN, L_MORPH_CLOSE</param>
@@ -24617,6 +25334,7 @@ End Function
 ' fmorphopgen_low_2(l_uint32 *, l_int32, l_int32, l_int32, l_uint32 *, l_int32, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fmorphopgen_low_2/*"/>
 '''   <returns></returns>
 Public Shared Function fmorphopgen_low_2(
 				 ByVal datad as Object, 
@@ -24658,6 +25376,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSobelEdgeFilter/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="orientflag">[in] - L_HORIZONTAL_EDGES, L_VERTICAL_EDGES, L_ALL_EDGES</param>
 '''   <returns>pixd 8 bpp, edges are brighter, or NULL on error</returns>
@@ -24699,6 +25418,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTwoSidedEdgeFilter/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="orientflag">[in] - L_HORIZONTAL_EDGES, L_VERTICAL_EDGES</param>
 '''   <returns>pixd 8 bpp, edges are brighter, or NULL on error</returns>
@@ -24735,6 +25455,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMeasureEdgeSmoothness/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="side">[in] - L_FROM_LEFT, L_FROM_RIGHT, L_FROM_TOP, L_FROM_BOT</param>
 '''  <param name="minjump">[in] - minimum jump to be counted  is greater = 1</param>
@@ -24768,6 +25489,7 @@ End Function
 ' pixGetEdgeProfile(PIX *, l_int32, const char *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetEdgeProfile/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="side">[in] - L_FROM_LEFT, L_FROM_RIGHT, L_FROM_TOP, L_FROM_BOT</param>
 '''  <param name="debugfile">[in][optional] - displays constructed edge use NULL for no output</param>
@@ -24792,6 +25514,7 @@ End Function
 ' pixGetLastOffPixelInRun(PIX *, l_int32, l_int32, l_int32, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetLastOffPixelInRun/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetLastOffPixelInRun(
 				 ByVal pixs as Pix, 
@@ -24815,6 +25538,7 @@ End Function
 ' pixGetLastOnPixelInRun(PIX *, l_int32, l_int32, l_int32, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetLastOnPixelInRun/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetLastOnPixelInRun(
 				 ByVal pixs as Pix, 
@@ -24847,6 +25571,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/encodeBase64/*"/>
 '''  <param name="inarray">[in] - input binary data</param>
 '''  <param name="insize">[in] - number of bytes in input array</param>
 '''  <param name="poutsize">[out] - number of bytes in output char array</param>
@@ -24879,6 +25604,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/decodeBase64/*"/>
 '''  <param name="inarray">[in] - input encoded char data, with 72 chars/line)</param>
 '''  <param name="insize">[in] - number of bytes in input array</param>
 '''  <param name="poutsize">[out] - number of bytes in output byte array</param>
@@ -24907,6 +25633,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/encodeAscii85/*"/>
 '''  <param name="inarray">[in] - input data</param>
 '''  <param name="insize">[in] - number of bytes in input array</param>
 '''  <param name="poutsize">[out] - number of bytes in output char array</param>
@@ -24936,6 +25663,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/decodeAscii85/*"/>
 '''  <param name="inarray">[in] - ascii85 input data</param>
 '''  <param name="insize">[in] - number of bytes in input array</param>
 '''  <param name="poutsize">[out] - number of bytes in output l_uint8 array</param>
@@ -24967,6 +25695,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/reformatPacked64/*"/>
 '''  <param name="inarray">[in] - base64 encoded string with newlines</param>
 '''  <param name="insize">[in] - number of bytes in input array</param>
 '''  <param name="leadspace">[in] - number of spaces in each line before the data</param>
@@ -25027,6 +25756,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGammaTRC/*"/>
 '''  <param name="pixd">[in][optional] - null or equal to pixs</param>
 '''  <param name="pixs">[in] - 8 or 32 bpp or 2, 4 or 8 bpp with colormap</param>
 '''  <param name="gamma">[in] - gamma correction must be  is greater  0.0</param>
@@ -25063,6 +25793,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGammaTRCMasked/*"/>
 '''  <param name="pixd">[in][optional] - null or equal to pixs</param>
 '''  <param name="pixs">[in] - 8 or 32 bpp not colormapped</param>
 '''  <param name="pixm">[in][optional] - null or 1 bpp</param>
@@ -25101,6 +25832,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGammaTRCWithAlpha/*"/>
 '''  <param name="pixd">[in][optional] - null or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="gamma">[in] - gamma correction must be  is greater  0.0</param>
@@ -25140,6 +25872,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGammaTRC/*"/>
 '''  <param name="gamma">[in] - gamma factor must be  is greater  0.0</param>
 '''  <param name="minval">[in] - input value that gives 0 for output</param>
 '''  <param name="maxval">[in] - input value that gives 255 for output</param>
@@ -25181,6 +25914,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixContrastTRC/*"/>
 '''  <param name="pixd">[in][optional] - null or equal to pixs</param>
 '''  <param name="pixs">[in] - 8 or 32 bpp or 2, 4 or 8 bpp with colormap</param>
 '''  <param name="factor">[in] - 0.0 is no enhancement</param>
@@ -25213,6 +25947,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixContrastTRCMasked/*"/>
 '''  <param name="pixd">[in][optional] - null or equal to pixs</param>
 '''  <param name="pixs">[in] - 8 or 32 bpp or 2, 4 or 8 bpp with colormap</param>
 '''  <param name="pixm">[in][optional] - null or 1 bpp</param>
@@ -25249,6 +25984,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaContrastTRC/*"/>
 '''  <param name="factor">[in] - generally between 0.0 [no enhancement] and 1.0, but can be larger than 1.0</param>
 '''   <returns>na, or NULL on error</returns>
 Public Shared Function numaContrastTRC(
@@ -25289,6 +26025,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixEqualizeTRC/*"/>
 '''  <param name="pixd">[in][optional] - null or equal to pixs</param>
 '''  <param name="pixs">[in] - 8 bpp gray, 32 bpp rgb, or colormapped</param>
 '''  <param name="fract">[in] - fraction of equalization movement of pixel values</param>
@@ -25325,6 +26062,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaEqualizeTRC/*"/>
 '''  <param name="pix">[in] - 8 bpp, no colormap</param>
 '''  <param name="fract">[in] - fraction of equalization movement of pixel values</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
@@ -25360,6 +26098,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTRCMap/*"/>
 '''  <param name="pixs">[in] - 8 grayscale or 32 bpp rgb not colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask</param>
 '''  <param name="na">[in] - mapping array</param>
@@ -25394,6 +26133,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUnsharpMasking/*"/>
 '''  <param name="pixs">[in] - all depths except 1 bpp with or without colormaps</param>
 '''  <param name="halfwidth">[in] - "half-width" of smoothing filter</param>
 '''  <param name="fract">[in] - fraction of edge added back into image</param>
@@ -25426,6 +26166,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUnsharpMaskingGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="halfwidth">[in] - "half-width" of smoothing filter</param>
 '''  <param name="fract">[in] - fraction of edge added back into image</param>
@@ -25477,6 +26218,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUnsharpMaskingFast/*"/>
 '''  <param name="pixs">[in] - all depths except 1 bpp with or without colormaps</param>
 '''  <param name="halfwidth">[in] - "half-width" of smoothing filter 1 and 2 only</param>
 '''  <param name="fract">[in] - fraction of high frequency added to image</param>
@@ -25508,6 +26250,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUnsharpMaskingGrayFast/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="halfwidth">[in] - "half-width" of smoothing filter: 1 or 2</param>
 '''  <param name="fract">[in] - fraction of high frequency added to image</param>
@@ -25539,6 +26282,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUnsharpMaskingGray1D/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="halfwidth">[in] - "half-width" of smoothing filter: 1 or 2</param>
 '''  <param name="fract">[in] - fraction of high frequency added to image</param>
@@ -25570,6 +26314,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUnsharpMaskingGray2D/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="halfwidth">[in] - "half-width" of smoothing filter: 1 or 2</param>
 '''  <param name="fract">[in] - fraction of high frequency added to image</param>
@@ -25606,6 +26351,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixModifyHue/*"/>
 '''  <param name="pixd">[in][optional] - can be null or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="fract">[in] - between -1.0 and 1.0</param>
@@ -25645,6 +26391,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixModifySaturation/*"/>
 '''  <param name="pixd">[in][optional] - can be null, existing or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="fract">[in] - between -1.0 and 1.0</param>
@@ -25671,6 +26418,7 @@ End Function
 ' pixMeasureSaturation(PIX *, l_int32, l_float32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMeasureSaturation/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
 '''  <param name="psat">[out] - average saturation</param>
@@ -25707,6 +26455,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixModifyBrightness/*"/>
 '''  <param name="pixd">[in][optional] - can be null, existing or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="fract">[in] - between -1.0 and 1.0</param>
@@ -25749,6 +26498,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMosaicColorShiftRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="roff">[in] - center offset of red component</param>
 '''  <param name="goff">[in] - center offset of green component</param>
@@ -25795,6 +26545,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorShiftRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="rfract">[in] - fractional shift in red component</param>
 '''  <param name="gfract">[in] - fractional shift in green component</param>
@@ -25836,6 +26587,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDarkenGray/*"/>
 '''  <param name="pixd">[in][optional] - can be null or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="thresh">[in] - pixels with max component  is greater = %thresh are unchanged</param>
@@ -25873,6 +26625,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMultConstantColor/*"/>
 '''  <param name="pixs">[in] - colormapped or rgb</param>
 '''  <param name="rfact">[in] - red multiplicative factor</param>
 '''  <param name="gfact">[in] - green multiplicative factor</param>
@@ -25923,6 +26676,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMultMatrixColor/*"/>
 '''  <param name="pixs">[in] - colormapped or rgb</param>
 '''  <param name="kel">[in] - kernel 3x3 matrix of floats</param>
 '''   <returns>pixd colormapped or rgb, or NULL on error</returns>
@@ -25967,6 +26721,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHalfEdgeByBandpass/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="sm1h">[in] - "half-widths" of smoothing filter sm1</param>
 '''  <param name="sm1v">[in] - "half-widths" of smoothing filter sm1</param>
@@ -26002,6 +26757,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fhmtautogen/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="fileindex">[in] - </param>
 '''  <param name="filename">[in][optional] - can be null</param>
@@ -26040,6 +26796,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fhmtautogen1/*"/>
 '''  <param name="sela">[in] - array</param>
 '''  <param name="fileindex">[in] - </param>
 '''  <param name="filename">[in][optional] - can be null</param>
@@ -26076,6 +26833,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fhmtautogen2/*"/>
 '''  <param name="sela">[in] - array</param>
 '''  <param name="fileindex">[in] - </param>
 '''  <param name="filename">[in][optional] - can be null</param>
@@ -26108,6 +26866,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHMTDwa_1/*"/>
 '''  <param name="pixd">[in] - usual 3 choices: null, == pixs, != pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd</returns>
@@ -26144,6 +26903,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFHMTGen_1/*"/>
 '''  <param name="pixd">[in] - usual 3 choices: null, == pixs, != pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd</returns>
@@ -26169,6 +26929,7 @@ End Function
 ' fhmtgen_low_1(l_uint32 *, l_int32, l_int32, l_int32, l_uint32 *, l_int32, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fhmtgen_low_1/*"/>
 '''   <returns></returns>
 Public Shared Function fhmtgen_low_1(
 				 ByVal datad as Object, 
@@ -26216,6 +26977,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixItalicWords/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="boxaw">[in][optional] - word bounding boxes can be NULL</param>
 '''  <param name="pixw">[in][optional] - word box mask can be NULL</param>
@@ -26261,6 +27023,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOrientCorrect/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text, 150 - 300 ppi</param>
 '''  <param name="minupconf">[in] - minimum value for which a decision can be made</param>
 '''  <param name="minratio">[in] - minimum conf ratio required for a decision</param>
@@ -26339,6 +27102,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOrientDetect/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text, 150 - 300 ppi</param>
 '''  <param name="pupconf">[out][optional] - may be NULL</param>
 '''  <param name="pleftconf">[out][optional] - may be NULL</param>
@@ -26382,6 +27146,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeOrientDecision/*"/>
 '''  <param name="upconf">[in] - nonzero</param>
 '''  <param name="leftconf">[in] - nonzero</param>
 '''  <param name="minupconf">[in] - minimum value for which a decision can be made</param>
@@ -26419,6 +27184,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUpDownDetect/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text, 150 - 300 ppi</param>
 '''  <param name="pconf">[out] - confidence that text is rightside-up</param>
 '''  <param name="mincount">[in] - min number of up + down use 0 for default</param>
@@ -26470,6 +27236,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUpDownDetectGeneral/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text, 150 - 300 ppi</param>
 '''  <param name="pconf">[out] - confidence that text is rightside-up</param>
 '''  <param name="mincount">[in] - min number of up + down use 0 for default</param>
@@ -26506,6 +27273,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOrientDetectDwa/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text</param>
 '''  <param name="pupconf">[out][optional] - may be NULL</param>
 '''  <param name="pleftconf">[out][optional] - may be NULL</param>
@@ -26545,6 +27313,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUpDownDetectDwa/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text, 150 - 300 ppi</param>
 '''  <param name="pconf">[out] - confidence that text is rightside-up</param>
 '''  <param name="mincount">[in] - min number of up + down use 0 for default</param>
@@ -26573,6 +27342,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUpDownDetectGeneralDwa/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text</param>
 '''  <param name="pconf">[out] - confidence that text is rightside-up</param>
 '''  <param name="mincount">[in] - min number of up + down use 0 for default</param>
@@ -26628,6 +27398,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMirrorDetect/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text</param>
 '''  <param name="pconf">[out] - confidence that text is not LR mirror reversed</param>
 '''  <param name="mincount">[in] - min number of left + right use 0 for default</param>
@@ -26658,6 +27429,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMirrorDetectDwa/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text</param>
 '''  <param name="pconf">[out] - confidence that text is not LR mirror reversed</param>
 '''  <param name="mincount">[in] - min number of left + right use 0 for default</param>
@@ -26683,6 +27455,7 @@ End Function
 ' pixFlipFHMTGen(PIX *, PIX *, const char *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFlipFHMTGen/*"/>
 '''   <returns></returns>
 Public Shared Function pixFlipFHMTGen(
 				 ByVal pixd as Pix, 
@@ -26716,6 +27489,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fmorphautogen/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="fileindex">[in] - </param>
 '''  <param name="filename">[in][optional] - can be null</param>
@@ -26752,6 +27526,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fmorphautogen1/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="fileindex">[in] - </param>
 '''  <param name="filename">[in][optional] - can be null</param>
@@ -26775,6 +27550,7 @@ End Function
 ' fmorphautogen2(SELA *, l_int32, const char *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fmorphautogen2/*"/>
 '''   <returns></returns>
 Public Shared Function fmorphautogen2(
 				 ByVal sela as Sela, 
@@ -26809,6 +27585,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMorphDwa_1/*"/>
 '''  <param name="pixd">[in] - usual 3 choices: null, == pixs, != pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="operation">[in] - L_MORPH_DILATE, L_MORPH_ERODE, L_MORPH_OPEN, L_MORPH_CLOSE</param>
@@ -26849,6 +27626,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFMorphopGen_1/*"/>
 '''  <param name="pixd">[in] - usual 3 choices: null, == pixs, != pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="operation">[in] - L_MORPH_DILATE, L_MORPH_ERODE, L_MORPH_OPEN, L_MORPH_CLOSE</param>
@@ -26876,6 +27654,7 @@ End Function
 ' fmorphopgen_low_1(l_uint32 *, l_int32, l_int32, l_int32, l_uint32 *, l_int32, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fmorphopgen_low_1/*"/>
 '''   <returns></returns>
 Public Shared Function fmorphopgen_low_1(
 				 ByVal datad as Object, 
@@ -26908,6 +27687,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixCreate/*"/>
 '''  <param name="width">[in] - </param>
 '''  <param name="height">[in] - </param>
 '''   <returns>fpixd   with data allocated and initialized to 0, or NULL on error</returns>
@@ -26933,6 +27713,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixCreateTemplate/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>fpixd, or NULL on error</returns>
 Public Shared Function fpixCreateTemplate(
@@ -26956,6 +27737,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixClone/*"/>
 '''  <param name="fpix">[in] - </param>
 '''   <returns>same fpix ptr, or NULL on error</returns>
 Public Shared Function fpixClone(
@@ -26996,6 +27778,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixCopy/*"/>
 '''  <param name="fpixd">[in][optional] - can be null, or equal to fpixs, or different from fpixs</param>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>fpixd, or NULL on error</returns>
@@ -27026,6 +27809,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixResizeImageData/*"/>
 '''  <param name="fpixd">[in] - </param>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -27052,6 +27836,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixDestroy/*"/>
 '''  <param name="pfpix">[in,out] - will be nulled</param>
 Public Shared Sub fpixDestroy(
 				 ByRef pfpix as FPix)
@@ -27068,6 +27853,7 @@ End Sub
 ' fpixGetDimensions(FPIX *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixGetDimensions/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="pw">[out][optional] - each can be null</param>
 '''  <param name="ph">[out][optional] - each can be null</param>
@@ -27089,6 +27875,7 @@ End Function
 ' fpixSetDimensions(FPIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixSetDimensions/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="w">[in] - </param>
 '''  <param name="h">[in] - </param>
@@ -27110,6 +27897,7 @@ End Function
 ' fpixGetWpl(FPIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixGetWpl/*"/>
 '''  <param name="fpix">[in] - </param>
 '''   <returns>wpl, or UNDEF on error</returns>
 Public Shared Function fpixGetWpl(
@@ -27127,6 +27915,7 @@ End Function
 ' fpixSetWpl(FPIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixSetWpl/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="wpl">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -27146,6 +27935,7 @@ End Function
 ' fpixGetRefcount(FPIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixGetRefcount/*"/>
 '''  <param name="fpix">[in] - </param>
 '''   <returns>refcount, or UNDEF on error</returns>
 Public Shared Function fpixGetRefcount(
@@ -27163,6 +27953,7 @@ End Function
 ' fpixChangeRefcount(FPIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixChangeRefcount/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="delta">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -27182,6 +27973,7 @@ End Function
 ' fpixGetResolution(FPIX *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixGetResolution/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="pxres">[out][optional] - x and y resolution</param>
 '''  <param name="pyres">[out][optional] - x and y resolution</param>
@@ -27203,6 +27995,7 @@ End Function
 ' fpixSetResolution(FPIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixSetResolution/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="xres">[in] - x and y resolution</param>
 '''  <param name="yres">[in] - x and y resolution</param>
@@ -27224,6 +28017,7 @@ End Function
 ' fpixCopyResolution(FPIX *, FPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixCopyResolution/*"/>
 '''  <param name="fpixd">[in] - </param>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -27244,6 +28038,7 @@ End Function
 ' fpixGetData(FPIX *) as l_float32 *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixGetData/*"/>
 '''  <param name="fpix">[in] - </param>
 '''   <returns>ptr FPix::data, or NULL on error</returns>
 Public Shared Function fpixGetData(
@@ -27261,6 +28056,7 @@ End Function
 ' fpixSetData(FPIX *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixSetData/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="data">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -27281,6 +28077,7 @@ End Function
 ' fpixGetPixel(FPIX *, l_int32, l_int32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixGetPixel/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="x">[in] - ,y pixel coords</param>
 '''  <param name="pval">[out] - pixel value</param>
@@ -27303,6 +28100,7 @@ End Function
 ' fpixSetPixel(FPIX *, l_int32, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixSetPixel/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="x">[in] - ,y pixel coords</param>
 '''  <param name="val">[in] - pixel value</param>
@@ -27325,6 +28123,7 @@ End Function
 ' fpixaCreate(l_int32) as FPIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaCreate/*"/>
 '''  <param name="n">[in] - initial number of ptrs</param>
 '''   <returns>fpixa, or NULL on error</returns>
 Public Shared Function fpixaCreate(
@@ -27349,6 +28148,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaCopy/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="copyflag">[in] - L_COPY, L_CLODE or L_COPY_CLONE</param>
 '''   <returns>new fpixa, or NULL on error</returns>
@@ -27375,6 +28175,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaDestroy/*"/>
 '''  <param name="pfpixa">[in,out] - to be nulled</param>
 Public Shared Sub fpixaDestroy(
 				 ByRef pfpixa as FPixa)
@@ -27391,6 +28192,7 @@ End Sub
 ' fpixaAddFPix(FPIXA *, FPIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaAddFPix/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="fpix">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -27413,6 +28215,7 @@ End Function
 ' fpixaGetCount(FPIXA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaGetCount/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''   <returns>count, or 0 if no pixa</returns>
 Public Shared Function fpixaGetCount(
@@ -27430,6 +28233,7 @@ End Function
 ' fpixaChangeRefcount(FPIXA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaChangeRefcount/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="delta">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -27449,6 +28253,7 @@ End Function
 ' fpixaGetFPix(FPIXA *, l_int32, l_int32) as FPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaGetFPix/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th fpix</param>
 '''  <param name="accesstype">[in] - L_COPY or L_CLONE</param>
@@ -27471,6 +28276,7 @@ End Function
 ' fpixaGetFPixDimensions(FPIXA *, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaGetFPixDimensions/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="pw">[out][optional] - each can be null</param>
@@ -27494,6 +28300,7 @@ End Function
 ' fpixaGetData(FPIXA *, l_int32) as l_float32 *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaGetData/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="index">[in] - into fpixa array</param>
 '''   <returns>data not a copy, or NULL on error</returns>
@@ -27513,6 +28320,7 @@ End Function
 ' fpixaGetPixel(FPIXA *, l_int32, l_int32, l_int32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaGetPixel/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="index">[in] - into fpixa array</param>
 '''  <param name="x">[in] - ,y pixel coords</param>
@@ -27537,6 +28345,7 @@ End Function
 ' fpixaSetPixel(FPIXA *, l_int32, l_int32, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaSetPixel/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="index">[in] - into fpixa array</param>
 '''  <param name="x">[in] - ,y pixel coords</param>
@@ -27568,6 +28377,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixCreate/*"/>
 '''  <param name="width">[in] - </param>
 '''  <param name="height">[in] - </param>
 '''   <returns>dpix  with data allocated and initialized to 0, or NULL on error</returns>
@@ -27593,6 +28403,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixCreateTemplate/*"/>
 '''  <param name="dpixs">[in] - </param>
 '''   <returns>dpixd, or NULL on error</returns>
 Public Shared Function dpixCreateTemplate(
@@ -27616,6 +28427,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixClone/*"/>
 '''  <param name="dpix">[in] - </param>
 '''   <returns>same dpix ptr, or NULL on error</returns>
 Public Shared Function dpixClone(
@@ -27656,6 +28468,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixCopy/*"/>
 '''  <param name="dpixd">[in][optional] - can be null, or equal to dpixs, or different from dpixs</param>
 '''  <param name="dpixs">[in] - </param>
 '''   <returns>dpixd, or NULL on error</returns>
@@ -27678,6 +28491,7 @@ End Function
 ' dpixResizeImageData(DPIX *, DPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixResizeImageData/*"/>
 '''  <param name="dpixd">[in] - </param>
 '''  <param name="dpixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -27704,6 +28518,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixDestroy/*"/>
 '''  <param name="pdpix">[in,out] - will be nulled</param>
 Public Shared Sub dpixDestroy(
 				 ByRef pdpix as DPix)
@@ -27720,6 +28535,7 @@ End Sub
 ' dpixGetDimensions(DPIX *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixGetDimensions/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="pw">[out][optional] - each can be null</param>
 '''  <param name="ph">[out][optional] - each can be null</param>
@@ -27741,6 +28557,7 @@ End Function
 ' dpixSetDimensions(DPIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixSetDimensions/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="w">[in] - </param>
 '''  <param name="h">[in] - </param>
@@ -27762,6 +28579,7 @@ End Function
 ' dpixGetWpl(DPIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixGetWpl/*"/>
 '''  <param name="dpix">[in] - </param>
 '''   <returns>wpl, or UNDEF on error</returns>
 Public Shared Function dpixGetWpl(
@@ -27779,6 +28597,7 @@ End Function
 ' dpixSetWpl(DPIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixSetWpl/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="wpl">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -27798,6 +28617,7 @@ End Function
 ' dpixGetRefcount(DPIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixGetRefcount/*"/>
 '''  <param name="dpix">[in] - </param>
 '''   <returns>refcount, or UNDEF on error</returns>
 Public Shared Function dpixGetRefcount(
@@ -27815,6 +28635,7 @@ End Function
 ' dpixChangeRefcount(DPIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixChangeRefcount/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="delta">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -27834,6 +28655,7 @@ End Function
 ' dpixGetResolution(DPIX *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixGetResolution/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="pxres">[out][optional] - x and y resolution</param>
 '''  <param name="pyres">[out][optional] - x and y resolution</param>
@@ -27855,6 +28677,7 @@ End Function
 ' dpixSetResolution(DPIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixSetResolution/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="xres">[in] - x and y resolution</param>
 '''  <param name="yres">[in] - x and y resolution</param>
@@ -27876,6 +28699,7 @@ End Function
 ' dpixCopyResolution(DPIX *, DPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixCopyResolution/*"/>
 '''  <param name="dpixd">[in] - </param>
 '''  <param name="dpixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -27896,6 +28720,7 @@ End Function
 ' dpixGetData(DPIX *) as l_float64 *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixGetData/*"/>
 '''  <param name="dpix">[in] - </param>
 '''   <returns>ptr DPix::data, or NULL on error</returns>
 Public Shared Function dpixGetData(
@@ -27913,6 +28738,7 @@ End Function
 ' dpixSetData(DPIX *, l_float64 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixSetData/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="data">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -27933,6 +28759,7 @@ End Function
 ' dpixGetPixel(DPIX *, l_int32, l_int32, l_float64 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixGetPixel/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="x">[in] - ,y pixel coords</param>
 '''  <param name="pval">[out] - pixel value</param>
@@ -27955,6 +28782,7 @@ End Function
 ' dpixSetPixel(DPIX *, l_int32, l_int32, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixSetPixel/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="x">[in] - ,y pixel coords</param>
 '''  <param name="val">[in] - pixel value</param>
@@ -27978,6 +28806,7 @@ End Function
 ' fpixRead(const char *) as FPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>fpix, or NULL on error</returns>
 Public Shared Function fpixRead(
@@ -27998,6 +28827,7 @@ End Function
 ' fpixReadStream(FILE *) as FPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>fpix, or NULL on error</returns>
 Public Shared Function fpixReadStream(
@@ -28016,6 +28846,7 @@ End Function
 ' fpixReadMem(const l_uint8 *, size_t) as FPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixReadMem/*"/>
 '''  <param name="data">[in] - of serialized fpix</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>fpix, or NULL on error</returns>
@@ -28036,6 +28867,7 @@ End Function
 ' fpixWrite(const char *, FPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="fpix">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -28058,6 +28890,7 @@ End Function
 ' fpixWriteStream(FILE *, FPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="fpix">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -28083,6 +28916,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized fpix</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="fpix">[in] - </param>
@@ -28119,6 +28953,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixEndianByteSwap/*"/>
 '''  <param name="fpixd">[in] - can be equal to fpixs or NULL</param>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>fpixd always</returns>
@@ -28140,6 +28975,7 @@ End Function
 ' dpixRead(const char *) as DPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>dpix, or NULL on error</returns>
 Public Shared Function dpixRead(
@@ -28160,6 +28996,7 @@ End Function
 ' dpixReadStream(FILE *) as DPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>dpix, or NULL on error</returns>
 Public Shared Function dpixReadStream(
@@ -28178,6 +29015,7 @@ End Function
 ' dpixReadMem(const l_uint8 *, size_t) as DPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixReadMem/*"/>
 '''  <param name="data">[in] - of serialized dpix</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>dpix, or NULL on error</returns>
@@ -28198,6 +29036,7 @@ End Function
 ' dpixWrite(const char *, DPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="dpix">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -28220,6 +29059,7 @@ End Function
 ' dpixWriteStream(FILE *, DPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="dpix">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -28245,6 +29085,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized dpix</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="dpix">[in] - </param>
@@ -28281,6 +29122,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixEndianByteSwap/*"/>
 '''  <param name="dpixd">[in] - can be equal to dpixs or NULL</param>
 '''  <param name="dpixs">[in] - </param>
 '''   <returns>dpixd always</returns>
@@ -28307,6 +29149,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixPrintStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="factor">[in] - subsampled</param>
@@ -28339,6 +29182,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertToFPix/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="ncomps">[in] - number of components: 3 for RGB, 1 otherwise</param>
 '''   <returns>fpix, or NULL on error</returns>
@@ -28369,6 +29213,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertToDPix/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="ncomps">[in] - number of components: 3 for RGB, 1 otherwise</param>
 '''   <returns>dpix, or NULL on error</returns>
@@ -28405,6 +29250,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixConvertToPix/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''  <param name="outdepth">[in] - 0, 8, 16 or 32 bpp</param>
 '''  <param name="negvals">[in] - L_CLIP_TO_ZERO, L_TAKE_ABSVAL</param>
@@ -28429,6 +29275,7 @@ End Function
 ' fpixDisplayMaxDynamicRange(FPIX *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixDisplayMaxDynamicRange/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
 Public Shared Function fpixDisplayMaxDynamicRange(
@@ -28447,6 +29294,7 @@ End Function
 ' fpixConvertToDPix(FPIX *) as DPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixConvertToDPix/*"/>
 '''  <param name="fpix">[in] - </param>
 '''   <returns>dpix, or NULL on error</returns>
 Public Shared Function fpixConvertToDPix(
@@ -28479,6 +29327,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixConvertToPix/*"/>
 '''  <param name="dpixs">[in] - </param>
 '''  <param name="outdepth">[in] - 0, 8, 16 or 32 bpp</param>
 '''  <param name="negvals">[in] - L_CLIP_TO_ZERO, L_TAKE_ABSVAL</param>
@@ -28503,6 +29352,7 @@ End Function
 ' dpixConvertToFPix(DPIX *) as FPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixConvertToFPix/*"/>
 '''  <param name="dpix">[in] - </param>
 '''   <returns>fpix, or NULL on error</returns>
 Public Shared Function dpixConvertToFPix(
@@ -28521,6 +29371,7 @@ End Function
 ' fpixGetMin(FPIX *, l_float32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixGetMin/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="pminval">[out][optional] - min value</param>
 '''  <param name="pxminloc">[out][optional] - x location of min</param>
@@ -28544,6 +29395,7 @@ End Function
 ' fpixGetMax(FPIX *, l_float32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixGetMax/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="pmaxval">[out][optional] - max value</param>
 '''  <param name="pxmaxloc">[out][optional] - x location of max</param>
@@ -28567,6 +29419,7 @@ End Function
 ' dpixGetMin(DPIX *, l_float64 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixGetMin/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="pminval">[out][optional] - min value</param>
 '''  <param name="pxminloc">[out][optional] - x location of min</param>
@@ -28590,6 +29443,7 @@ End Function
 ' dpixGetMax(DPIX *, l_float64 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixGetMax/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="pmaxval">[out][optional] - max value</param>
 '''  <param name="pxmaxloc">[out][optional] - x location of max</param>
@@ -28626,6 +29480,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixScaleByInteger/*"/>
 '''  <param name="fpixs">[in] - low resolution, subsampled</param>
 '''  <param name="factor">[in] - scaling factor</param>
 '''   <returns>fpixd interpolated result, or NULL on error</returns>
@@ -28659,6 +29514,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixScaleByInteger/*"/>
 '''  <param name="dpixs">[in] - low resolution, subsampled</param>
 '''  <param name="factor">[in] - scaling factor</param>
 '''   <returns>dpixd interpolated result, or NULL on error</returns>
@@ -28691,6 +29547,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixLinearCombination/*"/>
 '''  <param name="fpixd">[in][optional] - this can be null, equal to fpixs1, or different from fpixs1</param>
 '''  <param name="fpixs1">[in] - can be == to fpixd</param>
 '''  <param name="fpixs2">[in] - </param>
@@ -28728,6 +29585,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixAddMultConstant/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="addc">[in] - use 0.0 to skip the operation</param>
 '''  <param name="multc">[in] - use 1.0 to skip the operation</param>
@@ -28761,6 +29619,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixLinearCombination/*"/>
 '''  <param name="dpixd">[in][optional] - this can be null, equal to dpixs1, or different from dpixs1</param>
 '''  <param name="dpixs1">[in] - can be == to dpixd</param>
 '''  <param name="dpixs2">[in] - </param>
@@ -28798,6 +29657,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixAddMultConstant/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="addc">[in] - use 0.0 to skip the operation</param>
 '''  <param name="multc">[in] - use 1.0 to skip the operation</param>
@@ -28821,6 +29681,7 @@ End Function
 ' fpixSetAllArbitrary(FPIX *, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixSetAllArbitrary/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="inval">[in] - to set at each pixel</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -28840,6 +29701,7 @@ End Function
 ' dpixSetAllArbitrary(DPIX *, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixSetAllArbitrary/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="inval">[in] - to set at each pixel</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -28865,6 +29727,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixAddBorder/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''  <param name="left">[in] - pixels on each side to be added</param>
 '''  <param name="right">[in] - pixels on each side to be added</param>
@@ -28891,6 +29754,7 @@ End Function
 ' fpixRemoveBorder(FPIX *, l_int32, l_int32, l_int32, l_int32) as FPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixRemoveBorder/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''  <param name="left">[in] - pixels on each side to be removed</param>
 '''  <param name="right">[in] - pixels on each side to be removed</param>
@@ -28922,6 +29786,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixAddMirroredBorder/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''  <param name="left">[in] - pixels on each side to be added</param>
 '''  <param name="right">[in] - pixels on each side to be added</param>
@@ -28954,6 +29819,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixAddContinuedBorder/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''  <param name="left">[in] - pixels on each side to be added</param>
 '''  <param name="right">[in] - pixels on each side to be added</param>
@@ -28987,6 +29853,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixAddSlopeBorder/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''  <param name="left">[in] - pixels on each side to be added</param>
 '''  <param name="right">[in] - pixels on each side to be added</param>
@@ -29025,6 +29892,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixRasterop/*"/>
 '''  <param name="fpixd">[in] - dest fpix</param>
 '''  <param name="dx">[in] - x val of UL corner of dest rectangle</param>
 '''  <param name="dy">[in] - y val of UL corner of dest rectangle</param>
@@ -29057,6 +29925,7 @@ End Function
 ' fpixRotateOrth(FPIX *, l_int32) as FPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixRotateOrth/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''  <param name="quads">[in] - 0-3 number of 90 degree cw rotations</param>
 '''   <returns>fpixd, or NULL on error</returns>
@@ -29093,6 +29962,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixRotate180/*"/>
 '''  <param name="fpixd">[in][optional] - can be null, equal to fpixs, or different from fpixs</param>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>fpixd, or NULL on error</returns>
@@ -29122,6 +29992,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixRotate90/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''  <param name="direction">[in] - 1 = clockwise,  -1 = counter-clockwise</param>
 '''   <returns>fpixd, or NULL on error</returns>
@@ -29159,6 +30030,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixFlipLR/*"/>
 '''  <param name="fpixd">[in][optional] - can be null, equal to fpixs, or different from fpixs</param>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>fpixd, or NULL on error</returns>
@@ -29198,6 +30070,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixFlipTB/*"/>
 '''  <param name="fpixd">[in][optional] - can be null, equal to fpixs, or different from fpixs</param>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>fpixd, or NULL on error</returns>
@@ -29232,6 +30105,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixAffinePta/*"/>
 '''  <param name="fpixs">[in] - 8 bpp</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -29260,6 +30134,7 @@ End Function
 ' fpixAffine(FPIX *, l_float32 *, l_float32) as FPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixAffine/*"/>
 '''  <param name="fpixs">[in] - 8 bpp</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for projective transformation</param>
 '''  <param name="inval">[in] - value brought in typ. 0</param>
@@ -29295,6 +30170,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixProjectivePta/*"/>
 '''  <param name="fpixs">[in] - 8 bpp</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -29323,6 +30199,7 @@ End Function
 ' fpixProjective(FPIX *, l_float32 *, l_float32) as FPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixProjective/*"/>
 '''  <param name="fpixs">[in] - 8 bpp</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for projective transformation</param>
 '''  <param name="inval">[in] - value brought in typ. 0</param>
@@ -29353,6 +30230,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/linearInterpolatePixelFloat/*"/>
 '''  <param name="datas">[in] - ptr to beginning of float image data</param>
 '''  <param name="w">[in] - of image</param>
 '''  <param name="h">[in] - of image</param>
@@ -29388,6 +30266,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixThresholdToPix/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="thresh">[in] - </param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
@@ -29421,6 +30300,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixComponentFunction/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="rnum">[in] - coefficients for numerator</param>
 '''  <param name="gnum">[in] - coefficients for numerator</param>
@@ -29455,6 +30335,7 @@ End Function
 ' pixReadStreamGif(FILE *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamGif/*"/>
 '''   <returns></returns>
 Public Shared Function pixReadStreamGif(
 				 ByVal fp as FILE) as Pix
@@ -29474,6 +30355,7 @@ End Function
 ' pixReadMemGif(const l_uint8 *, size_t) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMemGif/*"/>
 '''   <returns></returns>
 Public Shared Function pixReadMemGif(
 				 ByVal cdata as Byte(), 
@@ -29492,6 +30374,7 @@ End Function
 ' pixWriteStreamGif(FILE *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamGif/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteStreamGif(
 				 ByVal fp as FILE, 
@@ -29513,6 +30396,7 @@ End Function
 ' pixWriteMemGif(l_uint8 **, size_t *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemGif/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteMemGif(
 				 ByVal pdata as Object, 
@@ -29544,6 +30428,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotCreate/*"/>
 '''  <param name="rootname">[in] - root for all output files</param>
 '''  <param name="outformat">[in] - GPLOT_PNG, GPLOT_PS, GPLOT_EPS, GPLOT_LATEX</param>
 '''  <param name="title">[in][optional] - overall title</param>
@@ -29570,6 +30455,7 @@ End Function
 ' gplotDestroy(GPLOT **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotDestroy/*"/>
 '''  <param name="pgplot">[in,out] - to be nulled</param>
 Public Shared Sub gplotDestroy(
 				 ByRef pgplot as GPlot)
@@ -29604,6 +30490,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotAddPlot/*"/>
 '''  <param name="gplot">[in] - </param>
 '''  <param name="nax">[in][optional] - numa: set to null for Y_VS_I required for Y_VS_X</param>
 '''  <param name="nay">[in] - numa: required for both Y_VS_I and Y_VS_X</param>
@@ -29638,6 +30525,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotSetScaling/*"/>
 '''  <param name="gplot">[in] - </param>
 '''  <param name="scaling">[in] - GPLOT_LINEAR_SCALE, GPLOT_LOG_SCALE_X, GPLOT_LOG_SCALE_Y, GPLOT_LOG_SCALE_X_Y</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -29669,6 +30557,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotMakeOutput/*"/>
 '''  <param name="gplot">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function gplotMakeOutput(
@@ -29686,6 +30575,7 @@ End Function
 ' gplotGenCommandFile(GPLOT *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotGenCommandFile/*"/>
 '''  <param name="gplot">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function gplotGenCommandFile(
@@ -29710,6 +30600,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotGenDataFiles/*"/>
 '''  <param name="gplot">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function gplotGenDataFiles(
@@ -29736,6 +30627,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotSimple1/*"/>
 '''  <param name="na">[in] - numa plot Y_VS_I</param>
 '''  <param name="outformat">[in] - GPLOT_PNG, GPLOT_PS, GPLOT_EPS, GPLOT_LATEX</param>
 '''  <param name="outroot">[in] - root of output files</param>
@@ -29769,6 +30661,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotSimple2/*"/>
 '''  <param name="na1">[in] - numa plotted with Y_VS_I</param>
 '''  <param name="na2">[in] - ditto</param>
 '''  <param name="outformat">[in] - GPLOT_PNG, GPLOT_PS, GPLOT_EPS, GPLOT_LATEX</param>
@@ -29806,6 +30699,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotSimpleN/*"/>
 '''  <param name="naa">[in] - numaa we plotted with Y_VS_I for each numa</param>
 '''  <param name="outformat">[in] - GPLOT_PNG, GPLOT_PS, GPLOT_EPS, GPLOT_LATEX</param>
 '''  <param name="outroot">[in] - root of output files</param>
@@ -29841,6 +30735,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotSimpleXY1/*"/>
 '''  <param name="nax">[in][optional] - </param>
 '''  <param name="nay">[in] - </param>
 '''  <param name="plotstyle">[in] - GPLOT_LINES, GPLOT_POINTS, GPLOT_IMPULSES, GPLOT_LINESPOINTS, GPLOT_DOTS</param>
@@ -29882,6 +30777,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotSimpleXY2/*"/>
 '''  <param name="nax">[in] - is lower optional can be NULL</param>
 '''  <param name="nay1">[in] - </param>
 '''  <param name="nay2">[in] - </param>
@@ -29925,6 +30821,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotSimpleXYN/*"/>
 '''  <param name="nax">[in][optional] - can be NULL</param>
 '''  <param name="naay">[in] - numaa of arrays to plot against %nax</param>
 '''  <param name="plotstyle">[in] - GPLOT_LINES, GPLOT_POINTS, GPLOT_IMPULSES, GPLOT_LINESPOINTS, GPLOT_DOTS</param>
@@ -29955,6 +30852,7 @@ End Function
 ' gplotRead(const char *) as GPLOT *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>gplot, or NULL on error</returns>
 Public Shared Function gplotRead(
@@ -29975,6 +30873,7 @@ End Function
 ' gplotWrite(const char *, GPLOT *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="gplot">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -30004,6 +30903,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaLine/*"/>
 '''  <param name="x1">[in] - end point 1</param>
 '''  <param name="y1">[in] - end point 1</param>
 '''  <param name="x2">[in] - end point 2</param>
@@ -30026,6 +30926,7 @@ End Function
 ' generatePtaWideLine(l_int32, l_int32, l_int32, l_int32, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaWideLine/*"/>
 '''  <param name="x1">[in] - end point 1</param>
 '''  <param name="y1">[in] - end point 1</param>
 '''  <param name="x2">[in] - end point 2</param>
@@ -30056,6 +30957,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaBox/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="width">[in] - of line</param>
 '''   <returns>ptad, or NULL on error</returns>
@@ -30084,6 +30986,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaBoxa/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="width">[in] - </param>
 '''  <param name="removedups">[in] - 1 to remove, 0 to leave</param>
@@ -30113,6 +31016,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaHashBox/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
 '''  <param name="width">[in] - of line</param>
@@ -30150,6 +31054,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaHashBoxa/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
 '''  <param name="width">[in] - of line</param>
@@ -30186,6 +31091,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaaBoxa/*"/>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>ptaa, or NULL on error</returns>
 Public Shared Function generatePtaaBoxa(
@@ -30213,6 +31119,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaaHashBoxa/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="spacing">[in] - spacing between hash lines must be  is greater  1</param>
 '''  <param name="width">[in] - hash line width</param>
@@ -30239,6 +31146,7 @@ End Function
 ' generatePtaPolyline(PTA *, l_int32, l_int32, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaPolyline/*"/>
 '''  <param name="ptas">[in] - vertices of polyline</param>
 '''  <param name="width">[in] - </param>
 '''  <param name="closeflag">[in] - 1 to close the contour 0 otherwise</param>
@@ -30263,6 +31171,7 @@ End Function
 ' generatePtaGrid(l_int32, l_int32, l_int32, l_int32, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaGrid/*"/>
 '''  <param name="w">[in] - of region where grid will be displayed</param>
 '''  <param name="h">[in] - of region where grid will be displayed</param>
 '''  <param name="nx">[in] - number of rectangles in each direction in grid</param>
@@ -30296,6 +31205,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertPtaLineTo4cc/*"/>
 '''  <param name="ptas">[in] - 8-connected line of points</param>
 '''   <returns>ptad 4-connected line, or NULL on error</returns>
 Public Shared Function convertPtaLineTo4cc(
@@ -30323,6 +31233,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaFilledCircle/*"/>
 '''  <param name="radius">[in] - </param>
 '''   <returns>pta, or NULL on error</returns>
 Public Shared Function generatePtaFilledCircle(
@@ -30346,6 +31257,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaFilledSquare/*"/>
 '''  <param name="side">[in] - </param>
 '''   <returns>pta, or NULL on error</returns>
 Public Shared Function generatePtaFilledSquare(
@@ -30369,6 +31281,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaLineFromPt/*"/>
 '''  <param name="x">[in] - point of origination</param>
 '''  <param name="y">[in] - point of origination</param>
 '''  <param name="length">[in] - of line, including starting point</param>
@@ -30394,6 +31307,7 @@ End Function
 ' locatePtRadially(l_int32, l_int32, l_float64, l_float64, l_float64 *, l_float64 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/locatePtRadially/*"/>
 '''  <param name="xr">[in] - reference point</param>
 '''  <param name="yr">[in] - reference point</param>
 '''  <param name="dist">[in] - distance of point from reference point along line given by the specified angle</param>
@@ -30431,6 +31345,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderPlotFromNuma/*"/>
 '''  <param name="ppix">[in,out] - any type replaced if not 32 bpp rgb</param>
 '''  <param name="na">[in] - to be plotted</param>
 '''  <param name="plotloc">[in] - location of plot: L_PLOT_AT_TOP, etc</param>
@@ -30471,6 +31386,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makePlotPtaFromNuma/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="size">[in] - pix height for horizontal plot width for vertical plot</param>
 '''  <param name="plotloc">[in] - location of plot: L_PLOT_AT_TOP, etc</param>
@@ -30506,6 +31422,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderPlotFromNumaGen/*"/>
 '''  <param name="ppix">[in,out] - any type replaced if not 32 bpp rgb</param>
 '''  <param name="na">[in] - to be plotted</param>
 '''  <param name="orient">[in] - L_HORIZONTAL_LINE, L_VERTICAL_LINE</param>
@@ -30557,6 +31474,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makePlotPtaFromNumaGen/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="orient">[in] - L_HORIZONTAL_LINE, L_VERTICAL_LINE</param>
 '''  <param name="linewidth">[in] - width of "line" that is drawn between 1 and 7</param>
@@ -30597,6 +31515,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderPta/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="pta">[in] - arbitrary set of points</param>
 '''  <param name="op">[in] - one of L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
@@ -30632,6 +31551,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderPtaArb/*"/>
 '''  <param name="pix">[in] - any depth, cmapped ok</param>
 '''  <param name="pta">[in] - arbitrary set of points</param>
 '''  <param name="rval">[in] - </param>
@@ -30666,6 +31586,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderPtaBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="pta">[in] - arbitrary set of points</param>
 '''  <param name="rval">[in] - </param>
@@ -30699,6 +31620,7 @@ End Function
 ' pixRenderLine(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderLine/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="x1">[in] - </param>
 '''  <param name="y1">[in] - </param>
@@ -30728,6 +31650,7 @@ End Function
 ' pixRenderLineArb(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_uint8, l_uint8, l_uint8) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderLineArb/*"/>
 '''  <param name="pix">[in] - any depth, cmapped ok</param>
 '''  <param name="x1">[in] - </param>
 '''  <param name="y1">[in] - </param>
@@ -30764,6 +31687,7 @@ End Function
 ' pixRenderLineBlend(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_uint8, l_uint8, l_uint8, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderLineBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="x1">[in] - </param>
 '''  <param name="y1">[in] - </param>
@@ -30804,6 +31728,7 @@ End Function
 ' pixRenderBox(PIX *, BOX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderBox/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="box">[in] - </param>
 '''  <param name="width">[in] - thickness of box lines</param>
@@ -30828,6 +31753,7 @@ End Function
 ' pixRenderBoxArb(PIX *, BOX *, l_int32, l_uint8, l_uint8, l_uint8) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderBoxArb/*"/>
 '''  <param name="pix">[in] - any depth, cmapped ok</param>
 '''  <param name="box">[in] - </param>
 '''  <param name="width">[in] - thickness of box lines</param>
@@ -30859,6 +31785,7 @@ End Function
 ' pixRenderBoxBlend(PIX *, BOX *, l_int32, l_uint8, l_uint8, l_uint8, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderBoxBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="box">[in] - </param>
 '''  <param name="width">[in] - thickness of box lines</param>
@@ -30894,6 +31821,7 @@ End Function
 ' pixRenderBoxa(PIX *, BOXA *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderBoxa/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -30918,6 +31846,7 @@ End Function
 ' pixRenderBoxaArb(PIX *, BOXA *, l_int32, l_uint8, l_uint8, l_uint8) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderBoxaArb/*"/>
 '''  <param name="pix">[in] - any depth colormapped is ok</param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -30949,6 +31878,7 @@ End Function
 ' pixRenderBoxaBlend(PIX *, BOXA *, l_int32, l_uint8, l_uint8, l_uint8, l_float32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderBoxaBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -30986,6 +31916,7 @@ End Function
 ' pixRenderHashBox(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashBox/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="box">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
@@ -31016,6 +31947,7 @@ End Function
 ' pixRenderHashBoxArb(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashBoxArb/*"/>
 '''  <param name="pix">[in] - any depth cmapped ok</param>
 '''  <param name="box">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
@@ -31050,6 +31982,7 @@ End Function
 ' pixRenderHashBoxBlend(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashBoxBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp</param>
 '''  <param name="box">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
@@ -31093,6 +32026,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashMaskArb/*"/>
 '''  <param name="pix">[in] - any depth cmapped ok</param>
 '''  <param name="pixm">[in] - 1 bpp clipping mask for hash marks</param>
 '''  <param name="x">[in] - ,y   UL corner of %pixm with respect to %pix</param>
@@ -31130,6 +32064,7 @@ End Function
 ' pixRenderHashBoxa(PIX *, BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashBoxa/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
@@ -31160,6 +32095,7 @@ End Function
 ' pixRenderHashBoxaArb(PIX *, BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashBoxaArb/*"/>
 '''  <param name="pix">[in] - any depth cmapped ok</param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
@@ -31194,6 +32130,7 @@ End Function
 ' pixRenderHashBoxaBlend(PIX *, BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashBoxaBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
@@ -31237,6 +32174,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderPolyline/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -31268,6 +32206,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderPolylineArb/*"/>
 '''  <param name="pix">[in] - any depth cmapped ok</param>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -31301,6 +32240,7 @@ End Function
 ' pixRenderPolylineBlend(PIX *, PTA *, l_int32, l_uint8, l_uint8, l_uint8, l_float32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderPolylineBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -31340,6 +32280,7 @@ End Function
 ' pixRenderGridArb(PIX *, l_int32, l_int32, l_int32, l_uint8, l_uint8, l_uint8) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderGridArb/*"/>
 '''  <param name="pix">[in] - any depth, cmapped ok</param>
 '''  <param name="nx">[in] - number of rectangles in each direction</param>
 '''  <param name="ny">[in] - number of rectangles in each direction</param>
@@ -31388,6 +32329,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderRandomCmapPtaa/*"/>
 '''  <param name="pix">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 '''  <param name="ptaa">[in] - </param>
 '''  <param name="polyflag">[in] - 1 to interpret each Pta as a polyline 0 to simply render the Pta as a set of pixels</param>
@@ -31426,6 +32368,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderPolygon/*"/>
 '''  <param name="ptas">[in] - of vertices, none repeated</param>
 '''  <param name="width">[in] - of polygon outline</param>
 '''  <param name="pxmin">[out][optional] - min x value of input pts</param>
@@ -31460,6 +32403,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFillPolygon/*"/>
 '''  <param name="pixs">[in] - 1 bpp, with 4-connected polygon outline</param>
 '''  <param name="pta">[in] - vertices of the polygon</param>
 '''  <param name="xmin">[in] - min values of vertices of polygon</param>
@@ -31492,6 +32436,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderContours/*"/>
 '''  <param name="pixs">[in] - 8 or 16 bpp no colormap</param>
 '''  <param name="startval">[in] - value of lowest contour must be in [0 ... maxval]</param>
 '''  <param name="incr">[in] - increment to next contour must be  is greater  0</param>
@@ -31524,6 +32469,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixAutoRenderContours/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="ncontours">[in] - is greater  1,  is lower  500, typ. about 50</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
@@ -31552,6 +32498,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixRenderContours/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''  <param name="incr">[in] - increment between contours must be  is greater  0.0</param>
 '''  <param name="proxim">[in] - required proximity to target value default 0.15</param>
@@ -31586,6 +32533,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGeneratePtaBoundary/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="width">[in] - of boundary line</param>
 '''   <returns>pta, or NULL on error</returns>
@@ -31616,6 +32564,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixErodeGray/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
 '''  <param name="vsize">[in] - ditto</param>
@@ -31644,6 +32593,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDilateGray/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
 '''  <param name="vsize">[in] - ditto</param>
@@ -31672,6 +32622,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOpenGray/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
 '''  <param name="vsize">[in] - ditto</param>
@@ -31700,6 +32651,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCloseGray/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
 '''  <param name="vsize">[in] - ditto</param>
@@ -31733,6 +32685,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixErodeGray3/*"/>
 '''  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 '''  <param name="hsize">[in] - 1 or 3</param>
 '''  <param name="vsize">[in] - 1 or 3</param>
@@ -31761,6 +32714,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDilateGray3/*"/>
 '''  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 '''  <param name="hsize">[in] - 1 or 3</param>
 '''  <param name="vsize">[in] - 1 or 3</param>
@@ -31791,6 +32745,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOpenGray3/*"/>
 '''  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 '''  <param name="hsize">[in] - 1 or 3</param>
 '''  <param name="vsize">[in] - 1 or 3</param>
@@ -31819,6 +32774,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCloseGray3/*"/>
 '''  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 '''  <param name="hsize">[in] - 1 or 3</param>
 '''  <param name="vsize">[in] - 1 or 3</param>
@@ -31843,6 +32799,7 @@ End Function
 ' pixDitherToBinary(PIX *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDitherToBinary/*"/>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd dithered binary, or NULL on error The Floyd-Steinberg error diffusion dithering algorithm binarizes an 8 bpp grayscale image to a threshold of 128. If a pixel has a value above 127, it is binarized to white and the excess below 255 is subtracted from three neighboring pixels in the fractions 3/8 to i, j+1, 3/8 to i+1, j) and 1/4 to (i+1,j+1, truncating to 0 if necessary.  Likewise, if it the pixel has a value below 128, it is binarized to black and the excess above 0 is added to the neighboring pixels, truncating to 255 if necessary. This function differs from straight dithering in that it allows clipping of grayscale to 0 or 255 if the values are sufficiently close, without distribution of the excess. This uses default values to specify the range of lower and upper values near 0 and 255, rsp that are clipped to black and white without propagating the excess. Not propagating the excess has the effect of reducing the snake patterns in parts of the image that are nearly black or white however, it also prevents the attempt to reproduce gray for those values. The implementation is straightforward.  It uses a pair of line buffers to avoid changing pixs.  It is about the same speed as pixDitherToBinaryLUT(), which uses three LUTs.</returns>
 Public Shared Function pixDitherToBinary(
@@ -31870,6 +32827,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDitherToBinarySpec/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="lowerclip">[in] - lower clip distance to black use 0 for default</param>
 '''  <param name="upperclip">[in] - upper clip distance to white use 0 for default</param>
@@ -31892,6 +32850,7 @@ End Function
 ' ditherToBinaryLineLow(l_uint32 *, l_int32, l_uint32 *, l_uint32 *, l_int32, l_int32, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ditherToBinaryLineLow/*"/>
 '''  <param name="lined">[in] - ptr to beginning of dest line</param>
 '''  <param name="w">[in] - width of image in pixels</param>
 '''  <param name="bufs1">[in] - buffer of current source line</param>
@@ -31934,6 +32893,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThresholdToBinary/*"/>
 '''  <param name="pixs">[in] - 4 or 8 bpp</param>
 '''  <param name="thresh">[in] - threshold value</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
@@ -31956,6 +32916,7 @@ End Function
 ' thresholdToBinaryLineLow(l_uint32 *, l_int32, l_uint32 *, l_int32, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/thresholdToBinaryLineLow/*"/>
 Public Shared Sub thresholdToBinaryLineLow(
 				 ByVal lined as Object, 
 				 ByVal w as Integer, 
@@ -31981,6 +32942,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixVarThresholdToBinary/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="pixg">[in] - 8 bpp contains threshold values for each pixel</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
@@ -32023,6 +32985,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAdaptThresholdToBinary/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="pixm">[in][optional] - 1 bpp image mask can be null</param>
 '''  <param name="gamma">[in] - gamma correction must be  is greater  0.0 typically ~1.0</param>
@@ -32064,6 +33027,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAdaptThresholdToBinaryGen/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="pixm">[in][optional] - 1 bpp image mask can be null</param>
 '''  <param name="gamma">[in] - gamma correction must be  is greater  0.0 typically ~1.0</param>
@@ -32107,6 +33071,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenerateMaskByValue/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp, or colormapped</param>
 '''  <param name="val">[in] - of pixels for which we set 1 in dest</param>
 '''  <param name="usecmap">[in] - 1 to retain cmap values 0 to convert to gray</param>
@@ -32142,6 +33107,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenerateMaskByBand/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp, or colormapped</param>
 '''  <param name="lower">[in] - two pixel values from which a range, either between (inband) or outside of (!inband), determines which pixels in pixs cause us to set a 1 in the dest mask</param>
 '''  <param name="upper">[in] - two pixel values from which a range, either between (inband) or outside of (!inband), determines which pixels in pixs cause us to set a 1 in the dest mask</param>
@@ -32168,6 +33134,7 @@ End Function
 ' pixDitherTo2bpp(PIX *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDitherTo2bpp/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="cmapflag">[in] - 1 to generate a colormap</param>
 '''   <returns>pixd dithered 2 bpp, or NULL on error An analog of the Floyd-Steinberg error diffusion dithering algorithm is used to "dibitize" an 8 bpp grayscale image to 2 bpp, using equally spaced gray values of 0, 85, 170, and 255, which are served by thresholds of 43, 128 and 213. If cmapflag == 1, the colormap values are set to 0, 85, 170 and 255. If a pixel has a value between 0 and 42, it is dibitized to 0, and the excess above 0 is added to the three neighboring pixels, in the fractions 3/8 to i, j+1, 3/8 to i+1, j) and 1/4 to (i+1, j+1, truncating to 255 if necessary.  If a pixel has a value between 43 and 127, it is dibitized to 1, and the excess above 85 is added to the three neighboring pixels as before.  If the value is below 85, the excess is subtracted.  With a value between 128 and 212, it is dibitized to 2, with the excess on either side of 170 distributed as before.  Finally, with a value between 213 and 255, it is dibitized to 3, with the excess below 255 subtracted from the neighbors.  We always truncate to 0 or 255. The details can be seen in the lookup table generation. This function differs from straight dithering in that it allows clipping of grayscale to 0 or 255 if the values are sufficiently close, without distribution of the excess. This uses default values from pix.h to specify the range of lower and upper values near 0 and 255, rsp that are clipped to black and white without propagating the excess. Not propagating the excess has the effect of reducing the snake patterns in parts of the image that are nearly black or white however, it also prevents any attempt to reproduce gray for those values. The implementation uses 3 lookup tables for simplicity, and a pair of line buffers to avoid modifying pixs.</returns>
@@ -32199,6 +33166,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDitherTo2bppSpec/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="lowerclip">[in] - lower clip distance to black use 0 for default</param>
 '''  <param name="upperclip">[in] - upper clip distance to white use 0 for default</param>
@@ -32261,6 +33229,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThresholdTo2bpp/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="nlevels">[in] - equally spaced must be between 2 and 4</param>
 '''  <param name="cmapflag">[in] - 1 to build colormap 0 otherwise</param>
@@ -32323,6 +33292,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThresholdTo4bpp/*"/>
 '''  <param name="pixs">[in] - 8 bpp, can have colormap</param>
 '''  <param name="nlevels">[in] - equally spaced must be between 2 and 16</param>
 '''  <param name="cmapflag">[in] - 1 to build colormap 0 otherwise</param>
@@ -32357,6 +33327,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThresholdOn8bpp/*"/>
 '''  <param name="pixs">[in] - 8 bpp, can have colormap</param>
 '''  <param name="nlevels">[in] - equally spaced must be between 2 and 256</param>
 '''  <param name="cmapflag">[in] - 1 to build colormap 0 otherwise</param>
@@ -32410,6 +33381,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThresholdGrayArb/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale can have colormap</param>
 '''  <param name="edgevals">[in] - string giving edge value of each bin</param>
 '''  <param name="outdepth">[in] - 0, 2, 4 or 8 bpp 0 is default for min depth</param>
@@ -32446,6 +33418,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeGrayQuantIndexTable/*"/>
 '''  <param name="nlevels">[in] - number of output levels</param>
 '''   <returns>table maps input gray level to colormap index, or NULL on error</returns>
 Public Shared Function makeGrayQuantIndexTable(
@@ -32476,6 +33449,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeGrayQuantTableArb/*"/>
 '''  <param name="na">[in] - numa of bin boundaries</param>
 '''  <param name="outdepth">[in] - of colormap: 1, 2, 4 or 8</param>
 '''  <param name="ptab">[out] - table mapping input gray level to cmap index</param>
@@ -32518,6 +33492,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenerateMaskByBand32/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="refval">[in] - reference rgb value</param>
 '''  <param name="delm">[in] - max amount below the ref value for any component</param>
@@ -32558,6 +33533,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenerateMaskByDiscr32/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="refval1">[in] - reference rgb value</param>
 '''  <param name="refval2">[in] - reference rgb value</param>
@@ -32617,6 +33593,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGrayQuantFromHisto/*"/>
 '''  <param name="pixd">[in][optional] - quantized pix with cmap can be null</param>
 '''  <param name="pixs">[in] - 8 bpp gray input pix not cmapped</param>
 '''  <param name="pixm">[in][optional] - mask over pixels in pixs to quantize</param>
@@ -32653,6 +33630,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGrayQuantFromCmap/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale without cmap</param>
 '''  <param name="cmap">[in] - to quantize to of dest pix</param>
 '''  <param name="mindepth">[in] - minimum depth of pixd: can be 2, 4 or 8 bpp</param>
@@ -32678,6 +33656,7 @@ End Function
 ' lheapCreate(l_int32, l_int32) as L_HEAP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lheapCreate/*"/>
 '''  <param name="nalloc">[in] - size of ptr array to be alloc'd 0 for default</param>
 '''  <param name="direction">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
 '''   <returns>lheap, or NULL on error</returns>
@@ -32707,6 +33686,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lheapDestroy/*"/>
 '''  <param name="plh">[in,out] - to be nulled</param>
 '''  <param name="freeflag">[in] - TRUE to free each remaining struct in the array</param>
 Public Shared Sub lheapDestroy(
@@ -32725,6 +33705,7 @@ End Sub
 ' lheapAdd(L_HEAP *, void *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lheapAdd/*"/>
 '''  <param name="lh">[in] - heap</param>
 '''  <param name="item">[in] - to be added to the tail of the heap</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -32747,6 +33728,7 @@ End Function
 ' lheapRemove(L_HEAP *) as void *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lheapRemove/*"/>
 '''  <param name="lh">[in] - heap</param>
 '''   <returns>ptr to item popped from the root of the heap, or NULL if the heap is empty or on error</returns>
 Public Shared Function lheapRemove(
@@ -32764,6 +33746,7 @@ End Function
 ' lheapGetCount(L_HEAP *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lheapGetCount/*"/>
 '''  <param name="lh">[in] - heap</param>
 '''   <returns>count, or 0 on error</returns>
 Public Shared Function lheapGetCount(
@@ -32791,6 +33774,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lheapSwapUp/*"/>
 '''  <param name="lh">[in] - heap</param>
 '''  <param name="index">[in] - of array corresponding to node to be swapped up</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -32825,6 +33809,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lheapSwapDown/*"/>
 '''  <param name="lh">[in] - heap</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function lheapSwapDown(
@@ -32848,6 +33833,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lheapSort/*"/>
 '''  <param name="lh">[in] - heap, with internal array</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function lheapSort(
@@ -32876,6 +33862,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lheapSortStrictOrder/*"/>
 '''  <param name="lh">[in] - heap, with internal array</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function lheapSortStrictOrder(
@@ -32893,6 +33880,7 @@ End Function
 ' lheapPrint(FILE *, L_HEAP *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lheapPrint/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="lh">[in] - heap</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -32915,6 +33903,7 @@ End Function
 ' jbRankHausInit(l_int32, l_int32, l_int32, l_int32, l_float32) as JBCLASSER *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbRankHausInit/*"/>
 '''  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
 '''  <param name="maxwidth">[in] - of component use 0 for default</param>
 '''  <param name="maxheight">[in] - of component use 0 for default</param>
@@ -32949,6 +33938,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbCorrelationInit/*"/>
 '''  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
 '''  <param name="maxwidth">[in] - of component use 0 for default</param>
 '''  <param name="maxheight">[in] - of component use 0 for default</param>
@@ -32979,6 +33969,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbCorrelationInitWithoutComponents/*"/>
 '''  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
 '''  <param name="maxwidth">[in] - of component use 0 for default</param>
 '''  <param name="maxheight">[in] - of component use 0 for default</param>
@@ -33009,6 +34000,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbAddPages/*"/>
 '''  <param name="safiles">[in] - of page image file names</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function jbAddPages(
@@ -33030,6 +34022,7 @@ End Function
 ' jbAddPage(JBCLASSER *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbAddPage/*"/>
 '''  <param name="pixs">[in] - input page</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function jbAddPage(
@@ -33057,6 +34050,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbAddPageComponents/*"/>
 '''  <param name="pixs">[in] - input page</param>
 '''  <param name="boxas">[in] - b.b. of components for this page</param>
 '''  <param name="pixas">[in] - components for this page</param>
@@ -33084,6 +34078,7 @@ End Function
 ' jbClassifyRankHaus(JBCLASSER *, BOXA *, PIXA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbClassifyRankHaus/*"/>
 '''  <param name="boxa">[in] - new components for classification</param>
 '''  <param name="pixas">[in] - new components for classification</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -33121,6 +34116,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHaustest/*"/>
 '''  <param name="pix1">[in] - new pix, not dilated</param>
 '''  <param name="pix2">[in] - new pix, dilated</param>
 '''  <param name="pix3">[in] - exemplar pix, not dilated</param>
@@ -33171,6 +34167,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRankHaustest/*"/>
 '''  <param name="pix1">[in] - new pix, not dilated</param>
 '''  <param name="pix2">[in] - new pix, dilated</param>
 '''  <param name="pix3">[in] - exemplar pix, not dilated</param>
@@ -33214,6 +34211,7 @@ End Function
 ' jbClassifyCorrelation(JBCLASSER *, BOXA *, PIXA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbClassifyCorrelation/*"/>
 '''  <param name="boxa">[in] - new components for classification</param>
 '''  <param name="pixas">[in] - new components for classification</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -33238,6 +34236,7 @@ End Function
 ' jbGetComponents(PIX *, l_int32, l_int32, l_int32, BOXA **, PIXA **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbGetComponents/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
 '''  <param name="maxwidth">[in] - of saved components larger are discarded</param>
@@ -33292,6 +34291,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWordMaskByDilation/*"/>
 '''  <param name="pixs">[in] - 1 bpp typ. at 75 to 150 ppi</param>
 '''  <param name="psize">[out][optional] - size of good horizontal dilation</param>
 '''  <param name="pixadb">[out][optional] - debug: pixa of intermediate steps</param>
@@ -33325,6 +34325,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWordBoxesByDilation/*"/>
 '''  <param name="pixs">[in] - 1 bpp typ. 75 - 200 ppi</param>
 '''  <param name="minwidth">[in] - saved components smaller are discarded</param>
 '''  <param name="minheight">[in] - saved components smaller are discarded</param>
@@ -33361,6 +34362,7 @@ End Function
 ' jbAccumulateComposites(PIXAA *, NUMA **, PTA **) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbAccumulateComposites/*"/>
 '''  <param name="pixaa">[in] - one pixa for each class</param>
 '''  <param name="pptat">[out] - centroids of bordered composites</param>
 '''   <returns>pixad accumulated sum of samples in each class, or NULL on error</returns>
@@ -33387,6 +34389,7 @@ End Function
 ' jbTemplatesFromComposites(PIXA *, NUMA *) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbTemplatesFromComposites/*"/>
 '''  <param name="pixac">[in] - one pix of composites for each class</param>
 '''  <param name="na">[in] - number of samples used for each class composite</param>
 '''   <returns>pixad 8 bpp templates for each class, or NULL on error</returns>
@@ -33408,6 +34411,7 @@ End Function
 ' jbClasserCreate(l_int32, l_int32) as JBCLASSER *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbClasserCreate/*"/>
 '''  <param name="method">[in] - JB_RANKHAUS, JB_CORRELATION</param>
 '''  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
 '''   <returns>jbclasser, or NULL on error</returns>
@@ -33426,6 +34430,7 @@ End Function
 ' jbClasserDestroy(JBCLASSER **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbClasserDestroy/*"/>
 Public Shared Sub jbClasserDestroy(
 				 ByVal pclasser as JbClasser)
 
@@ -33453,6 +34458,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbDataSave/*"/>
 '''   <returns>jbdata, or NULL on error</returns>
 Public Shared Function jbDataSave(
 				 ByVal classer as JbClasser) as JbData
@@ -33472,6 +34478,7 @@ End Function
 ' jbDataDestroy(JBDATA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbDataDestroy/*"/>
 Public Shared Sub jbDataDestroy(
 				 ByVal pdata as JbData)
 
@@ -33493,6 +34500,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbDataWrite/*"/>
 '''  <param name="jbdata">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function jbDataWrite(
@@ -33512,6 +34520,7 @@ End Function
 ' jbDataRead(const char *) as JBDATA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbDataRead/*"/>
 '''  <param name="rootname">[in] - for template and data files</param>
 '''   <returns>jbdata, or NULL on error</returns>
 Public Shared Function jbDataRead(
@@ -33530,6 +34539,7 @@ End Function
 ' jbDataRender(JBDATA *, l_int32) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbDataRender/*"/>
 '''  <param name="debugflag">[in] - if TRUE, writes into 2 bpp pix and adds component outlines in color</param>
 '''   <returns>pixa reconstruction of original images, using templates or NULL on error</returns>
 Public Shared Function jbDataRender(
@@ -33568,6 +34578,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbGetULCorners/*"/>
 '''  <param name="pixs">[in] - full res image</param>
 '''  <param name="boxa">[in] - of c.c. bounding rectangles for this page</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -33612,6 +34623,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/jbGetLLCorners/*"/>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function jbGetLLCorners(
 				 ByVal classer as JbClasser) as Integer
@@ -33632,6 +34644,7 @@ End Function
 ' readHeaderJp2k(const char *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderJp2k/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -33659,6 +34672,7 @@ End Function
 ' freadHeaderJp2k(FILE *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/freadHeaderJp2k/*"/>
 '''  <param name="fp">[in] - file stream opened for read</param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -33698,6 +34712,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderMemJp2k/*"/>
 '''  <param name="data">[in] - </param>
 '''  <param name="size">[in] - at least 80</param>
 '''  <param name="pw">[out][optional] - </param>
@@ -33725,6 +34740,7 @@ End Function
 ' fgetJp2kResolution(FILE *, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fgetJp2kResolution/*"/>
 '''   <returns></returns>
 Public Shared Function fgetJp2kResolution(
 				 ByVal fp as FILE, 
@@ -33749,6 +34765,7 @@ End Function
 ' pixReadJp2k(const char *, l_uint32, BOX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadJp2k/*"/>
 '''   <returns></returns>
 Public Shared Function pixReadJp2k(
 				 ByVal filename as String, 
@@ -33776,6 +34793,7 @@ End Function
 ' pixReadStreamJp2k(FILE *, l_uint32, BOX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamJp2k/*"/>
 '''   <returns></returns>
 Public Shared Function pixReadStreamJp2k(
 				 ByVal fp as FILE, 
@@ -33803,6 +34821,7 @@ End Function
 ' pixWriteJp2k(const char *, PIX *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteJp2k/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteJp2k(
 				 ByVal filename as String, 
@@ -33829,6 +34848,7 @@ End Function
 ' pixWriteStreamJp2k(FILE *, PIX *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamJp2k/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteStreamJp2k(
 				 ByVal fp as FILE, 
@@ -33854,6 +34874,7 @@ End Function
 ' pixReadMemJp2k(const l_uint8 *, size_t, l_uint32, BOX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMemJp2k/*"/>
 '''   <returns></returns>
 Public Shared Function pixReadMemJp2k(
 				 ByVal data as Byte(), 
@@ -33881,6 +34902,7 @@ End Function
 ' pixWriteMemJp2k(l_uint8 **, size_t *, PIX *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemJp2k/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteMemJp2k(
 				 ByVal pdata as Object, 
@@ -33933,6 +34955,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadJpeg/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="cmapflag">[in] - 0 for no colormap in returned pix 1 to return an 8 bpp cmapped pix if spp = 3 or 4</param>
 '''  <param name="reduction">[in] - scaling factor: 1, 2, 4 or 8</param>
@@ -33967,6 +34990,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamJpeg/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="cmapflag">[in] - 0 for no colormap in returned pix 1 to return an 8 bpp cmapped pix if spp = 3 or 4</param>
 '''  <param name="reduction">[in] - scaling factor: 1, 2, 4 or 8</param>
@@ -33995,6 +35019,7 @@ End Function
 ' readHeaderJpeg(const char *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderJpeg/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -34024,6 +35049,7 @@ End Function
 ' freadHeaderJpeg(FILE *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/freadHeaderJpeg/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -34051,6 +35077,7 @@ End Function
 ' fgetJpegResolution(FILE *, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fgetJpegResolution/*"/>
 '''   <returns></returns>
 Public Shared Function fgetJpegResolution(
 				 ByVal fp as FILE, 
@@ -34073,6 +35100,7 @@ End Function
 ' fgetJpegComment(FILE *, l_uint8 **) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fgetJpegComment/*"/>
 '''   <returns></returns>
 Public Shared Function fgetJpegComment(
 				 ByVal fp as FILE, 
@@ -34093,6 +35121,7 @@ End Function
 ' pixWriteJpeg(const char *, PIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteJpeg/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pix">[in] - any depth cmap is OK</param>
 '''  <param name="quality">[in] - 1 - 100 75 is default</param>
@@ -34143,6 +35172,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamJpeg/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pixs">[in] - any depth cmap is OK</param>
 '''  <param name="quality">[in] - 1 - 100 75 is default value 0 is also default</param>
@@ -34175,6 +35205,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMemJpeg/*"/>
 '''  <param name="data">[in] - const jpeg-encoded</param>
 '''  <param name="size">[in] - of data</param>
 '''  <param name="cmflag">[in] - colormap flag 0 means return RGB image if color 1 means create a colormap and return an 8 bpp colormapped image if color</param>
@@ -34205,6 +35236,7 @@ End Function
 ' readHeaderMemJpeg(const l_uint8 *, size_t, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderMemJpeg/*"/>
 '''  <param name="data">[in] - const jpeg-encoded</param>
 '''  <param name="size">[in] - of data</param>
 '''  <param name="pw">[out][optional] - width</param>
@@ -34234,6 +35266,7 @@ End Function
 ' readResolutionMemJpeg(const l_uint8 *, size_t, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readResolutionMemJpeg/*"/>
 '''  <param name="data">[in] - const jpeg-encoded</param>
 '''  <param name="size">[in] - of data</param>
 '''  <param name="pxres">[out][optional] - </param>
@@ -34263,6 +35296,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemJpeg/*"/>
 '''  <param name="pdata">[out] - data of jpeg compressed image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - any depth cmap is OK</param>
@@ -34299,6 +35333,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetChromaSampling/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="sampling">[in] - 1 for subsampling 0 for no subsampling</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -34328,6 +35363,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelCreate/*"/>
 '''  <param name="height">[in] - </param>
 '''  <param name="width">[in] - </param>
 '''   <returns>kernel, or NULL on error</returns>
@@ -34346,6 +35382,7 @@ End Function
 ' kernelDestroy(L_KERNEL **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelDestroy/*"/>
 '''  <param name="pkel">[in,out] - to be nulled</param>
 Public Shared Sub kernelDestroy(
 				 ByRef pkel as L_Kernel)
@@ -34362,6 +35399,7 @@ End Sub
 ' kernelCopy(L_KERNEL *) as L_KERNEL *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelCopy/*"/>
 '''  <param name="kels">[in] - source kernel</param>
 '''   <returns>keld copy of kels, or NULL on error</returns>
 Public Shared Function kernelCopy(
@@ -34380,6 +35418,7 @@ End Function
 ' kernelGetElement(L_KERNEL *, l_int32, l_int32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelGetElement/*"/>
 '''  <param name="kel">[in] - </param>
 '''  <param name="row">[in] - </param>
 '''  <param name="col">[in] - </param>
@@ -34403,6 +35442,7 @@ End Function
 ' kernelSetElement(L_KERNEL *, l_int32, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelSetElement/*"/>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="row">[in] - </param>
 '''  <param name="col">[in] - </param>
@@ -34426,6 +35466,7 @@ End Function
 ' kernelGetParameters(L_KERNEL *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelGetParameters/*"/>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="psy">[out][optional] - each can be null</param>
 '''  <param name="psx">[out][optional] - each can be null</param>
@@ -34451,6 +35492,7 @@ End Function
 ' kernelSetOrigin(L_KERNEL *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelSetOrigin/*"/>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="cy">[in] - </param>
 '''  <param name="cx">[in] - </param>
@@ -34472,6 +35514,7 @@ End Function
 ' kernelGetSum(L_KERNEL *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelGetSum/*"/>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="psum">[out] - sum of all kernel values</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -34491,6 +35534,7 @@ End Function
 ' kernelGetMinMax(L_KERNEL *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelGetMinMax/*"/>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="pmin">[out][optional] - minimum value</param>
 '''  <param name="pmax">[out][optional] - maximum value</param>
@@ -34519,6 +35563,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelNormalize/*"/>
 '''  <param name="kels">[in] - source kel, to be normalized</param>
 '''  <param name="normsum">[in] - desired sum of elements in keld</param>
 '''   <returns>keld normalized version of kels, or NULL on error or if sum of elements is very close to 0)</returns>
@@ -34545,6 +35590,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelInvert/*"/>
 '''  <param name="kels">[in] - source kel, to be inverted</param>
 '''   <returns>keld spatially inverted, about the origin, or NULL on error</returns>
 Public Shared Function kernelInvert(
@@ -34570,6 +35616,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/create2dFloatArray/*"/>
 '''  <param name="sy">[in] - rows == height</param>
 '''  <param name="sx">[in] - columns == width</param>
 '''   <returns>doubly indexed array i.e., an array of sy row pointers, each of which points to an array of sx floats</returns>
@@ -34594,6 +35641,7 @@ End Function
 ' kernelRead(const char *) as L_KERNEL *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelRead/*"/>
 '''  <param name="fname">[in] - filename</param>
 '''   <returns>kernel, or NULL on error</returns>
 Public Shared Function kernelRead(
@@ -34612,6 +35660,7 @@ End Function
 ' kernelReadStream(FILE *) as L_KERNEL *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>kernel, or NULL on error</returns>
 Public Shared Function kernelReadStream(
@@ -34630,6 +35679,7 @@ End Function
 ' kernelWrite(const char *, L_KERNEL *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelWrite/*"/>
 '''  <param name="fname">[in] - output file</param>
 '''  <param name="kel">[in] - kernel</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -34650,6 +35700,7 @@ End Function
 ' kernelWriteStream(FILE *, L_KERNEL *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="kel">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -34684,6 +35735,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelCreateFromString/*"/>
 '''  <param name="h">[in] - height, width</param>
 '''  <param name="w">[in] - height, width</param>
 '''  <param name="cy">[in] - origin</param>
@@ -34739,6 +35791,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelCreateFromFile/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>kernel, or NULL on error</returns>
 Public Shared Function kernelCreateFromFile(
@@ -34764,6 +35817,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelCreateFromPix/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="cy">[in] - origin of kernel</param>
 '''  <param name="cx">[in] - origin of kernel</param>
@@ -34802,6 +35856,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/kernelDisplayInPix/*"/>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="size">[in] - of grid interiors odd either 1 or a minimum size of 17 is enforced</param>
 '''  <param name="gthick">[in] - grid thickness either 0 or a minimum size of 2 is enforced</param>
@@ -34829,6 +35884,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/parseStringForNumbers/*"/>
 '''  <param name="str">[in] - string containing numbers not changed</param>
 '''  <param name="seps">[in] - string of characters that can be used between ints</param>
 '''   <returns>numa of numbers found, or NULL on error</returns>
@@ -34861,6 +35917,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeFlatKernel/*"/>
 '''  <param name="height">[in] - </param>
 '''  <param name="width">[in] - </param>
 '''  <param name="cy">[in] - origin of kernel</param>
@@ -34894,6 +35951,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeGaussianKernel/*"/>
 '''  <param name="halfheight">[in] - sx = 2  halfwidth + 1, etc</param>
 '''  <param name="halfwidth">[in] - sx = 2  halfwidth + 1, etc</param>
 '''  <param name="stdev">[in] - standard deviation</param>
@@ -34930,6 +35988,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeGaussianKernelSep/*"/>
 '''  <param name="halfheight">[in] - sx = 2  halfwidth + 1, etc</param>
 '''  <param name="halfwidth">[in] - sx = 2  halfwidth + 1, etc</param>
 '''  <param name="stdev">[in] - standard deviation</param>
@@ -34978,6 +36037,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeDoGKernel/*"/>
 '''  <param name="halfheight">[in] - sx = 2  halfwidth + 1, etc</param>
 '''  <param name="halfwidth">[in] - sx = 2  halfwidth + 1, etc</param>
 '''  <param name="stdev">[in] - standard deviation of narrower gaussian</param>
@@ -35009,6 +36069,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetWindowsHBITMAP/*"/>
 '''  <param name="pix">[in] - </param>
 '''   <returns>Windows hBitmap, or NULL on error</returns>
 Public Shared Function pixGetWindowsHBITMAP(
@@ -35028,6 +36089,7 @@ End Function
 ' getImagelibVersions() as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getImagelibVersions/*"/>
 '''   <returns></returns>
 Public Shared Function getImagelibVersions() as String
 
@@ -35052,6 +36114,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listDestroy/*"/>
 '''  <param name="phead">[in,out] - to be nulled head of list</param>
 Public Shared Sub listDestroy(
 				 ByRef phead as DoubleLinkedList)
@@ -35076,6 +36139,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listAddToHead/*"/>
 '''  <param name="phead">[in,out][optional] - input head</param>
 '''  <param name="data">[in] - void ptr, to be added</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -35114,6 +36178,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listAddToTail/*"/>
 '''  <param name="phead">[in,out] - [may be updated], can be NULL</param>
 '''  <param name="ptail">[in,out] - [updated], can be NULL</param>
 '''  <param name="data">[in] - void ptr, to be hung on tail cons cell</param>
@@ -35155,6 +36220,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listInsertBefore/*"/>
 '''  <param name="phead">[in,out][optional] - input head</param>
 '''  <param name="elem">[in] - list element to be inserted in front of must be NULL if head is NULL</param>
 '''  <param name="data">[in] - void  address, to be added</param>
@@ -35196,6 +36262,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listInsertAfter/*"/>
 '''  <param name="phead">[in,out][optional] - input head</param>
 '''  <param name="elem">[in] - list element to be inserted after must be NULL if head is NULL</param>
 '''  <param name="data">[in] - void  ptr, to be added</param>
@@ -35230,6 +36297,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listRemoveElement/*"/>
 '''  <param name="phead">[in,out] - [can be changed] input head</param>
 '''  <param name="elem">[in] - list element to be removed</param>
 '''   <returns>data  void struct on cell</returns>
@@ -35260,6 +36328,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listRemoveFromHead/*"/>
 '''  <param name="phead">[in,out] - head of list [to be updated]</param>
 '''   <returns>data  void struct on cell, or NULL on error</returns>
 Public Shared Function listRemoveFromHead(
@@ -35293,6 +36362,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listRemoveFromTail/*"/>
 '''  <param name="phead">[in,out] - [may be changed], head must NOT be NULL</param>
 '''  <param name="ptail">[in,out] - [always updated], tail may be NULL</param>
 '''   <returns>data  void struct on cell or NULL on error</returns>
@@ -35326,6 +36396,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listFindElement/*"/>
 '''  <param name="head">[in] - list head</param>
 '''  <param name="data">[in] - void  address, to be searched for</param>
 '''   <returns>cell  the containing cell, or NULL if not found or on error</returns>
@@ -35349,6 +36420,7 @@ End Function
 ' listFindTail(DLLIST *) as DLLIST *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listFindTail/*"/>
 '''  <param name="head">[in] - </param>
 '''   <returns>tail, or NULL on error</returns>
 Public Shared Function listFindTail(
@@ -35367,6 +36439,7 @@ End Function
 ' listGetCount(DLLIST *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listGetCount/*"/>
 '''  <param name="head">[in] - of list</param>
 '''   <returns>number of elements 0 if no list or on error</returns>
 Public Shared Function listGetCount(
@@ -35389,6 +36462,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listReverse/*"/>
 '''  <param name="phead">[in,out] - [may be changed] list head</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function listReverse(
@@ -35413,6 +36487,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listJoin/*"/>
 '''  <param name="phead1">[in,out] - [may be changed] head of first list</param>
 '''  <param name="phead2">[in,out] - to be nulled head of second list</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -35437,6 +36512,7 @@ End Function
 ' l_amapCreate(l_int32) as L_AMAP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_amapCreate/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapCreate(
 				 ByVal keytype as Integer) as L_Rbtree
@@ -35452,6 +36528,7 @@ End Function
 ' l_amapFind(L_AMAP *, RB_TYPE) as RB_TYPE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_amapFind/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapFind(
 				 ByVal m as L_Rbtree, 
@@ -35474,6 +36551,7 @@ End Function
 ' l_amapInsert(L_AMAP *, RB_TYPE, RB_TYPE) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_amapInsert/*"/>
 Public Shared Sub l_amapInsert(
 				 ByVal m as L_Rbtree, 
 				 ByVal key as Rb_Type, 
@@ -35496,6 +36574,7 @@ End Sub
 ' l_amapDelete(L_AMAP *, RB_TYPE) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_amapDelete/*"/>
 Public Shared Sub l_amapDelete(
 				 ByVal m as L_Rbtree, 
 				 ByVal key as Rb_Type)
@@ -35515,6 +36594,7 @@ End Sub
 ' l_amapDestroy(L_AMAP **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_amapDestroy/*"/>
 Public Shared Sub l_amapDestroy(
 				 ByVal pm as L_Rbtree)
 
@@ -35531,6 +36611,7 @@ End Sub
 ' l_amapGetFirst(L_AMAP *) as L_AMAP_NODE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_amapGetFirst/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapGetFirst(
 				 ByVal m as L_Rbtree) as L_Rbtree_Node
@@ -35550,6 +36631,7 @@ End Function
 ' l_amapGetNext(L_AMAP_NODE *) as L_AMAP_NODE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_amapGetNext/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapGetNext(
 				 ByVal n as L_Rbtree_Node) as L_Rbtree_Node
@@ -35569,6 +36651,7 @@ End Function
 ' l_amapGetLast(L_AMAP *) as L_AMAP_NODE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_amapGetLast/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapGetLast(
 				 ByVal m as L_Rbtree) as L_Rbtree_Node
@@ -35588,6 +36671,7 @@ End Function
 ' l_amapGetPrev(L_AMAP_NODE *) as L_AMAP_NODE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_amapGetPrev/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapGetPrev(
 				 ByVal n as L_Rbtree_Node) as L_Rbtree_Node
@@ -35607,6 +36691,7 @@ End Function
 ' l_amapSize(L_AMAP *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_amapSize/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapSize(
 				 ByVal m as L_Rbtree) as Integer
@@ -35625,6 +36710,7 @@ End Function
 ' l_asetCreate(l_int32) as L_ASET *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetCreate/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetCreate(
 				 ByVal keytype as Integer) as L_Rbtree
@@ -35640,6 +36726,7 @@ End Function
 ' l_asetFind(L_ASET *, RB_TYPE) as RB_TYPE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetFind/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetFind(
 				 ByVal s as L_Rbtree, 
@@ -35662,6 +36749,7 @@ End Function
 ' l_asetInsert(L_ASET *, RB_TYPE) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetInsert/*"/>
 Public Shared Sub l_asetInsert(
 				 ByVal s as L_Rbtree, 
 				 ByVal key as Rb_Type)
@@ -35681,6 +36769,7 @@ End Sub
 ' l_asetDelete(L_ASET *, RB_TYPE) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetDelete/*"/>
 Public Shared Sub l_asetDelete(
 				 ByVal s as L_Rbtree, 
 				 ByVal key as Rb_Type)
@@ -35700,6 +36789,7 @@ End Sub
 ' l_asetDestroy(L_ASET **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetDestroy/*"/>
 Public Shared Sub l_asetDestroy(
 				 ByVal ps as L_Rbtree)
 
@@ -35716,6 +36806,7 @@ End Sub
 ' l_asetGetFirst(L_ASET *) as L_ASET_NODE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetGetFirst/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetGetFirst(
 				 ByVal s as L_Rbtree) as L_Rbtree_Node
@@ -35735,6 +36826,7 @@ End Function
 ' l_asetGetNext(L_ASET_NODE *) as L_ASET_NODE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetGetNext/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetGetNext(
 				 ByVal n as L_Rbtree_Node) as L_Rbtree_Node
@@ -35754,6 +36846,7 @@ End Function
 ' l_asetGetLast(L_ASET *) as L_ASET_NODE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetGetLast/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetGetLast(
 				 ByVal s as L_Rbtree) as L_Rbtree_Node
@@ -35773,6 +36866,7 @@ End Function
 ' l_asetGetPrev(L_ASET_NODE *) as L_ASET_NODE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetGetPrev/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetGetPrev(
 				 ByVal n as L_Rbtree_Node) as L_Rbtree_Node
@@ -35792,6 +36886,7 @@ End Function
 ' l_asetSize(L_ASET *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetSize/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetSize(
 				 ByVal s as L_Rbtree) as Integer
@@ -35843,6 +36938,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generateBinaryMaze/*"/>
 '''  <param name="w">[in] - size of maze</param>
 '''  <param name="h">[in] - size of maze</param>
 '''  <param name="xi">[in] - initial location</param>
@@ -35901,6 +36997,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSearchBinaryMaze/*"/>
 '''  <param name="pixs">[in] - 1 bpp, maze</param>
 '''  <param name="xi">[in] - beginning point use same initial point that was used to generate the maze</param>
 '''  <param name="yi">[in] - beginning point use same initial point that was used to generate the maze</param>
@@ -35932,6 +37029,7 @@ End Function
 ' pixSearchGrayMaze(PIX *, l_int32, l_int32, l_int32, l_int32, PIX **) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSearchGrayMaze/*"/>
 '''  <param name="pixs">[in] - 1 bpp, maze</param>
 '''  <param name="xi">[in] - beginning point use same initial point that was used to generate the maze</param>
 '''  <param name="yi">[in] - beginning point use same initial point that was used to generate the maze</param>
@@ -35979,6 +37077,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDilate/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sel">[in] - </param>
@@ -36020,6 +37119,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixErode/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sel">[in] - </param>
@@ -36063,6 +37163,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHMT/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sel">[in] - </param>
@@ -36104,6 +37205,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOpen/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sel">[in] - </param>
@@ -36148,6 +37250,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClose/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sel">[in] - </param>
@@ -36196,6 +37299,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCloseSafe/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sel">[in] - </param>
@@ -36240,6 +37344,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOpenGeneralized/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sel">[in] - </param>
@@ -36285,6 +37390,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCloseGeneralized/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sel">[in] - </param>
@@ -36328,6 +37434,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDilateBrick/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -36372,6 +37479,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixErodeBrick/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -36416,6 +37524,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOpenBrick/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -36460,6 +37569,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCloseBrick/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -36509,6 +37619,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCloseSafeBrick/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -36537,6 +37648,7 @@ End Function
 ' selectComposableSels(l_int32, l_int32, SEL **, SEL **) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selectComposableSels/*"/>
 '''   <returns></returns>
 Public Shared Function selectComposableSels(
 				 ByVal size as Integer, 
@@ -36573,6 +37685,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selectComposableSizes/*"/>
 '''  <param name="size">[in] - of sel to be decomposed</param>
 '''  <param name="pfactor1">[out] - larger factor</param>
 '''  <param name="pfactor2">[out] - smaller factor</param>
@@ -36622,6 +37735,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDilateCompBrick/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -36680,6 +37794,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixErodeCompBrick/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -36738,6 +37853,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOpenCompBrick/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -36796,6 +37912,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCloseCompBrick/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -36859,6 +37976,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCloseSafeCompBrick/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -36887,6 +38005,7 @@ End Function
 ' resetMorphBoundaryCondition(l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/resetMorphBoundaryCondition/*"/>
 '''  <param name="bc">[in] - SYMMETRIC_MORPH_BC, ASYMMETRIC_MORPH_BC</param>
 Public Shared Sub resetMorphBoundaryCondition(
 				 ByVal bc as Enumerations.MMETRIC_MORPH_BC)
@@ -36900,6 +38019,7 @@ End Sub
 ' getMorphBorderPixelColor(l_int32, l_int32) as l_uint32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getMorphBorderPixelColor/*"/>
 '''  <param name="type">[in] - L_MORPH_DILATE, L_MORPH_ERODE</param>
 '''  <param name="depth">[in] - of pix</param>
 '''   <returns>color of border pixels for this operation</returns>
@@ -36925,6 +38045,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtractBoundary/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="type">[in] - 0 for background pixels 1 for foreground pixels</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -36954,6 +38075,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMorphSequenceMasked/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask</param>
 '''  <param name="sequence">[in] - string specifying sequence of operations</param>
@@ -36995,6 +38117,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMorphSequenceByComponent/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -37039,6 +38162,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaMorphSequenceByComponent/*"/>
 '''  <param name="pixas">[in] - of 1 bpp pix</param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="minw">[in] - minimum width to consider use 0 or 1 for any width</param>
@@ -37080,6 +38204,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMorphSequenceByRegion/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pixm">[in] - mask specifying regions</param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
@@ -37129,6 +38254,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaMorphSequenceByRegion/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pixam">[in] - of 1 bpp mask elements</param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
@@ -37159,6 +38285,7 @@ End Function
 ' pixUnionOfMorphOps(PIX *, SELA *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUnionOfMorphOps/*"/>
 '''  <param name="pixs">[in] - binary</param>
 '''  <param name="sela">[in] - </param>
 '''  <param name="type">[in] - L_MORPH_DILATE, etc.</param>
@@ -37182,6 +38309,7 @@ End Function
 ' pixIntersectionOfMorphOps(PIX *, SELA *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixIntersectionOfMorphOps/*"/>
 '''  <param name="pixs">[in] - binary</param>
 '''  <param name="sela">[in] - </param>
 '''  <param name="type">[in] - L_MORPH_DILATE, etc.</param>
@@ -37205,6 +38333,7 @@ End Function
 ' pixSelectiveConnCompFill(PIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSelectiveConnCompFill/*"/>
 '''  <param name="pixs">[in] - binary</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''  <param name="minw">[in] - minimum width to consider use 0 or 1 for any width</param>
@@ -37240,6 +38369,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveMatchedPattern/*"/>
 '''  <param name="pixs">[in] - input image, 1 bpp</param>
 '''  <param name="pixp">[in] - pattern to be removed from image, 1 bpp</param>
 '''  <param name="pixe">[in] - image after erosion by Sel that approximates pixp, 1 bpp</param>
@@ -37283,6 +38413,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDisplayMatchedPattern/*"/>
 '''  <param name="pixs">[in] - input image, 1 bpp</param>
 '''  <param name="pixp">[in] - pattern to be removed from image, 1 bpp</param>
 '''  <param name="pixe">[in] - image after erosion by Sel that approximates pixp, 1 bpp</param>
@@ -37328,6 +38459,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaExtendByMorph/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="type">[in] - L_MORPH_DILATE, L_MORPH_ERODE</param>
 '''  <param name="niters">[in] - </param>
@@ -37364,6 +38496,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaExtendByScaling/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="nasc">[in] - numa of scaling factors</param>
 '''  <param name="type">[in] - L_HORIZ, L_VERT, L_BOTH_DIRECTIONS</param>
@@ -37398,6 +38531,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillMorph/*"/>
 '''  <param name="pixs">[in] - seed</param>
 '''  <param name="pixm">[in] - mask</param>
 '''  <param name="maxiters">[in] - use 0 to go to completion</param>
@@ -37423,6 +38557,7 @@ End Function
 ' pixRunHistogramMorph(PIX *, l_int32, l_int32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRunHistogramMorph/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="runtype">[in] - L_RUN_OFF, L_RUN_ON</param>
 '''  <param name="direction">[in] - L_HORIZ, L_VERT</param>
@@ -37457,6 +38592,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTophat/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
 '''  <param name="vsize">[in] - ditto</param>
@@ -37521,6 +38657,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHDome/*"/>
 '''  <param name="pixs">[in] - 8 bpp, filling mask</param>
 '''  <param name="height">[in] - of seed below the filling maskhdome must be  is greater = 0</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -37561,6 +38698,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFastTophat/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="xsize">[in] - width of max/min op, smoothing any integer  is greater = 1</param>
 '''  <param name="ysize">[in] - height of max/min op, smoothing any integer  is greater = 1</param>
@@ -37585,6 +38723,7 @@ End Function
 ' pixMorphGradient(PIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMorphGradient/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
 '''  <param name="vsize">[in] - ditto</param>
@@ -37616,6 +38755,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaCentroids/*"/>
 '''  <param name="pixa">[in] - of components 1 or 8 bpp</param>
 '''   <returns>pta of centroids relative to the UL corner of each pix, or NULL on error</returns>
 Public Shared Function pixaCentroids(
@@ -37640,6 +38780,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCentroid/*"/>
 '''  <param name="pix">[in] - 1 or 8 bpp</param>
 '''  <param name="centtab">[in][optional] - table for finding centroids can be null</param>
 '''  <param name="sumtab">[in][optional] - table for finding pixel sums can be null</param>
@@ -37689,6 +38830,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDilateBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -37742,6 +38884,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixErodeBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -37795,6 +38938,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOpenBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -37850,6 +38994,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCloseBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -37912,6 +39057,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDilateCompBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -37974,6 +39120,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixErodeCompBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -38036,6 +39183,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOpenCompBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -38099,6 +39247,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCloseCompBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -38147,6 +39296,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDilateCompBrickExtendDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -38182,6 +39332,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixErodeCompBrickExtendDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -38210,6 +39361,7 @@ End Function
 ' pixOpenCompBrickExtendDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOpenCompBrickExtendDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -38238,6 +39390,7 @@ End Function
 ' pixCloseCompBrickExtendDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCloseCompBrickExtendDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -38296,6 +39449,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getExtendedCompositeParameters/*"/>
 '''  <param name="size">[in] - of linear Sel</param>
 '''  <param name="pn">[out] - number of 63 wide convolutions</param>
 '''  <param name="pextra">[out] - size of extra Sel</param>
@@ -38379,6 +39533,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMorphSequence/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is lower  0: pdf output abs(dispsep) is used for naming</param>
@@ -38433,6 +39588,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMorphCompSequence/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is lower  0: pdf output abs(dispsep) is used for naming</param>
@@ -38468,6 +39624,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMorphSequenceDwa/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is lower  0: pdf output abs(dispsep) is used for naming</param>
@@ -38503,6 +39660,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMorphCompSequenceDwa/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is lower  0: pdf output abs(dispsep) is used for naming</param>
@@ -38534,6 +39692,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/morphSequenceVerify/*"/>
 '''  <param name="sa">[in] - string array of operation sequence</param>
 '''   <returns>TRUE if valid FALSE otherwise or on error</returns>
 Public Shared Function morphSequenceVerify(
@@ -38585,6 +39744,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGrayMorphSequence/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is lower  0: pdf output abs(dispsep) is used for naming</param>
@@ -38639,6 +39799,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorMorphSequence/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is lower  0: pdf output abs(dispsep) is used for naming</param>
@@ -38666,6 +39827,7 @@ End Function
 ' numaCreate(l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaCreate/*"/>
 '''  <param name="n">[in] - size of number array to be alloc'd 0 for default</param>
 '''   <returns>na, or NULL on error</returns>
 Public Shared Function numaCreate(
@@ -38690,6 +39852,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaCreateFromIArray/*"/>
 '''  <param name="iarray">[in] - integer</param>
 '''  <param name="size">[in] - of the array</param>
 '''   <returns>na, or NULL on error</returns>
@@ -38717,6 +39880,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaCreateFromFArray/*"/>
 '''  <param name="farray">[in] - float</param>
 '''  <param name="size">[in] - of the array</param>
 '''  <param name="copyflag">[in] - L_INSERT or L_COPY</param>
@@ -38746,6 +39910,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaCreateFromString/*"/>
 '''  <param name="str">[in] - string of comma-separated numbers</param>
 '''   <returns>na, or NULL on error</returns>
 Public Shared Function numaCreateFromString(
@@ -38770,6 +39935,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaDestroy/*"/>
 '''  <param name="pna">[in,out] - to be nulled if it exists</param>
 Public Shared Sub numaDestroy(
 				 ByRef pna as Numa)
@@ -38786,6 +39952,7 @@ End Sub
 ' numaCopy(NUMA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaCopy/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>copy of numa, or NULL on error</returns>
 Public Shared Function numaCopy(
@@ -38804,6 +39971,7 @@ End Function
 ' numaClone(NUMA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaClone/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>ptr to same numa, or NULL on error</returns>
 Public Shared Function numaClone(
@@ -38829,6 +39997,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaEmpty/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function numaEmpty(
@@ -38846,6 +40015,7 @@ End Function
 ' numaAddNumber(NUMA *, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaAddNumber/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="val">[in] - float or int to be added stored as a float</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -38873,6 +40043,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaInsertNumber/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - location in na to insert new value</param>
 '''  <param name="val">[in] - float32 or integer to be added</param>
@@ -38901,6 +40072,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaRemoveNumber/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - element to be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -38920,6 +40092,7 @@ End Function
 ' numaReplaceNumber(NUMA *, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaReplaceNumber/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - element to be replaced</param>
 '''  <param name="val">[in] - new value to replace old one</param>
@@ -38941,6 +40114,7 @@ End Function
 ' numaGetCount(NUMA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetCount/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>count, or 0 if no numbers or on error</returns>
 Public Shared Function numaGetCount(
@@ -38967,6 +40141,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSetCount/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="newcount">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -38992,6 +40167,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetFValue/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - into numa</param>
 '''  <param name="pval">[out] - float value 0.0 on error</param>
@@ -39019,6 +40195,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetIValue/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - into numa</param>
 '''  <param name="pival">[out] - integer value 0 on error</param>
@@ -39040,6 +40217,7 @@ End Function
 ' numaSetValue(NUMA *, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSetValue/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - to element to be set</param>
 '''  <param name="val">[in] - to set element</param>
@@ -39061,6 +40239,7 @@ End Function
 ' numaShiftValue(NUMA *, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaShiftValue/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - to element to change relative to the current value</param>
 '''  <param name="diff">[in] - increment if diff  is greater  0 or decrement if diff  is lower  0</param>
@@ -39095,6 +40274,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetIArray/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>a copy of the bare internal array, integerized by rounding, or NULL on error</returns>
 Public Shared Function numaGetIArray(
@@ -39126,6 +40306,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetFArray/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="copyflag">[in] - L_NOCOPY or L_COPY</param>
 '''   <returns>either the bare internal array or a copy of it, or NULL on error</returns>
@@ -39145,6 +40326,7 @@ End Function
 ' numaGetRefcount(NUMA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetRefcount/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>refcount, or UNDEF on error</returns>
 Public Shared Function numaGetRefcount(
@@ -39162,6 +40344,7 @@ End Function
 ' numaChangeRefcount(NUMA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaChangeRefcount/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="delta">[in] - change to be applied</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -39181,6 +40364,7 @@ End Function
 ' numaGetParameters(NUMA *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetParameters/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="pstartx">[out][optional] - startx</param>
 '''  <param name="pdelx">[out][optional] - delx</param>
@@ -39202,6 +40386,7 @@ End Function
 ' numaSetParameters(NUMA *, l_float32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSetParameters/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="startx">[in] - x value corresponding to na[0]</param>
 '''  <param name="delx">[in] - difference in x values for the situation where the elements of na correspond to the evaulation of a function at equal intervals of size %delx</param>
@@ -39223,6 +40408,7 @@ End Function
 ' numaCopyParameters(NUMA *, NUMA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaCopyParameters/*"/>
 '''  <param name="nad">[in] - destination Numa</param>
 '''  <param name="nas">[in] - source Numa</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -39249,6 +40435,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaConvertToSarray/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="size1">[in] - size of conversion field</param>
 '''  <param name="size2">[in] - for float conversion: size of field to the right of the decimal point</param>
@@ -39275,6 +40462,7 @@ End Function
 ' numaRead(const char *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>na, or NULL on error</returns>
 Public Shared Function numaRead(
@@ -39295,6 +40483,7 @@ End Function
 ' numaReadStream(FILE *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>numa, or NULL on error</returns>
 Public Shared Function numaReadStream(
@@ -39313,6 +40502,7 @@ End Function
 ' numaReadMem(const l_uint8 *, size_t) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaReadMem/*"/>
 '''  <param name="data">[in] - numa serialization in ascii</param>
 '''  <param name="size">[in] - of data can use strlen to get it</param>
 '''   <returns>na, or NULL on error</returns>
@@ -39342,6 +40532,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaWriteDebug/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="na">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -39364,6 +40555,7 @@ End Function
 ' numaWrite(const char *, NUMA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="na">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -39386,6 +40578,7 @@ End Function
 ' numaWriteStream(FILE *, NUMA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="na">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -39411,6 +40604,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized numa ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="na">[in] - </param>
@@ -39435,6 +40629,7 @@ End Function
 ' numaaCreate(l_int32) as NUMAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaCreate/*"/>
 '''  <param name="n">[in] - size of numa ptr array to be alloc'd 0 for default</param>
 '''   <returns>naa, or NULL on error</returns>
 Public Shared Function numaaCreate(
@@ -39459,6 +40654,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaCreateFull/*"/>
 '''  <param name="nptr">[in] - : size of numa ptr array to be alloc'd</param>
 '''  <param name="n">[in] - : size of individual numa arrays to be alloc'd 0 for default</param>
 '''   <returns>naa, or NULL on error</returns>
@@ -39484,6 +40680,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaTruncate/*"/>
 '''  <param name="naa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function numaaTruncate(
@@ -39501,6 +40698,7 @@ End Function
 ' numaaDestroy(NUMAA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaDestroy/*"/>
 '''  <param name="pnaa">[in,out] - to be nulled if it exists</param>
 Public Shared Sub numaaDestroy(
 				 ByRef pnaa as Numaa)
@@ -39517,6 +40715,7 @@ End Sub
 ' numaaAddNuma(NUMAA *, NUMA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaAddNuma/*"/>
 '''  <param name="naa">[in] - </param>
 '''  <param name="na">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -39539,6 +40738,7 @@ End Function
 ' numaaGetCount(NUMAA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaGetCount/*"/>
 '''  <param name="naa">[in] - </param>
 '''   <returns>count number of numa, or 0 if no numa or on error</returns>
 Public Shared Function numaaGetCount(
@@ -39556,6 +40756,7 @@ End Function
 ' numaaGetNumaCount(NUMAA *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaGetNumaCount/*"/>
 '''  <param name="naa">[in] - </param>
 '''  <param name="index">[in] - of numa in naa</param>
 '''   <returns>count of numbers in the referenced numa, or 0 on error.</returns>
@@ -39575,6 +40776,7 @@ End Function
 ' numaaGetNumberCount(NUMAA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaGetNumberCount/*"/>
 '''  <param name="naa">[in] - </param>
 '''   <returns>count total number of numbers in the numaa, or 0 if no numbers or on error</returns>
 Public Shared Function numaaGetNumberCount(
@@ -39613,6 +40815,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaGetPtrArray/*"/>
 '''  <param name="naa">[in] - </param>
 '''   <returns>the internal array of ptrs to Numa, or NULL on error</returns>
 Public Shared Function numaaGetPtrArray(
@@ -39632,6 +40835,7 @@ End Function
 ' numaaGetNuma(NUMAA *, l_int32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaGetNuma/*"/>
 '''  <param name="naa">[in] - </param>
 '''  <param name="index">[in] - to the index-th numa</param>
 '''  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
@@ -39661,6 +40865,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaReplaceNuma/*"/>
 '''  <param name="naa">[in] - </param>
 '''  <param name="index">[in] - to the index-th numa</param>
 '''  <param name="na">[in] - insert and replace any existing one</param>
@@ -39683,6 +40888,7 @@ End Function
 ' numaaGetValue(NUMAA *, l_int32, l_int32, l_float32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaGetValue/*"/>
 '''  <param name="naa">[in] - </param>
 '''  <param name="i">[in] - index of numa within numaa</param>
 '''  <param name="j">[in] - index into numa</param>
@@ -39713,6 +40919,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaAddNumber/*"/>
 '''  <param name="naa">[in] - </param>
 '''  <param name="index">[in] - of numa within numaa</param>
 '''  <param name="val">[in] - float or int to be added stored as a float</param>
@@ -39734,6 +40941,7 @@ End Function
 ' numaaRead(const char *) as NUMAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>naa, or NULL on error</returns>
 Public Shared Function numaaRead(
@@ -39754,6 +40962,7 @@ End Function
 ' numaaReadStream(FILE *) as NUMAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>naa, or NULL on error</returns>
 Public Shared Function numaaReadStream(
@@ -39772,6 +40981,7 @@ End Function
 ' numaaReadMem(const l_uint8 *, size_t) as NUMAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaReadMem/*"/>
 '''  <param name="data">[in] - numaa serialization in ascii</param>
 '''  <param name="size">[in] - of data can use strlen to get it</param>
 '''   <returns>naa, or NULL on error</returns>
@@ -39792,6 +41002,7 @@ End Function
 ' numaaWrite(const char *, NUMAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="naa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -39814,6 +41025,7 @@ End Function
 ' numaaWriteStream(FILE *, NUMAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="naa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -39839,6 +41051,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized numaa ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="naa">[in] - </param>
@@ -39873,6 +41086,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaArithOp/*"/>
 '''  <param name="nad">[in][optional] - can be null or equal to na1 (in-place</param>
 '''  <param name="na1">[in] - </param>
 '''  <param name="na2">[in] - </param>
@@ -39912,6 +41126,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaLogicalOp/*"/>
 '''  <param name="nad">[in][optional] - can be null or equal to na1 (in-place</param>
 '''  <param name="na1">[in] - </param>
 '''  <param name="na2">[in] - </param>
@@ -39948,6 +41163,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaInvert/*"/>
 '''  <param name="nad">[in][optional] - can be null or equal to nas (in-place</param>
 '''  <param name="nas">[in] - </param>
 '''   <returns>nad always: 'inverts' nas</returns>
@@ -39977,6 +41193,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSimilar/*"/>
 '''  <param name="na1">[in] - </param>
 '''  <param name="na2">[in] - </param>
 '''  <param name="maxdiff">[in] - use 0.0 for exact equality</param>
@@ -40010,6 +41227,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaAddToNumber/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="index">[in] - element to be changed</param>
 '''  <param name="val">[in] - new value to be added</param>
@@ -40031,6 +41249,7 @@ End Function
 ' numaGetMin(NUMA *, l_float32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetMin/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pminval">[out][optional] - min value</param>
 '''  <param name="piminloc">[out][optional] - index of min location</param>
@@ -40052,6 +41271,7 @@ End Function
 ' numaGetMax(NUMA *, l_float32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetMax/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pmaxval">[out][optional] - max value</param>
 '''  <param name="pimaxloc">[out][optional] - index of max location</param>
@@ -40073,6 +41293,7 @@ End Function
 ' numaGetSum(NUMA *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetSum/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="psum">[out] - sum of values</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -40100,6 +41321,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetPartialSums/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''   <returns>nasum, or NULL on error</returns>
 Public Shared Function numaGetPartialSums(
@@ -40118,6 +41340,7 @@ End Function
 ' numaGetSumOnInterval(NUMA *, l_int32, l_int32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetSumOnInterval/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="first">[in] - beginning index</param>
 '''  <param name="last">[in] - final index</param>
@@ -40147,6 +41370,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaHasOnlyIntegers/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="maxsamples">[in] - maximum number of samples to check</param>
 '''  <param name="pallints">[out] - 1 if all sampled values are ints else 0</param>
@@ -40168,6 +41392,7 @@ End Function
 ' numaSubsample(NUMA *, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSubsample/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="subfactor">[in] - subsample factor,  is greater = 1</param>
 '''   <returns>nad evenly sampled values from nas, or NULL on error</returns>
@@ -40188,6 +41413,7 @@ End Function
 ' numaMakeDelta(NUMA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaMakeDelta/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''   <returns>numa of difference values val[i+1] - val[i], or NULL on error</returns>
 Public Shared Function numaMakeDelta(
@@ -40206,6 +41432,7 @@ End Function
 ' numaMakeSequence(l_float32, l_float32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaMakeSequence/*"/>
 '''  <param name="startval">[in] - </param>
 '''  <param name="increment">[in] - </param>
 '''  <param name="size">[in] - of sequence</param>
@@ -40226,6 +41453,7 @@ End Function
 ' numaMakeConstant(l_float32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaMakeConstant/*"/>
 '''  <param name="val">[in] - </param>
 '''  <param name="size">[in] - of numa</param>
 '''   <returns>numa of given size with all entries equal to 'val', or NULL on error</returns>
@@ -40244,6 +41472,7 @@ End Function
 ' numaMakeAbsValue(NUMA *, NUMA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaMakeAbsValue/*"/>
 '''  <param name="nad">[in]can be null - for new array, or the same as nas for inplace</param>
 '''  <param name="nas">[in] - input numa</param>
 '''   <returns>nad with all numbers being the absval of the input, or NULL on error</returns>
@@ -40266,6 +41495,7 @@ End Function
 ' numaAddBorder(NUMA *, l_int32, l_int32, l_float32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaAddBorder/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="left">[in] - number of elements to add on each side</param>
 '''  <param name="right">[in] - number of elements to add on each side</param>
@@ -40290,6 +41520,7 @@ End Function
 ' numaAddSpecifiedBorder(NUMA *, l_int32, l_int32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaAddSpecifiedBorder/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="left">[in] - number of elements to add on each side</param>
 '''  <param name="right">[in] - number of elements to add on each side</param>
@@ -40314,6 +41545,7 @@ End Function
 ' numaRemoveBorder(NUMA *, l_int32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaRemoveBorder/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="left">[in] - number of elements to remove from each side</param>
 '''  <param name="right">[in] - number of elements to remove from each side</param>
@@ -40336,6 +41568,7 @@ End Function
 ' numaCountNonzeroRuns(NUMA *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaCountNonzeroRuns/*"/>
 '''  <param name="na">[in] - e.g., of pixel counts in rows or columns</param>
 '''  <param name="pcount">[out] - number of nonzero runs</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -40355,6 +41588,7 @@ End Function
 ' numaGetNonzeroRange(NUMA *, l_float32, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetNonzeroRange/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="eps">[in] - largest value considered to be zero</param>
 '''  <param name="pfirst">[out] - interval of array indices where values are nonzero</param>
@@ -40378,6 +41612,7 @@ End Function
 ' numaGetCountRelativeToZero(NUMA *, l_int32, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetCountRelativeToZero/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="type">[in] - L_LESS_THAN_ZERO, L_EQUAL_TO_ZERO, L_GREATER_THAN_ZERO</param>
 '''  <param name="pcount">[out] - count of values of given type</param>
@@ -40408,6 +41643,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaClipToInterval/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="first">[in] - clipping interval</param>
 '''  <param name="last">[in] - clipping interval</param>
@@ -40437,6 +41673,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaMakeThresholdIndicator/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''  <param name="thresh">[in] - threshold value</param>
 '''  <param name="type">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -40465,6 +41702,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaUniformSampling/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''  <param name="nsamp">[in] - number of samples</param>
 '''   <returns></returns>
@@ -40492,6 +41730,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaReverse/*"/>
 '''  <param name="nad">[in][optional] - can be null or equal to nas</param>
 '''  <param name="nas">[in] - input numa</param>
 '''   <returns></returns>
@@ -40521,6 +41760,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaLowPassIntervals/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''  <param name="thresh">[in] - threshold fraction of max in [0.0 ... 1.0]</param>
 '''  <param name="maxn">[in] - for normalizing set maxn = 0.0 to use the max in nas</param>
@@ -40558,6 +41798,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaThresholdEdges/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''  <param name="thresh1">[in] - low threshold as fraction of max in [0.0 ... 1.0]</param>
 '''  <param name="thresh2">[in] - high threshold as fraction of max in [0.0 ... 1.0]</param>
@@ -40582,6 +41823,7 @@ End Function
 ' numaGetSpanValues(NUMA *, l_int32, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetSpanValues/*"/>
 '''  <param name="na">[in] - numa that is output of numaLowPassIntervals()</param>
 '''  <param name="span">[in] - span number, zero-based</param>
 '''  <param name="pstart">[out][optional] - location of start of transition</param>
@@ -40605,6 +41847,7 @@ End Function
 ' numaGetEdgeValues(NUMA *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetEdgeValues/*"/>
 '''  <param name="na">[in] - numa that is output of numaThresholdEdges()</param>
 '''  <param name="edge">[in] - edge number, zero-based</param>
 '''  <param name="pstart">[out][optional] - location of start of transition</param>
@@ -40643,6 +41886,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaInterpolateEqxVal/*"/>
 '''  <param name="startx">[in] - xval corresponding to first element in array</param>
 '''  <param name="deltax">[in] - x increment between array elements</param>
 '''  <param name="nay">[in] - numa of ordinate values, assumed equally spaced</param>
@@ -40680,6 +41924,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaInterpolateArbxVal/*"/>
 '''  <param name="nax">[in] - numa of abscissa values</param>
 '''  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 '''  <param name="type">[in] - L_LINEAR_INTERP, L_QUADRATIC_INTERP</param>
@@ -40720,6 +41965,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaInterpolateEqxInterval/*"/>
 '''  <param name="startx">[in] - xval corresponding to first element in nas</param>
 '''  <param name="deltax">[in] - x increment between array elements in nas</param>
 '''  <param name="nasy">[in] - numa of ordinate values, assumed equally spaced</param>
@@ -40773,6 +42019,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaInterpolateArbxInterval/*"/>
 '''  <param name="nax">[in] - numa of abscissa values</param>
 '''  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 '''  <param name="type">[in] - L_LINEAR_INTERP, L_QUADRATIC_INTERP</param>
@@ -40829,6 +42076,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaFitMax/*"/>
 '''  <param name="na">[in] - numa of ordinate values, to fit a max to</param>
 '''  <param name="pmaxval">[out] - max value</param>
 '''  <param name="naloc">[in][optional] - associated numa of abscissa values</param>
@@ -40862,6 +42110,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaDifferentiateInterval/*"/>
 '''  <param name="nax">[in] - numa of abscissa values</param>
 '''  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 '''  <param name="x0">[in] - start value of interval</param>
@@ -40905,6 +42154,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaIntegrateInterval/*"/>
 '''  <param name="nax">[in] - numa of abscissa values</param>
 '''  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 '''  <param name="x0">[in] - start value of interval</param>
@@ -40963,6 +42213,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSortGeneral/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pnasort">[out][optional] - sorted numa</param>
 '''  <param name="pnaindex">[out][optional] - index of elements in na associated with each element of nasort</param>
@@ -41003,6 +42254,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSortAutoSelect/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 '''   <returns>naout output sorted numa, or NULL on error</returns>
@@ -41029,6 +42281,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSortIndexAutoSelect/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 '''   <returns>nad indices of nas, sorted by value in nas, or NULL on error</returns>
@@ -41056,6 +42309,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaChooseSortType/*"/>
 '''  <param name="nas">[in] - to be sorted</param>
 '''   <returns>sorttype L_SHELL_SORT or L_BIN_SORT, or UNDEF on error.</returns>
 Public Shared Function numaChooseSortType(
@@ -41080,6 +42334,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSort/*"/>
 '''  <param name="naout">[in] - output numa can be NULL or equal to nain</param>
 '''  <param name="nain">[in] - input numa</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
@@ -41112,6 +42367,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaBinSort/*"/>
 '''  <param name="nas">[in] - of non-negative integers with a max that is typically less than 50,000</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 '''   <returns>na sorted, or NULL on error</returns>
@@ -41132,6 +42388,7 @@ End Function
 ' numaGetSortIndex(NUMA *, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetSortIndex/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 '''   <returns>na giving an array of indices that would sort the input array, or NULL on error</returns>
@@ -41163,6 +42420,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetBinSortIndex/*"/>
 '''  <param name="nas">[in] - of non-negative integers with a max that is typically less than 1,000,000</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 '''   <returns>na sorted, or NULL on error</returns>
@@ -41183,6 +42441,7 @@ End Function
 ' numaSortByIndex(NUMA *, NUMA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSortByIndex/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="naindex">[in] - na that maps from the new numa to the input numa</param>
 '''   <returns>nad sorted, or NULL on error</returns>
@@ -41211,6 +42470,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaIsSorted/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 '''  <param name="psorted">[out] - 1 if sorted 0 if not</param>
@@ -41238,6 +42498,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSortPair/*"/>
 '''  <param name="nax">[in] - input arrays</param>
 '''  <param name="nay">[in] - input arrays</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
@@ -41276,6 +42537,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaInvertMap/*"/>
 '''  <param name="nas">[in] - </param>
 '''   <returns>nad the inverted map, or NULL on error or if not invertible</returns>
 Public Shared Function numaInvertMap(
@@ -41302,6 +42564,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaPseudorandomSequence/*"/>
 '''  <param name="size">[in] - of sequence</param>
 '''  <param name="seed">[in] - for random number generation</param>
 '''   <returns>na pseudorandom on {0,...,size - 1}, or NULL on error</returns>
@@ -41320,6 +42583,7 @@ End Function
 ' numaRandomPermutation(NUMA *, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaRandomPermutation/*"/>
 '''  <param name="nas">[in] - input array</param>
 '''  <param name="seed">[in] - for random number generation</param>
 '''   <returns>nas randomly shuffled array, or NULL on error</returns>
@@ -41357,6 +42621,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetRankValue/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="fract">[in] - use 0.0 for smallest, 1.0 for largest</param>
 '''  <param name="nasort">[in][optional] - increasing sorted version of na</param>
@@ -41390,6 +42655,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetMedian/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pval">[out] - median value</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -41417,6 +42683,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetBinnedMedian/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pval">[out] - integer median value</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -41444,6 +42711,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetMode/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pval">[out] - mode val</param>
 '''  <param name="pcount">[out][optional] - mode count</param>
@@ -41475,6 +42743,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetMedianVariation/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pmedval">[out][optional] - median value</param>
 '''  <param name="pmedvar">[out] - median variation from median val</param>
@@ -41503,6 +42772,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaJoin/*"/>
 '''  <param name="nad">[in] - dest numa add to this one</param>
 '''  <param name="nas">[in][optional] - source numa add from this one</param>
 '''  <param name="istart">[in] - starting index in nas</param>
@@ -41535,6 +42805,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaJoin/*"/>
 '''  <param name="naad">[in] - dest naa add to this one</param>
 '''  <param name="naas">[in][optional] - source naa add from this one</param>
 '''  <param name="istart">[in] - starting index in nas</param>
@@ -41569,6 +42840,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaFlattenToNuma/*"/>
 '''  <param name="naa">[in] - </param>
 '''   <returns>numa, or NULL on error</returns>
 Public Shared Function numaaFlattenToNuma(
@@ -41602,6 +42874,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaErode/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 '''   <returns>nad eroded, or NULL on error</returns>
@@ -41628,6 +42901,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaDilate/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 '''   <returns>nad dilated, or NULL on error</returns>
@@ -41654,6 +42928,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaOpen/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 '''   <returns>nad opened, or NULL on error</returns>
@@ -41686,6 +42961,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaClose/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 '''   <returns>nad opened, or NULL on error</returns>
@@ -41711,6 +42987,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaTransform/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="shift">[in] - add this to each number</param>
 '''  <param name="scale">[in] - multiply each number by this</param>
@@ -41733,6 +43010,7 @@ End Function
 ' numaSimpleStats(NUMA *, l_int32, l_int32, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSimpleStats/*"/>
 '''  <param name="na">[in] - input numa</param>
 '''  <param name="first">[in] - first element to use</param>
 '''  <param name="last">[in] - last element to use 0 to go to the end</param>
@@ -41780,6 +43058,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaWindowedStats/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''  <param name="wc">[in] - half width of the window</param>
 '''  <param name="pnam">[out][optional] - mean value in window</param>
@@ -41822,6 +43101,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaWindowedMean/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="wc">[in] - half width of the convolution window</param>
 '''   <returns>nad after low-pass filtering, or NULL on error</returns>
@@ -41848,6 +43128,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaWindowedMeanSquare/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="wc">[in] - half width of the window</param>
 '''   <returns>nad containing windowed mean square values, or NULL on error</returns>
@@ -41879,6 +43160,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaWindowedVariance/*"/>
 '''  <param name="nam">[in] - windowed mean values</param>
 '''  <param name="nams">[in] - windowed mean square values</param>
 '''  <param name="pnav">[out][optional] - numa of variance -- the ms deviation from the mean</param>
@@ -41918,6 +43200,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaWindowedMedian/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="halfwin">[in] - half width of window over which the median is found</param>
 '''   <returns>nad after windowed median filtering, or NULL on error</returns>
@@ -41938,6 +43221,7 @@ End Function
 ' numaConvertToInt(NUMA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaConvertToInt/*"/>
 '''  <param name="nas">[in] - source numa</param>
 '''   <returns>na with all values rounded to nearest integer, or NULL on error</returns>
 Public Shared Function numaConvertToInt(
@@ -41971,6 +43255,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaMakeHistogram/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="maxbins">[in] - max number of histogram bins</param>
 '''  <param name="pbinsize">[out] - size of histogram bins</param>
@@ -42009,6 +43294,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaMakeHistogramAuto/*"/>
 '''  <param name="na">[in] - numa of floats these may be integers</param>
 '''  <param name="maxbins">[in] - max number of histogram bins  is greater = 1</param>
 '''   <returns>na consisiting of histogram of quantized float values, or NULL on error.</returns>
@@ -42039,6 +43325,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaMakeHistogramClipped/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="binsize">[in] - typically 1.0</param>
 '''  <param name="maxsize">[in] - of histogram ordinate</param>
@@ -42061,6 +43348,7 @@ End Function
 ' numaRebinHistogram(NUMA *, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaRebinHistogram/*"/>
 '''  <param name="nas">[in] - input histogram</param>
 '''  <param name="newsize">[in] - number of old bins contained in each new bin</param>
 '''   <returns>nad more coarsely re-binned histogram, or NULL on error</returns>
@@ -42081,6 +43369,7 @@ End Function
 ' numaNormalizeHistogram(NUMA *, l_float32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaNormalizeHistogram/*"/>
 '''  <param name="nas">[in] - input histogram</param>
 '''  <param name="tsum">[in] - target sum of all numbers in dest histogram e.g., use %tsum= 1.0 if this represents a probability distribution</param>
 '''   <returns>nad normalized histogram, or NULL on error</returns>
@@ -42130,6 +43419,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetStatsUsingHistogram/*"/>
 '''  <param name="na">[in] - an arbitrary set of numbers not ordered and not a histogram</param>
 '''  <param name="maxbins">[in] - the maximum number of bins to be allowed in the histogram use an integer larger than the largest number in %na for consecutive integer bins</param>
 '''  <param name="pmin">[out][optional] - min value of set</param>
@@ -42177,6 +43467,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetHistogramStats/*"/>
 '''  <param name="nahisto">[in] - histogram: y(x(i)), i = 0 ... nbins - 1</param>
 '''  <param name="startx">[in] - x value of first bin: x(0)</param>
 '''  <param name="deltax">[in] - x increment between bins the bin size x(1) - x(0)</param>
@@ -42215,6 +43506,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetHistogramStatsOnInterval/*"/>
 '''  <param name="nahisto">[in] - histogram: y(x(i)), i = 0 ... nbins - 1</param>
 '''  <param name="startx">[in] - x value of first bin: x(0)</param>
 '''  <param name="deltax">[in] - x increment between bins the bin size x(1) - x(0)</param>
@@ -42248,6 +43540,7 @@ End Function
 ' numaMakeRankFromHistogram(l_float32, l_float32, NUMA *, l_int32, NUMA **, NUMA **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaMakeRankFromHistogram/*"/>
 '''  <param name="startx">[in] - xval corresponding to first element in nay</param>
 '''  <param name="deltax">[in] - x increment between array elements in nay</param>
 '''  <param name="nasy">[in] - input histogram, assumed equally spaced</param>
@@ -42294,6 +43587,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaHistogramGetRankFromVal/*"/>
 '''  <param name="na">[in] - histogram</param>
 '''  <param name="rval">[in] - value of input sample for which we want the rank</param>
 '''  <param name="prank">[out] - fraction of total samples below rval</param>
@@ -42329,6 +43623,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaHistogramGetValFromRank/*"/>
 '''  <param name="na">[in] - histogram</param>
 '''  <param name="rank">[in] - fraction of total samples</param>
 '''  <param name="prval">[out] - approx. to the bin value</param>
@@ -42366,6 +43661,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaDiscretizeRankAndIntensity/*"/>
 '''  <param name="na">[in] - normalized histogram of probability density vs intensity</param>
 '''  <param name="nbins">[in] - number of bins at which the rank is divided</param>
 '''  <param name="pnarbin">[out][optional] - rank bin value vs intensity</param>
@@ -42410,6 +43706,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetRankBinValues/*"/>
 '''  <param name="na">[in] - just an array of values</param>
 '''  <param name="nbins">[in] - number of bins at which the rank is divided</param>
 '''  <param name="pnarbin">[out][optional] - rank bin value vs array value</param>
@@ -42473,6 +43770,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSplitDistribution/*"/>
 '''  <param name="na">[in] - histogram</param>
 '''  <param name="scorefract">[in] - fraction of the max score, used to determine the range over which the histogram min is searched</param>
 '''  <param name="psplitindex">[out][optional] - index for splitting</param>
@@ -42523,6 +43821,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/grayHistogramsToEMD/*"/>
 '''  <param name="naa1">[in] - two numaa, each with one or more 256-element histograms</param>
 '''  <param name="naa2">[in] - two numaa, each with one or more 256-element histograms</param>
 '''  <param name="pnad">[out] - nad of EM distances for each histogram</param>
@@ -42568,6 +43867,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaEarthMoverDistance/*"/>
 '''  <param name="na1">[in] - two numas of the same size, typically histograms</param>
 '''  <param name="na2">[in] - two numas of the same size, typically histograms</param>
 '''  <param name="pdist">[out] - EM distance</param>
@@ -42624,6 +43924,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/grayInterHistogramStats/*"/>
 '''  <param name="naa">[in] - numaa with two or more 256-element histograms</param>
 '''  <param name="wc">[in] - half-width of the smoothing window</param>
 '''  <param name="pnam">[out][optional] - mean values</param>
@@ -42667,6 +43968,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaFindPeaks/*"/>
 '''  <param name="nas">[in] - source numa</param>
 '''  <param name="nmax">[in] - max number of peaks to be found</param>
 '''  <param name="fract1">[in] - min fraction of peak value</param>
@@ -42709,6 +44011,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaFindExtrema/*"/>
 '''  <param name="nas">[in] - input values</param>
 '''  <param name="delta">[in] - relative amount to resolve peaks and valleys</param>
 '''  <param name="pnav">[out][optional] - values of extrema</param>
@@ -42741,6 +44044,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaCountReversals/*"/>
 '''  <param name="nas">[in] - input values</param>
 '''  <param name="minreversal">[in] - relative amount to resolve peaks and valleys</param>
 '''  <param name="pnr">[out][optional] - number of reversals</param>
@@ -42779,6 +44083,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSelectCrossingThreshold/*"/>
 '''  <param name="nax">[in][optional] - numa of abscissa values can be NULL</param>
 '''  <param name="nay">[in] - signal</param>
 '''  <param name="estthresh">[in] - estimated pixel threshold for crossing: e.g., for images, white  is lower -- is greater  black typ. ~120</param>
@@ -42810,6 +44115,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaCrossingsByThreshold/*"/>
 '''  <param name="nax">[in][optional] - numa of abscissa values can be NULL</param>
 '''  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 '''  <param name="thresh">[in] - threshold value for nay</param>
@@ -42840,6 +44146,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaCrossingsByPeaks/*"/>
 '''  <param name="nax">[in][optional] - numa of abscissa values</param>
 '''  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 '''  <param name="delta">[in] - parameter used to identify when a new peak can be found</param>
@@ -42884,6 +44191,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaEvalBestHaarParameters/*"/>
 '''  <param name="nas">[in] - numa of non-negative signal values</param>
 '''  <param name="relweight">[in] - relative weight of (-1 comb) / (+1 comb) contributions to the 'convolution'.  In effect, the convolution kernel is a comb consisting of alternating +1 and -weight.</param>
 '''  <param name="nwidth">[in] - number of widths to consider</param>
@@ -42936,6 +44244,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaEvalHaarSum/*"/>
 '''  <param name="nas">[in] - numa of non-negative signal values</param>
 '''  <param name="width">[in] - distance between +1 and -1 in convolution comb</param>
 '''  <param name="shift">[in] - phase of the comb: location of first +1</param>
@@ -42971,6 +44280,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/genConstrainedNumaInRange/*"/>
 '''  <param name="first">[in] - first number to choose  is greater = 0</param>
 '''  <param name="last">[in] - biggest possible number to reach  is greater = first</param>
 '''  <param name="nmax">[in] - maximum number of numbers to select  is greater  0</param>
@@ -43001,6 +44311,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRegionsBinary/*"/>
 '''  <param name="pixs">[in] - 1 bpp, assumed to be 300 to 400 ppi</param>
 '''  <param name="ppixhm">[out][optional] - halftone mask</param>
 '''  <param name="ppixtm">[out][optional] - textline mask</param>
@@ -43041,6 +44352,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenHalftoneMask/*"/>
 '''   <returns></returns>
 Public Shared Function pixGenHalftoneMask(
 				 ByVal pixs as Pix, 
@@ -43072,6 +44384,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenerateHalftoneMask/*"/>
 '''  <param name="pixs">[in] - 1 bpp, assumed to be 150 to 200 ppi</param>
 '''  <param name="ppixtext">[out][optional] - text part of pixs</param>
 '''  <param name="phtfound">[out][optional] - 1 if the mask is not empty</param>
@@ -43110,6 +44423,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenTextlineMask/*"/>
 '''  <param name="pixs">[in] - 1 bpp, assumed to be 150 to 200 ppi</param>
 '''  <param name="ppixvws">[out] - vertical whitespace mask</param>
 '''  <param name="ptlfound">[out][optional] - 1 if the mask is not empty</param>
@@ -43151,6 +44465,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenTextblockMask/*"/>
 '''  <param name="pixs">[in] - 1 bpp, textline mask, assumed to be 150 to 200 ppi</param>
 '''  <param name="pixvws">[in] - vertical white space mask</param>
 '''  <param name="pixadb">[in] - input for collecting debug pix use NULL to skip</param>
@@ -43190,6 +44505,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindPageForeground/*"/>
 '''  <param name="pixs">[in] - full resolution (any type or depth</param>
 '''  <param name="threshold">[in] - for binarization typically about 128</param>
 '''  <param name="mindist">[in] - min distance of text from border to allow cleaning near border at 2x reduction, this should be larger than 50 typically about 70</param>
@@ -43229,6 +44545,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSplitIntoCharacters/*"/>
 '''  <param name="pixs">[in] - 1 bpp, contains only deskewed text</param>
 '''  <param name="minw">[in] - min component width for initial filtering typ. 4</param>
 '''  <param name="minh">[in] - min component height for initial filtering typ. 4</param>
@@ -43271,6 +44588,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSplitComponentWithProfile/*"/>
 '''  <param name="pixs">[in] - 1 bpp, exactly one connected component</param>
 '''  <param name="delta">[in] - distance used in extrema finding in a numa typ. 10</param>
 '''  <param name="mindel">[in] - minimum required difference between profile minimum and profile values +2 and -2 away typ. 7</param>
@@ -43328,6 +44646,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtractTextlines/*"/>
 '''  <param name="pixs">[in] - any depth, assumed to have nearly horizontal text</param>
 '''  <param name="maxw">[in] - initial filtering: remove any components in pixs with components larger than maxw or maxh</param>
 '''  <param name="maxh">[in] - initial filtering: remove any components in pixs with components larger than maxw or maxh</param>
@@ -43385,6 +44704,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtractRawTextlines/*"/>
 '''  <param name="pixs">[in] - any depth, assumed to have nearly horizontal text</param>
 '''  <param name="maxw">[in] - initial filtering: remove any components in pixs with components larger than maxw or maxh use 0 for default values.</param>
 '''  <param name="maxh">[in] - initial filtering: remove any components in pixs with components larger than maxw or maxh use 0 for default values.</param>
@@ -43425,6 +44745,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountTextColumns/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="deltafract">[in] - fraction of (max - min) to be used in the delta for extrema finding typ 0.3</param>
 '''  <param name="peakfract">[in] - fraction of (max - min) to be used to threshold the peak value typ. 0.5</param>
@@ -43472,6 +44793,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDecideIfText/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="box">[in][optional] - if null, use entire pixs</param>
 '''  <param name="pistext">[out] - 1 if text 0 if photo -1 if not determined or empty</param>
@@ -43498,6 +44820,7 @@ End Function
 ' pixFindThreshFgExtent(PIX *, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindThreshFgExtent/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="thresh">[in] - threshold number of pixels in row</param>
 '''  <param name="ptop">[out][optional] - location of top of region</param>
@@ -43555,6 +44878,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDecideIfTable/*"/>
 '''  <param name="pixs">[in] - any depth, any resolution  is greater = 75 ppi</param>
 '''  <param name="box">[in][optional] - if null, use entire pixs</param>
 '''  <param name="orient">[in] - L_PORTRAIT_MODE, L_LANDSCAPE_MODE</param>
@@ -43589,6 +44913,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixPrepare1bpp/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="box">[in][optional] - if null, use entire pixs</param>
 '''  <param name="cropfract">[in] - fraction to be removed from the boundary use 0.0 to retain the entire image</param>
@@ -43620,6 +44945,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixEstimateBackground/*"/>
 '''  <param name="pixs">[in] - 8 bpp, with or without colormap</param>
 '''  <param name="darkthresh">[in] - pixels below this value are never considered part of the background typ. 70 use 0 to skip</param>
 '''  <param name="edgecrop">[in] - fraction of half-width on each side, and of half-height at top and bottom, that are cropped</param>
@@ -43659,6 +44985,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindLargeRectangles/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="polarity">[in] - 0 within background, 1 within foreground</param>
 '''  <param name="nrect">[in] - number of rectangles to be found</param>
@@ -43732,6 +45059,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindLargestRectangle/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="polarity">[in] - 0 within background, 1 within foreground</param>
 '''  <param name="pbox">[out] - largest area rectangle</param>
@@ -43782,6 +45110,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetSelectCmap/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4 or 8 bpp, with colormap</param>
 '''  <param name="box">[in][optional] - region to set color can be NULL</param>
 '''  <param name="sindex">[in] - colormap index of pixels to be changed</param>
@@ -43829,6 +45158,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorGrayRegionsCmap/*"/>
 '''  <param name="pixs">[in] - 8 bpp, with colormap</param>
 '''  <param name="boxa">[in] - of regions in which to apply color</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
@@ -43886,6 +45216,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorGrayCmap/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp, with colormap</param>
 '''  <param name="box">[in][optional] - region to set color can be NULL</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
@@ -43928,6 +45259,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorGrayMaskedCmap/*"/>
 '''  <param name="pixs">[in] - 8 bpp, with colormap</param>
 '''  <param name="pixm">[in] - 1 bpp mask, through which to apply color</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
@@ -43976,6 +45308,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/addColorizedGrayToCmap/*"/>
 '''  <param name="cmap">[in] - from 2 or 4 bpp pix</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
 '''  <param name="rval">[in] - target color</param>
@@ -44019,6 +45352,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetSelectMaskedCmap/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp, with colormap</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask no-op if NULL</param>
 '''  <param name="x">[in] - UL corner of mask relative to pixs</param>
@@ -44066,6 +45400,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetMaskedCmap/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp, colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask no-op if NULL</param>
 '''  <param name="x">[in] - origin of pixm relative to pixs can be negative</param>
@@ -44099,6 +45434,7 @@ End Function
 ' parseForProtos(const char *, const char *) as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/parseForProtos/*"/>
 '''   <returns></returns>
 Public Shared Function parseForProtos(
 				 ByVal filein as String, 
@@ -44203,6 +45539,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetWhiteblocks/*"/>
 '''  <param name="boxas">[in] - typically, a set of bounding boxes of fg components</param>
 '''  <param name="box">[in] - initial region typically including all boxes in boxas if null, it computes the region to include all boxes in boxas</param>
 '''  <param name="sortflag">[in] - L_SORT_BY_WIDTH, L_SORT_BY_HEIGHT, L_SORT_BY_MIN_DIMENSION, L_SORT_BY_MAX_DIMENSION, L_SORT_BY_PERIMETER, L_SORT_BY_AREA</param>
@@ -44246,6 +45583,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaPruneSortedOnOverlap/*"/>
 '''  <param name="boxas">[in] - sorted by size in decreasing order</param>
 '''  <param name="maxoverlap">[in] - maximum fractional overlap of a box by any of the larger boxes</param>
 '''   <returns>boxad pruned, or NULL on error</returns>
@@ -44284,6 +45622,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertFilesToPdf/*"/>
 '''  <param name="dirname">[in] - directory name containing images</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="res">[in] - input resolution of all images</param>
@@ -44321,6 +45660,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/saConvertFilesToPdf/*"/>
 '''  <param name="sa">[in] - string array of pathnames for images</param>
 '''  <param name="res">[in] - input resolution of all images</param>
 '''  <param name="scalefactor">[in] - scaling factor applied to each image  is greater  0.0</param>
@@ -44356,6 +45696,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/saConvertFilesToPdfData/*"/>
 '''  <param name="sa">[in] - string array of pathnames for images</param>
 '''  <param name="res">[in] - input resolution of all images</param>
 '''  <param name="scalefactor">[in] - scaling factor applied to each image  is greater  0.0</param>
@@ -44403,6 +45744,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selectDefaultPdfEncoding/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="ptype">[out] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -44435,6 +45777,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertUnscaledFilesToPdf/*"/>
 '''  <param name="dirname">[in] - directory name containing images</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="title">[in][optional] - pdf title if null, taken from the first image filename</param>
@@ -44464,6 +45807,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/saConvertUnscaledFilesToPdf/*"/>
 '''  <param name="sa">[in] - string array of pathnames for images</param>
 '''  <param name="title">[in][optional] - pdf title if null, taken from the first image filename</param>
 '''  <param name="fileout">[in] - pdf file of all images</param>
@@ -44486,6 +45830,7 @@ End Function
 ' saConvertUnscaledFilesToPdfData(SARRAY *, const char *, l_uint8 **, size_t *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/saConvertUnscaledFilesToPdfData/*"/>
 '''  <param name="sa">[in] - string array of pathnames for images</param>
 '''  <param name="title">[in][optional] - pdf title if null, taken from the first image filename</param>
 '''  <param name="pdata">[out] - output pdf data (of all images)</param>
@@ -44512,6 +45857,7 @@ End Function
 ' convertUnscaledToPdfData(const char *, const char *, l_uint8 **, size_t *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertUnscaledToPdfData/*"/>
 '''  <param name="fname">[in] - of image file</param>
 '''  <param name="title">[in][optional] - pdf title can be NULL</param>
 '''  <param name="pdata">[out] - output pdf data for image</param>
@@ -44549,6 +45895,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaConvertToPdf/*"/>
 '''  <param name="pixa">[in] - containing images all at the same resolution</param>
 '''  <param name="res">[in] - override the resolution of each input image, in ppi use 0 to respect the resolution embedded in the input</param>
 '''  <param name="scalefactor">[in] - scaling factor applied to each image  is greater  0.0</param>
@@ -44584,6 +45931,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaConvertToPdfData/*"/>
 '''  <param name="pixa">[in] - containing images all at the same resolution</param>
 '''  <param name="res">[in] - input resolution of all images</param>
 '''  <param name="scalefactor">[in] - scaling factor applied to each image  is greater  0.0</param>
@@ -44653,6 +46001,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertToPdf/*"/>
 '''  <param name="filein">[in] - input image file -- any format</param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 '''  <param name="quality">[in] - used for JPEG only 0 for default (75)</param>
@@ -44699,6 +46048,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertImageDataToPdf/*"/>
 '''  <param name="imdata">[in] - array of formatted image data e.g., png, jpeg</param>
 '''  <param name="size">[in] - size of image data</param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
@@ -44747,6 +46097,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertToPdfData/*"/>
 '''  <param name="filein">[in] - input image file -- any format</param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 '''  <param name="quality">[in] - used for JPEG only 0 for default (75)</param>
@@ -44796,6 +46147,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertImageDataToPdfData/*"/>
 '''  <param name="imdata">[in] - array of formatted image data e.g., png, jpeg</param>
 '''  <param name="size">[in] - size of image data</param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
@@ -44849,6 +46201,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertToPdf/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 '''  <param name="quality">[in] - used for JPEG only 0 for default (75)</param>
@@ -44896,6 +46249,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamPdf/*"/>
 '''  <param name="fp">[in] - file stream opened for writing</param>
 '''  <param name="pix">[in] - all depths, cmap OK</param>
 '''  <param name="res">[in] - override the resolution of the input image, in ppi use 0 to respect the resolution embedded in the input</param>
@@ -44928,6 +46282,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemPdf/*"/>
 '''  <param name="pdata">[out] - pdf as byte array</param>
 '''  <param name="pnbytes">[out] - number of bytes in pdf array</param>
 '''  <param name="pix">[in] - all depths, cmap OK</param>
@@ -44980,6 +46335,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertSegmentedFilesToPdf/*"/>
 '''  <param name="dirname">[in] - directory name containing images</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="res">[in] - input resolution of all images</param>
@@ -45026,6 +46382,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertNumberedMasksToBoxaa/*"/>
 '''  <param name="dirname">[in] - directory name containing mask images</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="numpre">[in] - number of characters in name before number</param>
@@ -45093,6 +46450,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertToPdfSegmented/*"/>
 '''  <param name="filein">[in] - input image file -- any format</param>
 '''  <param name="res">[in] - input image resolution typ. 300 ppi use 0 for default</param>
 '''  <param name="type">[in] - compression type for non-image regions the image regions are always compressed with L_JPEG_ENCODE</param>
@@ -45134,6 +46492,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertToPdfSegmented/*"/>
 '''  <param name="pixs">[in] - any depth, cmap OK</param>
 '''  <param name="res">[in] - input image resolution typ. 300 ppi use 0 for default</param>
 '''  <param name="type">[in] - compression type for non-image regions the image regions are always compressed with L_JPEG_ENCODE</param>
@@ -45177,6 +46536,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertToPdfDataSegmented/*"/>
 '''  <param name="filein">[in] - input image file -- any format</param>
 '''  <param name="res">[in] - input image resolution typ. 300 ppi use 0 for default</param>
 '''  <param name="type">[in] - compression type for non-image regions the image regions are always compressed with L_JPEG_ENCODE</param>
@@ -45221,6 +46581,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertToPdfDataSegmented/*"/>
 '''  <param name="pixs">[in] - any depth, cmap OK</param>
 '''  <param name="res">[in] - input image resolution typ. 300 ppi use 0 for default</param>
 '''  <param name="type">[in] - compression type for non-image regions the image regions are always compressed with L_JPEG_ENCODE</param>
@@ -45271,6 +46632,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/concatenatePdf/*"/>
 '''  <param name="dirname">[in] - directory name containing single-page pdf files</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="fileout">[in] - concatenated pdf file</param>
@@ -45298,6 +46660,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/saConcatenatePdf/*"/>
 '''  <param name="sa">[in] - string array of pathnames for single-page pdf files</param>
 '''  <param name="fileout">[in] - concatenated pdf file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -45323,6 +46686,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraConcatenatePdf/*"/>
 '''  <param name="pa">[in] - array of pdf strings, each for a single-page pdf file</param>
 '''  <param name="fileout">[in] - concatenated pdf file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -45354,6 +46718,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/concatenatePdfToData/*"/>
 '''  <param name="dirname">[in] - directory name containing single-page pdf files</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="pdata">[out] - concatenated pdf data in memory</param>
@@ -45385,6 +46750,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/saConcatenatePdfToData/*"/>
 '''  <param name="sa">[in] - string array of pathnames for single-page pdf files</param>
 '''  <param name="pdata">[out] - concatenated pdf data in memory</param>
 '''  <param name="pnbytes">[out] - number of bytes in pdf data</param>
@@ -45420,6 +46786,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertToPdfData/*"/>
 '''  <param name="pix">[in] - all depths cmap OK</param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 '''  <param name="quality">[in] - used for JPEG only 0 for default (75)</param>
@@ -45487,6 +46854,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraConcatenatePdfToData/*"/>
 '''  <param name="pa_data">[in] - ptra array of pdf strings, each for a single-page pdf file</param>
 '''  <param name="sa">[in] - string array [optional] of pathnames for input pdf files</param>
 '''  <param name="pdata">[out] - concatenated pdf data in memory</param>
@@ -45520,6 +46888,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertTiffMultipageToPdf/*"/>
 '''  <param name="filein">[in] - (tiff)</param>
 '''  <param name="fileout">[in] - (pdf)</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -45553,6 +46922,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_generateCIDataForPdf/*"/>
 '''  <param name="fname">[in][optional] - can be null</param>
 '''  <param name="pix">[in][optional] - can be null</param>
 '''  <param name="quality">[in] - for jpeg if transcoded 75 is standard</param>
@@ -45589,6 +46959,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_generateFlateDataPdf/*"/>
 '''  <param name="fname">[in] - preferably png</param>
 '''  <param name="pixs">[in][optional] - can be null</param>
 '''   <returns>cid containing png data, or NULL on error</returns>
@@ -45621,6 +46992,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_generateJpegData/*"/>
 '''  <param name="fname">[in] - of jpeg file</param>
 '''  <param name="ascii85flag">[in] - 0 for jpeg 1 for ascii85-encoded jpeg</param>
 '''   <returns>cid containing jpeg data, or NULL on error</returns>
@@ -45646,6 +47018,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_generateJpegDataMem/*"/>
 '''  <param name="data">[in] - of jpeg file</param>
 '''  <param name="nbytes">[in] - </param>
 '''  <param name="ascii85flag">[in] - 0 for jpeg 1 for ascii85-encoded jpeg</param>
@@ -45680,6 +47053,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_generateCIData/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE, L_JP2K_ENCODE</param>
 '''  <param name="quality">[in] - used for jpeg only 0 for default (75)</param>
@@ -45715,6 +47089,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenerateCIData/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp, no colormap</param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 '''  <param name="quality">[in] - used for jpeg only 0 for default (75)</param>
@@ -45755,6 +47130,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_generateFlateData/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="ascii85flag">[in] - 0 for gzipped 1 for ascii85-encoded gzipped</param>
 '''   <returns>cid flate compressed image data, or NULL on error</returns>
@@ -45783,6 +47159,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_generateG4Data/*"/>
 '''  <param name="fname">[in] - of g4 compressed file</param>
 '''  <param name="ascii85flag">[in] - 0 for g4 compressed 1 for ascii85-encoded g4</param>
 '''   <returns>cid g4 compressed image data, or NULL on error</returns>
@@ -45809,6 +47186,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/cidConvertToPdfData/*"/>
 '''  <param name="cid">[in] - compressed image data -- of jp2k image</param>
 '''  <param name="title">[in][optional] - pdf title can be NULL</param>
 '''  <param name="pdata">[out] - output pdf data for image</param>
@@ -45835,6 +47213,7 @@ End Function
 ' l_CIDataDestroy(L_COMP_DATA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_CIDataDestroy/*"/>
 '''  <param name="pcid">[in,out] - will be set to null before returning</param>
 Public Shared Sub l_CIDataDestroy(
 				 ByRef pcid as L_Compressed_Data)
@@ -45858,6 +47237,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_pdfSetG4ImageMask/*"/>
 '''  <param name="flag">[in] - 1 for writing g4 data as fg only through a mask 0 for writing fg and bg</param>
 Public Shared Sub l_pdfSetG4ImageMask(
 				 ByVal flag as Integer)
@@ -45877,6 +47257,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_pdfSetDateAndVersion/*"/>
 '''  <param name="flag">[in] - 1 for writing date/time and leptonica version 0 for omitting this from the metadata</param>
 Public Shared Sub l_pdfSetDateAndVersion(
 				 ByVal flag as Integer)
@@ -45910,6 +47291,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/setPixMemoryManager/*"/>
 '''  <param name="allocator">[in][optional] - use NULL to skip</param>
 '''  <param name="deallocator">[in][optional] - use NULL to skip</param>
 Public Shared Sub setPixMemoryManager(
@@ -45925,6 +47307,7 @@ End Sub
 ' pixCreate(l_int32, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCreate/*"/>
 '''  <param name="width">[in] - </param>
 '''  <param name="height">[in] - </param>
 '''  <param name="depth">[in] - </param>
@@ -45951,6 +47334,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCreateNoInit/*"/>
 '''  <param name="width">[in] - </param>
 '''  <param name="height">[in] - </param>
 '''  <param name="depth">[in] - </param>
@@ -45978,6 +47362,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCreateTemplate/*"/>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixCreateTemplate(
@@ -46003,6 +47388,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCreateTemplateNoInit/*"/>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixCreateTemplateNoInit(
@@ -46034,6 +47420,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCreateHeader/*"/>
 '''  <param name="width">[in] - </param>
 '''  <param name="height">[in] - </param>
 '''  <param name="depth">[in] - </param>
@@ -46072,6 +47459,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClone/*"/>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>same pix ptr, or NULL on error</returns>
 Public Shared Function pixClone(
@@ -46096,6 +47484,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDestroy/*"/>
 '''  <param name="ppix">[in,out] - will be nulled</param>
 Public Shared Sub pixDestroy(
 				 ByRef ppix as Pix)
@@ -46134,6 +47523,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCopy/*"/>
 '''  <param name="pixd">[in][optional] - can be null, equal to pixs, different from pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -46166,6 +47556,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixResizeImageData/*"/>
 '''  <param name="pixd">[in] - gets new uninitialized buffer for image data</param>
 '''  <param name="pixs">[in] - determines the size of the buffer not changed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -46192,6 +47583,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCopyColormap/*"/>
 '''  <param name="pixd">[in] - </param>
 '''  <param name="pixs">[in] - copies the colormap to %pixd</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -46212,6 +47604,7 @@ End Function
 ' pixSizesEqual(PIX *, PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSizesEqual/*"/>
 '''  <param name="pix1">[in] - </param>
 '''  <param name="pix2">[in] - </param>
 '''   <returns>1 if the two pix have same {h, w, d} 0 otherwise.</returns>
@@ -46276,6 +47669,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTransferAllData/*"/>
 '''  <param name="pixd">[in] - must be different from pixs</param>
 '''  <param name="ppixs">[in,out] - will be nulled if refcount goes to 0</param>
 '''  <param name="copytext">[in] - 1 to copy the text field 0 to skip</param>
@@ -46332,6 +47726,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSwapAndDestroy/*"/>
 '''  <param name="ppixd">[out][optional] - input pixd can be null, and it must be different from pixs</param>
 '''  <param name="ppixs">[in,out] - will be nulled after the swap</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -46354,6 +47749,7 @@ End Function
 ' pixGetWidth(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetWidth/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetWidth(
 				 ByVal pix as Pix) as Integer
@@ -46372,6 +47768,7 @@ End Function
 ' pixSetWidth(PIX *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetWidth/*"/>
 '''   <returns></returns>
 Public Shared Function pixSetWidth(
 				 ByVal pix as Pix, 
@@ -46391,6 +47788,7 @@ End Function
 ' pixGetHeight(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetHeight/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetHeight(
 				 ByVal pix as Pix) as Integer
@@ -46409,6 +47807,7 @@ End Function
 ' pixSetHeight(PIX *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetHeight/*"/>
 '''   <returns></returns>
 Public Shared Function pixSetHeight(
 				 ByVal pix as Pix, 
@@ -46428,6 +47827,7 @@ End Function
 ' pixGetDepth(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetDepth/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetDepth(
 				 ByVal pix as Pix) as Integer
@@ -46446,6 +47846,7 @@ End Function
 ' pixSetDepth(PIX *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetDepth/*"/>
 '''   <returns></returns>
 Public Shared Function pixSetDepth(
 				 ByVal pix as Pix, 
@@ -46465,6 +47866,7 @@ End Function
 ' pixGetDimensions(PIX *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetDimensions/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="pw">[out][optional] - each can be null</param>
 '''  <param name="ph">[out][optional] - each can be null</param>
@@ -46488,6 +47890,7 @@ End Function
 ' pixSetDimensions(PIX *, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetDimensions/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="w">[in] - use 0 to skip the setting for any of these</param>
 '''  <param name="h">[in] - use 0 to skip the setting for any of these</param>
@@ -46511,6 +47914,7 @@ End Function
 ' pixCopyDimensions(PIX *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCopyDimensions/*"/>
 '''  <param name="pixd">[in] - </param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -46531,6 +47935,7 @@ End Function
 ' pixGetSpp(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetSpp/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetSpp(
 				 ByVal pix as Pix) as Integer
@@ -46549,6 +47954,7 @@ End Function
 ' pixSetSpp(PIX *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetSpp/*"/>
 '''   <returns></returns>
 Public Shared Function pixSetSpp(
 				 ByVal pix as Pix, 
@@ -46568,6 +47974,7 @@ End Function
 ' pixCopySpp(PIX *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCopySpp/*"/>
 '''  <param name="pixd">[in] - </param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -46588,6 +47995,7 @@ End Function
 ' pixGetWpl(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetWpl/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetWpl(
 				 ByVal pix as Pix) as Integer
@@ -46606,6 +48014,7 @@ End Function
 ' pixSetWpl(PIX *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetWpl/*"/>
 '''   <returns></returns>
 Public Shared Function pixSetWpl(
 				 ByVal pix as Pix, 
@@ -46625,6 +48034,7 @@ End Function
 ' pixGetRefcount(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRefcount/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetRefcount(
 				 ByVal pix as Pix) as Integer
@@ -46643,6 +48053,7 @@ End Function
 ' pixChangeRefcount(PIX *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixChangeRefcount/*"/>
 '''   <returns></returns>
 Public Shared Function pixChangeRefcount(
 				 ByVal pix as Pix, 
@@ -46662,6 +48073,7 @@ End Function
 ' pixGetXRes(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetXRes/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetXRes(
 				 ByVal pix as Pix) as Integer
@@ -46680,6 +48092,7 @@ End Function
 ' pixSetXRes(PIX *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetXRes/*"/>
 '''   <returns></returns>
 Public Shared Function pixSetXRes(
 				 ByVal pix as Pix, 
@@ -46699,6 +48112,7 @@ End Function
 ' pixGetYRes(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetYRes/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetYRes(
 				 ByVal pix as Pix) as Integer
@@ -46717,6 +48131,7 @@ End Function
 ' pixSetYRes(PIX *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetYRes/*"/>
 '''   <returns></returns>
 Public Shared Function pixSetYRes(
 				 ByVal pix as Pix, 
@@ -46736,6 +48151,7 @@ End Function
 ' pixGetResolution(PIX *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetResolution/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="pxres">[out][optional] - each can be null</param>
 '''  <param name="pyres">[out][optional] - each can be null</param>
@@ -46757,6 +48173,7 @@ End Function
 ' pixSetResolution(PIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetResolution/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="xres">[in] - use 0 to skip setting a value for either of these</param>
 '''  <param name="yres">[in] - use 0 to skip setting a value for either of these</param>
@@ -46778,6 +48195,7 @@ End Function
 ' pixCopyResolution(PIX *, PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCopyResolution/*"/>
 '''   <returns></returns>
 Public Shared Function pixCopyResolution(
 				 ByVal pixd as Pix, 
@@ -46799,6 +48217,7 @@ End Function
 ' pixScaleResolution(PIX *, l_float32, l_float32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleResolution/*"/>
 '''   <returns></returns>
 Public Shared Function pixScaleResolution(
 				 ByVal pix as Pix, 
@@ -46819,6 +48238,7 @@ End Function
 ' pixGetInputFormat(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetInputFormat/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetInputFormat(
 				 ByVal pix as Pix) as Integer
@@ -46837,6 +48257,7 @@ End Function
 ' pixSetInputFormat(PIX *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetInputFormat/*"/>
 '''   <returns></returns>
 Public Shared Function pixSetInputFormat(
 				 ByVal pix as Pix, 
@@ -46856,6 +48277,7 @@ End Function
 ' pixCopyInputFormat(PIX *, PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCopyInputFormat/*"/>
 '''   <returns></returns>
 Public Shared Function pixCopyInputFormat(
 				 ByVal pixd as Pix, 
@@ -46877,6 +48299,7 @@ End Function
 ' pixSetSpecial(PIX *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetSpecial/*"/>
 '''   <returns></returns>
 Public Shared Function pixSetSpecial(
 				 ByVal pix as Pix, 
@@ -46902,6 +48325,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetText/*"/>
 '''  <param name="pix">[in] - </param>
 '''   <returns>ptr to existing text string</returns>
 Public Shared Function pixGetText(
@@ -46925,6 +48349,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetText/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="textstring">[in]can be null - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -46951,6 +48376,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddText/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="textstring">[in]can be null - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -46970,6 +48396,7 @@ End Function
 ' pixCopyText(PIX *, PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCopyText/*"/>
 '''   <returns></returns>
 Public Shared Function pixCopyText(
 				 ByVal pixd as Pix, 
@@ -46991,6 +48418,7 @@ End Function
 ' pixGetColormap(PIX *) as PIXCMAP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetColormap/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetColormap(
 				 ByVal pix as Pix) as PixColormap
@@ -47018,6 +48446,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetColormap/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="colormap">[in] - to be assigned</param>
 '''   <returns>0 if OK, 1 on error.</returns>
@@ -47038,6 +48467,7 @@ End Function
 ' pixDestroyColormap(PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDestroyColormap/*"/>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixDestroyColormap(
@@ -47061,6 +48491,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetData/*"/>
 '''  <param name="pix">[in] - </param>
 '''   <returns>ptr to image data</returns>
 Public Shared Function pixGetData(
@@ -47085,6 +48516,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetData/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="data">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -47117,6 +48549,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtractData/*"/>
 '''   <returns>ptr to data, or null on error</returns>
 Public Shared Function pixExtractData(
 				 ByVal pixs as Pix) as Byte()
@@ -47144,6 +48577,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFreeData/*"/>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixFreeData(
@@ -47224,6 +48658,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetLinePtrs/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="psize">[out][optional] - array size, which is the pix height</param>
 '''   <returns>array of line ptrs, or NULL on error</returns>
@@ -47244,6 +48679,7 @@ End Function
 ' pixPrintStreamInfo(FILE *, PIX *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixPrintStreamInfo/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="text">[in][optional] - identifying string can be null</param>
@@ -47283,6 +48719,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetPixel/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="x">[in] - ,y    pixel coords</param>
 '''  <param name="pval">[out] - pixel value</param>
@@ -47315,6 +48752,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetPixel/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="x">[in] - ,y   pixel coords</param>
 '''  <param name="val">[in] - value to be inserted</param>
@@ -47337,6 +48775,7 @@ End Function
 ' pixGetRGBPixel(PIX *, l_int32, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRGBPixel/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb, not colormapped</param>
 '''  <param name="x">[in] - ,y    pixel coords</param>
 '''  <param name="prval">[out][optional] - red component</param>
@@ -47365,6 +48804,7 @@ End Function
 ' pixSetRGBPixel(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetRGBPixel/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="x">[in] - ,y    pixel coords</param>
 '''  <param name="rval">[in] - red component</param>
@@ -47398,6 +48838,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRandomPixel/*"/>
 '''  <param name="pix">[in] - any depth can be colormapped</param>
 '''  <param name="pval">[out][optional] - pixel value</param>
 '''  <param name="px">[out][optional] - x coordinate chosen can be null</param>
@@ -47421,6 +48862,7 @@ End Function
 ' pixClearPixel(PIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClearPixel/*"/>
 '''  <param name="pix">[in] - any depth warning if colormapped</param>
 '''  <param name="x">[in] - ,y   pixel coords</param>
 '''   <returns>0 if OK 1 on error.</returns>
@@ -47441,6 +48883,7 @@ End Function
 ' pixFlipPixel(PIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFlipPixel/*"/>
 '''  <param name="pix">[in] - any depth, warning if colormapped</param>
 '''  <param name="x">[in] - ,y   pixel coords</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -47466,6 +48909,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/setPixelLow/*"/>
 '''  <param name="line">[in] - ptr to beginning of line,</param>
 '''  <param name="x">[in] - pixel location in line</param>
 '''  <param name="depth">[in] - bpp</param>
@@ -47497,6 +48941,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetBlackOrWhiteVal/*"/>
 '''  <param name="pixs">[in] - all depths cmap ok</param>
 '''  <param name="op">[in] - L_GET_BLACK_VAL, L_GET_WHITE_VAL</param>
 '''  <param name="pval">[out] - pixel value</param>
@@ -47526,6 +48971,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClearAll/*"/>
 '''  <param name="pix">[in] - all depths use cmapped with caution</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixClearAll(
@@ -47552,6 +48998,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetAll/*"/>
 '''  <param name="pix">[in] - all depths use cmapped with caution</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixSetAll(
@@ -47583,6 +49030,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetAllGray/*"/>
 '''  <param name="pix">[in] - all depths, cmap ok</param>
 '''  <param name="grayval">[in] - in range 0 ... 255</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -47624,6 +49072,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetAllArbitrary/*"/>
 '''  <param name="pix">[in] - all depths use cmapped with caution</param>
 '''  <param name="val">[in] - value to set all pixels</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -47653,6 +49102,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetBlackOrWhite/*"/>
 '''  <param name="pixs">[in] - all depths cmap ok</param>
 '''  <param name="op">[in] - L_SET_BLACK, L_SET_WHITE</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -47678,6 +49128,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetComponentArbitrary/*"/>
 '''  <param name="pix">[in] - 32 bpp</param>
 '''  <param name="comp">[in] - COLOR_RED, COLOR_GREEN, COLOR_BLUE, L_ALPHA_CHANNEL</param>
 '''  <param name="val">[in] - value to set this component</param>
@@ -47707,6 +49158,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClearInRect/*"/>
 '''  <param name="pix">[in] - all depths can be cmapped</param>
 '''  <param name="box">[in] - in which all pixels will be cleared</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -47736,6 +49188,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetInRect/*"/>
 '''  <param name="pix">[in] - all depths, can be cmapped</param>
 '''  <param name="box">[in] - in which all pixels will be set</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -47765,6 +49218,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetInRectArbitrary/*"/>
 '''  <param name="pix">[in] - all depths can be cmapped</param>
 '''  <param name="box">[in] - in which all pixels will be set to val</param>
 '''  <param name="val">[in] - value to set all pixels</param>
@@ -47794,6 +49248,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlendInRect/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="box">[in][optional] - in which all pixels will be blended</param>
 '''  <param name="val">[in] - blend value 0xrrggbb00</param>
@@ -47842,6 +49297,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetPadBits/*"/>
 '''  <param name="pix">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 '''  <param name="val">[in] - 0 or 1</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -47875,6 +49331,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetPadBitsBand/*"/>
 '''  <param name="pix">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 '''  <param name="by">[in] - starting y value of band</param>
 '''  <param name="bh">[in] - height of band</param>
@@ -47912,6 +49369,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetOrClearBorder/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="left">[in] - right, top, bot amount to set or clear</param>
 '''  <param name="op">[in] - operation PIX_SET or PIX_CLR</param>
@@ -47950,6 +49408,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetBorderVal/*"/>
 '''  <param name="pixs">[in] - 8, 16 or 32 bpp</param>
 '''  <param name="left">[in] - amount to set</param>
 '''  <param name="right">[in] - amount to set</param>
@@ -47984,6 +49443,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetBorderRingVal/*"/>
 '''  <param name="pixs">[in] - any depth cmap OK</param>
 '''  <param name="dist">[in] - distance from outside must be  is greater  0 first ring is 1</param>
 '''  <param name="val">[in] - value to set at each border pixel</param>
@@ -48015,6 +49475,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetMirroredBorder/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="left">[in] - number of pixels to set</param>
 '''  <param name="right">[in] - number of pixels to set</param>
@@ -48051,6 +49512,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCopyBorder/*"/>
 '''  <param name="pixd">[in] - all depths colormap ok can be NULL</param>
 '''  <param name="pixs">[in] - same depth and size as pixd</param>
 '''  <param name="left">[in] - number of pixels to copy</param>
@@ -48085,6 +49547,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddBorder/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="npix">[in] - number of pixels to be added to each side</param>
 '''  <param name="val">[in] - value of added border pixels</param>
@@ -48124,6 +49587,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddBlackOrWhiteBorder/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="left">[in] - number of pixels added</param>
 '''  <param name="right">[in] - number of pixels added</param>
@@ -48176,6 +49640,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddBorderGeneral/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="left">[in] - number of pixels added</param>
 '''  <param name="right">[in] - number of pixels added</param>
@@ -48204,6 +49669,7 @@ End Function
 ' pixRemoveBorder(PIX *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveBorder/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="npix">[in] - number to be removed from each of the 4 sides</param>
 '''   <returns>pixd with pixels removed around border, or NULL on error</returns>
@@ -48224,6 +49690,7 @@ End Function
 ' pixRemoveBorderGeneral(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveBorderGeneral/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="left">[in] - number of pixels removed</param>
 '''  <param name="right">[in] - number of pixels removed</param>
@@ -48258,6 +49725,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveBorderToSize/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="wd">[in] - target width use 0 if only removing from height</param>
 '''  <param name="hd">[in] - target height use 0 if only removing from width</param>
@@ -48297,6 +49765,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddMirroredBorder/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="left">[in] - number of pixels added</param>
 '''  <param name="right">[in] - number of pixels added</param>
@@ -48332,6 +49801,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddRepeatedBorder/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="left">[in] - number of pixels added</param>
 '''  <param name="right">[in] - number of pixels added</param>
@@ -48377,6 +49847,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddMixedBorder/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="left">[in] - number of pixels added</param>
 '''  <param name="right">[in] - number of pixels added</param>
@@ -48409,6 +49880,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddContinuedBorder/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="left">[in] - pixels on each side to be added</param>
 '''  <param name="right">[in] - pixels on each side to be added</param>
@@ -48435,6 +49907,7 @@ End Function
 ' pixShiftAndTransferAlpha(PIX *, PIX *, l_float32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixShiftAndTransferAlpha/*"/>
 '''  <param name="pixd">[in] - 32 bpp</param>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="shiftx">[in] - </param>
@@ -48468,6 +49941,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDisplayLayersRGBA/*"/>
 '''  <param name="pixs">[in] - cmap or 32 bpp rgba</param>
 '''  <param name="val">[in] - 32 bit unsigned color to use as background</param>
 '''  <param name="maxw">[in] - max output image width 0 for no scaling</param>
@@ -48504,6 +49978,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCreateRGBImage/*"/>
 '''  <param name="pixr">[in] - 8 bpp red pix</param>
 '''  <param name="pixg">[in] - 8 bpp green pix</param>
 '''  <param name="pixb">[in] - 8 bpp blue pix</param>
@@ -48538,6 +50013,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRGBComponent/*"/>
 '''  <param name="pixs">[in] - 32 bpp, or colormapped</param>
 '''  <param name="comp">[in] - one of {COLOR_RED, COLOR_GREEN, COLOR_BLUE, L_ALPHA_CHANNEL}</param>
 '''   <returns>pixd the selected 8 bpp component image of the input 32 bpp image or NULL on error</returns>
@@ -48566,6 +50042,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetRGBComponent/*"/>
 '''  <param name="pixd">[in] - 32 bpp</param>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="comp">[in] - one of the set: {COLOR_RED, COLOR_GREEN, COLOR_BLUE, L_ALPHA_CHANNEL}</param>
@@ -48595,6 +50072,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRGBComponentCmap/*"/>
 '''  <param name="pixs">[in] - colormapped</param>
 '''  <param name="comp">[in] - one of the set: {COLOR_RED, COLOR_GREEN, COLOR_BLUE}</param>
 '''   <returns>pixd  the selected 8 bpp component image of the input cmapped image, or NULL on error</returns>
@@ -48621,6 +50099,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCopyRGBComponent/*"/>
 '''  <param name="pixd">[in] - 32 bpp</param>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="comp">[in] - one of the set: {COLOR_RED, COLOR_GREEN, COLOR_BLUE, L_ALPHA_CHANNEL}</param>
@@ -48654,6 +50133,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/composeRGBPixel/*"/>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>
@@ -48682,6 +50162,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/composeRGBAPixel/*"/>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>
@@ -48713,6 +50194,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/extractRGBValues/*"/>
 '''  <param name="pixel">[in] - 32 bit</param>
 '''  <param name="prval">[out][optional] - red component</param>
 '''  <param name="pgval">[out][optional] - green component</param>
@@ -48732,6 +50214,7 @@ End Sub
 ' extractRGBAValues(l_uint32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/extractRGBAValues/*"/>
 '''  <param name="pixel">[in] - 32 bit</param>
 '''  <param name="prval">[out][optional] - red component</param>
 '''  <param name="pgval">[out][optional] - green component</param>
@@ -48753,6 +50236,7 @@ End Sub
 ' extractMinMaxComponent(l_uint32, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/extractMinMaxComponent/*"/>
 '''  <param name="pixel">[in] - 32 bpp RGB</param>
 '''  <param name="type">[in] - L_CHOOSE_MIN or L_CHOOSE_MAX</param>
 '''   <returns>component in range [0 ... 255], or NULL on error</returns>
@@ -48776,6 +50260,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRGBLine/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="row">[in] - </param>
 '''  <param name="bufr">[in] - array of red samples size w bytes</param>
@@ -48822,6 +50307,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixEndianByteSwapNew/*"/>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixEndianByteSwapNew(
@@ -48856,6 +50342,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixEndianByteSwap/*"/>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixEndianByteSwap(
@@ -48885,6 +50372,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lineEndianByteSwap/*"/>
 '''  <param name="datad">[in] - dest byte array data, reordered on little-endians</param>
 '''  <param name="datas">[in] - a src line of pix data)</param>
 '''  <param name="wpl">[in] - number of 32 bit words in the line</param>
@@ -48923,6 +50411,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixEndianTwoByteSwapNew/*"/>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixEndianTwoByteSwapNew(
@@ -48950,6 +50439,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixEndianTwoByteSwap/*"/>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixEndianTwoByteSwap(
@@ -48975,6 +50465,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRasterData/*"/>
 '''  <param name="pixs">[in] - 1, 8, 32 bpp</param>
 '''  <param name="pdata">[out] - raster data in memory</param>
 '''  <param name="pnbytes">[out] - number of bytes in data string</param>
@@ -49001,6 +50492,7 @@ End Function
 ' pixAlphaIsOpaque(PIX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAlphaIsOpaque/*"/>
 '''  <param name="pix">[in] - 32 bpp, spp == 4</param>
 '''  <param name="popaque">[out] - 1 if spp == 4 and all alpha component values are 255 (opaque) 0 otherwise</param>
 '''   <returns>0 if OK, 1 on error Notes: 1) On error, opaque is returned as 0 (FALSE).</returns>
@@ -49038,6 +50530,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetupByteProcessing/*"/>
 '''  <param name="pix">[in] - 8 bpp, no colormap</param>
 '''  <param name="pw">[out][optional] - width</param>
 '''  <param name="ph">[out][optional] - height</param>
@@ -49068,6 +50561,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCleanupByteProcessing/*"/>
 '''  <param name="pix">[in] - 8 bpp, no colormap</param>
 '''  <param name="lineptrs">[in] - ptrs to the beginning of each raster line of data</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -49106,6 +50600,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_setAlphaMaskBorder/*"/>
 '''  <param name="val1">[in] - in [0.0 ... 1.0]</param>
 '''  <param name="val2">[in] - in [0.0 ... 1.0]</param>
 Public Shared Sub l_setAlphaMaskBorder(
@@ -49146,6 +50641,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetMasked/*"/>
 '''  <param name="pixd">[in] - 1, 2, 4, 8, 16 or 32 bpp or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask no operation if NULL</param>
 '''  <param name="val">[in] - value to set at each masked pixel</param>
@@ -49188,6 +50684,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetMaskedGeneral/*"/>
 '''  <param name="pixd">[in] - 8, 16 or 32 bpp</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask no operation if null</param>
 '''  <param name="val">[in] - value to set at each masked pixel</param>
@@ -49236,6 +50733,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCombineMasked/*"/>
 '''  <param name="pixd">[in] - 1 bpp, 8 bpp gray or 32 bpp rgb no cmap</param>
 '''  <param name="pixs">[in] - 1 bpp, 8 bpp gray or 32 bpp rgb no cmap</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask no operation if NULL</param>
@@ -49290,6 +50788,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCombineMaskedGeneral/*"/>
 '''  <param name="pixd">[in] - 1 bpp, 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="pixs">[in] - 1 bpp, 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask</param>
@@ -49352,6 +50851,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixPaintThroughMask/*"/>
 '''  <param name="pixd">[in] - 1, 2, 4, 8, 16 or 32 bpp or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask</param>
 '''  <param name="x">[in] - origin of pixm relative to pixd can be negative</param>
@@ -49427,6 +50927,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixPaintSelfThroughMask/*"/>
 '''  <param name="pixd">[in] - 8 bpp gray or 32 bpp rgb not colormapped</param>
 '''  <param name="pixm">[in] - 1 bpp mask</param>
 '''  <param name="x">[in] - origin of pixm relative to pixd must not be negative</param>
@@ -49468,6 +50969,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeMaskFromVal/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp can be colormapped</param>
 '''  <param name="val">[in] - pixel value</param>
 '''   <returns>pixd 1 bpp mask, or NULL on error</returns>
@@ -49496,6 +50998,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeMaskFromLUT/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp can be colormapped</param>
 '''  <param name="tab">[in] - 256-entry LUT 1 means to write to mask</param>
 '''   <returns>pixd 1 bpp mask, or NULL on error</returns>
@@ -49534,6 +51037,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeArbMaskFromRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''  <param name="rc">[in] - arithmetic factors can be negative</param>
 '''  <param name="gc">[in] - arithmetic factors can be negative</param>
@@ -49607,6 +51111,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetUnderTransparency/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgba</param>
 '''  <param name="val">[in] - 32 bit unsigned color to use where alpha == 0</param>
 '''  <param name="debug">[in] - displays layers of pixs</param>
@@ -49652,6 +51157,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeAlphaFromMask/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="dist">[in] - blending distance typically 10 - 30</param>
 '''  <param name="pbox">[out][optional] - use NULL to get the full size</param>
@@ -49686,6 +51192,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetColorNearMaskBoundary/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="pixm">[in] - 1 bpp mask, full image</param>
 '''  <param name="box">[in] - region of mask typically b.b. of a component</param>
@@ -49730,6 +51237,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixInvert/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -49774,6 +51282,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOr/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs1, different from pixs1</param>
 '''  <param name="pixs1">[in] - can be == pixd</param>
 '''  <param name="pixs2">[in] - must be != pixd</param>
@@ -49821,6 +51330,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAnd/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs1, different from pixs1</param>
 '''  <param name="pixs1">[in] - can be == pixd</param>
 '''  <param name="pixs2">[in] - must be != pixd</param>
@@ -49868,6 +51378,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixXor/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs1, different from pixs1</param>
 '''  <param name="pixs1">[in] - can be == pixd</param>
 '''  <param name="pixs2">[in] - must be != pixd</param>
@@ -49916,6 +51427,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSubtract/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs1, equal to pixs2, or different from both pixs1 and pixs2</param>
 '''  <param name="pixs1">[in] - can be == pixd</param>
 '''  <param name="pixs2">[in] - can be == pixd</param>
@@ -49951,6 +51463,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixZero/*"/>
 '''  <param name="pix">[in] - all depths colormap OK</param>
 '''  <param name="pempty">[out] - 1 if all bits in image data field are 0 0 otherwise</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -49970,6 +51483,7 @@ End Function
 ' pixForegroundFraction(PIX *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixForegroundFraction/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="pfract">[out] - fraction of ON pixels</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -49991,6 +51505,7 @@ End Function
 ' pixaCountPixels(PIXA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaCountPixels/*"/>
 '''  <param name="pixa">[in] - array of 1 bpp pix</param>
 '''   <returns>na of ON pixels in each pix, or NULL on error</returns>
 Public Shared Function pixaCountPixels(
@@ -50009,6 +51524,7 @@ End Function
 ' pixCountPixels(PIX *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountPixels/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pcount">[out] - count of ON pixels</param>
 '''  <param name="tab8">[in][optional] - 8-bit pixel lookup table</param>
@@ -50032,6 +51548,7 @@ End Function
 ' pixCountPixelsInRect(PIX *, BOX *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountPixelsInRect/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="box">[in] - (can be null)</param>
 '''  <param name="pcount">[out] - count of ON pixels</param>
@@ -50064,6 +51581,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountByRow/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="box">[in][optional] - clipping box for count can be null</param>
 '''   <returns>na of number of ON pixels by row, or NULL on error</returns>
@@ -50094,6 +51612,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountByColumn/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="box">[in][optional] - clipping box for count can be null</param>
 '''   <returns>na of number of ON pixels by column, or NULL on error</returns>
@@ -50118,6 +51637,7 @@ End Function
 ' pixCountPixelsByRow(PIX *, l_int32 *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountPixelsByRow/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="tab8">[in][optional] - 8-bit pixel lookup table</param>
 '''   <returns>na of counts, or NULL on error</returns>
@@ -50140,6 +51660,7 @@ End Function
 ' pixCountPixelsByColumn(PIX *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountPixelsByColumn/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''   <returns>na of counts in each column, or NULL on error</returns>
 Public Shared Function pixCountPixelsByColumn(
@@ -50160,6 +51681,7 @@ End Function
 ' pixCountPixelsInRow(PIX *, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountPixelsInRow/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="row">[in] - number</param>
 '''  <param name="pcount">[out] - sum of ON pixels in raster line</param>
@@ -50185,6 +51707,7 @@ End Function
 ' pixGetMomentByColumn(PIX *, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetMomentByColumn/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="order">[in] - of moment, either 1 or 2</param>
 '''   <returns>na of first moment of fg pixels, by column, or NULL on error</returns>
@@ -50216,6 +51739,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThresholdPixelSum/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="thresh">[in] - threshold</param>
 '''  <param name="pabove">[out] - 1 if above threshold 0 if equal to or less than threshold</param>
@@ -50247,6 +51771,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makePixelSumTab8/*"/>
 '''   <returns>table of 256 l_int32, or NULL on error</returns>
 Public Shared Function makePixelSumTab8() as Integer()
 
@@ -50272,6 +51797,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makePixelCentroidTab8/*"/>
 '''   <returns>table of 256 l_int32, or NULL on error</returns>
 Public Shared Function makePixelCentroidTab8() as Integer()
 
@@ -50293,6 +51819,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAverageByRow/*"/>
 '''  <param name="pix">[in] - 8 or 16 bpp no colormap</param>
 '''  <param name="box">[in][optional] - clipping box for sum can be null</param>
 '''  <param name="type">[in] - L_WHITE_IS_MAX, L_BLACK_IS_MAX</param>
@@ -50325,6 +51852,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAverageByColumn/*"/>
 '''  <param name="pix">[in] - 8 or 16 bpp no colormap</param>
 '''  <param name="box">[in][optional] - clipping box for sum can be null</param>
 '''  <param name="type">[in] - L_WHITE_IS_MAX, L_BLACK_IS_MAX</param>
@@ -50349,6 +51877,7 @@ End Function
 ' pixAverageInRect(PIX *, BOX *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAverageInRect/*"/>
 '''  <param name="pix">[in] - 1, 2, 4, 8 bpp not cmapped</param>
 '''  <param name="box">[in][optional] - if null, use entire image</param>
 '''  <param name="pave">[out] - average of pixel values in region</param>
@@ -50380,6 +51909,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixVarianceByRow/*"/>
 '''  <param name="pix">[in] - 8 or 16 bpp no colormap</param>
 '''  <param name="box">[in][optional] - clipping box for variance can be null</param>
 '''   <returns>na of rmsdev by row, or NULL on error</returns>
@@ -50410,6 +51940,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixVarianceByColumn/*"/>
 '''  <param name="pix">[in] - 8 or 16 bpp no colormap</param>
 '''  <param name="box">[in][optional] - clipping box for variance can be null</param>
 '''   <returns>na of rmsdev by column, or NULL on error</returns>
@@ -50432,6 +51963,7 @@ End Function
 ' pixVarianceInRect(PIX *, BOX *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixVarianceInRect/*"/>
 '''  <param name="pix">[in] - 1, 2, 4, 8 bpp not cmapped</param>
 '''  <param name="box">[in][optional] - if null, use entire image</param>
 '''  <param name="prootvar">[out] - sqrt variance of pixel values in region</param>
@@ -50463,6 +51995,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAbsDiffByRow/*"/>
 '''  <param name="pix">[in] - 8 bpp no colormap</param>
 '''  <param name="box">[in][optional] - clipping box for region can be null</param>
 '''   <returns>na of abs val pixel difference averages by row, or NULL on error</returns>
@@ -50493,6 +52026,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAbsDiffByColumn/*"/>
 '''  <param name="pix">[in] - 8 bpp no colormap</param>
 '''  <param name="box">[in][optional] - clipping box for region can be null</param>
 '''   <returns>na of abs val pixel difference averages by column, or NULL on error</returns>
@@ -50523,6 +52057,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAbsDiffInRect/*"/>
 '''  <param name="pix">[in] - 8 bpp not cmapped</param>
 '''  <param name="box">[in][optional] - if null, use entire image</param>
 '''  <param name="dir">[in] - differences along L_HORIZONTAL_LINE or L_VERTICAL_LINE</param>
@@ -50556,6 +52091,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAbsDiffOnLine/*"/>
 '''  <param name="pix">[in] - 8 bpp not cmapped</param>
 '''  <param name="x1">[in] - first point x1  is lower = x2, y1  is lower = y2</param>
 '''  <param name="y1">[in] - first point x1  is lower = x2, y1  is lower = y2</param>
@@ -50591,6 +52127,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountArbInRect/*"/>
 '''  <param name="pixs">[in] - 8 bpp, or colormapped</param>
 '''  <param name="box">[in][optional] - over which count is made use entire image if NULL</param>
 '''  <param name="val">[in] - pixel value to count</param>
@@ -50631,6 +52168,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMirroredTiling/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp, small tile to be replicated</param>
 '''  <param name="w">[in] - dimensions of output pix</param>
 '''  <param name="h">[in] - dimensions of output pix</param>
@@ -50668,6 +52206,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindRepCloseTile/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="box">[in] - region of pixs to search around</param>
 '''  <param name="searchdir">[in] - L_HORIZ or L_VERT direction to search</param>
@@ -50717,6 +52256,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetGrayHistogram/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 bpp can be colormapped</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
 '''   <returns>na histogram, or NULL on error</returns>
@@ -50748,6 +52288,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetGrayHistogramMasked/*"/>
 '''  <param name="pixs">[in] - 8 bpp, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which histogram is to be computed use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0 these values are ignored if pixm is null</param>
@@ -50785,6 +52326,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetGrayHistogramInRect/*"/>
 '''  <param name="pixs">[in] - 8 bpp, or colormapped</param>
 '''  <param name="box">[in][optional] - over which histogram is to be computed use full image if NULL</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
@@ -50816,6 +52358,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetGrayHistogramTiled/*"/>
 '''  <param name="pixs">[in] - any depth, colormap OK</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
 '''  <param name="nx">[in] - tiling  is greater = 1 typically small</param>
@@ -50847,6 +52390,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetColorHistogram/*"/>
 '''  <param name="pixs">[in] - rgb or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
 '''  <param name="pnar">[out] - red histogram</param>
@@ -50887,6 +52431,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetColorHistogramMasked/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which histogram is to be computed use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0 these values are ignored if pixm is null</param>
@@ -50933,6 +52478,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetCmapHistogram/*"/>
 '''  <param name="pixs">[in] - colormapped: d = 2, 4 or 8</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
 '''   <returns>na histogram of cmap indices, or NULL on error</returns>
@@ -50961,6 +52507,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetCmapHistogramMasked/*"/>
 '''  <param name="pixs">[in] - colormapped: d = 2, 4 or 8</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which histogram is to be computed use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0 these values are ignored if pixm is null</param>
@@ -50997,6 +52544,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetCmapHistogramInRect/*"/>
 '''  <param name="pixs">[in] - colormapped: d = 2, 4 or 8</param>
 '''  <param name="box">[in][optional] - over which histogram is to be computed use full image if NULL</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
@@ -51021,6 +52569,7 @@ End Function
 ' pixCountRGBColors(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountRGBColors/*"/>
 '''  <param name="pixs">[in] - rgb or rgba</param>
 '''   <returns>ncolors, or -1 on error</returns>
 Public Shared Function pixCountRGBColors(
@@ -51044,6 +52593,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetColorAmapHistogram/*"/>
 '''  <param name="pixs">[in] - rgb or rgba</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
 '''   <returns>amap, or NULL on error</returns>
@@ -51069,6 +52619,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/amapGetCountForColor/*"/>
 '''  <param name="amap">[in] - map from pixel value to count</param>
 '''  <param name="val">[in] - rgb or rgba pixel value</param>
 '''   <returns>count, or -1 on error</returns>
@@ -51096,6 +52647,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRankValue/*"/>
 '''  <param name="pixs">[in] - 8 bpp, 32 bpp or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
 '''  <param name="rank">[in] - between 0.0 and 1.0 1.0 is brightest, 0.0 is darkest</param>
@@ -51131,6 +52683,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRankValueMaskedRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which rank val is to be taken use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0 these values are ignored if pixm is null</param>
@@ -51184,6 +52737,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRankValueMasked/*"/>
 '''  <param name="pixs">[in] - 8 bpp, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask, over which the rank val is to be taken use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0 these values are ignored if pixm is null</param>
@@ -51235,6 +52789,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetPixelAverage/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which average is to be taken use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0</param>
@@ -51272,6 +52827,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetPixelStats/*"/>
 '''  <param name="pixs">[in] - 8 bpp, 32 bpp or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
 '''  <param name="type">[in] - L_MEAN_ABSVAL, L_ROOT_MEAN_SQUARE, L_STANDARD_DEVIATION, L_VARIANCE</param>
@@ -51303,6 +52859,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetAverageMaskedRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which average is to be taken use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0</param>
@@ -51357,6 +52914,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetAverageMasked/*"/>
 '''  <param name="pixs">[in] - 8 or 16 bpp, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which average is to be taken use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0</param>
@@ -51395,6 +52953,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetAverageTiledRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp, or colormapped</param>
 '''  <param name="sx">[in] - tile size must be at least 2 x 2</param>
 '''  <param name="sy">[in] - tile size must be at least 2 x 2</param>
@@ -51441,6 +53000,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetAverageTiled/*"/>
 '''  <param name="pixs">[in] - 8 bpp, or colormapped</param>
 '''  <param name="sx">[in] - tile size must be at least 2 x 2</param>
 '''  <param name="sy">[in] - tile size must be at least 2 x 2</param>
@@ -51477,6 +53037,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRowStats/*"/>
 '''  <param name="pixs">[in] - 8 bpp not cmapped</param>
 '''  <param name="box">[in][optional] - clipping box can be null</param>
 '''  <param name="pnamean">[out][optional] - numa of mean values</param>
@@ -51534,6 +53095,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColumnStats/*"/>
 '''  <param name="pixs">[in] - 8 bpp not cmapped</param>
 '''  <param name="box">[in][optional] - clipping box can be null</param>
 '''  <param name="pnamean">[out][optional] - numa of mean values</param>
@@ -51584,6 +53146,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRangeValues/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale, 32 bpp rgb, or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor  is greater = 1 ignored if colormapped</param>
 '''  <param name="color">[in] - L_SELECT_RED, L_SELECT_GREEN or L_SELECT_BLUE</param>
@@ -51619,6 +53182,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetExtremeValue/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale, 32 bpp rgb, or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor  is greater = 1 ignored if colormapped</param>
 '''  <param name="type">[in] - L_SELECT_MIN or L_SELECT_MAX</param>
@@ -51659,6 +53223,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetMaxValueInRect/*"/>
 '''  <param name="pixs">[in] - 8, 16 or 32 bpp grayscale no color space components</param>
 '''  <param name="box">[in][optional] - region set box = NULL to use entire pixs</param>
 '''  <param name="pmaxval">[out][optional] - max value in region</param>
@@ -51693,6 +53258,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetBinnedComponentRange/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="nbins">[in] - number of equal population bins must be  is greater  1</param>
 '''  <param name="factor">[in] - subsampling factor  is greater = 1</param>
@@ -51751,6 +53317,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRankColorArray/*"/>
 '''  <param name="pixs">[in] - 32 bpp or cmapped</param>
 '''  <param name="nbins">[in] - number of equal population bins must be  is greater  1</param>
 '''  <param name="type">[in] - color selection flag</param>
@@ -51798,6 +53365,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetBinnedColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="pixg">[in] - 8 bpp grayscale version of pixs</param>
 '''  <param name="factor">[in] - sampling factor along pixel counting direction</param>
@@ -51832,6 +53400,7 @@ End Function
 ' pixDisplayColorArray(l_uint32 *, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDisplayColorArray/*"/>
 '''  <param name="carray">[in] - array of colors: 0xrrggbb00</param>
 '''  <param name="ncolors">[in] - size of array</param>
 '''  <param name="side">[in] - size of each color square suggest 200</param>
@@ -51878,6 +53447,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRankBinByStrip/*"/>
 '''  <param name="pixs">[in] - 32 bpp or cmapped</param>
 '''  <param name="direction">[in] - L_SCAN_HORIZONTAL or L_SCAN_VERTICAL</param>
 '''  <param name="size">[in] - of strips in scan direction</param>
@@ -51916,6 +53486,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetAlignedStats/*"/>
 '''  <param name="pixa">[in] - of identically sized, 8 bpp pix not cmapped</param>
 '''  <param name="type">[in] - L_MEAN_ABSVAL, L_MEDIAN_VAL, L_MODE_VAL, L_MODE_COUNT</param>
 '''  <param name="nbins">[in] - of histogram for median and mode ignored for mean</param>
@@ -51940,6 +53511,7 @@ End Function
 ' pixaExtractColumnFromEachPix(PIXA *, l_int32, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaExtractColumnFromEachPix/*"/>
 '''  <param name="pixa">[in] - of identically sized, 8 bpp not cmapped</param>
 '''  <param name="col">[in] - column index</param>
 '''  <param name="pixd">[in] - pix into which each column is inserted</param>
@@ -51984,6 +53556,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRowStats/*"/>
 '''  <param name="pixs">[in] - 8 bpp not cmapped</param>
 '''  <param name="type">[in] - L_MEAN_ABSVAL, L_MEDIAN_VAL, L_MODE_VAL, L_MODE_COUNT</param>
 '''  <param name="nbins">[in] - of histogram for median and mode ignored for mean</param>
@@ -52027,6 +53600,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetColumnStats/*"/>
 '''  <param name="pixs">[in] - 8 bpp not cmapped</param>
 '''  <param name="type">[in] - L_MEAN_ABSVAL, L_MEDIAN_VAL, L_MODE_VAL, L_MODE_COUNT</param>
 '''  <param name="nbins">[in] - of histogram for median and mode ignored for mean</param>
@@ -52053,6 +53627,7 @@ End Function
 ' pixSetPixelColumn(PIX *, l_int32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetPixelColumn/*"/>
 '''  <param name="pix">[in] - 8 bpp not cmapped</param>
 '''  <param name="col">[in] - column index</param>
 '''  <param name="colvect">[in] - vector of floats</param>
@@ -52075,6 +53650,7 @@ End Function
 ' pixThresholdForFgBg(PIX *, l_int32, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThresholdForFgBg/*"/>
 '''  <param name="pixs">[in] - any depth cmapped ok</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
 '''  <param name="thresh">[in] - threshold for generating foreground mask</param>
@@ -52106,6 +53682,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSplitDistributionFgBg/*"/>
 '''  <param name="pixs">[in] - any depth cmapped ok</param>
 '''  <param name="scorefract">[in] - fraction of the max score, used to determine the range over which the histogram min is searched</param>
 '''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
@@ -52140,6 +53717,7 @@ End Function
 ' pixaFindDimensions(PIXA *, NUMA **, NUMA **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaFindDimensions/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pnaw">[out][optional] - numa of pix widths</param>
 '''  <param name="pnah">[out][optional] - numa of pix heights</param>
@@ -52175,6 +53753,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindAreaPerimRatio/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="tab">[in][optional] - pixel sum table, can be NULL</param>
 '''  <param name="pfract">[out] - area/perimeter ratio</param>
@@ -52204,6 +53783,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaFindPerimToAreaRatio/*"/>
 '''  <param name="pixa">[in] - of 1 bpp pix</param>
 '''   <returns>na   of perimeter/arear ratio for each pix, or NULL on error</returns>
 Public Shared Function pixaFindPerimToAreaRatio(
@@ -52236,6 +53816,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindPerimToAreaRatio/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="tab">[in][optional] - pixel sum table, can be NULL</param>
 '''  <param name="pfract">[out] - perimeter/area ratio</param>
@@ -52268,6 +53849,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaFindPerimSizeRatio/*"/>
 '''  <param name="pixa">[in] - of 1 bpp pix</param>
 '''   <returns>na   of fg perimeter/(2(w+h)) ratio for each pix, or NULL on error</returns>
 Public Shared Function pixaFindPerimSizeRatio(
@@ -52300,6 +53882,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindPerimSizeRatio/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="tab">[in][optional] - pixel sum table, can be NULL</param>
 '''  <param name="pratio">[out] - perimeter/size ratio</param>
@@ -52329,6 +53912,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaFindAreaFraction/*"/>
 '''  <param name="pixa">[in] - of 1 bpp pix</param>
 '''   <returns>na  of area fractions for each pix, or NULL on error</returns>
 Public Shared Function pixaFindAreaFraction(
@@ -52354,6 +53938,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindAreaFraction/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="tab">[in][optional] - pixel sum table, can be NULL</param>
 '''  <param name="pfract">[out] - fg area/size ratio</param>
@@ -52387,6 +53972,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaFindAreaFractionMasked/*"/>
 '''  <param name="pixa">[in] - of 1 bpp pix</param>
 '''  <param name="pixm">[in] - mask image</param>
 '''  <param name="debug">[in] - 1 for output, 0 to suppress</param>
@@ -52423,6 +54009,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindAreaFractionMasked/*"/>
 '''  <param name="pixs">[in] - 1 bpp, typically a single component</param>
 '''  <param name="box">[in][optional] - for pixs relative to pixm</param>
 '''  <param name="pixm">[in] - 1 bpp mask, typically over the entire image from which the component pixs was extracted</param>
@@ -52457,6 +54044,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaFindWidthHeightRatio/*"/>
 '''  <param name="pixa">[in] - of 1 bpp pix</param>
 '''   <returns>na of width/height ratios for each pix, or NULL on error</returns>
 Public Shared Function pixaFindWidthHeightRatio(
@@ -52481,6 +54069,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaFindWidthHeightProduct/*"/>
 '''  <param name="pixa">[in] - of 1 bpp pix</param>
 '''   <returns>na of widthheight products for each pix, or NULL on error</returns>
 Public Shared Function pixaFindWidthHeightProduct(
@@ -52505,6 +54094,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindOverlapFraction/*"/>
 '''  <param name="pixs1">[in] - 1 bpp</param>
 '''  <param name="pixs2">[in] - 1 bpp</param>
 '''  <param name="x2">[in] - location in pixs1 of UL corner of pixs2</param>
@@ -52548,6 +54138,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindRectangleComps/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="dist">[in] - max distance allowed between bounding box and nearest foreground pixel within it</param>
 '''  <param name="minw">[in] - minimum size in each direction as a requirement for a conforming rectangle</param>
@@ -52599,6 +54190,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConformsToRectangle/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="box">[in][optional] - if null, use the entire pixs</param>
 '''  <param name="dist">[in] - max distance allowed between bounding box and nearest foreground pixel within it</param>
@@ -52632,6 +54224,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClipRectangles/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="boxa">[in] - requested clipping regions</param>
 '''   <returns>pixa consisting of requested regions, or NULL on error</returns>
@@ -52676,6 +54269,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClipRectangle/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="box">[in] - requested clipping region const</param>
 '''  <param name="pboxc">[out][optional] - actual box of clipped region</param>
@@ -52721,6 +54315,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClipMasked/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp colormap ok</param>
 '''  <param name="pixm">[in] - clipping mask, 1 bpp</param>
 '''  <param name="x">[in] - origin of clipping mask relative to pixs</param>
@@ -52756,6 +54351,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCropToMatch/*"/>
 '''  <param name="pixs1">[in] - any depth, colormap OK</param>
 '''  <param name="pixs2">[in] - any depth, colormap OK</param>
 '''  <param name="ppixd1">[out] - may be a clone</param>
@@ -52792,6 +54388,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCropToSize/*"/>
 '''  <param name="pixs">[in] - any depth, colormap OK</param>
 '''  <param name="w">[in] - max dimensions of cropped image</param>
 '''  <param name="h">[in] - max dimensions of cropped image</param>
@@ -52830,6 +54427,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixResizeToMatch/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp colormap ok</param>
 '''  <param name="pixt">[in]can be null - we use only the size</param>
 '''  <param name="w">[in] - ignored if pixt is defined</param>
@@ -52878,6 +54476,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeFrameMask/*"/>
 '''  <param name="w">[in] - dimensions of output 1 bpp pix</param>
 '''  <param name="h">[in] - dimensions of output 1 bpp pix</param>
 '''  <param name="hf1">[in] - horizontal fraction of half-width at outer frame bdry</param>
@@ -52915,6 +54514,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMakeCoveringOfRectangles/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="maxiters">[in] - max iterations: use 0 to iterate to completion</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -52953,6 +54553,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFractionFgInMask/*"/>
 '''  <param name="pix1">[in] - 1 bpp</param>
 '''  <param name="pix2">[in] - 1 bpp</param>
 '''  <param name="pfract">[out] - fraction of fg pixels in 1 that are aligned with the fg of 2</param>
@@ -52984,6 +54585,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClipToForeground/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="ppixd">[out][optional] - clipped pix returned</param>
 '''  <param name="pbox">[out][optional] - bounding box</param>
@@ -53022,6 +54624,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTestClipToForeground/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pcanclip">[out] - 1 if fg does not extend to all four edges</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -53051,6 +54654,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClipBoxToForeground/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="boxs">[in][optional] - use full image if null</param>
 '''  <param name="ppixd">[out][optional] - clipped pix returned</param>
@@ -53089,6 +54693,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScanForForeground/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="box">[in][optional] - within which the search is conducted</param>
 '''  <param name="scanflag">[in] - direction of scan e.g., L_FROM_LEFT</param>
@@ -53135,6 +54740,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixClipBoxToEdges/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="boxs">[in][optional] - use full image if null</param>
 '''  <param name="lowthresh">[in] - threshold to choose clipping location</param>
@@ -53190,6 +54796,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScanForEdge/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="box">[in][optional] - within which the search is conducted</param>
 '''  <param name="lowthresh">[in] - threshold to choose clipping location</param>
@@ -53237,6 +54844,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtractOnLine/*"/>
 '''  <param name="pixs">[in] - 1 bpp or 8 bpp no colormap</param>
 '''  <param name="x1">[in] - one end point for line</param>
 '''  <param name="y1">[in] - one end point for line</param>
@@ -53275,6 +54883,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAverageOnLine/*"/>
 '''  <param name="pixs">[in] - 1 bpp or 8 bpp no colormap</param>
 '''  <param name="x1">[in] - starting pt for line</param>
 '''  <param name="y1">[in] - starting pt for line</param>
@@ -53320,6 +54929,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAverageIntensityProfile/*"/>
 '''  <param name="pixs">[in] - any depth colormap OK</param>
 '''  <param name="fract">[in] - fraction of image width or height to be used</param>
 '''  <param name="dir">[in] - averaging direction: L_HORIZONTAL_LINE or L_VERTICAL_LINE</param>
@@ -53374,6 +54984,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReversalProfile/*"/>
 '''  <param name="pixs">[in] - any depth colormap OK</param>
 '''  <param name="fract">[in] - fraction of image width or height to be used</param>
 '''  <param name="dir">[in] - profile direction: L_HORIZONTAL_LINE or L_VERTICAL_LINE</param>
@@ -53418,6 +55029,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWindowedVarianceOnLine/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="dir">[in] - L_HORIZONTAL_LINE or L_VERTICAL_LINE</param>
 '''  <param name="loc">[in] - location of the constant coordinate for the line</param>
@@ -53465,6 +55077,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMinMaxNearLine/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="x1">[in] - starting pt for line</param>
 '''  <param name="y1">[in] - starting pt for line</param>
@@ -53513,6 +55126,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRankRowTransform/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''   <returns>pixd with pixels sorted in each row, from min to max value</returns>
 Public Shared Function pixRankRowTransform(
@@ -53537,6 +55151,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRankColumnTransform/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''   <returns>pixd with pixels sorted in each column, from min to max value</returns>
 Public Shared Function pixRankColumnTransform(
@@ -53562,6 +55177,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaCreate/*"/>
 '''  <param name="n">[in] - initial number of ptrs</param>
 '''   <returns>pixa, or NULL on error</returns>
 Public Shared Function pixaCreate(
@@ -53584,6 +55200,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaCreateFromPix/*"/>
 '''  <param name="pixs">[in] - with individual components on a lattice</param>
 '''  <param name="n">[in] - number of components</param>
 '''  <param name="cellw">[in] - width of each cell</param>
@@ -53619,6 +55236,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaCreateFromBoxa/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pcropwarn">[out][optional] - TRUE if the boxa extent is larger than pixs.</param>
@@ -53656,6 +55274,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSplitPix/*"/>
 '''  <param name="pixs">[in] - with individual components on a lattice</param>
 '''  <param name="nx">[in] - number of mosaic cells horizontally</param>
 '''  <param name="ny">[in] - number of mosaic cells vertically</param>
@@ -53688,6 +55307,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDestroy/*"/>
 '''  <param name="ppixa">[in,out]can be null - ed</param>
 Public Shared Sub pixaDestroy(
 				 ByRef ppixa as Pixa)
@@ -53704,6 +55324,7 @@ End Sub
 ' pixaCopy(PIXA *, l_int32) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaCopy/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="copyflag">[in] - see pix.h for details: L_COPY makes a new pixa and copies each pix and each box L_CLONE gives a new ref-counted handle to the input pixa L_COPY_CLONE makes a new pixa and inserts clones of all pix and boxes</param>
 '''   <returns>new pixa, or NULL on error</returns>
@@ -53724,6 +55345,7 @@ End Function
 ' pixaAddPix(PIXA *, PIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaAddPix/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pix">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -53746,6 +55368,7 @@ End Function
 ' pixaAddBox(PIXA *, BOX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaAddBox/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="box">[in] - </param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -53774,6 +55397,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaExtendArrayToSize/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="size">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -53793,6 +55417,7 @@ End Function
 ' pixaGetCount(PIXA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetCount/*"/>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>count, or 0 if no pixa</returns>
 Public Shared Function pixaGetCount(
@@ -53810,6 +55435,7 @@ End Function
 ' pixaChangeRefcount(PIXA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaChangeRefcount/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="delta">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -53829,6 +55455,7 @@ End Function
 ' pixaGetPix(PIXA *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetPix/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th pix</param>
 '''  <param name="accesstype">[in] - L_COPY or L_CLONE</param>
@@ -53851,6 +55478,7 @@ End Function
 ' pixaGetPixDimensions(PIXA *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetPixDimensions/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="pw">[out][optional] - each can be null</param>
@@ -53876,6 +55504,7 @@ End Function
 ' pixaGetBoxa(PIXA *, l_int32) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetBoxa/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
 '''   <returns>boxa, or NULL on error</returns>
@@ -53896,6 +55525,7 @@ End Function
 ' pixaGetBoxaCount(PIXA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetBoxaCount/*"/>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>count, or 0 on error</returns>
 Public Shared Function pixaGetBoxaCount(
@@ -53925,6 +55555,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetBox/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th pix</param>
 '''  <param name="accesstype">[in] - L_COPY or L_CLONE</param>
@@ -53947,6 +55578,7 @@ End Function
 ' pixaGetBoxGeometry(PIXA *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetBoxGeometry/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="px">[out][optional] - each can be null</param>
@@ -53979,6 +55611,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSetBoxa/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="accesstype">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -54009,6 +55642,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetPixArray/*"/>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>pix array, or NULL on error</returns>
 Public Shared Function pixaGetPixArray(
@@ -54033,6 +55667,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaVerifyDepth/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="psame">[out] - 1 if depth is the same for all pix 0 otherwise</param>
 '''  <param name="pmaxd">[out][optional] - max depth of all pix</param>
@@ -54059,6 +55694,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaVerifyDimensions/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="psame">[out] - 1 if dimensions are the same for all pix 0 otherwise</param>
 '''  <param name="pmaxw">[out][optional] - max width of all pix</param>
@@ -54088,6 +55724,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaIsFull/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pfullpa">[out][optional] - 1 if pixa is full</param>
 '''  <param name="pfullba">[out][optional] - 1 if boxa is full</param>
@@ -54115,6 +55752,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaCountText/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pntext">[out] - number of pix with non-empty text strings</param>
 '''   <returns>0 if OK, 1 on error.</returns>
@@ -54140,6 +55778,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSetText/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="sa">[in][optional] - array of text strings, to insert in each pix</param>
 '''   <returns>0 if OK, 1 on error.</returns>
@@ -54173,6 +55812,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetLinePtrs/*"/>
 '''  <param name="pixa">[in] - of pix that all have the same depth</param>
 '''  <param name="psize">[out][optional] - number of pix in the pixa</param>
 '''   <returns>array of array of line ptrs, or NULL on error</returns>
@@ -54198,6 +55838,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaWriteStreamInfo/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>0 if OK, 1 on error.</returns>
@@ -54224,6 +55865,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaReplacePix/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th pix</param>
 '''  <param name="pix">[in] - insert to replace existing one</param>
@@ -54260,6 +55902,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaInsertPix/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - at which pix is to be inserted</param>
 '''  <param name="pixs">[in] - new pix to be inserted</param>
@@ -54294,6 +55937,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaRemovePix/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - of pix to be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -54322,6 +55966,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaRemovePixAndSave/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - of pix to be removed</param>
 '''  <param name="ppix">[out][optional] - removed pix</param>
@@ -54377,6 +56022,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaInitFull/*"/>
 '''  <param name="pixa">[in] - typically empty</param>
 '''  <param name="pix">[in][optional] - to be replicated into the entire pixa ptr array</param>
 '''  <param name="box">[in][optional] - to be replicated into the entire boxa ptr array</param>
@@ -54408,6 +56054,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaClear/*"/>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaClear(
@@ -54433,6 +56080,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaJoin/*"/>
 '''  <param name="pixad">[in] - dest pixa add to this one</param>
 '''  <param name="pixas">[in][optional] - source pixa add from this one</param>
 '''  <param name="istart">[in] - starting index in pixas</param>
@@ -54466,6 +56114,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaInterleave/*"/>
 '''  <param name="pixa1">[in] - first src pixa</param>
 '''  <param name="pixa2">[in] - second src pixa</param>
 '''  <param name="copyflag">[in] - L_CLONE, L_COPY</param>
@@ -54496,6 +56145,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaJoin/*"/>
 '''  <param name="paad">[in] - dest pixaa add to this one</param>
 '''  <param name="paas">[in][optional] - source pixaa add from this one</param>
 '''  <param name="istart">[in] - starting index in pixaas</param>
@@ -54537,6 +56187,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaCreate/*"/>
 '''  <param name="n">[in] - initial number of pixa ptrs</param>
 '''   <returns>paa, or NULL on error</returns>
 Public Shared Function pixaaCreate(
@@ -54564,6 +56215,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaCreateFromPixa/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="n">[in] - number specifying subdivision of pixa</param>
 '''  <param name="type">[in] - L_CHOOSE_CONSECUTIVE, L_CHOOSE_SKIP_BY</param>
@@ -54588,6 +56240,7 @@ End Function
 ' pixaaDestroy(PIXAA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaDestroy/*"/>
 '''  <param name="ppaa">[in,out] - to be nulled</param>
 Public Shared Sub pixaaDestroy(
 				 ByRef ppaa as Pixaa)
@@ -54604,6 +56257,7 @@ End Sub
 ' pixaaAddPixa(PIXAA *, PIXA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaAddPixa/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="pixa">[in] - to be added</param>
 '''  <param name="copyflag">[in] - : L_INSERT inserts the pixa directly L_COPY makes a new pixa and copies each pix and each box L_CLONE gives a new handle to the input pixa L_COPY_CLONE makes a new pixa and inserts clones of all pix and boxes</param>
@@ -54626,6 +56280,7 @@ End Function
 ' pixaaExtendArray(PIXAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaExtendArray/*"/>
 '''  <param name="paa">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixaaExtendArray(
@@ -54643,6 +56298,7 @@ End Function
 ' pixaaAddPix(PIXAA *, l_int32, PIX *, BOX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaAddPix/*"/>
 '''  <param name="paa">[in] - input paa</param>
 '''  <param name="index">[in] - index of pixa in paa</param>
 '''  <param name="pix">[in] - to be added</param>
@@ -54677,6 +56333,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaAddBox/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="box">[in] - </param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -54704,6 +56361,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaGetCount/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="pna">[out][optional] - number of pix in each pixa</param>
 '''   <returns>count, or 0 if no pixaa</returns>
@@ -54738,6 +56396,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaGetPixa/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="index">[in] - to the index-th pixa</param>
 '''  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
@@ -54766,6 +56425,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaGetBoxa/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="accesstype">[in] - L_COPY, L_CLONE</param>
 '''   <returns>boxa, or NULL on error</returns>
@@ -54786,6 +56446,7 @@ End Function
 ' pixaaGetPix(PIXAA *, l_int32, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaGetPix/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="index">[in] - index into the pixa array in the pixaa</param>
 '''  <param name="ipix">[in] - index into the pix array in the pixa</param>
@@ -54815,6 +56476,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaVerifyDepth/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="psame">[out] - 1 if all pix have the same depth 0 otherwise</param>
 '''  <param name="pmaxd">[out][optional] - max depth of all pix in pixaa</param>
@@ -54841,6 +56503,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaVerifyDimensions/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="psame">[out] - 1 if all pix have the same depth 0 otherwise</param>
 '''  <param name="pmaxw">[out][optional] - max width of all pix in pixaa</param>
@@ -54869,6 +56532,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaIsFull/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="pfull">[out] - 1 if all pixa in the paa have full pix arrays</param>
 '''   <returns>return 0 if OK, 1 on error</returns>
@@ -54902,6 +56566,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaInitFull/*"/>
 '''  <param name="paa">[in] - typically empty</param>
 '''  <param name="pixa">[in] - to be replicated into the entire pixa ptr array</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -54931,6 +56596,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaReplacePixa/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="index">[in] - to the index-th pixa</param>
 '''  <param name="pixa">[in] - insert to replace existing one</param>
@@ -54959,6 +56625,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaClear/*"/>
 '''  <param name="paa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaaClear(
@@ -54983,6 +56650,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaTruncate/*"/>
 '''  <param name="paa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaaTruncate(
@@ -55006,6 +56674,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>pixa, or NULL on error</returns>
 Public Shared Function pixaRead(
@@ -55032,6 +56701,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>pixa, or NULL on error</returns>
 Public Shared Function pixaReadStream(
@@ -55050,6 +56720,7 @@ End Function
 ' pixaReadMem(const l_uint8 *, size_t) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaReadMem/*"/>
 '''  <param name="data">[in] - of serialized pixa</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>pixa, or NULL on error</returns>
@@ -55079,6 +56750,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaWriteDebug/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -55105,6 +56777,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -55133,6 +56806,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -55158,6 +56832,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized pixa</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pixa">[in] - </param>
@@ -55188,6 +56863,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaReadBoth/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>pixa, or NULL on error</returns>
 Public Shared Function pixaReadBoth(
@@ -55219,6 +56895,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaReadFromFiles/*"/>
 '''  <param name="dirname">[in] - directory</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="first">[in] - 0-based</param>
@@ -55249,6 +56926,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>paa, or NULL on error</returns>
 Public Shared Function pixaaRead(
@@ -55275,6 +56953,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>paa, or NULL on error</returns>
 Public Shared Function pixaaReadStream(
@@ -55293,6 +56972,7 @@ End Function
 ' pixaaReadMem(const l_uint8 *, size_t) as PIXAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaReadMem/*"/>
 '''  <param name="data">[in] - of serialized pixaa</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>paa, or NULL on error</returns>
@@ -55319,6 +56999,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="paa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -55347,6 +57028,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="paa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -55372,6 +57054,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized pixaa</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="paa">[in] - </param>
@@ -55408,6 +57091,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaccCreate/*"/>
 '''  <param name="w">[in] - of 32 bpp internal Pix</param>
 '''  <param name="h">[in] - of 32 bpp internal Pix</param>
 '''  <param name="negflag">[in] - 0 if only positive numbers are involved 1 if there will be negative numbers</param>
@@ -55433,6 +57117,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaccCreateFromPix/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="negflag">[in] - 0 if only positive numbers are involved 1 if there will be negative numbers</param>
 '''   <returns>pixacc, or NULL on error</returns>
@@ -55458,6 +57143,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaccDestroy/*"/>
 '''  <param name="ppixacc">[in,out] - to be nulled</param>
 Public Shared Sub pixaccDestroy(
 				 ByRef ppixacc as Pixacc)
@@ -55474,6 +57160,7 @@ End Sub
 ' pixaccFinal(PIXACC *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaccFinal/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''  <param name="outdepth">[in] - 8, 16 or 32 bpp</param>
 '''   <returns>pixd 8 , 16 or 32 bpp, or NULL on error</returns>
@@ -55494,6 +57181,7 @@ End Function
 ' pixaccGetPix(PIXACC *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaccGetPix/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''   <returns>pix, or NULL on error</returns>
 Public Shared Function pixaccGetPix(
@@ -55512,6 +57200,7 @@ End Function
 ' pixaccGetOffset(PIXACC *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaccGetOffset/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''   <returns>offset, or -1 on error</returns>
 Public Shared Function pixaccGetOffset(
@@ -55529,6 +57218,7 @@ End Function
 ' pixaccAdd(PIXACC *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaccAdd/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''  <param name="pix">[in] - to be added</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -55549,6 +57239,7 @@ End Function
 ' pixaccSubtract(PIXACC *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaccSubtract/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''  <param name="pix">[in] - to be subtracted</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -55569,6 +57260,7 @@ End Function
 ' pixaccMultConst(PIXACC *, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaccMultConst/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''  <param name="factor">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -55594,6 +57286,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaccMultConstAccumulate/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="factor">[in] - </param>
@@ -55632,6 +57325,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSelectBySize/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="width">[in] - threshold dimensions</param>
 '''  <param name="height">[in] - threshold dimensions</param>
@@ -55677,6 +57371,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSelectBySize/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="width">[in] - threshold dimensions</param>
 '''  <param name="height">[in] - threshold dimensions</param>
@@ -55717,6 +57412,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaMakeSizeIndicator/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="width">[in] - threshold dimensions</param>
 '''  <param name="height">[in] - threshold dimensions</param>
@@ -55756,6 +57452,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSelectByPerimToAreaRatio/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="thresh">[in] - threshold ratio of fg boundary to fg pixels</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -55791,6 +57488,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSelectByPerimToAreaRatio/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="thresh">[in] - threshold ratio of fg boundary to fg pixels</param>
 '''  <param name="type">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -55829,6 +57527,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSelectByPerimSizeRatio/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="thresh">[in] - threshold ratio of fg boundary to fg pixels</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -55864,6 +57563,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSelectByPerimSizeRatio/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="thresh">[in] - threshold ratio of fg boundary to b.b. circumference</param>
 '''  <param name="type">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -55901,6 +57601,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSelectByAreaFraction/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="thresh">[in] - threshold ratio of fg pixels to (w  h)</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -55940,6 +57641,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSelectByAreaFraction/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="thresh">[in] - threshold ratio of fg pixels to (w  h)</param>
 '''  <param name="type">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -55976,6 +57678,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSelectByWidthHeightRatio/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="thresh">[in] - threshold ratio of width/height</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -56015,6 +57718,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSelectByWidthHeightRatio/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="thresh">[in] - threshold ratio of width/height</param>
 '''  <param name="type">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -56047,6 +57751,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSelectByNumConnComp/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="nmin">[in] - minimum number of components</param>
 '''  <param name="nmax">[in] - maximum number of components</param>
@@ -56082,6 +57787,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSelectWithIndicator/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="na">[in] - indicator numa</param>
 '''  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
@@ -56111,6 +57817,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveWithIndicator/*"/>
 '''  <param name="pixs">[in] - 1 bpp pix from which components are removed in-place</param>
 '''  <param name="pixa">[in] - of connected components in pixs</param>
 '''  <param name="na">[in] - numa indicator: remove components corresponding to 1s</param>
@@ -56140,6 +57847,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddWithIndicator/*"/>
 '''  <param name="pixs">[in] - 1 bpp pix from which components are added in-place</param>
 '''  <param name="pixa">[in] - of connected components, some of which will be put into pixs</param>
 '''  <param name="na">[in] - numa indicator: add components corresponding to 1s</param>
@@ -56169,6 +57877,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSelectWithString/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="str">[in] - string of indices into pixa, giving the pix to be selected</param>
 '''  <param name="perror">[out][optional] - 1 if any indices are invalid 0 if all indices are valid</param>
@@ -56199,6 +57908,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaRenderComponent/*"/>
 '''  <param name="pixs">[in][optional] - 1 bpp pix</param>
 '''  <param name="pixa">[in] - of 1 bpp connected components, one of which will be rendered in pixs, with its origin determined by the associated box.</param>
 '''  <param name="index">[in] - of component to be rendered</param>
@@ -56235,6 +57945,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSort/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="sorttype">[in] - L_SORT_BY_X, L_SORT_BY_Y, L_SORT_BY_WIDTH, L_SORT_BY_HEIGHT, L_SORT_BY_MIN_DIMENSION, L_SORT_BY_MAX_DIMENSION, L_SORT_BY_PERIMETER, L_SORT_BY_AREA, L_SORT_BY_ASPECT_RATIO</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
@@ -56278,6 +57989,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaBinSort/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="sorttype">[in] - L_SORT_BY_X, L_SORT_BY_Y, L_SORT_BY_WIDTH, L_SORT_BY_HEIGHT, L_SORT_BY_PERIMETER</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
@@ -56307,6 +58019,7 @@ End Function
 ' pixaSortByIndex(PIXA *, NUMA *, l_int32) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSortByIndex/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="naindex">[in] - na that maps from the new pixa to the input pixa</param>
 '''  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
@@ -56330,6 +58043,7 @@ End Function
 ' pixaSort2dByIndex(PIXA *, NUMAA *, l_int32) as PIXAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSort2dByIndex/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="naa">[in] - numaa that maps from the new pixaa to the input pixas</param>
 '''  <param name="copyflag">[in] - L_CLONE or L_COPY</param>
@@ -56360,6 +58074,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSelectRange/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="first">[in] - use 0 to select from the beginning</param>
 '''  <param name="last">[in] - use 0 to select to the end</param>
@@ -56391,6 +58106,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaSelectRange/*"/>
 '''  <param name="paas">[in] - </param>
 '''  <param name="first">[in] - use 0 to select from the beginning</param>
 '''  <param name="last">[in] - use 0 to select to the end</param>
@@ -56426,6 +58142,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaScaleToSize/*"/>
 '''  <param name="paas">[in] - </param>
 '''  <param name="wd">[in] - target width use 0 if using height as target</param>
 '''  <param name="hd">[in] - target height use 0 if using width as target</param>
@@ -56461,6 +58178,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaScaleToSizeVar/*"/>
 '''  <param name="paas">[in] - </param>
 '''  <param name="nawd">[in][optional] - target widths use NULL if using height</param>
 '''  <param name="nahd">[in][optional] - target height use NULL if using width</param>
@@ -56491,6 +58209,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaScaleToSize/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="wd">[in] - target width use 0 if using height as target</param>
 '''  <param name="hd">[in] - target height use 0 if using width as target</param>
@@ -56520,6 +58239,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaScaleToSizeRel/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="delw">[in] - change in width, in pixels 0 means no change</param>
 '''  <param name="delh">[in] - change in height, in pixels 0 means no change return  pixad, or NULL on error</param>
@@ -56547,6 +58267,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaScale/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="scalex">[in] - </param>
 '''  <param name="scaley">[in] - </param>
@@ -56574,6 +58295,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaScaleBySampling/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="scalex">[in] - </param>
 '''  <param name="scaley">[in] - </param>
@@ -56609,6 +58331,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaRotate/*"/>
 '''  <param name="pixas">[in] - 1, 2, 4, 8, 32 bpp rgb</param>
 '''  <param name="angle">[in] - rotation angle in radians clockwise is positive</param>
 '''  <param name="type">[in] - L_ROTATE_AREA_MAP, L_ROTATE_SHEAR, L_ROTATE_SAMPLING</param>
@@ -56643,6 +58366,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaRotateOrth/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="rotation">[in] - 0 = noop, 1 = 90 deg, 2 = 180 deg, 3 = 270 deg all rotations are clockwise</param>
 '''   <returns>pixad, or NULL on error</returns>
@@ -56663,6 +58387,7 @@ End Function
 ' pixaTranslate(PIXA *, l_int32, l_int32, l_int32) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaTranslate/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="hshift">[in] - horizontal shift hshift  is greater  0 is to right</param>
 '''  <param name="vshift">[in] - vertical shift vshift  is greater  0 is down</param>
@@ -56707,6 +58432,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaAddBorderGeneral/*"/>
 '''  <param name="pixad">[in]can be null - or equal to pixas</param>
 '''  <param name="pixas">[in] - containing pix of all depths colormap ok</param>
 '''  <param name="left">[in] - number of pixels added</param>
@@ -56747,6 +58473,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaFlattenToPixa/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="pnaindex">[out][optional] - the pixa index in the pixaa</param>
 '''  <param name="copyflag">[in] - L_COPY or L_CLONE</param>
@@ -56772,6 +58499,7 @@ End Function
 ' pixaaSizeRange(PIXAA *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaSizeRange/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="pminw">[out][optional] - range of dimensions of all boxes</param>
 '''  <param name="pminh">[out][optional] - range of dimensions of all boxes</param>
@@ -56797,6 +58525,7 @@ End Function
 ' pixaSizeRange(PIXA *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSizeRange/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pminw">[out][optional] - range of dimensions of pix in the array</param>
 '''  <param name="pminh">[out][optional] - range of dimensions of pix in the array</param>
@@ -56837,6 +58566,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaClipToPix/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixad, or NULL on error</returns>
@@ -56865,6 +58595,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaClipToForeground/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="ppixad">[out][optional] - pixa of clipped pix returned</param>
 '''  <param name="pboxa">[out][optional] - clipping boxes returned</param>
@@ -56891,6 +58622,7 @@ End Function
 ' pixaGetRenderingDepth(PIXA *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetRenderingDepth/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pdepth">[out] - depth required to render if all colormaps are removed</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -56910,6 +58642,7 @@ End Function
 ' pixaHasColor(PIXA *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaHasColor/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="phascolor">[out] - 1 if any pix is rgb or has a colormap with color 0 otherwise</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -56929,6 +58662,7 @@ End Function
 ' pixaAnyColormaps(PIXA *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaAnyColormaps/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="phascmap">[out] - 1 if any pix has a colormap 0 otherwise</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -56948,6 +58682,7 @@ End Function
 ' pixaGetDepthInfo(PIXA *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetDepthInfo/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pmaxdepth">[out][optional] - max pixel depth of pix in pixa</param>
 '''  <param name="psame">[out][optional] - true if all depths are equal</param>
@@ -56977,6 +58712,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaConvertToSameDepth/*"/>
 '''  <param name="pixas">[in] - </param>
 '''   <returns>pixad, or NULL on error</returns>
 Public Shared Function pixaConvertToSameDepth(
@@ -57013,6 +58749,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaEqual/*"/>
 '''  <param name="pixa1">[in] - </param>
 '''  <param name="pixa2">[in] - </param>
 '''  <param name="maxdist">[in] - </param>
@@ -57049,6 +58786,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSetFullSizeBoxa/*"/>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaSetFullSizeBoxa(
@@ -57080,6 +58818,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplay/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="w">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
 '''  <param name="h">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
@@ -57113,6 +58852,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayOnColor/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="w">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
 '''  <param name="h">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
@@ -57146,6 +58886,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayRandomCmap/*"/>
 '''  <param name="pixa">[in] - 1 bpp regions, with boxa delineating those regions</param>
 '''  <param name="w">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
 '''  <param name="h">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
@@ -57176,6 +58917,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayLinearly/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="direction">[in] - L_HORIZ or L_VERT</param>
 '''  <param name="scalefactor">[in] - applied to every pix use 1.0 for no scaling</param>
@@ -57222,6 +58964,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayOnLattice/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="cellw">[in] - lattice cell width</param>
 '''  <param name="cellh">[in] - lattice cell height</param>
@@ -57264,6 +59007,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayUnsplit/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="nx">[in] - number of mosaic cells horizontally</param>
 '''  <param name="ny">[in] - number of mosaic cells vertically</param>
@@ -57305,6 +59049,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayTiled/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="maxwidth">[in] - of output image</param>
 '''  <param name="background">[in] - 0 for white, 1 for black</param>
@@ -57352,6 +59097,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayTiledInRows/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="outdepth">[in] - output depth: 1, 8 or 32 bpp</param>
 '''  <param name="maxwidth">[in] - of output image</param>
@@ -57404,6 +59150,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayTiledInColumns/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="nx">[in] - number of columns in output image</param>
 '''  <param name="scalefactor">[in] - applied to every pix use 1.0 for no scaling</param>
@@ -57440,6 +59187,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayTiledAndScaled/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="outdepth">[in] - output depth: 1, 8 or 32 bpp</param>
 '''  <param name="tilewidth">[in] - each pix is scaled to this width</param>
@@ -57484,6 +59232,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayTiledWithText/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="maxwidth">[in] - of output image</param>
 '''  <param name="scalefactor">[in] - applied to every pix use 1.0 for no scaling</param>
@@ -57529,6 +59278,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayTiledByIndex/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="na">[in] - numa with indices corresponding to the pix in pixa</param>
 '''  <param name="width">[in] - each pix is scaled to this width</param>
@@ -57567,6 +59317,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaDisplay/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="w">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
 '''  <param name="h">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
@@ -57599,6 +59350,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaDisplayByPixa/*"/>
 '''  <param name="paa">[in] - with pix that may have different depths</param>
 '''  <param name="xspace">[in] - between pix in pixa</param>
 '''  <param name="yspace">[in] - between pixa</param>
@@ -57630,6 +59382,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaDisplayTiledAndScaled/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="outdepth">[in] - output depth: 1, 8 or 32 bpp</param>
 '''  <param name="tilewidth">[in] - each pix is scaled to this width</param>
@@ -57660,6 +59413,7 @@ End Function
 ' pixaConvertTo1(PIXA *, l_int32) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaConvertTo1/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="thresh">[in] - threshold for final binarization from 8 bpp gray</param>
 '''   <returns>pixad, or NULL on error</returns>
@@ -57685,6 +59439,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaConvertTo8/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="cmapflag">[in] - 1 to give pixd a colormap 0 otherwise</param>
 '''   <returns>pixad each pix is 8 bpp, or NULL on error</returns>
@@ -57710,6 +59465,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaConvertTo8Colormap/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="dither">[in] - 1 to dither if necessary 0 otherwise</param>
 '''   <returns>pixad each pix is 8 bpp, or NULL on error</returns>
@@ -57737,6 +59493,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaConvertTo32/*"/>
 '''  <param name="pixas">[in] - </param>
 '''   <returns>pixad 32 bpp rgb, or NULL on error</returns>
 Public Shared Function pixaConvertTo32(
@@ -57764,6 +59521,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaConstrainedSelect/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="first">[in] - first index to choose  is greater = 0</param>
 '''  <param name="last">[in] - biggest possible index to reach use -1 to go to the end otherwise, last  is greater = first</param>
@@ -57803,6 +59561,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSelectToPdf/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="first">[in] - first index to choose  is greater = 0</param>
 '''  <param name="last">[in] - biggest possible index to reach use -1 to go to the end otherwise, last  is greater = first</param>
@@ -57848,6 +59607,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayMultiTiled/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="nx">[in] - in [1, ... 50], tiling factors in each direction</param>
 '''  <param name="ny">[in] - in [1, ... 50], tiling factors in each direction</param>
@@ -57889,6 +59649,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSplitIntoFiles/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="nsplit">[in] - split pixas into this number of pixa  is greater = 2</param>
 '''  <param name="scale">[in] - scalefactor applied to each pix</param>
@@ -57932,6 +59693,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertToNUpFiles/*"/>
 '''  <param name="dir">[in] - full path to directory of images</param>
 '''  <param name="substr">[in][optional] - can be null</param>
 '''  <param name="nx">[in] - in [1, ... 50], tiling factors in each direction</param>
@@ -57971,6 +59733,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertToNUpPixa/*"/>
 '''  <param name="dir">[in] - full path to directory of images</param>
 '''  <param name="substr">[in][optional] - can be null</param>
 '''  <param name="nx">[in] - in [1, ... 50], tiling factors in each direction</param>
@@ -58011,6 +59774,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaConvertToNUpPixa/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="sa">[in][optional] - array of strings associated with each pix</param>
 '''  <param name="nx">[in] - in [1, ... 50], tiling factors in each direction</param>
@@ -58069,6 +59833,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaCompareInPdf/*"/>
 '''  <param name="pixa1">[in] - </param>
 '''  <param name="pixa2">[in] - </param>
 '''  <param name="nx">[in] - in [1, ... 20], tiling factors in each direction</param>
@@ -58124,6 +59889,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pmsCreate/*"/>
 '''  <param name="minsize">[in] - of data chunk that can be supplied by pms</param>
 '''  <param name="smallest">[in] - bytes of the smallest pre-allocated data chunk.</param>
 '''  <param name="numalloc">[in] - array with the number of data chunks for each size that are in the memory store</param>
@@ -58154,6 +59920,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pmsDestroy/*"/>
 Public Shared Sub pmsDestroy()
 
 	LeptonicaSharp.Natives.pmsDestroy( )
@@ -58174,6 +59941,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pmsCustomAlloc/*"/>
 '''  <param name="nbytes">[in] - min number of bytes in the chunk to be retrieved</param>
 '''   <returns>data ptr to chunk</returns>
 Public Shared Function pmsCustomAlloc(
@@ -58189,6 +59957,7 @@ End Function
 ' pmsCustomDealloc(void *) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pmsCustomDealloc/*"/>
 '''  <param name="data">[in] - to be freed or returned to the storage</param>
 Public Shared Sub pmsCustomDealloc(
 				 ByVal data as Object)
@@ -58219,6 +59988,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pmsGetAlloc/*"/>
 '''  <param name="nbytes">[in] - </param>
 '''   <returns>data</returns>
 Public Shared Function pmsGetAlloc(
@@ -58234,6 +60004,7 @@ End Function
 ' pmsGetLevelForAlloc(size_t, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pmsGetLevelForAlloc/*"/>
 '''  <param name="nbytes">[in] - min number of bytes in the chunk to be retrieved</param>
 '''  <param name="plevel">[out] - -1 if either too small or too large</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -58251,6 +60022,7 @@ End Function
 ' pmsGetLevelForDealloc(void *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pmsGetLevelForDealloc/*"/>
 '''  <param name="data">[in] - ptr to memory chunk</param>
 '''  <param name="plevel">[out] - level in memory store -1 if allocated outside the store</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -58272,6 +60044,7 @@ End Function
 ' pmsLogInfo() as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pmsLogInfo/*"/>
 Public Shared Sub pmsLogInfo()
 
 	LeptonicaSharp.Natives.pmsLogInfo( )
@@ -58294,6 +60067,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddConstantGray/*"/>
 '''  <param name="pixs">[in] - 8, 16 or 32 bpp</param>
 '''  <param name="val">[in] - amount to add to each pixel</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -58320,6 +60094,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMultConstantGray/*"/>
 '''  <param name="pixs">[in] - 8, 16 or 32 bpp</param>
 '''  <param name="val">[in] - is greater = 0.0 amount to multiply by each pixel</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -58353,6 +60128,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddGray/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs1, or different from pixs1</param>
 '''  <param name="pixs1">[in] - can be == to pixd</param>
 '''  <param name="pixs2">[in] - </param>
@@ -58392,6 +60168,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSubtractGray/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs1, or different from pixs1</param>
 '''  <param name="pixs1">[in] - can be == to pixd</param>
 '''  <param name="pixs2">[in] - </param>
@@ -58425,6 +60202,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThresholdToValue/*"/>
 '''  <param name="pixd">[in][optional] - if not null, must be equal to pixs</param>
 '''  <param name="pixs">[in] - 8, 16, 32 bpp</param>
 '''  <param name="threshval">[in] - </param>
@@ -58466,6 +60244,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixInitAccumulate/*"/>
 '''  <param name="w">[in] - of accumulate array</param>
 '''  <param name="h">[in] - of accumulate array</param>
 '''  <param name="offset">[in] - initialize the 32 bpp to have this value not more than 0x40000000</param>
@@ -58494,6 +60273,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFinalAccumulate/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="offset">[in] - same as used for initialization</param>
 '''  <param name="depth">[in] - 8, 16 or 32 bpp, of destination</param>
@@ -58522,6 +60302,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFinalAccumulateThreshold/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="offset">[in] - same as used for initialization</param>
 '''  <param name="threshold">[in] - values less than this are set in the destination</param>
@@ -58552,6 +60333,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAccumulate/*"/>
 '''  <param name="pixd">[in] - 32 bpp</param>
 '''  <param name="pixs">[in] - 1, 8, 16 or 32 bpp</param>
 '''  <param name="op">[in] - L_ARITH_ADD or L_ARITH_SUBTRACT</param>
@@ -58581,6 +60363,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMultConstAccumulate/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="factor">[in] - </param>
 '''  <param name="offset">[in] - same as used for initialization</param>
@@ -58613,6 +60396,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAbsDifference/*"/>
 '''  <param name="pixs1">[in] - both either 8 or 16 bpp gray, or 32 bpp RGB</param>
 '''  <param name="pixs2">[in] - both either 8 or 16 bpp gray, or 32 bpp RGB</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -58644,6 +60428,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddRGB/*"/>
 '''  <param name="pixs1">[in] - 32 bpp RGB, or colormapped</param>
 '''  <param name="pixs2">[in] - 32 bpp RGB, or colormapped</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -58677,6 +60462,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMinOrMax/*"/>
 '''  <param name="pixd">[in][optional] - destination: this can be null, equal to pixs1, or different from pixs1</param>
 '''  <param name="pixs1">[in] - can be == to pixd</param>
 '''  <param name="pixs2">[in] - </param>
@@ -58713,6 +60499,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMaxDynamicRange/*"/>
 '''  <param name="pixs">[in] - 4, 8, 16 or 32 bpp source</param>
 '''  <param name="type">[in] - L_LINEAR_SCALE or L_LOG_SCALE</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
@@ -58743,6 +60530,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMaxDynamicRangeRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb source</param>
 '''  <param name="type">[in] - L_LINEAR_SCALE or L_LOG_SCALE</param>
 '''   <returns>pixd 32 bpp, or NULL on error</returns>
@@ -58772,6 +60560,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/linearScaleRGBVal/*"/>
 '''  <param name="sval">[in] - 32-bit rgb pixel value</param>
 '''  <param name="factor">[in] - multiplication factor on each component</param>
 '''   <returns>dval  linearly scaled version of %sval</returns>
@@ -58800,6 +60589,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/logScaleRGBVal/*"/>
 '''  <param name="sval">[in] - 32-bit rgb pixel value</param>
 '''  <param name="tab">[in] - 256 entry log-base-2 table</param>
 '''  <param name="factor">[in] - multiplication factor on each component</param>
@@ -58821,6 +60611,7 @@ End Function
 ' makeLogBase2Tab() as l_float32 *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeLogBase2Tab/*"/>
 '''   <returns></returns>
 Public Shared Function makeLogBase2Tab() as Single()
 
@@ -58834,6 +60625,7 @@ End Function
 ' getLogBase2(l_int32, l_float32 *) as l_float32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getLogBase2/*"/>
 '''   <returns></returns>
 Public Shared Function getLogBase2(
 				 ByVal val as Integer, 
@@ -58861,6 +60653,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcompCreateFromPix/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 '''   <returns>pixc, or NULL on error</returns>
@@ -58888,6 +60681,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcompCreateFromString/*"/>
 '''  <param name="data">[in] - compressed string</param>
 '''  <param name="size">[in] - number of bytes</param>
 '''  <param name="copyflag">[in] - L_INSERT or L_COPY</param>
@@ -58918,6 +60712,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcompCreateFromFile/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 '''   <returns>pixc, or NULL on error</returns>
@@ -58945,6 +60740,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcompDestroy/*"/>
 '''  <param name="ppixc">[in,out] - will be nulled</param>
 Public Shared Sub pixcompDestroy(
 				 ByRef ppixc as PixComp)
@@ -58961,6 +60757,7 @@ End Sub
 ' pixcompCopy(PIXC *) as PIXC *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcompCopy/*"/>
 '''  <param name="pixcs">[in] - </param>
 '''   <returns>pixcd, or NULL on error</returns>
 Public Shared Function pixcompCopy(
@@ -58979,6 +60776,7 @@ End Function
 ' pixcompGetDimensions(PIXC *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcompGetDimensions/*"/>
 '''  <param name="pixc">[in] - </param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -59002,6 +60800,7 @@ End Function
 ' pixcompGetParameters(PIXC *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcompGetParameters/*"/>
 '''  <param name="pixc">[in] - </param>
 '''  <param name="pxres">[out][all optional] - </param>
 '''  <param name="pyres">[out][all optional] - </param>
@@ -59038,6 +60837,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcompDetermineFormat/*"/>
 '''  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 '''  <param name="d">[in] - pix depth</param>
 '''  <param name="cmapflag">[in] - 1 if pix to be compressed as a colormap 0 otherwise</param>
@@ -59059,6 +60859,7 @@ End Function
 ' pixCreateFromPixcomp(PIXC *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCreateFromPixcomp/*"/>
 '''  <param name="pixc">[in] - </param>
 '''   <returns>pix, or NULL on error</returns>
 Public Shared Function pixCreateFromPixcomp(
@@ -59077,6 +60878,7 @@ End Function
 ' pixacompCreate(l_int32) as PIXAC *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompCreate/*"/>
 '''  <param name="n">[in] - initial number of ptrs</param>
 '''   <returns>pixac, or NULL on error</returns>
 Public Shared Function pixacompCreate(
@@ -59121,6 +60923,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompCreateWithInit/*"/>
 '''  <param name="n">[in] - initial number of ptrs</param>
 '''  <param name="offset">[in] - difference: accessor index - pixacomp array index</param>
 '''  <param name="pix">[in][optional] - initialize each ptr in pixacomp to this pix can be NULL</param>
@@ -59157,6 +60960,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompCreateFromPixa/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 '''  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
@@ -59192,6 +60996,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompCreateFromFiles/*"/>
 '''  <param name="dirname">[in] - </param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be null</param>
 '''  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
@@ -59222,6 +61027,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompCreateFromSA/*"/>
 '''  <param name="sa">[in] - full pathnames for all files</param>
 '''  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 '''   <returns>pixac, or NULL on error</returns>
@@ -59247,6 +61053,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompDestroy/*"/>
 '''  <param name="ppixac">[in,out] - to be nulled</param>
 Public Shared Sub pixacompDestroy(
 				 ByRef ppixac as PixaComp)
@@ -59272,6 +61079,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompAddPix/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="pix">[in] - to be added</param>
 '''  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
@@ -59301,6 +61109,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompAddPixcomp/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="pixc">[in] - to be added by insertion</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY</param>
@@ -59331,6 +61140,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompReplacePix/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''  <param name="pix">[in] - owned by the caller</param>
@@ -59363,6 +61173,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompReplacePixcomp/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''  <param name="pixc">[in] - to replace existing one, which is destroyed</param>
@@ -59385,6 +61196,7 @@ End Function
 ' pixacompAddBox(PIXAC *, BOX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompAddBox/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="box">[in] - </param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY</param>
@@ -59407,6 +61219,7 @@ End Function
 ' pixacompGetCount(PIXAC *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompGetCount/*"/>
 '''  <param name="pixac">[in] - </param>
 '''   <returns>count, or 0 if no pixa</returns>
 Public Shared Function pixacompGetCount(
@@ -59432,6 +61245,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompGetPixcomp/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''  <param name="copyflag">[in] - L_NOCOPY, L_COPY</param>
@@ -59460,6 +61274,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompGetPix/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -59486,6 +61301,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompGetPixDimensions/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''  <param name="pw">[out][optional] - each can be null</param>
@@ -59511,6 +61327,7 @@ End Function
 ' pixacompGetBoxa(PIXAC *, l_int32) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompGetBoxa/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
 '''   <returns>boxa, or NULL on error</returns>
@@ -59531,6 +61348,7 @@ End Function
 ' pixacompGetBoxaCount(PIXAC *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompGetBoxaCount/*"/>
 '''  <param name="pixac">[in] - </param>
 '''   <returns>count, or 0 on error</returns>
 Public Shared Function pixacompGetBoxaCount(
@@ -59562,6 +61380,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompGetBox/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''  <param name="accesstype">[in] - L_COPY or L_CLONE</param>
@@ -59590,6 +61409,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompGetBoxGeometry/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 '''  <param name="px">[out][optional] - each can be null</param>
@@ -59624,6 +61444,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompGetOffset/*"/>
 '''  <param name="pixac">[in] - </param>
 '''   <returns>offset, or 0 on error</returns>
 Public Shared Function pixacompGetOffset(
@@ -59648,6 +61469,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompSetOffset/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="offset">[in] - non-negative</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -59674,6 +61496,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaCreateFromPixacomp/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE for boxa</param>
 '''   <returns>pixa if OK, or NULL on error</returns>
@@ -59702,6 +61525,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompJoin/*"/>
 '''  <param name="pixacd">[in] - dest pixac add to this one</param>
 '''  <param name="pixacs">[in][optional] - source pixac add from this one</param>
 '''  <param name="istart">[in] - starting index in pixacs</param>
@@ -59733,6 +61557,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompInterleave/*"/>
 '''  <param name="pixac1">[in] - first src pixac</param>
 '''  <param name="pixac2">[in] - second src pixac</param>
 '''   <returns>pixacd  interleaved from sources, or NULL on error.</returns>
@@ -59761,6 +61586,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>pixac, or NULL on error</returns>
 Public Shared Function pixacompRead(
@@ -59781,6 +61607,7 @@ End Function
 ' pixacompReadStream(FILE *) as PIXAC *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>pixac, or NULL on error</returns>
 Public Shared Function pixacompReadStream(
@@ -59804,6 +61631,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompReadMem/*"/>
 '''  <param name="data">[in] - const pixacomp format</param>
 '''  <param name="size">[in] - of data</param>
 '''   <returns>pixac, or NULL on error</returns>
@@ -59831,6 +61659,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pixac">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -59853,6 +61682,7 @@ End Function
 ' pixacompWriteStream(FILE *, PIXAC *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pixac">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -59878,6 +61708,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompWriteMem/*"/>
 '''  <param name="pdata">[out] - serialized data of pixac</param>
 '''  <param name="psize">[out] - size of serialized data</param>
 '''  <param name="pixac">[in] - </param>
@@ -59918,6 +61749,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompConvertToPdf/*"/>
 '''  <param name="pixac">[in] - containing images all at the same resolution</param>
 '''  <param name="res">[in] - override the resolution of each input image, in ppi use 0 to respect the resolution embedded in the input</param>
 '''  <param name="scalefactor">[in] - scaling factor applied to each image  is greater  0.0</param>
@@ -59953,6 +61785,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompConvertToPdfData/*"/>
 '''  <param name="pixac">[in] - containing images all at the same resolution</param>
 '''  <param name="res">[in] - input resolution of all images</param>
 '''  <param name="scalefactor">[in] - scaling factor applied to each image  is greater  0.0</param>
@@ -59996,6 +61829,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompFastConvertToPdfData/*"/>
 '''  <param name="pixac">[in] - containing images all at the same resolution</param>
 '''  <param name="title">[in][optional] - pdf title</param>
 '''  <param name="pdata">[out] - output pdf data (of all images</param>
@@ -60022,6 +61856,7 @@ End Function
 ' pixacompWriteStreamInfo(FILE *, PIXAC *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompWriteStreamInfo/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="text">[in][optional] - identifying string can be null</param>
@@ -60044,6 +61879,7 @@ End Function
 ' pixcompWriteStreamInfo(FILE *, PIXC *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcompWriteStreamInfo/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pixc">[in] - </param>
 '''  <param name="text">[in][optional] - identifying string can be null</param>
@@ -60074,6 +61910,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompDisplayTiledAndScaled/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="outdepth">[in] - output depth: 1, 8 or 32 bpp</param>
 '''  <param name="tilewidth">[in] - each pix is scaled to this width</param>
@@ -60104,6 +61941,7 @@ End Function
 ' pixacompWriteFiles(PIXAC *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixacompWriteFiles/*"/>
 '''  <param name="pixac">[in] - </param>
 '''  <param name="subdir">[in] - (subdirectory of /tmp)</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -60130,6 +61968,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcompWriteFile/*"/>
 '''  <param name="rootname">[in] - </param>
 '''  <param name="pixc">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -60172,6 +62011,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThreshold8/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''  <param name="d">[in] - destination depth: 1, 2, 4 or 8</param>
 '''  <param name="nlevels">[in] - number of levels to be used for colormap</param>
@@ -60205,6 +62045,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveColormapGeneral/*"/>
 '''  <param name="pixs">[in] - any depth, with or without colormap</param>
 '''  <param name="type">[in] - REMOVE_CMAP_TO_BINARY, REMOVE_CMAP_TO_GRAYSCALE, REMOVE_CMAP_TO_FULL_COLOR, REMOVE_CMAP_WITH_ALPHA, REMOVE_CMAP_BASED_ON_SRC</param>
 '''  <param name="ifnocmap">[in] - L_CLONE, L_COPY</param>
@@ -60244,6 +62085,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveColormap/*"/>
 '''  <param name="pixs">[in] - see restrictions below</param>
 '''  <param name="type">[in] - REMOVE_CMAP_TO_BINARY, REMOVE_CMAP_TO_GRAYSCALE, REMOVE_CMAP_TO_FULL_COLOR, REMOVE_CMAP_WITH_ALPHA, REMOVE_CMAP_BASED_ON_SRC</param>
 '''   <returns>pixd without colormap, or NULL on error</returns>
@@ -60269,6 +62111,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddGrayColormap8/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixAddGrayColormap8(
@@ -60295,6 +62138,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddMinimalGrayColormap8/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixAddMinimalGrayColormap8(
@@ -60320,6 +62164,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToLuminance/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''   <returns>8 bpp pix, or NULL on error</returns>
 Public Shared Function pixConvertRGBToLuminance(
@@ -60345,6 +62190,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToGray/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''  <param name="rwt">[in] - non-negative these should add to 1.0, or use 0.0 for default</param>
 '''  <param name="gwt">[in] - non-negative these should add to 1.0, or use 0.0 for default</param>
@@ -60381,6 +62227,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToGrayFast/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''   <returns>8 bpp pix, or NULL on error</returns>
 Public Shared Function pixConvertRGBToGrayFast(
@@ -60412,6 +62259,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToGrayMinMax/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''  <param name="type">[in] - L_CHOOSE_MIN, L_CHOOSE_MAX, L_CHOOSE_MAXDIFF, L_CHOOSE_MIN_BOOST, L_CHOOSE_MAX_BOOST</param>
 '''   <returns>8 bpp pix, or NULL on error</returns>
@@ -60455,6 +62303,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToGraySatBoost/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="refval">[in] - between 1 and 255 typ. less than 128</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
@@ -60485,6 +62334,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToGrayArb/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''  <param name="rc">[in] - arithmetic factors can be negative</param>
 '''  <param name="gc">[in] - arithmetic factors can be negative</param>
@@ -60519,6 +62369,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToBinaryArb/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''  <param name="rc">[in] - arithmetic factors can be negative</param>
 '''  <param name="gc">[in] - arithmetic factors can be negative</param>
@@ -60565,6 +62416,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertGrayToColormap/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp grayscale</param>
 '''   <returns>pixd 2, 4 or 8 bpp with colormap, or NULL on error</returns>
 Public Shared Function pixConvertGrayToColormap(
@@ -60600,6 +62452,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertGrayToColormap8/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''  <param name="mindepth">[in] - of pixd valid values are 2, 4 and 8</param>
 '''   <returns>pixd 2, 4 or 8 bpp with colormap, or NULL on error</returns>
@@ -60629,6 +62482,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorizeGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray 2, 4 or 8 bpp colormapped</param>
 '''  <param name="color">[in] - 32 bit rgba pixel</param>
 '''  <param name="cmapflag">[in] - 1 for result to have colormap 0 for RGB</param>
@@ -60674,6 +62528,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToColormap/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="ditherflag">[in] - 1 to dither, 0 otherwise</param>
 '''   <returns>pixd 2, 4 or 8 bpp with colormap, or NULL on error</returns>
@@ -60705,6 +62560,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertCmapTo1/*"/>
 '''  <param name="pixs">[in] - cmapped</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
 Public Shared Function pixConvertCmapTo1(
@@ -60739,6 +62595,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixQuantizeIfFewColors/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="maxcolors">[in] - max number of colors allowed to be returned from pixColorsForQuantization() use 0 for default</param>
 '''  <param name="mingraycolors">[in] - min number of gray levels that a grayscale image is quantized to use 0 for default</param>
@@ -60775,6 +62632,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert16To8/*"/>
 '''  <param name="pixs">[in] - 16 bpp</param>
 '''  <param name="type">[in] - L_LS_BYTE, L_MS_BYTE, L_AUTO_BYTE, L_CLIP_TO_FF</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
@@ -60805,6 +62663,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertGrayToFalseColor/*"/>
 '''  <param name="pixs">[in] - 8 or 16 bpp grayscale</param>
 '''  <param name="gamma">[in] - (factor) 0.0 or 1.0 for default  is greater  1.0 for brighter 2.0 is quite nice</param>
 '''   <returns>pixd 8 bpp with colormap, or NULL on error</returns>
@@ -60833,6 +62692,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUnpackBinary/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="depth">[in] - of destination: 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="invert">[in] - 0:  binary 0 -- is greater  grayscale 0 binary 1 -- is greater  grayscale 0xff... 1:  binary 0 -- is greater  grayscale 0xff... binary 1 -- is greater  grayscale 0</param>
@@ -60864,6 +62724,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To16/*"/>
 '''  <param name="pixd">[in][optional] - 16 bpp, can be null</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="val0">[in] - 16 bit value to be used for 0s in pixs</param>
@@ -60901,6 +62762,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To32/*"/>
 '''  <param name="pixd">[in][optional] - 32 bpp, can be null</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="val0">[in] - 32 bit value to be used for 0s in pixs</param>
@@ -60934,6 +62796,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To2Cmap/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 2 bpp, cmapped</returns>
 Public Shared Function pixConvert1To2Cmap(
@@ -60963,6 +62826,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To2/*"/>
 '''  <param name="pixd">[in][optional] - 2 bpp, can be null</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="val0">[in] - 2 bit value to be used for 0s in pixs</param>
@@ -60996,6 +62860,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To4Cmap/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 4 bpp, cmapped</returns>
 Public Shared Function pixConvert1To4Cmap(
@@ -61025,6 +62890,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To4/*"/>
 '''  <param name="pixd">[in][optional] - 4 bpp, can be null</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="val0">[in] - 4 bit value to be used for 0s in pixs</param>
@@ -61059,6 +62925,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To8Cmap/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 8 bpp, cmapped</returns>
 Public Shared Function pixConvert1To8Cmap(
@@ -61089,6 +62956,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To8/*"/>
 '''  <param name="pixd">[in][optional] - 8 bpp, can be null</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="val0">[in] - 8 bit value to be used for 0s in pixs</param>
@@ -61138,6 +63006,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert2To8/*"/>
 '''  <param name="pixs">[in] - 2 bpp</param>
 '''  <param name="val0">[in] - 8 bit value to be used for 00 in pixs</param>
 '''  <param name="val1">[in] - 8 bit value to be used for 01 in pixs</param>
@@ -61187,6 +63056,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert4To8/*"/>
 '''  <param name="pixs">[in] - 4 bpp</param>
 '''  <param name="cmapflag">[in] - TRUE if pixd is to have a colormap FALSE otherwise</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
@@ -61217,6 +63087,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert8To16/*"/>
 '''  <param name="pixs">[in] - 8 bpp colormap removed to gray</param>
 '''  <param name="leftshift">[in] - number of bits: 0 is no shift 8 replicates in MSB and LSB of dest</param>
 '''   <returns>pixd 16 bpp, or NULL on error</returns>
@@ -61246,6 +63117,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo2/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp colormap OK but will be removed</param>
 '''   <returns>pixd   2 bpp, or NULL on error</returns>
 Public Shared Function pixConvertTo2(
@@ -61271,6 +63143,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert8To2/*"/>
 '''  <param name="pix">[in] - 8 bpp colormap OK</param>
 '''   <returns>pixd  2 bpp, or NULL on error</returns>
 Public Shared Function pixConvert8To2(
@@ -61300,6 +63173,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo4/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp colormap OK but will be removed</param>
 '''   <returns>pixd   4 bpp, or NULL on error</returns>
 Public Shared Function pixConvertTo4(
@@ -61325,6 +63199,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert8To4/*"/>
 '''  <param name="pix">[in] - 8 bpp colormap OK</param>
 '''   <returns>pixd  4 bpp, or NULL on error</returns>
 Public Shared Function pixConvert8To4(
@@ -61354,6 +63229,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo1/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="threshold">[in] - for final binarization, relative to 8 bpp</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
@@ -61382,6 +63258,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo1BySampling/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="factor">[in] - submsampling factor integer  is greater = 1</param>
 '''  <param name="threshold">[in] - for final binarization, relative to 8 bpp</param>
@@ -61424,6 +63301,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo8/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="cmapflag">[in] - TRUE if pixd is to have a colormap FALSE otherwise</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
@@ -61452,6 +63330,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo8BySampling/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="factor">[in] - submsampling factor integer  is greater = 1</param>
 '''  <param name="cmapflag">[in] - TRUE if pixd is to have a colormap FALSE otherwise</param>
@@ -61489,6 +63368,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo8Colormap/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="dither">[in] - 1 to dither if necessary 0 otherwise</param>
 '''   <returns>pixd 8 bpp, cmapped, or NULL on error</returns>
@@ -61511,6 +63391,7 @@ End Function
 ' pixConvertTo16(PIX *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo16/*"/>
 '''  <param name="pixs">[in] - 1, 8 bpp</param>
 '''   <returns>pixd 16 bpp, or NULL on error Usage: Top-level function, with simple default values for unpacking. 1 bpp:  val0 = 0xffff, val1 = 0 8 bpp:  replicates the 8 bit value in both the MSB and LSB of the 16 bit pixel.</returns>
 Public Shared Function pixConvertTo16(
@@ -61536,6 +63417,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo32/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''   <returns>pixd 32 bpp, or NULL on error Usage: Top-level function, with simple default values for unpacking. 1 bpp:  val0 = 255, val1 = 0 and then replication into R, G and B components 2 bpp:  if colormapped, use the colormap values otherwise, use val0 = 0, val1 = 0x55, val2 = 0xaa, val3 = 255 and replicate gray into R, G and B components 4 bpp:  if colormapped, use the colormap values otherwise, replicate 2 nybs into a byte, and then into R,G,B components 8 bpp:  if colormapped, use the colormap values otherwise, replicate gray values into R, G and B components 16 bpp: replicate MSB into R, G and B components 24 bpp: unpack the pixels, maintaining word alignment on each scanline 32 bpp: makes a copy</returns>
 Public Shared Function pixConvertTo32(
@@ -61562,6 +63444,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo32BySampling/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="factor">[in] - submsampling factor integer  is greater = 1</param>
 '''   <returns>pixd 32 bpp, or NULL on error</returns>
@@ -61590,6 +63473,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert8To32/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''   <returns>32 bpp rgb pix, or NULL on error</returns>
 Public Shared Function pixConvert8To32(
@@ -61620,6 +63504,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo8Or32/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, with or without colormap or 32 bpp rgb</param>
 '''  <param name="copyflag">[in] - L_CLONE or L_COPY</param>
 '''  <param name="warnflag">[in] - 1 to issue warning if colormap is removed else 0</param>
@@ -61659,6 +63544,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert24To32/*"/>
 '''  <param name="pixs">[in] - 24 bpp rgb</param>
 '''   <returns>pixd 32 bpp rgb, or NULL on error</returns>
 Public Shared Function pixConvert24To32(
@@ -61684,6 +63570,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert32To24/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''   <returns>pixd 24 bpp rgb, or NULL on error</returns>
 Public Shared Function pixConvert32To24(
@@ -61710,6 +63597,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert32To16/*"/>
 '''  <param name="pixs">[in] - 32 bpp, single component</param>
 '''  <param name="type">[in] - L_LS_TWO_BYTES, L_MS_TWO_BYTES, L_CLIP_TO_FFFF</param>
 '''   <returns>pixd 16 bpp , or NULL on error</returns>
@@ -61732,6 +63620,7 @@ End Function
 ' pixConvert32To8(PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert32To8/*"/>
 '''  <param name="pixs">[in] - 32 bpp, single component</param>
 '''  <param name="type16">[in] - L_LS_TWO_BYTES, L_MS_TWO_BYTES, L_CLIP_TO_FFFF</param>
 '''  <param name="type8">[in] - L_LS_BYTE, L_MS_BYTE, L_CLIP_TO_FF</param>
@@ -61761,6 +63650,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveAlpha/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''   <returns>pixd        if 32 bpp rgba, pixs blended over a white background a clone of pixs otherwise, and NULL on error</returns>
 Public Shared Function pixRemoveAlpha(
@@ -61790,6 +63680,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddAlphaTo1bpp/*"/>
 '''  <param name="pixd">[in][optional] - 1 bpp, can be null or equal to pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 1 bpp with colormap and non-opaque alpha, or NULL on error</returns>
@@ -61824,6 +63715,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertLossless/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8 bpp, not cmapped</param>
 '''  <param name="d">[in] - destination depth: 2, 4 or 8</param>
 '''   <returns>pixd 2, 4 or 8 bpp, or NULL on error</returns>
@@ -61857,6 +63749,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertForPSWrap/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 '''   <returns>pixd    1, 8, or 32 bpp, or NULL on error</returns>
 Public Shared Function pixConvertForPSWrap(
@@ -61894,6 +63787,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertToSubpixelRGB/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale, 32 bpp rgb, or colormapped</param>
 '''  <param name="scalex">[in] - anisotropic scaling permitted between source and destination</param>
 '''  <param name="scaley">[in] - anisotropic scaling permitted between source and destination</param>
@@ -61938,6 +63832,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertGrayToSubpixelRGB/*"/>
 '''  <param name="pixs">[in] - 8 bpp or colormapped</param>
 '''  <param name="scalex">[in] - </param>
 '''  <param name="scaley">[in] - </param>
@@ -61978,6 +63873,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertColorToSubpixelRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp or colormapped</param>
 '''  <param name="scalex">[in] - </param>
 '''  <param name="scaley">[in] - </param>
@@ -62010,6 +63906,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_setNeutralBoostVal/*"/>
 '''  <param name="val">[in] - between 1 and 255 typical value is 180</param>
 Public Shared Sub l_setNeutralBoostVal(
 				 ByVal val as Integer)
@@ -62039,6 +63936,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConnCompTransform/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connect">[in] - connectivity: 4 or 8</param>
 '''  <param name="depth">[in] - of pixd: 8 or 16 bpp use 0 for auto determination</param>
@@ -62071,6 +63969,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConnCompAreaTransform/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connect">[in] - connectivity: 4 or 8</param>
 '''   <returns>pixd 32 bpp, 1 spp, or NULL on error</returns>
@@ -62107,6 +64006,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConnCompIncrInit/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="conn">[in] - connectivity: 4 or 8</param>
 '''  <param name="ppixd">[out] - 32 bpp, with c.c. labelled</param>
@@ -62163,6 +64063,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConnCompIncrAdd/*"/>
 '''  <param name="pixs">[in] - 32 bpp, with pixels labeled by c.c.</param>
 '''  <param name="ptaa">[in] - with each pta of pixel locations indexed by c.c.</param>
 '''  <param name="pncc">[out] - number of c.c</param>
@@ -62202,6 +64103,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetSortedNeighborValues/*"/>
 '''  <param name="pixs">[in] - 8, 16 or 32 bpp, with pixels labeled by c.c.</param>
 '''  <param name="x">[in] - location of pixel</param>
 '''  <param name="y">[in] - location of pixel</param>
@@ -62244,6 +64146,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixLocToColorTransform/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 32 bpp rgb, or NULL on error</returns>
 Public Shared Function pixLocToColorTransform(
@@ -62283,6 +64186,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTilingCreate/*"/>
 '''  <param name="pixs">[in] - pix to be tiled any depth colormap OK</param>
 '''  <param name="nx">[in] - number of tiles across image</param>
 '''  <param name="ny">[in] - number of tiles down image</param>
@@ -62313,6 +64217,7 @@ End Function
 ' pixTilingDestroy(PIXTILING **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTilingDestroy/*"/>
 '''  <param name="ppt">[in,out] - will be set to null before returning</param>
 Public Shared Sub pixTilingDestroy(
 				 ByRef ppt as PixTiling)
@@ -62329,6 +64234,7 @@ End Sub
 ' pixTilingGetCount(PIXTILING *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTilingGetCount/*"/>
 '''  <param name="pt">[in] - pixtiling</param>
 '''  <param name="pnx">[out][optional] - nx can be null</param>
 '''  <param name="pny">[out][optional] - ny can be null</param>
@@ -62350,6 +64256,7 @@ End Function
 ' pixTilingGetSize(PIXTILING *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTilingGetSize/*"/>
 '''  <param name="pt">[in] - pixtiling</param>
 '''  <param name="pw">[out][optional] - tile width can be null</param>
 '''  <param name="ph">[out][optional] - tile height can be null</param>
@@ -62371,6 +64278,7 @@ End Function
 ' pixTilingGetTile(PIXTILING *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTilingGetTile/*"/>
 '''  <param name="pt">[in] - pixtiling</param>
 '''  <param name="i">[in] - tile row index</param>
 '''  <param name="j">[in] - tile column index</param>
@@ -62402,6 +64310,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTilingNoStripOnPaint/*"/>
 '''  <param name="pt">[in] - pixtiling</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixTilingNoStripOnPaint(
@@ -62419,6 +64328,7 @@ End Function
 ' pixTilingPaintTile(PIX *, l_int32, l_int32, PIX *, PIXTILING *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTilingPaintTile/*"/>
 '''  <param name="pixd">[in] - dest: paint tile onto this, without overlap</param>
 '''  <param name="i">[in] - tile row index</param>
 '''  <param name="j">[in] - tile column index</param>
@@ -62473,6 +64383,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamPng/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>pix, or NULL on error</returns>
 Public Shared Function pixReadStreamPng(
@@ -62499,6 +64410,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderPng/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -62533,6 +64445,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/freadHeaderPng/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -62574,6 +64487,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderMemPng/*"/>
 '''  <param name="data">[in] - </param>
 '''  <param name="size">[in] - 40 bytes is sufficient</param>
 '''  <param name="pw">[out][optional] - </param>
@@ -62603,6 +64517,7 @@ End Function
 ' fgetPngResolution(FILE *, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fgetPngResolution/*"/>
 '''   <returns></returns>
 Public Shared Function fgetPngResolution(
 				 ByVal fp as FILE, 
@@ -62625,6 +64540,7 @@ End Function
 ' isPngInterlaced(const char *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/isPngInterlaced/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pinterlaced">[out] - 1 if interlaced png 0 otherwise</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -62646,6 +64562,7 @@ End Function
 ' fgetPngColormapInfo(FILE *, PIXCMAP **, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fgetPngColormapInfo/*"/>
 '''   <returns></returns>
 Public Shared Function fgetPngColormapInfo(
 				 ByVal fp as FILE, 
@@ -62675,6 +64592,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWritePng/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="gamma">[in] - </param>
@@ -62764,6 +64682,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamPng/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="gamma">[in] - use 0.0 if gamma is not defined</param>
@@ -62800,6 +64719,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetZlibCompression/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="compval">[in] - zlib compression value</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -62819,6 +64739,7 @@ End Function
 ' l_pngSetReadStrip16To8(l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_pngSetReadStrip16To8/*"/>
 '''  <param name="flag">[in] - 1 for stripping 16 bpp to 8 bpp on reading 0 for leaving 16 bpp</param>
 Public Shared Sub l_pngSetReadStrip16To8(
 				 ByVal flag as Integer)
@@ -62837,6 +64758,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMemPng/*"/>
 '''  <param name="filedata">[in] - png compressed data in memory</param>
 '''  <param name="filesize">[in] - number of bytes in data</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -62862,6 +64784,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemPng/*"/>
 '''  <param name="pfiledata">[out] - png encoded data of pix</param>
 '''  <param name="pfilesize">[out] - size of png encoded data</param>
 '''  <param name="pix">[in] - </param>
@@ -62890,6 +64813,7 @@ End Function
 ' pixReadStreamPnm(FILE *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamPnm/*"/>
 '''  <param name="fp">[in] - file stream opened for read</param>
 '''   <returns>pix, or NULL on error</returns>
 Public Shared Function pixReadStreamPnm(
@@ -62908,6 +64832,7 @@ End Function
 ' readHeaderPnm(const char *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderPnm/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -62939,6 +64864,7 @@ End Function
 ' freadHeaderPnm(FILE *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/freadHeaderPnm/*"/>
 '''  <param name="fp">[in] - file stream opened for read</param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -62978,6 +64904,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamPnm/*"/>
 '''  <param name="fp">[in] - file stream opened for write</param>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -62998,6 +64925,7 @@ End Function
 ' pixWriteStreamAsciiPnm(FILE *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamAsciiPnm/*"/>
 '''  <param name="fp">[in] - file stream opened for write</param>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK 1 on error Writes "ASCII" format only: 1 bpp -- is greater  pbm P1 2, 4, 8, 16 bpp, no colormap or grayscale colormap -- is greater  pgm P2 2, 4, 8 bpp with color-valued colormap, or rgb -- is greater  rgb ppm P3</returns>
@@ -63025,6 +64953,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamPam/*"/>
 '''  <param name="fp">[in] - file stream opened for write</param>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -63050,6 +64979,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMemPnm/*"/>
 '''  <param name="data">[in] - const pnm-encoded</param>
 '''  <param name="size">[in] - of data</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -63070,6 +65000,7 @@ End Function
 ' readHeaderMemPnm(const l_uint8 *, size_t, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderMemPnm/*"/>
 '''  <param name="data">[in] - const pnm-encoded</param>
 '''  <param name="size">[in] - of data</param>
 '''  <param name="pw">[out][optional] - </param>
@@ -63107,6 +65038,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemPnm/*"/>
 '''  <param name="pdata">[out] - data of PNM image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - </param>
@@ -63137,6 +65069,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemPam/*"/>
 '''  <param name="pdata">[out] - data of PAM image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - </param>
@@ -63173,6 +65106,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixProjectiveSampledPta/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -63208,6 +65142,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixProjectiveSampled/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for projective transformation</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -63237,6 +65172,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixProjectivePta/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -63269,6 +65205,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixProjective/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for projective transformation</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -63292,6 +65229,7 @@ End Function
 ' pixProjectivePtaColor(PIX *, PTA *, PTA *, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixProjectivePtaColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -63318,6 +65256,7 @@ End Function
 ' pixProjectiveColor(PIX *, l_float32 *, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixProjectiveColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for projective transformation</param>
 '''  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
@@ -63341,6 +65280,7 @@ End Function
 ' pixProjectivePtaGray(PIX *, PTA *, PTA *, l_uint8) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixProjectivePtaGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -63370,6 +65310,7 @@ End Function
 ' pixProjectiveGray(PIX *, l_float32 *, l_uint8) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixProjectiveGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for projective transformation</param>
 '''  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
@@ -63428,6 +65369,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixProjectivePtaWithAlpha/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -63462,6 +65404,7 @@ End Function
 ' getProjectiveXformCoeffs(PTA *, PTA *, l_float32 **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getProjectiveXformCoeffs/*"/>
 '''  <param name="ptas">[in] - source 4 points unprimed</param>
 '''  <param name="ptad">[in] - transformed 4 points primed</param>
 '''  <param name="pvc">[out] - vector of coefficients of transform</param>
@@ -63492,6 +65435,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/projectiveXformSampledPt/*"/>
 '''  <param name="vc">[in] - vector of 8 coefficients</param>
 '''  <param name="x">[in] - initial point</param>
 '''  <param name="y">[in] - initial point</param>
@@ -63523,6 +65467,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/projectiveXformPt/*"/>
 '''  <param name="vc">[in] - vector of 8 coefficients</param>
 '''  <param name="x">[in] - initial point</param>
 '''  <param name="y">[in] - initial point</param>
@@ -63550,6 +65495,7 @@ End Function
 ' convertFilesToPS(const char *, const char *, l_int32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertFilesToPS/*"/>
 '''   <returns></returns>
 Public Shared Function convertFilesToPS(
 				 ByVal dirin as String, 
@@ -63571,6 +65517,7 @@ End Function
 ' sarrayConvertFilesToPS(SARRAY *, l_int32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayConvertFilesToPS/*"/>
 '''   <returns></returns>
 Public Shared Function sarrayConvertFilesToPS(
 				 ByVal sa as Sarray, 
@@ -63592,6 +65539,7 @@ End Function
 ' convertFilesFittedToPS(const char *, const char *, l_float32, l_float32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertFilesFittedToPS/*"/>
 '''   <returns></returns>
 Public Shared Function convertFilesFittedToPS(
 				 ByVal dirin as String, 
@@ -63614,6 +65562,7 @@ End Function
 ' sarrayConvertFilesFittedToPS(SARRAY *, l_float32, l_float32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayConvertFilesFittedToPS/*"/>
 '''   <returns></returns>
 Public Shared Function sarrayConvertFilesFittedToPS(
 				 ByVal sa as Sarray, 
@@ -63636,6 +65585,7 @@ End Function
 ' writeImageCompressedToPSFile(const char *, const char *, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/writeImageCompressedToPSFile/*"/>
 '''   <returns></returns>
 Public Shared Function writeImageCompressedToPSFile(
 				 ByVal filein as String, 
@@ -63659,6 +65609,7 @@ End Function
 ' convertSegmentedPagesToPS(const char *, const char *, l_int32, const char *, const char *, l_int32, l_int32, l_int32, l_float32, l_float32, l_int32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertSegmentedPagesToPS/*"/>
 '''   <returns></returns>
 Public Shared Function convertSegmentedPagesToPS(
 				 ByVal pagedir as String, 
@@ -63690,6 +65641,7 @@ End Function
 ' pixWriteSegmentedPageToPS(PIX *, PIX *, l_float32, l_float32, l_int32, l_int32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteSegmentedPageToPS/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteSegmentedPageToPS(
 				 ByVal pixs as Pix, 
@@ -63717,6 +65669,7 @@ End Function
 ' pixWriteMixedToPS(PIX *, PIX *, l_float32, l_int32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMixedToPS/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteMixedToPS(
 				 ByVal pixb as Pix, 
@@ -63742,6 +65695,7 @@ End Function
 ' convertToPSEmbed(const char *, const char *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertToPSEmbed/*"/>
 '''   <returns></returns>
 Public Shared Function convertToPSEmbed(
 				 ByVal filein as String, 
@@ -63761,6 +65715,7 @@ End Function
 ' pixaWriteCompressedToPS(PIXA *, const char *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaWriteCompressedToPS/*"/>
 '''   <returns></returns>
 Public Shared Function pixaWriteCompressedToPS(
 				 ByVal pixa as Pixa, 
@@ -63795,6 +65750,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWritePSEmbed/*"/>
 '''  <param name="filein">[in] - input file, all depths, colormap OK</param>
 '''  <param name="fileout">[in] - output ps file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -63823,6 +65779,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamPS/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="box">[in][optional] - </param>
@@ -63902,6 +65859,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStringPS/*"/>
 '''  <param name="pixs">[in] - all depths, colormap OK</param>
 '''  <param name="box">[in] - bounding box can be NULL</param>
 '''  <param name="res">[in] - resolution, in printer ppi.  Use 0 for default 300 ppi.</param>
@@ -63931,6 +65889,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generateUncompressedPS/*"/>
 '''  <param name="hexdata">[in] - </param>
 '''  <param name="w">[in] - raster image size in pixels</param>
 '''  <param name="h">[in] - raster image size in pixels</param>
@@ -63975,6 +65934,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getScaledParametersPS/*"/>
 '''  <param name="box">[in][optional] - location of image in mils with x,y being the LL corner</param>
 '''  <param name="wpix">[in] - pix width in pixels</param>
 '''  <param name="hpix">[in] - pix height in pixels</param>
@@ -64006,6 +65966,7 @@ End Sub
 ' convertByteToHexAscii(l_uint8, char *, char *) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertByteToHexAscii/*"/>
 '''  <param name="byteval">[in] - input byte</param>
 '''  <param name="pnib1">[out] - two hex ascii characters</param>
 '''  <param name="pnib2">[out] - two hex ascii characters</param>
@@ -64035,6 +65996,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertJpegToPSEmbed/*"/>
 '''  <param name="filein">[in] - input jpeg file</param>
 '''  <param name="fileout">[in] - output ps file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -64104,6 +66066,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertJpegToPS/*"/>
 '''  <param name="filein">[in] - input jpeg file</param>
 '''  <param name="fileout">[in] - output ps file</param>
 '''  <param name="operation">[in] - "w" for write "a" for append</param>
@@ -64144,6 +66107,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertJpegToPSString/*"/>
 '''  <param name="filein">[in] - input jpeg file</param>
 '''  <param name="poutstr">[out] - PS string</param>
 '''  <param name="pnbytes">[out] - number of bytes in PS string</param>
@@ -64184,6 +66148,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generateJpegPS/*"/>
 '''  <param name="filein">[in][optional] - input jpeg filename can be null</param>
 '''  <param name="cid">[in] - jpeg compressed image data</param>
 '''  <param name="xpt">[in] - location of LL corner of image, in pts, relative to the PostScript origin (0,0) at the LL corner of the page</param>
@@ -64227,6 +66192,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertG4ToPSEmbed/*"/>
 '''  <param name="filein">[in] - input tiff file</param>
 '''  <param name="fileout">[in] - output ps file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -64284,6 +66250,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertG4ToPS/*"/>
 '''  <param name="filein">[in] - input tiff g4 file</param>
 '''  <param name="fileout">[in] - output ps file</param>
 '''  <param name="operation">[in] - "w" for write "a" for append</param>
@@ -64327,6 +66294,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertG4ToPSString/*"/>
 '''  <param name="filein">[in] - input tiff g4 file</param>
 '''  <param name="poutstr">[out] - PS string</param>
 '''  <param name="pnbytes">[out] - number of bytes in PS string</param>
@@ -64369,6 +66337,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generateG4PS/*"/>
 '''  <param name="filein">[in][optional] - input tiff g4 file can be null</param>
 '''  <param name="cid">[in] - g4 compressed image data</param>
 '''  <param name="xpt">[in] - location of LL corner of image, in pts, relative to the PostScript origin (0,0) at the LL corner of the page</param>
@@ -64411,6 +66380,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertTiffMultipageToPS/*"/>
 '''  <param name="filein">[in] - input tiff multipage file</param>
 '''  <param name="fileout">[in] - output ps file</param>
 '''  <param name="fillfract">[in] - factor for filling 8.5 x 11 inch page use 0.0 for DEFAULT_FILL_FRACTION</param>
@@ -64443,6 +66413,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertFlateToPSEmbed/*"/>
 '''  <param name="filein">[in] - input file -- any format</param>
 '''  <param name="fileout">[in] - output ps file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -64511,6 +66482,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertFlateToPS/*"/>
 '''  <param name="filein">[in] - input file -- any format</param>
 '''  <param name="fileout">[in] - output ps file</param>
 '''  <param name="operation">[in] - "w" for write "a" for append</param>
@@ -64558,6 +66530,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertFlateToPSString/*"/>
 '''  <param name="filein">[in] - input image file</param>
 '''  <param name="poutstr">[out] - PS string</param>
 '''  <param name="pnbytes">[out] - number of bytes in PS string</param>
@@ -64593,6 +66566,7 @@ End Function
 ' generateFlatePS(const char *, L_COMP_DATA *, l_float32, l_float32, l_float32, l_float32, l_int32, l_int32) as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generateFlatePS/*"/>
 '''  <param name="filein">[in][optional] - input filename can be null</param>
 '''  <param name="cid">[in] - flate compressed image data</param>
 '''  <param name="xpt">[in] - location of LL corner of image, in pts, relative to the PostScript origin (0,0) at the LL corner of the page</param>
@@ -64631,6 +66605,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemPS/*"/>
 '''  <param name="pdata">[out] - data of tiff compressed image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - </param>
@@ -64662,6 +66637,7 @@ End Function
 ' getResLetterPage(l_int32, l_int32, l_float32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getResLetterPage/*"/>
 '''  <param name="w">[in] - image width, pixels</param>
 '''  <param name="h">[in] - image height, pixels</param>
 '''  <param name="fillfract">[in] - fraction in linear dimension of full page, not to be exceeded use 0 for default</param>
@@ -64681,6 +66657,7 @@ End Function
 ' getResA4Page(l_int32, l_int32, l_float32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getResA4Page/*"/>
 '''  <param name="w">[in] - image width, pixels</param>
 '''  <param name="h">[in] - image height, pixels</param>
 '''  <param name="fillfract">[in] - fraction in linear dimension of full page, not to be exceeded use 0 for default</param>
@@ -64700,6 +66677,7 @@ End Function
 ' l_psWriteBoundingBox(l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_psWriteBoundingBox/*"/>
 Public Shared Sub l_psWriteBoundingBox(
 				 ByVal flag as Integer)
 
@@ -64714,6 +66692,7 @@ End Sub
 ' ptaCreate(l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaCreate/*"/>
 '''  <param name="n">[in] - initial array sizes</param>
 '''   <returns>pta, or NULL on error.</returns>
 Public Shared Function ptaCreate(
@@ -64730,6 +66709,7 @@ End Function
 ' ptaCreateFromNuma(NUMA *, NUMA *) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaCreateFromNuma/*"/>
 '''  <param name="nax">[in][optional] - can be null</param>
 '''  <param name="nay">[in] - </param>
 '''   <returns>pta, or NULL on error.</returns>
@@ -64758,6 +66738,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaDestroy/*"/>
 '''  <param name="ppta">[in,out] - to be nulled</param>
 Public Shared Sub ptaDestroy(
 				 ByRef ppta as Pta)
@@ -64774,6 +66755,7 @@ End Sub
 ' ptaCopy(PTA *) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaCopy/*"/>
 '''  <param name="pta">[in] - </param>
 '''   <returns>copy of pta, or NULL on error</returns>
 Public Shared Function ptaCopy(
@@ -64792,6 +66774,7 @@ End Function
 ' ptaCopyRange(PTA *, l_int32, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaCopyRange/*"/>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="istart">[in] - starting index in ptas</param>
 '''  <param name="iend">[in] - ending index in ptas use 0 to copy to end</param>
@@ -64814,6 +66797,7 @@ End Function
 ' ptaClone(PTA *) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaClone/*"/>
 '''  <param name="pta">[in] - </param>
 '''   <returns>ptr to same pta, or NULL on error</returns>
 Public Shared Function ptaClone(
@@ -64837,6 +66821,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaEmpty/*"/>
 '''  <param name="pta">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaEmpty(
@@ -64854,6 +66839,7 @@ End Function
 ' ptaAddPt(PTA *, l_float32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaAddPt/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="x">[in] - </param>
 '''  <param name="y">[in] - </param>
@@ -64875,6 +66861,7 @@ End Function
 ' ptaInsertPt(PTA *, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaInsertPt/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="index">[in] - at which pt is to be inserted</param>
 '''  <param name="x">[in] - point values</param>
@@ -64905,6 +66892,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaRemovePt/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="index">[in] - of point to be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -64924,6 +66912,7 @@ End Function
 ' ptaGetRefcount(PTA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetRefcount/*"/>
 '''   <returns></returns>
 Public Shared Function ptaGetRefcount(
 				 ByVal pta as Pta) as Integer
@@ -64942,6 +66931,7 @@ End Function
 ' ptaChangeRefcount(PTA *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaChangeRefcount/*"/>
 '''   <returns></returns>
 Public Shared Function ptaChangeRefcount(
 				 ByVal pta as Pta, 
@@ -64961,6 +66951,7 @@ End Function
 ' ptaGetCount(PTA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetCount/*"/>
 '''  <param name="pta">[in] - </param>
 '''   <returns>count, or 0 if no pta</returns>
 Public Shared Function ptaGetCount(
@@ -64978,6 +66969,7 @@ End Function
 ' ptaGetPt(PTA *, l_int32, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetPt/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="index">[in] - into arrays</param>
 '''  <param name="px">[out][optional] - float x value</param>
@@ -65001,6 +66993,7 @@ End Function
 ' ptaGetIPt(PTA *, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetIPt/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="index">[in] - into arrays</param>
 '''  <param name="px">[out][optional] - integer x value</param>
@@ -65024,6 +67017,7 @@ End Function
 ' ptaSetPt(PTA *, l_int32, l_float32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaSetPt/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="index">[in] - into arrays</param>
 '''  <param name="x">[in] - </param>
@@ -65052,6 +67046,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetArrays/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="pnax">[out][optional] - numa of x array</param>
 '''  <param name="pnay">[out][optional] - numa of y array</param>
@@ -65078,6 +67073,7 @@ End Function
 ' ptaRead(const char *) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>pta, or NULL on error</returns>
 Public Shared Function ptaRead(
@@ -65098,6 +67094,7 @@ End Function
 ' ptaReadStream(FILE *) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>pta, or NULL on error</returns>
 Public Shared Function ptaReadStream(
@@ -65116,6 +67113,7 @@ End Function
 ' ptaReadMem(const l_uint8 *, size_t) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaReadMem/*"/>
 '''  <param name="data">[in] - serialization in ascii</param>
 '''  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 '''   <returns>pta, or NULL on error</returns>
@@ -65145,6 +67143,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaWriteDebug/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pta">[in] - </param>
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
@@ -65169,6 +67168,7 @@ End Function
 ' ptaWrite(const char *, PTA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pta">[in] - </param>
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
@@ -65193,6 +67193,7 @@ End Function
 ' ptaWriteStream(FILE *, PTA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pta">[in] - </param>
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
@@ -65220,6 +67221,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized pta ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pta">[in] - </param>
@@ -65246,6 +67248,7 @@ End Function
 ' ptaaCreate(l_int32) as PTAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaCreate/*"/>
 '''  <param name="n">[in] - initial number of ptrs</param>
 '''   <returns>ptaa, or NULL on error</returns>
 Public Shared Function ptaaCreate(
@@ -65262,6 +67265,7 @@ End Function
 ' ptaaDestroy(PTAA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaDestroy/*"/>
 '''  <param name="pptaa">[in,out] - to be nulled</param>
 Public Shared Sub ptaaDestroy(
 				 ByRef pptaa as Ptaa)
@@ -65278,6 +67282,7 @@ End Sub
 ' ptaaAddPta(PTAA *, PTA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaAddPta/*"/>
 '''  <param name="ptaa">[in] - </param>
 '''  <param name="pta">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -65300,6 +67305,7 @@ End Function
 ' ptaaGetCount(PTAA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaGetCount/*"/>
 '''  <param name="ptaa">[in] - </param>
 '''   <returns>count, or 0 if no ptaa</returns>
 Public Shared Function ptaaGetCount(
@@ -65317,6 +67323,7 @@ End Function
 ' ptaaGetPta(PTAA *, l_int32, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaGetPta/*"/>
 '''  <param name="ptaa">[in] - </param>
 '''  <param name="index">[in] - to the i-th pta</param>
 '''  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
@@ -65339,6 +67346,7 @@ End Function
 ' ptaaGetPt(PTAA *, l_int32, l_int32, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaGetPt/*"/>
 '''  <param name="ptaa">[in] - </param>
 '''  <param name="ipta">[in] - to the i-th pta</param>
 '''  <param name="jpt">[in] - index to the j-th pt in the pta</param>
@@ -65364,6 +67372,7 @@ End Function
 ' ptaaInitFull(PTAA *, PTA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaInitFull/*"/>
 '''  <param name="ptaa">[in] - can have non-null ptrs in the ptr array</param>
 '''  <param name="pta">[in] - to be replicated into the entire ptr array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -65391,6 +67400,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaReplacePta/*"/>
 '''  <param name="ptaa">[in] - </param>
 '''  <param name="index">[in] - to the index-th pta</param>
 '''  <param name="pta">[in] - insert and replace any existing one</param>
@@ -65413,6 +67423,7 @@ End Function
 ' ptaaAddPt(PTAA *, l_int32, l_float32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaAddPt/*"/>
 '''  <param name="ptaa">[in] - </param>
 '''  <param name="ipta">[in] - to the i-th pta</param>
 '''  <param name="x">[in] - ,y point coordinates</param>
@@ -65442,6 +67453,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaTruncate/*"/>
 '''  <param name="ptaa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaaTruncate(
@@ -65459,6 +67471,7 @@ End Function
 ' ptaaRead(const char *) as PTAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>ptaa, or NULL on error</returns>
 Public Shared Function ptaaRead(
@@ -65479,6 +67492,7 @@ End Function
 ' ptaaReadStream(FILE *) as PTAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>ptaa, or NULL on error</returns>
 Public Shared Function ptaaReadStream(
@@ -65497,6 +67511,7 @@ End Function
 ' ptaaReadMem(const l_uint8 *, size_t) as PTAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaReadMem/*"/>
 '''  <param name="data">[in] - serialization in ascii</param>
 '''  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 '''   <returns>ptaa, or NULL on error</returns>
@@ -65526,6 +67541,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaWriteDebug/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="ptaa">[in] - </param>
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
@@ -65550,6 +67566,7 @@ End Function
 ' ptaaWrite(const char *, PTAA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="ptaa">[in] - </param>
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
@@ -65574,6 +67591,7 @@ End Function
 ' ptaaWriteStream(FILE *, PTAA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="ptaa">[in] - </param>
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
@@ -65601,6 +67619,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized ptaa ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="ptaa">[in] - </param>
@@ -65629,6 +67648,7 @@ End Function
 ' ptaSubsample(PTA *, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaSubsample/*"/>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="subfactor">[in] - subsample factor,  is greater = 1</param>
 '''   <returns>ptad evenly sampled pt values from ptas, or NULL on error</returns>
@@ -65656,6 +67676,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaJoin/*"/>
 '''  <param name="ptad">[in] - dest pta add to this one</param>
 '''  <param name="ptas">[in] - source pta add from this one</param>
 '''  <param name="istart">[in] - starting index in ptas</param>
@@ -65687,6 +67708,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaJoin/*"/>
 '''  <param name="ptaad">[in] - dest ptaa add to this one</param>
 '''  <param name="ptaas">[in] - source ptaa add from this one</param>
 '''  <param name="istart">[in] - starting index in ptaas</param>
@@ -65711,6 +67733,7 @@ End Function
 ' ptaReverse(PTA *, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaReverse/*"/>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
 '''   <returns>ptad reversed pta, or NULL on error</returns>
@@ -65731,6 +67754,7 @@ End Function
 ' ptaTranspose(PTA *) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaTranspose/*"/>
 '''  <param name="ptas">[in] - </param>
 '''   <returns>ptad with x and y values swapped, or NULL on error</returns>
 Public Shared Function ptaTranspose(
@@ -65757,6 +67781,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaCyclicPerm/*"/>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="xs">[in] - start point must be in ptas</param>
 '''  <param name="ys">[in] - start point must be in ptas</param>
@@ -65779,6 +67804,7 @@ End Function
 ' ptaSelectRange(PTA *, l_int32, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaSelectRange/*"/>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="first">[in] - use 0 to select from the beginning</param>
 '''  <param name="last">[in] - use 0 to select to the end</param>
@@ -65808,6 +67834,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetBoundingRegion/*"/>
 '''  <param name="pta">[in] - </param>
 '''   <returns>box, or NULL on error</returns>
 Public Shared Function ptaGetBoundingRegion(
@@ -65833,6 +67860,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetRange/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="pminx">[out][optional] - min value of x</param>
 '''  <param name="pmaxx">[out][optional] - max value of x</param>
@@ -65858,6 +67886,7 @@ End Function
 ' ptaGetInsideBox(PTA *, BOX *) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetInsideBox/*"/>
 '''  <param name="ptas">[in] - input pts</param>
 '''  <param name="box">[in] - </param>
 '''   <returns>ptad of pts in ptas that are inside the box, or NULL on error</returns>
@@ -65885,6 +67914,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindCornerPixels/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pta, or NULL on error</returns>
 Public Shared Function pixFindCornerPixels(
@@ -65905,6 +67935,7 @@ End Function
 ' ptaContainsPt(PTA *, l_int32, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaContainsPt/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="x">[in] - point</param>
 '''  <param name="y">[in] - point</param>
@@ -65926,6 +67957,7 @@ End Function
 ' ptaTestIntersection(PTA *, PTA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaTestIntersection/*"/>
 '''  <param name="pta1">[in] - </param>
 '''  <param name="pta2">[in] - </param>
 '''   <returns>bval which is 1 if they have any elements in common 0 otherwise or on error.</returns>
@@ -65951,6 +67983,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaTransform/*"/>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="shiftx">[in] - </param>
 '''  <param name="shifty">[in] - </param>
@@ -65977,6 +68010,7 @@ End Function
 ' ptaPtInsidePolygon(PTA *, l_float32, l_float32, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaPtInsidePolygon/*"/>
 '''  <param name="pta">[in] - vertices of a polygon</param>
 '''  <param name="x">[in] - point to be tested</param>
 '''  <param name="y">[in] - point to be tested</param>
@@ -66008,6 +68042,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_angleBetweenVectors/*"/>
 '''  <param name="x1">[in] - end point of first vector</param>
 '''  <param name="y1">[in] - end point of first vector</param>
 '''  <param name="x2">[in] - end point of second vector</param>
@@ -66029,6 +68064,7 @@ End Function
 ' ptaGetMinMax(PTA *, l_float32 *, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetMinMax/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="pxmin">[out][optional] - min of x</param>
 '''  <param name="pymin">[out][optional] - min of y</param>
@@ -66054,6 +68090,7 @@ End Function
 ' ptaSelectByValue(PTA *, l_float32, l_float32, l_int32, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaSelectByValue/*"/>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="xth">[in] - threshold values</param>
 '''  <param name="yth">[in] - threshold values</param>
@@ -66080,6 +68117,7 @@ End Function
 ' ptaCropToMask(PTA *, PIX *) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaCropToMask/*"/>
 '''  <param name="ptas">[in] - input pta</param>
 '''  <param name="pixm">[in] - 1 bpp mask</param>
 '''   <returns>ptad  with only pts under the mask fg, or NULL on error</returns>
@@ -66123,6 +68161,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetLinearLSF/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="pa">[out][optional] - slope a of least square fit: y = ax + b</param>
 '''  <param name="pb">[out][optional] - intercept b of least square fit</param>
@@ -66169,6 +68208,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetQuadraticLSF/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="pa">[out][optional] - coeff a of LSF: y = ax^2 + bx + c</param>
 '''  <param name="pb">[out][optional] - coeff b of LSF: y = ax^2 + bx + c</param>
@@ -66219,6 +68259,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetCubicLSF/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="pa">[out][optional] - coeff a of LSF: y = ax^3 + bx^2 + cx + d</param>
 '''  <param name="pb">[out][optional] - coeff b of LSF</param>
@@ -66272,6 +68313,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetQuarticLSF/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="pa">[out][optional] - coeff a of LSF: y = ax^4 + bx^3 + cx^2 + dx + e</param>
 '''  <param name="pb">[out][optional] - coeff b of LSF</param>
@@ -66316,6 +68358,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaNoisyLinearLSF/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="factor">[in] - reject outliers with error greater than this number of medians typically ~ 3</param>
 '''  <param name="pptad">[out][optional] - with outliers removed</param>
@@ -66358,6 +68401,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaNoisyQuadraticLSF/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="factor">[in] - reject outliers with error greater than this number of medians typically ~ 3</param>
 '''  <param name="pptad">[out][optional] - with outliers removed</param>
@@ -66394,6 +68438,7 @@ End Function
 ' applyLinearFit(l_float32, l_float32, l_float32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/applyLinearFit/*"/>
 '''  <param name="a">[in] - linear fit coefficients</param>
 '''  <param name="b">[in] - linear fit coefficients</param>
 '''  <param name="x">[in] - </param>
@@ -66415,6 +68460,7 @@ End Function
 ' applyQuadraticFit(l_float32, l_float32, l_float32, l_float32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/applyQuadraticFit/*"/>
 '''  <param name="a">[in] - quadratic fit coefficients</param>
 '''  <param name="b">[in] - quadratic fit coefficients</param>
 '''  <param name="c">[in] - quadratic fit coefficients</param>
@@ -66438,6 +68484,7 @@ End Function
 ' applyCubicFit(l_float32, l_float32, l_float32, l_float32, l_float32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/applyCubicFit/*"/>
 '''  <param name="a">[in] - cubic fit coefficients</param>
 '''  <param name="b">[in] - cubic fit coefficients</param>
 '''  <param name="c">[in] - cubic fit coefficients</param>
@@ -66463,6 +68510,7 @@ End Function
 ' applyQuarticFit(l_float32, l_float32, l_float32, l_float32, l_float32, l_float32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/applyQuarticFit/*"/>
 '''  <param name="a">[in] - quartic fit coefficients</param>
 '''  <param name="b">[in] - quartic fit coefficients</param>
 '''  <param name="c">[in] - quartic fit coefficients</param>
@@ -66497,6 +68545,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixPlotAlongPta/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="pta">[in] - set of points on which to plot</param>
 '''  <param name="outformat">[in] - GPLOT_PNG, GPLOT_PS, GPLOT_EPS, GPLOT_LATEX</param>
@@ -66527,6 +68576,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetPixelsFromPix/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="box">[in][optional] - can be null</param>
 '''   <returns>pta, or NULL on error</returns>
@@ -66558,6 +68608,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenerateFromPta/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="w">[in] - of pix</param>
 '''  <param name="h">[in] - of pix</param>
@@ -66587,6 +68638,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetBoundaryPixels/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="type">[in] - L_BOUNDARY_FG, L_BOUNDARY_BG</param>
 '''   <returns>pta, or NULL on error</returns>
@@ -66622,6 +68674,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaGetBoundaryPixels/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="type">[in] - L_BOUNDARY_FG, L_BOUNDARY_BG</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -66669,6 +68722,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaIndexLabeledPixels/*"/>
 '''  <param name="pixs">[in] - 32 bpp, of indices of c.c.</param>
 '''  <param name="pncc">[out][optional] - number of connected components</param>
 '''   <returns>ptaa, or NULL on error</returns>
@@ -66695,6 +68749,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetNeighborPixLocs/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="x">[in] - pixel from which we search for nearest neighbors</param>
 '''  <param name="y">[in] - pixel from which we search for nearest neighbors</param>
@@ -66719,6 +68774,7 @@ End Function
 ' numaConvertToPta1(NUMA *) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaConvertToPta1/*"/>
 '''  <param name="na">[in] - numa with implicit y(x)</param>
 '''   <returns>pta if OK null on error</returns>
 Public Shared Function numaConvertToPta1(
@@ -66737,6 +68793,7 @@ End Function
 ' numaConvertToPta2(NUMA *, NUMA *) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaConvertToPta2/*"/>
 '''  <param name="nax">[in] - </param>
 '''  <param name="nay">[in] - </param>
 '''   <returns>pta if OK null on error</returns>
@@ -66758,6 +68815,7 @@ End Function
 ' ptaConvertToNuma(PTA *, NUMA **, NUMA **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaConvertToNuma/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="pnax">[out] - addr of nax</param>
 '''  <param name="pnay">[out] - addr of nay</param>
@@ -66795,6 +68853,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDisplayPta/*"/>
 '''  <param name="pixd">[in] - can be same as pixs or NULL 32 bpp if in-place</param>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="pta">[in] - of path to be plotted</param>
@@ -66835,6 +68894,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDisplayPtaaPattern/*"/>
 '''  <param name="pixd">[in] - 32 bpp</param>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp 32 bpp if in place</param>
 '''  <param name="ptaa">[in] - giving locations at which the pattern is displayed</param>
@@ -66879,6 +68939,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDisplayPtaPattern/*"/>
 '''  <param name="pixd">[in] - can be same as pixs or NULL 32 bpp if in-place</param>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="pta">[in] - giving locations at which the pattern is displayed</param>
@@ -66923,6 +68984,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaReplicatePattern/*"/>
 '''  <param name="ptas">[in] - "sparse" input pta</param>
 '''  <param name="pixp">[in][optional] - 1 bpp pattern, to be replicated in output pta</param>
 '''  <param name="ptap">[in][optional] - set of pts, to be replicated in output pta</param>
@@ -66956,6 +69018,7 @@ End Function
 ' pixDisplayPtaa(PIX *, PTAA *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDisplayPtaa/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="ptaa">[in] - array of paths to be plotted</param>
 '''   <returns>pixd 32 bpp RGB version of pixs, with paths plotted in different colors, or NULL on error</returns>
@@ -66981,6 +69044,7 @@ End Function
 ' ptaSort(PTA *, l_int32, l_int32, NUMA **) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaSort/*"/>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="sorttype">[in] - L_SORT_BY_X, L_SORT_BY_Y</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
@@ -67008,6 +69072,7 @@ End Function
 ' ptaGetSortIndex(PTA *, l_int32, l_int32, NUMA **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetSortIndex/*"/>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="sorttype">[in] - L_SORT_BY_X, L_SORT_BY_Y</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
@@ -67034,6 +69099,7 @@ End Function
 ' ptaSortByIndex(PTA *, NUMA *) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaSortByIndex/*"/>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="naindex">[in] - na that maps from the new pta to the input pta</param>
 '''   <returns>ptad sorted, or NULL on  error</returns>
@@ -67055,6 +69121,7 @@ End Function
 ' ptaaSortByIndex(PTAA *, NUMA *) as PTAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaSortByIndex/*"/>
 '''  <param name="ptaas">[in] - </param>
 '''  <param name="naindex">[in] - na that maps from the new ptaa to the input ptaa</param>
 '''   <returns>ptaad sorted, or NULL on error</returns>
@@ -67076,6 +69143,7 @@ End Function
 ' ptaGetRankValue(PTA *, l_float32, PTA *, l_int32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetRankValue/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="fract">[in] - use 0.0 for smallest, 1.0 for largest</param>
 '''  <param name="ptasort">[in][optional] - version of %pta sorted by %sorttype</param>
@@ -67114,6 +69182,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaUnionByAset/*"/>
 '''  <param name="pta1">[in] - </param>
 '''  <param name="pta2">[in] - </param>
 '''   <returns>ptad with the union of the set of points, or NULL on error</returns>
@@ -67142,6 +69211,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaRemoveDupsByAset/*"/>
 '''  <param name="ptas">[in] - assumed to be integer values</param>
 '''   <returns>ptad with duplicates removed, or NULL on error</returns>
 Public Shared Function ptaRemoveDupsByAset(
@@ -67169,6 +69239,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaIntersectionByAset/*"/>
 '''  <param name="pta1">[in] - </param>
 '''  <param name="pta2">[in] - </param>
 '''   <returns>ptad intersection of the point sets, or NULL on error</returns>
@@ -67190,6 +69261,7 @@ End Function
 ' l_asetCreateFromPta(PTA *) as L_ASET *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetCreateFromPta/*"/>
 '''  <param name="pta">[in] - </param>
 '''   <returns>set using a 64-bit hash of (x,y) as the key</returns>
 Public Shared Function l_asetCreateFromPta(
@@ -67215,6 +69287,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaUnionByHash/*"/>
 '''  <param name="pta1">[in] - </param>
 '''  <param name="pta2">[in] - </param>
 '''   <returns>ptad with the union of the set of points, or NULL on error</returns>
@@ -67254,6 +69327,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaRemoveDupsByHash/*"/>
 '''  <param name="ptas">[in] - assumed to be integer values</param>
 '''  <param name="pptad">[out] - unique set of pts duplicates removed</param>
 '''  <param name="pdahash">[out][optional] - dnahash used for lookup</param>
@@ -67287,6 +69361,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaIntersectionByHash/*"/>
 '''  <param name="pta1">[in] - </param>
 '''  <param name="pta2">[in] - </param>
 '''   <returns>ptad intersection of the point sets, or NULL on error</returns>
@@ -67322,6 +69397,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaFindPtByHash/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="dahash">[in] - built from pta</param>
 '''  <param name="x">[in] - arbitrary points</param>
@@ -67348,6 +69424,7 @@ End Function
 ' l_dnaHashCreateFromPta(PTA *) as L_DNAHASH *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashCreateFromPta/*"/>
 '''  <param name="pta">[in] - </param>
 '''   <returns>dahash, or NULL on error</returns>
 Public Shared Function l_dnaHashCreateFromPta(
@@ -67368,6 +69445,7 @@ End Function
 ' ptraCreate(l_int32) as L_PTRA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraCreate/*"/>
 '''  <param name="n">[in] - size of ptr array to be alloc'd 0 for default</param>
 '''   <returns>pa, or NULL on error</returns>
 Public Shared Function ptraCreate(
@@ -67400,6 +69478,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraDestroy/*"/>
 '''  <param name="ppa">[in,out] - ptra to be nulled</param>
 '''  <param name="freeflag">[in] - TRUE to free each remaining item in the array</param>
 '''  <param name="warnflag">[in] - TRUE to warn if any remaining items are not destroyed</param>
@@ -67429,6 +69508,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraAdd/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="item">[in] - generic ptr to a struct</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -67489,6 +69569,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraInsert/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="index">[in] - location in ptra to insert new value</param>
 '''  <param name="item">[in] - generic ptr to a struct can be null</param>
@@ -67527,6 +69608,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraRemove/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="index">[in] - element to be removed</param>
 '''  <param name="flag">[in] - L_NO_COMPACTION, L_COMPACTION</param>
@@ -67548,6 +69630,7 @@ End Function
 ' ptraRemoveLast(L_PTRA *) as void *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraRemoveLast/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''   <returns>item, or NULL on error or if the array is empty</returns>
 Public Shared Function ptraRemoveLast(
@@ -67565,6 +69648,7 @@ End Function
 ' ptraReplace(L_PTRA *, l_int32, void *, l_int32) as void *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraReplace/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="index">[in] - element to be replaced</param>
 '''  <param name="item">[in] - new generic ptr to a struct can be null</param>
@@ -67591,6 +69675,7 @@ End Function
 ' ptraSwap(L_PTRA *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraSwap/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="index1">[in] - </param>
 '''  <param name="index2">[in] - </param>
@@ -67618,6 +69703,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraCompactArray/*"/>
 '''  <param name="pa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptraCompactArray(
@@ -67635,6 +69721,7 @@ End Function
 ' ptraReverse(L_PTRA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraReverse/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptraReverse(
@@ -67652,6 +69739,7 @@ End Function
 ' ptraJoin(L_PTRA *, L_PTRA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraJoin/*"/>
 '''  <param name="pa1">[in] - add to this one</param>
 '''  <param name="pa2">[in] - appended to pa1, and emptied of items can be null</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -67687,6 +69775,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraGetMaxIndex/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="pmaxindex">[out] - index of last item in the array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -67712,6 +69801,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraGetActualCount/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="pcount">[out] - actual number of items on the ptr array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -67740,6 +69830,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraGetPtrToItem/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="index">[in] - of element to be retrieved</param>
 '''   <returns>a ptr to the element, or NULL on error</returns>
@@ -67765,6 +69856,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraaCreate/*"/>
 '''  <param name="n">[in] - size of ptr array to be alloc'd</param>
 '''   <returns>paa, or NULL on error</returns>
 Public Shared Function ptraaCreate(
@@ -67788,6 +69880,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraaDestroy/*"/>
 '''  <param name="ppaa">[in,out] - to be nulled</param>
 '''  <param name="freeflag">[in] - TRUE to free each remaining item in each ptra</param>
 '''  <param name="warnflag">[in] - TRUE to warn if any remaining items are not destroyed</param>
@@ -67808,6 +69901,7 @@ End Sub
 ' ptraaGetSize(L_PTRAA *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraaGetSize/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="psize">[out] - size of ptr array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -67834,6 +69928,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraaInsertPtra/*"/>
 '''  <param name="paa">[in] - ptraa</param>
 '''  <param name="index">[in] - location in array for insertion</param>
 '''  <param name="pa">[in] - to be inserted</param>
@@ -67866,6 +69961,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraaGetPtra/*"/>
 '''  <param name="paa">[in] - ptraa</param>
 '''  <param name="index">[in] - location in array</param>
 '''  <param name="accessflag">[in] - L_HANDLE_ONLY, L_REMOVE</param>
@@ -67896,6 +69992,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraaFlattenToPtra/*"/>
 '''  <param name="paa">[in] - ptraa</param>
 '''   <returns>ptra, or NULL on error</returns>
 Public Shared Function ptraaFlattenToPtra(
@@ -67923,6 +70020,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixQuadtreeMean/*"/>
 '''  <param name="pixs">[in] - 8 bpp, no colormap</param>
 '''  <param name="nlevels">[in] - in quadtree max allowed depends on image size</param>
 '''  <param name="pix_ma">[in] - input mean accumulator can be null</param>
@@ -67957,6 +70055,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixQuadtreeVariance/*"/>
 '''  <param name="pixs">[in] - 8 bpp, no colormap</param>
 '''  <param name="nlevels">[in] - in quadtree</param>
 '''  <param name="pix_ma">[in] - input mean accumulator can be null</param>
@@ -67998,6 +70097,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMeanInRectangle/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="box">[in] - region to compute mean value</param>
 '''  <param name="pixma">[in] - mean accumulator</param>
@@ -68033,6 +70133,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixVarianceInRectangle/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="box">[in] - region to compute variance and/or root variance</param>
 '''  <param name="pix_ma">[in] - mean accumulator</param>
@@ -68076,6 +70177,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaQuadtreeRegions/*"/>
 '''  <param name="w">[in] - size of pix that is being quadtree-ized</param>
 '''  <param name="h">[in] - size of pix that is being quadtree-ized</param>
 '''  <param name="nlevels">[in] - number of levels in quadtree</param>
@@ -68104,6 +70206,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/quadtreeGetParent/*"/>
 '''  <param name="fpixa">[in] - mean, variance or root variance</param>
 '''  <param name="level">[in] - x, y of current pixel</param>
 '''  <param name="pval">[out] - parent pixel value, or 0.0 on error</param>
@@ -68135,6 +70238,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/quadtreeGetChildren/*"/>
 '''  <param name="fpixa">[in] - mean, variance or root variance</param>
 '''  <param name="level">[in] - x, y of current pixel</param>
 '''  <param name="pval00">[out] - four child pixel values</param>
@@ -68172,6 +70276,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/quadtreeMaxLevels/*"/>
 '''  <param name="w">[in] - dimensions of image</param>
 '''  <param name="h">[in] - dimensions of image</param>
 '''   <returns>maxlevels maximum number of levels allowed, or -1 on error</returns>
@@ -68197,6 +70302,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaDisplayQuadtree/*"/>
 '''  <param name="fpixa">[in] - mean, variance or root variance</param>
 '''  <param name="factor">[in] - replication factor at lowest level</param>
 '''  <param name="fontsize">[in] - 4, ... 20</param>
@@ -68226,6 +70332,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lqueueCreate/*"/>
 '''  <param name="nalloc">[in] - size of ptr array to be alloc'd 0 for default</param>
 '''   <returns>lqueue, or NULL on error</returns>
 Public Shared Function lqueueCreate(
@@ -68255,6 +70362,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lqueueDestroy/*"/>
 '''  <param name="plq">[in,out] - to be nulled</param>
 '''  <param name="freeflag">[in] - TRUE to free each remaining struct in the array</param>
 Public Shared Sub lqueueDestroy(
@@ -68283,6 +70391,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lqueueAdd/*"/>
 '''  <param name="lq">[in] - lqueue</param>
 '''  <param name="item">[in] - to be added to the tail of the queue</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -68311,6 +70420,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lqueueRemove/*"/>
 '''  <param name="lq">[in] - lqueue</param>
 '''   <returns>ptr to item popped from the head of the queue, or NULL if the queue is empty or on error</returns>
 Public Shared Function lqueueRemove(
@@ -68328,6 +70438,7 @@ End Function
 ' lqueueGetCount(L_QUEUE *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lqueueGetCount/*"/>
 '''  <param name="lq">[in] - lqueue</param>
 '''   <returns>count, or 0 on error</returns>
 Public Shared Function lqueueGetCount(
@@ -68345,6 +70456,7 @@ End Function
 ' lqueuePrint(FILE *, L_QUEUE *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lqueuePrint/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="lq">[in] - lqueue</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -68379,6 +70491,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRankFilter/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp no colormap</param>
 '''  <param name="wf">[in] - width and height of filter each is  is greater = 1</param>
 '''  <param name="hf">[in] - width and height of filter each is  is greater = 1</param>
@@ -68416,6 +70529,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRankFilterRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="wf">[in] - width and height of filter each is  is greater = 1</param>
 '''  <param name="hf">[in] - width and height of filter each is  is greater = 1</param>
@@ -68460,6 +70574,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRankFilterGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="wf">[in] - width and height of filter each is  is greater = 1</param>
 '''  <param name="hf">[in] - width and height of filter each is  is greater = 1</param>
@@ -68484,6 +70599,7 @@ End Function
 ' pixMedianFilter(PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMedianFilter/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp no colormap</param>
 '''  <param name="wf">[in] - width and height of filter each is  is greater = 1</param>
 '''  <param name="hf">[in] - width and height of filter each is  is greater = 1</param>
@@ -68516,6 +70632,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRankFilterWithScaling/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp no colormap</param>
 '''  <param name="wf">[in] - width and height of filter each is  is greater = 1</param>
 '''  <param name="hf">[in] - width and height of filter each is  is greater = 1</param>
@@ -68544,6 +70661,7 @@ End Function
 ' l_rbtreeCreate(l_int32) as L_RBTREE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeCreate/*"/>
 '''  <param name="keytype">[in] - defined by an enum for an RB_TYPE union</param>
 '''   <returns>rbtree    container with empty ptr to the root</returns>
 Public Shared Function l_rbtreeCreate(
@@ -68560,6 +70678,7 @@ End Function
 ' l_rbtreeLookup(L_RBTREE *, RB_TYPE) as RB_TYPE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeLookup/*"/>
 '''  <param name="t">[in] - rbtree, including root node</param>
 '''  <param name="key">[in] - find a node with this key</param>
 '''   <returns> and value     a pointer to a union, if the node exists else NULL</returns>
@@ -68586,6 +70705,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeInsert/*"/>
 '''  <param name="t">[in] - rbtree, including root node</param>
 '''  <param name="key">[in] - insert a node with this key, if the key does not already exist in the tree</param>
 '''  <param name="value">[in] - typically an int, used for an index</param>
@@ -68607,6 +70727,7 @@ End Sub
 ' l_rbtreeDelete(L_RBTREE *, RB_TYPE) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeDelete/*"/>
 '''  <param name="t">[in] - rbtree, including root node</param>
 '''  <param name="key">[in] - (delete the node with this key</param>
 Public Shared Sub l_rbtreeDelete(
@@ -68630,6 +70751,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeDestroy/*"/>
 '''  <param name="pt">[in] - ptr to rbtree</param>
 Public Shared Sub l_rbtreeDestroy(
 				 ByVal pt as List (of L_Rbtree))
@@ -68652,6 +70774,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeGetFirst/*"/>
 '''  <param name="t">[in] - rbtree, including root node</param>
 '''   <returns>void</returns>
 Public Shared Function l_rbtreeGetFirst(
@@ -68678,6 +70801,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeGetNext/*"/>
 '''  <param name="n">[in] - current node</param>
 '''   <returns>next node, or NULL if it's the last node</returns>
 Public Shared Function l_rbtreeGetNext(
@@ -68701,6 +70825,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeGetLast/*"/>
 '''  <param name="t">[in] - rbtree, including root node</param>
 '''   <returns>void</returns>
 Public Shared Function l_rbtreeGetLast(
@@ -68727,6 +70852,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeGetPrev/*"/>
 '''  <param name="n">[in] - current node</param>
 '''   <returns>next node, or NULL if it's the first node</returns>
 Public Shared Function l_rbtreeGetPrev(
@@ -68745,6 +70871,7 @@ End Function
 ' l_rbtreeGetCount(L_RBTREE *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeGetCount/*"/>
 '''  <param name="t">[in] - rbtree</param>
 '''   <returns>count  the number of nodes in the tree, or 0 on error</returns>
 Public Shared Function l_rbtreeGetCount(
@@ -68762,6 +70889,7 @@ End Function
 ' l_rbtreePrint(FILE *, L_RBTREE *) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreePrint/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="t">[in] - rbtree</param>
 Public Shared Sub l_rbtreePrint(
@@ -68782,6 +70910,7 @@ End Sub
 ' pixProcessBarcodes(PIX *, l_int32, l_int32, SARRAY **, l_int32) as SARRAY *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixProcessBarcodes/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="format">[in] - L_BF_ANY, L_BF_CODEI2OF5, L_BF_CODE93, ...</param>
 '''  <param name="method">[in] - L_USE_WIDTHS, L_USE_WINDOWS</param>
@@ -68811,6 +70940,7 @@ End Function
 ' pixExtractBarcodes(PIX *, l_int32) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtractBarcodes/*"/>
 '''  <param name="pixs">[in] - 8 bpp, no colormap</param>
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
 '''   <returns>pixa deskewed and cropped barcodes, or NULL if none found or on error</returns>
@@ -68831,6 +70961,7 @@ End Function
 ' pixReadBarcodes(PIXA *, l_int32, l_int32, SARRAY **, l_int32) as SARRAY *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadBarcodes/*"/>
 '''  <param name="pixa">[in] - of 8 bpp deskewed and cropped barcodes</param>
 '''  <param name="format">[in] - L_BF_ANY, L_BF_CODEI2OF5, L_BF_CODE93, ...</param>
 '''  <param name="method">[in] - L_USE_WIDTHS, L_USE_WINDOWS</param>
@@ -68860,6 +70991,7 @@ End Function
 ' pixReadBarcodeWidths(PIX *, l_int32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadBarcodeWidths/*"/>
 '''  <param name="pixs">[in] - of 8 bpp deskewed and cropped barcode</param>
 '''  <param name="method">[in] - L_USE_WIDTHS, L_USE_WINDOWS</param>
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
@@ -68882,6 +71014,7 @@ End Function
 ' pixLocateBarcodes(PIX *, l_int32, PIX **, PIX **) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixLocateBarcodes/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="thresh">[in] - for binarization of edge filter output typ. 20</param>
 '''  <param name="ppixb">[out][optional] - binarized edge filtered input image</param>
@@ -68917,6 +71050,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDeskewBarcode/*"/>
 '''  <param name="pixs">[in] - input image 8 bpp</param>
 '''  <param name="pixb">[in] - binarized edge-filtered input image</param>
 '''  <param name="box">[in] - identified region containing barcode</param>
@@ -68959,6 +71093,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtractBarcodeWidths1/*"/>
 '''  <param name="pixs">[in] - input image 8 bpp</param>
 '''  <param name="thresh">[in] - estimated pixel threshold for crossing white  is lower -- is greater  black typ. ~120</param>
 '''  <param name="binfract">[in] - histo binsize as a fraction of minsize e.g., 0.25</param>
@@ -69006,6 +71141,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtractBarcodeWidths2/*"/>
 '''  <param name="pixs">[in] - input image 8 bpp</param>
 '''  <param name="thresh">[in] - estimated pixel threshold for crossing white  is lower -- is greater  black typ. ~120</param>
 '''  <param name="pwidth">[out][optional] - best decoding window width, in pixels</param>
@@ -69035,6 +71171,7 @@ End Function
 ' pixExtractBarcodeCrossings(PIX *, l_float32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtractBarcodeCrossings/*"/>
 '''  <param name="pixs">[in] - input image 8 bpp</param>
 '''  <param name="thresh">[in] - estimated pixel threshold for crossing white  is lower -- is greater  black typ. ~120</param>
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
@@ -69070,6 +71207,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaQuantizeCrossingsByWidth/*"/>
 '''  <param name="nas">[in] - numa of crossing locations, in pixel units</param>
 '''  <param name="binfract">[in] - histo binsize as a fraction of minsize e.g., 0.25</param>
 '''  <param name="pnaehist">[out][optional] - histo of even (black) bar widths</param>
@@ -69111,6 +71249,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaQuantizeCrossingsByWindow/*"/>
 '''  <param name="nas">[in] - numa of crossing locations</param>
 '''  <param name="ratio">[in] - of max window size over min window size in search typ. 2.0</param>
 '''  <param name="pwidth">[out][optional] - best window width</param>
@@ -69153,6 +71292,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaReadFiles/*"/>
 '''  <param name="dirname">[in] - </param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be null</param>
 '''   <returns>pixa, or NULL on error</returns>
@@ -69173,6 +71313,7 @@ End Function
 ' pixaReadFilesSA(SARRAY *) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaReadFilesSA/*"/>
 '''  <param name="sa">[in] - full pathnames for all files</param>
 '''   <returns>pixa, or NULL on error</returns>
 Public Shared Function pixaReadFilesSA(
@@ -69196,6 +71337,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRead/*"/>
 '''  <param name="filename">[in] - with full pathname or in local directory</param>
 '''   <returns>pix if OK NULL on error</returns>
 Public Shared Function pixRead(
@@ -69222,6 +71364,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadWithHint/*"/>
 '''  <param name="filename">[in] - with full pathname or in local directory</param>
 '''  <param name="hint">[in] - bitwise OR of L_HINT_ values for jpeg use 0 for no hint</param>
 '''   <returns>pix if OK NULL on error</returns>
@@ -69265,6 +71408,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadIndexed/*"/>
 '''  <param name="sa">[in] - string array of full pathnames</param>
 '''  <param name="index">[in] - into pathname array</param>
 '''   <returns>pix if OK null if not found</returns>
@@ -69290,6 +71434,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="hint">[in] - bitwise OR of L_HINT_ values for jpeg use 0 for no hint</param>
 '''   <returns>pix if OK NULL on error</returns>
@@ -69317,6 +71462,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadHeader/*"/>
 '''  <param name="filename">[in] - with full pathname or in local directory</param>
 '''  <param name="pformat">[out][optional] - file format</param>
 '''  <param name="pw">[out][optional] - width and height</param>
@@ -69348,6 +71494,7 @@ End Function
 ' findFileFormat(const char *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/findFileFormat/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pformat">[out] - found format</param>
 '''   <returns>0 if OK, 1 on error or if format is not recognized</returns>
@@ -69374,6 +71521,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/findFileFormatStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pformat">[out] - found format</param>
 '''   <returns>0 if OK, 1 on error or if format is not recognized</returns>
@@ -69401,6 +71549,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/findFileFormatBuffer/*"/>
 '''  <param name="buf">[in] - byte buffer at least 12 bytes in size we can't check</param>
 '''  <param name="pformat">[out] - found format</param>
 '''   <returns>0 if OK, 1 on error or if format is not recognized</returns>
@@ -69420,6 +71569,7 @@ End Function
 ' fileFormatIsTiff(FILE *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fileFormatIsTiff/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>1 if file is tiff 0 otherwise or on error</returns>
 Public Shared Function fileFormatIsTiff(
@@ -69450,6 +71600,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMem/*"/>
 '''  <param name="data">[in] - const encoded</param>
 '''  <param name="size">[in] - size of data</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -69483,6 +71634,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadHeaderMem/*"/>
 '''  <param name="data">[in] - const encoded</param>
 '''  <param name="size">[in] - size of data</param>
 '''  <param name="pformat">[out][optional] - image format</param>
@@ -69523,6 +71675,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/writeImageFileInfo/*"/>
 '''  <param name="filename">[in] - input file</param>
 '''  <param name="fpout">[in] - output file stream</param>
 '''  <param name="headeronly">[in] - 1 to read only the header 0 to read both the header and the input file</param>
@@ -69563,6 +71716,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ioFormatTest/*"/>
 '''  <param name="filename">[in] - input file</param>
 '''   <returns>0 if OK 1 on error or if the test fails</returns>
 Public Shared Function ioFormatTest(
@@ -69592,6 +71746,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogCreateFromRecog/*"/>
 '''  <param name="recs">[in] - source recog with arbitrary input parameters</param>
 '''  <param name="scalew">[in] - scale all widths to this use 0 otherwise</param>
 '''  <param name="scaleh">[in] - scale all heights to this use 0 otherwise</param>
@@ -69632,6 +71787,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogCreateFromPixa/*"/>
 '''  <param name="pixa">[in] - of labeled, 1 bpp images</param>
 '''  <param name="scalew">[in] - scale all widths to this use 0 otherwise</param>
 '''  <param name="scaleh">[in] - scale all heights to this use 0 otherwise</param>
@@ -69668,6 +71824,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogCreateFromPixaNoFinish/*"/>
 '''  <param name="pixa">[in] - of labeled, 1 bpp images</param>
 '''  <param name="scalew">[in] - scale all widths to this use 0 otherwise</param>
 '''  <param name="scaleh">[in] - scale all heights to this use 0 otherwise</param>
@@ -69716,6 +71873,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogCreate/*"/>
 '''  <param name="scalew">[in] - scale all widths to this use 0 otherwise</param>
 '''  <param name="scaleh">[in] - scale all heights to this use 0 otherwise</param>
 '''  <param name="linew">[in] - width of normalized strokes use 0 to skip</param>
@@ -69740,6 +71898,7 @@ End Function
 ' recogDestroy(L_RECOG **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogDestroy/*"/>
 '''  <param name="precog">[in,out] - will be set to null before returning</param>
 Public Shared Sub recogDestroy(
 				 ByRef precog as L_Recog)
@@ -69756,6 +71915,7 @@ End Sub
 ' recogGetCount(L_RECOG *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogGetCount/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>count of classes in recog 0 if no recog or on error</returns>
 Public Shared Function recogGetCount(
@@ -69786,6 +71946,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogSetParams/*"/>
 '''  <param name="recog">[in] - to be padded, if necessary</param>
 '''  <param name="type">[in] - type of char set -1 for default see enum in recog.h</param>
 '''  <param name="min_nopad">[in] - min number in a class without padding use -1 for default</param>
@@ -69826,6 +71987,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogGetClassIndex/*"/>
 '''  <param name="recog">[in] - with LUT's pre-computed</param>
 '''  <param name="val">[in] - integer value can be up to 3 bytes for UTF-8</param>
 '''  <param name="text">[in] - text from which %val was derived used if not found</param>
@@ -69850,6 +72012,7 @@ End Function
 ' recogStringToIndex(L_RECOG *, char *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogStringToIndex/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="text">[in] - text string for some class</param>
 '''  <param name="pindex">[out] - index for that class -1 if not found</param>
@@ -69879,6 +72042,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogGetClassString/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="index">[in] - into array of char types</param>
 '''  <param name="pcharstr">[out] - string representation returns an empty string on error</param>
@@ -69902,6 +72066,7 @@ End Function
 ' l_convertCharstrToInt(const char *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_convertCharstrToInt/*"/>
 '''  <param name="str">[in] - input string representing one UTF-8 character not more than 4 bytes</param>
 '''  <param name="pval">[out] - integer value for the input.  Think of it as a 1-to-1 hash code.</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -69940,6 +72105,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>recog, or NULL on error</returns>
 Public Shared Function recogRead(
@@ -69960,6 +72126,7 @@ End Function
 ' recogReadStream(FILE *) as L_RECOG *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>recog, or NULL on error</returns>
 Public Shared Function recogReadStream(
@@ -69978,6 +72145,7 @@ End Function
 ' recogReadMem(const l_uint8 *, size_t) as L_RECOG *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogReadMem/*"/>
 '''  <param name="data">[in] - serialization of recog (not ascii)</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>recog, or NULL on error</returns>
@@ -70007,6 +72175,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="recog">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -70029,6 +72198,7 @@ End Function
 ' recogWriteStream(FILE *, L_RECOG *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="recog">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -70054,6 +72224,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized recog (not ascii)</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="recog">[in] - </param>
@@ -70085,6 +72256,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogExtractPixa/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>pixa if OK, NULL on error</returns>
 Public Shared Function recogExtractPixa(
@@ -70122,6 +72294,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogDecode/*"/>
 '''  <param name="recog">[in] - with LUT's pre-computed</param>
 '''  <param name="pixs">[in] - typically of multiple touching characters, 1 bpp</param>
 '''  <param name="nlevels">[in] - of templates 2 for now</param>
@@ -70150,6 +72323,7 @@ End Function
 ' recogCreateDid(L_RECOG *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogCreateDid/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pixs">[in] - of 1 bpp image to match</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -70176,6 +72350,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogDestroyDid/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function recogDestroyDid(
@@ -70193,6 +72368,7 @@ End Function
 ' recogDidExists(L_RECOG *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogDidExists/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>1 if recog- is greater did exists 0 if not or on error.</returns>
 Public Shared Function recogDidExists(
@@ -70215,6 +72391,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogGetDid/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>did still owned by the recog, or NULL on error</returns>
 Public Shared Function recogGetDid(
@@ -70243,6 +72420,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogSetChannelParams/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="nlevels">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -70276,6 +72454,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogIdentifyMultiple/*"/>
 '''  <param name="recog">[in] - with training finished</param>
 '''  <param name="pixs">[in] - containing typically a small number of characters</param>
 '''  <param name="minh">[in] - remove shorter components use 0 for default</param>
@@ -70331,6 +72510,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogSplitIntoCharacters/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pixs">[in] - 1 bpp, contains only mostly deskewed text</param>
 '''  <param name="minh">[in] - remove shorter components use 0 for default</param>
@@ -70374,6 +72554,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogCorrelationBestRow/*"/>
 '''  <param name="recog">[in] - with LUT's pre-computed</param>
 '''  <param name="pixs">[in] - typically of multiple touching characters, 1 bpp</param>
 '''  <param name="pboxa">[out] - bounding boxs of best fit character</param>
@@ -70423,6 +72604,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogCorrelationBestChar/*"/>
 '''  <param name="recog">[in] - with LUT's pre-computed</param>
 '''  <param name="pixs">[in] - can be of multiple touching characters, 1 bpp</param>
 '''  <param name="pbox">[out] - bounding box of best fit character</param>
@@ -70469,6 +72651,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogIdentifyPixa/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pixa">[in] - of 1 bpp images to match</param>
 '''  <param name="ppixdb">[out][optional] - pix showing inputs and best fits</param>
@@ -70512,6 +72695,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogIdentifyPix/*"/>
 '''  <param name="recog">[in] - with LUT's pre-computed</param>
 '''  <param name="pixs">[in] - of a single character, 1 bpp</param>
 '''  <param name="ppixdb">[out][optional] - debug pix showing input and best fit</param>
@@ -70543,6 +72727,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogSkipIdentify/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function recogSkipIdentify(
@@ -70560,6 +72745,7 @@ End Function
 ' rchaDestroy(L_RCHA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/rchaDestroy/*"/>
 '''  <param name="prcha">[in,out] - to be nulled</param>
 Public Shared Sub rchaDestroy(
 				 ByRef prcha as L_Rcha)
@@ -70576,6 +72762,7 @@ End Sub
 ' rchDestroy(L_RCH **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/rchDestroy/*"/>
 '''  <param name="prch">[in,out] - to be nulled</param>
 Public Shared Sub rchDestroy(
 				 ByRef prch as L_Rch)
@@ -70598,6 +72785,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/rchaExtract/*"/>
 '''  <param name="rcha">[in] - </param>
 '''  <param name="pnaindex">[out][optional] - indices of best templates</param>
 '''  <param name="pnascore">[out][optional] - correl scores of best templates</param>
@@ -70644,6 +72832,7 @@ End Function
 ' rchExtract(L_RCH *, l_int32 *, l_float32 *, char **, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/rchExtract/*"/>
 '''  <param name="rch">[in] - </param>
 '''  <param name="pindex">[out][optional] - index of best template</param>
 '''  <param name="pscore">[out][optional] - correlation score of best template</param>
@@ -70684,6 +72873,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogProcessToIdentify/*"/>
 '''  <param name="recog">[in] - with LUT's pre-computed</param>
 '''  <param name="pixs">[in] - typ. single character, possibly d  is greater  1 and uncropped</param>
 '''  <param name="pad">[in] - extra pixels added to left and right sides</param>
@@ -70729,6 +72919,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogExtractNumbers/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="boxas">[in] - location of components</param>
 '''  <param name="scorethresh">[in] - min score for which we accept a component</param>
@@ -70771,6 +72962,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/showExtractNumbers/*"/>
 '''  <param name="pixs">[in] - input 1 bpp image</param>
 '''  <param name="sa">[in] - recognized text strings</param>
 '''  <param name="baa">[in] - boxa array for location of characters in each string</param>
@@ -70813,6 +73005,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogTrainLabeled/*"/>
 '''  <param name="recog">[in] - in training mode</param>
 '''  <param name="pixs">[in] - if depth  is greater  1, will be thresholded to 1 bpp</param>
 '''  <param name="box">[in][optional] - cropping box</param>
@@ -70847,6 +73040,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogProcessLabeled/*"/>
 '''  <param name="recog">[in] - in training mode</param>
 '''  <param name="pixs">[in] - if depth  is greater  1, will be thresholded to 1 bpp</param>
 '''  <param name="box">[in][optional] - cropping box</param>
@@ -70888,6 +73082,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogAddSample/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pix">[in] - a single character, 1 bpp</param>
 '''  <param name="debug">[in] - </param>
@@ -70910,6 +73105,7 @@ End Function
 ' recogModifyTemplate(L_RECOG *, PIX *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogModifyTemplate/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pixs">[in] - 1 bpp, to be optionally scaled and turned into strokes of fixed width</param>
 '''   <returns>pixd   modified pix if OK, NULL on error</returns>
@@ -70947,6 +73143,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogAverageSamples/*"/>
 '''  <param name="precog">[in] - addr of existing recog may be destroyed</param>
 '''  <param name="debug">[in] - </param>
 '''   <returns>0 on success, 1 on failure</returns>
@@ -70977,6 +73174,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaAccumulateSamples/*"/>
 '''  <param name="pixa">[in] - of samples from the same class, 1 bpp</param>
 '''  <param name="pta">[in][optional] - of centroids of the samples</param>
 '''  <param name="ppixd">[out] - accumulated samples, 8 bpp</param>
@@ -71031,6 +73229,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogTrainingFinished/*"/>
 '''  <param name="precog">[in] - addr of recog</param>
 '''  <param name="modifyflag">[in] - 1 to use recogModifyTemplate() 0 otherwise</param>
 '''  <param name="minsize">[in] - set to -1 for default</param>
@@ -71073,6 +73272,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogFilterPixaBySize/*"/>
 '''  <param name="pixas">[in] - labeled templates</param>
 '''  <param name="setsize">[in] - size of character set (number of classes)</param>
 '''  <param name="maxkeep">[in] - max number of templates to keep in a class</param>
@@ -71102,6 +73302,7 @@ End Function
 ' recogSortPixaByClass(PIXA *, l_int32) as PIXAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogSortPixaByClass/*"/>
 '''  <param name="pixa">[in] - labeled templates</param>
 '''  <param name="setsize">[in] - size of character set (number of classes)</param>
 '''   <returns>paa   pixaa where each pixa has templates for one class, or null on error</returns>
@@ -71130,6 +73331,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogRemoveOutliers1/*"/>
 '''  <param name="precog">[in] - addr of recog with unscaled labeled templates</param>
 '''  <param name="minscore">[in] - keep everything with at least this score</param>
 '''  <param name="mintarget">[in] - minimum desired number to retain if possible</param>
@@ -71188,6 +73390,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaRemoveOutliers1/*"/>
 '''  <param name="pixas">[in] - unscaled labeled templates</param>
 '''  <param name="minscore">[in] - keep everything with at least this score use -1.0 for default.</param>
 '''  <param name="mintarget">[in] - minimum desired number to retain if possible use -1 for default.</param>
@@ -71229,6 +73432,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogRemoveOutliers2/*"/>
 '''  <param name="precog">[in] - addr of recog with unscaled labeled templates</param>
 '''  <param name="minscore">[in] - keep everything with at least this score</param>
 '''  <param name="minsize">[in] - minimum number of samples required for a class</param>
@@ -71275,6 +73479,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaRemoveOutliers2/*"/>
 '''  <param name="pixas">[in] - unscaled labeled templates</param>
 '''  <param name="minscore">[in] - keep everything with at least this score use -1.0 for default.</param>
 '''  <param name="minsize">[in] - minimum number of samples required for a class use -1 for default.</param>
@@ -71324,6 +73529,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogTrainFromBoot/*"/>
 '''  <param name="recogboot">[in] - labeled boot recognizer</param>
 '''  <param name="pixas">[in] - set of unlabeled input characters</param>
 '''  <param name="minscore">[in] - min score for accepting the example e.g., 0.75</param>
@@ -71360,6 +73566,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogPadDigitTrainingSet/*"/>
 '''  <param name="precog">[in,out] - trained if padding is needed, it is replaced by a a new padded recog</param>
 '''  <param name="scaleh">[in] - must be  is greater  0 suggest ~40.</param>
 '''  <param name="linew">[in] - use 0 for original scanned images</param>
@@ -71390,6 +73597,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogIsPaddingNeeded/*"/>
 '''  <param name="recog">[in] - trained</param>
 '''  <param name="psa">[out] - addr of returned string containing text value</param>
 '''   <returns>1 on error 0 if OK, whether or not additional padding templates are required.</returns>
@@ -71419,6 +73627,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogAddDigitPadTemplates/*"/>
 '''  <param name="recog">[in] - trained</param>
 '''  <param name="sa">[in] - set of text strings that need to be padded</param>
 '''   <returns>pixa   of all templates from %recog and the additional pad templates from a boot recognizer or NULL on error</returns>
@@ -71456,6 +73665,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogMakeBootDigitRecog/*"/>
 '''  <param name="scaleh">[in] - scale all heights to this typ. use 40</param>
 '''  <param name="linew">[in] - normalized line width typ. use 5 0 to skip</param>
 '''  <param name="maxyshift">[in] - from nominal centroid alignment typically 0 or 1</param>
@@ -71483,6 +73693,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogMakeBootDigitTemplates/*"/>
 '''  <param name="debug">[in] - 1 for display of templates</param>
 '''   <returns>pixa   of templates or NULL on error</returns>
 Public Shared Function recogMakeBootDigitTemplates(
@@ -71499,6 +73710,7 @@ End Function
 ' recogShowContent(FILE *, L_RECOG *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogShowContent/*"/>
 '''  <param name="fp">[in] - file  stream</param>
 '''  <param name="recog">[in] - </param>
 '''  <param name="index">[in] - for naming of output files of template images</param>
@@ -71533,6 +73745,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogDebugAverages/*"/>
 '''  <param name="precog">[in] - addr of recog</param>
 '''  <param name="debug">[in] - 0 no output 1 for images 2 for text 3 for both</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -71560,6 +73773,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogShowAverageTemplates/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>0 on success, 1 on failure</returns>
 Public Shared Function recogShowAverageTemplates(
@@ -71588,6 +73802,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogShowMatchesInRange/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pixa">[in] - of 1 bpp images to match</param>
 '''  <param name="minscore">[in] - range to include output</param>
@@ -71628,6 +73843,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogShowMatch/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pix1">[in] - input pix several possibilities</param>
 '''  <param name="pix2">[in][optional] - matching template</param>
@@ -71691,6 +73907,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestSetup/*"/>
 '''  <param name="argc">[in] - from invocation can be either 1 or 2</param>
 '''  <param name="argv">[in] - to regtest: %argv[1] is one of these: "generate", "compare", "display"</param>
 '''  <param name="prp">[out] - all regression params</param>
@@ -71722,6 +73939,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestCleanup/*"/>
 '''  <param name="rp">[in] - regression test parameters</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function regTestCleanup(
@@ -71739,6 +73957,7 @@ End Function
 ' regTestCompareValues(L_REGPARAMS *, l_float32, l_float32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestCompareValues/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="val1">[in] - typ. the golden value</param>
 '''  <param name="val2">[in] - typ. the value computed</param>
@@ -71762,6 +73981,7 @@ End Function
 ' regTestCompareStrings(L_REGPARAMS *, l_uint8 *, size_t, l_uint8 *, size_t) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestCompareStrings/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="string1">[in] - typ. the expected string</param>
 '''  <param name="bytes1">[in] - size of string1</param>
@@ -71795,6 +74015,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestComparePix/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="pix1">[in] - to be tested for equality</param>
 '''  <param name="pix2">[in] - to be tested for equality</param>
@@ -71833,6 +74054,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestCompareSimilarPix/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="pix1">[in] - to be tested for near equality</param>
 '''  <param name="pix2">[in] - to be tested for near equality</param>
@@ -71877,6 +74099,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestCheckFile/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="localname">[in] - name of output file from reg test</param>
 '''   <returns>0 if OK, 1 on error a failure in comparison is not an error</returns>
@@ -71907,6 +74130,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestCompareFiles/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="index1">[in] - of one output file from reg test</param>
 '''  <param name="index2">[in] - of another output file from reg test</param>
@@ -71945,6 +74169,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestWritePixAndCheck/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="pix">[in] - to be written</param>
 '''  <param name="format">[in] - of output pix</param>
@@ -71987,6 +74212,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestWriteDataAndCheck/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="data">[in] - to be written</param>
 '''  <param name="nbytes">[in] - of data to be written</param>
@@ -72025,6 +74251,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestGenLocalFilename/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="index">[in] - use -1 for current index</param>
 '''  <param name="format">[in] - of image e.g., IFF_PNG</param>
@@ -72156,6 +74383,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRasterop/*"/>
 '''  <param name="pixd">[in] - dest pix</param>
 '''  <param name="dx">[in] - x val of UL corner of dest rectangle</param>
 '''  <param name="dy">[in] - y val of UL corner of dest rectangle</param>
@@ -72200,6 +74428,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRasteropVip/*"/>
 '''  <param name="pixd">[in] - in-place</param>
 '''  <param name="bx">[in] - left edge of vertical band</param>
 '''  <param name="bw">[in] - width of vertical band</param>
@@ -72235,6 +74464,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRasteropHip/*"/>
 '''  <param name="pixd">[in] - in-place operation</param>
 '''  <param name="by">[in] - top of horizontal band</param>
 '''  <param name="bh">[in] - height of horizontal band</param>
@@ -72272,6 +74502,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixTranslate/*"/>
 '''  <param name="pixd">[in][optional] - destination: this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="hshift">[in] - horizontal shift hshift  is greater  0 is to right</param>
@@ -72300,6 +74531,7 @@ End Function
 ' pixRasteropIP(PIX *, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRasteropIP/*"/>
 '''  <param name="pixd">[in] - in-place translation</param>
 '''  <param name="hshift">[in] - horizontal shift hshift  is greater  0 is to right</param>
 '''  <param name="vshift">[in] - vertical shift vshift  is greater  0 is down</param>
@@ -72332,6 +74564,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRasteropFullImage/*"/>
 '''  <param name="pixd">[in] - </param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="op">[in] - any of the op-codes</param>
@@ -72356,6 +74589,7 @@ End Function
 ' rasteropUniLow(l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/rasteropUniLow/*"/>
 '''  <param name="datad">[in] - ptr to dest image data</param>
 '''  <param name="dpixw">[in] - width of dest</param>
 '''  <param name="dpixh">[in] - height of dest</param>
@@ -72391,6 +74625,7 @@ End Sub
 ' rasteropLow(l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/rasteropLow/*"/>
 '''  <param name="datad">[in] - ptr to dest image data</param>
 '''  <param name="dpixw">[in] - width of dest</param>
 '''  <param name="dpixh">[in] - height of dest</param>
@@ -72453,6 +74688,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/rasteropVipLow/*"/>
 '''  <param name="data">[in] - ptr to image data</param>
 '''  <param name="pixw">[in] - width</param>
 '''  <param name="pixh">[in] - height</param>
@@ -72494,6 +74730,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/rasteropHipLow/*"/>
 '''  <param name="data">[in] - ptr to image data</param>
 '''  <param name="pixh">[in] - height</param>
 '''  <param name="depth">[in] - depth</param>
@@ -72544,6 +74781,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotate/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp rgb</param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="type">[in] - L_ROTATE_AREA_MAP, L_ROTATE_SHEAR, L_ROTATE_SAMPLING</param>
@@ -72604,6 +74842,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixEmbedForRotation/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp rgb</param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -72638,6 +74877,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateBySampling/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp rgb can be cmapped</param>
 '''  <param name="xcen">[in] - x value of center of rotation</param>
 '''  <param name="ycen">[in] - y value of center of rotation</param>
@@ -72681,6 +74921,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateBinaryNice/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="angle">[in] - radians clockwise is positive about the center</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -72743,6 +74984,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateWithAlpha/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb or cmapped</param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="pixg">[in][optional] - 8 bpp, can be null</param>
@@ -72778,6 +75020,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateAM/*"/>
 '''  <param name="pixs">[in] - 2, 4, 8 bpp gray or colormapped, or 32 bpp RGB</param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -72807,6 +75050,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateAMColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
@@ -72836,6 +75080,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateAMGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
@@ -72868,6 +75113,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateAMCorner/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8 bpp gray or colormapped, or 32 bpp RGB</param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -72897,6 +75143,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateAMColorCorner/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="fillval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
@@ -72926,6 +75173,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateAMGrayCorner/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
@@ -72962,6 +75210,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateAMColorFast/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
@@ -72986,6 +75235,7 @@ End Function
 ' pixRotateOrth(PIX *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateOrth/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="quads">[in] - 0-3 number of 90 degree cw rotations</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -73022,6 +75272,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotate180/*"/>
 '''  <param name="pixd">[in][optional] - can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - all depths</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -73051,6 +75302,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotate90/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="direction">[in] - 1 = clockwise,  -1 = counter-clockwise</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -73106,6 +75358,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFlipLR/*"/>
 '''  <param name="pixd">[in][optional] - can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - all depths</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -73148,6 +75401,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFlipTB/*"/>
 '''  <param name="pixd">[in][optional] - can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - all depths</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -73183,6 +75437,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateShear/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="xcen">[in] - x value for which there is no horizontal shear</param>
 '''  <param name="ycen">[in] - y value for which there is no vertical shear</param>
@@ -73225,6 +75480,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotate2Shear/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="xcen">[in] - center of rotation</param>
 '''  <param name="ycen">[in] - center of rotation</param>
@@ -73273,6 +75529,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotate3Shear/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="xcen">[in] - center of rotation</param>
 '''  <param name="ycen">[in] - center of rotation</param>
@@ -73317,6 +75574,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateShearIP/*"/>
 '''  <param name="pixs">[in] - any depth not colormapped</param>
 '''  <param name="xcen">[in] - center of rotation</param>
 '''  <param name="ycen">[in] - center of rotation</param>
@@ -73342,6 +75600,7 @@ End Function
 ' pixRotateShearCenter(PIX *, l_float32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateShearCenter/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="angle">[in] - radians</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -73364,6 +75623,7 @@ End Function
 ' pixRotateShearCenterIP(PIX *, l_float32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateShearCenterIP/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="angle">[in] - radians</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -73407,6 +75667,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixStrokeWidthTransform/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="color">[in] - 0 for white runs, 1 for black runs</param>
 '''  <param name="depth">[in] - of pixd: 8 or 16 bpp</param>
@@ -73446,6 +75707,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRunlengthTransform/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="color">[in] - 0 for white runs, 1 for black runs</param>
 '''  <param name="direction">[in] - L_HORIZONTAL_RUNS, L_VERTICAL_RUNS</param>
@@ -73482,6 +75744,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindHorizontalRuns/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="y">[in] - line to traverse</param>
 '''  <param name="xstart">[in] - returns array of start positions for fg runs</param>
@@ -73521,6 +75784,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindVerticalRuns/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="x">[in] - line to traverse</param>
 '''  <param name="ystart">[in] - returns array of start positions for fg runs</param>
@@ -73557,6 +75821,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindMaxRuns/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="direction">[in] - L_HORIZONTAL_RUNS or L_VERTICAL_RUNS</param>
 '''  <param name="pnastart">[out][optional] - start locations of longest runs</param>
@@ -73591,6 +75856,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindMaxHorizontalRunOnLine/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="y">[in] - line to traverse</param>
 '''  <param name="pxstart">[out][optional] - start position</param>
@@ -73623,6 +75889,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindMaxVerticalRunOnLine/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="x">[in] - column to traverse</param>
 '''  <param name="pystart">[out][optional] - start position</param>
@@ -73656,6 +75923,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/runlengthMembershipOnLine/*"/>
 '''  <param name="buffer">[in] - into which full line of data is placed</param>
 '''  <param name="size">[in] - full size of line w or h</param>
 '''  <param name="depth">[in] - 8 or 16 bpp</param>
@@ -73692,6 +75960,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeMSBitLocTab/*"/>
 '''  <param name="bitval">[in] - either 0 or 1</param>
 '''   <returns>table giving, for an input byte, the MS bit location, starting at 0 with the MSBit in the byte, or NULL on error.</returns>
 Public Shared Function makeMSBitLocTab(
@@ -73709,6 +75978,7 @@ End Function
 ' sarrayCreate(l_int32) as SARRAY *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayCreate/*"/>
 '''  <param name="n">[in] - size of string ptr array to be alloc'd use 0 for default</param>
 '''   <returns>sarray, or NULL on error</returns>
 Public Shared Function sarrayCreate(
@@ -73725,6 +75995,7 @@ End Function
 ' sarrayCreateInitialized(l_int32, const char *) as SARRAY *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayCreateInitialized/*"/>
 '''  <param name="n">[in] - size of string ptr array to be alloc'd</param>
 '''  <param name="initstr">[in] - string to be initialized on the full array</param>
 '''   <returns>sarray, or NULL on error</returns>
@@ -73751,6 +76022,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayCreateWordsFromString/*"/>
 '''   <returns>sarray, or NULL on error</returns>
 Public Shared Function sarrayCreateWordsFromString(
 				 ByVal _string_ as String) as Sarray
@@ -73776,6 +76048,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayCreateLinesFromString/*"/>
 '''  <param name="blankflag">[in] - 0 to exclude blank lines 1 to include</param>
 '''   <returns>sarray, or NULL on error</returns>
 Public Shared Function sarrayCreateLinesFromString(
@@ -73801,6 +76074,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayDestroy/*"/>
 '''  <param name="psa">[in,out] - to be nulled</param>
 Public Shared Sub sarrayDestroy(
 				 ByRef psa as Sarray)
@@ -73817,6 +76091,7 @@ End Sub
 ' sarrayCopy(SARRAY *) as SARRAY *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayCopy/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''   <returns>copy of sarray, or NULL on error</returns>
 Public Shared Function sarrayCopy(
@@ -73835,6 +76110,7 @@ End Function
 ' sarrayClone(SARRAY *) as SARRAY *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayClone/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''   <returns>ptr to same sarray, or NULL on error</returns>
 Public Shared Function sarrayClone(
@@ -73859,6 +76135,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayAddString/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_NOCOPY or L_COPY</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -73880,6 +76157,7 @@ End Function
 ' sarrayRemoveString(SARRAY *, l_int32) as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayRemoveString/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''  <param name="index">[in] - of string within sarray</param>
 '''   <returns>removed string, or NULL on error</returns>
@@ -73908,6 +76186,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayReplaceString/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''  <param name="index">[in] - of string within sarray to be replaced</param>
 '''  <param name="newstr">[in] - string to replace existing one</param>
@@ -73932,6 +76211,7 @@ End Function
 ' sarrayClear(SARRAY *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayClear/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function sarrayClear(
@@ -73949,6 +76229,7 @@ End Function
 ' sarrayGetCount(SARRAY *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayGetCount/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''   <returns>count, or 0 if no strings or on error</returns>
 Public Shared Function sarrayGetCount(
@@ -73972,6 +76253,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayGetArray/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''  <param name="pnalloc">[out][optional] - number allocated string ptrs</param>
 '''  <param name="pn">[out][optional] - number allocated strings</param>
@@ -74003,6 +76285,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayGetString/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''  <param name="index">[in] - to the index-th string</param>
 '''  <param name="copyflag">[in] - L_NOCOPY or L_COPY</param>
@@ -74024,6 +76307,7 @@ End Function
 ' sarrayGetRefcount(SARRAY *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayGetRefcount/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''   <returns>refcount, or UNDEF on error</returns>
 Public Shared Function sarrayGetRefcount(
@@ -74041,6 +76325,7 @@ End Function
 ' sarrayChangeRefcount(SARRAY *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayChangeRefcount/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''  <param name="delta">[in] - change to be applied</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -74072,6 +76357,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayToString/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''  <param name="addnlflag">[in] - flag: 0 adds nothing to each substring 1 adds '\n' to each substring 2 adds ' ' to each substring</param>
 '''   <returns>dest string, or NULL on error</returns>
@@ -74101,6 +76387,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayToStringRange/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''  <param name="first">[in] - index of first string to use starts with 0</param>
 '''  <param name="nstrings">[in] - number of strings to append into the result use 0 to append to the end of the sarray</param>
@@ -74129,6 +76416,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayJoin/*"/>
 '''  <param name="sa1">[in] - to be added to</param>
 '''  <param name="sa2">[in] - append to sa1</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -74156,6 +76444,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayAppendRange/*"/>
 '''  <param name="sa1">[in] - to be added to</param>
 '''  <param name="sa2">[in] - append specified range of strings in sa2 to sa1</param>
 '''  <param name="start">[in] - index of first string of sa2 to append</param>
@@ -74188,6 +76477,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayPadToSameSize/*"/>
 '''  <param name="sa1">[in] - </param>
 '''  <param name="sa2">[in] - </param>
 '''  <param name="padstring">[in] - </param>
@@ -74211,6 +76501,7 @@ End Function
 ' sarrayConvertWordsToLines(SARRAY *, l_int32) as SARRAY *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayConvertWordsToLines/*"/>
 '''  <param name="sa">[in] - sa of individual words</param>
 '''  <param name="linesize">[in] - max num of chars in each line</param>
 '''   <returns>saout sa of formatted lines, or NULL on error This is useful for re-typesetting text to a specific maximum line length.  The individual words in the input sarray are concatenated into textlines.  An input word string of zero length is taken to be a paragraph separator.  Each time such a string is found, the current line is ended and a new line is also produced that contains just the string of zero length "".  When the output sarray of lines is eventually converted to a string with newlines typically appended to each line string, the empty strings are just converted to newlines, producing the visible paragraph separation. What happens when a word is larger than linesize? We write it out as a single line anyway!  Words preceding or following this long word are placed on lines preceding or following the line with the long word.  Why this choice? Long "words" found in text documents are typically URLs, and it's often desirable not to put newlines in the middle of a URL. The text display program e.g., text editor will typically wrap the long "word" to fit in the window.</returns>
@@ -74231,6 +76522,7 @@ End Function
 ' sarraySplitString(SARRAY *, const char *, const char *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarraySplitString/*"/>
 '''   <returns></returns>
 Public Shared Function sarraySplitString(
 				 ByVal sa as Sarray, 
@@ -74261,6 +76553,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarraySelectBySubstring/*"/>
 '''  <param name="sain">[in] - input sarray</param>
 '''  <param name="substr">[in][optional] - substring for matching can be NULL</param>
 '''   <returns>saout output sarray, filtered with substring or NULL on error</returns>
@@ -74288,6 +76581,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarraySelectByRange/*"/>
 '''  <param name="sain">[in] - input sarray</param>
 '''  <param name="first">[in] - index of first string to be selected</param>
 '''  <param name="last">[in] - index of last string to be selected use 0 to go to the end of the sarray</param>
@@ -74333,6 +76627,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayParseRange/*"/>
 '''  <param name="sa">[in] - input sarray</param>
 '''  <param name="start">[in] - index to start range search</param>
 '''  <param name="pactualstart">[out] - index of actual start may be  is greater  'start'</param>
@@ -74363,6 +76658,7 @@ End Function
 ' sarrayRead(const char *) as SARRAY *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>sarray, or NULL on error</returns>
 Public Shared Function sarrayRead(
@@ -74393,6 +76689,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>sarray, or NULL on error</returns>
 Public Shared Function sarrayReadStream(
@@ -74411,6 +76708,7 @@ End Function
 ' sarrayReadMem(const l_uint8 *, size_t) as SARRAY *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayReadMem/*"/>
 '''  <param name="data">[in] - serialization in ascii</param>
 '''  <param name="size">[in] - of data can use strlen to get it</param>
 '''   <returns>sarray, or NULL on error</returns>
@@ -74431,6 +76729,7 @@ End Function
 ' sarrayWrite(const char *, SARRAY *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="sa">[in] - string array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -74459,6 +76758,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="sa">[in] - string array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -74484,6 +76784,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized sarray ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="sa">[in] - </param>
@@ -74508,6 +76809,7 @@ End Function
 ' sarrayAppend(const char *, SARRAY *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayAppend/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="sa">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -74559,6 +76861,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getNumberedPathnamesInDirectory/*"/>
 '''  <param name="dirname">[in] - directory name</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="numpre">[in] - number of characters in name before number</param>
@@ -74596,6 +76899,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getSortedPathnamesInDirectory/*"/>
 '''  <param name="dirname">[in] - directory name</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="first">[in] - 0-based</param>
@@ -74626,6 +76930,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertSortedToNumberedPathnames/*"/>
 '''  <param name="sa">[in] - sorted pathnames including zero-padded integers</param>
 '''  <param name="numpre">[in] - number of characters in name before number</param>
 '''  <param name="numpost">[in] - number of characters in name after the number, up to a dot before an extension</param>
@@ -74650,6 +76955,7 @@ End Function
 ' getFilenamesInDirectory(const char *) as SARRAY *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getFilenamesInDirectory/*"/>
 '''   <returns></returns>
 Public Shared Function getFilenamesInDirectory(
 				 ByVal dirname as String) as Sarray
@@ -74676,6 +76982,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarraySort/*"/>
 '''  <param name="saout">[in] - output sarray can be NULL or equal to sain</param>
 '''  <param name="sain">[in] - input sarray</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
@@ -74699,6 +77006,7 @@ End Function
 ' sarraySortByIndex(SARRAY *, NUMA *) as SARRAY *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarraySortByIndex/*"/>
 '''  <param name="sain">[in] - </param>
 '''  <param name="naindex">[in] - na that maps from the new sarray to the input sarray</param>
 '''   <returns>saout sorted, or NULL on error</returns>
@@ -74726,6 +77034,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringCompareLexical/*"/>
 '''  <param name="str1">[in] - </param>
 '''  <param name="str2">[in] - </param>
 '''   <returns>1 if str1  is greater  str2 lexically 0 otherwise</returns>
@@ -74756,6 +77065,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayUnionByAset/*"/>
 '''  <param name="sa1">[in] - </param>
 '''  <param name="sa2">[in] - </param>
 '''   <returns>sad with the union of the string set, or NULL on error</returns>
@@ -74787,6 +77097,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayRemoveDupsByAset/*"/>
 '''  <param name="sas">[in] - </param>
 '''   <returns>sad with duplicates removed, or NULL on error</returns>
 Public Shared Function sarrayRemoveDupsByAset(
@@ -74817,6 +77128,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayIntersectionByAset/*"/>
 '''  <param name="sa1">[in] - </param>
 '''  <param name="sa2">[in] - </param>
 '''   <returns>sad with the intersection of the string set, or NULL on error</returns>
@@ -74838,6 +77150,7 @@ End Function
 ' l_asetCreateFromSarray(SARRAY *) as L_ASET *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetCreateFromSarray/*"/>
 '''  <param name="sa">[in] - </param>
 '''   <returns>set using a string hash into a uint64 as the key</returns>
 Public Shared Function l_asetCreateFromSarray(
@@ -74870,6 +77183,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayRemoveDupsByHash/*"/>
 '''  <param name="sas">[in] - </param>
 '''  <param name="psad">[out] - unique set of strings duplicates removed</param>
 '''  <param name="pdahash">[out][optional] - dnahash used for lookup</param>
@@ -74902,6 +77216,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayIntersectionByHash/*"/>
 '''  <param name="sa1">[in] - </param>
 '''  <param name="sa2">[in] - </param>
 '''   <returns>sad intersection of the strings, or NULL on error</returns>
@@ -74937,6 +77252,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayFindStringByHash/*"/>
 '''  <param name="sa">[in] - </param>
 '''  <param name="dahash">[in] - built from sa</param>
 '''  <param name="str">[in] - arbitrary string</param>
@@ -74962,6 +77278,7 @@ End Function
 ' l_dnaHashCreateFromSarray(SARRAY *) as L_DNAHASH *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashCreateFromSarray/*"/>
 '''  <param name="sa">[in] - </param>
 '''   <returns>dahash, or NULL on error</returns>
 Public Shared Function l_dnaHashCreateFromSarray(
@@ -74980,6 +77297,7 @@ End Function
 ' sarrayGenerateIntegers(l_int32) as SARRAY *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayGenerateIntegers/*"/>
 '''  <param name="n">[in] - </param>
 '''   <returns>sa  (of printed numbers, 1 - n, or NULL on error</returns>
 Public Shared Function sarrayGenerateIntegers(
@@ -75007,6 +77325,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayLookupCSKV/*"/>
 '''  <param name="sa">[in] - (of strings, each being a comma-separated pair of strings, the first being a key and the second a value)</param>
 '''  <param name="keystring">[in] - (an input string to match with each key in %sa</param>
 '''  <param name="pvalstring">[out] - (the returned value string corresponding to the input key string, if found otherwise NULL)</param>
@@ -75033,6 +77352,7 @@ End Function
 ' pixScale(PIX *, l_float32, l_float32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScale/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 and 32 bpp</param>
 '''  <param name="scalex">[in] - </param>
 '''  <param name="scaley">[in] - </param>
@@ -75055,6 +77375,7 @@ End Function
 ' pixScaleToSizeRel(PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleToSizeRel/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="delw">[in] - change in width, in pixels 0 means no change</param>
 '''  <param name="delh">[in] - change in height, in pixels 0 means no change</param>
@@ -75087,6 +77408,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleToSize/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 and 32 bpp</param>
 '''  <param name="wd">[in] - target width use 0 if using height as target</param>
 '''  <param name="hd">[in] - target height use 0 if using width as target</param>
@@ -75127,6 +77449,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGeneral/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 and 32 bpp</param>
 '''  <param name="scalex">[in] - both  is greater  0.0</param>
 '''  <param name="scaley">[in] - both  is greater  0.0</param>
@@ -75169,6 +77492,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleLI/*"/>
 '''  <param name="pixs">[in] - 2, 4, 8 or 32 bpp with or without colormap</param>
 '''  <param name="scalex">[in] - must both be  is greater = 0.7</param>
 '''  <param name="scaley">[in] - must both be  is greater = 0.7</param>
@@ -75207,6 +77531,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleColorLI/*"/>
 '''  <param name="pixs">[in] - 32 bpp, representing rgb</param>
 '''  <param name="scalex">[in] - must both be  is greater = 0.7</param>
 '''  <param name="scaley">[in] - must both be  is greater = 0.7</param>
@@ -75240,6 +77565,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleColor2xLI/*"/>
 '''  <param name="pixs">[in] - 32 bpp, representing rgb</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixScaleColor2xLI(
@@ -75271,6 +77597,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleColor4xLI/*"/>
 '''  <param name="pixs">[in] - 32 bpp, representing rgb</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixScaleColor4xLI(
@@ -75289,6 +77616,7 @@ End Function
 ' pixScaleGrayLI(PIX *, l_float32, l_float32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGrayLI/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale, no cmap</param>
 '''  <param name="scalex">[in] - must both be  is greater = 0.7</param>
 '''  <param name="scaley">[in] - must both be  is greater = 0.7</param>
@@ -75320,6 +77648,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGray2xLI/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale, not cmapped</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixScaleGray2xLI(
@@ -75347,6 +77676,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGray4xLI/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale, not cmapped</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixScaleGray4xLI(
@@ -75372,6 +77702,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGray2xLIThresh/*"/>
 '''  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 '''  <param name="thresh">[in] - between 0 and 256</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
@@ -75404,6 +77735,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGray2xLIDither/*"/>
 '''  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
 Public Shared Function pixScaleGray2xLIDither(
@@ -75433,6 +77765,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGray4xLIThresh/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="thresh">[in] - between 0 and 256</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
@@ -75472,6 +77805,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGray4xLIDither/*"/>
 '''  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
 Public Shared Function pixScaleGray4xLIDither(
@@ -75498,6 +77832,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleBySampling/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 '''  <param name="scalex">[in] - both  is greater  0.0</param>
 '''  <param name="scaley">[in] - both  is greater  0.0</param>
@@ -75533,6 +77868,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleBySamplingToSize/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 and 32 bpp</param>
 '''  <param name="wd">[in] - target width use 0 if using height as target</param>
 '''  <param name="hd">[in] - target height use 0 if using width as target</param>
@@ -75562,6 +77898,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleByIntSampling/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 '''  <param name="factor">[in] - integer subsampling</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -75594,6 +77931,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleRGBToGrayFast/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="factor">[in] - integer reduction factor  is greater = 1</param>
 '''  <param name="color">[in] - one of COLOR_RED, COLOR_GREEN, COLOR_BLUE</param>
@@ -75628,6 +77966,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleRGBToBinaryFast/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''  <param name="factor">[in] - integer reduction factor  is greater = 1</param>
 '''  <param name="thresh">[in] - binarization threshold</param>
@@ -75661,6 +78000,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGrayToBinaryFast/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''  <param name="factor">[in] - integer reduction factor  is greater = 1</param>
 '''  <param name="thresh">[in] - binarization threshold</param>
@@ -75709,6 +78049,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleSmooth/*"/>
 '''  <param name="pix">[in] - 2, 4, 8 or 32 bpp and 2, 4, 8 bpp with colormap</param>
 '''  <param name="scalex">[in] - must both be  is lower  0.7</param>
 '''  <param name="scaley">[in] - must both be  is lower  0.7</param>
@@ -75742,6 +78083,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleSmoothToSize/*"/>
 '''  <param name="pixs">[in] - 2, 4, 8 or 32 bpp and 2, 4, 8 bpp with colormap</param>
 '''  <param name="wd">[in] - target width use 0 if using height as target</param>
 '''  <param name="hd">[in] - target height use 0 if using width as target</param>
@@ -75764,6 +78106,7 @@ End Function
 ' pixScaleRGBToGray2(PIX *, l_float32, l_float32, l_float32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleRGBToGray2/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="rwt">[in] - must sum to 1.0</param>
 '''  <param name="gwt">[in] - must sum to 1.0</param>
@@ -75812,6 +78155,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleAreaMap/*"/>
 '''  <param name="pix">[in] - 2, 4, 8 or 32 bpp and 2, 4, 8 bpp with colormap</param>
 '''  <param name="scalex">[in] - must both be  is lower = 0.7</param>
 '''  <param name="scaley">[in] - must both be  is lower = 0.7</param>
@@ -75853,6 +78197,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleAreaMap2/*"/>
 '''  <param name="pix">[in] - 2, 4, 8 or 32 bpp and 2, 4, 8 bpp with colormap</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixScaleAreaMap2(
@@ -75882,6 +78227,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleAreaMapToSize/*"/>
 '''  <param name="pixs">[in] - 2, 4, 8 or 32 bpp and 2, 4, 8 bpp with colormap</param>
 '''  <param name="wd">[in] - target width use 0 if using height as target</param>
 '''  <param name="hd">[in] - target height use 0 if using width as target</param>
@@ -75911,6 +78257,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleBinary/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="scalex">[in] - both  is greater  0.0</param>
 '''  <param name="scaley">[in] - both  is greater  0.0</param>
@@ -75990,6 +78337,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleToGray/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="scalefactor">[in] - reduction: must be  is greater  0.0 and  is lower  1.0</param>
 '''   <returns>pixd 8 bpp, scaled down by scalefactor in each direction, or NULL on error.</returns>
@@ -76026,6 +78374,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleToGrayFast/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="scalefactor">[in] - reduction: must be  is greater  0.0 and  is lower  1.0</param>
 '''   <returns>pixd 8 bpp, scaled down by scalefactor in each direction, or NULL on error.</returns>
@@ -76048,6 +78397,7 @@ End Function
 ' pixScaleToGray2(PIX *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleToGray2/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 8 bpp, scaled down by 2x in each direction, or NULL on error.</returns>
 Public Shared Function pixScaleToGray2(
@@ -76076,6 +78426,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleToGray3/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 8 bpp, scaled down by 3x in each direction, or NULL on error.</returns>
 Public Shared Function pixScaleToGray3(
@@ -76101,6 +78452,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleToGray4/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 8 bpp, scaled down by 4x in each direction, or NULL on error.</returns>
 Public Shared Function pixScaleToGray4(
@@ -76126,6 +78478,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleToGray6/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 8 bpp, scaled down by 6x in each direction, or NULL on error.</returns>
 Public Shared Function pixScaleToGray6(
@@ -76146,6 +78499,7 @@ End Function
 ' pixScaleToGray8(PIX *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleToGray8/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 8 bpp, scaled down by 8x in each direction, or NULL on error</returns>
 Public Shared Function pixScaleToGray8(
@@ -76166,6 +78520,7 @@ End Function
 ' pixScaleToGray16(PIX *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleToGray16/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 8 bpp, scaled down by 16x in each direction, or NULL on error.</returns>
 Public Shared Function pixScaleToGray16(
@@ -76207,6 +78562,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleToGrayMipmap/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="scalefactor">[in] - reduction: must be  is greater  0.0 and  is lower  1.0</param>
 '''   <returns>pixd 8 bpp, scaled down by scalefactor in each direction, or NULL on error.</returns>
@@ -76236,6 +78592,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleMipmap/*"/>
 '''  <param name="pixs1">[in] - high res 8 bpp, no cmap</param>
 '''  <param name="pixs2">[in] - low res -- 2x reduced -- 8 bpp, no cmap</param>
 '''  <param name="scale">[in] - reduction with respect to high res image,  is greater  0.5</param>
@@ -76259,6 +78616,7 @@ End Function
 ' pixExpandReplicate(PIX *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExpandReplicate/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 '''  <param name="factor">[in] - integer scale factor for replicative expansion</param>
 '''   <returns>pixd scaled up, or NULL on error.</returns>
@@ -76295,6 +78653,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGrayMinMax/*"/>
 '''  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 '''  <param name="xfact">[in] - x downscaling factor integer</param>
 '''  <param name="yfact">[in] - y downscaling factor integer</param>
@@ -76338,6 +78697,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGrayMinMax2/*"/>
 '''  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 '''  <param name="type">[in] - L_CHOOSE_MIN, L_CHOOSE_MAX, L_CHOOSE_MAXDIFF</param>
 '''   <returns>pixd 8 bpp downscaled by 2x</returns>
@@ -76364,6 +78724,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGrayRankCascade/*"/>
 '''  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 '''  <param name="level1">[in] - rank thresholds, in set {0, 1, 2, 3, 4}</param>
 '''  <param name="level2">[in] - rank thresholds, in set {0, 1, 2, 3, 4}</param>
@@ -76405,6 +78766,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGrayRank2/*"/>
 '''  <param name="pixs">[in] - 8 bpp, no cmap</param>
 '''  <param name="rank">[in] - 1 (darkest), 2, 3, 4 (lightest)</param>
 '''   <returns>pixd 8 bpp, downscaled by 2x</returns>
@@ -76430,6 +78792,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleAndTransferAlpha/*"/>
 '''  <param name="pixd">[in] - 32 bpp, scaled image</param>
 '''  <param name="pixs">[in] - 32 bpp, original unscaled image</param>
 '''  <param name="scalex">[in] - both  is greater  0.0</param>
@@ -76488,6 +78851,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleWithAlpha/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb or cmapped</param>
 '''  <param name="scalex">[in] - must be  is greater  0.0</param>
 '''  <param name="scaley">[in] - must be  is greater  0.0</param>
@@ -76539,6 +78903,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillBinary/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs 1 bpp</param>
 '''  <param name="pixs">[in] - 1 bpp seed</param>
 '''  <param name="pixm">[in] - 1 bpp filling mask</param>
@@ -76587,6 +78952,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillBinaryRestricted/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs 1 bpp</param>
 '''  <param name="pixs">[in] - 1 bpp seed</param>
 '''  <param name="pixm">[in] - 1 bpp filling mask</param>
@@ -76625,6 +78991,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHolesByFilling/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''   <returns>pixd  inverted image of all holes, or NULL on error Action: 1 Start with 1-pixel black border on otherwise white pixd 2 Use the inverted pixs as the filling mask to fill in all the pixels from the border to the pixs foreground 3 OR the result with pixs to have an image with all ON pixels except for the holes. 4 Invert the result to get the holes as foreground</returns>
@@ -76661,6 +79028,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFillClosedBorders/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - filling connectivity 4 or 8</param>
 '''   <returns>pixd  all topologically outer closed borders are filled as connected comonents, or NULL on error</returns>
@@ -76683,6 +79051,7 @@ End Function
 ' pixExtractBorderConnComps(PIX *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtractBorderConnComps/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - filling connectivity 4 or 8</param>
 '''   <returns>pixd  all pixels in the src that are in connected components touching the border, or NULL on error</returns>
@@ -76710,6 +79079,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveBorderConnComps/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - filling connectivity 4 or 8</param>
 '''   <returns>pixd  all pixels in the src that are not touching the border or NULL on error</returns>
@@ -76751,6 +79121,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFillBgFromBorder/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - filling connectivity 4 or 8</param>
 '''   <returns>pixd with the background c.c. touching the border filled to foreground, or NULL on error</returns>
@@ -76793,6 +79164,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFillHolesToBoundingRect/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="minsize">[in] - min number of pixels in the hole</param>
 '''  <param name="maxhfract">[in] - max hole area as fraction of fg pixels in the cc</param>
@@ -76835,6 +79207,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp seed filled in place</param>
 '''  <param name="pixm">[in] - 8 bpp filling mask</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -76876,6 +79249,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillGrayInv/*"/>
 '''  <param name="pixs">[in] - 8 bpp seed filled in place</param>
 '''  <param name="pixm">[in] - 8 bpp filling mask</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -76914,6 +79288,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillGraySimple/*"/>
 '''  <param name="pixs">[in] - 8 bpp seed filled in place</param>
 '''  <param name="pixm">[in] - 8 bpp filling mask</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -76951,6 +79326,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillGrayInvSimple/*"/>
 '''  <param name="pixs">[in] - 8 bpp seed filled in place</param>
 '''  <param name="pixm">[in] - 8 bpp filling mask</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -76995,6 +79371,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillGrayBasin/*"/>
 '''  <param name="pixb">[in] - binary mask giving seed locations</param>
 '''  <param name="pixm">[in] - 8 bpp basin-type filling mask</param>
 '''  <param name="delta">[in] - amount of seed value above mask</param>
@@ -77054,6 +79431,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDistanceFunction/*"/>
 '''  <param name="pixs">[in] - 1 bpp source</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''  <param name="outdepth">[in] - 8 or 16 bits for pixd</param>
@@ -77111,6 +79489,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedspread/*"/>
 '''  <param name="pixs">[in] - 8 bpp source</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -77156,6 +79535,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixLocalExtrema/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="maxmin">[in] - max allowed for the min in a 3x3 neighborhood use 0 for default which is to have no upper bound</param>
 '''  <param name="minmax">[in] - min allowed for the max in a 3x3 neighborhood use 0 for default which is to have no lower bound</param>
@@ -77211,6 +79591,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSelectedLocalExtrema/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="mindist">[in] - -1 for keeping all pixels  is greater = 0 specifies distance</param>
 '''  <param name="ppixmin">[out] - mask of local minima</param>
@@ -77248,6 +79629,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindEqualValues/*"/>
 '''  <param name="pixs1">[in] - 8 bpp</param>
 '''  <param name="pixs2">[in] - 8 bpp</param>
 '''   <returns>pixd 1 bpp mask, or NULL on error</returns>
@@ -77284,6 +79666,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSelectMinInConnComp/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="pixm">[in] - 1 bpp</param>
 '''  <param name="ppta">[out] - pta of min pixel locations</param>
@@ -77329,6 +79712,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveSeededComponents/*"/>
 '''  <param name="pixd">[in][optional] - this can be null or equal to pixm 1 bpp</param>
 '''  <param name="pixs">[in] - 1 bpp seed</param>
 '''  <param name="pixm">[in] - 1 bpp filling mask</param>
@@ -77360,6 +79744,7 @@ End Function
 ' selaCreate(l_int32) as SELA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaCreate/*"/>
 '''  <param name="n">[in] - initial number of sel ptrs use 0 for default</param>
 '''   <returns>sela, or NULL on error</returns>
 Public Shared Function selaCreate(
@@ -77376,6 +79761,7 @@ End Function
 ' selaDestroy(SELA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaDestroy/*"/>
 '''  <param name="psela">[in,out] - to be nulled</param>
 Public Shared Sub selaDestroy(
 				 ByRef psela as Sela)
@@ -77400,6 +79786,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selCreate/*"/>
 '''  <param name="height">[in] - </param>
 '''  <param name="width">[in] - </param>
 '''  <param name="name">[in][optional] - sel name can be null</param>
@@ -77420,6 +79807,7 @@ End Function
 ' selDestroy(SEL **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selDestroy/*"/>
 '''  <param name="psel">[in,out] - to be nulled</param>
 Public Shared Sub selDestroy(
 				 ByRef psel as Sel)
@@ -77436,6 +79824,7 @@ End Sub
 ' selCopy(SEL *) as SEL *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selCopy/*"/>
 '''  <param name="sel">[in] - </param>
 '''   <returns>a copy of the sel, or NULL on error</returns>
 Public Shared Function selCopy(
@@ -77459,6 +79848,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selCreateBrick/*"/>
 '''  <param name="h">[in] - height, width</param>
 '''  <param name="w">[in] - height, width</param>
 '''  <param name="cy">[in] - origin, relative to UL corner at 0,0</param>
@@ -77491,6 +79881,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selCreateComb/*"/>
 '''  <param name="factor1">[in] - contiguous space between comb tines</param>
 '''  <param name="factor2">[in] - number of comb tines</param>
 '''  <param name="direction">[in] - L_HORIZ, L_VERT</param>
@@ -77517,6 +79908,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/create2dIntArray/*"/>
 '''  <param name="sy">[in] - rows == height</param>
 '''  <param name="sx">[in] - columns == width</param>
 '''   <returns>doubly indexed array i.e., an array of sy row pointers, each of which points to an array of sx ints</returns>
@@ -77549,6 +79941,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaAddSel/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="sel">[in] - to be added</param>
 '''  <param name="selname">[in] - ignored if already defined in sel req'd in sel when added to a sela</param>
@@ -77574,6 +79967,7 @@ End Function
 ' selaGetCount(SELA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaGetCount/*"/>
 '''  <param name="sela">[in] - </param>
 '''   <returns>count, or 0 on error</returns>
 Public Shared Function selaGetCount(
@@ -77597,6 +79991,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaGetSel/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="i">[in] - index of sel to be retrieved not copied</param>
 '''   <returns>sel, or NULL on error</returns>
@@ -77617,6 +80012,7 @@ End Function
 ' selGetName(SEL *) as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selGetName/*"/>
 '''  <param name="sel">[in] - </param>
 '''   <returns>sel name not copied, or NULL if no name or on error</returns>
 Public Shared Function selGetName(
@@ -77640,6 +80036,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selSetName/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="name">[in][optional] - can be null</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -77659,6 +80056,7 @@ End Function
 ' selaFindSelByName(SELA *, const char *, l_int32 *, SEL **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaFindSelByName/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="name">[in] - sel name</param>
 '''  <param name="pindex">[out][optional] - </param>
@@ -77685,6 +80083,7 @@ End Function
 ' selGetElement(SEL *, l_int32, l_int32, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selGetElement/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="row">[in] - </param>
 '''  <param name="col">[in] - </param>
@@ -77716,6 +80115,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selSetElement/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="row">[in] - </param>
 '''  <param name="col">[in] - </param>
@@ -77739,6 +80139,7 @@ End Function
 ' selGetParameters(SEL *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selGetParameters/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="psy">[out][optional] - each can be null</param>
 '''  <param name="psx">[out][optional] - each can be null</param>
@@ -77764,6 +80165,7 @@ End Function
 ' selSetOrigin(SEL *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selSetOrigin/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="cy">[in] - </param>
 '''  <param name="cx">[in] - </param>
@@ -77785,6 +80187,7 @@ End Function
 ' selGetTypeAtOrigin(SEL *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selGetTypeAtOrigin/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="ptype">[out] - SEL_HIT, SEL_MISS, SEL_DONT_CARE</param>
 '''   <returns>0 if OK 1 on error or if origin is not found</returns>
@@ -77804,6 +80207,7 @@ End Function
 ' selaGetBrickName(SELA *, l_int32, l_int32) as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaGetBrickName/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="hsize">[in] - of brick sel</param>
 '''  <param name="vsize">[in] - of brick sel</param>
@@ -77831,6 +80235,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaGetCombName/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="size">[in] - the product of sizes of the brick and comb parts</param>
 '''  <param name="direction">[in] - L_HORIZ, L_VERT</param>
@@ -77858,6 +80263,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getCompositeParameters/*"/>
 '''  <param name="size">[in] - </param>
 '''  <param name="psize1">[out][optional] - brick factor size</param>
 '''  <param name="psize2">[out][optional] - comb factor size</param>
@@ -77890,6 +80296,7 @@ End Function
 ' selaGetSelnames(SELA *) as SARRAY *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaGetSelnames/*"/>
 '''  <param name="sela">[in] - </param>
 '''   <returns>sa of all sel names, or NULL on error</returns>
 Public Shared Function selaGetSelnames(
@@ -77915,6 +80322,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selFindMaxTranslations/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="pxp">[out] - max shifts</param>
 '''  <param name="pyp">[out] - max shifts</param>
@@ -77940,6 +80348,7 @@ End Function
 ' selRotateOrth(SEL *, l_int32) as SEL *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selRotateOrth/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="quads">[in] - 0 - 4 number of 90 degree cw rotations</param>
 '''   <returns>seld, or NULL on error</returns>
@@ -77960,6 +80369,7 @@ End Function
 ' selaRead(const char *) as SELA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaRead/*"/>
 '''  <param name="fname">[in] - filename</param>
 '''   <returns>sela, or NULL on error</returns>
 Public Shared Function selaRead(
@@ -77978,6 +80388,7 @@ End Function
 ' selaReadStream(FILE *) as SELA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>sela, or NULL on error</returns>
 Public Shared Function selaReadStream(
@@ -77996,6 +80407,7 @@ End Function
 ' selRead(const char *) as SEL *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selRead/*"/>
 '''  <param name="fname">[in] - filename</param>
 '''   <returns>sel, or NULL on error</returns>
 Public Shared Function selRead(
@@ -78014,6 +80426,7 @@ End Function
 ' selReadStream(FILE *) as SEL *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>sel, or NULL on error</returns>
 Public Shared Function selReadStream(
@@ -78032,6 +80445,7 @@ End Function
 ' selaWrite(const char *, SELA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaWrite/*"/>
 '''  <param name="fname">[in] - filename</param>
 '''  <param name="sela">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -78052,6 +80466,7 @@ End Function
 ' selaWriteStream(FILE *, SELA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="sela">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -78072,6 +80487,7 @@ End Function
 ' selWrite(const char *, SEL *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selWrite/*"/>
 '''  <param name="fname">[in] - filename</param>
 '''  <param name="sel">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -78092,6 +80508,7 @@ End Function
 ' selWriteStream(FILE *, SEL *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="sel">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -78133,6 +80550,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selCreateFromString/*"/>
 '''  <param name="text">[in] - </param>
 '''  <param name="h">[in] - height, width</param>
 '''  <param name="w">[in] - height, width</param>
@@ -78170,6 +80588,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selPrintToString/*"/>
 '''  <param name="sel">[in] - </param>
 '''   <returns>str string caller must free</returns>
 Public Shared Function selPrintToString(
@@ -78212,6 +80631,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaCreateFromFile/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>sela, or NULL on error</returns>
 Public Shared Function selaCreateFromFile(
@@ -78237,6 +80657,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selCreateFromPta/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="cy">[in] - origin of sel</param>
 '''  <param name="cx">[in] - origin of sel</param>
@@ -78266,6 +80687,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selCreateFromPix/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="cy">[in] - origin of sel</param>
 '''  <param name="cx">[in] - origin of sel</param>
@@ -78297,6 +80719,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selReadFromColorImage/*"/>
 '''  <param name="pathname">[in] - </param>
 '''   <returns>sel if OK NULL on error</returns>
 Public Shared Function selReadFromColorImage(
@@ -78330,6 +80753,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selCreateFromColorPix/*"/>
 '''  <param name="pixs">[in] - cmapped or rgb</param>
 '''  <param name="selname">[in][optional] - sel name can be null</param>
 '''   <returns>sel if OK, NULL on error</returns>
@@ -78360,6 +80784,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selDisplayInPix/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="size">[in] - of grid interiors odd minimum size of 13 is enforced</param>
 '''  <param name="gthick">[in] - grid thickness minimum size of 2 is enforced</param>
@@ -78390,6 +80815,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaDisplayInPix/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="size">[in] - of grid interiors odd minimum size of 13 is enforced</param>
 '''  <param name="gthick">[in] - grid thickness minimum size of 2 is enforced</param>
@@ -78427,6 +80853,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaAddBasic/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function selaAddBasic(
@@ -78445,6 +80872,7 @@ End Function
 ' selaAddHitMiss(SELA *) as SELA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaAddHitMiss/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function selaAddHitMiss(
@@ -78470,6 +80898,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaAddDwaLinear/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function selaAddDwaLinear(
@@ -78496,6 +80925,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaAddDwaCombs/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function selaAddDwaCombs(
@@ -78530,6 +80960,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaAddCrossJunctions/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''  <param name="hlsize">[in] - length of each line of hits from origin</param>
 '''  <param name="mdist">[in] - distance of misses from the origin</param>
@@ -78567,6 +80998,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaAddTJunctions/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''  <param name="hlsize">[in] - length of each line of hits from origin</param>
 '''  <param name="mdist">[in] - distance of misses from the origin</param>
@@ -78598,6 +81030,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sela4ccThin/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function sela4ccThin(
@@ -78621,6 +81054,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sela8ccThin/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function sela8ccThin(
@@ -78644,6 +81078,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sela4and8ccThin/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function sela4and8ccThin(
@@ -78698,6 +81133,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenerateSelWithRuns/*"/>
 '''  <param name="pixs">[in] - 1 bpp, typically small, to be used as a pattern</param>
 '''  <param name="nhlines">[in] - number of hor lines along which elements are found</param>
 '''  <param name="nvlines">[in] - number of vert lines along which elements are found</param>
@@ -78756,6 +81192,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenerateSelRandom/*"/>
 '''  <param name="pixs">[in] - 1 bpp, typically small, to be used as a pattern</param>
 '''  <param name="hitfract">[in] - fraction of allowable fg pixels that are hits</param>
 '''  <param name="missfract">[in] - fraction of allowable bg pixels that are misses</param>
@@ -78819,6 +81256,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenerateSelBoundary/*"/>
 '''  <param name="pixs">[in] - 1 bpp, typically small, to be used as a pattern</param>
 '''  <param name="hitdist">[in] - min distance from fg boundary pixel</param>
 '''  <param name="missdist">[in] - min distance from bg boundary pixel</param>
@@ -78879,6 +81317,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRunCentersOnLine/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="x">[in] - set one of these to -1 see notes</param>
 '''  <param name="y">[in] - set one of these to -1 see notes</param>
@@ -78915,6 +81354,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRunsOnLine/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="x1">[in] - </param>
 '''  <param name="y1">[in] - </param>
@@ -78959,6 +81399,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSubsampleBoundaryPixels/*"/>
 '''  <param name="pixs">[in] - 1 bpp, with only boundary pixels in fg</param>
 '''  <param name="skip">[in] - number to skip between samples as you traverse boundary</param>
 '''   <returns>pta, or NULL on error</returns>
@@ -78985,6 +81426,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/adjacentOnPixelInRaster/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="x">[in] - current pixel</param>
 '''  <param name="y">[in] - current pixel</param>
@@ -79019,6 +81461,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDisplayHitMissSel/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sel">[in] - hit-miss in general</param>
 '''  <param name="scalefactor">[in] - an integer  is greater = 1 use 0 for default</param>
@@ -79078,6 +81521,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHShear/*"/>
 '''  <param name="pixd">[in][optional] - , this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - no restrictions on depth</param>
 '''  <param name="yloc">[in] - location of horizontal line, measured from origin</param>
@@ -79134,6 +81578,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixVShear/*"/>
 '''  <param name="pixd">[in][optional] - , this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - no restrictions on depth</param>
 '''  <param name="xloc">[in] - location of vertical line, measured from origin</param>
@@ -79169,6 +81614,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHShearCorner/*"/>
 '''  <param name="pixd">[in][optional] - , if not null, must be equal to pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="radang">[in] - angle in radians</param>
@@ -79202,6 +81648,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixVShearCorner/*"/>
 '''  <param name="pixd">[in][optional] - , if not null, must be equal to pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="radang">[in] - angle in radians</param>
@@ -79235,6 +81682,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHShearCenter/*"/>
 '''  <param name="pixd">[in][optional] - , if not null, must be equal to pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="radang">[in] - angle in radians</param>
@@ -79268,6 +81716,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixVShearCenter/*"/>
 '''  <param name="pixd">[in][optional] - , if not null, must be equal to pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="radang">[in] - angle in radians</param>
@@ -79304,6 +81753,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHShearIP/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="yloc">[in] - location of horizontal line, measured from origin</param>
 '''  <param name="radang">[in] - angle in radians</param>
@@ -79337,6 +81787,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixVShearIP/*"/>
 '''  <param name="pixs">[in] - all depths not colormapped</param>
 '''  <param name="xloc">[in] - location of vertical line, measured from origin</param>
 '''  <param name="radang">[in] - angle in radians</param>
@@ -79375,6 +81826,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHShearLI/*"/>
 '''  <param name="pixs">[in] - 8 bpp or 32 bpp, or colormapped</param>
 '''  <param name="yloc">[in] - location of horizontal line, measured from origin</param>
 '''  <param name="radang">[in] - angle in radians, in range (-pi/2 ... pi/2)</param>
@@ -79414,6 +81866,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixVShearLI/*"/>
 '''  <param name="pixs">[in] - 8 bpp or 32 bpp, or colormapped</param>
 '''  <param name="xloc">[in] - location of vertical line, measured from origin</param>
 '''  <param name="radang">[in] - angle in radians, in range (-pi/2 ... pi/2)</param>
@@ -79448,6 +81901,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDeskewBoth/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="redsearch">[in] - for binary search: reduction factor = 1, 2 or 4 use 0 for default</param>
 '''   <returns>pixd deskewed pix, or NULL on error</returns>
@@ -79479,6 +81933,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDeskew/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="redsearch">[in] - for binary search: reduction factor = 1, 2 or 4 use 0 for default</param>
 '''   <returns>pixd deskewed pix, or NULL on error</returns>
@@ -79508,6 +81963,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindSkewAndDeskew/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="redsearch">[in] - for binary search: reduction factor = 1, 2 or 4 use 0 for default</param>
 '''  <param name="pangle">[out][optional] - angle required to deskew, in degrees use NULL to skip</param>
@@ -79541,6 +81997,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDeskewGeneral/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="redsweep">[in] - for linear search: reduction factor = 1, 2 or 4 use 0 for default</param>
 '''  <param name="sweeprange">[in] - in degrees in each direction from 0 use 0.0 for default</param>
@@ -79585,6 +82042,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindSkew/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pangle">[out] - angle required to deskew, in degrees</param>
 '''  <param name="pconf">[out] - confidence value is ratio max/min scores</param>
@@ -79614,6 +82072,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindSkewSweep/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pangle">[out] - angle required to deskew, in degrees</param>
 '''  <param name="reduction">[in] - factor = 1, 2, 4 or 8</param>
@@ -79656,6 +82115,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindSkewSweepAndSearch/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pangle">[out] - angle required to deskew in degrees</param>
 '''  <param name="pconf">[out] - confidence given by ratio of max/min score</param>
@@ -79712,6 +82172,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindSkewSweepAndSearchScore/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pangle">[out] - angle required to deskew in degrees</param>
 '''  <param name="pconf">[out] - confidence given by ratio of max/min score</param>
@@ -79762,6 +82223,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindSkewSweepAndSearchScorePivot/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pangle">[out] - angle required to deskew in degrees</param>
 '''  <param name="pconf">[out] - confidence given by ratio of max/min score</param>
@@ -79803,6 +82265,7 @@ End Function
 ' pixFindSkewOrthogonalRange(PIX *, l_float32 *, l_float32 *, l_int32, l_int32, l_float32, l_float32, l_float32, l_float32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindSkewOrthogonalRange/*"/>
 '''   <returns></returns>
 Public Shared Function pixFindSkewOrthogonalRange(
 				 ByVal pixs as Pix, 
@@ -79842,6 +82305,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindDifferentialSquareSum/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="psum">[out] - result</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -79873,6 +82337,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindNormalizedSquareSum/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="phratio">[out][optional] - ratio of normalized horiz square sum to result if the pixel distribution were uniform</param>
 '''  <param name="pvratio">[out][optional] - ratio of normalized vert square sum to result if the pixel distribution were uniform</param>
@@ -79904,6 +82369,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamSpix/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>pix, or NULL on error.</returns>
 Public Shared Function pixReadStreamSpix(
@@ -79927,6 +82393,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderSpix/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pwidth">[out] - width</param>
 '''  <param name="pheight">[out] - height</param>
@@ -79961,6 +82428,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/freadHeaderSpix/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pwidth">[out] - width</param>
 '''  <param name="pheight">[out] - height</param>
@@ -79993,6 +82461,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sreadHeaderSpix/*"/>
 '''  <param name="data">[in] - </param>
 '''  <param name="pwidth">[out] - width</param>
 '''  <param name="pheight">[out] - height</param>
@@ -80022,6 +82491,7 @@ End Function
 ' pixWriteStreamSpix(FILE *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamSpix/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -80042,6 +82512,7 @@ End Function
 ' pixReadMemSpix(const l_uint8 *, size_t) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMemSpix/*"/>
 '''  <param name="data">[in] - const uncompressed</param>
 '''  <param name="size">[in] - bytes of data</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -80062,6 +82533,7 @@ End Function
 ' pixWriteMemSpix(l_uint8 **, size_t *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemSpix/*"/>
 '''  <param name="pdata">[out] - data of serialized, uncompressed pix</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - all depths colormap OK</param>
@@ -80102,6 +82574,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSerializeToMemory/*"/>
 '''  <param name="pixs">[in] - all depths, colormap OK</param>
 '''  <param name="pdata">[out] - serialized data in memory</param>
 '''  <param name="pnbytes">[out] - number of bytes in data string</param>
@@ -80132,6 +82605,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDeserializeFromMemory/*"/>
 '''  <param name="data">[in] - serialized data in memory</param>
 '''  <param name="nbytes">[in] - number of bytes in data string</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -80156,6 +82630,7 @@ End Function
 ' lstackCreate(l_int32) as L_STACK *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lstackCreate/*"/>
 '''  <param name="nalloc">[in] - initial ptr array size use 0 for default</param>
 '''   <returns>lstack, or NULL on error</returns>
 Public Shared Function lstackCreate(
@@ -80184,6 +82659,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lstackDestroy/*"/>
 '''  <param name="plstack">[in,out] - to be nulled</param>
 '''  <param name="freeflag">[in] - TRUE to free each remaining struct in the array</param>
 Public Shared Sub lstackDestroy(
@@ -80202,6 +82678,7 @@ End Sub
 ' lstackAdd(L_STACK *, void *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lstackAdd/*"/>
 '''  <param name="lstack">[in] - </param>
 '''  <param name="item">[in] - to be added to the lstack</param>
 '''   <returns>0 if OK 1 on error.</returns>
@@ -80224,6 +82701,7 @@ End Function
 ' lstackRemove(L_STACK *) as void *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lstackRemove/*"/>
 '''  <param name="lstack">[in] - </param>
 '''   <returns>ptr to item popped from the top of the lstack, or NULL if the lstack is empty or on error</returns>
 Public Shared Function lstackRemove(
@@ -80241,6 +82719,7 @@ End Function
 ' lstackGetCount(L_STACK *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lstackGetCount/*"/>
 '''  <param name="lstack">[in] - </param>
 '''   <returns>count, or 0 on error</returns>
 Public Shared Function lstackGetCount(
@@ -80258,6 +82737,7 @@ End Function
 ' lstackPrint(FILE *, L_STACK *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lstackPrint/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="lstack">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -80288,6 +82768,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/strcodeCreate/*"/>
 '''  <param name="fileno">[in] - integer that labels the two output files</param>
 '''   <returns>initialized L_StrCode, or NULL on error</returns>
 Public Shared Function strcodeCreate(
@@ -80313,6 +82794,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/strcodeCreateFromFile/*"/>
 '''  <param name="filein">[in] - containing filenames of serialized data</param>
 '''  <param name="fileno">[in] - integer that labels the two output files</param>
 '''  <param name="outdir">[in][optional] - if null, files are made in /tmp/lept/auto</param>
@@ -80344,6 +82826,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/strcodeGenerate/*"/>
 '''  <param name="strcode">[in] - for accumulating data</param>
 '''  <param name="filein">[in] - input file with serialized data</param>
 '''  <param name="type">[in] - of data use the typedef string</param>
@@ -80367,6 +82850,7 @@ End Function
 ' strcodeFinalize(L_STRCODE **, const char *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/strcodeFinalize/*"/>
 '''  <param name="pstrcode">[in,out] - destroys after .c and .h files have been generated</param>
 '''  <param name="outdir">[in][optional] - if NULL, files are made in /tmp/lept/auto</param>
 '''   <returns>void</returns>
@@ -80394,6 +82878,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_getStructStrFromFile/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="field">[in] - (L_STR_TYPE, L_STR_NAME, L_STR_READER, L_STR_MEMREADER)</param>
 '''  <param name="pstr">[out] - struct string for this file</param>
@@ -80426,6 +82911,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindStrokeLength/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="tab8">[in][optional] - table for counting fg pixels can be NULL</param>
 '''  <param name="plength">[out] - estimated length of the strokes</param>
@@ -80460,6 +82946,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindStrokeWidth/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="thresh">[in] - fractional count threshold relative to distance 1</param>
 '''  <param name="tab8">[in][optional] - table for counting fg pixels can be NULL</param>
@@ -80495,6 +82982,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaFindStrokeWidth/*"/>
 '''  <param name="pixa">[in] - of 1 bpp images</param>
 '''  <param name="thresh">[in] - fractional count threshold relative to distance 1</param>
 '''  <param name="tab8">[in][optional] - table for counting fg pixels can be NULL</param>
@@ -80519,6 +83007,7 @@ End Function
 ' pixaModifyStrokeWidth(PIXA *, l_float32) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaModifyStrokeWidth/*"/>
 '''  <param name="pixas">[in] - of 1 bpp pix</param>
 '''  <param name="targetw">[out] - desired width for strokes in each pix</param>
 '''   <returns>pixa  with modified stroke widths, or NULL on error</returns>
@@ -80539,6 +83028,7 @@ End Function
 ' pixModifyStrokeWidth(PIX *, l_float32, l_float32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixModifyStrokeWidth/*"/>
 '''  <param name="pixs">[in] - of 1 bpp pix</param>
 '''  <param name="width">[in] - measured average stroke width</param>
 '''  <param name="targetw">[in] - desired stroke width</param>
@@ -80572,6 +83062,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSetStrokeWidth/*"/>
 '''  <param name="pixas">[in] - of 1 bpp pix</param>
 '''  <param name="width">[in] - set stroke width to this value, in [1 ... 100].</param>
 '''  <param name="thinfirst">[in] - 1 to thin all pix to a skeleton first 0 to skip</param>
@@ -80604,6 +83095,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetStrokeWidth/*"/>
 '''  <param name="pixs">[in] - 1 bpp pix</param>
 '''  <param name="width">[in] - set stroke width to this value, in [1 ... 100].</param>
 '''  <param name="thinfirst">[in] - 1 to thin all pix to a skeleton first 0 to skip</param>
@@ -80638,6 +83130,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sudokuReadFile/*"/>
 '''  <param name="filename">[in] - of formatted sudoku file</param>
 '''   <returns>array of 81 numbers, or NULL on error</returns>
 Public Shared Function sudokuReadFile(
@@ -80663,6 +83156,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sudokuReadString/*"/>
 '''  <param name="str">[in] - of input data</param>
 '''   <returns>array of 81 numbers, or NULL on error</returns>
 Public Shared Function sudokuReadString(
@@ -80688,6 +83182,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sudokuCreate/*"/>
 '''  <param name="array">[in] - of 81 numbers, 9 rows of 9 numbers each</param>
 '''   <returns>l_sudoku, or NULL on error</returns>
 Public Shared Function sudokuCreate(
@@ -80706,6 +83201,7 @@ End Function
 ' sudokuDestroy(L_SUDOKU **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sudokuDestroy/*"/>
 '''  <param name="psud">[in,out] - to be nulled</param>
 Public Shared Sub sudokuDestroy(
 				 ByRef psud as L_Sudoku)
@@ -80722,6 +83218,7 @@ End Sub
 ' sudokuSolve(L_SUDOKU *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sudokuSolve/*"/>
 '''  <param name="sud">[in] - l_sudoku starting in initial state</param>
 '''   <returns>1 on success, 0 on failure to solve note reversal of typical unix returns</returns>
 Public Shared Function sudokuSolve(
@@ -80748,6 +83245,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sudokuTestUniqueness/*"/>
 '''  <param name="array">[in] - of 81 numbers, 9 lines of 9 numbers each</param>
 '''  <param name="punique">[out] - 1 if unique, 0 if not</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -80778,6 +83276,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sudokuGenerate/*"/>
 '''  <param name="array">[in] - of 81 numbers, 9 rows of 9 numbers each</param>
 '''  <param name="seed">[in] - random number</param>
 '''  <param name="minelems">[in] - min non-zero elements allowed  is lower = 80</param>
@@ -80808,6 +83307,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sudokuOutput/*"/>
 '''  <param name="sud">[in] - l_sudoku at any stage</param>
 '''  <param name="arraytype">[in] - L_SUDOKU_INIT, L_SUDOKU_STATE</param>
 '''   <returns>void</returns>
@@ -80845,6 +83345,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddSingleTextblock/*"/>
 '''  <param name="pixs">[in] - input pix colormap ok</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
 '''  <param name="textstr">[in][optional] - text string to be added</param>
@@ -80894,6 +83395,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddTextlines/*"/>
 '''  <param name="pixs">[in] - input pix colormap ok</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
 '''  <param name="textstr">[in][optional] - text string to be added</param>
@@ -80937,6 +83439,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetTextblock/*"/>
 '''  <param name="pixs">[in] - input image</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
 '''  <param name="textstr">[in] - block text string to be set</param>
@@ -80988,6 +83491,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetTextline/*"/>
 '''  <param name="pixs">[in] - input image</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
 '''  <param name="textstr">[in] - text string to be set on the line</param>
@@ -81037,6 +83541,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaAddTextNumber/*"/>
 '''  <param name="pixas">[in] - input pixa colormap ok</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
 '''  <param name="na">[in][optional] - number array use 1 ... n if null</param>
@@ -81085,6 +83590,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaAddTextlines/*"/>
 '''  <param name="pixas">[in] - input pixa colormap ok</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
 '''  <param name="sa">[in][optional] - sarray use text embedded in each pix if null</param>
@@ -81130,6 +83636,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaAddPixWithText/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pixs">[in] - any depth, colormap ok</param>
 '''  <param name="reduction">[in] - integer subsampling factor</param>
@@ -81170,6 +83677,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bmfGetLineStrings/*"/>
 '''  <param name="bmf">[in] - </param>
 '''  <param name="textstr">[in] - </param>
 '''  <param name="maxw">[in] - max width of a text line in pixels</param>
@@ -81197,6 +83705,7 @@ End Function
 ' bmfGetWordWidths(L_BMF *, const char *, SARRAY *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bmfGetWordWidths/*"/>
 '''  <param name="bmf">[in] - </param>
 '''  <param name="textstr">[in] - </param>
 '''  <param name="sa">[in] - of individual words</param>
@@ -81221,6 +83730,7 @@ End Function
 ' bmfGetStringWidth(L_BMF *, const char *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/bmfGetStringWidth/*"/>
 '''  <param name="bmf">[in] - </param>
 '''  <param name="textstr">[in] - </param>
 '''  <param name="pw">[out] - width of text string, in pixels for the font represented by the bmf</param>
@@ -81243,6 +83753,7 @@ End Function
 ' splitStringToParagraphs(char *, l_int32) as SARRAY *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/splitStringToParagraphs/*"/>
 '''  <param name="textstr">[in] - text string</param>
 '''  <param name="splitflag">[in] - see enum in bmf.h valid values in {1,2,3}</param>
 '''   <returns>sarray where each string is a paragraph of the input, or NULL on error.</returns>
@@ -81274,6 +83785,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadTiff/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="n">[in] - page number 0 based</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -81303,6 +83815,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamTiff/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="n">[in] - page number: 0 based</param>
 '''   <returns>pix, or NULL on error or if there are no more images in the file</returns>
@@ -81333,6 +83846,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteTiff/*"/>
 '''  <param name="filename">[in] - to write to</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="comptype">[in] - IFF_TIFF, IFF_TIFF_RLE, IFF_TIFF_PACKBITS, IFF_TIFF_G3, IFF_TIFF_G4, IFF_TIFF_LZW, IFF_TIFF_ZIP</param>
@@ -81360,6 +83874,7 @@ End Function
 ' pixWriteTiffCustom(const char *, PIX *, l_int32, const char *, NUMA *, SARRAY *, SARRAY *, NUMA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteTiffCustom/*"/>
 '''  <param name="filename">[in] - to write to</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="comptype">[in] - IFF_TIFF, IFF_TIFF_RLE, IFF_TIFF_PACKBITS, IFF_TIFF_G3, IFF_TIFF_G4, IFF_TIFF_LZW, IFF_TIFF_ZIP</param>
@@ -81416,6 +83931,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamTiff/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="comptype">[in] - IFF_TIFF, IFF_TIFF_RLE, IFF_TIFF_PACKBITS, IFF_TIFF_G3, IFF_TIFF_G4, IFF_TIFF_LZW, IFF_TIFF_ZIP</param>
@@ -81438,6 +83954,7 @@ End Function
 ' pixWriteStreamTiffWA(FILE *, PIX *, l_int32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamTiffWA/*"/>
 '''  <param name="fp">[in] - file stream opened for append or write</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="comptype">[in] - IFF_TIFF, IFF_TIFF_RLE, IFF_TIFF_PACKBITS, IFF_TIFF_G3, IFF_TIFF_G4, IFF_TIFF_LZW, IFF_TIFF_ZIP</param>
@@ -81487,6 +84004,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadFromMultipageTiff/*"/>
 '''  <param name="fname">[in] - filename</param>
 '''  <param name="poffset">[in,out] - set offset to 0 for first image</param>
 '''   <returns>pix, or NULL on error or if previous call returned the last image</returns>
@@ -81510,6 +84028,7 @@ End Function
 ' pixaReadMultipageTiff(const char *) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaReadMultipageTiff/*"/>
 '''  <param name="filename">[in] - input tiff file</param>
 '''   <returns>pixa of page images, or NULL on error</returns>
 Public Shared Function pixaReadMultipageTiff(
@@ -81537,6 +84056,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaWriteMultipageTiff/*"/>
 '''  <param name="fname">[in] - input tiff file</param>
 '''  <param name="pixa">[in] - any depth colormap will be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -81573,6 +84093,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/writeMultipageTiff/*"/>
 '''  <param name="dirin">[in] - input directory</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="fileout">[in] - output multipage tiff file</param>
@@ -81600,6 +84121,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/writeMultipageTiffSA/*"/>
 '''  <param name="sa">[in] - string array of full path names</param>
 '''  <param name="fileout">[in] - output ps file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -81620,6 +84142,7 @@ End Function
 ' fprintTiffInfo(FILE *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fprintTiffInfo/*"/>
 '''  <param name="fpout">[in] - stream for output of tag data</param>
 '''  <param name="tiffile">[in] - input</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -81640,6 +84163,7 @@ End Function
 ' tiffGetCount(FILE *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/tiffGetCount/*"/>
 '''  <param name="fp">[in] - file stream opened for read</param>
 '''  <param name="pn">[out] - number of images</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -81665,6 +84189,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getTiffResolution/*"/>
 '''  <param name="fp">[in] - file stream opened for read</param>
 '''  <param name="pxres">[out] - resolution in ppi</param>
 '''  <param name="pyres">[out] - resolution in ppi</param>
@@ -81692,6 +84217,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderTiff/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="n">[in] - page image number: 0-based</param>
 '''  <param name="pw">[out][optional] - width</param>
@@ -81733,6 +84259,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/freadHeaderTiff/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="n">[in] - page image number: 0-based</param>
 '''  <param name="pw">[out][optional] - width</param>
@@ -81771,6 +84298,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderMemTiff/*"/>
 '''  <param name="cdata">[in] - const tiff-encoded</param>
 '''  <param name="size">[in] - size of data</param>
 '''  <param name="n">[in] - page image number: 0-based</param>
@@ -81818,6 +84346,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/findTiffCompression/*"/>
 '''  <param name="fp">[in] - file stream must be rewound to BOF</param>
 '''  <param name="pcomptype">[out] - compression type</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -81837,6 +84366,7 @@ End Function
 ' extractG4DataFromFile(const char *, l_uint8 **, size_t *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/extractG4DataFromFile/*"/>
 '''  <param name="filein">[in] - </param>
 '''  <param name="pdata">[out] - binary data of ccitt g4 encoded stream</param>
 '''  <param name="pnbytes">[out] - size of binary data</param>
@@ -81879,6 +84409,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMemTiff/*"/>
 '''  <param name="cdata">[in] - const tiff-encoded</param>
 '''  <param name="size">[in] - size of cdata</param>
 '''  <param name="n">[in] - page image number: 0-based</param>
@@ -81916,6 +84447,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMemFromMultipageTiff/*"/>
 '''  <param name="cdata">[in] - const tiff-encoded</param>
 '''  <param name="size">[in] - size of cdata</param>
 '''  <param name="poffset">[in,out] - set offset to 0 for first image</param>
@@ -81946,6 +84478,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaReadMemMultipageTiff/*"/>
 '''  <param name="data">[in] - const multiple pages tiff-encoded</param>
 '''  <param name="size">[in] - size of cdata</param>
 '''   <returns>pixa, or NULL on error</returns>
@@ -81975,6 +84508,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaWriteMemMultipageTiff/*"/>
 '''  <param name="pdata">[out] - const tiff-encoded</param>
 '''  <param name="psize">[out] - size of data</param>
 '''  <param name="pixa">[in] - any depth colormap will be removed</param>
@@ -81999,6 +84533,7 @@ End Function
 ' pixWriteMemTiff(l_uint8 **, size_t *, PIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemTiff/*"/>
 '''  <param name="pdata">[out] - data of tiff compressed image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - </param>
@@ -82025,6 +84560,7 @@ End Function
 ' pixWriteMemTiffCustom(l_uint8 **, size_t *, PIX *, l_int32, NUMA *, SARRAY *, SARRAY *, NUMA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemTiffCustom/*"/>
 '''  <param name="pdata">[out] - data of tiff compressed image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - </param>
@@ -82075,6 +84611,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/setMsgSeverity/*"/>
 '''  <param name="newsev">[in] - </param>
 '''   <returns>oldsev</returns>
 Public Shared Function setMsgSeverity(
@@ -82090,6 +84627,7 @@ End Function
 ' returnErrorInt(const char *, const char *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/returnErrorInt/*"/>
 '''  <param name="msg">[in] - error message</param>
 '''  <param name="procname">[in] - </param>
 '''  <param name="ival">[in] - return val</param>
@@ -82112,6 +84650,7 @@ End Function
 ' returnErrorFloat(const char *, const char *, l_float32) as l_float32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/returnErrorFloat/*"/>
 '''  <param name="msg">[in] - error message</param>
 '''  <param name="procname">[in] - </param>
 '''  <param name="fval">[in] - return val</param>
@@ -82134,6 +84673,7 @@ End Function
 ' returnErrorPtr(const char *, const char *, void *) as void *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/returnErrorPtr/*"/>
 '''  <param name="msg">[in] - error message</param>
 '''  <param name="procname">[in] - </param>
 '''  <param name="pval">[in] - return val</param>
@@ -82159,6 +84699,7 @@ End Function
 ' filesAreIdentical(const char *, const char *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/filesAreIdentical/*"/>
 '''  <param name="fname1">[in] - </param>
 '''  <param name="fname2">[in] - </param>
 '''  <param name="psame">[out] - 1 if identical 0 if different</param>
@@ -82181,6 +84722,7 @@ End Function
 ' convertOnLittleEnd16(l_uint16) as l_uint16
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertOnLittleEnd16/*"/>
 '''   <returns></returns>
 Public Shared Function convertOnLittleEnd16(
 				 ByVal shortin as UShort) as UShort
@@ -82197,6 +84739,7 @@ End Function
 ' convertOnBigEnd16(l_uint16) as l_uint16
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertOnBigEnd16/*"/>
 '''   <returns></returns>
 Public Shared Function convertOnBigEnd16(
 				 ByVal shortin as UShort) as UShort
@@ -82213,6 +84756,7 @@ End Function
 ' convertOnLittleEnd32(l_uint32) as l_uint32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertOnLittleEnd32/*"/>
 '''   <returns></returns>
 Public Shared Function convertOnLittleEnd32(
 				 ByVal wordin as UInteger) as UInteger
@@ -82227,6 +84771,7 @@ End Function
 ' convertOnBigEnd32(l_uint32) as l_uint32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertOnBigEnd32/*"/>
 '''   <returns></returns>
 Public Shared Function convertOnBigEnd32(
 				 ByVal wordin as UInteger) as UInteger
@@ -82252,6 +84797,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fileCorruptByDeletion/*"/>
 '''  <param name="filein">[in] - </param>
 '''  <param name="loc">[in] - fractional location of start of deletion</param>
 '''  <param name="size">[in] - fractional size of deletion</param>
@@ -82287,6 +84833,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fileCorruptByMutation/*"/>
 '''  <param name="filein">[in] - </param>
 '''  <param name="loc">[in] - fractional location of start of randomization</param>
 '''  <param name="size">[in] - fractional size of randomization</param>
@@ -82317,6 +84864,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/genRandomIntegerInRange/*"/>
 '''  <param name="range">[in] - size of range must be  is greater = 2</param>
 '''  <param name="seed">[in] - use 0 to skip otherwise call srand</param>
 '''  <param name="pval">[out] - random integer in range {0 ... range-1}</param>
@@ -82344,6 +84892,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_roundftoi/*"/>
 '''  <param name="fval">[in] - </param>
 '''   <returns>value rounded to int</returns>
 Public Shared Function lept_roundftoi(
@@ -82374,6 +84923,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_hashStringToUint64/*"/>
 '''  <param name="str">[in] - </param>
 '''  <param name="phash">[out] - hash vale</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -82410,6 +84960,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_hashPtToUint64/*"/>
 '''  <param name="x">[in] - </param>
 '''  <param name="y">[in] - </param>
 '''  <param name="phash">[out] - hash value</param>
@@ -82448,6 +84999,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_hashFloat64ToUint64/*"/>
 '''  <param name="nbuckets">[in] - </param>
 '''  <param name="val">[in] - </param>
 '''  <param name="phash">[out] - hash value</param>
@@ -82471,6 +85023,7 @@ End Function
 ' findNextLargerPrime(l_int32, l_uint32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/findNextLargerPrime/*"/>
 '''  <param name="start">[in] - </param>
 '''  <param name="pprime">[out] - first prime larger than %start</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -82488,6 +85041,7 @@ End Function
 ' lept_isPrime(l_uint64, l_int32 *, l_uint32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_isPrime/*"/>
 '''  <param name="n">[in] - 64-bit unsigned</param>
 '''  <param name="pis_prime">[out] - 1 if prime, 0 otherwise</param>
 '''  <param name="pfactor">[out][optional] - smallest divisor, or 0 on error or if prime</param>
@@ -82515,6 +85069,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertIntToGrayCode/*"/>
 '''  <param name="val">[in] - integer value</param>
 '''   <returns>corresponding gray code value</returns>
 Public Shared Function convertIntToGrayCode(
@@ -82530,6 +85085,7 @@ End Function
 ' convertGrayCodeToInt(l_uint32) as l_uint32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertGrayCodeToInt/*"/>
 '''  <param name="val">[in] - gray code value</param>
 '''   <returns>corresponding integer value</returns>
 Public Shared Function convertGrayCodeToInt(
@@ -82545,6 +85101,7 @@ End Function
 ' getLeptonicaVersion() as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getLeptonicaVersion/*"/>
 '''   <returns></returns>
 Public Shared Function getLeptonicaVersion() as String
 
@@ -82558,6 +85115,7 @@ End Function
 ' startTimer() as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/startTimer/*"/>
 Public Shared Sub startTimer()
 
 	LeptonicaSharp.Natives.startTimer( )
@@ -82569,6 +85127,7 @@ End Sub
 ' stopTimer() as l_float32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stopTimer/*"/>
 '''   <returns></returns>
 Public Shared Function stopTimer() as Single
 
@@ -82582,6 +85141,7 @@ End Function
 ' startTimerNested() as L_TIMER
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/startTimerNested/*"/>
 '''   <returns></returns>
 Public Shared Function startTimerNested() as IntPtr
 
@@ -82595,6 +85155,7 @@ End Function
 ' stopTimerNested(L_TIMER) as l_float32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stopTimerNested/*"/>
 '''   <returns></returns>
 Public Shared Function stopTimerNested(
 				 ByVal utime_start as IntPtr) as Single
@@ -82611,6 +85172,7 @@ End Function
 ' l_getCurrentTime(l_int32 *, l_int32 *) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_getCurrentTime/*"/>
 Public Shared Sub l_getCurrentTime(
 				 ByVal sec as Object, 
 				 ByVal usec as Object)
@@ -82636,6 +85198,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/startWallTimer/*"/>
 '''   <returns>walltimer-ptr</returns>
 Public Shared Function startWallTimer() as L_WallTimer
 
@@ -82650,6 +85213,7 @@ End Function
 ' stopWallTimer(L_WALLTIMER **) as l_float32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stopWallTimer/*"/>
 '''  <param name="ptimer">[in,out] - walltimer-ptr</param>
 '''   <returns>time wall time elapsed in seconds</returns>
 Public Shared Function stopWallTimer(
@@ -82675,6 +85239,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_getFormattedDate/*"/>
 '''   <returns>formatted date string, or NULL on error</returns>
 Public Shared Function l_getFormattedDate() as String
 
@@ -82690,6 +85255,7 @@ End Function
 ' stringNew(const char *) as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringNew/*"/>
 '''  <param name="src">[in] - string</param>
 '''   <returns>dest copy of src string, or NULL on error</returns>
 Public Shared Function stringNew(
@@ -82717,6 +85283,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringCopy/*"/>
 '''  <param name="dest">[in] - existing byte buffer</param>
 '''  <param name="src">[in] - string [optional] can be null</param>
 '''  <param name="n">[in] - max number of characters to copy</param>
@@ -82745,6 +85312,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringReplace/*"/>
 '''  <param name="pdest">[out] - string copy</param>
 '''  <param name="src">[in] - string [optional] can be null</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -82773,6 +85341,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringLength/*"/>
 '''  <param name="src">[in] - string can be null or NULL-terminated string</param>
 '''  <param name="size">[in] - size of src buffer</param>
 '''   <returns>length of src in bytes.</returns>
@@ -82804,6 +85373,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringCat/*"/>
 '''  <param name="dest">[in] - null-terminated byte buffer</param>
 '''  <param name="size">[in] - size of dest</param>
 '''  <param name="src">[in] - string can be null or NULL-terminated string</param>
@@ -82832,6 +85402,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringConcatNew/*"/>
 '''  <param name="first">[in] - first string in list</param>
 '''   <returns>result new string concatenating the input strings, or NULL if first == NULL</returns>
 Public Shared Function stringConcatNew(
@@ -82856,6 +85427,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringJoin/*"/>
 '''  <param name="src1">[in] - string [optional] can be null</param>
 '''  <param name="src2">[in] - string [optional] can be null</param>
 '''   <returns>concatenated string, or NULL on error</returns>
@@ -82897,6 +85469,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringJoinIP/*"/>
 '''  <param name="psrc1">[in,out] - string address of src1 cannot be on the stack</param>
 '''  <param name="src2">[in] - string [optional] can be null</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -82916,6 +85489,7 @@ End Function
 ' stringReverse(const char *) as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringReverse/*"/>
 '''  <param name="src">[in] - string</param>
 '''   <returns>dest newly-allocated reversed string</returns>
 Public Shared Function stringReverse(
@@ -82953,6 +85527,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/strtokSafe/*"/>
 '''  <param name="seps">[in] - a string of character separators</param>
 '''  <param name="psaveptr">[out] - ptr to the next char after the last encountered separator</param>
 '''   <returns>substr a new string that is copied from the previous saveptr up to but not including the next separator character, or NULL if end of cstr.</returns>
@@ -82989,6 +85564,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringSplitOnToken/*"/>
 '''  <param name="seps">[in] - a string of character separators</param>
 '''  <param name="phead">[out] - ptr to copy of the input string, up to the first separator token encountered</param>
 '''  <param name="ptail">[out] - ptr to copy of the part of the input string starting with the first non-separator character that occurs after the first separator is found</param>
@@ -83021,6 +85597,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringCheckForChars/*"/>
 '''  <param name="src">[in] - input string can be of zero length</param>
 '''  <param name="chars">[in] - string of chars to be searched for in %src</param>
 '''  <param name="pfound">[out] - 1 if any characters are found 0 otherwise</param>
@@ -83043,6 +85620,7 @@ End Function
 ' stringRemoveChars(const char *, const char *) as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringRemoveChars/*"/>
 '''  <param name="src">[in] - input string can be of zero length</param>
 '''  <param name="remchars">[in] - string of chars to be removed from src</param>
 '''   <returns>dest string with specified chars removed, or NULL on error</returns>
@@ -83072,6 +85650,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringFindSubstr/*"/>
 '''  <param name="src">[in] - input string can be of zero length</param>
 '''  <param name="ploc">[out][optional] - location of substring in src</param>
 '''   <returns>1 if found 0 if not found or on error</returns>
@@ -83106,6 +85685,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringReplaceSubstr/*"/>
 '''  <param name="src">[in] - input string can be of zero length</param>
 '''  <param name="sub1">[in] - substring to be replaced</param>
 '''  <param name="sub2">[in] - substring to put in can be ""</param>
@@ -83140,6 +85720,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringReplaceEachSubstr/*"/>
 '''  <param name="src">[in] - input string can be of zero length</param>
 '''  <param name="sub1">[in] - substring to be replaced</param>
 '''  <param name="sub2">[in] - substring to put in can be ""</param>
@@ -83173,6 +85754,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/arrayFindEachSequence/*"/>
 '''  <param name="data">[in] - byte array</param>
 '''  <param name="datalen">[in] - length of data, in bytes</param>
 '''  <param name="sequence">[in] - subarray of bytes to find in data</param>
@@ -83210,6 +85792,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/arrayFindSequence/*"/>
 '''  <param name="data">[in] - byte array</param>
 '''  <param name="datalen">[in] - length of data, in bytes</param>
 '''  <param name="sequence">[in] - subarray of bytes to find in data</param>
@@ -83249,6 +85832,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/reallocNew/*"/>
 '''  <param name="pindata">[in,out][optional] - nulls indata</param>
 '''  <param name="oldsize">[in] - size of input data to be copied, in bytes</param>
 '''  <param name="newsize">[in] - size of data to be reallocated in bytes</param>
@@ -83270,6 +85854,7 @@ End Function
 ' l_binaryRead(const char *, size_t *) as l_uint8 *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_binaryRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pnbytes">[out] - number of bytes read</param>
 '''   <returns>data, or NULL on error</returns>
@@ -83310,6 +85895,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_binaryReadStream/*"/>
 '''  <param name="fp">[in] - file stream opened to read can be stdin</param>
 '''  <param name="pnbytes">[out] - number of bytes read</param>
 '''   <returns>null-terminated array, or NULL on error reading 0 bytes is not an error</returns>
@@ -83335,6 +85921,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_binaryReadSelect/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="start">[in] - first byte to read</param>
 '''  <param name="nbytes">[in] - number of bytes to read use 0 to read to end of file</param>
@@ -83370,6 +85957,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_binaryReadSelectStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="start">[in] - first byte to read</param>
 '''  <param name="nbytes">[in] - number of bytes to read use 0 to read to end of file</param>
@@ -83393,6 +85981,7 @@ End Function
 ' l_binaryWrite(const char *, const char *, const void *, size_t) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_binaryWrite/*"/>
 '''  <param name="filename">[in] - output</param>
 '''  <param name="operation">[in] - "w" for write "a" for append</param>
 '''  <param name="data">[in] - binary data to be written</param>
@@ -83422,6 +86011,7 @@ End Function
 ' nbytesInFile(const char *) as size_t
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/nbytesInFile/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>nbytes in file 0 on error</returns>
 Public Shared Function nbytesInFile(
@@ -83441,6 +86031,7 @@ End Function
 ' fnbytesInFile(FILE *) as size_t
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fnbytesInFile/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>nbytes in file 0 on error</returns>
 Public Shared Function fnbytesInFile(
@@ -83466,6 +86057,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_binaryCopy/*"/>
 '''  <param name="datas">[in] - </param>
 '''  <param name="size">[in] - of data array</param>
 '''   <returns>datad on heap, or NULL on error</returns>
@@ -83485,6 +86077,7 @@ End Function
 ' fileCopy(const char *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fileCopy/*"/>
 '''  <param name="srcfile">[in] - copy this file</param>
 '''  <param name="newfile">[in] - to this file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -83505,6 +86098,7 @@ End Function
 ' fileConcatenate(const char *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fileConcatenate/*"/>
 '''  <param name="srcfile">[in] - file to append</param>
 '''  <param name="destfile">[in] - file to add to</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -83525,6 +86119,7 @@ End Function
 ' fileAppendString(const char *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fileAppendString/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="str">[in] - string to append to file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -83555,6 +86150,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fopenReadStream/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>stream, or NULL on error</returns>
 Public Shared Function fopenReadStream(
@@ -83583,6 +86179,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fopenWriteStream/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="modestring">[in] - </param>
 '''   <returns>stream, or NULL on error</returns>
@@ -83613,6 +86210,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fopenReadFromMemory/*"/>
 '''  <param name="data">[in] - </param>
 '''  <param name="size">[in] - </param>
 '''   <returns>file stream, or NULL on error</returns>
@@ -83640,6 +86238,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fopenWriteWinTempfile/*"/>
 '''   <returns>file stream, or NULL on error</returns>
 Public Shared Function fopenWriteWinTempfile() as FILE
 
@@ -83660,6 +86259,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_fopen/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="mode">[in] - same as for fopen() e.g., "rb"</param>
 '''   <returns>stream or NULL on error</returns>
@@ -83689,6 +86289,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_fclose/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function lept_fclose(
@@ -83713,6 +86314,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_calloc/*"/>
 '''  <param name="nmemb">[in] - number of members</param>
 '''  <param name="size">[in] - of each member</param>
 '''   <returns>void ptr, or NULL on error</returns>
@@ -83736,6 +86338,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_free/*"/>
 '''  <param name="ptr">[in] - </param>
 Public Shared Sub lept_free(
 				 ByVal ptr as Object)
@@ -83763,6 +86366,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_mkdir/*"/>
 '''  <param name="subdir">[in] - of /tmp or its equivalent on Windows</param>
 '''   <returns>0 on success, non-zero on failure</returns>
 Public Shared Function lept_mkdir(
@@ -83795,6 +86399,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_rmdir/*"/>
 '''  <param name="subdir">[in] - of /tmp or its equivalent on Windows</param>
 '''   <returns>0 on success, non-zero on failure</returns>
 Public Shared Function lept_rmdir(
@@ -83821,6 +86426,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_direxists/*"/>
 '''  <param name="dir">[in] - </param>
 '''  <param name="pexists">[out] - 1 if it exists 0 otherwise</param>
 Public Shared Sub lept_direxists(
@@ -83856,6 +86462,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_rm_match/*"/>
 '''  <param name="subdir">[in][optional] - If NULL, the removed files are in /tmp</param>
 '''  <param name="substr">[in][optional] - pattern to match in filename</param>
 '''   <returns>0 on success, non-zero on failure</returns>
@@ -83880,6 +86487,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_rm/*"/>
 '''  <param name="subdir">[in][optional] - of '/tmp' can be NULL</param>
 '''  <param name="tail">[in] - filename without the directory</param>
 '''   <returns>0 on success, non-zero on failure</returns>
@@ -83909,6 +86517,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_rmfile/*"/>
 '''  <param name="filepath">[in] - full path to file including the directory</param>
 '''   <returns>0 on success, non-zero on failure</returns>
 Public Shared Function lept_rmfile(
@@ -83950,6 +86559,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_mv/*"/>
 '''  <param name="srcfile">[in] - </param>
 '''  <param name="newdir">[in][optional] - can be NULL</param>
 '''  <param name="newtail">[in][optional] - can be NULL</param>
@@ -83999,6 +86609,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_cp/*"/>
 '''  <param name="srcfile">[in] - </param>
 '''  <param name="newdir">[in][optional] - can be NULL</param>
 '''  <param name="newtail">[in][optional] - can be NULL</param>
@@ -84033,6 +86644,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/callSystemDebug/*"/>
 '''  <param name="cmd">[in] - command to be exec'd</param>
 Public Shared Sub callSystemDebug(
 				 ByVal cmd as String)
@@ -84067,6 +86679,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/splitPathAtDirectory/*"/>
 '''  <param name="pathname">[in] - full path can be a directory</param>
 '''  <param name="pdir">[out][optional] - root directory name of input path, including trailing '/'</param>
 '''  <param name="ptail">[out][optional] - path tail, which is either the file name within the root directory or the last sub-directory in the path</param>
@@ -84106,6 +86719,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/splitPathAtExtension/*"/>
 '''  <param name="pathname">[in] - full path can be a directory</param>
 '''  <param name="pbasename">[out][optional] - pathname not including the last dot and characters after that</param>
 '''  <param name="pextension">[out][optional] - path extension, which is the last dot and the characters after it.  If there is no extension, it returns the empty string</param>
@@ -84161,6 +86775,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pathJoin/*"/>
 '''  <param name="dir">[in][optional] - can be null</param>
 '''  <param name="fname">[in][optional] - can be null</param>
 '''   <returns>specially concatenated path, or NULL on error</returns>
@@ -84184,6 +86799,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/appendSubdirs/*"/>
 '''  <param name="basedir">[in] - </param>
 '''  <param name="subdirs">[in] - </param>
 '''   <returns>concatenated full directory path without trailing slash, or NULL on error</returns>
@@ -84213,6 +86829,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertSepCharsInPath/*"/>
 '''  <param name="path">[in] - </param>
 '''  <param name="type">[in] - UNIX_PATH_SEPCHAR, WIN_PATH_SEPCHAR</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -84258,6 +86875,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/genPathname/*"/>
 '''  <param name="dir">[in][optional] - directory or full path name, with or without trailing '/'</param>
 '''  <param name="fname">[in][optional] - file name within a directory</param>
 '''   <returns>pathname either a directory or full path, or NULL on error</returns>
@@ -84294,6 +86912,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeTempDirname/*"/>
 '''  <param name="result">[in] - preallocated on stack or heap and passed in</param>
 '''  <param name="nbytes">[in] - size of %result array, in bytes</param>
 '''  <param name="subdir">[in][optional] - can be NULL or an empty string</param>
@@ -84320,6 +86939,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/modifyTrailingSlash/*"/>
 '''  <param name="path">[in] - preallocated on stack or heap and passed in</param>
 '''  <param name="nbytes">[in] - size of %path array, in bytes</param>
 '''  <param name="flag">[in] - L_ADD_TRAIL_SLASH or L_REMOVE_TRAIL_SLASH</param>
@@ -84359,6 +86979,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_makeTempFilename/*"/>
 '''   <returns>fname : heap allocated filename returns NULL on failure.</returns>
 Public Shared Function l_makeTempFilename() as String
 
@@ -84381,6 +87002,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/extractNumberFromFilename/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="numpre">[in] - number of characters before the digits to be found</param>
 '''  <param name="numpost">[in] - number of characters after the digits to be found</param>
@@ -84412,6 +87034,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSimpleCaptcha/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="border">[in] - added white pixels on each side</param>
 '''  <param name="nterms">[in] - number of x and y harmonic terms</param>
@@ -84463,6 +87086,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRandomHarmonicWarp/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="xmag">[in] - maximum magnitude of x and y distortion</param>
 '''  <param name="ymag">[in] - maximum magnitude of x and y distortion</param>
@@ -84563,6 +87187,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWarpStereoscopic/*"/>
 '''  <param name="pixs">[in] - any depth, colormap ok</param>
 '''  <param name="zbend">[in] - horizontal separation in pixels of red and cyan at the left and right sides, that gives rise to quadratic curvature out of the image plane</param>
 '''  <param name="zshiftt">[in] - uniform pixel translation difference between red and cyan, that pushes the top of the image plane away from the viewer (zshiftt  is greater  0) or towards the viewer (zshiftt  is lower  0)</param>
@@ -84610,6 +87235,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixStretchHorizontal/*"/>
 '''  <param name="pixs">[in] - 1, 8 or 32 bpp</param>
 '''  <param name="dir">[in] - L_WARP_TO_LEFT or L_WARP_TO_RIGHT</param>
 '''  <param name="type">[in] - L_LINEAR_WARP or L_QUADRATIC_WARP</param>
@@ -84643,6 +87269,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixStretchHorizontalSampled/*"/>
 '''  <param name="pixs">[in] - 1, 8 or 32 bpp</param>
 '''  <param name="dir">[in] - L_WARP_TO_LEFT or L_WARP_TO_RIGHT</param>
 '''  <param name="type">[in] - L_LINEAR_WARP or L_QUADRATIC_WARP</param>
@@ -84674,6 +87301,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixStretchHorizontalLI/*"/>
 '''  <param name="pixs">[in] - 1, 8 or 32 bpp</param>
 '''  <param name="dir">[in] - L_WARP_TO_LEFT or L_WARP_TO_RIGHT</param>
 '''  <param name="type">[in] - L_LINEAR_WARP or L_QUADRATIC_WARP</param>
@@ -84718,6 +87346,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixQuadraticVShear/*"/>
 '''  <param name="pixs">[in] - 1, 8 or 32 bpp</param>
 '''  <param name="dir">[in] - L_WARP_TO_LEFT or L_WARP_TO_RIGHT</param>
 '''  <param name="vmaxt">[in] - max vertical displacement at edge and at top</param>
@@ -84751,6 +87380,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixQuadraticVShearSampled/*"/>
 '''  <param name="pixs">[in] - 1, 8 or 32 bpp</param>
 '''  <param name="dir">[in] - L_WARP_TO_LEFT or L_WARP_TO_RIGHT</param>
 '''  <param name="vmaxt">[in] - max vertical displacement at edge and at top</param>
@@ -84782,6 +87412,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixQuadraticVShearLI/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp, or colormapped</param>
 '''  <param name="dir">[in] - L_WARP_TO_LEFT or L_WARP_TO_RIGHT</param>
 '''  <param name="vmaxt">[in] - max vertical displacement at edge and at top</param>
@@ -84829,6 +87460,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixStereoFromPair/*"/>
 '''  <param name="pix1">[in] - 32 bpp rgb</param>
 '''  <param name="pix2">[in] - 32 bpp rgb</param>
 '''  <param name="rwt">[in] - weighting factors used for each component in                                pix1 to determine the output red channel</param>
@@ -84875,6 +87507,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/wshedCreate/*"/>
 '''  <param name="pixs">[in] - 8 bpp source</param>
 '''  <param name="pixm">[in] - 1 bpp 'marker' seed</param>
 '''  <param name="mindepth">[in] - minimum depth anything less is not saved</param>
@@ -84900,6 +87533,7 @@ End Function
 ' wshedDestroy(L_WSHED **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/wshedDestroy/*"/>
 '''  <param name="pwshed">[in,out] - will be set to null before returning</param>
 Public Shared Sub wshedDestroy(
 				 ByRef pwshed as L_WShed)
@@ -84916,6 +87550,7 @@ End Sub
 ' wshedApply(L_WSHED *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/wshedApply/*"/>
 '''  <param name="wshed">[in] - generated from wshedCreate()</param>
 '''   <returns>0 if OK, 1 on error Iportant note: 1 This is buggy.  It seems to locate watersheds that are duplicates.  The watershed extraction after complete fill grabs some regions belonging to existing watersheds. See prog/watershedtest.c for testing.</returns>
 Public Shared Function wshedApply(
@@ -84933,6 +87568,7 @@ End Function
 ' wshedBasins(L_WSHED *, PIXA **, NUMA **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/wshedBasins/*"/>
 '''  <param name="wshed">[in] - </param>
 '''  <param name="ppixa">[out][optional] - mask of watershed basins</param>
 '''  <param name="pnalevels">[out][optional] - watershed levels</param>
@@ -84959,6 +87595,7 @@ End Function
 ' wshedRenderFill(L_WSHED *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/wshedRenderFill/*"/>
 '''  <param name="wshed">[in] - </param>
 '''   <returns>pixd initial image with all basins filled, or NULL on error</returns>
 Public Shared Function wshedRenderFill(
@@ -84977,6 +87614,7 @@ End Function
 ' wshedRenderColors(L_WSHED *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/wshedRenderColors/*"/>
 '''  <param name="wshed">[in] - </param>
 '''   <returns>pixd initial image with all basins filled, or NULL on error</returns>
 Public Shared Function wshedRenderColors(
@@ -84997,6 +87635,7 @@ End Function
 ' pixReadStreamWebP(FILE *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamWebP/*"/>
 '''   <returns></returns>
 Public Shared Function pixReadStreamWebP(
 				 ByVal fp as FILE) as Pix
@@ -85016,6 +87655,7 @@ End Function
 ' pixReadMemWebP(const l_uint8 *, size_t) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMemWebP/*"/>
 '''   <returns></returns>
 Public Shared Function pixReadMemWebP(
 				 ByVal filedata as Byte(), 
@@ -85034,6 +87674,7 @@ End Function
 ' readHeaderWebP(const char *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderWebP/*"/>
 '''   <returns></returns>
 Public Shared Function readHeaderWebP(
 				 ByVal filename as String, 
@@ -85058,6 +87699,7 @@ End Function
 ' readHeaderMemWebP(const l_uint8 *, size_t, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderMemWebP/*"/>
 '''   <returns></returns>
 Public Shared Function readHeaderMemWebP(
 				 ByVal data as Byte(), 
@@ -85081,6 +87723,7 @@ End Function
 ' pixWriteWebP(const char *, PIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteWebP/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteWebP(
 				 ByVal filename as String, 
@@ -85105,6 +87748,7 @@ End Function
 ' pixWriteStreamWebP(FILE *, PIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamWebP/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteStreamWebP(
 				 ByVal fp as FILE, 
@@ -85128,6 +87772,7 @@ End Function
 ' pixWriteMemWebP(l_uint8 **, size_t *, PIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemWebP/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteMemWebP(
 				 ByVal pencdata as Object, 
@@ -85165,6 +87810,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_jpegSetQuality/*"/>
 '''  <param name="new_quality">[in] - 1 - 100 75 is default 0 defaults to 75</param>
 '''   <returns>prev           previous quality</returns>
 Public Shared Function l_jpegSetQuality(
@@ -85189,6 +87835,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/setLeptDebugOK/*"/>
 '''  <param name="allow">[in] - TRUE (1) or FALSE (0)</param>
 Public Shared Sub setLeptDebugOK(
 				 ByVal allow as Integer)
@@ -85209,6 +87856,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaWriteFiles/*"/>
 '''  <param name="rootname">[in] - </param>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="format">[in] - defined in imageio.h see notes for default</param>
@@ -85240,6 +87888,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteDebug/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="format">[in] - defined in imageio.h</param>
@@ -85275,6 +87924,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWrite/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="format">[in] - defined in imageio.h</param>
@@ -85297,6 +87947,7 @@ End Function
 ' pixWriteAutoFormat(const char *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteAutoFormat/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -85319,6 +87970,7 @@ End Function
 ' pixWriteStream(FILE *, PIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="format">[in] - </param>
@@ -85348,6 +88000,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteImpliedFormat/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="quality">[in] - iff JPEG 1 - 100, 0 for default</param>
@@ -85382,6 +88035,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixChooseOutputFormat/*"/>
 '''  <param name="pix">[in] - </param>
 '''   <returns>output format, or 0 on error</returns>
 Public Shared Function pixChooseOutputFormat(
@@ -85405,6 +88059,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getImpliedFileFormat/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>output format, or IFF_UNKNOWN on error or invalid extension.</returns>
 Public Shared Function getImpliedFileFormat(
@@ -85435,6 +88090,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetAutoFormat/*"/>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixGetAutoFormat(
@@ -85460,6 +88116,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getFormatExtension/*"/>
 '''  <param name="format">[in] - integer</param>
 '''   <returns>extension string, or NULL if format is out of range</returns>
 Public Shared Function getFormatExtension(
@@ -85486,6 +88143,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMem/*"/>
 '''  <param name="pdata">[out] - data of tiff compressed image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - </param>
@@ -85520,6 +88178,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_fileDisplay/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="x">[in] - location of display frame on the screen</param>
 '''  <param name="y">[in] - location of display frame on the screen</param>
@@ -85575,6 +88234,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDisplay/*"/>
 '''  <param name="x">[in] - location of display frame on the screen</param>
 '''  <param name="y">[in] - location of display frame on the screen</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -85603,6 +88263,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDisplayWithTitle/*"/>
 '''  <param name="x">[in] - location of display frame</param>
 '''  <param name="y">[in] - location of display frame</param>
 '''  <param name="title">[in][optional] - on frame can be NULL</param>
@@ -85629,6 +88290,7 @@ End Function
 ' pixSaveTiled(PIX *, PIXA *, l_float32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSaveTiled/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp</param>
 '''  <param name="pixa">[in] - the pix are accumulated here</param>
 '''  <param name="scalefactor">[in] - 0.0 to disable otherwise this is a scale factor</param>
@@ -85685,6 +88347,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSaveTiledOutline/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp</param>
 '''  <param name="pixa">[in] - the pix are accumulated here</param>
 '''  <param name="scalefactor">[in] - 0.0 to disable otherwise this is a scale factor</param>
@@ -85738,6 +88401,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSaveTiledWithText/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp</param>
 '''  <param name="pixa">[in] - the pix are accumulated here as 32 bpp</param>
 '''  <param name="outwidth">[in] - in pixels use 0 to disable entirely</param>
@@ -85778,6 +88442,7 @@ End Function
 ' l_chooseDisplayProg(l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_chooseDisplayProg/*"/>
 Public Shared Sub l_chooseDisplayProg(
 				 ByVal selection as Integer)
 
@@ -85810,6 +88475,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDisplayWrite/*"/>
 '''  <param name="reduction">[in] - -1 to reset/erase 0 to disable otherwise this is a reduction factor</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixDisplayWrite(
@@ -85847,6 +88513,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/zlibCompress/*"/>
 '''  <param name="datain">[in] - byte buffer with input data</param>
 '''  <param name="nin">[in] - number of bytes of input data</param>
 '''  <param name="pnout">[out] - number of bytes of output data</param>
@@ -85873,6 +88540,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/zlibUncompress/*"/>
 '''  <param name="datain">[in] - byte buffer with compressed input data</param>
 '''  <param name="nin">[in] - number of bytes of input data</param>
 '''  <param name="pnout">[out] - number of bytes of output data</param>

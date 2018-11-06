@@ -8,6 +8,7 @@ Partial Public Class _All
 ' pixScale(PIX *, l_float32, l_float32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScale/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 and 32 bpp</param>
 '''  <param name="scalex">[in] - </param>
 '''  <param name="scaley">[in] - </param>
@@ -30,6 +31,7 @@ End Function
 ' pixScaleToSizeRel(PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleToSizeRel/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="delw">[in] - change in width, in pixels 0 means no change</param>
 '''  <param name="delh">[in] - change in height, in pixels 0 means no change</param>
@@ -62,6 +64,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleToSize/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 and 32 bpp</param>
 '''  <param name="wd">[in] - target width use 0 if using height as target</param>
 '''  <param name="hd">[in] - target height use 0 if using width as target</param>
@@ -102,6 +105,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGeneral/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 and 32 bpp</param>
 '''  <param name="scalex">[in] - both  is greater  0.0</param>
 '''  <param name="scaley">[in] - both  is greater  0.0</param>
@@ -144,6 +148,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleLI/*"/>
 '''  <param name="pixs">[in] - 2, 4, 8 or 32 bpp with or without colormap</param>
 '''  <param name="scalex">[in] - must both be  is greater = 0.7</param>
 '''  <param name="scaley">[in] - must both be  is greater = 0.7</param>
@@ -182,6 +187,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleColorLI/*"/>
 '''  <param name="pixs">[in] - 32 bpp, representing rgb</param>
 '''  <param name="scalex">[in] - must both be  is greater = 0.7</param>
 '''  <param name="scaley">[in] - must both be  is greater = 0.7</param>
@@ -215,6 +221,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleColor2xLI/*"/>
 '''  <param name="pixs">[in] - 32 bpp, representing rgb</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixScaleColor2xLI(
@@ -246,6 +253,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleColor4xLI/*"/>
 '''  <param name="pixs">[in] - 32 bpp, representing rgb</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixScaleColor4xLI(
@@ -264,6 +272,7 @@ End Function
 ' pixScaleGrayLI(PIX *, l_float32, l_float32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGrayLI/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale, no cmap</param>
 '''  <param name="scalex">[in] - must both be  is greater = 0.7</param>
 '''  <param name="scaley">[in] - must both be  is greater = 0.7</param>
@@ -295,6 +304,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGray2xLI/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale, not cmapped</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixScaleGray2xLI(
@@ -322,6 +332,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGray4xLI/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale, not cmapped</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixScaleGray4xLI(
@@ -347,6 +358,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGray2xLIThresh/*"/>
 '''  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 '''  <param name="thresh">[in] - between 0 and 256</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
@@ -379,6 +391,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGray2xLIDither/*"/>
 '''  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
 Public Shared Function pixScaleGray2xLIDither(
@@ -408,6 +421,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGray4xLIThresh/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="thresh">[in] - between 0 and 256</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
@@ -447,6 +461,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGray4xLIDither/*"/>
 '''  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
 Public Shared Function pixScaleGray4xLIDither(
@@ -473,6 +488,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleBySampling/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 '''  <param name="scalex">[in] - both  is greater  0.0</param>
 '''  <param name="scaley">[in] - both  is greater  0.0</param>
@@ -508,6 +524,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleBySamplingToSize/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 and 32 bpp</param>
 '''  <param name="wd">[in] - target width use 0 if using height as target</param>
 '''  <param name="hd">[in] - target height use 0 if using width as target</param>
@@ -537,6 +554,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleByIntSampling/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 '''  <param name="factor">[in] - integer subsampling</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -569,6 +587,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleRGBToGrayFast/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="factor">[in] - integer reduction factor  is greater = 1</param>
 '''  <param name="color">[in] - one of COLOR_RED, COLOR_GREEN, COLOR_BLUE</param>
@@ -603,6 +622,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleRGBToBinaryFast/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''  <param name="factor">[in] - integer reduction factor  is greater = 1</param>
 '''  <param name="thresh">[in] - binarization threshold</param>
@@ -636,6 +656,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleGrayToBinaryFast/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''  <param name="factor">[in] - integer reduction factor  is greater = 1</param>
 '''  <param name="thresh">[in] - binarization threshold</param>
@@ -684,6 +705,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleSmooth/*"/>
 '''  <param name="pix">[in] - 2, 4, 8 or 32 bpp and 2, 4, 8 bpp with colormap</param>
 '''  <param name="scalex">[in] - must both be  is lower  0.7</param>
 '''  <param name="scaley">[in] - must both be  is lower  0.7</param>
@@ -717,6 +739,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleSmoothToSize/*"/>
 '''  <param name="pixs">[in] - 2, 4, 8 or 32 bpp and 2, 4, 8 bpp with colormap</param>
 '''  <param name="wd">[in] - target width use 0 if using height as target</param>
 '''  <param name="hd">[in] - target height use 0 if using width as target</param>
@@ -739,6 +762,7 @@ End Function
 ' pixScaleRGBToGray2(PIX *, l_float32, l_float32, l_float32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleRGBToGray2/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="rwt">[in] - must sum to 1.0</param>
 '''  <param name="gwt">[in] - must sum to 1.0</param>
@@ -787,6 +811,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleAreaMap/*"/>
 '''  <param name="pix">[in] - 2, 4, 8 or 32 bpp and 2, 4, 8 bpp with colormap</param>
 '''  <param name="scalex">[in] - must both be  is lower = 0.7</param>
 '''  <param name="scaley">[in] - must both be  is lower = 0.7</param>
@@ -828,6 +853,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleAreaMap2/*"/>
 '''  <param name="pix">[in] - 2, 4, 8 or 32 bpp and 2, 4, 8 bpp with colormap</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Shared Function pixScaleAreaMap2(
@@ -857,6 +883,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleAreaMapToSize/*"/>
 '''  <param name="pixs">[in] - 2, 4, 8 or 32 bpp and 2, 4, 8 bpp with colormap</param>
 '''  <param name="wd">[in] - target width use 0 if using height as target</param>
 '''  <param name="hd">[in] - target height use 0 if using width as target</param>
@@ -886,6 +913,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixScaleBinary/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="scalex">[in] - both  is greater  0.0</param>
 '''  <param name="scaley">[in] - both  is greater  0.0</param>

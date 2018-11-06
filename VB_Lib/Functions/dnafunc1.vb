@@ -15,6 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaJoin/*"/>
 '''  <param name="dad">[in] - dest dna add to this one</param>
 '''  <param name="das">[in][optional] - source dna add from this one</param>
 '''  <param name="istart">[in] - starting index in das</param>
@@ -47,6 +48,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaaFlattenToDna/*"/>
 '''  <param name="daa">[in] - </param>
 '''   <returns>dad, or NULL on error</returns>
 Public Shared Function l_dnaaFlattenToDna(
@@ -65,6 +67,7 @@ End Function
 ' l_dnaConvertToNuma(L_DNA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaConvertToNuma/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>na, or NULL on error</returns>
 Public Shared Function l_dnaConvertToNuma(
@@ -83,6 +86,7 @@ End Function
 ' numaConvertToDna(NUMA *) as L_DNA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaConvertToDna/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>da, or NULL on error</returns>
 Public Shared Function numaConvertToDna(
@@ -109,6 +113,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaUnionByAset/*"/>
 '''  <param name="da1">[in] - </param>
 '''  <param name="da2">[in] - </param>
 '''   <returns>dad with the union of the set of numbers, or NULL on error</returns>
@@ -130,6 +135,7 @@ End Function
 ' l_dnaRemoveDupsByAset(L_DNA *) as L_DNA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaRemoveDupsByAset/*"/>
 '''  <param name="das">[in] - </param>
 '''   <returns>dad with duplicates removed, or NULL on error</returns>
 Public Shared Function l_dnaRemoveDupsByAset(
@@ -156,6 +162,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaIntersectionByAset/*"/>
 '''  <param name="da1">[in] - </param>
 '''  <param name="da2">[in] - </param>
 '''   <returns>dad with the intersection of the two arrays, or NULL on error</returns>
@@ -177,6 +184,7 @@ End Function
 ' l_asetCreateFromDna(L_DNA *) as L_ASET *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetCreateFromDna/*"/>
 '''  <param name="da">[in] - source dna</param>
 '''   <returns>set using the doubles in %da as keys</returns>
 Public Shared Function l_asetCreateFromDna(
@@ -195,6 +203,7 @@ End Function
 ' l_dnaDiffAdjValues(L_DNA *) as L_DNA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaDiffAdjValues/*"/>
 '''  <param name="das">[in] - input l_dna</param>
 '''   <returns>dad of difference values val[i+1] - val[i], or NULL on error</returns>
 Public Shared Function l_dnaDiffAdjValues(

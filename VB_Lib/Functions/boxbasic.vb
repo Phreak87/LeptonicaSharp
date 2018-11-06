@@ -24,6 +24,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxCreate/*"/>
 '''  <param name="x">[in] - </param>
 '''  <param name="y">[in] - </param>
 '''  <param name="w">[in] - </param>
@@ -51,6 +52,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxCreateValid/*"/>
 '''  <param name="x">[in] - </param>
 '''  <param name="y">[in] - </param>
 '''  <param name="w">[in] - </param>
@@ -73,6 +75,7 @@ End Function
 ' boxCopy(BOX *) as BOX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxCopy/*"/>
 '''  <param name="box">[in] - </param>
 '''   <returns>copy of box, or NULL on error</returns>
 Public Shared Function boxCopy(
@@ -91,6 +94,7 @@ End Function
 ' boxClone(BOX *) as BOX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxClone/*"/>
 '''  <param name="box">[in] - </param>
 '''   <returns>ptr to same box, or NULL on error</returns>
 Public Shared Function boxClone(
@@ -115,6 +119,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxDestroy/*"/>
 '''  <param name="pbox">[in,out] - will be set to null before returning</param>
 Public Shared Sub boxDestroy(
 				 ByRef pbox as Box)
@@ -131,6 +136,7 @@ End Sub
 ' boxGetGeometry(BOX *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxGetGeometry/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="px">[out][optional] - each can be null</param>
 '''  <param name="py">[out][optional] - each can be null</param>
@@ -156,6 +162,7 @@ End Function
 ' boxSetGeometry(BOX *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxSetGeometry/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="x">[in][optional] - use -1 to leave unchanged</param>
 '''  <param name="y">[in][optional] - use -1 to leave unchanged</param>
@@ -186,6 +193,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxGetSideLocations/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="pl">[out][optional] - each can be null</param>
 '''  <param name="pr">[out][optional] - each can be null</param>
@@ -211,6 +219,7 @@ End Function
 ' boxSetSideLocations(BOX *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxSetSideLocations/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="l">[in][optional] - use -1 to leave unchanged</param>
 '''  <param name="r">[in][optional] - use -1 to leave unchanged</param>
@@ -236,6 +245,7 @@ End Function
 ' boxGetRefcount(BOX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxGetRefcount/*"/>
 '''  <param name="box">[in] - ptr to Box</param>
 '''   <returns>refcount</returns>
 Public Shared Function boxGetRefcount(
@@ -253,6 +263,7 @@ End Function
 ' boxChangeRefcount(BOX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxChangeRefcount/*"/>
 '''  <param name="box">[in] - ptr to box</param>
 '''  <param name="delta">[in] - adjustment, usually -1 or 1</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -272,6 +283,7 @@ End Function
 ' boxIsValid(BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxIsValid/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="pvalid">[out] - 1 if valid 0 otherwise</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -291,6 +303,7 @@ End Function
 ' boxaCreate(l_int32) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaCreate/*"/>
 '''  <param name="n">[in] - initial number of ptrs</param>
 '''   <returns>boxa, or NULL on error</returns>
 Public Shared Function boxaCreate(
@@ -313,6 +326,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaCopy/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="copyflag">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
 '''   <returns>new boxa, or NULL on error</returns>
@@ -339,6 +353,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaDestroy/*"/>
 '''  <param name="pboxa">[in,out] - will be set to null before returning</param>
 Public Shared Sub boxaDestroy(
 				 ByRef pboxa as Boxa)
@@ -355,6 +370,7 @@ End Sub
 ' boxaAddBox(BOXA *, BOX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaAddBox/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="box">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -382,6 +398,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaExtendArray/*"/>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function boxaExtendArray(
@@ -404,6 +421,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaExtendArrayToSize/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="size">[in] - new size of boxa array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -423,6 +441,7 @@ End Function
 ' boxaGetCount(BOXA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetCount/*"/>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>count of all boxes 0 if no boxes or on error</returns>
 Public Shared Function boxaGetCount(
@@ -440,6 +459,7 @@ End Function
 ' boxaGetValidCount(BOXA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetValidCount/*"/>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>count of valid boxes 0 if no valid boxes or on error</returns>
 Public Shared Function boxaGetValidCount(
@@ -457,6 +477,7 @@ End Function
 ' boxaGetBox(BOXA *, l_int32, l_int32) as BOX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetBox/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
@@ -489,6 +510,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetValidBox/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
@@ -511,6 +533,7 @@ End Function
 ' boxaFindInvalidBoxes(BOXA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaFindInvalidBoxes/*"/>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>na   numa of invalid boxes NULL if there are none or on error</returns>
 Public Shared Function boxaFindInvalidBoxes(
@@ -529,6 +552,7 @@ End Function
 ' boxaGetBoxGeometry(BOXA *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetBoxGeometry/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="px">[out][optional] - each can be null</param>
@@ -556,6 +580,7 @@ End Function
 ' boxaIsFull(BOXA *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaIsFull/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pfull">[out] - 1 if boxa is full</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -581,6 +606,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaReplaceBox/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="box">[in] - insert to replace existing one</param>
@@ -613,6 +639,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaInsertBox/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - location in boxa to insert new value</param>
 '''  <param name="box">[in] - new box to be inserted</param>
@@ -643,6 +670,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaRemoveBox/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - of box to be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -670,6 +698,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaRemoveBoxAndSave/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - of box to be removed</param>
 '''  <param name="pbox">[out][optional] - removed box</param>
@@ -699,6 +728,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSaveValid/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="copyflag">[in] - L_COPY or L_CLONE</param>
 '''   <returns>boxad if OK, NULL on error</returns>
@@ -750,6 +780,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaInitFull/*"/>
 '''  <param name="boxa">[in] - typically empty</param>
 '''  <param name="box">[in][optional] - to be replicated into the entire ptr array</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -777,6 +808,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaClear/*"/>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaClear(
@@ -794,6 +826,7 @@ End Function
 ' boxaaCreate(l_int32) as BOXAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaCreate/*"/>
 '''  <param name="n">[in] - size of boxa ptr array to be alloc'd 0 for default</param>
 '''   <returns>baa, or NULL on error</returns>
 Public Shared Function boxaaCreate(
@@ -816,6 +849,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaCopy/*"/>
 '''  <param name="baas">[in] - input boxaa to be copied</param>
 '''  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 '''   <returns>baad new boxaa, composed of copies or clones of the boxa in baas, or NULL on error</returns>
@@ -836,6 +870,7 @@ End Function
 ' boxaaDestroy(BOXAA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaDestroy/*"/>
 '''  <param name="pbaa">[in,out] - will be set to null before returning</param>
 Public Shared Sub boxaaDestroy(
 				 ByRef pbaa as Boxaa)
@@ -852,6 +887,7 @@ End Sub
 ' boxaaAddBoxa(BOXAA *, BOXA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaAddBoxa/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="ba">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -874,6 +910,7 @@ End Function
 ' boxaaExtendArray(BOXAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaExtendArray/*"/>
 '''  <param name="baa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaaExtendArray(
@@ -896,6 +933,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaExtendArrayToSize/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="size">[in] - new size of boxa array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -915,6 +953,7 @@ End Function
 ' boxaaGetCount(BOXAA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaGetCount/*"/>
 '''  <param name="baa">[in] - </param>
 '''   <returns>count number of boxa, or 0 if no boxa or on error</returns>
 Public Shared Function boxaaGetCount(
@@ -932,6 +971,7 @@ End Function
 ' boxaaGetBoxCount(BOXAA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaGetBoxCount/*"/>
 '''  <param name="baa">[in] - </param>
 '''   <returns>count number of boxes, or 0 if no boxes or on error</returns>
 Public Shared Function boxaaGetBoxCount(
@@ -949,6 +989,7 @@ End Function
 ' boxaaGetBoxa(BOXAA *, l_int32, l_int32) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaGetBoxa/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="index">[in] - to the index-th boxa</param>
 '''  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
@@ -971,6 +1012,7 @@ End Function
 ' boxaaGetBox(BOXAA *, l_int32, l_int32, l_int32) as BOX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaGetBox/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="iboxa">[in] - index into the boxa array in the boxaa</param>
 '''  <param name="ibox">[in] - index into the box array in the boxa</param>
@@ -1017,6 +1059,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaInitFull/*"/>
 '''  <param name="baa">[in] - typically empty</param>
 '''  <param name="boxa">[in] - to be replicated into the entire ptr array</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1045,6 +1088,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaExtendWithInit/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="maxindex">[in] - </param>
 '''  <param name="boxa">[in] - to be replicated into the extended ptr array</param>
@@ -1074,6 +1118,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaReplaceBoxa/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="index">[in] - to the index-th boxa</param>
 '''  <param name="boxa">[in] - insert and replace any existing one</param>
@@ -1106,6 +1151,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaInsertBoxa/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="index">[in] - location in boxaa to insert new boxa</param>
 '''  <param name="boxa">[in] - new boxa to be inserted</param>
@@ -1137,6 +1183,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaRemoveBoxa/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="index">[in] - of the boxa to be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1161,6 +1208,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaAddBox/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="index">[in] - of boxa with boxaa</param>
 '''  <param name="box">[in] - to be added</param>
@@ -1196,6 +1244,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaReadFromFiles/*"/>
 '''  <param name="dirname">[in] - directory</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="first">[in] - 0-based</param>
@@ -1220,6 +1269,7 @@ End Function
 ' boxaaRead(const char *) as BOXAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>boxaa, or NULL on error</returns>
 Public Shared Function boxaaRead(
@@ -1240,6 +1290,7 @@ End Function
 ' boxaaReadStream(FILE *) as BOXAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>boxaa, or NULL on error</returns>
 Public Shared Function boxaaReadStream(
@@ -1258,6 +1309,7 @@ End Function
 ' boxaaReadMem(const l_uint8 *, size_t) as BOXAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaReadMem/*"/>
 '''  <param name="data">[in] - serialization of boxaa in ascii</param>
 '''  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 '''   <returns>baa, or NULL on error</returns>
@@ -1278,6 +1330,7 @@ End Function
 ' boxaaWrite(const char *, BOXAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="baa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1300,6 +1353,7 @@ End Function
 ' boxaaWriteStream(FILE *, BOXAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="baa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1325,6 +1379,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized boxaa ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="baa">[in] - </param>
@@ -1349,6 +1404,7 @@ End Function
 ' boxaRead(const char *) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>boxa, or NULL on error</returns>
 Public Shared Function boxaRead(
@@ -1369,6 +1425,7 @@ End Function
 ' boxaReadStream(FILE *) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>boxa, or NULL on error</returns>
 Public Shared Function boxaReadStream(
@@ -1387,6 +1444,7 @@ End Function
 ' boxaReadMem(const l_uint8 *, size_t) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaReadMem/*"/>
 '''  <param name="data">[in] - serialization of boxa in ascii</param>
 '''  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 '''   <returns>boxa, or NULL on error</returns>
@@ -1416,6 +1474,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaWriteDebug/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -1438,6 +1497,7 @@ End Function
 ' boxaWrite(const char *, BOXA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1460,6 +1520,7 @@ End Function
 ' boxaWriteStream(FILE *, BOXA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1485,6 +1546,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized boxa ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="boxa">[in] - </param>
@@ -1515,6 +1577,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxPrintStreamInfo/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="box">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>

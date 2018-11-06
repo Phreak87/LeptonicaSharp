@@ -15,6 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetWindowsHBITMAP/*"/>
 '''  <param name="pix">[in] - </param>
 '''   <returns>Windows hBitmap, or NULL on error</returns>
 Public Shared Function pixGetWindowsHBITMAP(

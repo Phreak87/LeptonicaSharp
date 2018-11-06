@@ -8,6 +8,7 @@ Partial Public Class _All
 ' getImagelibVersions() as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getImagelibVersions/*"/>
 '''   <returns></returns>
 Public Shared Function getImagelibVersions() as String
 

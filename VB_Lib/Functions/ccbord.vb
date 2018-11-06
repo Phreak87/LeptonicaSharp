@@ -8,6 +8,7 @@ Partial Public Class _All
 ' ccbaCreate(PIX *, l_int32) as CCBORDA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaCreate/*"/>
 '''  <param name="pixs">[in] - binary image can be null</param>
 '''  <param name="n">[in] - initial number of ptrs</param>
 '''   <returns>ccba, or NULL on error</returns>
@@ -28,6 +29,7 @@ End Function
 ' ccbaDestroy(CCBORDA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaDestroy/*"/>
 '''  <param name="pccba">[in,out] - to be nulled</param>
 Public Shared Sub ccbaDestroy(
 				 ByRef pccba as CCBorda)
@@ -44,6 +46,7 @@ End Sub
 ' ccbCreate(PIX *) as CCBORD *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbCreate/*"/>
 '''  <param name="pixs">[in][optional] - </param>
 '''   <returns>ccb or NULL on error</returns>
 Public Shared Function ccbCreate(
@@ -62,6 +65,7 @@ End Function
 ' ccbDestroy(CCBORD **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbDestroy/*"/>
 '''  <param name="pccb">[in,out] - to be nulled</param>
 Public Shared Sub ccbDestroy(
 				 ByRef pccb as CCBord)
@@ -78,6 +82,7 @@ End Sub
 ' ccbaAddCcb(CCBORDA *, CCBORD *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaAddCcb/*"/>
 '''  <param name="ccba">[in] - </param>
 '''  <param name="ccb">[in] - to be added by insertion</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -98,6 +103,7 @@ End Function
 ' ccbaGetCount(CCBORDA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaGetCount/*"/>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>count, with 0 on error</returns>
 Public Shared Function ccbaGetCount(
@@ -120,6 +126,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaGetCcb/*"/>
 '''  <param name="ccba">[in] - </param>
 '''  <param name="index">[in] - </param>
 '''   <returns>ccb, or NULL on error</returns>
@@ -140,6 +147,7 @@ End Function
 ' pixGetAllCCBorders(PIX *) as CCBORDA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetAllCCBorders/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>ccborda, or NULL on error</returns>
 Public Shared Function pixGetAllCCBorders(
@@ -179,6 +187,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetCCBorders/*"/>
 '''  <param name="pixs">[in] - 1 bpp, one 8-connected component</param>
 '''  <param name="box">[in] - xul, yul, width, height in global coords</param>
 '''   <returns>ccbord, or NULL on error</returns>
@@ -200,6 +209,7 @@ End Function
 ' pixGetOuterBordersPtaa(PIX *) as PTAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetOuterBordersPtaa/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>ptaa of outer borders, in global coords, or NULL on error</returns>
 Public Shared Function pixGetOuterBordersPtaa(
@@ -230,6 +240,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetOuterBorderPta/*"/>
 '''  <param name="pixs">[in] - 1 bpp, one 8-connected component</param>
 '''  <param name="box">[in][optional] - of pixs, in global coordinates</param>
 '''   <returns>pta of outer border, in global coords, or NULL on error</returns>
@@ -264,6 +275,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetOuterBorder/*"/>
 '''  <param name="ccb">[in] - unfilled</param>
 '''  <param name="pixs">[in] - for the component at hand</param>
 '''  <param name="box">[in] - for the component, in global coords</param>
@@ -296,6 +308,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetHoleBorder/*"/>
 '''  <param name="ccb">[in] - the exterior border is already made</param>
 '''  <param name="pixs">[in] - for the connected component at hand</param>
 '''  <param name="box">[in] - for the specific hole border, in relative coordinates to the c.c.</param>
@@ -331,6 +344,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/findNextBorderPixel/*"/>
 '''  <param name="w">[in] - </param>
 '''  <param name="h">[in] - </param>
 '''  <param name="data">[in] - </param>
@@ -377,6 +391,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/locateOutsideSeedPixel/*"/>
 '''  <param name="fpx">[in] - location of first pixel</param>
 '''  <param name="fpy">[in] - location of first pixel</param>
 '''  <param name="spx">[in] - location of second pixel</param>
@@ -400,6 +415,7 @@ End Sub
 ' ccbaGenerateGlobalLocs(CCBORDA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaGenerateGlobalLocs/*"/>
 '''  <param name="ccba">[in] - with local chain ptaa of borders computed</param>
 '''   <returns>0 if OK, 1 on error Action: this uses the pixel locs in the local ptaa, which are all relative to each c.c., to find the global pixel locations, and stores them in the global ptaa.</returns>
 Public Shared Function ccbaGenerateGlobalLocs(
@@ -433,6 +449,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaGenerateStepChains/*"/>
 '''  <param name="ccba">[in] - with local chain ptaa of borders computed</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ccbaGenerateStepChains(
@@ -459,6 +476,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaStepChainsToPixCoords/*"/>
 '''  <param name="ccba">[in] - with step chains numaa of borders</param>
 '''  <param name="coordtype">[in] - CCB_GLOBAL_COORDS or CCB_LOCAL_COORDS</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -490,6 +508,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaGenerateSPGlobalLocs/*"/>
 '''  <param name="ccba">[in] - </param>
 '''  <param name="ptsflag">[in] - CCB_SAVE_ALL_PTS or CCB_SAVE_TURNING_PTS</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -538,6 +557,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaGenerateSinglePath/*"/>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ccbaGenerateSinglePath(
@@ -568,6 +588,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getCutPathForHole/*"/>
 '''  <param name="pix">[in] - of c.c.</param>
 '''  <param name="pta">[in] - of outer border</param>
 '''  <param name="boxinner">[in] - b.b. of hole path</param>
@@ -603,6 +624,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaDisplayBorder/*"/>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>pix of border pixels, or NULL on error</returns>
 Public Shared Function ccbaDisplayBorder(
@@ -628,6 +650,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaDisplaySPBorder/*"/>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>pix of border pixels, or NULL on error</returns>
 Public Shared Function ccbaDisplaySPBorder(
@@ -690,6 +713,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaDisplayImage1/*"/>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>pix of image, or NULL on error</returns>
 Public Shared Function ccbaDisplayImage1(
@@ -723,6 +747,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaDisplayImage2/*"/>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>pix of image, or NULL on error</returns>
 Public Shared Function ccbaDisplayImage2(
@@ -741,6 +766,7 @@ End Function
 ' ccbaWrite(const char *, CCBORDA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -763,6 +789,7 @@ End Function
 ' ccbaWriteStream(FILE *, CCBORDA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>0 if OK 1 on error Format: \code ccba: %7d cc\n num. c.c.) (ascii)   (18B pix width 4B pix height 4B [for i = 1, ncc] ulx  4B uly  4B w    4B       -- not req'd for reconstruction h    4B       -- not req'd for reconstruction number of borders 4B [for j = 1, nb] startx  4B starty  4B [for k = 1, nb] 2 steps 1B end in z8 or 88  1B \endcode</returns>
@@ -783,6 +810,7 @@ End Function
 ' ccbaRead(const char *) as CCBORDA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>ccba, or NULL on error</returns>
 Public Shared Function ccbaRead(
@@ -803,6 +831,7 @@ End Function
 ' ccbaReadStream(FILE *) as CCBORDA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>ccba, or NULL on error \code Format:  ccba: %7d cc\n num. c.c.) (ascii)   (17B pix width 4B pix height 4B [for i = 1, ncc] ulx  4B uly  4B w    4B       -- not req'd for reconstruction h    4B       -- not req'd for reconstruction number of borders 4B [for j = 1, nb] startx  4B starty  4B [for k = 1, nb] 2 steps 1B end in z8 or 88  1B \endcode</returns>
 Public Shared Function ccbaReadStream(
@@ -821,6 +850,7 @@ End Function
 ' ccbaWriteSVG(const char *, CCBORDA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaWriteSVG/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -843,6 +873,7 @@ End Function
 ' ccbaWriteSVGString(const char *, CCBORDA *) as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ccbaWriteSVGString/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>string in svg-formatted, that can be written to file, or NULL on error.</returns>

@@ -22,6 +22,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/wshedCreate/*"/>
 '''  <param name="pixs">[in] - 8 bpp source</param>
 '''  <param name="pixm">[in] - 1 bpp 'marker' seed</param>
 '''  <param name="mindepth">[in] - minimum depth anything less is not saved</param>
@@ -47,6 +48,7 @@ End Function
 ' wshedDestroy(L_WSHED **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/wshedDestroy/*"/>
 '''  <param name="pwshed">[in,out] - will be set to null before returning</param>
 Public Shared Sub wshedDestroy(
 				 ByRef pwshed as L_WShed)
@@ -63,6 +65,7 @@ End Sub
 ' wshedApply(L_WSHED *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/wshedApply/*"/>
 '''  <param name="wshed">[in] - generated from wshedCreate()</param>
 '''   <returns>0 if OK, 1 on error Iportant note: 1 This is buggy.  It seems to locate watersheds that are duplicates.  The watershed extraction after complete fill grabs some regions belonging to existing watersheds. See prog/watershedtest.c for testing.</returns>
 Public Shared Function wshedApply(
@@ -80,6 +83,7 @@ End Function
 ' wshedBasins(L_WSHED *, PIXA **, NUMA **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/wshedBasins/*"/>
 '''  <param name="wshed">[in] - </param>
 '''  <param name="ppixa">[out][optional] - mask of watershed basins</param>
 '''  <param name="pnalevels">[out][optional] - watershed levels</param>
@@ -106,6 +110,7 @@ End Function
 ' wshedRenderFill(L_WSHED *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/wshedRenderFill/*"/>
 '''  <param name="wshed">[in] - </param>
 '''   <returns>pixd initial image with all basins filled, or NULL on error</returns>
 Public Shared Function wshedRenderFill(
@@ -124,6 +129,7 @@ End Function
 ' wshedRenderColors(L_WSHED *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/wshedRenderColors/*"/>
 '''  <param name="wshed">[in] - </param>
 '''   <returns>pixd initial image with all basins filled, or NULL on error</returns>
 Public Shared Function wshedRenderColors(

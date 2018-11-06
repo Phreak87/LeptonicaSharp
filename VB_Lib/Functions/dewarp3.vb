@@ -38,6 +38,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaApplyDisparity/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="pageno">[in] - of page model to be used may be a ref model</param>
 '''  <param name="pixs">[in] - image to be modified can be 1, 8 or 32 bpp</param>
@@ -86,6 +87,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaApplyDisparityBoxa/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="pageno">[in] - of page model to be used may be a ref model</param>
 '''  <param name="pixs">[in] - initial pix reference for alignment and debugging</param>
@@ -131,6 +133,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpMinimize/*"/>
 '''  <param name="dew">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function dewarpMinimize(
@@ -169,6 +172,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpPopulateFullRes/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="pix">[in][optional] - , to give size of actual image</param>
 '''  <param name="x">[in] - origin for generation of disparity arrays</param>

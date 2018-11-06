@@ -51,6 +51,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpBuildPageModel/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="debugfile">[in]use NULL to skip - writing this</param>
 '''   <returns>0 if OK, 1 if unable to build the model or on error</returns>
@@ -90,6 +91,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpFindVertDisparity/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="ptaa">[in] - unsmoothed lines, not vertically ordered</param>
 '''  <param name="rotflag">[in] - 0 if using dew- is greater pixs 1 if rotated by 90 degrees cw</param>
@@ -126,6 +128,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpFindHorizDisparity/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="ptaa">[in] - unsmoothed lines, not vertically ordered</param>
 '''   <returns>0 if OK, 1 if horizontal disparity array is not built, or on error</returns>
@@ -154,6 +157,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpGetTextlineCenters/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="debugflag">[in] - 1 for debug output</param>
 '''   <returns>ptaa of center values of textlines</returns>
@@ -176,6 +180,7 @@ End Function
 ' dewarpRemoveShortLines(PIX *, PTAA *, l_float32, l_int32) as PTAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpRemoveShortLines/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="ptaas">[in] - input lines</param>
 '''  <param name="fract">[in] - minimum fraction of longest line to keep</param>
@@ -232,6 +237,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpFindHorizSlopeDisparity/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="pixb">[in] - (1 bpp, with vertical and horizontal disparity removed)</param>
 '''  <param name="fractthresh">[in] - (threshold fractional difference in density)</param>
@@ -276,6 +282,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpBuildLineModel/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="opensize">[in] - size of opening to remove perpendicular lines</param>
 '''  <param name="debugfile">[in]use NULL to skip - writing this</param>
@@ -302,6 +309,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaModelStatus/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="pageno">[in] - </param>
 '''  <param name="pvsuccess">[out][optional] - 1 on success</param>

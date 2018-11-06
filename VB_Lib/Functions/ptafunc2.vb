@@ -8,6 +8,7 @@ Partial Public Class _All
 ' ptaSort(PTA *, l_int32, l_int32, NUMA **) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaSort/*"/>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="sorttype">[in] - L_SORT_BY_X, L_SORT_BY_Y</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
@@ -35,6 +36,7 @@ End Function
 ' ptaGetSortIndex(PTA *, l_int32, l_int32, NUMA **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetSortIndex/*"/>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="sorttype">[in] - L_SORT_BY_X, L_SORT_BY_Y</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
@@ -61,6 +63,7 @@ End Function
 ' ptaSortByIndex(PTA *, NUMA *) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaSortByIndex/*"/>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="naindex">[in] - na that maps from the new pta to the input pta</param>
 '''   <returns>ptad sorted, or NULL on  error</returns>
@@ -82,6 +85,7 @@ End Function
 ' ptaaSortByIndex(PTAA *, NUMA *) as PTAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaSortByIndex/*"/>
 '''  <param name="ptaas">[in] - </param>
 '''  <param name="naindex">[in] - na that maps from the new ptaa to the input ptaa</param>
 '''   <returns>ptaad sorted, or NULL on error</returns>
@@ -103,6 +107,7 @@ End Function
 ' ptaGetRankValue(PTA *, l_float32, PTA *, l_int32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetRankValue/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="fract">[in] - use 0.0 for smallest, 1.0 for largest</param>
 '''  <param name="ptasort">[in][optional] - version of %pta sorted by %sorttype</param>
@@ -141,6 +146,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaUnionByAset/*"/>
 '''  <param name="pta1">[in] - </param>
 '''  <param name="pta2">[in] - </param>
 '''   <returns>ptad with the union of the set of points, or NULL on error</returns>
@@ -169,6 +175,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaRemoveDupsByAset/*"/>
 '''  <param name="ptas">[in] - assumed to be integer values</param>
 '''   <returns>ptad with duplicates removed, or NULL on error</returns>
 Public Shared Function ptaRemoveDupsByAset(
@@ -196,6 +203,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaIntersectionByAset/*"/>
 '''  <param name="pta1">[in] - </param>
 '''  <param name="pta2">[in] - </param>
 '''   <returns>ptad intersection of the point sets, or NULL on error</returns>
@@ -217,6 +225,7 @@ End Function
 ' l_asetCreateFromPta(PTA *) as L_ASET *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_asetCreateFromPta/*"/>
 '''  <param name="pta">[in] - </param>
 '''   <returns>set using a 64-bit hash of (x,y) as the key</returns>
 Public Shared Function l_asetCreateFromPta(
@@ -242,6 +251,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaUnionByHash/*"/>
 '''  <param name="pta1">[in] - </param>
 '''  <param name="pta2">[in] - </param>
 '''   <returns>ptad with the union of the set of points, or NULL on error</returns>
@@ -281,6 +291,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaRemoveDupsByHash/*"/>
 '''  <param name="ptas">[in] - assumed to be integer values</param>
 '''  <param name="pptad">[out] - unique set of pts duplicates removed</param>
 '''  <param name="pdahash">[out][optional] - dnahash used for lookup</param>
@@ -314,6 +325,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaIntersectionByHash/*"/>
 '''  <param name="pta1">[in] - </param>
 '''  <param name="pta2">[in] - </param>
 '''   <returns>ptad intersection of the point sets, or NULL on error</returns>
@@ -349,6 +361,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaFindPtByHash/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="dahash">[in] - built from pta</param>
 '''  <param name="x">[in] - arbitrary points</param>
@@ -375,6 +388,7 @@ End Function
 ' l_dnaHashCreateFromPta(PTA *) as L_DNAHASH *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashCreateFromPta/*"/>
 '''  <param name="pta">[in] - </param>
 '''   <returns>dahash, or NULL on error</returns>
 Public Shared Function l_dnaHashCreateFromPta(

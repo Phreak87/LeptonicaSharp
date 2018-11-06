@@ -25,6 +25,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogDecode/*"/>
 '''  <param name="recog">[in] - with LUT's pre-computed</param>
 '''  <param name="pixs">[in] - typically of multiple touching characters, 1 bpp</param>
 '''  <param name="nlevels">[in] - of templates 2 for now</param>
@@ -53,6 +54,7 @@ End Function
 ' recogCreateDid(L_RECOG *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogCreateDid/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pixs">[in] - of 1 bpp image to match</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -79,6 +81,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogDestroyDid/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function recogDestroyDid(
@@ -96,6 +99,7 @@ End Function
 ' recogDidExists(L_RECOG *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogDidExists/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>1 if recog- is greater did exists 0 if not or on error.</returns>
 Public Shared Function recogDidExists(
@@ -118,6 +122,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogGetDid/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>did still owned by the recog, or NULL on error</returns>
 Public Shared Function recogGetDid(
@@ -146,6 +151,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/recogSetChannelParams/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="nlevels">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>

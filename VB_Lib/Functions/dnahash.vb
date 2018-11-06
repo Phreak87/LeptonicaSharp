@@ -13,6 +13,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashCreate/*"/>
 '''  <param name="nbuckets">[in] - the number of buckets in the hash table, which should be prime.</param>
 '''  <param name="initsize">[in] - initial size of each allocated dna 0 for default</param>
 '''   <returns>ptr to new dnahash, or NULL on error</returns>
@@ -31,6 +32,7 @@ End Function
 ' l_dnaHashDestroy(L_DNAHASH **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashDestroy/*"/>
 '''  <param name="pdahash">[in,out] - to be nulled, if it exists</param>
 Public Shared Sub l_dnaHashDestroy(
 				 ByRef pdahash as L_DnaHash)
@@ -47,6 +49,7 @@ End Sub
 ' l_dnaHashGetCount(L_DNAHASH *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashGetCount/*"/>
 '''  <param name="dahash">[in] - </param>
 '''   <returns>nbuckets allocated, or 0 on error</returns>
 Public Shared Function l_dnaHashGetCount(
@@ -64,6 +67,7 @@ End Function
 ' l_dnaHashGetTotalCount(L_DNAHASH *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashGetTotalCount/*"/>
 '''  <param name="dahash">[in] - </param>
 '''   <returns>n number of numbers in all dna, or 0 on error</returns>
 Public Shared Function l_dnaHashGetTotalCount(
@@ -81,6 +85,7 @@ End Function
 ' l_dnaHashGetDna(L_DNAHASH *, l_uint64, l_int32) as L_DNA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashGetDna/*"/>
 '''  <param name="dahash">[in] - </param>
 '''  <param name="key">[in] - key to be hashed into a bucket number</param>
 '''  <param name="copyflag">[in] - L_NOCOPY, L_COPY, L_CLONE</param>
@@ -104,6 +109,7 @@ End Function
 ' l_dnaHashAdd(L_DNAHASH *, l_uint64, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashAdd/*"/>
 '''  <param name="dahash">[in] - </param>
 '''  <param name="key">[in] - key to be hashed into a bucket number</param>
 '''  <param name="value">[in] - float value to be appended to the specific dna</param>
@@ -133,6 +139,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashCreateFromDna/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>dahash if OK 1 on error</returns>
 Public Shared Function l_dnaHashCreateFromDna(
@@ -159,6 +166,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaRemoveDupsByHash/*"/>
 '''  <param name="das">[in] - </param>
 '''  <param name="pdad">[out] - hash set</param>
 '''  <param name="pdahash">[out][optional] - dnahash used for lookup</param>
@@ -202,6 +210,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaMakeHistoByHash/*"/>
 '''  <param name="das">[in] - </param>
 '''  <param name="pdahash">[out] - hash map: val -- is greater  index</param>
 '''  <param name="pdav">[out] - array of values: index -- is greater  val</param>
@@ -238,6 +247,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaIntersectionByHash/*"/>
 '''  <param name="da1">[in] - </param>
 '''  <param name="da2">[in] - </param>
 '''   <returns>dad intersection of the number arrays, or NULL on error</returns>
@@ -266,6 +276,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_dnaFindValByHash/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="dahash">[in] - containing indices into %da</param>
 '''  <param name="val">[in] - searching for this number in %da</param>

@@ -17,6 +17,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertToPdfData/*"/>
 '''  <param name="pix">[in] - all depths cmap OK</param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 '''  <param name="quality">[in] - used for JPEG only 0 for default (75)</param>
@@ -84,6 +85,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptraConcatenatePdfToData/*"/>
 '''  <param name="pa_data">[in] - ptra array of pdf strings, each for a single-page pdf file</param>
 '''  <param name="sa">[in] - string array [optional] of pathnames for input pdf files</param>
 '''  <param name="pdata">[out] - concatenated pdf data in memory</param>
@@ -117,6 +119,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertTiffMultipageToPdf/*"/>
 '''  <param name="filein">[in] - (tiff)</param>
 '''  <param name="fileout">[in] - (pdf)</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -150,6 +153,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_generateCIDataForPdf/*"/>
 '''  <param name="fname">[in][optional] - can be null</param>
 '''  <param name="pix">[in][optional] - can be null</param>
 '''  <param name="quality">[in] - for jpeg if transcoded 75 is standard</param>
@@ -186,6 +190,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_generateFlateDataPdf/*"/>
 '''  <param name="fname">[in] - preferably png</param>
 '''  <param name="pixs">[in][optional] - can be null</param>
 '''   <returns>cid containing png data, or NULL on error</returns>
@@ -218,6 +223,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_generateJpegData/*"/>
 '''  <param name="fname">[in] - of jpeg file</param>
 '''  <param name="ascii85flag">[in] - 0 for jpeg 1 for ascii85-encoded jpeg</param>
 '''   <returns>cid containing jpeg data, or NULL on error</returns>
@@ -243,6 +249,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_generateJpegDataMem/*"/>
 '''  <param name="data">[in] - of jpeg file</param>
 '''  <param name="nbytes">[in] - </param>
 '''  <param name="ascii85flag">[in] - 0 for jpeg 1 for ascii85-encoded jpeg</param>
@@ -277,6 +284,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_generateCIData/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE, L_JP2K_ENCODE</param>
 '''  <param name="quality">[in] - used for jpeg only 0 for default (75)</param>
@@ -312,6 +320,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenerateCIData/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp, no colormap</param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 '''  <param name="quality">[in] - used for jpeg only 0 for default (75)</param>
@@ -352,6 +361,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_generateFlateData/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="ascii85flag">[in] - 0 for gzipped 1 for ascii85-encoded gzipped</param>
 '''   <returns>cid flate compressed image data, or NULL on error</returns>
@@ -380,6 +390,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_generateG4Data/*"/>
 '''  <param name="fname">[in] - of g4 compressed file</param>
 '''  <param name="ascii85flag">[in] - 0 for g4 compressed 1 for ascii85-encoded g4</param>
 '''   <returns>cid g4 compressed image data, or NULL on error</returns>
@@ -406,6 +417,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/cidConvertToPdfData/*"/>
 '''  <param name="cid">[in] - compressed image data -- of jp2k image</param>
 '''  <param name="title">[in][optional] - pdf title can be NULL</param>
 '''  <param name="pdata">[out] - output pdf data for image</param>
@@ -432,6 +444,7 @@ End Function
 ' l_CIDataDestroy(L_COMP_DATA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_CIDataDestroy/*"/>
 '''  <param name="pcid">[in,out] - will be set to null before returning</param>
 Public Shared Sub l_CIDataDestroy(
 				 ByRef pcid as L_Compressed_Data)
@@ -455,6 +468,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_pdfSetG4ImageMask/*"/>
 '''  <param name="flag">[in] - 1 for writing g4 data as fg only through a mask 0 for writing fg and bg</param>
 Public Shared Sub l_pdfSetG4ImageMask(
 				 ByVal flag as Integer)
@@ -474,6 +488,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_pdfSetDateAndVersion/*"/>
 '''  <param name="flag">[in] - 1 for writing date/time and leptonica version 0 for omitting this from the metadata</param>
 Public Shared Sub l_pdfSetDateAndVersion(
 				 ByVal flag as Integer)

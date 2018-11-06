@@ -32,6 +32,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadJpeg/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="cmapflag">[in] - 0 for no colormap in returned pix 1 to return an 8 bpp cmapped pix if spp = 3 or 4</param>
 '''  <param name="reduction">[in] - scaling factor: 1, 2, 4 or 8</param>
@@ -66,6 +67,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamJpeg/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="cmapflag">[in] - 0 for no colormap in returned pix 1 to return an 8 bpp cmapped pix if spp = 3 or 4</param>
 '''  <param name="reduction">[in] - scaling factor: 1, 2, 4 or 8</param>
@@ -94,6 +96,7 @@ End Function
 ' readHeaderJpeg(const char *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderJpeg/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -123,6 +126,7 @@ End Function
 ' freadHeaderJpeg(FILE *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/freadHeaderJpeg/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -150,6 +154,7 @@ End Function
 ' fgetJpegResolution(FILE *, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fgetJpegResolution/*"/>
 '''   <returns></returns>
 Public Shared Function fgetJpegResolution(
 				 ByVal fp as FILE, 
@@ -172,6 +177,7 @@ End Function
 ' fgetJpegComment(FILE *, l_uint8 **) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fgetJpegComment/*"/>
 '''   <returns></returns>
 Public Shared Function fgetJpegComment(
 				 ByVal fp as FILE, 
@@ -192,6 +198,7 @@ End Function
 ' pixWriteJpeg(const char *, PIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteJpeg/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pix">[in] - any depth cmap is OK</param>
 '''  <param name="quality">[in] - 1 - 100 75 is default</param>
@@ -242,6 +249,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamJpeg/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pixs">[in] - any depth cmap is OK</param>
 '''  <param name="quality">[in] - 1 - 100 75 is default value 0 is also default</param>
@@ -274,6 +282,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMemJpeg/*"/>
 '''  <param name="data">[in] - const jpeg-encoded</param>
 '''  <param name="size">[in] - of data</param>
 '''  <param name="cmflag">[in] - colormap flag 0 means return RGB image if color 1 means create a colormap and return an 8 bpp colormapped image if color</param>
@@ -304,6 +313,7 @@ End Function
 ' readHeaderMemJpeg(const l_uint8 *, size_t, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderMemJpeg/*"/>
 '''  <param name="data">[in] - const jpeg-encoded</param>
 '''  <param name="size">[in] - of data</param>
 '''  <param name="pw">[out][optional] - width</param>
@@ -333,6 +343,7 @@ End Function
 ' readResolutionMemJpeg(const l_uint8 *, size_t, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readResolutionMemJpeg/*"/>
 '''  <param name="data">[in] - const jpeg-encoded</param>
 '''  <param name="size">[in] - of data</param>
 '''  <param name="pxres">[out][optional] - </param>
@@ -362,6 +373,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemJpeg/*"/>
 '''  <param name="pdata">[out] - data of jpeg compressed image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - any depth cmap is OK</param>
@@ -398,6 +410,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetChromaSampling/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="sampling">[in] - 1 for subsampling 0 for no subsampling</param>
 '''   <returns>0 if OK, 1 on error</returns>

@@ -17,6 +17,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listDestroy/*"/>
 '''  <param name="phead">[in,out] - to be nulled head of list</param>
 Public Shared Sub listDestroy(
 				 ByRef phead as DoubleLinkedList)
@@ -41,6 +42,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listAddToHead/*"/>
 '''  <param name="phead">[in,out][optional] - input head</param>
 '''  <param name="data">[in] - void ptr, to be added</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -79,6 +81,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listAddToTail/*"/>
 '''  <param name="phead">[in,out] - [may be updated], can be NULL</param>
 '''  <param name="ptail">[in,out] - [updated], can be NULL</param>
 '''  <param name="data">[in] - void ptr, to be hung on tail cons cell</param>
@@ -120,6 +123,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listInsertBefore/*"/>
 '''  <param name="phead">[in,out][optional] - input head</param>
 '''  <param name="elem">[in] - list element to be inserted in front of must be NULL if head is NULL</param>
 '''  <param name="data">[in] - void  address, to be added</param>
@@ -161,6 +165,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listInsertAfter/*"/>
 '''  <param name="phead">[in,out][optional] - input head</param>
 '''  <param name="elem">[in] - list element to be inserted after must be NULL if head is NULL</param>
 '''  <param name="data">[in] - void  ptr, to be added</param>
@@ -195,6 +200,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listRemoveElement/*"/>
 '''  <param name="phead">[in,out] - [can be changed] input head</param>
 '''  <param name="elem">[in] - list element to be removed</param>
 '''   <returns>data  void struct on cell</returns>
@@ -225,6 +231,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listRemoveFromHead/*"/>
 '''  <param name="phead">[in,out] - head of list [to be updated]</param>
 '''   <returns>data  void struct on cell, or NULL on error</returns>
 Public Shared Function listRemoveFromHead(
@@ -258,6 +265,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listRemoveFromTail/*"/>
 '''  <param name="phead">[in,out] - [may be changed], head must NOT be NULL</param>
 '''  <param name="ptail">[in,out] - [always updated], tail may be NULL</param>
 '''   <returns>data  void struct on cell or NULL on error</returns>
@@ -291,6 +299,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listFindElement/*"/>
 '''  <param name="head">[in] - list head</param>
 '''  <param name="data">[in] - void  address, to be searched for</param>
 '''   <returns>cell  the containing cell, or NULL if not found or on error</returns>
@@ -314,6 +323,7 @@ End Function
 ' listFindTail(DLLIST *) as DLLIST *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listFindTail/*"/>
 '''  <param name="head">[in] - </param>
 '''   <returns>tail, or NULL on error</returns>
 Public Shared Function listFindTail(
@@ -332,6 +342,7 @@ End Function
 ' listGetCount(DLLIST *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listGetCount/*"/>
 '''  <param name="head">[in] - of list</param>
 '''   <returns>number of elements 0 if no list or on error</returns>
 Public Shared Function listGetCount(
@@ -354,6 +365,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listReverse/*"/>
 '''  <param name="phead">[in,out] - [may be changed] list head</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function listReverse(
@@ -378,6 +390,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/listJoin/*"/>
 '''  <param name="phead1">[in,out] - [may be changed] head of first list</param>
 '''  <param name="phead2">[in,out] - to be nulled head of second list</param>
 '''   <returns>0 if OK, 1 on error</returns>

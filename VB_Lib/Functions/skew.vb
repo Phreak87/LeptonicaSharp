@@ -16,6 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDeskewBoth/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="redsearch">[in] - for binary search: reduction factor = 1, 2 or 4 use 0 for default</param>
 '''   <returns>pixd deskewed pix, or NULL on error</returns>
@@ -47,6 +48,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDeskew/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="redsearch">[in] - for binary search: reduction factor = 1, 2 or 4 use 0 for default</param>
 '''   <returns>pixd deskewed pix, or NULL on error</returns>
@@ -76,6 +78,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindSkewAndDeskew/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="redsearch">[in] - for binary search: reduction factor = 1, 2 or 4 use 0 for default</param>
 '''  <param name="pangle">[out][optional] - angle required to deskew, in degrees use NULL to skip</param>
@@ -109,6 +112,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDeskewGeneral/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="redsweep">[in] - for linear search: reduction factor = 1, 2 or 4 use 0 for default</param>
 '''  <param name="sweeprange">[in] - in degrees in each direction from 0 use 0.0 for default</param>
@@ -153,6 +157,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindSkew/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pangle">[out] - angle required to deskew, in degrees</param>
 '''  <param name="pconf">[out] - confidence value is ratio max/min scores</param>
@@ -182,6 +187,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindSkewSweep/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pangle">[out] - angle required to deskew, in degrees</param>
 '''  <param name="reduction">[in] - factor = 1, 2, 4 or 8</param>
@@ -224,6 +230,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindSkewSweepAndSearch/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pangle">[out] - angle required to deskew in degrees</param>
 '''  <param name="pconf">[out] - confidence given by ratio of max/min score</param>
@@ -280,6 +287,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindSkewSweepAndSearchScore/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pangle">[out] - angle required to deskew in degrees</param>
 '''  <param name="pconf">[out] - confidence given by ratio of max/min score</param>
@@ -330,6 +338,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindSkewSweepAndSearchScorePivot/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pangle">[out] - angle required to deskew in degrees</param>
 '''  <param name="pconf">[out] - confidence given by ratio of max/min score</param>
@@ -371,6 +380,7 @@ End Function
 ' pixFindSkewOrthogonalRange(PIX *, l_float32 *, l_float32 *, l_int32, l_int32, l_float32, l_float32, l_float32, l_float32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindSkewOrthogonalRange/*"/>
 '''   <returns></returns>
 Public Shared Function pixFindSkewOrthogonalRange(
 				 ByVal pixs as Pix, 
@@ -410,6 +420,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindDifferentialSquareSum/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="psum">[out] - result</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -441,6 +452,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindNormalizedSquareSum/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="phratio">[out][optional] - ratio of normalized horiz square sum to result if the pixel distribution were uniform</param>
 '''  <param name="pvratio">[out][optional] - ratio of normalized vert square sum to result if the pixel distribution were uniform</param>

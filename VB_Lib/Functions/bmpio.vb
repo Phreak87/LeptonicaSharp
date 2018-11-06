@@ -15,6 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamBmp/*"/>
 '''  <param name="fp">[in] - file stream opened for read</param>
 '''   <returns>pix, or NULL on error</returns>
 Public Shared Function pixReadStreamBmp(
@@ -33,6 +34,7 @@ End Function
 ' pixReadMemBmp(const l_uint8 *, size_t) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMemBmp/*"/>
 '''  <param name="cdata">[in] - bmp data</param>
 '''  <param name="size">[in] - number of bytes of bmp-formatted data</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -53,6 +55,7 @@ End Function
 ' pixWriteStreamBmp(FILE *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamBmp/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pix">[in] - all depths</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -86,6 +89,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemBmp/*"/>
 '''  <param name="pfdata">[out] - data of bmp formatted image</param>
 '''  <param name="pfsize">[out] - size of returned data</param>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp</param>

@@ -26,6 +26,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pmsCreate/*"/>
 '''  <param name="minsize">[in] - of data chunk that can be supplied by pms</param>
 '''  <param name="smallest">[in] - bytes of the smallest pre-allocated data chunk.</param>
 '''  <param name="numalloc">[in] - array with the number of data chunks for each size that are in the memory store</param>
@@ -56,6 +57,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pmsDestroy/*"/>
 Public Shared Sub pmsDestroy()
 
 	LeptonicaSharp.Natives.pmsDestroy( )
@@ -76,6 +78,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pmsCustomAlloc/*"/>
 '''  <param name="nbytes">[in] - min number of bytes in the chunk to be retrieved</param>
 '''   <returns>data ptr to chunk</returns>
 Public Shared Function pmsCustomAlloc(
@@ -91,6 +94,7 @@ End Function
 ' pmsCustomDealloc(void *) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pmsCustomDealloc/*"/>
 '''  <param name="data">[in] - to be freed or returned to the storage</param>
 Public Shared Sub pmsCustomDealloc(
 				 ByVal data as Object)
@@ -121,6 +125,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pmsGetAlloc/*"/>
 '''  <param name="nbytes">[in] - </param>
 '''   <returns>data</returns>
 Public Shared Function pmsGetAlloc(
@@ -136,6 +141,7 @@ End Function
 ' pmsGetLevelForAlloc(size_t, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pmsGetLevelForAlloc/*"/>
 '''  <param name="nbytes">[in] - min number of bytes in the chunk to be retrieved</param>
 '''  <param name="plevel">[out] - -1 if either too small or too large</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -153,6 +159,7 @@ End Function
 ' pmsGetLevelForDealloc(void *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pmsGetLevelForDealloc/*"/>
 '''  <param name="data">[in] - ptr to memory chunk</param>
 '''  <param name="plevel">[out] - level in memory store -1 if allocated outside the store</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -174,6 +181,7 @@ End Function
 ' pmsLogInfo() as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pmsLogInfo/*"/>
 Public Shared Sub pmsLogInfo()
 
 	LeptonicaSharp.Natives.pmsLogInfo( )

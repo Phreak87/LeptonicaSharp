@@ -8,6 +8,7 @@ Partial Public Class _All
 ' lheapCreate(l_int32, l_int32) as L_HEAP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lheapCreate/*"/>
 '''  <param name="nalloc">[in] - size of ptr array to be alloc'd 0 for default</param>
 '''  <param name="direction">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
 '''   <returns>lheap, or NULL on error</returns>
@@ -37,6 +38,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lheapDestroy/*"/>
 '''  <param name="plh">[in,out] - to be nulled</param>
 '''  <param name="freeflag">[in] - TRUE to free each remaining struct in the array</param>
 Public Shared Sub lheapDestroy(
@@ -55,6 +57,7 @@ End Sub
 ' lheapAdd(L_HEAP *, void *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lheapAdd/*"/>
 '''  <param name="lh">[in] - heap</param>
 '''  <param name="item">[in] - to be added to the tail of the heap</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -77,6 +80,7 @@ End Function
 ' lheapRemove(L_HEAP *) as void *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lheapRemove/*"/>
 '''  <param name="lh">[in] - heap</param>
 '''   <returns>ptr to item popped from the root of the heap, or NULL if the heap is empty or on error</returns>
 Public Shared Function lheapRemove(
@@ -94,6 +98,7 @@ End Function
 ' lheapGetCount(L_HEAP *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lheapGetCount/*"/>
 '''  <param name="lh">[in] - heap</param>
 '''   <returns>count, or 0 on error</returns>
 Public Shared Function lheapGetCount(
@@ -121,6 +126,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lheapSwapUp/*"/>
 '''  <param name="lh">[in] - heap</param>
 '''  <param name="index">[in] - of array corresponding to node to be swapped up</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -155,6 +161,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lheapSwapDown/*"/>
 '''  <param name="lh">[in] - heap</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function lheapSwapDown(
@@ -178,6 +185,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lheapSort/*"/>
 '''  <param name="lh">[in] - heap, with internal array</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function lheapSort(
@@ -206,6 +214,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lheapSortStrictOrder/*"/>
 '''  <param name="lh">[in] - heap, with internal array</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function lheapSortStrictOrder(
@@ -223,6 +232,7 @@ End Function
 ' lheapPrint(FILE *, L_HEAP *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lheapPrint/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="lh">[in] - heap</param>
 '''   <returns>0 if OK 1 on error</returns>

@@ -8,6 +8,7 @@ Partial Public Class _All
 ' l_getDataBit(void *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_getDataBit/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''   <returns>val of the nth 1-bit pixel.</returns>
@@ -29,6 +30,7 @@ End Function
 ' l_setDataBit(void *, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_setDataBit/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 Public Shared Sub l_setDataBit(
@@ -48,6 +50,7 @@ End Sub
 ' l_clearDataBit(void *, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_clearDataBit/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 Public Shared Sub l_clearDataBit(
@@ -77,6 +80,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_setDataBitVal/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''  <param name="val">[in] - val to be inserted: 0 or 1</param>
@@ -98,6 +102,7 @@ End Sub
 ' l_getDataDibit(void *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_getDataDibit/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''   <returns>val of the nth 2-bit pixel.</returns>
@@ -119,6 +124,7 @@ End Function
 ' l_setDataDibit(void *, l_int32, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_setDataDibit/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''  <param name="val">[in] - val to be inserted: 0 - 3</param>
@@ -140,6 +146,7 @@ End Sub
 ' l_clearDataDibit(void *, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_clearDataDibit/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 Public Shared Sub l_clearDataDibit(
@@ -159,6 +166,7 @@ End Sub
 ' l_getDataQbit(void *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_getDataQbit/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''   <returns>val of the nth 4-bit pixel.</returns>
@@ -180,6 +188,7 @@ End Function
 ' l_setDataQbit(void *, l_int32, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_setDataQbit/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''  <param name="val">[in] - val to be inserted: 0 - 0xf</param>
@@ -201,6 +210,7 @@ End Sub
 ' l_clearDataQbit(void *, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_clearDataQbit/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 Public Shared Sub l_clearDataQbit(
@@ -220,6 +230,7 @@ End Sub
 ' l_getDataByte(void *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_getDataByte/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''   <returns>value of the n-th byte pixel</returns>
@@ -241,6 +252,7 @@ End Function
 ' l_setDataByte(void *, l_int32, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_setDataByte/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''  <param name="val">[in] - val to be inserted: 0 - 0xff</param>
@@ -262,6 +274,7 @@ End Sub
 ' l_getDataTwoBytes(void *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_getDataTwoBytes/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''   <returns>value of the n-th 2-byte pixel</returns>
@@ -283,6 +296,7 @@ End Function
 ' l_setDataTwoBytes(void *, l_int32, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_setDataTwoBytes/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''  <param name="val">[in] - val to be inserted: 0 - 0xffff</param>
@@ -304,6 +318,7 @@ End Sub
 ' l_getDataFourBytes(void *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_getDataFourBytes/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''   <returns>value of the n-th 4-byte pixel</returns>
@@ -325,6 +340,7 @@ End Function
 ' l_setDataFourBytes(void *, l_int32, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_setDataFourBytes/*"/>
 '''  <param name="line">[in] - ptr to beginning of data line</param>
 '''  <param name="n">[in] - pixel index</param>
 '''  <param name="val">[in] - val to be inserted: 0 - 0xffffffff</param>

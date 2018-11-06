@@ -25,6 +25,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorGrayRegions/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp gray, rgb, or colormapped</param>
 '''  <param name="boxa">[in] - of regions in which to apply color</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
@@ -86,6 +87,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray, rgb or colormapped image</param>
 '''  <param name="box">[in][optional] - region in which to apply color can be NULL</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
@@ -136,6 +138,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorGrayMasked/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray, rgb or colormapped image</param>
 '''  <param name="pixm">[in] - 1 bpp mask, through which to apply color</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
@@ -178,6 +181,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSnapColor/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs for in-place</param>
 '''  <param name="pixs">[in] - colormapped or 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="srcval">[in] - color center to be selected for change: 0xrrggbb00</param>
@@ -217,6 +221,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSnapColorCmap/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs for in-place</param>
 '''  <param name="pixs">[in] - colormapped</param>
 '''  <param name="srcval">[in] - color center to be selected for change: 0xrrggbb00</param>
@@ -264,6 +269,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixLinearMapToTargetColor/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs for in-place</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="srcval">[in] - source color: 0xrrggbb00</param>
@@ -311,6 +317,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixelLinearMapToTargetColor/*"/>
 '''  <param name="scolor">[in] - rgb source color: 0xrrggbb00</param>
 '''  <param name="srcmap">[in] - source mapping color: 0xrrggbb00</param>
 '''  <param name="dstmap">[in] - target mapping color: 0xrrggbb00</param>
@@ -364,6 +371,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixShiftByComponent/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs for in-place</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="srcval">[in] - source color: 0xrrggbb00</param>
@@ -402,6 +410,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixelShiftByComponent/*"/>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>
@@ -438,6 +447,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixelFractionalShift/*"/>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>

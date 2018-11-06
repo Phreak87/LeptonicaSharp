@@ -33,6 +33,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindBaselines/*"/>
 '''  <param name="pixs">[in] - 1 bpp, 300 ppi</param>
 '''  <param name="ppta">[out][optional] - pairs of pts corresponding to approx. ends of each text line</param>
 '''  <param name="pixadb">[in] - for debug output use NULL to skip</param>
@@ -79,6 +80,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDeskewLocal/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="nslices">[in] - the number of horizontal overlapping slices must be larger than 1 and not exceed 20 use 0 for default</param>
 '''  <param name="redsweep">[in] - sweep reduction factor: 1, 2, 4 or 8 use 0 for default value</param>
@@ -123,6 +125,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetLocalSkewTransform/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="nslices">[in] - the number of horizontal overlapping slices must be larger than 1 and not exceed 20 use 0 for default</param>
 '''  <param name="redsweep">[in] - sweep reduction factor: 1, 2, 4 or 8 use 0 for default value</param>
@@ -180,6 +183,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetLocalSkewAngles/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="nslices">[in] - the number of horizontal overlapping slices must be larger than 1 and not exceed 20 0 for default</param>
 '''  <param name="redsweep">[in] - sweep reduction factor: 1, 2, 4 or 8 use 0 for default value</param>

@@ -15,6 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fhmtautogen/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="fileindex">[in] - </param>
 '''  <param name="filename">[in][optional] - can be null</param>
@@ -53,6 +54,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fhmtautogen1/*"/>
 '''  <param name="sela">[in] - array</param>
 '''  <param name="fileindex">[in] - </param>
 '''  <param name="filename">[in][optional] - can be null</param>
@@ -89,6 +91,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fhmtautogen2/*"/>
 '''  <param name="sela">[in] - array</param>
 '''  <param name="fileindex">[in] - </param>
 '''  <param name="filename">[in][optional] - can be null</param>

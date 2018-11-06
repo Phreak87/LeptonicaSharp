@@ -8,6 +8,7 @@ Partial Public Class _All
 ' lstackCreate(l_int32) as L_STACK *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lstackCreate/*"/>
 '''  <param name="nalloc">[in] - initial ptr array size use 0 for default</param>
 '''   <returns>lstack, or NULL on error</returns>
 Public Shared Function lstackCreate(
@@ -36,6 +37,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lstackDestroy/*"/>
 '''  <param name="plstack">[in,out] - to be nulled</param>
 '''  <param name="freeflag">[in] - TRUE to free each remaining struct in the array</param>
 Public Shared Sub lstackDestroy(
@@ -54,6 +56,7 @@ End Sub
 ' lstackAdd(L_STACK *, void *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lstackAdd/*"/>
 '''  <param name="lstack">[in] - </param>
 '''  <param name="item">[in] - to be added to the lstack</param>
 '''   <returns>0 if OK 1 on error.</returns>
@@ -76,6 +79,7 @@ End Function
 ' lstackRemove(L_STACK *) as void *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lstackRemove/*"/>
 '''  <param name="lstack">[in] - </param>
 '''   <returns>ptr to item popped from the top of the lstack, or NULL if the lstack is empty or on error</returns>
 Public Shared Function lstackRemove(
@@ -93,6 +97,7 @@ End Function
 ' lstackGetCount(L_STACK *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lstackGetCount/*"/>
 '''  <param name="lstack">[in] - </param>
 '''   <returns>count, or 0 on error</returns>
 Public Shared Function lstackGetCount(
@@ -110,6 +115,7 @@ End Function
 ' lstackPrint(FILE *, L_STACK *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lstackPrint/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="lstack">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>

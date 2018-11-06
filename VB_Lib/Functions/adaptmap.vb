@@ -19,6 +19,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCleanBackgroundToWhite/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale or 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
@@ -58,6 +59,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormSimple/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale or 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
@@ -127,6 +129,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNorm/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale or 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
@@ -195,6 +198,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormMorph/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale or 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="reduction">[in] - at which morph closings are done between 2 and 16</param>
@@ -233,6 +237,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormGrayArray/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="sx">[in] - tile size in pixels</param>
@@ -282,6 +287,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormRGBArrays/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
@@ -342,6 +348,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormGrayArrayMorph/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="reduction">[in] - at which morph closings are done between 2 and 16</param>
@@ -384,6 +391,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormRGBArraysMorph/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="reduction">[in] - at which morph closings are done between 2 and 16</param>
@@ -433,6 +441,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetBackgroundGrayMap/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not cmapped</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null it should not have all foreground pixels</param>
 '''  <param name="sx">[in] - tile size in pixels</param>
@@ -474,6 +483,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetBackgroundRGBMap/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null it should not have all foreground pixels</param>
 '''  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
@@ -520,6 +530,7 @@ End Function
 ' pixGetBackgroundGrayMapMorph(PIX *, PIX *, l_int32, l_int32, PIX **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetBackgroundGrayMapMorph/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not cmapped</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null it should not have all foreground pixels</param>
 '''  <param name="reduction">[in] - factor at which closing is performed</param>
@@ -551,6 +562,7 @@ End Function
 ' pixGetBackgroundRGBMapMorph(PIX *, PIX *, l_int32, l_int32, PIX **, PIX **, PIX **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetBackgroundRGBMapMorph/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null it should not have all foreground pixels</param>
 '''  <param name="reduction">[in] - factor at which closing is performed</param>
@@ -616,6 +628,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFillMapHoles/*"/>
 '''  <param name="pix">[in] - 8 bpp a map, with one pixel for each tile in a larger image</param>
 '''  <param name="nx">[in] - number of horizontal pixel tiles that are entirely covered with pixels in the original source image</param>
 '''  <param name="ny">[in] - ditto for the number of vertical pixel tiles</param>
@@ -644,6 +657,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtendByReplication/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="addw">[in] - number of extra pixels horizontally to add</param>
 '''  <param name="addh">[in] - number of extra pixels vertically to add</param>
@@ -680,6 +694,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSmoothConnectedRegions/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale no colormap</param>
 '''  <param name="pixm">[in][optional] - 1 bpp if null, this is a no-op</param>
 '''  <param name="factor">[in] - subsampling factor for getting average  is greater = 1</param>
@@ -710,6 +725,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetInvBackgroundMap/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale no colormap</param>
 '''  <param name="bgval">[in] - target bg val typ.  is greater  128</param>
 '''  <param name="smoothx">[in] - half-width of block convolution kernel width</param>
@@ -734,6 +750,7 @@ End Function
 ' pixApplyInvBackgroundGrayMap(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixApplyInvBackgroundGrayMap/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale no colormap</param>
 '''  <param name="pixm">[in] - 16 bpp, inverse background map</param>
 '''  <param name="sx">[in] - tile width in pixels</param>
@@ -759,6 +776,7 @@ End Function
 ' pixApplyInvBackgroundRGBMap(PIX *, PIX *, PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixApplyInvBackgroundRGBMap/*"/>
 '''  <param name="pixs">[in] - 32 bpp rbg</param>
 '''  <param name="pixmr">[in] - 16 bpp, red inverse background map</param>
 '''  <param name="pixmg">[in] - 16 bpp, green inverse background map</param>
@@ -808,6 +826,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixApplyVariableGrayMap/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="pixg">[in] - 8 bpp, variable map</param>
 '''  <param name="target">[in] - typ. 128 for threshold</param>
@@ -857,6 +876,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGlobalNormRGB/*"/>
 '''  <param name="pixd">[in][optional] - null, existing or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb, or colormapped</param>
 '''  <param name="rval">[in] - pixel values in pixs that are linearly mapped to mapval</param>
@@ -909,6 +929,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGlobalNormNoSatRGB/*"/>
 '''  <param name="pixd">[in][optional] - null, existing or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="rval">[in] - pixel values in pixs that are linearly mapped to mapval but see below</param>
@@ -967,6 +988,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThresholdSpreadNorm/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="filtertype">[in] - L_SOBEL_EDGE or L_TWO_SIDED_EDGE</param>
 '''  <param name="edgethresh">[in] - threshold on magnitude of edge filter typ 10-20</param>
@@ -1030,6 +1052,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormFlex/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="sx">[in] - desired tile dimensions actual size may vary use values between 3 and 10</param>
 '''  <param name="sy">[in] - desired tile dimensions actual size may vary use values between 3 and 10</param>
@@ -1086,6 +1109,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixContrastNorm/*"/>
 '''  <param name="pixd">[in][optional] - 8 bpp null or equal to pixs</param>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="sx">[in] - tile dimensions</param>
@@ -1125,6 +1149,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMinMaxTiles/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="sx">[in] - tile dimensions</param>
 '''  <param name="sy">[in] - tile dimensions</param>
@@ -1173,6 +1198,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetLowContrast/*"/>
 '''  <param name="pixs1">[in] - 8 bpp</param>
 '''  <param name="pixs2">[in] - 8 bpp</param>
 '''  <param name="mindiff">[in] - minimum difference to accept as valid</param>
@@ -1211,6 +1237,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixLinearTRCTiled/*"/>
 '''  <param name="pixd">[in][optional] - 8 bpp</param>
 '''  <param name="pixs">[in] - 8 bpp, not colormapped</param>
 '''  <param name="sx">[in] - tile dimensions</param>

@@ -8,6 +8,7 @@ Partial Public Class _All
 ' numaCreate(l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaCreate/*"/>
 '''  <param name="n">[in] - size of number array to be alloc'd 0 for default</param>
 '''   <returns>na, or NULL on error</returns>
 Public Shared Function numaCreate(
@@ -32,6 +33,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaCreateFromIArray/*"/>
 '''  <param name="iarray">[in] - integer</param>
 '''  <param name="size">[in] - of the array</param>
 '''   <returns>na, or NULL on error</returns>
@@ -59,6 +61,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaCreateFromFArray/*"/>
 '''  <param name="farray">[in] - float</param>
 '''  <param name="size">[in] - of the array</param>
 '''  <param name="copyflag">[in] - L_INSERT or L_COPY</param>
@@ -88,6 +91,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaCreateFromString/*"/>
 '''  <param name="str">[in] - string of comma-separated numbers</param>
 '''   <returns>na, or NULL on error</returns>
 Public Shared Function numaCreateFromString(
@@ -112,6 +116,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaDestroy/*"/>
 '''  <param name="pna">[in,out] - to be nulled if it exists</param>
 Public Shared Sub numaDestroy(
 				 ByRef pna as Numa)
@@ -128,6 +133,7 @@ End Sub
 ' numaCopy(NUMA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaCopy/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>copy of numa, or NULL on error</returns>
 Public Shared Function numaCopy(
@@ -146,6 +152,7 @@ End Function
 ' numaClone(NUMA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaClone/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>ptr to same numa, or NULL on error</returns>
 Public Shared Function numaClone(
@@ -171,6 +178,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaEmpty/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function numaEmpty(
@@ -188,6 +196,7 @@ End Function
 ' numaAddNumber(NUMA *, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaAddNumber/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="val">[in] - float or int to be added stored as a float</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -215,6 +224,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaInsertNumber/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - location in na to insert new value</param>
 '''  <param name="val">[in] - float32 or integer to be added</param>
@@ -243,6 +253,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaRemoveNumber/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - element to be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -262,6 +273,7 @@ End Function
 ' numaReplaceNumber(NUMA *, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaReplaceNumber/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - element to be replaced</param>
 '''  <param name="val">[in] - new value to replace old one</param>
@@ -283,6 +295,7 @@ End Function
 ' numaGetCount(NUMA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetCount/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>count, or 0 if no numbers or on error</returns>
 Public Shared Function numaGetCount(
@@ -309,6 +322,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSetCount/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="newcount">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -334,6 +348,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetFValue/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - into numa</param>
 '''  <param name="pval">[out] - float value 0.0 on error</param>
@@ -361,6 +376,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetIValue/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - into numa</param>
 '''  <param name="pival">[out] - integer value 0 on error</param>
@@ -382,6 +398,7 @@ End Function
 ' numaSetValue(NUMA *, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSetValue/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - to element to be set</param>
 '''  <param name="val">[in] - to set element</param>
@@ -403,6 +420,7 @@ End Function
 ' numaShiftValue(NUMA *, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaShiftValue/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - to element to change relative to the current value</param>
 '''  <param name="diff">[in] - increment if diff  is greater  0 or decrement if diff  is lower  0</param>
@@ -437,6 +455,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetIArray/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>a copy of the bare internal array, integerized by rounding, or NULL on error</returns>
 Public Shared Function numaGetIArray(
@@ -468,6 +487,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetFArray/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="copyflag">[in] - L_NOCOPY or L_COPY</param>
 '''   <returns>either the bare internal array or a copy of it, or NULL on error</returns>
@@ -487,6 +507,7 @@ End Function
 ' numaGetRefcount(NUMA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetRefcount/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>refcount, or UNDEF on error</returns>
 Public Shared Function numaGetRefcount(
@@ -504,6 +525,7 @@ End Function
 ' numaChangeRefcount(NUMA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaChangeRefcount/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="delta">[in] - change to be applied</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -523,6 +545,7 @@ End Function
 ' numaGetParameters(NUMA *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetParameters/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="pstartx">[out][optional] - startx</param>
 '''  <param name="pdelx">[out][optional] - delx</param>
@@ -544,6 +567,7 @@ End Function
 ' numaSetParameters(NUMA *, l_float32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSetParameters/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="startx">[in] - x value corresponding to na[0]</param>
 '''  <param name="delx">[in] - difference in x values for the situation where the elements of na correspond to the evaulation of a function at equal intervals of size %delx</param>
@@ -565,6 +589,7 @@ End Function
 ' numaCopyParameters(NUMA *, NUMA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaCopyParameters/*"/>
 '''  <param name="nad">[in] - destination Numa</param>
 '''  <param name="nas">[in] - source Numa</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -591,6 +616,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaConvertToSarray/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="size1">[in] - size of conversion field</param>
 '''  <param name="size2">[in] - for float conversion: size of field to the right of the decimal point</param>
@@ -617,6 +643,7 @@ End Function
 ' numaRead(const char *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>na, or NULL on error</returns>
 Public Shared Function numaRead(
@@ -637,6 +664,7 @@ End Function
 ' numaReadStream(FILE *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>numa, or NULL on error</returns>
 Public Shared Function numaReadStream(
@@ -655,6 +683,7 @@ End Function
 ' numaReadMem(const l_uint8 *, size_t) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaReadMem/*"/>
 '''  <param name="data">[in] - numa serialization in ascii</param>
 '''  <param name="size">[in] - of data can use strlen to get it</param>
 '''   <returns>na, or NULL on error</returns>
@@ -684,6 +713,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaWriteDebug/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="na">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -706,6 +736,7 @@ End Function
 ' numaWrite(const char *, NUMA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="na">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -728,6 +759,7 @@ End Function
 ' numaWriteStream(FILE *, NUMA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="na">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -753,6 +785,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized numa ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="na">[in] - </param>
@@ -777,6 +810,7 @@ End Function
 ' numaaCreate(l_int32) as NUMAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaCreate/*"/>
 '''  <param name="n">[in] - size of numa ptr array to be alloc'd 0 for default</param>
 '''   <returns>naa, or NULL on error</returns>
 Public Shared Function numaaCreate(
@@ -801,6 +835,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaCreateFull/*"/>
 '''  <param name="nptr">[in] - : size of numa ptr array to be alloc'd</param>
 '''  <param name="n">[in] - : size of individual numa arrays to be alloc'd 0 for default</param>
 '''   <returns>naa, or NULL on error</returns>
@@ -826,6 +861,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaTruncate/*"/>
 '''  <param name="naa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function numaaTruncate(
@@ -843,6 +879,7 @@ End Function
 ' numaaDestroy(NUMAA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaDestroy/*"/>
 '''  <param name="pnaa">[in,out] - to be nulled if it exists</param>
 Public Shared Sub numaaDestroy(
 				 ByRef pnaa as Numaa)
@@ -859,6 +896,7 @@ End Sub
 ' numaaAddNuma(NUMAA *, NUMA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaAddNuma/*"/>
 '''  <param name="naa">[in] - </param>
 '''  <param name="na">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -881,6 +919,7 @@ End Function
 ' numaaGetCount(NUMAA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaGetCount/*"/>
 '''  <param name="naa">[in] - </param>
 '''   <returns>count number of numa, or 0 if no numa or on error</returns>
 Public Shared Function numaaGetCount(
@@ -898,6 +937,7 @@ End Function
 ' numaaGetNumaCount(NUMAA *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaGetNumaCount/*"/>
 '''  <param name="naa">[in] - </param>
 '''  <param name="index">[in] - of numa in naa</param>
 '''   <returns>count of numbers in the referenced numa, or 0 on error.</returns>
@@ -917,6 +957,7 @@ End Function
 ' numaaGetNumberCount(NUMAA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaGetNumberCount/*"/>
 '''  <param name="naa">[in] - </param>
 '''   <returns>count total number of numbers in the numaa, or 0 if no numbers or on error</returns>
 Public Shared Function numaaGetNumberCount(
@@ -955,6 +996,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaGetPtrArray/*"/>
 '''  <param name="naa">[in] - </param>
 '''   <returns>the internal array of ptrs to Numa, or NULL on error</returns>
 Public Shared Function numaaGetPtrArray(
@@ -974,6 +1016,7 @@ End Function
 ' numaaGetNuma(NUMAA *, l_int32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaGetNuma/*"/>
 '''  <param name="naa">[in] - </param>
 '''  <param name="index">[in] - to the index-th numa</param>
 '''  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
@@ -1003,6 +1046,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaReplaceNuma/*"/>
 '''  <param name="naa">[in] - </param>
 '''  <param name="index">[in] - to the index-th numa</param>
 '''  <param name="na">[in] - insert and replace any existing one</param>
@@ -1025,6 +1069,7 @@ End Function
 ' numaaGetValue(NUMAA *, l_int32, l_int32, l_float32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaGetValue/*"/>
 '''  <param name="naa">[in] - </param>
 '''  <param name="i">[in] - index of numa within numaa</param>
 '''  <param name="j">[in] - index into numa</param>
@@ -1055,6 +1100,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaAddNumber/*"/>
 '''  <param name="naa">[in] - </param>
 '''  <param name="index">[in] - of numa within numaa</param>
 '''  <param name="val">[in] - float or int to be added stored as a float</param>
@@ -1076,6 +1122,7 @@ End Function
 ' numaaRead(const char *) as NUMAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>naa, or NULL on error</returns>
 Public Shared Function numaaRead(
@@ -1096,6 +1143,7 @@ End Function
 ' numaaReadStream(FILE *) as NUMAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>naa, or NULL on error</returns>
 Public Shared Function numaaReadStream(
@@ -1114,6 +1162,7 @@ End Function
 ' numaaReadMem(const l_uint8 *, size_t) as NUMAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaReadMem/*"/>
 '''  <param name="data">[in] - numaa serialization in ascii</param>
 '''  <param name="size">[in] - of data can use strlen to get it</param>
 '''   <returns>naa, or NULL on error</returns>
@@ -1134,6 +1183,7 @@ End Function
 ' numaaWrite(const char *, NUMAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="naa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1156,6 +1206,7 @@ End Function
 ' numaaWriteStream(FILE *, NUMAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="naa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1181,6 +1232,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized numaa ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="naa">[in] - </param>

@@ -14,6 +14,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRegionsBinary/*"/>
 '''  <param name="pixs">[in] - 1 bpp, assumed to be 300 to 400 ppi</param>
 '''  <param name="ppixhm">[out][optional] - halftone mask</param>
 '''  <param name="ppixtm">[out][optional] - textline mask</param>
@@ -54,6 +55,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenHalftoneMask/*"/>
 '''   <returns></returns>
 Public Shared Function pixGenHalftoneMask(
 				 ByVal pixs as Pix, 
@@ -85,6 +87,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenerateHalftoneMask/*"/>
 '''  <param name="pixs">[in] - 1 bpp, assumed to be 150 to 200 ppi</param>
 '''  <param name="ppixtext">[out][optional] - text part of pixs</param>
 '''  <param name="phtfound">[out][optional] - 1 if the mask is not empty</param>
@@ -123,6 +126,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenTextlineMask/*"/>
 '''  <param name="pixs">[in] - 1 bpp, assumed to be 150 to 200 ppi</param>
 '''  <param name="ppixvws">[out] - vertical whitespace mask</param>
 '''  <param name="ptlfound">[out][optional] - 1 if the mask is not empty</param>
@@ -164,6 +168,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGenTextblockMask/*"/>
 '''  <param name="pixs">[in] - 1 bpp, textline mask, assumed to be 150 to 200 ppi</param>
 '''  <param name="pixvws">[in] - vertical white space mask</param>
 '''  <param name="pixadb">[in] - input for collecting debug pix use NULL to skip</param>
@@ -203,6 +208,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindPageForeground/*"/>
 '''  <param name="pixs">[in] - full resolution (any type or depth</param>
 '''  <param name="threshold">[in] - for binarization typically about 128</param>
 '''  <param name="mindist">[in] - min distance of text from border to allow cleaning near border at 2x reduction, this should be larger than 50 typically about 70</param>
@@ -242,6 +248,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSplitIntoCharacters/*"/>
 '''  <param name="pixs">[in] - 1 bpp, contains only deskewed text</param>
 '''  <param name="minw">[in] - min component width for initial filtering typ. 4</param>
 '''  <param name="minh">[in] - min component height for initial filtering typ. 4</param>
@@ -284,6 +291,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSplitComponentWithProfile/*"/>
 '''  <param name="pixs">[in] - 1 bpp, exactly one connected component</param>
 '''  <param name="delta">[in] - distance used in extrema finding in a numa typ. 10</param>
 '''  <param name="mindel">[in] - minimum required difference between profile minimum and profile values +2 and -2 away typ. 7</param>
@@ -341,6 +349,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtractTextlines/*"/>
 '''  <param name="pixs">[in] - any depth, assumed to have nearly horizontal text</param>
 '''  <param name="maxw">[in] - initial filtering: remove any components in pixs with components larger than maxw or maxh</param>
 '''  <param name="maxh">[in] - initial filtering: remove any components in pixs with components larger than maxw or maxh</param>
@@ -398,6 +407,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtractRawTextlines/*"/>
 '''  <param name="pixs">[in] - any depth, assumed to have nearly horizontal text</param>
 '''  <param name="maxw">[in] - initial filtering: remove any components in pixs with components larger than maxw or maxh use 0 for default values.</param>
 '''  <param name="maxh">[in] - initial filtering: remove any components in pixs with components larger than maxw or maxh use 0 for default values.</param>
@@ -438,6 +448,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountTextColumns/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="deltafract">[in] - fraction of (max - min) to be used in the delta for extrema finding typ 0.3</param>
 '''  <param name="peakfract">[in] - fraction of (max - min) to be used to threshold the peak value typ. 0.5</param>
@@ -485,6 +496,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDecideIfText/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="box">[in][optional] - if null, use entire pixs</param>
 '''  <param name="pistext">[out] - 1 if text 0 if photo -1 if not determined or empty</param>
@@ -511,6 +523,7 @@ End Function
 ' pixFindThreshFgExtent(PIX *, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindThreshFgExtent/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="thresh">[in] - threshold number of pixels in row</param>
 '''  <param name="ptop">[out][optional] - location of top of region</param>
@@ -568,6 +581,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDecideIfTable/*"/>
 '''  <param name="pixs">[in] - any depth, any resolution  is greater = 75 ppi</param>
 '''  <param name="box">[in][optional] - if null, use entire pixs</param>
 '''  <param name="orient">[in] - L_PORTRAIT_MODE, L_LANDSCAPE_MODE</param>
@@ -602,6 +616,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixPrepare1bpp/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="box">[in][optional] - if null, use entire pixs</param>
 '''  <param name="cropfract">[in] - fraction to be removed from the boundary use 0.0 to retain the entire image</param>
@@ -633,6 +648,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixEstimateBackground/*"/>
 '''  <param name="pixs">[in] - 8 bpp, with or without colormap</param>
 '''  <param name="darkthresh">[in] - pixels below this value are never considered part of the background typ. 70 use 0 to skip</param>
 '''  <param name="edgecrop">[in] - fraction of half-width on each side, and of half-height at top and bottom, that are cropped</param>
@@ -672,6 +688,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindLargeRectangles/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="polarity">[in] - 0 within background, 1 within foreground</param>
 '''  <param name="nrect">[in] - number of rectangles to be found</param>
@@ -745,6 +762,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindLargestRectangle/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="polarity">[in] - 0 within background, 1 within foreground</param>
 '''  <param name="pbox">[out] - largest area rectangle</param>

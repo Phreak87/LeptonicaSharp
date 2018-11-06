@@ -24,6 +24,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/createMatrix2dTranslate/*"/>
 '''  <param name="transx">[in] - x component of translation wrt. the origin</param>
 '''  <param name="transy">[in] - y component of translation wrt. the origin</param>
 '''   <returns>3x3 transform matrix, or NULL on error</returns>
@@ -56,6 +57,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/createMatrix2dScale/*"/>
 '''  <param name="scalex">[in] - horizontal scale factor</param>
 '''  <param name="scaley">[in] - vertical scale factor</param>
 '''   <returns>3x3 transform matrix, or NULL on error</returns>
@@ -98,6 +100,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/createMatrix2dRotate/*"/>
 '''  <param name="xc">[in] - location of center of rotation</param>
 '''  <param name="yc">[in] - location of center of rotation</param>
 '''  <param name="angle">[in] - rotation in radians clockwise is positive</param>
@@ -122,6 +125,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaTranslate/*"/>
 '''  <param name="ptas">[in] - for initial points</param>
 '''  <param name="transx">[in] - x component of translation wrt. the origin</param>
 '''  <param name="transy">[in] - y component of translation wrt. the origin</param>
@@ -149,6 +153,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaScale/*"/>
 '''  <param name="ptas">[in] - for initial points</param>
 '''  <param name="scalex">[in] - horizontal scale factor</param>
 '''  <param name="scaley">[in] - vertical scale factor</param>
@@ -188,6 +193,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaRotate/*"/>
 '''  <param name="ptas">[in] - for initial points</param>
 '''  <param name="xc">[in] - location of center of rotation</param>
 '''  <param name="yc">[in] - location of center of rotation</param>
@@ -212,6 +218,7 @@ End Function
 ' boxaTranslate(BOXA *, l_float32, l_float32) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaTranslate/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="transx">[in] - x component of translation wrt. the origin</param>
 '''  <param name="transy">[in] - y component of translation wrt. the origin</param>
@@ -234,6 +241,7 @@ End Function
 ' boxaScale(BOXA *, l_float32, l_float32) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaScale/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="scalex">[in] - horizontal scale factor</param>
 '''  <param name="scaley">[in] - vertical scale factor</param>
@@ -256,6 +264,7 @@ End Function
 ' boxaRotate(BOXA *, l_float32, l_float32, l_float32) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaRotate/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="xc">[in] - location of center of rotation</param>
 '''  <param name="yc">[in] - location of center of rotation</param>
@@ -280,6 +289,7 @@ End Function
 ' ptaAffineTransform(PTA *, l_float32 *) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaAffineTransform/*"/>
 '''  <param name="ptas">[in] - for initial points</param>
 '''  <param name="mat">[in] - 3x3 transform matrix canonical form</param>
 '''   <returns>ptad  transformed points, or NULL on error</returns>
@@ -301,6 +311,7 @@ End Function
 ' boxaAffineTransform(BOXA *, l_float32 *) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaAffineTransform/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="mat">[in] - 3x3 transform matrix canonical form</param>
 '''   <returns>boxad  transformed boxas, or NULL on error</returns>
@@ -322,6 +333,7 @@ End Function
 ' l_productMatVec(l_float32 *, l_float32 *, l_float32 *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_productMatVec/*"/>
 '''  <param name="mat">[in] - square matrix, as a 1-dimensional %size^2 array</param>
 '''  <param name="vecs">[in] - input column vector of length %size</param>
 '''  <param name="vecd">[in] - result column vector</param>
@@ -347,6 +359,7 @@ End Function
 ' l_productMat2(l_float32 *, l_float32 *, l_float32 *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_productMat2/*"/>
 '''  <param name="mat1">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat2">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="matd">[in] - square matrix product stored here</param>
@@ -372,6 +385,7 @@ End Function
 ' l_productMat3(l_float32 *, l_float32 *, l_float32 *, l_float32 *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_productMat3/*"/>
 '''  <param name="mat1">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat2">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat3">[in] - square matrix, as a 1-dimensional size^2 array</param>
@@ -400,6 +414,7 @@ End Function
 ' l_productMat4(l_float32 *, l_float32 *, l_float32 *, l_float32 *, l_float32 *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_productMat4/*"/>
 '''  <param name="mat1">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat2">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat3">[in] - square matrix, as a 1-dimensional size^2 array</param>

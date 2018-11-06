@@ -15,6 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConnComp/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="ppixa">[out][optional] - pixa of each c.c.</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -57,6 +58,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConnCompPixa/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="ppixa">[out] - pixa of each c.c.</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -93,6 +95,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConnCompBB/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''   <returns>boxa, or NULL on error</returns>
@@ -115,6 +118,7 @@ End Function
 ' pixCountConnComp(PIX *, l_int32, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCountConnComp/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''  <param name="pcount">[out] - </param>
@@ -138,6 +142,7 @@ End Function
 ' nextOnPixelInRaster(PIX *, l_int32, l_int32, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/nextOnPixelInRaster/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="xstart">[in] - starting point for search</param>
 '''  <param name="ystart">[in] - starting point for search</param>
@@ -165,6 +170,7 @@ End Function
 ' nextOnPixelInRasterLow(l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/nextOnPixelInRasterLow/*"/>
 '''  <param name="data">[in] - pix data</param>
 '''  <param name="w">[in] - width and height</param>
 '''  <param name="h">[in] - width and height</param>
@@ -204,6 +210,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillBB/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="stack">[in] - for holding fillsegs</param>
 '''  <param name="x">[in] - ,y   location of seed pixel</param>
@@ -255,6 +262,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfill4BB/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="stack">[in] - for holding fillsegs</param>
 '''  <param name="x">[in] - ,y   location of seed pixel</param>
@@ -297,6 +305,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfill8BB/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="stack">[in] - for holding fillsegs</param>
 '''  <param name="x">[in] - ,y   location of seed pixel</param>
@@ -329,6 +338,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfill/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="stack">[in] - for holding fillsegs</param>
 '''  <param name="x">[in] - ,y   location of seed pixel</param>
@@ -365,6 +375,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfill4/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="stack">[in] - for holding fillsegs</param>
 '''  <param name="x">[in] - ,y   location of seed pixel</param>
@@ -399,6 +410,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfill8/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="stack">[in] - for holding fillsegs</param>
 '''  <param name="x">[in] - ,y   location of seed pixel</param>

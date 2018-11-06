@@ -29,6 +29,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorContent/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb or 8 bpp colormapped</param>
 '''  <param name="rwhite">[in] - color value associated with white point</param>
 '''  <param name="gwhite">[in] - color value associated with white point</param>
@@ -106,6 +107,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorMagnitude/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb or 8 bpp colormapped</param>
 '''  <param name="rwhite">[in] - color value associated with white point</param>
 '''  <param name="gwhite">[in] - color value associated with white point</param>
@@ -151,6 +153,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMaskOverColorPixels/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb or 8 bpp colormapped</param>
 '''  <param name="threshdiff">[in] - threshold for minimum of the max difference between components</param>
 '''  <param name="mindist">[in] - minimum allowed distance from nearest non-color pixel</param>
@@ -173,6 +176,7 @@ End Function
 ' pixMaskOverColorRange(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMaskOverColorRange/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb or 8 bpp colormapped</param>
 '''  <param name="rmin">[in] - min and max allowed values for red component</param>
 '''  <param name="rmax">[in] - min and max allowed values for red component</param>
@@ -237,6 +241,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorFraction/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="darkthresh">[in] - threshold near black if the lightest component is below this, the pixel is not considered in the statistics typ. 20</param>
 '''  <param name="lightthresh">[in] - threshold near white if the darkest component is above this, the pixel is not considered in the statistics typ. 244</param>
@@ -311,6 +316,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindColorRegions/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask image</param>
 '''  <param name="factor">[in] - subsample factor integer  is greater = 1</param>
@@ -377,6 +383,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixNumSignificantGrayColors/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray</param>
 '''  <param name="darkthresh">[in] - dark threshold for minimum intensity to be considered typ. 20</param>
 '''  <param name="lightthresh">[in] - threshold near white, for maximum intensity to be considered typ. 236</param>
@@ -464,6 +471,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorsForQuantization/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb with or without colormap</param>
 '''  <param name="thresh">[in] - binary threshold on edge gradient 0 for default</param>
 '''  <param name="pncolors">[out] - the number of colors found</param>
@@ -503,6 +511,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixNumColors/*"/>
 '''  <param name="pixs">[in] - 2, 4, 8, 32 bpp</param>
 '''  <param name="factor">[in] - subsampling factor integer</param>
 '''  <param name="pncolors">[out] - the number of colors found, or 0 if there are more than 256</param>
@@ -534,6 +543,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetMostPopulatedColors/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="sigbits">[in] - 2-6, significant bits retained in the quantizer for each component of the input image</param>
 '''  <param name="factor">[in] - subsampling factor use 1 for no subsampling</param>
@@ -585,6 +595,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSimpleColorQuantize/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="sigbits">[in] - 2-4, significant bits retained in the quantizer for each component of the input image</param>
 '''  <param name="factor">[in] - subsampling factor use 1 for no subsampling</param>
@@ -619,6 +630,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRGBHistogram/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="sigbits">[in] - 2-6, significant bits retained in the quantizer for each component of the input image</param>
 '''  <param name="factor">[in] - subsampling factor use 1 for no subsampling</param>
@@ -652,6 +664,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeRGBIndexTables/*"/>
 '''  <param name="prtab">[out] - 256-entry index tables</param>
 '''  <param name="pgtab">[out] - 256-entry index tables</param>
 '''  <param name="pbtab">[out] - 256-entry index tables</param>
@@ -689,6 +702,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getRGBFromIndex/*"/>
 '''  <param name="index">[in] - rgbindex</param>
 '''  <param name="sigbits">[in] - 2-6, significant bits retained in the quantizer for each component of the input image</param>
 '''  <param name="prval">[out] - rgb values</param>
@@ -727,6 +741,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHasHighlightRed/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="factor">[in] - subsampling an integer  is greater = 1 use 1 for all pixels</param>
 '''  <param name="fract">[in] - threshold fraction of all image pixels</param>

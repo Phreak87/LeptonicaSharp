@@ -8,6 +8,7 @@ Partial Public Class _All
 ' l_rbtreeCreate(l_int32) as L_RBTREE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeCreate/*"/>
 '''  <param name="keytype">[in] - defined by an enum for an RB_TYPE union</param>
 '''   <returns>rbtree    container with empty ptr to the root</returns>
 Public Shared Function l_rbtreeCreate(
@@ -24,6 +25,7 @@ End Function
 ' l_rbtreeLookup(L_RBTREE *, RB_TYPE) as RB_TYPE *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeLookup/*"/>
 '''  <param name="t">[in] - rbtree, including root node</param>
 '''  <param name="key">[in] - find a node with this key</param>
 '''   <returns> and value     a pointer to a union, if the node exists else NULL</returns>
@@ -50,6 +52,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeInsert/*"/>
 '''  <param name="t">[in] - rbtree, including root node</param>
 '''  <param name="key">[in] - insert a node with this key, if the key does not already exist in the tree</param>
 '''  <param name="value">[in] - typically an int, used for an index</param>
@@ -71,6 +74,7 @@ End Sub
 ' l_rbtreeDelete(L_RBTREE *, RB_TYPE) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeDelete/*"/>
 '''  <param name="t">[in] - rbtree, including root node</param>
 '''  <param name="key">[in] - (delete the node with this key</param>
 Public Shared Sub l_rbtreeDelete(
@@ -94,6 +98,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeDestroy/*"/>
 '''  <param name="pt">[in] - ptr to rbtree</param>
 Public Shared Sub l_rbtreeDestroy(
 				 ByVal pt as List (of L_Rbtree))
@@ -116,6 +121,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeGetFirst/*"/>
 '''  <param name="t">[in] - rbtree, including root node</param>
 '''   <returns>void</returns>
 Public Shared Function l_rbtreeGetFirst(
@@ -142,6 +148,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeGetNext/*"/>
 '''  <param name="n">[in] - current node</param>
 '''   <returns>next node, or NULL if it's the last node</returns>
 Public Shared Function l_rbtreeGetNext(
@@ -165,6 +172,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeGetLast/*"/>
 '''  <param name="t">[in] - rbtree, including root node</param>
 '''   <returns>void</returns>
 Public Shared Function l_rbtreeGetLast(
@@ -191,6 +199,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeGetPrev/*"/>
 '''  <param name="n">[in] - current node</param>
 '''   <returns>next node, or NULL if it's the first node</returns>
 Public Shared Function l_rbtreeGetPrev(
@@ -209,6 +218,7 @@ End Function
 ' l_rbtreeGetCount(L_RBTREE *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeGetCount/*"/>
 '''  <param name="t">[in] - rbtree</param>
 '''   <returns>count  the number of nodes in the tree, or 0 on error</returns>
 Public Shared Function l_rbtreeGetCount(
@@ -226,6 +236,7 @@ End Function
 ' l_rbtreePrint(FILE *, L_RBTREE *) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_rbtreePrint/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="t">[in] - rbtree</param>
 Public Shared Sub l_rbtreePrint(

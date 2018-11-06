@@ -17,6 +17,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaAddBasic/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function selaAddBasic(
@@ -35,6 +36,7 @@ End Function
 ' selaAddHitMiss(SELA *) as SELA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaAddHitMiss/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function selaAddHitMiss(
@@ -60,6 +62,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaAddDwaLinear/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function selaAddDwaLinear(
@@ -86,6 +89,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaAddDwaCombs/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function selaAddDwaCombs(
@@ -120,6 +124,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaAddCrossJunctions/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''  <param name="hlsize">[in] - length of each line of hits from origin</param>
 '''  <param name="mdist">[in] - distance of misses from the origin</param>
@@ -157,6 +162,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaAddTJunctions/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''  <param name="hlsize">[in] - length of each line of hits from origin</param>
 '''  <param name="mdist">[in] - distance of misses from the origin</param>
@@ -188,6 +194,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sela4ccThin/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function sela4ccThin(
@@ -211,6 +218,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sela8ccThin/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function sela8ccThin(
@@ -234,6 +242,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sela4and8ccThin/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function sela4and8ccThin(

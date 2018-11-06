@@ -8,6 +8,7 @@ Partial Public Class _All
 ' convertFilesToPS(const char *, const char *, l_int32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertFilesToPS/*"/>
 '''   <returns></returns>
 Public Shared Function convertFilesToPS(
 				 ByVal dirin as String, 
@@ -29,6 +30,7 @@ End Function
 ' sarrayConvertFilesToPS(SARRAY *, l_int32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayConvertFilesToPS/*"/>
 '''   <returns></returns>
 Public Shared Function sarrayConvertFilesToPS(
 				 ByVal sa as Sarray, 
@@ -50,6 +52,7 @@ End Function
 ' convertFilesFittedToPS(const char *, const char *, l_float32, l_float32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertFilesFittedToPS/*"/>
 '''   <returns></returns>
 Public Shared Function convertFilesFittedToPS(
 				 ByVal dirin as String, 
@@ -72,6 +75,7 @@ End Function
 ' sarrayConvertFilesFittedToPS(SARRAY *, l_float32, l_float32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sarrayConvertFilesFittedToPS/*"/>
 '''   <returns></returns>
 Public Shared Function sarrayConvertFilesFittedToPS(
 				 ByVal sa as Sarray, 
@@ -94,6 +98,7 @@ End Function
 ' writeImageCompressedToPSFile(const char *, const char *, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/writeImageCompressedToPSFile/*"/>
 '''   <returns></returns>
 Public Shared Function writeImageCompressedToPSFile(
 				 ByVal filein as String, 
@@ -117,6 +122,7 @@ End Function
 ' convertSegmentedPagesToPS(const char *, const char *, l_int32, const char *, const char *, l_int32, l_int32, l_int32, l_float32, l_float32, l_int32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertSegmentedPagesToPS/*"/>
 '''   <returns></returns>
 Public Shared Function convertSegmentedPagesToPS(
 				 ByVal pagedir as String, 
@@ -148,6 +154,7 @@ End Function
 ' pixWriteSegmentedPageToPS(PIX *, PIX *, l_float32, l_float32, l_int32, l_int32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteSegmentedPageToPS/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteSegmentedPageToPS(
 				 ByVal pixs as Pix, 
@@ -175,6 +182,7 @@ End Function
 ' pixWriteMixedToPS(PIX *, PIX *, l_float32, l_int32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMixedToPS/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteMixedToPS(
 				 ByVal pixb as Pix, 
@@ -200,6 +208,7 @@ End Function
 ' convertToPSEmbed(const char *, const char *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertToPSEmbed/*"/>
 '''   <returns></returns>
 Public Shared Function convertToPSEmbed(
 				 ByVal filein as String, 
@@ -219,6 +228,7 @@ End Function
 ' pixaWriteCompressedToPS(PIXA *, const char *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaWriteCompressedToPS/*"/>
 '''   <returns></returns>
 Public Shared Function pixaWriteCompressedToPS(
 				 ByVal pixa as Pixa, 

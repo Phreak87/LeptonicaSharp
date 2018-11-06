@@ -16,6 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertToFPix/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="ncomps">[in] - number of components: 3 for RGB, 1 otherwise</param>
 '''   <returns>fpix, or NULL on error</returns>
@@ -46,6 +47,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertToDPix/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="ncomps">[in] - number of components: 3 for RGB, 1 otherwise</param>
 '''   <returns>dpix, or NULL on error</returns>
@@ -82,6 +84,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixConvertToPix/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''  <param name="outdepth">[in] - 0, 8, 16 or 32 bpp</param>
 '''  <param name="negvals">[in] - L_CLIP_TO_ZERO, L_TAKE_ABSVAL</param>
@@ -106,6 +109,7 @@ End Function
 ' fpixDisplayMaxDynamicRange(FPIX *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixDisplayMaxDynamicRange/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
 Public Shared Function fpixDisplayMaxDynamicRange(
@@ -124,6 +128,7 @@ End Function
 ' fpixConvertToDPix(FPIX *) as DPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixConvertToDPix/*"/>
 '''  <param name="fpix">[in] - </param>
 '''   <returns>dpix, or NULL on error</returns>
 Public Shared Function fpixConvertToDPix(
@@ -156,6 +161,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixConvertToPix/*"/>
 '''  <param name="dpixs">[in] - </param>
 '''  <param name="outdepth">[in] - 0, 8, 16 or 32 bpp</param>
 '''  <param name="negvals">[in] - L_CLIP_TO_ZERO, L_TAKE_ABSVAL</param>
@@ -180,6 +186,7 @@ End Function
 ' dpixConvertToFPix(DPIX *) as FPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixConvertToFPix/*"/>
 '''  <param name="dpix">[in] - </param>
 '''   <returns>fpix, or NULL on error</returns>
 Public Shared Function dpixConvertToFPix(
@@ -198,6 +205,7 @@ End Function
 ' fpixGetMin(FPIX *, l_float32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixGetMin/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="pminval">[out][optional] - min value</param>
 '''  <param name="pxminloc">[out][optional] - x location of min</param>
@@ -221,6 +229,7 @@ End Function
 ' fpixGetMax(FPIX *, l_float32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixGetMax/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="pmaxval">[out][optional] - max value</param>
 '''  <param name="pxmaxloc">[out][optional] - x location of max</param>
@@ -244,6 +253,7 @@ End Function
 ' dpixGetMin(DPIX *, l_float64 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixGetMin/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="pminval">[out][optional] - min value</param>
 '''  <param name="pxminloc">[out][optional] - x location of min</param>
@@ -267,6 +277,7 @@ End Function
 ' dpixGetMax(DPIX *, l_float64 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixGetMax/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="pmaxval">[out][optional] - max value</param>
 '''  <param name="pxmaxloc">[out][optional] - x location of max</param>
@@ -303,6 +314,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixScaleByInteger/*"/>
 '''  <param name="fpixs">[in] - low resolution, subsampled</param>
 '''  <param name="factor">[in] - scaling factor</param>
 '''   <returns>fpixd interpolated result, or NULL on error</returns>
@@ -336,6 +348,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixScaleByInteger/*"/>
 '''  <param name="dpixs">[in] - low resolution, subsampled</param>
 '''  <param name="factor">[in] - scaling factor</param>
 '''   <returns>dpixd interpolated result, or NULL on error</returns>
@@ -368,6 +381,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixLinearCombination/*"/>
 '''  <param name="fpixd">[in][optional] - this can be null, equal to fpixs1, or different from fpixs1</param>
 '''  <param name="fpixs1">[in] - can be == to fpixd</param>
 '''  <param name="fpixs2">[in] - </param>
@@ -405,6 +419,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixAddMultConstant/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="addc">[in] - use 0.0 to skip the operation</param>
 '''  <param name="multc">[in] - use 1.0 to skip the operation</param>
@@ -438,6 +453,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixLinearCombination/*"/>
 '''  <param name="dpixd">[in][optional] - this can be null, equal to dpixs1, or different from dpixs1</param>
 '''  <param name="dpixs1">[in] - can be == to dpixd</param>
 '''  <param name="dpixs2">[in] - </param>
@@ -475,6 +491,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixAddMultConstant/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="addc">[in] - use 0.0 to skip the operation</param>
 '''  <param name="multc">[in] - use 1.0 to skip the operation</param>
@@ -498,6 +515,7 @@ End Function
 ' fpixSetAllArbitrary(FPIX *, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixSetAllArbitrary/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="inval">[in] - to set at each pixel</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -517,6 +535,7 @@ End Function
 ' dpixSetAllArbitrary(DPIX *, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixSetAllArbitrary/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="inval">[in] - to set at each pixel</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -542,6 +561,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixAddBorder/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''  <param name="left">[in] - pixels on each side to be added</param>
 '''  <param name="right">[in] - pixels on each side to be added</param>
@@ -568,6 +588,7 @@ End Function
 ' fpixRemoveBorder(FPIX *, l_int32, l_int32, l_int32, l_int32) as FPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixRemoveBorder/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''  <param name="left">[in] - pixels on each side to be removed</param>
 '''  <param name="right">[in] - pixels on each side to be removed</param>
@@ -599,6 +620,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixAddMirroredBorder/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''  <param name="left">[in] - pixels on each side to be added</param>
 '''  <param name="right">[in] - pixels on each side to be added</param>
@@ -631,6 +653,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixAddContinuedBorder/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''  <param name="left">[in] - pixels on each side to be added</param>
 '''  <param name="right">[in] - pixels on each side to be added</param>
@@ -664,6 +687,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixAddSlopeBorder/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''  <param name="left">[in] - pixels on each side to be added</param>
 '''  <param name="right">[in] - pixels on each side to be added</param>
@@ -702,6 +726,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixRasterop/*"/>
 '''  <param name="fpixd">[in] - dest fpix</param>
 '''  <param name="dx">[in] - x val of UL corner of dest rectangle</param>
 '''  <param name="dy">[in] - y val of UL corner of dest rectangle</param>
@@ -734,6 +759,7 @@ End Function
 ' fpixRotateOrth(FPIX *, l_int32) as FPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixRotateOrth/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''  <param name="quads">[in] - 0-3 number of 90 degree cw rotations</param>
 '''   <returns>fpixd, or NULL on error</returns>
@@ -770,6 +796,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixRotate180/*"/>
 '''  <param name="fpixd">[in][optional] - can be null, equal to fpixs, or different from fpixs</param>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>fpixd, or NULL on error</returns>
@@ -799,6 +826,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixRotate90/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''  <param name="direction">[in] - 1 = clockwise,  -1 = counter-clockwise</param>
 '''   <returns>fpixd, or NULL on error</returns>
@@ -836,6 +864,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixFlipLR/*"/>
 '''  <param name="fpixd">[in][optional] - can be null, equal to fpixs, or different from fpixs</param>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>fpixd, or NULL on error</returns>
@@ -875,6 +904,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixFlipTB/*"/>
 '''  <param name="fpixd">[in][optional] - can be null, equal to fpixs, or different from fpixs</param>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>fpixd, or NULL on error</returns>
@@ -909,6 +939,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixAffinePta/*"/>
 '''  <param name="fpixs">[in] - 8 bpp</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -937,6 +968,7 @@ End Function
 ' fpixAffine(FPIX *, l_float32 *, l_float32) as FPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixAffine/*"/>
 '''  <param name="fpixs">[in] - 8 bpp</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for projective transformation</param>
 '''  <param name="inval">[in] - value brought in typ. 0</param>
@@ -972,6 +1004,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixProjectivePta/*"/>
 '''  <param name="fpixs">[in] - 8 bpp</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -1000,6 +1033,7 @@ End Function
 ' fpixProjective(FPIX *, l_float32 *, l_float32) as FPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixProjective/*"/>
 '''  <param name="fpixs">[in] - 8 bpp</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for projective transformation</param>
 '''  <param name="inval">[in] - value brought in typ. 0</param>
@@ -1030,6 +1064,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/linearInterpolatePixelFloat/*"/>
 '''  <param name="datas">[in] - ptr to beginning of float image data</param>
 '''  <param name="w">[in] - of image</param>
 '''  <param name="h">[in] - of image</param>
@@ -1065,6 +1100,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixThresholdToPix/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="thresh">[in] - </param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
@@ -1098,6 +1134,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixComponentFunction/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="rnum">[in] - coefficients for numerator</param>
 '''  <param name="gnum">[in] - coefficients for numerator</param>

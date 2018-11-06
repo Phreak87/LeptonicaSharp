@@ -8,6 +8,7 @@ Partial Public Class _All
 ' stringNew(const char *) as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringNew/*"/>
 '''  <param name="src">[in] - string</param>
 '''   <returns>dest copy of src string, or NULL on error</returns>
 Public Shared Function stringNew(
@@ -35,6 +36,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringCopy/*"/>
 '''  <param name="dest">[in] - existing byte buffer</param>
 '''  <param name="src">[in] - string [optional] can be null</param>
 '''  <param name="n">[in] - max number of characters to copy</param>
@@ -63,6 +65,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringReplace/*"/>
 '''  <param name="pdest">[out] - string copy</param>
 '''  <param name="src">[in] - string [optional] can be null</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -91,6 +94,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringLength/*"/>
 '''  <param name="src">[in] - string can be null or NULL-terminated string</param>
 '''  <param name="size">[in] - size of src buffer</param>
 '''   <returns>length of src in bytes.</returns>
@@ -122,6 +126,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringCat/*"/>
 '''  <param name="dest">[in] - null-terminated byte buffer</param>
 '''  <param name="size">[in] - size of dest</param>
 '''  <param name="src">[in] - string can be null or NULL-terminated string</param>
@@ -150,6 +155,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringConcatNew/*"/>
 '''  <param name="first">[in] - first string in list</param>
 '''   <returns>result new string concatenating the input strings, or NULL if first == NULL</returns>
 Public Shared Function stringConcatNew(
@@ -174,6 +180,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringJoin/*"/>
 '''  <param name="src1">[in] - string [optional] can be null</param>
 '''  <param name="src2">[in] - string [optional] can be null</param>
 '''   <returns>concatenated string, or NULL on error</returns>
@@ -215,6 +222,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringJoinIP/*"/>
 '''  <param name="psrc1">[in,out] - string address of src1 cannot be on the stack</param>
 '''  <param name="src2">[in] - string [optional] can be null</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -234,6 +242,7 @@ End Function
 ' stringReverse(const char *) as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringReverse/*"/>
 '''  <param name="src">[in] - string</param>
 '''   <returns>dest newly-allocated reversed string</returns>
 Public Shared Function stringReverse(
@@ -271,6 +280,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/strtokSafe/*"/>
 '''  <param name="seps">[in] - a string of character separators</param>
 '''  <param name="psaveptr">[out] - ptr to the next char after the last encountered separator</param>
 '''   <returns>substr a new string that is copied from the previous saveptr up to but not including the next separator character, or NULL if end of cstr.</returns>
@@ -307,6 +317,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringSplitOnToken/*"/>
 '''  <param name="seps">[in] - a string of character separators</param>
 '''  <param name="phead">[out] - ptr to copy of the input string, up to the first separator token encountered</param>
 '''  <param name="ptail">[out] - ptr to copy of the part of the input string starting with the first non-separator character that occurs after the first separator is found</param>
@@ -339,6 +350,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringCheckForChars/*"/>
 '''  <param name="src">[in] - input string can be of zero length</param>
 '''  <param name="chars">[in] - string of chars to be searched for in %src</param>
 '''  <param name="pfound">[out] - 1 if any characters are found 0 otherwise</param>
@@ -361,6 +373,7 @@ End Function
 ' stringRemoveChars(const char *, const char *) as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringRemoveChars/*"/>
 '''  <param name="src">[in] - input string can be of zero length</param>
 '''  <param name="remchars">[in] - string of chars to be removed from src</param>
 '''   <returns>dest string with specified chars removed, or NULL on error</returns>
@@ -390,6 +403,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringFindSubstr/*"/>
 '''  <param name="src">[in] - input string can be of zero length</param>
 '''  <param name="ploc">[out][optional] - location of substring in src</param>
 '''   <returns>1 if found 0 if not found or on error</returns>
@@ -424,6 +438,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringReplaceSubstr/*"/>
 '''  <param name="src">[in] - input string can be of zero length</param>
 '''  <param name="sub1">[in] - substring to be replaced</param>
 '''  <param name="sub2">[in] - substring to put in can be ""</param>
@@ -458,6 +473,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stringReplaceEachSubstr/*"/>
 '''  <param name="src">[in] - input string can be of zero length</param>
 '''  <param name="sub1">[in] - substring to be replaced</param>
 '''  <param name="sub2">[in] - substring to put in can be ""</param>
@@ -491,6 +507,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/arrayFindEachSequence/*"/>
 '''  <param name="data">[in] - byte array</param>
 '''  <param name="datalen">[in] - length of data, in bytes</param>
 '''  <param name="sequence">[in] - subarray of bytes to find in data</param>
@@ -528,6 +545,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/arrayFindSequence/*"/>
 '''  <param name="data">[in] - byte array</param>
 '''  <param name="datalen">[in] - length of data, in bytes</param>
 '''  <param name="sequence">[in] - subarray of bytes to find in data</param>
@@ -567,6 +585,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/reallocNew/*"/>
 '''  <param name="pindata">[in,out][optional] - nulls indata</param>
 '''  <param name="oldsize">[in] - size of input data to be copied, in bytes</param>
 '''  <param name="newsize">[in] - size of data to be reallocated in bytes</param>
@@ -588,6 +607,7 @@ End Function
 ' l_binaryRead(const char *, size_t *) as l_uint8 *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_binaryRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pnbytes">[out] - number of bytes read</param>
 '''   <returns>data, or NULL on error</returns>
@@ -628,6 +648,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_binaryReadStream/*"/>
 '''  <param name="fp">[in] - file stream opened to read can be stdin</param>
 '''  <param name="pnbytes">[out] - number of bytes read</param>
 '''   <returns>null-terminated array, or NULL on error reading 0 bytes is not an error</returns>
@@ -653,6 +674,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_binaryReadSelect/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="start">[in] - first byte to read</param>
 '''  <param name="nbytes">[in] - number of bytes to read use 0 to read to end of file</param>
@@ -688,6 +710,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_binaryReadSelectStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="start">[in] - first byte to read</param>
 '''  <param name="nbytes">[in] - number of bytes to read use 0 to read to end of file</param>
@@ -711,6 +734,7 @@ End Function
 ' l_binaryWrite(const char *, const char *, const void *, size_t) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_binaryWrite/*"/>
 '''  <param name="filename">[in] - output</param>
 '''  <param name="operation">[in] - "w" for write "a" for append</param>
 '''  <param name="data">[in] - binary data to be written</param>
@@ -740,6 +764,7 @@ End Function
 ' nbytesInFile(const char *) as size_t
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/nbytesInFile/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>nbytes in file 0 on error</returns>
 Public Shared Function nbytesInFile(
@@ -759,6 +784,7 @@ End Function
 ' fnbytesInFile(FILE *) as size_t
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fnbytesInFile/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>nbytes in file 0 on error</returns>
 Public Shared Function fnbytesInFile(
@@ -784,6 +810,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_binaryCopy/*"/>
 '''  <param name="datas">[in] - </param>
 '''  <param name="size">[in] - of data array</param>
 '''   <returns>datad on heap, or NULL on error</returns>
@@ -803,6 +830,7 @@ End Function
 ' fileCopy(const char *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fileCopy/*"/>
 '''  <param name="srcfile">[in] - copy this file</param>
 '''  <param name="newfile">[in] - to this file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -823,6 +851,7 @@ End Function
 ' fileConcatenate(const char *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fileConcatenate/*"/>
 '''  <param name="srcfile">[in] - file to append</param>
 '''  <param name="destfile">[in] - file to add to</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -843,6 +872,7 @@ End Function
 ' fileAppendString(const char *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fileAppendString/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="str">[in] - string to append to file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -873,6 +903,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fopenReadStream/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>stream, or NULL on error</returns>
 Public Shared Function fopenReadStream(
@@ -901,6 +932,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fopenWriteStream/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="modestring">[in] - </param>
 '''   <returns>stream, or NULL on error</returns>
@@ -931,6 +963,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fopenReadFromMemory/*"/>
 '''  <param name="data">[in] - </param>
 '''  <param name="size">[in] - </param>
 '''   <returns>file stream, or NULL on error</returns>
@@ -958,6 +991,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fopenWriteWinTempfile/*"/>
 '''   <returns>file stream, or NULL on error</returns>
 Public Shared Function fopenWriteWinTempfile() as FILE
 
@@ -978,6 +1012,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_fopen/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="mode">[in] - same as for fopen() e.g., "rb"</param>
 '''   <returns>stream or NULL on error</returns>
@@ -1007,6 +1042,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_fclose/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function lept_fclose(
@@ -1031,6 +1067,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_calloc/*"/>
 '''  <param name="nmemb">[in] - number of members</param>
 '''  <param name="size">[in] - of each member</param>
 '''   <returns>void ptr, or NULL on error</returns>
@@ -1054,6 +1091,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_free/*"/>
 '''  <param name="ptr">[in] - </param>
 Public Shared Sub lept_free(
 				 ByVal ptr as Object)
@@ -1081,6 +1119,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_mkdir/*"/>
 '''  <param name="subdir">[in] - of /tmp or its equivalent on Windows</param>
 '''   <returns>0 on success, non-zero on failure</returns>
 Public Shared Function lept_mkdir(
@@ -1113,6 +1152,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_rmdir/*"/>
 '''  <param name="subdir">[in] - of /tmp or its equivalent on Windows</param>
 '''   <returns>0 on success, non-zero on failure</returns>
 Public Shared Function lept_rmdir(
@@ -1139,6 +1179,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_direxists/*"/>
 '''  <param name="dir">[in] - </param>
 '''  <param name="pexists">[out] - 1 if it exists 0 otherwise</param>
 Public Shared Sub lept_direxists(
@@ -1174,6 +1215,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_rm_match/*"/>
 '''  <param name="subdir">[in][optional] - If NULL, the removed files are in /tmp</param>
 '''  <param name="substr">[in][optional] - pattern to match in filename</param>
 '''   <returns>0 on success, non-zero on failure</returns>
@@ -1198,6 +1240,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_rm/*"/>
 '''  <param name="subdir">[in][optional] - of '/tmp' can be NULL</param>
 '''  <param name="tail">[in] - filename without the directory</param>
 '''   <returns>0 on success, non-zero on failure</returns>
@@ -1227,6 +1270,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_rmfile/*"/>
 '''  <param name="filepath">[in] - full path to file including the directory</param>
 '''   <returns>0 on success, non-zero on failure</returns>
 Public Shared Function lept_rmfile(
@@ -1268,6 +1312,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_mv/*"/>
 '''  <param name="srcfile">[in] - </param>
 '''  <param name="newdir">[in][optional] - can be NULL</param>
 '''  <param name="newtail">[in][optional] - can be NULL</param>
@@ -1317,6 +1362,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_cp/*"/>
 '''  <param name="srcfile">[in] - </param>
 '''  <param name="newdir">[in][optional] - can be NULL</param>
 '''  <param name="newtail">[in][optional] - can be NULL</param>
@@ -1351,6 +1397,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/callSystemDebug/*"/>
 '''  <param name="cmd">[in] - command to be exec'd</param>
 Public Shared Sub callSystemDebug(
 				 ByVal cmd as String)
@@ -1385,6 +1432,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/splitPathAtDirectory/*"/>
 '''  <param name="pathname">[in] - full path can be a directory</param>
 '''  <param name="pdir">[out][optional] - root directory name of input path, including trailing '/'</param>
 '''  <param name="ptail">[out][optional] - path tail, which is either the file name within the root directory or the last sub-directory in the path</param>
@@ -1424,6 +1472,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/splitPathAtExtension/*"/>
 '''  <param name="pathname">[in] - full path can be a directory</param>
 '''  <param name="pbasename">[out][optional] - pathname not including the last dot and characters after that</param>
 '''  <param name="pextension">[out][optional] - path extension, which is the last dot and the characters after it.  If there is no extension, it returns the empty string</param>
@@ -1479,6 +1528,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pathJoin/*"/>
 '''  <param name="dir">[in][optional] - can be null</param>
 '''  <param name="fname">[in][optional] - can be null</param>
 '''   <returns>specially concatenated path, or NULL on error</returns>
@@ -1502,6 +1552,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/appendSubdirs/*"/>
 '''  <param name="basedir">[in] - </param>
 '''  <param name="subdirs">[in] - </param>
 '''   <returns>concatenated full directory path without trailing slash, or NULL on error</returns>
@@ -1531,6 +1582,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertSepCharsInPath/*"/>
 '''  <param name="path">[in] - </param>
 '''  <param name="type">[in] - UNIX_PATH_SEPCHAR, WIN_PATH_SEPCHAR</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1576,6 +1628,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/genPathname/*"/>
 '''  <param name="dir">[in][optional] - directory or full path name, with or without trailing '/'</param>
 '''  <param name="fname">[in][optional] - file name within a directory</param>
 '''   <returns>pathname either a directory or full path, or NULL on error</returns>
@@ -1612,6 +1665,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeTempDirname/*"/>
 '''  <param name="result">[in] - preallocated on stack or heap and passed in</param>
 '''  <param name="nbytes">[in] - size of %result array, in bytes</param>
 '''  <param name="subdir">[in][optional] - can be NULL or an empty string</param>
@@ -1638,6 +1692,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/modifyTrailingSlash/*"/>
 '''  <param name="path">[in] - preallocated on stack or heap and passed in</param>
 '''  <param name="nbytes">[in] - size of %path array, in bytes</param>
 '''  <param name="flag">[in] - L_ADD_TRAIL_SLASH or L_REMOVE_TRAIL_SLASH</param>
@@ -1677,6 +1732,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_makeTempFilename/*"/>
 '''   <returns>fname : heap allocated filename returns NULL on failure.</returns>
 Public Shared Function l_makeTempFilename() as String
 
@@ -1699,6 +1755,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/extractNumberFromFilename/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="numpre">[in] - number of characters before the digits to be found</param>
 '''  <param name="numpost">[in] - number of characters after the digits to be found</param>

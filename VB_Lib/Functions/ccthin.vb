@@ -13,6 +13,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaThinConnected/*"/>
 '''  <param name="pixas">[in] - of 1 bpp pix</param>
 '''  <param name="type">[in] - L_THIN_FG, L_THIN_BG</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -73,6 +74,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThinConnected/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="type">[in] - L_THIN_FG, L_THIN_BG</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -118,6 +120,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThinConnectedBySet/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="type">[in] - L_THIN_FG, L_THIN_BG</param>
 '''  <param name="sela">[in] - of Sels for parallel composite HMTs</param>
@@ -167,6 +170,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/selaMakeThinSets/*"/>
 '''  <param name="index">[in] - into specific sets</param>
 '''  <param name="debug">[in] - 1 to output display of sela</param>
 '''   <returns>sela, or NULL on error</returns>

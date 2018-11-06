@@ -92,6 +92,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetWhiteblocks/*"/>
 '''  <param name="boxas">[in] - typically, a set of bounding boxes of fg components</param>
 '''  <param name="box">[in] - initial region typically including all boxes in boxas if null, it computes the region to include all boxes in boxas</param>
 '''  <param name="sortflag">[in] - L_SORT_BY_WIDTH, L_SORT_BY_HEIGHT, L_SORT_BY_MIN_DIMENSION, L_SORT_BY_MAX_DIMENSION, L_SORT_BY_PERIMETER, L_SORT_BY_AREA</param>
@@ -135,6 +136,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaPruneSortedOnOverlap/*"/>
 '''  <param name="boxas">[in] - sorted by size in decreasing order</param>
 '''  <param name="maxoverlap">[in] - maximum fractional overlap of a box by any of the larger boxes</param>
 '''   <returns>boxad pruned, or NULL on error</returns>

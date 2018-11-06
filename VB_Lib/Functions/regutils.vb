@@ -37,6 +37,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestSetup/*"/>
 '''  <param name="argc">[in] - from invocation can be either 1 or 2</param>
 '''  <param name="argv">[in] - to regtest: %argv[1] is one of these: "generate", "compare", "display"</param>
 '''  <param name="prp">[out] - all regression params</param>
@@ -68,6 +69,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestCleanup/*"/>
 '''  <param name="rp">[in] - regression test parameters</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function regTestCleanup(
@@ -85,6 +87,7 @@ End Function
 ' regTestCompareValues(L_REGPARAMS *, l_float32, l_float32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestCompareValues/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="val1">[in] - typ. the golden value</param>
 '''  <param name="val2">[in] - typ. the value computed</param>
@@ -108,6 +111,7 @@ End Function
 ' regTestCompareStrings(L_REGPARAMS *, l_uint8 *, size_t, l_uint8 *, size_t) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestCompareStrings/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="string1">[in] - typ. the expected string</param>
 '''  <param name="bytes1">[in] - size of string1</param>
@@ -141,6 +145,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestComparePix/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="pix1">[in] - to be tested for equality</param>
 '''  <param name="pix2">[in] - to be tested for equality</param>
@@ -179,6 +184,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestCompareSimilarPix/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="pix1">[in] - to be tested for near equality</param>
 '''  <param name="pix2">[in] - to be tested for near equality</param>
@@ -223,6 +229,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestCheckFile/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="localname">[in] - name of output file from reg test</param>
 '''   <returns>0 if OK, 1 on error a failure in comparison is not an error</returns>
@@ -253,6 +260,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestCompareFiles/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="index1">[in] - of one output file from reg test</param>
 '''  <param name="index2">[in] - of another output file from reg test</param>
@@ -291,6 +299,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestWritePixAndCheck/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="pix">[in] - to be written</param>
 '''  <param name="format">[in] - of output pix</param>
@@ -333,6 +342,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestWriteDataAndCheck/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="data">[in] - to be written</param>
 '''  <param name="nbytes">[in] - of data to be written</param>
@@ -371,6 +381,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/regTestGenLocalFilename/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="index">[in] - use -1 for current index</param>
 '''  <param name="format">[in] - of image e.g., IFF_PNG</param>

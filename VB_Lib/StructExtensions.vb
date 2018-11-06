@@ -13,6 +13,7 @@ Partial Public Class Pix
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRead/*"/>
 '''  <param name="filename">[in] - with full pathname or in local directory</param>
 Sub New (
 				 ByVal filename as String)
@@ -29,6 +30,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo32/*"/>
 '''   <returns>pixd 32 bpp, or NULL on error Usage: Top-level function, with simple default values for unpacking. 1 bpp:  val0 = 255, val1 = 0 and then replication into R, G and B components 2 bpp:  if colormapped, use the colormap values otherwise, use val0 = 0, val1 = 0x55, val2 = 0xaa, val3 = 255 and replicate gray into R, G and B components 4 bpp:  if colormapped, use the colormap values otherwise, replicate 2 nybs into a byte, and then into R,G,B components 8 bpp:  if colormapped, use the colormap values otherwise, replicate gray values into R, G and B components 16 bpp: replicate MSB into R, G and B components 24 bpp: unpack the pixels, maintaining word alignment on each scanline 32 bpp: makes a copy</returns>
 Public Function pixConvertTo32(
 ) as Pix
@@ -40,6 +42,7 @@ End Function
 ' pixConvertTo16(PIX *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo16/*"/>
 '''   <returns>pixd 16 bpp, or NULL on error Usage: Top-level function, with simple default values for unpacking. 1 bpp:  val0 = 0xffff, val1 = 0 8 bpp:  replicates the 8 bit value in both the MSB and LSB of the 16 bit pixel.</returns>
 Public Function pixConvertTo16(
 ) as Pix
@@ -69,6 +72,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo8/*"/>
 '''  <param name="cmapflag">[in] - TRUE if pixd is to have a colormap FALSE otherwise</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
 Public Function pixConvertTo8(
@@ -90,6 +94,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo4/*"/>
 '''   <returns>pixd   4 bpp, or NULL on error</returns>
 Public Function pixConvertTo4(
 ) as Pix
@@ -110,6 +115,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo2/*"/>
 '''   <returns>pixd   2 bpp, or NULL on error</returns>
 Public Function pixConvertTo2(
 ) as Pix
@@ -130,6 +136,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo1/*"/>
 '''  <param name="threshold">[in] - for final binarization, relative to 8 bpp</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
 Public Function pixConvertTo1(
@@ -151,6 +158,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDeskew/*"/>
 '''  <param name="redsearch">[in] - for binary search: reduction factor = 1, 2 or 4 use 0 for default</param>
 '''   <returns>pixd deskewed pix, or NULL on error</returns>
 Public Function pixDeskew(
@@ -176,6 +184,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixInvert/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Function pixInvert(
@@ -199,6 +208,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOrientCorrect/*"/>
 '''  <param name="minupconf">[in] - minimum value for which a decision can be made</param>
 '''  <param name="minratio">[in] - minimum conf ratio required for a decision</param>
 '''  <param name="pupconf">[out][optional] - use NULL to skip</param>
@@ -229,6 +239,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormSimple/*"/>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
 '''   <returns>pixd 8 bpp or 32 bpp rgb, or NULL on error</returns>
@@ -254,6 +265,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCleanBackgroundToWhite/*"/>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
 '''  <param name="gamma">[in] - gamma correction must be  is greater  0.0 typically ~1.0</param>
@@ -280,6 +292,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetRegionsBinary/*"/>
 '''  <param name="ppixhm">[out][optional] - halftone mask</param>
 '''  <param name="ppixtm">[out][optional] - textline mask</param>
 '''  <param name="ppixtb">[out][optional] - textblock mask</param>
@@ -303,6 +316,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToGray/*"/>
 '''  <param name="rwt">[in] - non-negative these should add to 1.0, or use 0.0 for default</param>
 '''  <param name="gwt">[in] - non-negative these should add to 1.0, or use 0.0 for default</param>
 '''  <param name="bwt">[in] - non-negative these should add to 1.0, or use 0.0 for default</param>
@@ -339,6 +353,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOctcubeQuantMixedWithGray/*"/>
 '''  <param name="depth">[in] - of output pix</param>
 '''  <param name="graylevels">[in] - graylevels (must be  is greater  1)</param>
 '''  <param name="delta">[in] - threshold for deciding if a pix is color or gray</param>
@@ -355,6 +370,7 @@ End Function
 ' pixGetColormap(PIX *) as PIXCMAP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGetColormap/*"/>
 '''   <returns></returns>
 Public Function pixGetColormap(
 ) as PixColormap
@@ -374,6 +390,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSetColormap/*"/>
 '''  <param name="colormap">[in] - to be assigned</param>
 '''   <returns>0 if OK, 1 on error.</returns>
 Public Function pixSetColormap(
@@ -394,6 +411,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpSinglePage/*"/>
 '''  <param name="thresh">[in] - for global thresholding to 1 bpp ignored otherwise</param>
 '''  <param name="adaptive">[in] - 1 for adaptive thresholding 0 for global threshold</param>
 '''  <param name="useboth">[in] - 1 for horizontal and vertical 0 for vertical only</param>
@@ -426,6 +444,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertToPdf/*"/>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 '''  <param name="quality">[in] - used for JPEG only 0 for default (75)</param>
 '''  <param name="fileout">[in] - output pdf file only required on last image on page</param>
@@ -455,6 +474,7 @@ Partial Public Class PixColormap
 ' pixcmapCreate(l_int32) as PIXCMAP *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapCreate/*"/>
 '''  <param name="depth">[in] - bpp, of pix</param>
 Sub New (
 				 ByVal depth as Integer)
@@ -466,6 +486,7 @@ End Sub
 ' pixcmapGetCount(PIXCMAP *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetCount/*"/>
 '''   <returns>count, or 0 on error</returns>
 Public Function pixcmapGetCount(
 ) as Integer
@@ -477,6 +498,7 @@ End Function
 ' pixcmapGetColor(PIXCMAP *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetColor/*"/>
 '''  <param name="index">[in] - </param>
 '''  <param name="prval">[out] - each color value</param>
 '''  <param name="pgval">[out] - each color value</param>
@@ -501,6 +523,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixcmapAddColor/*"/>
 '''  <param name="rval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 '''  <param name="gval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 '''  <param name="bval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>

@@ -8,6 +8,7 @@ Partial Public Class _All
 ' rasteropUniLow(l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/rasteropUniLow/*"/>
 '''  <param name="datad">[in] - ptr to dest image data</param>
 '''  <param name="dpixw">[in] - width of dest</param>
 '''  <param name="dpixh">[in] - height of dest</param>
@@ -43,6 +44,7 @@ End Sub
 ' rasteropLow(l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/rasteropLow/*"/>
 '''  <param name="datad">[in] - ptr to dest image data</param>
 '''  <param name="dpixw">[in] - width of dest</param>
 '''  <param name="dpixh">[in] - height of dest</param>
@@ -105,6 +107,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/rasteropVipLow/*"/>
 '''  <param name="data">[in] - ptr to image data</param>
 '''  <param name="pixw">[in] - width</param>
 '''  <param name="pixh">[in] - height</param>
@@ -146,6 +149,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/rasteropHipLow/*"/>
 '''  <param name="data">[in] - ptr to image data</param>
 '''  <param name="pixh">[in] - height</param>
 '''  <param name="depth">[in] - depth</param>

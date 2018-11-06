@@ -15,6 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixCreate/*"/>
 '''  <param name="width">[in] - </param>
 '''  <param name="height">[in] - </param>
 '''   <returns>fpixd   with data allocated and initialized to 0, or NULL on error</returns>
@@ -40,6 +41,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixCreateTemplate/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>fpixd, or NULL on error</returns>
 Public Shared Function fpixCreateTemplate(
@@ -63,6 +65,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixClone/*"/>
 '''  <param name="fpix">[in] - </param>
 '''   <returns>same fpix ptr, or NULL on error</returns>
 Public Shared Function fpixClone(
@@ -103,6 +106,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixCopy/*"/>
 '''  <param name="fpixd">[in][optional] - can be null, or equal to fpixs, or different from fpixs</param>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>fpixd, or NULL on error</returns>
@@ -133,6 +137,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixResizeImageData/*"/>
 '''  <param name="fpixd">[in] - </param>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -159,6 +164,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixDestroy/*"/>
 '''  <param name="pfpix">[in,out] - will be nulled</param>
 Public Shared Sub fpixDestroy(
 				 ByRef pfpix as FPix)
@@ -175,6 +181,7 @@ End Sub
 ' fpixGetDimensions(FPIX *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixGetDimensions/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="pw">[out][optional] - each can be null</param>
 '''  <param name="ph">[out][optional] - each can be null</param>
@@ -196,6 +203,7 @@ End Function
 ' fpixSetDimensions(FPIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixSetDimensions/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="w">[in] - </param>
 '''  <param name="h">[in] - </param>
@@ -217,6 +225,7 @@ End Function
 ' fpixGetWpl(FPIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixGetWpl/*"/>
 '''  <param name="fpix">[in] - </param>
 '''   <returns>wpl, or UNDEF on error</returns>
 Public Shared Function fpixGetWpl(
@@ -234,6 +243,7 @@ End Function
 ' fpixSetWpl(FPIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixSetWpl/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="wpl">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -253,6 +263,7 @@ End Function
 ' fpixGetRefcount(FPIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixGetRefcount/*"/>
 '''  <param name="fpix">[in] - </param>
 '''   <returns>refcount, or UNDEF on error</returns>
 Public Shared Function fpixGetRefcount(
@@ -270,6 +281,7 @@ End Function
 ' fpixChangeRefcount(FPIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixChangeRefcount/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="delta">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -289,6 +301,7 @@ End Function
 ' fpixGetResolution(FPIX *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixGetResolution/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="pxres">[out][optional] - x and y resolution</param>
 '''  <param name="pyres">[out][optional] - x and y resolution</param>
@@ -310,6 +323,7 @@ End Function
 ' fpixSetResolution(FPIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixSetResolution/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="xres">[in] - x and y resolution</param>
 '''  <param name="yres">[in] - x and y resolution</param>
@@ -331,6 +345,7 @@ End Function
 ' fpixCopyResolution(FPIX *, FPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixCopyResolution/*"/>
 '''  <param name="fpixd">[in] - </param>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -351,6 +366,7 @@ End Function
 ' fpixGetData(FPIX *) as l_float32 *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixGetData/*"/>
 '''  <param name="fpix">[in] - </param>
 '''   <returns>ptr FPix::data, or NULL on error</returns>
 Public Shared Function fpixGetData(
@@ -368,6 +384,7 @@ End Function
 ' fpixSetData(FPIX *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixSetData/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="data">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -388,6 +405,7 @@ End Function
 ' fpixGetPixel(FPIX *, l_int32, l_int32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixGetPixel/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="x">[in] - ,y pixel coords</param>
 '''  <param name="pval">[out] - pixel value</param>
@@ -410,6 +428,7 @@ End Function
 ' fpixSetPixel(FPIX *, l_int32, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixSetPixel/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="x">[in] - ,y pixel coords</param>
 '''  <param name="val">[in] - pixel value</param>
@@ -432,6 +451,7 @@ End Function
 ' fpixaCreate(l_int32) as FPIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaCreate/*"/>
 '''  <param name="n">[in] - initial number of ptrs</param>
 '''   <returns>fpixa, or NULL on error</returns>
 Public Shared Function fpixaCreate(
@@ -456,6 +476,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaCopy/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="copyflag">[in] - L_COPY, L_CLODE or L_COPY_CLONE</param>
 '''   <returns>new fpixa, or NULL on error</returns>
@@ -482,6 +503,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaDestroy/*"/>
 '''  <param name="pfpixa">[in,out] - to be nulled</param>
 Public Shared Sub fpixaDestroy(
 				 ByRef pfpixa as FPixa)
@@ -498,6 +520,7 @@ End Sub
 ' fpixaAddFPix(FPIXA *, FPIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaAddFPix/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="fpix">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -520,6 +543,7 @@ End Function
 ' fpixaGetCount(FPIXA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaGetCount/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''   <returns>count, or 0 if no pixa</returns>
 Public Shared Function fpixaGetCount(
@@ -537,6 +561,7 @@ End Function
 ' fpixaChangeRefcount(FPIXA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaChangeRefcount/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="delta">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -556,6 +581,7 @@ End Function
 ' fpixaGetFPix(FPIXA *, l_int32, l_int32) as FPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaGetFPix/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th fpix</param>
 '''  <param name="accesstype">[in] - L_COPY or L_CLONE</param>
@@ -578,6 +604,7 @@ End Function
 ' fpixaGetFPixDimensions(FPIXA *, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaGetFPixDimensions/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="pw">[out][optional] - each can be null</param>
@@ -601,6 +628,7 @@ End Function
 ' fpixaGetData(FPIXA *, l_int32) as l_float32 *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaGetData/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="index">[in] - into fpixa array</param>
 '''   <returns>data not a copy, or NULL on error</returns>
@@ -620,6 +648,7 @@ End Function
 ' fpixaGetPixel(FPIXA *, l_int32, l_int32, l_int32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaGetPixel/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="index">[in] - into fpixa array</param>
 '''  <param name="x">[in] - ,y pixel coords</param>
@@ -644,6 +673,7 @@ End Function
 ' fpixaSetPixel(FPIXA *, l_int32, l_int32, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixaSetPixel/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="index">[in] - into fpixa array</param>
 '''  <param name="x">[in] - ,y pixel coords</param>
@@ -675,6 +705,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixCreate/*"/>
 '''  <param name="width">[in] - </param>
 '''  <param name="height">[in] - </param>
 '''   <returns>dpix  with data allocated and initialized to 0, or NULL on error</returns>
@@ -700,6 +731,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixCreateTemplate/*"/>
 '''  <param name="dpixs">[in] - </param>
 '''   <returns>dpixd, or NULL on error</returns>
 Public Shared Function dpixCreateTemplate(
@@ -723,6 +755,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixClone/*"/>
 '''  <param name="dpix">[in] - </param>
 '''   <returns>same dpix ptr, or NULL on error</returns>
 Public Shared Function dpixClone(
@@ -763,6 +796,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixCopy/*"/>
 '''  <param name="dpixd">[in][optional] - can be null, or equal to dpixs, or different from dpixs</param>
 '''  <param name="dpixs">[in] - </param>
 '''   <returns>dpixd, or NULL on error</returns>
@@ -785,6 +819,7 @@ End Function
 ' dpixResizeImageData(DPIX *, DPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixResizeImageData/*"/>
 '''  <param name="dpixd">[in] - </param>
 '''  <param name="dpixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -811,6 +846,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixDestroy/*"/>
 '''  <param name="pdpix">[in,out] - will be nulled</param>
 Public Shared Sub dpixDestroy(
 				 ByRef pdpix as DPix)
@@ -827,6 +863,7 @@ End Sub
 ' dpixGetDimensions(DPIX *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixGetDimensions/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="pw">[out][optional] - each can be null</param>
 '''  <param name="ph">[out][optional] - each can be null</param>
@@ -848,6 +885,7 @@ End Function
 ' dpixSetDimensions(DPIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixSetDimensions/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="w">[in] - </param>
 '''  <param name="h">[in] - </param>
@@ -869,6 +907,7 @@ End Function
 ' dpixGetWpl(DPIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixGetWpl/*"/>
 '''  <param name="dpix">[in] - </param>
 '''   <returns>wpl, or UNDEF on error</returns>
 Public Shared Function dpixGetWpl(
@@ -886,6 +925,7 @@ End Function
 ' dpixSetWpl(DPIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixSetWpl/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="wpl">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -905,6 +945,7 @@ End Function
 ' dpixGetRefcount(DPIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixGetRefcount/*"/>
 '''  <param name="dpix">[in] - </param>
 '''   <returns>refcount, or UNDEF on error</returns>
 Public Shared Function dpixGetRefcount(
@@ -922,6 +963,7 @@ End Function
 ' dpixChangeRefcount(DPIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixChangeRefcount/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="delta">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -941,6 +983,7 @@ End Function
 ' dpixGetResolution(DPIX *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixGetResolution/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="pxres">[out][optional] - x and y resolution</param>
 '''  <param name="pyres">[out][optional] - x and y resolution</param>
@@ -962,6 +1005,7 @@ End Function
 ' dpixSetResolution(DPIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixSetResolution/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="xres">[in] - x and y resolution</param>
 '''  <param name="yres">[in] - x and y resolution</param>
@@ -983,6 +1027,7 @@ End Function
 ' dpixCopyResolution(DPIX *, DPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixCopyResolution/*"/>
 '''  <param name="dpixd">[in] - </param>
 '''  <param name="dpixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1003,6 +1048,7 @@ End Function
 ' dpixGetData(DPIX *) as l_float64 *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixGetData/*"/>
 '''  <param name="dpix">[in] - </param>
 '''   <returns>ptr DPix::data, or NULL on error</returns>
 Public Shared Function dpixGetData(
@@ -1020,6 +1066,7 @@ End Function
 ' dpixSetData(DPIX *, l_float64 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixSetData/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="data">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1040,6 +1087,7 @@ End Function
 ' dpixGetPixel(DPIX *, l_int32, l_int32, l_float64 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixGetPixel/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="x">[in] - ,y pixel coords</param>
 '''  <param name="pval">[out] - pixel value</param>
@@ -1062,6 +1110,7 @@ End Function
 ' dpixSetPixel(DPIX *, l_int32, l_int32, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixSetPixel/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="x">[in] - ,y pixel coords</param>
 '''  <param name="val">[in] - pixel value</param>
@@ -1085,6 +1134,7 @@ End Function
 ' fpixRead(const char *) as FPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>fpix, or NULL on error</returns>
 Public Shared Function fpixRead(
@@ -1105,6 +1155,7 @@ End Function
 ' fpixReadStream(FILE *) as FPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>fpix, or NULL on error</returns>
 Public Shared Function fpixReadStream(
@@ -1123,6 +1174,7 @@ End Function
 ' fpixReadMem(const l_uint8 *, size_t) as FPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixReadMem/*"/>
 '''  <param name="data">[in] - of serialized fpix</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>fpix, or NULL on error</returns>
@@ -1143,6 +1195,7 @@ End Function
 ' fpixWrite(const char *, FPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="fpix">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1165,6 +1218,7 @@ End Function
 ' fpixWriteStream(FILE *, FPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="fpix">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1190,6 +1244,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized fpix</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="fpix">[in] - </param>
@@ -1226,6 +1281,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixEndianByteSwap/*"/>
 '''  <param name="fpixd">[in] - can be equal to fpixs or NULL</param>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>fpixd always</returns>
@@ -1247,6 +1303,7 @@ End Function
 ' dpixRead(const char *) as DPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>dpix, or NULL on error</returns>
 Public Shared Function dpixRead(
@@ -1267,6 +1324,7 @@ End Function
 ' dpixReadStream(FILE *) as DPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>dpix, or NULL on error</returns>
 Public Shared Function dpixReadStream(
@@ -1285,6 +1343,7 @@ End Function
 ' dpixReadMem(const l_uint8 *, size_t) as DPIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixReadMem/*"/>
 '''  <param name="data">[in] - of serialized dpix</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>dpix, or NULL on error</returns>
@@ -1305,6 +1364,7 @@ End Function
 ' dpixWrite(const char *, DPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="dpix">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1327,6 +1387,7 @@ End Function
 ' dpixWriteStream(FILE *, DPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="dpix">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1352,6 +1413,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized dpix</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="dpix">[in] - </param>
@@ -1388,6 +1450,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dpixEndianByteSwap/*"/>
 '''  <param name="dpixd">[in] - can be equal to dpixs or NULL</param>
 '''  <param name="dpixs">[in] - </param>
 '''   <returns>dpixd always</returns>
@@ -1414,6 +1477,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixPrintStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="factor">[in] - subsampled</param>

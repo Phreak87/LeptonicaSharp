@@ -13,6 +13,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaTransform/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="shiftx">[in] - </param>
 '''  <param name="shifty">[in] - </param>
@@ -45,6 +46,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxTransform/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="shiftx">[in] - </param>
 '''  <param name="shifty">[in] - </param>
@@ -94,6 +96,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaTransformOrdered/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="shiftx">[in] - </param>
 '''  <param name="shifty">[in] - </param>
@@ -168,6 +171,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxTransformOrdered/*"/>
 '''  <param name="boxs">[in] - </param>
 '''  <param name="shiftx">[in] - </param>
 '''  <param name="shifty">[in] - </param>
@@ -207,6 +211,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaRotateOrth/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="w">[in] - of image in which the boxa is embedded</param>
 '''  <param name="h">[in] - of image in which the boxa is embedded</param>
@@ -238,6 +243,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxRotateOrth/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="w">[in] - of image in which the box is embedded</param>
 '''  <param name="h">[in] - of image in which the box is embedded</param>
@@ -267,6 +273,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSort/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="sorttype">[in] - L_SORT_BY_X, L_SORT_BY_Y, L_SORT_BY_RIGHT, L_SORT_BY_BOT, L_SORT_BY_WIDTH, L_SORT_BY_HEIGHT, L_SORT_BY_MIN_DIMENSION, L_SORT_BY_MAX_DIMENSION, L_SORT_BY_PERIMETER, L_SORT_BY_AREA, L_SORT_BY_ASPECT_RATIO</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
@@ -303,6 +310,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaBinSort/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="sorttype">[in] - L_SORT_BY_X, L_SORT_BY_Y, L_SORT_BY_WIDTH, L_SORT_BY_HEIGHT, L_SORT_BY_PERIMETER</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
@@ -330,6 +338,7 @@ End Function
 ' boxaSortByIndex(BOXA *, NUMA *) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSortByIndex/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="naindex">[in] - na that maps from the new boxa to the input boxa</param>
 '''   <returns>boxad sorted, or NULL on error</returns>
@@ -383,6 +392,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSort2d/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="pnaad">[out][optional] - numaa with sorted indices whose values are the indices of the input array</param>
 '''  <param name="delta1">[in] - min overlap that permits aggregation of a box onto a boxa of horizontally-aligned boxes pass 1</param>
@@ -412,6 +422,7 @@ End Function
 ' boxaSort2dByIndex(BOXA *, NUMAA *) as BOXAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaSort2dByIndex/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="naa">[in] - numaa that maps from the new baa to the input boxa</param>
 '''   <returns>baa sorted boxaa, or NULL on error</returns>
@@ -443,6 +454,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaExtractAsNuma/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pnal">[out][optional] - array of left locations</param>
 '''  <param name="pnat">[out][optional] - array of top locations</param>
@@ -499,6 +511,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaExtractAsPta/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pptal">[out][optional] - array of left locations vs. index</param>
 '''  <param name="pptat">[out][optional] - array of top locations vs. index</param>
@@ -558,6 +571,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetRankVals/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="fract">[in] - use 0.0 for smallest, 1.0 for largest width and height</param>
 '''  <param name="px">[out][optional] - rank value of x</param>
@@ -590,6 +604,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetMedianVals/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="px">[out][optional] - median value of x</param>
 '''  <param name="py">[out][optional] - median value of y</param>
@@ -615,6 +630,7 @@ End Function
 ' boxaGetAverageSize(BOXA *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaGetAverageSize/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pw">[out][optional] - average width</param>
 '''  <param name="ph">[out][optional] - average height</param>
@@ -646,6 +662,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaGetExtent/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="pw">[out][optional] - width</param>
 '''  <param name="ph">[out][optional] - height</param>
@@ -689,6 +706,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaFlattenToBoxa/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="pnaindex">[out][optional] - the boxa index in the baa</param>
 '''  <param name="copyflag">[in] - L_COPY or L_CLONE</param>
@@ -724,6 +742,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaFlattenAligned/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="num">[in] - number extracted from each</param>
 '''  <param name="fillerbox">[in][optional] - that fills if necessary</param>
@@ -757,6 +776,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaEncapsulateAligned/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="num">[in] - number put into each boxa in the baa</param>
 '''  <param name="copyflag">[in] - L_COPY or L_CLONE</param>
@@ -792,6 +812,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaTranspose/*"/>
 '''  <param name="baas">[in] - </param>
 '''   <returns>baad, or NULL on error</returns>
 Public Shared Function boxaaTranspose(
@@ -816,6 +837,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/boxaaAlignBox/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="box">[in] - to be aligned with the bext boxa in the baa, if possible</param>
 '''  <param name="delta">[in] - amount by which consecutive components can miss in overlap and still be included in the array</param>

@@ -13,6 +13,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaLine/*"/>
 '''  <param name="x1">[in] - end point 1</param>
 '''  <param name="y1">[in] - end point 1</param>
 '''  <param name="x2">[in] - end point 2</param>
@@ -35,6 +36,7 @@ End Function
 ' generatePtaWideLine(l_int32, l_int32, l_int32, l_int32, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaWideLine/*"/>
 '''  <param name="x1">[in] - end point 1</param>
 '''  <param name="y1">[in] - end point 1</param>
 '''  <param name="x2">[in] - end point 2</param>
@@ -65,6 +67,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaBox/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="width">[in] - of line</param>
 '''   <returns>ptad, or NULL on error</returns>
@@ -93,6 +96,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaBoxa/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="width">[in] - </param>
 '''  <param name="removedups">[in] - 1 to remove, 0 to leave</param>
@@ -122,6 +126,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaHashBox/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
 '''  <param name="width">[in] - of line</param>
@@ -159,6 +164,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaHashBoxa/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
 '''  <param name="width">[in] - of line</param>
@@ -195,6 +201,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaaBoxa/*"/>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>ptaa, or NULL on error</returns>
 Public Shared Function generatePtaaBoxa(
@@ -222,6 +229,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaaHashBoxa/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="spacing">[in] - spacing between hash lines must be  is greater  1</param>
 '''  <param name="width">[in] - hash line width</param>
@@ -248,6 +256,7 @@ End Function
 ' generatePtaPolyline(PTA *, l_int32, l_int32, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaPolyline/*"/>
 '''  <param name="ptas">[in] - vertices of polyline</param>
 '''  <param name="width">[in] - </param>
 '''  <param name="closeflag">[in] - 1 to close the contour 0 otherwise</param>
@@ -272,6 +281,7 @@ End Function
 ' generatePtaGrid(l_int32, l_int32, l_int32, l_int32, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaGrid/*"/>
 '''  <param name="w">[in] - of region where grid will be displayed</param>
 '''  <param name="h">[in] - of region where grid will be displayed</param>
 '''  <param name="nx">[in] - number of rectangles in each direction in grid</param>
@@ -305,6 +315,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertPtaLineTo4cc/*"/>
 '''  <param name="ptas">[in] - 8-connected line of points</param>
 '''   <returns>ptad 4-connected line, or NULL on error</returns>
 Public Shared Function convertPtaLineTo4cc(
@@ -332,6 +343,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaFilledCircle/*"/>
 '''  <param name="radius">[in] - </param>
 '''   <returns>pta, or NULL on error</returns>
 Public Shared Function generatePtaFilledCircle(
@@ -355,6 +367,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaFilledSquare/*"/>
 '''  <param name="side">[in] - </param>
 '''   <returns>pta, or NULL on error</returns>
 Public Shared Function generatePtaFilledSquare(
@@ -378,6 +391,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/generatePtaLineFromPt/*"/>
 '''  <param name="x">[in] - point of origination</param>
 '''  <param name="y">[in] - point of origination</param>
 '''  <param name="length">[in] - of line, including starting point</param>
@@ -403,6 +417,7 @@ End Function
 ' locatePtRadially(l_int32, l_int32, l_float64, l_float64, l_float64 *, l_float64 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/locatePtRadially/*"/>
 '''  <param name="xr">[in] - reference point</param>
 '''  <param name="yr">[in] - reference point</param>
 '''  <param name="dist">[in] - distance of point from reference point along line given by the specified angle</param>
@@ -440,6 +455,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderPlotFromNuma/*"/>
 '''  <param name="ppix">[in,out] - any type replaced if not 32 bpp rgb</param>
 '''  <param name="na">[in] - to be plotted</param>
 '''  <param name="plotloc">[in] - location of plot: L_PLOT_AT_TOP, etc</param>
@@ -480,6 +496,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makePlotPtaFromNuma/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="size">[in] - pix height for horizontal plot width for vertical plot</param>
 '''  <param name="plotloc">[in] - location of plot: L_PLOT_AT_TOP, etc</param>
@@ -515,6 +532,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderPlotFromNumaGen/*"/>
 '''  <param name="ppix">[in,out] - any type replaced if not 32 bpp rgb</param>
 '''  <param name="na">[in] - to be plotted</param>
 '''  <param name="orient">[in] - L_HORIZONTAL_LINE, L_VERTICAL_LINE</param>
@@ -566,6 +584,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makePlotPtaFromNumaGen/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="orient">[in] - L_HORIZONTAL_LINE, L_VERTICAL_LINE</param>
 '''  <param name="linewidth">[in] - width of "line" that is drawn between 1 and 7</param>
@@ -606,6 +625,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderPta/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="pta">[in] - arbitrary set of points</param>
 '''  <param name="op">[in] - one of L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
@@ -641,6 +661,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderPtaArb/*"/>
 '''  <param name="pix">[in] - any depth, cmapped ok</param>
 '''  <param name="pta">[in] - arbitrary set of points</param>
 '''  <param name="rval">[in] - </param>
@@ -675,6 +696,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderPtaBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="pta">[in] - arbitrary set of points</param>
 '''  <param name="rval">[in] - </param>
@@ -708,6 +730,7 @@ End Function
 ' pixRenderLine(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderLine/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="x1">[in] - </param>
 '''  <param name="y1">[in] - </param>
@@ -737,6 +760,7 @@ End Function
 ' pixRenderLineArb(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_uint8, l_uint8, l_uint8) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderLineArb/*"/>
 '''  <param name="pix">[in] - any depth, cmapped ok</param>
 '''  <param name="x1">[in] - </param>
 '''  <param name="y1">[in] - </param>
@@ -773,6 +797,7 @@ End Function
 ' pixRenderLineBlend(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_uint8, l_uint8, l_uint8, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderLineBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="x1">[in] - </param>
 '''  <param name="y1">[in] - </param>
@@ -813,6 +838,7 @@ End Function
 ' pixRenderBox(PIX *, BOX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderBox/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="box">[in] - </param>
 '''  <param name="width">[in] - thickness of box lines</param>
@@ -837,6 +863,7 @@ End Function
 ' pixRenderBoxArb(PIX *, BOX *, l_int32, l_uint8, l_uint8, l_uint8) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderBoxArb/*"/>
 '''  <param name="pix">[in] - any depth, cmapped ok</param>
 '''  <param name="box">[in] - </param>
 '''  <param name="width">[in] - thickness of box lines</param>
@@ -868,6 +895,7 @@ End Function
 ' pixRenderBoxBlend(PIX *, BOX *, l_int32, l_uint8, l_uint8, l_uint8, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderBoxBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="box">[in] - </param>
 '''  <param name="width">[in] - thickness of box lines</param>
@@ -903,6 +931,7 @@ End Function
 ' pixRenderBoxa(PIX *, BOXA *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderBoxa/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -927,6 +956,7 @@ End Function
 ' pixRenderBoxaArb(PIX *, BOXA *, l_int32, l_uint8, l_uint8, l_uint8) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderBoxaArb/*"/>
 '''  <param name="pix">[in] - any depth colormapped is ok</param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -958,6 +988,7 @@ End Function
 ' pixRenderBoxaBlend(PIX *, BOXA *, l_int32, l_uint8, l_uint8, l_uint8, l_float32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderBoxaBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -995,6 +1026,7 @@ End Function
 ' pixRenderHashBox(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashBox/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="box">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
@@ -1025,6 +1057,7 @@ End Function
 ' pixRenderHashBoxArb(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashBoxArb/*"/>
 '''  <param name="pix">[in] - any depth cmapped ok</param>
 '''  <param name="box">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
@@ -1059,6 +1092,7 @@ End Function
 ' pixRenderHashBoxBlend(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashBoxBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp</param>
 '''  <param name="box">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
@@ -1102,6 +1136,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashMaskArb/*"/>
 '''  <param name="pix">[in] - any depth cmapped ok</param>
 '''  <param name="pixm">[in] - 1 bpp clipping mask for hash marks</param>
 '''  <param name="x">[in] - ,y   UL corner of %pixm with respect to %pix</param>
@@ -1139,6 +1174,7 @@ End Function
 ' pixRenderHashBoxa(PIX *, BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashBoxa/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
@@ -1169,6 +1205,7 @@ End Function
 ' pixRenderHashBoxaArb(PIX *, BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashBoxaArb/*"/>
 '''  <param name="pix">[in] - any depth cmapped ok</param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
@@ -1203,6 +1240,7 @@ End Function
 ' pixRenderHashBoxaBlend(PIX *, BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashBoxaBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
@@ -1246,6 +1284,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderPolyline/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -1277,6 +1316,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderPolylineArb/*"/>
 '''  <param name="pix">[in] - any depth cmapped ok</param>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -1310,6 +1350,7 @@ End Function
 ' pixRenderPolylineBlend(PIX *, PTA *, l_int32, l_uint8, l_uint8, l_uint8, l_float32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderPolylineBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -1349,6 +1390,7 @@ End Function
 ' pixRenderGridArb(PIX *, l_int32, l_int32, l_int32, l_uint8, l_uint8, l_uint8) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderGridArb/*"/>
 '''  <param name="pix">[in] - any depth, cmapped ok</param>
 '''  <param name="nx">[in] - number of rectangles in each direction</param>
 '''  <param name="ny">[in] - number of rectangles in each direction</param>
@@ -1397,6 +1439,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderRandomCmapPtaa/*"/>
 '''  <param name="pix">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 '''  <param name="ptaa">[in] - </param>
 '''  <param name="polyflag">[in] - 1 to interpret each Pta as a polyline 0 to simply render the Pta as a set of pixels</param>
@@ -1435,6 +1478,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderPolygon/*"/>
 '''  <param name="ptas">[in] - of vertices, none repeated</param>
 '''  <param name="width">[in] - of polygon outline</param>
 '''  <param name="pxmin">[out][optional] - min x value of input pts</param>
@@ -1469,6 +1513,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFillPolygon/*"/>
 '''  <param name="pixs">[in] - 1 bpp, with 4-connected polygon outline</param>
 '''  <param name="pta">[in] - vertices of the polygon</param>
 '''  <param name="xmin">[in] - min values of vertices of polygon</param>
@@ -1501,6 +1546,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRenderContours/*"/>
 '''  <param name="pixs">[in] - 8 or 16 bpp no colormap</param>
 '''  <param name="startval">[in] - value of lowest contour must be in [0 ... maxval]</param>
 '''  <param name="incr">[in] - increment to next contour must be  is greater  0</param>
@@ -1533,6 +1579,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixAutoRenderContours/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="ncontours">[in] - is greater  1,  is lower  500, typ. about 50</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
@@ -1561,6 +1608,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixRenderContours/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''  <param name="incr">[in] - increment between contours must be  is greater  0.0</param>
 '''  <param name="proxim">[in] - required proximity to target value default 0.15</param>
@@ -1595,6 +1643,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixGeneratePtaBoundary/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="width">[in] - of boundary line</param>
 '''   <returns>pta, or NULL on error</returns>

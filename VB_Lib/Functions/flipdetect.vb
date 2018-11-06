@@ -19,6 +19,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOrientCorrect/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text, 150 - 300 ppi</param>
 '''  <param name="minupconf">[in] - minimum value for which a decision can be made</param>
 '''  <param name="minratio">[in] - minimum conf ratio required for a decision</param>
@@ -97,6 +98,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOrientDetect/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text, 150 - 300 ppi</param>
 '''  <param name="pupconf">[out][optional] - may be NULL</param>
 '''  <param name="pleftconf">[out][optional] - may be NULL</param>
@@ -140,6 +142,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/makeOrientDecision/*"/>
 '''  <param name="upconf">[in] - nonzero</param>
 '''  <param name="leftconf">[in] - nonzero</param>
 '''  <param name="minupconf">[in] - minimum value for which a decision can be made</param>
@@ -177,6 +180,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUpDownDetect/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text, 150 - 300 ppi</param>
 '''  <param name="pconf">[out] - confidence that text is rightside-up</param>
 '''  <param name="mincount">[in] - min number of up + down use 0 for default</param>
@@ -228,6 +232,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUpDownDetectGeneral/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text, 150 - 300 ppi</param>
 '''  <param name="pconf">[out] - confidence that text is rightside-up</param>
 '''  <param name="mincount">[in] - min number of up + down use 0 for default</param>
@@ -264,6 +269,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixOrientDetectDwa/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text</param>
 '''  <param name="pupconf">[out][optional] - may be NULL</param>
 '''  <param name="pleftconf">[out][optional] - may be NULL</param>
@@ -303,6 +309,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUpDownDetectDwa/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text, 150 - 300 ppi</param>
 '''  <param name="pconf">[out] - confidence that text is rightside-up</param>
 '''  <param name="mincount">[in] - min number of up + down use 0 for default</param>
@@ -331,6 +338,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUpDownDetectGeneralDwa/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text</param>
 '''  <param name="pconf">[out] - confidence that text is rightside-up</param>
 '''  <param name="mincount">[in] - min number of up + down use 0 for default</param>
@@ -386,6 +394,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMirrorDetect/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text</param>
 '''  <param name="pconf">[out] - confidence that text is not LR mirror reversed</param>
 '''  <param name="mincount">[in] - min number of left + right use 0 for default</param>
@@ -416,6 +425,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMirrorDetectDwa/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text</param>
 '''  <param name="pconf">[out] - confidence that text is not LR mirror reversed</param>
 '''  <param name="mincount">[in] - min number of left + right use 0 for default</param>

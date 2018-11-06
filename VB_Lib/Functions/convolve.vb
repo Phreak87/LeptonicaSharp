@@ -17,6 +17,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlockconv/*"/>
 '''  <param name="pix">[in] - 8 or 32 bpp or 2, 4 or 8 bpp with colormap</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
 '''  <param name="hc">[in] - half width/height of convolution kernel</param>
@@ -50,6 +51,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlockconvGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="pixacc">[in] - pix 32 bpp can be null</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
@@ -87,6 +89,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlockconvAccum/*"/>
 '''  <param name="pixs">[in] - 1, 8 or 32 bpp</param>
 '''   <returns>accum pix 32 bpp, or NULL on error.</returns>
 Public Shared Function pixBlockconvAccum(
@@ -133,6 +136,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlockconvGrayUnnormalized/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
 '''  <param name="hc">[in] - half width/height of convolution kernel</param>
@@ -179,6 +183,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlockconvTiled/*"/>
 '''  <param name="pix">[in] - 8 or 32 bpp or 2, 4 or 8 bpp with colormap</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
 '''  <param name="hc">[in] - half width/height of convolution kernel</param>
@@ -218,6 +223,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlockconvGrayTile/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray</param>
 '''  <param name="pixacc">[in] - 32 bpp accum pix</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
@@ -268,6 +274,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWindowedStats/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
 '''  <param name="hc">[in] - half width/height of convolution kernel</param>
@@ -329,6 +336,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWindowedMean/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp grayscale</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
 '''  <param name="hc">[in] - half width/height of convolution kernel</param>
@@ -378,6 +386,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWindowedMeanSquare/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
 '''  <param name="hc">[in] - half width/height of convolution kernel</param>
@@ -418,6 +427,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWindowedVariance/*"/>
 '''  <param name="pixm">[in] - mean over window 8 or 32 bpp grayscale</param>
 '''  <param name="pixms">[in] - mean square over window 32 bpp</param>
 '''  <param name="pfpixv">[out][optional] - float variance -- the ms deviation from the mean</param>
@@ -461,6 +471,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixMeanSquareAccum/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''   <returns>dpix 64 bit array, or NULL on error</returns>
 Public Shared Function pixMeanSquareAccum(
@@ -499,6 +510,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlockrank/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pixacc">[in] - pix [optional] 32 bpp</param>
 '''  <param name="wc">[in] - half width/height of block sum/rank kernel</param>
@@ -552,6 +564,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixBlocksum/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pixacc">[in] - pix [optional] 32 bpp</param>
 '''  <param name="wc">[in] - half width/height of block sum/rank kernel</param>
@@ -600,6 +613,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCensusTransform/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="halfsize">[in] - of square over which neighbors are averaged</param>
 '''  <param name="pixacc">[in] - pix [optional] 32 bpp</param>
@@ -660,6 +674,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvolve/*"/>
 '''  <param name="pixs">[in] - 8, 16, 32 bpp no colormap</param>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="outdepth">[in] - of pixd: 8, 16 or 32</param>
@@ -718,6 +733,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvolveSep/*"/>
 '''  <param name="pixs">[in] - 8, 16, 32 bpp no colormap</param>
 '''  <param name="kelx">[in] - x-dependent kernel</param>
 '''  <param name="kely">[in] - y-dependent kernel</param>
@@ -763,6 +779,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvolveRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="kel">[in] - kernel</param>
 '''   <returns>pixd 32 bpp rgb</returns>
@@ -804,6 +821,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvolveRGBSep/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="kelx">[in] - x-dependent kernel</param>
 '''  <param name="kely">[in] - y-dependent kernel</param>
@@ -847,6 +865,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixConvolve/*"/>
 '''  <param name="fpixs">[in] - 32 bit float array</param>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="normflag">[in] - 1 to normalize kernel to unit sum 0 otherwise</param>
@@ -890,6 +909,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fpixConvolveSep/*"/>
 '''  <param name="fpixs">[in] - 32 bit float array</param>
 '''  <param name="kelx">[in] - x-dependent kernel</param>
 '''  <param name="kely">[in] - y-dependent kernel</param>
@@ -936,6 +956,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvolveWithBias/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="kel1">[in] - </param>
 '''  <param name="kel2">[in]can be null - use if separable</param>
@@ -971,6 +992,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_setConvolveSampling/*"/>
 '''  <param name="xfact">[in] - integer  is greater = 1</param>
 '''  <param name="yfact">[in] - integer  is greater = 1</param>
 Public Shared Sub l_setConvolveSampling(
@@ -992,6 +1014,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddGaussianNoise/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb no colormap</param>
 '''  <param name="stdev">[in] - of noise</param>
 '''   <returns>pixd 8 or 32 bpp, or NULL on error</returns>
@@ -1012,6 +1035,7 @@ End Function
 ' gaussDistribSampling() as l_float32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gaussDistribSampling/*"/>
 '''   <returns></returns>
 Public Shared Function gaussDistribSampling() as Single
 

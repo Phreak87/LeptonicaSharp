@@ -16,6 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpSinglePage/*"/>
 '''  <param name="pixs">[in] - with text, any depth</param>
 '''  <param name="thresh">[in] - for global thresholding to 1 bpp ignored otherwise</param>
 '''  <param name="adaptive">[in] - 1 for adaptive thresholding 0 for global threshold</param>
@@ -67,6 +68,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpSinglePageInit/*"/>
 '''  <param name="pixs">[in] - with text, any depth</param>
 '''  <param name="thresh">[in] - for global thresholding to 1 bpp ignored otherwise</param>
 '''  <param name="adaptive">[in] - 1 for adaptive thresholding 0 for global threshold</param>
@@ -110,6 +112,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpSinglePageRun/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="pixb">[in] - 1 bpp</param>
 '''  <param name="dewa">[in] - initialized</param>
@@ -152,6 +155,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaListPages/*"/>
 '''  <param name="dewa">[in] - populated with dewarp structs for pages</param>
 '''   <returns>0 if OK, 1 on error list of page numbers, or NULL on error</returns>
 Public Shared Function dewarpaListPages(
@@ -184,6 +188,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaSetValidModels/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="notests">[in] - </param>
 '''  <param name="debug">[in] - 1 to output information on invalid page models</param>
@@ -236,6 +241,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaInsertRefModels/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="notests">[in] - if 1, ignore curvature constraints on model</param>
 '''  <param name="debug">[in] - 1 to output information on invalid page models</param>
@@ -265,6 +271,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaStripRefModels/*"/>
 '''  <param name="dewa">[in] - populated with dewarp structs for pages</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function dewarpaStripRefModels(
@@ -292,6 +299,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaRestoreModels/*"/>
 '''  <param name="dewa">[in] - populated with dewarp structs for pages</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function dewarpaRestoreModels(
@@ -309,6 +317,7 @@ End Function
 ' dewarpaInfo(FILE *, L_DEWARPA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaInfo/*"/>
 '''  <param name="fp">[in] - </param>
 '''  <param name="dewa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -352,6 +361,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaModelStats/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="pnnone">[out][optional] - number without any model</param>
 '''  <param name="pnvsuccess">[out][optional] - number with a vert model</param>
@@ -387,6 +397,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpaShowArrays/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="scalefact">[in] - on contour images typ. 0.5</param>
 '''  <param name="first">[in] - first page model to render</param>
@@ -417,6 +428,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpDebug/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="subdirs">[in] - one or more subdirectories of /tmp e.g., "dew1"</param>
 '''  <param name="index">[in] - to help label output images e.g., the page number</param>
@@ -449,6 +461,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/dewarpShowResults/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="sa">[in] - of indexed input images</param>
 '''  <param name="boxa">[in] - crop boxes for input images can be null</param>

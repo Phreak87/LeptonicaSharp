@@ -18,6 +18,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/setMsgSeverity/*"/>
 '''  <param name="newsev">[in] - </param>
 '''   <returns>oldsev</returns>
 Public Shared Function setMsgSeverity(
@@ -33,6 +34,7 @@ End Function
 ' returnErrorInt(const char *, const char *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/returnErrorInt/*"/>
 '''  <param name="msg">[in] - error message</param>
 '''  <param name="procname">[in] - </param>
 '''  <param name="ival">[in] - return val</param>
@@ -55,6 +57,7 @@ End Function
 ' returnErrorFloat(const char *, const char *, l_float32) as l_float32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/returnErrorFloat/*"/>
 '''  <param name="msg">[in] - error message</param>
 '''  <param name="procname">[in] - </param>
 '''  <param name="fval">[in] - return val</param>
@@ -77,6 +80,7 @@ End Function
 ' returnErrorPtr(const char *, const char *, void *) as void *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/returnErrorPtr/*"/>
 '''  <param name="msg">[in] - error message</param>
 '''  <param name="procname">[in] - </param>
 '''  <param name="pval">[in] - return val</param>
@@ -102,6 +106,7 @@ End Function
 ' filesAreIdentical(const char *, const char *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/filesAreIdentical/*"/>
 '''  <param name="fname1">[in] - </param>
 '''  <param name="fname2">[in] - </param>
 '''  <param name="psame">[out] - 1 if identical 0 if different</param>
@@ -124,6 +129,7 @@ End Function
 ' convertOnLittleEnd16(l_uint16) as l_uint16
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertOnLittleEnd16/*"/>
 '''   <returns></returns>
 Public Shared Function convertOnLittleEnd16(
 				 ByVal shortin as UShort) as UShort
@@ -140,6 +146,7 @@ End Function
 ' convertOnBigEnd16(l_uint16) as l_uint16
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertOnBigEnd16/*"/>
 '''   <returns></returns>
 Public Shared Function convertOnBigEnd16(
 				 ByVal shortin as UShort) as UShort
@@ -156,6 +163,7 @@ End Function
 ' convertOnLittleEnd32(l_uint32) as l_uint32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertOnLittleEnd32/*"/>
 '''   <returns></returns>
 Public Shared Function convertOnLittleEnd32(
 				 ByVal wordin as UInteger) as UInteger
@@ -170,6 +178,7 @@ End Function
 ' convertOnBigEnd32(l_uint32) as l_uint32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertOnBigEnd32/*"/>
 '''   <returns></returns>
 Public Shared Function convertOnBigEnd32(
 				 ByVal wordin as UInteger) as UInteger
@@ -195,6 +204,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fileCorruptByDeletion/*"/>
 '''  <param name="filein">[in] - </param>
 '''  <param name="loc">[in] - fractional location of start of deletion</param>
 '''  <param name="size">[in] - fractional size of deletion</param>
@@ -230,6 +240,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fileCorruptByMutation/*"/>
 '''  <param name="filein">[in] - </param>
 '''  <param name="loc">[in] - fractional location of start of randomization</param>
 '''  <param name="size">[in] - fractional size of randomization</param>
@@ -260,6 +271,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/genRandomIntegerInRange/*"/>
 '''  <param name="range">[in] - size of range must be  is greater = 2</param>
 '''  <param name="seed">[in] - use 0 to skip otherwise call srand</param>
 '''  <param name="pval">[out] - random integer in range {0 ... range-1}</param>
@@ -287,6 +299,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_roundftoi/*"/>
 '''  <param name="fval">[in] - </param>
 '''   <returns>value rounded to int</returns>
 Public Shared Function lept_roundftoi(
@@ -317,6 +330,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_hashStringToUint64/*"/>
 '''  <param name="str">[in] - </param>
 '''  <param name="phash">[out] - hash vale</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -353,6 +367,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_hashPtToUint64/*"/>
 '''  <param name="x">[in] - </param>
 '''  <param name="y">[in] - </param>
 '''  <param name="phash">[out] - hash value</param>
@@ -391,6 +406,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_hashFloat64ToUint64/*"/>
 '''  <param name="nbuckets">[in] - </param>
 '''  <param name="val">[in] - </param>
 '''  <param name="phash">[out] - hash value</param>
@@ -414,6 +430,7 @@ End Function
 ' findNextLargerPrime(l_int32, l_uint32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/findNextLargerPrime/*"/>
 '''  <param name="start">[in] - </param>
 '''  <param name="pprime">[out] - first prime larger than %start</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -431,6 +448,7 @@ End Function
 ' lept_isPrime(l_uint64, l_int32 *, l_uint32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lept_isPrime/*"/>
 '''  <param name="n">[in] - 64-bit unsigned</param>
 '''  <param name="pis_prime">[out] - 1 if prime, 0 otherwise</param>
 '''  <param name="pfactor">[out][optional] - smallest divisor, or 0 on error or if prime</param>
@@ -458,6 +476,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertIntToGrayCode/*"/>
 '''  <param name="val">[in] - integer value</param>
 '''   <returns>corresponding gray code value</returns>
 Public Shared Function convertIntToGrayCode(
@@ -473,6 +492,7 @@ End Function
 ' convertGrayCodeToInt(l_uint32) as l_uint32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/convertGrayCodeToInt/*"/>
 '''  <param name="val">[in] - gray code value</param>
 '''   <returns>corresponding integer value</returns>
 Public Shared Function convertGrayCodeToInt(
@@ -488,6 +508,7 @@ End Function
 ' getLeptonicaVersion() as char *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getLeptonicaVersion/*"/>
 '''   <returns></returns>
 Public Shared Function getLeptonicaVersion() as String
 
@@ -501,6 +522,7 @@ End Function
 ' startTimer() as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/startTimer/*"/>
 Public Shared Sub startTimer()
 
 	LeptonicaSharp.Natives.startTimer( )
@@ -512,6 +534,7 @@ End Sub
 ' stopTimer() as l_float32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stopTimer/*"/>
 '''   <returns></returns>
 Public Shared Function stopTimer() as Single
 
@@ -525,6 +548,7 @@ End Function
 ' startTimerNested() as L_TIMER
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/startTimerNested/*"/>
 '''   <returns></returns>
 Public Shared Function startTimerNested() as IntPtr
 
@@ -538,6 +562,7 @@ End Function
 ' stopTimerNested(L_TIMER) as l_float32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stopTimerNested/*"/>
 '''   <returns></returns>
 Public Shared Function stopTimerNested(
 				 ByVal utime_start as IntPtr) as Single
@@ -554,6 +579,7 @@ End Function
 ' l_getCurrentTime(l_int32 *, l_int32 *) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_getCurrentTime/*"/>
 Public Shared Sub l_getCurrentTime(
 				 ByVal sec as Object, 
 				 ByVal usec as Object)
@@ -579,6 +605,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/startWallTimer/*"/>
 '''   <returns>walltimer-ptr</returns>
 Public Shared Function startWallTimer() as L_WallTimer
 
@@ -593,6 +620,7 @@ End Function
 ' stopWallTimer(L_WALLTIMER **) as l_float32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/stopWallTimer/*"/>
 '''  <param name="ptimer">[in,out] - walltimer-ptr</param>
 '''   <returns>time wall time elapsed in seconds</returns>
 Public Shared Function stopWallTimer(
@@ -618,6 +646,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_getFormattedDate/*"/>
 '''   <returns>formatted date string, or NULL on error</returns>
 Public Shared Function l_getFormattedDate() as String
 

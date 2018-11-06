@@ -29,6 +29,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillBinary/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs 1 bpp</param>
 '''  <param name="pixs">[in] - 1 bpp seed</param>
 '''  <param name="pixm">[in] - 1 bpp filling mask</param>
@@ -77,6 +78,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillBinaryRestricted/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs 1 bpp</param>
 '''  <param name="pixs">[in] - 1 bpp seed</param>
 '''  <param name="pixm">[in] - 1 bpp filling mask</param>
@@ -115,6 +117,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixHolesByFilling/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''   <returns>pixd  inverted image of all holes, or NULL on error Action: 1 Start with 1-pixel black border on otherwise white pixd 2 Use the inverted pixs as the filling mask to fill in all the pixels from the border to the pixs foreground 3 OR the result with pixs to have an image with all ON pixels except for the holes. 4 Invert the result to get the holes as foreground</returns>
@@ -151,6 +154,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFillClosedBorders/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - filling connectivity 4 or 8</param>
 '''   <returns>pixd  all topologically outer closed borders are filled as connected comonents, or NULL on error</returns>
@@ -173,6 +177,7 @@ End Function
 ' pixExtractBorderConnComps(PIX *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtractBorderConnComps/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - filling connectivity 4 or 8</param>
 '''   <returns>pixd  all pixels in the src that are in connected components touching the border, or NULL on error</returns>
@@ -200,6 +205,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveBorderConnComps/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - filling connectivity 4 or 8</param>
 '''   <returns>pixd  all pixels in the src that are not touching the border or NULL on error</returns>
@@ -241,6 +247,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFillBgFromBorder/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - filling connectivity 4 or 8</param>
 '''   <returns>pixd with the background c.c. touching the border filled to foreground, or NULL on error</returns>
@@ -283,6 +290,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFillHolesToBoundingRect/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="minsize">[in] - min number of pixels in the hole</param>
 '''  <param name="maxhfract">[in] - max hole area as fraction of fg pixels in the cc</param>
@@ -325,6 +333,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp seed filled in place</param>
 '''  <param name="pixm">[in] - 8 bpp filling mask</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -366,6 +375,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillGrayInv/*"/>
 '''  <param name="pixs">[in] - 8 bpp seed filled in place</param>
 '''  <param name="pixm">[in] - 8 bpp filling mask</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -404,6 +414,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillGraySimple/*"/>
 '''  <param name="pixs">[in] - 8 bpp seed filled in place</param>
 '''  <param name="pixm">[in] - 8 bpp filling mask</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -441,6 +452,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillGrayInvSimple/*"/>
 '''  <param name="pixs">[in] - 8 bpp seed filled in place</param>
 '''  <param name="pixm">[in] - 8 bpp filling mask</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -485,6 +497,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillGrayBasin/*"/>
 '''  <param name="pixb">[in] - binary mask giving seed locations</param>
 '''  <param name="pixm">[in] - 8 bpp basin-type filling mask</param>
 '''  <param name="delta">[in] - amount of seed value above mask</param>
@@ -544,6 +557,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDistanceFunction/*"/>
 '''  <param name="pixs">[in] - 1 bpp source</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''  <param name="outdepth">[in] - 8 or 16 bits for pixd</param>
@@ -601,6 +615,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSeedspread/*"/>
 '''  <param name="pixs">[in] - 8 bpp source</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -646,6 +661,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixLocalExtrema/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="maxmin">[in] - max allowed for the min in a 3x3 neighborhood use 0 for default which is to have no upper bound</param>
 '''  <param name="minmax">[in] - min allowed for the max in a 3x3 neighborhood use 0 for default which is to have no lower bound</param>
@@ -701,6 +717,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSelectedLocalExtrema/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="mindist">[in] - -1 for keeping all pixels  is greater = 0 specifies distance</param>
 '''  <param name="ppixmin">[out] - mask of local minima</param>
@@ -738,6 +755,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFindEqualValues/*"/>
 '''  <param name="pixs1">[in] - 8 bpp</param>
 '''  <param name="pixs2">[in] - 8 bpp</param>
 '''   <returns>pixd 1 bpp mask, or NULL on error</returns>
@@ -774,6 +792,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSelectMinInConnComp/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="pixm">[in] - 1 bpp</param>
 '''  <param name="ppta">[out] - pta of min pixel locations</param>
@@ -819,6 +838,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveSeededComponents/*"/>
 '''  <param name="pixd">[in][optional] - this can be null or equal to pixm 1 bpp</param>
 '''  <param name="pixs">[in] - 1 bpp seed</param>
 '''  <param name="pixm">[in] - 1 bpp filling mask</param>

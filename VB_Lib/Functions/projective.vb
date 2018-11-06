@@ -18,6 +18,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixProjectiveSampledPta/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -53,6 +54,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixProjectiveSampled/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for projective transformation</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -82,6 +84,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixProjectivePta/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -114,6 +117,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixProjective/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for projective transformation</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -137,6 +141,7 @@ End Function
 ' pixProjectivePtaColor(PIX *, PTA *, PTA *, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixProjectivePtaColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -163,6 +168,7 @@ End Function
 ' pixProjectiveColor(PIX *, l_float32 *, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixProjectiveColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for projective transformation</param>
 '''  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
@@ -186,6 +192,7 @@ End Function
 ' pixProjectivePtaGray(PIX *, PTA *, PTA *, l_uint8) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixProjectivePtaGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -215,6 +222,7 @@ End Function
 ' pixProjectiveGray(PIX *, l_float32 *, l_uint8) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixProjectiveGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for projective transformation</param>
 '''  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
@@ -273,6 +281,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixProjectivePtaWithAlpha/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -307,6 +316,7 @@ End Function
 ' getProjectiveXformCoeffs(PTA *, PTA *, l_float32 **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/getProjectiveXformCoeffs/*"/>
 '''  <param name="ptas">[in] - source 4 points unprimed</param>
 '''  <param name="ptad">[in] - transformed 4 points primed</param>
 '''  <param name="pvc">[out] - vector of coefficients of transform</param>
@@ -337,6 +347,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/projectiveXformSampledPt/*"/>
 '''  <param name="vc">[in] - vector of 8 coefficients</param>
 '''  <param name="x">[in] - initial point</param>
 '''  <param name="y">[in] - initial point</param>
@@ -368,6 +379,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/projectiveXformPt/*"/>
 '''  <param name="vc">[in] - vector of 8 coefficients</param>
 '''  <param name="x">[in] - initial point</param>
 '''  <param name="y">[in] - initial point</param>

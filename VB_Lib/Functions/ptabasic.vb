@@ -8,6 +8,7 @@ Partial Public Class _All
 ' ptaCreate(l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaCreate/*"/>
 '''  <param name="n">[in] - initial array sizes</param>
 '''   <returns>pta, or NULL on error.</returns>
 Public Shared Function ptaCreate(
@@ -24,6 +25,7 @@ End Function
 ' ptaCreateFromNuma(NUMA *, NUMA *) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaCreateFromNuma/*"/>
 '''  <param name="nax">[in][optional] - can be null</param>
 '''  <param name="nay">[in] - </param>
 '''   <returns>pta, or NULL on error.</returns>
@@ -52,6 +54,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaDestroy/*"/>
 '''  <param name="ppta">[in,out] - to be nulled</param>
 Public Shared Sub ptaDestroy(
 				 ByRef ppta as Pta)
@@ -68,6 +71,7 @@ End Sub
 ' ptaCopy(PTA *) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaCopy/*"/>
 '''  <param name="pta">[in] - </param>
 '''   <returns>copy of pta, or NULL on error</returns>
 Public Shared Function ptaCopy(
@@ -86,6 +90,7 @@ End Function
 ' ptaCopyRange(PTA *, l_int32, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaCopyRange/*"/>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="istart">[in] - starting index in ptas</param>
 '''  <param name="iend">[in] - ending index in ptas use 0 to copy to end</param>
@@ -108,6 +113,7 @@ End Function
 ' ptaClone(PTA *) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaClone/*"/>
 '''  <param name="pta">[in] - </param>
 '''   <returns>ptr to same pta, or NULL on error</returns>
 Public Shared Function ptaClone(
@@ -131,6 +137,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaEmpty/*"/>
 '''  <param name="pta">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaEmpty(
@@ -148,6 +155,7 @@ End Function
 ' ptaAddPt(PTA *, l_float32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaAddPt/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="x">[in] - </param>
 '''  <param name="y">[in] - </param>
@@ -169,6 +177,7 @@ End Function
 ' ptaInsertPt(PTA *, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaInsertPt/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="index">[in] - at which pt is to be inserted</param>
 '''  <param name="x">[in] - point values</param>
@@ -199,6 +208,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaRemovePt/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="index">[in] - of point to be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -218,6 +228,7 @@ End Function
 ' ptaGetRefcount(PTA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetRefcount/*"/>
 '''   <returns></returns>
 Public Shared Function ptaGetRefcount(
 				 ByVal pta as Pta) as Integer
@@ -236,6 +247,7 @@ End Function
 ' ptaChangeRefcount(PTA *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaChangeRefcount/*"/>
 '''   <returns></returns>
 Public Shared Function ptaChangeRefcount(
 				 ByVal pta as Pta, 
@@ -255,6 +267,7 @@ End Function
 ' ptaGetCount(PTA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetCount/*"/>
 '''  <param name="pta">[in] - </param>
 '''   <returns>count, or 0 if no pta</returns>
 Public Shared Function ptaGetCount(
@@ -272,6 +285,7 @@ End Function
 ' ptaGetPt(PTA *, l_int32, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetPt/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="index">[in] - into arrays</param>
 '''  <param name="px">[out][optional] - float x value</param>
@@ -295,6 +309,7 @@ End Function
 ' ptaGetIPt(PTA *, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetIPt/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="index">[in] - into arrays</param>
 '''  <param name="px">[out][optional] - integer x value</param>
@@ -318,6 +333,7 @@ End Function
 ' ptaSetPt(PTA *, l_int32, l_float32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaSetPt/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="index">[in] - into arrays</param>
 '''  <param name="x">[in] - </param>
@@ -346,6 +362,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaGetArrays/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="pnax">[out][optional] - numa of x array</param>
 '''  <param name="pnay">[out][optional] - numa of y array</param>
@@ -372,6 +389,7 @@ End Function
 ' ptaRead(const char *) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>pta, or NULL on error</returns>
 Public Shared Function ptaRead(
@@ -392,6 +410,7 @@ End Function
 ' ptaReadStream(FILE *) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>pta, or NULL on error</returns>
 Public Shared Function ptaReadStream(
@@ -410,6 +429,7 @@ End Function
 ' ptaReadMem(const l_uint8 *, size_t) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaReadMem/*"/>
 '''  <param name="data">[in] - serialization in ascii</param>
 '''  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 '''   <returns>pta, or NULL on error</returns>
@@ -439,6 +459,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaWriteDebug/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pta">[in] - </param>
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
@@ -463,6 +484,7 @@ End Function
 ' ptaWrite(const char *, PTA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pta">[in] - </param>
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
@@ -487,6 +509,7 @@ End Function
 ' ptaWriteStream(FILE *, PTA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pta">[in] - </param>
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
@@ -514,6 +537,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized pta ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pta">[in] - </param>
@@ -540,6 +564,7 @@ End Function
 ' ptaaCreate(l_int32) as PTAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaCreate/*"/>
 '''  <param name="n">[in] - initial number of ptrs</param>
 '''   <returns>ptaa, or NULL on error</returns>
 Public Shared Function ptaaCreate(
@@ -556,6 +581,7 @@ End Function
 ' ptaaDestroy(PTAA **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaDestroy/*"/>
 '''  <param name="pptaa">[in,out] - to be nulled</param>
 Public Shared Sub ptaaDestroy(
 				 ByRef pptaa as Ptaa)
@@ -572,6 +598,7 @@ End Sub
 ' ptaaAddPta(PTAA *, PTA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaAddPta/*"/>
 '''  <param name="ptaa">[in] - </param>
 '''  <param name="pta">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -594,6 +621,7 @@ End Function
 ' ptaaGetCount(PTAA *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaGetCount/*"/>
 '''  <param name="ptaa">[in] - </param>
 '''   <returns>count, or 0 if no ptaa</returns>
 Public Shared Function ptaaGetCount(
@@ -611,6 +639,7 @@ End Function
 ' ptaaGetPta(PTAA *, l_int32, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaGetPta/*"/>
 '''  <param name="ptaa">[in] - </param>
 '''  <param name="index">[in] - to the i-th pta</param>
 '''  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
@@ -633,6 +662,7 @@ End Function
 ' ptaaGetPt(PTAA *, l_int32, l_int32, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaGetPt/*"/>
 '''  <param name="ptaa">[in] - </param>
 '''  <param name="ipta">[in] - to the i-th pta</param>
 '''  <param name="jpt">[in] - index to the j-th pt in the pta</param>
@@ -658,6 +688,7 @@ End Function
 ' ptaaInitFull(PTAA *, PTA *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaInitFull/*"/>
 '''  <param name="ptaa">[in] - can have non-null ptrs in the ptr array</param>
 '''  <param name="pta">[in] - to be replicated into the entire ptr array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -685,6 +716,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaReplacePta/*"/>
 '''  <param name="ptaa">[in] - </param>
 '''  <param name="index">[in] - to the index-th pta</param>
 '''  <param name="pta">[in] - insert and replace any existing one</param>
@@ -707,6 +739,7 @@ End Function
 ' ptaaAddPt(PTAA *, l_int32, l_float32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaAddPt/*"/>
 '''  <param name="ptaa">[in] - </param>
 '''  <param name="ipta">[in] - to the i-th pta</param>
 '''  <param name="x">[in] - ,y point coordinates</param>
@@ -736,6 +769,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaTruncate/*"/>
 '''  <param name="ptaa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaaTruncate(
@@ -753,6 +787,7 @@ End Function
 ' ptaaRead(const char *) as PTAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>ptaa, or NULL on error</returns>
 Public Shared Function ptaaRead(
@@ -773,6 +808,7 @@ End Function
 ' ptaaReadStream(FILE *) as PTAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>ptaa, or NULL on error</returns>
 Public Shared Function ptaaReadStream(
@@ -791,6 +827,7 @@ End Function
 ' ptaaReadMem(const l_uint8 *, size_t) as PTAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaReadMem/*"/>
 '''  <param name="data">[in] - serialization in ascii</param>
 '''  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 '''   <returns>ptaa, or NULL on error</returns>
@@ -820,6 +857,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaWriteDebug/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="ptaa">[in] - </param>
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
@@ -844,6 +882,7 @@ End Function
 ' ptaaWrite(const char *, PTAA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="ptaa">[in] - </param>
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
@@ -868,6 +907,7 @@ End Function
 ' ptaaWriteStream(FILE *, PTAA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="ptaa">[in] - </param>
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
@@ -895,6 +935,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ptaaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized ptaa ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="ptaa">[in] - </param>

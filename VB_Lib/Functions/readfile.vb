@@ -17,6 +17,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaReadFiles/*"/>
 '''  <param name="dirname">[in] - </param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be null</param>
 '''   <returns>pixa, or NULL on error</returns>
@@ -37,6 +38,7 @@ End Function
 ' pixaReadFilesSA(SARRAY *) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaReadFilesSA/*"/>
 '''  <param name="sa">[in] - full pathnames for all files</param>
 '''   <returns>pixa, or NULL on error</returns>
 Public Shared Function pixaReadFilesSA(
@@ -60,6 +62,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRead/*"/>
 '''  <param name="filename">[in] - with full pathname or in local directory</param>
 '''   <returns>pix if OK NULL on error</returns>
 Public Shared Function pixRead(
@@ -86,6 +89,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadWithHint/*"/>
 '''  <param name="filename">[in] - with full pathname or in local directory</param>
 '''  <param name="hint">[in] - bitwise OR of L_HINT_ values for jpeg use 0 for no hint</param>
 '''   <returns>pix if OK NULL on error</returns>
@@ -129,6 +133,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadIndexed/*"/>
 '''  <param name="sa">[in] - string array of full pathnames</param>
 '''  <param name="index">[in] - into pathname array</param>
 '''   <returns>pix if OK null if not found</returns>
@@ -154,6 +159,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="hint">[in] - bitwise OR of L_HINT_ values for jpeg use 0 for no hint</param>
 '''   <returns>pix if OK NULL on error</returns>
@@ -181,6 +187,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadHeader/*"/>
 '''  <param name="filename">[in] - with full pathname or in local directory</param>
 '''  <param name="pformat">[out][optional] - file format</param>
 '''  <param name="pw">[out][optional] - width and height</param>
@@ -212,6 +219,7 @@ End Function
 ' findFileFormat(const char *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/findFileFormat/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pformat">[out] - found format</param>
 '''   <returns>0 if OK, 1 on error or if format is not recognized</returns>
@@ -238,6 +246,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/findFileFormatStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pformat">[out] - found format</param>
 '''   <returns>0 if OK, 1 on error or if format is not recognized</returns>
@@ -265,6 +274,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/findFileFormatBuffer/*"/>
 '''  <param name="buf">[in] - byte buffer at least 12 bytes in size we can't check</param>
 '''  <param name="pformat">[out] - found format</param>
 '''   <returns>0 if OK, 1 on error or if format is not recognized</returns>
@@ -284,6 +294,7 @@ End Function
 ' fileFormatIsTiff(FILE *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/fileFormatIsTiff/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>1 if file is tiff 0 otherwise or on error</returns>
 Public Shared Function fileFormatIsTiff(
@@ -314,6 +325,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMem/*"/>
 '''  <param name="data">[in] - const encoded</param>
 '''  <param name="size">[in] - size of data</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -347,6 +359,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadHeaderMem/*"/>
 '''  <param name="data">[in] - const encoded</param>
 '''  <param name="size">[in] - size of data</param>
 '''  <param name="pformat">[out][optional] - image format</param>
@@ -387,6 +400,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/writeImageFileInfo/*"/>
 '''  <param name="filename">[in] - input file</param>
 '''  <param name="fpout">[in] - output file stream</param>
 '''  <param name="headeronly">[in] - 1 to read only the header 0 to read both the header and the input file</param>
@@ -427,6 +441,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/ioFormatTest/*"/>
 '''  <param name="filename">[in] - input file</param>
 '''   <returns>0 if OK 1 on error or if the test fails</returns>
 Public Shared Function ioFormatTest(

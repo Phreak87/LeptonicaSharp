@@ -28,6 +28,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixThreshold8/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''  <param name="d">[in] - destination depth: 1, 2, 4 or 8</param>
 '''  <param name="nlevels">[in] - number of levels to be used for colormap</param>
@@ -61,6 +62,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveColormapGeneral/*"/>
 '''  <param name="pixs">[in] - any depth, with or without colormap</param>
 '''  <param name="type">[in] - REMOVE_CMAP_TO_BINARY, REMOVE_CMAP_TO_GRAYSCALE, REMOVE_CMAP_TO_FULL_COLOR, REMOVE_CMAP_WITH_ALPHA, REMOVE_CMAP_BASED_ON_SRC</param>
 '''  <param name="ifnocmap">[in] - L_CLONE, L_COPY</param>
@@ -100,6 +102,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveColormap/*"/>
 '''  <param name="pixs">[in] - see restrictions below</param>
 '''  <param name="type">[in] - REMOVE_CMAP_TO_BINARY, REMOVE_CMAP_TO_GRAYSCALE, REMOVE_CMAP_TO_FULL_COLOR, REMOVE_CMAP_WITH_ALPHA, REMOVE_CMAP_BASED_ON_SRC</param>
 '''   <returns>pixd without colormap, or NULL on error</returns>
@@ -125,6 +128,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddGrayColormap8/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixAddGrayColormap8(
@@ -151,6 +155,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddMinimalGrayColormap8/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixAddMinimalGrayColormap8(
@@ -176,6 +181,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToLuminance/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''   <returns>8 bpp pix, or NULL on error</returns>
 Public Shared Function pixConvertRGBToLuminance(
@@ -201,6 +207,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToGray/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''  <param name="rwt">[in] - non-negative these should add to 1.0, or use 0.0 for default</param>
 '''  <param name="gwt">[in] - non-negative these should add to 1.0, or use 0.0 for default</param>
@@ -237,6 +244,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToGrayFast/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''   <returns>8 bpp pix, or NULL on error</returns>
 Public Shared Function pixConvertRGBToGrayFast(
@@ -268,6 +276,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToGrayMinMax/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''  <param name="type">[in] - L_CHOOSE_MIN, L_CHOOSE_MAX, L_CHOOSE_MAXDIFF, L_CHOOSE_MIN_BOOST, L_CHOOSE_MAX_BOOST</param>
 '''   <returns>8 bpp pix, or NULL on error</returns>
@@ -311,6 +320,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToGraySatBoost/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="refval">[in] - between 1 and 255 typ. less than 128</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
@@ -341,6 +351,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToGrayArb/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''  <param name="rc">[in] - arithmetic factors can be negative</param>
 '''  <param name="gc">[in] - arithmetic factors can be negative</param>
@@ -375,6 +386,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToBinaryArb/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''  <param name="rc">[in] - arithmetic factors can be negative</param>
 '''  <param name="gc">[in] - arithmetic factors can be negative</param>
@@ -421,6 +433,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertGrayToColormap/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp grayscale</param>
 '''   <returns>pixd 2, 4 or 8 bpp with colormap, or NULL on error</returns>
 Public Shared Function pixConvertGrayToColormap(
@@ -456,6 +469,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertGrayToColormap8/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''  <param name="mindepth">[in] - of pixd valid values are 2, 4 and 8</param>
 '''   <returns>pixd 2, 4 or 8 bpp with colormap, or NULL on error</returns>
@@ -485,6 +499,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixColorizeGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray 2, 4 or 8 bpp colormapped</param>
 '''  <param name="color">[in] - 32 bit rgba pixel</param>
 '''  <param name="cmapflag">[in] - 1 for result to have colormap 0 for RGB</param>
@@ -530,6 +545,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToColormap/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="ditherflag">[in] - 1 to dither, 0 otherwise</param>
 '''   <returns>pixd 2, 4 or 8 bpp with colormap, or NULL on error</returns>
@@ -561,6 +577,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertCmapTo1/*"/>
 '''  <param name="pixs">[in] - cmapped</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
 Public Shared Function pixConvertCmapTo1(
@@ -595,6 +612,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixQuantizeIfFewColors/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="maxcolors">[in] - max number of colors allowed to be returned from pixColorsForQuantization() use 0 for default</param>
 '''  <param name="mingraycolors">[in] - min number of gray levels that a grayscale image is quantized to use 0 for default</param>
@@ -631,6 +649,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert16To8/*"/>
 '''  <param name="pixs">[in] - 16 bpp</param>
 '''  <param name="type">[in] - L_LS_BYTE, L_MS_BYTE, L_AUTO_BYTE, L_CLIP_TO_FF</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
@@ -661,6 +680,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertGrayToFalseColor/*"/>
 '''  <param name="pixs">[in] - 8 or 16 bpp grayscale</param>
 '''  <param name="gamma">[in] - (factor) 0.0 or 1.0 for default  is greater  1.0 for brighter 2.0 is quite nice</param>
 '''   <returns>pixd 8 bpp with colormap, or NULL on error</returns>
@@ -689,6 +709,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixUnpackBinary/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="depth">[in] - of destination: 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="invert">[in] - 0:  binary 0 -- is greater  grayscale 0 binary 1 -- is greater  grayscale 0xff... 1:  binary 0 -- is greater  grayscale 0xff... binary 1 -- is greater  grayscale 0</param>
@@ -720,6 +741,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To16/*"/>
 '''  <param name="pixd">[in][optional] - 16 bpp, can be null</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="val0">[in] - 16 bit value to be used for 0s in pixs</param>
@@ -757,6 +779,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To32/*"/>
 '''  <param name="pixd">[in][optional] - 32 bpp, can be null</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="val0">[in] - 32 bit value to be used for 0s in pixs</param>
@@ -790,6 +813,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To2Cmap/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 2 bpp, cmapped</returns>
 Public Shared Function pixConvert1To2Cmap(
@@ -819,6 +843,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To2/*"/>
 '''  <param name="pixd">[in][optional] - 2 bpp, can be null</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="val0">[in] - 2 bit value to be used for 0s in pixs</param>
@@ -852,6 +877,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To4Cmap/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 4 bpp, cmapped</returns>
 Public Shared Function pixConvert1To4Cmap(
@@ -881,6 +907,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To4/*"/>
 '''  <param name="pixd">[in][optional] - 4 bpp, can be null</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="val0">[in] - 4 bit value to be used for 0s in pixs</param>
@@ -915,6 +942,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To8Cmap/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 8 bpp, cmapped</returns>
 Public Shared Function pixConvert1To8Cmap(
@@ -945,6 +973,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To8/*"/>
 '''  <param name="pixd">[in][optional] - 8 bpp, can be null</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="val0">[in] - 8 bit value to be used for 0s in pixs</param>
@@ -994,6 +1023,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert2To8/*"/>
 '''  <param name="pixs">[in] - 2 bpp</param>
 '''  <param name="val0">[in] - 8 bit value to be used for 00 in pixs</param>
 '''  <param name="val1">[in] - 8 bit value to be used for 01 in pixs</param>
@@ -1043,6 +1073,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert4To8/*"/>
 '''  <param name="pixs">[in] - 4 bpp</param>
 '''  <param name="cmapflag">[in] - TRUE if pixd is to have a colormap FALSE otherwise</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
@@ -1073,6 +1104,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert8To16/*"/>
 '''  <param name="pixs">[in] - 8 bpp colormap removed to gray</param>
 '''  <param name="leftshift">[in] - number of bits: 0 is no shift 8 replicates in MSB and LSB of dest</param>
 '''   <returns>pixd 16 bpp, or NULL on error</returns>
@@ -1102,6 +1134,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo2/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp colormap OK but will be removed</param>
 '''   <returns>pixd   2 bpp, or NULL on error</returns>
 Public Shared Function pixConvertTo2(
@@ -1127,6 +1160,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert8To2/*"/>
 '''  <param name="pix">[in] - 8 bpp colormap OK</param>
 '''   <returns>pixd  2 bpp, or NULL on error</returns>
 Public Shared Function pixConvert8To2(
@@ -1156,6 +1190,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo4/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp colormap OK but will be removed</param>
 '''   <returns>pixd   4 bpp, or NULL on error</returns>
 Public Shared Function pixConvertTo4(
@@ -1181,6 +1216,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert8To4/*"/>
 '''  <param name="pix">[in] - 8 bpp colormap OK</param>
 '''   <returns>pixd  4 bpp, or NULL on error</returns>
 Public Shared Function pixConvert8To4(
@@ -1210,6 +1246,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo1/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="threshold">[in] - for final binarization, relative to 8 bpp</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
@@ -1238,6 +1275,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo1BySampling/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="factor">[in] - submsampling factor integer  is greater = 1</param>
 '''  <param name="threshold">[in] - for final binarization, relative to 8 bpp</param>
@@ -1280,6 +1318,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo8/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="cmapflag">[in] - TRUE if pixd is to have a colormap FALSE otherwise</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
@@ -1308,6 +1347,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo8BySampling/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="factor">[in] - submsampling factor integer  is greater = 1</param>
 '''  <param name="cmapflag">[in] - TRUE if pixd is to have a colormap FALSE otherwise</param>
@@ -1345,6 +1385,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo8Colormap/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="dither">[in] - 1 to dither if necessary 0 otherwise</param>
 '''   <returns>pixd 8 bpp, cmapped, or NULL on error</returns>
@@ -1367,6 +1408,7 @@ End Function
 ' pixConvertTo16(PIX *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo16/*"/>
 '''  <param name="pixs">[in] - 1, 8 bpp</param>
 '''   <returns>pixd 16 bpp, or NULL on error Usage: Top-level function, with simple default values for unpacking. 1 bpp:  val0 = 0xffff, val1 = 0 8 bpp:  replicates the 8 bit value in both the MSB and LSB of the 16 bit pixel.</returns>
 Public Shared Function pixConvertTo16(
@@ -1392,6 +1434,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo32/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''   <returns>pixd 32 bpp, or NULL on error Usage: Top-level function, with simple default values for unpacking. 1 bpp:  val0 = 255, val1 = 0 and then replication into R, G and B components 2 bpp:  if colormapped, use the colormap values otherwise, use val0 = 0, val1 = 0x55, val2 = 0xaa, val3 = 255 and replicate gray into R, G and B components 4 bpp:  if colormapped, use the colormap values otherwise, replicate 2 nybs into a byte, and then into R,G,B components 8 bpp:  if colormapped, use the colormap values otherwise, replicate gray values into R, G and B components 16 bpp: replicate MSB into R, G and B components 24 bpp: unpack the pixels, maintaining word alignment on each scanline 32 bpp: makes a copy</returns>
 Public Shared Function pixConvertTo32(
@@ -1418,6 +1461,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo32BySampling/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="factor">[in] - submsampling factor integer  is greater = 1</param>
 '''   <returns>pixd 32 bpp, or NULL on error</returns>
@@ -1446,6 +1490,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert8To32/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''   <returns>32 bpp rgb pix, or NULL on error</returns>
 Public Shared Function pixConvert8To32(
@@ -1476,6 +1521,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo8Or32/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, with or without colormap or 32 bpp rgb</param>
 '''  <param name="copyflag">[in] - L_CLONE or L_COPY</param>
 '''  <param name="warnflag">[in] - 1 to issue warning if colormap is removed else 0</param>
@@ -1515,6 +1561,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert24To32/*"/>
 '''  <param name="pixs">[in] - 24 bpp rgb</param>
 '''   <returns>pixd 32 bpp rgb, or NULL on error</returns>
 Public Shared Function pixConvert24To32(
@@ -1540,6 +1587,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert32To24/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''   <returns>pixd 24 bpp rgb, or NULL on error</returns>
 Public Shared Function pixConvert32To24(
@@ -1566,6 +1614,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert32To16/*"/>
 '''  <param name="pixs">[in] - 32 bpp, single component</param>
 '''  <param name="type">[in] - L_LS_TWO_BYTES, L_MS_TWO_BYTES, L_CLIP_TO_FFFF</param>
 '''   <returns>pixd 16 bpp , or NULL on error</returns>
@@ -1588,6 +1637,7 @@ End Function
 ' pixConvert32To8(PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvert32To8/*"/>
 '''  <param name="pixs">[in] - 32 bpp, single component</param>
 '''  <param name="type16">[in] - L_LS_TWO_BYTES, L_MS_TWO_BYTES, L_CLIP_TO_FFFF</param>
 '''  <param name="type8">[in] - L_LS_BYTE, L_MS_BYTE, L_CLIP_TO_FF</param>
@@ -1617,6 +1667,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveAlpha/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''   <returns>pixd        if 32 bpp rgba, pixs blended over a white background a clone of pixs otherwise, and NULL on error</returns>
 Public Shared Function pixRemoveAlpha(
@@ -1646,6 +1697,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddAlphaTo1bpp/*"/>
 '''  <param name="pixd">[in][optional] - 1 bpp, can be null or equal to pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 1 bpp with colormap and non-opaque alpha, or NULL on error</returns>
@@ -1680,6 +1732,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertLossless/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8 bpp, not cmapped</param>
 '''  <param name="d">[in] - destination depth: 2, 4 or 8</param>
 '''   <returns>pixd 2, 4 or 8 bpp, or NULL on error</returns>
@@ -1713,6 +1766,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertForPSWrap/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 '''   <returns>pixd    1, 8, or 32 bpp, or NULL on error</returns>
 Public Shared Function pixConvertForPSWrap(
@@ -1750,6 +1804,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertToSubpixelRGB/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale, 32 bpp rgb, or colormapped</param>
 '''  <param name="scalex">[in] - anisotropic scaling permitted between source and destination</param>
 '''  <param name="scaley">[in] - anisotropic scaling permitted between source and destination</param>
@@ -1794,6 +1849,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertGrayToSubpixelRGB/*"/>
 '''  <param name="pixs">[in] - 8 bpp or colormapped</param>
 '''  <param name="scalex">[in] - </param>
 '''  <param name="scaley">[in] - </param>
@@ -1834,6 +1890,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixConvertColorToSubpixelRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp or colormapped</param>
 '''  <param name="scalex">[in] - </param>
 '''  <param name="scaley">[in] - </param>
@@ -1866,6 +1923,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/l_setNeutralBoostVal/*"/>
 '''  <param name="val">[in] - between 1 and 255 typical value is 180</param>
 Public Shared Sub l_setNeutralBoostVal(
 				 ByVal val as Integer)

@@ -15,6 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotCreate/*"/>
 '''  <param name="rootname">[in] - root for all output files</param>
 '''  <param name="outformat">[in] - GPLOT_PNG, GPLOT_PS, GPLOT_EPS, GPLOT_LATEX</param>
 '''  <param name="title">[in][optional] - overall title</param>
@@ -41,6 +42,7 @@ End Function
 ' gplotDestroy(GPLOT **) as void
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotDestroy/*"/>
 '''  <param name="pgplot">[in,out] - to be nulled</param>
 Public Shared Sub gplotDestroy(
 				 ByRef pgplot as GPlot)
@@ -75,6 +77,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotAddPlot/*"/>
 '''  <param name="gplot">[in] - </param>
 '''  <param name="nax">[in][optional] - numa: set to null for Y_VS_I required for Y_VS_X</param>
 '''  <param name="nay">[in] - numa: required for both Y_VS_I and Y_VS_X</param>
@@ -109,6 +112,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotSetScaling/*"/>
 '''  <param name="gplot">[in] - </param>
 '''  <param name="scaling">[in] - GPLOT_LINEAR_SCALE, GPLOT_LOG_SCALE_X, GPLOT_LOG_SCALE_Y, GPLOT_LOG_SCALE_X_Y</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -140,6 +144,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotMakeOutput/*"/>
 '''  <param name="gplot">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function gplotMakeOutput(
@@ -157,6 +162,7 @@ End Function
 ' gplotGenCommandFile(GPLOT *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotGenCommandFile/*"/>
 '''  <param name="gplot">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function gplotGenCommandFile(
@@ -181,6 +187,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotGenDataFiles/*"/>
 '''  <param name="gplot">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function gplotGenDataFiles(
@@ -207,6 +214,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotSimple1/*"/>
 '''  <param name="na">[in] - numa plot Y_VS_I</param>
 '''  <param name="outformat">[in] - GPLOT_PNG, GPLOT_PS, GPLOT_EPS, GPLOT_LATEX</param>
 '''  <param name="outroot">[in] - root of output files</param>
@@ -240,6 +248,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotSimple2/*"/>
 '''  <param name="na1">[in] - numa plotted with Y_VS_I</param>
 '''  <param name="na2">[in] - ditto</param>
 '''  <param name="outformat">[in] - GPLOT_PNG, GPLOT_PS, GPLOT_EPS, GPLOT_LATEX</param>
@@ -277,6 +286,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotSimpleN/*"/>
 '''  <param name="naa">[in] - numaa we plotted with Y_VS_I for each numa</param>
 '''  <param name="outformat">[in] - GPLOT_PNG, GPLOT_PS, GPLOT_EPS, GPLOT_LATEX</param>
 '''  <param name="outroot">[in] - root of output files</param>
@@ -312,6 +322,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotSimpleXY1/*"/>
 '''  <param name="nax">[in][optional] - </param>
 '''  <param name="nay">[in] - </param>
 '''  <param name="plotstyle">[in] - GPLOT_LINES, GPLOT_POINTS, GPLOT_IMPULSES, GPLOT_LINESPOINTS, GPLOT_DOTS</param>
@@ -353,6 +364,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotSimpleXY2/*"/>
 '''  <param name="nax">[in] - is lower optional can be NULL</param>
 '''  <param name="nay1">[in] - </param>
 '''  <param name="nay2">[in] - </param>
@@ -396,6 +408,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotSimpleXYN/*"/>
 '''  <param name="nax">[in][optional] - can be NULL</param>
 '''  <param name="naay">[in] - numaa of arrays to plot against %nax</param>
 '''  <param name="plotstyle">[in] - GPLOT_LINES, GPLOT_POINTS, GPLOT_IMPULSES, GPLOT_LINESPOINTS, GPLOT_DOTS</param>
@@ -426,6 +439,7 @@ End Function
 ' gplotRead(const char *) as GPLOT *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>gplot, or NULL on error</returns>
 Public Shared Function gplotRead(
@@ -446,6 +460,7 @@ End Function
 ' gplotWrite(const char *, GPLOT *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/gplotWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="gplot">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>

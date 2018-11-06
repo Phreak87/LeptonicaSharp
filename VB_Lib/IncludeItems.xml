@@ -1,0 +1,10 @@
+<ItemGroup>
+<Content Include="DST\VB_Lib\HelpImages\pixDeskew_S.jpg_S.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="DST\VB_Lib\HelpImages\pixDeskew_T.jpg_S.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+</ItemGroup>

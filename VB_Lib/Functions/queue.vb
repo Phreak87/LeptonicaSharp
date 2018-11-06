@@ -13,6 +13,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lqueueCreate/*"/>
 '''  <param name="nalloc">[in] - size of ptr array to be alloc'd 0 for default</param>
 '''   <returns>lqueue, or NULL on error</returns>
 Public Shared Function lqueueCreate(
@@ -42,6 +43,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lqueueDestroy/*"/>
 '''  <param name="plq">[in,out] - to be nulled</param>
 '''  <param name="freeflag">[in] - TRUE to free each remaining struct in the array</param>
 Public Shared Sub lqueueDestroy(
@@ -70,6 +72,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lqueueAdd/*"/>
 '''  <param name="lq">[in] - lqueue</param>
 '''  <param name="item">[in] - to be added to the tail of the queue</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -98,6 +101,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lqueueRemove/*"/>
 '''  <param name="lq">[in] - lqueue</param>
 '''   <returns>ptr to item popped from the head of the queue, or NULL if the queue is empty or on error</returns>
 Public Shared Function lqueueRemove(
@@ -115,6 +119,7 @@ End Function
 ' lqueueGetCount(L_QUEUE *) as l_int32
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lqueueGetCount/*"/>
 '''  <param name="lq">[in] - lqueue</param>
 '''   <returns>count, or 0 on error</returns>
 Public Shared Function lqueueGetCount(
@@ -132,6 +137,7 @@ End Function
 ' lqueuePrint(FILE *, L_QUEUE *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/lqueuePrint/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="lq">[in] - lqueue</param>
 '''   <returns>0 if OK 1 on error</returns>

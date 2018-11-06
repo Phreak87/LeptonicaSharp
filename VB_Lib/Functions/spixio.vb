@@ -14,6 +14,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamSpix/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>pix, or NULL on error.</returns>
 Public Shared Function pixReadStreamSpix(
@@ -37,6 +38,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderSpix/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pwidth">[out] - width</param>
 '''  <param name="pheight">[out] - height</param>
@@ -71,6 +73,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/freadHeaderSpix/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pwidth">[out] - width</param>
 '''  <param name="pheight">[out] - height</param>
@@ -103,6 +106,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/sreadHeaderSpix/*"/>
 '''  <param name="data">[in] - </param>
 '''  <param name="pwidth">[out] - width</param>
 '''  <param name="pheight">[out] - height</param>
@@ -132,6 +136,7 @@ End Function
 ' pixWriteStreamSpix(FILE *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamSpix/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -152,6 +157,7 @@ End Function
 ' pixReadMemSpix(const l_uint8 *, size_t) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMemSpix/*"/>
 '''  <param name="data">[in] - const uncompressed</param>
 '''  <param name="size">[in] - bytes of data</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -172,6 +178,7 @@ End Function
 ' pixWriteMemSpix(l_uint8 **, size_t *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemSpix/*"/>
 '''  <param name="pdata">[out] - data of serialized, uncompressed pix</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - all depths colormap OK</param>
@@ -212,6 +219,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSerializeToMemory/*"/>
 '''  <param name="pixs">[in] - all depths, colormap OK</param>
 '''  <param name="pdata">[out] - serialized data in memory</param>
 '''  <param name="pnbytes">[out] - number of bytes in data string</param>
@@ -242,6 +250,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDeserializeFromMemory/*"/>
 '''  <param name="data">[in] - serialized data in memory</param>
 '''  <param name="nbytes">[in] - number of bytes in data string</param>
 '''   <returns>pix, or NULL on error</returns>

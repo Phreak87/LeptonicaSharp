@@ -8,6 +8,7 @@ Partial Public Class _All
 ' pixFlipFHMTGen(PIX *, PIX *, const char *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixFlipFHMTGen/*"/>
 '''   <returns></returns>
 Public Shared Function pixFlipFHMTGen(
 				 ByVal pixd as Pix, 

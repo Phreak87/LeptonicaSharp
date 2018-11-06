@@ -21,6 +21,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaErode/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 '''   <returns>nad eroded, or NULL on error</returns>
@@ -47,6 +48,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaDilate/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 '''   <returns>nad dilated, or NULL on error</returns>
@@ -73,6 +75,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaOpen/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 '''   <returns>nad opened, or NULL on error</returns>
@@ -105,6 +108,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaClose/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 '''   <returns>nad opened, or NULL on error</returns>
@@ -130,6 +134,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaTransform/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="shift">[in] - add this to each number</param>
 '''  <param name="scale">[in] - multiply each number by this</param>
@@ -152,6 +157,7 @@ End Function
 ' numaSimpleStats(NUMA *, l_int32, l_int32, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSimpleStats/*"/>
 '''  <param name="na">[in] - input numa</param>
 '''  <param name="first">[in] - first element to use</param>
 '''  <param name="last">[in] - last element to use 0 to go to the end</param>
@@ -199,6 +205,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaWindowedStats/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''  <param name="wc">[in] - half width of the window</param>
 '''  <param name="pnam">[out][optional] - mean value in window</param>
@@ -241,6 +248,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaWindowedMean/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="wc">[in] - half width of the convolution window</param>
 '''   <returns>nad after low-pass filtering, or NULL on error</returns>
@@ -267,6 +275,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaWindowedMeanSquare/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="wc">[in] - half width of the window</param>
 '''   <returns>nad containing windowed mean square values, or NULL on error</returns>
@@ -298,6 +307,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaWindowedVariance/*"/>
 '''  <param name="nam">[in] - windowed mean values</param>
 '''  <param name="nams">[in] - windowed mean square values</param>
 '''  <param name="pnav">[out][optional] - numa of variance -- the ms deviation from the mean</param>
@@ -337,6 +347,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaWindowedMedian/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="halfwin">[in] - half width of window over which the median is found</param>
 '''   <returns>nad after windowed median filtering, or NULL on error</returns>
@@ -357,6 +368,7 @@ End Function
 ' numaConvertToInt(NUMA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaConvertToInt/*"/>
 '''  <param name="nas">[in] - source numa</param>
 '''   <returns>na with all values rounded to nearest integer, or NULL on error</returns>
 Public Shared Function numaConvertToInt(
@@ -390,6 +402,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaMakeHistogram/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="maxbins">[in] - max number of histogram bins</param>
 '''  <param name="pbinsize">[out] - size of histogram bins</param>
@@ -428,6 +441,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaMakeHistogramAuto/*"/>
 '''  <param name="na">[in] - numa of floats these may be integers</param>
 '''  <param name="maxbins">[in] - max number of histogram bins  is greater = 1</param>
 '''   <returns>na consisiting of histogram of quantized float values, or NULL on error.</returns>
@@ -458,6 +472,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaMakeHistogramClipped/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="binsize">[in] - typically 1.0</param>
 '''  <param name="maxsize">[in] - of histogram ordinate</param>
@@ -480,6 +495,7 @@ End Function
 ' numaRebinHistogram(NUMA *, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaRebinHistogram/*"/>
 '''  <param name="nas">[in] - input histogram</param>
 '''  <param name="newsize">[in] - number of old bins contained in each new bin</param>
 '''   <returns>nad more coarsely re-binned histogram, or NULL on error</returns>
@@ -500,6 +516,7 @@ End Function
 ' numaNormalizeHistogram(NUMA *, l_float32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaNormalizeHistogram/*"/>
 '''  <param name="nas">[in] - input histogram</param>
 '''  <param name="tsum">[in] - target sum of all numbers in dest histogram e.g., use %tsum= 1.0 if this represents a probability distribution</param>
 '''   <returns>nad normalized histogram, or NULL on error</returns>
@@ -549,6 +566,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetStatsUsingHistogram/*"/>
 '''  <param name="na">[in] - an arbitrary set of numbers not ordered and not a histogram</param>
 '''  <param name="maxbins">[in] - the maximum number of bins to be allowed in the histogram use an integer larger than the largest number in %na for consecutive integer bins</param>
 '''  <param name="pmin">[out][optional] - min value of set</param>
@@ -596,6 +614,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetHistogramStats/*"/>
 '''  <param name="nahisto">[in] - histogram: y(x(i)), i = 0 ... nbins - 1</param>
 '''  <param name="startx">[in] - x value of first bin: x(0)</param>
 '''  <param name="deltax">[in] - x increment between bins the bin size x(1) - x(0)</param>
@@ -634,6 +653,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetHistogramStatsOnInterval/*"/>
 '''  <param name="nahisto">[in] - histogram: y(x(i)), i = 0 ... nbins - 1</param>
 '''  <param name="startx">[in] - x value of first bin: x(0)</param>
 '''  <param name="deltax">[in] - x increment between bins the bin size x(1) - x(0)</param>
@@ -667,6 +687,7 @@ End Function
 ' numaMakeRankFromHistogram(l_float32, l_float32, NUMA *, l_int32, NUMA **, NUMA **) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaMakeRankFromHistogram/*"/>
 '''  <param name="startx">[in] - xval corresponding to first element in nay</param>
 '''  <param name="deltax">[in] - x increment between array elements in nay</param>
 '''  <param name="nasy">[in] - input histogram, assumed equally spaced</param>
@@ -713,6 +734,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaHistogramGetRankFromVal/*"/>
 '''  <param name="na">[in] - histogram</param>
 '''  <param name="rval">[in] - value of input sample for which we want the rank</param>
 '''  <param name="prank">[out] - fraction of total samples below rval</param>
@@ -748,6 +770,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaHistogramGetValFromRank/*"/>
 '''  <param name="na">[in] - histogram</param>
 '''  <param name="rank">[in] - fraction of total samples</param>
 '''  <param name="prval">[out] - approx. to the bin value</param>
@@ -785,6 +808,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaDiscretizeRankAndIntensity/*"/>
 '''  <param name="na">[in] - normalized histogram of probability density vs intensity</param>
 '''  <param name="nbins">[in] - number of bins at which the rank is divided</param>
 '''  <param name="pnarbin">[out][optional] - rank bin value vs intensity</param>
@@ -829,6 +853,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaGetRankBinValues/*"/>
 '''  <param name="na">[in] - just an array of values</param>
 '''  <param name="nbins">[in] - number of bins at which the rank is divided</param>
 '''  <param name="pnarbin">[out][optional] - rank bin value vs array value</param>
@@ -892,6 +917,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSplitDistribution/*"/>
 '''  <param name="na">[in] - histogram</param>
 '''  <param name="scorefract">[in] - fraction of the max score, used to determine the range over which the histogram min is searched</param>
 '''  <param name="psplitindex">[out][optional] - index for splitting</param>
@@ -942,6 +968,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/grayHistogramsToEMD/*"/>
 '''  <param name="naa1">[in] - two numaa, each with one or more 256-element histograms</param>
 '''  <param name="naa2">[in] - two numaa, each with one or more 256-element histograms</param>
 '''  <param name="pnad">[out] - nad of EM distances for each histogram</param>
@@ -987,6 +1014,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaEarthMoverDistance/*"/>
 '''  <param name="na1">[in] - two numas of the same size, typically histograms</param>
 '''  <param name="na2">[in] - two numas of the same size, typically histograms</param>
 '''  <param name="pdist">[out] - EM distance</param>
@@ -1043,6 +1071,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/grayInterHistogramStats/*"/>
 '''  <param name="naa">[in] - numaa with two or more 256-element histograms</param>
 '''  <param name="wc">[in] - half-width of the smoothing window</param>
 '''  <param name="pnam">[out][optional] - mean values</param>
@@ -1086,6 +1115,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaFindPeaks/*"/>
 '''  <param name="nas">[in] - source numa</param>
 '''  <param name="nmax">[in] - max number of peaks to be found</param>
 '''  <param name="fract1">[in] - min fraction of peak value</param>
@@ -1128,6 +1158,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaFindExtrema/*"/>
 '''  <param name="nas">[in] - input values</param>
 '''  <param name="delta">[in] - relative amount to resolve peaks and valleys</param>
 '''  <param name="pnav">[out][optional] - values of extrema</param>
@@ -1160,6 +1191,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaCountReversals/*"/>
 '''  <param name="nas">[in] - input values</param>
 '''  <param name="minreversal">[in] - relative amount to resolve peaks and valleys</param>
 '''  <param name="pnr">[out][optional] - number of reversals</param>
@@ -1198,6 +1230,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaSelectCrossingThreshold/*"/>
 '''  <param name="nax">[in][optional] - numa of abscissa values can be NULL</param>
 '''  <param name="nay">[in] - signal</param>
 '''  <param name="estthresh">[in] - estimated pixel threshold for crossing: e.g., for images, white  is lower -- is greater  black typ. ~120</param>
@@ -1229,6 +1262,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaCrossingsByThreshold/*"/>
 '''  <param name="nax">[in][optional] - numa of abscissa values can be NULL</param>
 '''  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 '''  <param name="thresh">[in] - threshold value for nay</param>
@@ -1259,6 +1293,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaCrossingsByPeaks/*"/>
 '''  <param name="nax">[in][optional] - numa of abscissa values</param>
 '''  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 '''  <param name="delta">[in] - parameter used to identify when a new peak can be found</param>
@@ -1303,6 +1338,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaEvalBestHaarParameters/*"/>
 '''  <param name="nas">[in] - numa of non-negative signal values</param>
 '''  <param name="relweight">[in] - relative weight of (-1 comb) / (+1 comb) contributions to the 'convolution'.  In effect, the convolution kernel is a comb consisting of alternating +1 and -weight.</param>
 '''  <param name="nwidth">[in] - number of widths to consider</param>
@@ -1355,6 +1391,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaEvalHaarSum/*"/>
 '''  <param name="nas">[in] - numa of non-negative signal values</param>
 '''  <param name="width">[in] - distance between +1 and -1 in convolution comb</param>
 '''  <param name="shift">[in] - phase of the comb: location of first +1</param>
@@ -1390,6 +1427,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/genConstrainedNumaInRange/*"/>
 '''  <param name="first">[in] - first number to choose  is greater = 0</param>
 '''  <param name="last">[in] - biggest possible number to reach  is greater = first</param>
 '''  <param name="nmax">[in] - maximum number of numbers to select  is greater  0</param>

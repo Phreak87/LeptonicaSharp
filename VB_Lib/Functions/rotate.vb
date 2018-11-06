@@ -27,6 +27,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotate/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp rgb</param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="type">[in] - L_ROTATE_AREA_MAP, L_ROTATE_SHEAR, L_ROTATE_SAMPLING</param>
@@ -87,6 +88,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixEmbedForRotation/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp rgb</param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -121,6 +123,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateBySampling/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp rgb can be cmapped</param>
 '''  <param name="xcen">[in] - x value of center of rotation</param>
 '''  <param name="ycen">[in] - y value of center of rotation</param>
@@ -164,6 +167,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateBinaryNice/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="angle">[in] - radians clockwise is positive about the center</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -226,6 +230,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRotateWithAlpha/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb or cmapped</param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="pixg">[in][optional] - 8 bpp, can be null</param>

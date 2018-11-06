@@ -22,6 +22,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSelectBySize/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="width">[in] - threshold dimensions</param>
 '''  <param name="height">[in] - threshold dimensions</param>
@@ -67,6 +68,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSelectBySize/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="width">[in] - threshold dimensions</param>
 '''  <param name="height">[in] - threshold dimensions</param>
@@ -107,6 +109,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaMakeSizeIndicator/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="width">[in] - threshold dimensions</param>
 '''  <param name="height">[in] - threshold dimensions</param>
@@ -146,6 +149,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSelectByPerimToAreaRatio/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="thresh">[in] - threshold ratio of fg boundary to fg pixels</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -181,6 +185,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSelectByPerimToAreaRatio/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="thresh">[in] - threshold ratio of fg boundary to fg pixels</param>
 '''  <param name="type">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -219,6 +224,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSelectByPerimSizeRatio/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="thresh">[in] - threshold ratio of fg boundary to fg pixels</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -254,6 +260,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSelectByPerimSizeRatio/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="thresh">[in] - threshold ratio of fg boundary to b.b. circumference</param>
 '''  <param name="type">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -291,6 +298,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSelectByAreaFraction/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="thresh">[in] - threshold ratio of fg pixels to (w  h)</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -330,6 +338,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSelectByAreaFraction/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="thresh">[in] - threshold ratio of fg pixels to (w  h)</param>
 '''  <param name="type">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -366,6 +375,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSelectByWidthHeightRatio/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="thresh">[in] - threshold ratio of width/height</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -405,6 +415,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSelectByWidthHeightRatio/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="thresh">[in] - threshold ratio of width/height</param>
 '''  <param name="type">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -437,6 +448,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSelectByNumConnComp/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="nmin">[in] - minimum number of components</param>
 '''  <param name="nmax">[in] - maximum number of components</param>
@@ -472,6 +484,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSelectWithIndicator/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="na">[in] - indicator numa</param>
 '''  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
@@ -501,6 +514,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRemoveWithIndicator/*"/>
 '''  <param name="pixs">[in] - 1 bpp pix from which components are removed in-place</param>
 '''  <param name="pixa">[in] - of connected components in pixs</param>
 '''  <param name="na">[in] - numa indicator: remove components corresponding to 1s</param>
@@ -530,6 +544,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixAddWithIndicator/*"/>
 '''  <param name="pixs">[in] - 1 bpp pix from which components are added in-place</param>
 '''  <param name="pixa">[in] - of connected components, some of which will be put into pixs</param>
 '''  <param name="na">[in] - numa indicator: add components corresponding to 1s</param>
@@ -559,6 +574,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSelectWithString/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="str">[in] - string of indices into pixa, giving the pix to be selected</param>
 '''  <param name="perror">[out][optional] - 1 if any indices are invalid 0 if all indices are valid</param>
@@ -589,6 +605,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaRenderComponent/*"/>
 '''  <param name="pixs">[in][optional] - 1 bpp pix</param>
 '''  <param name="pixa">[in] - of 1 bpp connected components, one of which will be rendered in pixs, with its origin determined by the associated box.</param>
 '''  <param name="index">[in] - of component to be rendered</param>
@@ -625,6 +642,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSort/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="sorttype">[in] - L_SORT_BY_X, L_SORT_BY_Y, L_SORT_BY_WIDTH, L_SORT_BY_HEIGHT, L_SORT_BY_MIN_DIMENSION, L_SORT_BY_MAX_DIMENSION, L_SORT_BY_PERIMETER, L_SORT_BY_AREA, L_SORT_BY_ASPECT_RATIO</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
@@ -668,6 +686,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaBinSort/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="sorttype">[in] - L_SORT_BY_X, L_SORT_BY_Y, L_SORT_BY_WIDTH, L_SORT_BY_HEIGHT, L_SORT_BY_PERIMETER</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
@@ -697,6 +716,7 @@ End Function
 ' pixaSortByIndex(PIXA *, NUMA *, l_int32) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSortByIndex/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="naindex">[in] - na that maps from the new pixa to the input pixa</param>
 '''  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
@@ -720,6 +740,7 @@ End Function
 ' pixaSort2dByIndex(PIXA *, NUMAA *, l_int32) as PIXAA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSort2dByIndex/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="naa">[in] - numaa that maps from the new pixaa to the input pixas</param>
 '''  <param name="copyflag">[in] - L_CLONE or L_COPY</param>
@@ -750,6 +771,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSelectRange/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="first">[in] - use 0 to select from the beginning</param>
 '''  <param name="last">[in] - use 0 to select to the end</param>
@@ -781,6 +803,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaSelectRange/*"/>
 '''  <param name="paas">[in] - </param>
 '''  <param name="first">[in] - use 0 to select from the beginning</param>
 '''  <param name="last">[in] - use 0 to select to the end</param>
@@ -816,6 +839,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaScaleToSize/*"/>
 '''  <param name="paas">[in] - </param>
 '''  <param name="wd">[in] - target width use 0 if using height as target</param>
 '''  <param name="hd">[in] - target height use 0 if using width as target</param>
@@ -851,6 +875,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaScaleToSizeVar/*"/>
 '''  <param name="paas">[in] - </param>
 '''  <param name="nawd">[in][optional] - target widths use NULL if using height</param>
 '''  <param name="nahd">[in][optional] - target height use NULL if using width</param>
@@ -881,6 +906,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaScaleToSize/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="wd">[in] - target width use 0 if using height as target</param>
 '''  <param name="hd">[in] - target height use 0 if using width as target</param>
@@ -910,6 +936,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaScaleToSizeRel/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="delw">[in] - change in width, in pixels 0 means no change</param>
 '''  <param name="delh">[in] - change in height, in pixels 0 means no change return  pixad, or NULL on error</param>
@@ -937,6 +964,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaScale/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="scalex">[in] - </param>
 '''  <param name="scaley">[in] - </param>
@@ -964,6 +992,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaScaleBySampling/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="scalex">[in] - </param>
 '''  <param name="scaley">[in] - </param>
@@ -999,6 +1028,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaRotate/*"/>
 '''  <param name="pixas">[in] - 1, 2, 4, 8, 32 bpp rgb</param>
 '''  <param name="angle">[in] - rotation angle in radians clockwise is positive</param>
 '''  <param name="type">[in] - L_ROTATE_AREA_MAP, L_ROTATE_SHEAR, L_ROTATE_SAMPLING</param>
@@ -1033,6 +1063,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaRotateOrth/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="rotation">[in] - 0 = noop, 1 = 90 deg, 2 = 180 deg, 3 = 270 deg all rotations are clockwise</param>
 '''   <returns>pixad, or NULL on error</returns>
@@ -1053,6 +1084,7 @@ End Function
 ' pixaTranslate(PIXA *, l_int32, l_int32, l_int32) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaTranslate/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="hshift">[in] - horizontal shift hshift  is greater  0 is to right</param>
 '''  <param name="vshift">[in] - vertical shift vshift  is greater  0 is down</param>
@@ -1097,6 +1129,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaAddBorderGeneral/*"/>
 '''  <param name="pixad">[in]can be null - or equal to pixas</param>
 '''  <param name="pixas">[in] - containing pix of all depths colormap ok</param>
 '''  <param name="left">[in] - number of pixels added</param>
@@ -1137,6 +1170,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaFlattenToPixa/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="pnaindex">[out][optional] - the pixa index in the pixaa</param>
 '''  <param name="copyflag">[in] - L_COPY or L_CLONE</param>
@@ -1162,6 +1196,7 @@ End Function
 ' pixaaSizeRange(PIXAA *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaaSizeRange/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="pminw">[out][optional] - range of dimensions of all boxes</param>
 '''  <param name="pminh">[out][optional] - range of dimensions of all boxes</param>
@@ -1187,6 +1222,7 @@ End Function
 ' pixaSizeRange(PIXA *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSizeRange/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pminw">[out][optional] - range of dimensions of pix in the array</param>
 '''  <param name="pminh">[out][optional] - range of dimensions of pix in the array</param>
@@ -1227,6 +1263,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaClipToPix/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixad, or NULL on error</returns>
@@ -1255,6 +1292,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaClipToForeground/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="ppixad">[out][optional] - pixa of clipped pix returned</param>
 '''  <param name="pboxa">[out][optional] - clipping boxes returned</param>
@@ -1281,6 +1319,7 @@ End Function
 ' pixaGetRenderingDepth(PIXA *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetRenderingDepth/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pdepth">[out] - depth required to render if all colormaps are removed</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -1300,6 +1339,7 @@ End Function
 ' pixaHasColor(PIXA *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaHasColor/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="phascolor">[out] - 1 if any pix is rgb or has a colormap with color 0 otherwise</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -1319,6 +1359,7 @@ End Function
 ' pixaAnyColormaps(PIXA *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaAnyColormaps/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="phascmap">[out] - 1 if any pix has a colormap 0 otherwise</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -1338,6 +1379,7 @@ End Function
 ' pixaGetDepthInfo(PIXA *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaGetDepthInfo/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pmaxdepth">[out][optional] - max pixel depth of pix in pixa</param>
 '''  <param name="psame">[out][optional] - true if all depths are equal</param>
@@ -1367,6 +1409,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaConvertToSameDepth/*"/>
 '''  <param name="pixas">[in] - </param>
 '''   <returns>pixad, or NULL on error</returns>
 Public Shared Function pixaConvertToSameDepth(
@@ -1403,6 +1446,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaEqual/*"/>
 '''  <param name="pixa1">[in] - </param>
 '''  <param name="pixa2">[in] - </param>
 '''  <param name="maxdist">[in] - </param>
@@ -1439,6 +1483,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixaSetFullSizeBoxa/*"/>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaSetFullSizeBoxa(

@@ -8,6 +8,7 @@ Partial Public Class _All
 ' pixReadStreamWebP(FILE *) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamWebP/*"/>
 '''   <returns></returns>
 Public Shared Function pixReadStreamWebP(
 				 ByVal fp as FILE) as Pix
@@ -27,6 +28,7 @@ End Function
 ' pixReadMemWebP(const l_uint8 *, size_t) as PIX *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadMemWebP/*"/>
 '''   <returns></returns>
 Public Shared Function pixReadMemWebP(
 				 ByVal filedata as Byte(), 
@@ -45,6 +47,7 @@ End Function
 ' readHeaderWebP(const char *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderWebP/*"/>
 '''   <returns></returns>
 Public Shared Function readHeaderWebP(
 				 ByVal filename as String, 
@@ -69,6 +72,7 @@ End Function
 ' readHeaderMemWebP(const l_uint8 *, size_t, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/readHeaderMemWebP/*"/>
 '''   <returns></returns>
 Public Shared Function readHeaderMemWebP(
 				 ByVal data as Byte(), 
@@ -92,6 +96,7 @@ End Function
 ' pixWriteWebP(const char *, PIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteWebP/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteWebP(
 				 ByVal filename as String, 
@@ -116,6 +121,7 @@ End Function
 ' pixWriteStreamWebP(FILE *, PIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamWebP/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteStreamWebP(
 				 ByVal fp as FILE, 
@@ -139,6 +145,7 @@ End Function
 ' pixWriteMemWebP(l_uint8 **, size_t *, PIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemWebP/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteMemWebP(
 				 ByVal pencdata as Object, 

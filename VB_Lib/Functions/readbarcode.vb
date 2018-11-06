@@ -8,6 +8,7 @@ Partial Public Class _All
 ' pixProcessBarcodes(PIX *, l_int32, l_int32, SARRAY **, l_int32) as SARRAY *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixProcessBarcodes/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="format">[in] - L_BF_ANY, L_BF_CODEI2OF5, L_BF_CODE93, ...</param>
 '''  <param name="method">[in] - L_USE_WIDTHS, L_USE_WINDOWS</param>
@@ -37,6 +38,7 @@ End Function
 ' pixExtractBarcodes(PIX *, l_int32) as PIXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtractBarcodes/*"/>
 '''  <param name="pixs">[in] - 8 bpp, no colormap</param>
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
 '''   <returns>pixa deskewed and cropped barcodes, or NULL if none found or on error</returns>
@@ -57,6 +59,7 @@ End Function
 ' pixReadBarcodes(PIXA *, l_int32, l_int32, SARRAY **, l_int32) as SARRAY *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadBarcodes/*"/>
 '''  <param name="pixa">[in] - of 8 bpp deskewed and cropped barcodes</param>
 '''  <param name="format">[in] - L_BF_ANY, L_BF_CODEI2OF5, L_BF_CODE93, ...</param>
 '''  <param name="method">[in] - L_USE_WIDTHS, L_USE_WINDOWS</param>
@@ -86,6 +89,7 @@ End Function
 ' pixReadBarcodeWidths(PIX *, l_int32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixReadBarcodeWidths/*"/>
 '''  <param name="pixs">[in] - of 8 bpp deskewed and cropped barcode</param>
 '''  <param name="method">[in] - L_USE_WIDTHS, L_USE_WINDOWS</param>
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
@@ -108,6 +112,7 @@ End Function
 ' pixLocateBarcodes(PIX *, l_int32, PIX **, PIX **) as BOXA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixLocateBarcodes/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="thresh">[in] - for binarization of edge filter output typ. 20</param>
 '''  <param name="ppixb">[out][optional] - binarized edge filtered input image</param>
@@ -143,6 +148,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixDeskewBarcode/*"/>
 '''  <param name="pixs">[in] - input image 8 bpp</param>
 '''  <param name="pixb">[in] - binarized edge-filtered input image</param>
 '''  <param name="box">[in] - identified region containing barcode</param>
@@ -185,6 +191,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtractBarcodeWidths1/*"/>
 '''  <param name="pixs">[in] - input image 8 bpp</param>
 '''  <param name="thresh">[in] - estimated pixel threshold for crossing white  is lower -- is greater  black typ. ~120</param>
 '''  <param name="binfract">[in] - histo binsize as a fraction of minsize e.g., 0.25</param>
@@ -232,6 +239,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtractBarcodeWidths2/*"/>
 '''  <param name="pixs">[in] - input image 8 bpp</param>
 '''  <param name="thresh">[in] - estimated pixel threshold for crossing white  is lower -- is greater  black typ. ~120</param>
 '''  <param name="pwidth">[out][optional] - best decoding window width, in pixels</param>
@@ -261,6 +269,7 @@ End Function
 ' pixExtractBarcodeCrossings(PIX *, l_float32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixExtractBarcodeCrossings/*"/>
 '''  <param name="pixs">[in] - input image 8 bpp</param>
 '''  <param name="thresh">[in] - estimated pixel threshold for crossing white  is lower -- is greater  black typ. ~120</param>
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
@@ -296,6 +305,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaQuantizeCrossingsByWidth/*"/>
 '''  <param name="nas">[in] - numa of crossing locations, in pixel units</param>
 '''  <param name="binfract">[in] - histo binsize as a fraction of minsize e.g., 0.25</param>
 '''  <param name="pnaehist">[out][optional] - histo of even (black) bar widths</param>
@@ -337,6 +347,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/numaQuantizeCrossingsByWindow/*"/>
 '''  <param name="nas">[in] - numa of crossing locations</param>
 '''  <param name="ratio">[in] - of max window size over min window size in search typ. 2.0</param>
 '''  <param name="pwidth">[out][optional] - best window width</param>

@@ -16,6 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixSimpleCaptcha/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="border">[in] - added white pixels on each side</param>
 '''  <param name="nterms">[in] - number of x and y harmonic terms</param>
@@ -67,6 +68,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixRandomHarmonicWarp/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="xmag">[in] - maximum magnitude of x and y distortion</param>
 '''  <param name="ymag">[in] - maximum magnitude of x and y distortion</param>
@@ -167,6 +169,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixWarpStereoscopic/*"/>
 '''  <param name="pixs">[in] - any depth, colormap ok</param>
 '''  <param name="zbend">[in] - horizontal separation in pixels of red and cyan at the left and right sides, that gives rise to quadratic curvature out of the image plane</param>
 '''  <param name="zshiftt">[in] - uniform pixel translation difference between red and cyan, that pushes the top of the image plane away from the viewer (zshiftt  is greater  0) or towards the viewer (zshiftt  is lower  0)</param>
@@ -214,6 +217,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixStretchHorizontal/*"/>
 '''  <param name="pixs">[in] - 1, 8 or 32 bpp</param>
 '''  <param name="dir">[in] - L_WARP_TO_LEFT or L_WARP_TO_RIGHT</param>
 '''  <param name="type">[in] - L_LINEAR_WARP or L_QUADRATIC_WARP</param>
@@ -247,6 +251,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixStretchHorizontalSampled/*"/>
 '''  <param name="pixs">[in] - 1, 8 or 32 bpp</param>
 '''  <param name="dir">[in] - L_WARP_TO_LEFT or L_WARP_TO_RIGHT</param>
 '''  <param name="type">[in] - L_LINEAR_WARP or L_QUADRATIC_WARP</param>
@@ -278,6 +283,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixStretchHorizontalLI/*"/>
 '''  <param name="pixs">[in] - 1, 8 or 32 bpp</param>
 '''  <param name="dir">[in] - L_WARP_TO_LEFT or L_WARP_TO_RIGHT</param>
 '''  <param name="type">[in] - L_LINEAR_WARP or L_QUADRATIC_WARP</param>
@@ -322,6 +328,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixQuadraticVShear/*"/>
 '''  <param name="pixs">[in] - 1, 8 or 32 bpp</param>
 '''  <param name="dir">[in] - L_WARP_TO_LEFT or L_WARP_TO_RIGHT</param>
 '''  <param name="vmaxt">[in] - max vertical displacement at edge and at top</param>
@@ -355,6 +362,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixQuadraticVShearSampled/*"/>
 '''  <param name="pixs">[in] - 1, 8 or 32 bpp</param>
 '''  <param name="dir">[in] - L_WARP_TO_LEFT or L_WARP_TO_RIGHT</param>
 '''  <param name="vmaxt">[in] - max vertical displacement at edge and at top</param>
@@ -386,6 +394,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixQuadraticVShearLI/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp, or colormapped</param>
 '''  <param name="dir">[in] - L_WARP_TO_LEFT or L_WARP_TO_RIGHT</param>
 '''  <param name="vmaxt">[in] - max vertical displacement at edge and at top</param>
@@ -433,6 +442,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixStereoFromPair/*"/>
 '''  <param name="pix1">[in] - 32 bpp rgb</param>
 '''  <param name="pix2">[in] - 32 bpp rgb</param>
 '''  <param name="rwt">[in] - weighting factors used for each component in                                pix1 to determine the output red channel</param>

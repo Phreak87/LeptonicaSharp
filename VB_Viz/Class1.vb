@@ -17,11 +17,18 @@ Namespace ImageVisualizer
         Protected Overrides Sub Show(ByVal windowService As IDialogVisualizerService, ByVal objectProvider As IVisualizerObjectProvider)
             Dim image As Image = CType(objectProvider.GetObject(), Image)
             Dim form As Form = New Form()
+            AddHandler form.KeyPress, Sub(s, e)
+                                          MsgBox(1)
+                                          If Asc(s.keycode) = 27 Then
+                                              s.close()
+                                          End If
+                                      End Sub
             form.Text = String.Format("Width: {0}, Height: {1}", image.Width, image.Height)
             form.ClientSize = New Size(350, 350)
             form.FormBorderStyle = FormBorderStyle.SizableToolWindow
             Dim pictureBox As BetterPictureBox = New BetterPictureBox()
             pictureBox.SizeMode = PictureBoxSizeMode.Zoom
+            pictureBox.InterpolationMode = Drawing2D.InterpolationMode.NearestNeighbor
             pictureBox.Image = image
             pictureBox.Parent = form
             pictureBox.Left = 0

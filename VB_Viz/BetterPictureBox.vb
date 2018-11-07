@@ -8,7 +8,7 @@ Imports System.IO
 Public Class BetterPictureBox
     Inherits PictureBox
 
-    Private _interpolationMode As Drawing2D.InterpolationMode = Drawing2D.InterpolationMode.Low
+    Private _interpolationMode As Drawing2D.InterpolationMode = Drawing2D.InterpolationMode.NearestNeighbor
 
     Event ImageMouseClick(ByVal PT As MouseEventArgs)
     Event ImageMouseMove(ByVal PT As MouseEventArgs)
@@ -40,7 +40,7 @@ Public Class BetterPictureBox
 
     <DebuggerStepThrough()>
     Protected Overrides Sub OnPaint(ByVal pe As System.Windows.Forms.PaintEventArgs)
-        'pe.Graphics.InterpolationMode = _interpolationMode
+        pe.Graphics.InterpolationMode = _interpolationMode
         MyBase.OnPaint(pe)
     End Sub
     <DebuggerStepThrough()>

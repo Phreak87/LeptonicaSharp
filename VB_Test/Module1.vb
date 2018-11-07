@@ -5,9 +5,14 @@ Imports System.Runtime.InteropServices
 Imports System.Drawing.Imaging
 
 Module Module1
-
     Sub Main()
-        LeptonicaSharp.Natives.Initialize()
+        Dim Lic As New Pix("Lic.png")
+        Lic.pixBackgroundNormSimple()
+        Lic.pixCleanBackgroundToWhite()
+        Lic.Display()
+        Lic = Lic.pixConvertTo1(128)
+        Lic.Display()
+        Dim LC2 As Pix = Lic.pixCopy
 
         Dim P1 As New Example1
         'P1.Test1()
@@ -102,7 +107,7 @@ Module Module1
         If LeptonicaSharp._All.pixGetData(PIX32).Count < 3 Then Throw New Exception ' = OK
 
         ' ------------------------------------------------------------------------------
-        ' Teste Dateiprüfung per Config                                         => OK
+        ' Teste Dateiprüfung per Config                                         => OK                                    
         ' ------------------------------------------------------------------------------
         Dim PIXER As New Pix("MissingFile.jpg")                 ' Muss fehler ausgeben
 
@@ -140,7 +145,7 @@ Module Module1
         ' Teste CheckArray
         ' Teste explizite Defaults für Parameternamen für jede Funktion
         ' ------------------------------------------------------------------------------
-        '<Parameter Name="redsearch">
+        '<Parameter Name="redsearch"> 		
         '	<Default>0</Default>
         '	<CheckArray>{0,1,2,4,8}</CheckArray>
         '</Parameter>

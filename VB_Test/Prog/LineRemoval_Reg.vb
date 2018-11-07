@@ -3,7 +3,9 @@
 Public Class LineRemoval_Reg
     Dim Deg2Rad As Integer = Math.PI / 180
     Sub Test()
-        Dim PIxs As New Pix("..\..\..\All_Images\Leptonica\dave-orig.png")
+        'Dim PIxs As New Pix("..\..\..\All_Images\Leptonica\dave-orig.png")
+        Dim PIxs As New Pix("foo.png")
+        PIxs = PIxs.pixConvertTo8(0)
         Dim Pix1 As Pix = LeptonicaSharp._All.pixThresholdToBinary(PIxs, 170)
         Dim X1 As Single, X2 As Single : LeptonicaSharp._All.pixFindSkew(Pix1, X1, X2)
         Dim Pix2 As Pix = LeptonicaSharp._All.pixRotateAMGray(PIxs, X1 * Deg2Rad, 255)

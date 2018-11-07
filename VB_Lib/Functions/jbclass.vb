@@ -32,14 +32,15 @@ End Function
 ' jbCorrelationInit(components, maxwidth, maxheight, thresh, weightfactor) as JbClasser
 ' jbCorrelationInit(l_int32, l_int32, l_int32, l_float32, l_float32) as JBCLASSER *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For scanned text, suggested input values are:<para/>
-''' thresh ~ [0.8 - 0.85]<para/>
+''' 
+''' (1) For scanned text, suggested input values are:
+''' thresh ~ [0.8 - 0.85]
 ''' weightfactor ~ [0.5 - 0.6]<para/>
-''' (2) For electronically generated fonts (e.g., rasterized pdf),<para/>
-''' a very high thresh (e.g., 0.95) will not cause a significant<para/>
-''' increase in the number of classes.<para/>
+''' 
+''' (2) For electronically generated fonts (e.g., rasterized pdf),
+''' a very high thresh (e.g., 0.95) will not cause a significant
+''' increase in the number of classes.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -67,10 +68,9 @@ End Function
 ' jbCorrelationInitWithoutComponents(components, maxwidth, maxheight, thresh, weightfactor) as JbClasser
 ' jbCorrelationInitWithoutComponents(l_int32, l_int32, l_int32, l_float32, l_float32) as JBCLASSER *
 '''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' Acts the same as jbCorrelationInit(), but the resulting<para/>
-''' object doesn't keep a list of all the components.<para/>
+''' Notes:
+''' Acts the same as jbCorrelationInit(), but the resulting
+''' object doesn't keep a list of all the components.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -98,10 +98,11 @@ End Function
 ' jbAddPages(classer, safiles) as Integer
 ' jbAddPages(JBCLASSER *, SARRAY *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) jbclasser makes a copy of the array of file names.<para/>
-''' (2) The caller is still responsible for destroying the input array.<para/>
+''' 
+''' (2) The caller is still responsible for destroying the input array.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -148,10 +149,10 @@ End Function
 ' jbAddPageComponents(classer, pixs, boxas, pixas) as Integer
 ' jbAddPageComponents(JBCLASSER *, PIX *, BOXA *, PIXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If there are no components on the page, we don't require input<para/>
-''' of empty boxas or pixas, although that's the typical situation.<para/>
+''' 
+''' (1) If there are no components on the page, we don't require input
+''' of empty boxas or pixas, although that's the typical situation.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -207,17 +208,16 @@ End Function
 ' pixHaustest(pix1, pix2, pix3, pix4, delx, dely, maxdiffw, maxdiffh) as Integer
 ' pixHaustest(PIX *, PIX *, PIX *, PIX *, l_float32, l_float32, l_int32, l_int32) as l_int32
 '''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' We check first that the two pix are roughly<para/>
-''' the same size.  Only if they meet that criterion do<para/>
-''' we compare the bitmaps.  The Hausdorff is a 2-way<para/>
-''' check.  The centroid difference is used to align the two<para/>
-''' images to the nearest integer for each of the checks.<para/>
-''' These check that the dilated image of one contains<para/>
-''' ALL the pixels of the undilated image of the other.<para/>
-''' Checks are done in both direction.  A single pixel not<para/>
-''' contained in either direction results in failure of the test.<para/>
+''' Notes:
+''' We check first that the two pix are roughly
+''' the same size.  Only if they meet that criterion do
+''' we compare the bitmaps.  The Hausdorff is a 2-way
+''' check.  The centroid difference is used to align the two
+''' images to the nearest integer for each of the checks.
+''' These check that the dilated image of one contains
+''' ALL the pixels of the undilated image of the other.
+''' Checks are done in both direction.  A single pixel not
+''' contained in either direction results in failure of the test.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -255,20 +255,19 @@ End Function
 ' pixRankHaustest(pix1, pix2, pix3, pix4, delx, dely, maxdiffw, maxdiffh, area1, area3, rank, tab8) as Integer
 ' pixRankHaustest(PIX *, PIX *, PIX *, PIX *, l_float32, l_float32, l_int32, l_int32, l_int32, l_int32, l_float32, l_int32 *) as l_int32
 '''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' We check first that the two pix are roughly<para/>
-''' the same size.  Only if they meet that criterion do<para/>
-''' we compare the bitmaps.  We convert the rank value to<para/>
-''' a number of pixels by multiplying the rank fraction by the number<para/>
-''' of pixels in the undilated image.  The Hausdorff is a 2-way<para/>
-''' check.  The centroid difference is used to align the two<para/>
-''' images to the nearest integer for each of the checks.<para/>
-''' The rank hausdorff checks that the dilated image of one<para/>
-''' contains the rank fraction of the pixels of the undilated<para/>
-''' image of the other. Checks are done in both direction.<para/>
-''' Failure of the test in either direction results in failure<para/>
-''' of the test.<para/>
+''' Notes:
+''' We check first that the two pix are roughly
+''' the same size.  Only if they meet that criterion do
+''' we compare the bitmaps.  We convert the rank value to
+''' a number of pixels by multiplying the rank fraction by the number
+''' of pixels in the undilated image.  The Hausdorff is a 2-way
+''' check.  The centroid difference is used to align the two
+''' images to the nearest integer for each of the checks.
+''' The rank hausdorff checks that the dilated image of one
+''' contains the rank fraction of the pixels of the undilated
+''' image of the other. Checks are done in both direction.
+''' Failure of the test in either direction results in failure
+''' of the test.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -373,26 +372,29 @@ End Function
 ' pixWordMaskByDilation(pixs, ppixm, psize, pixadb) as Integer
 ' pixWordMaskByDilation(PIX *, PIX **, l_int32 *, PIXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This gives an estimate of the word masks.  See<para/>
+''' 
+''' (1) This gives an estimate of the word masks.  See
 ''' pixWordBoxesByDilation() for further filtering of the word boxes.<para/>
-''' (2) The resolution should be between 75 and 150 ppi, and the optimal<para/>
+''' 
+''' (2) The resolution should be between 75 and 150 ppi, and the optimal
 ''' dilation will be between 3 and 10.<para/>
+''' 
 ''' (3) A good size for dilating to get word masks is optionally returned.<para/>
-''' (4) Typically, the number of c.c. reduced with each successive<para/>
-''' dilation (stored in nadiff) decreases quickly to a minimum<para/>
-''' (where the characters in a word are joined), and then<para/>
-''' increases again as the smaller number of words are joined.<para/>
-''' For the typical case, you can then look for this minimum<para/>
-''' and dilate to get the word mask.  However, there are many<para/>
-''' cases where the function is not so simple. For example, if the<para/>
-''' pix has been upscaled 2x, the nadiff function oscillates, with<para/>
-''' every other value being zero!  And for some images it tails<para/>
-''' off without a clear minimum to indicate where to break.<para/>
-''' So a more simple and robust method is to find the dilation<para/>
-''' where the initial number of c.c. has been reduced by some<para/>
-''' fraction (we use a 70% reduction).<para/>
+''' 
+''' (4) Typically, the number of c.c. reduced with each successive
+''' dilation (stored in nadiff) decreases quickly to a minimum
+''' (where the characters in a word are joined), and then
+''' increases again as the smaller number of words are joined.
+''' For the typical case, you can then look for this minimum
+''' and dilate to get the word mask.  However, there are many
+''' cases where the function is not so simple. For example, if the
+''' pix has been upscaled 2x, the nadiff function oscillates, with
+''' every other value being zero!  And for some images it tails
+''' off without a clear minimum to indicate where to break.
+''' So a more simple and robust method is to find the dilation
+''' where the initial number of c.c. has been reduced by some
+''' fraction (we use a 70% reduction).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -423,10 +425,11 @@ End Function
 ' pixWordBoxesByDilation(pixs, minwidth, minheight, maxwidth, maxheight, pboxa, psize, pixadb) as Integer
 ' pixWordBoxesByDilation(PIX *, l_int32, l_int32, l_int32, l_int32, BOXA **, l_int32 *, PIXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Returns a pruned set of word boxes.<para/>
-''' (2) See pixWordMaskByDilation().<para/>
+''' 
+''' (2) See pixWordMaskByDilation().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -551,15 +554,18 @@ End Sub
 ' jbDataSave(classer) as JbData
 ' jbDataSave(JBCLASSER *) as JBDATA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This routine stores the jbig2-type data required for<para/>
-''' generating a lossy jbig2 version of the image.<para/>
+''' 
+''' (1) This routine stores the jbig2-type data required for
+''' generating a lossy jbig2 version of the image.
 ''' It can be losslessly written to (and read from) two files.<para/>
+''' 
 ''' (2) It generates and stores the mosaic of templates.<para/>
-''' (3) It clones the Numa and Pta arrays, so these must all<para/>
+''' 
+''' (3) It clones the Numa and Pta arrays, so these must all
 ''' be destroyed by the caller.<para/>
-''' (4) Input 0 to use the default values for latticew and/or latticeh,<para/>
+''' 
+''' (4) Input 0 to use the default values for latticew and/or latticeh,
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -599,9 +605,9 @@ End Sub
 ' jbDataWrite(rootout, jbdata) as Integer
 ' jbDataWrite(const char *, JBDATA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Serialization function that writes data in jbdata to file.<para/>
+''' 
+''' (1) Serialization function that writes data in jbdata to file.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -665,21 +671,23 @@ End Function
 ' jbGetULCorners(classer, pixs, boxa) as Integer
 ' jbGetULCorners(JBCLASSER *, PIX *, BOXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This computes the ptaul field, which has the global UL corners,<para/>
-''' adjusted for each specific component, so that each component<para/>
-''' can be replaced by the template for its class and have the<para/>
-''' centroid in the template in the same position as the<para/>
-''' centroid of the original connected component.  It is important<para/>
-''' that this be done properly to avoid a wavy baseline in the<para/>
+''' 
+''' (1) This computes the ptaul field, which has the global UL corners,
+''' adjusted for each specific component, so that each component
+''' can be replaced by the template for its class and have the
+''' centroid in the template in the same position as the
+''' centroid of the original connected component.  It is important
+''' that this be done properly to avoid a wavy baseline in the
 ''' result.<para/>
-''' (2) The array fields ptac and ptact give the centroids of<para/>
-''' those components relative to the UL corner of each component.<para/>
-''' Here, we compute the difference in each component, round to<para/>
-''' nearest integer, and correct the box- is greater x and box- is greater y by<para/>
+''' 
+''' (2) The array fields ptac and ptact give the centroids of
+''' those components relative to the UL corner of each component.
+''' Here, we compute the difference in each component, round to
+''' nearest integer, and correct the boxtox and boxtoy by
 ''' the appropriate integral difference.<para/>
-''' (3) The templates and stored instances are all bordered.<para/>
+''' 
+''' (3) The templates and stored instances are all bordered.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -707,24 +715,27 @@ End Function
 ' jbGetLLCorners(classer) as Integer
 ' jbGetLLCorners(JBCLASSER *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This computes the ptall field, which has the global LL corners,<para/>
-''' adjusted for each specific component, so that each component<para/>
-''' can be replaced by the template for its class and have the<para/>
-''' centroid in the template in the same position as the<para/>
-''' centroid of the original connected component. It is important<para/>
+''' 
+''' (1) This computes the ptall field, which has the global LL corners,
+''' adjusted for each specific component, so that each component
+''' can be replaced by the template for its class and have the
+''' centroid in the template in the same position as the
+''' centroid of the original connected component. It is important
 ''' that this be done properly to avoid a wavy baseline in the result.<para/>
-''' (2) It is computed here from the corresponding UL corners, where<para/>
-''' the input templates and stored instances are all bordered.<para/>
+''' 
+''' (2) It is computed here from the corresponding UL corners, where
+''' the input templates and stored instances are all bordered.
 ''' This should be done after all pages have been processed.<para/>
-''' (3) For proper substitution, the templates whose LL corners are<para/>
-''' placed in these locations must be UN-bordered.<para/>
+''' 
+''' (3) For proper substitution, the templates whose LL corners are
+''' placed in these locations must be UN-bordered.
 ''' This is available for a realistic jbig2 encoder, which would<para/>
-''' (1) encode each template without a border, and (2) encode<para/>
-''' the position using the LL corner (rather than the UL<para/>
-''' corner) because the difference between y-values<para/>
-''' of successive instances is typically close to zero.<para/>
+''' 
+''' (1) encode each template without a border, and (2) encode
+''' the position using the LL corner (rather than the UL
+''' corner) because the difference between y-values
+''' of successive instances is typically close to zero.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

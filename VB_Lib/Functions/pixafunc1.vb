@@ -7,18 +7,21 @@ Partial Public Class _All
 ' pixSelectBySize(pixs, width, height, connectivity, type, relation, pchanged) as Pix
 ' pixSelectBySize(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32 *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The args specify constraints on the size of the<para/>
+''' 
+''' (1) The args specify constraints on the size of the
 ''' components that are kept.<para/>
-''' (2) If unchanged, returns a copy of pixs.  Otherwise,<para/>
+''' 
+''' (2) If unchanged, returns a copy of pixs.  Otherwise,
 ''' returns a new pix with the filtered components.<para/>
-''' (3) If the selection type is L_SELECT_WIDTH, the input<para/>
+''' 
+''' (3) If the selection type is L_SELECT_WIDTH, the input
 ''' height is ignored, and v.v.<para/>
-''' (4) To keep small components, use relation = L_SELECT_IF_LT or<para/>
-''' L_SELECT_IF_LTE.<para/>
-''' To keep large components, use relation = L_SELECT_IF_GT or<para/>
-''' L_SELECT_IF_GTE.<para/>
+''' 
+''' (4) To keep small components, use relation = L_SELECT_IF_LT or
+''' L_SELECT_IF_LTE.
+''' To keep large components, use relation = L_SELECT_IF_GT or
+''' L_SELECT_IF_GTE.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -54,17 +57,20 @@ End Function
 ' pixaSelectBySize(pixas, width, height, type, relation, pchanged) as Pixa
 ' pixaSelectBySize(PIXA *, l_int32, l_int32, l_int32, l_int32, l_int32 *) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The args specify constraints on the size of the<para/>
+''' 
+''' (1) The args specify constraints on the size of the
 ''' components that are kept.<para/>
+''' 
 ''' (2) Uses pix and box clones in the new pixa.<para/>
-''' (3) If the selection type is L_SELECT_WIDTH, the input<para/>
+''' 
+''' (3) If the selection type is L_SELECT_WIDTH, the input
 ''' height is ignored, and v.v.<para/>
-''' (4) To keep small components, use relation = L_SELECT_IF_LT or<para/>
-''' L_SELECT_IF_LTE.<para/>
-''' To keep large components, use relation = L_SELECT_IF_GT or<para/>
-''' L_SELECT_IF_GTE.<para/>
+''' 
+''' (4) To keep small components, use relation = L_SELECT_IF_LT or
+''' L_SELECT_IF_LTE.
+''' To keep large components, use relation = L_SELECT_IF_GT or
+''' L_SELECT_IF_GTE.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -96,16 +102,18 @@ End Function
 ' pixaMakeSizeIndicator(pixa, width, height, type, relation) as Numa
 ' pixaMakeSizeIndicator(PIXA *, l_int32, l_int32, l_int32, l_int32) as NUMA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The args specify constraints on the size of the<para/>
+''' 
+''' (1) The args specify constraints on the size of the
 ''' components that are kept.<para/>
-''' (2) If the selection type is L_SELECT_WIDTH, the input<para/>
+''' 
+''' (2) If the selection type is L_SELECT_WIDTH, the input
 ''' height is ignored, and v.v.<para/>
-''' (3) To keep small components, use relation = L_SELECT_IF_LT or<para/>
-''' L_SELECT_IF_LTE.<para/>
-''' To keep large components, use relation = L_SELECT_IF_GT or<para/>
-''' L_SELECT_IF_GTE.<para/>
+''' 
+''' (3) To keep small components, use relation = L_SELECT_IF_LT or
+''' L_SELECT_IF_LTE.
+''' To keep large components, use relation = L_SELECT_IF_GT or
+''' L_SELECT_IF_GTE.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -135,17 +143,20 @@ End Function
 ' pixSelectByPerimToAreaRatio(pixs, thresh, connectivity, type, pchanged) as Pix
 ' pixSelectByPerimToAreaRatio(PIX *, l_float32, l_int32, l_int32, l_int32 *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The args specify constraints on the size of the<para/>
+''' 
+''' (1) The args specify constraints on the size of the
 ''' components that are kept.<para/>
-''' (2) If unchanged, returns a copy of pixs.  Otherwise,<para/>
+''' 
+''' (2) If unchanged, returns a copy of pixs.  Otherwise,
 ''' returns a new pix with the filtered components.<para/>
-''' (3) This filters "thick" components, where a thick component<para/>
-''' is defined to have a ratio of boundary to interior pixels<para/>
+''' 
+''' (3) This filters "thick" components, where a thick component
+''' is defined to have a ratio of boundary to interior pixels
 ''' that is smaller than a given threshold value.<para/>
-''' (4) Use L_SELECT_IF_LT or L_SELECT_IF_LTE to save the thicker<para/>
-''' components, and L_SELECT_IF_GT or L_SELECT_IF_GTE to remove them.<para/>
+''' 
+''' (4) Use L_SELECT_IF_LT or L_SELECT_IF_LTE to save the thicker
+''' components, and L_SELECT_IF_GT or L_SELECT_IF_GTE to remove them.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -177,11 +188,13 @@ End Function
 ' pixaSelectByPerimToAreaRatio(pixas, thresh, type, pchanged) as Pixa
 ' pixaSelectByPerimToAreaRatio(PIXA *, l_float32, l_int32, l_int32 *) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Returns a pixa clone if no components are removed.<para/>
+''' 
 ''' (2) Uses pix and box clones in the new pixa.<para/>
-''' (3) See pixSelectByPerimToAreaRatio().<para/>
+''' 
+''' (3) See pixSelectByPerimToAreaRatio().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -209,18 +222,21 @@ End Function
 ' pixSelectByPerimSizeRatio(pixs, thresh, connectivity, type, pchanged) as Pix
 ' pixSelectByPerimSizeRatio(PIX *, l_float32, l_int32, l_int32, l_int32 *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The args specify constraints on the size of the<para/>
+''' 
+''' (1) The args specify constraints on the size of the
 ''' components that are kept.<para/>
-''' (2) If unchanged, returns a copy of pixs.  Otherwise,<para/>
+''' 
+''' (2) If unchanged, returns a copy of pixs.  Otherwise,
 ''' returns a new pix with the filtered components.<para/>
-''' (3) This filters components with smooth vs. dendritic shape, using<para/>
-''' the ratio of the fg boundary pixels to the circumference of<para/>
+''' 
+''' (3) This filters components with smooth vs. dendritic shape, using
+''' the ratio of the fg boundary pixels to the circumference of
 ''' the bounding box, and comparing it to a threshold value.<para/>
-''' (4) Use L_SELECT_IF_LT or L_SELECT_IF_LTE to save the smooth<para/>
-''' boundary components, and L_SELECT_IF_GT or L_SELECT_IF_GTE<para/>
-''' to remove them.<para/>
+''' 
+''' (4) Use L_SELECT_IF_LT or L_SELECT_IF_LTE to save the smooth
+''' boundary components, and L_SELECT_IF_GT or L_SELECT_IF_GTE
+''' to remove them.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -252,11 +268,13 @@ End Function
 ' pixaSelectByPerimSizeRatio(pixas, thresh, type, pchanged) as Pixa
 ' pixaSelectByPerimSizeRatio(PIXA *, l_float32, l_int32, l_int32 *) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Returns a pixa clone if no components are removed.<para/>
+''' 
 ''' (2) Uses pix and box clones in the new pixa.<para/>
-''' (3) See pixSelectByPerimSizeRatio().<para/>
+''' 
+''' (3) See pixSelectByPerimSizeRatio().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -284,17 +302,20 @@ End Function
 ' pixSelectByAreaFraction(pixs, thresh, connectivity, type, pchanged) as Pix
 ' pixSelectByAreaFraction(PIX *, l_float32, l_int32, l_int32, l_int32 *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The args specify constraints on the amount of foreground<para/>
+''' 
+''' (1) The args specify constraints on the amount of foreground
 ''' coverage of the components that are kept.<para/>
-''' (2) If unchanged, returns a copy of pixs.  Otherwise,<para/>
+''' 
+''' (2) If unchanged, returns a copy of pixs.  Otherwise,
 ''' returns a new pix with the filtered components.<para/>
-''' (3) This filters components based on the fraction of fg pixels<para/>
+''' 
+''' (3) This filters components based on the fraction of fg pixels
 ''' of the component in its bounding box.<para/>
-''' (4) Use L_SELECT_IF_LT or L_SELECT_IF_LTE to save components<para/>
-''' with less than the threshold fraction of foreground, and<para/>
-''' L_SELECT_IF_GT or L_SELECT_IF_GTE to remove them.<para/>
+''' 
+''' (4) Use L_SELECT_IF_LT or L_SELECT_IF_LTE to save components
+''' with less than the threshold fraction of foreground, and
+''' L_SELECT_IF_GT or L_SELECT_IF_GTE to remove them.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -326,15 +347,18 @@ End Function
 ' pixaSelectByAreaFraction(pixas, thresh, type, pchanged) as Pixa
 ' pixaSelectByAreaFraction(PIXA *, l_float32, l_int32, l_int32 *) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Returns a pixa clone if no components are removed.<para/>
+''' 
 ''' (2) Uses pix and box clones in the new pixa.<para/>
-''' (3) This filters components based on the fraction of fg pixels<para/>
+''' 
+''' (3) This filters components based on the fraction of fg pixels
 ''' of the component in its bounding box.<para/>
-''' (4) Use L_SELECT_IF_LT or L_SELECT_IF_LTE to save components<para/>
-''' with less than the threshold fraction of foreground, and<para/>
-''' L_SELECT_IF_GT or L_SELECT_IF_GTE to remove them.<para/>
+''' 
+''' (4) Use L_SELECT_IF_LT or L_SELECT_IF_LTE to save components
+''' with less than the threshold fraction of foreground, and
+''' L_SELECT_IF_GT or L_SELECT_IF_GTE to remove them.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -362,16 +386,19 @@ End Function
 ' pixSelectByWidthHeightRatio(pixs, thresh, connectivity, type, pchanged) as Pix
 ' pixSelectByWidthHeightRatio(PIX *, l_float32, l_int32, l_int32, l_int32 *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The args specify constraints on the width-to-height ratio<para/>
+''' 
+''' (1) The args specify constraints on the width-to-height ratio
 ''' for components that are kept.<para/>
-''' (2) If unchanged, returns a copy of pixs.  Otherwise,<para/>
+''' 
+''' (2) If unchanged, returns a copy of pixs.  Otherwise,
 ''' returns a new pix with the filtered components.<para/>
+''' 
 ''' (3) This filters components based on the width-to-height ratios.<para/>
-''' (4) Use L_SELECT_IF_LT or L_SELECT_IF_LTE to save components<para/>
-''' with less than the threshold ratio, and<para/>
-''' L_SELECT_IF_GT or L_SELECT_IF_GTE to remove them.<para/>
+''' 
+''' (4) Use L_SELECT_IF_LT or L_SELECT_IF_LTE to save components
+''' with less than the threshold ratio, and
+''' L_SELECT_IF_GT or L_SELECT_IF_GTE to remove them.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -403,15 +430,18 @@ End Function
 ' pixaSelectByWidthHeightRatio(pixas, thresh, type, pchanged) as Pixa
 ' pixaSelectByWidthHeightRatio(PIXA *, l_float32, l_int32, l_int32 *) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Returns a pixa clone if no components are removed.<para/>
+''' 
 ''' (2) Uses pix and box clones in the new pixa.<para/>
-''' (3) This filters components based on the width-to-height ratio<para/>
+''' 
+''' (3) This filters components based on the width-to-height ratio
 ''' of each pix.<para/>
-''' (4) Use L_SELECT_IF_LT or L_SELECT_IF_LTE to save components<para/>
-''' with less than the threshold ratio, and<para/>
-''' L_SELECT_IF_GT or L_SELECT_IF_GTE to remove them.<para/>
+''' 
+''' (4) Use L_SELECT_IF_LT or L_SELECT_IF_LTE to save components
+''' with less than the threshold ratio, and
+''' L_SELECT_IF_GT or L_SELECT_IF_GTE to remove them.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -439,12 +469,14 @@ End Function
 ' pixaSelectByNumConnComp(pixas, nmin, nmax, connectivity, pchanged) as Pixa
 ' pixaSelectByNumConnComp(PIXA *, l_int32, l_int32, l_int32, l_int32 *) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Returns a pixa clone if no components are removed.<para/>
+''' 
 ''' (2) Uses pix and box clones in the new pixa.<para/>
-''' (3) This filters by the number of connected components in<para/>
-''' a given range.<para/>
+''' 
+''' (3) This filters by the number of connected components in
+''' a given range.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -474,13 +506,16 @@ End Function
 ' pixaSelectWithIndicator(pixas, na, pchanged) as Pixa
 ' pixaSelectWithIndicator(PIXA *, NUMA *, l_int32 *) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Returns a pixa clone if no components are removed.<para/>
+''' 
 ''' (2) Uses pix and box clones in the new pixa.<para/>
+''' 
 ''' (3) The indicator numa has values 0 (ignore) and 1 (accept).<para/>
-''' (4) If the source boxa is not fully populated, it is left<para/>
-''' empty in the dest pixa.<para/>
+''' 
+''' (4) If the source boxa is not fully populated, it is left
+''' empty in the dest pixa.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -507,10 +542,10 @@ End Function
 ' pixRemoveWithIndicator(pixs, pixa, na) as Integer
 ' pixRemoveWithIndicator(PIX *, PIXA *, NUMA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This complements pixAddWithIndicator(). Here, the selected<para/>
-''' components are set subtracted from pixs.<para/>
+''' 
+''' (1) This complements pixAddWithIndicator(). Here, the selected
+''' components are set subtracted from pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -537,10 +572,10 @@ End Function
 ' pixAddWithIndicator(pixs, pixa, na) as Integer
 ' pixAddWithIndicator(PIX *, PIXA *, NUMA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This complements pixRemoveWithIndicator(). Here, the selected<para/>
-''' components are added to pixs.<para/>
+''' 
+''' (1) This complements pixRemoveWithIndicator(). Here, the selected
+''' components are added to pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -567,10 +602,11 @@ End Function
 ' pixaSelectWithString(pixas, str, perror) as Pixa
 ' pixaSelectWithString(PIXA *, const char *, l_int32 *) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Returns a pixa with copies of selected pix.<para/>
-''' (2) Associated boxes are also copied, if fully populated.<para/>
+''' 
+''' (2) Associated boxes are also copied, if fully populated.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -597,11 +633,12 @@ End Function
 ' pixaRenderComponent(pixs, pixa, index) as Pix
 ' pixaRenderComponent(PIX *, PIXA *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If pixs is null, this generates an empty pix of a size determined<para/>
+''' 
+''' (1) If pixs is null, this generates an empty pix of a size determined
 ''' by union of the component bounding boxes, and including the origin.<para/>
-''' (2) The selected component is blitted into pixs.<para/>
+''' 
+''' (2) The selected component is blitted into pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -629,16 +666,18 @@ End Function
 ' pixaSort(pixas, sorttype, sortorder, pnaindex, copyflag) as Pixa
 ' pixaSort(PIXA *, l_int32, l_int32, NUMA **, l_int32) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This sorts based on the data in the boxa.  If the boxa<para/>
+''' 
+''' (1) This sorts based on the data in the boxa.  If the boxa
 ''' count is not the same as the pixa count, this returns an error.<para/>
-''' (2) If the boxa is empty, it makes one corresponding to the<para/>
-''' dimensions of each pix, which allows meaningful sorting on<para/>
+''' 
+''' (2) If the boxa is empty, it makes one corresponding to the
+''' dimensions of each pix, which allows meaningful sorting on
 ''' all types except x and y.<para/>
-''' (3) The copyflag refers to the pix and box copies that are<para/>
-''' inserted into the sorted pixa.  These are either L_COPY<para/>
-''' or L_CLONE.<para/>
+''' 
+''' (3) The copyflag refers to the pix and box copies that are
+''' inserted into the sorted pixa.  These are either L_COPY
+''' or L_CLONE.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -671,18 +710,21 @@ End Function
 ' pixaBinSort(pixas, sorttype, sortorder, pnaindex, copyflag) as Pixa
 ' pixaBinSort(PIXA *, l_int32, l_int32, NUMA **, l_int32) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This sorts based on the data in the boxa.  If the boxa<para/>
+''' 
+''' (1) This sorts based on the data in the boxa.  If the boxa
 ''' count is not the same as the pixa count, this returns an error.<para/>
-''' (2) The copyflag refers to the pix and box copies that are<para/>
-''' inserted into the sorted pixa.  These are either L_COPY<para/>
+''' 
+''' (2) The copyflag refers to the pix and box copies that are
+''' inserted into the sorted pixa.  These are either L_COPY
 ''' or L_CLONE.<para/>
-''' (3) For a large number of boxes (say, greater than 1000), this<para/>
-''' O(n) binsort is much faster than the O(nlogn) shellsort.<para/>
+''' 
+''' (3) For a large number of boxes (say, greater than 1000), this
+''' O(n) binsort is much faster than the O(nlogn) shellsort.
 ''' For 5000 components, this is over 20x faster than boxaSort().<para/>
-''' (4) Consequently, pixaSort() calls this function if it will<para/>
-''' likely go much faster.<para/>
+''' 
+''' (4) Consequently, pixaSort() calls this function if it will
+''' likely go much faster.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -763,11 +805,11 @@ End Function
 ' pixaSelectRange(pixas, first, last, copyflag) as Pixa
 ' pixaSelectRange(PIXA *, l_int32, l_int32, l_int32) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The copyflag specifies what we do with each pix from pixas.<para/>
-''' Specifically, L_CLONE inserts a clone into pixad of each<para/>
-''' selected pix from pixas.<para/>
+''' 
+''' (1) The copyflag specifies what we do with each pix from pixas.
+''' Specifically, L_CLONE inserts a clone into pixad of each
+''' selected pix from pixas.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -795,11 +837,11 @@ End Function
 ' pixaaSelectRange(paas, first, last, copyflag) as Pixaa
 ' pixaaSelectRange(PIXAA *, l_int32, l_int32, l_int32) as PIXAA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The copyflag specifies what we do with each pixa from paas.<para/>
-''' Specifically, L_CLONE inserts a clone into paad of each<para/>
-''' selected pixa from paas.<para/>
+''' 
+''' (1) The copyflag specifies what we do with each pixa from paas.
+''' Specifically, L_CLONE inserts a clone into paad of each
+''' selected pixa from paas.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -827,15 +869,15 @@ End Function
 ' pixaaScaleToSize(paas, wd, hd) as Pixaa
 ' pixaaScaleToSize(PIXAA *, l_int32, l_int32) as PIXAA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This guarantees that each output scaled image has the<para/>
-''' dimension(s) you specify.<para/>
-''' ~ To specify the width with isotropic scaling, set %hd = 0.<para/>
-''' ~ To specify the height with isotropic scaling, set %wd = 0.<para/>
-''' ~ If both %wd and %hd are specified, the image is scaled<para/>
-''' (in general, anisotropically) to that size.<para/>
-''' ~ It is an error to set both %wd and %hd to 0.<para/>
+''' 
+''' (1) This guarantees that each output scaled image has the
+''' dimension(s) you specify.
+''' ~ To specify the width with isotropic scaling, set %hd = 0.
+''' ~ To specify the height with isotropic scaling, set %wd = 0.
+''' ~ If both %wd and %hd are specified, the image is scaled
+''' (in general, anisotropically) to that size.
+''' ~ It is an error to set both %wd and %hd to 0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -861,17 +903,18 @@ End Function
 ' pixaaScaleToSizeVar(paas, nawd, nahd) as Pixaa
 ' pixaaScaleToSizeVar(PIXAA *, NUMA *, NUMA *) as PIXAA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This guarantees that the scaled images in each pixa have the<para/>
-''' dimension(s) you specify in the numas.<para/>
-''' ~ To specify the width with isotropic scaling, set %nahd = NULL.<para/>
-''' ~ To specify the height with isotropic scaling, set %nawd = NULL.<para/>
-''' ~ If both %nawd and %nahd are specified, the image is scaled<para/>
-''' (in general, anisotropically) to that size.<para/>
+''' 
+''' (1) This guarantees that the scaled images in each pixa have the
+''' dimension(s) you specify in the numas.
+''' ~ To specify the width with isotropic scaling, set %nahd = NULL.
+''' ~ To specify the height with isotropic scaling, set %nawd = NULL.
+''' ~ If both %nawd and %nahd are specified, the image is scaled
+''' (in general, anisotropically) to that size.
 ''' ~ It is an error to set both %nawd and %nahd to NULL.<para/>
-''' (2) If either nawd and/or nahd is defined, it must have the same<para/>
-''' count as the number of pixa in paas.<para/>
+''' 
+''' (2) If either nawd and/or nahd is defined, it must have the same
+''' count as the number of pixa in paas.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -900,9 +943,9 @@ End Function
 ' pixaScaleToSize(pixas, wd, hd) as Pixa
 ' pixaScaleToSize(PIXA *, l_int32, l_int32) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See pixaaScaleToSize()<para/>
+''' 
+''' (1) See pixaaScaleToSize()
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -928,11 +971,11 @@ End Function
 ' pixaScaleToSizeRel(pixas, delw, delh) as Pixa
 ' pixaScaleToSizeRel(PIXA *, l_int32, l_int32) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If a requested change in a pix is not possible because<para/>
-''' either the requested width or height is  is lower = 0, issue a<para/>
-''' warning and return a copy.<para/>
+''' 
+''' (1) If a requested change in a pix is not possible because
+''' either the requested width or height is smaller or equal 0, issue a
+''' warning and return a copy.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -958,9 +1001,9 @@ End Function
 ' pixaScale(pixas, scalex, scaley) as Pixa
 ' pixaScale(PIXA *, l_float32, l_float32) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If pixas has a full boxes, it is scaled as well.<para/>
+''' 
+''' (1) If pixas has a full boxes, it is scaled as well.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -986,9 +1029,9 @@ End Function
 ' pixaScaleBySampling(pixas, scalex, scaley) as Pixa
 ' pixaScaleBySampling(PIXA *, l_float32, l_float32) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If pixas has a full boxes, it is scaled as well.<para/>
+''' 
+''' (1) If pixas has a full boxes, it is scaled as well.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1014,17 +1057,18 @@ End Function
 ' pixaRotate(pixas, angle, type, incolor, width, height) as Pixa
 ' pixaRotate(PIXA *, l_float32, l_int32, l_int32, l_int32, l_int32) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Each pix is rotated about its center.  See pixRotate() for details.<para/>
-''' (2) The boxa array is copied.  Why is it not rotated?<para/>
-''' If a boxa exists, the array of boxes is in 1-to-1<para/>
-''' correspondence with the array of pix, and each box typically<para/>
-''' represents the location of the pix relative to an image from<para/>
-''' which it has been extracted.  Like the pix, we could rotate<para/>
-''' each box around its center, and then generate a box that<para/>
-''' contains all four corners, as is done in boxaRotate(), but<para/>
-''' this seems unnecessary.<para/>
+''' 
+''' (2) The boxa array is copied.  Why is it not rotated?
+''' If a boxa exists, the array of boxes is in 1-to-1
+''' correspondence with the array of pix, and each box typically
+''' represents the location of the pix relative to an image from
+''' which it has been extracted.  Like the pix, we could rotate
+''' each box around its center, and then generate a box that
+''' contains all four corners, as is done in boxaRotate(), but
+''' this seems unnecessary.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1056,10 +1100,10 @@ End Function
 ' pixaRotateOrth(pixas, rotation) as Pixa
 ' pixaRotateOrth(PIXA *, l_int32) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Rotates each pix in the pixa.  Rotates and saves the boxes in<para/>
-''' the boxa if the boxa is full.<para/>
+''' 
+''' (1) Rotates each pix in the pixa.  Rotates and saves the boxes in
+''' the boxa if the boxa is full.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1108,24 +1152,26 @@ End Function
 ' pixaAddBorderGeneral(pixad, pixas, left, right, top, bot, val) as Pixa
 ' pixaAddBorderGeneral(PIXA *, PIXA *, l_int32, l_int32, l_int32, l_int32, l_uint32) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For binary images:<para/>
-''' white:  val = 0<para/>
-''' black:  val = 1<para/>
-''' For grayscale images:<para/>
-''' white:  val = 2  d - 1<para/>
-''' black:  val = 0<para/>
-''' For rgb color images:<para/>
-''' white:  val = 0xffffff00<para/>
-''' black:  val = 0<para/>
-''' For colormapped images, use 'index' found this way:<para/>
-''' white: pixcmapGetRankIntensity(cmap, 1.0,  and index)<para/>
-''' black: pixcmapGetRankIntensity(cmap, 0.0,  and index)<para/>
-''' (2) For in-place replacement of each pix with a bordered version,<para/>
+''' 
+''' (1) For binary images:
+''' white:  val = 0
+''' black:  val = 1
+''' For grayscale images:
+''' white:  val = 2  d - 1
+''' black:  val = 0
+''' For rgb color images:
+''' white:  val = 0xffffff00
+''' black:  val = 0
+''' For colormapped images, use 'index' found this way:
+''' white: pixcmapGetRankIntensity(cmap, 1.0, [and]index)
+''' black: pixcmapGetRankIntensity(cmap, 0.0, [and]index)<para/>
+''' 
+''' (2) For in-place replacement of each pix with a bordered version,
 ''' use %pixad = %pixas.  To make a new pixa, use %pixad = NULL.<para/>
-''' (3) In both cases, the boxa has sides adjusted as if it were<para/>
-''' expanded by the border.<para/>
+''' 
+''' (3) In both cases, the boxa has sides adjusted as if it were
+''' expanded by the border.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1161,12 +1207,13 @@ End Function
 ' pixaaFlattenToPixa(paa, pnaindex, copyflag) as Pixa
 ' pixaaFlattenToPixa(PIXAA *, NUMA **, l_int32) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This 'flattens' the pixaa to a pixa, taking the pix in<para/>
+''' 
+''' (1) This 'flattens' the pixaa to a pixa, taking the pix in
 ''' order in the first pixa, then the second, etc.<para/>
-''' (2) If  and naindex is defined, we generate a Numa that gives, for<para/>
-''' each pix in the pixaa, the index of the pixa to which it belongs.<para/>
+''' 
+''' (2) If [and]naindex is defined, we generate a Numa that gives, for
+''' each pix in the pixaa, the index of the pixa to which it belongs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1247,19 +1294,21 @@ End Function
 ' pixaClipToPix(pixas, pixs) as Pixa
 ' pixaClipToPix(PIXA *, PIX *) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is intended for use in situations where pixas<para/>
+''' 
+''' (1) This is intended for use in situations where pixas
 ''' was originally generated from the input pixs.<para/>
-''' (2) Returns a pixad where each pix in pixas is ANDed<para/>
-''' with its associated region of the input pixs.  This<para/>
-''' region is specified by the the box that is associated<para/>
+''' 
+''' (2) Returns a pixad where each pix in pixas is ANDed
+''' with its associated region of the input pixs.  This
+''' region is specified by the the box that is associated
 ''' with the pix.<para/>
-''' (3) In a typical application of this function, pixas has<para/>
-''' a set of region masks, so this generates a pixa of<para/>
-''' the parts of pixs that correspond to each region<para/>
-''' mask component, along with the bounding box for<para/>
-''' the region.<para/>
+''' 
+''' (3) In a typical application of this function, pixas has
+''' a set of region masks, so this generates a pixa of
+''' the parts of pixs that correspond to each region
+''' mask component, along with the bounding box for
+''' the region.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1284,11 +1333,13 @@ End Function
 ' pixaClipToForeground(pixas, ppixad, pboxa) as Integer
 ' pixaClipToForeground(PIXA *, PIXA **, BOXA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) At least one of [ and pixd,  and boxa] must be specified.<para/>
+''' 
+''' (1) At least one of [[and]pixd, [and]boxa] must be specified.<para/>
+''' 
 ''' (2) Any pix with no fg pixels is skipped.<para/>
-''' (3) See pixClipToForeground().<para/>
+''' 
+''' (3) See pixClipToForeground().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1400,12 +1451,13 @@ End Function
 ' pixaConvertToSameDepth(pixas) as Pixa
 ' pixaConvertToSameDepth(PIXA *) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If any pix has a colormap, they are all converted to rgb.<para/>
-''' Otherwise, they are all converted to the maximum depth of<para/>
+''' 
+''' (1) If any pix has a colormap, they are all converted to rgb.
+''' Otherwise, they are all converted to the maximum depth of
 ''' all the pix.<para/>
-''' (2) This can be used to allow lossless rendering onto a single pix.<para/>
+''' 
+''' (2) This can be used to allow lossless rendering onto a single pix.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1427,22 +1479,25 @@ End Function
 ' pixaEqual(pixa1, pixa2, maxdist, pnaindex, psame) as Integer
 ' pixaEqual(PIXA *, PIXA *, l_int32, NUMA **, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The two pixa are the "same" if they contain the same<para/>
-''' boxa and the same ordered set of pix.  However, if they<para/>
-''' have boxa, the pix in each pixa can differ in ordering<para/>
-''' by an amount given by the parameter %maxdist.  If they<para/>
-''' don't have a boxa, the %maxdist parameter is ignored,<para/>
+''' 
+''' (1) The two pixa are the "same" if they contain the same
+''' boxa and the same ordered set of pix.  However, if they
+''' have boxa, the pix in each pixa can differ in ordering
+''' by an amount given by the parameter %maxdist.  If they
+''' don't have a boxa, the %maxdist parameter is ignored,
 ''' and the ordering must be identical.<para/>
-''' (2) This applies only to boxa geometry, pixels and ordering<para/>
+''' 
+''' (2) This applies only to boxa geometry, pixels and ordering
 ''' other fields in the pix are ignored.<para/>
-''' (3) naindex[i] gives the position of the box in pixa2 that<para/>
-''' corresponds to box i in pixa1.  It is only returned if the<para/>
+''' 
+''' (3) naindex[i] gives the position of the box in pixa2 that
+''' corresponds to box i in pixa1.  It is only returned if the
 ''' pixa have boxa and the boxa are equal.<para/>
-''' (4) In situations where the ordering is very different, so that<para/>
-''' a large %maxdist is required for "equality", this should be<para/>
-''' implemented with a hash function for efficiency.<para/>
+''' 
+''' (4) In situations where the ordering is very different, so that
+''' a large %maxdist is required for "equality", this should be
+''' implemented with a hash function for efficiency.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1475,11 +1530,11 @@ End Function
 ' pixaSetFullSizeBoxa(pixa) as Integer
 ' pixaSetFullSizeBoxa(PIXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Replaces the existing boxa.  Each box gives the dimensions<para/>
-''' of the corresponding pix.  This is needed for functions<para/>
-''' like pixaSort() that sort based on the boxes.<para/>
+''' 
+''' (1) Replaces the existing boxa.  Each box gives the dimensions
+''' of the corresponding pix.  This is needed for functions
+''' like pixaSort() that sort based on the boxes.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

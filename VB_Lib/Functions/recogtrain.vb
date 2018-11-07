@@ -7,12 +7,13 @@ Partial Public Class _All
 ' recogTrainLabeled(recog, pixs, box, text, debug) as Integer
 ' recogTrainLabeled(L_RECOG *, PIX *, BOX *, char *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Training is restricted to the addition of a single<para/>
+''' 
+''' (1) Training is restricted to the addition of a single
 ''' character in an arbitrary (e.g., UTF8) charset<para/>
-''' (2) If box != null, it should represent the location in %pixs<para/>
-''' of the character image.<para/>
+''' 
+''' (2) If box != null, it should represent the location in %pixs
+''' of the character image.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -44,10 +45,10 @@ End Function
 ' recogProcessLabeled(recog, pixs, box, text, ppix) as Integer
 ' recogProcessLabeled(L_RECOG *, PIX *, BOX *, char *, PIX **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This crops and binarizes the input image, generating a pix<para/>
-''' of one character where the charval is inserted into the pix.<para/>
+''' 
+''' (1) This crops and binarizes the input image, generating a pix
+''' of one character where the charval is inserted into the pix.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -81,15 +82,16 @@ End Function
 ' recogAddSample(recog, pix, debug) as Integer
 ' recogAddSample(L_RECOG *, PIX *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The pix is 1 bpp, with the character string label embedded.<para/>
-''' (2) The pixaa_u array of the recog is initialized to accept<para/>
-''' up to 256 different classes.  When training is finished,<para/>
-''' the arrays are truncated to the actual number of classes.<para/>
-''' To pad an existing recog from the boot recognizers, training<para/>
-''' is started again if samples from a new class are added,<para/>
-''' the pixaa_u array is extended by adding a pixa to hold them.<para/>
+''' 
+''' (2) The pixaa_u array of the recog is initialized to accept
+''' up to 256 different classes.  When training is finished,
+''' the arrays are truncated to the actual number of classes.
+''' To pad an existing recog from the boot recognizers, training
+''' is started again if samples from a new class are added,
+''' the pixaa_u array is extended by adding a pixa to hold them.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -137,20 +139,22 @@ End Function
 ' recogAverageSamples(precog, debug) as Integer
 ' recogAverageSamples(L_RECOG **, l_int32) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is only called in two situations:<para/>
-''' (a) When splitting characters using either the DID method<para/>
-''' recogDecode() or the the greedy splitter<para/>
-''' recogCorrelationBestRow()<para/>
-''' (b) By a special recognizer that is used to remove outliers.<para/>
+''' 
+''' (1) This is only called in two situations:
+''' (a) When splitting characters using either the DID method
+''' recogDecode() or the the greedy splitter
+''' recogCorrelationBestRow()
+''' (b) By a special recognizer that is used to remove outliers.
 ''' Both unscaled and scaled inputs are averaged.<para/>
-''' (2) If the data in any class is nonexistent (no samples), or<para/>
-''' very bad (no fg pixels in the average), or if the ratio<para/>
-''' of max/min average unscaled class template heights is<para/>
-''' greater than max_ht_ratio, this destroys the recog.<para/>
+''' 
+''' (2) If the data in any class is nonexistent (no samples), or
+''' very bad (no fg pixels in the average), or if the ratio
+''' of max/min average unscaled class template heights is
+''' greater than max_ht_ratio, this destroys the recog.
 ''' The caller must check the return value of the recog.<para/>
-''' (3) Set debug = 1 to view the resulting templates and their centroids.<para/>
+''' 
+''' (3) Set debug = 1 to view the resulting templates and their centroids.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -175,13 +179,15 @@ End Function
 ' pixaAccumulateSamples(pixa, pta, ppixd, px, py) as Integer
 ' pixaAccumulateSamples(PIXA *, PTA *, PIX **, l_float32 *, l_float32 *) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This generates an aligned (by centroid) sum of the input pix.<para/>
+''' 
 ''' (2) We use only the first 256 samples that's plenty.<para/>
-''' (3) If pta is not input, we generate two tables, and discard<para/>
-''' after use.  If this is called many times, it is better<para/>
-''' to precompute the pta.<para/>
+''' 
+''' (3) If pta is not input, we generate two tables, and discard
+''' after use.  If this is called many times, it is better
+''' to precompute the pta.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -214,29 +220,35 @@ End Function
 ' recogTrainingFinished(precog, modifyflag, minsize, minfract) as Integer
 ' recogTrainingFinished(L_RECOG **, l_int32, l_int32, l_float32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This must be called after all training samples have been added.<para/>
+''' 
 ''' (2) If the templates are not good enough, the recog input is destroyed.<para/>
-''' (3) Usually, %modifyflag == 1, because we want to apply<para/>
-''' recogModifyTemplate() to generate the actual templates<para/>
-''' that will be used.  The one exception is when reading a<para/>
-''' serialized recog: there we want to put the same set of<para/>
-''' templates in both the unscaled and modified pixaa.<para/>
+''' 
+''' (3) Usually, %modifyflag == 1, because we want to apply
+''' recogModifyTemplate() to generate the actual templates
+''' that will be used.  The one exception is when reading a
+''' serialized recog: there we want to put the same set of
+''' templates in both the unscaled and modified pixaa.
 ''' See recogReadStream() to see why we do this.<para/>
+''' 
 ''' (4) See recogTemplatesAreOK() for %minsize and %minfract usage.<para/>
-''' (5) The following things are done here:<para/>
-''' (a) Allocate (or reallocate) storage for (possibly) modified<para/>
-''' bitmaps, centroids, and fg areas.<para/>
-''' (b) Generate the (possibly) modified bitmaps.<para/>
-''' (c) Compute centroid and fg area data for both unscaled and<para/>
-''' modified bitmaps.<para/>
-''' (d) Truncate the pixaa, ptaa and numaa arrays down from<para/>
+''' 
+''' (5) The following things are done here:
+''' (a) Allocate (or reallocate) storage for (possibly) modified
+''' bitmaps, centroids, and fg areas.
+''' (b) Generate the (possibly) modified bitmaps.
+''' (c) Compute centroid and fg area data for both unscaled and
+''' modified bitmaps.
+''' (d) Truncate the pixaa, ptaa and numaa arrays down from
 ''' 256 to the actual size.<para/>
-''' (6) Putting these operations here makes it simple to recompute<para/>
+''' 
+''' (6) Putting these operations here makes it simple to recompute
 ''' the recog with different modifications on the bitmaps.<para/>
-''' (7) Call recogShowContent() to display the templates, both<para/>
-''' unscaled and modified.<para/>
+''' 
+''' (7) Call recogShowContent() to display the templates, both
+''' unscaled and modified.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -265,21 +277,22 @@ End Function
 ' recogFilterPixaBySize(pixas, setsize, maxkeep, max_ht_ratio, pna) as Pixa
 ' recogFilterPixaBySize(PIXA *, l_int32, l_int32, l_float32, NUMA **) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The basic assumption is that the most common and larger<para/>
-''' templates in each class are more likely to represent the<para/>
-''' characters we are interested in.  For example, larger digits<para/>
-''' are more likely to represent page numbers, and smaller digits<para/>
-''' could be data in tables.  Therefore, we bias the first<para/>
-''' stage of filtering toward the larger characters by removing<para/>
-''' very small ones, and select based on proximity of the<para/>
+''' 
+''' (1) The basic assumption is that the most common and larger
+''' templates in each class are more likely to represent the
+''' characters we are interested in.  For example, larger digits
+''' are more likely to represent page numbers, and smaller digits
+''' could be data in tables.  Therefore, we bias the first
+''' stage of filtering toward the larger characters by removing
+''' very small ones, and select based on proximity of the
 ''' remaining characters to median height.<para/>
-''' (2) For each of the %setsize classes, order the templates<para/>
-''' increasingly by height.  Take the rank 0.9 height.  Eliminate<para/>
-''' all templates that are shorter by more than %max_ht_ratio.<para/>
-''' Of the remaining ones, select up to %maxkeep that are closest<para/>
-''' in rank order height to the median template.<para/>
+''' 
+''' (2) For each of the %setsize classes, order the templates
+''' increasingly by height.  Take the rank 0.9 height.  Eliminate
+''' all templates that are shorter by more than %max_ht_ratio.
+''' Of the remaining ones, select up to %maxkeep that are closest
+''' in rank order height to the median template.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -333,12 +346,13 @@ End Function
 ' recogRemoveOutliers1(precog, minscore, mintarget, minsize, ppixsave, ppixrem) as Integer
 ' recogRemoveOutliers1(L_RECOG **, l_float32, l_int32, l_int32, PIX **, PIX **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a convenience wrapper when using default parameters<para/>
+''' 
+''' (1) This is a convenience wrapper when using default parameters
 ''' for the recog.  See pixaRemoveOutliers1() for details.<para/>
-''' (2) If this succeeds, the new recog replaces the input recog<para/>
-''' if it fails, the input recog is destroyed.<para/>
+''' 
+''' (2) If this succeeds, the new recog replaces the input recog
+''' if it fails, the input recog is destroyed.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -375,29 +389,32 @@ End Function
 ' pixaRemoveOutliers1(pixas, minscore, mintarget, minsize, ppixsave, ppixrem) as Pixa
 ' pixaRemoveOutliers1(PIXA *, l_float32, l_int32, l_int32, PIX **, PIX **) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Removing outliers is particularly important when recognition<para/>
-''' goes against all the samples in the training set, as opposed<para/>
-''' to the averages for each class.  The reason is that we get<para/>
-''' an identification error if a mislabeled template is a best<para/>
+''' 
+''' (1) Removing outliers is particularly important when recognition
+''' goes against all the samples in the training set, as opposed
+''' to the averages for each class.  The reason is that we get
+''' an identification error if a mislabeled template is a best
 ''' match for an input sample.<para/>
-''' (2) Because the score values depend strongly on the quality<para/>
-''' of the character images, to avoid losing too many samples<para/>
-''' we supplement a minimum score for retention with a score<para/>
-''' necessary to acquire the minimum target number of templates.<para/>
-''' To do this we are willing to use a lower threshold,<para/>
-''' LOWER_SCORE_THRESHOLD, on the score.  Consequently, with<para/>
-''' poor quality templates, we may keep samples with a score<para/>
-''' less than %minscore, but never less than LOWER_SCORE_THRESHOLD.<para/>
-''' And if the number of samples is less than %minsize, we do<para/>
+''' 
+''' (2) Because the score values depend strongly on the quality
+''' of the character images, to avoid losing too many samples
+''' we supplement a minimum score for retention with a score
+''' necessary to acquire the minimum target number of templates.
+''' To do this we are willing to use a lower threshold,
+''' LOWER_SCORE_THRESHOLD, on the score.  Consequently, with
+''' poor quality templates, we may keep samples with a score
+''' less than %minscore, but never less than LOWER_SCORE_THRESHOLD.
+''' And if the number of samples is less than %minsize, we do
 ''' not use any.<para/>
-''' (3) This is meant to be used on a BAR, where the templates all<para/>
+''' 
+''' (3) This is meant to be used on a BAR, where the templates all
 ''' come from the same book use minscore ~0.75.<para/>
-''' (4) Method: make a scaled recog from the input %pixas.  Then,<para/>
-''' for each class: generate the averages, match each<para/>
-''' scaled template against the average, and save unscaled<para/>
-''' templates that had a sufficiently good match.<para/>
+''' 
+''' (4) Method: make a scaled recog from the input %pixas.  Then,
+''' for each class: generate the averages, match each
+''' scaled template against the average, and save unscaled
+''' templates that had a sufficiently good match.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -434,12 +451,13 @@ End Function
 ' recogRemoveOutliers2(precog, minscore, minsize, ppixsave, ppixrem) as Integer
 ' recogRemoveOutliers2(L_RECOG **, l_float32, l_int32, PIX **, PIX **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a convenience wrapper when using default parameters<para/>
+''' 
+''' (1) This is a convenience wrapper when using default parameters
 ''' for the recog.  See pixaRemoveOutliers2() for details.<para/>
-''' (2) If this succeeds, the new recog replaces the input recog<para/>
-''' if it fails, the input recog is destroyed.<para/>
+''' 
+''' (2) If this succeeds, the new recog replaces the input recog
+''' if it fails, the input recog is destroyed.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -474,19 +492,21 @@ End Function
 ' pixaRemoveOutliers2(pixas, minscore, minsize, ppixsave, ppixrem) as Pixa
 ' pixaRemoveOutliers2(PIXA *, l_float32, l_int32, PIX **, PIX **) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Removing outliers is particularly important when recognition<para/>
-''' goes against all the samples in the training set, as opposed<para/>
-''' to the averages for each class.  The reason is that we get<para/>
-''' an identification error if a mislabeled template is a best<para/>
+''' 
+''' (1) Removing outliers is particularly important when recognition
+''' goes against all the samples in the training set, as opposed
+''' to the averages for each class.  The reason is that we get
+''' an identification error if a mislabeled template is a best
 ''' match for an input sample.<para/>
-''' (2) This method compares each template against the average templates<para/>
-''' of each class, and discards any template that has a higher<para/>
-''' correlation to a class different from its own.  It also<para/>
+''' 
+''' (2) This method compares each template against the average templates
+''' of each class, and discards any template that has a higher
+''' correlation to a class different from its own.  It also
 ''' sets a lower bound on correlation scores with its class average.<para/>
-''' (3) This is meant to be used on a BAR, where the templates all<para/>
-''' come from the same book use minscore ~0.75.<para/>
+''' 
+''' (3) This is meant to be used on a BAR, where the templates all
+''' come from the same book use minscore ~0.75.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -521,22 +541,23 @@ End Function
 ' recogTrainFromBoot(recogboot, pixas, minscore, threshold, debug) as Pixa
 ' recogTrainFromBoot(L_RECOG *, PIXA *, l_float32, l_int32, l_int32) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This takes %pixas of unscaled single characters and %recboot,<para/>
-''' a bootstrep recognizer (BSR) that has been set up with parameters<para/>
-''' scaleh: scale all templates to this height<para/>
-''' linew: width of normalized strokes, or 0 if using<para/>
-''' the input image<para/>
-''' It modifies the pix in %pixas accordingly and correlates<para/>
-''' with the templates in the BSR.  It returns those input<para/>
-''' images in %pixas whose best correlation with the BSR is at<para/>
-''' or above %minscore.  The returned pix have added text labels<para/>
-''' for the text string of the class to which the best<para/>
+''' 
+''' (1) This takes %pixas of unscaled single characters and %recboot,
+''' a bootstrep recognizer (BSR) that has been set up with parameters
+''' scaleh: scale all templates to this height
+''' linew: width of normalized strokes, or 0 if using
+''' the input image
+''' It modifies the pix in %pixas accordingly and correlates
+''' with the templates in the BSR.  It returns those input
+''' images in %pixas whose best correlation with the BSR is at
+''' or above %minscore.  The returned pix have added text labels
+''' for the text string of the class to which the best
 ''' correlated template belongs.<para/>
-''' (2) Identification occurs in scaled mode (typically with h = 40),<para/>
-''' optionally using a width-normalized line images derived<para/>
-''' from those in %pixas.<para/>
+''' 
+''' (2) Identification occurs in scaled mode (typically with h = 40),
+''' optionally using a width-normalized line images derived
+''' from those in %pixas.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -567,13 +588,13 @@ End Function
 ' recogPadDigitTrainingSet(precog, scaleh, linew) as Integer
 ' recogPadDigitTrainingSet(L_RECOG **, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a no-op if padding is not needed.  However,<para/>
-''' if it is, this replaces the input recog with a new recog,<para/>
-''' padded appropriately with templates from a boot recognizer,<para/>
-''' and set up with correlation templates derived from<para/>
-''' %scaleh and %linew.<para/>
+''' 
+''' (1) This is a no-op if padding is not needed.  However,
+''' if it is, this replaces the input recog with a new recog,
+''' padded appropriately with templates from a boot recognizer,
+''' and set up with correlation templates derived from
+''' %scaleh and %linew.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -599,12 +620,12 @@ End Function
 ' recogIsPaddingNeeded(recog, psa) as Integer
 ' recogIsPaddingNeeded(L_RECOG *, SARRAY **) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This returns a string array in  and sa containing character values<para/>
-''' for which extra templates are needed this sarray is<para/>
-''' used by recogGetPadTemplates().  It returns NULL<para/>
-''' if no padding templates are needed.<para/>
+''' 
+''' (1) This returns a string array in [and]sa containing character values
+''' for which extra templates are needed this sarray is
+''' used by recogGetPadTemplates().  It returns NULL
+''' if no padding templates are needed.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -630,11 +651,11 @@ End Function
 ' recogAddDigitPadTemplates(recog, sa) as Pixa
 ' recogAddDigitPadTemplates(L_RECOG *, SARRAY *) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Call recogIsPaddingNeeded() first, which returns %sa of<para/>
-''' template text strings for classes where more templates<para/>
-''' are needed.<para/>
+''' 
+''' (1) Call recogIsPaddingNeeded() first, which returns %sa of
+''' template text strings for classes where more templates
+''' are needed.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -659,20 +680,21 @@ End Function
 ' recogMakeBootDigitRecog(scaleh, linew, maxyshift, debug) as L_Recog
 ' recogMakeBootDigitRecog(l_int32, l_int32, l_int32, l_int32) as L_RECOG *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This takes a set of pre-computed, labeled pixa of single<para/>
-''' digits, and generates a recognizer where the character templates<para/>
-''' that will be used are derived from the boot-generated pixa:<para/>
-''' - extending by replicating the set with different widths,<para/>
-''' keeping the height the same<para/>
-''' - scaling (isotropically to fixed height)<para/>
-''' - optionally generating a skeleton and thickening so that<para/>
+''' 
+''' (1) This takes a set of pre-computed, labeled pixa of single
+''' digits, and generates a recognizer where the character templates
+''' that will be used are derived from the boot-generated pixa:
+''' - extending by replicating the set with different widths,
+''' keeping the height the same
+''' - scaling (isotropically to fixed height)
+''' - optionally generating a skeleton and thickening so that
 ''' all strokes have the same width.<para/>
-''' (2) The resulting templates are scaled versions of either the<para/>
-''' input bitmaps or images with fixed line widths.  To use the<para/>
-''' input bitmaps, set %linew = 0 otherwise, set %linew to the<para/>
-''' desired line width.<para/>
+''' 
+''' (2) The resulting templates are scaled versions of either the
+''' input bitmaps or images with fixed line widths.  To use the
+''' input bitmaps, set %linew = 0 otherwise, set %linew to the
+''' desired line width.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -698,9 +720,9 @@ End Function
 ' recogMakeBootDigitTemplates(debug) as Pixa
 ' recogMakeBootDigitTemplates(l_int32) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See recogMakeBootDigitRecog().<para/>
+''' 
+''' (1) See recogMakeBootDigitRecog().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -745,14 +767,16 @@ End Function
 ' recogDebugAverages(precog, debug) as Integer
 ' recogDebugAverages(L_RECOG **, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Generates an image that pairs each of the input images used<para/>
-''' in training with the average template that it is best<para/>
+''' 
+''' (1) Generates an image that pairs each of the input images used
+''' in training with the average template that it is best
 ''' correlated to.  This is written into the recog.<para/>
-''' (2) It also generates pixa_tr of all the input training images,<para/>
+''' 
+''' (2) It also generates pixa_tr of all the input training images,
 ''' which can be used, e.g., in recogShowMatchesInRange().<para/>
-''' (3) Destroys the recog if the averaging function finds any bad classes.<para/>
+''' 
+''' (3) Destroys the recog if the averaging function finds any bad classes.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -777,10 +801,10 @@ End Function
 ' recogShowAverageTemplates(recog) as Integer
 ' recogShowAverageTemplates(L_RECOG *) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This debug routine generates a display of the averaged templates,<para/>
-''' both scaled and unscaled, with the centroid visible in red.<para/>
+''' 
+''' (1) This debug routine generates a display of the averaged templates,
+''' both scaled and unscaled, with the centroid visible in red.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -801,15 +825,16 @@ End Function
 ' recogShowMatchesInRange(recog, pixa, minscore, maxscore, display) as Integer
 ' recogShowMatchesInRange(L_RECOG *, PIXA *, l_float32, l_float32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This gives a visual output of the best matches for a given<para/>
-''' range of scores.  Each pair of images can optionally be<para/>
+''' 
+''' (1) This gives a visual output of the best matches for a given
+''' range of scores.  Each pair of images can optionally be
 ''' labeled with the index of the best match and the correlation.<para/>
-''' (2) To use this, save a set of 1 bpp images (labeled or<para/>
-''' unlabeled) that can be given to a recognizer in a pixa.<para/>
-''' Then call this function with the pixa and parameters<para/>
-''' to filter a range of scores.<para/>
+''' 
+''' (2) To use this, save a set of 1 bpp images (labeled or
+''' unlabeled) that can be given to a recognizer in a pixa.
+''' Then call this function with the pixa and parameters
+''' to filter a range of scores.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -839,18 +864,19 @@ End Function
 ' recogShowMatch(recog, pix1, pix2, box, index, score) as Pix
 ' recogShowMatch(L_RECOG *, PIX *, PIX *, BOX *, l_int32, l_float32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) pix1 can be one of these:<para/>
-''' (a) The input pix alone, which can be either a single character<para/>
-''' (box == NULL) or several characters that need to be<para/>
-''' segmented.  If more than character is present, the box<para/>
-''' region is displayed with an outline.<para/>
-''' (b) Both the input pix and the matching template.  In this case,<para/>
+''' 
+''' (1) pix1 can be one of these:
+''' (a) The input pix alone, which can be either a single character
+''' (box == NULL) or several characters that need to be
+''' segmented.  If more than character is present, the box
+''' region is displayed with an outline.
+''' (b) Both the input pix and the matching template.  In this case,
 ''' pix2 and box will both be null.<para/>
-''' (2) If the bmf has been made (by a call to recogMakeBmf())<para/>
-''' and the index  is greater = 0, the text field, match score and index<para/>
-''' will be rendered otherwise their values will be ignored.<para/>
+''' 
+''' (2) If the bmf has been made (by a call to recogMakeBmf())
+''' and the index greater or equal 0, the text field, match score and index
+''' will be rendered otherwise their values will be ignored.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

@@ -7,12 +7,12 @@ Partial Public Class _All
 ' strcodeCreate(fileno) as L_StrCode
 ' strcodeCreate(l_int32) as L_STRCODE *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This struct exists to build two files containing code for<para/>
-''' any number of data objects.  The two files are named<para/>
-''' autogen.[fileno].c<para/>
-''' autogen.[fileno].h<para/>
+''' 
+''' (1) This struct exists to build two files containing code for
+''' any number of data objects.  The two files are named
+''' autogen.[fileno].c
+''' autogen.[fileno].h
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -32,13 +32,14 @@ End Function
 ' strcodeCreateFromFile(filein, fileno, outdir) as Integer
 ' strcodeCreateFromFile(const char *, l_int32, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The %filein has one filename on each line.<para/>
+''' 
+''' (1) The %filein has one filename on each line.
 ''' Comment lines begin with "#".<para/>
-''' (2) The output is 2 files:<para/>
-''' autogen.[fileno].c<para/>
-''' autogen.[fileno].h<para/>
+''' 
+''' (2) The output is 2 files:
+''' autogen.[fileno].c
+''' autogen.[fileno].h
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -63,14 +64,15 @@ End Function
 ' strcodeGenerate(strcode, filein, type) as Integer
 ' strcodeGenerate(L_STRCODE *, const char *, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The generated function name is<para/>
-''' l_autodecode_[fileno]()<para/>
+''' 
+''' (1) The generated function name is
+''' l_autodecode_[fileno]()
 ''' where [fileno] is the index label for the pair of output files.<para/>
-''' (2) To deserialize this data, the function is called with the<para/>
-''' argument 'ifunc', which increments each time strcodeGenerate()<para/>
-''' is called.<para/>
+''' 
+''' (2) To deserialize this data, the function is called with the
+''' argument 'ifunc', which increments each time strcodeGenerate()
+''' is called.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -118,11 +120,12 @@ End Function
 ' l_getStructStrFromFile(filename, field, pstr) as Integer
 ' l_getStructStrFromFile(const char *, l_int32, char **) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For example, if %field == L_STR_NAME, and the file is a serialized<para/>
+''' 
+''' (1) For example, if %field == L_STR_NAME, and the file is a serialized
 ''' pixa, this will return "Pixa", the name of the struct.<para/>
-''' (2) Caller must free the returned string.<para/>
+''' 
+''' (2) Caller must free the returned string.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

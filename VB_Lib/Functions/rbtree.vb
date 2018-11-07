@@ -28,7 +28,7 @@ End Function
 '''  <include file="IncludeComments.xml" path="Comments/l_rbtreeLookup/*"/>
 '''  <param name="t">[in] - rbtree, including root node</param>
 '''  <param name="key">[in] - find a node with this key</param>
-'''   <returns> and value     a pointer to a union, if the node exists else NULL</returns>
+'''   <returns>[and]value     a pointer to a union, if the node exists else NULL</returns>
 Public Shared Function l_rbtreeLookup(
 				 ByVal t as L_Rbtree, 
 				 ByVal key as Rb_Type) as RB_TYPE
@@ -46,9 +46,9 @@ End Function
 ' l_rbtreeInsert(t, key, value) as Object
 ' l_rbtreeInsert(L_RBTREE *, RB_TYPE, RB_TYPE) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If a node with the key already exists, this just updates the value.<para/>
+''' 
+''' (1) If a node with the key already exists, this just updates the value.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -92,9 +92,9 @@ End Sub
 ' l_rbtreeDestroy(pt) as Object
 ' l_rbtreeDestroy(L_RBTREE **) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Destroys the tree and nulls the input tree ptr.<para/>
+''' 
+''' (1) Destroys the tree and nulls the input tree ptr.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -115,9 +115,9 @@ End Sub
 ' l_rbtreeGetFirst(t) as L_Rbtree_Node
 ' l_rbtreeGetFirst(L_RBTREE *) as L_RBTREE_NODE *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is the first node in an in-order traversal.<para/>
+''' 
+''' (1) This is the first node in an in-order traversal.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -139,12 +139,14 @@ End Function
 ' l_rbtreeGetNext(n) as L_Rbtree_Node
 ' l_rbtreeGetNext(L_RBTREE_NODE *) as L_RBTREE_NODE *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This finds the next node, in an in-order traversal, from<para/>
+''' 
+''' (1) This finds the next node, in an in-order traversal, from
 ''' the current node.<para/>
+''' 
 ''' (2) It is useful as an iterator for a map.<para/>
-''' (3) Call l_rbtreeGetFirst() to get the first node.<para/>
+''' 
+''' (3) Call l_rbtreeGetFirst() to get the first node.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -166,9 +168,9 @@ End Function
 ' l_rbtreeGetLast(t) as L_Rbtree_Node
 ' l_rbtreeGetLast(L_RBTREE *) as L_RBTREE_NODE *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is the last node in an in-order traversal.<para/>
+''' 
+''' (1) This is the last node in an in-order traversal.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -190,12 +192,14 @@ End Function
 ' l_rbtreeGetPrev(n) as L_Rbtree_Node
 ' l_rbtreeGetPrev(L_RBTREE_NODE *) as L_RBTREE_NODE *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This finds the previous node, in an in-order traversal, from<para/>
+''' 
+''' (1) This finds the previous node, in an in-order traversal, from
 ''' the current node.<para/>
+''' 
 ''' (2) It is useful as an iterator for a map.<para/>
-''' (3) Call l_rbtreeGetLast() to get the last node.<para/>
+''' 
+''' (3) Call l_rbtreeGetLast() to get the last node.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

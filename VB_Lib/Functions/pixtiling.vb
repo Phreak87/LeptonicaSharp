@@ -7,21 +7,24 @@ Partial Public Class _All
 ' pixTilingCreate(pixs, nx, ny, w, h, xoverlap, yoverlap) as PixTiling
 ' pixTilingCreate(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIXTILING *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) We put a clone of pixs in the PixTiling.<para/>
-''' (2) The input to pixTilingCreate() for horizontal tiling can be<para/>
-''' either the number of tiles across the image or the approximate<para/>
-''' width of the tiles.  If the latter, the actual width will be<para/>
-''' determined by making all tiles but the last of equal width, and<para/>
-''' making the last as close to the others as possible.  The same<para/>
-''' consideration is applied independently to the vertical tiling.<para/>
-''' To specify tile width, set nx = 0 to specify the number of<para/>
+''' 
+''' (2) The input to pixTilingCreate() for horizontal tiling can be
+''' either the number of tiles across the image or the approximate
+''' width of the tiles.  If the latter, the actual width will be
+''' determined by making all tiles but the last of equal width, and
+''' making the last as close to the others as possible.  The same
+''' consideration is applied independently to the vertical tiling.
+''' To specify tile width, set nx = 0 to specify the number of
 ''' tiles horizontally across the image, set w = 0.<para/>
-''' (3) If pixs is to be tiled in one-dimensional strips, use ny = 1 for<para/>
+''' 
+''' (3) If pixs is to be tiled in one-dimensional strips, use ny = 1 for
 ''' vertical strips and nx = 1 for horizontal strips.<para/>
-''' (4) The overlap must not be larger than the width or height of<para/>
-''' the leftmost or topmost tile(s).<para/>
+''' 
+''' (4) The overlap must not be larger than the width or height of
+''' the leftmost or topmost tile(s).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -139,13 +142,13 @@ End Function
 ' pixTilingNoStripOnPaint(pt) as Integer
 ' pixTilingNoStripOnPaint(PIXTILING *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The default for paint is to strip out the overlap pixels<para/>
-''' that are added by pixTilingGetTile().  However, some<para/>
-''' operations will generate an image with these pixels<para/>
-''' stripped off.  This tells the paint operation not<para/>
-''' to strip the added boundary pixels when painting.<para/>
+''' 
+''' (1) The default for paint is to strip out the overlap pixels
+''' that are added by pixTilingGetTile().  However, some
+''' operations will generate an image with these pixels
+''' stripped off.  This tells the paint operation not
+''' to strip the added boundary pixels when painting.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

@@ -7,13 +7,14 @@ Partial Public Class _All
 ' pixReadTiff(filename, n) as Pix
 ' pixReadTiff(const char *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a version of pixRead(), specialized for tiff<para/>
+''' 
+''' (1) This is a version of pixRead(), specialized for tiff
 ''' files, that allows specification of the page to be returned<para/>
-''' (2) No warning messages on failure, because of how multi-page<para/>
-''' TIFF reading works. You are supposed to keep trying until<para/>
-''' it stops working.<para/>
+''' 
+''' (2) No warning messages on failure, because of how multi-page
+''' TIFF reading works. You are supposed to keep trying until
+''' it stops working.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -39,11 +40,11 @@ End Function
 ' pixReadStreamTiff(fp, n) as Pix
 ' pixReadStreamTiff(FILE *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) No warning messages on failure, because of how multi-page<para/>
-''' TIFF reading works. You are supposed to keep trying until<para/>
-''' it stops working.<para/>
+''' 
+''' (1) No warning messages on failure, because of how multi-page
+''' TIFF reading works. You are supposed to keep trying until
+''' it stops working.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -67,14 +68,15 @@ End Function
 ' pixWriteTiff(filename, pix, comptype, modestr) as Integer
 ' pixWriteTiff(const char *, PIX *, l_int32, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For multipage tiff, write the first pix with mode "w" and<para/>
+''' 
+''' (1) For multipage tiff, write the first pix with mode "w" and
 ''' all subsequent pix with mode "a".<para/>
-''' (2) For multipage tiff, there is considerable overhead in the<para/>
-''' machinery to append an image and add the directory entry,<para/>
-''' and the time required for each image increases linearly<para/>
-''' with the number of images in the file.<para/>
+''' 
+''' (2) For multipage tiff, there is considerable overhead in the
+''' machinery to append an image and add the directory entry,
+''' and the time required for each image increases linearly
+''' with the number of images in the file.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -146,20 +148,24 @@ End Function
 ' pixWriteStreamTiff(fp, pix, comptype) as Integer
 ' pixWriteStreamTiff(FILE *, PIX *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This writes a single image to a file stream opened for writing.<para/>
-''' (2) For images with bpp  is greater  1, this resets the comptype, if<para/>
+''' 
+''' (2) For images with bpp  is greater  1, this resets the comptype, if
 ''' necessary, to write uncompressed data.<para/>
+''' 
 ''' (3) G3 and G4 are only defined for 1 bpp.<para/>
-''' (4) We only allow PACKBITS for bpp = 1, because for bpp  is greater  1<para/>
+''' 
+''' (4) We only allow PACKBITS for bpp = 1, because for bpp  is greater  1
 ''' it typically expands images that are not synthetically generated.<para/>
-''' (5) G4 compression is typically about twice as good as G3.<para/>
-''' G4 is excellent for binary compression of text/line-art,<para/>
-''' but terrible for halftones and dithered patterns.  (In<para/>
-''' fact, G4 on halftones can give a file that is larger<para/>
-''' than uncompressed!)  If a binary image has dithered<para/>
-''' regions, it is usually better to compress with png.<para/>
+''' 
+''' (5) G4 compression is typically about twice as good as G3.
+''' G4 is excellent for binary compression of text/line-art,
+''' but terrible for halftones and dithered patterns.  (In
+''' fact, G4 on halftones can give a file that is larger
+''' than uncompressed!)  If a binary image has dithered
+''' regions, it is usually better to compress with png.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -211,28 +217,34 @@ End Function
 ' pixReadFromMultipageTiff(fname, poffset) as Pix
 ' pixReadFromMultipageTiff(const char *, size_t *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This allows overhead for traversal of a multipage tiff file<para/>
-''' to be linear in the number of images.  This will also work<para/>
+''' 
+''' (1) This allows overhead for traversal of a multipage tiff file
+''' to be linear in the number of images.  This will also work
 ''' with a singlepage tiff file.<para/>
-''' (2) No TIFF internal data structures are exposed to the caller<para/>
+''' 
+''' (2) No TIFF internal data structures are exposed to the caller
 ''' (thanks to Jeff Breidenbach).<para/>
-''' (3) offset is the byte offset of a particular image in a multipage<para/>
-''' tiff file. To get the first image in the file, input the<para/>
+''' 
+''' (3) offset is the byte offset of a particular image in a multipage
+''' tiff file. To get the first image in the file, input the
 ''' special offset value of 0.<para/>
-''' (4) The offset is updated to point to the next image, for a<para/>
+''' 
+''' (4) The offset is updated to point to the next image, for a
 ''' subsequent call.<para/>
-''' (5) On the last image, the offset returned is 0.  Exit the loop<para/>
+''' 
+''' (5) On the last image, the offset returned is 0.  Exit the loop
 ''' when the returned offset is 0.<para/>
-''' (6) For reading a multipage tiff from a memory buffer, see<para/>
+''' 
+''' (6) For reading a multipage tiff from a memory buffer, see
 ''' pixReadMemFromMultipageTiff()<para/>
-''' (7) Example usage for reading all the images in the tif file:<para/>
-''' size_t offset = 0<para/>
-''' do {<para/>
-''' Pix pix = pixReadFromMultipageTiff(filename,  and offset)<para/>
-''' // do something with pix<para/>
-''' } while (offset != 0)<para/>
+''' 
+''' (7) Example usage for reading all the images in the tif file:
+''' size_t offset = 0
+''' do {
+''' Pix pix = pixReadFromMultipageTiff(filename, [and]offset)
+''' // do something with pix
+''' } while (offset != 0)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -280,11 +292,11 @@ End Function
 ' pixaWriteMultipageTiff(fname, pixa) as Integer
 ' pixaWriteMultipageTiff(const char *, PIXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The tiff directory overhead is O(n^2).  I have not been<para/>
-''' able to reduce it to O(n).  The overhead for n = 2000 is<para/>
-''' about 1 second.<para/>
+''' 
+''' (1) The tiff directory overhead is O(n^2).  I have not been
+''' able to reduce it to O(n).  The overhead for n = 2000 is
+''' about 1 second.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -308,20 +320,23 @@ End Function
 ' writeMultipageTiff(dirin, substr, fileout) as Integer
 ' writeMultipageTiff(const char *, const char *, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This writes a set of image files in a directory out<para/>
-''' as a multipage tiff file.  The images can be in any<para/>
+''' 
+''' (1) This writes a set of image files in a directory out
+''' as a multipage tiff file.  The images can be in any
 ''' initial file format.<para/>
-''' (2) Images with a colormap have the colormap removed before<para/>
+''' 
+''' (2) Images with a colormap have the colormap removed before
 ''' re-encoding as tiff.<para/>
-''' (3) All images are encoded losslessly.  Those with 1 bpp are<para/>
-''' encoded 'g4'.  The rest are encoded as 'zip' (flate encoding).<para/>
-''' Because it is lossless, this is an expensive method for<para/>
+''' 
+''' (3) All images are encoded losslessly.  Those with 1 bpp are
+''' encoded 'g4'.  The rest are encoded as 'zip' (flate encoding).
+''' Because it is lossless, this is an expensive method for
 ''' saving most rgb images.<para/>
-''' (4) The tiff directory overhead is quadratic in the number of<para/>
-''' images.  To avoid this for very large numbers of images to be<para/>
-''' written, apply the method used in pixaWriteMultipageTiff().<para/>
+''' 
+''' (4) The tiff directory overhead is quadratic in the number of
+''' images.  To avoid this for very large numbers of images to be
+''' written, apply the method used in pixaWriteMultipageTiff().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -347,9 +362,9 @@ End Function
 ' writeMultipageTiffSA(sa, fileout) as Integer
 ' writeMultipageTiffSA(SARRAY *, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See writeMultipageTiff()<para/>
+''' 
+''' (1) See writeMultipageTiff()
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -414,10 +429,10 @@ End Function
 ' getTiffResolution(fp, pxres, pyres) as Integer
 ' getTiffResolution(FILE *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If neither resolution field is set, this is not an error<para/>
-''' the returned resolution values are 0 (designating 'unknown').<para/>
+''' 
+''' (1) If neither resolution field is set, this is not an error
+''' the returned resolution values are 0 (designating 'unknown').
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -442,10 +457,11 @@ End Function
 ' readHeaderTiff(filename, n, pw, ph, pbps, pspp, pres, pcmap, pformat) as Integer
 ' readHeaderTiff(const char *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) If there is a colormap, cmap is returned as 1 else 0.<para/>
-''' (2) If %n is equal to or greater than the number of images, returns 1.<para/>
+''' 
+''' (2) If %n is equal to or greater than the number of images, returns 1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -484,10 +500,11 @@ End Function
 ' freadHeaderTiff(fp, n, pw, ph, pbps, pspp, pres, pcmap, pformat) as Integer
 ' freadHeaderTiff(FILE *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) If there is a colormap, cmap is returned as 1 else 0.<para/>
-''' (2) If %n is equal to or greater than the number of images, returns 1.<para/>
+''' 
+''' (2) If %n is equal to or greater than the number of images, returns 1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -524,9 +541,9 @@ End Function
 ' readHeaderMemTiff(cdata, size, n, pw, ph, pbps, pspp, pres, pcmap, pformat) as Integer
 ' readHeaderMemTiff(const l_uint8 *, size_t, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Use TIFFClose() TIFFCleanup() doesn't free internal memstream.<para/>
+''' 
+''' (1) Use TIFFClose() TIFFCleanup() doesn't free internal memstream.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -565,16 +582,18 @@ End Function
 ' findTiffCompression(fp, pcomptype) as Integer
 ' findTiffCompression(FILE *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The returned compression type is that defined in<para/>
+''' 
+''' (1) The returned compression type is that defined in
 ''' the enum in imageio.h.  It is not the tiff flag value.<para/>
-''' (2) The compression type is initialized to IFF_UNKNOWN.<para/>
-''' If it is not one of the specified types, the returned<para/>
+''' 
+''' (2) The compression type is initialized to IFF_UNKNOWN.
+''' If it is not one of the specified types, the returned
 ''' type is IFF_TIFF, which indicates no compression.<para/>
-''' (3) When this function is called, the stream must be at BOF.<para/>
-''' If the opened stream is to be used again to read the<para/>
-''' file, it must be rewound to BOF after calling this function.<para/>
+''' 
+''' (3) When this function is called, the stream must be at BOF.
+''' If the opened stream is to be used again to read the
+''' file, it must be rewound to BOF after calling this function.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -628,16 +647,19 @@ End Function
 ' pixReadMemTiff(cdata, size, n) as Pix
 ' pixReadMemTiff(const l_uint8 *, size_t, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a version of pixReadTiff(), where the data is read<para/>
+''' 
+''' (1) This is a version of pixReadTiff(), where the data is read
 ''' from a memory buffer and uncompressed.<para/>
+''' 
 ''' (2) Use TIFFClose() TIFFCleanup() doesn't free internal memstream.<para/>
-''' (3) No warning messages on failure, because of how multi-page<para/>
-''' TIFF reading works. You are supposed to keep trying until<para/>
+''' 
+''' (3) No warning messages on failure, because of how multi-page
+''' TIFF reading works. You are supposed to keep trying until
 ''' it stops working.<para/>
-''' (4) Tiff directory overhead is linear in the input page number.<para/>
-''' If reading many images, use pixReadMemFromMultipageTiff().<para/>
+''' 
+''' (4) Tiff directory overhead is linear in the input page number.
+''' If reading many images, use pixReadMemFromMultipageTiff().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -663,19 +685,21 @@ End Function
 ' pixReadMemFromMultipageTiff(cdata, size, poffset) as Pix
 ' pixReadMemFromMultipageTiff(const l_uint8 *, size_t, size_t *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a read-from-memory version of pixReadFromMultipageTiff().<para/>
+''' 
+''' (1) This is a read-from-memory version of pixReadFromMultipageTiff().
 ''' See that function for usage.<para/>
-''' (2) If reading sequentially from the tiff data, this is more<para/>
-''' efficient than pixReadMemTiff(), which has an overhead<para/>
+''' 
+''' (2) If reading sequentially from the tiff data, this is more
+''' efficient than pixReadMemTiff(), which has an overhead
 ''' proportional to the image index n.<para/>
-''' (3) Example usage for reading all the images:<para/>
-''' size_t offset = 0<para/>
-''' do {<para/>
-''' Pix pix = pixReadMemFromMultipageTiff(data, size,  and offset)<para/>
-''' // do something with pix<para/>
-''' } while (offset != 0)<para/>
+''' 
+''' (3) Example usage for reading all the images:
+''' size_t offset = 0
+''' do {
+''' Pix pix = pixReadMemFromMultipageTiff(data, size, [and]offset)
+''' // do something with pix
+''' } while (offset != 0)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -704,9 +728,9 @@ End Function
 ' pixaReadMemMultipageTiff(data, size) as Pixa
 ' pixaReadMemMultipageTiff(const l_uint8 *, size_t) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is an O(n) read-from-memory version of pixaReadMultipageTiff().<para/>
+''' 
+''' (1) This is an O(n) read-from-memory version of pixaReadMultipageTiff().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -730,13 +754,14 @@ End Function
 ' pixaWriteMemMultipageTiff(pdata, psize, pixa) as Integer
 ' pixaWriteMemMultipageTiff(l_uint8 **, size_t *, PIXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) fopenTiffMemstream() does not work in append mode, so we<para/>
+''' 
+''' (1) fopenTiffMemstream() does not work in append mode, so we
 ''' must work-around with a temporary file.<para/>
-''' (2) Getting a file stream from<para/>
-''' open_memstream((char )pdata, psize)<para/>
-''' does not work with the tiff directory.<para/>
+''' 
+''' (2) Getting a file stream from
+''' open_memstream((char )pdata, psize)
+''' does not work with the tiff directory.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

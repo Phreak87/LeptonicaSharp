@@ -7,10 +7,10 @@ Partial Public Class _All
 ' l_byteaCreate(nbytes) as L_Bytea
 ' l_byteaCreate(size_t) as L_BYTEA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The allocated array is n + 1 bytes.  This allows room<para/>
-''' for null termination.<para/>
+''' 
+''' (1) The allocated array is n + 1 bytes.  This allows room
+''' for null termination.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -89,9 +89,9 @@ End Function
 ' l_byteaCopy(bas, copyflag) as L_Bytea
 ' l_byteaCopy(L_BYTEA *, l_int32) as L_BYTEA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If cloning, up the refcount and return a ptr to %bas.<para/>
+''' 
+''' (1) If cloning, up the refcount and return a ptr to %bas.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -115,12 +115,14 @@ End Function
 ' l_byteaDestroy(pba) as Object
 ' l_byteaDestroy(L_BYTEA **) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Decrements the ref count and, if 0, destroys the lba.<para/>
+''' 
 ''' (2) Always nulls the input ptr.<para/>
-''' (3) If the data has been previously removed, the lba will<para/>
-''' have been nulled, so this will do nothing.<para/>
+''' 
+''' (3) If the data has been previously removed, the lba will
+''' have been nulled, so this will do nothing.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -158,9 +160,9 @@ End Function
 ' l_byteaGetData(ba, psize) as Byte()
 ' l_byteaGetData(L_BYTEA *, size_t *) as l_uint8 *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The returned ptr is owned by %ba.  Do not free it!<para/>
+''' 
+''' (1) The returned ptr is owned by %ba.  Do not free it!
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -183,10 +185,10 @@ End Function
 ' l_byteaCopyData(ba, psize) as Byte()
 ' l_byteaCopyData(L_BYTEA *, size_t *) as l_uint8 *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The returned data is owned by the caller.  The input %ba<para/>
-''' still owns the original data array.<para/>
+''' 
+''' (1) The returned data is owned by the caller.  The input %ba
+''' still owns the original data array.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -253,9 +255,9 @@ End Function
 ' l_byteaJoin(ba1, pba2) as Integer
 ' l_byteaJoin(L_BYTEA *, L_BYTEA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) It is a no-op, not an error, for %ba2 to be null.<para/>
+''' 
+''' (1) It is a no-op, not an error, for %ba2 to be null.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

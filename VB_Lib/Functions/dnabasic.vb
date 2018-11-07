@@ -24,12 +24,12 @@ End Function
 ' l_dnaCreateFromIArray(iarray, size) as L_Dna
 ' l_dnaCreateFromIArray(l_int32 *, l_int32) as L_DNA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) We can't insert this int array into the l_dna, because a l_dna<para/>
-''' takes a double array.  So this just copies the data from the<para/>
-''' input array into the l_dna.  The input array continues to be<para/>
-''' owned by the caller.<para/>
+''' 
+''' (1) We can't insert this int array into the l_dna, because a l_dna
+''' takes a double array.  So this just copies the data from the
+''' input array into the l_dna.  The input array continues to be
+''' owned by the caller.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -53,11 +53,11 @@ End Function
 ' l_dnaCreateFromDArray(darray, size, copyflag) as L_Dna
 ' l_dnaCreateFromDArray(l_float64 *, l_int32, l_int32) as L_DNA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) With L_INSERT, ownership of the input array is transferred<para/>
-''' to the returned l_dna, and all %size elements are considered<para/>
-''' to be valid.<para/>
+''' 
+''' (1) With L_INSERT, ownership of the input array is transferred
+''' to the returned l_dna, and all %size elements are considered
+''' to be valid.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -107,10 +107,11 @@ End Function
 ' l_dnaDestroy(pda) as Object
 ' l_dnaDestroy(L_DNA **) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Decrements the ref count and, if 0, destroys the l_dna.<para/>
-''' (2) Always nulls the input ptr.<para/>
+''' 
+''' (2) Always nulls the input ptr.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -130,9 +131,9 @@ End Sub
 ' l_dnaCopy(da) as L_Dna
 ' l_dnaCopy(L_DNA *) as L_DNA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This removes unused ptrs above da- is greater n.<para/>
+''' 
+''' (1) This removes unused ptrs above daton.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -173,11 +174,11 @@ End Function
 ' l_dnaEmpty(da) as Integer
 ' l_dnaEmpty(L_DNA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This does not change the allocation of the array.<para/>
-''' It just clears the number of stored numbers, so that<para/>
-''' the array appears to be empty.<para/>
+''' 
+''' (1) This does not change the allocation of the array.
+''' It just clears the number of stored numbers, so that
+''' the array appears to be empty.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -219,12 +220,13 @@ End Function
 ' l_dnaInsertNumber(da, index, val) as Integer
 ' l_dnaInsertNumber(L_DNA *, l_int32, l_float64) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This shifts da[i] -- is greater  da[i + 1] for all i  is greater = index,<para/>
+''' 
+''' (1) This shifts da[i] to da[i + 1] for all i greater or equal index,
 ''' and then inserts val as da[index].<para/>
-''' (2) It should not be used repeatedly on large arrays,<para/>
-''' because the function is O(n).<para/>
+''' 
+''' (2) It should not be used repeatedly on large arrays,
+''' because the function is O(n).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -250,11 +252,12 @@ End Function
 ' l_dnaRemoveNumber(da, index) as Integer
 ' l_dnaRemoveNumber(L_DNA *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This shifts da[i] -- is greater  da[i - 1] for all i  is greater  index.<para/>
-''' (2) It should not be used repeatedly on large arrays,<para/>
-''' because the function is O(n).<para/>
+''' 
+''' (1) This shifts da[i] to da[i - 1] for all i  is greater  index.<para/>
+''' 
+''' (2) It should not be used repeatedly on large arrays,
+''' because the function is O(n).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -318,13 +321,15 @@ End Function
 ' l_dnaSetCount(da, newcount) as Integer
 ' l_dnaSetCount(L_DNA *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If newcount  is lower = da- is greater nalloc, this resets da- is greater n.<para/>
+''' 
+''' (1) If newcount smaller or equal datonalloc, this resets daton.
 ''' Using newcount = 0 is equivalent to l_dnaEmpty().<para/>
-''' (2) If newcount  is greater  da- is greater nalloc, this causes a realloc<para/>
-''' to a size da- is greater nalloc = newcount.<para/>
-''' (3) All the previously unused values in da are set to 0.0.<para/>
+''' 
+''' (2) If newcount  is greater  datonalloc, this causes a realloc
+''' to a size datonalloc = newcount.<para/>
+''' 
+''' (3) All the previously unused values in da are set to 0.0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -347,10 +352,10 @@ End Function
 ' l_dnaGetDValue(da, index, pval) as Integer
 ' l_dnaGetDValue(L_DNA *, l_int32, l_float64 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Caller may need to check the function return value to<para/>
-''' decide if a 0.0 in the returned ival is valid.<para/>
+''' 
+''' (1) Caller may need to check the function return value to
+''' decide if a 0.0 in the returned ival is valid.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -375,10 +380,10 @@ End Function
 ' l_dnaGetIValue(da, index, pival) as Integer
 ' l_dnaGetIValue(L_DNA *, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Caller may need to check the function return value to<para/>
-''' decide if a 0 in the returned ival is valid.<para/>
+''' 
+''' (1) Caller may need to check the function return value to
+''' decide if a 0 in the returned ival is valid.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -430,7 +435,7 @@ End Function
 '''  <include file="IncludeComments.xml" path="Comments/l_dnaShiftValue/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - to element to change relative to the current value</param>
-'''  <param name="diff">[in] - increment if diff  is greater  0 or decrement if diff  is lower  0</param>
+'''  <param name="diff">[in] - increment if diff  is greater  0 or decrement if diff  is smaller 0</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function l_dnaShiftValue(
 				 ByVal da as L_Dna, 
@@ -449,17 +454,19 @@ End Function
 ' l_dnaGetIArray(da) as Integer()
 ' l_dnaGetIArray(L_DNA *) as l_int32 *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) A copy of the array is made, because we need to<para/>
-''' generate an integer array from the bare double array.<para/>
+''' 
+''' (1) A copy of the array is made, because we need to
+''' generate an integer array from the bare double array.
 ''' The caller is responsible for freeing the array.<para/>
-''' (2) The array size is determined by the number of stored numbers,<para/>
+''' 
+''' (2) The array size is determined by the number of stored numbers,
 ''' not by the size of the allocated array in the l_dna.<para/>
-''' (3) This function is provided to simplify calculations<para/>
-''' using the bare internal array, rather than continually<para/>
-''' calling accessors on the l_dna.  It is typically used<para/>
-''' on an array of size 256.<para/>
+''' 
+''' (3) This function is provided to simplify calculations
+''' using the bare internal array, rather than continually
+''' calling accessors on the l_dna.  It is typically used
+''' on an array of size 256.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -480,18 +487,19 @@ End Function
 ' l_dnaGetDArray(da, copyflag) as Double()
 ' l_dnaGetDArray(L_DNA *, l_int32) as l_float64 *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If copyflag == L_COPY, it makes a copy which the caller<para/>
-''' is responsible for freeing.  Otherwise, it operates<para/>
+''' 
+''' (1) If copyflag == L_COPY, it makes a copy which the caller
+''' is responsible for freeing.  Otherwise, it operates
 ''' directly on the bare array of the l_dna.<para/>
-''' (2) Very important: for L_NOCOPY, any writes to the array<para/>
-''' will be in the l_dna.  Do not write beyond the size of<para/>
-''' the count field, because it will not be accessible<para/>
-''' from the l_dna!  If necessary, be sure to set the count<para/>
-''' field to a larger number (such as the alloc size)<para/>
-''' BEFORE calling this function.  Creating with l_dnaMakeConstant()<para/>
-''' is another way to insure full initialization.<para/>
+''' 
+''' (2) Very important: for L_NOCOPY, any writes to the array
+''' will be in the l_dna.  Do not write beyond the size of
+''' the count field, because it will not be accessible
+''' from the l_dna!  If necessary, be sure to set the count
+''' field to a larger number (such as the alloc size)
+''' BEFORE calling this function.  Creating with l_dnaMakeConstant()
+''' is another way to insure full initialization.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -640,9 +648,9 @@ End Function
 ' l_dnaReadStream(fp) as L_Dna
 ' l_dnaReadStream(FILE *) as L_DNA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) fscanf takes %lf to read a double fprintf takes %f to write it.<para/>
+''' 
+''' (1) fscanf takes %lf to read a double fprintf takes %f to write it.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -725,12 +733,12 @@ End Function
 ' l_dnaaCreateFull(nptr, n) as L_Dnaa
 ' l_dnaaCreateFull(l_int32, l_int32) as L_DNAA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This allocates a dnaa and fills the array with allocated dnas.<para/>
-''' In use, after calling this function, use<para/>
-''' l_dnaaAddNumber(dnaa, index, val)<para/>
-''' to add val to the index-th dna in dnaa.<para/>
+''' 
+''' (1) This allocates a dnaa and fills the array with allocated dnas.
+''' In use, after calling this function, use
+''' l_dnaaAddNumber(dnaa, index, val)
+''' to add val to the index-th dna in dnaa.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -752,11 +760,11 @@ End Function
 ' l_dnaaTruncate(daa) as Integer
 ' l_dnaaTruncate(L_DNAA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This identifies the largest index containing a dna that<para/>
-''' has any numbers within it, destroys all dna beyond that<para/>
-''' index, and resets the count.<para/>
+''' 
+''' (1) This identifies the largest index containing a dna that
+''' has any numbers within it, destroys all dna beyond that
+''' index, and resets the count.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -896,11 +904,12 @@ End Function
 ' l_dnaaReplaceDna(daa, index, da) as Integer
 ' l_dnaaReplaceDna(L_DNAA *, l_int32, L_DNA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Any existing l_dna is destroyed, and the input one<para/>
+''' 
+''' (1) Any existing l_dna is destroyed, and the input one
 ''' is inserted in its place.<para/>
-''' (2) If the index is invalid, return 1 (error)<para/>
+''' 
+''' (2) If the index is invalid, return 1 (error)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -950,9 +959,9 @@ End Function
 ' l_dnaaAddNumber(daa, index, val) as Integer
 ' l_dnaaAddNumber(L_DNAA *, l_int32, l_float64) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Adds to an existing l_dna only.<para/>
+''' 
+''' (1) Adds to an existing l_dna only.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

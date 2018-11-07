@@ -13780,19 +13780,6 @@ Include Code and Images here ...
 			<img src="\HelpImages\makeDoGKernel_T.jpg"></img>
 		</example>
 	</makeDoGKernel>
-	<pixGetWindowsHBITMAP>
-		<example>
-			<code language="vbnet">
-Include Code and Images here ...
-			</code>
-			<code language="CSharp">
-Include Code and Images here ...
-			</code>
-			<para/>
-			<img src="\HelpImages\pixGetWindowsHBITMAP_S.jpg"></img>
-			<img src="\HelpImages\pixGetWindowsHBITMAP_T.jpg"></img>
-		</example>
-	</pixGetWindowsHBITMAP>
 	<getImagelibVersions>
 		<example>
 			<code language="vbnet">
@@ -19308,14 +19295,13 @@ Include Code and Images here ...
 	<pixEndianByteSwapNew>
 		<example>
 			<code language="vbnet">
-Include Code and Images here ...
+				Dim X1 As New Pix("3x3.bmp")               ' Data-Bytes X1: {0,0,0,128, 0,0,0,64, 0,0,0,160}
+				Dim X2 As Pix = pixEndianByteSwapNew(X1)   ' Data-Bytes X2: [128,0,0,0, 64,0,0,0, 160,0,0,0}
 			</code>
 			<code language="CSharp">
 Include Code and Images here ...
 			</code>
 			<para/>
-			<img src="\HelpImages\pixEndianByteSwapNew_S.jpg"></img>
-			<img src="\HelpImages\pixEndianByteSwapNew_T.jpg"></img>
 		</example>
 	</pixEndianByteSwapNew>
 	<pixEndianByteSwap>

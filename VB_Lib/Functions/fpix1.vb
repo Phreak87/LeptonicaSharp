@@ -7,11 +7,12 @@ Partial Public Class _All
 ' fpixCreate(width, height) as FPix
 ' fpixCreate(l_int32, l_int32) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Makes a FPix of specified size, with the data array<para/>
+''' 
+''' (1) Makes a FPix of specified size, with the data array
 ''' allocated and initialized to 0.<para/>
-''' (2) The number of pixels must be less than 2^29.<para/>
+''' 
+''' (2) The number of pixels must be less than 2^29.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -33,11 +34,12 @@ End Function
 ' fpixCreateTemplate(fpixs) as FPix
 ' fpixCreateTemplate(FPIX *) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Makes a FPix of the same size as the input FPix, with the<para/>
+''' 
+''' (1) Makes a FPix of the same size as the input FPix, with the
 ''' data array allocated and initialized to 0.<para/>
-''' (2) Copies the resolution.<para/>
+''' 
+''' (2) Copies the resolution.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -59,9 +61,9 @@ End Function
 ' fpixClone(fpix) as FPix
 ' fpixClone(FPIX *) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See pixClone() for definition and usage.<para/>
+''' 
+''' (1) See pixClone() for definition and usage.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -83,26 +85,29 @@ End Function
 ' fpixCopy(fpixd, fpixs) as FPix
 ' fpixCopy(FPIX *, FPIX *) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) There are three cases:<para/>
-''' (a) fpixd == null  (makes a new fpix refcount = 1)<para/>
-''' (b) fpixd == fpixs  (no-op)<para/>
-''' (c) fpixd != fpixs  (data copy no change in refcount)<para/>
-''' If the refcount of fpixd  is greater  1, case (c) will side-effect<para/>
+''' 
+''' (1) There are three cases:
+''' (a) fpixd == null  (makes a new fpix refcount = 1)
+''' (b) fpixd == fpixs  (no-op)
+''' (c) fpixd != fpixs  (data copy no change in refcount)
+''' If the refcount of fpixd  is greater  1, case (c) will side-effect
 ''' these handles.<para/>
-''' (2) The general pattern of use is:<para/>
-''' fpixd = fpixCopy(fpixd, fpixs)<para/>
-''' This will work for all three cases.<para/>
-''' For clarity when the case is known, you can use:<para/>
-''' (a) fpixd = fpixCopy(NULL, fpixs)<para/>
+''' 
+''' (2) The general pattern of use is:
+''' fpixd = fpixCopy(fpixd, fpixs)
+''' This will work for all three cases.
+''' For clarity when the case is known, you can use:
+''' (a) fpixd = fpixCopy(NULL, fpixs)
 ''' (c) fpixCopy(fpixd, fpixs)<para/>
-''' (3) For case (c), we check if fpixs and fpixd are the same size.<para/>
-''' If so, the data is copied directly.<para/>
-''' Otherwise, the data is reallocated to the correct size<para/>
+''' 
+''' (3) For case (c), we check if fpixs and fpixd are the same size.
+''' If so, the data is copied directly.
+''' Otherwise, the data is reallocated to the correct size
 ''' and the copy proceeds.  The refcount of fpixd is unchanged.<para/>
-''' (4) This operation, like all others that may involve a pre-existing<para/>
-''' fpixd, will side-effect any existing clones of fpixd.<para/>
+''' 
+''' (4) This operation, like all others that may involve a pre-existing
+''' fpixd, will side-effect any existing clones of fpixd.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -128,12 +133,12 @@ End Function
 ' fpixResizeImageData(fpixd, fpixs) as Integer
 ' fpixResizeImageData(FPIX *, FPIX *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If the data sizes differ, this destroys the existing<para/>
-''' data in fpixd and allocates a new, uninitialized, data array<para/>
-''' of the same size as the data in fpixs.  Otherwise, this<para/>
-''' doesn't do anything.<para/>
+''' 
+''' (1) If the data sizes differ, this destroys the existing
+''' data in fpixd and allocates a new, uninitialized, data array
+''' of the same size as the data in fpixs.  Otherwise, this
+''' doesn't do anything.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -157,10 +162,11 @@ End Function
 ' fpixDestroy(pfpix) as Object
 ' fpixDestroy(FPIX **) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Decrements the ref count and, if 0, destroys the fpix.<para/>
-''' (2) Always nulls the input ptr.<para/>
+''' 
+''' (2) Always nulls the input ptr.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -467,12 +473,11 @@ End Function
 ' fpixaCopy(fpixa, copyflag) as FPixa
 ' fpixaCopy(FPIXA *, l_int32) as FPIXA *
 '''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' copyflag may be one of<para/>
-''' ~ L_COPY makes a new fpixa and copies each fpix<para/>
-''' ~ L_CLONE gives a new ref-counted handle to the input fpixa<para/>
-''' ~ L_COPY_CLONE makes a new fpixa with clones of all fpix<para/>
+''' Notes:
+''' copyflag may be one of
+''' ~ L_COPY makes a new fpixa and copies each fpix
+''' ~ L_CLONE gives a new ref-counted handle to the input fpixa
+''' ~ L_COPY_CLONE makes a new fpixa with clones of all fpix
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -496,10 +501,11 @@ End Function
 ' fpixaDestroy(pfpixa) as Object
 ' fpixaDestroy(FPIXA **) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Decrements the ref count and, if 0, destroys the fpixa.<para/>
-''' (2) Always nulls the input ptr.<para/>
+''' 
+''' (2) Always nulls the input ptr.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -697,11 +703,12 @@ End Function
 ' dpixCreate(width, height) as DPix
 ' dpixCreate(l_int32, l_int32) as DPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Makes a DPix of specified size, with the data array<para/>
+''' 
+''' (1) Makes a DPix of specified size, with the data array
 ''' allocated and initialized to 0.<para/>
-''' (2) The number of pixels must be less than 2^28.<para/>
+''' 
+''' (2) The number of pixels must be less than 2^28.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -723,11 +730,12 @@ End Function
 ' dpixCreateTemplate(dpixs) as DPix
 ' dpixCreateTemplate(DPIX *) as DPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Makes a DPix of the same size as the input DPix, with the<para/>
+''' 
+''' (1) Makes a DPix of the same size as the input DPix, with the
 ''' data array allocated and initialized to 0.<para/>
-''' (2) Copies the resolution.<para/>
+''' 
+''' (2) Copies the resolution.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -749,9 +757,9 @@ End Function
 ' dpixClone(dpix) as DPix
 ' dpixClone(DPIX *) as DPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See pixClone() for definition and usage.<para/>
+''' 
+''' (1) See pixClone() for definition and usage.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -773,26 +781,29 @@ End Function
 ' dpixCopy(dpixd, dpixs) as DPix
 ' dpixCopy(DPIX *, DPIX *) as DPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) There are three cases:<para/>
-''' (a) dpixd == null  (makes a new dpix refcount = 1)<para/>
-''' (b) dpixd == dpixs  (no-op)<para/>
-''' (c) dpixd != dpixs  (data copy no change in refcount)<para/>
-''' If the refcount of dpixd  is greater  1, case (c) will side-effect<para/>
+''' 
+''' (1) There are three cases:
+''' (a) dpixd == null  (makes a new dpix refcount = 1)
+''' (b) dpixd == dpixs  (no-op)
+''' (c) dpixd != dpixs  (data copy no change in refcount)
+''' If the refcount of dpixd  is greater  1, case (c) will side-effect
 ''' these handles.<para/>
-''' (2) The general pattern of use is:<para/>
-''' dpixd = dpixCopy(dpixd, dpixs)<para/>
-''' This will work for all three cases.<para/>
-''' For clarity when the case is known, you can use:<para/>
-''' (a) dpixd = dpixCopy(NULL, dpixs)<para/>
+''' 
+''' (2) The general pattern of use is:
+''' dpixd = dpixCopy(dpixd, dpixs)
+''' This will work for all three cases.
+''' For clarity when the case is known, you can use:
+''' (a) dpixd = dpixCopy(NULL, dpixs)
 ''' (c) dpixCopy(dpixd, dpixs)<para/>
-''' (3) For case (c), we check if dpixs and dpixd are the same size.<para/>
-''' If so, the data is copied directly.<para/>
-''' Otherwise, the data is reallocated to the correct size<para/>
+''' 
+''' (3) For case (c), we check if dpixs and dpixd are the same size.
+''' If so, the data is copied directly.
+''' Otherwise, the data is reallocated to the correct size
 ''' and the copy proceeds.  The refcount of dpixd is unchanged.<para/>
-''' (4) This operation, like all others that may involve a pre-existing<para/>
-''' dpixd, will side-effect any existing clones of dpixd.<para/>
+''' 
+''' (4) This operation, like all others that may involve a pre-existing
+''' dpixd, will side-effect any existing clones of dpixd.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -839,10 +850,11 @@ End Function
 ' dpixDestroy(pdpix) as Object
 ' dpixDestroy(DPIX **) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Decrements the ref count and, if 0, destroys the dpix.<para/>
-''' (2) Always nulls the input ptr.<para/>
+''' 
+''' (2) Always nulls the input ptr.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1238,9 +1250,9 @@ End Function
 ' fpixWriteMem(pdata, psize, fpix) as Integer
 ' fpixWriteMem(l_uint8 **, size_t *, FPIX *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Serializes a fpix in memory and puts the result in a buffer.<para/>
+''' 
+''' (1) Serializes a fpix in memory and puts the result in a buffer.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1268,16 +1280,17 @@ End Function
 ' fpixEndianByteSwap(fpixd, fpixs) as FPix
 ' fpixEndianByteSwap(FPIX *, FPIX *) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) On big-endian hardware, this does byte-swapping on each of<para/>
-''' the 4-byte floats in the fpix data.  On little-endians,<para/>
-''' the data is unchanged.  This is used for serialization<para/>
-''' of fpix the data is serialized in little-endian byte<para/>
+''' 
+''' (1) On big-endian hardware, this does byte-swapping on each of
+''' the 4-byte floats in the fpix data.  On little-endians,
+''' the data is unchanged.  This is used for serialization
+''' of fpix the data is serialized in little-endian byte
 ''' order because most hardware is little-endian.<para/>
-''' (2) The operation can be either in-place or, if fpixd == NULL,<para/>
-''' a new fpix is made.  If not in-place, caller must catch<para/>
-''' the returned pointer.<para/>
+''' 
+''' (2) The operation can be either in-place or, if fpixd == NULL,
+''' a new fpix is made.  If not in-place, caller must catch
+''' the returned pointer.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1407,9 +1420,9 @@ End Function
 ' dpixWriteMem(pdata, psize, dpix) as Integer
 ' dpixWriteMem(l_uint8 **, size_t *, DPIX *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Serializes a dpix in memory and puts the result in a buffer.<para/>
+''' 
+''' (1) Serializes a dpix in memory and puts the result in a buffer.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1437,16 +1450,17 @@ End Function
 ' dpixEndianByteSwap(dpixd, dpixs) as DPix
 ' dpixEndianByteSwap(DPIX *, DPIX *) as DPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) On big-endian hardware, this does byte-swapping on each of<para/>
-''' the 4-byte words in the dpix data.  On little-endians,<para/>
-''' the data is unchanged.  This is used for serialization<para/>
-''' of dpix the data is serialized in little-endian byte<para/>
+''' 
+''' (1) On big-endian hardware, this does byte-swapping on each of
+''' the 4-byte words in the dpix data.  On little-endians,
+''' the data is unchanged.  This is used for serialization
+''' of dpix the data is serialized in little-endian byte
 ''' order because most hardware is little-endian.<para/>
-''' (2) The operation can be either in-place or, if dpixd == NULL,<para/>
-''' a new dpix is made.  If not in-place, caller must catch<para/>
-''' the returned pointer.<para/>
+''' 
+''' (2) The operation can be either in-place or, if dpixd == NULL,
+''' a new dpix is made.  If not in-place, caller must catch
+''' the returned pointer.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1471,9 +1485,9 @@ End Function
 ' fpixPrintStream(fp, fpix, factor) as Integer
 ' fpixPrintStream(FILE *, FPIX *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Subsampled printout of fpix for debugging.<para/>
+''' 
+''' (1) Subsampled printout of fpix for debugging.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

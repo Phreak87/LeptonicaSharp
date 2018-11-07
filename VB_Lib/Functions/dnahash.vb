@@ -7,9 +7,9 @@ Partial Public Class _All
 ' l_dnaHashCreate(nbuckets, initsize) as L_DnaHash
 ' l_dnaHashCreate(l_int32, l_int32) as L_DNAHASH *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Actual dna are created only as required by l_dnaHashAdd()<para/>
+''' 
+''' (1) Actual dna are created only as required by l_dnaHashAdd()
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -132,10 +132,10 @@ End Function
 ' l_dnaHashCreateFromDna(da) as L_DnaHash
 ' l_dnaHashCreateFromDna(L_DNA *) as L_DNAHASH *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The values stored in the %dahash are indices into %da<para/>
-''' %dahash has no use without %da.<para/>
+''' 
+''' (1) The values stored in the %dahash are indices into %da
+''' %dahash has no use without %da.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -157,12 +157,13 @@ End Function
 ' l_dnaRemoveDupsByHash(das, pdad, pdahash) as Integer
 ' l_dnaRemoveDupsByHash(L_DNA *, L_DNA **, L_DNAHASH **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Generates a dna with unique values.<para/>
-''' (2) The dnahash is built up with dad to assure uniqueness.<para/>
-''' It can be used to find if an element is in the set:<para/>
-''' l_dnaFindValByHash(dad, dahash, val,  and index)<para/>
+''' 
+''' (2) The dnahash is built up with dad to assure uniqueness.
+''' It can be used to find if an element is in the set:
+''' l_dnaFindValByHash(dad, dahash, val, [and]index)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -192,29 +193,31 @@ End Function
 ' l_dnaMakeHistoByHash(das, pdahash, pdav, pdac) as Integer
 ' l_dnaMakeHistoByHash(L_DNA *, L_DNAHASH **, L_DNA **, L_DNA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Generates and returns a dna of occurrences (histogram),<para/>
-''' an aligned dna of values, and an associated hashmap.<para/>
-''' The hashmap takes %dav and a value, and points into the<para/>
+''' 
+''' (1) Generates and returns a dna of occurrences (histogram),
+''' an aligned dna of values, and an associated hashmap.
+''' The hashmap takes %dav and a value, and points into the
 ''' histogram in %dac.<para/>
-''' (2) The dna of values, %dav, is aligned with the histogram %dac,<para/>
-''' and is needed for fast lookup.  It is a hash set, because<para/>
+''' 
+''' (2) The dna of values, %dav, is aligned with the histogram %dac,
+''' and is needed for fast lookup.  It is a hash set, because
 ''' the values are unique.<para/>
-''' (3) Lookup is simple:<para/>
-''' l_dnaFindValByHash(dav, dahash, val,  and index)<para/>
-''' if (index  is greater = 0)<para/>
-''' l_dnaGetIValue(dac, index,  and icount)<para/>
-''' else<para/>
-''' icount = 0<para/>
+''' 
+''' (3) Lookup is simple:
+''' l_dnaFindValByHash(dav, dahash, val, [and]index)
+''' if (index greater or equal 0)
+''' l_dnaGetIValue(dac, index, [and]icount)
+''' else
+''' icount = 0
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/l_dnaMakeHistoByHash/*"/>
 '''  <param name="das">[in] - </param>
-'''  <param name="pdahash">[out] - hash map: val -- is greater  index</param>
-'''  <param name="pdav">[out] - array of values: index -- is greater  val</param>
-'''  <param name="pdac">[out] - histo array of counts: index -- is greater  count</param>
+'''  <param name="pdahash">[out] - hash map: val to index</param>
+'''  <param name="pdav">[out] - array of values: index to val</param>
+'''  <param name="pdac">[out] - histo array of counts: index to count</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function l_dnaMakeHistoByHash(
 				 ByVal das as L_Dna, 
@@ -240,10 +243,10 @@ End Function
 ' l_dnaIntersectionByHash(da1, da2) as L_Dna
 ' l_dnaIntersectionByHash(L_DNA *, L_DNA *) as L_DNA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This uses the same method for building the intersection set<para/>
-''' as ptaIntersectionByHash() and sarrayIntersectionByHash().<para/>
+''' 
+''' (1) This uses the same method for building the intersection set
+''' as ptaIntersectionByHash() and sarrayIntersectionByHash().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -268,11 +271,11 @@ End Function
 ' l_dnaFindValByHash(da, dahash, val, pindex) as Integer
 ' l_dnaFindValByHash(L_DNA *, L_DNAHASH *, l_float64, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Algo: hash %val into a key hash the key to get the dna<para/>
-''' in %dahash (that holds indices into %da) traverse<para/>
-''' the dna of indices looking for %val in %da.<para/>
+''' 
+''' (1) Algo: hash %val into a key hash the key to get the dna
+''' in %dahash (that holds indices into %da) traverse
+''' the dna of indices looking for %val in %da.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

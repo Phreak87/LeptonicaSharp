@@ -7,12 +7,14 @@ Partial Public Class _All
 ' pixColorMorph(pixs, type, hsize, vsize) as Pix
 ' pixColorMorph(PIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This does the morph operation on each component separately,<para/>
+''' 
+''' (1) This does the morph operation on each component separately,
 ''' and recombines the result.<para/>
+''' 
 ''' (2) Sel is a brick with all elements being hits.<para/>
-''' (3) If hsize = vsize = 1, just returns a copy.<para/>
+''' 
+''' (3) If hsize = vsize = 1, just returns a copy.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

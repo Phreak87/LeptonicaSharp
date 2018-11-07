@@ -7,12 +7,13 @@ Partial Public Class _All
 ' jbCorrelation(dirin, thresh, weight, components, rootname, firstpage, npages, renderflag) as Integer
 ' jbCorrelation(const char *, l_float32, l_float32, l_int32, const char *, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The images must be 1 bpp.  If they are not, you can convert<para/>
+''' 
+''' (1) The images must be 1 bpp.  If they are not, you can convert
 ''' them using convertFilesTo1bpp().<para/>
-''' (2) See prog/jbcorrelation for generating more output (e.g.,<para/>
-''' for debugging)<para/>
+''' 
+''' (2) See prog/jbcorrelation for generating more output (e.g.,
+''' for debugging)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -48,10 +49,10 @@ End Function
 ' jbRankHaus(dirin, size, rank, components, rootname, firstpage, npages, renderflag) as Integer
 ' jbRankHaus(const char *, l_int32, l_float32, l_int32, const char *, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See prog/jbrankhaus for generating more output (e.g.,<para/>
-''' for debugging)<para/>
+''' 
+''' (1) See prog/jbrankhaus for generating more output (e.g.,
+''' for debugging)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -87,11 +88,12 @@ End Function
 ' jbWordsInTextlines(dirin, reduction, maxwidth, maxheight, thresh, weight, pnatl, firstpage, npages) as JbClasser
 ' jbWordsInTextlines(const char *, l_int32, l_int32, l_int32, l_float32, l_float32, NUMA **, l_int32, l_int32) as JBCLASSER *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a high-level function.  See prog/jbwords for example<para/>
+''' 
+''' (1) This is a high-level function.  See prog/jbwords for example
 ''' of usage.<para/>
-''' (2) Typically, use input of 75 - 150 ppi for finding words.<para/>
+''' 
+''' (2) Typically, use input of 75 - 150 ppi for finding words.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -134,37 +136,41 @@ End Function
 ' pixGetWordsInTextlines(pixs, minwidth, minheight, maxwidth, maxheight, pboxad, ppixad, pnai) as Integer
 ' pixGetWordsInTextlines(PIX *, l_int32, l_int32, l_int32, l_int32, BOXA **, PIXA **, NUMA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The input should be at a resolution of between 75 and 150 ppi.<para/>
-''' (2) The four size constraints on saved components are all<para/>
+''' 
+''' (2) The four size constraints on saved components are all
 ''' scaled by %reduction.<para/>
-''' (3) The result are word images (and their b.b.), extracted in<para/>
-''' textline order, at either full res or 2x reduction,<para/>
+''' 
+''' (3) The result are word images (and their b.b.), extracted in
+''' textline order, at either full res or 2x reduction,
 ''' and with a numa giving the textline index for each word.<para/>
-''' (4) The pixa and boxa interfaces should make this type of<para/>
-''' application simple to put together.  The steps are:<para/>
-''' ~ generate first estimate of word masks<para/>
-''' ~ get b.b. of these, and remove the small and big ones<para/>
-''' ~ extract pixa of the word images, using the b.b.<para/>
-''' ~ sort actual word images in textline order (2d)<para/>
-''' ~ flatten them to a pixa (1d), saving the textline index<para/>
+''' 
+''' (4) The pixa and boxa interfaces should make this type of
+''' application simple to put together.  The steps are:
+''' ~ generate first estimate of word masks
+''' ~ get b.b. of these, and remove the small and big ones
+''' ~ extract pixa of the word images, using the b.b.
+''' ~ sort actual word images in textline order (2d)
+''' ~ flatten them to a pixa (1d), saving the textline index
 ''' for each pix<para/>
-''' (5) In an actual application, it may be desirable to pre-filter<para/>
-''' the input image to remove large components, to extract<para/>
-''' single columns of text, and to deskew them.  For example,<para/>
-''' to remove both large components and small noisy components<para/>
-''' that can interfere with the statistics used to estimate<para/>
-''' parameters for segmenting by words, but still retain text lines,<para/>
-''' the following image preprocessing can be done:<para/>
-''' Pix pixt = pixMorphSequence(pixs, "c40.1", 0)<para/>
-''' Pix pixf = pixSelectBySize(pixt, 0, 60, 8,<para/>
-''' L_SELECT_HEIGHT, L_SELECT_IF_LT, NULL)<para/>
-''' pixAnd(pixf, pixf, pixs)  // the filtered image<para/>
-''' The closing turns text lines into long blobs, but does not<para/>
-''' significantly increase their height.  But if there are many<para/>
-''' small connected components in a dense texture, this is likely<para/>
-''' to generate tall components that will be eliminated in pixf.<para/>
+''' 
+''' (5) In an actual application, it may be desirable to pre-filter
+''' the input image to remove large components, to extract
+''' single columns of text, and to deskew them.  For example,
+''' to remove both large components and small noisy components
+''' that can interfere with the statistics used to estimate
+''' parameters for segmenting by words, but still retain text lines,
+''' the following image preprocessing can be done:
+''' Pix pixt = pixMorphSequence(pixs, "c40.1", 0)
+''' Pix pixf = pixSelectBySize(pixt, 0, 60, 8,
+''' L_SELECT_HEIGHT, L_SELECT_IF_LT, NULL)
+''' pixAnd(pixf, pixf, pixs)  // the filtered image
+''' The closing turns text lines into long blobs, but does not
+''' significantly increase their height.  But if there are many
+''' small connected components in a dense texture, this is likely
+''' to generate tall components that will be eliminated in pixf.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -206,13 +212,14 @@ End Function
 ' pixGetWordBoxesInTextlines(pixs, minwidth, minheight, maxwidth, maxheight, pboxad, pnai) as Integer
 ' pixGetWordBoxesInTextlines(PIX *, l_int32, l_int32, l_int32, l_int32, BOXA **, NUMA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The input should be at a resolution of between 75 and 150 ppi.<para/>
-''' (2) This is a special version of pixGetWordsInTextlines(), that<para/>
-''' just finds the word boxes in line order, with a numa<para/>
-''' giving the textline index for each word.<para/>
-''' See pixGetWordsInTextlines() for more details.<para/>
+''' 
+''' (2) This is a special version of pixGetWordsInTextlines(), that
+''' just finds the word boxes in line order, with a numa
+''' giving the textline index for each word.
+''' See pixGetWordsInTextlines() for more details.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -250,13 +257,14 @@ End Function
 ' boxaExtractSortedPattern(boxa, na) as Numaa
 ' boxaExtractSortedPattern(BOXA *, NUMA *) as NUMAA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The input is expected to come from pixGetWordBoxesInTextlines().<para/>
-''' (2) Each numa in the output consists of an average y coordinate<para/>
-''' of the first box in the textline, followed by pairs of<para/>
-''' x coordinates representing the left and right edges of each<para/>
-''' of the boxes in the textline.<para/>
+''' 
+''' (2) Each numa in the output consists of an average y coordinate
+''' of the first box in the textline, followed by pairs of
+''' x coordinates representing the left and right edges of each
+''' of the boxes in the textline.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -281,33 +289,35 @@ End Function
 ' numaaCompareImagesByBoxes(naa1, naa2, nperline, nreq, maxshiftx, maxshifty, delx, dely, psame, debugflag) as Integer
 ' numaaCompareImagesByBoxes(NUMAA *, NUMAA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32 *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Each input numaa describes a set of sorted bounding boxes<para/>
-''' (sorted by textline and, within each textline, from<para/>
-''' left to right) in the images from which they are derived.<para/>
-''' See boxaExtractSortedPattern() for a description of the data<para/>
+''' 
+''' (1) Each input numaa describes a set of sorted bounding boxes
+''' (sorted by textline and, within each textline, from
+''' left to right) in the images from which they are derived.
+''' See boxaExtractSortedPattern() for a description of the data
 ''' format in each of the input numaa.<para/>
-''' (2) This function does an alignment between the input<para/>
-''' descriptions of bounding boxes for two images. The<para/>
-''' input parameter %nperline specifies the number of boxes<para/>
-''' to consider in each line when testing for a match, and<para/>
-''' %nreq is the required number of lines that must be well-aligned<para/>
+''' 
+''' (2) This function does an alignment between the input
+''' descriptions of bounding boxes for two images. The
+''' input parameter %nperline specifies the number of boxes
+''' to consider in each line when testing for a match, and
+''' %nreq is the required number of lines that must be well-aligned
 ''' to get a match.<para/>
-''' (3) Testing by alignment has 3 steps:<para/>
-''' (a) Generating the location of word bounding boxes from the<para/>
-''' images (prior to calling this function).<para/>
-''' (b) Listing all possible pairs of aligned rows, based on<para/>
-''' tolerances in horizontal and vertical positions of<para/>
-''' the boxes.  Specifically, all pairs of rows are enumerated<para/>
-''' whose first %nperline boxes can be brought into close<para/>
-''' alignment, based on the delx parameter for boxes in the<para/>
-''' line and within the overall the %maxshiftx and %maxshifty<para/>
-''' constraints.<para/>
-''' (c) Each pair, starting with the first, is used to search<para/>
-''' for a set of %nreq - 1 other pairs that can all be aligned<para/>
-''' with a difference in global translation of not more<para/>
-''' than (%delx, %dely).<para/>
+''' 
+''' (3) Testing by alignment has 3 steps:
+''' (a) Generating the location of word bounding boxes from the
+''' images (prior to calling this function).
+''' (b) Listing all possible pairs of aligned rows, based on
+''' tolerances in horizontal and vertical positions of
+''' the boxes.  Specifically, all pairs of rows are enumerated
+''' whose first %nperline boxes can be brought into close
+''' alignment, based on the delx parameter for boxes in the
+''' line and within the overall the %maxshiftx and %maxshifty
+''' constraints.
+''' (c) Each pair, starting with the first, is used to search
+''' for a set of %nreq - 1 other pairs that can all be aligned
+''' with a difference in global translation of not more
+''' than (%delx, %dely).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

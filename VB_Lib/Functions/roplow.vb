@@ -93,17 +93,18 @@ End Sub
 ' rasteropVipLow(data, pixw, pixh, depth, wpl, x, w, shift) as Object
 ' rasteropVipLow(l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This clears the pixels that are left exposed after the<para/>
-''' translation.  You can consider them as pixels that are<para/>
-''' shifted in from outside the image.  This can be later<para/>
-''' overridden by the incolor parameter in higher-level functions<para/>
-''' that call this.  For example, for images with depth  is greater  1,<para/>
-''' these pixels are cleared to black to be white they<para/>
+''' 
+''' (1) This clears the pixels that are left exposed after the
+''' translation.  You can consider them as pixels that are
+''' shifted in from outside the image.  This can be later
+''' overridden by the incolor parameter in higher-level functions
+''' that call this.  For example, for images with depth  is greater  1,
+''' these pixels are cleared to black to be white they
 ''' must later be SET to white.  See, e.g., pixRasteropVip().<para/>
-''' (2) This function scales the width to accommodate any depth,<para/>
-''' performs clipping, and then does the in-place rasterop.<para/>
+''' 
+''' (2) This function scales the width to accommodate any depth,
+''' performs clipping, and then does the in-place rasterop.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -138,14 +139,15 @@ End Sub
 ' rasteropHipLow(data, pixh, depth, wpl, y, h, shift) as Object
 ' rasteropHipLow(l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This clears the pixels that are left exposed after the rasterop.<para/>
-''' Therefore, for Pix with depth  is greater  1, these pixels become black,<para/>
-''' and must be subsequently SET if they are to be white.<para/>
+''' 
+''' (1) This clears the pixels that are left exposed after the rasterop.
+''' Therefore, for Pix with depth  is greater  1, these pixels become black,
+''' and must be subsequently SET if they are to be white.
 ''' For example, see pixRasteropHip().<para/>
-''' (2) This function performs clipping and calls shiftDataHorizontalLow()<para/>
-''' to do the in-place rasterop on each line.<para/>
+''' 
+''' (2) This function performs clipping and calls shiftDataHorizontalLow()
+''' to do the in-place rasterop on each line.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

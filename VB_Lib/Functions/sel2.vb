@@ -7,13 +7,13 @@ Partial Public Class _All
 ' selaAddBasic(sela) as Sela
 ' selaAddBasic(SELA *) as SELA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Adds the following sels:<para/>
-''' ~ all linear (horiz, vert) brick sels that are<para/>
-''' necessary for decomposable sels up to size 63<para/>
-''' ~ square brick sels up to size 10<para/>
-''' ~ 4 diagonal sels<para/>
+''' 
+''' (1) Adds the following sels:
+''' ~ all linear (horiz, vert) brick sels that are
+''' necessary for decomposable sels up to size 63
+''' ~ square brick sels up to size 10
+''' ~ 4 diagonal sels
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -54,11 +54,11 @@ End Function
 ' selaAddDwaLinear(sela) as Sela
 ' selaAddDwaLinear(SELA *) as SELA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Adds all linear (horizontal, vertical) sels from<para/>
-''' 2 to 63 pixels in length, which are the sizes over<para/>
-''' which dwa code can be generated.<para/>
+''' 
+''' (1) Adds all linear (horizontal, vertical) sels from
+''' 2 to 63 pixels in length, which are the sizes over
+''' which dwa code can be generated.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -80,12 +80,12 @@ End Function
 ' selaAddDwaCombs(sela) as Sela
 ' selaAddDwaCombs(SELA *) as SELA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Adds all comb (horizontal, vertical) Sels that are<para/>
-''' used in composite linear morphological operations<para/>
-''' up to 63 pixels in length, which are the sizes over<para/>
-''' which dwa code can be generated.<para/>
+''' 
+''' (1) Adds all comb (horizontal, vertical) Sels that are
+''' used in composite linear morphological operations
+''' up to 63 pixels in length, which are the sizes over
+''' which dwa code can be generated.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -107,20 +107,23 @@ End Function
 ' selaAddCrossJunctions(sela, hlsize, mdist, norient, debugflag) as Sela
 ' selaAddCrossJunctions(SELA *, l_float32, l_float32, l_int32, l_int32) as SELA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Adds hitmiss Sels for the intersection of two lines.<para/>
-''' If the lines are very thin, they must be nearly orthogonal<para/>
+''' 
+''' (1) Adds hitmiss Sels for the intersection of two lines.
+''' If the lines are very thin, they must be nearly orthogonal
 ''' to register.<para/>
+''' 
 ''' (2) The number of Sels generated is equal to %norient.<para/>
-''' (3) If %norient == 2, this generates 2 Sels of crosses, each with<para/>
-''' two perpendicular lines of hits.  One Sel has horizontal and<para/>
-''' vertical hits the other has hits along lines at +-45 degrees.<para/>
-''' Likewise, if %norient == 3, this generates 3 Sels of crosses<para/>
+''' 
+''' (3) If %norient == 2, this generates 2 Sels of crosses, each with
+''' two perpendicular lines of hits.  One Sel has horizontal and
+''' vertical hits the other has hits along lines at +-45 degrees.
+''' Likewise, if %norient == 3, this generates 3 Sels of crosses
 ''' oriented at 30 degrees with each other.<para/>
-''' (4) It is suggested that %hlsize be chosen at least 1 greater<para/>
-''' than %mdist.  Try values of (%hlsize, %mdist) such as<para/>
-''' (6,5), (7,6), (8,7), (9,7), etc.<para/>
+''' 
+''' (4) It is suggested that %hlsize be chosen at least 1 greater
+''' than %mdist.  Try values of (%hlsize, %mdist) such as
+''' (6,5), (7,6), (8,7), (9,7), etc.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -150,15 +153,17 @@ End Function
 ' selaAddTJunctions(sela, hlsize, mdist, norient, debugflag) as Sela
 ' selaAddTJunctions(SELA *, l_float32, l_float32, l_int32, l_int32) as SELA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Adds hitmiss Sels for the T-junction of two lines.<para/>
-''' If the lines are very thin, they must be nearly orthogonal<para/>
+''' 
+''' (1) Adds hitmiss Sels for the T-junction of two lines.
+''' If the lines are very thin, they must be nearly orthogonal
 ''' to register.<para/>
+''' 
 ''' (2) The number of Sels generated is 4  %norient.<para/>
-''' (3) It is suggested that %hlsize be chosen at least 1 greater<para/>
-''' than %mdist.  Try values of (%hlsize, %mdist) such as<para/>
-''' (6,5), (7,6), (8,7), (9,7), etc.<para/>
+''' 
+''' (3) It is suggested that %hlsize be chosen at least 1 greater
+''' than %mdist.  Try values of (%hlsize, %mdist) such as
+''' (6,5), (7,6), (8,7), (9,7), etc.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -188,9 +193,9 @@ End Function
 ' sela4ccThin(sela) as Sela
 ' sela4ccThin(SELA *) as SELA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Adds the 9 basic sels for 4-cc thinning.<para/>
+''' 
+''' (1) Adds the 9 basic sels for 4-cc thinning.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -212,9 +217,9 @@ End Function
 ' sela8ccThin(sela) as Sela
 ' sela8ccThin(SELA *) as SELA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Adds the 9 basic sels for 8-cc thinning.<para/>
+''' 
+''' (1) Adds the 9 basic sels for 8-cc thinning.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -236,9 +241,9 @@ End Function
 ' sela4and8ccThin(sela) as Sela
 ' sela4and8ccThin(SELA *) as SELA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Adds the 2 basic sels for either 4-cc or 8-cc thinning.<para/>
+''' 
+''' (1) Adds the 2 basic sels for either 4-cc or 8-cc thinning.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

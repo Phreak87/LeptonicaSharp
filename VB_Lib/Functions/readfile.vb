@@ -7,13 +7,14 @@ Partial Public Class _All
 ' pixaReadFiles(dirname, substr) as Pixa
 ' pixaReadFiles(const char *, const char *) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) %dirname is the full path for the directory.<para/>
-''' (2) %substr is the part of the file name (excluding<para/>
-''' the directory) that is to be matched.  All matching<para/>
-''' filenames are read into the Pixa.  If substr is NULL,<para/>
-''' all filenames are read into the Pixa.<para/>
+''' 
+''' (2) %substr is the part of the file name (excluding
+''' the directory) that is to be matched.  All matching
+''' filenames are read into the Pixa.  If substr is NULL,
+''' all filenames are read into the Pixa.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -56,9 +57,9 @@ End Function
 ' pixRead(filename) as Pix
 ' pixRead(const char *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See at top of file for supported formats.<para/>
+''' 
+''' (1) See at top of file for supported formats.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -82,10 +83,10 @@ End Function
 ' pixReadWithHint(filename, hint) as Pix
 ' pixReadWithHint(const char *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The hint is not binding, but may be used to optimize jpeg decoding.<para/>
-''' Use 0 for no hinting.<para/>
+''' 
+''' (1) The hint is not binding, but may be used to optimize jpeg decoding.
+''' Use 0 for no hinting.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -111,25 +112,28 @@ End Function
 ' pixReadIndexed(sa, index) as Pix
 ' pixReadIndexed(SARRAY *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This function is useful for selecting image files from a<para/>
-''' directory, where the integer %index is embedded into<para/>
+''' 
+''' (1) This function is useful for selecting image files from a
+''' directory, where the integer %index is embedded into
 ''' the file name.<para/>
-''' (2) This is typically done by generating the sarray using<para/>
-''' getNumberedPathnamesInDirectory(), so that the %index<para/>
-''' pathname would have the number %index in it.  The size<para/>
-''' of the sarray should be the largest number (plus 1) appearing<para/>
-''' in the file names, respecting the constraints in the<para/>
+''' 
+''' (2) This is typically done by generating the sarray using
+''' getNumberedPathnamesInDirectory(), so that the %index
+''' pathname would have the number %index in it.  The size
+''' of the sarray should be the largest number (plus 1) appearing
+''' in the file names, respecting the constraints in the
 ''' call to getNumberedPathnamesInDirectory().<para/>
-''' (3) Consequently, for some indices into the sarray, there may<para/>
-''' be no pathnames in the directory containing that number.<para/>
-''' By convention, we place empty C strings ("") in those<para/>
-''' locations in the sarray, and it is not an error if such<para/>
-''' a string is encountered and no pix is returned.<para/>
+''' 
+''' (3) Consequently, for some indices into the sarray, there may
+''' be no pathnames in the directory containing that number.
+''' By convention, we place empty C strings ("") in those
+''' locations in the sarray, and it is not an error if such
+''' a string is encountered and no pix is returned.
 ''' Therefore, the caller must verify that a pix is returned.<para/>
-''' (4) See convertSegmentedPagesToPS() in src/psio1.c for an<para/>
-''' example of usage.<para/>
+''' 
+''' (4) See convertSegmentedPagesToPS() in src/psio1.c for an
+''' example of usage.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -153,9 +157,9 @@ End Function
 ' pixReadStream(fp, hint) as Pix
 ' pixReadStream(FILE *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The hint only applies to jpeg.<para/>
+''' 
+''' (1) The hint only applies to jpeg.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -179,11 +183,11 @@ End Function
 ' pixReadHeader(filename, pformat, pw, ph, pbps, pspp, piscmap) as Integer
 ' pixReadHeader(const char *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This reads the actual headers for jpeg, png, tiff and pnm.<para/>
-''' For bmp and gif, we cheat and read the entire file into a pix,<para/>
-''' from which we extract the "header" information.<para/>
+''' 
+''' (1) This reads the actual headers for jpeg, png, tiff and pnm.
+''' For bmp and gif, we cheat and read the entire file into a pix,
+''' from which we extract the "header" information.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -240,9 +244,9 @@ End Function
 ' findFileFormatStream(fp, pformat) as Integer
 ' findFileFormatStream(FILE *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Important: Side effect -- this resets fp to BOF.<para/>
+''' 
+''' (1) Important: Side effect -- this resets fp to BOF.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -265,12 +269,13 @@ End Function
 ' findFileFormatBuffer(buf, pformat) as Integer
 ' findFileFormatBuffer(const l_uint8 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This determines the file format from the first 12 bytes in<para/>
+''' 
+''' (1) This determines the file format from the first 12 bytes in
 ''' the compressed data stream, which are stored in memory.<para/>
-''' (2) For tiff files, this returns IFF_TIFF.  The specific tiff<para/>
-''' compression is then determined using findTiffCompression().<para/>
+''' 
+''' (2) For tiff files, this returns IFF_TIFF.  The specific tiff
+''' compression is then determined using findTiffCompression().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -311,17 +316,19 @@ End Function
 ' pixReadMem(data, size) as Pix
 ' pixReadMem(const l_uint8 *, size_t) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a variation of pixReadStream(), where the data is read<para/>
+''' 
+''' (1) This is a variation of pixReadStream(), where the data is read
 ''' from a memory buffer rather than a file.<para/>
-''' (2) On windows, this only reads tiff formatted files directly from<para/>
-''' memory.  For other formats, it writes to a temp file and<para/>
+''' 
+''' (2) On windows, this only reads tiff formatted files directly from
+''' memory.  For other formats, it writes to a temp file and
 ''' decompresses from file.<para/>
-''' (3) findFileFormatBuffer() requires up to 12 bytes to decide on<para/>
-''' the format.  That determines the constraint here.  But in<para/>
-''' fact the data must contain the entire compressed string for<para/>
-''' the image.<para/>
+''' 
+''' (3) findFileFormatBuffer() requires up to 12 bytes to decide on
+''' the format.  That determines the constraint here.  But in
+''' fact the data must contain the entire compressed string for
+''' the image.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -345,17 +352,19 @@ End Function
 ' pixReadHeaderMem(data, size, pformat, pw, ph, pbps, pspp, piscmap) as Integer
 ' pixReadHeaderMem(const l_uint8 *, size_t, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This reads the actual headers for jpeg, png, tiff, jp2k and pnm.<para/>
-''' For bmp and gif, we cheat and read all the data into a pix,<para/>
+''' 
+''' (1) This reads the actual headers for jpeg, png, tiff, jp2k and pnm.
+''' For bmp and gif, we cheat and read all the data into a pix,
 ''' from which we extract the "header" information.<para/>
-''' (2) The amount of data required depends on the format.  For<para/>
-''' png, it requires less than 30 bytes, but for jpeg it can<para/>
-''' require most of the compressed file.  In practice, the data<para/>
+''' 
+''' (2) The amount of data required depends on the format.  For
+''' png, it requires less than 30 bytes, but for jpeg it can
+''' require most of the compressed file.  In practice, the data
 ''' is typically the entire compressed file in memory.<para/>
-''' (3) findFileFormatBuffer() requires up to 8 bytes to decide on<para/>
-''' the format, which we require.<para/>
+''' 
+''' (3) findFileFormatBuffer() requires up to 8 bytes to decide on
+''' the format, which we require.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -390,13 +399,14 @@ End Function
 ' writeImageFileInfo(filename, fpout, headeronly) as Integer
 ' writeImageFileInfo(const char *, FILE *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If headeronly == 0 and the image has spp == 4,this will<para/>
-''' also call pixDisplayLayersRGBA() to display the image<para/>
+''' 
+''' (1) If headeronly == 0 and the image has spp == 4,this will
+''' also call pixDisplayLayersRGBA() to display the image
 ''' in three views.<para/>
-''' (2) This is a debug function that changes the value of<para/>
-''' var_PNG_STRIP_16_TO_8 to 1 (the default).<para/>
+''' 
+''' (2) This is a debug function that changes the value of
+''' var_PNG_STRIP_16_TO_8 to 1 (the default).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -424,20 +434,23 @@ End Function
 ' ioFormatTest(filename) as Integer
 ' ioFormatTest(const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This writes and reads a set of output files losslessly<para/>
-''' in different formats to /tmp/format/, and tests that the<para/>
+''' 
+''' (1) This writes and reads a set of output files losslessly
+''' in different formats to /tmp/format/, and tests that the
 ''' result before and after is unchanged.<para/>
-''' (2) This should work properly on input images of any depth,<para/>
+''' 
+''' (2) This should work properly on input images of any depth,
 ''' with and without colormaps.<para/>
-''' (3) All supported formats are tested for bmp, png, tiff and<para/>
-''' non-ascii pnm.  Ascii pnm also works (but who'd ever want<para/>
-''' to use it?) We allow 2 bpp bmp, although it's not<para/>
-''' supported elsewhere.  And we don't support reading<para/>
+''' 
+''' (3) All supported formats are tested for bmp, png, tiff and
+''' non-ascii pnm.  Ascii pnm also works (but who'd ever want
+''' to use it?) We allow 2 bpp bmp, although it's not
+''' supported elsewhere.  And we don't support reading
 ''' 16 bpp png, although this can be turned on in pngio.c.<para/>
-''' (4) This silently skips png or tiff testing if HAVE_LIBPNG<para/>
-''' or HAVE_LIBTIFF are 0, respectively.<para/>
+''' 
+''' (4) This silently skips png or tiff testing if HAVE_LIBPNG
+''' or HAVE_LIBTIFF are 0, respectively.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

@@ -7,20 +7,22 @@ Partial Public Class _All
 ' pixGetGrayHistogram(pixs, factor) as Numa
 ' pixGetGrayHistogram(PIX *, l_int32) as NUMA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If pixs has a colormap, it is converted to 8 bpp gray.<para/>
-''' If you want a histogram of the colormap indices, use<para/>
+''' 
+''' (1) If pixs has a colormap, it is converted to 8 bpp gray.
+''' If you want a histogram of the colormap indices, use
 ''' pixGetCmapHistogram().<para/>
-''' (2) If pixs does not have a colormap, the output histogram is<para/>
+''' 
+''' (2) If pixs does not have a colormap, the output histogram is
 ''' of size 2^d, where d is the depth of pixs.<para/>
-''' (3) Set the subsampling factor  is greater  1 to reduce the amount of computation.<para/>
+''' 
+''' (3) Set the subsampling factor  is greater  1 to reduce the amount of computation.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixGetGrayHistogram/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 bpp can be colormapped</param>
-'''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
+'''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''   <returns>na histogram, or NULL on error</returns>
 Public Shared Function pixGetGrayHistogram(
 				 ByVal pixs as Pix, 
@@ -38,24 +40,28 @@ End Function
 ' pixGetGrayHistogramMasked(pixs, pixm, x, y, factor) as Numa
 ' pixGetGrayHistogramMasked(PIX *, PIX *, l_int32, l_int32, l_int32) as NUMA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If pixs is cmapped, it is converted to 8 bpp gray.<para/>
-''' If you want a histogram of the colormap indices, use<para/>
+''' 
+''' (1) If pixs is cmapped, it is converted to 8 bpp gray.
+''' If you want a histogram of the colormap indices, use
 ''' pixGetCmapHistogramMasked().<para/>
+''' 
 ''' (2) This always returns a 256-value histogram of pixel values.<para/>
+''' 
 ''' (3) Set the subsampling factor  is greater  1 to reduce the amount of computation.<para/>
+''' 
 ''' (4) Clipping of pixm (if it exists) to pixs is done in the inner loop.<para/>
-''' (5) Input x,y are ignored unless pixm exists.<para/>
+''' 
+''' (5) Input x,y are ignored unless pixm exists.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixGetGrayHistogramMasked/*"/>
 '''  <param name="pixs">[in] - 8 bpp, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which histogram is to be computed use all pixels if null</param>
-'''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0 these values are ignored if pixm is null</param>
-'''  <param name="y">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0 these values are ignored if pixm is null</param>
-'''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
+'''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0 these values are ignored if pixm is null</param>
+'''  <param name="y">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0 these values are ignored if pixm is null</param>
+'''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''   <returns>na histogram, or NULL on error</returns>
 Public Shared Function pixGetGrayHistogramMasked(
 				 ByVal pixs as Pix, 
@@ -78,20 +84,22 @@ End Function
 ' pixGetGrayHistogramInRect(pixs, box, factor) as Numa
 ' pixGetGrayHistogramInRect(PIX *, BOX *, l_int32) as NUMA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If pixs is cmapped, it is converted to 8 bpp gray.<para/>
-''' If you want a histogram of the colormap indices, use<para/>
+''' 
+''' (1) If pixs is cmapped, it is converted to 8 bpp gray.
+''' If you want a histogram of the colormap indices, use
 ''' pixGetCmapHistogramInRect().<para/>
+''' 
 ''' (2) This always returns a 256-value histogram of pixel values.<para/>
-''' (3) Set the subsampling %factor  is greater  1 to reduce the amount of computation.<para/>
+''' 
+''' (3) Set the subsampling %factor  is greater  1 to reduce the amount of computation.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixGetGrayHistogramInRect/*"/>
 '''  <param name="pixs">[in] - 8 bpp, or colormapped</param>
 '''  <param name="box">[in][optional] - over which histogram is to be computed use full image if NULL</param>
-'''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
+'''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''   <returns>na histogram, or NULL on error</returns>
 Public Shared Function pixGetGrayHistogramInRect(
 				 ByVal pixs as Pix, 
@@ -112,19 +120,21 @@ End Function
 ' pixGetGrayHistogramTiled(pixs, factor, nx, ny) as Numaa
 ' pixGetGrayHistogramTiled(PIX *, l_int32, l_int32, l_int32) as NUMAA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) If pixs is cmapped, it is converted to 8 bpp gray.<para/>
+''' 
 ''' (2) This returns a set of 256-value histograms of pixel values.<para/>
-''' (3) Set the subsampling factor  is greater  1 to reduce the amount of computation.<para/>
+''' 
+''' (3) Set the subsampling factor  is greater  1 to reduce the amount of computation.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixGetGrayHistogramTiled/*"/>
 '''  <param name="pixs">[in] - any depth, colormap OK</param>
-'''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
-'''  <param name="nx">[in] - tiling  is greater = 1 typically small</param>
-'''  <param name="ny">[in] - tiling  is greater = 1 typically small</param>
+'''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
+'''  <param name="nx">[in] - tiling greater or equal 1 typically small</param>
+'''  <param name="ny">[in] - tiling greater or equal 1 typically small</param>
 '''   <returns>naa set of histograms, or NULL on error</returns>
 Public Shared Function pixGetGrayHistogramTiled(
 				 ByVal pixs as Pix, 
@@ -144,17 +154,18 @@ End Function
 ' pixGetColorHistogram(pixs, factor, pnar, pnag, pnab) as Integer
 ' pixGetColorHistogram(PIX *, l_int32, NUMA **, NUMA **, NUMA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This generates a set of three 256 entry histograms,<para/>
+''' 
+''' (1) This generates a set of three 256 entry histograms,
 ''' one for each color component (r,g,b).<para/>
-''' (2) Set the subsampling %factor  is greater  1 to reduce the amount of computation.<para/>
+''' 
+''' (2) Set the subsampling %factor  is greater  1 to reduce the amount of computation.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixGetColorHistogram/*"/>
 '''  <param name="pixs">[in] - rgb or colormapped</param>
-'''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
+'''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''  <param name="pnar">[out] - red histogram</param>
 '''  <param name="pnag">[out] - green histogram</param>
 '''  <param name="pnab">[out] - blue histogram</param>
@@ -184,21 +195,24 @@ End Function
 ' pixGetColorHistogramMasked(pixs, pixm, x, y, factor, pnar, pnag, pnab) as Integer
 ' pixGetColorHistogramMasked(PIX *, PIX *, l_int32, l_int32, l_int32, NUMA **, NUMA **, NUMA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This generates a set of three 256 entry histograms,<para/>
+''' 
 ''' (2) Set the subsampling %factor  is greater  1 to reduce the amount of computation.<para/>
+''' 
 ''' (3) Clipping of pixm (if it exists) to pixs is done in the inner loop.<para/>
-''' (4) Input x,y are ignored unless pixm exists.<para/>
+''' 
+''' (4) Input x,y are ignored unless pixm exists.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixGetColorHistogramMasked/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which histogram is to be computed use all pixels if null</param>
-'''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0 these values are ignored if pixm is null</param>
-'''  <param name="y">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0 these values are ignored if pixm is null</param>
-'''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
+'''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0 these values are ignored if pixm is null</param>
+'''  <param name="y">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0 these values are ignored if pixm is null</param>
+'''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''  <param name="pnar">[out] - red histogram</param>
 '''  <param name="pnag">[out] - green histogram</param>
 '''  <param name="pnab">[out] - blue histogram</param>
@@ -232,17 +246,18 @@ End Function
 ' pixGetCmapHistogram(pixs, factor) as Numa
 ' pixGetCmapHistogram(PIX *, l_int32) as NUMA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This generates a histogram of colormap pixel indices,<para/>
+''' 
+''' (1) This generates a histogram of colormap pixel indices,
 ''' and is of size 2^d.<para/>
-''' (2) Set the subsampling %factor  is greater  1 to reduce the amount of computation.<para/>
+''' 
+''' (2) Set the subsampling %factor  is greater  1 to reduce the amount of computation.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixGetCmapHistogram/*"/>
 '''  <param name="pixs">[in] - colormapped: d = 2, 4 or 8</param>
-'''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
+'''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''   <returns>na histogram of cmap indices, or NULL on error</returns>
 Public Shared Function pixGetCmapHistogram(
 				 ByVal pixs as Pix, 
@@ -260,21 +275,23 @@ End Function
 ' pixGetCmapHistogramMasked(pixs, pixm, x, y, factor) as Numa
 ' pixGetCmapHistogramMasked(PIX *, PIX *, l_int32, l_int32, l_int32) as NUMA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This generates a histogram of colormap pixel indices,<para/>
+''' 
+''' (1) This generates a histogram of colormap pixel indices,
 ''' and is of size 2^d.<para/>
+''' 
 ''' (2) Set the subsampling %factor  is greater  1 to reduce the amount of computation.<para/>
-''' (3) Clipping of pixm to pixs is done in the inner loop.<para/>
+''' 
+''' (3) Clipping of pixm to pixs is done in the inner loop.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixGetCmapHistogramMasked/*"/>
 '''  <param name="pixs">[in] - colormapped: d = 2, 4 or 8</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which histogram is to be computed use all pixels if null</param>
-'''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0 these values are ignored if pixm is null</param>
-'''  <param name="y">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0 these values are ignored if pixm is null</param>
-'''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
+'''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0 these values are ignored if pixm is null</param>
+'''  <param name="y">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0 these values are ignored if pixm is null</param>
+'''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''   <returns>na histogram, or NULL on error</returns>
 Public Shared Function pixGetCmapHistogramMasked(
 				 ByVal pixs as Pix, 
@@ -297,19 +314,21 @@ End Function
 ' pixGetCmapHistogramInRect(pixs, box, factor) as Numa
 ' pixGetCmapHistogramInRect(PIX *, BOX *, l_int32) as NUMA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This generates a histogram of colormap pixel indices,<para/>
+''' 
+''' (1) This generates a histogram of colormap pixel indices,
 ''' and is of size 2^d.<para/>
+''' 
 ''' (2) Set the subsampling %factor  is greater  1 to reduce the amount of computation.<para/>
-''' (3) Clipping to the box is done in the inner loop.<para/>
+''' 
+''' (3) Clipping to the box is done in the inner loop.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixGetCmapHistogramInRect/*"/>
 '''  <param name="pixs">[in] - colormapped: d = 2, 4 or 8</param>
 '''  <param name="box">[in][optional] - over which histogram is to be computed use full image if NULL</param>
-'''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
+'''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''   <returns>na histogram, or NULL on error</returns>
 Public Shared Function pixGetCmapHistogramInRect(
 				 ByVal pixs as Pix, 
@@ -348,16 +367,17 @@ End Function
 ' pixGetColorAmapHistogram(pixs, factor) as L_Rbtree
 ' pixGetColorAmapHistogram(PIX *, l_int32) as L_AMAP *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This generates an ordered map from pixel value to histogram count.<para/>
-''' (2) Use amapGetCountForColor() to use the map to look up a count.<para/>
+''' 
+''' (2) Use amapGetCountForColor() to use the map to look up a count.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixGetColorAmapHistogram/*"/>
 '''  <param name="pixs">[in] - rgb or rgba</param>
-'''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
+'''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''   <returns>amap, or NULL on error</returns>
 Public Shared Function pixGetColorAmapHistogram(
 				 ByVal pixs as Pix, 
@@ -375,9 +395,9 @@ End Function
 ' amapGetCountForColor(amap, val) as Integer
 ' amapGetCountForColor(L_AMAP *, l_uint32) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The ordered map is made by pixGetColorAmapHistogram().<para/>
+''' 
+''' (1) The ordered map is made by pixGetColorAmapHistogram().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -400,18 +420,18 @@ End Function
 ' pixGetRankValue(pixs, factor, rank, pvalue) as Integer
 ' pixGetRankValue(PIX *, l_int32, l_float32, l_uint32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Simple function to get rank values of an image.<para/>
-''' For a color image, the median value (rank = 0.5) can be<para/>
-''' used to linearly remap the colors based on the median<para/>
-''' of a target image, using pixLinearMapToTargetColor().<para/>
+''' 
+''' (1) Simple function to get rank values of an image.
+''' For a color image, the median value (rank = 0.5) can be
+''' used to linearly remap the colors based on the median
+''' of a target image, using pixLinearMapToTargetColor().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixGetRankValue/*"/>
 '''  <param name="pixs">[in] - 8 bpp, 32 bpp or colormapped</param>
-'''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
+'''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''  <param name="rank">[in] - between 0.0 and 1.0 1.0 is brightest, 0.0 is darkest</param>
 '''  <param name="pvalue">[out] - pixel value corresponding to input rank</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -432,25 +452,28 @@ End Function
 ' pixGetRankValueMaskedRGB(pixs, pixm, x, y, factor, rank, prval, pgval, pbval) as Integer
 ' pixGetRankValueMaskedRGB(PIX *, PIX *, l_int32, l_int32, l_int32, l_float32, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Computes the rank component values of pixels in pixs that<para/>
-''' are under the fg of the optional mask.  If the mask is null, it<para/>
+''' 
+''' (1) Computes the rank component values of pixels in pixs that
+''' are under the fg of the optional mask.  If the mask is null, it
 ''' computes the average of the pixels in pixs.<para/>
-''' (2) Set the subsampling %factor  is greater  1 to reduce the amount of<para/>
+''' 
+''' (2) Set the subsampling %factor  is greater  1 to reduce the amount of
 ''' computation.<para/>
+''' 
 ''' (4) Input x,y are ignored unless pixm exists.<para/>
-''' (5) The rank must be in [0.0 ... 1.0], where the brightest pixel<para/>
-''' has rank 1.0.  For the median pixel value, use 0.5.<para/>
+''' 
+''' (5) The rank must be in [0.0 ... 1.0], where the brightest pixel
+''' has rank 1.0.  For the median pixel value, use 0.5.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixGetRankValueMaskedRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which rank val is to be taken use all pixels if null</param>
-'''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0 these values are ignored if pixm is null</param>
-'''  <param name="y">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0 these values are ignored if pixm is null</param>
-'''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
+'''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0 these values are ignored if pixm is null</param>
+'''  <param name="y">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0 these values are ignored if pixm is null</param>
+'''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''  <param name="rank">[in] - between 0.0 and 1.0 1.0 is brightest, 0.0 is darkest</param>
 '''  <param name="prval">[out][optional] - red component val for input rank</param>
 '''  <param name="pgval">[out][optional] - green component val for input rank</param>
@@ -480,31 +503,36 @@ End Function
 ' pixGetRankValueMasked(pixs, pixm, x, y, factor, rank, pval, pna) as Integer
 ' pixGetRankValueMasked(PIX *, PIX *, l_int32, l_int32, l_int32, l_float32, l_float32 *, NUMA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Computes the rank value of pixels in pixs that are under<para/>
-''' the fg of the optional mask.  If the mask is null, it<para/>
+''' 
+''' (1) Computes the rank value of pixels in pixs that are under
+''' the fg of the optional mask.  If the mask is null, it
 ''' computes the average of the pixels in pixs.<para/>
-''' (2) Set the subsampling %factor  is greater  1 to reduce the amount of<para/>
+''' 
+''' (2) Set the subsampling %factor  is greater  1 to reduce the amount of
 ''' computation.<para/>
+''' 
 ''' (3) Clipping of pixm (if it exists) to pixs is done in the inner loop.<para/>
+''' 
 ''' (4) Input x,y are ignored unless pixm exists.<para/>
-''' (5) The rank must be in [0.0 ... 1.0], where the brightest pixel<para/>
+''' 
+''' (5) The rank must be in [0.0 ... 1.0], where the brightest pixel
 ''' has rank 1.0.  For the median pixel value, use 0.5.<para/>
-''' (6) The histogram can optionally be returned, so that other rank<para/>
-''' values can be extracted without recomputing the histogram.<para/>
-''' In that case, just use<para/>
-''' numaHistogramGetValFromRank(na, rank,  and val)<para/>
-''' on the returned Numa for additional rank values.<para/>
+''' 
+''' (6) The histogram can optionally be returned, so that other rank
+''' values can be extracted without recomputing the histogram.
+''' In that case, just use
+''' numaHistogramGetValFromRank(na, rank, [and]val)
+''' on the returned Numa for additional rank values.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixGetRankValueMasked/*"/>
 '''  <param name="pixs">[in] - 8 bpp, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask, over which the rank val is to be taken use all pixels if null</param>
-'''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0 these values are ignored if pixm is null</param>
-'''  <param name="y">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0 these values are ignored if pixm is null</param>
-'''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
+'''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0 these values are ignored if pixm is null</param>
+'''  <param name="y">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0 these values are ignored if pixm is null</param>
+'''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''  <param name="rank">[in] - between 0.0 and 1.0 1.0 is brightest, 0.0 is darkest</param>
 '''  <param name="pval">[out] - pixel value corresponding to input rank</param>
 '''  <param name="pna">[out][optional] - of histogram</param>
@@ -534,29 +562,33 @@ End Function
 ' pixGetPixelAverage(pixs, pixm, x, y, factor, pval) as Integer
 ' pixGetPixelAverage(PIX *, PIX *, l_int32, l_int32, l_int32, l_uint32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For rgb pix, this is a more direct computation of the<para/>
-''' average value of the pixels in %pixs that are under the<para/>
-''' mask %pixm. It is faster than pixGetPixelStats(), which<para/>
-''' calls pixGetAverageMaskedRGB() and has the overhead of<para/>
-''' generating a temporary pix of each of the three components<para/>
+''' 
+''' (1) For rgb pix, this is a more direct computation of the
+''' average value of the pixels in %pixs that are under the
+''' mask %pixm. It is faster than pixGetPixelStats(), which
+''' calls pixGetAverageMaskedRGB() and has the overhead of
+''' generating a temporary pix of each of the three components
 ''' this can take most of the time if %factor  is greater  1.<para/>
-''' (2) If %pixm is null, this gives the average value of all<para/>
+''' 
+''' (2) If %pixm is null, this gives the average value of all
 ''' pixels in %pixs.  The returned value is an integer.<para/>
-''' (3) For color %pixs, the returned pixel value is in the standard<para/>
+''' 
+''' (3) For color %pixs, the returned pixel value is in the standard
 ''' uint32 RGBA packing.<para/>
+''' 
 ''' (4) Clipping of pixm (if it exists) to pixs is done in the inner loop.<para/>
-''' (5) Input x,y are ignored if %pixm does not exist.<para/>
+''' 
+''' (5) Input x,y are ignored if %pixm does not exist.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixGetPixelAverage/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which average is to be taken use all pixels if null</param>
-'''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0</param>
-'''  <param name="y">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0</param>
-'''  <param name="factor">[in] - subsampling factor  is greater = 1</param>
+'''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0</param>
+'''  <param name="y">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0</param>
+'''  <param name="factor">[in] - subsampling factor greater or equal 1</param>
 '''  <param name="pval">[out] - average pixel value</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixGetPixelAverage(
@@ -580,18 +612,20 @@ End Function
 ' pixGetPixelStats(pixs, factor, type, pvalue) as Integer
 ' pixGetPixelStats(PIX *, l_int32, l_int32, l_uint32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Simple function to get one of four statistical values of an image.<para/>
+''' 
 ''' (2) It does not take a mask: it uses the entire image.<para/>
-''' (3) To get the average pixel value of an RGB image, suggest using<para/>
-''' pixGetPixelAverage(), which is considerably faster.<para/>
+''' 
+''' (3) To get the average pixel value of an RGB image, suggest using
+''' pixGetPixelAverage(), which is considerably faster.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixGetPixelStats/*"/>
 '''  <param name="pixs">[in] - 8 bpp, 32 bpp or colormapped</param>
-'''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
+'''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''  <param name="type">[in] - L_MEAN_ABSVAL, L_ROOT_MEAN_SQUARE, L_STANDARD_DEVIATION, L_VARIANCE</param>
 '''  <param name="pvalue">[out] - pixel value corresponding to input type</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -612,21 +646,23 @@ End Function
 ' pixGetAverageMaskedRGB(pixs, pixm, x, y, factor, type, prval, pgval, pbval) as Integer
 ' pixGetAverageMaskedRGB(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) For usage, see pixGetAverageMasked().<para/>
-''' (2) If there is a colormap, it is removed before the 8 bpp<para/>
+''' 
+''' (2) If there is a colormap, it is removed before the 8 bpp
 ''' component images are extracted.<para/>
-''' (3) A better name for this would be: pixGetPixelStatsRGB()<para/>
+''' 
+''' (3) A better name for this would be: pixGetPixelStatsRGB()
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixGetAverageMaskedRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which average is to be taken use all pixels if null</param>
-'''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0</param>
-'''  <param name="y">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0</param>
-'''  <param name="factor">[in] - subsampling factor  is greater = 1</param>
+'''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0</param>
+'''  <param name="y">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0</param>
+'''  <param name="factor">[in] - subsampling factor greater or equal 1</param>
 '''  <param name="type">[in] - L_MEAN_ABSVAL, L_ROOT_MEAN_SQUARE, L_STANDARD_DEVIATION, L_VARIANCE</param>
 '''  <param name="prval">[out][optional] - measured red value of given 'type'</param>
 '''  <param name="pgval">[out][optional] - measured green value of given 'type'</param>
@@ -656,32 +692,37 @@ End Function
 ' pixGetAverageMasked(pixs, pixm, x, y, factor, type, pval) as Integer
 ' pixGetAverageMasked(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_float32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Use L_MEAN_ABSVAL to get the average value of pixels in pixs<para/>
-''' that are under the fg of the optional mask.  If the mask<para/>
+''' 
+''' (1) Use L_MEAN_ABSVAL to get the average value of pixels in pixs
+''' that are under the fg of the optional mask.  If the mask
 ''' is null, it finds the average of the pixels in pixs.<para/>
-''' (2) Likewise, use L_ROOT_MEAN_SQUARE to get the rms value of<para/>
-''' pixels in pixs, either masked or not L_STANDARD_DEVIATION<para/>
-''' to get the standard deviation from the mean of the pixels<para/>
-''' L_VARIANCE to get the average squared difference from the<para/>
-''' expected value.  The variance is the square of the stdev.<para/>
-''' For the standard deviation, we use<para/>
+''' 
+''' (2) Likewise, use L_ROOT_MEAN_SQUARE to get the rms value of
+''' pixels in pixs, either masked or not L_STANDARD_DEVIATION
+''' to get the standard deviation from the mean of the pixels
+''' L_VARIANCE to get the average squared difference from the
+''' expected value.  The variance is the square of the stdev.
+''' For the standard deviation, we use
 ''' sqrt([([x] - x)]^2) = sqrt([x^2] - [x]^2)<para/>
-''' (3) Set the subsampling %factor  is greater  1 to reduce the amount of<para/>
+''' 
+''' (3) Set the subsampling %factor  is greater  1 to reduce the amount of
 ''' computation.<para/>
+''' 
 ''' (4) Clipping of pixm (if it exists) to pixs is done in the inner loop.<para/>
+''' 
 ''' (5) Input x,y are ignored unless pixm exists.<para/>
-''' (6) A better name for this would be: pixGetPixelStatsGray()<para/>
+''' 
+''' (6) A better name for this would be: pixGetPixelStatsGray()
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixGetAverageMasked/*"/>
 '''  <param name="pixs">[in] - 8 or 16 bpp, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which average is to be taken use all pixels if null</param>
-'''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0</param>
-'''  <param name="y">[in] - UL corner of pixm relative to the UL corner of pixs can be  is lower  0</param>
-'''  <param name="factor">[in] - subsampling factor  is greater = 1</param>
+'''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0</param>
+'''  <param name="y">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0</param>
+'''  <param name="factor">[in] - subsampling factor greater or equal 1</param>
 '''  <param name="type">[in] - L_MEAN_ABSVAL, L_ROOT_MEAN_SQUARE, L_STANDARD_DEVIATION, L_VARIANCE</param>
 '''  <param name="pval">[out] - measured value of given 'type'</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -707,11 +748,12 @@ End Function
 ' pixGetAverageTiledRGB(pixs, sx, sy, type, ppixr, ppixg, ppixb) as Integer
 ' pixGetAverageTiledRGB(PIX *, l_int32, l_int32, l_int32, PIX **, PIX **, PIX **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) For usage, see pixGetAverageTiled().<para/>
-''' (2) If there is a colormap, it is removed before the 8 bpp<para/>
-''' component images are extracted.<para/>
+''' 
+''' (2) If there is a colormap, it is removed before the 8 bpp
+''' component images are extracted.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -751,14 +793,16 @@ End Function
 ' pixGetAverageTiled(pixs, sx, sy, type) as Pix
 ' pixGetAverageTiled(PIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Only computes for tiles that are entirely contained in pixs.<para/>
-''' (2) Use L_MEAN_ABSVAL to get the average abs value within the tile<para/>
-''' L_ROOT_MEAN_SQUARE to get the rms value within each tile<para/>
-''' L_STANDARD_DEVIATION to get the standard dev. from the average<para/>
+''' 
+''' (2) Use L_MEAN_ABSVAL to get the average abs value within the tile
+''' L_ROOT_MEAN_SQUARE to get the rms value within each tile
+''' L_STANDARD_DEVIATION to get the standard dev. from the average
 ''' within each tile.<para/>
-''' (3) If colormapped, converts to 8 bpp gray.<para/>
+''' 
+''' (3) If colormapped, converts to 8 bpp gray.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -786,16 +830,18 @@ End Function
 ' pixRowStats(pixs, box, pnamean, pnamedian, pnamode, pnamodecount, pnavar, pnarootvar) as Integer
 ' pixRowStats(PIX *, BOX *, NUMA **, NUMA **, NUMA **, NUMA **, NUMA **, NUMA **) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This computes numas that represent column vectors of statistics,<para/>
+''' 
+''' (1) This computes numas that represent column vectors of statistics,
 ''' with each of its values derived from the corresponding row of a Pix.<para/>
+''' 
 ''' (2) Use NULL on input to prevent computation of any of the 5 numas.<para/>
-''' (3) Other functions that compute pixel row statistics are:<para/>
-''' pixCountPixelsByRow()<para/>
-''' pixAverageByRow()<para/>
-''' pixVarianceByRow()<para/>
-''' pixGetRowStats()<para/>
+''' 
+''' (3) Other functions that compute pixel row statistics are:
+''' pixCountPixelsByRow()
+''' pixAverageByRow()
+''' pixVarianceByRow()
+''' pixGetRowStats()
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -844,16 +890,18 @@ End Function
 ' pixColumnStats(pixs, box, pnamean, pnamedian, pnamode, pnamodecount, pnavar, pnarootvar) as Integer
 ' pixColumnStats(PIX *, BOX *, NUMA **, NUMA **, NUMA **, NUMA **, NUMA **, NUMA **) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This computes numas that represent row vectors of statistics,<para/>
+''' 
+''' (1) This computes numas that represent row vectors of statistics,
 ''' with each of its values derived from the corresponding col of a Pix.<para/>
+''' 
 ''' (2) Use NULL on input to prevent computation of any of the 5 numas.<para/>
-''' (3) Other functions that compute pixel column statistics are:<para/>
-''' pixCountPixelsByColumn()<para/>
-''' pixAverageByColumn()<para/>
-''' pixVarianceByColumn()<para/>
-''' pixGetColumnStats()<para/>
+''' 
+''' (3) Other functions that compute pixel column statistics are:
+''' pixCountPixelsByColumn()
+''' pixAverageByColumn()
+''' pixVarianceByColumn()
+''' pixGetColumnStats()
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -902,15 +950,15 @@ End Function
 ' pixGetRangeValues(pixs, factor, color, pminval, pmaxval) as Integer
 ' pixGetRangeValues(PIX *, l_int32, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If pixs is 8 bpp grayscale, the color selection type is ignored.<para/>
+''' 
+''' (1) If pixs is 8 bpp grayscale, the color selection type is ignored.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixGetRangeValues/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale, 32 bpp rgb, or colormapped</param>
-'''  <param name="factor">[in] - subsampling factor  is greater = 1 ignored if colormapped</param>
+'''  <param name="factor">[in] - subsampling factor greater or equal 1 ignored if colormapped</param>
 '''  <param name="color">[in] - L_SELECT_RED, L_SELECT_GREEN or L_SELECT_BLUE</param>
 '''  <param name="pminval">[out][optional] - minimum value of component</param>
 '''  <param name="pmaxval">[out][optional] - maximum value of component</param>
@@ -935,18 +983,18 @@ End Function
 ' pixGetExtremeValue(pixs, factor, type, prval, pgval, pbval, pgrayval) as Integer
 ' pixGetExtremeValue(PIX *, l_int32, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If pixs is grayscale, the result is returned in  and grayval.<para/>
-''' Otherwise, if there is a colormap or d == 32,<para/>
-''' each requested color component is returned.  At least<para/>
-''' one color component (address) must be input.<para/>
+''' 
+''' (1) If pixs is grayscale, the result is returned in [and]grayval.
+''' Otherwise, if there is a colormap or d == 32,
+''' each requested color component is returned.  At least
+''' one color component (address) must be input.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixGetExtremeValue/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale, 32 bpp rgb, or colormapped</param>
-'''  <param name="factor">[in] - subsampling factor  is greater = 1 ignored if colormapped</param>
+'''  <param name="factor">[in] - subsampling factor greater or equal 1 ignored if colormapped</param>
 '''  <param name="type">[in] - L_SELECT_MIN or L_SELECT_MAX</param>
 '''  <param name="prval">[out][optional] - red component</param>
 '''  <param name="pgval">[out][optional] - green component</param>
@@ -975,13 +1023,14 @@ End Function
 ' pixGetMaxValueInRect(pixs, box, pmaxval, pxmax, pymax) as Integer
 ' pixGetMaxValueInRect(PIX *, BOX *, l_uint32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This can be used to find the maximum and its location<para/>
-''' in a 2-dimensional histogram, where the x and y directions<para/>
+''' 
+''' (1) This can be used to find the maximum and its location
+''' in a 2-dimensional histogram, where the x and y directions
 ''' represent two color components (e.g., saturation and hue).<para/>
-''' (2) Note that here a 32 bpp pixs has pixel values that are simply<para/>
-''' numbers.  They are not 8 bpp components in a colorspace.<para/>
+''' 
+''' (2) Note that here a 32 bpp pixs has pixel values that are simply
+''' numbers.  They are not 8 bpp components in a colorspace.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1012,18 +1061,18 @@ End Function
 ' pixGetBinnedComponentRange(pixs, nbins, factor, color, pminval, pmaxval, pcarray, fontsize) as Integer
 ' pixGetBinnedComponentRange(PIX *, l_int32, l_int32, l_int32, l_int32 *, l_int32 *, l_uint32 **, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This returns the min and max average values of the<para/>
-''' selected color component in the set of rank bins,<para/>
-''' where the ranking is done using the specified component.<para/>
+''' 
+''' (1) This returns the min and max average values of the
+''' selected color component in the set of rank bins,
+''' where the ranking is done using the specified component.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixGetBinnedComponentRange/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="nbins">[in] - number of equal population bins must be  is greater  1</param>
-'''  <param name="factor">[in] - subsampling factor  is greater = 1</param>
+'''  <param name="factor">[in] - subsampling factor greater or equal 1</param>
 '''  <param name="color">[in] - L_SELECT_RED, L_SELECT_GREEN or L_SELECT_BLUE</param>
 '''  <param name="pminval">[out][optional] - minimum value of component</param>
 '''  <param name="pmaxval">[out][optional] - maximum value of component</param>
@@ -1056,26 +1105,30 @@ End Function
 ' pixGetRankColorArray(pixs, nbins, type, factor, pcarray, debugflag, fontsize) as Integer
 ' pixGetRankColorArray(PIX *, l_int32, l_int32, l_int32, l_uint32 **, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The color selection flag is one of: L_SELECT_RED, L_SELECT_GREEN,<para/>
-''' L_SELECT_BLUE, L_SELECT_MIN, L_SELECT_MAX, L_SELECT_AVERAGE,<para/>
+''' 
+''' (1) The color selection flag is one of: L_SELECT_RED, L_SELECT_GREEN,
+''' L_SELECT_BLUE, L_SELECT_MIN, L_SELECT_MAX, L_SELECT_AVERAGE,
 ''' L_SELECT_HUE, L_SELECT_SATURATION.<para/>
-''' (2) Then it finds the histogram of the selected color type in each<para/>
-''' RGB pixel.  For each of the %nbins sets of pixels,<para/>
-''' ordered by this color type value, find the average RGB color,<para/>
-''' and return this as a "rank color" array.  The output array<para/>
+''' 
+''' (2) Then it finds the histogram of the selected color type in each
+''' RGB pixel.  For each of the %nbins sets of pixels,
+''' ordered by this color type value, find the average RGB color,
+''' and return this as a "rank color" array.  The output array
 ''' has %nbins colors.<para/>
-''' (3) Set the subsampling factor  is greater  1 to reduce the amount of<para/>
-''' computation.  Typically you want at least 10,000 pixels<para/>
+''' 
+''' (3) Set the subsampling factor  is greater  1 to reduce the amount of
+''' computation.  Typically you want at least 10,000 pixels
 ''' for reasonable statistics.<para/>
-''' (4) The rank color as a function of rank can then be found from<para/>
-''' rankint = (l_int32)(rank  (nbins - 1) + 0.5)<para/>
-''' extractRGBValues(array[rankint],  and rval,  and gval,  and bval)<para/>
-''' where the rank is in [0.0 ... 1.0].<para/>
+''' 
+''' (4) The rank color as a function of rank can then be found from
+''' rankint = (l_int32)(rank  (nbins - 1) + 0.5)
+''' extractRGBValues(array[rankint], [and]rval, [and]gval, [and]bval)
+''' where the rank is in [0.0 ... 1.0].
 ''' This function is meant to be simple and approximate.<para/>
-''' (5) Compare this with pixGetBinnedColor(), which generates equal<para/>
-''' width intensity bins and finds the average color in each bin.<para/>
+''' 
+''' (5) Compare this with pixGetBinnedColor(), which generates equal
+''' width intensity bins and finds the average color in each bin.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1083,7 +1136,7 @@ End Function
 '''  <param name="pixs">[in] - 32 bpp or cmapped</param>
 '''  <param name="nbins">[in] - number of equal population bins must be  is greater  1</param>
 '''  <param name="type">[in] - color selection flag</param>
-'''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
+'''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''  <param name="pcarray">[out] - array of colors, ranked by intensity</param>
 '''  <param name="debugflag">[in] - 1 to display color squares and plots of color components 2 to write them as png to file</param>
 '''  <param name="fontsize">[in][optional] - 0 for no debug for debug, valid set is {4,6,8,10,12,14,16,18,20}.  Ignored if debugflag == 0.  fontsize == 6 is typical.</param>
@@ -1111,19 +1164,20 @@ End Function
 ' pixGetBinnedColor(pixs, pixg, factor, nbins, nalut, pcarray, debugflag) as Integer
 ' pixGetBinnedColor(PIX *, PIX *, l_int32, l_int32, NUMA *, l_uint32 **, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This takes a color image, a grayscale (intensity) version,<para/>
-''' a LUT from intensity to bin number, and the number of bins.<para/>
-''' It computes the average color for pixels whose intensity<para/>
-''' is in each bin.  This is returned as an array of l_uint32<para/>
+''' 
+''' (1) This takes a color image, a grayscale (intensity) version,
+''' a LUT from intensity to bin number, and the number of bins.
+''' It computes the average color for pixels whose intensity
+''' is in each bin.  This is returned as an array of l_uint32
 ''' colors in our standard RGBA ordering.<para/>
-''' (2) This function generates equal width intensity bins and<para/>
-''' finds the average color in each bin.  Compare this with<para/>
-''' pixGetRankColorArray(), which rank orders the pixels<para/>
-''' by the value of the selected component in each pixel,<para/>
-''' sets up bins with equal population (not intensity width!),<para/>
-''' and gets the average color in each bin.<para/>
+''' 
+''' (2) This function generates equal width intensity bins and
+''' finds the average color in each bin.  Compare this with
+''' pixGetRankColorArray(), which rank orders the pixels
+''' by the value of the selected component in each pixel,
+''' sets up bins with equal population (not intensity width!),
+''' and gets the average color in each bin.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1190,22 +1244,25 @@ End Function
 ' pixRankBinByStrip(pixs, direction, size, nbins, type) as Pix
 ' pixRankBinByStrip(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This generates a pix where each column represents a strip of<para/>
-''' the input image.  If %direction == L_SCAN_HORIZONTAL, the<para/>
-''' input impage is tiled into vertical strips of width %size,<para/>
-''' where %size is a compromise between getting better spatial<para/>
-''' columnwise resolution (small %size) and getting better<para/>
-''' columnwise statistical information (larger %size).  Likewise<para/>
+''' 
+''' (1) This generates a pix where each column represents a strip of
+''' the input image.  If %direction == L_SCAN_HORIZONTAL, the
+''' input impage is tiled into vertical strips of width %size,
+''' where %size is a compromise between getting better spatial
+''' columnwise resolution (small %size) and getting better
+''' columnwise statistical information (larger %size).  Likewise
 ''' with rows of the image if %direction == L_SCAN_VERTICAL.<para/>
-''' (2) For L_HORIZONTAL_SCAN, the output pix contains rank binned<para/>
-''' median colors in each column that correspond to a vertical<para/>
+''' 
+''' (2) For L_HORIZONTAL_SCAN, the output pix contains rank binned
+''' median colors in each column that correspond to a vertical
 ''' strip of width %size in the input image.<para/>
-''' (3) The color selection flag is one of: L_SELECT_RED, L_SELECT_GREEN,<para/>
-''' L_SELECT_BLUE, L_SELECT_MIN, L_SELECT_MAX, L_SELECT_AVERAGE.<para/>
+''' 
+''' (3) The color selection flag is one of: L_SELECT_RED, L_SELECT_GREEN,
+''' L_SELECT_BLUE, L_SELECT_MIN, L_SELECT_MAX, L_SELECT_AVERAGE.
 ''' It determines how the rank ordering is done.<para/>
-''' (4) Typical input values might be %size = 5, %nbins = 10.<para/>
+''' 
+''' (4) Typical input values might be %size = 5, %nbins = 10.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1235,16 +1292,17 @@ End Function
 ' pixaGetAlignedStats(pixa, type, nbins, thresh) as Pix
 ' pixaGetAlignedStats(PIXA *, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Each pixel in the returned pix represents an average<para/>
-''' (or median, or mode) over the corresponding pixels in each<para/>
+''' 
+''' (1) Each pixel in the returned pix represents an average
+''' (or median, or mode) over the corresponding pixels in each
 ''' pix in the pixa.<para/>
-''' (2) The %thresh parameter works with L_MODE_VAL only, and<para/>
-''' sets a minimum occupancy of the mode bin.<para/>
-''' If the occupancy of the mode bin is less than %thresh, the<para/>
-''' mode value is returned as 0.  To always return the actual<para/>
-''' mode value, set %thresh = 0.  See pixGetRowStats().<para/>
+''' 
+''' (2) The %thresh parameter works with L_MODE_VAL only, and
+''' sets a minimum occupancy of the mode bin.
+''' If the occupancy of the mode bin is less than %thresh, the
+''' mode value is returned as 0.  To always return the actual
+''' mode value, set %thresh = 0.  See pixGetRowStats().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1295,26 +1353,29 @@ End Function
 ' pixGetRowStats(pixs, type, nbins, thresh, colvect) as Integer
 ' pixGetRowStats(PIX *, l_int32, l_int32, l_int32, l_float32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This computes a column vector of statistics using each<para/>
+''' 
+''' (1) This computes a column vector of statistics using each
 ''' row of a Pix.  The result is put in %colvect.<para/>
-''' (2) The %thresh parameter works with L_MODE_VAL only, and<para/>
-''' sets a minimum occupancy of the mode bin.<para/>
-''' If the occupancy of the mode bin is less than %thresh, the<para/>
-''' mode value is returned as 0.  To always return the actual<para/>
+''' 
+''' (2) The %thresh parameter works with L_MODE_VAL only, and
+''' sets a minimum occupancy of the mode bin.
+''' If the occupancy of the mode bin is less than %thresh, the
+''' mode value is returned as 0.  To always return the actual
 ''' mode value, set %thresh = 0.<para/>
-''' (3) What is the meaning of this %thresh parameter?<para/>
-''' For each row, the total count in the histogram is w, the<para/>
-''' image width.  So %thresh, relative to w, gives a measure<para/>
-''' of the ratio of the bin width to the width of the distribution.<para/>
-''' The larger %thresh, the narrower the distribution must be<para/>
+''' 
+''' (3) What is the meaning of this %thresh parameter?
+''' For each row, the total count in the histogram is w, the
+''' image width.  So %thresh, relative to w, gives a measure
+''' of the ratio of the bin width to the width of the distribution.
+''' The larger %thresh, the narrower the distribution must be
 ''' for the mode value to be returned (instead of returning 0).<para/>
-''' (4) If the Pix consists of a set of corresponding columns,<para/>
-''' one for each Pix in a Pixa, the width of the Pix is the<para/>
-''' number of Pix in the Pixa and the column vector can<para/>
-''' be stored as a column in a Pix of the same size as<para/>
-''' each Pix in the Pixa.<para/>
+''' 
+''' (4) If the Pix consists of a set of corresponding columns,
+''' one for each Pix in a Pixa, the width of the Pix is the
+''' number of Pix in the Pixa and the column vector can
+''' be stored as a column in a Pix of the same size as
+''' each Pix in the Pixa.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1344,21 +1405,23 @@ End Function
 ' pixGetColumnStats(pixs, type, nbins, thresh, rowvect) as Integer
 ' pixGetColumnStats(PIX *, l_int32, l_int32, l_int32, l_float32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This computes a row vector of statistics using each<para/>
+''' 
+''' (1) This computes a row vector of statistics using each
 ''' column of a Pix.  The result is put in %rowvect.<para/>
-''' (2) The %thresh parameter works with L_MODE_VAL only, and<para/>
-''' sets a minimum occupancy of the mode bin.<para/>
-''' If the occupancy of the mode bin is less than %thresh, the<para/>
-''' mode value is returned as 0.  To always return the actual<para/>
+''' 
+''' (2) The %thresh parameter works with L_MODE_VAL only, and
+''' sets a minimum occupancy of the mode bin.
+''' If the occupancy of the mode bin is less than %thresh, the
+''' mode value is returned as 0.  To always return the actual
 ''' mode value, set %thresh = 0.<para/>
-''' (3) What is the meaning of this %thresh parameter?<para/>
-''' For each column, the total count in the histogram is h, the<para/>
-''' image height.  So %thresh, relative to h, gives a measure<para/>
-''' of the ratio of the bin width to the width of the distribution.<para/>
-''' The larger %thresh, the narrower the distribution must be<para/>
-''' for the mode value to be returned (instead of returning 0).<para/>
+''' 
+''' (3) What is the meaning of this %thresh parameter?
+''' For each column, the total count in the histogram is h, the
+''' image height.  So %thresh, relative to h, gives a measure
+''' of the ratio of the bin width to the width of the distribution.
+''' The larger %thresh, the narrower the distribution must be
+''' for the mode value to be returned (instead of returning 0).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1414,7 +1477,7 @@ End Function
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixThresholdForFgBg/*"/>
 '''  <param name="pixs">[in] - any depth cmapped ok</param>
-'''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
+'''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''  <param name="thresh">[in] - threshold for generating foreground mask</param>
 '''  <param name="pfgval">[out][optional] - average foreground value</param>
 '''  <param name="pbgval">[out][optional] - average background value</param>
@@ -1437,17 +1500,17 @@ End Function
 ' pixSplitDistributionFgBg(pixs, scorefract, factor, pthresh, pfgval, pbgval, ppixdb) as Integer
 ' pixSplitDistributionFgBg(PIX *, l_float32, l_int32, l_int32 *, l_int32 *, l_int32 *, PIX **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See numaSplitDistribution() for details on the underlying<para/>
-''' method of choosing a threshold.<para/>
+''' 
+''' (1) See numaSplitDistribution() for details on the underlying
+''' method of choosing a threshold.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixSplitDistributionFgBg/*"/>
 '''  <param name="pixs">[in] - any depth cmapped ok</param>
 '''  <param name="scorefract">[in] - fraction of the max score, used to determine the range over which the histogram min is searched</param>
-'''  <param name="factor">[in] - subsampling factor integer  is greater = 1</param>
+'''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''  <param name="pthresh">[out][optional] - best threshold for separating</param>
 '''  <param name="pfgval">[out][optional] - average foreground value</param>
 '''  <param name="pbgval">[out][optional] - average background value</param>

@@ -7,10 +7,11 @@ Partial Public Class _All
 ' pixErodeGray(pixs, hsize, vsize) as Pix
 ' pixErodeGray(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Sel is a brick with all elements being hits<para/>
-''' (2) If hsize = vsize = 1, just returns a copy.<para/>
+''' 
+''' (2) If hsize = vsize = 1, just returns a copy.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -36,10 +37,11 @@ End Function
 ' pixDilateGray(pixs, hsize, vsize) as Pix
 ' pixDilateGray(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Sel is a brick with all elements being hits<para/>
-''' (2) If hsize = vsize = 1, just returns a copy.<para/>
+''' 
+''' (2) If hsize = vsize = 1, just returns a copy.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -65,10 +67,11 @@ End Function
 ' pixOpenGray(pixs, hsize, vsize) as Pix
 ' pixOpenGray(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Sel is a brick with all elements being hits<para/>
-''' (2) If hsize = vsize = 1, just returns a copy.<para/>
+''' 
+''' (2) If hsize = vsize = 1, just returns a copy.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -94,10 +97,11 @@ End Function
 ' pixCloseGray(pixs, hsize, vsize) as Pix
 ' pixCloseGray(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Sel is a brick with all elements being hits<para/>
-''' (2) If hsize = vsize = 1, just returns a copy.<para/>
+''' 
+''' (2) If hsize = vsize = 1, just returns a copy.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -123,15 +127,17 @@ End Function
 ' pixErodeGray3(pixs, hsize, vsize) as Pix
 ' pixErodeGray3(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Special case for 1x3, 3x1 or 3x3 brick sel (all hits)<para/>
+''' 
 ''' (2) If hsize = vsize = 1, just returns a copy.<para/>
-''' (3) It would be nice not to add a border, but it is required<para/>
-''' if we want the same results as from the general case.<para/>
-''' We add 4 bytes on the left to speed up the copying, and<para/>
-''' 8 bytes at the right and bottom to allow unrolling of<para/>
-''' the computation of 8 pixels.<para/>
+''' 
+''' (3) It would be nice not to add a border, but it is required
+''' if we want the same results as from the general case.
+''' We add 4 bytes on the left to speed up the copying, and
+''' 8 bytes at the right and bottom to allow unrolling of
+''' the computation of 8 pixels.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -157,10 +163,11 @@ End Function
 ' pixDilateGray3(pixs, hsize, vsize) as Pix
 ' pixDilateGray3(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Special case for 1x3, 3x1 or 3x3 brick sel (all hits)<para/>
-''' (2) If hsize = vsize = 1, just returns a copy.<para/>
+''' 
+''' (2) If hsize = vsize = 1, just returns a copy.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -186,12 +193,14 @@ End Function
 ' pixOpenGray3(pixs, hsize, vsize) as Pix
 ' pixOpenGray3(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Special case for 1x3, 3x1 or 3x3 brick sel (all hits)<para/>
+''' 
 ''' (2) If hsize = vsize = 1, just returns a copy.<para/>
-''' (3) It would be nice not to add a border, but it is required<para/>
-''' to get the same results as for the general case.<para/>
+''' 
+''' (3) It would be nice not to add a border, but it is required
+''' to get the same results as for the general case.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -217,10 +226,11 @@ End Function
 ' pixCloseGray3(pixs, hsize, vsize) as Pix
 ' pixCloseGray3(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Special case for 1x3, 3x1 or 3x3 brick sel (all hits)<para/>
-''' (2) If hsize = vsize = 1, just returns a copy.<para/>
+''' 
+''' (2) If hsize = vsize = 1, just returns a copy.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

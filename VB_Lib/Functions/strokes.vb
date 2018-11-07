@@ -7,9 +7,9 @@ Partial Public Class _All
 ' pixFindStrokeLength(pixs, tab8, plength) as Integer
 ' pixFindStrokeLength(PIX *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Returns half the number of fg boundary pixels.<para/>
+''' 
+''' (1) Returns half the number of fg boundary pixels.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -36,15 +36,17 @@ End Function
 ' pixFindStrokeWidth(pixs, thresh, tab8, pwidth, pnahisto) as Integer
 ' pixFindStrokeWidth(PIX *, l_float32, l_int32 *, l_float32 *, NUMA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This uses two methods to estimate the stroke width:<para/>
-''' (a) half the fg boundary length<para/>
+''' 
+''' (1) This uses two methods to estimate the stroke width:
+''' (a) half the fg boundary length
 ''' (b) a value derived from the histogram of the fg distance transform<para/>
+''' 
 ''' (2) Distance is measured in 8-connected<para/>
-''' (3) %thresh is the minimum fraction N(dist=d)/N(dist=1) of pixels<para/>
-''' required to determine if the pixels at distance d are above<para/>
-''' the noise. It is typically about 0.15.<para/>
+''' 
+''' (3) %thresh is the minimum fraction N(dist=d)/N(dist=1) of pixels
+''' required to determine if the pixels at distance d are above
+''' the noise. It is typically about 0.15.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -78,9 +80,9 @@ End Function
 ' pixaFindStrokeWidth(pixa, thresh, tab8, debug) as Numa
 ' pixaFindStrokeWidth(PIXA *, l_float32, l_int32 *, l_int32) as NUMA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See pixFindStrokeWidth() for details.<para/>
+''' 
+''' (1) See pixFindStrokeWidth() for details.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -152,15 +154,16 @@ End Function
 ' pixaSetStrokeWidth(pixas, width, thinfirst, connectivity) as Pixa
 ' pixaSetStrokeWidth(PIXA *, l_int32, l_int32, l_int32) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If %thinfirst == 1, thin to a skeleton using the specified<para/>
-''' %connectivity.  Use %thinfirst == 0 if all pix in pixas<para/>
+''' 
+''' (1) If %thinfirst == 1, thin to a skeleton using the specified
+''' %connectivity.  Use %thinfirst == 0 if all pix in pixas
 ''' have already been thinned as far as possible.<para/>
-''' (2) The image is dilated to the required %width.  This dilation<para/>
-''' is not connectivity preserving, so this is typically<para/>
-''' used in a situation where merging of c.c. in the individual<para/>
-''' pix is not a problem e.g., where each pix is a single c.c.<para/>
+''' 
+''' (2) The image is dilated to the required %width.  This dilation
+''' is not connectivity preserving, so this is typically
+''' used in a situation where merging of c.c. in the individual
+''' pix is not a problem e.g., where each pix is a single c.c.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -188,12 +191,14 @@ End Function
 ' pixSetStrokeWidth(pixs, width, thinfirst, connectivity) as Pix
 ' pixSetStrokeWidth(PIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) See notes in pixaSetStrokeWidth().<para/>
-''' (2) A white border of sufficient width to avoid boundary<para/>
+''' 
+''' (2) A white border of sufficient width to avoid boundary
 ''' artifacts in the thickening step is added before thinning.<para/>
-''' (3) %connectivity == 8 usually gives a slightly smoother result.<para/>
+''' 
+''' (3) %connectivity == 8 usually gives a slightly smoother result.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

@@ -7,22 +7,27 @@ Partial Public Class _All
 ' pixSetSelectCmap(pixs, box, sindex, rval, gval, bval) as Integer
 ' pixSetSelectCmap(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is an in-place operation.<para/>
-''' (2) It sets all pixels in region that have the color specified<para/>
+''' 
+''' (2) It sets all pixels in region that have the color specified
 ''' by the colormap index 'sindex' to the new color.<para/>
-''' (3) sindex must be in the existing colormap otherwise an<para/>
+''' 
+''' (3) sindex must be in the existing colormap otherwise an
 ''' error is returned.<para/>
-''' (4) If the new color exists in the colormap, it is used<para/>
-''' otherwise, it is added to the colormap.  If it cannot be<para/>
+''' 
+''' (4) If the new color exists in the colormap, it is used
+''' otherwise, it is added to the colormap.  If it cannot be
 ''' added because the colormap is full, an error is returned.<para/>
-''' (5) If box is NULL, applies function to the entire image otherwise,<para/>
+''' 
+''' (5) If box is NULL, applies function to the entire image otherwise,
 ''' clips the operation to the intersection of the box and pix.<para/>
-''' (6) An example of use would be to set to a specific color all<para/>
-''' the light (background) pixels within a certain region of<para/>
-''' a 3-level 2 bpp image, while leaving light pixels outside<para/>
-''' this region unchanged.<para/>
+''' 
+''' (6) An example of use would be to set to a specific color all
+''' the light (background) pixels within a certain region of
+''' a 3-level 2 bpp image, while leaving light pixels outside
+''' this region unchanged.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -55,22 +60,26 @@ End Function
 ' pixColorGrayRegionsCmap(pixs, boxa, type, rval, gval, bval) as Integer
 ' pixColorGrayRegionsCmap(PIX *, BOXA *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is an in-place operation.<para/>
-''' (2) If type == L_PAINT_LIGHT, it colorizes non-black pixels,<para/>
-''' preserving antialiasing.<para/>
-''' If type == L_PAINT_DARK, it colorizes non-white pixels,<para/>
+''' 
+''' (2) If type == L_PAINT_LIGHT, it colorizes non-black pixels,
+''' preserving antialiasing.
+''' If type == L_PAINT_DARK, it colorizes non-white pixels,
 ''' preserving antialiasing.  See pixColorGrayCmap() for details.<para/>
+''' 
 ''' (3) This can also be called through pixColorGrayRegions().<para/>
-''' (4) This increases the colormap size by the number of<para/>
-''' different gray (non-black or non-white) colors in the<para/>
-''' selected regions of pixs.  If there is not enough room in<para/>
-''' the colormap for this expansion, it returns 1 (error),<para/>
+''' 
+''' (4) This increases the colormap size by the number of
+''' different gray (non-black or non-white) colors in the
+''' selected regions of pixs.  If there is not enough room in
+''' the colormap for this expansion, it returns 1 (error),
 ''' and the caller should check the return value.<para/>
-''' (5) Because two boxes in the boxa can overlap, pixels that<para/>
-''' are colorized in the first box must be excluded in the<para/>
-''' second because their value exceeds the size of the map.<para/>
+''' 
+''' (5) Because two boxes in the boxa can overlap, pixels that
+''' are colorized in the first box must be excluded in the
+''' second because their value exceeds the size of the map.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -102,33 +111,39 @@ End Function
 ' pixColorGrayCmap(pixs, box, type, rval, gval, bval) as Integer
 ' pixColorGrayCmap(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is an in-place operation.<para/>
-''' (2) If type == L_PAINT_LIGHT, it colorizes non-black pixels,<para/>
+''' 
+''' (2) If type == L_PAINT_LIGHT, it colorizes non-black pixels,
+''' preserving antialiasing.
+''' If type == L_PAINT_DARK, it colorizes non-white pixels,
 ''' preserving antialiasing.<para/>
-''' If type == L_PAINT_DARK, it colorizes non-white pixels,<para/>
-''' preserving antialiasing.<para/>
-''' (3) box gives the region to apply color if NULL, this<para/>
+''' 
+''' (3) box gives the region to apply color if NULL, this
 ''' colorizes the entire image.<para/>
-''' (4) If the cmap is only 2 or 4 bpp, pixs is converted in-place<para/>
+''' 
+''' (4) If the cmap is only 2 or 4 bpp, pixs is converted in-place
 ''' to an 8 bpp cmap.  A 1 bpp cmap is not a valid input pix.<para/>
+''' 
 ''' (5) This can also be called through pixColorGray().<para/>
-''' (6) This operation increases the colormap size by the number of<para/>
-''' different gray (non-black or non-white) colors in the<para/>
-''' input colormap.  If there is not enough room in the colormap<para/>
-''' for this expansion, it returns 1 (error), and the caller<para/>
+''' 
+''' (6) This operation increases the colormap size by the number of
+''' different gray (non-black or non-white) colors in the
+''' input colormap.  If there is not enough room in the colormap
+''' for this expansion, it returns 1 (error), and the caller
 ''' should check the return value.<para/>
-''' (7) Using the darkness of each original pixel in the rect,<para/>
-''' it generates a new color (based on the input rgb values).<para/>
-''' If type == L_PAINT_LIGHT, the new color is a (generally)<para/>
-''' darken-to-black version of the  input rgb color, where the<para/>
-''' amount of darkening increases with the darkness of the<para/>
-''' original pixel color.<para/>
-''' If type == L_PAINT_DARK, the new color is a (generally)<para/>
-''' faded-to-white version of the  input rgb color, where the<para/>
-''' amount of fading increases with the brightness of the<para/>
-''' original pixel color.<para/>
+''' 
+''' (7) Using the darkness of each original pixel in the rect,
+''' it generates a new color (based on the input rgb values).
+''' If type == L_PAINT_LIGHT, the new color is a (generally)
+''' darken-to-black version of the  input rgb color, where the
+''' amount of darkening increases with the darkness of the
+''' original pixel color.
+''' If type == L_PAINT_DARK, the new color is a (generally)
+''' faded-to-white version of the  input rgb color, where the
+''' amount of fading increases with the brightness of the
+''' original pixel color.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -161,17 +176,19 @@ End Function
 ' pixColorGrayMaskedCmap(pixs, pixm, type, rval, gval, bval) as Integer
 ' pixColorGrayMaskedCmap(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is an in-place operation.<para/>
-''' (2) If type == L_PAINT_LIGHT, it colorizes non-black pixels,<para/>
-''' preserving antialiasing.<para/>
-''' If type == L_PAINT_DARK, it colorizes non-white pixels,<para/>
+''' 
+''' (2) If type == L_PAINT_LIGHT, it colorizes non-black pixels,
+''' preserving antialiasing.
+''' If type == L_PAINT_DARK, it colorizes non-white pixels,
 ''' preserving antialiasing.  See pixColorGrayCmap() for details.<para/>
-''' (3) This increases the colormap size by the number of<para/>
-''' different gray (non-black or non-white) colors in the<para/>
-''' input colormap.  If there is not enough room in the colormap<para/>
-''' for this expansion, it returns 1 (error).<para/>
+''' 
+''' (3) This increases the colormap size by the number of
+''' different gray (non-black or non-white) colors in the
+''' input colormap.  If there is not enough room in the colormap
+''' for this expansion, it returns 1 (error).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -203,24 +220,28 @@ End Function
 ' addColorizedGrayToCmap(cmap, type, rval, gval, bval, pna) as Integer
 ' addColorizedGrayToCmap(PIXCMAP *, l_int32, l_int32, l_int32, l_int32, NUMA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If type == L_PAINT_LIGHT, it colorizes non-black pixels,<para/>
+''' 
+''' (1) If type == L_PAINT_LIGHT, it colorizes non-black pixels,
+''' preserving antialiasing.
+''' If type == L_PAINT_DARK, it colorizes non-white pixels,
 ''' preserving antialiasing.<para/>
-''' If type == L_PAINT_DARK, it colorizes non-white pixels,<para/>
-''' preserving antialiasing.<para/>
-''' (2) This increases the colormap size by the number of<para/>
-''' different gray (non-black or non-white) colors in the<para/>
-''' input colormap.  If there is not enough room in the colormap<para/>
-''' for this expansion, it returns 1 (treated as a warning)<para/>
+''' 
+''' (2) This increases the colormap size by the number of
+''' different gray (non-black or non-white) colors in the
+''' input colormap.  If there is not enough room in the colormap
+''' for this expansion, it returns 1 (treated as a warning)
 ''' the caller should check the return value.<para/>
-''' (3) This can be used to determine if the new colors will fit in<para/>
-''' the cmap, using null for  and na.  Returns 0 if they fit 2 if<para/>
+''' 
+''' (3) This can be used to determine if the new colors will fit in
+''' the cmap, using null for [and]na.  Returns 0 if they fit 2 if
 ''' they don't fit.<para/>
-''' (4) The mapping table contains, for each gray color found, the<para/>
-''' index of the corresponding colorized pixel.  Non-gray<para/>
+''' 
+''' (4) The mapping table contains, for each gray color found, the
+''' index of the corresponding colorized pixel.  Non-gray
 ''' pixels are assigned the invalid index 256.<para/>
-''' (5) See pixColorGrayCmap() for usage.<para/>
+''' 
+''' (5) See pixColorGrayCmap() for usage.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -254,17 +275,21 @@ End Function
 ' pixSetSelectMaskedCmap(pixs, pixm, x, y, sindex, rval, gval, bval) as Integer
 ' pixSetSelectMaskedCmap(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is an in-place operation.<para/>
-''' (2) This paints through the fg of pixm and replaces all pixels<para/>
+''' 
+''' (2) This paints through the fg of pixm and replaces all pixels
 ''' in pixs that have a particular value (sindex) with the new color.<para/>
+''' 
 ''' (3) If pixm == NULL, a warning is given.<para/>
-''' (4) sindex must be in the existing colormap otherwise an<para/>
+''' 
+''' (4) sindex must be in the existing colormap otherwise an
 ''' error is returned.<para/>
-''' (5) If the new color exists in the colormap, it is used<para/>
-''' otherwise, it is added to the colormap.  If the colormap<para/>
-''' is full, an error is returned.<para/>
+''' 
+''' (5) If the new color exists in the colormap, it is used
+''' otherwise, it is added to the colormap.  If the colormap
+''' is full, an error is returned.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -301,18 +326,23 @@ End Function
 ' pixSetMaskedCmap(pixs, pixm, x, y, rval, gval, bval) as Integer
 ' pixSetMaskedCmap(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is an in-place operation.<para/>
+''' 
 ''' (2) It paints a single color through the mask (as a stencil).<para/>
-''' (3) The mask origin is placed at (x,y) on pixs, and the<para/>
+''' 
+''' (3) The mask origin is placed at (x,y) on pixs, and the
 ''' operation is clipped to the intersection of the mask and pixs.<para/>
+''' 
 ''' (4) If pixm == NULL, a warning is given.<para/>
-''' (5) Typically, pixm is a small binary mask located somewhere<para/>
+''' 
+''' (5) Typically, pixm is a small binary mask located somewhere
 ''' on the larger pixs.<para/>
-''' (6) If the color is in the colormap, it is used.  Otherwise,<para/>
-''' it is added if possible an error is returned if the<para/>
-''' colormap is already full.<para/>
+''' 
+''' (6) If the color is in the colormap, it is used.  Otherwise,
+''' it is added if possible an error is returned if the
+''' colormap is already full.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

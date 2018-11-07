@@ -7,11 +7,13 @@ Partial Public Class _All
 ' l_dnaJoin(dad, das, istart, iend) as Integer
 ' l_dnaJoin(L_DNA *, L_DNA *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) istart  is lower  0 is taken to mean 'read from the start' (istart = 0)<para/>
-''' (2) iend  is lower  0 means 'read to the end'<para/>
-''' (3) if das == NULL, this is a no-op<para/>
+''' 
+''' (1) istart  is smaller 0 is taken to mean 'read from the start' (istart = 0)<para/>
+''' 
+''' (2) iend  is smaller 0 means 'read to the end'<para/>
+''' 
+''' (3) if das == NULL, this is a no-op
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -40,11 +42,12 @@ End Function
 ' l_dnaaFlattenToDna(daa) as L_Dna
 ' l_dnaaFlattenToDna(L_DNAA *) as L_DNA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This 'flattens' the dnaa to a dna, by joining successively<para/>
+''' 
+''' (1) This 'flattens' the dnaa to a dna, by joining successively
 ''' each dna in the dnaa.<para/>
-''' (2) It leaves the input dnaa unchanged.<para/>
+''' 
+''' (2) It leaves the input dnaa unchanged.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -104,12 +107,14 @@ End Function
 ' l_dnaUnionByAset(da1, da2) as L_Dna
 ' l_dnaUnionByAset(L_DNA *, L_DNA *) as L_DNA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) See sarrayUnionByAset() for the approach.<para/>
+''' 
 ''' (2) Here, the key in building the sorted tree is the number itself.<para/>
-''' (3) Operations using an underlying tree are O(nlogn), which is<para/>
-''' typically less efficient than hashing, which is O(n).<para/>
+''' 
+''' (3) Operations using an underlying tree are O(nlogn), which is
+''' typically less efficient than hashing, which is O(n).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -153,12 +158,14 @@ End Function
 ' l_dnaIntersectionByAset(da1, da2) as L_Dna
 ' l_dnaIntersectionByAset(L_DNA *, L_DNA *) as L_DNA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) See sarrayIntersection() for the approach.<para/>
+''' 
 ''' (2) Here, the key in building the sorted tree is the number itself.<para/>
-''' (3) Operations using an underlying tree are O(nlogn), which is<para/>
-''' typically less efficient than hashing, which is O(n).<para/>
+''' 
+''' (3) Operations using an underlying tree are O(nlogn), which is
+''' typically less efficient than hashing, which is O(n).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

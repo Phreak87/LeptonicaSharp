@@ -7,12 +7,13 @@ Partial Public Class _All
 ' dewarpCreate(pixs, pageno) as L_Dewarp
 ' dewarpCreate(PIX *, l_int32) as L_DEWARP *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The input pixs is either full resolution or 2x reduced.<para/>
-''' (2) The page number is typically 0-based.  If scanned from a book,<para/>
-''' the even pages are usually on the left.  Disparity arrays<para/>
-''' built for even pages should only be applied to even pages.<para/>
+''' 
+''' (2) The page number is typically 0-based.  If scanned from a book,
+''' the even pages are usually on the left.  Disparity arrays
+''' built for even pages should only be applied to even pages.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -38,14 +39,15 @@ End Function
 ' dewarpCreateRef(pageno, refpage) as L_Dewarp
 ' dewarpCreateRef(l_int32, l_int32) as L_DEWARP *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This specifies which dewarp struct should be used for<para/>
-''' the given page.  It is placed in dewarpa for pages<para/>
+''' 
+''' (1) This specifies which dewarp struct should be used for
+''' the given page.  It is placed in dewarpa for pages
 ''' for which no model can be built.<para/>
-''' (2) This page and the reference page have the same parity and<para/>
-''' the reference page is the closest page with a disparity model<para/>
-''' to this page.<para/>
+''' 
+''' (2) This page and the reference page have the same parity and
+''' the reference page is the closest page with a disparity model
+''' to this page.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -84,25 +86,30 @@ End Sub
 ' dewarpaCreate(nptrs, sampling, redfactor, minlines, maxdist) as L_Dewarpa
 ' dewarpaCreate(l_int32, l_int32, l_int32, l_int32, l_int32) as L_DEWARPA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The sampling, minlines and maxdist parameters will be<para/>
+''' 
+''' (1) The sampling, minlines and maxdist parameters will be
 ''' applied to all images.<para/>
-''' (2) The sampling factor is used for generating the disparity arrays<para/>
-''' from the input image.  For 2x reduced input, use a sampling<para/>
-''' factor that is half the sampling you want on the full resolution<para/>
+''' 
+''' (2) The sampling factor is used for generating the disparity arrays
+''' from the input image.  For 2x reduced input, use a sampling
+''' factor that is half the sampling you want on the full resolution
 ''' images.<para/>
-''' (3) Use %redfactor = 1 for full resolution 2 for 2x reduction.<para/>
+''' 
+''' (3) Use %redfactor = 1 for full resolution 2 for 2x reduction.
 ''' All input images must be at one of these two resolutions.<para/>
-''' (4) %minlines is the minimum number of nearly full-length lines<para/>
-''' required to generate a vertical disparity array.  The default<para/>
-''' number is 15.  Use a smaller number to accept a questionable<para/>
+''' 
+''' (4) %minlines is the minimum number of nearly full-length lines
+''' required to generate a vertical disparity array.  The default
+''' number is 15.  Use a smaller number to accept a questionable
 ''' array, but not smaller than 4.<para/>
-''' (5) When a model can't be built for a page, it looks up to %maxdist<para/>
-''' in either direction for a valid model with the same page parity.<para/>
-''' Use -1 for the default value of %maxdist use 0 to avoid using<para/>
+''' 
+''' (5) When a model can't be built for a page, it looks up to %maxdist
+''' in either direction for a valid model with the same page parity.
+''' Use -1 for the default value of %maxdist use 0 to avoid using
 ''' a ref model.<para/>
-''' (6) The ptr array is expanded as necessary to accommodate page images.<para/>
+''' 
+''' (6) The ptr array is expanded as necessary to accommodate page images.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -130,24 +137,29 @@ End Function
 ' dewarpaCreateFromPixacomp(pixac, useboth, sampling, minlines, maxdist) as L_Dewarpa
 ' dewarpaCreateFromPixacomp(PIXAC *, l_int32, l_int32, l_int32, l_int32) as L_DEWARPA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The returned dewa has disparity arrays calculated and<para/>
+''' 
+''' (1) The returned dewa has disparity arrays calculated and
 ''' is ready for serialization or for use in dewarping.<para/>
-''' (2) The sampling, minlines and maxdist parameters are<para/>
+''' 
+''' (2) The sampling, minlines and maxdist parameters are
 ''' applied to all images.  See notes in dewarpaCreate() for details.<para/>
-''' (3) The pixac is full.  Placeholders, if any, are w=h=d=1 images,<para/>
-''' and the real input images are 1 bpp at full resolution.<para/>
-''' They are assumed to be cropped to the actual page regions,<para/>
+''' 
+''' (3) The pixac is full.  Placeholders, if any, are w=h=d=1 images,
+''' and the real input images are 1 bpp at full resolution.
+''' They are assumed to be cropped to the actual page regions,
 ''' and may be arbitrarily sparse in the array.<para/>
-''' (4) The output dewarpa is indexed by the page number.<para/>
-''' The offset in the pixac gives the mapping between the<para/>
+''' 
+''' (4) The output dewarpa is indexed by the page number.
+''' The offset in the pixac gives the mapping between the
 ''' array index in the pixac and the page number.<para/>
+''' 
 ''' (5) This adds the ref page models.<para/>
-''' (6) This can be used to make models for any desired set of pages.<para/>
-''' The direct models are only made for pages with images in<para/>
-''' the pixacomp the ref models are made for pages of the<para/>
-''' same parity within %maxdist of the nearest direct model.<para/>
+''' 
+''' (6) This can be used to make models for any desired set of pages.
+''' The direct models are only made for pages with images in
+''' the pixacomp the ref models are made for pages of the
+''' same parity within %maxdist of the nearest direct model.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -214,16 +226,17 @@ End Function
 ' dewarpaInsertDewarp(dewa, dew) as Integer
 ' dewarpaInsertDewarp(L_DEWARPA *, L_DEWARP *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This inserts the dewarp into the array, which now owns it.<para/>
-''' It also keeps track of the largest page number stored.<para/>
+''' 
+''' (1) This inserts the dewarp into the array, which now owns it.
+''' It also keeps track of the largest page number stored.
 ''' It must be done before the disparity model is built.<para/>
-''' (2) Note that this differs from the usual method of filling out<para/>
-''' arrays in leptonica, where the arrays are compact and<para/>
-''' new elements are typically added to the end.  Here,<para/>
-''' the dewarp can be added anywhere, even beyond the initial<para/>
-''' allocation.<para/>
+''' 
+''' (2) Note that this differs from the usual method of filling out
+''' arrays in leptonica, where the arrays are compact and
+''' new elements are typically added to the end.  Here,
+''' the dewarp can be added anywhere, even beyond the initial
+''' allocation.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -268,35 +281,39 @@ End Function
 ' dewarpaSetCurvatures(dewa, max_linecurv, min_diff_linecurv, max_diff_linecurv, max_edgecurv, max_diff_edgecurv, max_edgeslope) as Integer
 ' dewarpaSetCurvatures(L_DEWARPA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Approximating the line by a quadratic, the coefficient<para/>
-''' of the quadratic term is the curvature, and distance<para/>
-''' units are in pixels (of course).  The curvature is very<para/>
-''' small, so we multiply by 10^6 and express the constraints<para/>
+''' 
+''' (1) Approximating the line by a quadratic, the coefficient
+''' of the quadratic term is the curvature, and distance
+''' units are in pixels (of course).  The curvature is very
+''' small, so we multiply by 10^6 and express the constraints
 ''' on the model curvatures in micro-units.<para/>
-''' (2) This sets five curvature thresholds and a slope threshold:<para/>
-''' the maximum absolute value of the vertical disparity<para/>
-''' line curvatures<para/>
-''' the minimum absolute value of the largest difference in<para/>
-''' vertical disparity line curvatures (Use a value of 0<para/>
-''' to accept all models.)<para/>
-''' the maximum absolute value of the largest difference in<para/>
-''' vertical disparity line curvatures<para/>
-''' the maximum absolute value of the left and right edge<para/>
-''' curvature for the horizontal disparity<para/>
-''' the maximum absolute value of the difference between<para/>
-''' left and right edge curvature for the horizontal disparity<para/>
-''' all in micro-units, for dewarping to take place.<para/>
+''' 
+''' (2) This sets five curvature thresholds and a slope threshold:
+''' the maximum absolute value of the vertical disparity
+''' line curvatures
+''' the minimum absolute value of the largest difference in
+''' vertical disparity line curvatures (Use a value of 0
+''' to accept all models.)
+''' the maximum absolute value of the largest difference in
+''' vertical disparity line curvatures
+''' the maximum absolute value of the left and right edge
+''' curvature for the horizontal disparity
+''' the maximum absolute value of the difference between
+''' left and right edge curvature for the horizontal disparity
+''' all in micro-units, for dewarping to take place.
 ''' Use -1 for default values.<para/>
-''' (3) An image with a line curvature less than about 0.00001<para/>
+''' 
+''' (3) An image with a line curvature less than about 0.00001
 ''' has fairly straight textlines.  This is 10 micro-units.<para/>
-''' (4) For example, if %max_linecurv == 100, this would prevent dewarping<para/>
-''' if any of the lines has a curvature exceeding 100 micro-units.<para/>
-''' A model having maximum line curvature larger than about 150<para/>
+''' 
+''' (4) For example, if %max_linecurv == 100, this would prevent dewarping
+''' if any of the lines has a curvature exceeding 100 micro-units.
+''' A model having maximum line curvature larger than about 150
 ''' micro-units should probably not be used.<para/>
-''' (5) A model having a left or right edge curvature larger than<para/>
-''' about 100 micro-units should probably not be used.<para/>
+''' 
+''' (5) A model having a left or right edge curvature larger than
+''' about 100 micro-units should probably not be used.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -329,12 +346,12 @@ End Function
 ' dewarpaUseBothArrays(dewa, useboth) as Integer
 ' dewarpaUseBothArrays(L_DEWARPA *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This sets the useboth field.  If set, this will attempt<para/>
-''' to apply both vertical and horizontal disparity arrays.<para/>
-''' Note that a model with only a vertical disparity array will<para/>
-''' always be valid.<para/>
+''' 
+''' (1) This sets the useboth field.  If set, this will attempt
+''' to apply both vertical and horizontal disparity arrays.
+''' Note that a model with only a vertical disparity array will
+''' always be valid.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -357,20 +374,21 @@ End Function
 ' dewarpaSetCheckColumns(dewa, check_columns) as Integer
 ' dewarpaSetCheckColumns(L_DEWARPA *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This sets the 'check_columns" field.  If set, and if<para/>
-''' 'useboth' is set, this will count the number of text<para/>
-''' columns.  If the number is larger than 1, this will<para/>
-''' prevent the application of horizontal disparity arrays<para/>
-''' if they exist.  Note that the default value of check_columns<para/>
+''' 
+''' (1) This sets the 'check_columns" field.  If set, and if
+''' 'useboth' is set, this will count the number of text
+''' columns.  If the number is larger than 1, this will
+''' prevent the application of horizontal disparity arrays
+''' if they exist.  Note that the default value of check_columns
 ''' if 0 (FALSE).<para/>
-''' (2) This field is set to 0 by default.  For horizontal disparity<para/>
-''' correction to take place on a single column of text, you must have:<para/>
-''' - a valid horizontal disparity array<para/>
-''' - useboth = 1 (TRUE)<para/>
-''' If there are multiple columns, additionally<para/>
-''' - check_columns = 0 (FALSE)<para/>
+''' 
+''' (2) This field is set to 0 by default.  For horizontal disparity
+''' correction to take place on a single column of text, you must have:
+''' - a valid horizontal disparity array
+''' - useboth = 1 (TRUE)
+''' If there are multiple columns, additionally
+''' - check_columns = 0 (FALSE)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -393,9 +411,9 @@ End Function
 ' dewarpaSetMaxDistance(dewa, maxdist) as Integer
 ' dewarpaSetMaxDistance(L_DEWARPA *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This sets the maxdist field.<para/>
+''' 
+''' (1) This sets the maxdist field.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -439,15 +457,16 @@ End Function
 ' dewarpReadStream(fp) as L_Dewarp
 ' dewarpReadStream(FILE *) as L_DEWARP *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The dewarp struct is stored in minimized format, with only<para/>
+''' 
+''' (1) The dewarp struct is stored in minimized format, with only
 ''' subsampled disparity arrays.<para/>
-''' (2) The sampling and extra horizontal disparity parameters are<para/>
-''' stored here.  During generation of the dewarp struct, they<para/>
-''' are passed in from the dewarpa.  In readback, it is assumed<para/>
-''' that they are (a) the same for each page and (b) the same<para/>
-''' as the values used to create the dewarpa.<para/>
+''' 
+''' (2) The sampling and extra horizontal disparity parameters are
+''' stored here.  During generation of the dewarp struct, they
+''' are passed in from the dewarpa.  In readback, it is assumed
+''' that they are (a) the same for each page and (b) the same
+''' as the values used to create the dewarpa.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -513,11 +532,11 @@ End Function
 ' dewarpWriteStream(fp, dew) as Integer
 ' dewarpWriteStream(FILE *, L_DEWARP *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This should not be written if there is no sampled<para/>
-''' vertical disparity array, which means that no model has<para/>
-''' been built for this page.<para/>
+''' 
+''' (1) This should not be written if there is no sampled
+''' vertical disparity array, which means that no model has
+''' been built for this page.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -541,9 +560,9 @@ End Function
 ' dewarpWriteMem(pdata, psize, dew) as Integer
 ' dewarpWriteMem(l_uint8 **, size_t *, L_DEWARP *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Serializes a dewarp in memory and puts the result in a buffer.<para/>
+''' 
+''' (1) Serializes a dewarp in memory and puts the result in a buffer.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -592,12 +611,13 @@ End Function
 ' dewarpaReadStream(fp) as L_Dewarpa
 ' dewarpaReadStream(FILE *) as L_DEWARPA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The serialized dewarp contains a Numa that gives the<para/>
-''' (increasing) page number of the dewarp structs that are<para/>
+''' 
+''' (1) The serialized dewarp contains a Numa that gives the
+''' (increasing) page number of the dewarp structs that are
 ''' contained.<para/>
-''' (2) Reference pages are added in after readback.<para/>
+''' 
+''' (2) Reference pages are added in after readback.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -684,9 +704,9 @@ End Function
 ' dewarpaWriteMem(pdata, psize, dewa) as Integer
 ' dewarpaWriteMem(l_uint8 **, size_t *, L_DEWARPA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Serializes a dewarpa in memory and puts the result in a buffer.<para/>
+''' 
+''' (1) Serializes a dewarpa in memory and puts the result in a buffer.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

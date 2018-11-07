@@ -7,35 +7,37 @@ Partial Public Class _All
 ' generateBinaryMaze(w, h, xi, yi, wallps, ranis) as Pix
 ' generateBinaryMaze(l_int32, l_int32, l_int32, l_int32, l_float32, l_float32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) We have two input probability factors that determine the<para/>
-''' density of walls and average length of straight passages.<para/>
-''' When ranis  is lower  1.0, you are more likely to generate a wall<para/>
-''' to the side than going forward.  Enter 0.0 for either if<para/>
+''' 
+''' (1) We have two input probability factors that determine the
+''' density of walls and average length of straight passages.
+''' When ranis  is smaller 1.0, you are more likely to generate a wall
+''' to the side than going forward.  Enter 0.0 for either if
 ''' you want to use the default values.<para/>
-''' (2) This is a type of percolation problem, and exhibits<para/>
-''' different phases for different parameters wallps and ranis.<para/>
-''' For larger values of these parameters, regions in the maze<para/>
-''' are not explored because the maze generator walls them<para/>
-''' off and cannot get through.  The boundary between the<para/>
-''' two phases in this two-dimensional parameter space goes<para/>
-''' near these values:<para/>
-''' wallps ranis<para/>
-''' 0.35 1.00<para/>
-''' 0.40 0.85<para/>
-''' 0.45 0.70<para/>
-''' 0.50 0.50<para/>
-''' 0.55 0.40<para/>
-''' 0.60 0.30<para/>
-''' 0.65 0.25<para/>
-''' 0.70 0.19<para/>
-''' 0.75 0.15<para/>
+''' 
+''' (2) This is a type of percolation problem, and exhibits
+''' different phases for different parameters wallps and ranis.
+''' For larger values of these parameters, regions in the maze
+''' are not explored because the maze generator walls them
+''' off and cannot get through.  The boundary between the
+''' two phases in this two-dimensional parameter space goes
+''' near these values:
+''' wallps ranis
+''' 0.35 1.00
+''' 0.40 0.85
+''' 0.45 0.70
+''' 0.50 0.50
+''' 0.55 0.40
+''' 0.60 0.30
+''' 0.65 0.25
+''' 0.70 0.19
+''' 0.75 0.15
 ''' 0.80 0.11<para/>
-''' (3) Because there is a considerable amount of overhead in calling<para/>
-''' pixGetPixel() and pixSetPixel(), this function can be sped<para/>
-''' up with little effort using raster line pointers and the<para/>
-''' GET_DATA and SET_DATA macros.<para/>
+''' 
+''' (3) Because there is a considerable amount of overhead in calling
+''' pixGetPixel() and pixSetPixel(), this function can be sped
+''' up with little effort using raster line pointers and the
+''' GET_DATA and SET_DATA macros.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -65,36 +67,37 @@ End Function
 ' pixSearchBinaryMaze(pixs, xi, yi, xf, yf, ppixd) as Pta
 ' pixSearchBinaryMaze(PIX *, l_int32, l_int32, l_int32, l_int32, PIX **) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Because of the overhead in calling pixGetPixel() and<para/>
-''' pixSetPixel(), we have used raster line pointers and the<para/>
+''' 
+''' (1) Because of the overhead in calling pixGetPixel() and
+''' pixSetPixel(), we have used raster line pointers and the
 ''' GET_DATA and SET_DATA macros for many of the pix accesses.<para/>
-''' (2) Commentary:<para/>
-''' The goal is to find the shortest path between beginning and<para/>
-''' end points, without going through walls, and there are many<para/>
-''' ways to solve this problem.<para/>
-''' We use a queue to implement a breadth-first search.  Two auxiliary<para/>
-''' "image" data structures can be used: one to mark the visited<para/>
-''' pixels and one to give the direction to the parent for each<para/>
-''' visited pixel.  The first structure is used to avoid putting<para/>
-''' pixels on the queue more than once, and the second is used<para/>
-''' for retracing back to the origin, like the breadcrumbs in<para/>
-''' Hansel and Gretel.  Each pixel taken off the queue is destroyed<para/>
-''' after it is used to locate the allowed neighbors.  In fact,<para/>
-''' only one distance image is required, if you initialize it<para/>
-''' to some value that signifies "not yet visited."  (We use<para/>
-''' a binary image for marking visited pixels because it is clearer.)<para/>
-''' This method for a simple search of a binary maze is implemented in<para/>
-''' pixSearchBinaryMaze().<para/>
-''' An alternative method would store the (manhattan) distance<para/>
-''' from the start point with each pixel on the queue.  The children<para/>
-''' of each pixel get a distance one larger than the parent.  These<para/>
-''' values can be stored in an auxiliary distance map image<para/>
-''' that is constructed simultaneously with the search.  Once the<para/>
-''' end point is reached, the distance map is used to backtrack<para/>
-''' along a minimum path.  There may be several equal length<para/>
-''' minimum paths, any one of which can be chosen this way.<para/>
+''' 
+''' (2) Commentary:
+''' The goal is to find the shortest path between beginning and
+''' end points, without going through walls, and there are many
+''' ways to solve this problem.
+''' We use a queue to implement a breadth-first search.  Two auxiliary
+''' "image" data structures can be used: one to mark the visited
+''' pixels and one to give the direction to the parent for each
+''' visited pixel.  The first structure is used to avoid putting
+''' pixels on the queue more than once, and the second is used
+''' for retracing back to the origin, like the breadcrumbs in
+''' Hansel and Gretel.  Each pixel taken off the queue is destroyed
+''' after it is used to locate the allowed neighbors.  In fact,
+''' only one distance image is required, if you initialize it
+''' to some value that signifies "not yet visited."  (We use
+''' a binary image for marking visited pixels because it is clearer.)
+''' This method for a simple search of a binary maze is implemented in
+''' pixSearchBinaryMaze().
+''' An alternative method would store the (manhattan) distance
+''' from the start point with each pixel on the queue.  The children
+''' of each pixel get a distance one larger than the parent.  These
+''' values can be stored in an auxiliary distance map image
+''' that is constructed simultaneously with the search.  Once the
+''' end point is reached, the distance map is used to backtrack
+''' along a minimum path.  There may be several equal length
+''' minimum paths, any one of which can be chosen this way.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

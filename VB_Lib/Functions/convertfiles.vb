@@ -7,10 +7,10 @@ Partial Public Class _All
 ' convertFilesTo1bpp(dirin, substr, upscaling, thresh, firstpage, npages, dirout, outformat) as Integer
 ' convertFilesTo1bpp(const char *, const char *, l_int32, l_int32, l_int32, l_int32, const char *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Images are sorted lexicographically, and the names in the<para/>
-''' output directory are retained except for the extension.<para/>
+''' 
+''' (1) Images are sorted lexicographically, and the names in the
+''' output directory are retained except for the extension.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

@@ -7,28 +7,32 @@ Partial Public Class _All
 ' pixReadJpeg(filename, cmapflag, reduction, pnwarn, hint) as Pix
 ' pixReadJpeg(const char *, l_int32, l_int32, l_int32 *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is a special function for reading jpeg files.<para/>
-''' (2) Use this if you want the jpeg library to create<para/>
+''' 
+''' (2) Use this if you want the jpeg library to create
 ''' an 8 bpp colormapped image.<para/>
-''' (3) Images reduced by factors of 2, 4 or 8 can be returned<para/>
+''' 
+''' (3) Images reduced by factors of 2, 4 or 8 can be returned
 ''' significantly faster than full resolution images.<para/>
-''' (4) If the jpeg data is bad, the jpeg library will continue<para/>
-''' silently, or return warnings, or attempt to exit.  Depending<para/>
-''' on the severity of the data corruption, there are two possible<para/>
-''' outcomes:<para/>
-''' (a) a possibly damaged pix can be generated, along with zero<para/>
-''' or more warnings, or<para/>
-''' (b) the library will attempt to exit (caught by our error<para/>
-''' handler) and no pix will be returned.<para/>
-''' If a pix is generated with at least one warning of data<para/>
-''' corruption, and if L_JPEG_FAIL_ON_BAD_DATA is included in %hint,<para/>
+''' 
+''' (4) If the jpeg data is bad, the jpeg library will continue
+''' silently, or return warnings, or attempt to exit.  Depending
+''' on the severity of the data corruption, there are two possible
+''' outcomes:
+''' (a) a possibly damaged pix can be generated, along with zero
+''' or more warnings, or
+''' (b) the library will attempt to exit (caught by our error
+''' handler) and no pix will be returned.
+''' If a pix is generated with at least one warning of data
+''' corruption, and if L_JPEG_FAIL_ON_BAD_DATA is included in %hint,
 ''' no pix will be returned.<para/>
-''' (5) The possible hint values are given in the enum in imageio.h:<para/>
-''' L_JPEG_READ_LUMINANCE<para/>
-''' L_JPEG_FAIL_ON_BAD_DATA<para/>
-''' Default (0) is to do neither.<para/>
+''' 
+''' (5) The possible hint values are given in the enum in imageio.h:
+''' L_JPEG_READ_LUMINANCE
+''' L_JPEG_FAIL_ON_BAD_DATA
+''' Default (0) is to do neither.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -61,9 +65,9 @@ End Function
 ' pixReadStreamJpeg(fp, cmapflag, reduction, pnwarn, hint) as Pix
 ' pixReadStreamJpeg(FILE *, l_int32, l_int32, l_int32 *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The jpeg comment, if it exists, is not stored in the pix.<para/>
+''' 
+''' (1) The jpeg comment, if it exists, is not stored in the pix.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -224,28 +228,32 @@ End Function
 ' pixWriteStreamJpeg(fp, pixs, quality, progressive) as Integer
 ' pixWriteStreamJpeg(FILE *, PIX *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Progressive encoding gives better compression, at the<para/>
+''' 
+''' (1) Progressive encoding gives better compression, at the
 ''' expense of slower encoding and decoding.<para/>
-''' (2) Standard chroma subsampling is 2x2 on both the U and V<para/>
-''' channels.  For highest quality, use no subsampling this<para/>
+''' 
+''' (2) Standard chroma subsampling is 2x2 on both the U and V
+''' channels.  For highest quality, use no subsampling this
 ''' option is set by pixSetChromaSampling(pix, 0).<para/>
-''' (3) The only valid pixel depths in leptonica are 1, 2, 4, 8, 16<para/>
-''' and 32 bpp.  However, it is possible, and in some cases desirable,<para/>
-''' to write out a jpeg file using an rgb pix that has 24 bpp.<para/>
-''' This can be created by appending the raster data for a 24 bpp<para/>
-''' image (with proper scanline padding) directly to a 24 bpp<para/>
+''' 
+''' (3) The only valid pixel depths in leptonica are 1, 2, 4, 8, 16
+''' and 32 bpp.  However, it is possible, and in some cases desirable,
+''' to write out a jpeg file using an rgb pix that has 24 bpp.
+''' This can be created by appending the raster data for a 24 bpp
+''' image (with proper scanline padding) directly to a 24 bpp
 ''' pix that was created without a data array.<para/>
-''' (4) There are two compression paths in this function:<para/>
-''' Grayscale image, no colormap: compress as 8 bpp image.<para/>
-''' rgb full color image: copy each line into the color<para/>
+''' 
+''' (4) There are two compression paths in this function:
+''' Grayscale image, no colormap: compress as 8 bpp image.
+''' rgb full color image: copy each line into the color
 ''' line buffer, and compress as three 8 bpp images.<para/>
-''' (5) Under the covers, the jpeg library transforms rgb to a<para/>
-''' luminance-chromaticity triple, each component of which is<para/>
-''' also 8 bits, and compresses that.  It uses 2 Huffman tables,<para/>
-''' a higher resolution one (with more quantization levels)<para/>
-''' for luminosity and a lower resolution one for the chromas.<para/>
+''' 
+''' (5) Under the covers, the jpeg library transforms rgb to a
+''' luminance-chromaticity triple, each component of which is
+''' also 8 bits, and compresses that.  It uses 2 Huffman tables,
+''' a higher resolution one (with more quantization levels)
+''' for luminosity and a lower resolution one for the chromas.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -273,12 +281,14 @@ End Function
 ' pixReadMemJpeg(data, size, cmflag, reduction, pnwarn, hint) as Pix
 ' pixReadMemJpeg(const l_uint8 *, size_t, l_int32, l_int32, l_int32 *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The %size byte of %data must be a null character.<para/>
-''' (2) The only hint flag so far is L_JPEG_READ_LUMINANCE,<para/>
+''' 
+''' (2) The only hint flag so far is L_JPEG_READ_LUMINANCE,
 ''' given in the enum in imageio.h.<para/>
-''' (3) See pixReadJpeg() for usage.<para/>
+''' 
+''' (3) See pixReadJpeg() for usage.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -366,10 +376,10 @@ End Function
 ' pixWriteMemJpeg(pdata, psize, pix, quality, progressive) as Integer
 ' pixWriteMemJpeg(l_uint8 **, size_t *, PIX *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See pixWriteStreamJpeg() for usage.  This version writes to<para/>
-''' memory instead of to a file stream.<para/>
+''' 
+''' (1) See pixWriteStreamJpeg() for usage.  This version writes to
+''' memory instead of to a file stream.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -401,12 +411,12 @@ End Function
 ' pixSetChromaSampling(pix, sampling) as Integer
 ' pixSetChromaSampling(PIX *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The default is for 2x2 chroma subsampling because the files are<para/>
-''' considerably smaller and the appearance is typically satisfactory.<para/>
-''' To get full resolution output in the chroma channels for<para/>
-''' jpeg writing, call this with %sampling == 0.<para/>
+''' 
+''' (1) The default is for 2x2 chroma subsampling because the files are
+''' considerably smaller and the appearance is typically satisfactory.
+''' To get full resolution output in the chroma channels for
+''' jpeg writing, call this with %sampling == 0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

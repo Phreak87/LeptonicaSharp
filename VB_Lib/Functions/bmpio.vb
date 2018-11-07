@@ -7,11 +7,11 @@ Partial Public Class _All
 ' pixReadStreamBmp(fp) as Pix
 ' pixReadStreamBmp(FILE *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Here are references on the bmp file format:<para/>
-''' http://en.wikipedia.org/wiki/BMP_file_format<para/>
-''' http://www.fortunecity.com/skyscraper/windows/364/bmpffrmt.html<para/>
+''' 
+''' (1) Here are references on the bmp file format:
+''' http://en.wikipedia.org/wiki/BMP_file_format
+''' http://www.fortunecity.com/skyscraper/windows/364/bmpffrmt.html
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -75,17 +75,20 @@ End Function
 ' pixWriteMemBmp(pfdata, pfsize, pixs) as Integer
 ' pixWriteMemBmp(l_uint8 **, size_t *, PIX *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) 2 bpp bmp files are not valid in the spec, and are<para/>
+''' 
+''' (1) 2 bpp bmp files are not valid in the spec, and are
 ''' written as 8 bpp.<para/>
-''' (2) pix with depth  is lower = 8 bpp are written with a colormap.<para/>
+''' 
+''' (2) pix with depth smaller or equal 8 bpp are written with a colormap.
 ''' 16 bpp gray and 32 bpp rgb pix are written without a colormap.<para/>
-''' (3) The transparency component in an rgb pix is ignored.<para/>
+''' 
+''' (3) The transparency component in an rgb pix is ignored.
 ''' All 32 bpp pix have the bmp alpha component set to 255 (opaque).<para/>
-''' (4) The bmp colormap entries, RGBA_QUAD, are the same as<para/>
-''' the ones used for colormaps in leptonica.  This allows<para/>
-''' a simple memcpy for bmp output.<para/>
+''' 
+''' (4) The bmp colormap entries, RGBA_QUAD, are the same as
+''' the ones used for colormaps in leptonica.  This allows
+''' a simple memcpy for bmp output.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

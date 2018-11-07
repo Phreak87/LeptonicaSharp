@@ -45,10 +45,10 @@ End Function
 ' sarrayCreateWordsFromString(string) as Sarray
 ' sarrayCreateWordsFromString(const char *) as SARRAY *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This finds the number of word substrings, creates an sarray<para/>
-''' of this size, and puts copies of each substring into the sarray.<para/>
+''' 
+''' (1) This finds the number of word substrings, creates an sarray
+''' of this size, and puts copies of each substring into the sarray.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -69,12 +69,13 @@ End Function
 ' sarrayCreateLinesFromString(string, blankflag) as Sarray
 ' sarrayCreateLinesFromString(const char *, l_int32) as SARRAY *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This finds the number of line substrings, each of which<para/>
-''' ends with a newline, and puts a copy of each substring<para/>
+''' 
+''' (1) This finds the number of line substrings, each of which
+''' ends with a newline, and puts a copy of each substring
 ''' in a new sarray.<para/>
-''' (2) The newline characters are removed from each substring.<para/>
+''' 
+''' (2) The newline characters are removed from each substring.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -97,10 +98,11 @@ End Function
 ' sarrayDestroy(psa) as Object
 ' sarrayDestroy(SARRAY **) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Decrements the ref count and, if 0, destroys the sarray.<para/>
-''' (2) Always nulls the input ptr.<para/>
+''' 
+''' (2) Always nulls the input ptr.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -158,10 +160,10 @@ End Function
 ' sarrayAddString(sa, string, copyflag) as Integer
 ' sarrayAddString(SARRAY *, const char *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See usage comments at the top of this file.  L_INSERT is<para/>
-''' equivalent to L_NOCOPY.<para/>
+''' 
+''' (1) See usage comments at the top of this file.  L_INSERT is
+''' equivalent to L_NOCOPY.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -206,13 +208,14 @@ End Function
 ' sarrayReplaceString(sa, index, newstr, copyflag) as Integer
 ' sarrayReplaceString(SARRAY *, l_int32, char *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This destroys an existing string and replaces it with<para/>
+''' 
+''' (1) This destroys an existing string and replaces it with
 ''' the new string or a copy of it.<para/>
-''' (2) By design, an sarray is always compacted, so there are<para/>
-''' never any holes (null ptrs) in the ptr array up to the<para/>
-''' current count.<para/>
+''' 
+''' (2) By design, an sarray is always compacted, so there are
+''' never any holes (null ptrs) in the ptr array up to the
+''' current count.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -276,10 +279,10 @@ End Function
 ' sarrayGetArray(sa, pnalloc, pn) as String()
 ' sarrayGetArray(SARRAY *, l_int32 *, l_int32 *) as char **
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Caution: the returned array is not a copy, so caller<para/>
-''' must not destroy it!<para/>
+''' 
+''' (1) Caution: the returned array is not a copy, so caller
+''' must not destroy it!
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -307,11 +310,12 @@ End Function
 ' sarrayGetString(sa, index, copyflag) as String
 ' sarrayGetString(SARRAY *, l_int32, l_int32) as char *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) See usage comments at the top of this file.<para/>
-''' (2) To get a pointer to the string itself, use L_NOCOPY.<para/>
-''' To get a copy of the string, use L_COPY.<para/>
+''' 
+''' (2) To get a pointer to the string itself, use L_NOCOPY.
+''' To get a copy of the string, use L_COPY.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -374,16 +378,18 @@ End Function
 ' sarrayToString(sa, addnlflag) as String
 ' sarrayToString(SARRAY *, l_int32) as char *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Concatenates all the strings in the sarray, preserving<para/>
+''' 
+''' (1) Concatenates all the strings in the sarray, preserving
 ''' all white space.<para/>
-''' (2) If addnlflag != 0, adds either a '\n' or a ' ' after<para/>
+''' 
+''' (2) If addnlflag != 0, adds either a '\n' or a ' ' after
 ''' each substring.<para/>
-''' (3) This function was NOT implemented as:<para/>
-''' for (i = 0 i  is lower  n i++)<para/>
-''' strcat(dest, sarrayGetString(sa, i, L_NOCOPY))<para/>
-''' Do you see why?<para/>
+''' 
+''' (3) This function was NOT implemented as:
+''' for (i = 0 i  is smaller n i++)
+''' strcat(dest, sarrayGetString(sa, i, L_NOCOPY))
+''' Do you see why?
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -406,14 +412,16 @@ End Function
 ' sarrayToStringRange(sa, first, nstrings, addnlflag) as String
 ' sarrayToStringRange(SARRAY *, l_int32, l_int32, l_int32) as char *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Concatenates the specified strings inthe sarray, preserving<para/>
+''' 
+''' (1) Concatenates the specified strings inthe sarray, preserving
 ''' all white space.<para/>
-''' (2) If addnlflag != 0, adds either a '\n' or a ' ' after<para/>
+''' 
+''' (2) If addnlflag != 0, adds either a '\n' or a ' ' after
 ''' each substring.<para/>
-''' (3) If the sarray is empty, this returns a string with just<para/>
-''' the character corresponding to %addnlflag.<para/>
+''' 
+''' (3) If the sarray is empty, this returns a string with just
+''' the character corresponding to %addnlflag.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -440,9 +448,9 @@ End Function
 ' sarrayJoin(sa1, sa2) as Integer
 ' sarrayJoin(SARRAY *, SARRAY *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Copies of the strings in sarray2 are added to sarray1.<para/>
+''' 
+''' (1) Copies of the strings in sarray2 are added to sarray1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -466,11 +474,13 @@ End Function
 ' sarrayAppendRange(sa1, sa2, start, end) as Integer
 ' sarrayAppendRange(SARRAY *, SARRAY *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Copies of the strings in sarray2 are added to sarray1.<para/>
+''' 
 ''' (2) The [start ... end] range is truncated if necessary.<para/>
-''' (3) Use end == -1 to append to the end of sa2.<para/>
+''' 
+''' (3) Use end == -1 to append to the end of sa2.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -497,13 +507,13 @@ End Function
 ' sarrayPadToSameSize(sa1, sa2, padstring) as Integer
 ' sarrayPadToSameSize(SARRAY *, SARRAY *, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If two sarrays have different size, this adds enough<para/>
-''' instances of %padstring to the smaller so that they are<para/>
-''' the same size.  It is useful when two or more sarrays<para/>
-''' are being sequenced in parallel, and it is necessary to<para/>
-''' find a valid string at each index.<para/>
+''' 
+''' (1) If two sarrays have different size, this adds enough
+''' instances of %padstring to the smaller so that they are
+''' the same size.  It is useful when two or more sarrays
+''' are being sequenced in parallel, and it is necessary to
+''' find a valid string at each index.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -574,12 +584,13 @@ End Function
 ' sarraySelectBySubstring(sain, substr) as Sarray
 ' sarraySelectBySubstring(SARRAY *, const char *) as SARRAY *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This selects all strings in sain that have substr as a substring.<para/>
-''' Note that we can't use strncmp() because we're looking for<para/>
+''' 
+''' (1) This selects all strings in sain that have substr as a substring.
+''' Note that we can't use strncmp() because we're looking for
 ''' a match to the substring anywhere within each filename.<para/>
-''' (2) If substr == NULL, returns a copy of the sarray.<para/>
+''' 
+''' (2) If substr == NULL, returns a copy of the sarray.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -603,11 +614,11 @@ End Function
 ' sarraySelectByRange(sain, first, last) as Sarray
 ' sarraySelectByRange(SARRAY *, l_int32, l_int32) as SARRAY *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This makes %saout consisting of copies of all strings in %sain<para/>
-''' in the index set [first ... last].  Use %last == 0 to get all<para/>
-''' strings from %first to the last string in the sarray.<para/>
+''' 
+''' (1) This makes %saout consisting of copies of all strings in %sain
+''' in the index set [first ... last].  Use %last == 0 to get all
+''' strings from %first to the last string in the sarray.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -633,27 +644,31 @@ End Function
 ' sarrayParseRange(sa, start, pactualstart, pend, pnewstart, substr, loc) as Integer
 ' sarrayParseRange(SARRAY *, l_int32, l_int32 *, l_int32 *, l_int32 *, const char *, l_int32) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This finds the range of the next set of strings in SA,<para/>
-''' beginning the search at 'start', that does NOT have<para/>
-''' the substring 'substr' either at the indicated location<para/>
-''' in the string or anywhere in the string.  The input<para/>
-''' variable 'loc' is the specified offset within the string<para/>
+''' 
+''' (1) This finds the range of the next set of strings in SA,
+''' beginning the search at 'start', that does NOT have
+''' the substring 'substr' either at the indicated location
+''' in the string or anywhere in the string.  The input
+''' variable 'loc' is the specified offset within the string
 ''' use -1 to indicate 'anywhere in the string'.<para/>
-''' (2) Always check the return value to verify that a valid range<para/>
+''' 
+''' (2) Always check the return value to verify that a valid range
 ''' was found.<para/>
-''' (3) If a valid range is not found, the values of actstart,<para/>
+''' 
+''' (3) If a valid range is not found, the values of actstart,
 ''' end and newstart are all set to the size of sa.<para/>
-''' (4) If this is the last valid range, newstart returns the value n.<para/>
+''' 
+''' (4) If this is the last valid range, newstart returns the value n.
 ''' In use, this should be tested before calling the function.<para/>
-''' (5) Usage example.  To find all the valid ranges in a file<para/>
-''' where the invalid lines begin with two dashes, copy each<para/>
-''' line in the file to a string in an sarray, and do:<para/>
-''' start = 0<para/>
-''' while (!sarrayParseRange(sa, start,  and actstart,  and end,  and start,<para/>
-''' "--", 0))<para/>
-''' fprintf(stderr, "start = %d, end = %d\n", actstart, end)<para/>
+''' 
+''' (5) Usage example.  To find all the valid ranges in a file
+''' where the invalid lines begin with two dashes, copy each
+''' line in the file to a string in an sarray, and do:
+''' start = 0
+''' while (!sarrayParseRange(sa, start, [and]actstart, [and]end, [and]start,
+''' "--", 0))
+''' fprintf(stderr, "start = %d, end = %d\n", actstart, end)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -708,14 +723,15 @@ End Function
 ' sarrayReadStream(fp) as Sarray
 ' sarrayReadStream(FILE *) as SARRAY *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) We store the size of each string along with the string.<para/>
-''' The limit on the number of strings is 2^24.<para/>
+''' 
+''' (1) We store the size of each string along with the string.
+''' The limit on the number of strings is 2^24.
 ''' The limit on the size of any string is 2^30 bytes.<para/>
-''' (2) This allows a string to have embedded newlines.  By reading<para/>
-''' the entire string, as determined by its size, we are<para/>
-''' not affected by any number of embedded newlines.<para/>
+''' 
+''' (2) This allows a string to have embedded newlines.  By reading
+''' the entire string, as determined by its size, we are
+''' not affected by any number of embedded newlines.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -781,10 +797,10 @@ End Function
 ' sarrayWriteStream(fp, sa) as Integer
 ' sarrayWriteStream(FILE *, SARRAY *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This appends a '\n' to each string, which is stripped<para/>
-''' off by sarrayReadStream().<para/>
+''' 
+''' (1) This appends a '\n' to each string, which is stripped
+''' off by sarrayReadStream().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -808,9 +824,9 @@ End Function
 ' sarrayWriteMem(pdata, psize, sa) as Integer
 ' sarrayWriteMem(l_uint8 **, size_t *, SARRAY *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Serializes a sarray in memory and puts the result in a buffer.<para/>
+''' 
+''' (1) Serializes a sarray in memory and puts the result in a buffer.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -861,33 +877,38 @@ End Function
 ' getNumberedPathnamesInDirectory(dirname, substr, numpre, numpost, maxnum) as Sarray
 ' getNumberedPathnamesInDirectory(const char *, const char *, l_int32, l_int32, l_int32) as SARRAY *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Returns the full pathnames of the numbered filenames in<para/>
-''' the directory.  The number in the filename is the index<para/>
-''' into the sarray.  For indices for which there are no filenames,<para/>
-''' an empty string ("") is placed into the sarray.<para/>
-''' This makes reading numbered files very simple.  For example,<para/>
-''' the image whose filename includes number N can be retrieved using<para/>
+''' 
+''' (1) Returns the full pathnames of the numbered filenames in
+''' the directory.  The number in the filename is the index
+''' into the sarray.  For indices for which there are no filenames,
+''' an empty string ("") is placed into the sarray.
+''' This makes reading numbered files very simple.  For example,
+''' the image whose filename includes number N can be retrieved using
 ''' pixReadIndexed(sa, N)<para/>
-''' (2) If %substr is not NULL, only filenames that contain<para/>
-''' the substring can be included.  If %substr is NULL,<para/>
+''' 
+''' (2) If %substr is not NULL, only filenames that contain
+''' the substring can be included.  If %substr is NULL,
 ''' all matching filenames are used.<para/>
-''' (3) If no numbered files are found, it returns an empty sarray,<para/>
+''' 
+''' (3) If no numbered files are found, it returns an empty sarray,
 ''' with no initialized strings.<para/>
-''' (4) It is assumed that the page number is contained within<para/>
-''' the basename (the filename without directory or extension).<para/>
-''' %numpre is the number of characters in the basename<para/>
-''' preceding the actual page number %numpost is the number<para/>
-''' following the page number, up to either the end of the<para/>
+''' 
+''' (4) It is assumed that the page number is contained within
+''' the basename (the filename without directory or extension).
+''' %numpre is the number of characters in the basename
+''' preceding the actual page number %numpost is the number
+''' following the page number, up to either the end of the
 ''' basename or a ".", whichever comes first.<para/>
-''' (5) This is useful when all filenames contain numbers that are<para/>
+''' 
+''' (5) This is useful when all filenames contain numbers that are
 ''' not necessarily consecutive.  0-padding is not required.<para/>
-''' (6) To use a O(n) matching algorithm, the largest page number<para/>
-''' is found and two internal arrays of this size are created.<para/>
-''' This maximum is constrained not to exceed %maxsum,<para/>
-''' to make sure that an unrealistically large number is not<para/>
-''' accidentally used to determine the array sizes.<para/>
+''' 
+''' (6) To use a O(n) matching algorithm, the largest page number
+''' is found and two internal arrays of this size are created.
+''' This maximum is constrained not to exceed %maxsum,
+''' to make sure that an unrealistically large number is not
+''' accidentally used to determine the array sizes.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -917,15 +938,17 @@ End Function
 ' getSortedPathnamesInDirectory(dirname, substr, first, nfiles) as Sarray
 ' getSortedPathnamesInDirectory(const char *, const char *, l_int32, l_int32) as SARRAY *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Use %substr to filter filenames in the directory.  If<para/>
+''' 
+''' (1) Use %substr to filter filenames in the directory.  If
 ''' %substr == NULL, this takes all files.<para/>
-''' (2) The files in the directory, after optional filtering by<para/>
-''' the substring, are lexically sorted in increasing order.<para/>
+''' 
+''' (2) The files in the directory, after optional filtering by
+''' the substring, are lexically sorted in increasing order.
 ''' Use %first and %nfiles to select a contiguous set of files.<para/>
-''' (3) The full pathnames are returned for the requested sequence.<para/>
-''' If no files are found after filtering, returns an empty sarray.<para/>
+''' 
+''' (3) The full pathnames are returned for the requested sequence.
+''' If no files are found after filtering, returns an empty sarray.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -953,10 +976,10 @@ End Function
 ' convertSortedToNumberedPathnames(sa, numpre, numpost, maxnum) as Sarray
 ' convertSortedToNumberedPathnames(SARRAY *, l_int32, l_int32, l_int32) as SARRAY *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Typically, numpre = numpost = 0 e.g., when the filename<para/>
-''' just has a number followed by an optional extension.<para/>
+''' 
+''' (1) Typically, numpre = numpost = 0 e.g., when the filename
+''' just has a number followed by an optional extension.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

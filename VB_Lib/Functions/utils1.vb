@@ -7,14 +7,15 @@ Partial Public Class _All
 ' setMsgSeverity(newsev) as Integer
 ' setMsgSeverity(l_int32) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) setMsgSeverity() allows the user to specify the desired<para/>
-''' message severity threshold.  Messages of equal or greater<para/>
-''' severity will be output.  The previous message severity is<para/>
+''' 
+''' (1) setMsgSeverity() allows the user to specify the desired
+''' message severity threshold.  Messages of equal or greater
+''' severity will be output.  The previous message severity is
 ''' returned when the new severity is set.<para/>
-''' (2) If L_SEVERITY_EXTERNAL is passed, then the severity will be<para/>
-''' obtained from the LEPT_MSG_SEVERITY environment variable.<para/>
+''' 
+''' (2) If L_SEVERITY_EXTERNAL is passed, then the severity will be
+''' obtained from the LEPT_MSG_SEVERITY environment variable.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -192,15 +193,18 @@ End Function
 ' fileCorruptByDeletion(filein, loc, size, fileout) as Integer
 ' fileCorruptByDeletion(const char *, l_float32, l_float32, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) %loc and %size are expressed as a fraction of the file size.<para/>
-''' (2) This makes a copy of the data in %filein, where bytes in the<para/>
+''' 
+''' (2) This makes a copy of the data in %filein, where bytes in the
 ''' specified region have deleted.<para/>
-''' (3) If (%loc + %size)  is greater = 1.0, this deletes from the position<para/>
+''' 
+''' (3) If (%loc + %size) greater or equal 1.0, this deletes from the position
 ''' represented by %loc to the end of the file.<para/>
-''' (4) It is useful for testing robustness of I/O wrappers when the<para/>
-''' data is corrupted, by simulating data corruption by deletion.<para/>
+''' 
+''' (4) It is useful for testing robustness of I/O wrappers when the
+''' data is corrupted, by simulating data corruption by deletion.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -228,15 +232,18 @@ End Function
 ' fileCorruptByMutation(filein, loc, size, fileout) as Integer
 ' fileCorruptByMutation(const char *, l_float32, l_float32, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) %loc and %size are expressed as a fraction of the file size.<para/>
-''' (2) This makes a copy of the data in %filein, where bytes in the<para/>
+''' 
+''' (2) This makes a copy of the data in %filein, where bytes in the
 ''' specified region have been replaced by random data.<para/>
-''' (3) If (%loc + %size)  is greater = 1.0, this modifies data from the position<para/>
+''' 
+''' (3) If (%loc + %size) greater or equal 1.0, this modifies data from the position
 ''' represented by %loc to the end of the file.<para/>
-''' (4) It is useful for testing robustness of I/O wrappers when the<para/>
-''' data is corrupted, by simulating data corruption.<para/>
+''' 
+''' (4) It is useful for testing robustness of I/O wrappers when the
+''' data is corrupted, by simulating data corruption.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -264,15 +271,15 @@ End Function
 ' genRandomIntegerInRange(range, seed, pval) as Integer
 ' genRandomIntegerInRange(l_int32, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For example, to choose a rand integer between 0 and 99,<para/>
-''' use %range = 100.<para/>
+''' 
+''' (1) For example, to choose a rand integer between 0 and 99,
+''' use %range = 100.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/genRandomIntegerInRange/*"/>
-'''  <param name="range">[in] - size of range must be  is greater = 2</param>
+'''  <param name="range">[in] - size of range must be greater or equal 2</param>
 '''  <param name="seed">[in] - use 0 to skip otherwise call srand</param>
 '''  <param name="pval">[out] - random integer in range {0 ... range-1}</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -290,12 +297,12 @@ End Function
 ' lept_roundftoi(fval) as Integer
 ' lept_roundftoi(l_float32) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For fval  is greater = 0, fval -- is greater  round(fval) == floor(fval + 0.5)<para/>
-''' For fval  is lower  0, fval -- is greater  -round(-fval))<para/>
-''' This is symmetric around 0.<para/>
-''' e.g., for fval in (-0.5 ... 0.5), fval -- is greater  0<para/>
+''' 
+''' (1) For fval greater or equal 0, fval to round(fval) == floor(fval + 0.5)
+''' For fval  is smaller 0, fval to -round(-fval))
+''' This is symmetric around 0.
+''' e.g., for fval in (-0.5 ... 0.5), fval to 0
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -314,19 +321,21 @@ End Function
 ' l_hashStringToUint64(str, phash) as Integer
 ' l_hashStringToUint64(const char *, l_uint64 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The intent of the hash is to avoid collisions by mapping<para/>
+''' 
+''' (1) The intent of the hash is to avoid collisions by mapping
 ''' the string as randomly as possible into 64 bits.<para/>
-''' (2) To the extent that the hashes are random, the probability of<para/>
-''' a collision can be approximated by the square of the number<para/>
-''' of strings divided by 2^64.  For 1 million strings, the<para/>
+''' 
+''' (2) To the extent that the hashes are random, the probability of
+''' a collision can be approximated by the square of the number
+''' of strings divided by 2^64.  For 1 million strings, the
 ''' collision probability is about 1 in 16 million.<para/>
-''' (3) I expect non-randomness of the distribution to be most evident<para/>
-''' for small text strings.  This hash function has been tested<para/>
-''' for all 5-character text strings composed of 26 letters,<para/>
-''' of which there are 26^5 = 12356630.  There are no hash<para/>
-''' collisions for this set.<para/>
+''' 
+''' (3) I expect non-randomness of the distribution to be most evident
+''' for small text strings.  This hash function has been tested
+''' for all 5-character text strings composed of 26 letters,
+''' of which there are 26^5 = 12356630.  There are no hash
+''' collisions for this set.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -351,19 +360,20 @@ End Function
 ' l_hashPtToUint64(x, y, phash) as Integer
 ' l_hashPtToUint64(l_int32, l_int32, l_uint64 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) I found that a simple hash function has no collisions for<para/>
+''' 
+''' (1) I found that a simple hash function has no collisions for
 ''' any of 400 million points with x and y up to 20000.<para/>
-''' (2) Previously used a much more complicated and slower function:<para/>
-''' mulp = 26544357894361<para/>
-''' hash = 104395301<para/>
-''' hash += (x  mulp) ^ (hash  is greater  is greater  5)<para/>
-''' hash ^= (hash  is lower  is lower  7)<para/>
-''' hash += (y  mulp) ^ (hash  is greater  is greater  7)<para/>
-''' hash = hash ^ (hash  is lower  is lower  11)<para/>
-''' Such logical gymnastics to get coverage over the 2^64<para/>
-''' values are not required.<para/>
+''' 
+''' (2) Previously used a much more complicated and slower function:
+''' mulp = 26544357894361
+''' hash = 104395301
+''' hash += (x  mulp) ^ (hash  is greater  is greater  5)
+''' hash ^= (hash  is smaller is smaller 7)
+''' hash += (y  mulp) ^ (hash  is greater  is greater  7)
+''' hash = hash ^ (hash  is smaller is smaller 11)
+''' Such logical gymnastics to get coverage over the 2^64
+''' values are not required.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -388,21 +398,23 @@ End Function
 ' l_hashFloat64ToUint64(nbuckets, val, phash) as Integer
 ' l_hashFloat64ToUint64(l_int32, l_float64, l_uint64 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Simple, fast hash for using dnaHash with 64-bit data<para/>
+''' 
+''' (1) Simple, fast hash for using dnaHash with 64-bit data
 ''' (e.g., sets and histograms).<para/>
-''' (2) The resulting hash is called a "key" in a lookup<para/>
-''' operation.  The bucket for %val in a dnaHash is simply<para/>
-''' found by taking the mod of the hash with the number of<para/>
-''' buckets (which is prime).  What gets stored in the<para/>
-''' dna in that bucket could depend on use, but for the most<para/>
-''' flexibility, we store an index into the associated dna.<para/>
-''' This is all that is required for generating either a hash set<para/>
+''' 
+''' (2) The resulting hash is called a "key" in a lookup
+''' operation.  The bucket for %val in a dnaHash is simply
+''' found by taking the mod of the hash with the number of
+''' buckets (which is prime).  What gets stored in the
+''' dna in that bucket could depend on use, but for the most
+''' flexibility, we store an index into the associated dna.
+''' This is all that is required for generating either a hash set
 ''' or a histogram (an example of a hash map).<para/>
-''' (3) For example, to generate a histogram, the histogram dna,<para/>
-''' a histogram of unique values aligned with the histogram dna,<para/>
-''' and a dnahash hashmap are built.  See l_dnaMakeHistoByHash().<para/>
+''' 
+''' (3) For example, to generate a histogram, the histogram dna,
+''' a histogram of unique values aligned with the histogram dna,
+''' and a dnahash hashmap are built.  See l_dnaMakeHistoByHash().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -469,10 +481,10 @@ End Function
 ' convertIntToGrayCode(val) as UInteger
 ' convertIntToGrayCode(l_uint32) as l_uint32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Gray code values corresponding to integers differ by<para/>
-''' only one bit transition between successive integers.<para/>
+''' 
+''' (1) Gray code values corresponding to integers differ by
+''' only one bit transition between successive integers.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -595,13 +607,14 @@ End Sub
 ' startWallTimer() as L_WallTimer
 ' startWallTimer() as L_WALLTIMER *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) These measure the wall clock time  elapsed between the two calls:<para/>
-''' L_WALLTIMER timer = startWallTimer()<para/>
-''' ....<para/>
-''' fprintf(stderr, "Elapsed time = %f sec\n", stopWallTimer( and timer)<para/>
-''' (2) Note that the timer object is destroyed by stopWallTimer().<para/>
+''' 
+''' (1) These measure the wall clock time  elapsed between the two calls:
+''' L_WALLTIMER timer = startWallTimer()
+''' ....
+''' fprintf(stderr, "Elapsed time = %f sec\n", stopWallTimer([and]timer)<para/>
+''' 
+''' (2) Note that the timer object is destroyed by stopWallTimer().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -638,11 +651,12 @@ End Function
 ' l_getFormattedDate() as String
 ' l_getFormattedDate() as char *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is used in pdf, in the form specified in section 3.8.2 of<para/>
+''' 
+''' (1) This is used in pdf, in the form specified in section 3.8.2 of
 ''' http://partners.adobe.com/public/developer/en/pdf/PDFReference.pdf<para/>
-''' (2) Contributed by Dave Bryan.  Works on all platforms.<para/>
+''' 
+''' (2) Contributed by Dave Bryan.  Works on all platforms.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

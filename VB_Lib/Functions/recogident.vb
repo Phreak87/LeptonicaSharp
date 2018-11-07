@@ -7,16 +7,18 @@ Partial Public Class _All
 ' recogIdentifyMultiple(recog, pixs, minh, skipsplit, pboxa, ppixa, ppixdb, debugsplit) as Integer
 ' recogIdentifyMultiple(L_RECOG *, PIX *, l_int32, l_int32, BOXA **, PIXA **, PIX **, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This filters the input pixa and calls recogIdentifyPixa()<para/>
-''' (2) Splitting is relatively slow, because it tries to match all<para/>
+''' 
+''' (2) Splitting is relatively slow, because it tries to match all
 ''' character templates to all locations.  This step can be skipped.<para/>
-''' (3) An attempt is made to order the (optionally) returned images<para/>
-''' and boxes in 2-dimensional sorted order.  These can then<para/>
-''' be used to aggregate identified characters into numbers or words.<para/>
-''' One typically wants the pixa, which contains a boxa of the<para/>
-''' extracted subimages.<para/>
+''' 
+''' (3) An attempt is made to order the (optionally) returned images
+''' and boxes in 2-dimensional sorted order.  These can then
+''' be used to aggregate identified characters into numbers or words.
+''' One typically wants the pixa, which contains a boxa of the
+''' extracted subimages.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -59,20 +61,22 @@ End Function
 ' recogSplitIntoCharacters(recog, pixs, minh, skipsplit, pboxa, ppixa, debug) as Integer
 ' recogSplitIntoCharacters(L_RECOG *, PIX *, l_int32, l_int32, BOXA **, PIXA **, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This can be given an image that has an arbitrary number<para/>
-''' of text characters.  It optionally splits connected<para/>
-''' components based on document image decoding in recogDecode().<para/>
-''' The returned pixa includes the boxes from which the<para/>
+''' 
+''' (1) This can be given an image that has an arbitrary number
+''' of text characters.  It optionally splits connected
+''' components based on document image decoding in recogDecode().
+''' The returned pixa includes the boxes from which the
 ''' (possibly split) components are extracted.<para/>
-''' (2) After noise filtering, the resulting components are put in<para/>
-''' row-major (2D) order, and the smaller of overlapping<para/>
-''' components are removed if they satisfy conditions of<para/>
+''' 
+''' (2) After noise filtering, the resulting components are put in
+''' row-major (2D) order, and the smaller of overlapping
+''' components are removed if they satisfy conditions of
 ''' relative size and fractional overlap.<para/>
-''' (3) Note that the splitting function uses unscaled templates<para/>
-''' and does not bother returning the class results and scores.<para/>
-''' These are more accurately found later using the scaled templates.<para/>
+''' 
+''' (3) Note that the splitting function uses unscaled templates
+''' and does not bother returning the class results and scores.
+''' These are more accurately found later using the scaled templates.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -111,12 +115,13 @@ End Function
 ' recogCorrelationBestRow(recog, pixs, pboxa, pnascore, pnaindex, psachar, debug) as Integer
 ' recogCorrelationBestRow(L_RECOG *, PIX *, BOXA **, NUMA **, NUMA **, SARRAY **, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Supervises character matching for (in general) a c.c with<para/>
-''' multiple touching characters.  Finds the best match greedily.<para/>
+''' 
+''' (1) Supervises character matching for (in general) a c.c with
+''' multiple touching characters.  Finds the best match greedily.
 ''' Rejects small parts that are left over after splitting.<para/>
-''' (2) Matching is to the average, and without character scaling.<para/>
+''' 
+''' (2) Matching is to the average, and without character scaling.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -159,14 +164,15 @@ End Function
 ' recogCorrelationBestChar(recog, pixs, pbox, pscore, pindex, pcharstr, ppixdb) as Integer
 ' recogCorrelationBestChar(L_RECOG *, PIX *, BOX **, l_float32 *, l_int32 *, char **, PIX **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Basic matching character splitter.  Finds the best match among<para/>
-''' all templates to some region of the image.  This can result<para/>
-''' in splitting the image into two parts.  This is "image decoding"<para/>
-''' without dynamic programming, because we don't use a setwidth<para/>
+''' 
+''' (1) Basic matching character splitter.  Finds the best match among
+''' all templates to some region of the image.  This can result
+''' in splitting the image into two parts.  This is "image decoding"
+''' without dynamic programming, because we don't use a setwidth
 ''' and compute the best matching score for the entire image.<para/>
-''' (2) Matching is to the average templates, without character scaling.<para/>
+''' 
+''' (2) Matching is to the average templates, without character scaling.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -206,14 +212,15 @@ End Function
 ' recogIdentifyPixa(recog, pixa, ppixdb) as Integer
 ' recogIdentifyPixa(L_RECOG *, PIXA *, PIX **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This should be called by recogIdentifyMuliple(), which<para/>
+''' 
+''' (1) This should be called by recogIdentifyMuliple(), which
 ''' binarizes and splits characters before sending %pixa here.<para/>
-''' (2) This calls recogIdentifyPix(), which does the same operation<para/>
-''' on each pix in %pixa, and optionally returns the arrays<para/>
-''' of results (scores, class index and character string)<para/>
-''' for the best correlation match.<para/>
+''' 
+''' (2) This calls recogIdentifyPix(), which does the same operation
+''' on each pix in %pixa, and optionally returns the arrays
+''' of results (scores, class index and character string)
+''' for the best correlation match.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -242,22 +249,25 @@ End Function
 ' recogIdentifyPix(recog, pixs, ppixdb) as Integer
 ' recogIdentifyPix(L_RECOG *, PIX *, PIX **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Basic recognition function for a single character.<para/>
-''' (2) If templ_use == L_USE_ALL_TEMPLATES, which is the default<para/>
-''' situation, matching is attempted to every bitmap in the recog,<para/>
+''' 
+''' (2) If templ_use == L_USE_ALL_TEMPLATES, which is the default
+''' situation, matching is attempted to every bitmap in the recog,
 ''' and the identify of the best match is returned.<para/>
-''' (3) For finding outliers, templ_use == L_USE_AVERAGE_TEMPLATES, and<para/>
-''' matching is only attemplted to the averaged bitmaps.  For this<para/>
-''' case, the index of the bestsample is meaningless (0 is returned<para/>
+''' 
+''' (3) For finding outliers, templ_use == L_USE_AVERAGE_TEMPLATES, and
+''' matching is only attemplted to the averaged bitmaps.  For this
+''' case, the index of the bestsample is meaningless (0 is returned
 ''' if requested).<para/>
-''' (4) The score is related to the confidence (probability of correct<para/>
-''' identification), in that a higher score is correlated with<para/>
-''' a higher probability.  However, the actual relation between<para/>
-''' the correlation (score) and the probability is not known<para/>
-''' we call this a "score" because "confidence" can be misinterpreted<para/>
-''' as an actual probability.<para/>
+''' 
+''' (4) The score is related to the confidence (probability of correct
+''' identification), in that a higher score is correlated with
+''' a higher probability.  However, the actual relation between
+''' the correlation (score) and the probability is not known
+''' we call this a "score" because "confidence" can be misinterpreted
+''' as an actual probability.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -286,10 +296,10 @@ End Function
 ' recogSkipIdentify(recog) as Integer
 ' recogSkipIdentify(L_RECOG *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This just writes a "dummy" result with 0 score and empty<para/>
-''' string id into the rch.<para/>
+''' 
+''' (1) This just writes a "dummy" result with 0 score and empty
+''' string id into the rch.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -344,10 +354,10 @@ End Sub
 ' rchaExtract(rcha, pnaindex, pnascore, psatext, pnasample, pnaxloc, pnayloc, pnawidth) as Integer
 ' rchaExtract(L_RCHA *, NUMA **, NUMA **, SARRAY **, NUMA **, NUMA **, NUMA **, NUMA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This returns clones of the number and string arrays.  They must<para/>
-''' be destroyed by the caller.<para/>
+''' 
+''' (1) This returns clones of the number and string arrays.  They must
+''' be destroyed by the caller.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -431,11 +441,11 @@ End Function
 ' recogProcessToIdentify(recog, pixs, pad) as Pix
 ' recogProcessToIdentify(L_RECOG *, PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a lightweight operation to insure that the input<para/>
-''' image is 1 bpp, properly cropped, and padded on each side.<para/>
-''' If bpp  is greater  1, the image is thresholded.<para/>
+''' 
+''' (1) This is a lightweight operation to insure that the input
+''' image is 1 bpp, properly cropped, and padded on each side.
+''' If bpp  is greater  1, the image is thresholded.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -462,26 +472,31 @@ End Function
 ' recogExtractNumbers(recog, boxas, scorethresh, spacethresh, pbaa, pnaa) as Sarray
 ' recogExtractNumbers(L_RECOG *, BOXA *, l_float32, l_int32, BOXAA **, NUMAA **) as SARRAY *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This extracts digit data after recogaIdentifyMultiple() or<para/>
+''' 
+''' (1) This extracts digit data after recogaIdentifyMultiple() or
 ''' lower-level identification has taken place.<para/>
-''' (2) Each string in the returned sa contains a sequence of ascii<para/>
+''' 
+''' (2) Each string in the returned sa contains a sequence of ascii
 ''' digits in a number.<para/>
-''' (3) The horizontal distance between boxes (limited by %spacethresh)<para/>
+''' 
+''' (3) The horizontal distance between boxes (limited by %spacethresh)
 ''' is the negative of the horizontal overlap.<para/>
-''' (4) Components with a score less than %scorethresh, which may<para/>
-''' be hyphens or other small characters, will signal the<para/>
-''' end of the current sequence of digits in the number.  A typical<para/>
+''' 
+''' (4) Components with a score less than %scorethresh, which may
+''' be hyphens or other small characters, will signal the
+''' end of the current sequence of digits in the number.  A typical
 ''' value for %scorethresh is 0.60.<para/>
-''' (5) We allow two digits to be combined if these conditions apply:<para/>
-''' (a) the first is to the left of the second<para/>
-''' (b) the second has a horizontal separation less than %spacethresh<para/>
-''' (c) the vertical overlap  is greater = 0 (vertical separation  is lower  0)<para/>
+''' 
+''' (5) We allow two digits to be combined if these conditions apply:
+''' (a) the first is to the left of the second
+''' (b) the second has a horizontal separation less than %spacethresh
+''' (c) the vertical overlap greater or equal 0 (vertical separation  is smaller 0)
 ''' (d) both have a score that exceeds %scorethresh<para/>
-''' (6) Each numa in the optionally returned naa contains the digit<para/>
-''' scores of a number.  Each boxa in the optionally returned baa<para/>
-''' contains the bounding boxes of the digits in the number.<para/>
+''' 
+''' (6) Each numa in the optionally returned naa contains the digit
+''' scores of a number.  Each boxa in the optionally returned baa
+''' contains the bounding boxes of the digits in the number.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -519,12 +534,12 @@ End Function
 ' showExtractNumbers(pixs, sa, baa, naa, ppixdb) as Pixa
 ' showExtractNumbers(PIX *, SARRAY *, BOXAA *, NUMAA *, PIX **) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a debugging routine on digit identification e.g.:<para/>
-''' recogIdentifyMultiple(recog, pixs, 0, 1,  and boxa, NULL, NULL, 0)<para/>
-''' sa = recogExtractNumbers(recog, boxa, 0.8, -1,  and baa,  and naa)<para/>
-''' pixa = showExtractNumbers(pixs, sa, baa, naa, NULL)<para/>
+''' 
+''' (1) This is a debugging routine on digit identification e.g.:
+''' recogIdentifyMultiple(recog, pixs, 0, 1, [and]boxa, NULL, NULL, 0)
+''' sa = recogExtractNumbers(recog, boxa, 0.8, -1, [and]baa, [and]naa)
+''' pixa = showExtractNumbers(pixs, sa, baa, naa, NULL)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

@@ -7,13 +7,15 @@ Partial Public Class _All
 ' pixBlockconv(pix, wc, hc) as Pix
 ' pixBlockconv(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The full width and height of the convolution kernel<para/>
+''' 
+''' (1) The full width and height of the convolution kernel
 ''' are (2  wc + 1) and (2  hc + 1)<para/>
+''' 
 ''' (2) Returns a copy if both wc and hc are 0<para/>
-''' (3) Require that w  is greater = 2  wc + 1 and h  is greater = 2  hc + 1,<para/>
-''' where (w,h) are the dimensions of pixs.<para/>
+''' 
+''' (3) Require that w greater or equal 2  wc + 1 and h greater or equal 2  hc + 1,
+''' where (w,h) are the dimensions of pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -39,15 +41,18 @@ End Function
 ' pixBlockconvGray(pixs, pixacc, wc, hc) as Pix
 ' pixBlockconvGray(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If accum pix is null, make one and destroy it before<para/>
+''' 
+''' (1) If accum pix is null, make one and destroy it before
 ''' returning otherwise, just use the input accum pix.<para/>
-''' (2) The full width and height of the convolution kernel<para/>
+''' 
+''' (2) The full width and height of the convolution kernel
 ''' are (2  wc + 1) and (2  hc + 1).<para/>
+''' 
 ''' (3) Returns a copy if both wc and hc are 0.<para/>
-''' (4) Require that w  is greater = 2  wc + 1 and h  is greater = 2  hc + 1,<para/>
-''' where (w,h) are the dimensions of pixs.<para/>
+''' 
+''' (4) Require that w greater or equal 2  wc + 1 and h greater or equal 2  hc + 1,
+''' where (w,h) are the dimensions of pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -78,14 +83,14 @@ End Function
 ' pixBlockconvAccum(pixs) as Pix
 ' pixBlockconvAccum(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The general recursion relation is<para/>
-''' a(i,j) = v(i,j) + a(i-1, j) + a(i, j-1) - a(i-1, j-1)<para/>
-''' For the first line, this reduces to the special case<para/>
-''' a(i,j) = v(i,j) + a(i, j-1)<para/>
-''' For the first column, the special case is<para/>
-''' a(i,j) = v(i,j) + a(i-1, j)<para/>
+''' 
+''' (1) The general recursion relation is
+''' a(i,j) = v(i,j) + a(i-1, j) + a(i, j-1) - a(i-1, j-1)
+''' For the first line, this reduces to the special case
+''' a(i,j) = v(i,j) + a(i, j-1)
+''' For the first column, the special case is
+''' a(i,j) = v(i,j) + a(i-1, j)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -107,32 +112,38 @@ End Function
 ' pixBlockconvGrayUnnormalized(pixs, wc, hc) as Pix
 ' pixBlockconvGrayUnnormalized(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The full width and height of the convolution kernel<para/>
+''' 
+''' (1) The full width and height of the convolution kernel
 ''' are (2  wc + 1) and (2  hc + 1).<para/>
-''' (2) Require that w  is greater = 2  wc + 1 and h  is greater = 2  hc + 1,<para/>
+''' 
+''' (2) Require that w greater or equal 2  wc + 1 and h greater or equal 2  hc + 1,
 ''' where (w,h) are the dimensions of pixs.<para/>
+''' 
 ''' (3) Returns a copy if both wc and hc are 0.<para/>
-''' (3) Adds mirrored border to avoid treating the boundary pixels<para/>
-''' specially.  Note that we add wc + 1 pixels to the left<para/>
-''' and wc to the right.  The added width is 2  wc + 1 pixels,<para/>
-''' and the particular choice simplifies the indexing in the loop.<para/>
+''' 
+''' (3) Adds mirrored border to avoid treating the boundary pixels
+''' specially.  Note that we add wc + 1 pixels to the left
+''' and wc to the right.  The added width is 2  wc + 1 pixels,
+''' and the particular choice simplifies the indexing in the loop.
 ''' Likewise, add hc + 1 pixels to the top and hc to the bottom.<para/>
-''' (4) To get the normalized result, divide by the area of the<para/>
-''' convolution kernel: (2  wc + 1)  (2  hc + 1)<para/>
-''' Specifically, do this:<para/>
-''' pixc = pixBlockconvGrayUnnormalized(pixs, wc, hc)<para/>
-''' fract = 1. / ((2  wc + 1)  (2  hc + 1))<para/>
-''' pixMultConstantGray(pixc, fract)<para/>
+''' 
+''' (4) To get the normalized result, divide by the area of the
+''' convolution kernel: (2  wc + 1)  (2  hc + 1)
+''' Specifically, do this:
+''' pixc = pixBlockconvGrayUnnormalized(pixs, wc, hc)
+''' fract = 1. / ((2  wc + 1)  (2  hc + 1))
+''' pixMultConstantGray(pixc, fract)
 ''' pixd = pixGetRGBComponent(pixc, L_ALPHA_CHANNEL)<para/>
-''' (5) Unlike pixBlockconvGray(), this always computes the accumulation<para/>
+''' 
+''' (5) Unlike pixBlockconvGray(), this always computes the accumulation
 ''' pix because its size is tied to wc and hc.<para/>
-''' (6) Compare this implementation with pixBlockconvGray(), where<para/>
-''' most of the code in blockconvLow() is special casing for<para/>
-''' efficiently handling the boundary.  Here, the use of<para/>
-''' mirrored borders and destination indexing makes the<para/>
-''' implementation very simple.<para/>
+''' 
+''' (6) Compare this implementation with pixBlockconvGray(), where
+''' most of the code in blockconvLow() is special casing for
+''' efficiently handling the boundary.  Here, the use of
+''' mirrored borders and destination indexing makes the
+''' implementation very simple.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -160,26 +171,31 @@ End Function
 ' pixBlockconvTiled(pix, wc, hc, nx, ny) as Pix
 ' pixBlockconvTiled(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The full width and height of the convolution kernel<para/>
+''' 
+''' (1) The full width and height of the convolution kernel
 ''' are (2  wc + 1) and (2  hc + 1)<para/>
+''' 
 ''' (2) Returns a copy if both wc and hc are 0<para/>
-''' (3) Require that w  is greater = 2  wc + 1 and h  is greater = 2  hc + 1,<para/>
+''' 
+''' (3) Require that w greater or equal 2  wc + 1 and h greater or equal 2  hc + 1,
 ''' where (w,h) are the dimensions of pixs.<para/>
-''' (4) For nx == ny == 1, this defaults to pixBlockconv(), which<para/>
-''' is typically about twice as fast, and gives nearly<para/>
+''' 
+''' (4) For nx == ny == 1, this defaults to pixBlockconv(), which
+''' is typically about twice as fast, and gives nearly
 ''' identical results as pixBlockconvGrayTile().<para/>
-''' (5) If the tiles are too small, nx and/or ny are reduced<para/>
-''' a minimum amount so that the tiles are expanded to the<para/>
+''' 
+''' (5) If the tiles are too small, nx and/or ny are reduced
+''' a minimum amount so that the tiles are expanded to the
 ''' smallest workable size in the problematic direction(s).<para/>
-''' (6) Why a tiled version?  Three reasons:<para/>
-''' (a) Because the accumulator is a uint32, overflow can occur<para/>
-''' for an image with more than 16M pixels.<para/>
-''' (b) The accumulator array for 16M pixels is 64 MB using<para/>
-''' tiles reduces the size of this array.<para/>
-''' (c) Each tile can be processed independently, in parallel,<para/>
-''' on a multicore processor.<para/>
+''' 
+''' (6) Why a tiled version?  Three reasons:
+''' (a) Because the accumulator is a uint32, overflow can occur
+''' for an image with more than 16M pixels.
+''' (b) The accumulator array for 16M pixels is 64 MB using
+''' tiles reduces the size of this array.
+''' (c) Each tile can be processed independently, in parallel,
+''' on a multicore processor.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -209,17 +225,20 @@ End Function
 ' pixBlockconvGrayTile(pixs, pixacc, wc, hc) as Pix
 ' pixBlockconvGrayTile(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The full width and height of the convolution kernel<para/>
+''' 
+''' (1) The full width and height of the convolution kernel
 ''' are (2  wc + 1) and (2  hc + 1)<para/>
-''' (2) Assumes that the input pixs is padded with (wc + 1) pixels on<para/>
-''' left and right, and with (hc + 1) pixels on top and bottom.<para/>
-''' The returned pix has these stripped off they are only used<para/>
+''' 
+''' (2) Assumes that the input pixs is padded with (wc + 1) pixels on
+''' left and right, and with (hc + 1) pixels on top and bottom.
+''' The returned pix has these stripped off they are only used
 ''' for computation.<para/>
+''' 
 ''' (3) Returns a copy if both wc and hc are 0<para/>
-''' (4) Require that w  is greater  2  wc + 1 and h  is greater  2  hc + 1,<para/>
-''' where (w,h) are the dimensions of pixs.<para/>
+''' 
+''' (4) Require that w  is greater  2  wc + 1 and h  is greater  2  hc + 1,
+''' where (w,h) are the dimensions of pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -248,29 +267,33 @@ End Function
 ' pixWindowedStats(pixs, wc, hc, hasborder, ppixm, ppixms, pfpixv, pfpixrv) as Integer
 ' pixWindowedStats(PIX *, l_int32, l_int32, l_int32, PIX **, PIX **, FPIX **, FPIX **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a high-level convenience function for calculating<para/>
+''' 
+''' (1) This is a high-level convenience function for calculating
 ''' any or all of these derived images.<para/>
-''' (2) If %hasborder = 0, a border is added and the result is<para/>
-''' computed over all pixels in pixs.  Otherwise, no border is<para/>
+''' 
+''' (2) If %hasborder = 0, a border is added and the result is
+''' computed over all pixels in pixs.  Otherwise, no border is
 ''' added and the border pixels are removed from the output images.<para/>
-''' (3) These statistical measures over the pixels in the<para/>
-''' rectangular window are:<para/>
-''' ~ average value:  is lower p is greater (pixm)<para/>
-''' ~ average squared value:  is lower pp is greater  (pixms)<para/>
-''' ~ variance:  is lower (p -  is lower p is greater )(p -  is lower p is greater ) is greater  =  is lower pp is greater  -  is lower p is greater  is lower p is greater (pixv)<para/>
-''' ~ square-root of variance: (pixrv)<para/>
-''' where the brackets  is lower  ..  is greater  indicate that the average value is<para/>
+''' 
+''' (3) These statistical measures over the pixels in the
+''' rectangular window are:
+''' ~ average value:  is smallerp is greater (pixm)
+''' ~ average squared value:  is smallerpp is greater  (pixms)
+''' ~ variance:  is smaller(p -  is smallerp is greater )(p -  is smallerp is greater ) is greater  =  is smallerpp is greater  -  is smallerp is greater  is smallerp is greater (pixv)
+''' ~ square-root of variance: (pixrv)
+''' where the brackets  is smaller ..  is greater  indicate that the average value is
 ''' to be taken over the window.<para/>
-''' (4) Note that the variance is just the mean square difference from<para/>
-''' the mean value and the square root of the variance is the<para/>
-''' root mean square difference from the mean, sometimes also<para/>
+''' 
+''' (4) Note that the variance is just the mean square difference from
+''' the mean value and the square root of the variance is the
+''' root mean square difference from the mean, sometimes also
 ''' called the 'standard deviation'.<para/>
-''' (5) The added border, along with the use of an accumulator array,<para/>
-''' allows computation without special treatment of pixels near<para/>
-''' the image boundary, and runs in a time that is independent<para/>
-''' of the size of the convolution kernel.<para/>
+''' 
+''' (5) The added border, along with the use of an accumulator array,
+''' allows computation without special treatment of pixels near
+''' the image boundary, and runs in a time that is independent
+''' of the size of the convolution kernel.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -316,23 +339,27 @@ End Function
 ' pixWindowedMean(pixs, wc, hc, hasborder, normflag) as Pix
 ' pixWindowedMean(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The input and output depths are the same.<para/>
-''' (2) A set of border pixels of width (wc + 1) on left and right,<para/>
-''' and of height (hc + 1) on top and bottom, must be on the<para/>
-''' pix before the accumulator is found.  The output pixd<para/>
-''' (after convolution) has this border removed.<para/>
+''' 
+''' (2) A set of border pixels of width (wc + 1) on left and right,
+''' and of height (hc + 1) on top and bottom, must be on the
+''' pix before the accumulator is found.  The output pixd
+''' (after convolution) has this border removed.
 ''' If %hasborder = 0, the required border is added.<para/>
-''' (3) Typically, %normflag == 1.  However, if you want the sum<para/>
-''' within the window, rather than a normalized convolution,<para/>
+''' 
+''' (3) Typically, %normflag == 1.  However, if you want the sum
+''' within the window, rather than a normalized convolution,
 ''' use %normflag == 0.<para/>
-''' (4) This builds a block accumulator pix, uses it here, and<para/>
+''' 
+''' (4) This builds a block accumulator pix, uses it here, and
 ''' destroys it.<para/>
-''' (5) The added border, along with the use of an accumulator array,<para/>
-''' allows computation without special treatment of pixels near<para/>
-''' the image boundary, and runs in a time that is independent<para/>
-''' of the size of the convolution kernel.<para/>
+''' 
+''' (5) The added border, along with the use of an accumulator array,
+''' allows computation without special treatment of pixels near
+''' the image boundary, and runs in a time that is independent
+''' of the size of the convolution kernel.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -362,27 +389,30 @@ End Function
 ' pixWindowedMeanSquare(pixs, wc, hc, hasborder) as Pix
 ' pixWindowedMeanSquare(PIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) A set of border pixels of width (wc + 1) on left and right,<para/>
-''' and of height (hc + 1) on top and bottom, must be on the<para/>
-''' pix before the accumulator is found.  The output pixd<para/>
-''' (after convolution) has this border removed.<para/>
+''' 
+''' (1) A set of border pixels of width (wc + 1) on left and right,
+''' and of height (hc + 1) on top and bottom, must be on the
+''' pix before the accumulator is found.  The output pixd
+''' (after convolution) has this border removed.
 ''' If %hasborder = 0, the required border is added.<para/>
-''' (2) The advantage is that we are unaffected by the boundary, and<para/>
-''' it is not necessary to treat pixels within %wc and %hc of the<para/>
-''' border differently.  This is because processing for pixd<para/>
-''' only takes place for pixels in pixs for which the<para/>
+''' 
+''' (2) The advantage is that we are unaffected by the boundary, and
+''' it is not necessary to treat pixels within %wc and %hc of the
+''' border differently.  This is because processing for pixd
+''' only takes place for pixels in pixs for which the
 ''' kernel is entirely contained in pixs.<para/>
-''' (3) Why do we have an added border of width (%wc + 1) and<para/>
-''' height (%hc + 1), when we only need %wc and %hc pixels<para/>
-''' to satisfy this condition?  Answer: the accumulators<para/>
-''' are asymmetric, requiring an extra row and column of<para/>
+''' 
+''' (3) Why do we have an added border of width (%wc + 1) and
+''' height (%hc + 1), when we only need %wc and %hc pixels
+''' to satisfy this condition?  Answer: the accumulators
+''' are asymmetric, requiring an extra row and column of
 ''' pixels at top and left to work accurately.<para/>
-''' (4) The added border, along with the use of an accumulator array,<para/>
-''' allows computation without special treatment of pixels near<para/>
-''' the image boundary, and runs in a time that is independent<para/>
-''' of the size of the convolution kernel.<para/>
+''' 
+''' (4) The added border, along with the use of an accumulator array,
+''' allows computation without special treatment of pixels near
+''' the image boundary, and runs in a time that is independent
+''' of the size of the convolution kernel.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -412,18 +442,20 @@ End Function
 ' pixWindowedVariance(pixm, pixms, pfpixv, pfpixrv) as Integer
 ' pixWindowedVariance(PIX *, PIX *, FPIX **, FPIX **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The mean and mean square values are precomputed, using<para/>
+''' 
+''' (1) The mean and mean square values are precomputed, using
 ''' pixWindowedMean() and pixWindowedMeanSquare().<para/>
-''' (2) Either or both of the variance and square-root of variance<para/>
-''' are returned as an fpix, where the variance is the<para/>
-''' average over the window of the mean square difference of<para/>
-''' the pixel value from the mean:<para/>
-'''  is lower (p -  is lower p is greater )(p -  is lower p is greater ) is greater  =  is lower pp is greater  -  is lower p is greater  is lower p is greater <para/>
-''' (3) To visualize the results:<para/>
-''' ~ for both, use fpixDisplayMaxDynamicRange().<para/>
-''' ~ for rms deviation, simply convert the output fpix to pix,<para/>
+''' 
+''' (2) Either or both of the variance and square-root of variance
+''' are returned as an fpix, where the variance is the
+''' average over the window of the mean square difference of
+''' the pixel value from the mean:
+'''  is smaller(p -  is smallerp is greater )(p -  is smallerp is greater ) is greater  =  is smallerpp is greater  -  is smallerp is greater  is smallerp is greater <para/>
+''' 
+''' (3) To visualize the results:
+''' ~ for both, use fpixDisplayMaxDynamicRange().
+''' ~ for rms deviation, simply convert the output fpix to pix,
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -456,18 +488,19 @@ End Function
 ' pixMeanSquareAccum(pixs) as DPix
 ' pixMeanSquareAccum(PIX *) as DPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Similar to pixBlockconvAccum(), this computes the<para/>
-''' sum of the squares of the pixel values in such a way<para/>
-''' that the value at (i,j) is the sum of all squares in<para/>
+''' 
+''' (1) Similar to pixBlockconvAccum(), this computes the
+''' sum of the squares of the pixel values in such a way
+''' that the value at (i,j) is the sum of all squares in
 ''' the rectangle from the origin to (i,j).<para/>
-''' (2) The general recursion relation (v are squared pixel values) is<para/>
-''' a(i,j) = v(i,j) + a(i-1, j) + a(i, j-1) - a(i-1, j-1)<para/>
-''' For the first line, this reduces to the special case<para/>
-''' a(i,j) = v(i,j) + a(i, j-1)<para/>
-''' For the first column, the special case is<para/>
-''' a(i,j) = v(i,j) + a(i-1, j)<para/>
+''' 
+''' (2) The general recursion relation (v are squared pixel values) is
+''' a(i,j) = v(i,j) + a(i-1, j) + a(i, j-1) - a(i-1, j-1)
+''' For the first line, this reduces to the special case
+''' a(i,j) = v(i,j) + a(i, j-1)
+''' For the first column, the special case is
+''' a(i,j) = v(i,j) + a(i-1, j)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -491,22 +524,26 @@ End Function
 ' pixBlockrank(pixs, pixacc, wc, hc, rank) as Pix
 ' pixBlockrank(PIX *, PIX *, l_int32, l_int32, l_float32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The full width and height of the convolution kernel<para/>
+''' 
+''' (1) The full width and height of the convolution kernel
 ''' are (2  wc + 1) and (2  hc + 1)<para/>
-''' (2) This returns a pixd where each pixel is a 1 if the<para/>
-''' neighborhood (2  wc + 1) x (2  hc + 1)) pixels<para/>
-''' contains the rank fraction of 1 pixels.  Otherwise,<para/>
-''' the returned pixel is 0.  Note that the special case<para/>
-''' of rank = 0.0 is always satisfied, so the returned<para/>
+''' 
+''' (2) This returns a pixd where each pixel is a 1 if the
+''' neighborhood (2  wc + 1) x (2  hc + 1)) pixels
+''' contains the rank fraction of 1 pixels.  Otherwise,
+''' the returned pixel is 0.  Note that the special case
+''' of rank = 0.0 is always satisfied, so the returned
 ''' pixd has all pixels with value 1.<para/>
-''' (3) If accum pix is null, make one, use it, and destroy it<para/>
+''' 
+''' (3) If accum pix is null, make one, use it, and destroy it
 ''' before returning otherwise, just use the input accum pix<para/>
-''' (4) If both wc and hc are 0, returns a copy unless rank == 0.0,<para/>
+''' 
+''' (4) If both wc and hc are 0, returns a copy unless rank == 0.0,
 ''' in which case this returns an all-ones image.<para/>
-''' (5) Require that w  is greater = 2  wc + 1 and h  is greater = 2  hc + 1,<para/>
-''' where (w,h) are the dimensions of pixs.<para/>
+''' 
+''' (5) Require that w greater or equal 2  wc + 1 and h greater or equal 2  hc + 1,
+''' where (w,h) are the dimensions of pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -540,27 +577,31 @@ End Function
 ' pixBlocksum(pixs, pixacc, wc, hc) as Pix
 ' pixBlocksum(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If accum pix is null, make one and destroy it before<para/>
+''' 
+''' (1) If accum pix is null, make one and destroy it before
 ''' returning otherwise, just use the input accum pix<para/>
-''' (2) The full width and height of the convolution kernel<para/>
+''' 
+''' (2) The full width and height of the convolution kernel
 ''' are (2  wc + 1) and (2  hc + 1)<para/>
-''' (3) Use of wc = hc = 1, followed by pixInvert() on the<para/>
-''' 8 bpp result, gives a nice anti-aliased, and somewhat<para/>
+''' 
+''' (3) Use of wc = hc = 1, followed by pixInvert() on the
+''' 8 bpp result, gives a nice anti-aliased, and somewhat
 ''' darkened, result on text.<para/>
-''' (4) Require that w  is greater = 2  wc + 1 and h  is greater = 2  hc + 1,<para/>
+''' 
+''' (4) Require that w greater or equal 2  wc + 1 and h greater or equal 2  hc + 1,
 ''' where (w,h) are the dimensions of pixs.<para/>
-''' (5) Returns in each dest pixel the sum of all src pixels<para/>
-''' that are within a block of size of the kernel, centered<para/>
-''' on the dest pixel.  This sum is the number of src ON<para/>
-''' pixels in the block at each location, normalized to 255<para/>
-''' for a block containing all ON pixels.  For pixels near<para/>
-''' the boundary, where the block is not entirely contained<para/>
-''' within the image, we then multiply by a second normalization<para/>
-''' factor that is greater than one, so that all results<para/>
-''' are normalized by the number of participating pixels<para/>
-''' within the block.<para/>
+''' 
+''' (5) Returns in each dest pixel the sum of all src pixels
+''' that are within a block of size of the kernel, centered
+''' on the dest pixel.  This sum is the number of src ON
+''' pixels in the block at each location, normalized to 255
+''' for a block containing all ON pixels.  For pixels near
+''' the boundary, where the block is not entirely contained
+''' within the image, we then multiply by a second normalization
+''' factor that is greater than one, so that all results
+''' are normalized by the number of participating pixels
+''' within the block.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -592,24 +633,27 @@ End Function
 ' pixCensusTransform(pixs, halfsize, pixacc) as Pix
 ' pixCensusTransform(PIX *, l_int32, PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The Census transform was invented by Ramin Zabih and John Woodfill<para/>
-''' ("Non-parametric local transforms for computing visual<para/>
-''' correspondence", Third European Conference on Computer Vision,<para/>
-''' Stockholm, Sweden, May 1994) see publications at<para/>
-''' http://www.cs.cornell.edu/~rdz/index.htm<para/>
-''' This compares each pixel against the average of its neighbors,<para/>
-''' in a square of odd dimension centered on the pixel.<para/>
-''' If the pixel is greater than the average of its neighbors,<para/>
+''' 
+''' (1) The Census transform was invented by Ramin Zabih and John Woodfill
+''' ("Non-parametric local transforms for computing visual
+''' correspondence", Third European Conference on Computer Vision,
+''' Stockholm, Sweden, May 1994) see publications at
+''' http://www.cs.cornell.edu/~rdz/index.htm
+''' This compares each pixel against the average of its neighbors,
+''' in a square of odd dimension centered on the pixel.
+''' If the pixel is greater than the average of its neighbors,
 ''' the output pixel value is 1 otherwise it is 0.<para/>
-''' (2) This can be used as an encoding for an image that is<para/>
-''' fairly robust against slow illumination changes, with<para/>
+''' 
+''' (2) This can be used as an encoding for an image that is
+''' fairly robust against slow illumination changes, with
 ''' applications in image comparison and mosaicing.<para/>
-''' (3) The size of the convolution kernel is (2  halfsize + 1)<para/>
-''' on a side.  The halfsize parameter must be  is greater = 1.<para/>
-''' (4) If accum pix is null, make one, use it, and destroy it<para/>
-''' before returning otherwise, just use the input accum pix<para/>
+''' 
+''' (3) The size of the convolution kernel is (2  halfsize + 1)
+''' on a side.  The halfsize parameter must be greater or equal 1.<para/>
+''' 
+''' (4) If accum pix is null, make one, use it, and destroy it
+''' before returning otherwise, just use the input accum pix
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -639,38 +683,45 @@ End Function
 ' pixConvolve(pixs, kel, outdepth, normflag) as Pix
 ' pixConvolve(PIX *, L_KERNEL *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This gives a convolution with an arbitrary kernel.<para/>
-''' (2) The input pixs must have only one sample/pixel.<para/>
+''' 
+''' (2) The input pixs must have only one sample/pixel.
 ''' To do a convolution on an RGB image, use pixConvolveRGB().<para/>
-''' (3) The parameter %outdepth determines the depth of the result.<para/>
-''' If the kernel is normalized to unit sum, the output values<para/>
-''' can never exceed 255, so an output depth of 8 bpp is sufficient.<para/>
-''' If the kernel is not normalized, it may be necessary to use<para/>
+''' 
+''' (3) The parameter %outdepth determines the depth of the result.
+''' If the kernel is normalized to unit sum, the output values
+''' can never exceed 255, so an output depth of 8 bpp is sufficient.
+''' If the kernel is not normalized, it may be necessary to use
 ''' 16 or 32 bpp output to avoid overflow.<para/>
-''' (4) If normflag == 1, the result is normalized by scaling all<para/>
-''' kernel values for a unit sum.  If the sum of kernel values<para/>
-''' is very close to zero, the kernel can not be normalized and<para/>
+''' 
+''' (4) If normflag == 1, the result is normalized by scaling all
+''' kernel values for a unit sum.  If the sum of kernel values
+''' is very close to zero, the kernel can not be normalized and
 ''' the convolution will not be performed.  A warning is issued.<para/>
-''' (5) The kernel values can be positive or negative, but the<para/>
-''' result for the convolution can only be stored as a positive<para/>
-''' number.  Consequently, if it goes negative, the choices are<para/>
-''' to clip to 0 or take the absolute value.  We're choosing<para/>
-''' to take the absolute value.  (Another possibility would be<para/>
-''' to output a second unsigned image for the negative values.)<para/>
-''' If you want to get a clipped result, or to keep the negative<para/>
-''' values in the result, use fpixConvolve(), with the<para/>
+''' 
+''' (5) The kernel values can be positive or negative, but the
+''' result for the convolution can only be stored as a positive
+''' number.  Consequently, if it goes negative, the choices are
+''' to clip to 0 or take the absolute value.  We're choosing
+''' to take the absolute value.  (Another possibility would be
+''' to output a second unsigned image for the negative values.)
+''' If you want to get a clipped result, or to keep the negative
+''' values in the result, use fpixConvolve(), with the
 ''' converters in fpix2.c between pix and fpix.<para/>
-''' (6) This uses a mirrored border to avoid special casing on<para/>
+''' 
+''' (6) This uses a mirrored border to avoid special casing on
 ''' the boundaries.<para/>
-''' (7) To get a subsampled output, call l_setConvolveSampling().<para/>
-''' The time to make a subsampled output is reduced by the<para/>
+''' 
+''' (7) To get a subsampled output, call l_setConvolveSampling().
+''' The time to make a subsampled output is reduced by the
 ''' product of the sampling factors.<para/>
-''' (8) The function is slow, running at about 12 machine cycles for<para/>
-''' each pixel-op in the convolution.  For example, with a 3 GHz<para/>
-''' cpu, a 1 Mpixel grayscale image, and a kernel with<para/>
-''' (sx  sy) = 25 elements, the convolution takes about 100 msec.<para/>
+''' 
+''' (8) The function is slow, running at about 12 machine cycles for
+''' each pixel-op in the convolution.  For example, with a 3 GHz
+''' cpu, a 1 Mpixel grayscale image, and a kernel with
+''' (sx  sy) = 25 elements, the convolution takes about 100 msec.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -699,37 +750,43 @@ End Function
 ' pixConvolveSep(pixs, kelx, kely, outdepth, normflag) as Pix
 ' pixConvolveSep(PIX *, L_KERNEL *, L_KERNEL *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This does a convolution with a separable kernel that is<para/>
-''' is a sequence of convolutions in x and y.  The two<para/>
-''' one-dimensional kernel components must be input separately<para/>
-''' the full kernel is the product of these components.<para/>
+''' 
+''' (1) This does a convolution with a separable kernel that is
+''' is a sequence of convolutions in x and y.  The two
+''' one-dimensional kernel components must be input separately
+''' the full kernel is the product of these components.
 ''' The support for the full kernel is thus a rectangular region.<para/>
-''' (2) The input pixs must have only one sample/pixel.<para/>
+''' 
+''' (2) The input pixs must have only one sample/pixel.
 ''' To do a convolution on an RGB image, use pixConvolveSepRGB().<para/>
-''' (3) The parameter %outdepth determines the depth of the result.<para/>
-''' If the kernel is normalized to unit sum, the output values<para/>
-''' can never exceed 255, so an output depth of 8 bpp is sufficient.<para/>
-''' If the kernel is not normalized, it may be necessary to use<para/>
+''' 
+''' (3) The parameter %outdepth determines the depth of the result.
+''' If the kernel is normalized to unit sum, the output values
+''' can never exceed 255, so an output depth of 8 bpp is sufficient.
+''' If the kernel is not normalized, it may be necessary to use
 ''' 16 or 32 bpp output to avoid overflow.<para/>
+''' 
 ''' (2) The %normflag parameter is used as in pixConvolve().<para/>
-''' (4) The kernel values can be positive or negative, but the<para/>
-''' result for the convolution can only be stored as a positive<para/>
-''' number.  Consequently, if it goes negative, the choices are<para/>
-''' to clip to 0 or take the absolute value.  We're choosing<para/>
-''' the former for now.  Another possibility would be to output<para/>
+''' 
+''' (4) The kernel values can be positive or negative, but the
+''' result for the convolution can only be stored as a positive
+''' number.  Consequently, if it goes negative, the choices are
+''' to clip to 0 or take the absolute value.  We're choosing
+''' the former for now.  Another possibility would be to output
 ''' a second unsigned image for the negative values.<para/>
-''' (5) Warning: if you use l_setConvolveSampling() to get a<para/>
-''' subsampled output, and the sampling factor is larger than<para/>
-''' the kernel half-width, it is faster to use the non-separable<para/>
-''' version pixConvolve().  This is because the first convolution<para/>
-''' here must be done on every raster line, regardless of the<para/>
-''' vertical sampling factor.  If the sampling factor is smaller<para/>
-''' than kernel half-width, it's faster to use the separable<para/>
+''' 
+''' (5) Warning: if you use l_setConvolveSampling() to get a
+''' subsampled output, and the sampling factor is larger than
+''' the kernel half-width, it is faster to use the non-separable
+''' version pixConvolve().  This is because the first convolution
+''' here must be done on every raster line, regardless of the
+''' vertical sampling factor.  If the sampling factor is smaller
+''' than kernel half-width, it's faster to use the separable
 ''' convolution.<para/>
-''' (6) This uses mirrored borders to avoid special casing on<para/>
-''' the boundaries.<para/>
+''' 
+''' (6) This uses mirrored borders to avoid special casing on
+''' the boundaries.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -761,21 +818,25 @@ End Function
 ' pixConvolveRGB(pixs, kel) as Pix
 ' pixConvolveRGB(PIX *, L_KERNEL *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This gives a convolution on an RGB image using an<para/>
-''' arbitrary kernel (which we normalize to keep each<para/>
+''' 
+''' (1) This gives a convolution on an RGB image using an
+''' arbitrary kernel (which we normalize to keep each
 ''' component within the range [0 ... 255].<para/>
+''' 
 ''' (2) The input pixs must be RGB.<para/>
-''' (3) The kernel values can be positive or negative, but the<para/>
-''' result for the convolution can only be stored as a positive<para/>
-''' number.  Consequently, if it goes negative, we clip the<para/>
+''' 
+''' (3) The kernel values can be positive or negative, but the
+''' result for the convolution can only be stored as a positive
+''' number.  Consequently, if it goes negative, we clip the
 ''' result to 0.<para/>
-''' (4) To get a subsampled output, call l_setConvolveSampling().<para/>
-''' The time to make a subsampled output is reduced by the<para/>
+''' 
+''' (4) To get a subsampled output, call l_setConvolveSampling().
+''' The time to make a subsampled output is reduced by the
 ''' product of the sampling factors.<para/>
-''' (5) This uses a mirrored border to avoid special casing on<para/>
-''' the boundaries.<para/>
+''' 
+''' (5) This uses a mirrored border to avoid special casing on
+''' the boundaries.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -802,22 +863,25 @@ End Function
 ' pixConvolveRGBSep(pixs, kelx, kely) as Pix
 ' pixConvolveRGBSep(PIX *, L_KERNEL *, L_KERNEL *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This does a convolution on an RGB image using a separable<para/>
-''' kernel that is a sequence of convolutions in x and y.  The two<para/>
-''' one-dimensional kernel components must be input separately<para/>
-''' the full kernel is the product of these components.<para/>
+''' 
+''' (1) This does a convolution on an RGB image using a separable
+''' kernel that is a sequence of convolutions in x and y.  The two
+''' one-dimensional kernel components must be input separately
+''' the full kernel is the product of these components.
 ''' The support for the full kernel is thus a rectangular region.<para/>
-''' (2) The kernel values can be positive or negative, but the<para/>
-''' result for the convolution can only be stored as a positive<para/>
-''' number.  Consequently, if it goes negative, we clip the<para/>
+''' 
+''' (2) The kernel values can be positive or negative, but the
+''' result for the convolution can only be stored as a positive
+''' number.  Consequently, if it goes negative, we clip the
 ''' result to 0.<para/>
-''' (3) To get a subsampled output, call l_setConvolveSampling().<para/>
-''' The time to make a subsampled output is reduced by the<para/>
+''' 
+''' (3) To get a subsampled output, call l_setConvolveSampling().
+''' The time to make a subsampled output is reduced by the
 ''' product of the sampling factors.<para/>
-''' (4) This uses a mirrored border to avoid special casing on<para/>
-''' the boundaries.<para/>
+''' 
+''' (4) This uses a mirrored border to avoid special casing on
+''' the boundaries.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -847,21 +911,25 @@ End Function
 ' fpixConvolve(fpixs, kel, normflag) as FPix
 ' fpixConvolve(FPIX *, L_KERNEL *, l_int32) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This gives a float convolution with an arbitrary kernel.<para/>
-''' (2) If normflag == 1, the result is normalized by scaling all<para/>
-''' kernel values for a unit sum.  If the sum of kernel values<para/>
-''' is very close to zero, the kernel can not be normalized and<para/>
+''' 
+''' (2) If normflag == 1, the result is normalized by scaling all
+''' kernel values for a unit sum.  If the sum of kernel values
+''' is very close to zero, the kernel can not be normalized and
 ''' the convolution will not be performed.  A warning is issued.<para/>
-''' (3) With the FPix, there are no issues about negative<para/>
-''' array or kernel values.  The convolution is performed<para/>
+''' 
+''' (3) With the FPix, there are no issues about negative
+''' array or kernel values.  The convolution is performed
 ''' with single precision arithmetic.<para/>
-''' (4) To get a subsampled output, call l_setConvolveSampling().<para/>
-''' The time to make a subsampled output is reduced by the<para/>
+''' 
+''' (4) To get a subsampled output, call l_setConvolveSampling().
+''' The time to make a subsampled output is reduced by the
 ''' product of the sampling factors.<para/>
-''' (5) This uses a mirrored border to avoid special casing on<para/>
-''' the boundaries.<para/>
+''' 
+''' (5) This uses a mirrored border to avoid special casing on
+''' the boundaries.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -888,24 +956,27 @@ End Function
 ' fpixConvolveSep(fpixs, kelx, kely, normflag) as FPix
 ' fpixConvolveSep(FPIX *, L_KERNEL *, L_KERNEL *, l_int32) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This does a convolution with a separable kernel that is<para/>
-''' is a sequence of convolutions in x and y.  The two<para/>
-''' one-dimensional kernel components must be input separately<para/>
-''' the full kernel is the product of these components.<para/>
+''' 
+''' (1) This does a convolution with a separable kernel that is
+''' is a sequence of convolutions in x and y.  The two
+''' one-dimensional kernel components must be input separately
+''' the full kernel is the product of these components.
 ''' The support for the full kernel is thus a rectangular region.<para/>
+''' 
 ''' (2) The normflag parameter is used as in fpixConvolve().<para/>
-''' (3) Warning: if you use l_setConvolveSampling() to get a<para/>
-''' subsampled output, and the sampling factor is larger than<para/>
-''' the kernel half-width, it is faster to use the non-separable<para/>
-''' version pixConvolve().  This is because the first convolution<para/>
-''' here must be done on every raster line, regardless of the<para/>
-''' vertical sampling factor.  If the sampling factor is smaller<para/>
-''' than kernel half-width, it's faster to use the separable<para/>
+''' 
+''' (3) Warning: if you use l_setConvolveSampling() to get a
+''' subsampled output, and the sampling factor is larger than
+''' the kernel half-width, it is faster to use the non-separable
+''' version pixConvolve().  This is because the first convolution
+''' here must be done on every raster line, regardless of the
+''' vertical sampling factor.  If the sampling factor is smaller
+''' than kernel half-width, it's faster to use the separable
 ''' convolution.<para/>
-''' (4) This uses mirrored borders to avoid special casing on<para/>
-''' the boundaries.<para/>
+''' 
+''' (4) This uses mirrored borders to avoid special casing on
+''' the boundaries.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -935,24 +1006,27 @@ End Function
 ' pixConvolveWithBias(pixs, kel1, kel2, force8, pbias) as Pix
 ' pixConvolveWithBias(PIX *, L_KERNEL *, L_KERNEL *, l_int32, l_int32 *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This does a convolution with either a single kernel or<para/>
-''' a pair of separable kernels, and automatically applies whatever<para/>
-''' bias (shift) is required so that the resulting pixel values<para/>
+''' 
+''' (1) This does a convolution with either a single kernel or
+''' a pair of separable kernels, and automatically applies whatever
+''' bias (shift) is required so that the resulting pixel values
 ''' are non-negative.<para/>
-''' (2) The kernel is always normalized.  If there are no negative<para/>
-''' values in the kernel, a standard normalized convolution is<para/>
-''' performed, with 8 bpp output.  If the sum of kernel values is<para/>
-''' very close to zero, the kernel can not be normalized and<para/>
+''' 
+''' (2) The kernel is always normalized.  If there are no negative
+''' values in the kernel, a standard normalized convolution is
+''' performed, with 8 bpp output.  If the sum of kernel values is
+''' very close to zero, the kernel can not be normalized and
 ''' the convolution will not be performed.  An error message results.<para/>
-''' (3) If there are negative values in the kernel, the pix is<para/>
-''' converted to an fpix, the convolution is done on the fpix, and<para/>
+''' 
+''' (3) If there are negative values in the kernel, the pix is
+''' converted to an fpix, the convolution is done on the fpix, and
 ''' a bias (shift) may need to be applied.<para/>
-''' (4) If force8 == TRUE and the range of values after the convolution<para/>
-''' is  is greater  255, the output values will be scaled to fit in [0 ... 255].<para/>
-''' If force8 == FALSE, the output will be either 8 or 16 bpp,<para/>
-''' to accommodate the dynamic range of output values without scaling.<para/>
+''' 
+''' (4) If force8 == TRUE and the range of values after the convolution
+''' is  is greater  255, the output values will be scaled to fit in [0 ... 255].
+''' If force8 == FALSE, the output will be either 8 or 16 bpp,
+''' to accommodate the dynamic range of output values without scaling.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -985,16 +1059,16 @@ End Function
 ' l_setConvolveSampling(xfact, yfact) as Object
 ' l_setConvolveSampling(l_int32, l_int32) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This sets the x and y output subsampling factors for generic pix<para/>
-''' and fpix convolution.  The default values are 1 (no subsampling).<para/>
+''' 
+''' (1) This sets the x and y output subsampling factors for generic pix
+''' and fpix convolution.  The default values are 1 (no subsampling).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/l_setConvolveSampling/*"/>
-'''  <param name="xfact">[in] - integer  is greater = 1</param>
-'''  <param name="yfact">[in] - integer  is greater = 1</param>
+'''  <param name="xfact">[in] - integer greater or equal 1</param>
+'''  <param name="yfact">[in] - integer greater or equal 1</param>
 Public Shared Sub l_setConvolveSampling(
 				 ByVal xfact as Integer, 
 				 ByVal yfact as Integer)
@@ -1007,10 +1081,10 @@ End Sub
 ' pixAddGaussianNoise(pixs, stdev) as Pix
 ' pixAddGaussianNoise(PIX *, l_float32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This adds noise to each pixel, taken from a normal<para/>
-''' distribution with zero mean and specified standard deviation.<para/>
+''' 
+''' (1) This adds noise to each pixel, taken from a normal
+''' distribution with zero mean and specified standard deviation.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

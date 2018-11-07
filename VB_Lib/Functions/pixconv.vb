@@ -7,24 +7,29 @@ Partial Public Class _All
 ' pixThreshold8(pixs, d, nlevels, cmapflag) as Pix
 ' pixThreshold8(PIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This uses, by default, equally spaced "target" values<para/>
-''' that depend on the number of levels, with thresholds<para/>
-''' halfway between.  For N levels, with separation (N-1)/255,<para/>
+''' 
+''' (1) This uses, by default, equally spaced "target" values
+''' that depend on the number of levels, with thresholds
+''' halfway between.  For N levels, with separation (N-1)/255,
 ''' there are N-1 fixed thresholds.<para/>
-''' (2) For 1 bpp destination, the number of levels can only be 2<para/>
-''' and if a cmap is made, black is (0,0,0) and white<para/>
-''' is (255,255,255), which is opposite to the convention<para/>
+''' 
+''' (2) For 1 bpp destination, the number of levels can only be 2
+''' and if a cmap is made, black is (0,0,0) and white
+''' is (255,255,255), which is opposite to the convention
 ''' without a colormap.<para/>
-''' (3) For 1, 2 and 4 bpp, the nlevels arg is used if a colormap<para/>
-''' is made otherwise, we take the most significant bits<para/>
+''' 
+''' (3) For 1, 2 and 4 bpp, the nlevels arg is used if a colormap
+''' is made otherwise, we take the most significant bits
 ''' from the src that will fit in the dest.<para/>
-''' (4) For 8 bpp, the input pixs is quantized to nlevels.  The<para/>
-''' dest quantized with that mapping, either through a colormap<para/>
+''' 
+''' (4) For 8 bpp, the input pixs is quantized to nlevels.  The
+''' dest quantized with that mapping, either through a colormap
 ''' table or directly with 8 bit values.<para/>
+''' 
 ''' (5) Typically you should not use make a colormap for 1 bpp dest.<para/>
-''' (6) This is not dithering.  Each pixel is treated independently.<para/>
+''' 
+''' (6) This is not dithering.  Each pixel is treated independently.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -54,11 +59,12 @@ End Function
 ' pixRemoveColormapGeneral(pixs, type, ifnocmap) as Pix
 ' pixRemoveColormapGeneral(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Convenience function that allows choice between returning<para/>
+''' 
+''' (1) Convenience function that allows choice between returning
 ''' a clone or a copy if pixs does not have a colormap.<para/>
-''' (2) See pixRemoveColormap().<para/>
+''' 
+''' (2) See pixRemoveColormap().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -84,21 +90,26 @@ End Function
 ' pixRemoveColormap(pixs, type) as Pix
 ' pixRemoveColormap(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) If pixs does not have a colormap, a clone is returned.<para/>
+''' 
 ''' (2) Otherwise, the input pixs is restricted to 1, 2, 4 or 8 bpp.<para/>
+''' 
 ''' (3) Use REMOVE_CMAP_TO_BINARY only on 1 bpp pix.<para/>
-''' (4) For grayscale conversion from RGB, use a weighted average<para/>
-''' of RGB values, and always return an 8 bpp pix, regardless<para/>
+''' 
+''' (4) For grayscale conversion from RGB, use a weighted average
+''' of RGB values, and always return an 8 bpp pix, regardless
 ''' of whether the input pixs depth is 2, 4 or 8 bpp.<para/>
-''' (5) REMOVE_CMAP_TO_FULL_COLOR ignores the alpha component and<para/>
+''' 
+''' (5) REMOVE_CMAP_TO_FULL_COLOR ignores the alpha component and
 ''' returns a 32 bpp pix with spp == 3 and the alpha bytes are 0.<para/>
-''' (6) For REMOVE_CMAP_BASED_ON_SRC, if there is no color, this<para/>
-''' returns either a 1 bpp or 8 bpp grayscale pix.<para/>
-''' If there is color, this returns a 32 bpp pix, with either:<para/>
-''' 3 spp, if the alpha values are all 255 (opaque), or<para/>
-''' 4 spp (preserving the alpha), if any alpha values are not 255.<para/>
+''' 
+''' (6) For REMOVE_CMAP_BASED_ON_SRC, if there is no color, this
+''' returns either a 1 bpp or 8 bpp grayscale pix.
+''' If there is color, this returns a 32 bpp pix, with either:
+''' 3 spp, if the alpha values are all 255 (opaque), or
+''' 4 spp (preserving the alpha), if any alpha values are not 255.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -122,9 +133,9 @@ End Function
 ' pixAddGrayColormap8(pixs) as Integer
 ' pixAddGrayColormap8(PIX *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If pixs has a colormap, this is a no-op.<para/>
+''' 
+''' (1) If pixs has a colormap, this is a no-op.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -147,11 +158,11 @@ End Function
 ' pixAddMinimalGrayColormap8(pixs) as Pix
 ' pixAddMinimalGrayColormap8(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This generates a colormapped version of the input image<para/>
-''' that has the same number of colormap entries as the<para/>
-''' input image has unique gray levels.<para/>
+''' 
+''' (1) This generates a colormapped version of the input image
+''' that has the same number of colormap entries as the
+''' input image has unique gray levels.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -175,9 +186,9 @@ End Function
 ' pixConvertRGBToLuminance(pixs) as Pix
 ' pixConvertRGBToLuminance(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Use a standard luminance conversion.<para/>
+''' 
+''' (1) Use a standard luminance conversion.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -201,9 +212,9 @@ End Function
 ' pixConvertRGBToGray(pixs, rwt, gwt, bwt) as Pix
 ' pixConvertRGBToGray(PIX *, l_float32, l_float32, l_float32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Use a weighted average of the RGB values.<para/>
+''' 
+''' (1) Use a weighted average of the RGB values.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -233,14 +244,15 @@ End Function
 ' pixConvertRGBToGrayFast(pixs) as Pix
 ' pixConvertRGBToGrayFast(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This function should be used if speed of conversion<para/>
-''' is paramount, and the green channel can be used as<para/>
-''' a fair representative of the RGB intensity.  It is<para/>
+''' 
+''' (1) This function should be used if speed of conversion
+''' is paramount, and the green channel can be used as
+''' a fair representative of the RGB intensity.  It is
 ''' several times faster than pixConvertRGBToGray().<para/>
-''' (2) To combine RGB to gray conversion with subsampling,<para/>
-''' use pixScaleRGBToGrayFast() instead.<para/>
+''' 
+''' (2) To combine RGB to gray conversion with subsampling,
+''' use pixScaleRGBToGrayFast() instead.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -264,15 +276,16 @@ End Function
 ' pixConvertRGBToGrayMinMax(pixs, type) as Pix
 ' pixConvertRGBToGrayMinMax(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This chooses various components or combinations of them,<para/>
-''' from the three RGB sample values.  In addition to choosing<para/>
-''' the min, max, and maxdiff (difference between max and min),<para/>
-''' this also allows boosting the min and max about a reference<para/>
+''' 
+''' (1) This chooses various components or combinations of them,
+''' from the three RGB sample values.  In addition to choosing
+''' the min, max, and maxdiff (difference between max and min),
+''' this also allows boosting the min and max about a reference
 ''' value.<para/>
-''' (2) The default reference value for boosting the min and max<para/>
-''' is 200.  This can be changed with l_setNeutralBoostVal()<para/>
+''' 
+''' (2) The default reference value for boosting the min and max
+''' is 200.  This can be changed with l_setNeutralBoostVal()
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -298,25 +311,29 @@ End Function
 ' pixConvertRGBToGraySatBoost(pixs, refval) as Pix
 ' pixConvertRGBToGraySatBoost(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This returns the max component value, boosted by<para/>
-''' the saturation. The maximum boost occurs where<para/>
-''' the maximum component value is equal to some reference value.<para/>
+''' 
+''' (1) This returns the max component value, boosted by
+''' the saturation. The maximum boost occurs where
+''' the maximum component value is equal to some reference value.
 ''' This particular weighting is due to Dany Qumsiyeh.<para/>
-''' (2) For gray pixels (zero saturation), this returns<para/>
+''' 
+''' (2) For gray pixels (zero saturation), this returns
 ''' the intensity of any component.<para/>
-''' (3) For fully saturated pixels ('fullsat'), this rises linearly<para/>
-''' with the max value and has a slope equal to 255 divided<para/>
-''' by the reference value for a max value greater than<para/>
+''' 
+''' (3) For fully saturated pixels ('fullsat'), this rises linearly
+''' with the max value and has a slope equal to 255 divided
+''' by the reference value for a max value greater than
 ''' the reference value, it is clipped to 255.<para/>
-''' (4) For saturation values in between, the output is a linear<para/>
-''' combination of (2) and (3), weighted by saturation.<para/>
+''' 
+''' (4) For saturation values in between, the output is a linear
+''' combination of (2) and (3), weighted by saturation.
 ''' It falls between these two curves, and does not exceed 255.<para/>
-''' (5) This can be useful for distinguishing an object that has nonzero<para/>
-''' saturation from a gray background.  For this, the refval<para/>
-''' should be chosen near the expected value of the background,<para/>
-''' to achieve maximum saturation boost there.<para/>
+''' 
+''' (5) This can be useful for distinguishing an object that has nonzero
+''' saturation from a gray background.  For this, the refval
+''' should be chosen near the expected value of the background,
+''' to achieve maximum saturation boost there.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -342,12 +359,13 @@ End Function
 ' pixConvertRGBToGrayArb(pixs, rc, gc, bc) as Pix
 ' pixConvertRGBToGrayArb(PIX *, l_float32, l_float32, l_float32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This converts to gray using an arbitrary linear combination<para/>
-''' of the rgb color components.  It differs from pixConvertToGray(),<para/>
+''' 
+''' (1) This converts to gray using an arbitrary linear combination
+''' of the rgb color components.  It differs from pixConvertToGray(),
 ''' which uses only positive coefficients that sum to 1.<para/>
-''' (2) The gray output values are clipped to 0 and 255.<para/>
+''' 
+''' (2) The gray output values are clipped to 0 and 255.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -377,12 +395,12 @@ End Function
 ' pixConvertRGBToBinaryArb(pixs, rc, gc, bc, thresh, relation) as Pix
 ' pixConvertRGBToBinaryArb(PIX *, l_float32, l_float32, l_float32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This makes a 1 bpp mask from an RGB image, using an arbitrary<para/>
-''' linear combination of the rgb color components, along with<para/>
-''' a threshold and a selection choice of the gray value relative<para/>
-''' to %thresh.<para/>
+''' 
+''' (1) This makes a 1 bpp mask from an RGB image, using an arbitrary
+''' linear combination of the rgb color components, along with
+''' a threshold and a selection choice of the gray value relative
+''' to %thresh.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -416,20 +434,24 @@ End Function
 ' pixConvertGrayToColormap(pixs) as Pix
 ' pixConvertGrayToColormap(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a simple interface for adding a colormap to a<para/>
-''' 2, 4 or 8 bpp grayscale image without causing any<para/>
-''' quantization.  There is some similarity to operations<para/>
-''' in grayquant.c, such as pixThresholdOn8bpp(), where<para/>
-''' the emphasis is on quantization with an arbitrary number<para/>
+''' 
+''' (1) This is a simple interface for adding a colormap to a
+''' 2, 4 or 8 bpp grayscale image without causing any
+''' quantization.  There is some similarity to operations
+''' in grayquant.c, such as pixThresholdOn8bpp(), where
+''' the emphasis is on quantization with an arbitrary number
 ''' of levels, and a colormap is an option.<para/>
+''' 
 ''' (2) Returns a copy if pixs already has a colormap.<para/>
+''' 
 ''' (3) For 8 bpp src, this is a lossless transformation.<para/>
-''' (4) For 2 and 4 bpp src, this generates a colormap that<para/>
-''' assumes full coverage of the gray space, with equally spaced<para/>
+''' 
+''' (4) For 2 and 4 bpp src, this generates a colormap that
+''' assumes full coverage of the gray space, with equally spaced
 ''' levels: 4 levels for d = 2 and 16 levels for d = 4.<para/>
-''' (5) In all cases, the depth of the dest is the same as the src.<para/>
+''' 
+''' (5) In all cases, the depth of the dest is the same as the src.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -453,19 +475,21 @@ End Function
 ' pixConvertGrayToColormap8(pixs, mindepth) as Pix
 ' pixConvertGrayToColormap8(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Returns a copy if pixs already has a colormap.<para/>
-''' (2) This is a lossless transformation there is no quantization.<para/>
-''' We compute the number of different gray values in pixs,<para/>
+''' 
+''' (2) This is a lossless transformation there is no quantization.
+''' We compute the number of different gray values in pixs,
 ''' and construct a colormap that has exactly these values.<para/>
-''' (3) 'mindepth' is the minimum depth of pixd.  If mindepth == 8,<para/>
-''' pixd will always be 8 bpp.  Let the number of different<para/>
-''' gray values in pixs be ngray.  If mindepth == 4, we attempt<para/>
-''' to save pixd as a 4 bpp image, but if ngray  is greater  16,<para/>
-''' pixd must be 8 bpp.  Likewise, if mindepth == 2,<para/>
-''' the depth of pixd will be 2 if ngray  is lower = 4 and 4 if ngray  is greater  4<para/>
-''' but  is lower = 16.<para/>
+''' 
+''' (3) 'mindepth' is the minimum depth of pixd.  If mindepth == 8,
+''' pixd will always be 8 bpp.  Let the number of different
+''' gray values in pixs be ngray.  If mindepth == 4, we attempt
+''' to save pixd as a 4 bpp image, but if ngray  is greater  16,
+''' pixd must be 8 bpp.  Likewise, if mindepth == 2,
+''' the depth of pixd will be 2 if ngray smaller or equal 4 and 4 if ngray  is greater  4
+''' but smaller or equal 16.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -491,11 +515,12 @@ End Function
 ' pixColorizeGray(pixs, color, cmapflag) as Pix
 ' pixColorizeGray(PIX *, l_uint32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This applies the specific color to the grayscale image.<para/>
-''' (2) If pixs already has a colormap, it is removed to gray<para/>
-''' before colorizing.<para/>
+''' 
+''' (2) If pixs already has a colormap, it is removed to gray
+''' before colorizing.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -521,27 +546,30 @@ End Function
 ' pixConvertRGBToColormap(pixs, ditherflag) as Pix
 ' pixConvertRGBToColormap(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This function has two relatively simple modes of color<para/>
-''' quantization:<para/>
-''' (a) If the image is made orthographically and has not more<para/>
-''' than 256 'colors' at the level 4 octcube leaves,<para/>
-''' it is quantized nearly exactly.  The ditherflag<para/>
-''' is ignored.<para/>
-''' (b) Most natural images have more than 256 different colors<para/>
-''' in that case we use adaptive octree quantization,<para/>
+''' 
+''' (1) This function has two relatively simple modes of color
+''' quantization:
+''' (a) If the image is made orthographically and has not more
+''' than 256 'colors' at the level 4 octcube leaves,
+''' it is quantized nearly exactly.  The ditherflag
+''' is ignored.
+''' (b) Most natural images have more than 256 different colors
+''' in that case we use adaptive octree quantization,
 ''' with dithering if requested.<para/>
-''' (2) If there are not more than 256 occupied level 4 octcubes,<para/>
-''' the color in the colormap that represents all pixels in<para/>
-''' one of those octcubes is given by the first pixel that<para/>
+''' 
+''' (2) If there are not more than 256 occupied level 4 octcubes,
+''' the color in the colormap that represents all pixels in
+''' one of those octcubes is given by the first pixel that
 ''' falls into that octcube.<para/>
-''' (3) If there are more than 256 colors, we use adaptive octree<para/>
+''' 
+''' (3) If there are more than 256 colors, we use adaptive octree
 ''' color quantization.<para/>
-''' (4) Dithering gives better visual results on images where<para/>
-''' there is a color wash (a slow variation of color), but it<para/>
-''' is about twice as slow and results in significantly larger<para/>
-''' files when losslessly compressed (e.g., into png).<para/>
+''' 
+''' (4) Dithering gives better visual results on images where
+''' there is a color wash (a slow variation of color), but it
+''' is about twice as slow and results in significantly larger
+''' files when losslessly compressed (e.g., into png).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -567,13 +595,14 @@ End Function
 ' pixConvertCmapTo1(pixs) as Pix
 ' pixConvertCmapTo1(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is an extreme color quantizer.  It decides which<para/>
+''' 
+''' (1) This is an extreme color quantizer.  It decides which
 ''' colors map to FG (black) and which to BG (white).<para/>
-''' (2) This uses two heuristics to make the decision:<para/>
-''' (a) colors similar to each other are likely to be in the same class<para/>
-''' (b) there is usually much less FG than BG.<para/>
+''' 
+''' (2) This uses two heuristics to make the decision:
+''' (a) colors similar to each other are likely to be in the same class
+''' (b) there is usually much less FG than BG.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -595,20 +624,23 @@ End Function
 ' pixQuantizeIfFewColors(pixs, maxcolors, mingraycolors, octlevel, ppixd) as Integer
 ' pixQuantizeIfFewColors(PIX *, l_int32, l_int32, l_int32, PIX **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a wrapper that tests if the pix can be quantized<para/>
-''' with good quality using a small number of colors.  If so,<para/>
-''' it does the quantization, defining a colormap and using<para/>
+''' 
+''' (1) This is a wrapper that tests if the pix can be quantized
+''' with good quality using a small number of colors.  If so,
+''' it does the quantization, defining a colormap and using
 ''' pixels whose value is an index into the colormap.<para/>
-''' (2) If the image has color, it is quantized with 8 bpp pixels.<para/>
-''' If the image is essentially grayscale, the pixels are<para/>
-''' either 4 or 8 bpp, depending on the size of the required<para/>
+''' 
+''' (2) If the image has color, it is quantized with 8 bpp pixels.
+''' If the image is essentially grayscale, the pixels are
+''' either 4 or 8 bpp, depending on the size of the required
 ''' colormap.<para/>
-''' (3) %octlevel = 4 generates a larger colormap and larger<para/>
-''' compressed image than %octlevel = 3.  If image quality is<para/>
+''' 
+''' (3) %octlevel = 4 generates a larger colormap and larger
+''' compressed image than %octlevel = 3.  If image quality is
 ''' important, you should use %octlevel = 4.<para/>
-''' (4) If the image already has a colormap, it returns a clone.<para/>
+''' 
+''' (4) If the image already has a colormap, it returns a clone.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -640,12 +672,13 @@ End Function
 ' pixConvert16To8(pixs, type) as Pix
 ' pixConvert16To8(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) With L_AUTO_BYTE, if the max pixel value is greater than 255,<para/>
+''' 
+''' (1) With L_AUTO_BYTE, if the max pixel value is greater than 255,
 ''' use the MSB otherwise, use the LSB.<para/>
-''' (2) With L_CLIP_TO_FF, use min(pixel-value, 0xff) for each<para/>
-''' 16-bit src pixel.<para/>
+''' 
+''' (2) With L_CLIP_TO_FF, use min(pixel-value, 0xff) for each
+''' 16-bit src pixel.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -671,12 +704,14 @@ End Function
 ' pixConvertGrayToFalseColor(pixs, gamma) as Pix
 ' pixConvertGrayToFalseColor(PIX *, l_float32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) For 8 bpp input, this simply adds a colormap to the input image.<para/>
-''' (2) For 16 bpp input, it first converts to 8 bpp, using the MSB,<para/>
+''' 
+''' (2) For 16 bpp input, it first converts to 8 bpp, using the MSB,
 ''' and then adds the colormap.<para/>
-''' (3) The colormap is modeled after the Matlab "jet" configuration.<para/>
+''' 
+''' (3) The colormap is modeled after the Matlab "jet" configuration.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -702,17 +737,17 @@ End Function
 ' pixUnpackBinary(pixs, depth, invert) as Pix
 ' pixUnpackBinary(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This function calls special cases of pixConvert1To(),<para/>
-''' for 2, 4, 8, 16 and 32 bpp destinations.<para/>
+''' 
+''' (1) This function calls special cases of pixConvert1To(),
+''' for 2, 4, 8, 16 and 32 bpp destinations.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixUnpackBinary/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="depth">[in] - of destination: 2, 4, 8, 16 or 32 bpp</param>
-'''  <param name="invert">[in] - 0:  binary 0 -- is greater  grayscale 0 binary 1 -- is greater  grayscale 0xff... 1:  binary 0 -- is greater  grayscale 0xff... binary 1 -- is greater  grayscale 0</param>
+'''  <param name="invert">[in] - 0:  binary 0 to grayscale 0 binary 1 to grayscale 0xff... 1:  binary 0 to grayscale 0xff... binary 1 to grayscale 0</param>
 '''   <returns>pixd 2, 4, 8, 16 or 32 bpp, or NULL on error</returns>
 Public Shared Function pixUnpackBinary(
 				 ByVal pixs as Pix, 
@@ -733,11 +768,12 @@ End Function
 ' pixConvert1To16(pixd, pixs, val0, val1) as Pix
 ' pixConvert1To16(PIX *, PIX *, l_uint16, l_uint16) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) If pixd is null, a new pix is made.<para/>
-''' (2) If pixd is not null, it must be of equal width and height<para/>
-''' as pixs.  It is always returned.<para/>
+''' 
+''' (2) If pixd is not null, it must be of equal width and height
+''' as pixs.  It is always returned.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -771,11 +807,12 @@ End Function
 ' pixConvert1To32(pixd, pixs, val0, val1) as Pix
 ' pixConvert1To32(PIX *, PIX *, l_uint32, l_uint32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) If pixd is null, a new pix is made.<para/>
-''' (2) If pixd is not null, it must be of equal width and height<para/>
-''' as pixs.  It is always returned.<para/>
+''' 
+''' (2) If pixd is not null, it must be of equal width and height
+''' as pixs.  It is always returned.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -807,9 +844,9 @@ End Function
 ' pixConvert1To2Cmap(pixs) as Pix
 ' pixConvert1To2Cmap(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Input 0 is mapped to (255, 255, 255) 1 is mapped to (0, 0, 0)<para/>
+''' 
+''' (1) Input 0 is mapped to (255, 255, 255) 1 is mapped to (0, 0, 0)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -833,13 +870,16 @@ End Function
 ' pixConvert1To2(pixd, pixs, val0, val1) as Pix
 ' pixConvert1To2(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) If pixd is null, a new pix is made.<para/>
-''' (2) If pixd is not null, it must be of equal width and height<para/>
+''' 
+''' (2) If pixd is not null, it must be of equal width and height
 ''' as pixs.  It is always returned.<para/>
+''' 
 ''' (3) A simple unpacking might use val0 = 0 and val1 = 3.<para/>
-''' (4) If you want a colormapped pixd, use pixConvert1To2Cmap().<para/>
+''' 
+''' (4) If you want a colormapped pixd, use pixConvert1To2Cmap().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -871,9 +911,9 @@ End Function
 ' pixConvert1To4Cmap(pixs) as Pix
 ' pixConvert1To4Cmap(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Input 0 is mapped to (255, 255, 255) 1 is mapped to (0, 0, 0)<para/>
+''' 
+''' (1) Input 0 is mapped to (255, 255, 255) 1 is mapped to (0, 0, 0)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -897,13 +937,16 @@ End Function
 ' pixConvert1To4(pixd, pixs, val0, val1) as Pix
 ' pixConvert1To4(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) If pixd is null, a new pix is made.<para/>
-''' (2) If pixd is not null, it must be of equal width and height<para/>
+''' 
+''' (2) If pixd is not null, it must be of equal width and height
 ''' as pixs.  It is always returned.<para/>
+''' 
 ''' (3) A simple unpacking might use val0 = 0 and val1 = 15, or v.v.<para/>
-''' (4) If you want a colormapped pixd, use pixConvert1To4Cmap().<para/>
+''' 
+''' (4) If you want a colormapped pixd, use pixConvert1To4Cmap().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -936,9 +979,9 @@ End Function
 ' pixConvert1To8Cmap(pixs) as Pix
 ' pixConvert1To8Cmap(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Input 0 is mapped to (255, 255, 255) 1 is mapped to (0, 0, 0)<para/>
+''' 
+''' (1) Input 0 is mapped to (255, 255, 255) 1 is mapped to (0, 0, 0)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -962,14 +1005,17 @@ End Function
 ' pixConvert1To8(pixd, pixs, val0, val1) as Pix
 ' pixConvert1To8(PIX *, PIX *, l_uint8, l_uint8) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) If pixd is null, a new pix is made.<para/>
-''' (2) If pixd is not null, it must be of equal width and height<para/>
+''' 
+''' (2) If pixd is not null, it must be of equal width and height
 ''' as pixs.  It is always returned.<para/>
+''' 
 ''' (3) A simple unpacking might use val0 = 0 and val1 = 255, or v.v.<para/>
-''' (4) To have a colormap associated with the 8 bpp pixd,<para/>
-''' use pixConvert1To8Cmap().<para/>
+''' 
+''' (4) To have a colormap associated with the 8 bpp pixd,
+''' use pixConvert1To8Cmap().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1003,23 +1049,22 @@ End Function
 ' pixConvert2To8(pixs, val0, val1, val2, val3, cmapflag) as Pix
 ' pixConvert2To8(PIX *, l_uint8, l_uint8, l_uint8, l_uint8, l_int32) as PIX *
 '''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' ~ A simple unpacking might use val0 = 0,<para/>
-''' val1 = 85 (0x55), val2 = 170 (0xaa), val3 = 255.<para/>
-''' ~ If cmapflag is TRUE:<para/>
-''' ~ The 8 bpp image is made with a colormap.<para/>
-''' ~ If pixs has a colormap, the input values are ignored and<para/>
-''' the 8 bpp image is made using the colormap<para/>
-''' ~ If pixs does not have a colormap, the input values are<para/>
-''' used to build the colormap.<para/>
-''' ~ If cmapflag is FALSE:<para/>
-''' ~ The 8 bpp image is made without a colormap.<para/>
-''' ~ If pixs has a colormap, the input values are ignored,<para/>
-''' the colormap is removed, and the values stored in the 8 bpp<para/>
-''' image are from the colormap.<para/>
-''' ~ If pixs does not have a colormap, the input values are<para/>
-''' used to populate the 8 bpp image.<para/>
+''' Notes:
+''' ~ A simple unpacking might use val0 = 0,
+''' val1 = 85 (0x55), val2 = 170 (0xaa), val3 = 255.
+''' ~ If cmapflag is TRUE:
+''' ~ The 8 bpp image is made with a colormap.
+''' ~ If pixs has a colormap, the input values are ignored and
+''' the 8 bpp image is made using the colormap
+''' ~ If pixs does not have a colormap, the input values are
+''' used to build the colormap.
+''' ~ If cmapflag is FALSE:
+''' ~ The 8 bpp image is made without a colormap.
+''' ~ If pixs has a colormap, the input values are ignored,
+''' the colormap is removed, and the values stored in the 8 bpp
+''' image are from the colormap.
+''' ~ If pixs does not have a colormap, the input values are
+''' used to populate the 8 bpp image.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1055,21 +1100,20 @@ End Function
 ' pixConvert4To8(pixs, cmapflag) as Pix
 ' pixConvert4To8(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' ~ If cmapflag is TRUE:<para/>
-''' ~ pixd is made with a colormap.<para/>
-''' ~ If pixs has a colormap, it is copied and the colormap<para/>
-''' index values are placed in pixd.<para/>
-''' ~ If pixs does not have a colormap, a colormap with linear<para/>
-''' trc is built and the pixel values in pixs are placed in<para/>
-''' pixd as colormap index values.<para/>
-''' ~ If cmapflag is FALSE:<para/>
-''' ~ pixd is made without a colormap.<para/>
-''' ~ If pixs has a colormap, it is removed and the values stored<para/>
-''' in pixd are from the colormap (converted to gray).<para/>
-''' ~ If pixs does not have a colormap, the pixel values in pixs<para/>
-''' are used, with shift replication, to populate pixd.<para/>
+''' Notes:
+''' ~ If cmapflag is TRUE:
+''' ~ pixd is made with a colormap.
+''' ~ If pixs has a colormap, it is copied and the colormap
+''' index values are placed in pixd.
+''' ~ If pixs does not have a colormap, a colormap with linear
+''' trc is built and the pixel values in pixs are placed in
+''' pixd as colormap index values.
+''' ~ If cmapflag is FALSE:
+''' ~ pixd is made without a colormap.
+''' ~ If pixs has a colormap, it is removed and the values stored
+''' in pixd are from the colormap (converted to gray).
+''' ~ If pixs does not have a colormap, the pixel values in pixs
+''' are used, with shift replication, to populate pixd.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1095,12 +1139,12 @@ End Function
 ' pixConvert8To16(pixs, leftshift) as Pix
 ' pixConvert8To16(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For left shift of 8, the 8 bit value is replicated in both<para/>
-''' the MSB and the LSB of the pixels in pixd.  That way, we get<para/>
-''' proportional mapping, with a correct map from 8 bpp white<para/>
-''' (0xff) to 16 bpp white (0xffff).<para/>
+''' 
+''' (1) For left shift of 8, the 8 bit value is replicated in both
+''' the MSB and the LSB of the pixels in pixd.  That way, we get
+''' proportional mapping, with a correct map from 8 bpp white
+''' (0xff) to 16 bpp white (0xffff).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1124,13 +1168,15 @@ End Function
 ' pixConvertTo2(pixs) as Pix
 ' pixConvertTo2(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a top-level function, with simple default values<para/>
+''' 
+''' (1) This is a top-level function, with simple default values
 ''' used in pixConvertTo8() if unpacking is necessary.<para/>
+''' 
 ''' (2) Any existing colormap is removed the result is always gray.<para/>
-''' (3) If the input image has 2 bpp and no colormap, the operation is<para/>
-''' lossless and a copy is returned.<para/>
+''' 
+''' (3) If the input image has 2 bpp and no colormap, the operation is
+''' lossless and a copy is returned.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1154,9 +1200,9 @@ End Function
 ' pixConvert8To2(pix) as Pix
 ' pixConvert8To2(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Any existing colormap is removed to gray.<para/>
+''' 
+''' (1) Any existing colormap is removed to gray.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1180,13 +1226,15 @@ End Function
 ' pixConvertTo4(pixs) as Pix
 ' pixConvertTo4(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a top-level function, with simple default values<para/>
+''' 
+''' (1) This is a top-level function, with simple default values
 ''' used in pixConvertTo8() if unpacking is necessary.<para/>
+''' 
 ''' (2) Any existing colormap is removed the result is always gray.<para/>
-''' (3) If the input image has 4 bpp and no colormap, the operation is<para/>
-''' lossless and a copy is returned.<para/>
+''' 
+''' (3) If the input image has 4 bpp and no colormap, the operation is
+''' lossless and a copy is returned.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1210,9 +1258,9 @@ End Function
 ' pixConvert8To4(pix) as Pix
 ' pixConvert8To4(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Any existing colormap is removed to gray.<para/>
+''' 
+''' (1) Any existing colormap is removed to gray.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1236,13 +1284,15 @@ End Function
 ' pixConvertTo1(pixs, threshold) as Pix
 ' pixConvertTo1(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a top-level function, with simple default values<para/>
+''' 
+''' (1) This is a top-level function, with simple default values
 ''' used in pixConvertTo8() if unpacking is necessary.<para/>
+''' 
 ''' (2) Any existing colormap is removed.<para/>
-''' (3) If the input image has 1 bpp and no colormap, the operation is<para/>
-''' lossless and a copy is returned.<para/>
+''' 
+''' (3) If the input image has 1 bpp and no colormap, the operation is
+''' lossless and a copy is returned.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1268,16 +1318,17 @@ End Function
 ' pixConvertTo1BySampling(pixs, factor, threshold) as Pix
 ' pixConvertTo1BySampling(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is a quick and dirty, top-level converter.<para/>
-''' (2) See pixConvertTo1() for default values.<para/>
+''' 
+''' (2) See pixConvertTo1() for default values.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixConvertTo1BySampling/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
-'''  <param name="factor">[in] - submsampling factor integer  is greater = 1</param>
+'''  <param name="factor">[in] - submsampling factor integer greater or equal 1</param>
 '''  <param name="threshold">[in] - for final binarization, relative to 8 bpp</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
 Public Shared Function pixConvertTo1BySampling(
@@ -1299,22 +1350,25 @@ End Function
 ' pixConvertTo8(pixs, cmapflag) as Pix
 ' pixConvertTo8(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a top-level function, with simple default values<para/>
+''' 
+''' (1) This is a top-level function, with simple default values
 ''' for unpacking.<para/>
-''' (2) The result, pixd, is made with a colormap if specified.<para/>
-''' It is always a new image -- never a clone.  For example,<para/>
-''' if d == 8, and cmapflag matches the existence of a cmap<para/>
+''' 
+''' (2) The result, pixd, is made with a colormap if specified.
+''' It is always a new image -- never a clone.  For example,
+''' if d == 8, and cmapflag matches the existence of a cmap
 ''' in pixs, the operation is lossless and it returns a copy.<para/>
-''' (3) The default values used are:<para/>
-''' ~ 1 bpp: val0 = 255, val1 = 0<para/>
-''' ~ 2 bpp: 4 bpp:  even increments over dynamic range<para/>
-''' ~ 8 bpp: lossless if cmap matches cmapflag<para/>
+''' 
+''' (3) The default values used are:
+''' ~ 1 bpp: val0 = 255, val1 = 0
+''' ~ 2 bpp: 4 bpp:  even increments over dynamic range
+''' ~ 8 bpp: lossless if cmap matches cmapflag
 ''' ~ 16 bpp: use most significant byte<para/>
-''' (4) If 32 bpp RGB, this is converted to gray.  If you want<para/>
-''' to do color quantization, you must specify the type<para/>
-''' explicitly, using the color quantization code.<para/>
+''' 
+''' (4) If 32 bpp RGB, this is converted to gray.  If you want
+''' to do color quantization, you must specify the type
+''' explicitly, using the color quantization code.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1340,16 +1394,17 @@ End Function
 ' pixConvertTo8BySampling(pixs, factor, cmapflag) as Pix
 ' pixConvertTo8BySampling(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is a fast, quick/dirty, top-level converter.<para/>
-''' (2) See pixConvertTo8() for default values.<para/>
+''' 
+''' (2) See pixConvertTo8() for default values.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixConvertTo8BySampling/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
-'''  <param name="factor">[in] - submsampling factor integer  is greater = 1</param>
+'''  <param name="factor">[in] - submsampling factor integer greater or equal 1</param>
 '''  <param name="cmapflag">[in] - TRUE if pixd is to have a colormap FALSE otherwise</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
 Public Shared Function pixConvertTo8BySampling(
@@ -1371,17 +1426,22 @@ End Function
 ' pixConvertTo8Colormap(pixs, dither) as Pix
 ' pixConvertTo8Colormap(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a top-level function, with simple default values<para/>
+''' 
+''' (1) This is a top-level function, with simple default values
 ''' for unpacking.<para/>
+''' 
 ''' (2) The result, pixd, is always made with a colormap.<para/>
+''' 
 ''' (3) If d == 8, the operation is lossless and it returns a copy.<para/>
-''' (4) The default values used for increasing depth are:<para/>
-''' ~ 1 bpp: val0 = 255, val1 = 0<para/>
+''' 
+''' (4) The default values used for increasing depth are:
+''' ~ 1 bpp: val0 = 255, val1 = 0
 ''' ~ 2 bpp: 4 bpp:  even increments over dynamic range<para/>
+''' 
 ''' (5) For 16 bpp, use the most significant byte.<para/>
-''' (6) For 32 bpp RGB, use octcube quantization with optional dithering.<para/>
+''' 
+''' (6) For 32 bpp RGB, use octcube quantization with optional dithering.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1428,9 +1488,9 @@ End Function
 ' pixConvertTo32(pixs) as Pix
 ' pixConvertTo32(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Never returns a clone of pixs.<para/>
+''' 
+''' (1) Never returns a clone of pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1454,16 +1514,17 @@ End Function
 ' pixConvertTo32BySampling(pixs, factor) as Pix
 ' pixConvertTo32BySampling(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is a fast, quick/dirty, top-level converter.<para/>
-''' (2) See pixConvertTo32() for default values.<para/>
+''' 
+''' (2) See pixConvertTo32() for default values.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixConvertTo32BySampling/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
-'''  <param name="factor">[in] - submsampling factor integer  is greater = 1</param>
+'''  <param name="factor">[in] - submsampling factor integer greater or equal 1</param>
 '''   <returns>pixd 32 bpp, or NULL on error</returns>
 Public Shared Function pixConvertTo32BySampling(
 				 ByVal pixs as Pix, 
@@ -1483,10 +1544,10 @@ End Function
 ' pixConvert8To32(pixs) as Pix
 ' pixConvert8To32(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If there is no colormap, replicates the gray value<para/>
-''' into the 3 MSB of the dest pixel.<para/>
+''' 
+''' (1) If there is no colormap, replicates the gray value
+''' into the 3 MSB of the dest pixel.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1510,14 +1571,16 @@ End Function
 ' pixConvertTo8Or32(pixs, copyflag, warnflag) as Pix
 ' pixConvertTo8Or32(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If there is a colormap, the colormap is removed to 8 or 32 bpp,<para/>
+''' 
+''' (1) If there is a colormap, the colormap is removed to 8 or 32 bpp,
 ''' depending on whether the colors in the colormap are all gray.<para/>
-''' (2) If the input is either rgb or 8 bpp without a colormap,<para/>
+''' 
+''' (2) If the input is either rgb or 8 bpp without a colormap,
 ''' this returns either a clone or a copy, depending on %copyflag.<para/>
-''' (3) Otherwise, the pix is converted to 8 bpp grayscale.<para/>
-''' In all cases, pixd does not have a colormap.<para/>
+''' 
+''' (3) Otherwise, the pix is converted to 8 bpp grayscale.
+''' In all cases, pixd does not have a colormap.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1545,19 +1608,20 @@ End Function
 ' pixConvert24To32(pixs) as Pix
 ' pixConvert24To32(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) 24 bpp rgb pix are not supported in leptonica, except for a small<para/>
-''' number of formatted write operations.  The data is a byte array,<para/>
-''' with pixels in order r,g,b, and padded to 32 bit boundaries<para/>
+''' 
+''' (1) 24 bpp rgb pix are not supported in leptonica, except for a small
+''' number of formatted write operations.  The data is a byte array,
+''' with pixels in order r,g,b, and padded to 32 bit boundaries
 ''' in each line.<para/>
-''' (2) Because 24 bpp rgb pix are conveniently generated by programs<para/>
-''' such as xpdf (which has SplashBitmaps that store the raster<para/>
-''' data in consecutive 24-bit rgb pixels), it is useful to provide<para/>
-''' 24 bpp pix that simply incorporate that data.  The only things<para/>
-''' we can do with these are:<para/>
-''' (a) write them to file in png, jpeg, tiff and pnm<para/>
-''' (b) interconvert between 24 and 32 bpp in memory (for testing).<para/>
+''' 
+''' (2) Because 24 bpp rgb pix are conveniently generated by programs
+''' such as xpdf (which has SplashBitmaps that store the raster
+''' data in consecutive 24-bit rgb pixels), it is useful to provide
+''' 24 bpp pix that simply incorporate that data.  The only things
+''' we can do with these are:
+''' (a) write them to file in png, jpeg, tiff and pnm
+''' (b) interconvert between 24 and 32 bpp in memory (for testing).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1581,9 +1645,9 @@ End Function
 ' pixConvert32To24(pixs) as Pix
 ' pixConvert32To24(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See pixconvert24To32().<para/>
+''' 
+''' (1) See pixconvert24To32().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1607,10 +1671,10 @@ End Function
 ' pixConvert32To16(pixs, type) as Pix
 ' pixConvert32To16(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The data in pixs is typically used for labelling.<para/>
-''' It is an array of l_uint32 values, not rgb or rgba.<para/>
+''' 
+''' (1) The data in pixs is typically used for labelling.
+''' It is an array of l_uint32 values, not rgb or rgba.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1661,9 +1725,9 @@ End Function
 ' pixRemoveAlpha(pixs) as Pix
 ' pixRemoveAlpha(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a wrapper on pixAlphaBlendUniform()<para/>
+''' 
+''' (1) This is a wrapper on pixAlphaBlendUniform()
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1685,15 +1749,16 @@ End Function
 ' pixAddAlphaTo1bpp(pixd, pixs) as Pix
 ' pixAddAlphaTo1bpp(PIX *, PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) We don't use 1 bpp colormapped images with alpha in leptonica,<para/>
-''' but we support generating them (here), writing to png, and reading<para/>
+''' 
+''' (1) We don't use 1 bpp colormapped images with alpha in leptonica,
+''' but we support generating them (here), writing to png, and reading
 ''' the png.  On reading, they are converted to 32 bpp RGBA.<para/>
-''' (2) The background (0) pixels in pixs become fully transparent, and the<para/>
-''' foreground (1) pixels are fully opaque.  Thus, pixd is a 1 bpp<para/>
-''' representation of a stencil, that can be used to paint over pixels<para/>
-''' of a backing image that are masked by the foreground in pixs.<para/>
+''' 
+''' (2) The background (0) pixels in pixs become fully transparent, and the
+''' foreground (1) pixels are fully opaque.  Thus, pixd is a 1 bpp
+''' representation of a stencil, that can be used to paint over pixels
+''' of a backing image that are masked by the foreground in pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1721,14 +1786,15 @@ End Function
 ' pixConvertLossless(pixs, d) as Pix
 ' pixConvertLossless(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a lossless unpacking (depth-increasing)<para/>
-''' conversion.  If ds is the depth of pixs, then<para/>
-''' ~ if d  is lower  ds, returns NULL<para/>
-''' ~ if d == ds, returns a copy<para/>
+''' 
+''' (1) This is a lossless unpacking (depth-increasing)
+''' conversion.  If ds is the depth of pixs, then
+''' ~ if d  is smaller ds, returns NULL
+''' ~ if d == ds, returns a copy
 ''' ~ if d  is greater  ds, does the unpacking conversion<para/>
-''' (2) If pixs has a colormap, this is an error.<para/>
+''' 
+''' (2) If pixs has a colormap, this is an error.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1754,15 +1820,17 @@ End Function
 ' pixConvertForPSWrap(pixs) as Pix
 ' pixConvertForPSWrap(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For wrapping in PostScript, we convert pixs to<para/>
+''' 
+''' (1) For wrapping in PostScript, we convert pixs to
 ''' 1 bpp, 8 bpp (gray) and 32 bpp (RGB color).<para/>
-''' (2) Colormaps are removed.  For pixs with colormaps, the<para/>
-''' images are converted to either 8 bpp gray or 32 bpp<para/>
+''' 
+''' (2) Colormaps are removed.  For pixs with colormaps, the
+''' images are converted to either 8 bpp gray or 32 bpp
 ''' RGB, depending on whether the colormap has color content.<para/>
-''' (3) Images without colormaps, that are not 1 bpp or 32 bpp,<para/>
-''' are converted to 8 bpp gray.<para/>
+''' 
+''' (3) Images without colormaps, that are not 1 bpp or 32 bpp,
+''' are converted to 8 bpp gray.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1786,21 +1854,23 @@ End Function
 ' pixConvertToSubpixelRGB(pixs, scalex, scaley, order) as Pix
 ' pixConvertToSubpixelRGB(PIX *, l_float32, l_float32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If pixs has a colormap, it is removed based on its contents<para/>
+''' 
+''' (1) If pixs has a colormap, it is removed based on its contents
 ''' to either 8 bpp gray or rgb.<para/>
-''' (2) For horizontal subpixel splitting, the input image<para/>
-''' is rescaled by %scaley vertically and by 3.0 times<para/>
-''' %scalex horizontally.  Then each horizontal triplet<para/>
-''' of pixels is mapped back to a single rgb pixel, with the<para/>
-''' r, g and b values being assigned based on the pixel triplet.<para/>
-''' For gray triplets, the r, g, and b values are set equal to<para/>
-''' the three gray values.  For color triplets, the r, g and b<para/>
-''' values are set equal to the components from the appropriate<para/>
+''' 
+''' (2) For horizontal subpixel splitting, the input image
+''' is rescaled by %scaley vertically and by 3.0 times
+''' %scalex horizontally.  Then each horizontal triplet
+''' of pixels is mapped back to a single rgb pixel, with the
+''' r, g and b values being assigned based on the pixel triplet.
+''' For gray triplets, the r, g, and b values are set equal to
+''' the three gray values.  For color triplets, the r, g and b
+''' values are set equal to the components from the appropriate
 ''' subpixel.  Vertical subpixel splitting is handled similarly.<para/>
-''' (3) See pixConvertGrayToSubpixelRGB() and<para/>
-''' pixConvertColorToSubpixelRGB() for further details.<para/>
+''' 
+''' (3) See pixConvertGrayToSubpixelRGB() and
+''' pixConvertColorToSubpixelRGB() for further details.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1830,22 +1900,24 @@ End Function
 ' pixConvertGrayToSubpixelRGB(pixs, scalex, scaley, order) as Pix
 ' pixConvertGrayToSubpixelRGB(PIX *, l_float32, l_float32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) If pixs has a colormap, it is removed to 8 bpp.<para/>
-''' (2) For horizontal subpixel splitting, the input gray image<para/>
-''' is rescaled by %scaley vertically and by 3.0 times<para/>
-''' %scalex horizontally.  Then each horizontal triplet<para/>
-''' of pixels is mapped back to a single rgb pixel, with the<para/>
-''' r, g and b values being assigned from the triplet of gray values.<para/>
+''' 
+''' (2) For horizontal subpixel splitting, the input gray image
+''' is rescaled by %scaley vertically and by 3.0 times
+''' %scalex horizontally.  Then each horizontal triplet
+''' of pixels is mapped back to a single rgb pixel, with the
+''' r, g and b values being assigned from the triplet of gray values.
 ''' Similar operations are used for vertical subpixel splitting.<para/>
-''' (3) This is a form of subpixel rendering that tends to give the<para/>
-''' resulting text a sharper and somewhat chromatic display.<para/>
-''' For horizontal subpixel splitting, the observable difference<para/>
-''' between %order=L_SUBPIXEL_ORDER_RGB and<para/>
-''' %order=L_SUBPIXEL_ORDER_BGR is reduced by optical diffusers<para/>
-''' in the display that make the pixel color appear to emerge<para/>
-''' from the entire pixel.<para/>
+''' 
+''' (3) This is a form of subpixel rendering that tends to give the
+''' resulting text a sharper and somewhat chromatic display.
+''' For horizontal subpixel splitting, the observable difference
+''' between %order=L_SUBPIXEL_ORDER_RGB and
+''' %order=L_SUBPIXEL_ORDER_BGR is reduced by optical diffusers
+''' in the display that make the pixel color appear to emerge
+''' from the entire pixel.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1873,20 +1945,21 @@ End Function
 ' pixConvertColorToSubpixelRGB(pixs, scalex, scaley, order) as Pix
 ' pixConvertColorToSubpixelRGB(PIX *, l_float32, l_float32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If pixs has a colormap, it is removed to 32 bpp rgb.<para/>
-''' If the colormap has no color, pixConvertGrayToSubpixelRGB()<para/>
-''' should be called instead, because it will give the same result<para/>
-''' more efficiently.  The function pixConvertToSubpixelRGB()<para/>
+''' 
+''' (1) If pixs has a colormap, it is removed to 32 bpp rgb.
+''' If the colormap has no color, pixConvertGrayToSubpixelRGB()
+''' should be called instead, because it will give the same result
+''' more efficiently.  The function pixConvertToSubpixelRGB()
 ''' will do the best thing for all cases.<para/>
-''' (2) For horizontal subpixel splitting, the input rgb image<para/>
-''' is rescaled by %scaley vertically and by 3.0 times<para/>
-''' %scalex horizontally.  Then for each horizontal triplet<para/>
-''' of pixels, the r component of the final pixel is selected<para/>
-''' from the r component of the appropriate pixel in the triplet,<para/>
-''' and likewise for g and b.  Vertical subpixel splitting is<para/>
-''' handled similarly.<para/>
+''' 
+''' (2) For horizontal subpixel splitting, the input rgb image
+''' is rescaled by %scaley vertically and by 3.0 times
+''' %scalex horizontally.  Then for each horizontal triplet
+''' of pixels, the r component of the final pixel is selected
+''' from the r component of the appropriate pixel in the triplet,
+''' and likewise for g and b.  Vertical subpixel splitting is
+''' handled similarly.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1916,10 +1989,10 @@ End Function
 ' l_setNeutralBoostVal(val) as Object
 ' l_setNeutralBoostVal(l_int32) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This raises or lowers the selected min or max RGB component value,<para/>
-''' depending on if that component is above or below this value.<para/>
+''' 
+''' (1) This raises or lowers the selected min or max RGB component value,
+''' depending on if that component is above or below this value.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

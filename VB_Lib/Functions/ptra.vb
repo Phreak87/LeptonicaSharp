@@ -24,20 +24,23 @@ End Function
 ' ptraDestroy(ppa, freeflag, warnflag) as Object
 ' ptraDestroy(L_PTRA **, l_int32, l_int32) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) If %freeflag == TRUE, frees each item in the array.<para/>
-''' (2) If %freeflag == FALSE and %warnflag == TRUE, and there are<para/>
-''' items on the array, this gives a warning and destroys the array.<para/>
-''' If these items are not owned elsewhere, this will cause<para/>
-''' a memory leak of all the items that were on the array.<para/>
-''' So if the items are not owned elsewhere and require their<para/>
+''' 
+''' (2) If %freeflag == FALSE and %warnflag == TRUE, and there are
+''' items on the array, this gives a warning and destroys the array.
+''' If these items are not owned elsewhere, this will cause
+''' a memory leak of all the items that were on the array.
+''' So if the items are not owned elsewhere and require their
 ''' own destroy function, they must be destroyed before the ptra.<para/>
-''' (3) If %warnflag == FALSE, no warnings will be issued.  This is<para/>
-''' useful if the items are owned elsewhere, such as a<para/>
+''' 
+''' (3) If %warnflag == FALSE, no warnings will be issued.  This is
+''' useful if the items are owned elsewhere, such as a
 ''' PixMemoryStore().<para/>
-''' (4) To destroy the ptra, we destroy the ptr array, then<para/>
-''' the ptra, and then null the contents of the input ptr.<para/>
+''' 
+''' (4) To destroy the ptra, we destroy the ptr array, then
+''' the ptra, and then null the contents of the input ptr.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -61,13 +64,13 @@ End Sub
 ' ptraAdd(pa, item) as Integer
 ' ptraAdd(L_PTRA *, void *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This adds the element to the next location beyond imax,<para/>
-''' which is the largest occupied ptr in the array.  This is<para/>
-''' what you expect from a stack, where all ptrs up to and<para/>
-''' including imax are occupied, but here the occuption of<para/>
-''' items in the array is entirely arbitrary.<para/>
+''' 
+''' (1) This adds the element to the next location beyond imax,
+''' which is the largest occupied ptr in the array.  This is
+''' what you expect from a stack, where all ptrs up to and
+''' including imax are occupied, but here the occuption of
+''' items in the array is entirely arbitrary.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -93,42 +96,46 @@ End Function
 ' ptraInsert(pa, index, item, shiftflag) as Integer
 ' ptraInsert(L_PTRA *, l_int32, void *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This checks first to see if the location is valid, and<para/>
-''' then if there is presently an item there.  If there is not,<para/>
+''' 
+''' (1) This checks first to see if the location is valid, and
+''' then if there is presently an item there.  If there is not,
 ''' it is simply inserted into that location.<para/>
-''' (2) If there is an item at the insert location, items must be<para/>
-''' moved down to make room for the insert.  In the downward<para/>
-''' shift there are three options, given by %shiftflag.<para/>
-''' ~ If %shiftflag == L_AUTO_DOWNSHIFT, a decision is made<para/>
-''' whether, in a cascade of items, to downshift a minimum<para/>
-''' amount or for all items above %index.  The decision is<para/>
-''' based on the expectation of finding holes (null ptrs)<para/>
-''' between %index and the bottom of the array.<para/>
-''' Assuming the holes are distributed uniformly, if 2 or more<para/>
-''' holes are expected, we do a minimum shift.<para/>
-''' ~ If %shiftflag == L_MIN_DOWNSHIFT, the downward shifting<para/>
-''' cascade of items progresses a minimum amount, until<para/>
-''' the first empty slot is reached.  This mode requires<para/>
-''' some computation before the actual shifting is done.<para/>
-''' ~ If %shiftflag == L_FULL_DOWNSHIFT, a shifting cascade is<para/>
-''' performed where pa[i] -- is greater  pa[i + 1] for all i  is greater = index.<para/>
+''' 
+''' (2) If there is an item at the insert location, items must be
+''' moved down to make room for the insert.  In the downward
+''' shift there are three options, given by %shiftflag.
+''' ~ If %shiftflag == L_AUTO_DOWNSHIFT, a decision is made
+''' whether, in a cascade of items, to downshift a minimum
+''' amount or for all items above %index.  The decision is
+''' based on the expectation of finding holes (null ptrs)
+''' between %index and the bottom of the array.
+''' Assuming the holes are distributed uniformly, if 2 or more
+''' holes are expected, we do a minimum shift.
+''' ~ If %shiftflag == L_MIN_DOWNSHIFT, the downward shifting
+''' cascade of items progresses a minimum amount, until
+''' the first empty slot is reached.  This mode requires
+''' some computation before the actual shifting is done.
+''' ~ If %shiftflag == L_FULL_DOWNSHIFT, a shifting cascade is
+''' performed where pa[i] to pa[i + 1] for all i greater or equal index.
 ''' Then, the item is inserted at pa[index].<para/>
-''' (3) If you are not using L_AUTO_DOWNSHIFT, the rule of thumb is<para/>
-''' to use L_FULL_DOWNSHIFT if the array is compacted (each<para/>
-''' element points to an item), and to use L_MIN_DOWNSHIFT<para/>
-''' if there are a significant number of null pointers.<para/>
-''' There is no penalty to using L_MIN_DOWNSHIFT for a<para/>
-''' compacted array, however, because the full shift is required<para/>
+''' 
+''' (3) If you are not using L_AUTO_DOWNSHIFT, the rule of thumb is
+''' to use L_FULL_DOWNSHIFT if the array is compacted (each
+''' element points to an item), and to use L_MIN_DOWNSHIFT
+''' if there are a significant number of null pointers.
+''' There is no penalty to using L_MIN_DOWNSHIFT for a
+''' compacted array, however, because the full shift is required
 ''' and we don't do the O(n) computation to look for holes.<para/>
-''' (4) This should not be used repeatedly on large arrays,<para/>
+''' 
+''' (4) This should not be used repeatedly on large arrays,
 ''' because the function is generally O(n).<para/>
-''' (5) However, it can be used repeatedly if we start with an empty<para/>
-''' ptr array and insert only once at each location.  For example,<para/>
-''' you can support an array of Numa, where at each ptr location<para/>
-''' you store either 0 or 1 Numa, and the Numa can be added<para/>
-''' randomly to the ptr array.<para/>
+''' 
+''' (5) However, it can be used repeatedly if we start with an empty
+''' ptr array and insert only once at each location.  For example,
+''' you can support an array of Numa, where at each ptr location
+''' you store either 0 or 1 Numa, and the Numa can be added
+''' randomly to the ptr array.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -158,16 +165,18 @@ End Function
 ' ptraRemove(pa, index, flag) as Object
 ' ptraRemove(L_PTRA *, l_int32, l_int32) as void *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If flag == L_NO_COMPACTION, this removes the item and<para/>
-''' nulls the ptr on the array.  If it takes the last item<para/>
-''' in the array, pa- is greater n is reduced to the next item.<para/>
-''' (2) If flag == L_COMPACTION, this compacts the array for<para/>
-''' for all i  is greater = index.  It should not be used repeatedly on<para/>
+''' 
+''' (1) If flag == L_NO_COMPACTION, this removes the item and
+''' nulls the ptr on the array.  If it takes the last item
+''' in the array, paton is reduced to the next item.<para/>
+''' 
+''' (2) If flag == L_COMPACTION, this compacts the array for
+''' for all i greater or equal index.  It should not be used repeatedly on
 ''' large arrays, because compaction is O(n).<para/>
-''' (3) The ability to remove without automatic compaction allows<para/>
-''' removal with cost O(1).<para/>
+''' 
+''' (3) The ability to remove without automatic compaction allows
+''' removal with cost O(1).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -259,10 +268,11 @@ End Function
 ' ptraCompactArray(pa) as Integer
 ' ptraCompactArray(L_PTRA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This compacts the items on the array, filling any empty ptrs.<para/>
-''' (2) This does not change the size of the array of ptrs.<para/>
+''' 
+''' (2) This does not change the size of the array of ptrs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -322,19 +332,21 @@ End Function
 ' ptraGetMaxIndex(pa, pmaxindex) as Integer
 ' ptraGetMaxIndex(L_PTRA *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The largest index to an item in the array is %maxindex.<para/>
-''' %maxindex is one less than the number of items that would be<para/>
-''' in the array if there were no null pointers between 0<para/>
-''' and %maxindex - 1.  However, because the internal ptr array<para/>
-''' need not be compacted, there may be NULL pointers at<para/>
-''' indices below %maxindex for example, if items have<para/>
+''' 
+''' (1) The largest index to an item in the array is %maxindex.
+''' %maxindex is one less than the number of items that would be
+''' in the array if there were no null pointers between 0
+''' and %maxindex - 1.  However, because the internal ptr array
+''' need not be compacted, there may be NULL pointers at
+''' indices below %maxindex for example, if items have
 ''' been removed.<para/>
-''' (2) When an item is added to the end of the array, it goes<para/>
-''' into pa- is greater array[maxindex + 1], and maxindex is then<para/>
+''' 
+''' (2) When an item is added to the end of the array, it goes
+''' into patoarray[maxindex + 1], and maxindex is then
 ''' incremented by 1.<para/>
-''' (3) If there are no items in the array, this returns %maxindex = -1.<para/>
+''' 
+''' (3) If there are no items in the array, this returns %maxindex = -1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -357,10 +369,10 @@ End Function
 ' ptraGetActualCount(pa, pcount) as Integer
 ' ptraGetActualCount(L_PTRA *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The actual number of items on the ptr array, pa- is greater nactual,<para/>
-''' will be smaller than pa- is greater n if the array is not compacted.<para/>
+''' 
+''' (1) The actual number of items on the ptr array, patonactual,
+''' will be smaller than paton if the array is not compacted.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -383,13 +395,14 @@ End Function
 ' ptraGetPtrToItem(pa, index) as Object
 ' ptraGetPtrToItem(L_PTRA *, l_int32) as void *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This returns a ptr to the item.  You must cast it to<para/>
-''' the type of item.  Do not destroy it the item belongs<para/>
+''' 
+''' (1) This returns a ptr to the item.  You must cast it to
+''' the type of item.  Do not destroy it the item belongs
 ''' to the Ptra.<para/>
-''' (2) This can access all possible items on the ptr array.<para/>
-''' If an item doesn't exist, it returns null.<para/>
+''' 
+''' (2) This can access all possible items on the ptr array.
+''' If an item doesn't exist, it returns null.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -412,10 +425,10 @@ End Function
 ' ptraaCreate(n) as L_Ptraa
 ' ptraaCreate(l_int32) as L_PTRAA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The ptraa is generated with a fixed size, that can not change.<para/>
-''' The ptra can be generated and inserted randomly into this array.<para/>
+''' 
+''' (1) The ptraa is generated with a fixed size, that can not change.
+''' The ptra can be generated and inserted randomly into this array.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -435,11 +448,12 @@ End Function
 ' ptraaDestroy(ppaa, freeflag, warnflag) as Object
 ' ptraaDestroy(L_PTRAA **, l_int32, l_int32) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) See ptraDestroy() for use of %freeflag and %warnflag.<para/>
-''' (2) To destroy the ptraa, we destroy each ptra, then the ptr array,<para/>
-''' then the ptraa, and then null the contents of the input ptr.<para/>
+''' 
+''' (2) To destroy the ptraa, we destroy each ptra, then the ptr array,
+''' then the ptraa, and then null the contents of the input ptr.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -483,11 +497,11 @@ End Function
 ' ptraaInsertPtra(paa, index, pa) as Integer
 ' ptraaInsertPtra(L_PTRAA *, l_int32, L_PTRA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Caller should check return value.  On success, the Ptra<para/>
-''' is inserted in the Ptraa and is owned by it.  However,<para/>
-''' on error, the Ptra remains owned by the caller.<para/>
+''' 
+''' (1) Caller should check return value.  On success, the Ptra
+''' is inserted in the Ptraa and is owned by it.  However,
+''' on error, the Ptra remains owned by the caller.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -513,14 +527,15 @@ End Function
 ' ptraaGetPtra(paa, index, accessflag) as L_Ptra
 ' ptraaGetPtra(L_PTRAA *, l_int32, l_int32) as L_PTRA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This returns the ptra ptr.  If %accessflag == L_HANDLE_ONLY,<para/>
-''' the ptra is left on the ptraa.  If %accessflag == L_REMOVE,<para/>
-''' the ptr in the ptraa is set to NULL, and the caller<para/>
-''' is responsible for disposing of the ptra (either putting it<para/>
+''' 
+''' (1) This returns the ptra ptr.  If %accessflag == L_HANDLE_ONLY,
+''' the ptra is left on the ptraa.  If %accessflag == L_REMOVE,
+''' the ptr in the ptraa is set to NULL, and the caller
+''' is responsible for disposing of the ptra (either putting it
 ''' back on the ptraa, or destroying it).<para/>
-''' (2) This returns NULL if there is no Ptra at the index location.<para/>
+''' 
+''' (2) This returns NULL if there is no Ptra at the index location.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -546,12 +561,13 @@ End Function
 ' ptraaFlattenToPtra(paa) as L_Ptra
 ' ptraaFlattenToPtra(L_PTRAA *) as L_PTRA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This 'flattens' the ptraa to a ptra, taking the items in<para/>
+''' 
+''' (1) This 'flattens' the ptraa to a ptra, taking the items in
 ''' each ptra, in order, starting with the first ptra, etc.<para/>
-''' (2) As a side-effect, the ptra are all removed from the ptraa<para/>
-''' and destroyed, leaving an empty ptraa.<para/>
+''' 
+''' (2) As a side-effect, the ptra are all removed from the ptraa
+''' and destroyed, leaving an empty ptraa.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

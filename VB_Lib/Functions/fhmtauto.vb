@@ -7,11 +7,12 @@ Partial Public Class _All
 ' fhmtautogen(sela, fileindex, filename) as Integer
 ' fhmtautogen(SELA *, l_int32, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This function generates all the code for implementing<para/>
+''' 
+''' (1) This function generates all the code for implementing
 ''' dwa morphological operations using all the sels in the sela.<para/>
-''' (2) See fhmtautogen1() and fhmtautogen2() for details.<para/>
+''' 
+''' (2) See fhmtautogen1() and fhmtautogen2() for details.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -38,19 +39,23 @@ End Function
 ' fhmtautogen1(sela, fileindex, filename) as Integer
 ' fhmtautogen1(SELA *, l_int32, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This function uses hmttemplate1.txt to create a<para/>
-''' top-level file that contains two functions that carry<para/>
-''' out the hit-miss transform for any of the sels in<para/>
+''' 
+''' (1) This function uses hmttemplate1.txt to create a
+''' top-level file that contains two functions that carry
+''' out the hit-miss transform for any of the sels in
 ''' the input sela.<para/>
-''' (2) The fileindex parameter is inserted into the output<para/>
+''' 
+''' (2) The fileindex parameter is inserted into the output
 ''' filename, as described below.<para/>
-''' (3) If filename == NULL, the output file is fhmtgen.[n].c,<para/>
+''' 
+''' (3) If filename == NULL, the output file is fhmtgen.[n].c,
 ''' where [n] is equal to the 'fileindex' parameter.<para/>
+''' 
 ''' (4) If filename != NULL, the output file is [filename].[n].c.<para/>
-''' (5) Each sel must have at least one hit.  A sel with only misses<para/>
-''' generates code that will abort the operation if it is called.<para/>
+''' 
+''' (5) Each sel must have at least one hit.  A sel with only misses
+''' generates code that will abort the operation if it is called.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -77,17 +82,20 @@ End Function
 ' fhmtautogen2(sela, fileindex, filename) as Integer
 ' fhmtautogen2(SELA *, l_int32, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This function uses hmttemplate2.txt to create a<para/>
-''' low-level file that contains the low-level functions for<para/>
-''' implementing the hit-miss transform for every sel<para/>
+''' 
+''' (1) This function uses hmttemplate2.txt to create a
+''' low-level file that contains the low-level functions for
+''' implementing the hit-miss transform for every sel
 ''' in the input sela.<para/>
-''' (2) The fileindex parameter is inserted into the output<para/>
+''' 
+''' (2) The fileindex parameter is inserted into the output
 ''' filename, as described below.<para/>
-''' (3) If filename == NULL, the output file is fhmtgenlow.[n].c,<para/>
+''' 
+''' (3) If filename == NULL, the output file is fhmtgenlow.[n].c,
 ''' where [n] is equal to the %fileindex parameter.<para/>
-''' (4) If filename != NULL, the output file is [filename]low.[n].c.<para/>
+''' 
+''' (4) If filename != NULL, the output file is [filename]low.[n].c.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

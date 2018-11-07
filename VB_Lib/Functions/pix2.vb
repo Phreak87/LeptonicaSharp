@@ -7,19 +7,21 @@ Partial Public Class _All
 ' pixGetPixel(pix, x, y, pval) as Integer
 ' pixGetPixel(PIX *, l_int32, l_int32, l_uint32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This returns the value in the data array.  If the pix is<para/>
+''' 
+''' (1) This returns the value in the data array.  If the pix is
 ''' colormapped, it returns the colormap index, not the rgb value.<para/>
-''' (2) Because of the function overhead and the parameter checking,<para/>
-''' this is much slower than using the GET_DATA_() macros directly.<para/>
-''' Speed on a 1 Mpixel RGB image, using a 3 GHz machine:<para/>
-''' pixGet/pixSet: ~25 Mpix/sec<para/>
-''' GET_DATA/SET_DATA: ~350 MPix/sec<para/>
-''' If speed is important and you're doing random access into<para/>
+''' 
+''' (2) Because of the function overhead and the parameter checking,
+''' this is much slower than using the GET_DATA_() macros directly.
+''' Speed on a 1 Mpixel RGB image, using a 3 GHz machine:
+''' pixGet/pixSet: ~25 Mpix/sec
+''' GET_DATA/SET_DATA: ~350 MPix/sec
+''' If speed is important and you're doing random access into
 ''' the pix, use pixGetLinePtrs() and the array access macros.<para/>
-''' (3) If the point is outside the image, this returns an error (1),<para/>
-''' with 0 in %pval.  To avoid spamming output, it fails silently.<para/>
+''' 
+''' (3) If the point is outside the image, this returns an error (1),
+''' with 0 in %pval.  To avoid spamming output, it fails silently.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -45,14 +47,15 @@ End Function
 ' pixSetPixel(pix, x, y, val) as Integer
 ' pixSetPixel(PIX *, l_int32, l_int32, l_uint32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Warning: the input value is not checked for overflow with respect<para/>
-''' the the depth of %pix, and the sign bit (if any) is ignored.<para/>
-''' For d == 1, %val  is greater  0 sets the bit on.<para/>
-''' For d == 2, 4, 8 and 16, %val is masked to the maximum allowable<para/>
+''' 
+''' (1) Warning: the input value is not checked for overflow with respect
+''' the the depth of %pix, and the sign bit (if any) is ignored.
+''' For d == 1, %val  is greater  0 sets the bit on.
+''' For d == 2, 4, 8 and 16, %val is masked to the maximum allowable
 ''' pixel value, and any (invalid) higher order bits are discarded.<para/>
-''' (2) See pixGetPixel() for information on performance.<para/>
+''' 
+''' (2) See pixGetPixel() for information on performance.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -136,9 +139,9 @@ End Function
 ' pixGetRandomPixel(pix, pval, px, py) as Integer
 ' pixGetRandomPixel(PIX *, l_uint32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If the pix is colormapped, it returns the rgb value.<para/>
+''' 
+''' (1) If the pix is colormapped, it returns the rgb value.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -207,9 +210,9 @@ End Function
 ' setPixelLow(line, x, depth, val) as Object
 ' setPixelLow(l_uint32 *, l_int32, l_int32, l_uint32) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Caution: input variables are not checked!<para/>
+''' 
+''' (1) Caution: input variables are not checked!
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -236,12 +239,12 @@ End Sub
 ' pixGetBlackOrWhiteVal(pixs, op, pval) as Integer
 ' pixGetBlackOrWhiteVal(PIX *, l_int32, l_uint32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Side effect.  For a colormapped image, if the requested<para/>
-''' color is not present and there is room to add it in the cmap,<para/>
-''' it is added and the new index is returned.  If there is no room,<para/>
-''' the index of the closest color in intensity is returned.<para/>
+''' 
+''' (1) Side effect.  For a colormapped image, if the requested
+''' color is not present and there is room to add it in the cmap,
+''' it is added and the new index is returned.  If there is no room,
+''' the index of the closest color in intensity is returned.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -266,12 +269,13 @@ End Function
 ' pixClearAll(pix) as Integer
 ' pixClearAll(PIX *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Clears all data to 0.  For 1 bpp, this is white for grayscale<para/>
+''' 
+''' (1) Clears all data to 0.  For 1 bpp, this is white for grayscale
 ''' or color, this is black.<para/>
-''' (2) Caution: for colormapped pix, this sets the color to the first<para/>
-''' one in the colormap.  Be sure that this is the intended color!<para/>
+''' 
+''' (2) Caution: for colormapped pix, this sets the color to the first
+''' one in the colormap.  Be sure that this is the intended color!
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -292,13 +296,14 @@ End Function
 ' pixSetAll(pix) as Integer
 ' pixSetAll(PIX *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Sets all data to 1.  For 1 bpp, this is black for grayscale<para/>
+''' 
+''' (1) Sets all data to 1.  For 1 bpp, this is black for grayscale
 ''' or color, this is white.<para/>
-''' (2) Caution: for colormapped pix, this sets the pixel value to the<para/>
-''' maximum value supported by the colormap: 2^d - 1.  However, this<para/>
-''' color may not be defined, because the colormap may not be full.<para/>
+''' 
+''' (2) Caution: for colormapped pix, this sets the pixel value to the
+''' maximum value supported by the colormap: 2^d - 1.  However, this
+''' color may not be defined, because the colormap may not be full.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -319,18 +324,20 @@ End Function
 ' pixSetAllGray(pix, grayval) as Integer
 ' pixSetAllGray(PIX *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) N.B.  For all images, %grayval == 0 represents black and<para/>
+''' 
+''' (1) N.B.  For all images, %grayval == 0 represents black and
 ''' %grayval == 255 represents white.<para/>
-''' (2) For depth  is lower  8, we do our best to approximate the gray level.<para/>
-''' For 1 bpp images, any %grayval  is lower  128 is black  is greater = 128 is white.<para/>
-''' For 32 bpp images, each r,g,b component is set to %grayval,<para/>
+''' 
+''' (2) For depth  is smaller 8, we do our best to approximate the gray level.
+''' For 1 bpp images, any %grayval  is smaller 128 is black greater or equal 128 is white.
+''' For 32 bpp images, each r,g,b component is set to %grayval,
 ''' and the alpha component is preserved.<para/>
-''' (3) If pix is colormapped, it adds the gray value, replicated in<para/>
-''' all components, to the colormap if it's not there and there<para/>
-''' is room.  If the colormap is full, it finds the closest color in<para/>
-''' L2 distance of components.  This index is written to all pixels.<para/>
+''' 
+''' (3) If pix is colormapped, it adds the gray value, replicated in
+''' all components, to the colormap if it's not there and there
+''' is room.  If the colormap is full, it finds the closest color in
+''' L2 distance of components.  This index is written to all pixels.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -353,26 +360,28 @@ End Function
 ' pixSetAllArbitrary(pix, val) as Integer
 ' pixSetAllArbitrary(PIX *, l_uint32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Caution 1!  For colormapped pix, %val is used as an index<para/>
-''' into a colormap.  Be sure that index refers to the intended color.<para/>
-''' If the color is not in the colormap, you should first add it<para/>
+''' 
+''' (1) Caution 1!  For colormapped pix, %val is used as an index
+''' into a colormap.  Be sure that index refers to the intended color.
+''' If the color is not in the colormap, you should first add it
 ''' and then call this function.<para/>
-''' (2) Caution 2!  For 32 bpp pix, the interpretation of the LSB<para/>
-''' of %val depends on whether spp == 3 (RGB) or spp == 4 (RGBA).<para/>
-''' For RGB, the LSB is ignored in image transformations.<para/>
-''' For RGBA, the LSB is interpreted as the alpha (transparency)<para/>
-''' component full transparency has alpha == 0x0, whereas<para/>
-''' full opacity has alpha = 0xff.  An RGBA image with full<para/>
+''' 
+''' (2) Caution 2!  For 32 bpp pix, the interpretation of the LSB
+''' of %val depends on whether spp == 3 (RGB) or spp == 4 (RGBA).
+''' For RGB, the LSB is ignored in image transformations.
+''' For RGBA, the LSB is interpreted as the alpha (transparency)
+''' component full transparency has alpha == 0x0, whereas
+''' full opacity has alpha = 0xff.  An RGBA image with full
 ''' opacity behaves like an RGB image.<para/>
-''' (3) As an example of (2), suppose you want to initialize a 32 bpp<para/>
-''' pix with partial opacity, say 0xee337788.  If the pix is 3 spp,<para/>
-''' the 0x88 alpha component will be ignored and may be changed<para/>
-''' in subsequent processing.  However, if the pix is 4 spp, the<para/>
-''' alpha component will be retained and used. The function<para/>
-''' pixCreate(w, h, 32) makes an RGB image by default, and<para/>
-''' pixSetSpp(pix, 4) can be used to promote an RGB image to RGBA.<para/>
+''' 
+''' (3) As an example of (2), suppose you want to initialize a 32 bpp
+''' pix with partial opacity, say 0xee337788.  If the pix is 3 spp,
+''' the 0x88 alpha component will be ignored and may be changed
+''' in subsequent processing.  However, if the pix is 4 spp, the
+''' alpha component will be retained and used. The function
+''' pixCreate(w, h, 32) makes an RGB image by default, and
+''' pixSetSpp(pix, 4) can be used to promote an RGB image to RGBA.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -395,14 +404,15 @@ End Function
 ' pixSetBlackOrWhite(pixs, op) as Integer
 ' pixSetBlackOrWhite(PIX *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Function for setting all pixels in an image to either black<para/>
+''' 
+''' (1) Function for setting all pixels in an image to either black
 ''' or white.<para/>
-''' (2) If pixs is colormapped, it adds black or white to the<para/>
-''' colormap if it's not there and there is room.  If the colormap<para/>
-''' is full, it finds the closest color in intensity.<para/>
-''' This index is written to all pixels.<para/>
+''' 
+''' (2) If pixs is colormapped, it adds black or white to the
+''' colormap if it's not there and there is room.  If the colormap
+''' is full, it finds the closest color in intensity.
+''' This index is written to all pixels.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -425,10 +435,10 @@ End Function
 ' pixSetComponentArbitrary(pix, comp, val) as Integer
 ' pixSetComponentArbitrary(PIX *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For example, this can be used to set the alpha component to opaque:<para/>
-''' pixSetComponentArbitrary(pix, L_ALPHA_CHANNEL, 255)<para/>
+''' 
+''' (1) For example, this can be used to set the alpha component to opaque:
+''' pixSetComponentArbitrary(pix, L_ALPHA_CHANNEL, 255)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -453,12 +463,13 @@ End Function
 ' pixClearInRect(pix, box) as Integer
 ' pixClearInRect(PIX *, BOX *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Clears all data in rect to 0.  For 1 bpp, this is white<para/>
+''' 
+''' (1) Clears all data in rect to 0.  For 1 bpp, this is white
 ''' for grayscale or color, this is black.<para/>
-''' (2) Caution: for colormapped pix, this sets the color to the first<para/>
-''' one in the colormap.  Be sure that this is the intended color!<para/>
+''' 
+''' (2) Caution: for colormapped pix, this sets the color to the first
+''' one in the colormap.  Be sure that this is the intended color!
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -482,13 +493,14 @@ End Function
 ' pixSetInRect(pix, box) as Integer
 ' pixSetInRect(PIX *, BOX *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Sets all data in rect to 1.  For 1 bpp, this is black<para/>
+''' 
+''' (1) Sets all data in rect to 1.  For 1 bpp, this is black
 ''' for grayscale or color, this is white.<para/>
-''' (2) Caution: for colormapped pix, this sets the pixel value to the<para/>
-''' maximum value supported by the colormap: 2^d - 1.  However, this<para/>
-''' color may not be defined, because the colormap may not be full.<para/>
+''' 
+''' (2) Caution: for colormapped pix, this sets the pixel value to the
+''' maximum value supported by the colormap: 2^d - 1.  However, this
+''' color may not be defined, because the colormap may not be full.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -512,13 +524,14 @@ End Function
 ' pixSetInRectArbitrary(pix, box, val) as Integer
 ' pixSetInRectArbitrary(PIX *, BOX *, l_uint32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For colormapped pix, be sure the value is the intended<para/>
+''' 
+''' (1) For colormapped pix, be sure the value is the intended
 ''' one in the colormap.<para/>
-''' (2) Caution: for colormapped pix, this sets each pixel in the<para/>
-''' rect to the color at the index equal to val.  Be sure that<para/>
-''' this index exists in the colormap and that it is the intended one!<para/>
+''' 
+''' (2) Caution: for colormapped pix, this sets each pixel in the
+''' rect to the color at the index equal to val.  Be sure that
+''' this index exists in the colormap and that it is the intended one!
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -544,11 +557,11 @@ End Function
 ' pixBlendInRect(pixs, box, val, fract) as Integer
 ' pixBlendInRect(PIX *, BOX *, l_uint32, l_float32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is an in-place function.  It blends the input color %val<para/>
-''' with the pixels in pixs in the specified rectangle.<para/>
-''' If no rectangle is specified, it blends over the entire image.<para/>
+''' 
+''' (1) This is an in-place function.  It blends the input color %val
+''' with the pixels in pixs in the specified rectangle.
+''' If no rectangle is specified, it blends over the entire image.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -579,25 +592,28 @@ End Function
 ' pixSetPadBits(pix, val) as Integer
 ' pixSetPadBits(PIX *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The pad bits are the bits that expand each scanline to a<para/>
-''' multiple of 32 bits.  They are usually not used in<para/>
-''' image processing operations.  When boundary conditions<para/>
+''' 
+''' (1) The pad bits are the bits that expand each scanline to a
+''' multiple of 32 bits.  They are usually not used in
+''' image processing operations.  When boundary conditions
 ''' are important, as in seedfill, they must be set properly.<para/>
-''' (2) This sets the value of the pad bits (if any) in the last<para/>
+''' 
+''' (2) This sets the value of the pad bits (if any) in the last
 ''' 32-bit word in each scanline.<para/>
+''' 
 ''' (3) For 32 bpp pix, there are no pad bits, so this is a no-op.<para/>
-''' (4) When writing formatted output, such as tiff, png or jpeg,<para/>
-''' the pad bits have no effect on the raster image that is<para/>
-''' generated by reading back from the file.  However, in some<para/>
-''' cases, the compressed file itself will depend on the pad<para/>
-''' bits.  This is seen, for example, in Windows with 2 and 4 bpp<para/>
-''' tiff-compressed images that have pad bits on each scanline.<para/>
-''' It is sometimes convenient to use a golden file with a<para/>
-''' byte-by-byte check to verify invariance.  Consequently,<para/>
-''' and because setting the pad bits is cheap, the pad bits are<para/>
-''' set to 0 before writing these compressed files.<para/>
+''' 
+''' (4) When writing formatted output, such as tiff, png or jpeg,
+''' the pad bits have no effect on the raster image that is
+''' generated by reading back from the file.  However, in some
+''' cases, the compressed file itself will depend on the pad
+''' bits.  This is seen, for example, in Windows with 2 and 4 bpp
+''' tiff-compressed images that have pad bits on each scanline.
+''' It is sometimes convenient to use a golden file with a
+''' byte-by-byte check to verify invariance.  Consequently,
+''' and because setting the pad bits is cheap, the pad bits are
+''' set to 0 before writing these compressed files.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -622,16 +638,18 @@ End Function
 ' pixSetPadBitsBand(pix, by, bh, val) as Integer
 ' pixSetPadBitsBand(PIX *, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The pad bits are the bits that expand each scanline to a<para/>
-''' multiple of 32 bits.  They are usually not used in<para/>
-''' image processing operations.  When boundary conditions<para/>
+''' 
+''' (1) The pad bits are the bits that expand each scanline to a
+''' multiple of 32 bits.  They are usually not used in
+''' image processing operations.  When boundary conditions
 ''' are important, as in seedfill, they must be set properly.<para/>
-''' (2) This sets the value of the pad bits (if any) in the last<para/>
-''' 32-bit word in each scanline, within the specified<para/>
+''' 
+''' (2) This sets the value of the pad bits (if any) in the last
+''' 32-bit word in each scanline, within the specified
 ''' band of raster lines.<para/>
-''' (3) For 32 bpp pix, there are no pad bits, so this is a no-op.<para/>
+''' 
+''' (3) For 32 bpp pix, there are no pad bits, so this is a no-op.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -660,16 +678,18 @@ End Function
 ' pixSetOrClearBorder(pixs, left, right, top, bot, op) as Integer
 ' pixSetOrClearBorder(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The border region is defined to be the region in the<para/>
-''' image within a specific distance of each edge.  Here, we<para/>
-''' allow the pixels within a specified distance of each<para/>
-''' edge to be set independently.  This either sets or<para/>
+''' 
+''' (1) The border region is defined to be the region in the
+''' image within a specific distance of each edge.  Here, we
+''' allow the pixels within a specified distance of each
+''' edge to be set independently.  This either sets or
 ''' clears all pixels in the border region.<para/>
+''' 
 ''' (2) For binary images, use PIX_SET for black and PIX_CLR for white.<para/>
-''' (3) For grayscale or color images, use PIX_SET for white<para/>
-''' and PIX_CLR for black.<para/>
+''' 
+''' (3) For grayscale or color images, use PIX_SET for white
+''' and PIX_CLR for black.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -697,18 +717,21 @@ End Function
 ' pixSetBorderVal(pixs, left, right, top, bot, val) as Integer
 ' pixSetBorderVal(PIX *, l_int32, l_int32, l_int32, l_int32, l_uint32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The border region is defined to be the region in the<para/>
-''' image within a specific distance of each edge.  Here, we<para/>
-''' allow the pixels within a specified distance of each<para/>
-''' edge to be set independently.  This sets the pixels<para/>
+''' 
+''' (1) The border region is defined to be the region in the
+''' image within a specific distance of each edge.  Here, we
+''' allow the pixels within a specified distance of each
+''' edge to be set independently.  This sets the pixels
 ''' in the border region to the given input value.<para/>
-''' (2) For efficiency, use pixSetOrClearBorder() if<para/>
+''' 
+''' (2) For efficiency, use pixSetOrClearBorder() if
 ''' you're setting the border to either black or white.<para/>
-''' (3) If d != 32, the input value should be masked off<para/>
+''' 
+''' (3) If d != 32, the input value should be masked off
 ''' to the appropriate number of least significant bits.<para/>
-''' (4) The code is easily generalized for 2 or 4 bpp.<para/>
+''' 
+''' (4) The code is easily generalized for 2 or 4 bpp.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -739,11 +762,11 @@ End Function
 ' pixSetBorderRingVal(pixs, dist, val) as Integer
 ' pixSetBorderRingVal(PIX *, l_int32, l_uint32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The rings are single-pixel-wide rectangular sets of<para/>
-''' pixels at a given distance from the edge of the pix.<para/>
-''' This sets all pixels in a given ring to a value.<para/>
+''' 
+''' (1) The rings are single-pixel-wide rectangular sets of
+''' pixels at a given distance from the edge of the pix.
+''' This sets all pixels in a given ring to a value.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -768,14 +791,16 @@ End Function
 ' pixSetMirroredBorder(pixs, left, right, top, bot) as Integer
 ' pixSetMirroredBorder(PIX *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This applies what is effectively mirror boundary conditions<para/>
+''' 
+''' (1) This applies what is effectively mirror boundary conditions
 ''' to a border region in the image.  It is in-place.<para/>
-''' (2) This is useful for setting pixels near the border to a<para/>
+''' 
+''' (2) This is useful for setting pixels near the border to a
 ''' value representative of the near pixels to the interior.<para/>
-''' (3) The general pixRasterop() is used for an in-place operation here<para/>
-''' because there is no overlap between the src and dest rectangles.<para/>
+''' 
+''' (3) The general pixRasterop() is used for an in-place operation here
+''' because there is no overlap between the src and dest rectangles.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -804,15 +829,16 @@ End Function
 ' pixCopyBorder(pixd, pixs, left, right, top, bot) as Pix
 ' pixCopyBorder(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) pixd can be null, but otherwise it must be the same size<para/>
+''' 
+''' (1) pixd can be null, but otherwise it must be the same size
 ''' and depth as pixs.  Always returns pixd.<para/>
-''' (2) This is useful in situations where by setting a few border<para/>
-''' pixels we can avoid having to copy all pixels in pixs into<para/>
-''' pixd as an initialization step for some operation.<para/>
-''' Nevertheless, for safety, if making a new pixd, all the<para/>
-''' non-border pixels are initialized to 0.<para/>
+''' 
+''' (2) This is useful in situations where by setting a few border
+''' pixels we can avoid having to copy all pixels in pixs into
+''' pixd as an initialization step for some operation.
+''' Nevertheless, for safety, if making a new pixd, all the
+''' non-border pixels are initialized to 0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -845,9 +871,9 @@ End Function
 ' pixAddBorder(pixs, npix, val) as Pix
 ' pixAddBorder(PIX *, l_int32, l_uint32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See pixGetBlackOrWhiteVal() for values of black and white pixels.<para/>
+''' 
+''' (1) See pixGetBlackOrWhiteVal() for values of black and white pixels.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -873,21 +899,22 @@ End Function
 ' pixAddBlackOrWhiteBorder(pixs, left, right, top, bot, op) as Pix
 ' pixAddBlackOrWhiteBorder(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See pixGetBlackOrWhiteVal() for possible side effect (adding<para/>
+''' 
+''' (1) See pixGetBlackOrWhiteVal() for possible side effect (adding
 ''' a color to a colormap).<para/>
-''' (2) The only complication is that pixs may have a colormap.<para/>
-''' There are two ways to add the black or white border:<para/>
-''' (a) As done here (simplest, most efficient)<para/>
-''' (b) l_int32 ws, hs, d<para/>
-''' pixGetDimensions(pixs,  and ws,  and hs,  and d)<para/>
-''' Pix pixd = pixCreate(ws + left + right, hs + top + bot, d)<para/>
-''' PixColormap cmap = pixGetColormap(pixs)<para/>
-''' if (cmap != NULL)<para/>
-''' pixSetColormap(pixd, pixcmapCopy(cmap))<para/>
-''' pixSetBlackOrWhite(pixd, L_SET_WHITE)  // uses cmap<para/>
-''' pixRasterop(pixd, left, top, ws, hs, PIX_SET, pixs, 0, 0)<para/>
+''' 
+''' (2) The only complication is that pixs may have a colormap.
+''' There are two ways to add the black or white border:
+''' (a) As done here (simplest, most efficient)
+''' (b) l_int32 ws, hs, d
+''' pixGetDimensions(pixs, [and]ws, [and]hs, [and]d)
+''' Pix pixd = pixCreate(ws + left + right, hs + top + bot, d)
+''' PixColormap cmap = pixGetColormap(pixs)
+''' if (cmap != NULL)
+''' pixSetColormap(pixd, pixcmapCopy(cmap))
+''' pixSetBlackOrWhite(pixd, L_SET_WHITE)  // uses cmap
+''' pixRasterop(pixd, left, top, ws, hs, PIX_SET, pixs, 0, 0)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -919,28 +946,29 @@ End Function
 ' pixAddBorderGeneral(pixs, left, right, top, bot, val) as Pix
 ' pixAddBorderGeneral(PIX *, l_int32, l_int32, l_int32, l_int32, l_uint32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For binary images:<para/>
-''' white:  val = 0<para/>
-''' black:  val = 1<para/>
-''' For grayscale images:<para/>
-''' white:  val = 2  d - 1<para/>
-''' black:  val = 0<para/>
-''' For rgb color images:<para/>
-''' white:  val = 0xffffff00<para/>
-''' black:  val = 0<para/>
+''' 
+''' (1) For binary images:
+''' white:  val = 0
+''' black:  val = 1
+''' For grayscale images:
+''' white:  val = 2  d - 1
+''' black:  val = 0
+''' For rgb color images:
+''' white:  val = 0xffffff00
+''' black:  val = 0
 ''' For colormapped images, set val to the appropriate colormap index.<para/>
-''' (2) If the added border is either black or white, you can use<para/>
-''' pixAddBlackOrWhiteBorder()<para/>
-''' The black and white values for all images can be found with<para/>
-''' pixGetBlackOrWhiteVal()<para/>
-''' which, if pixs is cmapped, may add an entry to the colormap.<para/>
-''' Alternatively, if pixs has a colormap, you can find the index<para/>
-''' of the pixel whose intensity is closest to white or black:<para/>
-''' white: pixcmapGetRankIntensity(cmap, 1.0,  and index)<para/>
-''' black: pixcmapGetRankIntensity(cmap, 0.0,  and index)<para/>
-''' and use that for val.<para/>
+''' 
+''' (2) If the added border is either black or white, you can use
+''' pixAddBlackOrWhiteBorder()
+''' The black and white values for all images can be found with
+''' pixGetBlackOrWhiteVal()
+''' which, if pixs is cmapped, may add an entry to the colormap.
+''' Alternatively, if pixs has a colormap, you can find the index
+''' of the pixel whose intensity is closest to white or black:
+''' white: pixcmapGetRankIntensity(cmap, 1.0, [and]index)
+''' black: pixcmapGetRankIntensity(cmap, 0.0, [and]index)
+''' and use that for val.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1020,12 +1048,13 @@ End Function
 ' pixRemoveBorderToSize(pixs, wd, hd) as Pix
 ' pixRemoveBorderToSize(PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Removes pixels as evenly as possible from the sides of the<para/>
+''' 
+''' (1) Removes pixels as evenly as possible from the sides of the
 ''' image, leaving the central part.<para/>
-''' (2) Returns clone if no pixels requested removed, or the target<para/>
-''' sizes are larger than the image.<para/>
+''' 
+''' (2) Returns clone if no pixels requested removed, or the target
+''' sizes are larger than the image.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1051,21 +1080,23 @@ End Function
 ' pixAddMirroredBorder(pixs, left, right, top, bot) as Pix
 ' pixAddMirroredBorder(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This applies what is effectively mirror boundary conditions.<para/>
-''' For the added border pixels in pixd, the pixels in pixs<para/>
+''' 
+''' (1) This applies what is effectively mirror boundary conditions.
+''' For the added border pixels in pixd, the pixels in pixs
 ''' near the border are mirror-copied into the border region.<para/>
-''' (2) This is useful for avoiding special operations near<para/>
-''' boundaries when doing image processing operations<para/>
-''' such as rank filters and convolution.  In use, one first<para/>
-''' adds mirrored pixels to each side of the image.  The number<para/>
-''' of pixels added on each side is half the filter dimension.<para/>
-''' Then the image processing operations proceed over a<para/>
-''' region equal to the size of the original image, and<para/>
+''' 
+''' (2) This is useful for avoiding special operations near
+''' boundaries when doing image processing operations
+''' such as rank filters and convolution.  In use, one first
+''' adds mirrored pixels to each side of the image.  The number
+''' of pixels added on each side is half the filter dimension.
+''' Then the image processing operations proceed over a
+''' region equal to the size of the original image, and
 ''' write directly into a dest pix of the same size as pixs.<para/>
-''' (3) The general pixRasterop() is used for an in-place operation here<para/>
-''' because there is no overlap between the src and dest rectangles.<para/>
+''' 
+''' (3) The general pixRasterop() is used for an in-place operation here
+''' because there is no overlap between the src and dest rectangles.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1095,13 +1126,14 @@ End Function
 ' pixAddRepeatedBorder(pixs, left, right, top, bot) as Pix
 ' pixAddRepeatedBorder(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This applies a repeated border, as if the central part of<para/>
-''' the image is tiled over the plane.  So, for example, the<para/>
+''' 
+''' (1) This applies a repeated border, as if the central part of
+''' the image is tiled over the plane.  So, for example, the
 ''' pixels in the left border come from the right side of the image.<para/>
-''' (2) The general pixRasterop() is used for an in-place operation here<para/>
-''' because there is no overlap between the src and dest rectangles.<para/>
+''' 
+''' (2) The general pixRasterop() is used for an in-place operation here
+''' because there is no overlap between the src and dest rectangles.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1131,23 +1163,25 @@ End Function
 ' pixAddMixedBorder(pixs, left, right, top, bot) as Pix
 ' pixAddMixedBorder(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This applies mirrored boundary conditions horizontally<para/>
+''' 
+''' (1) This applies mirrored boundary conditions horizontally
 ''' and repeated b.c. vertically.<para/>
-''' (2) It is specifically used for avoiding special operations<para/>
-''' near boundaries when convolving a hue-saturation histogram<para/>
-''' with a given window size.  The repeated b.c. are used<para/>
-''' vertically for hue, and the mirrored b.c. are used<para/>
-''' horizontally for saturation.  The number of pixels added<para/>
-''' on each side is approximately (but not quite) half the<para/>
-''' filter dimension.  The image processing operations can<para/>
-''' then proceed over a region equal to the size of the original<para/>
-''' image, and write directly into a dest pix of the same<para/>
+''' 
+''' (2) It is specifically used for avoiding special operations
+''' near boundaries when convolving a hue-saturation histogram
+''' with a given window size.  The repeated b.c. are used
+''' vertically for hue, and the mirrored b.c. are used
+''' horizontally for saturation.  The number of pixels added
+''' on each side is approximately (but not quite) half the
+''' filter dimension.  The image processing operations can
+''' then proceed over a region equal to the size of the original
+''' image, and write directly into a dest pix of the same
 ''' size as pixs.<para/>
-''' (3) The general pixRasterop() can be used for an in-place<para/>
-''' operation here because there is no overlap between the<para/>
-''' src and dest rectangles.<para/>
+''' 
+''' (3) The general pixRasterop() can be used for an in-place
+''' operation here because there is no overlap between the
+''' src and dest rectangles.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1177,10 +1211,10 @@ End Function
 ' pixAddContinuedBorder(pixs, left, right, top, bot) as Pix
 ' pixAddContinuedBorder(PIX *, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This adds pixels on each side whose values are equal to<para/>
-''' the value on the closest boundary pixel.<para/>
+''' 
+''' (1) This adds pixels on each side whose values are equal to
+''' the value on the closest boundary pixel.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1235,13 +1269,14 @@ End Function
 ' pixDisplayLayersRGBA(pixs, val, maxw) as Pix
 ' pixDisplayLayersRGBA(PIX *, l_uint32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Use %val == 0xffffff00 for white background.<para/>
-''' (2) Three views are given:<para/>
-''' ~ the image with a fully opaque alpha<para/>
-''' ~ the alpha layer<para/>
-''' ~ the image as it would appear with a white background.<para/>
+''' 
+''' (2) Three views are given:
+''' ~ the image with a fully opaque alpha
+''' ~ the alpha layer
+''' ~ the image as it would appear with a white background.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1267,18 +1302,20 @@ End Function
 ' pixCreateRGBImage(pixr, pixg, pixb) as Pix
 ' pixCreateRGBImage(PIX *, PIX *, PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) the 4th byte, sometimes called the "alpha channel",<para/>
-''' and which is often used for blending between different<para/>
+''' 
+''' (1) the 4th byte, sometimes called the "alpha channel",
+''' and which is often used for blending between different
 ''' images, is left with 0 value.<para/>
-''' (2) see Note (4) in pix.h for details on storage of<para/>
+''' 
+''' (2) see Note (4) in pix.h for details on storage of
 ''' 8-bit samples within each 32-bit word.<para/>
-''' (3) This implementation, setting the r, g and b components<para/>
-''' sequentially, is much faster than setting them in parallel<para/>
-''' by constructing an RGB dest pixel and writing it to dest.<para/>
-''' The reason is there are many more cache misses when reading<para/>
-''' from 3 input images simultaneously.<para/>
+''' 
+''' (3) This implementation, setting the r, g and b components
+''' sequentially, is much faster than setting them in parallel
+''' by constructing an RGB dest pixel and writing it to dest.
+''' The reason is there are many more cache misses when reading
+''' from 3 input images simultaneously.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1306,14 +1343,14 @@ End Function
 ' pixGetRGBComponent(pixs, comp) as Pix
 ' pixGetRGBComponent(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Three calls to this function generate the r, g and b 8 bpp<para/>
-''' component images.  This is much faster than generating the<para/>
-''' three images in parallel, by extracting a src pixel and setting<para/>
-''' the pixels of each component image from it.  The reason is<para/>
-''' there are many more cache misses when writing to three<para/>
-''' output images simultaneously.<para/>
+''' 
+''' (1) Three calls to this function generate the r, g and b 8 bpp
+''' component images.  This is much faster than generating the
+''' three images in parallel, by extracting a src pixel and setting
+''' the pixels of each component image from it.  The reason is
+''' there are many more cache misses when writing to three
+''' output images simultaneously.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1337,12 +1374,13 @@ End Function
 ' pixSetRGBComponent(pixd, pixs, comp) as Integer
 ' pixSetRGBComponent(PIX *, PIX *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This places the 8 bpp pixel in pixs into the<para/>
+''' 
+''' (1) This places the 8 bpp pixel in pixs into the
 ''' specified component (properly interleaved) in pixd,<para/>
-''' (2) The two images are registered to the UL corner the sizes<para/>
-''' need not be the same, but a warning is issued if they differ.<para/>
+''' 
+''' (2) The two images are registered to the UL corner the sizes
+''' need not be the same, but a warning is issued if they differ.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1370,9 +1408,9 @@ End Function
 ' pixGetRGBComponentCmap(pixs, comp) as Pix
 ' pixGetRGBComponentCmap(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) In leptonica, we do not support alpha in colormaps.<para/>
+''' 
+''' (1) In leptonica, we do not support alpha in colormaps.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1396,10 +1434,10 @@ End Function
 ' pixCopyRGBComponent(pixd, pixs, comp) as Integer
 ' pixCopyRGBComponent(PIX *, PIX *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The two images are registered to the UL corner.  The sizes<para/>
-''' are usually the same, and a warning is issued if they differ.<para/>
+''' 
+''' (1) The two images are registered to the UL corner.  The sizes
+''' are usually the same, and a warning is issued if they differ.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1425,15 +1463,16 @@ End Function
 ' composeRGBPixel(rval, gval, bval, ppixel) as Integer
 ' composeRGBPixel(l_int32, l_int32, l_int32, l_uint32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) All channels are 8 bits: the input values must be between<para/>
-''' 0 and 255.  For speed, this is not enforced by masking<para/>
+''' 
+''' (1) All channels are 8 bits: the input values must be between
+''' 0 and 255.  For speed, this is not enforced by masking
 ''' with 0xff before shifting.<para/>
-''' (2) A slower implementation uses macros:<para/>
-''' SET_DATA_BYTE(ppixel, COLOR_RED, rval)<para/>
-''' SET_DATA_BYTE(ppixel, COLOR_GREEN, gval)<para/>
-''' SET_DATA_BYTE(ppixel, COLOR_BLUE, bval)<para/>
+''' 
+''' (2) A slower implementation uses macros:
+''' SET_DATA_BYTE(ppixel, COLOR_RED, rval)
+''' SET_DATA_BYTE(ppixel, COLOR_GREEN, gval)
+''' SET_DATA_BYTE(ppixel, COLOR_BLUE, bval)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1458,11 +1497,11 @@ End Function
 ' composeRGBAPixel(rval, gval, bval, aval, ppixel) as Integer
 ' composeRGBAPixel(l_int32, l_int32, l_int32, l_int32, l_uint32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) All channels are 8 bits: the input values must be between<para/>
-''' 0 and 255.  For speed, this is not enforced by masking<para/>
-''' with 0xff before shifting.<para/>
+''' 
+''' (1) All channels are 8 bits: the input values must be between
+''' 0 and 255.  For speed, this is not enforced by masking
+''' with 0xff before shifting.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1489,12 +1528,12 @@ End Function
 ' extractRGBValues(pixel, prval, pgval, pbval) as Object
 ' extractRGBValues(l_uint32, l_int32 *, l_int32 *, l_int32 *) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) A slower implementation uses macros:<para/>
-''' prval = GET_DATA_BYTE( and pixel, COLOR_RED)<para/>
-''' pgval = GET_DATA_BYTE( and pixel, COLOR_GREEN)<para/>
-''' pbval = GET_DATA_BYTE( and pixel, COLOR_BLUE)<para/>
+''' 
+''' (1) A slower implementation uses macros:
+''' prval = GET_DATA_BYTE([and]pixel, COLOR_RED)
+''' pgval = GET_DATA_BYTE([and]pixel, COLOR_GREEN)
+''' pbval = GET_DATA_BYTE([and]pixel, COLOR_BLUE)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1557,10 +1596,10 @@ End Function
 ' pixGetRGBLine(pixs, row, bufr, bufg, bufb) as Integer
 ' pixGetRGBLine(PIX *, l_int32, l_uint8 *, l_uint8 *, l_uint8 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This puts rgb components from the input line in pixs<para/>
-''' into the given buffers.<para/>
+''' 
+''' (1) This puts rgb components from the input line in pixs
+''' into the given buffers.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1592,22 +1631,23 @@ End Function
 ' pixEndianByteSwapNew(pixs) as Pix
 ' pixEndianByteSwapNew(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is used to convert the data in a pix to a<para/>
-''' serialized byte buffer in raster order, and, for RGB,<para/>
-''' in order RGBA.  This requires flipping bytes within<para/>
-''' each 32-bit word for little-endian platforms, because the<para/>
-''' words have a MSB-to-the-left rule, whereas byte raster-order<para/>
-''' requires the left-most byte in each word to be byte 0.<para/>
+''' 
+''' (1) This is used to convert the data in a pix to a
+''' serialized byte buffer in raster order, and, for RGB,
+''' in order RGBA.  This requires flipping bytes within
+''' each 32-bit word for little-endian platforms, because the
+''' words have a MSB-to-the-left rule, whereas byte raster-order
+''' requires the left-most byte in each word to be byte 0.
 ''' For big-endians, no swap is necessary, so this returns a clone.<para/>
-''' (2) Unlike pixEndianByteSwap(), which swaps the bytes in-place,<para/>
-''' this returns a new pix (or a clone).  We provide this<para/>
-''' because often when serialization is done, the source<para/>
-''' pix needs to be restored to canonical little-endian order,<para/>
-''' and this requires a second byte swap.  In such a situation,<para/>
-''' it is twice as fast to make a new pix in big-endian order,<para/>
-''' use it, and destroy it.<para/>
+''' 
+''' (2) Unlike pixEndianByteSwap(), which swaps the bytes in-place,
+''' this returns a new pix (or a clone).  We provide this
+''' because often when serialization is done, the source
+''' pix needs to be restored to canonical little-endian order,
+''' and this requires a second byte swap.  In such a situation,
+''' it is twice as fast to make a new pix in big-endian order,
+''' use it, and destroy it.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1629,20 +1669,21 @@ End Function
 ' pixEndianByteSwap(pixs) as Integer
 ' pixEndianByteSwap(PIX *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is used on little-endian platforms to swap<para/>
-''' the bytes within a word bytes 0 and 3 are swapped,<para/>
+''' 
+''' (1) This is used on little-endian platforms to swap
+''' the bytes within a word bytes 0 and 3 are swapped,
 ''' and bytes 1 and 2 are swapped.<para/>
-''' (2) This is required for little-endians in situations<para/>
-''' where we convert from a serialized byte order that is<para/>
-''' in raster order, as one typically has in file formats,<para/>
-''' to one with MSB-to-the-left in each 32-bit word, or v.v.<para/>
-''' See pix.h for a description of the canonical format<para/>
-''' (MSB-to-the left) that is used for both little-endian<para/>
-''' and big-endian platforms. For big-endians, the<para/>
-''' MSB-to-the-left word order has the bytes in raster<para/>
-''' order when serialized, so no byte flipping is required.<para/>
+''' 
+''' (2) This is required for little-endians in situations
+''' where we convert from a serialized byte order that is
+''' in raster order, as one typically has in file formats,
+''' to one with MSB-to-the-left in each 32-bit word, or v.v.
+''' See pix.h for a description of the canonical format
+''' (MSB-to-the left) that is used for both little-endian
+''' and big-endian platforms. For big-endians, the
+''' MSB-to-the-left word order has the bytes in raster
+''' order when serialized, so no byte flipping is required.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1663,16 +1704,17 @@ End Function
 ' lineEndianByteSwap(datad, datas, wpl) as Integer
 ' lineEndianByteSwap(l_uint32 *, l_uint32 *, l_int32) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is used on little-endian platforms to swap<para/>
-''' the bytes within each word in the line of image data.<para/>
-''' Bytes 0  is lower == is greater  3 and 1  is lower == is greater  2 are swapped in the dest<para/>
+''' 
+''' (1) This is used on little-endian platforms to swap
+''' the bytes within each word in the line of image data.
+''' Bytes 0 smaller or equal= is greater  3 and 1 smaller or equal= is greater  2 are swapped in the dest
 ''' byte array data8d, relative to the pix data in datas.<para/>
-''' (2) The bytes represent 8 bit pixel values.  They are swapped<para/>
-''' for little endians so that when the dest array datad<para/>
-''' is addressed by bytes, the pixels are chosen sequentially<para/>
-''' from left to right in the image.<para/>
+''' 
+''' (2) The bytes represent 8 bit pixel values.  They are swapped
+''' for little endians so that when the dest array datad
+''' is addressed by bytes, the pixels are chosen sequentially
+''' from left to right in the image.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1701,17 +1743,19 @@ End Function
 ' pixEndianTwoByteSwapNew(pixs) as Pix
 ' pixEndianTwoByteSwapNew(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is used on little-endian platforms to swap the<para/>
+''' 
+''' (1) This is used on little-endian platforms to swap the
 ''' 2-byte entities within a 32-bit word.<para/>
-''' (2) This is equivalent to a full byte swap, as performed<para/>
-''' by pixEndianByteSwap(), followed by byte swaps in<para/>
+''' 
+''' (2) This is equivalent to a full byte swap, as performed
+''' by pixEndianByteSwap(), followed by byte swaps in
 ''' each of the 16-bit entities separately.<para/>
-''' (3) Unlike pixEndianTwoByteSwap(), which swaps the shorts in-place,<para/>
-''' this returns a new pix (or a clone).  We provide this<para/>
-''' to avoid having to swap twice in situations where the input<para/>
-''' pix must be restored to canonical little-endian order.<para/>
+''' 
+''' (3) Unlike pixEndianTwoByteSwap(), which swaps the shorts in-place,
+''' this returns a new pix (or a clone).  We provide this
+''' to avoid having to swap twice in situations where the input
+''' pix must be restored to canonical little-endian order.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1733,13 +1777,14 @@ End Function
 ' pixEndianTwoByteSwap(pixs) as Integer
 ' pixEndianTwoByteSwap(PIX *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is used on little-endian platforms to swap the<para/>
+''' 
+''' (1) This is used on little-endian platforms to swap the
 ''' 2-byte entities within a 32-bit word.<para/>
-''' (2) This is equivalent to a full byte swap, as performed<para/>
-''' by pixEndianByteSwap(), followed by byte swaps in<para/>
-''' each of the 16-bit entities separately.<para/>
+''' 
+''' (2) This is equivalent to a full byte swap, as performed
+''' by pixEndianByteSwap(), followed by byte swaps in
+''' each of the 16-bit entities separately.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1760,12 +1805,12 @@ End Function
 ' pixGetRasterData(pixs, pdata, pnbytes) as Integer
 ' pixGetRasterData(PIX *, l_uint8 **, size_t *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This returns the raster data as a byte string, padded to the<para/>
-''' byte.  For 1 bpp, the first pixel is the MSbit in the first byte.<para/>
-''' For rgb, the bytes are in (rgb) order.  This is the format<para/>
-''' required for flate encoding of pixels in a PostScript file.<para/>
+''' 
+''' (1) This returns the raster data as a byte string, padded to the
+''' byte.  For 1 bpp, the first pixel is the MSbit in the first byte.
+''' For rgb, the bytes are in (rgb) order.  This is the format
+''' required for flate encoding of pixels in a PostScript file.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1815,22 +1860,24 @@ End Function
 ' pixSetupByteProcessing(pix, pw, ph) as List( of Byte())
 ' pixSetupByteProcessing(PIX *, l_int32 *, l_int32 *) as l_uint8 **
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a simple helper for processing 8 bpp images with<para/>
+''' 
+''' (1) This is a simple helper for processing 8 bpp images with
 ''' direct byte access.  It can swap byte order within each word.<para/>
-''' (2) After processing, you must call pixCleanupByteProcessing(),<para/>
+''' 
+''' (2) After processing, you must call pixCleanupByteProcessing(),
 ''' which frees the lineptr array and restores byte order.<para/>
-''' (3) Usage:<para/>
-''' l_uint8 lineptrs = pixSetupByteProcessing(pix,  and w,  and h)<para/>
-''' for (i = 0 i  is lower  h i++) {<para/>
-''' l_uint8 line = lineptrs[i]<para/>
-''' for (j = 0 j  is lower  w j++) {<para/>
-''' val = line[j]<para/>
-''' ...<para/>
-''' }<para/>
-''' }<para/>
-''' pixCleanupByteProcessing(pix, lineptrs)<para/>
+''' 
+''' (3) Usage:
+''' l_uint8 lineptrs = pixSetupByteProcessing(pix, [and]w, [and]h)
+''' for (i = 0 i  is smaller h i++) {
+''' l_uint8 line = lineptrs[i]
+''' for (j = 0 j  is smaller w j++) {
+''' val = line[j]
+''' ...
+''' }
+''' }
+''' pixCleanupByteProcessing(pix, lineptrs)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1858,10 +1905,10 @@ End Function
 ' pixCleanupByteProcessing(pix, lineptrs) as Integer
 ' pixCleanupByteProcessing(PIX *, l_uint8 **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This must be called after processing that was initiated<para/>
-''' by pixSetupByteProcessing() has finished.<para/>
+''' 
+''' (1) This must be called after processing that was initiated
+''' by pixSetupByteProcessing() has finished.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1887,20 +1934,22 @@ End Function
 ' l_setAlphaMaskBorder(val1, val2) as Object
 ' l_setAlphaMaskBorder(l_float32, l_float32) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This sets the opacity values used to generate the two outer<para/>
-''' boundary rings in the alpha mask associated with geometric<para/>
+''' 
+''' (1) This sets the opacity values used to generate the two outer
+''' boundary rings in the alpha mask associated with geometric
 ''' transforms such as pixRotateWithAlpha().<para/>
-''' (2) The default values are val1 = 0.0 (completely transparent<para/>
-''' in the outermost ring) and val2 = 0.5 (half transparent<para/>
-''' in the second ring).  When the image is blended, this<para/>
-''' completely removes the outer ring (shrinking the image by<para/>
-''' 2 in each direction), and alpha-blends with 0.5 the second ring.<para/>
-''' Using val1 = 0.25 and val2 = 0.75 gives a slightly more<para/>
+''' 
+''' (2) The default values are val1 = 0.0 (completely transparent
+''' in the outermost ring) and val2 = 0.5 (half transparent
+''' in the second ring).  When the image is blended, this
+''' completely removes the outer ring (shrinking the image by
+''' 2 in each direction), and alpha-blends with 0.5 the second ring.
+''' Using val1 = 0.25 and val2 = 0.75 gives a slightly more
 ''' blurred border, with no perceptual difference at screen resolution.<para/>
-''' (3) The actual mask values are found by multiplying these<para/>
-''' normalized opacity values by 255.<para/>
+''' 
+''' (3) The actual mask values are found by multiplying these
+''' normalized opacity values by 255.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

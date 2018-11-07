@@ -7,9 +7,9 @@ Partial Public Class _All
 ' generatePtaLine(x1, y1, x2, y2) as Pta
 ' generatePtaLine(l_int32, l_int32, l_int32, l_int32) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Uses Bresenham line drawing, which results in an 8-connected line.<para/>
+''' 
+''' (1) Uses Bresenham line drawing, which results in an 8-connected line.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -60,10 +60,10 @@ End Function
 ' generatePtaBox(box, width) as Pta
 ' generatePtaBox(BOX *, l_int32) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Because the box is constructed so that we don't have any<para/>
-''' overlapping lines, there is no need to remove duplicates.<para/>
+''' 
+''' (1) Because the box is constructed so that we don't have any
+''' overlapping lines, there is no need to remove duplicates.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -87,12 +87,12 @@ End Function
 ' generatePtaBoxa(boxa, width, removedups) as Pta
 ' generatePtaBoxa(BOXA *, l_int32, l_int32) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If the boxa has overlapping boxes, and if blending will<para/>
-''' be used to give a transparent effect, transparency<para/>
-''' artifacts at line intersections can be removed using<para/>
-''' removedups = 1.<para/>
+''' 
+''' (1) If the boxa has overlapping boxes, and if blending will
+''' be used to give a transparent effect, transparency
+''' artifacts at line intersections can be removed using
+''' removedups = 1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -118,11 +118,12 @@ End Function
 ' generatePtaHashBox(box, spacing, width, orient, outline) as Pta
 ' generatePtaHashBox(BOX *, l_int32, l_int32, l_int32, l_int32) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The orientation takes on one of 4 orientations (horiz, vertical,<para/>
+''' 
+''' (1) The orientation takes on one of 4 orientations (horiz, vertical,
 ''' slope +1, slope -1).<para/>
-''' (2) The full outline is also drawn if %outline = 1.<para/>
+''' 
+''' (2) The full outline is also drawn if %outline = 1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -152,15 +153,17 @@ End Function
 ' generatePtaHashBoxa(boxa, spacing, width, orient, outline, removedups) as Pta
 ' generatePtaHashBoxa(BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The orientation takes on one of 4 orientations (horiz, vertical,<para/>
+''' 
+''' (1) The orientation takes on one of 4 orientations (horiz, vertical,
 ''' slope +1, slope -1).<para/>
+''' 
 ''' (2) The full outline is also drawn if %outline = 1.<para/>
-''' (3) If the boxa has overlapping boxes, and if blending will<para/>
-''' be used to give a transparent effect, transparency<para/>
-''' artifacts at line intersections can be removed using<para/>
-''' removedups = 1.<para/>
+''' 
+''' (3) If the boxa has overlapping boxes, and if blending will
+''' be used to give a transparent effect, transparency
+''' artifacts at line intersections can be removed using
+''' removedups = 1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -192,12 +195,13 @@ End Function
 ' generatePtaaBoxa(boxa) as Ptaa
 ' generatePtaaBoxa(BOXA *) as PTAA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This generates a pta of the four corners for each box in<para/>
+''' 
+''' (1) This generates a pta of the four corners for each box in
 ''' the boxa.<para/>
-''' (2) Each of these pta can be rendered onto a pix with random colors,<para/>
-''' by using pixRenderRandomCmapPtaa() with closeflag = 1.<para/>
+''' 
+''' (2) Each of these pta can be rendered onto a pix with random colors,
+''' by using pixRenderRandomCmapPtaa() with closeflag = 1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -219,13 +223,15 @@ End Function
 ' generatePtaaHashBoxa(boxa, spacing, width, orient, outline) as Ptaa
 ' generatePtaaHashBoxa(BOXA *, l_int32, l_int32, l_int32, l_int32) as PTAA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The orientation takes on one of 4 orientations (horiz, vertical,<para/>
+''' 
+''' (1) The orientation takes on one of 4 orientations (horiz, vertical,
 ''' slope +1, slope -1).<para/>
+''' 
 ''' (2) The full outline is also drawn if %outline = 1.<para/>
-''' (3) Each of these pta can be rendered onto a pix with random colors,<para/>
-''' by using pixRenderRandomCmapPtaa() with closeflag = 1.<para/>
+''' 
+''' (3) Each of these pta can be rendered onto a pix with random colors,
+''' by using pixRenderRandomCmapPtaa() with closeflag = 1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -305,13 +311,14 @@ End Function
 ' convertPtaLineTo4cc(ptas) as Pta
 ' convertPtaLineTo4cc(PTA *) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) When a polyline is generated with width = 1, the resulting<para/>
-''' line is not 4-connected in general.  This function adds<para/>
-''' points as necessary to convert the line to 4-cconnected.<para/>
+''' 
+''' (1) When a polyline is generated with width = 1, the resulting
+''' line is not 4-connected in general.  This function adds
+''' points as necessary to convert the line to 4-cconnected.
 ''' It is useful when rendering 1 bpp on a pix.<para/>
-''' (2) Do not use this for lines generated with width  is greater  1.<para/>
+''' 
+''' (2) Do not use this for lines generated with width  is greater  1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -333,13 +340,15 @@ End Function
 ' generatePtaFilledCircle(radius) as Pta
 ' generatePtaFilledCircle(l_int32) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The circle is has diameter = 2  radius + 1.<para/>
-''' (2) It is located with the center of the circle at the<para/>
+''' 
+''' (2) It is located with the center of the circle at the
 ''' point (radius, radius).<para/>
-''' (3) Consequently, it typically must be translated if<para/>
-''' it is to represent a set of pixels in an image.<para/>
+''' 
+''' (3) Consequently, it typically must be translated if
+''' it is to represent a set of pixels in an image.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -359,11 +368,11 @@ End Function
 ' generatePtaFilledSquare(side) as Pta
 ' generatePtaFilledSquare(l_int32) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The center of the square can be chosen to be at<para/>
-''' (side / 2, side / 2).  It must be translated by this amount<para/>
-''' when used for replication.<para/>
+''' 
+''' (1) The center of the square can be chosen to be at
+''' (side / 2, side / 2).  It must be translated by this amount
+''' when used for replication.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -383,11 +392,11 @@ End Function
 ' generatePtaLineFromPt(x, y, length, radang) as Pta
 ' generatePtaLineFromPt(l_int32, l_int32, l_float64, l_float64) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The %length of the line is 1 greater than the distance<para/>
-''' used in locatePtRadially().  Example: a distance of 1<para/>
-''' gives rise to a length of 2.<para/>
+''' 
+''' (1) The %length of the line is 1 greater than the distance
+''' used in locatePtRadially().  Example: a distance of 1
+''' gives rise to a length of 2.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -445,13 +454,15 @@ End Function
 ' pixRenderPlotFromNuma(ppix, na, plotloc, linewidth, max, color) as Integer
 ' pixRenderPlotFromNuma(PIX **, NUMA *, l_int32, l_int32, l_int32, l_uint32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Simplified interface for plotting row or column aligned data<para/>
+''' 
+''' (1) Simplified interface for plotting row or column aligned data
 ''' on a pix.<para/>
-''' (2) This replaces %pix with a 32 bpp rgb version if it is not<para/>
+''' 
+''' (2) This replaces %pix with a 32 bpp rgb version if it is not
 ''' already 32 bpp.  It then draws the plot on the pix.<para/>
-''' (3) See makePlotPtaFromNumaGen() for more details.<para/>
+''' 
+''' (3) See makePlotPtaFromNumaGen() for more details.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -485,14 +496,15 @@ End Function
 ' makePlotPtaFromNuma(na, size, plotloc, linewidth, max) as Pta
 ' makePlotPtaFromNuma(NUMA *, l_int32, l_int32, l_int32, l_int32) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This generates points from %numa representing y(x) or x(y)<para/>
-''' with respect to a pix.  A horizontal plot y(x) is drawn for<para/>
-''' a function of column position, and a vertical plot is drawn<para/>
-''' for a function x(y) of row position.  The baseline is located<para/>
+''' 
+''' (1) This generates points from %numa representing y(x) or x(y)
+''' with respect to a pix.  A horizontal plot y(x) is drawn for
+''' a function of column position, and a vertical plot is drawn
+''' for a function x(y) of row position.  The baseline is located
 ''' so that all plot points will fit in the pix.<para/>
-''' (2) See makePlotPtaFromNumaGen() for more details.<para/>
+''' 
+''' (2) See makePlotPtaFromNumaGen() for more details.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -522,13 +534,15 @@ End Function
 ' pixRenderPlotFromNumaGen(ppix, na, orient, linewidth, refpos, max, drawref, color) as Integer
 ' pixRenderPlotFromNumaGen(PIX **, NUMA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_uint32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) General interface for plotting row or column aligned data<para/>
+''' 
+''' (1) General interface for plotting row or column aligned data
 ''' on a pix.<para/>
-''' (2) This replaces %pix with a 32 bpp rgb version if it is not<para/>
+''' 
+''' (2) This replaces %pix with a 32 bpp rgb version if it is not
 ''' already 32 bpp.  It then draws the plot on the pix.<para/>
-''' (3) See makePlotPtaFromNumaGen() for other input parameters.<para/>
+''' 
+''' (3) See makePlotPtaFromNumaGen() for other input parameters.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -566,21 +580,25 @@ End Function
 ' makePlotPtaFromNumaGen(na, orient, linewidth, refpos, max, drawref) as Pta
 ' makePlotPtaFromNumaGen(NUMA *, l_int32, l_int32, l_int32, l_int32, l_int32) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This generates points from %numa representing y(x) or x(y)<para/>
-''' with respect to a pix.  For y(x), we draw a horizontal line<para/>
-''' at the reference position and a vertical line at the edge then<para/>
-''' we draw the values of %numa, scaled so that the maximum<para/>
+''' 
+''' (1) This generates points from %numa representing y(x) or x(y)
+''' with respect to a pix.  For y(x), we draw a horizontal line
+''' at the reference position and a vertical line at the edge then
+''' we draw the values of %numa, scaled so that the maximum
 ''' excursion from the reference position is %max pixels.<para/>
-''' (2) The start and delx parameters of %numa are used to refer<para/>
-''' its values to the raster lines (L_VERTICAL_LINE) or columns<para/>
+''' 
+''' (2) The start and delx parameters of %numa are used to refer
+''' its values to the raster lines (L_VERTICAL_LINE) or columns
 ''' (L_HORIZONTAL_LINE).<para/>
+''' 
 ''' (3) The linewidth is chosen in the interval [1 ... 7].<para/>
-''' (4) %refpos should be chosen so the plot is entirely within the pix<para/>
+''' 
+''' (4) %refpos should be chosen so the plot is entirely within the pix
 ''' that it will be painted onto.<para/>
-''' (5) This would typically be used to plot, in place, a function<para/>
-''' computed along pixel rows or columns.<para/>
+''' 
+''' (5) This would typically be used to plot, in place, a function
+''' computed along pixel rows or columns.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -612,16 +630,19 @@ End Function
 ' pixRenderPta(pix, pta, op) as Integer
 ' pixRenderPta(PIX *, PTA *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) L_SET_PIXELS puts all image bits in each pixel to 1<para/>
+''' 
+''' (1) L_SET_PIXELS puts all image bits in each pixel to 1
 ''' (black for 1 bpp white for depth  is greater  1)<para/>
-''' (2) L_CLEAR_PIXELS puts all image bits in each pixel to 0<para/>
+''' 
+''' (2) L_CLEAR_PIXELS puts all image bits in each pixel to 0
 ''' (white for 1 bpp black for depth  is greater  1)<para/>
+''' 
 ''' (3) L_FLIP_PIXELS reverses all image bits in each pixel<para/>
-''' (4) This function clips the rendering to the pix.  It performs<para/>
-''' clipping for functions such as pixRenderLine(),<para/>
-''' pixRenderBox() and pixRenderBoxa(), that call pixRenderPta().<para/>
+''' 
+''' (4) This function clips the rendering to the pix.  It performs
+''' clipping for functions such as pixRenderLine(),
+''' pixRenderBox() and pixRenderBoxa(), that call pixRenderPta().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -647,17 +668,20 @@ End Function
 ' pixRenderPtaArb(pix, pta, rval, gval, bval) as Integer
 ' pixRenderPtaArb(PIX *, PTA *, l_uint8, l_uint8, l_uint8) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If pix is colormapped, render this color (or the nearest<para/>
+''' 
+''' (1) If pix is colormapped, render this color (or the nearest
 ''' color if the cmap is full) on each pixel.<para/>
+''' 
 ''' (2) The rgb components have the standard dynamic range [0 ... 255]<para/>
-''' (3) If pix is not colormapped, do the best job you can using<para/>
-''' the input colors:<para/>
-''' ~ d = 1: set the pixels<para/>
-''' ~ d = 2, 4, 8: average the input rgb value<para/>
+''' 
+''' (3) If pix is not colormapped, do the best job you can using
+''' the input colors:
+''' ~ d = 1: set the pixels
+''' ~ d = 2, 4, 8: average the input rgb value
 ''' ~ d = 32: use the input rgb value<para/>
-''' (4) This function clips the rendering to the pix.<para/>
+''' 
+''' (4) This function clips the rendering to the pix.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -690,9 +714,9 @@ End Function
 ' pixRenderPtaBlend(pix, pta, rval, gval, bval, fract) as Integer
 ' pixRenderPtaBlend(PIX *, PTA *, l_uint8, l_uint8, l_uint8, l_float32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This function clips the rendering to the pix.<para/>
+''' 
+''' (1) This function clips the rendering to the pix.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1128,11 +1152,11 @@ End Function
 ' pixRenderHashMaskArb(pix, pixm, x, y, spacing, width, orient, outline, rval, gval, bval) as Integer
 ' pixRenderHashMaskArb(PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is an in-place operation that renders hash lines<para/>
-''' through a mask %pixm onto %pix.  The mask origin is<para/>
-''' translated by (%x,%y) relative to the origin of %pix.<para/>
+''' 
+''' (1) This is an in-place operation that renders hash lines
+''' through a mask %pixm onto %pix.  The mask origin is
+''' translated by (%x,%y) relative to the origin of %pix.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1278,9 +1302,8 @@ End Function
 ' pixRenderPolyline(pix, ptas, width, op, closeflag) as Integer
 ' pixRenderPolyline(PIX *, PTA *, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' This renders a closed contour.<para/>
+''' Notes:
+''' This renders a closed contour.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1310,9 +1333,8 @@ End Function
 ' pixRenderPolylineArb(pix, ptas, width, rval, gval, bval, closeflag) as Integer
 ' pixRenderPolylineArb(PIX *, PTA *, l_int32, l_uint8, l_uint8, l_uint8, l_int32) as l_ok
 '''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' This renders a closed contour.<para/>
+''' Notes:
+''' This renders a closed contour.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1422,20 +1444,24 @@ End Function
 ' pixRenderRandomCmapPtaa(pix, ptaa, polyflag, width, closeflag) as Pix
 ' pixRenderRandomCmapPtaa(PIX *, PTAA *, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a debugging routine, that displays a set of<para/>
-''' pixels, selected by the set of Ptas in a Ptaa,<para/>
+''' 
+''' (1) This is a debugging routine, that displays a set of
+''' pixels, selected by the set of Ptas in a Ptaa,
 ''' in a random color in a pix.<para/>
-''' (2) If %polyflag == 1, each Pta is considered to be a polyline,<para/>
-''' and is rendered using %width and %closeflag.  Each polyline<para/>
+''' 
+''' (2) If %polyflag == 1, each Pta is considered to be a polyline,
+''' and is rendered using %width and %closeflag.  Each polyline
 ''' is rendered in a random color.<para/>
-''' (3) If %polyflag == 0, all points in each Pta are rendered in a<para/>
+''' 
+''' (3) If %polyflag == 0, all points in each Pta are rendered in a
 ''' random color.  The %width and %closeflag parameters are ignored.<para/>
-''' (4) The output pix is 8 bpp and colormapped.  Up to 254<para/>
+''' 
+''' (4) The output pix is 8 bpp and colormapped.  Up to 254
 ''' different, randomly selected colors, can be used.<para/>
-''' (5) The rendered pixels replace the input pixels.  They will<para/>
-''' be clipped silently to the input pix.<para/>
+''' 
+''' (5) The rendered pixels replace the input pixels.  They will
+''' be clipped silently to the input pix.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1468,13 +1494,14 @@ End Function
 ' pixRenderPolygon(ptas, width, pxmin, pymin) as Pix
 ' pixRenderPolygon(PTA *, l_int32, l_int32 *, l_int32 *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The pix is the minimum size required to contain the origin<para/>
-''' and the polygon.  For example, the max x value of the input<para/>
+''' 
+''' (1) The pix is the minimum size required to contain the origin
+''' and the polygon.  For example, the max x value of the input
 ''' points is w - 1, where w is the pix width.<para/>
-''' (2) The rendered line is 4-connected, so that an interior or<para/>
-''' exterior 8-c.c. flood fill operation works properly.<para/>
+''' 
+''' (2) The rendered line is 4-connected, so that an interior or
+''' exterior 8-c.c. flood fill operation works properly.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1502,14 +1529,15 @@ End Function
 ' pixFillPolygon(pixs, pta, xmin, ymin) as Pix
 ' pixFillPolygon(PIX *, PTA *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This fills the interior of the polygon, returning a<para/>
+''' 
+''' (1) This fills the interior of the polygon, returning a
 ''' new pix.  It works for both convex and non-convex polygons.<para/>
-''' (2) To generate a filled polygon from a pta:<para/>
-''' PIX pixt = pixRenderPolygon(pta, 1,  and xmin,  and ymin)<para/>
-''' PIX pixd = pixFillPolygon(pixt, pta, xmin, ymin)<para/>
-''' pixDestroy( and pixt)<para/>
+''' 
+''' (2) To generate a filled polygon from a pta:
+''' PIX pixt = pixRenderPolygon(pta, 1, [and]xmin, [and]ymin)
+''' PIX pixd = pixFillPolygon(pixt, pta, xmin, ymin)
+''' pixDestroy([and]pixt)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1538,11 +1566,11 @@ End Function
 ' pixRenderContours(pixs, startval, incr, outdepth) as Pix
 ' pixRenderContours(PIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The output can be either 1 bpp, showing just the contour<para/>
-''' lines, or a copy of the input pixs with the contour lines<para/>
-''' superposed.<para/>
+''' 
+''' (1) The output can be either 1 bpp, showing just the contour
+''' lines, or a copy of the input pixs with the contour lines
+''' superposed.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1570,18 +1598,20 @@ End Function
 ' fpixAutoRenderContours(fpix, ncontours) as Pix
 ' fpixAutoRenderContours(FPIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The increment is set to get approximately %ncontours.<para/>
-''' (2) The proximity to the target value for contour display<para/>
+''' 
+''' (2) The proximity to the target value for contour display
 ''' is set to 0.15.<para/>
-''' (3) Negative values are rendered in red positive values as black.<para/>
+''' 
+''' (3) Negative values are rendered in red positive values as black.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/fpixAutoRenderContours/*"/>
 '''  <param name="fpix">[in] - </param>
-'''  <param name="ncontours">[in] - is greater  1,  is lower  500, typ. about 50</param>
+'''  <param name="ncontours">[in] - is greater  1,  is smaller 500, typ. about 50</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
 Public Shared Function fpixAutoRenderContours(
 				 ByVal fpix as FPix, 
@@ -1599,12 +1629,13 @@ End Function
 ' fpixRenderContours(fpixs, incr, proxim) as Pix
 ' fpixRenderContours(FPIX *, l_float32, l_float32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Values are displayed when val/incr is within +-proxim<para/>
-''' to an integer.  The default value is 0.15 smaller values<para/>
+''' 
+''' (1) Values are displayed when val/incr is within +-proxim
+''' to an integer.  The default value is 0.15 smaller values
 ''' result in thinner contour lines.<para/>
-''' (2) Negative values are rendered in red positive values as black.<para/>
+''' 
+''' (2) Negative values are rendered in red positive values as black.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1630,16 +1661,17 @@ End Function
 ' pixGeneratePtaBoundary(pixs, width) as Pta
 ' pixGeneratePtaBoundary(PIX *, l_int32) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Similar to ptaGetBoundaryPixels(), except here:<para/>
-''' we only get pixels in the foreground<para/>
+''' 
+''' (1) Similar to ptaGetBoundaryPixels(), except here:
+''' we only get pixels in the foreground
 ''' we can have a "line" width greater than 1 pixel.<para/>
-''' (2) Once generated, this can be applied to a random 1 bpp image<para/>
-''' to add a color boundary as follows:<para/>
-''' Pta pta = pixGeneratePtaBoundary(pixs, width)<para/>
-''' Pix pix1 = pixConvert1To8Cmap(pixs)<para/>
-''' pixRenderPtaArb(pix1, pta, rval, gval, bval)<para/>
+''' 
+''' (2) Once generated, this can be applied to a random 1 bpp image
+''' to add a color boundary as follows:
+''' Pta pta = pixGeneratePtaBoundary(pixs, width)
+''' Pix pix1 = pixConvert1To8Cmap(pixs)
+''' pixRenderPtaArb(pix1, pta, rval, gval, bval)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

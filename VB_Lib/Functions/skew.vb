@@ -7,12 +7,13 @@ Partial Public Class _All
 ' pixDeskewBoth(pixs, redsearch) as Pix
 ' pixDeskewBoth(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This binarizes if necessary and does both horizontal<para/>
-''' and vertical deskewing, using the default parameters in<para/>
+''' 
+''' (1) This binarizes if necessary and does both horizontal
+''' and vertical deskewing, using the default parameters in
 ''' the underlying pixDeskew().  See usage there.<para/>
-''' (2) This may return a clone.<para/>
+''' 
+''' (2) This may return a clone.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -38,13 +39,14 @@ End Function
 ' pixDeskew(pixs, redsearch) as Pix
 ' pixDeskew(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This binarizes if necessary and finds the skew angle.  If the<para/>
-''' angle is large enough and there is sufficient confidence,<para/>
+''' 
+''' (1) This binarizes if necessary and finds the skew angle.  If the
+''' angle is large enough and there is sufficient confidence,
 ''' it returns a deskewed image otherwise, it returns a clone.<para/>
-''' (2) Typical values at 300 ppi for %redsearch are 2 and 4.<para/>
-''' At 75 ppi, one should use %redsearch = 1.<para/>
+''' 
+''' (2) Typical values at 300 ppi for %redsearch are 2 and 4.
+''' At 75 ppi, one should use %redsearch = 1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -70,11 +72,11 @@ End Function
 ' pixFindSkewAndDeskew(pixs, redsearch, pangle, pconf) as Pix
 ' pixFindSkewAndDeskew(PIX *, l_int32, l_float32 *, l_float32 *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This binarizes if necessary and finds the skew angle.  If the<para/>
-''' angle is large enough and there is sufficient confidence,<para/>
-''' it returns a deskewed image otherwise, it returns a clone.<para/>
+''' 
+''' (1) This binarizes if necessary and finds the skew angle.  If the
+''' angle is large enough and there is sufficient confidence,
+''' it returns a deskewed image otherwise, it returns a clone.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -104,11 +106,11 @@ End Function
 ' pixDeskewGeneral(pixs, redsweep, sweeprange, sweepdelta, redsearch, thresh, pangle, pconf) as Pix
 ' pixDeskewGeneral(PIX *, l_int32, l_float32, l_float32, l_int32, l_int32, l_float32 *, l_float32 *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This binarizes if necessary and finds the skew angle.  If the<para/>
-''' angle is large enough and there is sufficient confidence,<para/>
-''' it returns a deskewed image otherwise, it returns a clone.<para/>
+''' 
+''' (1) This binarizes if necessary and finds the skew angle.  If the
+''' angle is large enough and there is sufficient confidence,
+''' it returns a deskewed image otherwise, it returns a clone.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -147,13 +149,14 @@ End Function
 ' pixFindSkew(pixs, pangle, pconf) as Integer
 ' pixFindSkew(PIX *, l_float32 *, l_float32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a simple high-level interface, that uses default<para/>
+''' 
+''' (1) This is a simple high-level interface, that uses default
 ''' values of the parameters for reasonable speed and accuracy.<para/>
-''' (2) The angle returned is the negative of the skew angle of<para/>
-''' the image.  It is the angle required for deskew.<para/>
-''' Clockwise rotations are positive angles.<para/>
+''' 
+''' (2) The angle returned is the negative of the skew angle of
+''' the image.  It is the angle required for deskew.
+''' Clockwise rotations are positive angles.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -180,10 +183,11 @@ End Function
 ' pixFindSkewSweep(pixs, pangle, reduction, sweeprange, sweepdelta) as Integer
 ' pixFindSkewSweep(PIX *, l_float32 *, l_int32, l_float32, l_float32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This examines the 'score' for skew angles with equal intervals.<para/>
-''' (2) Caller must check the return value for validity of the result.<para/>
+''' 
+''' (2) Caller must check the return value for validity of the result.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -215,18 +219,21 @@ End Function
 ' pixFindSkewSweepAndSearch(pixs, pangle, pconf, redsweep, redsearch, sweeprange, sweepdelta, minbsdelta) as Integer
 ' pixFindSkewSweepAndSearch(PIX *, l_float32 *, l_float32 *, l_int32, l_int32, l_float32, l_float32, l_float32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This finds the skew angle, doing first a sweep through a set<para/>
-''' of equal angles, and then doing a binary search until<para/>
+''' 
+''' (1) This finds the skew angle, doing first a sweep through a set
+''' of equal angles, and then doing a binary search until
 ''' convergence.<para/>
+''' 
 ''' (2) Caller must check the return value for validity of the result.<para/>
-''' (3) In computing the differential line sum variance score, we sum<para/>
-''' the result over scanlines, but we always skip:<para/>
-''' ~ at least one scanline<para/>
-''' ~ not more than 10% of the image height<para/>
+''' 
+''' (3) In computing the differential line sum variance score, we sum
+''' the result over scanlines, but we always skip:
+''' ~ at least one scanline
+''' ~ not more than 10% of the image height
 ''' ~ not more than 5% of the image width<para/>
-''' (4) See also notes in pixFindSkewSweepAndSearchScore()<para/>
+''' 
+''' (4) See also notes in pixFindSkewSweepAndSearchScore()
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -265,25 +272,28 @@ End Function
 ' pixFindSkewSweepAndSearchScore(pixs, pangle, pconf, pendscore, redsweep, redsearch, sweepcenter, sweeprange, sweepdelta, minbsdelta) as Integer
 ' pixFindSkewSweepAndSearchScore(PIX *, l_float32 *, l_float32 *, l_float32 *, l_int32, l_int32, l_float32, l_float32, l_float32, l_float32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This finds the skew angle, doing first a sweep through a set<para/>
+''' 
+''' (1) This finds the skew angle, doing first a sweep through a set
 ''' of equal angles, and then doing a binary search until convergence.<para/>
-''' (2) There are two built-in constants that determine if the<para/>
-''' returned confidence is nonzero:<para/>
-''' ~ MIN_VALID_MAXSCORE (minimum allowed maxscore)<para/>
-''' ~ MINSCORE_THRESHOLD_CONSTANT (determines minimum allowed<para/>
-''' minscore, by multiplying by (height  width^2)<para/>
-''' If either of these conditions is not satisfied, the returned<para/>
-''' confidence value will be zero.  The maxscore is optionally<para/>
-''' returned in this function to allow evaluation of the<para/>
-''' resulting angle by a method that is independent of the<para/>
+''' 
+''' (2) There are two built-in constants that determine if the
+''' returned confidence is nonzero:
+''' ~ MIN_VALID_MAXSCORE (minimum allowed maxscore)
+''' ~ MINSCORE_THRESHOLD_CONSTANT (determines minimum allowed
+''' minscore, by multiplying by (height  width^2)
+''' If either of these conditions is not satisfied, the returned
+''' confidence value will be zero.  The maxscore is optionally
+''' returned in this function to allow evaluation of the
+''' resulting angle by a method that is independent of the
 ''' returned confidence value.<para/>
-''' (3) The larger the confidence value, the greater the probability<para/>
-''' that the proper alignment is given by the angle that maximizes<para/>
-''' variance.  It should be compared to a threshold, which depends<para/>
+''' 
+''' (3) The larger the confidence value, the greater the probability
+''' that the proper alignment is given by the angle that maximizes
+''' variance.  It should be compared to a threshold, which depends
 ''' on the application.  Values between 3.0 and 6.0 are common.<para/>
-''' (4) By default, the shear is about the UL corner.<para/>
+''' 
+''' (4) By default, the shear is about the UL corner.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -326,15 +336,16 @@ End Function
 ' pixFindSkewSweepAndSearchScorePivot(pixs, pangle, pconf, pendscore, redsweep, redsearch, sweepcenter, sweeprange, sweepdelta, minbsdelta, pivot) as Integer
 ' pixFindSkewSweepAndSearchScorePivot(PIX *, l_float32 *, l_float32 *, l_float32 *, l_int32, l_int32, l_float32, l_float32, l_float32, l_float32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) See notes in pixFindSkewSweepAndSearchScore().<para/>
-''' (2) This allows choice of shear pivoting from either the UL corner<para/>
-''' or the center.  For small angles, the ability to discriminate<para/>
-''' angles is better with shearing from the UL corner.  However,<para/>
-''' for large angles (say, greater than 20 degrees), it is better<para/>
-''' to shear about the center because a shear from the UL corner<para/>
-''' loses too much of the image.<para/>
+''' 
+''' (2) This allows choice of shear pivoting from either the UL corner
+''' or the center.  For small angles, the ability to discriminate
+''' angles is better with shearing from the UL corner.  However,
+''' for large angles (say, greater than 20 degrees), it is better
+''' to shear about the center because a shear from the UL corner
+''' loses too much of the image.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -411,12 +422,12 @@ End Function
 ' pixFindDifferentialSquareSum(pixs, psum) as Integer
 ' pixFindDifferentialSquareSum(PIX *, l_float32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) At the top and bottom, we skip:<para/>
-''' ~ at least one scanline<para/>
-''' ~ not more than 10% of the image height<para/>
-''' ~ not more than 5% of the image width<para/>
+''' 
+''' (1) At the top and bottom, we skip:
+''' ~ at least one scanline
+''' ~ not more than 10% of the image height
+''' ~ not more than 5% of the image width
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -439,16 +450,17 @@ End Function
 ' pixFindNormalizedSquareSum(pixs, phratio, pvratio, pfract) as Integer
 ' pixFindNormalizedSquareSum(PIX *, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Let the image have h scanlines and N fg pixels.<para/>
-''' If the pixels were uniformly distributed on scanlines,<para/>
-''' the sum of squares of fg pixels on each scanline would be<para/>
-''' h  (N / h)^2.  However, if the pixels are not uniformly<para/>
-''' distributed (e.g., for text), the sum of squares of fg<para/>
-''' pixels will be larger.  We return in hratio and vratio the<para/>
+''' 
+''' (1) Let the image have h scanlines and N fg pixels.
+''' If the pixels were uniformly distributed on scanlines,
+''' the sum of squares of fg pixels on each scanline would be
+''' h  (N / h)^2.  However, if the pixels are not uniformly
+''' distributed (e.g., for text), the sum of squares of fg
+''' pixels will be larger.  We return in hratio and vratio the
 ''' ratio of these two values.<para/>
-''' (2) If there are no fg pixels, hratio and vratio are returned as 0.0.<para/>
+''' 
+''' (2) If there are no fg pixels, hratio and vratio are returned as 0.0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

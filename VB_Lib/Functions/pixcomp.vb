@@ -7,12 +7,13 @@ Partial Public Class _All
 ' pixcompCreateFromPix(pix, comptype) as PixComp
 ' pixcompCreateFromPix(PIX *, l_int32) as PIXC *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Use %comptype == IFF_DEFAULT to have the compression<para/>
+''' 
+''' (1) Use %comptype == IFF_DEFAULT to have the compression
 ''' type automatically determined.<para/>
-''' (2) To compress jpeg with a quality other than the default (75), use<para/>
-''' l_jpegSetQuality()<para/>
+''' 
+''' (2) To compress jpeg with a quality other than the default (75), use
+''' l_jpegSetQuality()
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -36,11 +37,12 @@ End Function
 ' pixcompCreateFromString(data, size, copyflag) as PixComp
 ' pixcompCreateFromString(l_uint8 *, size_t, l_int32) as PIXC *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This works when the compressed string is png, jpeg or tiffg4.<para/>
-''' (2) The copyflag determines if the data in the new Pixcomp is<para/>
-''' a copy of the input data.<para/>
+''' 
+''' (2) The copyflag determines if the data in the new Pixcomp is
+''' a copy of the input data.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -66,12 +68,13 @@ End Function
 ' pixcompCreateFromFile(filename, comptype) as PixComp
 ' pixcompCreateFromFile(const char *, l_int32) as PIXC *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Use %comptype == IFF_DEFAULT to have the compression<para/>
+''' 
+''' (1) Use %comptype == IFF_DEFAULT to have the compression
 ''' type automatically determined.<para/>
-''' (2) If the comptype is invalid for this file, the default will<para/>
-''' be substituted.<para/>
+''' 
+''' (2) If the comptype is invalid for this file, the default will
+''' be substituted.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -97,9 +100,9 @@ End Function
 ' pixcompDestroy(ppixc) as Object
 ' pixcompDestroy(PIXC **) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Always nulls the input ptr.<para/>
+''' 
+''' (1) Always nulls the input ptr.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -188,15 +191,17 @@ End Function
 ' pixcompDetermineFormat(comptype, d, cmapflag, pformat) as Integer
 ' pixcompDetermineFormat(l_int32, l_int32, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This determines the best format for a pix, given both<para/>
+''' 
+''' (1) This determines the best format for a pix, given both
 ''' the request (%comptype) and the image characteristics.<para/>
-''' (2) If %comptype == IFF_DEFAULT, this does not necessarily result<para/>
-''' in png encoding.  Instead, it returns one of the three formats<para/>
+''' 
+''' (2) If %comptype == IFF_DEFAULT, this does not necessarily result
+''' in png encoding.  Instead, it returns one of the three formats
 ''' that is both valid and most likely to give best compression.<para/>
-''' (3) If the pix cannot be compressed by the input value of<para/>
-''' %comptype, this selects IFF_PNG, which can compress all pix.<para/>
+''' 
+''' (3) If the pix cannot be compressed by the input value of
+''' %comptype, this selects IFF_PNG, which can compress all pix.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -257,32 +262,34 @@ End Function
 ' pixacompCreateWithInit(n, offset, pix, comptype) as PixaComp
 ' pixacompCreateWithInit(l_int32, l_int32, PIX *, l_int32) as PIXAC *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Initializes a pixacomp to be fully populated with %pix,<para/>
-''' compressed using %comptype.  If %pix == NULL, %comptype<para/>
+''' 
+''' (1) Initializes a pixacomp to be fully populated with %pix,
+''' compressed using %comptype.  If %pix == NULL, %comptype
 ''' is ignored.<para/>
-''' (2) Typically, the array is initialized with a tiny pix.<para/>
-''' This is most easily done by setting %pix == NULL, causing<para/>
-''' initialization of each array element with a tiny placeholder<para/>
+''' 
+''' (2) Typically, the array is initialized with a tiny pix.
+''' This is most easily done by setting %pix == NULL, causing
+''' initialization of each array element with a tiny placeholder
 ''' pix (w = h = d = 1), using comptype = IFF_TIFF_G4 .<para/>
-''' (3) Example usage:<para/>
-''' // Generate pixacomp for pages 30 - 49.  This has an array<para/>
-''' // size of 20 and the page number offset is 30.<para/>
-''' PixaComp pixac = pixacompCreateWithInit(20, 30, NULL,<para/>
-''' IFF_TIFF_G4)<para/>
-''' // Now insert png-compressed images into the initialized array<para/>
-''' for (pageno = 30 pageno  is lower  50 pageno++) {<para/>
-''' Pix pixt = ... // derived from image[pageno]<para/>
-''' if (pixt)<para/>
-''' pixacompReplacePix(pixac, pageno, pixt, IFF_PNG)<para/>
-''' pixDestroy( and pixt)<para/>
-''' }<para/>
-''' The result is a pixac with 20 compressed strings, and with<para/>
-''' selected pixt replacing the placeholders.<para/>
-''' To extract the image for page 38, which is decompressed<para/>
-''' from element 8 in the array, use:<para/>
-''' pixt = pixacompGetPix(pixac, 38)<para/>
+''' 
+''' (3) Example usage:
+''' // Generate pixacomp for pages 30 - 49.  This has an array
+''' // size of 20 and the page number offset is 30.
+''' PixaComp pixac = pixacompCreateWithInit(20, 30, NULL,
+''' IFF_TIFF_G4)
+''' // Now insert png-compressed images into the initialized array
+''' for (pageno = 30 pageno  is smaller 50 pageno++) {
+''' Pix pixt = ... // derived from image[pageno]
+''' if (pixt)
+''' pixacompReplacePix(pixac, pageno, pixt, IFF_PNG)
+''' pixDestroy([and]pixt)
+''' }
+''' The result is a pixac with 20 compressed strings, and with
+''' selected pixt replacing the placeholders.
+''' To extract the image for page 38, which is decompressed
+''' from element 8 in the array, use:
+''' pixt = pixacompGetPix(pixac, 38)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -310,16 +317,18 @@ End Function
 ' pixacompCreateFromPixa(pixa, comptype, accesstype) as PixaComp
 ' pixacompCreateFromPixa(PIXA *, l_int32, l_int32) as PIXAC *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If %format == IFF_DEFAULT, the conversion format for each<para/>
-''' image is chosen automatically.  Otherwise, we use the<para/>
-''' specified format unless it can't be done (e.g., jpeg<para/>
-''' for a 1, 2 or 4 bpp pix, or a pix with a colormap),<para/>
+''' 
+''' (1) If %format == IFF_DEFAULT, the conversion format for each
+''' image is chosen automatically.  Otherwise, we use the
+''' specified format unless it can't be done (e.g., jpeg
+''' for a 1, 2 or 4 bpp pix, or a pix with a colormap),
 ''' in which case we use the default (assumed best) compression.<para/>
+''' 
 ''' (2) %accesstype is used to extract a boxa from %pixa.<para/>
-''' (3) To compress jpeg with a quality other than the default (75), use<para/>
-''' l_jpegSetQuality()<para/>
+''' 
+''' (3) To compress jpeg with a quality other than the default (75), use
+''' l_jpegSetQuality()
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -345,17 +354,20 @@ End Function
 ' pixacompCreateFromFiles(dirname, substr, comptype) as PixaComp
 ' pixacompCreateFromFiles(const char *, const char *, l_int32) as PIXAC *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) %dirname is the full path for the directory.<para/>
-''' (2) %substr is the part of the file name (excluding<para/>
-''' the directory) that is to be matched.  All matching<para/>
-''' filenames are read into the Pixa.  If substr is NULL,<para/>
+''' 
+''' (2) %substr is the part of the file name (excluding
+''' the directory) that is to be matched.  All matching
+''' filenames are read into the Pixa.  If substr is NULL,
 ''' all filenames are read into the Pixa.<para/>
-''' (3) Use %comptype == IFF_DEFAULT to have the compression<para/>
+''' 
+''' (3) Use %comptype == IFF_DEFAULT to have the compression
 ''' type automatically determined for each file.<para/>
-''' (4) If the comptype is invalid for a file, the default will<para/>
-''' be substituted.<para/>
+''' 
+''' (4) If the comptype is invalid for a file, the default will
+''' be substituted.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -381,12 +393,13 @@ End Function
 ' pixacompCreateFromSA(sa, comptype) as PixaComp
 ' pixacompCreateFromSA(SARRAY *, l_int32) as PIXAC *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Use %comptype == IFF_DEFAULT to have the compression<para/>
+''' 
+''' (1) Use %comptype == IFF_DEFAULT to have the compression
 ''' type automatically determined for each file.<para/>
-''' (2) If the comptype is invalid for a file, the default will<para/>
-''' be substituted.<para/>
+''' 
+''' (2) If the comptype is invalid for a file, the default will
+''' be substituted.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -410,9 +423,9 @@ End Function
 ' pixacompDestroy(ppixac) as Object
 ' pixacompDestroy(PIXAC **) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Always nulls the input ptr.<para/>
+''' 
+''' (1) Always nulls the input ptr.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -432,13 +445,14 @@ End Sub
 ' pixacompAddPix(pixac, pix, comptype) as Integer
 ' pixacompAddPix(PIXAC *, PIX *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The array is filled up to the (n-1)-th element, and this<para/>
-''' converts the input pix to a pixc and adds it at<para/>
+''' 
+''' (1) The array is filled up to the (n-1)-th element, and this
+''' converts the input pix to a pixc and adds it at
 ''' the n-th position.<para/>
-''' (2) The pixc produced from the pix is owned by the pixac.<para/>
-''' The input pix is not affected.<para/>
+''' 
+''' (2) The pixc produced from the pix is owned by the pixac.
+''' The input pix is not affected.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -464,11 +478,11 @@ End Function
 ' pixacompAddPixcomp(pixac, pixc, copyflag) as Integer
 ' pixacompAddPixcomp(PIXAC *, PIXC *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Anything added to a pixac is owned by the pixac.<para/>
-''' So do not L_INSERT a pixc that is owned by another pixac,<para/>
-''' or destroy a pixc that has been L_INSERTed.<para/>
+''' 
+''' (1) Anything added to a pixac is owned by the pixac.
+''' So do not L_INSERT a pixc that is owned by another pixac,
+''' or destroy a pixc that has been L_INSERTed.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -494,12 +508,13 @@ End Function
 ' pixacompReplacePix(pixac, index, pix, comptype) as Integer
 ' pixacompReplacePix(PIXAC *, l_int32, PIX *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The %index includes the offset, which must be subtracted<para/>
+''' 
+''' (1) The %index includes the offset, which must be subtracted
 ''' to get the actual index into the ptr array.<para/>
-''' (2) The input %pix is converted to a pixc, which is then inserted<para/>
-''' into the pixac.<para/>
+''' 
+''' (2) The input %pix is converted to a pixc, which is then inserted
+''' into the pixac.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -527,12 +542,13 @@ End Function
 ' pixacompReplacePixcomp(pixac, index, pixc) as Integer
 ' pixacompReplacePixcomp(PIXAC *, l_int32, PIXC *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The %index includes the offset, which must be subtracted<para/>
+''' 
+''' (1) The %index includes the offset, which must be subtracted
 ''' to get the actual index into the ptr array.<para/>
-''' (2) The inserted %pixc is now owned by the pixac.  The caller<para/>
-''' must not destroy it.<para/>
+''' 
+''' (2) The inserted %pixc is now owned by the pixac.  The caller
+''' must not destroy it.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -599,12 +615,13 @@ End Function
 ' pixacompGetPixcomp(pixac, index, copyflag) as PixComp
 ' pixacompGetPixcomp(PIXAC *, l_int32, l_int32) as PIXC *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The %index includes the offset, which must be subtracted<para/>
+''' 
+''' (1) The %index includes the offset, which must be subtracted
 ''' to get the actual index into the ptr array.<para/>
-''' (2) If copyflag == L_NOCOPY, the pixc is owned by %pixac do<para/>
-''' not destroy.<para/>
+''' 
+''' (2) If copyflag == L_NOCOPY, the pixc is owned by %pixac do
+''' not destroy.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -630,10 +647,10 @@ End Function
 ' pixacompGetPix(pixac, index) as Pix
 ' pixacompGetPix(PIXAC *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The %index includes the offset, which must be subtracted<para/>
-''' to get the actual index into the ptr array.<para/>
+''' 
+''' (1) The %index includes the offset, which must be subtracted
+''' to get the actual index into the ptr array.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -657,10 +674,10 @@ End Function
 ' pixacompGetPixDimensions(pixac, index, pw, ph, pd) as Integer
 ' pixacompGetPixDimensions(PIXAC *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The %index includes the offset, which must be subtracted<para/>
-''' to get the actual index into the ptr array.<para/>
+''' 
+''' (1) The %index includes the offset, which must be subtracted
+''' to get the actual index into the ptr array.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -728,18 +745,21 @@ End Function
 ' pixacompGetBox(pixac, index, accesstype) as Box
 ' pixacompGetBox(PIXAC *, l_int32, l_int32) as BOX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The %index includes the offset, which must be subtracted<para/>
+''' 
+''' (1) The %index includes the offset, which must be subtracted
 ''' to get the actual index into the ptr array.<para/>
-''' (2) There is always a boxa with a pixac, and it is initialized so<para/>
+''' 
+''' (2) There is always a boxa with a pixac, and it is initialized so
 ''' that each box ptr is NULL.<para/>
-''' (3) In general, we expect that there is either a box associated<para/>
+''' 
+''' (3) In general, we expect that there is either a box associated
 ''' with each pixc, or no boxes at all in the boxa.<para/>
-''' (4) Having no boxes is thus not an automatic error.  Whether it<para/>
-''' is an actual error is determined by the calling program.<para/>
-''' If the caller expects to get a box, it is an error see, e.g.,<para/>
-''' pixacGetBoxGeometry().<para/>
+''' 
+''' (4) Having no boxes is thus not an automatic error.  Whether it
+''' is an actual error is determined by the calling program.
+''' If the caller expects to get a box, it is an error see, e.g.,
+''' pixacGetBoxGeometry().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -765,10 +785,10 @@ End Function
 ' pixacompGetBoxGeometry(pixac, index, px, py, pw, ph) as Integer
 ' pixacompGetBoxGeometry(PIXAC *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The %index includes the offset, which must be subtracted<para/>
-''' to get the actual index into the ptr array.<para/>
+''' 
+''' (1) The %index includes the offset, which must be subtracted
+''' to get the actual index into the ptr array.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -799,11 +819,11 @@ End Function
 ' pixacompGetOffset(pixac) as Integer
 ' pixacompGetOffset(PIXAC *) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The offset is the difference between the caller's view of<para/>
-''' the index into the array and the actual array index.<para/>
-''' By default it is 0.<para/>
+''' 
+''' (1) The offset is the difference between the caller's view of
+''' the index into the array and the actual array index.
+''' By default it is 0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -824,11 +844,11 @@ End Function
 ' pixacompSetOffset(pixac, offset) as Integer
 ' pixacompSetOffset(PIXAC *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The offset is the difference between the caller's view of<para/>
-''' the index into the array and the actual array index.<para/>
-''' By default it is 0.<para/>
+''' 
+''' (1) The offset is the difference between the caller's view of
+''' the index into the array and the actual array index.
+''' By default it is 0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -851,11 +871,11 @@ End Function
 ' pixaCreateFromPixacomp(pixac, accesstype) as Pixa
 ' pixaCreateFromPixacomp(PIXAC *, l_int32) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Because the pixa has no notion of offset, the offset must<para/>
-''' be set to 0 before the conversion, so that pixacompGetPix()<para/>
-''' fetches all the pixcomps.  It is reset at the end.<para/>
+''' 
+''' (1) Because the pixa has no notion of offset, the offset must
+''' be set to 0 before the conversion, so that pixacompGetPix()
+''' fetches all the pixcomps.  It is reset at the end.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -879,12 +899,15 @@ End Function
 ' pixacompJoin(pixacd, pixacs, istart, iend) as Integer
 ' pixacompJoin(PIXAC *, PIXAC *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This appends a clone of each indicated pixc in pixcas to pixcad<para/>
-''' (2) istart  is lower  0 is taken to mean 'read from the start' (istart = 0)<para/>
-''' (3) iend  is lower  0 means 'read to the end'<para/>
-''' (4) If pixacs is NULL or contains no pixc, this is a no-op.<para/>
+''' 
+''' (2) istart  is smaller 0 is taken to mean 'read from the start' (istart = 0)<para/>
+''' 
+''' (3) iend  is smaller 0 means 'read to the end'<para/>
+''' 
+''' (4) If pixacs is NULL or contains no pixc, this is a no-op.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -913,10 +936,10 @@ End Function
 ' pixacompInterleave(pixac1, pixac2) as PixaComp
 ' pixacompInterleave(PIXAC *, PIXAC *) as PIXAC *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If the two pixac have different sizes, a warning is issued,<para/>
-''' and the number of pairs returned is the minimum size.<para/>
+''' 
+''' (1) If the two pixac have different sizes, a warning is issued,
+''' and the number of pairs returned is the minimum size.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -941,11 +964,11 @@ End Function
 ' pixacompRead(filename) as PixaComp
 ' pixacompRead(const char *) as PIXAC *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Unlike the situation with serialized Pixa, where the image<para/>
-''' data is stored in png format, the Pixacomp image data<para/>
-''' can be stored in tiffg4, png and jpg formats.<para/>
+''' 
+''' (1) Unlike the situation with serialized Pixa, where the image
+''' data is stored in png format, the Pixacomp image data
+''' can be stored in tiffg4, png and jpg formats.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -988,9 +1011,9 @@ End Function
 ' pixacompReadMem(data, size) as PixaComp
 ' pixacompReadMem(const l_uint8 *, size_t) as PIXAC *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Deseralizes a buffer of pixacomp data into a pixac in memory.<para/>
+''' 
+''' (1) Deseralizes a buffer of pixacomp data into a pixac in memory.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1014,11 +1037,11 @@ End Function
 ' pixacompWrite(filename, pixac) as Integer
 ' pixacompWrite(const char *, PIXAC *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Unlike the situation with serialized Pixa, where the image<para/>
-''' data is stored in png format, the Pixacomp image data<para/>
-''' can be stored in tiffg4, png and jpg formats.<para/>
+''' 
+''' (1) Unlike the situation with serialized Pixa, where the image
+''' data is stored in png format, the Pixacomp image data
+''' can be stored in tiffg4, png and jpg formats.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1065,9 +1088,9 @@ End Function
 ' pixacompWriteMem(pdata, psize, pixac) as Integer
 ' pixacompWriteMem(l_uint8 **, size_t *, PIXAC *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Serializes a pixac in memory and puts the result in a buffer.<para/>
+''' 
+''' (1) Serializes a pixac in memory and puts the result in a buffer.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1095,20 +1118,24 @@ End Function
 ' pixacompConvertToPdf(pixac, res, scalefactor, type, quality, title, fileout) as Integer
 ' pixacompConvertToPdf(PIXAC *, l_int32, l_float32, l_int32, l_int32, const char *, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This follows closely the function pixaConvertToPdf() in pdfio.c.<para/>
-''' (2) The images are encoded with G4 if 1 bpp JPEG if 8 bpp without<para/>
+''' 
+''' (2) The images are encoded with G4 if 1 bpp JPEG if 8 bpp without
 ''' colormap and many colors, or 32 bpp FLATE for anything else.<para/>
+''' 
 ''' (3) The scalefactor must be  is greater  0.0 otherwise it is set to 1.0.<para/>
-''' (4) Specifying one of the three encoding types for %type forces<para/>
-''' all images to be compressed with that type.  Use 0 to have<para/>
-''' the type determined for each image based on depth and whether<para/>
+''' 
+''' (4) Specifying one of the three encoding types for %type forces
+''' all images to be compressed with that type.  Use 0 to have
+''' the type determined for each image based on depth and whether
 ''' or not it has a colormap.<para/>
-''' (5) If all images are jpeg compressed, don't require scaling<para/>
-''' and have the same resolution, it is much faster to skip<para/>
-''' transcoding with pixacompFastConvertToPdfData(), and then<para/>
-''' write the data out to file.<para/>
+''' 
+''' (5) If all images are jpeg compressed, don't require scaling
+''' and have the same resolution, it is much faster to skip
+''' transcoding with pixacompFastConvertToPdfData(), and then
+''' write the data out to file.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1142,9 +1169,9 @@ End Function
 ' pixacompConvertToPdfData(pixac, res, scalefactor, type, quality, title, pdata, pnbytes) as Integer
 ' pixacompConvertToPdfData(PIXAC *, l_int32, l_float32, l_int32, l_int32, const char *, l_uint8 **, size_t *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See pixacompConvertToPdf().<para/>
+''' 
+''' (1) See pixacompConvertToPdf().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1182,13 +1209,14 @@ End Function
 ' pixacompFastConvertToPdfData(pixac, title, pdata, pnbytes) as Integer
 ' pixacompFastConvertToPdfData(PIXAC *, const char *, l_uint8 **, size_t *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This generates the pdf without transcoding if all the<para/>
-''' images in %pixac are compressed with jpeg.<para/>
+''' 
+''' (1) This generates the pdf without transcoding if all the
+''' images in %pixac are compressed with jpeg.
 ''' Images not jpeg compressed are skipped.<para/>
-''' (2) It assumes all images have the same resolution, and that<para/>
-''' the resolution embedded in each jpeg file is correct.<para/>
+''' 
+''' (2) It assumes all images have the same resolution, and that
+''' the resolution embedded in each jpeg file is correct.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1264,12 +1292,13 @@ End Function
 ' pixacompDisplayTiledAndScaled(pixac, outdepth, tilewidth, ncols, background, spacing, border) as Pix
 ' pixacompDisplayTiledAndScaled(PIXAC *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is the same function as pixaDisplayTiledAndScaled(),<para/>
-''' except it works on a Pixacomp instead of a Pix.  It is particularly<para/>
+''' 
+''' (1) This is the same function as pixaDisplayTiledAndScaled(),
+''' except it works on a Pixacomp instead of a Pix.  It is particularly
 ''' useful for showing the images in a Pixacomp at reduced resolution.<para/>
-''' (2) See pixaDisplayTiledAndScaled() for details.<para/>
+''' 
+''' (2) See pixaDisplayTiledAndScaled() for details.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1324,10 +1353,10 @@ End Function
 ' pixcompWriteFile(rootname, pixc) as Integer
 ' pixcompWriteFile(const char *, PIXC *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The compressed data is written to file, and the filename is<para/>
-''' generated by appending the format extension to %rootname.<para/>
+''' 
+''' (1) The compressed data is written to file, and the filename is
+''' generated by appending the format extension to %rootname.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

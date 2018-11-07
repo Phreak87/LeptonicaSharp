@@ -7,11 +7,11 @@ Partial Public Class _All
 ' pixHMTDwa_1(pixd, pixs, selname) as Pix
 ' pixHMTDwa_1(PIX *, PIX *, const char *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This simply adds a 32 pixel border, calls the appropriate<para/>
-''' pixFHMTGen_(), and removes the border.<para/>
-''' See notes below for that function.<para/>
+''' 
+''' (1) This simply adds a 32 pixel border, calls the appropriate
+''' pixFHMTGen_(), and removes the border.
+''' See notes below for that function.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -40,15 +40,17 @@ End Function
 ' pixFHMTGen_1(pixd, pixs, selname) as Pix
 ' pixFHMTGen_1(PIX *, PIX *, const char *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a dwa implementation of the hit-miss transform<para/>
+''' 
+''' (1) This is a dwa implementation of the hit-miss transform
 ''' on pixs by the sel.<para/>
-''' (2) The sel must be limited in size to not more than 31 pixels<para/>
-''' about the origin.  It must have at least one hit, and it<para/>
+''' 
+''' (2) The sel must be limited in size to not more than 31 pixels
+''' about the origin.  It must have at least one hit, and it
 ''' can have any number of misses.<para/>
-''' (3) This handles all required setting of the border pixels<para/>
-''' before erosion and dilation.<para/>
+''' 
+''' (3) This handles all required setting of the border pixels
+''' before erosion and dilation.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

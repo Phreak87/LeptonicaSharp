@@ -61,18 +61,19 @@ End Function
 ' readHeaderMemJp2k(data, size, pw, ph, pbps, pspp) as Integer
 ' readHeaderMemJp2k(const l_uint8 *, size_t, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The ISO/IEC reference for jpeg2000 is<para/>
-''' http://www.jpeg.org/public/15444-1annexi.pdf<para/>
+''' 
+''' (1) The ISO/IEC reference for jpeg2000 is
+''' http://www.jpeg.org/public/15444-1annexi.pdf
 ''' and the file format syntax begins at page 127.<para/>
-''' (2) The Image Header Box begins with 'ihdr' = 0x69686472 in<para/>
-''' big-endian order.  This typically, but not always, starts<para/>
-''' byte 44, with the big-endian data fields beginning at byte 48:<para/>
-''' h:  4 bytes<para/>
-''' w:  4 bytes<para/>
-''' spp:  2 bytes<para/>
-''' bps:  1 byte (contains bps - 1)<para/>
+''' 
+''' (2) The Image Header Box begins with 'ihdr' = 0x69686472 in
+''' big-endian order.  This typically, but not always, starts
+''' byte 44, with the big-endian data fields beginning at byte 48:
+''' h:  4 bytes
+''' w:  4 bytes
+''' spp:  2 bytes
+''' bps:  1 byte (contains bps - 1)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

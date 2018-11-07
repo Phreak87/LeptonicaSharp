@@ -7,24 +7,28 @@ Partial Public Class _All
 ' pixStrokeWidthTransform(pixs, color, depth, nangles) as Pix
 ' pixStrokeWidthTransform(PIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The dest Pix is 8 or 16 bpp, with the pixel values<para/>
-''' equal to the stroke width in which it is a member.<para/>
+''' 
+''' (1) The dest Pix is 8 or 16 bpp, with the pixel values
+''' equal to the stroke width in which it is a member.
 ''' The values are clipped to the max pixel value if necessary.<para/>
+''' 
 ''' (2) The color determines if we're labelling white or black strokes.<para/>
-''' (3) A pixel that is not a member of the chosen color gets<para/>
-''' value 0 it belongs to a width of length 0 of the<para/>
+''' 
+''' (3) A pixel that is not a member of the chosen color gets
+''' value 0 it belongs to a width of length 0 of the
 ''' chosen color.<para/>
-''' (4) This chooses, for each dest pixel, the minimum of sets<para/>
-''' of runlengths through each pixel.  Here are the sets:<para/>
-''' nangles  increment  set<para/>
-''' -------  ---------  --------------------------------<para/>
-''' 2  90 {0, 90}<para/>
-''' 4  45 {0, 45, 90, 135}<para/>
-''' 6  30 {0, 30, 60, 90, 120, 150}<para/>
+''' 
+''' (4) This chooses, for each dest pixel, the minimum of sets
+''' of runlengths through each pixel.  Here are the sets:
+''' nangles  increment  set
+''' -------  ---------  --------------------------------
+''' 2  90 {0, 90}
+''' 4  45 {0, 45, 90, 135}
+''' 6  30 {0, 30, 60, 90, 120, 150}
 ''' 8  22.5 {0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5}<para/>
-''' (5) Runtime scales linearly with (nangles - 2).<para/>
+''' 
+''' (5) Runtime scales linearly with (nangles - 2).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -54,17 +58,20 @@ End Function
 ' pixRunlengthTransform(pixs, color, direction, depth) as Pix
 ' pixRunlengthTransform(PIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The dest Pix is 8 or 16 bpp, with the pixel values<para/>
-''' equal to the runlength in which it is a member.<para/>
+''' 
+''' (1) The dest Pix is 8 or 16 bpp, with the pixel values
+''' equal to the runlength in which it is a member.
 ''' The length is clipped to the max pixel value if necessary.<para/>
+''' 
 ''' (2) The color determines if we're labelling white or black runs.<para/>
-''' (3) A pixel that is not a member of the chosen color gets<para/>
-''' value 0 it belongs to a run of length 0 of the<para/>
+''' 
+''' (3) A pixel that is not a member of the chosen color gets
+''' value 0 it belongs to a run of length 0 of the
 ''' chosen color.<para/>
-''' (4) To convert for maximum dynamic range, either linear or<para/>
-''' log, use pixMaxDynamicRange().<para/>
+''' 
+''' (4) To convert for maximum dynamic range, either linear or
+''' log, use pixMaxDynamicRange().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -94,14 +101,16 @@ End Function
 ' pixFindHorizontalRuns(pix, y, xstart, xend, pn) as Integer
 ' pixFindHorizontalRuns(PIX *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This finds foreground horizontal runs on a single scanline.<para/>
-''' (2) To find background runs, use pixInvert() before applying<para/>
+''' 
+''' (2) To find background runs, use pixInvert() before applying
 ''' this function.<para/>
-''' (3) The xstart and xend arrays are input.  They should be<para/>
-''' of size w/2 + 1 to insure that they can hold<para/>
-''' the maximum number of runs in the raster line.<para/>
+''' 
+''' (3) The xstart and xend arrays are input.  They should be
+''' of size w/2 + 1 to insure that they can hold
+''' the maximum number of runs in the raster line.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -134,14 +143,16 @@ End Function
 ' pixFindVerticalRuns(pix, x, ystart, yend, pn) as Integer
 ' pixFindVerticalRuns(PIX *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This finds foreground vertical runs on a single scanline.<para/>
-''' (2) To find background runs, use pixInvert() before applying<para/>
+''' 
+''' (2) To find background runs, use pixInvert() before applying
 ''' this function.<para/>
-''' (3) The ystart and yend arrays are input.  They should be<para/>
-''' of size h/2 + 1 to insure that they can hold<para/>
-''' the maximum number of runs in the raster line.<para/>
+''' 
+''' (3) The ystart and yend arrays are input.  They should be
+''' of size h/2 + 1 to insure that they can hold
+''' the maximum number of runs in the raster line.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -174,11 +185,12 @@ End Function
 ' pixFindMaxRuns(pix, direction, pnastart) as Numa
 ' pixFindMaxRuns(PIX *, l_int32, NUMA **) as NUMA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This finds the longest foreground runs by row or column<para/>
-''' (2) To find background runs, use pixInvert() before applying<para/>
-''' this function.<para/>
+''' 
+''' (2) To find background runs, use pixInvert() before applying
+''' this function.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -209,11 +221,12 @@ End Function
 ' pixFindMaxHorizontalRunOnLine(pix, y, pxstart, psize) as Integer
 ' pixFindMaxHorizontalRunOnLine(PIX *, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This finds the longest foreground horizontal run on a scanline.<para/>
-''' (2) To find background runs, use pixInvert() before applying<para/>
-''' this function.<para/>
+''' 
+''' (2) To find background runs, use pixInvert() before applying
+''' this function.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -242,11 +255,12 @@ End Function
 ' pixFindMaxVerticalRunOnLine(pix, x, pystart, psize) as Integer
 ' pixFindMaxVerticalRunOnLine(PIX *, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This finds the longest foreground vertical run on a scanline.<para/>
-''' (2) To find background runs, use pixInvert() before applying<para/>
-''' this function.<para/>
+''' 
+''' (2) To find background runs, use pixInvert() before applying
+''' this function.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -275,12 +289,13 @@ End Function
 ' runlengthMembershipOnLine(buffer, size, depth, start, end, n) as Integer
 ' runlengthMembershipOnLine(l_int32 *, l_int32, l_int32, l_int32 *, l_int32 *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Converts a set of runlengths into a buffer of<para/>
+''' 
+''' (1) Converts a set of runlengths into a buffer of
 ''' runlength membership values.<para/>
-''' (2) Initialization of the array gives pixels that are<para/>
-''' not within a run the value 0.<para/>
+''' 
+''' (2) Initialization of the array gives pixels that are
+''' not within a run the value 0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -312,12 +327,13 @@ End Function
 ' makeMSBitLocTab(bitval) as Integer()
 ' makeMSBitLocTab(l_int32) as l_int32 *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If bitval == 1, it finds the leftmost ON pixel in a byte<para/>
+''' 
+''' (1) If bitval == 1, it finds the leftmost ON pixel in a byte
 ''' otherwise if bitval == 0, it finds the leftmost OFF pixel.<para/>
-''' (2) If there are no pixels of the indicated color in the byte,<para/>
-''' this returns 8.<para/>
+''' 
+''' (2) If there are no pixels of the indicated color in the byte,
+''' this returns 8.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

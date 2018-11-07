@@ -120,9 +120,9 @@ End Function
 ' ccbaGetCcb(ccba, index) as CCBord
 ' ccbaGetCcb(CCBORDA *, l_int32) as CCBORD *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This returns a clone of the ccb it must be destroyed<para/>
+''' 
+''' (1) This returns a clone of the ccb it must be destroyed
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -167,23 +167,26 @@ End Function
 ' pixGetCCBorders(pixs, box) as CCBord
 ' pixGetCCBorders(PIX *, BOX *) as CCBORD *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) We are finding the exterior and interior borders<para/>
-''' of an 8-connected component. This should be used<para/>
+''' 
+''' (1) We are finding the exterior and interior borders
+''' of an 8-connected component. This should be used
 ''' on a pix that has exactly one 8-connected component.<para/>
-''' (2) Typically, pixs is a c.c. in some larger pix.  The<para/>
-''' input box gives its location in global coordinates.<para/>
-''' This box is saved, as well as the boxes for the<para/>
-''' borders of any holes within the c.c., but the latter<para/>
+''' 
+''' (2) Typically, pixs is a c.c. in some larger pix.  The
+''' input box gives its location in global coordinates.
+''' This box is saved, as well as the boxes for the
+''' borders of any holes within the c.c., but the latter
 ''' are given in relative coords within the c.c.<para/>
-''' (3) The calculations for the exterior border are done<para/>
-''' on a pix with a 1-pixel<para/>
-''' added border, but the saved pixel coordinates<para/>
-''' are the correct (relative) ones for the input pix<para/>
+''' 
+''' (3) The calculations for the exterior border are done
+''' on a pix with a 1-pixel
+''' added border, but the saved pixel coordinates
+''' are the correct (relative) ones for the input pix
 ''' (without a 1-pixel border)<para/>
-''' (4) For the definition of the three tables -- xpostab[], ypostab[]<para/>
-''' and qpostab[] -- see above where they are defined.<para/>
+''' 
+''' (4) For the definition of the three tables -- xpostab[], ypostab[]
+''' and qpostab[] -- see above where they are defined.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -229,14 +232,15 @@ End Function
 ' pixGetOuterBorderPta(pixs, box) as Pta
 ' pixGetOuterBorderPta(PIX *, BOX *) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) We are finding the exterior border of a single 8-connected<para/>
+''' 
+''' (1) We are finding the exterior border of a single 8-connected
 ''' component.<para/>
-''' (2) If box is NULL, the outline returned is in the local coords<para/>
-''' of the input pix.  Otherwise, box is assumed to give the<para/>
-''' location of the pix in global coordinates, and the returned<para/>
-''' pta will be in those global coordinates.<para/>
+''' 
+''' (2) If box is NULL, the outline returned is in the local coords
+''' of the input pix.  Otherwise, box is assumed to give the
+''' location of the pix in global coordinates, and the returned
+''' pta will be in those global coordinates.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -262,16 +266,17 @@ End Function
 ' pixGetOuterBorder(ccb, pixs, box) as Integer
 ' pixGetOuterBorder(CCBORD *, PIX *, BOX *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) the border is saved in relative coordinates within<para/>
-''' the c.c. (pixs).  Because the calculation is done<para/>
-''' in pixb with added 1 pixel border, we must subtract<para/>
+''' 
+''' (1) the border is saved in relative coordinates within
+''' the c.c. (pixs).  Because the calculation is done
+''' in pixb with added 1 pixel border, we must subtract
 ''' 1 from each pixel value before storing it.<para/>
-''' (2) the stopping condition is that after the first pixel is<para/>
-''' returned to, the next pixel is the second pixel.  Having<para/>
-''' these 2 pixels recur in sequence proves the path is closed,<para/>
-''' and we do not store the second pixel again.<para/>
+''' 
+''' (2) the stopping condition is that after the first pixel is
+''' returned to, the next pixel is the second pixel.  Having
+''' these 2 pixels recur in sequence proves the path is closed,
+''' and we do not store the second pixel again.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -298,13 +303,15 @@ End Function
 ' pixGetHoleBorder(ccb, pixs, box, xs, ys) as Integer
 ' pixGetHoleBorder(CCBORD *, PIX *, BOX *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) we trace out hole border on pixs without addition<para/>
+''' 
+''' (1) we trace out hole border on pixs without addition
 ''' of single pixel added border to pixs<para/>
+''' 
 ''' (2) therefore all coordinates are relative within the c.c. (pixs)<para/>
-''' (3) same position tables and stopping condition as for<para/>
-''' exterior borders<para/>
+''' 
+''' (3) same position tables and stopping condition as for
+''' exterior borders
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -335,12 +342,13 @@ End Function
 ' findNextBorderPixel(w, h, data, wpl, px, py, pqpos, pnpx, pnpy) as Integer
 ' findNextBorderPixel(l_int32, l_int32, l_uint32 *, l_int32, l_int32, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) qpos increases clockwise from 0 to 7, with 0 at<para/>
+''' 
+''' (1) qpos increases clockwise from 0 to 7, with 0 at
 ''' location with Q to left of P: Q P<para/>
-''' (2) this is a low-level function that does not check input<para/>
-''' parameters.  All calling functions should check them.<para/>
+''' 
+''' (2) this is a low-level function that does not check input
+''' parameters.  All calling functions should check them.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -379,15 +387,17 @@ End Function
 ' locateOutsideSeedPixel(fpx, fpy, spx, spy, pxs, pys) as Object
 ' locateOutsideSeedPixel(l_int32, l_int32, l_int32, l_int32, l_int32 *, l_int32 *) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) the first and second pixels must be 8-adjacent,<para/>
-''' so |dx|  is lower = 1 and |dy|  is lower = 1 and both dx and dy<para/>
+''' 
+''' (1) the first and second pixels must be 8-adjacent,
+''' so |dx| smaller or equal 1 and |dy| smaller or equal 1 and both dx and dy
 ''' cannot be 0.  There are 8 possible cases.<para/>
+''' 
 ''' (2) the seed pixel is OUTSIDE the foreground of the c.c.<para/>
-''' (3) these rules are for the situation where the INSIDE<para/>
-''' of the c.c. is on the right as you follow the border:<para/>
-''' cw for an exterior border and ccw for a hole border.<para/>
+''' 
+''' (3) these rules are for the situation where the INSIDE
+''' of the c.c. is on the right as you follow the border:
+''' cw for an exterior border and ccw for a hole border.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -432,20 +442,21 @@ End Function
 ' ccbaGenerateStepChains(ccba) as Integer
 ' ccbaGenerateStepChains(CCBORDA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This uses the pixel locs in the local ptaa,<para/>
-''' which are all relative to each c.c., to find<para/>
-''' the step directions for successive pixels in<para/>
+''' 
+''' (1) This uses the pixel locs in the local ptaa,
+''' which are all relative to each c.c., to find
+''' the step directions for successive pixels in
 ''' the chain, and stores them in the step numaa.<para/>
-''' (2) To get the step direction, use<para/>
-''' 1 2 3<para/>
-''' 0 P 4<para/>
-''' 7 6 5<para/>
-''' where P is the previous pixel at (px, py).  The step direction<para/>
-''' is the number (from 0 through 7) for each relative location<para/>
-''' of the current pixel at (cx, cy).  It is easily found by<para/>
-''' indexing into a 2-d 3x3 array (dirtab).<para/>
+''' 
+''' (2) To get the step direction, use
+''' 1 2 3
+''' 0 P 4
+''' 7 6 5
+''' where P is the previous pixel at (px, py).  The step direction
+''' is the number (from 0 through 7) for each relative location
+''' of the current pixel at (cx, cy).  It is easily found by
+''' indexing into a 2-d 3x3 array (dirtab).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -466,13 +477,13 @@ End Function
 ' ccbaStepChainsToPixCoords(ccba, coordtype) as Integer
 ' ccbaStepChainsToPixCoords(CCBORDA *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This uses the step chain data in each ccb to determine<para/>
-''' the pixel locations, either global or local,<para/>
-''' and stores them in the appropriate ptaa,<para/>
-''' either global or local.  For the latter, the<para/>
-''' pixel locations are relative to the c.c.<para/>
+''' 
+''' (1) This uses the step chain data in each ccb to determine
+''' the pixel locations, either global or local,
+''' and stores them in the appropriate ptaa,
+''' either global or local.  For the latter, the
+''' pixel locations are relative to the c.c.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -495,16 +506,18 @@ End Function
 ' ccbaGenerateSPGlobalLocs(ccba, ptsflag) as Integer
 ' ccbaGenerateSPGlobalLocs(CCBORDA *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This calculates the splocal rep if not yet made.<para/>
-''' (2) It uses the local pixel values in splocal, the single<para/>
-''' path pta, which are all relative to each c.c., to find<para/>
-''' the corresponding global pixel locations, and stores<para/>
+''' 
+''' (2) It uses the local pixel values in splocal, the single
+''' path pta, which are all relative to each c.c., to find
+''' the corresponding global pixel locations, and stores
 ''' them in the spglobal pta.<para/>
-''' (3) This lists only the turning points: it both makes a<para/>
-''' valid svg file and is typically about half the size<para/>
-''' when all border points are listed.<para/>
+''' 
+''' (3) This lists only the turning points: it both makes a
+''' valid svg file and is typically about half the size
+''' when all border points are listed.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -527,33 +540,34 @@ End Function
 ' ccbaGenerateSinglePath(ccba) as Integer
 ' ccbaGenerateSinglePath(CCBORDA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Generates a single border in local pixel coordinates.<para/>
-''' For each c.c., if there is just an outer border, copy it.<para/>
-''' If there are also hole borders, for each hole border,<para/>
-''' determine the smallest horizontal or vertical<para/>
-''' distance from the border to the outside of the c.c.,<para/>
-''' and find a path through the c.c. for this cut.<para/>
-''' We do this in a way that guarantees a pixel from the<para/>
-''' hole border is the starting point of the path, and<para/>
-''' we must verify that the path intersects the outer<para/>
-''' border (if it intersects it, then it ends on it).<para/>
-''' One can imagine pathological cases, but they may not<para/>
-''' occur in images of text characters and un-textured<para/>
+''' 
+''' (1) Generates a single border in local pixel coordinates.
+''' For each c.c., if there is just an outer border, copy it.
+''' If there are also hole borders, for each hole border,
+''' determine the smallest horizontal or vertical
+''' distance from the border to the outside of the c.c.,
+''' and find a path through the c.c. for this cut.
+''' We do this in a way that guarantees a pixel from the
+''' hole border is the starting point of the path, and
+''' we must verify that the path intersects the outer
+''' border (if it intersects it, then it ends on it).
+''' One can imagine pathological cases, but they may not
+''' occur in images of text characters and un-textured
 ''' line graphics.<para/>
-''' (2) Once it is verified that the path through the c.c.<para/>
-''' intersects both the hole and outer borders, we<para/>
-''' generate the full single path for all borders in the<para/>
-''' c.c.  Starting at the start point on the outer<para/>
-''' border, when we hit a line on a cut, we take<para/>
-''' the cut, do the hold border, and return on the cut<para/>
-''' to the outer border.  We compose a pta of the<para/>
-''' outer border pts that are on cut paths, and for<para/>
-''' every point on the outer border (as we go around),<para/>
-''' we check against this pta.  When we find a matching<para/>
-''' point in the pta, we do its cut path and hole border.<para/>
-''' The single path is saved in the ccb.<para/>
+''' 
+''' (2) Once it is verified that the path through the c.c.
+''' intersects both the hole and outer borders, we
+''' generate the full single path for all borders in the
+''' c.c.  Starting at the start point on the outer
+''' border, when we hit a line on a cut, we take
+''' the cut, do the hold border, and return on the cut
+''' to the outer border.  We compose a pta of the
+''' outer border pts that are on cut paths, and for
+''' every point on the outer border (as we go around),
+''' we check against this pta.  When we find a matching
+''' point in the pta, we do its cut path and hole border.
+''' The single path is saved in the ccb.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -574,17 +588,18 @@ End Function
 ' getCutPathForHole(pix, pta, boxinner, pdir, plen) as Pta
 ' getCutPathForHole(PIX *, PTA *, BOX *, l_int32 *, l_int32 *) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If we don't find a path, we return a pta with no pts<para/>
+''' 
+''' (1) If we don't find a path, we return a pta with no pts
 ''' in it and len = 0.<para/>
-''' (2) The goal is to get a reasonably short path between the<para/>
-''' inner and outer borders, that goes entirely within the fg of<para/>
-''' the pix.  This function is cheap-and-dirty, may fail for some<para/>
-''' holes in complex topologies such as those you might find in a<para/>
-''' moderately dark scanned halftone.  If it fails to find a<para/>
-''' path to any particular hole, it gives a warning, and because<para/>
-''' that hole path is not included, the hole will not be rendered.<para/>
+''' 
+''' (2) The goal is to get a reasonably short path between the
+''' inner and outer borders, that goes entirely within the fg of
+''' the pix.  This function is cheap-and-dirty, may fail for some
+''' holes in complex topologies such as those you might find in a
+''' moderately dark scanned halftone.  If it fails to find a
+''' path to any particular hole, it gives a warning, and because
+''' that hole path is not included, the hole will not be rendered.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -616,11 +631,11 @@ End Function
 ' ccbaDisplayBorder(ccba) as Pix
 ' ccbaDisplayBorder(CCBORDA *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Uses global ptaa, which gives each border pixel in<para/>
-''' global coordinates, and must be computed in advance<para/>
-''' by calling ccbaGenerateGlobalLocs().<para/>
+''' 
+''' (1) Uses global ptaa, which gives each border pixel in
+''' global coordinates, and must be computed in advance
+''' by calling ccbaGenerateGlobalLocs().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -642,11 +657,11 @@ End Function
 ' ccbaDisplaySPBorder(ccba) as Pix
 ' ccbaDisplaySPBorder(CCBORDA *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Uses spglobal pta, which gives each border pixel in<para/>
-''' global coordinates, one path per c.c., and must<para/>
-''' be computed in advance by calling ccbaGenerateSPGlobalLocs().<para/>
+''' 
+''' (1) Uses spglobal pta, which gives each border pixel in
+''' global coordinates, one path per c.c., and must
+''' be computed in advance by calling ccbaGenerateSPGlobalLocs().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -668,48 +683,51 @@ End Function
 ' ccbaDisplayImage1(ccba) as Pix
 ' ccbaDisplayImage1(CCBORDA *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Uses local ptaa, which gives each border pixel in<para/>
-''' local coordinates, so the actual pixel positions must<para/>
+''' 
+''' (1) Uses local ptaa, which gives each border pixel in
+''' local coordinates, so the actual pixel positions must
 ''' be computed using all offsets.<para/>
+''' 
 ''' (2) For the holes, use coordinates relative to the c.c.<para/>
+''' 
 ''' (3) This is slower than Method 2.<para/>
-''' (4) This uses topological properties (Method 1) to do scan<para/>
-''' conversion to raster<para/>
-''' This algorithm deserves some commentary.<para/>
-''' I first tried the following:<para/>
-''' ~ outer borders: 4-fill from outside, stopping at the<para/>
-''' border, using pixFillClosedBorders()<para/>
-''' ~ inner borders: 4-fill from outside, stopping again<para/>
-''' at the border, XOR with the border, and invert<para/>
-''' to get the hole.  This did not work, because if<para/>
-''' you have a hole border that looks like:<para/>
-''' x x x x x x<para/>
-''' x  x<para/>
-''' x x x x x<para/>
-''' x x o x x<para/>
-''' x x<para/>
-''' x x<para/>
-''' x x x<para/>
-''' if you 4-fill from the outside, the pixel 'o' will<para/>
-''' not be filled!  XORing with the border leaves it OFF.<para/>
-''' Inverting then gives a single bad ON pixel that is not<para/>
-''' actually part of the hole.<para/>
-''' So what you must do instead is 4-fill the holes from inside.<para/>
-''' You can do this from a seedfill, using a pix with the hole<para/>
-''' border as the filling mask.  But you need to start with a<para/>
-''' pixel inside the hole.  How is this determined?  The best<para/>
-''' way is from the contour.  We have a right-hand shoulder<para/>
-''' rule for inside (i.e., the filled region). Take the<para/>
-''' first 2 pixels of the hole border, and compute dx and dy<para/>
-''' (second coord minus first coord:  dx = sx - fx, dy = sy - fy).<para/>
-''' There are 8 possibilities, depending on the values of dx and<para/>
-''' dy (which can each be -1, 0, and +1, but not both 0).<para/>
-''' These 8 cases can be broken into 4 see the simple algorithm below.<para/>
-''' Once you have an interior seed pixel, you fill from the seed,<para/>
-''' clipping with the hole border pix by filling into its invert.<para/>
-''' You then successively XOR these interior filled components, in any order.<para/>
+''' 
+''' (4) This uses topological properties (Method 1) to do scan
+''' conversion to raster
+''' This algorithm deserves some commentary.
+''' I first tried the following:
+''' ~ outer borders: 4-fill from outside, stopping at the
+''' border, using pixFillClosedBorders()
+''' ~ inner borders: 4-fill from outside, stopping again
+''' at the border, XOR with the border, and invert
+''' to get the hole.  This did not work, because if
+''' you have a hole border that looks like:
+''' x x x x x x
+''' x  x
+''' x x x x x
+''' x x o x x
+''' x x
+''' x x
+''' x x x
+''' if you 4-fill from the outside, the pixel 'o' will
+''' not be filled!  XORing with the border leaves it OFF.
+''' Inverting then gives a single bad ON pixel that is not
+''' actually part of the hole.
+''' So what you must do instead is 4-fill the holes from inside.
+''' You can do this from a seedfill, using a pix with the hole
+''' border as the filling mask.  But you need to start with a
+''' pixel inside the hole.  How is this determined?  The best
+''' way is from the contour.  We have a right-hand shoulder
+''' rule for inside (i.e., the filled region). Take the
+''' first 2 pixels of the hole border, and compute dx and dy
+''' (second coord minus first coord:  dx = sx - fx, dy = sy - fy).
+''' There are 8 possibilities, depending on the values of dx and
+''' dy (which can each be -1, 0, and +1, but not both 0).
+''' These 8 cases can be broken into 4 see the simple algorithm below.
+''' Once you have an interior seed pixel, you fill from the seed,
+''' clipping with the hole border pix by filling into its invert.
+''' You then successively XOR these interior filled components, in any order.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -731,19 +749,22 @@ End Function
 ' ccbaDisplayImage2(ccba) as Pix
 ' ccbaDisplayImage2(CCBORDA *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Uses local chain ptaa, which gives each border pixel in<para/>
-''' local coordinates, so the actual pixel positions must<para/>
+''' 
+''' (1) Uses local chain ptaa, which gives each border pixel in
+''' local coordinates, so the actual pixel positions must
 ''' be computed using all offsets.<para/>
-''' (2) Treats exterior and hole borders on equivalent<para/>
-''' footing, and does all calculations on a pix<para/>
+''' 
+''' (2) Treats exterior and hole borders on equivalent
+''' footing, and does all calculations on a pix
 ''' that spans the c.c. with a 1 pixel added boundary.<para/>
-''' (3) This uses topological properties (Method 2) to do scan<para/>
+''' 
+''' (3) This uses topological properties (Method 2) to do scan
 ''' conversion to raster<para/>
-''' (4) The algorithm is described at the top of this file (Method 2).<para/>
-''' It is preferred to Method 1 because it is between 1.2x and 2x<para/>
-''' faster than Method 1.<para/>
+''' 
+''' (4) The algorithm is described at the top of this file (Method 2).
+''' It is preferred to Method 1 because it is between 1.2x and 2x
+''' faster than Method 1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

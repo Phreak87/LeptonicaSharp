@@ -7,11 +7,11 @@ Partial Public Class _All
 ' pixGetWindowsHBITMAP(pix) as IntPtr
 ' pixGetWindowsHBITMAP(PIX *) as HBITMAP
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) It's the responsibility of the caller to destroy the<para/>
-''' returned hBitmap with a call to DeleteObject (or with<para/>
-''' something that eventually calls DeleteObject).<para/>
+''' 
+''' (1) It's the responsibility of the caller to destroy the
+''' returned hBitmap with a call to DeleteObject (or with
+''' something that eventually calls DeleteObject).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

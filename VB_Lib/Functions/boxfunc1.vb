@@ -53,9 +53,9 @@ End Function
 ' boxaContainedInBox(boxas, box) as Boxa
 ' boxaContainedInBox(BOXA *, BOX *) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) All boxes in boxa that are entirely outside box are removed.<para/>
+''' 
+''' (1) All boxes in boxa that are entirely outside box are removed.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -126,10 +126,10 @@ End Function
 ' boxaIntersectsBox(boxas, box) as Boxa
 ' boxaIntersectsBox(BOXA *, BOX *) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) All boxes in boxa that intersect with box (i.e., are completely<para/>
-''' or partially contained in box) are retained.<para/>
+''' 
+''' (1) All boxes in boxa that intersect with box (i.e., are completely
+''' or partially contained in box) are retained.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -177,10 +177,10 @@ End Function
 ' boxaClipToBox(boxas, box) as Boxa
 ' boxaClipToBox(BOXA *, BOX *) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) All boxes in boxa not intersecting with box are removed, and<para/>
-''' the remaining boxes are clipped to box.<para/>
+''' 
+''' (1) All boxes in boxa not intersecting with box are removed, and
+''' the remaining boxes are clipped to box.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -205,23 +205,26 @@ End Function
 ' boxaCombineOverlaps(boxas, pixadb) as Boxa
 ' boxaCombineOverlaps(BOXA *, PIXA *) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If there are no overlapping boxes, it simply returns a copy<para/>
+''' 
+''' (1) If there are no overlapping boxes, it simply returns a copy
 ''' of %boxas.<para/>
-''' (2) Input an empty %pixadb, using pixaCreate(0), for debug output.<para/>
-''' The output gives 2 visualizations of the boxes per iteration<para/>
-''' boxes in red before, and added boxes in green after. Note that<para/>
+''' 
+''' (2) Input an empty %pixadb, using pixaCreate(0), for debug output.
+''' The output gives 2 visualizations of the boxes per iteration
+''' boxes in red before, and added boxes in green after. Note that
 ''' all pixels in the red boxes are contained in the green ones.<para/>
-''' (3) The alternative method of painting each rectangle and finding<para/>
-''' the 4-connected components gives a different result in<para/>
-''' general, because two non-overlapping (but touching)<para/>
+''' 
+''' (3) The alternative method of painting each rectangle and finding
+''' the 4-connected components gives a different result in
+''' general, because two non-overlapping (but touching)
 ''' rectangles, when rendered, are 4-connected and will be joined.<para/>
-''' (4) A bad case computationally is to have n boxes, none of which<para/>
-''' overlap.  Then you have one iteration with O(n^2) compares.<para/>
-''' This is still faster than painting each rectangle and finding<para/>
-''' the bounding boxes of the connected components, even for<para/>
-''' thousands of rectangles.<para/>
+''' 
+''' (4) A bad case computationally is to have n boxes, none of which
+''' overlap.  Then you have one iteration with O(n^2) compares.
+''' This is still faster than painting each rectangle and finding
+''' the bounding boxes of the connected components, even for
+''' thousands of rectangles.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -248,20 +251,23 @@ End Function
 ' boxaCombineOverlapsInPair(boxas1, boxas2, pboxad1, pboxad2, pixadb) as Integer
 ' boxaCombineOverlapsInPair(BOXA *, BOXA *, BOXA **, BOXA **, PIXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) One of three things happens to each box in %boxa1 and %boxa2:<para/>
-''' it gets absorbed into a larger box that it overlaps with<para/>
-''' it absorbs a smaller (by area) box that it overlaps with<para/>
-''' and gets larger, using the bounding region of the 2 boxes<para/>
-''' it is unchanged (including absorbing smaller boxes that<para/>
+''' 
+''' (1) One of three things happens to each box in %boxa1 and %boxa2:
+''' it gets absorbed into a larger box that it overlaps with
+''' it absorbs a smaller (by area) box that it overlaps with
+''' and gets larger, using the bounding region of the 2 boxes
+''' it is unchanged (including absorbing smaller boxes that
 ''' are contained within it).<para/>
-''' (2) If all the boxes from one of the input boxa are absorbed, this<para/>
+''' 
+''' (2) If all the boxes from one of the input boxa are absorbed, this
 ''' returns an empty boxa.<para/>
+''' 
 ''' (3) Input an empty %pixadb, using pixaCreate(0), for debug output<para/>
-''' (4) This is useful if different operations are to be carried out<para/>
-''' on possibly overlapping rectangular regions, and it is desired<para/>
-''' to have only one operation on any rectangular region.<para/>
+''' 
+''' (4) This is useful if different operations are to be carried out
+''' on possibly overlapping rectangular regions, and it is desired
+''' to have only one operation on any rectangular region.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -298,9 +304,9 @@ End Function
 ' boxOverlapRegion(box1, box2) as Box
 ' boxOverlapRegion(BOX *, BOX *) as BOX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is the geometric intersection of the two rectangles.<para/>
+''' 
+''' (1) This is the geometric intersection of the two rectangles.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -325,9 +331,9 @@ End Function
 ' boxBoundingRegion(box1, box2) as Box
 ' boxBoundingRegion(BOX *, BOX *) as BOX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is the geometric union of the two rectangles.<para/>
+''' 
+''' (1) This is the geometric union of the two rectangles.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -352,10 +358,10 @@ End Function
 ' boxOverlapFraction(box1, box2, pfract) as Integer
 ' boxOverlapFraction(BOX *, BOX *, l_float32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The result depends on the order of the input boxes,<para/>
-''' because the overlap is taken as a fraction of box2.<para/>
+''' 
+''' (1) The result depends on the order of the input boxes,
+''' because the overlap is taken as a fraction of box2.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -404,24 +410,27 @@ End Function
 ' boxaHandleOverlaps(boxas, op, range, min_overlap, max_ratio, pnamap) as Boxa
 ' boxaHandleOverlaps(BOXA *, l_int32, l_int32, l_float32, l_float32, NUMA **) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For all n(n-1)/2 box pairings, if two boxes overlap, either:<para/>
-''' (a) op == L_COMBINE: get the bounding region for the two,<para/>
-''' replace the larger with the bounding region, and remove<para/>
-''' the smaller of the two, or<para/>
+''' 
+''' (1) For all n(n-1)/2 box pairings, if two boxes overlap, either:
+''' (a) op == L_COMBINE: get the bounding region for the two,
+''' replace the larger with the bounding region, and remove
+''' the smaller of the two, or
 ''' (b) op == L_REMOVE_SMALL: just remove the smaller.<para/>
-''' (2) If boxas is 2D sorted, range can be small, but if it is<para/>
-''' not spatially sorted, range should be large to allow all<para/>
+''' 
+''' (2) If boxas is 2D sorted, range can be small, but if it is
+''' not spatially sorted, range should be large to allow all
 ''' pairwise comparisons to be made.<para/>
-''' (3) The %min_overlap parameter allows ignoring small overlaps.<para/>
-''' If %min_overlap == 1.0, only boxes fully contained in larger<para/>
-''' boxes can be considered for removal if %min_overlap == 0.0,<para/>
+''' 
+''' (3) The %min_overlap parameter allows ignoring small overlaps.
+''' If %min_overlap == 1.0, only boxes fully contained in larger
+''' boxes can be considered for removal if %min_overlap == 0.0,
 ''' this constraint is ignored.<para/>
-''' (4) The %max_ratio parameter allows ignoring overlaps between<para/>
-''' boxes that are not too different in size.  If %max_ratio == 0.0,<para/>
-''' no boxes can be removed if %max_ratio == 1.0, this constraint<para/>
-''' is ignored.<para/>
+''' 
+''' (4) The %max_ratio parameter allows ignoring overlaps between
+''' boxes that are not too different in size.  If %max_ratio == 0.0,
+''' no boxes can be removed if %max_ratio == 1.0, this constraint
+''' is ignored.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -456,12 +465,12 @@ End Function
 ' boxSeparationDistance(box1, box2, ph_sep, pv_sep) as Integer
 ' boxSeparationDistance(BOX *, BOX *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This measures horizontal and vertical separation of the<para/>
-''' two boxes.  If the boxes are touching but have no pixels<para/>
-''' in common, the separation is 0.  If the boxes overlap by<para/>
-''' a distance d, the returned separation is -d.<para/>
+''' 
+''' (1) This measures horizontal and vertical separation of the
+''' two boxes.  If the boxes are touching but have no pixels
+''' in common, the separation is 0.  If the boxes overlap by
+''' a distance d, the returned separation is -d.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -489,9 +498,9 @@ End Function
 ' boxCompareSize(box1, box2, type, prel) as Integer
 ' boxCompareSize(BOX *, BOX *, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) We're re-using the SORT enum for these comparisons.<para/>
+''' 
+''' (1) We're re-using the SORT enum for these comparisons.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -499,7 +508,7 @@ End Function
 '''  <param name="box1">[in] - </param>
 '''  <param name="box2">[in] - </param>
 '''  <param name="type">[in] - L_SORT_BY_WIDTH, L_SORT_BY_HEIGHT, L_SORT_BY_MAX_DIMENSION, L_SORT_BY_PERIMETER, L_SORT_BY_AREA,</param>
-'''  <param name="prel">[out] - 1 if box1  is greater  box2, 0 if the same, -1 if box1  is lower  box2</param>
+'''  <param name="prel">[out] - 1 if box1  is greater  box2, 0 if the same, -1 if box1  is smaller box2</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxCompareSize(
 				 ByVal box1 as Box, 
@@ -543,9 +552,9 @@ End Function
 ' boxaGetNearestToPt(boxa, x, y) as Box
 ' boxaGetNearestToPt(BOXA *, l_int32, l_int32) as BOX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Uses euclidean distance between centroid and point.<para/>
+''' 
+''' (1) Uses euclidean distance between centroid and point.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -571,13 +580,14 @@ End Function
 ' boxaGetNearestToLine(boxa, x, y) as Box
 ' boxaGetNearestToLine(BOXA *, l_int32, l_int32) as BOX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For a horizontal line at some value y, get the minimum of the<para/>
-''' distance |yc - y| from the box centroid yc value to y<para/>
+''' 
+''' (1) For a horizontal line at some value y, get the minimum of the
+''' distance |yc - y| from the box centroid yc value to y
 ''' likewise minimize |xc - x| for a vertical line at x.<para/>
-''' (2) Input y  is lower  0, x  is greater = 0 to indicate a vertical line at x, and<para/>
-''' x  is lower  0, y  is greater = 0 for a horizontal line at y.<para/>
+''' 
+''' (2) Input y  is smaller 0, x greater or equal 0 to indicate a vertical line at x, and
+''' x  is smaller 0, y greater or equal 0 for a horizontal line at y.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -603,10 +613,10 @@ End Function
 ' boxaFindNearestBoxes(boxa, dist_select, range, pnaaindex, pnaadist) as Integer
 ' boxaFindNearestBoxes(BOXA *, l_int32, l_int32, NUMAA **, NUMAA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See boxaGetNearestByDirection() for usage of %dist_select<para/>
-''' and %range.<para/>
+''' 
+''' (1) See boxaGetNearestByDirection() for usage of %dist_select
+''' and %range.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -640,15 +650,16 @@ End Function
 ' boxaGetNearestByDirection(boxa, i, dir, dist_select, range, pindex, pdist) as Integer
 ' boxaGetNearestByDirection(BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For efficiency, use a LR/TD sorted %boxa, which can be<para/>
-''' made by flattening a 2D sorted boxaa.  In that case,<para/>
+''' 
+''' (1) For efficiency, use a LR/TD sorted %boxa, which can be
+''' made by flattening a 2D sorted boxaa.  In that case,
 ''' %range can be some positive integer like 50.<para/>
-''' (2) If boxes overlap, the distance will be  is lower  0.  Use %dist_select<para/>
-''' to determine if these should count or not.  If L_ALL, then<para/>
-''' one box will match as the nearest to another in 2 or more<para/>
-''' directions.<para/>
+''' 
+''' (2) If boxes overlap, the distance will be  is smaller 0.  Use %dist_select
+''' to determine if these should count or not.  If L_ALL, then
+''' one box will match as the nearest to another in 2 or more
+''' directions.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -703,11 +714,12 @@ End Function
 ' boxIntersectByLine(box, x, y, slope, px1, py1, px2, py2, pn) as Integer
 ' boxIntersectByLine(BOX *, l_int32, l_int32, l_float32, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If the intersection is at only one point (a corner), the<para/>
+''' 
+''' (1) If the intersection is at only one point (a corner), the
 ''' coordinates are returned in (x1, y1).<para/>
-''' (2) Represent a vertical line by one with a large but finite slope.<para/>
+''' 
+''' (2) Represent a vertical line by one with a large but finite slope.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -744,11 +756,11 @@ End Function
 ' boxClipToRectangle(box, wi, hi) as Box
 ' boxClipToRectangle(BOX *, l_int32, l_int32) as BOX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This can be used to clip a rectangle to an image.<para/>
-''' The clipping rectangle is assumed to have a UL corner at (0, 0),<para/>
-''' and a LR corner at (wi - 1, hi - 1).<para/>
+''' 
+''' (1) This can be used to clip a rectangle to an image.
+''' The clipping rectangle is assumed to have a UL corner at (0, 0),
+''' and a LR corner at (wi - 1, hi - 1).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -774,16 +786,17 @@ End Function
 ' boxClipToRectangleParams(box, w, h, pxstart, pystart, pxend, pyend, pbw, pbh) as Integer
 ' boxClipToRectangleParams(BOX *, l_int32, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The return value should be checked.  If it is 1, the<para/>
+''' 
+''' (1) The return value should be checked.  If it is 1, the
 ''' returned parameter values are bogus.<para/>
-''' (2) This simplifies the selection of pixel locations within<para/>
-''' a given rectangle:<para/>
-''' for (i = ystart i  is lower  yend i++ {<para/>
-''' ...<para/>
-''' for (j = xstart j  is lower  xend j++ {<para/>
-''' ....<para/>
+''' 
+''' (2) This simplifies the selection of pixel locations within
+''' a given rectangle:
+''' for (i = ystart i  is smaller yend i++ {
+''' ...
+''' for (j = xstart j  is smaller xend j++ {
+''' ....
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -820,14 +833,15 @@ End Function
 ' boxRelocateOneSide(boxd, boxs, loc, sideflag) as Box
 ' boxRelocateOneSide(BOX *, BOX *, l_int32, l_int32) as BOX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Set boxd == NULL to get new box boxd == boxs for in-place<para/>
+''' 
+''' (1) Set boxd == NULL to get new box boxd == boxs for in-place
 ''' or otherwise to resize existing boxd.<para/>
-''' (2) For usage, suggest one of these:<para/>
-''' boxd = boxRelocateOneSide(NULL, boxs, ...) // new<para/>
-''' boxRelocateOneSide(boxs, boxs, ...)  // in-place<para/>
-''' boxRelocateOneSide(boxd, boxs, ...)  // other<para/>
+''' 
+''' (2) For usage, suggest one of these:
+''' boxd = boxRelocateOneSide(NULL, boxs, ...) // new
+''' boxRelocateOneSide(boxs, boxs, ...)  // in-place
+''' boxRelocateOneSide(boxd, boxs, ...)  // other
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -836,7 +850,7 @@ End Function
 '''  <param name="boxs">[in] - starting box to have one side relocated</param>
 '''  <param name="loc">[in] - new location of the side that is changing</param>
 '''  <param name="sideflag">[in] - L_FROM_LEFT, etc., indicating the side that moves</param>
-'''   <returns>boxd, or NULL on error or if the computed boxd has width or height  is lower = 0.</returns>
+'''   <returns>boxd, or NULL on error or if the computed boxd has width or height smaller or equal 0.</returns>
 Public Shared Function boxRelocateOneSide(
 				 ByVal boxd as Box, 
 				 ByVal boxs as Box, 
@@ -857,12 +871,14 @@ End Function
 ' boxaAdjustSides(boxas, delleft, delright, deltop, delbot) as Boxa
 ' boxaAdjustSides(BOXA *, l_int32, l_int32, l_int32, l_int32) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) New box dimensions are cropped at left and top to x  is greater = 0 and y  is greater = 0.<para/>
-''' (2) If the width or height of a box goes to 0, we generate a box with<para/>
+''' 
+''' (1) New box dimensions are cropped at left and top to x greater or equal 0 and y greater or equal 0.<para/>
+''' 
+''' (2) If the width or height of a box goes to 0, we generate a box with
 ''' w == 1 and h == 1, as a placeholder.<para/>
-''' (3) See boxAdjustSides().<para/>
+''' 
+''' (3) See boxAdjustSides().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -892,17 +908,20 @@ End Function
 ' boxAdjustSides(boxd, boxs, delleft, delright, deltop, delbot) as Box
 ' boxAdjustSides(BOX *, BOX *, l_int32, l_int32, l_int32, l_int32) as BOX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Set boxd == NULL to get new box boxd == boxs for in-place<para/>
+''' 
+''' (1) Set boxd == NULL to get new box boxd == boxs for in-place
 ''' or otherwise to resize existing boxd.<para/>
-''' (2) For usage, suggest one of these:<para/>
-''' boxd = boxAdjustSides(NULL, boxs, ...) // new<para/>
-''' boxAdjustSides(boxs, boxs, ...)  // in-place<para/>
+''' 
+''' (2) For usage, suggest one of these:
+''' boxd = boxAdjustSides(NULL, boxs, ...) // new
+''' boxAdjustSides(boxs, boxs, ...)  // in-place
 ''' boxAdjustSides(boxd, boxs, ...)  // other<para/>
-''' (3) New box dimensions are cropped at left and top to x  is greater = 0 and y  is greater = 0.<para/>
-''' (4) For example, to expand in-place by 20 pixels on each side, use<para/>
-''' boxAdjustSides(box, box, -20, 20, -20, 20)<para/>
+''' 
+''' (3) New box dimensions are cropped at left and top to x greater or equal 0 and y greater or equal 0.<para/>
+''' 
+''' (4) For example, to expand in-place by 20 pixels on each side, use
+''' boxAdjustSides(box, box, -20, 20, -20, 20)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -913,7 +932,7 @@ End Function
 '''  <param name="delright">[in] - changes in location of each side</param>
 '''  <param name="deltop">[in] - changes in location of each side</param>
 '''  <param name="delbot">[in] - changes in location of each side</param>
-'''   <returns>boxd, or NULL on error or if the computed boxd has width or height  is lower = 0.</returns>
+'''   <returns>boxd, or NULL on error or if the computed boxd has width or height smaller or equal 0.</returns>
 Public Shared Function boxAdjustSides(
 				 ByVal boxd as Box, 
 				 ByVal boxs as Box, 
@@ -936,13 +955,14 @@ End Function
 ' boxaSetSide(boxad, boxas, side, val, thresh) as Boxa
 ' boxaSetSide(BOXA *, BOXA *, l_int32, l_int32, l_int32) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Sets the given side of each box.  Use boxad == NULL for a new<para/>
+''' 
+''' (1) Sets the given side of each box.  Use boxad == NULL for a new
 ''' boxa, and boxad == boxas for in-place.<para/>
-''' (2) Use one of these:<para/>
-''' boxad = boxaSetSide(NULL, boxas, ...) // new<para/>
-''' boxaSetSide(boxas, boxas, ...)  // in-place<para/>
+''' 
+''' (2) Use one of these:
+''' boxad = boxaSetSide(NULL, boxas, ...) // new
+''' boxaSetSide(boxas, boxas, ...)  // in-place
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -973,15 +993,16 @@ End Function
 ' boxaAdjustWidthToTarget(boxad, boxas, sides, target, thresh) as Boxa
 ' boxaAdjustWidthToTarget(BOXA *, BOXA *, l_int32, l_int32, l_int32) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Conditionally adjusts the width of each box, by moving<para/>
-''' the indicated edges (left and/or right) if the width differs<para/>
+''' 
+''' (1) Conditionally adjusts the width of each box, by moving
+''' the indicated edges (left and/or right) if the width differs
 ''' by %thresh or more from %target.<para/>
-''' (2) Use boxad == NULL for a new boxa, and boxad == boxas for in-place.<para/>
-''' Use one of these:<para/>
-''' boxad = boxaAdjustWidthToTarget(NULL, boxas, ...) // new<para/>
-''' boxaAdjustWidthToTarget(boxas, boxas, ...)  // in-place<para/>
+''' 
+''' (2) Use boxad == NULL for a new boxa, and boxad == boxas for in-place.
+''' Use one of these:
+''' boxad = boxaAdjustWidthToTarget(NULL, boxas, ...) // new
+''' boxaAdjustWidthToTarget(boxas, boxas, ...)  // in-place
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1012,15 +1033,16 @@ End Function
 ' boxaAdjustHeightToTarget(boxad, boxas, sides, target, thresh) as Boxa
 ' boxaAdjustHeightToTarget(BOXA *, BOXA *, l_int32, l_int32, l_int32) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Conditionally adjusts the height of each box, by moving<para/>
-''' the indicated edges (top and/or bot) if the height differs<para/>
+''' 
+''' (1) Conditionally adjusts the height of each box, by moving
+''' the indicated edges (top and/or bot) if the height differs
 ''' by %thresh or more from %target.<para/>
-''' (2) Use boxad == NULL for a new boxa, and boxad == boxas for in-place.<para/>
-''' Use one of these:<para/>
-''' boxad = boxaAdjustHeightToTarget(NULL, boxas, ...) // new<para/>
-''' boxaAdjustHeightToTarget(boxas, boxas, ...)  // in-place<para/>
+''' 
+''' (2) Use boxad == NULL for a new boxa, and boxad == boxas for in-place.
+''' Use one of these:
+''' boxad = boxaAdjustHeightToTarget(NULL, boxas, ...) // new
+''' boxaAdjustHeightToTarget(boxas, boxas, ...)  // in-place
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1074,22 +1096,25 @@ End Function
 ' boxaEqual(boxa1, boxa2, maxdist, pnaindex, psame) as Integer
 ' boxaEqual(BOXA *, BOXA *, l_int32, NUMA **, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The two boxa are the "same" if they contain the same<para/>
-''' boxes and each box is within %maxdist of its counterpart<para/>
-''' in their positions within the boxa.  This allows for<para/>
-''' small rearrangements.  Use 0 for maxdist if the boxa<para/>
+''' 
+''' (1) The two boxa are the "same" if they contain the same
+''' boxes and each box is within %maxdist of its counterpart
+''' in their positions within the boxa.  This allows for
+''' small rearrangements.  Use 0 for maxdist if the boxa
 ''' must be identical.<para/>
-''' (2) This applies only to geometry and ordering refcounts<para/>
+''' 
+''' (2) This applies only to geometry and ordering refcounts
 ''' are not considered.<para/>
-''' (3) %maxdist allows some latitude in the ordering of the boxes.<para/>
-''' For the boxa to be the "same", corresponding boxes must<para/>
-''' be within %maxdist of each other.  Note that for large<para/>
+''' 
+''' (3) %maxdist allows some latitude in the ordering of the boxes.
+''' For the boxa to be the "same", corresponding boxes must
+''' be within %maxdist of each other.  Note that for large
 ''' %maxdist, we should use a hash function for efficiency.<para/>
-''' (4) naindex[i] gives the position of the box in boxa2 that<para/>
-''' corresponds to box i in boxa1.  It is only returned if the<para/>
-''' boxa are equal.<para/>
+''' 
+''' (4) naindex[i] gives the position of the box in boxa2 that
+''' corresponds to box i in boxa1.  It is only returned if the
+''' boxa are equal.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1122,11 +1147,11 @@ End Function
 ' boxSimilar(box1, box2, leftdiff, rightdiff, topdiff, botdiff, psimilar) as Integer
 ' boxSimilar(BOX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The values of leftdiff (etc) are the maximum allowed deviations<para/>
-''' between the locations of the left (etc) sides.  If any side<para/>
-''' pairs differ by more than this amount, the boxes are not similar.<para/>
+''' 
+''' (1) The values of leftdiff (etc) are the maximum allowed deviations
+''' between the locations of the left (etc) sides.  If any side
+''' pairs differ by more than this amount, the boxes are not similar.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1160,13 +1185,16 @@ End Function
 ' boxaSimilar(boxa1, boxa2, leftdiff, rightdiff, topdiff, botdiff, debug, psimilar, pnasim) as Integer
 ' boxaSimilar(BOXA *, BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32 *, NUMA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) See boxSimilar() for parameter usage.<para/>
+''' 
 ''' (2) Corresponding boxes are taken in order in the two boxa.<para/>
+''' 
 ''' (3) %nasim is an indicator array with a (0/1) for each box pair.<para/>
-''' (4) With %nasim or debug == 1, boxes continue to be tested<para/>
-''' after failure.<para/>
+''' 
+''' (4) With %nasim or debug == 1, boxes continue to be tested
+''' after failure.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1207,12 +1235,15 @@ End Function
 ' boxaJoin(boxad, boxas, istart, iend) as Integer
 ' boxaJoin(BOXA *, BOXA *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This appends a clone of each indicated box in boxas to boxad<para/>
-''' (2) istart  is lower  0 is taken to mean 'read from the start' (istart = 0)<para/>
-''' (3) iend  is lower  0 means 'read to the end'<para/>
-''' (4) if boxas == NULL or has no boxes, this is a no-op.<para/>
+''' 
+''' (2) istart  is smaller 0 is taken to mean 'read from the start' (istart = 0)<para/>
+''' 
+''' (3) iend  is smaller 0 means 'read to the end'<para/>
+''' 
+''' (4) if boxas == NULL or has no boxes, this is a no-op.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1240,12 +1271,15 @@ End Function
 ' boxaaJoin(baad, baas, istart, iend) as Integer
 ' boxaaJoin(BOXAA *, BOXAA *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This appends a clone of each indicated boxa in baas to baad<para/>
-''' (2) istart  is lower  0 is taken to mean 'read from the start' (istart = 0)<para/>
-''' (3) iend  is lower  0 means 'read to the end'<para/>
-''' (4) if baas == NULL, this is a no-op.<para/>
+''' 
+''' (2) istart  is smaller 0 is taken to mean 'read from the start' (istart = 0)<para/>
+''' 
+''' (3) iend  is smaller 0 means 'read to the end'<para/>
+''' 
+''' (4) if baas == NULL, this is a no-op.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1273,12 +1307,13 @@ End Function
 ' boxaSplitEvenOdd(boxa, fillflag, pboxae, pboxao) as Integer
 ' boxaSplitEvenOdd(BOXA *, l_int32, BOXA **, BOXA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If %fillflag == 1, boxae has copies of the even boxes<para/>
-''' in their original location, and nvalid boxes are placed<para/>
+''' 
+''' (1) If %fillflag == 1, boxae has copies of the even boxes
+''' in their original location, and nvalid boxes are placed
 ''' in the odd array locations.  And v.v.<para/>
-''' (2) If %fillflag == 0, boxae has only copies of the even boxes.<para/>
+''' 
+''' (2) If %fillflag == 0, boxae has only copies of the even boxes.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1310,13 +1345,14 @@ End Function
 ' boxaMergeEvenOdd(boxae, boxao, fillflag) as Boxa
 ' boxaMergeEvenOdd(BOXA *, BOXA *, l_int32) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is essentially the inverse of boxaSplitEvenOdd().<para/>
-''' Typically, boxae and boxao were generated by boxaSplitEvenOdd(),<para/>
+''' 
+''' (1) This is essentially the inverse of boxaSplitEvenOdd().
+''' Typically, boxae and boxao were generated by boxaSplitEvenOdd(),
 ''' and the value of %fillflag needs to be the same in both calls.<para/>
-''' (2) If %fillflag == 1, both boxae and boxao are of the same size<para/>
-''' otherwise boxae may have one more box than boxao.<para/>
+''' 
+''' (2) If %fillflag == 1, both boxae and boxao are of the same size
+''' otherwise boxae may have one more box than boxao.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

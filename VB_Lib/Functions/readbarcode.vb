@@ -141,10 +141,10 @@ End Function
 ' pixDeskewBarcode(pixs, pixb, box, margin, threshold, pangle, pconf) as Pix
 ' pixDeskewBarcode(PIX *, PIX *, BOX *, l_int32, l_int32, l_float32 *, l_float32 *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The (optional) angle returned is the angle in degrees (cw positive)<para/>
-''' necessary to rotate the image so that it is deskewed.<para/>
+''' 
+''' (1) The (optional) angle returned is the angle in degrees (cw positive)
+''' necessary to rotate the image so that it is deskewed.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -180,20 +180,21 @@ End Function
 ' pixExtractBarcodeWidths1(pixs, thresh, binfract, pnaehist, pnaohist, debugflag) as Numa
 ' pixExtractBarcodeWidths1(PIX *, l_float32, l_float32, NUMA **, NUMA **, l_int32) as NUMA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The widths are alternating black/white, starting with black<para/>
+''' 
+''' (1) The widths are alternating black/white, starting with black
 ''' and ending with black.<para/>
-''' (2) This method uses the widths of the bars directly, in terms<para/>
-''' of the (float) number of pixels between transitions.<para/>
-''' The histograms of these widths for black and white bars is<para/>
-''' generated and interpreted.<para/>
+''' 
+''' (2) This method uses the widths of the bars directly, in terms
+''' of the (float) number of pixels between transitions.
+''' The histograms of these widths for black and white bars is
+''' generated and interpreted.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixExtractBarcodeWidths1/*"/>
 '''  <param name="pixs">[in] - input image 8 bpp</param>
-'''  <param name="thresh">[in] - estimated pixel threshold for crossing white  is lower -- is greater  black typ. ~120</param>
+'''  <param name="thresh">[in] - estimated pixel threshold for crossing white  is smallerto black typ. ~120</param>
 '''  <param name="binfract">[in] - histo binsize as a fraction of minsize e.g., 0.25</param>
 '''  <param name="pnaehist">[out][optional] - histogram of black widths NULL ok</param>
 '''  <param name="pnaohist">[out][optional] - histogram of white widths NULL ok</param>
@@ -224,24 +225,26 @@ End Function
 ' pixExtractBarcodeWidths2(pixs, thresh, pwidth, pnac, debugflag) as Numa
 ' pixExtractBarcodeWidths2(PIX *, l_float32, l_float32 *, NUMA **, l_int32) as NUMA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The widths are alternating black/white, starting with black<para/>
+''' 
+''' (1) The widths are alternating black/white, starting with black
 ''' and ending with black.<para/>
-''' (2) The optional best decoding window width is the width of the window<para/>
-''' that is used to make a decision about whether a transition occurs.<para/>
-''' It is approximately the average width in pixels of the narrowest<para/>
+''' 
+''' (2) The optional best decoding window width is the width of the window
+''' that is used to make a decision about whether a transition occurs.
+''' It is approximately the average width in pixels of the narrowest
 ''' white and black bars (i.e., those corresponding to unit width).<para/>
-''' (3) The optional return signal %nac is a sequence of 0s, 1s,<para/>
-''' and perhaps a few 2s, giving the number of crossings in each window.<para/>
-''' On the occasion where there is a '2', it is interpreted as<para/>
-''' as ending two runs: the previous one and another one that has length 1.<para/>
+''' 
+''' (3) The optional return signal %nac is a sequence of 0s, 1s,
+''' and perhaps a few 2s, giving the number of crossings in each window.
+''' On the occasion where there is a '2', it is interpreted as
+''' as ending two runs: the previous one and another one that has length 1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixExtractBarcodeWidths2/*"/>
 '''  <param name="pixs">[in] - input image 8 bpp</param>
-'''  <param name="thresh">[in] - estimated pixel threshold for crossing white  is lower -- is greater  black typ. ~120</param>
+'''  <param name="thresh">[in] - estimated pixel threshold for crossing white  is smallerto black typ. ~120</param>
 '''  <param name="pwidth">[out][optional] - best decoding window width, in pixels</param>
 '''  <param name="pnac">[out][optional] - number of transitions in each window</param>
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
@@ -271,7 +274,7 @@ End Function
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixExtractBarcodeCrossings/*"/>
 '''  <param name="pixs">[in] - input image 8 bpp</param>
-'''  <param name="thresh">[in] - estimated pixel threshold for crossing white  is lower -- is greater  black typ. ~120</param>
+'''  <param name="thresh">[in] - estimated pixel threshold for crossing white  is smallerto black typ. ~120</param>
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
 '''   <returns>numa of crossings, in pixel units, or NULL on error</returns>
 Public Shared Function pixExtractBarcodeCrossings(
@@ -291,17 +294,18 @@ End Function
 ' numaQuantizeCrossingsByWidth(nas, binfract, pnaehist, pnaohist, debugflag) as Numa
 ' numaQuantizeCrossingsByWidth(NUMA *, l_float32, NUMA **, NUMA **, l_int32) as NUMA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This first computes the histogram of black and white bar widths,<para/>
-''' binned in appropriate units.  There should be well-defined<para/>
-''' peaks, each corresponding to a specific width.  The sequence<para/>
-''' of barcode widths (namely, the integers from the set {1,2,3,4})<para/>
+''' 
+''' (1) This first computes the histogram of black and white bar widths,
+''' binned in appropriate units.  There should be well-defined
+''' peaks, each corresponding to a specific width.  The sequence
+''' of barcode widths (namely, the integers from the set {1,2,3,4})
 ''' is returned.<para/>
-''' (2) The optional returned histograms are binned in width units<para/>
-''' that are inversely proportional to %binfract.  For example,<para/>
-''' if %binfract = 0.25, there are 4.0 bins in the distance of<para/>
-''' the width of the narrowest bar.<para/>
+''' 
+''' (2) The optional returned histograms are binned in width units
+''' that are inversely proportional to %binfract.  For example,
+''' if %binfract = 0.25, there are 4.0 bins in the distance of
+''' the width of the narrowest bar.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -336,14 +340,15 @@ End Function
 ' numaQuantizeCrossingsByWindow(nas, ratio, pwidth, pfirstloc, pnac, debugflag) as Numa
 ' numaQuantizeCrossingsByWindow(NUMA *, l_float32, l_float32 *, l_float32 *, NUMA **, l_int32) as NUMA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The minimum size of the window is set by the minimum<para/>
+''' 
+''' (1) The minimum size of the window is set by the minimum
 ''' distance between zero crossings.<para/>
-''' (2) The optional return signal %nac is a sequence of 0s, 1s,<para/>
-''' and perhaps a few 2s, giving the number of crossings in each window.<para/>
-''' On the occasion where there is a '2', it is interpreted as<para/>
-''' ending two runs: the previous one and another one that has length 1.<para/>
+''' 
+''' (2) The optional return signal %nac is a sequence of 0s, 1s,
+''' and perhaps a few 2s, giving the number of crossings in each window.
+''' On the occasion where there is a '2', it is interpreted as
+''' ending two runs: the previous one and another one that has length 1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

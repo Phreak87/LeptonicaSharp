@@ -88,14 +88,15 @@ End Function
 ' pixWriteStreamPnm(fp, pix) as Integer
 ' pixWriteStreamPnm(FILE *, PIX *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This writes "raw" packed format only:<para/>
-''' 1 bpp -- is greater  pbm (P4)<para/>
-''' 2, 4, 8, 16 bpp, no colormap or grayscale colormap -- is greater  pgm (P5)<para/>
-''' 2, 4, 8 bpp with color-valued colormap, or rgb -- is greater  rgb ppm (P6)<para/>
-''' (2) 24 bpp rgb are not supported in leptonica, but this will<para/>
-''' write them out as a packed array of bytes (3 to a pixel).<para/>
+''' 
+''' (1) This writes "raw" packed format only:
+''' 1 bpp to pbm (P4)
+''' 2, 4, 8, 16 bpp, no colormap or grayscale colormap to pgm (P5)
+''' 2, 4, 8 bpp with color-valued colormap, or rgb to rgb ppm (P6)<para/>
+''' 
+''' (2) 24 bpp rgb are not supported in leptonica, but this will
+''' write them out as a packed array of bytes (3 to a pixel).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -123,7 +124,7 @@ End Function
 '''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamAsciiPnm/*"/>
 '''  <param name="fp">[in] - file stream opened for write</param>
 '''  <param name="pix">[in] - </param>
-'''   <returns>0 if OK 1 on error Writes "ASCII" format only: 1 bpp -- is greater  pbm P1 2, 4, 8, 16 bpp, no colormap or grayscale colormap -- is greater  pgm P2 2, 4, 8 bpp with color-valued colormap, or rgb -- is greater  rgb ppm P3</returns>
+'''   <returns>0 if OK 1 on error Writes "ASCII" format only: 1 bpp to pbm P1 2, 4, 8, 16 bpp, no colormap or grayscale colormap to pgm P2 2, 4, 8 bpp with color-valued colormap, or rgb to rgb ppm P3</returns>
 Public Shared Function pixWriteStreamAsciiPnm(
 				 ByVal fp as FILE, 
 				 ByVal pix as Pix) as Integer
@@ -140,11 +141,12 @@ End Function
 ' pixWriteStreamPam(fp, pix) as Integer
 ' pixWriteStreamPam(FILE *, PIX *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This writes arbitrary PAM (P7) packed format.<para/>
-''' (2) 24 bpp rgb are not supported in leptonica, but this will<para/>
-''' write them out as a packed array of bytes (3 to a pixel).<para/>
+''' 
+''' (2) 24 bpp rgb are not supported in leptonica, but this will
+''' write them out as a packed array of bytes (3 to a pixel).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -168,9 +170,9 @@ End Function
 ' pixReadMemPnm(data, size) as Pix
 ' pixReadMemPnm(const l_uint8 *, size_t) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The %size byte of %data must be a null character.<para/>
+''' 
+''' (1) The %size byte of %data must be a null character.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -226,10 +228,10 @@ End Function
 ' pixWriteMemPnm(pdata, psize, pix) as Integer
 ' pixWriteMemPnm(l_uint8 **, size_t *, PIX *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See pixWriteStreamPnm() for usage.  This version writes to<para/>
-''' memory instead of to a file stream.<para/>
+''' 
+''' (1) See pixWriteStreamPnm() for usage.  This version writes to
+''' memory instead of to a file stream.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -257,10 +259,10 @@ End Function
 ' pixWriteMemPam(pdata, psize, pix) as Integer
 ' pixWriteMemPam(l_uint8 **, size_t *, PIX *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See pixWriteStreamPnm() for usage.  This version writes to<para/>
-''' memory instead of to a file stream.<para/>
+''' 
+''' (1) See pixWriteStreamPnm() for usage.  This version writes to
+''' memory instead of to a file stream.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

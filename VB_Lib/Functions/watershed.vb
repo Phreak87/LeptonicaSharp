@@ -7,18 +7,19 @@ Partial Public Class _All
 ' wshedCreate(pixs, pixm, mindepth, debugflag) as L_WShed
 ' wshedCreate(PIX *, PIX *, l_int32, l_int32) as L_WSHED *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) It is not necessary for the fg pixels in the seed image<para/>
-''' be at minima, or that they be isolated.  We extract a<para/>
-''' single pixel from each connected component, and a seed<para/>
-''' anywhere in a watershed will eventually label the watershed<para/>
+''' 
+''' (1) It is not necessary for the fg pixels in the seed image
+''' be at minima, or that they be isolated.  We extract a
+''' single pixel from each connected component, and a seed
+''' anywhere in a watershed will eventually label the watershed
 ''' when the filling level reaches it.<para/>
-''' (2) Set mindepth to some value to ignore noise in pixs that<para/>
-''' can create small local minima.  Any watershed shallower<para/>
-''' than mindepth, even if it has a seed, will not be saved<para/>
-''' It will either be incorporated in another watershed or<para/>
-''' eliminated.<para/>
+''' 
+''' (2) Set mindepth to some value to ignore noise in pixs that
+''' can create small local minima.  Any watershed shallower
+''' than mindepth, even if it has a seed, will not be saved
+''' It will either be incorporated in another watershed or
+''' eliminated.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

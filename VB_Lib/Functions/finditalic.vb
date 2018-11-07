@@ -7,26 +7,29 @@ Partial Public Class _All
 ' pixItalicWords(pixs, boxaw, pixw, pboxa, debugflag) as Integer
 ' pixItalicWords(PIX *, BOXA *, PIX *, BOXA **, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) You can input the bounding boxes for the words in one of<para/>
-''' two forms: as bounding boxes (%boxaw) or as a word mask with<para/>
-''' the word bounding boxes filled (%pixw).  For example,<para/>
+''' 
+''' (1) You can input the bounding boxes for the words in one of
+''' two forms: as bounding boxes (%boxaw) or as a word mask with
+''' the word bounding boxes filled (%pixw).  For example,
 ''' to compute %pixw, you can use pixWordMaskByDilation().<para/>
-''' (2) Alternatively, you can set both of these inputs to NULL,<para/>
-''' in which case the word mask is generated here.  This is<para/>
-''' done by dilating and closing the input image to connect<para/>
-''' letters within a word, while leaving the words separated.<para/>
-''' The parameters are chosen under the assumption that the<para/>
+''' 
+''' (2) Alternatively, you can set both of these inputs to NULL,
+''' in which case the word mask is generated here.  This is
+''' done by dilating and closing the input image to connect
+''' letters within a word, while leaving the words separated.
+''' The parameters are chosen under the assumption that the
 ''' input is 10 to 12 pt text, scanned at about 300 ppi.<para/>
-''' (3) sel_ital1 and sel_ital2 detect the right edges that are<para/>
-''' nearly vertical, at approximately the angle of italic<para/>
-''' strokes.  We use the right edge to avoid getting seeds<para/>
-''' from lower-case 'y'.  The typical italic slant has a smaller<para/>
-''' angle with the vertical than the 'W', so in most cases we<para/>
+''' 
+''' (3) sel_ital1 and sel_ital2 detect the right edges that are
+''' nearly vertical, at approximately the angle of italic
+''' strokes.  We use the right edge to avoid getting seeds
+''' from lower-case 'y'.  The typical italic slant has a smaller
+''' angle with the vertical than the 'W', so in most cases we
 ''' will not trigger on the slanted lines in the 'W'.<para/>
-''' (4) Note that sel_ital2 is shorter than sel_ital1.  It is<para/>
-''' more appropriate for a typical font scanned at 200 ppi.<para/>
+''' 
+''' (4) Note that sel_ital2 is shorter than sel_ital1.  It is
+''' more appropriate for a typical font scanned at 200 ppi.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

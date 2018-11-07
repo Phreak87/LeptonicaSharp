@@ -6098,7 +6098,7 @@ ReadOnly property data as Byte()
 	Get
 		If Pointer = IntPTR.Zero then Return Nothing
 		Marshal.PtrToStructure (Pointer, Values)
-		Dim _data((w * h * (d/8)) -1) as Byte
+		Dim _data((h * (wpl * 4)) -1) as Byte
 Marshal.Copy(Values.data, _data, 0, _data.Length)
 Return _data
 		Return nothing

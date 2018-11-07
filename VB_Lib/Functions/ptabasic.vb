@@ -47,10 +47,11 @@ End Function
 ' ptaDestroy(ppta) as Object
 ' ptaDestroy(PTA **) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Decrements the ref count and, if 0, destroys the pta.<para/>
-''' (2) Always nulls the input ptr.<para/>
+''' 
+''' (2) Always nulls the input ptr.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -131,9 +132,8 @@ End Function
 ' ptaEmpty(pta) as Integer
 ' ptaEmpty(PTA *) as l_ok
 '''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' This only resets the Pta::n field, for reuse<para/>
+''' Notes:
+''' This only resets the Pta::n field, for reuse
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -200,11 +200,12 @@ End Function
 ' ptaRemovePt(pta, index) as Integer
 ' ptaRemovePt(PTA *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This shifts pta[i] -- is greater  pta[i - 1] for all i  is greater  index.<para/>
-''' (2) It should not be used repeatedly on large arrays,<para/>
-''' because the function is O(n).<para/>
+''' 
+''' (1) This shifts pta[i] to pta[i - 1] for all i  is greater  index.<para/>
+''' 
+''' (2) It should not be used repeatedly on large arrays,
+''' because the function is O(n).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -356,9 +357,9 @@ End Function
 ' ptaGetArrays(pta, pnax, pnay) as Integer
 ' ptaGetArrays(PTA *, NUMA **, NUMA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This copies the internal arrays into new Numas.<para/>
+''' 
+''' (1) This copies the internal arrays into new Numas.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -449,13 +450,14 @@ End Function
 ' ptaWriteDebug(filename, pta, type) as Integer
 ' ptaWriteDebug(const char *, PTA *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Debug version, intended for use in the library when writing<para/>
-''' to files in a temp directory with names that are compiled in.<para/>
+''' 
+''' (1) Debug version, intended for use in the library when writing
+''' to files in a temp directory with names that are compiled in.
 ''' This is used instead of ptaWrite() for all such library calls.<para/>
-''' (2) The global variable LeptDebugOK defaults to 0, and can be set<para/>
-''' or cleared by the function setLeptDebugOK().<para/>
+''' 
+''' (2) The global variable LeptDebugOK defaults to 0, and can be set
+''' or cleared by the function setLeptDebugOK().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -531,9 +533,9 @@ End Function
 ' ptaWriteMem(pdata, psize, pta, type) as Integer
 ' ptaWriteMem(l_uint8 **, size_t *, PTA *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Serializes a pta in memory and puts the result in a buffer.<para/>
+''' 
+''' (1) Serializes a pta in memory and puts the result in a buffer.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -708,11 +710,12 @@ End Function
 ' ptaaReplacePta(ptaa, index, pta) as Integer
 ' ptaaReplacePta(PTAA *, l_int32, PTA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Any existing pta is destroyed, and the input one<para/>
+''' 
+''' (1) Any existing pta is destroyed, and the input one
 ''' is inserted in its place.<para/>
-''' (2) If the index is invalid, return 1 (error)<para/>
+''' 
+''' (2) If the index is invalid, return 1 (error)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -761,11 +764,11 @@ End Function
 ' ptaaTruncate(ptaa) as Integer
 ' ptaaTruncate(PTAA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This identifies the largest index containing a pta that<para/>
-''' has any points within it, destroys all pta above that index,<para/>
-''' and resets the count.<para/>
+''' 
+''' (1) This identifies the largest index containing a pta that
+''' has any points within it, destroys all pta above that index,
+''' and resets the count.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -847,13 +850,14 @@ End Function
 ' ptaaWriteDebug(filename, ptaa, type) as Integer
 ' ptaaWriteDebug(const char *, PTAA *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Debug version, intended for use in the library when writing<para/>
-''' to files in a temp directory with names that are compiled in.<para/>
+''' 
+''' (1) Debug version, intended for use in the library when writing
+''' to files in a temp directory with names that are compiled in.
 ''' This is used instead of ptaaWrite() for all such library calls.<para/>
-''' (2) The global variable LeptDebugOK defaults to 0, and can be set<para/>
-''' or cleared by the function setLeptDebugOK().<para/>
+''' 
+''' (2) The global variable LeptDebugOK defaults to 0, and can be set
+''' or cleared by the function setLeptDebugOK().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -929,9 +933,9 @@ End Function
 ' ptaaWriteMem(pdata, psize, ptaa, type) as Integer
 ' ptaaWriteMem(l_uint8 **, size_t *, PTAA *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Serializes a ptaa in memory and puts the result in a buffer.<para/>
+''' 
+''' (1) Serializes a ptaa in memory and puts the result in a buffer.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

@@ -7,9 +7,9 @@ Partial Public Class Pix
 ' pixRead(filename) as Pix
 ' pixRead(const char *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See at top of file for supported formats.<para/>
+''' 
+''' (1) See at top of file for supported formats.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -24,9 +24,9 @@ End Sub
 ' pixConvertTo32(pixs) as Pix
 ' pixConvertTo32(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Never returns a clone of pixs.<para/>
+''' 
+''' (1) Never returns a clone of pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -53,22 +53,25 @@ End Function
 ' pixConvertTo8(pixs, cmapflag) as Pix
 ' pixConvertTo8(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a top-level function, with simple default values<para/>
+''' 
+''' (1) This is a top-level function, with simple default values
 ''' for unpacking.<para/>
-''' (2) The result, pixd, is made with a colormap if specified.<para/>
-''' It is always a new image -- never a clone.  For example,<para/>
-''' if d == 8, and cmapflag matches the existence of a cmap<para/>
+''' 
+''' (2) The result, pixd, is made with a colormap if specified.
+''' It is always a new image -- never a clone.  For example,
+''' if d == 8, and cmapflag matches the existence of a cmap
 ''' in pixs, the operation is lossless and it returns a copy.<para/>
-''' (3) The default values used are:<para/>
-''' ~ 1 bpp: val0 = 255, val1 = 0<para/>
-''' ~ 2 bpp: 4 bpp:  even increments over dynamic range<para/>
-''' ~ 8 bpp: lossless if cmap matches cmapflag<para/>
+''' 
+''' (3) The default values used are:
+''' ~ 1 bpp: val0 = 255, val1 = 0
+''' ~ 2 bpp: 4 bpp:  even increments over dynamic range
+''' ~ 8 bpp: lossless if cmap matches cmapflag
 ''' ~ 16 bpp: use most significant byte<para/>
-''' (4) If 32 bpp RGB, this is converted to gray.  If you want<para/>
-''' to do color quantization, you must specify the type<para/>
-''' explicitly, using the color quantization code.<para/>
+''' 
+''' (4) If 32 bpp RGB, this is converted to gray.  If you want
+''' to do color quantization, you must specify the type
+''' explicitly, using the color quantization code.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -84,13 +87,15 @@ End Function
 ' pixConvertTo4(pixs) as Pix
 ' pixConvertTo4(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a top-level function, with simple default values<para/>
+''' 
+''' (1) This is a top-level function, with simple default values
 ''' used in pixConvertTo8() if unpacking is necessary.<para/>
+''' 
 ''' (2) Any existing colormap is removed the result is always gray.<para/>
-''' (3) If the input image has 4 bpp and no colormap, the operation is<para/>
-''' lossless and a copy is returned.<para/>
+''' 
+''' (3) If the input image has 4 bpp and no colormap, the operation is
+''' lossless and a copy is returned.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -105,13 +110,15 @@ End Function
 ' pixConvertTo2(pixs) as Pix
 ' pixConvertTo2(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a top-level function, with simple default values<para/>
+''' 
+''' (1) This is a top-level function, with simple default values
 ''' used in pixConvertTo8() if unpacking is necessary.<para/>
+''' 
 ''' (2) Any existing colormap is removed the result is always gray.<para/>
-''' (3) If the input image has 2 bpp and no colormap, the operation is<para/>
-''' lossless and a copy is returned.<para/>
+''' 
+''' (3) If the input image has 2 bpp and no colormap, the operation is
+''' lossless and a copy is returned.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -126,13 +133,15 @@ End Function
 ' pixConvertTo1(pixs, threshold) as Pix
 ' pixConvertTo1(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a top-level function, with simple default values<para/>
+''' 
+''' (1) This is a top-level function, with simple default values
 ''' used in pixConvertTo8() if unpacking is necessary.<para/>
+''' 
 ''' (2) Any existing colormap is removed.<para/>
-''' (3) If the input image has 1 bpp and no colormap, the operation is<para/>
-''' lossless and a copy is returned.<para/>
+''' 
+''' (3) If the input image has 1 bpp and no colormap, the operation is
+''' lossless and a copy is returned.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -144,17 +153,56 @@ Public Function pixConvertTo1(
 	Dim RetObj = _All.pixConvertTo1(me, threshold)
 	Return RetObj
 End Function
+' SRC\pix1.c (630, 1)
+' pixCopy(pixd, pixs) as Pix
+' pixCopy(PIX *, PIX *) as PIX *
+'''  <summary>
+''' Notes:<para/>
+''' 
+''' (1) There are three cases:
+''' (a) pixd == null  (makes a new pix refcount = 1)
+''' (b) pixd == pixs  (no-op)
+''' (c) pixd != pixs  (data copy no change in refcount)
+''' If the refcount of pixd  is greater  1, case (c) will side-effect
+''' these handles.<para/>
+''' 
+''' (2) The general pattern of use is:
+''' pixd = pixCopy(pixd, pixs)
+''' This will work for all three cases.
+''' For clarity when the case is known, you can use:
+''' (a) pixd = pixCopy(NULL, pixs)
+''' (c) pixCopy(pixd, pixs)<para/>
+''' 
+''' (3) For case (c), we check if pixs and pixd are the same
+''' size (w,h,d).  If so, the data is copied directly.
+''' Otherwise, the data is reallocated to the correct size
+''' and the copy proceeds.  The refcount of pixd is unchanged.<para/>
+''' 
+''' (4) This operation, like all others that may involve a pre-existing
+''' pixd, will side-effect any existing clones of pixd.
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <include file="IncludeComments.xml" path="Comments/pixCopy/*"/>
+'''  <param name="pixd">[in][optional] - can be null, equal to pixs, different from pixs</param>
+'''   <returns>pixd, or NULL on error</returns>
+Public Function pixCopy(
+				 Optional ByVal pixd as Pix = Nothing) as Pix
+	Dim RetObj = _All.pixCopy(pixd, me)
+	Return RetObj
+End Function
 ' SRC\skew.c (205, 1)
 ' pixDeskew(pixs, redsearch) as Pix
 ' pixDeskew(PIX *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This binarizes if necessary and finds the skew angle.  If the<para/>
-''' angle is large enough and there is sufficient confidence,<para/>
+''' 
+''' (1) This binarizes if necessary and finds the skew angle.  If the
+''' angle is large enough and there is sufficient confidence,
 ''' it returns a deskewed image otherwise, it returns a clone.<para/>
-''' (2) Typical values at 300 ppi for %redsearch are 2 and 4.<para/>
-''' At 75 ppi, one should use %redsearch = 1.<para/>
+''' 
+''' (2) Typical values at 300 ppi for %redsearch are 2 and 4.
+''' At 75 ppi, one should use %redsearch = 1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -170,17 +218,19 @@ End Function
 ' pixInvert(pixd, pixs) as Pix
 ' pixInvert(PIX *, PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This inverts pixs, for all pixel depths.<para/>
-''' (2) There are 3 cases:<para/>
-''' (a) pixd == null, ~src -- is greater  new pixd<para/>
-''' (b) pixd == pixs, ~src -- is greater  src  (in-place)<para/>
-''' (c) pixd != pixs, ~src -- is greater  input pixd<para/>
-''' (3) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixInvert(NULL, pixs)<para/>
-''' (b) pixInvert(pixs, pixs)<para/>
-''' (c) pixInvert(pixd, pixs)<para/>
+''' 
+''' (2) There are 3 cases:
+''' (a) pixd == null, ~src to new pixd
+''' (b) pixd == pixs, ~src to src  (in-place)
+''' (c) pixd != pixs, ~src to input pixd<para/>
+''' 
+''' (3) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixInvert(NULL, pixs)
+''' (b) pixInvert(pixs, pixs)
+''' (c) pixInvert(pixd, pixs)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -196,15 +246,18 @@ End Function
 ' pixOrientCorrect(pixs, minupconf, minratio, pupconf, pleftconf, protation, debug) as Pix
 ' pixOrientCorrect(PIX *, l_float32, l_float32, l_float32 *, l_float32 *, l_int32 *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Simple top-level function to detect if Roman text is in<para/>
+''' 
+''' (1) Simple top-level function to detect if Roman text is in
 ''' reading orientation, and to rotate the image accordingly if not.<para/>
+''' 
 ''' (2) Returns a copy if no rotation is needed.<para/>
-''' (3) See notes for pixOrientDetect() and pixOrientDecision().<para/>
+''' 
+''' (3) See notes for pixOrientDetect() and pixOrientDecision().
 ''' Use 0.0 for default values for %minupconf and %minratio<para/>
-''' (4) Optional output of intermediate confidence results and<para/>
-''' the rotation performed on pixs.<para/>
+''' 
+''' (4) Optional output of intermediate confidence results and
+''' the rotation performed on pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -230,12 +283,14 @@ End Function
 ' pixBackgroundNormSimple(pixs, pixim, pixg) as Pix
 ' pixBackgroundNormSimple(PIX *, PIX *, PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a simplified interface to pixBackgroundNorm(),<para/>
+''' 
+''' (1) This is a simplified interface to pixBackgroundNorm(),
 ''' where seven parameters are defaulted.<para/>
+''' 
 ''' (2) The input image is either grayscale or rgb.<para/>
-''' (3) See pixBackgroundNorm() for usage and function.<para/>
+''' 
+''' (3) See pixBackgroundNorm() for usage and function.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -253,15 +308,16 @@ End Function
 ' pixCleanBackgroundToWhite(pixs, pixim, pixg, gamma, blackval, whiteval) as Pix
 ' pixCleanBackgroundToWhite(PIX *, PIX *, PIX *, l_float32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a simplified interface for cleaning an image.<para/>
+''' 
+''' (1) This is a simplified interface for cleaning an image.
 ''' For comparison, see pixAdaptThresholdToBinaryGen().<para/>
-''' (2) The suggested default values for the input parameters are:<para/>
-''' gamma:  1.0  (reduce this to increase the contrast e.g.,<para/>
-''' for light text)<para/>
-''' blackval 70  (a bit more than 60)<para/>
-''' whiteval  190  (a bit less than 200)<para/>
+''' 
+''' (2) The suggested default values for the input parameters are:
+''' gamma:  1.0  (reduce this to increase the contrast e.g.,
+''' for light text)
+''' blackval 70  (a bit more than 60)
+''' whiteval  190  (a bit less than 200)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -285,10 +341,11 @@ End Function
 ' pixGetRegionsBinary(pixs, ppixhm, ppixtm, ppixtb, pixadb) as Integer
 ' pixGetRegionsBinary(PIX *, PIX **, PIX **, PIX **, PIXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) It is best to deskew the image before segmenting.<para/>
-''' (2) Passing in %pixadb enables debug output.<para/>
+''' 
+''' (2) Passing in %pixadb enables debug output.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -310,9 +367,9 @@ End Function
 ' pixConvertRGBToGray(pixs, rwt, gwt, bwt) as Pix
 ' pixConvertRGBToGray(PIX *, l_float32, l_float32, l_float32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Use a weighted average of the RGB values.<para/>
+''' 
+''' (1) Use a weighted average of the RGB values.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -332,24 +389,28 @@ End Function
 ' pixOctcubeQuantMixedWithGray(pixs, depth, graylevels, delta) as Pix
 ' pixOctcubeQuantMixedWithGray(PIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Generates a colormapped image, where the colormap table values<para/>
-''' have two components: octcube values representing pixels with<para/>
+''' 
+''' (1) Generates a colormapped image, where the colormap table values
+''' have two components: octcube values representing pixels with
 ''' color content, and grayscale values for the rest.<para/>
-''' (2) The threshold (delta) is the maximum allowable difference of<para/>
+''' 
+''' (2) The threshold (delta) is the maximum allowable difference of
 ''' the max abs value of | r - g |, | r - b | and | g - b |.<para/>
-''' (3) The octcube values are the averages of all pixels that are<para/>
-''' found in the octcube, and that are far enough from gray to<para/>
-''' be considered color.  This can roughly be visualized as all<para/>
-''' the points in the rgb color cube that are not within a "cylinder"<para/>
+''' 
+''' (3) The octcube values are the averages of all pixels that are
+''' found in the octcube, and that are far enough from gray to
+''' be considered color.  This can roughly be visualized as all
+''' the points in the rgb color cube that are not within a "cylinder"
 ''' of diameter approximately 'delta' along the main diagonal.<para/>
-''' (4) We want to guarantee full coverage of the rgb color space thus,<para/>
-''' if the output depth is 4, the octlevel is 1 (2 x 2 x 2 = 8 cubes)<para/>
-''' and if the output depth is 8, the octlevel is 2 (4 x 4 x 4<para/>
+''' 
+''' (4) We want to guarantee full coverage of the rgb color space thus,
+''' if the output depth is 4, the octlevel is 1 (2 x 2 x 2 = 8 cubes)
+''' and if the output depth is 8, the octlevel is 2 (4 x 4 x 4
 ''' = 64 cubes).<para/>
-''' (5) Consequently, we have the following constraint on the number<para/>
-''' of allowed gray levels: for 4 bpp, 8 for 8 bpp, 192.<para/>
+''' 
+''' (5) Consequently, we have the following constraint on the number
+''' of allowed gray levels: for 4 bpp, 8 for 8 bpp, 192.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -381,12 +442,12 @@ End Function
 ' pixSetColormap(pix, colormap) as Integer
 ' pixSetColormap(PIX *, PIXCMAP *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Unlike with the pix data field, pixSetColormap() destroys<para/>
-''' any existing colormap before assigning the new one.<para/>
-''' Because colormaps are not ref counted, it is important that<para/>
-''' the new colormap does not belong to any other pix.<para/>
+''' 
+''' (1) Unlike with the pix data field, pixSetColormap() destroys
+''' any existing colormap before assigning the new one.
+''' Because colormaps are not ref counted, it is important that
+''' the new colormap does not belong to any other pix.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -402,12 +463,15 @@ End Function
 ' dewarpSinglePage(pixs, thresh, adaptive, useboth, check_columns, ppixd, pdewa, debug) as Integer
 ' dewarpSinglePage(PIX *, l_int32, l_int32, l_int32, l_int32, PIX **, L_DEWARPA **, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Dewarps pixs and returns the result in  and pixd.<para/>
+''' 
+''' (1) Dewarps pixs and returns the result in [and]pixd.<para/>
+''' 
 ''' (2) This uses default values for all model parameters.<para/>
+''' 
 ''' (3) If pixs is 1 bpp, the parameters %adaptive and %thresh are ignored.<para/>
-''' (4) If it can't build a model, returns a copy of pixs in  and pixd.<para/>
+''' 
+''' (4) If it can't build a model, returns a copy of pixs in [and]pixd.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -434,13 +498,15 @@ End Function
 ' pixConvertToPdf(pix, type, quality, fileout, x, y, res, title, plpd, position) as Integer
 ' pixConvertToPdf(PIX *, l_int32, l_int32, const char *, l_int32, l_int32, l_int32, const char *, L_PDF_DATA **, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If %res == 0 and the input resolution field is 0,<para/>
+''' 
+''' (1) If %res == 0 and the input resolution field is 0,
 ''' this will use DEFAULT_INPUT_RES.<para/>
-''' (2) This only writes data to fileout if it is the last<para/>
+''' 
+''' (2) This only writes data to fileout if it is the last
 ''' image to be written on the page.<para/>
-''' (3) See comments in convertToPdf().<para/>
+''' 
+''' (3) See comments in convertToPdf().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -516,10 +582,11 @@ End Function
 ' pixcmapAddColor(cmap, rval, gval, bval) as Integer
 ' pixcmapAddColor(PIXCMAP *, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This always adds the color if there is room.<para/>
-''' (2) The alpha component is 255 (opaque)<para/>
+''' 
+''' (2) The alpha component is 255 (opaque)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

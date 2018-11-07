@@ -7,11 +7,13 @@ Partial Public Class _All
 ' pixRotateAM(pixs, angle, incolor) as Pix
 ' pixRotateAM(PIX *, l_float32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Rotates about image center.<para/>
+''' 
 ''' (2) A positive angle gives a clockwise rotation.<para/>
-''' (3) Brings in either black or white pixels from the boundary.<para/>
+''' 
+''' (3) Brings in either black or white pixels from the boundary.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -37,11 +39,13 @@ End Function
 ' pixRotateAMColor(pixs, angle, colorval) as Pix
 ' pixRotateAMColor(PIX *, l_float32, l_uint32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Rotates about image center.<para/>
+''' 
 ''' (2) A positive angle gives a clockwise rotation.<para/>
-''' (3) Specify the color to be brought in from outside the image.<para/>
+''' 
+''' (3) Specify the color to be brought in from outside the image.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -67,11 +71,13 @@ End Function
 ' pixRotateAMGray(pixs, angle, grayval) as Pix
 ' pixRotateAMGray(PIX *, l_float32, l_uint8) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Rotates about image center.<para/>
+''' 
 ''' (2) A positive angle gives a clockwise rotation.<para/>
-''' (3) Specify the grayvalue to be brought in from outside the image.<para/>
+''' 
+''' (3) Specify the grayvalue to be brought in from outside the image.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -100,11 +106,13 @@ End Function
 ' pixRotateAMCorner(pixs, angle, incolor) as Pix
 ' pixRotateAMCorner(PIX *, l_float32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Rotates about the UL corner of the image.<para/>
+''' 
 ''' (2) A positive angle gives a clockwise rotation.<para/>
-''' (3) Brings in either black or white pixels from the boundary.<para/>
+''' 
+''' (3) Brings in either black or white pixels from the boundary.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -130,11 +138,13 @@ End Function
 ' pixRotateAMColorCorner(pixs, angle, fillval) as Pix
 ' pixRotateAMColorCorner(PIX *, l_float32, l_uint32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Rotates the image about the UL corner.<para/>
+''' 
 ''' (2) A positive angle gives a clockwise rotation.<para/>
-''' (3) Specify the color to be brought in from outside the image.<para/>
+''' 
+''' (3) Specify the color to be brought in from outside the image.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -160,11 +170,13 @@ End Function
 ' pixRotateAMGrayCorner(pixs, angle, grayval) as Pix
 ' pixRotateAMGrayCorner(PIX *, l_float32, l_uint8) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Rotates the image about the UL corner.<para/>
+''' 
 ''' (2) A positive angle gives a clockwise rotation.<para/>
-''' (3) Specify the grayvalue to be brought in from outside the image.<para/>
+''' 
+''' (3) Specify the grayvalue to be brought in from outside the image.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -191,17 +203,21 @@ End Function
 ' pixRotateAMColorFast(pixs, angle, colorval) as Pix
 ' pixRotateAMColorFast(PIX *, l_float32, l_uint32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This rotates a color image about the image center.<para/>
+''' 
 ''' (2) A positive angle gives a clockwise rotation.<para/>
-''' (3) It uses area mapping, dividing each pixel into<para/>
+''' 
+''' (3) It uses area mapping, dividing each pixel into
 ''' 16 subpixels.<para/>
-''' (4) It is about 10% to 20% faster than the more accurate linear<para/>
-''' interpolation function pixRotateAMColor(),<para/>
+''' 
+''' (4) It is about 10% to 20% faster than the more accurate linear
+''' interpolation function pixRotateAMColor(),
 ''' which uses 256 subpixels.<para/>
-''' (5) For some reason it shifts the image center.<para/>
-''' No attempt is made to rotate the alpha component.<para/>
+''' 
+''' (5) For some reason it shifts the image center.
+''' No attempt is made to rotate the alpha component.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

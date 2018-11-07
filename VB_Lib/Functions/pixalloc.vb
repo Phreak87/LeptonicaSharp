@@ -7,22 +7,25 @@ Partial Public Class _All
 ' pmsCreate(minsize, smallest, numalloc, logfile) as Integer
 ' pmsCreate(size_t, size_t, NUMA *, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This computes the size of the block of memory required<para/>
-''' and allocates it.  Each chunk starts on a 32-bit word boundary.<para/>
-''' The chunk sizes are in powers of 2, starting at %smallest,<para/>
-''' and the number of levels and chunks at each level is<para/>
+''' 
+''' (1) This computes the size of the block of memory required
+''' and allocates it.  Each chunk starts on a 32-bit word boundary.
+''' The chunk sizes are in powers of 2, starting at %smallest,
+''' and the number of levels and chunks at each level is
 ''' specified by %numalloc.<para/>
-''' (2) This is intended to manage the image data for a small number<para/>
-''' of relatively large pix.  The system malloc is expected to<para/>
+''' 
+''' (2) This is intended to manage the image data for a small number
+''' of relatively large pix.  The system malloc is expected to
 ''' handle very large numbers of small chunks efficiently.<para/>
-''' (3) Important: set the allocators and call this function<para/>
-''' before any pix have been allocated.  Destroy all the pix<para/>
+''' 
+''' (3) Important: set the allocators and call this function
+''' before any pix have been allocated.  Destroy all the pix
 ''' in the normal way before calling pmsDestroy().<para/>
-''' (4) The pms struct is stored in a static global, so this function<para/>
-''' is not thread-safe.  When used, there must be only one thread<para/>
-''' per process.<para/>
+''' 
+''' (4) The pms struct is stored in a static global, so this function
+''' is not thread-safe.  When used, there must be only one thread
+''' per process.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -50,10 +53,10 @@ End Function
 ' pmsDestroy() as Object
 ' pmsDestroy() as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Important: call this function at the end of the program, after<para/>
-''' the last pix has been destroyed.<para/>
+''' 
+''' (1) Important: call this function at the end of the program, after
+''' the last pix has been destroyed.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -68,13 +71,14 @@ End Sub
 ' pmsCustomAlloc(nbytes) as Object
 ' pmsCustomAlloc(size_t) as void *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This attempts to find a suitable pre-allocated chunk.<para/>
+''' 
+''' (1) This attempts to find a suitable pre-allocated chunk.
 ''' If not found, it dynamically allocates the chunk.<para/>
-''' (2) If logging is turned on, the allocations that are not taken<para/>
-''' from the memory store, and are at least as large as the<para/>
-''' minimum size the store can handle, are logged to file.<para/>
+''' 
+''' (2) If logging is turned on, the allocations that are not taken
+''' from the memory store, and are at least as large as the
+''' minimum size the store can handle, are logged to file.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -111,17 +115,19 @@ End Sub
 ' pmsGetAlloc(nbytes) as Object
 ' pmsGetAlloc(size_t) as void *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is called when a request for pix data cannot be<para/>
-''' obtained from the preallocated memory store.  After use it<para/>
+''' 
+''' (1) This is called when a request for pix data cannot be
+''' obtained from the preallocated memory store.  After use it
 ''' is freed like normal memory.<para/>
-''' (2) If logging is on, only write out allocs that are as large as<para/>
+''' 
+''' (2) If logging is on, only write out allocs that are as large as
 ''' the minimum size handled by the memory store.<para/>
-''' (3) size_t is %lu on 64 bit platforms and %u on 32 bit platforms.<para/>
-''' The C99 platform-independent format specifier for size_t is %zu,<para/>
-''' but windows hasn't conformed, so we are forced to go back to<para/>
-''' C89, use %lu, and cast to get platform-independence.  Ugh.<para/>
+''' 
+''' (3) size_t is %lu on 64 bit platforms and %u on 32 bit platforms.
+''' The C99 platform-independent format specifier for size_t is %zu,
+''' but windows hasn't conformed, so we are forced to go back to
+''' C89, use %lu, and cast to get platform-independence.  Ugh.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

@@ -7,15 +7,16 @@ Partial Public Class _All
 ' bmfCreate(dir, fontsize) as L_Bmf
 ' bmfCreate(const char *, l_int32) as L_BMF *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If %dir == null, this generates the font bitmaps from a<para/>
+''' 
+''' (1) If %dir == null, this generates the font bitmaps from a
 ''' compiled string.<para/>
-''' (2) Otherwise, this tries to read a pre-computed pixa file with the<para/>
-''' 95 ascii chars in it.  If the file is not found, it then<para/>
-''' attempts to generate the pixa and associated baseline<para/>
-''' data from a tiff image containing all the characters.  If<para/>
-''' that fails, it uses the compiled string.<para/>
+''' 
+''' (2) Otherwise, this tries to read a pre-computed pixa file with the
+''' 95 ascii chars in it.  If the file is not found, it then
+''' attempts to generate the pixa and associated baseline
+''' data from a tiff image containing all the characters.  If
+''' that fails, it uses the compiled string.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -122,9 +123,9 @@ End Function
 ' pixaGetFont(dir, fontsize, pbl0, pbl1, pbl2) as Pixa
 ' pixaGetFont(const char *, l_int32, l_int32 *, l_int32 *, l_int32 *) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This reads a pre-computed pixa file with the 95 ascii chars.<para/>
+''' 
+''' (1) This reads a pre-computed pixa file with the 95 ascii chars.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -154,13 +155,15 @@ End Function
 ' pixaSaveFont(indir, outdir, fontsize) as Integer
 ' pixaSaveFont(const char *, const char *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This saves a font of a particular size.<para/>
-''' (2) If %dir == null, this generates the font bitmaps from a<para/>
+''' 
+''' (2) If %dir == null, this generates the font bitmaps from a
 ''' compiled string.<para/>
-''' (3) prog/genfonts calls this function for each of the<para/>
-''' nine font sizes, to generate all the font pixa files.<para/>
+''' 
+''' (3) prog/genfonts calls this function for each of the
+''' nine font sizes, to generate all the font pixa files.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

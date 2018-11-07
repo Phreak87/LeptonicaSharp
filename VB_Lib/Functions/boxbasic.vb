@@ -7,20 +7,22 @@ Partial Public Class _All
 ' boxCreate(x, y, w, h) as Box
 ' boxCreate(l_int32, l_int32, l_int32, l_int32) as BOX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This clips the box to the +quad.  If no part of the<para/>
+''' 
+''' (1) This clips the box to the +quad.  If no part of the
 ''' box is in the +quad, this returns NULL.<para/>
-''' (2) We allow you to make a box with w = 0 and/or h = 0.<para/>
-''' This does not represent a valid region, but it is useful<para/>
-''' as a placeholder in a boxa for which the index of the<para/>
-''' box in the boxa is important.  This is an atypical<para/>
-''' situation usually you want to put only valid boxes with<para/>
-''' nonzero width and height in a boxa.  If you have a boxa<para/>
-''' with invalid boxes, the accessor boxaGetValidBox()<para/>
+''' 
+''' (2) We allow you to make a box with w = 0 and/or h = 0.
+''' This does not represent a valid region, but it is useful
+''' as a placeholder in a boxa for which the index of the
+''' box in the boxa is important.  This is an atypical
+''' situation usually you want to put only valid boxes with
+''' nonzero width and height in a boxa.  If you have a boxa
+''' with invalid boxes, the accessor boxaGetValidBox()
 ''' will return NULL on each invalid box.<para/>
-''' (3) If you want to create only valid boxes, use boxCreateValid(),<para/>
-''' which returns NULL if either w or h is 0.<para/>
+''' 
+''' (3) If you want to create only valid boxes, use boxCreateValid(),
+''' which returns NULL if either w or h is 0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -46,9 +48,9 @@ End Function
 ' boxCreateValid(x, y, w, h) as Box
 ' boxCreateValid(l_int32, l_int32, l_int32, l_int32) as BOX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This returns NULL if either w = 0 or h = 0.<para/>
+''' 
+''' (1) This returns NULL if either w = 0 or h = 0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -112,10 +114,11 @@ End Function
 ' boxDestroy(pbox) as Object
 ' boxDestroy(BOX **) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Decrements the ref count and, if 0, destroys the box.<para/>
-''' (2) Always nulls the input ptr.<para/>
+''' 
+''' (2) Always nulls the input ptr.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -187,9 +190,9 @@ End Function
 ' boxGetSideLocations(box, pl, pr, pt, pb) as Integer
 ' boxGetSideLocations(BOX *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) All returned values are within the box.<para/>
+''' 
+''' (1) All returned values are within the box.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -319,10 +322,11 @@ End Function
 ' boxaCopy(boxa, copyflag) as Boxa
 ' boxaCopy(BOXA *, l_int32) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) See pix.h for description of the copyflag.<para/>
-''' (2) The copy-clone makes a new boxa that holds clones of each box.<para/>
+''' 
+''' (2) The copy-clone makes a new boxa that holds clones of each box.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -346,10 +350,11 @@ End Function
 ' boxaDestroy(pboxa) as Object
 ' boxaDestroy(BOXA **) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Decrements the ref count and, if 0, destroys the boxa.<para/>
-''' (2) Always nulls the input ptr.<para/>
+''' 
+''' (2) Always nulls the input ptr.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -392,9 +397,9 @@ End Function
 ' boxaExtendArray(boxa) as Integer
 ' boxaExtendArray(BOXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Reallocs with doubled size of ptr array.<para/>
+''' 
+''' (1) Reallocs with doubled size of ptr array.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -415,9 +420,9 @@ End Function
 ' boxaExtendArrayToSize(boxa, size) as Integer
 ' boxaExtendArrayToSize(BOXA *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If necessary, reallocs new boxa ptr array to %size.<para/>
+''' 
+''' (1) If necessary, reallocs new boxa ptr array to %size.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -499,14 +504,15 @@ End Function
 ' boxaGetValidBox(boxa, index, accessflag) as Box
 ' boxaGetValidBox(BOXA *, l_int32, l_int32) as BOX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This returns NULL for an invalid box in a boxa.<para/>
+''' 
+''' (1) This returns NULL for an invalid box in a boxa.
 ''' For a box to be valid, both the width and height must be  is greater  0.<para/>
-''' (2) We allow invalid boxes, with w = 0 or h = 0, as placeholders<para/>
-''' in boxa for which the index of the box in the boxa is important.<para/>
-''' This is an atypical situation usually you want to put only<para/>
-''' valid boxes in a boxa.<para/>
+''' 
+''' (2) We allow invalid boxes, with w = 0 or h = 0, as placeholders
+''' in boxa for which the index of the box in the boxa is important.
+''' This is an atypical situation usually you want to put only
+''' valid boxes in a boxa.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -599,10 +605,11 @@ End Function
 ' boxaReplaceBox(boxa, index, box) as Integer
 ' boxaReplaceBox(BOXA *, l_int32, BOX *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) In-place replacement of one box.<para/>
-''' (2) The previous box at that location, if any, is destroyed.<para/>
+''' 
+''' (2) The previous box at that location, if any, is destroyed.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -628,14 +635,17 @@ End Function
 ' boxaInsertBox(boxa, index, box) as Integer
 ' boxaInsertBox(BOXA *, l_int32, BOX *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This shifts box[i] -- is greater  box[i + 1] for all i  is greater = index,<para/>
+''' 
+''' (1) This shifts box[i] to box[i + 1] for all i greater or equal index,
 ''' and then inserts box as box[index].<para/>
+''' 
 ''' (2) To insert at the beginning of the array, set index = 0.<para/>
+''' 
 ''' (3) To append to the array, it's easier to use boxaAddBox().<para/>
-''' (4) This should not be used repeatedly to insert into large arrays,<para/>
-''' because the function is O(n).<para/>
+''' 
+''' (4) This should not be used repeatedly to insert into large arrays,
+''' because the function is O(n).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -661,12 +671,13 @@ End Function
 ' boxaRemoveBox(boxa, index) as Integer
 ' boxaRemoveBox(BOXA *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This removes box[index] and then shifts<para/>
-''' box[i] -- is greater  box[i - 1] for all i  is greater  index.<para/>
-''' (2) It should not be used repeatedly to remove boxes from<para/>
-''' large arrays, because the function is O(n).<para/>
+''' 
+''' (1) This removes box[index] and then shifts
+''' box[i] to box[i - 1] for all i  is greater  index.<para/>
+''' 
+''' (2) It should not be used repeatedly to remove boxes from
+''' large arrays, because the function is O(n).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -689,12 +700,13 @@ End Function
 ' boxaRemoveBoxAndSave(boxa, index, pbox) as Integer
 ' boxaRemoveBoxAndSave(BOXA *, l_int32, BOX **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This removes box[index] and then shifts<para/>
-''' box[i] -- is greater  box[i - 1] for all i  is greater  index.<para/>
-''' (2) It should not be used repeatedly to remove boxes from<para/>
-''' large arrays, because the function is O(n).<para/>
+''' 
+''' (1) This removes box[index] and then shifts
+''' box[i] to box[i - 1] for all i  is greater  index.<para/>
+''' 
+''' (2) It should not be used repeatedly to remove boxes from
+''' large arrays, because the function is O(n).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -722,9 +734,9 @@ End Function
 ' boxaSaveValid(boxas, copyflag) as Boxa
 ' boxaSaveValid(BOXA *, l_int32) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This makes a copy/clone of each valid box.<para/>
+''' 
+''' (1) This makes a copy/clone of each valid box.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -748,35 +760,37 @@ End Function
 ' boxaInitFull(boxa, box) as Integer
 ' boxaInitFull(BOXA *, BOX *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This initializes a boxa by filling up the entire box ptr array<para/>
-''' with copies of %box.  If %box == NULL, use a placeholder box<para/>
-''' of zero size.  Any existing boxes are destroyed.<para/>
-''' After this opepration, the number of boxes is equal to<para/>
+''' 
+''' (1) This initializes a boxa by filling up the entire box ptr array
+''' with copies of %box.  If %box == NULL, use a placeholder box
+''' of zero size.  Any existing boxes are destroyed.
+''' After this opepration, the number of boxes is equal to
 ''' the number of allocated ptrs.<para/>
-''' (2) Note that we use boxaReplaceBox() instead of boxaInsertBox().<para/>
-''' They both have the same effect when inserting into a NULL ptr<para/>
+''' 
+''' (2) Note that we use boxaReplaceBox() instead of boxaInsertBox().
+''' They both have the same effect when inserting into a NULL ptr
 ''' in the boxa ptr array:<para/>
-''' (3) Example usage.  This function is useful to prepare for a<para/>
-''' random insertion (or replacement) of boxes into a boxa.<para/>
-''' To randomly insert boxes into a boxa, up to some index "max":<para/>
-''' Boxa boxa = boxaCreate(max)<para/>
-''' boxaInitFull(boxa, NULL)<para/>
-''' If you want placeholder boxes of non-zero size:<para/>
-''' Boxa boxa = boxaCreate(max)<para/>
-''' Box box = boxCreate(...)<para/>
-''' boxaInitFull(boxa, box)<para/>
-''' boxDestroy( and box)<para/>
-''' If we have an existing boxa with a smaller ptr array, it can<para/>
-''' be reused for up to max boxes:<para/>
-''' boxaExtendArrayToSize(boxa, max)<para/>
-''' boxaInitFull(boxa, NULL)<para/>
-''' The initialization allows the boxa to always be properly<para/>
-''' filled, even if all the boxes are not later replaced.<para/>
-''' If you want to know which boxes have been replaced,<para/>
-''' and you initialized with invalid zero-sized boxes,<para/>
-''' use boxaGetValidBox() to return NULL for the invalid boxes.<para/>
+''' 
+''' (3) Example usage.  This function is useful to prepare for a
+''' random insertion (or replacement) of boxes into a boxa.
+''' To randomly insert boxes into a boxa, up to some index "max":
+''' Boxa boxa = boxaCreate(max)
+''' boxaInitFull(boxa, NULL)
+''' If you want placeholder boxes of non-zero size:
+''' Boxa boxa = boxaCreate(max)
+''' Box box = boxCreate(...)
+''' boxaInitFull(boxa, box)
+''' boxDestroy([and]box)
+''' If we have an existing boxa with a smaller ptr array, it can
+''' be reused for up to max boxes:
+''' boxaExtendArrayToSize(boxa, max)
+''' boxaInitFull(boxa, NULL)
+''' The initialization allows the boxa to always be properly
+''' filled, even if all the boxes are not later replaced.
+''' If you want to know which boxes have been replaced,
+''' and you initialized with invalid zero-sized boxes,
+''' use boxaGetValidBox() to return NULL for the invalid boxes.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -801,10 +815,10 @@ End Function
 ' boxaClear(boxa) as Integer
 ' boxaClear(BOXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This destroys all boxes in the boxa, setting the ptrs<para/>
-''' to null.  The number of allocated boxes, n, is set to 0.<para/>
+''' 
+''' (1) This destroys all boxes in the boxa, setting the ptrs
+''' to null.  The number of allocated boxes, n, is set to 0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -842,10 +856,10 @@ End Function
 ' boxaaCopy(baas, copyflag) as Boxaa
 ' boxaaCopy(BOXAA *, l_int32) as BOXAA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) L_COPY makes a copy of each boxa in baas.<para/>
-''' L_CLONE makes a clone of each boxa in baas.<para/>
+''' 
+''' (1) L_COPY makes a copy of each boxa in baas.
+''' L_CLONE makes a clone of each boxa in baas.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -927,9 +941,9 @@ End Function
 ' boxaaExtendArrayToSize(baa, size) as Integer
 ' boxaaExtendArrayToSize(BOXAA *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If necessary, reallocs the boxa ptr array to %size.<para/>
+''' 
+''' (1) If necessary, reallocs the boxa ptr array to %size.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1036,26 +1050,28 @@ End Function
 ' boxaaInitFull(baa, boxa) as Integer
 ' boxaaInitFull(BOXAA *, BOXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This initializes a boxaa by filling up the entire boxa ptr array<para/>
-''' with copies of %boxa.  Any existing boxa are destroyed.<para/>
-''' After this operation, the number of boxa is equal to<para/>
+''' 
+''' (1) This initializes a boxaa by filling up the entire boxa ptr array
+''' with copies of %boxa.  Any existing boxa are destroyed.
+''' After this operation, the number of boxa is equal to
 ''' the number of allocated ptrs.<para/>
-''' (2) Note that we use boxaaReplaceBox() instead of boxaInsertBox().<para/>
-''' They both have the same effect when inserting into a NULL ptr<para/>
+''' 
+''' (2) Note that we use boxaaReplaceBox() instead of boxaInsertBox().
+''' They both have the same effect when inserting into a NULL ptr
 ''' in the boxa ptr array<para/>
-''' (3) Example usage.  This function is useful to prepare for a<para/>
-''' random insertion (or replacement) of boxa into a boxaa.<para/>
-''' To randomly insert boxa into a boxaa, up to some index "max":<para/>
-''' Boxaa baa = boxaaCreate(max)<para/>
-''' // initialize the boxa<para/>
-''' Boxa boxa = boxaCreate(...)<para/>
-''' ...  [optionally fix with boxes]<para/>
-''' boxaaInitFull(baa, boxa)<para/>
-''' A typical use is to initialize the array with empty boxa,<para/>
-''' and to replace only a subset that must be aligned with<para/>
-''' something else, such as a pixa.<para/>
+''' 
+''' (3) Example usage.  This function is useful to prepare for a
+''' random insertion (or replacement) of boxa into a boxaa.
+''' To randomly insert boxa into a boxaa, up to some index "max":
+''' Boxaa baa = boxaaCreate(max)
+''' // initialize the boxa
+''' Boxa boxa = boxaCreate(...)
+''' ...  [optionally fix with boxes]
+''' boxaaInitFull(baa, boxa)
+''' A typical use is to initialize the array with empty boxa,
+''' and to replace only a subset that must be aligned with
+''' something else, such as a pixa.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1079,12 +1095,12 @@ End Function
 ' boxaaExtendWithInit(baa, maxindex, boxa) as Integer
 ' boxaaExtendWithInit(BOXAA *, l_int32, BOXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This should be used on an existing boxaa that has been<para/>
-''' fully loaded with boxa.  It then extends the boxaa,<para/>
-''' loading all the additional ptrs with copies of boxa.<para/>
-''' Typically, boxa will be empty.<para/>
+''' 
+''' (1) This should be used on an existing boxaa that has been
+''' fully loaded with boxa.  It then extends the boxaa,
+''' loading all the additional ptrs with copies of boxa.
+''' Typically, boxa will be empty.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1110,11 +1126,12 @@ End Function
 ' boxaaReplaceBoxa(baa, index, boxa) as Integer
 ' boxaaReplaceBoxa(BOXAA *, l_int32, BOXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Any existing boxa is destroyed, and the input one<para/>
+''' 
+''' (1) Any existing boxa is destroyed, and the input one
 ''' is inserted in its place.<para/>
-''' (2) If the index is invalid, return 1 (error)<para/>
+''' 
+''' (2) If the index is invalid, return 1 (error)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1140,14 +1157,17 @@ End Function
 ' boxaaInsertBoxa(baa, index, boxa) as Integer
 ' boxaaInsertBoxa(BOXAA *, l_int32, BOXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This shifts boxa[i] -- is greater  boxa[i + 1] for all i  is greater = index,<para/>
+''' 
+''' (1) This shifts boxa[i] to boxa[i + 1] for all i greater or equal index,
 ''' and then inserts boxa as boxa[index].<para/>
+''' 
 ''' (2) To insert at the beginning of the array, set index = 0.<para/>
+''' 
 ''' (3) To append to the array, it's easier to use boxaaAddBoxa().<para/>
-''' (4) This should not be used repeatedly to insert into large arrays,<para/>
-''' because the function is O(n).<para/>
+''' 
+''' (4) This should not be used repeatedly to insert into large arrays,
+''' because the function is O(n).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1173,13 +1193,15 @@ End Function
 ' boxaaRemoveBoxa(baa, index) as Integer
 ' boxaaRemoveBoxa(BOXAA *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This removes boxa[index] and then shifts<para/>
-''' boxa[i] -- is greater  boxa[i - 1] for all i  is greater  index.<para/>
+''' 
+''' (1) This removes boxa[index] and then shifts
+''' boxa[i] to boxa[i - 1] for all i  is greater  index.<para/>
+''' 
 ''' (2) The removed boxaa is destroyed.<para/>
-''' (2) This should not be used repeatedly on large arrays,<para/>
-''' because the function is O(n).<para/>
+''' 
+''' (2) This should not be used repeatedly on large arrays,
+''' because the function is O(n).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1202,9 +1224,9 @@ End Function
 ' boxaaAddBox(baa, index, box, accessflag) as Integer
 ' boxaaAddBox(BOXAA *, l_int32, BOX *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Adds to an existing boxa only.<para/>
+''' 
+''' (1) Adds to an existing boxa only.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1232,15 +1254,17 @@ End Function
 ' boxaaReadFromFiles(dirname, substr, first, nfiles) as Boxaa
 ' boxaaReadFromFiles(const char *, const char *, l_int32, l_int32) as BOXAA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The files must be serialized boxa files (e.g., .ba).<para/>
+''' 
+''' (1) The files must be serialized boxa files (e.g., .ba).
 ''' If some files cannot be read, warnings are issued.<para/>
-''' (2) Use %substr to filter filenames in the directory.  If<para/>
+''' 
+''' (2) Use %substr to filter filenames in the directory.  If
 ''' %substr == NULL, this takes all files.<para/>
-''' (3) After filtering, use %first and %nfiles to select<para/>
-''' a contiguous set of files, that have been lexically<para/>
-''' sorted in increasing order.<para/>
+''' 
+''' (3) After filtering, use %first and %nfiles to select
+''' a contiguous set of files, that have been lexically
+''' sorted in increasing order.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1373,9 +1397,9 @@ End Function
 ' boxaaWriteMem(pdata, psize, baa) as Integer
 ' boxaaWriteMem(l_uint8 **, size_t *, BOXAA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Serializes a boxaa in memory and puts the result in a buffer.<para/>
+''' 
+''' (1) Serializes a boxaa in memory and puts the result in a buffer.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1464,13 +1488,14 @@ End Function
 ' boxaWriteDebug(filename, boxa) as Integer
 ' boxaWriteDebug(const char *, BOXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Debug version, intended for use in the library when writing<para/>
-''' to files in a temp directory with names that are compiled in.<para/>
+''' 
+''' (1) Debug version, intended for use in the library when writing
+''' to files in a temp directory with names that are compiled in.
 ''' This is used instead of boxaWrite() for all such library calls.<para/>
-''' (2) The global variable LeptDebugOK defaults to 0, and can be set<para/>
-''' or cleared by the function setLeptDebugOK().<para/>
+''' 
+''' (2) The global variable LeptDebugOK defaults to 0, and can be set
+''' or cleared by the function setLeptDebugOK().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1540,9 +1565,9 @@ End Function
 ' boxaWriteMem(pdata, psize, boxa) as Integer
 ' boxaWriteMem(l_uint8 **, size_t *, BOXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Serializes a boxa in memory and puts the result in a buffer.<para/>
+''' 
+''' (1) Serializes a boxa in memory and puts the result in a buffer.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1570,10 +1595,10 @@ End Function
 ' boxPrintStreamInfo(fp, box) as Integer
 ' boxPrintStreamInfo(FILE *, BOX *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This outputs debug info.  Use serialization functions to<para/>
-''' write to file if you want to read the data back.<para/>
+''' 
+''' (1) This outputs debug info.  Use serialization functions to
+''' write to file if you want to read the data back.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

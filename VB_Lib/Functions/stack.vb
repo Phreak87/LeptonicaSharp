@@ -24,16 +24,18 @@ End Function
 ' lstackDestroy(plstack, freeflag) as Object
 ' lstackDestroy(L_STACK **, l_int32) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) If freeflag is TRUE, frees each struct in the array.<para/>
-''' (2) If freeflag is FALSE but there are elements on the array,<para/>
-''' gives a warning and destroys the array.  This will<para/>
-''' cause a memory leak of all the items that were on the lstack.<para/>
-''' So if the items require their own destroy function, they<para/>
+''' 
+''' (2) If freeflag is FALSE but there are elements on the array,
+''' gives a warning and destroys the array.  This will
+''' cause a memory leak of all the items that were on the lstack.
+''' So if the items require their own destroy function, they
 ''' must be destroyed before the lstack.<para/>
-''' (3) To destroy the lstack, we destroy the ptr array, then<para/>
-''' the lstack, and then null the contents of the input ptr.<para/>
+''' 
+''' (3) To destroy the lstack, we destroy the ptr array, then
+''' the lstack, and then null the contents of the input ptr.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

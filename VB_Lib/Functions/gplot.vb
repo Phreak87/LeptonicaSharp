@@ -7,11 +7,12 @@ Partial Public Class _All
 ' gplotCreate(rootname, outformat, title, xlabel, ylabel) as GPlot
 ' gplotCreate(const char *, l_int32, const char *, const char *, const char *) as GPLOT *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This initializes the plot.<para/>
-''' (2) The 'title', 'xlabel' and 'ylabel' strings can have spaces,<para/>
-''' double quotes and backquotes, but not single quotes.<para/>
+''' 
+''' (2) The 'title', 'xlabel' and 'ylabel' strings can have spaces,
+''' double quotes and backquotes, but not single quotes.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -58,22 +59,25 @@ End Sub
 ' gplotAddPlot(gplot, nax, nay, plotstyle, plottitle) as Integer
 ' gplotAddPlot(GPLOT *, NUMA *, NUMA *, l_int32, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) There are 2 options for (x,y) values:<para/>
-''' o  To plot an array vs a linear function of the<para/>
-''' index, set nax = NULL.<para/>
+''' 
+''' (1) There are 2 options for (x,y) values:
+''' o  To plot an array vs a linear function of the
+''' index, set nax = NULL.
 ''' o  To plot one array vs another, use both nax and nay.<para/>
-''' (2) If nax is NULL, the x value corresponding to the i-th<para/>
-''' value of nay is found from the startx and delx fields<para/>
-''' in nay:<para/>
-''' x = startx + i  delx<para/>
-''' These are set with numaSetParameters().  Their default<para/>
+''' 
+''' (2) If nax is NULL, the x value corresponding to the i-th
+''' value of nay is found from the startx and delx fields
+''' in nay:
+''' x = startx + i  delx
+''' These are set with numaSetParameters().  Their default
 ''' values are startx = 0.0, delx = 1.0.<para/>
-''' (3) If nax is defined, it must be the same size as nay, and<para/>
+''' 
+''' (3) If nax is defined, it must be the same size as nay, and
 ''' must have at least one number.<para/>
-''' (4) The 'plottitle' string can have spaces, double<para/>
-''' quotes and backquotes, but not single quotes.<para/>
+''' 
+''' (4) The 'plottitle' string can have spaces, double
+''' quotes and backquotes, but not single quotes.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -105,10 +109,11 @@ End Function
 ' gplotSetScaling(gplot, scaling) as Integer
 ' gplotSetScaling(GPLOT *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) By default, the x and y axis scaling is linear.<para/>
-''' (2) Call this function to set semi-log or log-log scaling.<para/>
+''' 
+''' (2) Call this function to set semi-log or log-log scaling.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -131,16 +136,19 @@ End Function
 ' gplotMakeOutput(gplot) as Integer
 ' gplotMakeOutput(GPLOT *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This uses gplot and the new arrays to add a plot<para/>
-''' to the output, by writing a new data file and appending<para/>
+''' 
+''' (1) This uses gplot and the new arrays to add a plot
+''' to the output, by writing a new data file and appending
 ''' the appropriate plot commands to the command file.<para/>
-''' (2) This is the only function in this file that requires the<para/>
+''' 
+''' (2) This is the only function in this file that requires the
 ''' gnuplot executable, to actually generate the plot.<para/>
-''' (3) The command file name for unix is canonical (i.e., directory /tmp)<para/>
+''' 
+''' (3) The command file name for unix is canonical (i.e., directory /tmp)
 ''' but the temp filename paths in the command file must be correct.<para/>
-''' (4) The gnuplot program for windows is wgnuplot.exe.<para/>
+''' 
+''' (4) The gnuplot program for windows is wgnuplot.exe.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -179,11 +187,11 @@ End Function
 ' gplotGenDataFiles(gplot) as Integer
 ' gplotGenDataFiles(GPLOT *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The pathnames in the gplot command file are actual pathnames,<para/>
-''' which can be in temp directories.  Consequently, they must not be<para/>
-''' rewritten by calling fopenWriteStream(), and we use fopen().<para/>
+''' 
+''' (1) The pathnames in the gplot command file are actual pathnames,
+''' which can be in temp directories.  Consequently, they must not be
+''' rewritten by calling fopenWriteStream(), and we use fopen().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -204,13 +212,14 @@ End Function
 ' gplotSimple1(na, outformat, outroot, title) as Integer
 ' gplotSimple1(NUMA *, l_int32, const char *, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This gives a line plot of a numa, where the array value<para/>
-''' is plotted vs the array index.  The plot is generated<para/>
+''' 
+''' (1) This gives a line plot of a numa, where the array value
+''' is plotted vs the array index.  The plot is generated
 ''' in the specified output format the title  is optional.<para/>
-''' (2) When calling these simple plot functions more than once, use<para/>
-''' different %outroot to avoid overwriting the output files.<para/>
+''' 
+''' (2) When calling these simple plot functions more than once, use
+''' different %outroot to avoid overwriting the output files.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -238,13 +247,14 @@ End Function
 ' gplotSimple2(na1, na2, outformat, outroot, title) as Integer
 ' gplotSimple2(NUMA *, NUMA *, l_int32, const char *, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This gives a line plot of two numa, where the array values<para/>
-''' are each plotted vs the array index.  The plot is generated<para/>
+''' 
+''' (1) This gives a line plot of two numa, where the array values
+''' are each plotted vs the array index.  The plot is generated
 ''' in the specified output format the title  is optional.<para/>
-''' (2) When calling these simple plot functions more than once, use<para/>
-''' different %outroot to avoid overwriting the output files.<para/>
+''' 
+''' (2) When calling these simple plot functions more than once, use
+''' different %outroot to avoid overwriting the output files.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -275,14 +285,15 @@ End Function
 ' gplotSimpleN(naa, outformat, outroot, title) as Integer
 ' gplotSimpleN(NUMAA *, l_int32, const char *, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This gives a line plot of all numas in a numaa (array of numa),<para/>
-''' where the array values are each plotted vs the array index.<para/>
-''' The plot is generated in the specified output format<para/>
+''' 
+''' (1) This gives a line plot of all numas in a numaa (array of numa),
+''' where the array values are each plotted vs the array index.
+''' The plot is generated in the specified output format
 ''' the title  is optional.<para/>
-''' (2) When calling these simple plot functions more than once, use<para/>
-''' different %outroot to avoid overwriting the output files.<para/>
+''' 
+''' (2) When calling these simple plot functions more than once, use
+''' different %outroot to avoid overwriting the output files.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -310,15 +321,18 @@ End Function
 ' gplotSimpleXY1(nax, nay, plotstyle, outformat, outroot, title) as Integer
 ' gplotSimpleXY1(NUMA *, NUMA *, l_int32, l_int32, const char *, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This gives a plot of a %nay vs %nax, generated in<para/>
+''' 
+''' (1) This gives a plot of a %nay vs %nax, generated in
 ''' the specified output format.  The title is optional.<para/>
+''' 
 ''' (2) Use 0 for default plotstyle (lines).<para/>
-''' (3) %nax is optional.  If NULL, %nay is plotted against<para/>
+''' 
+''' (3) %nax is optional.  If NULL, %nay is plotted against
 ''' the array index.<para/>
-''' (4) When calling these simple plot functions more than once, use<para/>
-''' different %outroot to avoid overwriting the output files.<para/>
+''' 
+''' (4) When calling these simple plot functions more than once, use
+''' different %outroot to avoid overwriting the output files.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -352,20 +366,23 @@ End Function
 ' gplotSimpleXY2(nax, nay1, nay2, plotstyle, outformat, outroot, title) as Integer
 ' gplotSimpleXY2(NUMA *, NUMA *, NUMA *, l_int32, l_int32, const char *, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This gives plots of %nay1 and %nay2 against nax, generated<para/>
+''' 
+''' (1) This gives plots of %nay1 and %nay2 against nax, generated
 ''' in the specified output format.  The title is optional.<para/>
+''' 
 ''' (2) Use 0 for default plotstyle (lines).<para/>
-''' (3) %nax is optional.  If NULL, %nay1 and %nay2 are plotted<para/>
+''' 
+''' (3) %nax is optional.  If NULL, %nay1 and %nay2 are plotted
 ''' against the array index.<para/>
-''' (4) When calling these simple plot functions more than once, use<para/>
-''' different %outroot to avoid overwriting the output files.<para/>
+''' 
+''' (4) When calling these simple plot functions more than once, use
+''' different %outroot to avoid overwriting the output files.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/gplotSimpleXY2/*"/>
-'''  <param name="nax">[in] - is lower optional can be NULL</param>
+'''  <param name="nax">[in] - is smalleroptional can be NULL</param>
 '''  <param name="nay1">[in] - </param>
 '''  <param name="nay2">[in] - </param>
 '''  <param name="plotstyle">[in] - GPLOT_LINES, GPLOT_POINTS, GPLOT_IMPULSES, GPLOT_LINESPOINTS, GPLOT_DOTS</param>
@@ -396,15 +413,18 @@ End Function
 ' gplotSimpleXYN(nax, naay, plotstyle, outformat, outroot, title) as Integer
 ' gplotSimpleXYN(NUMA *, NUMAA *, l_int32, l_int32, const char *, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This gives plots of each Numa in %naa against nax,<para/>
+''' 
+''' (1) This gives plots of each Numa in %naa against nax,
 ''' generated in the specified output format.  The title is optional.<para/>
+''' 
 ''' (2) Use 0 for default plotstyle (lines).<para/>
-''' (3) %nax is optional.  If NULL, each Numa array is plotted against<para/>
+''' 
+''' (3) %nax is optional.  If NULL, each Numa array is plotted against
 ''' the array index.<para/>
-''' (4) When calling these simple plot functions more than once, use<para/>
-''' different %outroot to avoid overwriting the output files.<para/>
+''' 
+''' (4) When calling these simple plot functions more than once, use
+''' different %outroot to avoid overwriting the output files.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

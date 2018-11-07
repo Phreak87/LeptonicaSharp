@@ -7,31 +7,35 @@ Partial Public Class _All
 ' pixConvertRGBToHSV(pixd, pixs) as Pix
 ' pixConvertRGBToHSV(PIX *, PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) For pixs = pixd, this is in-place otherwise pixd must be NULL.<para/>
+''' 
 ''' (2) The definition of our HSV space is given in convertRGBToHSV().<para/>
-''' (3) The h, s and v values are stored in the same places as<para/>
-''' the r, g and b values, respectively.  Here, they are explicitly<para/>
+''' 
+''' (3) The h, s and v values are stored in the same places as
+''' the r, g and b values, respectively.  Here, they are explicitly
 ''' placed in the 3 MS bytes in the pixel.<para/>
-''' (4) Normalizing to 1 and considering the r,g,b components,<para/>
-''' a simple way to understand the HSV space is:<para/>
-''' ~ v = max(r,g,b)<para/>
-''' ~ s = (max - min) / max<para/>
+''' 
+''' (4) Normalizing to 1 and considering the r,g,b components,
+''' a simple way to understand the HSV space is:
+''' ~ v = max(r,g,b)
+''' ~ s = (max - min) / max
 ''' ~ h ~ (mid - min) / (max - min)  [apart from signs and constants]<para/>
-''' (5) Normalizing to 1, some properties of the HSV space are:<para/>
-''' ~ For gray values (r = g = b) along the continuum between<para/>
-''' black and white:<para/>
-''' s = 0  (becoming undefined as you approach black)<para/>
-''' h is undefined everywhere<para/>
-''' ~ Where one component is saturated and the others are zero:<para/>
-''' v = 1<para/>
-''' s = 1<para/>
-''' h = 0 (r = max), 1/3 (g = max), 2/3 (b = max)<para/>
-''' ~ Where two components are saturated and the other is zero:<para/>
-''' v = 1<para/>
-''' s = 1<para/>
-''' h = 1/2 (if r = 0), 5/6 (if g = 0), 1/6 (if b = 0)<para/>
+''' 
+''' (5) Normalizing to 1, some properties of the HSV space are:
+''' ~ For gray values (r = g = b) along the continuum between
+''' black and white:
+''' s = 0  (becoming undefined as you approach black)
+''' h is undefined everywhere
+''' ~ Where one component is saturated and the others are zero:
+''' v = 1
+''' s = 1
+''' h = 0 (r = max), 1/3 (g = max), 2/3 (b = max)
+''' ~ Where two components are saturated and the other is zero:
+''' v = 1
+''' s = 1
+''' h = 1/2 (if r = 0), 5/6 (if g = 0), 1/6 (if b = 0)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -57,15 +61,17 @@ End Function
 ' pixConvertHSVToRGB(pixd, pixs) as Pix
 ' pixConvertHSVToRGB(PIX *, PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) For pixs = pixd, this is in-place otherwise pixd must be NULL.<para/>
-''' (2) The user takes responsibility for making sure that pixs is<para/>
-''' in our HSV space.  The definition of our HSV space is given<para/>
+''' 
+''' (2) The user takes responsibility for making sure that pixs is
+''' in our HSV space.  The definition of our HSV space is given
 ''' in convertRGBToHSV().<para/>
-''' (3) The h, s and v values are stored in the same places as<para/>
-''' the r, g and b values, respectively.  Here, they are explicitly<para/>
-''' placed in the 3 MS bytes in the pixel.<para/>
+''' 
+''' (3) The h, s and v values are stored in the same places as
+''' the r, g and b values, respectively.  Here, they are explicitly
+''' placed in the 3 MS bytes in the pixel.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -91,22 +97,25 @@ End Function
 ' convertRGBToHSV(rval, gval, bval, phval, psval, pvval) as Integer
 ' convertRGBToHSV(l_int32, l_int32, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The range of returned values is:<para/>
-''' h [0 ... 239]<para/>
-''' s [0 ... 255]<para/>
+''' 
+''' (1) The range of returned values is:
+''' h [0 ... 239]
+''' s [0 ... 255]
 ''' v [0 ... 255]<para/>
+''' 
 ''' (2) If r = g = b, the pixel is gray (s = 0), and we define h = 0.<para/>
-''' (3) h wraps around, so that h = 0 and h = 240 are equivalent<para/>
+''' 
+''' (3) h wraps around, so that h = 0 and h = 240 are equivalent
 ''' in hue space.<para/>
-''' (4) h has the following correspondence to color:<para/>
-''' h = 0 magenta<para/>
-''' h = 40  red<para/>
-''' h = 80  yellow<para/>
-''' h = 120 green<para/>
-''' h = 160 cyan<para/>
-''' h = 200 blue<para/>
+''' 
+''' (4) h has the following correspondence to color:
+''' h = 0 magenta
+''' h = 40  red
+''' h = 80  yellow
+''' h = 120 green
+''' h = 160 cyan
+''' h = 200 blue
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -135,10 +144,10 @@ End Function
 ' convertHSVToRGB(hval, sval, vval, prval, pgval, pbval) as Integer
 ' convertHSVToRGB(l_int32, l_int32, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See convertRGBToHSV() for valid input range of HSV values<para/>
-''' and their interpretation in color space.<para/>
+''' 
+''' (1) See convertRGBToHSV() for valid input range of HSV values
+''' and their interpretation in color space.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -167,11 +176,10 @@ End Function
 ' pixcmapConvertRGBToHSV(cmap) as Integer
 ' pixcmapConvertRGBToHSV(PIXCMAP *) as l_ok
 '''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' ~ in-place transform<para/>
-''' ~ See convertRGBToHSV() for def'n of HSV space.<para/>
-''' ~ replaces: r -- is greater  h, g -- is greater  s, b -- is greater  v<para/>
+''' Notes:
+''' ~ in-place transform
+''' ~ See convertRGBToHSV() for def'n of HSV space.
+''' ~ replaces: r to h, g to s, b to v
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -192,11 +200,10 @@ End Function
 ' pixcmapConvertHSVToRGB(cmap) as Integer
 ' pixcmapConvertHSVToRGB(PIXCMAP *) as l_ok
 '''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' ~ in-place transform<para/>
-''' ~ See convertRGBToHSV() for def'n of HSV space.<para/>
-''' ~ replaces: h -- is greater  r, s -- is greater  g, v -- is greater  b<para/>
+''' Notes:
+''' ~ in-place transform
+''' ~ See convertRGBToHSV() for def'n of HSV space.
+''' ~ replaces: h to r, s to g, v to b
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -217,13 +224,15 @@ End Function
 ' pixConvertRGBToHue(pixs) as Pix
 ' pixConvertRGBToHue(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The conversion to HSV hue is in-lined here.<para/>
+''' 
 ''' (2) If there is a colormap, it is removed.<para/>
-''' (3) If you just want the hue component, this does it<para/>
-''' at about 10 Mpixels/sec/GHz, which is about<para/>
-''' 2x faster than using pixConvertRGBToHSV()<para/>
+''' 
+''' (3) If you just want the hue component, this does it
+''' at about 10 Mpixels/sec/GHz, which is about
+''' 2x faster than using pixConvertRGBToHSV()
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -245,12 +254,14 @@ End Function
 ' pixConvertRGBToSaturation(pixs) as Pix
 ' pixConvertRGBToSaturation(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The conversion to HSV sat is in-lined here.<para/>
+''' 
 ''' (2) If there is a colormap, it is removed.<para/>
-''' (3) If you just want the saturation component, this does it<para/>
-''' at about 12 Mpixels/sec/GHz.<para/>
+''' 
+''' (3) If you just want the saturation component, this does it
+''' at about 12 Mpixels/sec/GHz.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -272,12 +283,14 @@ End Function
 ' pixConvertRGBToValue(pixs) as Pix
 ' pixConvertRGBToValue(PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The conversion to HSV sat is in-lined here.<para/>
+''' 
 ''' (2) If there is a colormap, it is removed.<para/>
-''' (3) If you just want the value component, this does it<para/>
-''' at about 35 Mpixels/sec/GHz.<para/>
+''' 
+''' (3) If you just want the value component, this does it
+''' at about 35 Mpixels/sec/GHz.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -299,16 +312,17 @@ End Function
 ' pixMakeRangeMaskHS(pixs, huecenter, huehw, satcenter, sathw, regionflag) as Pix
 ' pixMakeRangeMaskHS(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The pixels are selected based on the specified ranges of<para/>
-''' hue and saturation.  For selection or exclusion, the pixel<para/>
-''' HS component values must be within both ranges.  Care must<para/>
+''' 
+''' (1) The pixels are selected based on the specified ranges of
+''' hue and saturation.  For selection or exclusion, the pixel
+''' HS component values must be within both ranges.  Care must
 ''' be taken in finding the hue range because of wrap-around.<para/>
-''' (2) Use %regionflag == L_INCLUDE_REGION to take only those<para/>
-''' pixels within the rectangular region specified in HS space.<para/>
-''' Use %regionflag == L_EXCLUDE_REGION to take all pixels except<para/>
-''' those within the rectangular region specified in HS space.<para/>
+''' 
+''' (2) Use %regionflag == L_INCLUDE_REGION to take only those
+''' pixels within the rectangular region specified in HS space.
+''' Use %regionflag == L_EXCLUDE_REGION to take all pixels except
+''' those within the rectangular region specified in HS space.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -342,16 +356,17 @@ End Function
 ' pixMakeRangeMaskHV(pixs, huecenter, huehw, valcenter, valhw, regionflag) as Pix
 ' pixMakeRangeMaskHV(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The pixels are selected based on the specified ranges of<para/>
-''' hue and max intensity values.  For selection or exclusion,<para/>
-''' the pixel HV component values must be within both ranges.<para/>
+''' 
+''' (1) The pixels are selected based on the specified ranges of
+''' hue and max intensity values.  For selection or exclusion,
+''' the pixel HV component values must be within both ranges.
 ''' Care must be taken in finding the hue range because of wrap-around.<para/>
-''' (2) Use %regionflag == L_INCLUDE_REGION to take only those<para/>
-''' pixels within the rectangular region specified in HV space.<para/>
-''' Use %regionflag == L_EXCLUDE_REGION to take all pixels except<para/>
-''' those within the rectangular region specified in HV space.<para/>
+''' 
+''' (2) Use %regionflag == L_INCLUDE_REGION to take only those
+''' pixels within the rectangular region specified in HV space.
+''' Use %regionflag == L_EXCLUDE_REGION to take all pixels except
+''' those within the rectangular region specified in HV space.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -385,15 +400,16 @@ End Function
 ' pixMakeRangeMaskSV(pixs, satcenter, sathw, valcenter, valhw, regionflag) as Pix
 ' pixMakeRangeMaskSV(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The pixels are selected based on the specified ranges of<para/>
-''' saturation and max intensity (val).  For selection or<para/>
+''' 
+''' (1) The pixels are selected based on the specified ranges of
+''' saturation and max intensity (val).  For selection or
 ''' exclusion, the pixel SV component values must be within both ranges.<para/>
-''' (2) Use %regionflag == L_INCLUDE_REGION to take only those<para/>
-''' pixels within the rectangular region specified in SV space.<para/>
-''' Use %regionflag == L_EXCLUDE_REGION to take all pixels except<para/>
-''' those within the rectangular region specified in SV space.<para/>
+''' 
+''' (2) Use %regionflag == L_INCLUDE_REGION to take only those
+''' pixels within the rectangular region specified in SV space.
+''' Use %regionflag == L_EXCLUDE_REGION to take all pixels except
+''' those within the rectangular region specified in SV space.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -427,14 +443,15 @@ End Function
 ' pixMakeHistoHS(pixs, factor, pnahue, pnasat) as Pix
 ' pixMakeHistoHS(PIX *, l_int32, NUMA **, NUMA **) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) pixs is a 32 bpp image in HSV colorspace hue is in the "red"<para/>
+''' 
+''' (1) pixs is a 32 bpp image in HSV colorspace hue is in the "red"
 ''' byte, saturation is in the "green" byte.<para/>
-''' (2) In pixd, hue is displayed vertically saturation horizontally.<para/>
-''' The dimensions of pixd are w = 256, h = 240, and the depth<para/>
-''' is 32 bpp.  The value at each point is simply the number<para/>
-''' of pixels found at that value of hue and saturation.<para/>
+''' 
+''' (2) In pixd, hue is displayed vertically saturation horizontally.
+''' The dimensions of pixd are w = 256, h = 240, and the depth
+''' is 32 bpp.  The value at each point is simply the number
+''' of pixels found at that value of hue and saturation.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -467,14 +484,15 @@ End Function
 ' pixMakeHistoHV(pixs, factor, pnahue, pnaval) as Pix
 ' pixMakeHistoHV(PIX *, l_int32, NUMA **, NUMA **) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) pixs is a 32 bpp image in HSV colorspace hue is in the "red"<para/>
+''' 
+''' (1) pixs is a 32 bpp image in HSV colorspace hue is in the "red"
 ''' byte, max intensity ("value") is in the "blue" byte.<para/>
-''' (2) In pixd, hue is displayed vertically intensity horizontally.<para/>
-''' The dimensions of pixd are w = 256, h = 240, and the depth<para/>
-''' is 32 bpp.  The value at each point is simply the number<para/>
-''' of pixels found at that value of hue and intensity.<para/>
+''' 
+''' (2) In pixd, hue is displayed vertically intensity horizontally.
+''' The dimensions of pixd are w = 256, h = 240, and the depth
+''' is 32 bpp.  The value at each point is simply the number
+''' of pixels found at that value of hue and intensity.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -507,14 +525,15 @@ End Function
 ' pixMakeHistoSV(pixs, factor, pnasat, pnaval) as Pix
 ' pixMakeHistoSV(PIX *, l_int32, NUMA **, NUMA **) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) pixs is a 32 bpp image in HSV colorspace sat is in the "green"<para/>
+''' 
+''' (1) pixs is a 32 bpp image in HSV colorspace sat is in the "green"
 ''' byte, max intensity ("value") is in the "blue" byte.<para/>
-''' (2) In pixd, sat is displayed vertically intensity horizontally.<para/>
-''' The dimensions of pixd are w = 256, h = 256, and the depth<para/>
-''' is 32 bpp.  The value at each point is simply the number<para/>
-''' of pixels found at that value of saturation and intensity.<para/>
+''' 
+''' (2) In pixd, sat is displayed vertically intensity horizontally.
+''' The dimensions of pixd are w = 256, h = 256, and the depth
+''' is 32 bpp.  The value at each point is simply the number
+''' of pixels found at that value of saturation and intensity.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -547,17 +566,20 @@ End Function
 ' pixFindHistoPeaksHSV(pixs, type, width, height, npeaks, erasefactor, ppta, pnatot, ppixa) as Integer
 ' pixFindHistoPeaksHSV(PIX *, l_int32, l_int32, l_int32, l_int32, l_float32, PTA **, NUMA **, PIXA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) pixs is a 32 bpp histogram in a pair of HSV colorspace.  It<para/>
+''' 
+''' (1) pixs is a 32 bpp histogram in a pair of HSV colorspace.  It
 ''' should be thought of as a single sample with 32 bps (bits/sample).<para/>
-''' (2) After each peak is found, the peak is erased with a window<para/>
-''' that is centered on the peak and scaled from the sliding<para/>
-''' window by %erasefactor.  Typically, %erasefactor is chosen<para/>
+''' 
+''' (2) After each peak is found, the peak is erased with a window
+''' that is centered on the peak and scaled from the sliding
+''' window by %erasefactor.  Typically, %erasefactor is chosen
 ''' to be  is greater  1.0.<para/>
+''' 
 ''' (3) Data for a maximum of %npeaks is returned in %pta and %natot.<para/>
-''' (4) For debugging, after the pixa is returned, display with:<para/>
-''' pixd = pixaDisplayTiledInRows(pixa, 32, 1000, 1.0, 0, 30, 2)<para/>
+''' 
+''' (4) For debugging, after the pixa is returned, display with:
+''' pixd = pixaDisplayTiledInRows(pixa, 32, 1000, 1.0, 0, 30, 2)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -601,10 +623,10 @@ End Function
 ' displayHSVColorRange(hval, sval, vval, huehw, sathw, nsamp, factor) as Pix
 ' displayHSVColorRange(l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The total number of color samplings in each of the hue<para/>
-''' and saturation directions is 2  nsamp + 1.<para/>
+''' 
+''' (1) The total number of color samplings in each of the hue
+''' and saturation directions is 2  nsamp + 1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -636,24 +658,28 @@ End Function
 ' pixConvertRGBToYUV(pixd, pixs) as Pix
 ' pixConvertRGBToYUV(PIX *, PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) For pixs = pixd, this is in-place otherwise pixd must be NULL.<para/>
-''' (2) The Y, U and V values are stored in the same places as<para/>
-''' the r, g and b values, respectively.  Here, they are explicitly<para/>
+''' 
+''' (2) The Y, U and V values are stored in the same places as
+''' the r, g and b values, respectively.  Here, they are explicitly
 ''' placed in the 3 MS bytes in the pixel.<para/>
-''' (3) Normalizing to 1 and considering the r,g,b components,<para/>
-''' a simple way to understand the YUV space is:<para/>
-''' ~ Y = weighted sum of (r,g,b)<para/>
-''' ~ U = weighted difference between Y and B<para/>
+''' 
+''' (3) Normalizing to 1 and considering the r,g,b components,
+''' a simple way to understand the YUV space is:
+''' ~ Y = weighted sum of (r,g,b)
+''' ~ U = weighted difference between Y and B
 ''' ~ V = weighted difference between Y and R<para/>
-''' (4) Following video conventions, Y, U and V are in the range:<para/>
-''' Y: [16, 235]<para/>
-''' U: [16, 240]<para/>
+''' 
+''' (4) Following video conventions, Y, U and V are in the range:
+''' Y: [16, 235]
+''' U: [16, 240]
 ''' V: [16, 240]<para/>
-''' (5) For the coefficients in the transform matrices, see eq. 4 in<para/>
-''' "Frequently Asked Questions about Color" by Charles Poynton,<para/>
-''' //http://user.engineering.uiowa.edu/~aip/Misc/ColorFAQ.html<para/>
+''' 
+''' (5) For the coefficients in the transform matrices, see eq. 4 in
+''' "Frequently Asked Questions about Color" by Charles Poynton,
+''' //http://user.engineering.uiowa.edu/~aip/Misc/ColorFAQ.html
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -679,14 +705,16 @@ End Function
 ' pixConvertYUVToRGB(pixd, pixs) as Pix
 ' pixConvertYUVToRGB(PIX *, PIX *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) For pixs = pixd, this is in-place otherwise pixd must be NULL.<para/>
-''' (2) The user takes responsibility for making sure that pixs is<para/>
+''' 
+''' (2) The user takes responsibility for making sure that pixs is
 ''' in YUV space.<para/>
-''' (3) The Y, U and V values are stored in the same places as<para/>
-''' the r, g and b values, respectively.  Here, they are explicitly<para/>
-''' placed in the 3 MS bytes in the pixel.<para/>
+''' 
+''' (3) The Y, U and V values are stored in the same places as
+''' the r, g and b values, respectively.  Here, they are explicitly
+''' placed in the 3 MS bytes in the pixel.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -712,12 +740,12 @@ End Function
 ' convertRGBToYUV(rval, gval, bval, pyval, puval, pvval) as Integer
 ' convertRGBToYUV(l_int32, l_int32, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The range of returned values is:<para/>
-''' Y [16 ... 235]<para/>
-''' U [16 ... 240]<para/>
-''' V [16 ... 240]<para/>
+''' 
+''' (1) The range of returned values is:
+''' Y [16 ... 235]
+''' U [16 ... 240]
+''' V [16 ... 240]
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -746,16 +774,18 @@ End Function
 ' convertYUVToRGB(yval, uval, vval, prval, pgval, pbval) as Integer
 ' convertYUVToRGB(l_int32, l_int32, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The range of valid input values is:<para/>
-''' Y [16 ... 235]<para/>
-''' U [16 ... 240]<para/>
+''' 
+''' (1) The range of valid input values is:
+''' Y [16 ... 235]
+''' U [16 ... 240]
 ''' V [16 ... 240]<para/>
-''' (2) Conversion of RGB -- is greater  YUV -- is greater  RGB leaves the image unchanged.<para/>
-''' (3) The YUV gamut is larger than the RBG gamut many YUV values<para/>
-''' will result in an invalid RGB value.  We clip individual<para/>
-''' r,g,b components to the range [0, 255], and do not test input.<para/>
+''' 
+''' (2) Conversion of RGB to YUV to RGB leaves the image unchanged.<para/>
+''' 
+''' (3) The YUV gamut is larger than the RBG gamut many YUV values
+''' will result in an invalid RGB value.  We clip individual
+''' r,g,b components to the range [0, 255], and do not test input.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -784,11 +814,10 @@ End Function
 ' pixcmapConvertRGBToYUV(cmap) as Integer
 ' pixcmapConvertRGBToYUV(PIXCMAP *) as l_ok
 '''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' ~ in-place transform<para/>
-''' ~ See convertRGBToYUV() for def'n of YUV space.<para/>
-''' ~ replaces: r -- is greater  y, g -- is greater  u, b -- is greater  v<para/>
+''' Notes:
+''' ~ in-place transform
+''' ~ See convertRGBToYUV() for def'n of YUV space.
+''' ~ replaces: r to y, g to u, b to v
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -809,11 +838,10 @@ End Function
 ' pixcmapConvertYUVToRGB(cmap) as Integer
 ' pixcmapConvertYUVToRGB(PIXCMAP *) as l_ok
 '''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' ~ in-place transform<para/>
-''' ~ See convertRGBToYUV() for def'n of YUV space.<para/>
-''' ~ replaces: y -- is greater  r, u -- is greater  g, v -- is greater  b<para/>
+''' Notes:
+''' ~ in-place transform
+''' ~ See convertRGBToYUV() for def'n of YUV space.
+''' ~ replaces: y to r, u to g, v to b
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -834,26 +862,28 @@ End Function
 ' pixConvertRGBToXYZ(pixs) as FPixa
 ' pixConvertRGBToXYZ(PIX *) as FPIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The [x,y,z] values are stored as float values in three fpix<para/>
+''' 
+''' (1) The [x,y,z] values are stored as float values in three fpix
 ''' that are returned in a fpixa.<para/>
-''' (2) The XYZ color space was defined in 1931 as a reference model that<para/>
-''' simulates human color perception.  When Y is taken as luminance,<para/>
-''' the values of X and Z constitute a color plane representing<para/>
-''' all the hues that can be perceived.  This gamut of colors<para/>
-''' is larger than the gamuts that can be displayed or printed.<para/>
-''' For example, although all rgb values map to XYZ, the converse<para/>
+''' 
+''' (2) The XYZ color space was defined in 1931 as a reference model that
+''' simulates human color perception.  When Y is taken as luminance,
+''' the values of X and Z constitute a color plane representing
+''' all the hues that can be perceived.  This gamut of colors
+''' is larger than the gamuts that can be displayed or printed.
+''' For example, although all rgb values map to XYZ, the converse
 ''' is not true.<para/>
-''' (3) The value of the coefficients depends on the illuminant.  We use<para/>
-''' coefficients for converting sRGB under D65 (the spectrum from<para/>
-''' a 6500 degree K black body an approximation to daylight color).<para/>
-''' See, e.g.,<para/>
-''' http://www.cs.rit.edu/~ncs/color/t_convert.html<para/>
-''' For more general information on color transforms, see:<para/>
-''' http://www.brucelindbloom.com/<para/>
-''' http://user.engineering.uiowa.edu/~aip/Misc/ColorFAQ.html<para/>
-''' http://en.wikipedia.org/wiki/CIE_1931_color_space<para/>
+''' 
+''' (3) The value of the coefficients depends on the illuminant.  We use
+''' coefficients for converting sRGB under D65 (the spectrum from
+''' a 6500 degree K black body an approximation to daylight color).
+''' See, e.g.,
+''' http://www.cs.rit.edu/~ncs/color/t_convert.html
+''' For more general information on color transforms, see:
+''' http://www.brucelindbloom.com/
+''' http://user.engineering.uiowa.edu/~aip/Misc/ColorFAQ.html
+''' http://en.wikipedia.org/wiki/CIE_1931_color_space
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -875,11 +905,12 @@ End Function
 ' fpixaConvertXYZToRGB(fpixa) as Pix
 ' fpixaConvertXYZToRGB(FPIXA *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The xyz image is stored in three fpix.<para/>
-''' (2) For values of xyz that are out of gamut for rgb, the rgb<para/>
-''' components are set to the closest valid color.<para/>
+''' 
+''' (2) For values of xyz that are out of gamut for rgb, the rgb
+''' components are set to the closest valid color.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -901,10 +932,10 @@ End Function
 ' convertRGBToXYZ(rval, gval, bval, pfxval, pfyval, pfzval) as Integer
 ' convertRGBToXYZ(l_int32, l_int32, l_int32, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) These conversions are for illuminant D65 acting on linear sRGB<para/>
-''' values.<para/>
+''' 
+''' (1) These conversions are for illuminant D65 acting on linear sRGB
+''' values.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -933,14 +964,14 @@ End Function
 ' convertXYZToRGB(fxval, fyval, fzval, blackout, prval, pgval, pbval) as Integer
 ' convertXYZToRGB(l_float32, l_float32, l_float32, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For values of xyz that are out of gamut for rgb, at least<para/>
-''' one of the r, g or b components will be either less than 0<para/>
-''' or greater than 255.  For that situation:<para/>
-''' if blackout == 0, the individual component(s) that are out<para/>
-''' of gamut will be set to 0 or 255, respectively.<para/>
-''' if blackout == 1, the output color will be set to black<para/>
+''' 
+''' (1) For values of xyz that are out of gamut for rgb, at least
+''' one of the r, g or b components will be either less than 0
+''' or greater than 255.  For that situation:
+''' if blackout == 0, the individual component(s) that are out
+''' of gamut will be set to 0 or 255, respectively.
+''' if blackout == 1, the output color will be set to black
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -971,17 +1002,18 @@ End Function
 ' fpixaConvertXYZToLAB(fpixas) as FPixa
 ' fpixaConvertXYZToLAB(FPIXA *) as FPIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The input [x,y,z] and output [l,a,b] values are stored as<para/>
+''' 
+''' (1) The input [x,y,z] and output [l,a,b] values are stored as
 ''' float values, each set in three fpix.<para/>
-''' (2) The CIE LAB color space was invented in 1976, as an<para/>
-''' absolute reference for specifying colors that we can<para/>
-''' perceive, independently of the rendering device.  It was<para/>
-''' invented to align color display and print images.<para/>
-''' For information, see:<para/>
-''' http://www.brucelindbloom.com/<para/>
-''' http://en.wikipedia.org/wiki/Lab_color_space<para/>
+''' 
+''' (2) The CIE LAB color space was invented in 1976, as an
+''' absolute reference for specifying colors that we can
+''' perceive, independently of the rendering device.  It was
+''' invented to align color display and print images.
+''' For information, see:
+''' http://www.brucelindbloom.com/
+''' http://en.wikipedia.org/wiki/Lab_color_space
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1003,10 +1035,10 @@ End Function
 ' fpixaConvertLABToXYZ(fpixas) as FPixa
 ' fpixaConvertLABToXYZ(FPIXA *) as FPIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The input [l,a,b] and output [x,y,z] values are stored as<para/>
-''' float values, each set in three fpix.<para/>
+''' 
+''' (1) The input [l,a,b] and output [x,y,z] values are stored as
+''' float values, each set in three fpix.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1080,10 +1112,10 @@ End Function
 ' pixConvertRGBToLAB(pixs) as FPixa
 ' pixConvertRGBToLAB(PIX *) as FPIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The [l,a,b] values are stored as float values in three fpix<para/>
-''' that are returned in a fpixa.<para/>
+''' 
+''' (1) The [l,a,b] values are stored as float values in three fpix
+''' that are returned in a fpixa.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1105,9 +1137,9 @@ End Function
 ' fpixaConvertLABToRGB(fpixa) as Pix
 ' fpixaConvertLABToRGB(FPIXA *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The lab image is stored in three fpix.<para/>
+''' 
+''' (1) The lab image is stored in three fpix.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1129,10 +1161,10 @@ End Function
 ' convertRGBToLAB(rval, gval, bval, pflval, pfaval, pfbval) as Integer
 ' convertRGBToLAB(l_int32, l_int32, l_int32, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) These conversions are for illuminant D65 acting on linear sRGB<para/>
-''' values.<para/>
+''' 
+''' (1) These conversions are for illuminant D65 acting on linear sRGB
+''' values.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1161,10 +1193,10 @@ End Function
 ' convertLABToRGB(flval, faval, fbval, prval, pgval, pbval) as Integer
 ' convertLABToRGB(l_float32, l_float32, l_float32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For values of lab that are out of gamut for rgb, the rgb<para/>
-''' components are set to the closest valid color.<para/>
+''' 
+''' (1) For values of lab that are out of gamut for rgb, the rgb
+''' components are set to the closest valid color.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

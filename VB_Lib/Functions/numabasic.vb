@@ -24,12 +24,12 @@ End Function
 ' numaCreateFromIArray(iarray, size) as Numa
 ' numaCreateFromIArray(l_int32 *, l_int32) as NUMA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) We can't insert this int array into the numa, because a numa<para/>
-''' takes a float array.  So this just copies the data from the<para/>
-''' input array into the numa.  The input array continues to be<para/>
-''' owned by the caller.<para/>
+''' 
+''' (1) We can't insert this int array into the numa, because a numa
+''' takes a float array.  So this just copies the data from the
+''' input array into the numa.  The input array continues to be
+''' owned by the caller.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -53,11 +53,11 @@ End Function
 ' numaCreateFromFArray(farray, size, copyflag) as Numa
 ' numaCreateFromFArray(l_float32 *, l_int32, l_int32) as NUMA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) With L_INSERT, ownership of the input array is transferred<para/>
-''' to the returned numa, and all %size elements are considered<para/>
-''' to be valid.<para/>
+''' 
+''' (1) With L_INSERT, ownership of the input array is transferred
+''' to the returned numa, and all %size elements are considered
+''' to be valid.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -83,11 +83,11 @@ End Function
 ' numaCreateFromString(str) as Numa
 ' numaCreateFromString(const char *) as NUMA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The numbers can be ints or floats they will be interpreted<para/>
-''' and stored as floats.  To use them as integers (e.g., for<para/>
-''' indexing into arrays), use numaGetIValue(...).<para/>
+''' 
+''' (1) The numbers can be ints or floats they will be interpreted
+''' and stored as floats.  To use them as integers (e.g., for
+''' indexing into arrays), use numaGetIValue(...).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -109,10 +109,11 @@ End Function
 ' numaDestroy(pna) as Object
 ' numaDestroy(NUMA **) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Decrements the ref count and, if 0, destroys the numa.<para/>
-''' (2) Always nulls the input ptr.<para/>
+''' 
+''' (2) Always nulls the input ptr.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -170,11 +171,11 @@ End Function
 ' numaEmpty(na) as Integer
 ' numaEmpty(NUMA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This does not change the allocation of the array.<para/>
-''' It just clears the number of stored numbers, so that<para/>
-''' the array appears to be empty.<para/>
+''' 
+''' (1) This does not change the allocation of the array.
+''' It just clears the number of stored numbers, so that
+''' the array appears to be empty.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -215,12 +216,13 @@ End Function
 ' numaInsertNumber(na, index, val) as Integer
 ' numaInsertNumber(NUMA *, l_int32, l_float32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This shifts na[i] -- is greater  na[i + 1] for all i  is greater = index,<para/>
+''' 
+''' (1) This shifts na[i] to na[i + 1] for all i greater or equal index,
 ''' and then inserts val as na[index].<para/>
-''' (2) It should not be used repeatedly on large arrays,<para/>
-''' because the function is O(n).<para/>
+''' 
+''' (2) It should not be used repeatedly on large arrays,
+''' because the function is O(n).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -245,11 +247,12 @@ End Function
 ' numaRemoveNumber(na, index) as Integer
 ' numaRemoveNumber(NUMA *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This shifts na[i] -- is greater  na[i - 1] for all i  is greater  index.<para/>
-''' (2) It should not be used repeatedly on large arrays,<para/>
-''' because the function is O(n).<para/>
+''' 
+''' (1) This shifts na[i] to na[i - 1] for all i  is greater  index.<para/>
+''' 
+''' (2) It should not be used repeatedly on large arrays,
+''' because the function is O(n).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -312,13 +315,15 @@ End Function
 ' numaSetCount(na, newcount) as Integer
 ' numaSetCount(NUMA *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If newcount  is lower = na- is greater nalloc, this resets na- is greater n.<para/>
+''' 
+''' (1) If newcount smaller or equal natonalloc, this resets naton.
 ''' Using newcount = 0 is equivalent to numaEmpty().<para/>
-''' (2) If newcount  is greater  na- is greater nalloc, this causes a realloc<para/>
-''' to a size na- is greater nalloc = newcount.<para/>
-''' (3) All the previously unused values in na are set to 0.0.<para/>
+''' 
+''' (2) If newcount  is greater  natonalloc, this causes a realloc
+''' to a size natonalloc = newcount.<para/>
+''' 
+''' (3) All the previously unused values in na are set to 0.0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -341,10 +346,10 @@ End Function
 ' numaGetFValue(na, index, pval) as Integer
 ' numaGetFValue(NUMA *, l_int32, l_float32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Caller may need to check the function return value to<para/>
-''' decide if a 0.0 in the returned ival is valid.<para/>
+''' 
+''' (1) Caller may need to check the function return value to
+''' decide if a 0.0 in the returned ival is valid.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -369,10 +374,10 @@ End Function
 ' numaGetIValue(na, index, pival) as Integer
 ' numaGetIValue(NUMA *, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Caller may need to check the function return value to<para/>
-''' decide if a 0 in the returned ival is valid.<para/>
+''' 
+''' (1) Caller may need to check the function return value to
+''' decide if a 0 in the returned ival is valid.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -423,7 +428,7 @@ End Function
 '''  <include file="IncludeComments.xml" path="Comments/numaShiftValue/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - to element to change relative to the current value</param>
-'''  <param name="diff">[in] - increment if diff  is greater  0 or decrement if diff  is lower  0</param>
+'''  <param name="diff">[in] - increment if diff  is greater  0 or decrement if diff  is smaller 0</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function numaShiftValue(
 				 ByVal na as Numa, 
@@ -441,17 +446,19 @@ End Function
 ' numaGetIArray(na) as Integer()
 ' numaGetIArray(NUMA *) as l_int32 *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) A copy of the array is always made, because we need to<para/>
-''' generate an integer array from the bare float array.<para/>
+''' 
+''' (1) A copy of the array is always made, because we need to
+''' generate an integer array from the bare float array.
 ''' The caller is responsible for freeing the array.<para/>
-''' (2) The array size is determined by the number of stored numbers,<para/>
+''' 
+''' (2) The array size is determined by the number of stored numbers,
 ''' not by the size of the allocated array in the Numa.<para/>
-''' (3) This function is provided to simplify calculations<para/>
-''' using the bare internal array, rather than continually<para/>
-''' calling accessors on the numa.  It is typically used<para/>
-''' on an array of size 256.<para/>
+''' 
+''' (3) This function is provided to simplify calculations
+''' using the bare internal array, rather than continually
+''' calling accessors on the numa.  It is typically used
+''' on an array of size 256.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -472,18 +479,19 @@ End Function
 ' numaGetFArray(na, copyflag) as Single()
 ' numaGetFArray(NUMA *, l_int32) as l_float32 *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If copyflag == L_COPY, it makes a copy which the caller<para/>
-''' is responsible for freeing.  Otherwise, it operates<para/>
+''' 
+''' (1) If copyflag == L_COPY, it makes a copy which the caller
+''' is responsible for freeing.  Otherwise, it operates
 ''' directly on the bare array of the numa.<para/>
-''' (2) Very important: for L_NOCOPY, any writes to the array<para/>
-''' will be in the numa.  Do not write beyond the size of<para/>
-''' the count field, because it will not be accessible<para/>
-''' from the numa!  If necessary, be sure to set the count<para/>
-''' field to a larger number (such as the alloc size)<para/>
-''' BEFORE calling this function.  Creating with numaMakeConstant()<para/>
-''' is another way to insure full initialization.<para/>
+''' 
+''' (2) Very important: for L_NOCOPY, any writes to the array
+''' will be in the numa.  Do not write beyond the size of
+''' the count field, because it will not be accessible
+''' from the numa!  If necessary, be sure to set the count
+''' field to a larger number (such as the alloc size)
+''' BEFORE calling this function.  Creating with numaMakeConstant()
+''' is another way to insure full initialization.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -609,10 +617,10 @@ End Function
 ' numaConvertToSarray(na, size1, size2, addzeros, type) as Sarray
 ' numaConvertToSarray(NUMA *, l_int32, l_int32, l_int32, l_int32) as SARRAY *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For integer conversion, size2 is ignored.<para/>
-''' For float conversion, addzeroes is ignored.<para/>
+''' 
+''' (1) For integer conversion, size2 is ignored.
+''' For float conversion, addzeroes is ignored.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -703,13 +711,14 @@ End Function
 ' numaWriteDebug(filename, na) as Integer
 ' numaWriteDebug(const char *, NUMA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Debug version, intended for use in the library when writing<para/>
-''' to files in a temp directory with names that are compiled in.<para/>
+''' 
+''' (1) Debug version, intended for use in the library when writing
+''' to files in a temp directory with names that are compiled in.
 ''' This is used instead of numaWrite() for all such library calls.<para/>
-''' (2) The global variable LeptDebugOK defaults to 0, and can be set<para/>
-''' or cleared by the function setLeptDebugOK().<para/>
+''' 
+''' (2) The global variable LeptDebugOK defaults to 0, and can be set
+''' or cleared by the function setLeptDebugOK().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -779,9 +788,9 @@ End Function
 ' numaWriteMem(pdata, psize, na) as Integer
 ' numaWriteMem(l_uint8 **, size_t *, NUMA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Serializes a numa in memory and puts the result in a buffer.<para/>
+''' 
+''' (1) Serializes a numa in memory and puts the result in a buffer.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -826,12 +835,12 @@ End Function
 ' numaaCreateFull(nptr, n) as Numaa
 ' numaaCreateFull(l_int32, l_int32) as NUMAA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This allocates numaa and fills the array with allocated numas.<para/>
-''' In use, after calling this function, use<para/>
-''' numaaAddNumber(naa, index, val)<para/>
-''' to add val to the index-th numa in naa.<para/>
+''' 
+''' (1) This allocates numaa and fills the array with allocated numas.
+''' In use, after calling this function, use
+''' numaaAddNumber(naa, index, val)
+''' to add val to the index-th numa in naa.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -853,11 +862,11 @@ End Function
 ' numaaTruncate(naa) as Integer
 ' numaaTruncate(NUMAA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This identifies the largest index containing a numa that<para/>
-''' has any numbers within it, destroys all numa beyond that<para/>
-''' index, and resets the count.<para/>
+''' 
+''' (1) This identifies the largest index containing a numa that
+''' has any numbers within it, destroys all numa beyond that
+''' index, and resets the count.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -974,25 +983,27 @@ End Function
 ' numaaGetPtrArray(naa) as Numa
 ' numaaGetPtrArray(NUMAA *) as NUMA **
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This function is convenient for doing direct manipulation on<para/>
-''' a fixed size array of Numas.  To do this, it sets the count<para/>
-''' to the full size of the allocated array of Numa ptrs.<para/>
+''' 
+''' (1) This function is convenient for doing direct manipulation on
+''' a fixed size array of Numas.  To do this, it sets the count
+''' to the full size of the allocated array of Numa ptrs.
 ''' The originating Numaa owns this array: DO NOT free it!<para/>
-''' (2) Intended usage:<para/>
-''' Numaa naa = numaaCreate(n)<para/>
-''' Numa array = numaaGetPtrArray(naa)<para/>
-''' ...  [manipulate Numas directly on the array]<para/>
-''' numaaDestroy( and naa)<para/>
-''' (3) Cautions:<para/>
-''' ~ Do not free this array it is owned by tne Numaa.<para/>
-''' ~ Do not call any functions on the Numaa, other than<para/>
-''' numaaDestroy() when you're finished with the array.<para/>
-''' Adding a Numa will force a resize, destroying the ptr array.<para/>
-''' ~ Do not address the array outside its allocated size.<para/>
-''' With the bare array, there are no protections.  If the<para/>
-''' allocated size is n, array[n] is an error.<para/>
+''' 
+''' (2) Intended usage:
+''' Numaa naa = numaaCreate(n)
+''' Numa array = numaaGetPtrArray(naa)
+''' ...  [manipulate Numas directly on the array]
+''' numaaDestroy([and]naa)<para/>
+''' 
+''' (3) Cautions:
+''' ~ Do not free this array it is owned by tne Numaa.
+''' ~ Do not call any functions on the Numaa, other than
+''' numaaDestroy() when you're finished with the array.
+''' Adding a Numa will force a resize, destroying the ptr array.
+''' ~ Do not address the array outside its allocated size.
+''' With the bare array, there are no protections.  If the
+''' allocated size is n, array[n] is an error.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1038,11 +1049,12 @@ End Function
 ' numaaReplaceNuma(naa, index, na) as Integer
 ' numaaReplaceNuma(NUMAA *, l_int32, NUMA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Any existing numa is destroyed, and the input one<para/>
+''' 
+''' (1) Any existing numa is destroyed, and the input one
 ''' is inserted in its place.<para/>
-''' (2) If the index is invalid, return 1 (error)<para/>
+''' 
+''' (2) If the index is invalid, return 1 (error)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1094,9 +1106,9 @@ End Function
 ' numaaAddNumber(naa, index, val) as Integer
 ' numaaAddNumber(NUMAA *, l_int32, l_float32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Adds to an existing numa only.<para/>
+''' 
+''' (1) Adds to an existing numa only.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1226,9 +1238,9 @@ End Function
 ' numaaWriteMem(pdata, psize, naa) as Integer
 ' numaaWriteMem(l_uint8 **, size_t *, NUMAA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Serializes a numaa in memory and puts the result in a buffer.<para/>
+''' 
+''' (1) Serializes a numaa in memory and puts the result in a buffer.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

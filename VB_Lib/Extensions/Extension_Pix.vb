@@ -84,23 +84,24 @@ Partial Public Class Pix
         Dim MemStrm As New IO.MemoryStream(Bytes)
         Return New Bitmap(MemStrm, True)
     End Function
+	
     Public Function ConvertTo1BPPBMP(ByVal Pix As Pix) As Bitmap
-        Dim pixelFormat As PixelFormat = pixelFormat.Format1bppIndexed
-        Dim img As Bitmap = New Bitmap(Pix.w, Pix.h, pixelFormat)
-        Using pixNew As Pix = _All.pixEndianByteSwapNew(Pix)
-            Try
-                Dim imgData As BitmapData = img.LockBits(New Rectangle(0, 0, img.Width, img.Height), 2, pixelFormat)
-                For y = 0 To imgData.Height - 1
-                    For x = 0 To imgData.Width - 1 Step 8
-                        Dim index As Integer = (y * pixNew.wpl * 4) + (x >> 3)
-                        If index > pixNew.DataStatic.Count - 1 Then Continue For
-                        Marshal.WriteByte(imgData.Scan0, index, Not pixNew.DataStatic(index))
-                    Next
-                Next : img.UnlockBits(imgData) : Return img
-            Catch ex As Exception
-                img.Dispose()
-            End Try
-        End Using
+        Dim MSH As New Marshal_Pix
+        Dim PixSwap As Pix = LeptonicaSharp._All.pixEndianByteSwapNew(Pix)
+
+        Try
+            Dim img As Bitmap = New Bitmap(Pix.w, Pix.h, PixelFormat.Format1bppIndexed)
+            Dim imgData As BitmapData = img.LockBits(New Rectangle(0, 0, img.Width, img.Height), 2, PixelFormat.Format1bppIndexed)
+            For Line As Integer = 0 To Pix.h - 1
+                For Col = 0 To Pix.w - 1 Step 8
+                    Dim index As Integer = (Line * PixSwap.wpl * 4) + (Col >> 3)
+                    Marshal.WriteByte(imgData.Scan0, index, Not PixSwap.DataStatic(index))
+                Next
+            Next
+            img.UnlockBits(imgData) : Return img
+        Catch
+
+        End Try
         Return Nothing
     End Function
 #End Region

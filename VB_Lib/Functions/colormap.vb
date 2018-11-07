@@ -24,22 +24,26 @@ End Function
 ' pixcmapCreateRandom(depth, hasblack, haswhite) as PixColormap
 ' pixcmapCreateRandom(l_int32, l_int32, l_int32) as PIXCMAP *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This sets up a colormap with random colors,<para/>
-''' where the first color is optionally black, the last color<para/>
-''' is optionally white, and the remaining colors are<para/>
+''' 
+''' (1) This sets up a colormap with random colors,
+''' where the first color is optionally black, the last color
+''' is optionally white, and the remaining colors are
 ''' chosen randomly.<para/>
-''' (2) The number of randomly chosen colors is:<para/>
+''' 
+''' (2) The number of randomly chosen colors is:
 ''' 2^(depth) - haswhite - hasblack<para/>
-''' (3) Because rand() is seeded, it might disrupt otherwise<para/>
+''' 
+''' (3) Because rand() is seeded, it might disrupt otherwise
 ''' deterministic results if also used elsewhere in a program.<para/>
-''' (4) rand() is not threadsafe, and will generate garbage if run<para/>
-''' on multiple threads at once -- though garbage is generally<para/>
+''' 
+''' (4) rand() is not threadsafe, and will generate garbage if run
+''' on multiple threads at once -- though garbage is generally
 ''' what you want from a random number generator!<para/>
-''' (5) Modern rand()s have equal randomness in low and high order<para/>
-''' bits, but older ones don't.  Here, we're just using rand()<para/>
-''' to choose colors for output.<para/>
+''' 
+''' (5) Modern rand()s have equal randomness in low and high order
+''' bits, but older ones don't.  Here, we're just using rand()
+''' to choose colors for output.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -63,10 +67,10 @@ End Function
 ' pixcmapCreateLinear(d, nlevels) as PixColormap
 ' pixcmapCreateLinear(l_int32, l_int32) as PIXCMAP *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Colormap has equally spaced gray color values<para/>
-''' from black (0, 0, 0) to white (255, 255, 255).<para/>
+''' 
+''' (1) Colormap has equally spaced gray color values
+''' from black (0, 0, 0) to white (255, 255, 255).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -124,10 +128,11 @@ End Sub
 ' pixcmapAddColor(cmap, rval, gval, bval) as Integer
 ' pixcmapAddColor(PIXCMAP *, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This always adds the color if there is room.<para/>
-''' (2) The alpha component is 255 (opaque)<para/>
+''' 
+''' (2) The alpha component is 255 (opaque)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -154,9 +159,9 @@ End Function
 ' pixcmapAddRGBA(cmap, rval, gval, bval, aval) as Integer
 ' pixcmapAddRGBA(PIXCMAP *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This always adds the color if there is room.<para/>
+''' 
+''' (1) This always adds the color if there is room.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -185,13 +190,16 @@ End Function
 ' pixcmapAddNewColor(cmap, rval, gval, bval, pindex) as Integer
 ' pixcmapAddNewColor(PIXCMAP *, l_int32, l_int32, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This only adds color if not already there.<para/>
+''' 
 ''' (2) The alpha component is 255 (opaque)<para/>
+''' 
 ''' (3) This returns the index of the new (or existing) color.<para/>
-''' (4) Returns 2 with a warning if unable to add this color<para/>
-''' the caller should check the return value.<para/>
+''' 
+''' (4) Returns 2 with a warning if unable to add this color
+''' the caller should check the return value.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -220,12 +228,14 @@ End Function
 ' pixcmapAddNearestColor(cmap, rval, gval, bval, pindex) as Integer
 ' pixcmapAddNearestColor(PIXCMAP *, l_int32, l_int32, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This only adds color if not already there.<para/>
+''' 
 ''' (2) The alpha component is 255 (opaque)<para/>
-''' (3) If it's not in the colormap and there is no room to add<para/>
-''' another color, this returns the index of the nearest color.<para/>
+''' 
+''' (3) If it's not in the colormap and there is no room to add
+''' another color, this returns the index of the nearest color.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -254,10 +264,10 @@ End Function
 ' pixcmapUsableColor(cmap, rval, gval, bval, pusable) as Integer
 ' pixcmapUsableColor(PIXCMAP *, l_int32, l_int32, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This checks if the color already exists or if there is<para/>
-''' room to add it.  It makes no change in the colormap.<para/>
+''' 
+''' (1) This checks if the color already exists or if there is
+''' room to add it.  It makes no change in the colormap.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -286,13 +296,16 @@ End Function
 ' pixcmapAddBlackOrWhite(cmap, color, pindex) as Integer
 ' pixcmapAddBlackOrWhite(PIXCMAP *, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This only adds color if not already there.<para/>
+''' 
 ''' (2) The alpha component is 255 (opaque)<para/>
+''' 
 ''' (3) This sets index to the requested color.<para/>
-''' (4) If there is no room in the colormap, returns the index<para/>
-''' of the closest color.<para/>
+''' 
+''' (4) If there is no room in the colormap, returns the index
+''' of the closest color.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -393,9 +406,9 @@ End Function
 ' pixcmapGetMinDepth(cmap, pmindepth) as Integer
 ' pixcmapGetMinDepth(PIXCMAP *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) On error,  and mindepth is returned as 0.<para/>
+''' 
+''' (1) On error, [and]mindepth is returned as 0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -418,9 +431,9 @@ End Function
 ' pixcmapClear(cmap) as Integer
 ' pixcmapClear(PIXCMAP *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This removes the colors by setting the count to 0.<para/>
+''' 
+''' (1) This removes the colors by setting the count to 0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -467,9 +480,9 @@ End Function
 ' pixcmapGetColor32(cmap, index, pval32) as Integer
 ' pixcmapGetColor32(PIXCMAP *, l_int32, l_uint32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The returned alpha channel value is 255.<para/>
+''' 
+''' (1) The returned alpha channel value is 255.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -544,11 +557,12 @@ End Function
 ' pixcmapResetColor(cmap, index, rval, gval, bval) as Integer
 ' pixcmapResetColor(PIXCMAP *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This resets sets the color of an entry that has already<para/>
+''' 
+''' (1) This resets sets the color of an entry that has already
 ''' been set and included in the count of colors.<para/>
-''' (2) The alpha component is 255 (opaque)<para/>
+''' 
+''' (2) The alpha component is 255 (opaque)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -577,12 +591,12 @@ End Function
 ' pixcmapSetAlpha(cmap, index, aval) as Integer
 ' pixcmapSetAlpha(PIXCMAP *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This modifies the transparency of one entry in a colormap.<para/>
-''' The alpha component by default is 255 (opaque).<para/>
-''' This is used when extracting the colormap from a PNG file<para/>
-''' without decoding the image.<para/>
+''' 
+''' (1) This modifies the transparency of one entry in a colormap.
+''' The alpha component by default is 255 (opaque).
+''' This is used when extracting the colormap from a PNG file
+''' without decoding the image.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -693,9 +707,9 @@ End Function
 ' pixcmapCountGrayColors(cmap, pngray) as Integer
 ' pixcmapCountGrayColors(PIXCMAP *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This counts the unique gray colors, including black and white.<para/>
+''' 
+''' (1) This counts the unique gray colors, including black and white.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -740,12 +754,13 @@ End Function
 ' pixcmapGetNearestIndex(cmap, rval, gval, bval, pindex) as Integer
 ' pixcmapGetNearestIndex(PIXCMAP *, l_int32, l_int32, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Returns the index of the exact color if possible, otherwise the<para/>
+''' 
+''' (1) Returns the index of the exact color if possible, otherwise the
 ''' index of the color closest to the target color.<para/>
-''' (2) Nearest color is that which is the least sum-of-squares distance<para/>
-''' from the target color.<para/>
+''' 
+''' (2) Nearest color is that which is the least sum-of-squares distance
+''' from the target color.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -774,12 +789,13 @@ End Function
 ' pixcmapGetNearestGrayIndex(cmap, val, pindex) as Integer
 ' pixcmapGetNearestGrayIndex(PIXCMAP *, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This should be used on gray colormaps.  It uses only the<para/>
+''' 
+''' (1) This should be used on gray colormaps.  It uses only the
 ''' green value of the colormap.<para/>
-''' (2) Returns the index of the exact color if possible, otherwise the<para/>
-''' index of the color closest to the target color.<para/>
+''' 
+''' (2) Returns the index of the exact color if possible, otherwise the
+''' index of the color closest to the target color.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -804,10 +820,10 @@ End Function
 ' pixcmapGetDistanceToColor(cmap, index, rval, gval, bval, pdist) as Integer
 ' pixcmapGetDistanceToColor(PIXCMAP *, l_int32, l_int32, l_int32, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Returns the L2 distance (squared) between the color at index i<para/>
-''' and the target color.<para/>
+''' 
+''' (1) Returns the L2 distance (squared) between the color at index i
+''' and the target color.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -838,11 +854,11 @@ End Function
 ' pixcmapGetRangeValues(cmap, select, pminval, pmaxval, pminindex, pmaxindex) as Integer
 ' pixcmapGetRangeValues(PIXCMAP *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Returns, for selected components (or the average), the<para/>
-''' the extreme values (min and/or max) and their indices<para/>
-''' that are found in the cmap.<para/>
+''' 
+''' (1) Returns, for selected components (or the average), the
+''' the extreme values (min and/or max) and their indices
+''' that are found in the cmap.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -872,13 +888,14 @@ End Function
 ' pixcmapGrayToColor(color) as PixColormap
 ' pixcmapGrayToColor(l_uint32) as PIXCMAP *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This creates a colormap that maps from gray to<para/>
-''' a specific color.  In the mapping, each component<para/>
+''' 
+''' (1) This creates a colormap that maps from gray to
+''' a specific color.  In the mapping, each component
 ''' is faded to white, depending on the gray value.<para/>
-''' (2) In use, this is simply attached to a grayscale pix<para/>
-''' to give it the input color.<para/>
+''' 
+''' (2) In use, this is simply attached to a grayscale pix
+''' to give it the input color.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -898,11 +915,12 @@ End Function
 ' pixcmapColorToGray(cmaps, rwt, gwt, bwt) as PixColormap
 ' pixcmapColorToGray(PIXCMAP *, l_float32, l_float32, l_float32) as PIXCMAP *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This creates a gray colormap from an arbitrary colormap.<para/>
-''' (2) In use, attach the output gray colormap to the pix<para/>
-''' (or a copy of it) that provided the input colormap.<para/>
+''' 
+''' (2) In use, attach the output gray colormap to the pix
+''' (or a copy of it) that provided the input colormap.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -930,10 +948,10 @@ End Function
 ' pixcmapConvertTo4(cmaps) as PixColormap
 ' pixcmapConvertTo4(PIXCMAP *) as PIXCMAP *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This converts a 2 bpp colormap to 4 bpp.  The colors<para/>
-''' are the same the output colormap entry array has size 16.<para/>
+''' 
+''' (1) This converts a 2 bpp colormap to 4 bpp.  The colors
+''' are the same the output colormap entry array has size 16.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -955,10 +973,10 @@ End Function
 ' pixcmapConvertTo8(cmaps) as PixColormap
 ' pixcmapConvertTo8(PIXCMAP *) as PIXCMAP *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This converts a 2 bpp or 4 bpp colormap to 8 bpp.  The colors<para/>
-''' are the same the output colormap entry array has size 256.<para/>
+''' 
+''' (1) This converts a 2 bpp or 4 bpp colormap to 8 bpp.  The colors
+''' are the same the output colormap entry array has size 256.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1086,9 +1104,9 @@ End Function
 ' pixcmapWriteMem(pdata, psize, cmap) as Integer
 ' pixcmapWriteMem(l_uint8 **, size_t *, PIXCMAP *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Serializes a pixcmap in memory and puts the result in a buffer.<para/>
+''' 
+''' (1) Serializes a pixcmap in memory and puts the result in a buffer.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1172,9 +1190,9 @@ End Function
 ' pixcmapSerializeToMemory(cmap, cpc, pncolors, pdata) as Integer
 ' pixcmapSerializeToMemory(PIXCMAP *, l_int32, l_int32 *, l_uint8 **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) When serializing to store in a pdf, use %cpc = 3.<para/>
+''' 
+''' (1) When serializing to store in a pdf, use %cpc = 3.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1227,14 +1245,16 @@ End Function
 ' pixcmapConvertToHex(data, ncolors) as String
 ' pixcmapConvertToHex(l_uint8 *, l_int32) as char *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The number of bytes in %data is 3  ncolors.<para/>
-''' (2) Output is in form:<para/>
-'''  is lower  r0g0b0 r1g1b1 ... rngnbn  is greater <para/>
+''' 
+''' (2) Output is in form:
+'''  is smaller r0g0b0 r1g1b1 ... rngnbn  is greater 
 ''' where r0, g0, b0 ... are each 2 bytes of hex ascii<para/>
-''' (3) This is used in pdf files to express the colormap as an<para/>
-''' array in ascii (human-readable) format.<para/>
+''' 
+''' (3) This is used in pdf files to express the colormap as an
+''' array in ascii (human-readable) format.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1257,18 +1277,19 @@ End Function
 ' pixcmapGammaTRC(cmap, gamma, minval, maxval) as Integer
 ' pixcmapGammaTRC(PIXCMAP *, l_float32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is an in-place transform<para/>
-''' (2) See pixGammaTRC() and numaGammaTRC() in enhance.c<para/>
-''' for description and use of transform<para/>
+''' 
+''' (2) See pixGammaTRC() and numaGammaTRC() in enhance.c
+''' for description and use of transform
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixcmapGammaTRC/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''  <param name="gamma">[in] - gamma correction must be  is greater  0.0</param>
-'''  <param name="minval">[in] - input value that gives 0 for output can be  is lower  0</param>
+'''  <param name="minval">[in] - input value that gives 0 for output can be  is smaller 0</param>
 '''  <param name="maxval">[in] - input value that gives 255 for output can be  is greater  255</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcmapGammaTRC(
@@ -1288,11 +1309,12 @@ End Function
 ' pixcmapContrastTRC(cmap, factor) as Integer
 ' pixcmapContrastTRC(PIXCMAP *, l_float32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is an in-place transform<para/>
-''' (2) See pixContrastTRC() and numaContrastTRC() in enhance.c<para/>
-''' for description and use of transform<para/>
+''' 
+''' (2) See pixContrastTRC() and numaContrastTRC() in enhance.c
+''' for description and use of transform
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1315,16 +1337,19 @@ End Function
 ' pixcmapShiftIntensity(cmap, fraction) as Integer
 ' pixcmapShiftIntensity(PIXCMAP *, l_float32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is an in-place transform<para/>
+''' 
 ''' (2) It does a proportional shift of the intensity for each color.<para/>
-''' (3) If fraction  is lower  0.0, it moves all colors towards (0,0,0).<para/>
-''' This darkens the image.<para/>
-''' If fraction  is greater  0.0, it moves all colors towards (255,255,255)<para/>
+''' 
+''' (3) If fraction  is smaller 0.0, it moves all colors towards (0,0,0).
+''' This darkens the image.
+''' If fraction  is greater  0.0, it moves all colors towards (255,255,255)
 ''' This fades the image.<para/>
-''' (4) The equivalent transform can be accomplished with pixcmapGammaTRC(),<para/>
-''' but it is considerably more difficult (see numaGammaTRC()).<para/>
+''' 
+''' (4) The equivalent transform can be accomplished with pixcmapGammaTRC(),
+''' but it is considerably more difficult (see numaGammaTRC()).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1347,14 +1372,16 @@ End Function
 ' pixcmapShiftByComponent(cmap, srcval, dstval) as Integer
 ' pixcmapShiftByComponent(PIXCMAP *, l_uint32, l_uint32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is an in-place transform<para/>
-''' (2) It implements pixelShiftByComponent() for each color.<para/>
+''' 
+''' (2) It implements pixelShiftByComponent() for each color.
 ''' The mapping is specified by srcval and dstval.<para/>
-''' (3) If a component decreases, the component in the colormap<para/>
-''' decreases by the same ratio.  Likewise for increasing, except<para/>
-''' all ratios are taken with respect to the distance from 255.<para/>
+''' 
+''' (3) If a component decreases, the component in the colormap
+''' decreases by the same ratio.  Likewise for increasing, except
+''' all ratios are taken with respect to the distance from 255.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

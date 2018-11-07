@@ -7,13 +7,14 @@ Partial Public Class _All
 ' listDestroy(phead) as Object
 ' listDestroy(DLLIST **) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This only destroys the cons cells.  Before destroying<para/>
-''' the list, it is necessary to remove all data and set the<para/>
+''' 
+''' (1) This only destroys the cons cells.  Before destroying
+''' the list, it is necessary to remove all data and set the
 ''' data pointers in each cons cell to NULL.<para/>
-''' (2) listDestroy() will give a warning message for each data<para/>
-''' ptr that is not NULL.<para/>
+''' 
+''' (2) listDestroy() will give a warning message for each data
+''' ptr that is not NULL.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -33,12 +34,13 @@ End Sub
 ' listAddToHead(phead, data) as Integer
 ' listAddToHead(DLLIST **, void *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This makes a new cell, attaches the data, and adds the<para/>
+''' 
+''' (1) This makes a new cell, attaches the data, and adds the
 ''' cell to the head of the list.<para/>
-''' (2) When consing from NULL, be sure to initialize head to NULL<para/>
-''' before calling this function.<para/>
+''' 
+''' (2) When consing from NULL, be sure to initialize head to NULL
+''' before calling this function.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -65,19 +67,22 @@ End Function
 ' listAddToTail(phead, ptail, data) as Integer
 ' listAddToTail(DLLIST **, DLLIST **, void *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This makes a new cell, attaches the data, and adds the<para/>
+''' 
+''' (1) This makes a new cell, attaches the data, and adds the
 ''' cell to the tail of the list.<para/>
-''' (2)  and head is input to allow the list to be "cons'd" up from NULL.<para/>
-''' (3)  and tail is input to allow the tail to be updated<para/>
+''' 
+''' (2) [and]head is input to allow the list to be "cons'd" up from NULL.<para/>
+''' 
+''' (3) [and]tail is input to allow the tail to be updated
 ''' for efficient sequential operation with this function.<para/>
-''' (4) We assume that if phead and/or ptail are not NULL,<para/>
-''' then they are valid addresses.  Therefore:<para/>
-''' (a) when consing from NULL, be sure to initialize both<para/>
-''' head and tail to NULL.<para/>
-''' (b) when tail == NULL for an existing list, the tail<para/>
-''' will be found and updated.<para/>
+''' 
+''' (4) We assume that if phead and/or ptail are not NULL,
+''' then they are valid addresses.  Therefore:
+''' (a) when consing from NULL, be sure to initialize both
+''' head and tail to NULL.
+''' (b) when tail == NULL for an existing list, the tail
+''' will be found and updated.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -108,18 +113,19 @@ End Function
 ' listInsertBefore(phead, elem, data) as Integer
 ' listInsertBefore(DLLIST **, DLLIST *, void *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This can be called on a null list, in which case both<para/>
+''' 
+''' (1) This can be called on a null list, in which case both
 ''' head and elem must be null.<para/>
-''' (2) If you are searching through a list, looking for a condition<para/>
-''' to add an element, you can do something like this:<para/>
-''' \code<para/>
-''' L_BEGIN_LIST_FORWARD(head, elem)<para/>
-'''  is lower identify an elem to insert before is greater <para/>
-''' listInsertBefore( and head, elem, data)<para/>
-''' L_END_LIST<para/>
-''' \endcode<para/>
+''' 
+''' (2) If you are searching through a list, looking for a condition
+''' to add an element, you can do something like this:
+''' \code
+''' L_BEGIN_LIST_FORWARD(head, elem)
+'''  is smalleridentify an elem to insert before is greater 
+''' listInsertBefore([and]head, elem, data)
+''' L_END_LIST
+''' \endcode
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -149,19 +155,20 @@ End Function
 ' listInsertAfter(phead, elem, data) as Integer
 ' listInsertAfter(DLLIST **, DLLIST *, void *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This can be called on a null list, in which case both<para/>
-''' head and elem must be null.  The head is included<para/>
+''' 
+''' (1) This can be called on a null list, in which case both
+''' head and elem must be null.  The head is included
 ''' in the call to allow "consing" up from NULL.<para/>
-''' (2) If you are searching through a list, looking for a condition<para/>
-''' to add an element, you can do something like this:<para/>
-''' \code<para/>
-''' L_BEGIN_LIST_FORWARD(head, elem)<para/>
-'''  is lower identify an elem to insert after is greater <para/>
-''' listInsertAfter( and head, elem, data)<para/>
-''' L_END_LIST<para/>
-''' \endcode<para/>
+''' 
+''' (2) If you are searching through a list, looking for a condition
+''' to add an element, you can do something like this:
+''' \code
+''' L_BEGIN_LIST_FORWARD(head, elem)
+'''  is smalleridentify an elem to insert after is greater 
+''' listInsertAfter([and]head, elem, data)
+''' L_END_LIST
+''' \endcode
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -191,12 +198,12 @@ End Function
 ' listRemoveElement(phead, elem) as Object
 ' listRemoveElement(DLLIST **, DLLIST *) as void *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) in ANSI C, it is not necessary to cast return to actual type e.g.,<para/>
-''' pix = listRemoveElement( and head, elem)<para/>
-''' but in ANSI C++, it is necessary to do the cast:<para/>
-''' pix = (Pix )listRemoveElement( and head, elem)<para/>
+''' 
+''' (1) in ANSI C, it is not necessary to cast return to actual type e.g.,
+''' pix = listRemoveElement([and]head, elem)
+''' but in ANSI C++, it is necessary to do the cast:
+''' pix = (Pix )listRemoveElement([and]head, elem)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -222,12 +229,12 @@ End Function
 ' listRemoveFromHead(phead) as Object
 ' listRemoveFromHead(DLLIST **) as void *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) in ANSI C, it is not necessary to cast return to actual type e.g.,<para/>
-''' pix = listRemoveFromHead( and head)<para/>
-''' but in ANSI C++, it is necessary to do the cast e.g.,<para/>
-''' pix = (Pix )listRemoveFromHead( and head)<para/>
+''' 
+''' (1) in ANSI C, it is not necessary to cast return to actual type e.g.,
+''' pix = listRemoveFromHead([and]head)
+''' but in ANSI C++, it is necessary to do the cast e.g.,
+''' pix = (Pix )listRemoveFromHead([and]head)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -249,19 +256,21 @@ End Function
 ' listRemoveFromTail(phead, ptail) as Object
 ' listRemoveFromTail(DLLIST **, DLLIST **) as void *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) We include  and head so that it can be set to NULL if<para/>
+''' 
+''' (1) We include [and]head so that it can be set to NULL if
 ''' if the only element in the list is removed.<para/>
-''' (2) The function is relying on the fact that if tail is<para/>
-''' not NULL, then is is a valid address.  You can use<para/>
-''' this function with tail == NULL for an existing list, in<para/>
-''' which case  the tail is found and updated, and the<para/>
+''' 
+''' (2) The function is relying on the fact that if tail is
+''' not NULL, then is is a valid address.  You can use
+''' this function with tail == NULL for an existing list, in
+''' which case  the tail is found and updated, and the
 ''' removed element is returned.<para/>
-''' (3) In ANSI C, it is not necessary to cast return to actual type e.g.,<para/>
-''' pix = listRemoveFromTail( and head,  and tail)<para/>
-''' but in ANSI C++, it is necessary to do the cast e.g.,<para/>
-''' pix = (Pix )listRemoveFromTail( and head,  and tail)<para/>
+''' 
+''' (3) In ANSI C, it is not necessary to cast return to actual type e.g.,
+''' pix = listRemoveFromTail([and]head, [and]tail)
+''' but in ANSI C++, it is necessary to do the cast e.g.,
+''' pix = (Pix )listRemoveFromTail([and]head, [and]tail)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -287,15 +296,16 @@ End Function
 ' listFindElement(head, data) as DoubleLinkedList
 ' listFindElement(DLLIST *, void *) as DLLIST *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This returns a ptr to the cell, which is still embedded in<para/>
+''' 
+''' (1) This returns a ptr to the cell, which is still embedded in
 ''' the list.<para/>
-''' (2) This handle and the attached data have not been copied or<para/>
-''' reference counted, so they must not be destroyed.  This<para/>
-''' violates our basic rule that every handle returned from a<para/>
-''' function is owned by that function and must be destroyed,<para/>
-''' but if rules aren't there to be broken, why have them?<para/>
+''' 
+''' (2) This handle and the attached data have not been copied or
+''' reference counted, so they must not be destroyed.  This
+''' violates our basic rule that every handle returned from a
+''' function is owned by that function and must be destroyed,
+''' but if rules aren't there to be broken, why have them?
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -359,9 +369,9 @@ End Function
 ' listReverse(phead) as Integer
 ' listReverse(DLLIST **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This reverses the list in-place.<para/>
+''' 
+''' (1) This reverses the list in-place.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -383,10 +393,11 @@ End Function
 ' listJoin(phead1, phead2) as Integer
 ' listJoin(DLLIST **, DLLIST **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The concatenated list is returned with head1 as the new head.<para/>
-''' (2) Both input ptrs must exist, though either can have the value NULL.<para/>
+''' 
+''' (2) Both input ptrs must exist, though either can have the value NULL.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

@@ -7,10 +7,11 @@ Partial Public Class _All
 ' pixGetRegionsBinary(pixs, ppixhm, ppixtm, ppixtb, pixadb) as Integer
 ' pixGetRegionsBinary(PIX *, PIX **, PIX **, PIX **, PIXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) It is best to deskew the image before segmenting.<para/>
-''' (2) Passing in %pixadb enables debug output.<para/>
+''' 
+''' (2) Passing in %pixadb enables debug output.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -47,11 +48,10 @@ End Function
 ' pixGenHalftoneMask(pixs, ppixtext, phtfound, debug) as Pix
 ' pixGenHalftoneMask(PIX *, PIX **, l_int32 *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
-''' Deprecated:<para/>
-''' This wrapper avoids an ABI change with tesseract 3.0.4.<para/>
-''' It should be removed when we no longer need to support 3.0.4.<para/>
-''' The debug parameter is ignored (assumed 0).<para/>
+''' Deprecated:
+''' This wrapper avoids an ABI change with tesseract 3.0.4.
+''' It should be removed when we no longer need to support 3.0.4.
+''' The debug parameter is ignored (assumed 0).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -80,10 +80,10 @@ End Function
 ' pixGenerateHalftoneMask(pixs, ppixtext, phtfound, pixadb) as Pix
 ' pixGenerateHalftoneMask(PIX *, PIX **, l_int32 *, PIXA *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is not intended to work on small thumbnails.  The<para/>
-''' dimensions of pixs must be at least MinWidth x MinHeight.<para/>
+''' 
+''' (1) This is not intended to work on small thumbnails.  The
+''' dimensions of pixs must be at least MinWidth x MinHeight.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -115,14 +115,17 @@ End Function
 ' pixGenTextlineMask(pixs, ppixvws, ptlfound, pixadb) as Pix
 ' pixGenTextlineMask(PIX *, PIX **, l_int32 *, PIXA *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The input pixs should be deskewed.<para/>
+''' 
 ''' (2) pixs should have no halftone pixels.<para/>
-''' (3) This is not intended to work on small thumbnails.  The<para/>
+''' 
+''' (3) This is not intended to work on small thumbnails.  The
 ''' dimensions of pixs must be at least MinWidth x MinHeight.<para/>
-''' (4) Both the input image and the returned textline mask<para/>
-''' are at the same resolution.<para/>
+''' 
+''' (4) Both the input image and the returned textline mask
+''' are at the same resolution.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -154,17 +157,19 @@ End Function
 ' pixGenTextblockMask(pixs, pixvws, pixadb) as Pix
 ' pixGenTextblockMask(PIX *, PIX *, PIXA *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Both the input masks (textline and vertical white space) and<para/>
+''' 
+''' (1) Both the input masks (textline and vertical white space) and
 ''' the returned textblock mask are at the same resolution.<para/>
-''' (2) This is not intended to work on small thumbnails.  The<para/>
+''' 
+''' (2) This is not intended to work on small thumbnails.  The
 ''' dimensions of pixs must be at least MinWidth x MinHeight.<para/>
-''' (3) The result is somewhat noisy, in that small "blocks" of<para/>
-''' text may be included.  These can be removed by post-processing,<para/>
-''' using, e.g.,<para/>
-''' pixSelectBySize(pix, 60, 60, 4, L_SELECT_IF_EITHER,<para/>
-''' L_SELECT_IF_GTE, NULL)<para/>
+''' 
+''' (3) The result is somewhat noisy, in that small "blocks" of
+''' text may be included.  These can be removed by post-processing,
+''' using, e.g.,
+''' pixSelectBySize(pix, 60, 60, 4, L_SELECT_IF_EITHER,
+''' L_SELECT_IF_GTE, NULL)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -192,19 +197,22 @@ End Function
 ' pixFindPageForeground(pixs, threshold, mindist, erasedist, showmorph, pixac) as Box
 ' pixFindPageForeground(PIX *, l_int32, l_int32, l_int32, l_int32, PIXAC *) as BOX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This doesn't simply crop to the fg.  It attempts to remove<para/>
-''' pixel noise and junk at the edge of the image before cropping.<para/>
+''' 
+''' (1) This doesn't simply crop to the fg.  It attempts to remove
+''' pixel noise and junk at the edge of the image before cropping.
 ''' The input %threshold is used if pixs is not 1 bpp.<para/>
-''' (2) This is not intended to work on small thumbnails.  The<para/>
+''' 
+''' (2) This is not intended to work on small thumbnails.  The
 ''' dimensions of pixs must be at least MinWidth x MinHeight.<para/>
-''' (3) Debug: set showmorph to display the intermediate image in<para/>
+''' 
+''' (3) Debug: set showmorph to display the intermediate image in
 ''' the morphological operations on this page.<para/>
-''' (4) Debug: to get pdf output of results when called repeatedly,<para/>
-''' call with an existing pixac, which will add an image of this page,<para/>
-''' with the fg outlined.  If no foreground is found, there is<para/>
-''' no output for this page image.<para/>
+''' 
+''' (4) Debug: to get pdf output of results when called repeatedly,
+''' call with an existing pixac, which will add an image of this page,
+''' with the fg outlined.  If no foreground is found, there is
+''' no output for this page image.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -237,14 +245,16 @@ End Function
 ' pixSplitIntoCharacters(pixs, minw, minh, pboxa, ppixa, ppixdebug) as Integer
 ' pixSplitIntoCharacters(PIX *, l_int32, l_int32, BOXA **, PIXA **, PIX **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a simple function that attempts to find split points<para/>
+''' 
+''' (1) This is a simple function that attempts to find split points
 ''' based on vertical pixel profiles.<para/>
-''' (2) It should be given an image that has an arbitrary number<para/>
+''' 
+''' (2) It should be given an image that has an arbitrary number
 ''' of text characters.<para/>
-''' (3) The returned pixa includes the boxes from which the<para/>
-''' (possibly split) components are extracted.<para/>
+''' 
+''' (3) The returned pixa includes the boxes from which the
+''' (possibly split) components are extracted.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -282,12 +292,12 @@ End Function
 ' pixSplitComponentWithProfile(pixs, delta, mindel, ppixdebug) as Boxa
 ' pixSplitComponentWithProfile(PIX *, l_int32, l_int32, PIX **) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This will split the most obvious cases of touching characters.<para/>
-''' The split points it is searching for are narrow and deep<para/>
-''' minimima in the vertical pixel projection profile, after a<para/>
-''' large vertical closing has been applied to the component.<para/>
+''' 
+''' (1) This will split the most obvious cases of touching characters.
+''' The split points it is searching for are narrow and deep
+''' minimima in the vertical pixel projection profile, after a
+''' large vertical closing has been applied to the component.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -318,34 +328,41 @@ End Function
 ' pixExtractTextlines(pixs, maxw, maxh, minw, minh, adjw, adjh, pixadb) as Pixa
 ' pixExtractTextlines(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, PIXA *) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This function assumes that textline fragments have sufficient<para/>
-''' vertical separation and small enough skew so that a<para/>
-''' horizontal dilation sufficient to join words will not join<para/>
-''' textlines.  It does not guarantee that horizontally adjacent<para/>
+''' 
+''' (1) This function assumes that textline fragments have sufficient
+''' vertical separation and small enough skew so that a
+''' horizontal dilation sufficient to join words will not join
+''' textlines.  It does not guarantee that horizontally adjacent
 ''' textline fragments on the same line will be joined.<para/>
-''' (2) For images with multiple columns, it attempts to avoid joining<para/>
-''' textlines across the space between columns.  If that is not<para/>
-''' a concern, you can also use pixExtractRawTextlines(),<para/>
+''' 
+''' (2) For images with multiple columns, it attempts to avoid joining
+''' textlines across the space between columns.  If that is not
+''' a concern, you can also use pixExtractRawTextlines(),
 ''' which will join them with alacrity.<para/>
-''' (3) This first removes components from pixs that are either<para/>
+''' 
+''' (3) This first removes components from pixs that are either
 ''' wide ( is greater  %maxw) or tall ( is greater  %maxh).<para/>
-''' (4) A final filtering operation removes small components, such<para/>
-''' that width  is lower  %minw or height  is lower  %minh.<para/>
-''' (5) For reasonable accuracy, the resolution of pixs should be<para/>
-''' at least 100 ppi.  For reasonable efficiency, the resolution<para/>
+''' 
+''' (4) A final filtering operation removes small components, such
+''' that width  is smaller %minw or height  is smaller %minh.<para/>
+''' 
+''' (5) For reasonable accuracy, the resolution of pixs should be
+''' at least 100 ppi.  For reasonable efficiency, the resolution
 ''' should not exceed 600 ppi.<para/>
-''' (6) This can be used to determine if some region of a scanned<para/>
+''' 
+''' (6) This can be used to determine if some region of a scanned
 ''' image is horizontal text.<para/>
-''' (7) As an example, for a pix with resolution 300 ppi, a reasonable<para/>
-''' set of parameters is:<para/>
-''' pixExtractTextlines(pix, 150, 150, 36, 20, 5, 5, NULL)<para/>
-''' The defaults minw and minh for 300 ppi are about 36 and 20,<para/>
-''' so the same result is obtained with:<para/>
+''' 
+''' (7) As an example, for a pix with resolution 300 ppi, a reasonable
+''' set of parameters is:
+''' pixExtractTextlines(pix, 150, 150, 36, 20, 5, 5, NULL)
+''' The defaults minw and minh for 300 ppi are about 36 and 20,
+''' so the same result is obtained with:
 ''' pixExtractTextlines(pix, 150, 150, 0, 0, 5, 5, NULL)<para/>
-''' (8) The output pixa is composed of subimages, one for each textline,<para/>
-''' and the boxa in the pixa tells where in %pixs each textline goes.<para/>
+''' 
+''' (8) The output pixa is composed of subimages, one for each textline,
+''' and the boxa in the pixa tells where in %pixs each textline goes.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -382,28 +399,33 @@ End Function
 ' pixExtractRawTextlines(pixs, maxw, maxh, adjw, adjh, pixadb) as Pixa
 ' pixExtractRawTextlines(PIX *, l_int32, l_int32, l_int32, l_int32, PIXA *) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This function assumes that textlines have sufficient<para/>
-''' vertical separation and small enough skew so that a<para/>
-''' horizontal dilation sufficient to join words will not join<para/>
-''' textlines.  It aggressively joins textlines across multiple<para/>
-''' columns, so if that is not desired, you must either (a) make<para/>
-''' sure that %pixs is a single column of text or (b) use instead<para/>
-''' pixExtractTextlines(), which is more conservative<para/>
+''' 
+''' (1) This function assumes that textlines have sufficient
+''' vertical separation and small enough skew so that a
+''' horizontal dilation sufficient to join words will not join
+''' textlines.  It aggressively joins textlines across multiple
+''' columns, so if that is not desired, you must either (a) make
+''' sure that %pixs is a single column of text or (b) use instead
+''' pixExtractTextlines(), which is more conservative
 ''' about joining text fragments that have vertical overlap.<para/>
-''' (2) This first removes components from pixs that are either<para/>
+''' 
+''' (2) This first removes components from pixs that are either
 ''' very wide ( is greater  %maxw) or very tall ( is greater  %maxh).<para/>
-''' (3) For reasonable accuracy, the resolution of pixs should be<para/>
-''' at least 100 ppi.  For reasonable efficiency, the resolution<para/>
+''' 
+''' (3) For reasonable accuracy, the resolution of pixs should be
+''' at least 100 ppi.  For reasonable efficiency, the resolution
 ''' should not exceed 600 ppi.<para/>
-''' (4) This can be used to determine if some region of a scanned<para/>
+''' 
+''' (4) This can be used to determine if some region of a scanned
 ''' image is horizontal text.<para/>
-''' (5) As an example, for a pix with resolution 300 ppi, a reasonable<para/>
-''' set of parameters is:<para/>
+''' 
+''' (5) As an example, for a pix with resolution 300 ppi, a reasonable
+''' set of parameters is:
 ''' pixExtractRawTextlines(pix, 150, 150, 0, 0, NULL)<para/>
-''' (6) The output pixa is composed of subimages, one for each textline,<para/>
-''' and the boxa in the pixa tells where in %pixs each textline goes.<para/>
+''' 
+''' (6) The output pixa is composed of subimages, one for each textline,
+''' and the boxa in the pixa tells where in %pixs each textline goes.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -436,15 +458,18 @@ End Function
 ' pixCountTextColumns(pixs, deltafract, peakfract, clipfract, pncols, pixadb) as Integer
 ' pixCountTextColumns(PIX *, l_float32, l_float32, l_float32, l_int32 *, PIXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) It is assumed that pixs has the correct resolution set.<para/>
+''' 
+''' (1) It is assumed that pixs has the correct resolution set.
 ''' If the resolution is 0, we set to 300 and issue a warning.<para/>
-''' (2) If necessary, the image is scaled to between 37 and 75 ppi<para/>
+''' 
+''' (2) If necessary, the image is scaled to between 37 and 75 ppi
 ''' most of the processing is done at this resolution.<para/>
-''' (3) If no text is found (essentially a blank page),<para/>
+''' 
+''' (3) If no text is found (essentially a blank page),
 ''' this returns ncols = 0.<para/>
-''' (4) For debug output, input a pre-allocated pixa.<para/>
+''' 
+''' (4) For debug output, input a pre-allocated pixa.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -479,20 +504,26 @@ End Function
 ' pixDecideIfText(pixs, box, pistext, pixadb) as Integer
 ' pixDecideIfText(PIX *, BOX *, l_int32 *, PIXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) It is assumed that pixs has the correct resolution set.<para/>
+''' 
+''' (1) It is assumed that pixs has the correct resolution set.
 ''' If the resolution is 0, we set to 300 and issue a warning.<para/>
-''' (2) If necessary, the image is scaled to 300 ppi most of the<para/>
+''' 
+''' (2) If necessary, the image is scaled to 300 ppi most of the
 ''' processing is done at this resolution.<para/>
+''' 
 ''' (3) Text is assumed to be in horizontal lines.<para/>
-''' (4) Because thin vertical lines are removed before filtering for<para/>
+''' 
+''' (4) Because thin vertical lines are removed before filtering for
 ''' text lines, this should identify tables as text.<para/>
-''' (5) If %box is null and pixs contains both text lines and line art,<para/>
+''' 
+''' (5) If %box is null and pixs contains both text lines and line art,
 ''' this function might return %istext == true.<para/>
-''' (6) If the input pixs is empty, or for some other reason the<para/>
+''' 
+''' (6) If the input pixs is empty, or for some other reason the
 ''' result can not be determined, return -1.<para/>
-''' (7) For debug output, input a pre-allocated pixa.<para/>
+''' 
+''' (7) For debug output, input a pre-allocated pixa.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -548,41 +579,49 @@ End Function
 ' pixDecideIfTable(pixs, box, orient, pscore, pixadb) as Integer
 ' pixDecideIfTable(PIX *, BOX *, l_int32, l_int32 *, PIXA *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) It is assumed that pixs has the correct resolution set.<para/>
+''' 
+''' (1) It is assumed that pixs has the correct resolution set.
 ''' If the resolution is 0, we assume it is 300 ppi and issue a warning.<para/>
-''' (2) If %orient == L_LANDSCAPE_MODE, the image is rotated 90 degrees<para/>
+''' 
+''' (2) If %orient == L_LANDSCAPE_MODE, the image is rotated 90 degrees
 ''' clockwise before being analyzed.<para/>
-''' (3) The interpretation of the returned score:<para/>
-''' -1 undetermined<para/>
-''' 0 no table<para/>
-''' 1 unlikely to have a table<para/>
-''' 2 likely to have a table<para/>
-''' 3 even more likely to have a table<para/>
-''' 4 extremely likely to have a table<para/>
-''' Setting the condition for finding a table at score  is greater = 2 works<para/>
-''' well, except for false positives on kanji and landscape text.<para/>
-''' These false positives can be removed by setting the condition<para/>
-''' at score  is greater = 3, but recall is lowered because it will not find<para/>
+''' 
+''' (3) The interpretation of the returned score:
+''' -1 undetermined
+''' 0 no table
+''' 1 unlikely to have a table
+''' 2 likely to have a table
+''' 3 even more likely to have a table
+''' 4 extremely likely to have a table
+''' Setting the condition for finding a table at score greater or equal 2 works
+''' well, except for false positives on kanji and landscape text.
+''' These false positives can be removed by setting the condition
+''' at score greater or equal 3, but recall is lowered because it will not find
 ''' tables without either horizontal or vertical lines.<para/>
+''' 
 ''' (4) Most of the processing takes place at 75 ppi.<para/>
-''' (5) Internally, three numbers are determined, for horizontal and<para/>
-''' vertical fg lines, and for vertical bg lines.  From these,<para/>
-''' four tests are made to decide if there is a table occupying<para/>
+''' 
+''' (5) Internally, three numbers are determined, for horizontal and
+''' vertical fg lines, and for vertical bg lines.  From these,
+''' four tests are made to decide if there is a table occupying
 ''' a significant part of the image.<para/>
-''' (6) Images have arbitrary content and would be likely to trigger<para/>
-''' this detector, so they are checked for first, and if found,<para/>
+''' 
+''' (6) Images have arbitrary content and would be likely to trigger
+''' this detector, so they are checked for first, and if found,
 ''' return with a 0 (no table) score.<para/>
+''' 
 ''' (7) Musical scores (tablature) are likely to trigger the detector.<para/>
-''' (8) Tables of content with more than 2 columns are likely to<para/>
+''' 
+''' (8) Tables of content with more than 2 columns are likely to
 ''' trigger the detector.<para/>
-''' (9) For debug output, input a pre-allocated pixa.<para/>
+''' 
+''' (9) For debug output, input a pre-allocated pixa.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/pixDecideIfTable/*"/>
-'''  <param name="pixs">[in] - any depth, any resolution  is greater = 75 ppi</param>
+'''  <param name="pixs">[in] - any depth, any resolution greater or equal 75 ppi</param>
 '''  <param name="box">[in][optional] - if null, use entire pixs</param>
 '''  <param name="orient">[in] - L_PORTRAIT_MODE, L_LANDSCAPE_MODE</param>
 '''  <param name="pscore">[out] - 0 - 4 -1 if not determined</param>
@@ -609,10 +648,10 @@ End Function
 ' pixPrepare1bpp(pixs, box, cropfract, outres) as Pix
 ' pixPrepare1bpp(PIX *, BOX *, l_float32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This handles some common pre-processing operations,<para/>
-''' where the page segmentation algorithm takes a 1 bpp image.<para/>
+''' 
+''' (1) This handles some common pre-processing operations,
+''' where the page segmentation algorithm takes a 1 bpp image.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -642,9 +681,9 @@ End Function
 ' pixEstimateBackground(pixs, darkthresh, edgecrop, pbg) as Integer
 ' pixEstimateBackground(PIX *, l_int32, l_float32, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Caller should check that return bg value is  is greater  0.<para/>
+''' 
+''' (1) Caller should check that return bg value is  is greater  0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -671,20 +710,22 @@ End Function
 ' pixFindLargeRectangles(pixs, polarity, nrect, pboxa, ppixdb) as Integer
 ' pixFindLargeRectangles(PIX *, l_int32, l_int32, BOXA **, PIX **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This does a greedy search to find the largest rectangles,<para/>
+''' 
+''' (1) This does a greedy search to find the largest rectangles,
 ''' either black or white and without overlaps, in %pix.<para/>
-''' (2) See pixFindLargestRectangle(), which is called multiple<para/>
-''' times, for details.  On each call, the largest rectangle<para/>
-''' found is painted, so that none of its pixels can be<para/>
+''' 
+''' (2) See pixFindLargestRectangle(), which is called multiple
+''' times, for details.  On each call, the largest rectangle
+''' found is painted, so that none of its pixels can be
 ''' used later, before calling it again.<para/>
-''' (3) This function is surprisingly fast.  Although<para/>
-''' pixFindLargestRectangle() runs at about 50 MPix/sec, when it<para/>
-''' is run multiple times by pixFindLargeRectangles(), it processes<para/>
-''' at 150 - 250 MPix/sec, and the time is approximately linear<para/>
-''' in %nrect.  For example, for a 1 MPix image, searching for<para/>
-''' the largest 50 boxes takes about 0.2 seconds.<para/>
+''' 
+''' (3) This function is surprisingly fast.  Although
+''' pixFindLargestRectangle() runs at about 50 MPix/sec, when it
+''' is run multiple times by pixFindLargeRectangles(), it processes
+''' at 150 - 250 MPix/sec, and the time is approximately linear
+''' in %nrect.  For example, for a 1 MPix image, searching for
+''' the largest 50 boxes takes about 0.2 seconds.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -720,45 +761,47 @@ End Function
 ' pixFindLargestRectangle(pixs, polarity, pbox, ppixdb) as Integer
 ' pixFindLargestRectangle(PIX *, l_int32, BOX **, PIX **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a simple and elegant solution to a problem in<para/>
-''' computational geometry that at first appears to be quite<para/>
-''' difficult: what is the largest rectangle that can be<para/>
-''' placed in the image, covering only pixels of one polarity<para/>
-''' (bg or fg)?  The solution is O(n), where n is the number<para/>
-''' of pixels in the image, and it requires nothing more than<para/>
+''' 
+''' (1) This is a simple and elegant solution to a problem in
+''' computational geometry that at first appears to be quite
+''' difficult: what is the largest rectangle that can be
+''' placed in the image, covering only pixels of one polarity
+''' (bg or fg)?  The solution is O(n), where n is the number
+''' of pixels in the image, and it requires nothing more than
 ''' using a simple recursion relation in a single sweep of the image.<para/>
-''' (2) In a sweep from UL to LR with left-to-right being the fast<para/>
-''' direction, calculate the largest white rectangle at (x, y),<para/>
-''' using previously calculated values at pixels #1 and #2:<para/>
-''' #1:  (x, y - 1)<para/>
-''' #2:  (x - 1, y)<para/>
-''' We also need the most recent "black" pixels that were seen<para/>
-''' in the current row and column.<para/>
-''' Consider the largest area.  There are only two possibilities:<para/>
-''' (a)  Min(w(1), horizdist)  (h(1) + 1)<para/>
-''' (b)  Min(h(2), vertdist)  (w(2) + 1)<para/>
-''' where<para/>
-''' horizdist: the distance from the rightmost "black" pixel seen<para/>
-''' in the current row across to the current pixel<para/>
-''' vertdist: the distance from the lowest "black" pixel seen<para/>
-''' in the current column down to the current pixel<para/>
+''' 
+''' (2) In a sweep from UL to LR with left-to-right being the fast
+''' direction, calculate the largest white rectangle at (x, y),
+''' using previously calculated values at pixels #1 and #2:
+''' #1:  (x, y - 1)
+''' #2:  (x - 1, y)
+''' We also need the most recent "black" pixels that were seen
+''' in the current row and column.
+''' Consider the largest area.  There are only two possibilities:
+''' (a)  Min(w(1), horizdist)  (h(1) + 1)
+''' (b)  Min(h(2), vertdist)  (w(2) + 1)
+''' where
+''' horizdist: the distance from the rightmost "black" pixel seen
+''' in the current row across to the current pixel
+''' vertdist: the distance from the lowest "black" pixel seen
+''' in the current column down to the current pixel
 ''' and we choose the Max of (a) and (b).<para/>
-''' (3) To convince yourself that these recursion relations are correct,<para/>
-''' it helps to draw the maximum rectangles at #1 and #2.<para/>
-''' Then for #1, you try to extend the rectangle down one line,<para/>
-''' so that the height is h(1) + 1.  Do you get the full<para/>
-''' width of #1, w(1)?  It depends on where the black pixels are<para/>
-''' in the current row.  You know the final width is bounded by w(1)<para/>
-''' and w(2) + 1, but the actual value depends on the distribution<para/>
-''' of black pixels in the current row that are at a distance<para/>
-''' from the current pixel that is between these limits.<para/>
-''' We call that value "horizdist", and the area is then given<para/>
-''' by the expression (a) above.  Using similar reasoning for #2,<para/>
-''' where you attempt to extend the rectangle to the right<para/>
-''' by 1 pixel, you arrive at (b).  The largest rectangle is<para/>
-''' then found by taking the Max.<para/>
+''' 
+''' (3) To convince yourself that these recursion relations are correct,
+''' it helps to draw the maximum rectangles at #1 and #2.
+''' Then for #1, you try to extend the rectangle down one line,
+''' so that the height is h(1) + 1.  Do you get the full
+''' width of #1, w(1)?  It depends on where the black pixels are
+''' in the current row.  You know the final width is bounded by w(1)
+''' and w(2) + 1, but the actual value depends on the distribution
+''' of black pixels in the current row that are at a distance
+''' from the current pixel that is between these limits.
+''' We call that value "horizdist", and the area is then given
+''' by the expression (a) above.  Using similar reasoning for #2,
+''' where you attempt to extend the rectangle to the right
+''' by 1 pixel, you arrive at (b).  The largest rectangle is
+''' then found by taking the Max.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

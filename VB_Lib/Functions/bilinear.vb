@@ -7,14 +7,17 @@ Partial Public Class _All
 ' pixBilinearSampledPta(pixs, ptad, ptas, incolor) as Pix
 ' pixBilinearSampledPta(PIX *, PTA *, PTA *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Brings in either black or white pixels from the boundary.<para/>
+''' 
 ''' (2) Retains colormap, which you can do for a sampled transform..<para/>
+''' 
 ''' (3) No 3 of the 4 points may be collinear.<para/>
-''' (4) For 8 and 32 bpp pix, better quality is obtained by the<para/>
-''' somewhat slower pixBilinearPta().  See that<para/>
-''' function for relative timings between sampled and interpolated.<para/>
+''' 
+''' (4) For 8 and 32 bpp pix, better quality is obtained by the
+''' somewhat slower pixBilinearPta().  See that
+''' function for relative timings between sampled and interpolated.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -44,13 +47,15 @@ End Function
 ' pixBilinearSampled(pixs, vc, incolor) as Pix
 ' pixBilinearSampled(PIX *, l_float32 *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Brings in either black or white pixels from the boundary.<para/>
+''' 
 ''' (2) Retains colormap, which you can do for a sampled transform..<para/>
-''' (3) For 8 or 32 bpp, much better quality is obtained by the<para/>
-''' somewhat slower pixBilinear().  See that function<para/>
-''' for relative timings between sampled and interpolated.<para/>
+''' 
+''' (3) For 8 or 32 bpp, much better quality is obtained by the
+''' somewhat slower pixBilinear().  See that function
+''' for relative timings between sampled and interpolated.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -77,10 +82,11 @@ End Function
 ' pixBilinearPta(pixs, ptad, ptas, incolor) as Pix
 ' pixBilinearPta(PIX *, PTA *, PTA *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Brings in either black or white pixels from the boundary<para/>
-''' (2) Removes any existing colormap, if necessary, before transforming<para/>
+''' 
+''' (2) Removes any existing colormap, if necessary, before transforming
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -110,10 +116,11 @@ End Function
 ' pixBilinear(pixs, vc, incolor) as Pix
 ' pixBilinear(PIX *, l_float32 *, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Brings in either black or white pixels from the boundary<para/>
-''' (2) Removes any existing colormap, if necessary, before transforming<para/>
+''' 
+''' (2) Removes any existing colormap, if necessary, before transforming
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -248,35 +255,41 @@ End Function
 ' pixBilinearPtaWithAlpha(pixs, ptad, ptas, pixg, fract, border) as Pix
 ' pixBilinearPtaWithAlpha(PIX *, PTA *, PTA *, PIX *, l_float32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The alpha channel is transformed separately from pixs,<para/>
-''' and aligns with it, being fully transparent outside the<para/>
-''' boundary of the transformed pixs.  For pixels that are fully<para/>
-''' transparent, a blending function like pixBlendWithGrayMask()<para/>
+''' 
+''' (1) The alpha channel is transformed separately from pixs,
+''' and aligns with it, being fully transparent outside the
+''' boundary of the transformed pixs.  For pixels that are fully
+''' transparent, a blending function like pixBlendWithGrayMask()
 ''' will give zero weight to corresponding pixels in pixs.<para/>
-''' (2) If pixg is NULL, it is generated as an alpha layer that is<para/>
-''' partially opaque, using %fract.  Otherwise, it is cropped<para/>
-''' to pixs if required and %fract is ignored.  The alpha channel<para/>
+''' 
+''' (2) If pixg is NULL, it is generated as an alpha layer that is
+''' partially opaque, using %fract.  Otherwise, it is cropped
+''' to pixs if required and %fract is ignored.  The alpha channel
 ''' in pixs is never used.<para/>
+''' 
 ''' (3) Colormaps are removed.<para/>
-''' (4) When pixs is transformed, it doesn't matter what color is brought<para/>
+''' 
+''' (4) When pixs is transformed, it doesn't matter what color is brought
 ''' in because the alpha channel will be transparent (0) there.<para/>
-''' (5) To avoid losing source pixels in the destination, it may be<para/>
-''' necessary to add a border to the source pix before doing<para/>
+''' 
+''' (5) To avoid losing source pixels in the destination, it may be
+''' necessary to add a border to the source pix before doing
 ''' the bilinear transformation.  This can be any non-negative number.<para/>
-''' (6) The input %ptad and %ptas are in a coordinate space before<para/>
-''' the border is added.  Internally, we compensate for this<para/>
-''' before doing the bilinear transform on the image after<para/>
+''' 
+''' (6) The input %ptad and %ptas are in a coordinate space before
+''' the border is added.  Internally, we compensate for this
+''' before doing the bilinear transform on the image after
 ''' the border is added.<para/>
-''' (7) The default setting for the border values in the alpha channel<para/>
-''' is 0 (transparent) for the outermost ring of pixels and<para/>
-''' (0.5  fract  255) for the second ring.  When blended over<para/>
-''' a second image, this<para/>
-''' (a) shrinks the visible image to make a clean overlap edge<para/>
-''' with an image below, and<para/>
-''' (b) softens the edges by weakening the aliasing there.<para/>
-''' Use l_setAlphaMaskBorder() to change these values.<para/>
+''' 
+''' (7) The default setting for the border values in the alpha channel
+''' is 0 (transparent) for the outermost ring of pixels and
+''' (0.5  fract  255) for the second ring.  When blended over
+''' a second image, this
+''' (a) shrinks the visible image to make a clean overlap edge
+''' with an image below, and
+''' (b) softens the edges by weakening the aliasing there.
+''' Use l_setAlphaMaskBorder() to change these values.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -314,39 +327,38 @@ End Function
 ' getBilinearXformCoeffs(ptas, ptad, pvc) as Integer
 ' getBilinearXformCoeffs(PTA *, PTA *, l_float32 **) as l_ok
 '''  <summary>
-''' <para/>
-''' We have a set of 8 equations, describing the bilinear<para/>
-''' transformation that takes 4 points ptas into 4 other<para/>
-''' points ptad.  These equations are:<para/>
-''' x1' = c[0]x1 + c[1]y1 + c[2]x1y1 + c[3]<para/>
-''' y1' = c[4]x1 + c[5]y1 + c[6]x1y1 + c[7]<para/>
-''' x2' = c[0]x2 + c[1]y2 + c[2]x2y2 + c[3]<para/>
-''' y2' = c[4]x2 + c[5]y2 + c[6]x2y2 + c[7]<para/>
-''' x3' = c[0]x3 + c[1]y3 + c[2]x3y3 + c[3]<para/>
-''' y3' = c[4]x3 + c[5]y3 + c[6]x3y3 + c[7]<para/>
-''' x4' = c[0]x4 + c[1]y4 + c[2]x4y4 + c[3]<para/>
-''' y4' = c[4]x4 + c[5]y4 + c[6]x4y4 + c[7]<para/>
-''' This can be represented as<para/>
-''' AC = B<para/>
-''' where B and C are column vectors<para/>
-''' B = [ x1' y1' x2' y2' x3' y3' x4' y4' ]<para/>
-''' C = [ c[0] c[1] c[2] c[3] c[4] c[5] c[6] c[7] ]<para/>
-''' and A is the 8x8 matrix<para/>
-''' x1 y1 x1y1 1 0  0  0 0<para/>
-''' 0  0 0 0 x1 y1 x1y1 1<para/>
-''' x2 y2 x2y2 1 0  0  0 0<para/>
-''' 0  0 0 0 x2 y2 x2y2 1<para/>
-''' x3 y3 x3y3 1 0  0  0 0<para/>
-''' 0  0 0 0 x3 y3 x3y3 1<para/>
-''' x4 y4 x4y4 1 0  0  0 0<para/>
-''' 0  0 0 0 x4 y4 x4y4 1<para/>
-''' These eight equations are solved here for the coefficients C.<para/>
-''' These eight coefficients can then be used to find the mapping<para/>
-''' x,y) -- is greater  (x',y':<para/>
-''' x' = c[0]x + c[1]y + c[2]xy + c[3]<para/>
-''' y' = c[4]x + c[5]y + c[6]xy + c[7]<para/>
-''' that are implemented in bilinearXformSampledPt and<para/>
-''' bilinearXFormPt.<para/>
+''' We have a set of 8 equations, describing the bilinear
+''' transformation that takes 4 points ptas into 4 other
+''' points ptad.  These equations are:
+''' x1' = c[0]x1 + c[1]y1 + c[2]x1y1 + c[3]
+''' y1' = c[4]x1 + c[5]y1 + c[6]x1y1 + c[7]
+''' x2' = c[0]x2 + c[1]y2 + c[2]x2y2 + c[3]
+''' y2' = c[4]x2 + c[5]y2 + c[6]x2y2 + c[7]
+''' x3' = c[0]x3 + c[1]y3 + c[2]x3y3 + c[3]
+''' y3' = c[4]x3 + c[5]y3 + c[6]x3y3 + c[7]
+''' x4' = c[0]x4 + c[1]y4 + c[2]x4y4 + c[3]
+''' y4' = c[4]x4 + c[5]y4 + c[6]x4y4 + c[7]
+''' This can be represented as
+''' AC = B
+''' where B and C are column vectors
+''' B = [ x1' y1' x2' y2' x3' y3' x4' y4' ]
+''' C = [ c[0] c[1] c[2] c[3] c[4] c[5] c[6] c[7] ]
+''' and A is the 8x8 matrix
+''' x1 y1 x1y1 1 0  0  0 0
+''' 0  0 0 0 x1 y1 x1y1 1
+''' x2 y2 x2y2 1 0  0  0 0
+''' 0  0 0 0 x2 y2 x2y2 1
+''' x3 y3 x3y3 1 0  0  0 0
+''' 0  0 0 0 x3 y3 x3y3 1
+''' x4 y4 x4y4 1 0  0  0 0
+''' 0  0 0 0 x4 y4 x4y4 1
+''' These eight equations are solved here for the coefficients C.
+''' These eight coefficients can then be used to find the mapping
+''' x,y) to (x',y':
+''' x' = c[0]x + c[1]y + c[2]xy + c[3]
+''' y' = c[4]x + c[5]y + c[6]xy + c[7]
+''' that are implemented in bilinearXformSampledPt and
+''' bilinearXFormPt.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -374,10 +386,11 @@ End Function
 ' bilinearXformSampledPt(vc, x, y, pxp, pyp) as Integer
 ' bilinearXformSampledPt(l_float32 *, l_int32, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This finds the nearest pixel coordinates of the transformed point.<para/>
-''' (2) It does not check ptrs for returned data!<para/>
+''' 
+''' (2) It does not check ptrs for returned data!
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -406,10 +419,11 @@ End Function
 ' bilinearXformPt(vc, x, y, pxp, pyp) as Integer
 ' bilinearXformPt(l_float32 *, l_int32, l_int32, l_float32 *, l_float32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This computes the floating point location of the transformed point.<para/>
-''' (2) It does not check ptrs for returned data!<para/>
+''' 
+''' (2) It does not check ptrs for returned data!
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

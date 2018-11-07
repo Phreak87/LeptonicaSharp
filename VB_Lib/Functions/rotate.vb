@@ -7,23 +7,28 @@ Partial Public Class _All
 ' pixRotate(pixs, angle, type, incolor, width, height) as Pix
 ' pixRotate(PIX *, l_float32, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a high-level, simple interface for rotating images<para/>
+''' 
+''' (1) This is a high-level, simple interface for rotating images
 ''' about their center.<para/>
+''' 
 ''' (2) For very small rotations, just return a clone.<para/>
-''' (3) Rotation brings either white or black pixels in<para/>
+''' 
+''' (3) Rotation brings either white or black pixels in
 ''' from outside the image.<para/>
-''' (4) The rotation type is adjusted if necessary for the image<para/>
-''' depth and size of rotation angle.  For 1 bpp images, we<para/>
+''' 
+''' (4) The rotation type is adjusted if necessary for the image
+''' depth and size of rotation angle.  For 1 bpp images, we
 ''' rotate either by shear or sampling.<para/>
+''' 
 ''' (5) Colormaps are removed for rotation by area mapping.<para/>
-''' (6) The dest can be expanded so that no image pixels<para/>
-''' are lost.  To invoke expansion, input the original<para/>
-''' width and height.  For repeated rotation, use of the<para/>
-''' original width and height allows the expansion to<para/>
-''' stop at the maximum required size, which is a square<para/>
-''' with side = sqrt(ww + hh).<para/>
+''' 
+''' (6) The dest can be expanded so that no image pixels
+''' are lost.  To invoke expansion, input the original
+''' width and height.  For repeated rotation, use of the
+''' original width and height allows the expansion to
+''' stop at the maximum required size, which is a square
+''' with side = sqrt(ww + hh).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -55,36 +60,40 @@ End Function
 ' pixEmbedForRotation(pixs, angle, incolor, width, height) as Pix
 ' pixEmbedForRotation(PIX *, l_float32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) For very small rotations, just return a clone.<para/>
-''' (2) Generate larger image to embed pixs if necessary, and<para/>
+''' 
+''' (2) Generate larger image to embed pixs if necessary, and
 ''' place the center of the input image in the center.<para/>
-''' (3) Rotation brings either white or black pixels in<para/>
-''' from outside the image.  For colormapped images where<para/>
-''' there is no white or black, a new color is added if<para/>
-''' possible for these pixels otherwise, either the<para/>
-''' lightest or darkest color is used.  In most cases,<para/>
+''' 
+''' (3) Rotation brings either white or black pixels in
+''' from outside the image.  For colormapped images where
+''' there is no white or black, a new color is added if
+''' possible for these pixels otherwise, either the
+''' lightest or darkest color is used.  In most cases,
 ''' the colormap will be removed prior to rotation.<para/>
-''' (4) The dest is to be expanded so that no image pixels<para/>
-''' are lost after rotation.  Input of the original width<para/>
-''' and height allows the expansion to stop at the maximum<para/>
-''' required size, which is a square with side equal to<para/>
+''' 
+''' (4) The dest is to be expanded so that no image pixels
+''' are lost after rotation.  Input of the original width
+''' and height allows the expansion to stop at the maximum
+''' required size, which is a square with side equal to
 ''' sqrt(ww + hh).<para/>
-''' (5) For an arbitrary angle, the expansion can be found by<para/>
-''' considering the UL and UR corners.  As the image is<para/>
-''' rotated, these move in an arc centered at the center of<para/>
-''' the image.  Normalize to a unit circle by dividing by half<para/>
-''' the image diagonal.  After a rotation of T radians, the UL<para/>
-''' and UR corners are at points T radians along the unit<para/>
-''' circle.  Compute the x and y coordinates of both these<para/>
-''' points and take the max of absolute values these represent<para/>
-''' the half width and half height of the containing rectangle.<para/>
-''' The arithmetic is done using formulas for sin(a+b) and cos(a+b),<para/>
-''' where b = T.  For the UR corner, sin(a) = h/d and cos(a) = w/d.<para/>
-''' For the UL corner, replace a by (pi - a), and you have<para/>
-''' sin(pi - a) = h/d, cos(pi - a) = -w/d.  The equations<para/>
-''' given below follow directly.<para/>
+''' 
+''' (5) For an arbitrary angle, the expansion can be found by
+''' considering the UL and UR corners.  As the image is
+''' rotated, these move in an arc centered at the center of
+''' the image.  Normalize to a unit circle by dividing by half
+''' the image diagonal.  After a rotation of T radians, the UL
+''' and UR corners are at points T radians along the unit
+''' circle.  Compute the x and y coordinates of both these
+''' points and take the max of absolute values these represent
+''' the half width and half height of the containing rectangle.
+''' The arithmetic is done using formulas for sin(a+b) and cos(a+b),
+''' where b = T.  For the UR corner, sin(a) = h/d and cos(a) = w/d.
+''' For the UL corner, replace a by (pi - a), and you have
+''' sin(pi - a) = h/d, cos(pi - a) = -w/d.  The equations
+''' given below follow directly.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -114,12 +123,14 @@ End Function
 ' pixRotateBySampling(pixs, xcen, ycen, angle, incolor) as Pix
 ' pixRotateBySampling(PIX *, l_int32, l_int32, l_float32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) For very small rotations, just return a clone.<para/>
-''' (2) Rotation brings either white or black pixels in<para/>
+''' 
+''' (2) Rotation brings either white or black pixels in
 ''' from outside the image.<para/>
-''' (3) Colormaps are retained.<para/>
+''' 
+''' (3) Colormaps are retained.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -149,21 +160,23 @@ End Function
 ' pixRotateBinaryNice(pixs, angle, incolor) as Pix
 ' pixRotateBinaryNice(PIX *, l_float32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) For very small rotations, just return a clone.<para/>
-''' (2) This does a computationally expensive rotation of 1 bpp images.<para/>
-''' The fastest rotators (using shears or subsampling) leave<para/>
-''' visible horizontal and vertical shear lines across which<para/>
-''' the image shear changes by one pixel.  To ameliorate the<para/>
-''' visual effect one can introduce random dithering.  One<para/>
-''' way to do this in a not-too-random fashion is given here.<para/>
-''' We convert to 8 bpp, do a very small blur, rotate using<para/>
-''' linear interpolation (same as area mapping), do a<para/>
-''' small amount of sharpening to compensate for the initial<para/>
-''' blur, and threshold back to binary.  The shear lines<para/>
+''' 
+''' (2) This does a computationally expensive rotation of 1 bpp images.
+''' The fastest rotators (using shears or subsampling) leave
+''' visible horizontal and vertical shear lines across which
+''' the image shear changes by one pixel.  To ameliorate the
+''' visual effect one can introduce random dithering.  One
+''' way to do this in a not-too-random fashion is given here.
+''' We convert to 8 bpp, do a very small blur, rotate using
+''' linear interpolation (same as area mapping), do a
+''' small amount of sharpening to compensate for the initial
+''' blur, and threshold back to binary.  The shear lines
 ''' are magically removed.<para/>
-''' (3) This operation is about 5x slower than rotation by sampling.<para/>
+''' 
+''' (3) This operation is about 5x slower than rotation by sampling.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -191,42 +204,48 @@ End Function
 ' pixRotateWithAlpha(pixs, angle, pixg, fract) as Pix
 ' pixRotateWithAlpha(PIX *, l_float32, PIX *, l_float32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The alpha channel is transformed separately from pixs,<para/>
-''' and aligns with it, being fully transparent outside the<para/>
-''' boundary of the transformed pixs.  For pixels that are fully<para/>
-''' transparent, a blending function like pixBlendWithGrayMask()<para/>
+''' 
+''' (1) The alpha channel is transformed separately from pixs,
+''' and aligns with it, being fully transparent outside the
+''' boundary of the transformed pixs.  For pixels that are fully
+''' transparent, a blending function like pixBlendWithGrayMask()
 ''' will give zero weight to corresponding pixels in pixs.<para/>
-''' (2) Rotation is about the center of the image for very small<para/>
-''' rotations, just return a clone.  The dest is automatically<para/>
+''' 
+''' (2) Rotation is about the center of the image for very small
+''' rotations, just return a clone.  The dest is automatically
 ''' expanded so that no image pixels are lost.<para/>
-''' (3) Rotation is by area mapping.  It doesn't matter what<para/>
-''' color is brought in because the alpha channel will<para/>
+''' 
+''' (3) Rotation is by area mapping.  It doesn't matter what
+''' color is brought in because the alpha channel will
 ''' be transparent (black) there.<para/>
-''' (4) If pixg is NULL, it is generated as an alpha layer that is<para/>
-''' partially opaque, using %fract.  Otherwise, it is cropped<para/>
-''' to pixs if required and %fract is ignored.  The alpha<para/>
+''' 
+''' (4) If pixg is NULL, it is generated as an alpha layer that is
+''' partially opaque, using %fract.  Otherwise, it is cropped
+''' to pixs if required and %fract is ignored.  The alpha
 ''' channel in pixs is never used.<para/>
+''' 
 ''' (4) Colormaps are removed to 32 bpp.<para/>
-''' (5) The default setting for the border values in the alpha channel<para/>
-''' is 0 (transparent) for the outermost ring of pixels and<para/>
-''' (0.5  fract  255) for the second ring.  When blended over<para/>
-''' a second image, this<para/>
-''' (a) shrinks the visible image to make a clean overlap edge<para/>
-''' with an image below, and<para/>
-''' (b) softens the edges by weakening the aliasing there.<para/>
+''' 
+''' (5) The default setting for the border values in the alpha channel
+''' is 0 (transparent) for the outermost ring of pixels and
+''' (0.5  fract  255) for the second ring.  When blended over
+''' a second image, this
+''' (a) shrinks the visible image to make a clean overlap edge
+''' with an image below, and
+''' (b) softens the edges by weakening the aliasing there.
 ''' Use l_setAlphaMaskBorder() to change these values.<para/>
-''' (6) A subtle use of gamma correction is to remove gamma correction<para/>
-''' before rotation and restore it afterwards.  This is done<para/>
-''' by sandwiching this function between a gamma/inverse-gamma<para/>
-''' photometric transform:<para/>
-''' pixt = pixGammaTRCWithAlpha(NULL, pixs, 1.0 / gamma, 0, 255)<para/>
-''' pixd = pixRotateWithAlpha(pixt, angle, NULL, fract)<para/>
-''' pixGammaTRCWithAlpha(pixd, pixd, gamma, 0, 255)<para/>
-''' pixDestroy( and pixt)<para/>
-''' This has the side-effect of producing artifacts in the very<para/>
-''' dark regions.<para/>
+''' 
+''' (6) A subtle use of gamma correction is to remove gamma correction
+''' before rotation and restore it afterwards.  This is done
+''' by sandwiching this function between a gamma/inverse-gamma
+''' photometric transform:
+''' pixt = pixGammaTRCWithAlpha(NULL, pixs, 1.0 / gamma, 0, 255)
+''' pixd = pixRotateWithAlpha(pixt, angle, NULL, fract)
+''' pixGammaTRCWithAlpha(pixd, pixd, gamma, 0, 255)
+''' pixDestroy([and]pixt)
+''' This has the side-effect of producing artifacts in the very
+''' dark regions.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

@@ -7,12 +7,14 @@ Partial Public Class _All
 ' recogCreateFromRecog(recs, scalew, scaleh, linew, threshold, maxyshift) as L_Recog
 ' recogCreateFromRecog(L_RECOG *, l_int32, l_int32, l_int32, l_int32, l_int32) as L_RECOG *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a convenience function that generates a recog using<para/>
+''' 
+''' (1) This is a convenience function that generates a recog using
 ''' the unscaled training data in an existing recog.<para/>
+''' 
 ''' (2) It is recommended to use %maxyshift = 1 (the default value)<para/>
-''' (3) See recogCreate() for use of %scalew, %scaleh and %linew.<para/>
+''' 
+''' (3) See recogCreate() for use of %scalew, %scaleh and %linew.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -44,16 +46,20 @@ End Function
 ' recogCreateFromPixa(pixa, scalew, scaleh, linew, threshold, maxyshift) as L_Recog
 ' recogCreateFromPixa(PIXA *, l_int32, l_int32, l_int32, l_int32, l_int32) as L_RECOG *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a convenience function for training from labeled data.<para/>
+''' 
+''' (1) This is a convenience function for training from labeled data.
 ''' The pixa can be read from file.<para/>
+''' 
 ''' (2) The pixa should contain the unscaled bitmaps used for training.<para/>
+''' 
 ''' (3) See recogCreate() for use of %scalew, %scaleh and %linew.<para/>
+''' 
 ''' (4) It is recommended to use %maxyshift = 1 (the default value)<para/>
-''' (5) All examples in the same class (i.e., with the same character<para/>
-''' label) should be similar.  They can be made similar by invoking<para/>
-''' recogRemoveOutliers[1,2]() on %pixa before calling this function.<para/>
+''' 
+''' (5) All examples in the same class (i.e., with the same character
+''' label) should be similar.  They can be made similar by invoking
+''' recogRemoveOutliers[1,2]() on %pixa before calling this function.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -85,12 +91,13 @@ End Function
 ' recogCreateFromPixaNoFinish(pixa, scalew, scaleh, linew, threshold, maxyshift) as L_Recog
 ' recogCreateFromPixaNoFinish(PIXA *, l_int32, l_int32, l_int32, l_int32, l_int32) as L_RECOG *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) See recogCreateFromPixa() for details.<para/>
-''' (2) This is also used to generate a pixaa with templates<para/>
-''' in each class within a pixa.  For that, all args except for<para/>
-''' %pixa are ignored.<para/>
+''' 
+''' (2) This is also used to generate a pixaa with templates
+''' in each class within a pixa.  For that, all args except for
+''' %pixa are ignored.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -122,24 +129,28 @@ End Function
 ' recogCreate(scalew, scaleh, linew, threshold, maxyshift) as L_Recog
 ' recogCreate(l_int32, l_int32, l_int32, l_int32, l_int32) as L_RECOG *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If %scalew == 0 and %scaleh == 0, no scaling is done.<para/>
-''' If one of these is 0 and the other is  is greater  0, scaling is isotropic<para/>
+''' 
+''' (1) If %scalew == 0 and %scaleh == 0, no scaling is done.
+''' If one of these is 0 and the other is  is greater  0, scaling is isotropic
 ''' to the requested size.  We typically do not set both  is greater  0.<para/>
-''' (2) Use linew  is greater  0 to convert the templates to images with fixed<para/>
+''' 
+''' (2) Use linew  is greater  0 to convert the templates to images with fixed
 ''' width strokes.  linew == 0 skips the conversion.<para/>
-''' (3) The only valid values for %maxyshift are 0, 1 and 2.<para/>
-''' It is recommended to use %maxyshift == 1 (default value).<para/>
-''' Using %maxyshift == 0 is much faster than %maxyshift == 1, but<para/>
-''' it is much less likely to find the template with the best<para/>
+''' 
+''' (3) The only valid values for %maxyshift are 0, 1 and 2.
+''' It is recommended to use %maxyshift == 1 (default value).
+''' Using %maxyshift == 0 is much faster than %maxyshift == 1, but
+''' it is much less likely to find the template with the best
 ''' correlation.  Use of anything but 1 results in a warning.<para/>
-''' (4) Scaling is used for finding outliers and for training a<para/>
-''' book-adapted recognizer (BAR) from a bootstrap recognizer (BSR).<para/>
-''' Scaling the height to a fixed value and scaling the width<para/>
+''' 
+''' (4) Scaling is used for finding outliers and for training a
+''' book-adapted recognizer (BAR) from a bootstrap recognizer (BSR).
+''' Scaling the height to a fixed value and scaling the width
 ''' accordingly (e.g., %scaleh = 40, %scalew = 0) is recommended.<para/>
-''' (5) The storage for most of the arrays is allocated when training<para/>
-''' is finished.<para/>
+''' 
+''' (5) The storage for most of the arrays is allocated when training
+''' is finished.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -202,17 +213,20 @@ End Function
 ' recogSetParams(recog, type, min_nopad, max_wh_ratio, max_ht_ratio) as Integer
 ' recogSetParams(L_RECOG *, l_int32, l_int32, l_float32, l_float32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is called when a recog is created.<para/>
-''' (2) Default %min_nopad value allows for some padding.<para/>
-''' To disable padding, set %min_nopad = 0.  To pad only when<para/>
+''' 
+''' (2) Default %min_nopad value allows for some padding.
+''' To disable padding, set %min_nopad = 0.  To pad only when
 ''' no samples are available for the class, set %min_nopad = 1.<para/>
-''' (3) The %max_wh_ratio limits the width/height ratio for components<para/>
+''' 
+''' (3) The %max_wh_ratio limits the width/height ratio for components
 ''' that we attempt to split.  Splitting long components is expensive.<para/>
-''' (4) The %max_ht_ratio is a quality requirement on the training data.<para/>
-''' The recognizer will not run if the averages are computed and<para/>
-''' the templates do not satisfy it.<para/>
+''' 
+''' (4) The %max_ht_ratio is a quality requirement on the training data.
+''' The recognizer will not run if the averages are computed and
+''' the templates do not satisfy it.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -241,19 +255,22 @@ End Function
 ' recogGetClassIndex(recog, val, text, pindex) as Integer
 ' recogGetClassIndex(L_RECOG *, l_int32, char *, l_int32 *) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is used during training.  There is one entry in<para/>
-''' recog- is greater dna_tochar (integer value, e.g., ascii) and<para/>
-''' one in recog- is greater sa_text (e.g, ascii letter in a string)<para/>
+''' 
+''' (1) This is used during training.  There is one entry in
+''' recogtodna_tochar (integer value, e.g., ascii) and
+''' one in recogtosa_text (e.g, ascii letter in a string)
 ''' for each character class.<para/>
-''' (2) This searches the dna character array for %val.  If it is<para/>
-''' not found, the template represents a character class not<para/>
-''' already seen: it increments setsize (the number of character<para/>
-''' classes) by 1, and augments both the index (dna_tochar)<para/>
+''' 
+''' (2) This searches the dna character array for %val.  If it is
+''' not found, the template represents a character class not
+''' already seen: it increments setsize (the number of character
+''' classes) by 1, and augments both the index (dna_tochar)
 ''' and text (sa_text) arrays.<para/>
-''' (3) Returns the index in  and index, except on error.<para/>
-''' (4) Caller must check the function return value.<para/>
+''' 
+''' (3) Returns the index in [and]index, except on error.<para/>
+''' 
+''' (4) Caller must check the function return value.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -304,11 +321,12 @@ End Function
 ' recogGetClassString(recog, index, pcharstr) as Integer
 ' recogGetClassString(L_RECOG *, l_int32, char **) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Extracts a copy of the string from sa_text, which<para/>
+''' 
+''' (1) Extracts a copy of the string from sa_text, which
 ''' the caller must free.<para/>
-''' (2) Caller must check the function return value.<para/>
+''' 
+''' (2) Caller must check the function return value.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -355,23 +373,23 @@ End Function
 ' recogRead(filename) as L_Recog
 ' recogRead(const char *) as L_RECOG *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) When a recog is serialized, a pixaa of the templates that are<para/>
-''' actually used for correlation is saved in the pixaa_u array<para/>
-''' of the recog.  These can be different from the templates that<para/>
-''' were used to generate the recog, because those original templates<para/>
-''' can be scaled and turned into normalized lines.  When recog1<para/>
-''' is deserialized to recog2, these templates are put in both the<para/>
-''' unscaled array (pixaa_u) and the modified array (pixaa) in recog2.<para/>
-''' Why not put it in only the unscaled array and let<para/>
-''' recogTrainingFinalized() regenerate the modified templates?<para/>
-''' The reason is that with normalized lines, the operation of<para/>
-''' thinning to a skeleton and dilating back to a fixed width<para/>
-''' is not idempotent.  Thinning to a skeleton saves pixels at<para/>
-''' the end of a line segment, and thickening the skeleton puts<para/>
-''' additional pixels at the end of the lines.  This tends to<para/>
-''' close gaps.<para/>
+''' 
+''' (1) When a recog is serialized, a pixaa of the templates that are
+''' actually used for correlation is saved in the pixaa_u array
+''' of the recog.  These can be different from the templates that
+''' were used to generate the recog, because those original templates
+''' can be scaled and turned into normalized lines.  When recog1
+''' is deserialized to recog2, these templates are put in both the
+''' unscaled array (pixaa_u) and the modified array (pixaa) in recog2.
+''' Why not put it in only the unscaled array and let
+''' recogTrainingFinalized() regenerate the modified templates?
+''' The reason is that with normalized lines, the operation of
+''' thinning to a skeleton and dilating back to a fixed width
+''' is not idempotent.  Thinning to a skeleton saves pixels at
+''' the end of a line segment, and thickening the skeleton puts
+''' additional pixels at the end of the lines.  This tends to
+''' close gaps.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -435,13 +453,13 @@ End Function
 ' recogWrite(filename, recog) as Integer
 ' recogWrite(const char *, L_RECOG *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The pixaa of templates that is written is the modified one<para/>
-''' in the pixaa field. It is the pixaa that is actually used<para/>
-''' for correlation. This is not the unscaled array of labeled<para/>
-''' bitmaps, in pixaa_u, that was used to generate the recog in the<para/>
-''' first place.  See the notes in recogRead() for the rationale.<para/>
+''' 
+''' (1) The pixaa of templates that is written is the modified one
+''' in the pixaa field. It is the pixaa that is actually used
+''' for correlation. This is not the unscaled array of labeled
+''' bitmaps, in pixaa_u, that was used to generate the recog in the
+''' first place.  See the notes in recogRead() for the rationale.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -488,9 +506,9 @@ End Function
 ' recogWriteMem(pdata, psize, recog) as Integer
 ' recogWriteMem(l_uint8 **, size_t *, L_RECOG *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Serializes a recog in memory and puts the result in a buffer.<para/>
+''' 
+''' (1) Serializes a recog in memory and puts the result in a buffer.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -518,11 +536,11 @@ End Function
 ' recogExtractPixa(recog) as Pixa
 ' recogExtractPixa(L_RECOG *) as PIXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This generates a pixa of all the unscaled images in the<para/>
-''' recognizer, where each one has its character class label in<para/>
-''' the pix text field, by flattening pixaa_u to a pixa.<para/>
+''' 
+''' (1) This generates a pixa of all the unscaled images in the
+''' recognizer, where each one has its character class label in
+''' the pix text field, by flattening pixaa_u to a pixa.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

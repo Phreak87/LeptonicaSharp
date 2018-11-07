@@ -10,7 +10,7 @@ Partial Public Class _All
 '''  </remarks>
 '''  <include file="IncludeComments.xml" path="Comments/ptaSubsample/*"/>
 '''  <param name="ptas">[in] - </param>
-'''  <param name="subfactor">[in] - subsample factor,  is greater = 1</param>
+'''  <param name="subfactor">[in] - subsample factor, greater or equal 1</param>
 '''   <returns>ptad evenly sampled pt values from ptas, or NULL on error</returns>
 Public Shared Function ptaSubsample(
 				 ByVal ptas as Pta, 
@@ -28,11 +28,13 @@ End Function
 ' ptaJoin(ptad, ptas, istart, iend) as Integer
 ' ptaJoin(PTA *, PTA *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) istart  is lower  0 is taken to mean 'read from the start' (istart = 0)<para/>
-''' (2) iend  is lower  0 means 'read to the end'<para/>
-''' (3) if ptas == NULL, this is a no-op<para/>
+''' 
+''' (1) istart  is smaller 0 is taken to mean 'read from the start' (istart = 0)<para/>
+''' 
+''' (2) iend  is smaller 0 means 'read to the end'<para/>
+''' 
+''' (3) if ptas == NULL, this is a no-op
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -60,11 +62,13 @@ End Function
 ' ptaaJoin(ptaad, ptaas, istart, iend) as Integer
 ' ptaaJoin(PTAA *, PTAA *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) istart  is lower  0 is taken to mean 'read from the start' (istart = 0)<para/>
-''' (2) iend  is lower  0 means 'read to the end'<para/>
-''' (3) if ptas == NULL, this is a no-op<para/>
+''' 
+''' (1) istart  is smaller 0 is taken to mean 'read from the start' (istart = 0)<para/>
+''' 
+''' (2) iend  is smaller 0 means 'read to the end'<para/>
+''' 
+''' (3) if ptas == NULL, this is a no-op
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -132,12 +136,12 @@ End Function
 ' ptaCyclicPerm(ptas, xs, ys) as Pta
 ' ptaCyclicPerm(PTA *, l_int32, l_int32) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Check to insure that (a) ptas is a closed path where<para/>
-''' the first and last points are identical, and (b) the<para/>
-''' resulting pta also starts and ends on the same point<para/>
-''' (which in this case is (xs, ys).<para/>
+''' 
+''' (1) Check to insure that (a) ptas is a closed path where
+''' the first and last points are identical, and (b) the
+''' resulting pta also starts and ends on the same point
+''' (which in this case is (xs, ys).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -186,11 +190,11 @@ End Function
 ' ptaGetBoundingRegion(pta) as Box
 ' ptaGetBoundingRegion(PTA *) as BOX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is used when the pta represents a set of points in<para/>
-''' a two-dimensional image.  It returns the box of minimum<para/>
-''' size containing the pts in the pta.<para/>
+''' 
+''' (1) This is used when the pta represents a set of points in
+''' a two-dimensional image.  It returns the box of minimum
+''' size containing the pts in the pta.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -212,11 +216,11 @@ End Function
 ' ptaGetRange(pta, pminx, pmaxx, pminy, pmaxy) as Integer
 ' ptaGetRange(PTA *, l_float32 *, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) We can use pts to represent pairs of floating values, that<para/>
-''' are not necessarily tied to a two-dimension region.  For<para/>
-''' example, the pts can represent a general function y(x).<para/>
+''' 
+''' (1) We can use pts to represent pairs of floating values, that
+''' are not necessarily tied to a two-dimension region.  For
+''' example, the pts can represent a general function y(x).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -267,10 +271,10 @@ End Function
 ' pixFindCornerPixels(pixs) as Pta
 ' pixFindCornerPixels(PIX *) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Finds the 4 corner-most pixels, as defined by a search<para/>
-''' inward from each corner, using a 45 degree line.<para/>
+''' 
+''' (1) Finds the 4 corner-most pixels, as defined by a search
+''' inward from each corner, using a 45 degree line.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -337,9 +341,9 @@ End Function
 ' ptaTransform(ptas, shiftx, shifty, scalex, scaley) as Pta
 ' ptaTransform(PTA *, l_int32, l_int32, l_float32, l_float32) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Shift first, then scale.<para/>
+''' 
+''' (1) Shift first, then scale.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -393,12 +397,12 @@ End Function
 ' l_angleBetweenVectors(x1, y1, x2, y2) as Single
 ' l_angleBetweenVectors(l_float32, l_float32, l_float32, l_float32) as l_float32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This gives the angle between two vectors, going between<para/>
-''' vector1 (x1,y1) and vector2 (x2,y2).  The angle is swept<para/>
-''' out from 1 -- is greater  2.  If this is clockwise, the angle is<para/>
-''' positive, but the result is folded into the interval [-pi, pi].<para/>
+''' 
+''' (1) This gives the angle between two vectors, going between
+''' vector1 (x1,y1) and vector2 (x2,y2).  The angle is swept
+''' out from 1 to 2.  If this is clockwise, the angle is
+''' positive, but the result is folded into the interval [-pi, pi].
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -498,26 +502,29 @@ End Function
 ' ptaGetLinearLSF(pta, pa, pb, pnafit) as Integer
 ' ptaGetLinearLSF(PTA *, l_float32 *, l_float32 *, NUMA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Either or both  and a and  and b must be input.  They determine the<para/>
+''' 
+''' (1) Either or both [and]a and [and]b must be input.  They determine the
 ''' type of line that is fit.<para/>
-''' (2) If both  and a and  and b are defined, this returns a and b that minimize:<para/>
-''' sum (yi - axi -b)^2<para/>
-''' i<para/>
-''' The method is simple: differentiate this expression w/rt a and b,<para/>
-''' and solve the resulting two equations for a and b in terms of<para/>
+''' 
+''' (2) If both [and]a and [and]b are defined, this returns a and b that minimize:
+''' sum (yi - axi -b)^2
+''' i
+''' The method is simple: differentiate this expression w/rt a and b,
+''' and solve the resulting two equations for a and b in terms of
 ''' various sums over the input data (xi, yi).<para/>
-''' (3) We also allow two special cases, where either a = 0 or b = 0:<para/>
-''' (a) If  and a is given and  and b = null, find the linear LSF that<para/>
-''' goes through the origin (b = 0).<para/>
-''' (b) If  and b is given and  and a = null, find the linear LSF with<para/>
+''' 
+''' (3) We also allow two special cases, where either a = 0 or b = 0:
+''' (a) If [and]a is given and [and]b = null, find the linear LSF that
+''' goes through the origin (b = 0).
+''' (b) If [and]b is given and [and]a = null, find the linear LSF with
 ''' zero slope (a = 0).<para/>
-''' (4) If  and nafit is defined, this returns an array of fitted values,<para/>
-''' corresponding to the two implicit Numa arrays (nax and nay) in pta.<para/>
-''' Thus, just as you can plot the data in pta as nay vs. nax,<para/>
-''' you can plot the linear least square fit as nafit vs. nax.<para/>
-''' Get the nax array using ptaGetArrays(pta,  and nax, NULL)<para/>
+''' 
+''' (4) If [and]nafit is defined, this returns an array of fitted values,
+''' corresponding to the two implicit Numa arrays (nax and nay) in pta.
+''' Thus, just as you can plot the data in pta as nay vs. nax,
+''' you can plot the linear least square fit as nafit vs. nax.
+''' Get the nax array using ptaGetArrays(pta, [and]nax, NULL)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -547,24 +554,25 @@ End Function
 ' ptaGetQuadraticLSF(pta, pa, pb, pc, pnafit) as Integer
 ' ptaGetQuadraticLSF(PTA *, l_float32 *, l_float32 *, l_float32 *, NUMA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This does a quadratic least square fit to the set of points<para/>
-''' in %pta.  That is, it finds coefficients a, b and c that minimize:<para/>
-''' sum (yi - axixi -bxi -c)^2<para/>
-''' i<para/>
-''' The method is simple: differentiate this expression w/rt<para/>
-''' a, b and c, and solve the resulting three equations for these<para/>
-''' coefficients in terms of various sums over the input data (xi, yi).<para/>
-''' The three equations are in the form:<para/>
-''' f[0][0]a + f[0][1]b + f[0][2]c = g[0]<para/>
-''' f[1][0]a + f[1][1]b + f[1][2]c = g[1]<para/>
+''' 
+''' (1) This does a quadratic least square fit to the set of points
+''' in %pta.  That is, it finds coefficients a, b and c that minimize:
+''' sum (yi - axixi -bxi -c)^2
+''' i
+''' The method is simple: differentiate this expression w/rt
+''' a, b and c, and solve the resulting three equations for these
+''' coefficients in terms of various sums over the input data (xi, yi).
+''' The three equations are in the form:
+''' f[0][0]a + f[0][1]b + f[0][2]c = g[0]
+''' f[1][0]a + f[1][1]b + f[1][2]c = g[1]
 ''' f[2][0]a + f[2][1]b + f[2][2]c = g[2]<para/>
-''' (2) If  and nafit is defined, this returns an array of fitted values,<para/>
-''' corresponding to the two implicit Numa arrays (nax and nay) in pta.<para/>
-''' Thus, just as you can plot the data in pta as nay vs. nax,<para/>
-''' you can plot the linear least square fit as nafit vs. nax.<para/>
-''' Get the nax array using ptaGetArrays(pta,  and nax, NULL)<para/>
+''' 
+''' (2) If [and]nafit is defined, this returns an array of fitted values,
+''' corresponding to the two implicit Numa arrays (nax and nay) in pta.
+''' Thus, just as you can plot the data in pta as nay vs. nax,
+''' you can plot the linear least square fit as nafit vs. nax.
+''' Get the nax array using ptaGetArrays(pta, [and]nax, NULL)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -596,26 +604,27 @@ End Function
 ' ptaGetCubicLSF(pta, pa, pb, pc, pd, pnafit) as Integer
 ' ptaGetCubicLSF(PTA *, l_float32 *, l_float32 *, l_float32 *, l_float32 *, NUMA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This does a cubic least square fit to the set of points<para/>
-''' in %pta.  That is, it finds coefficients a, b, c and d<para/>
-''' that minimize:<para/>
-''' sum (yi - axixixi -bxixi -cxi - d)^2<para/>
-''' i<para/>
-''' Differentiate this expression w/rt a, b, c and d, and solve<para/>
-''' the resulting four equations for these coefficients in<para/>
-''' terms of various sums over the input data (xi, yi).<para/>
-''' The four equations are in the form:<para/>
-''' f[0][0]a + f[0][1]b + f[0][2]c + f[0][3] = g[0]<para/>
-''' f[1][0]a + f[1][1]b + f[1][2]c + f[1][3] = g[1]<para/>
-''' f[2][0]a + f[2][1]b + f[2][2]c + f[2][3] = g[2]<para/>
+''' 
+''' (1) This does a cubic least square fit to the set of points
+''' in %pta.  That is, it finds coefficients a, b, c and d
+''' that minimize:
+''' sum (yi - axixixi -bxixi -cxi - d)^2
+''' i
+''' Differentiate this expression w/rt a, b, c and d, and solve
+''' the resulting four equations for these coefficients in
+''' terms of various sums over the input data (xi, yi).
+''' The four equations are in the form:
+''' f[0][0]a + f[0][1]b + f[0][2]c + f[0][3] = g[0]
+''' f[1][0]a + f[1][1]b + f[1][2]c + f[1][3] = g[1]
+''' f[2][0]a + f[2][1]b + f[2][2]c + f[2][3] = g[2]
 ''' f[3][0]a + f[3][1]b + f[3][2]c + f[3][3] = g[3]<para/>
-''' (2) If  and nafit is defined, this returns an array of fitted values,<para/>
-''' corresponding to the two implicit Numa arrays (nax and nay) in pta.<para/>
-''' Thus, just as you can plot the data in pta as nay vs. nax,<para/>
-''' you can plot the linear least square fit as nafit vs. nax.<para/>
-''' Get the nax array using ptaGetArrays(pta,  and nax, NULL)<para/>
+''' 
+''' (2) If [and]nafit is defined, this returns an array of fitted values,
+''' corresponding to the two implicit Numa arrays (nax and nay) in pta.
+''' Thus, just as you can plot the data in pta as nay vs. nax,
+''' you can plot the linear least square fit as nafit vs. nax.
+''' Get the nax array using ptaGetArrays(pta, [and]nax, NULL)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -649,27 +658,28 @@ End Function
 ' ptaGetQuarticLSF(pta, pa, pb, pc, pd, pe, pnafit) as Integer
 ' ptaGetQuarticLSF(PTA *, l_float32 *, l_float32 *, l_float32 *, l_float32 *, l_float32 *, NUMA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This does a quartic least square fit to the set of points<para/>
-''' in %pta.  That is, it finds coefficients a, b, c, d and 3<para/>
-''' that minimize:<para/>
-''' sum (yi - axixixixi -bxixixi -cxixi - dxi - e)^2<para/>
-''' i<para/>
-''' Differentiate this expression w/rt a, b, c, d and e, and solve<para/>
-''' the resulting five equations for these coefficients in<para/>
-''' terms of various sums over the input data (xi, yi).<para/>
-''' The five equations are in the form:<para/>
-''' f[0][0]a + f[0][1]b + f[0][2]c + f[0][3] + f[0][4] = g[0]<para/>
-''' f[1][0]a + f[1][1]b + f[1][2]c + f[1][3] + f[1][4] = g[1]<para/>
-''' f[2][0]a + f[2][1]b + f[2][2]c + f[2][3] + f[2][4] = g[2]<para/>
-''' f[3][0]a + f[3][1]b + f[3][2]c + f[3][3] + f[3][4] = g[3]<para/>
+''' 
+''' (1) This does a quartic least square fit to the set of points
+''' in %pta.  That is, it finds coefficients a, b, c, d and 3
+''' that minimize:
+''' sum (yi - axixixixi -bxixixi -cxixi - dxi - e)^2
+''' i
+''' Differentiate this expression w/rt a, b, c, d and e, and solve
+''' the resulting five equations for these coefficients in
+''' terms of various sums over the input data (xi, yi).
+''' The five equations are in the form:
+''' f[0][0]a + f[0][1]b + f[0][2]c + f[0][3] + f[0][4] = g[0]
+''' f[1][0]a + f[1][1]b + f[1][2]c + f[1][3] + f[1][4] = g[1]
+''' f[2][0]a + f[2][1]b + f[2][2]c + f[2][3] + f[2][4] = g[2]
+''' f[3][0]a + f[3][1]b + f[3][2]c + f[3][3] + f[3][4] = g[3]
 ''' f[4][0]a + f[4][1]b + f[4][2]c + f[4][3] + f[4][4] = g[4]<para/>
-''' (2) If  and nafit is defined, this returns an array of fitted values,<para/>
-''' corresponding to the two implicit Numa arrays (nax and nay) in pta.<para/>
-''' Thus, just as you can plot the data in pta as nay vs. nax,<para/>
-''' you can plot the linear least square fit as nafit vs. nax.<para/>
-''' Get the nax array using ptaGetArrays(pta,  and nax, NULL)<para/>
+''' 
+''' (2) If [and]nafit is defined, this returns an array of fitted values,
+''' corresponding to the two implicit Numa arrays (nax and nay) in pta.
+''' Thus, just as you can plot the data in pta as nay vs. nax,
+''' you can plot the linear least square fit as nafit vs. nax.
+''' Get the nax array using ptaGetArrays(pta, [and]nax, NULL)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -705,16 +715,18 @@ End Function
 ' ptaNoisyLinearLSF(pta, factor, pptad, pa, pb, pmederr, pnafit) as Integer
 ' ptaNoisyLinearLSF(PTA *, l_float32, PTA **, l_float32 *, l_float32 *, l_float32 *, NUMA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This does a linear least square fit to the set of points<para/>
-''' in %pta.  It then evaluates the errors and removes points<para/>
-''' whose error is  is greater = factor  median_error.  It then re-runs<para/>
+''' 
+''' (1) This does a linear least square fit to the set of points
+''' in %pta.  It then evaluates the errors and removes points
+''' whose error is greater or equal factor  median_error.  It then re-runs
 ''' the linear LSF on the resulting points.<para/>
-''' (2) Either or both  and a and  and b must be input.  They determine the<para/>
+''' 
+''' (2) Either or both [and]a and [and]b must be input.  They determine the
 ''' type of line that is fit.<para/>
-''' (3) The median error can give an indication of how good the fit<para/>
-''' is likely to be.<para/>
+''' 
+''' (3) The median error can give an indication of how good the fit
+''' is likely to be.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -752,12 +764,12 @@ End Function
 ' ptaNoisyQuadraticLSF(pta, factor, pptad, pa, pb, pc, pmederr, pnafit) as Integer
 ' ptaNoisyQuadraticLSF(PTA *, l_float32, PTA **, l_float32 *, l_float32 *, l_float32 *, l_float32 *, NUMA **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This does a quadratic least square fit to the set of points<para/>
-''' in %pta.  It then evaluates the errors and removes points<para/>
-''' whose error is  is greater = factor  median_error.  It then re-runs<para/>
-''' a quadratic LSF on the resulting points.<para/>
+''' 
+''' (1) This does a quadratic least square fit to the set of points
+''' in %pta.  It then evaluates the errors and removes points
+''' whose error is greater or equal factor  median_error.  It then re-runs
+''' a quadratic LSF on the resulting points.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -897,11 +909,13 @@ End Function
 ' pixPlotAlongPta(pixs, pta, outformat, title) as Integer
 ' pixPlotAlongPta(PIX *, PTA *, l_int32, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is a debugging function.<para/>
+''' 
 ''' (2) Removes existing colormaps and clips the pta to the input %pixs.<para/>
-''' (3) If the image is RGB, three separate plots are generated.<para/>
+''' 
+''' (3) If the image is RGB, three separate plots are generated.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -929,10 +943,10 @@ End Function
 ' ptaGetPixelsFromPix(pixs, box) as Pta
 ' ptaGetPixelsFromPix(PIX *, BOX *) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Generates a pta of fg pixels in the pix, within the box.<para/>
-''' If box == NULL, it uses the entire pix.<para/>
+''' 
+''' (1) Generates a pta of fg pixels in the pix, within the box.
+''' If box == NULL, it uses the entire pix.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -960,11 +974,13 @@ End Function
 ' pixGenerateFromPta(pta, w, h) as Pix
 ' pixGenerateFromPta(PTA *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Points are rounded to nearest ints.<para/>
+''' 
 ''' (2) Any points outside (w,h) are silently discarded.<para/>
-''' (3) Output 1 bpp pix has values 1 for each point in the pta.<para/>
+''' 
+''' (3) Output 1 bpp pix has values 1 for each point in the pta.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -990,11 +1006,12 @@ End Function
 ' ptaGetBoundaryPixels(pixs, type) as Pta
 ' ptaGetBoundaryPixels(PIX *, l_int32) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This generates a pta of either fg or bg boundary pixels.<para/>
-''' (2) See also pixGeneratePtaBoundary() for rendering of<para/>
-''' fg boundary pixels.<para/>
+''' 
+''' (2) See also pixGeneratePtaBoundary() for rendering of
+''' fg boundary pixels.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1020,17 +1037,18 @@ End Function
 ' ptaaGetBoundaryPixels(pixs, type, connectivity, pboxa, ppixa) as Ptaa
 ' ptaaGetBoundaryPixels(PIX *, l_int32, l_int32, BOXA **, PIXA **) as PTAA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This generates a ptaa of either fg or bg boundary pixels,<para/>
-''' where each pta has the boundary pixels for a connected<para/>
+''' 
+''' (1) This generates a ptaa of either fg or bg boundary pixels,
+''' where each pta has the boundary pixels for a connected
 ''' component.<para/>
-''' (2) We can't simply find all the boundary pixels and then select<para/>
-''' those within the bounding box of each component, because<para/>
-''' bounding boxes can overlap.  It is necessary to extract and<para/>
-''' dilate or erode each component separately.  Note also that<para/>
-''' special handling is required for bg pixels when the<para/>
-''' component touches the pix boundary.<para/>
+''' 
+''' (2) We can't simply find all the boundary pixels and then select
+''' those within the bounding box of each component, because
+''' bounding boxes can overlap.  It is necessary to extract and
+''' dilate or erode each component separately.  Note also that
+''' special handling is required for bg pixels when the
+''' component touches the pix boundary.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1067,18 +1085,20 @@ End Function
 ' ptaaIndexLabeledPixels(pixs, pncc) as Ptaa
 ' ptaaIndexLabeledPixels(PIX *, l_int32 *) as PTAA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The pixel values in %pixs are the index of the connected component<para/>
-''' to which the pixel belongs %pixs is typically generated from<para/>
-''' a 1 bpp pix by pixConnCompTransform().  Background pixels in<para/>
-''' the generating 1 bpp pix are represented in %pixs by 0.<para/>
+''' 
+''' (1) The pixel values in %pixs are the index of the connected component
+''' to which the pixel belongs %pixs is typically generated from
+''' a 1 bpp pix by pixConnCompTransform().  Background pixels in
+''' the generating 1 bpp pix are represented in %pixs by 0.
 ''' We do not check that the pixel values are correctly labelled.<para/>
-''' (2) Each pta in the returned ptaa gives the pixel locations<para/>
-''' correspnding to a connected component, with the label of each<para/>
+''' 
+''' (2) Each pta in the returned ptaa gives the pixel locations
+''' correspnding to a connected component, with the label of each
 ''' given by the index of the pta into the ptaa.<para/>
-''' (3) Initialize with the first pta in ptaa being empty and<para/>
-''' representing the background value (index 0) in the pix.<para/>
+''' 
+''' (3) Initialize with the first pta in ptaa being empty and
+''' representing the background value (index 0) in the pix.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1102,10 +1122,10 @@ End Function
 ' ptaGetNeighborPixLocs(pixs, x, y, conn) as Pta
 ' ptaGetNeighborPixLocs(PIX *, l_int32, l_int32, l_int32) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Generates a pta of all valid neighbor pixel locations,<para/>
-''' or NULL on error.<para/>
+''' 
+''' (1) Generates a pta of all valid neighbor pixel locations,
+''' or NULL on error.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1201,15 +1221,16 @@ End Function
 ' pixDisplayPta(pixd, pixs, pta) as Pix
 ' pixDisplayPta(PIX *, PIX *, PTA *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) To write on an existing pixs, pixs must be 32 bpp and<para/>
-''' call with pixd == pixs:<para/>
-''' pixDisplayPta(pixs, pixs, pta)<para/>
-''' To write to a new pix, use pixd == NULL and call:<para/>
+''' 
+''' (1) To write on an existing pixs, pixs must be 32 bpp and
+''' call with pixd == pixs:
+''' pixDisplayPta(pixs, pixs, pta)
+''' To write to a new pix, use pixd == NULL and call:
 ''' pixd = pixDisplayPta(NULL, pixs, pta)<para/>
-''' (2) On error, returns pixd to avoid losing pixs if called as<para/>
-''' pixs = pixDisplayPta(pixs, pixs, pta)<para/>
+''' 
+''' (2) On error, returns pixd to avoid losing pixs if called as
+''' pixs = pixDisplayPta(pixs, pixs, pta)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1239,18 +1260,21 @@ End Function
 ' pixDisplayPtaaPattern(pixd, pixs, ptaa, pixp, cx, cy) as Pix
 ' pixDisplayPtaaPattern(PIX *, PIX *, PTAA *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) To write on an existing pixs, pixs must be 32 bpp and<para/>
-''' call with pixd == pixs:<para/>
-''' pixDisplayPtaPattern(pixs, pixs, pta, ...)<para/>
-''' To write to a new pix, use pixd == NULL and call:<para/>
+''' 
+''' (1) To write on an existing pixs, pixs must be 32 bpp and
+''' call with pixd == pixs:
+''' pixDisplayPtaPattern(pixs, pixs, pta, ...)
+''' To write to a new pix, use pixd == NULL and call:
 ''' pixd = pixDisplayPtaPattern(NULL, pixs, pta, ...)<para/>
+''' 
 ''' (2) Puts a random color on each pattern associated with a pta.<para/>
-''' (3) On error, returns pixd to avoid losing pixs if called as<para/>
+''' 
+''' (3) On error, returns pixd to avoid losing pixs if called as
 ''' pixs = pixDisplayPtaPattern(pixs, pixs, pta, ...)<para/>
-''' (4) A typical pattern to be used is a circle, generated with<para/>
-''' generatePtaFilledCircle()<para/>
+''' 
+''' (4) A typical pattern to be used is a circle, generated with
+''' generatePtaFilledCircle()
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1285,17 +1309,19 @@ End Function
 ' pixDisplayPtaPattern(pixd, pixs, pta, pixp, cx, cy, color) as Pix
 ' pixDisplayPtaPattern(PIX *, PIX *, PTA *, PIX *, l_int32, l_int32, l_uint32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) To write on an existing pixs, pixs must be 32 bpp and<para/>
-''' call with pixd == pixs:<para/>
-''' pixDisplayPtaPattern(pixs, pixs, pta, ...)<para/>
-''' To write to a new pix, use pixd == NULL and call:<para/>
+''' 
+''' (1) To write on an existing pixs, pixs must be 32 bpp and
+''' call with pixd == pixs:
+''' pixDisplayPtaPattern(pixs, pixs, pta, ...)
+''' To write to a new pix, use pixd == NULL and call:
 ''' pixd = pixDisplayPtaPattern(NULL, pixs, pta, ...)<para/>
-''' (2) On error, returns pixd to avoid losing pixs if called as<para/>
+''' 
+''' (2) On error, returns pixd to avoid losing pixs if called as
 ''' pixs = pixDisplayPtaPattern(pixs, pixs, pta, ...)<para/>
-''' (3) A typical pattern to be used is a circle, generated with<para/>
-''' generatePtaFilledCircle()<para/>
+''' 
+''' (3) A typical pattern to be used is a circle, generated with
+''' generatePtaFilledCircle()
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1334,13 +1360,14 @@ End Function
 ' ptaReplicatePattern(ptas, pixp, ptap, cx, cy, w, h) as Pta
 ' ptaReplicatePattern(PTA *, PIX *, PTA *, l_int32, l_int32, l_int32, l_int32) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) You can use either the image %pixp or the set of pts %ptap.<para/>
-''' (2) The pattern is placed with its reference point at each point<para/>
-''' in ptas, and all the fg pixels are colleced into ptad.<para/>
-''' For %pixp, this is equivalent to blitting pixp at each point<para/>
-''' in ptas, and then converting the resulting pix to a pta.<para/>
+''' 
+''' (2) The pattern is placed with its reference point at each point
+''' in ptas, and all the fg pixels are colleced into ptad.
+''' For %pixp, this is equivalent to blitting pixp at each point
+''' in ptas, and then converting the resulting pix to a pta.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

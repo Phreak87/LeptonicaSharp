@@ -7,10 +7,9 @@ Partial Public Class _All
 ' l_bootnum_gen3() as Pixa
 ' l_bootnum_gen3() as PIXA *
 '''  <summary>
-''' <para/>
-''' Call this way:<para/>
-''' PIXA  pixa = l_bootnum_gen3() (C)<para/>
-''' Pixa  pixa = l_bootnum_gen3() (C++)<para/>
+''' Call this way:
+''' PIXA  pixa = l_bootnum_gen3() (C)
+''' Pixa  pixa = l_bootnum_gen3() (C++)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

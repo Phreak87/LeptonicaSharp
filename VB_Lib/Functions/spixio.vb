@@ -7,10 +7,10 @@ Partial Public Class _All
 ' pixReadStreamSpix(fp) as Pix
 ' pixReadStreamSpix(FILE *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If called from pixReadStream(), the stream is positioned<para/>
-''' at the beginning of the file.<para/>
+''' 
+''' (1) If called from pixReadStream(), the stream is positioned
+''' at the beginning of the file.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -32,9 +32,9 @@ End Function
 ' readHeaderSpix(filename, pwidth, pheight, pbps, pspp, piscmap) as Integer
 ' readHeaderSpix(const char *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If there is a colormap, iscmap is returned as 1 else 0.<para/>
+''' 
+''' (1) If there is a colormap, iscmap is returned as 1 else 0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -67,9 +67,9 @@ End Function
 ' freadHeaderSpix(fp, pwidth, pheight, pbps, pspp, piscmap) as Integer
 ' freadHeaderSpix(FILE *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If there is a colormap, iscmap is returned as 1 else 0.<para/>
+''' 
+''' (1) If there is a colormap, iscmap is returned as 1 else 0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -100,9 +100,9 @@ End Function
 ' sreadHeaderSpix(data, pwidth, pheight, pbps, pspp, piscmap) as Integer
 ' sreadHeaderSpix(const l_uint32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If there is a colormap, iscmap is returned as 1 else 0.<para/>
+''' 
+''' (1) If there is a colormap, iscmap is returned as 1 else 0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -202,20 +202,20 @@ End Function
 ' pixSerializeToMemory(pixs, pdata, pnbytes) as Integer
 ' pixSerializeToMemory(PIX *, l_uint32 **, size_t *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This does a fast serialization of the principal elements<para/>
-''' of the pix, as follows:<para/>
-''' "spix"  (4 bytes) -- ID for file type<para/>
-''' w (4 bytes)<para/>
-''' h (4 bytes)<para/>
-''' d (4 bytes)<para/>
-''' wpl (4 bytes)<para/>
-''' ncolors (4 bytes) -- in colormap 0 if there is no colormap<para/>
-''' cdata (4  ncolors)  -- size of serialized colormap array<para/>
-''' rdatasize (4 bytes) -- size of serialized raster data<para/>
-''' = 4  wpl  h<para/>
-''' rdata (rdatasize)<para/>
+''' 
+''' (1) This does a fast serialization of the principal elements
+''' of the pix, as follows:
+''' "spix"  (4 bytes) -- ID for file type
+''' w (4 bytes)
+''' h (4 bytes)
+''' d (4 bytes)
+''' wpl (4 bytes)
+''' ncolors (4 bytes) -- in colormap 0 if there is no colormap
+''' cdata (4  ncolors)  -- size of serialized colormap array
+''' rdatasize (4 bytes) -- size of serialized raster data
+''' = 4  wpl  h
+''' rdata (rdatasize)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -243,10 +243,11 @@ End Function
 ' pixDeserializeFromMemory(data, nbytes) as Pix
 ' pixDeserializeFromMemory(const l_uint32 *, size_t) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) See pixSerializeToMemory() for the binary format.<para/>
-''' (2) Note the image size limits.<para/>
+''' 
+''' (2) Note the image size limits.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

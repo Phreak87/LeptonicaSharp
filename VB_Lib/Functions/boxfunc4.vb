@@ -7,11 +7,11 @@ Partial Public Class _All
 ' boxaSelectRange(boxas, first, last, copyflag) as Boxa
 ' boxaSelectRange(BOXA *, l_int32, l_int32, l_int32) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The copyflag specifies what we do with each box from boxas.<para/>
-''' Specifically, L_CLONE inserts a clone into boxad of each<para/>
-''' selected box from boxas.<para/>
+''' 
+''' (1) The copyflag specifies what we do with each box from boxas.
+''' Specifically, L_CLONE inserts a clone into boxad of each
+''' selected box from boxas.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -39,11 +39,11 @@ End Function
 ' boxaaSelectRange(baas, first, last, copyflag) as Boxaa
 ' boxaaSelectRange(BOXAA *, l_int32, l_int32, l_int32) as BOXAA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The copyflag specifies what we do with each boxa from baas.<para/>
-''' Specifically, L_CLONE inserts a clone into baad of each<para/>
-''' selected boxa from baas.<para/>
+''' 
+''' (1) The copyflag specifies what we do with each boxa from baas.
+''' Specifically, L_CLONE inserts a clone into baad of each
+''' selected boxa from baas.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -71,17 +71,20 @@ End Function
 ' boxaSelectBySize(boxas, width, height, type, relation, pchanged) as Boxa
 ' boxaSelectBySize(BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32 *) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The args specify constraints on the size of the<para/>
+''' 
+''' (1) The args specify constraints on the size of the
 ''' components that are kept.<para/>
+''' 
 ''' (2) Uses box copies in the new boxa.<para/>
-''' (3) If the selection type is L_SELECT_WIDTH, the input<para/>
+''' 
+''' (3) If the selection type is L_SELECT_WIDTH, the input
 ''' height is ignored, and v.v.<para/>
-''' (4) To keep small components, use relation = L_SELECT_IF_LT or<para/>
-''' L_SELECT_IF_LTE.<para/>
-''' To keep large components, use relation = L_SELECT_IF_GT or<para/>
-''' L_SELECT_IF_GTE.<para/>
+''' 
+''' (4) To keep small components, use relation = L_SELECT_IF_LT or
+''' L_SELECT_IF_LTE.
+''' To keep large components, use relation = L_SELECT_IF_GT or
+''' L_SELECT_IF_GTE.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -113,16 +116,18 @@ End Function
 ' boxaMakeSizeIndicator(boxa, width, height, type, relation) as Numa
 ' boxaMakeSizeIndicator(BOXA *, l_int32, l_int32, l_int32, l_int32) as NUMA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The args specify constraints on the size of the<para/>
+''' 
+''' (1) The args specify constraints on the size of the
 ''' components that are kept.<para/>
-''' (2) If the selection type is L_SELECT_WIDTH, the input<para/>
+''' 
+''' (2) If the selection type is L_SELECT_WIDTH, the input
 ''' height is ignored, and v.v.<para/>
-''' (3) To keep small components, use relation = L_SELECT_IF_LT or<para/>
-''' L_SELECT_IF_LTE.<para/>
-''' To keep large components, use relation = L_SELECT_IF_GT or<para/>
-''' L_SELECT_IF_GTE.<para/>
+''' 
+''' (3) To keep small components, use relation = L_SELECT_IF_LT or
+''' L_SELECT_IF_LTE.
+''' To keep large components, use relation = L_SELECT_IF_GT or
+''' L_SELECT_IF_GTE.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -152,13 +157,14 @@ End Function
 ' boxaSelectByArea(boxas, area, relation, pchanged) as Boxa
 ' boxaSelectByArea(BOXA *, l_int32, l_int32, l_int32 *) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Uses box copies in the new boxa.<para/>
-''' (2) To keep small components, use relation = L_SELECT_IF_LT or<para/>
-''' L_SELECT_IF_LTE.<para/>
-''' To keep large components, use relation = L_SELECT_IF_GT or<para/>
-''' L_SELECT_IF_GTE.<para/>
+''' 
+''' (2) To keep small components, use relation = L_SELECT_IF_LT or
+''' L_SELECT_IF_LTE.
+''' To keep large components, use relation = L_SELECT_IF_GT or
+''' L_SELECT_IF_GTE.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -186,12 +192,12 @@ End Function
 ' boxaMakeAreaIndicator(boxa, area, relation) as Numa
 ' boxaMakeAreaIndicator(BOXA *, l_int32, l_int32) as NUMA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) To keep small components, use relation = L_SELECT_IF_LT or<para/>
-''' L_SELECT_IF_LTE.<para/>
-''' To keep large components, use relation = L_SELECT_IF_GT or<para/>
-''' L_SELECT_IF_GTE.<para/>
+''' 
+''' (1) To keep small components, use relation = L_SELECT_IF_LT or
+''' L_SELECT_IF_LTE.
+''' To keep large components, use relation = L_SELECT_IF_GT or
+''' L_SELECT_IF_GTE.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -217,13 +223,14 @@ End Function
 ' boxaSelectByWHRatio(boxas, ratio, relation, pchanged) as Boxa
 ' boxaSelectByWHRatio(BOXA *, l_float32, l_int32, l_int32 *) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Uses box copies in the new boxa.<para/>
-''' (2) To keep narrow components, use relation = L_SELECT_IF_LT or<para/>
-''' L_SELECT_IF_LTE.<para/>
-''' To keep wide components, use relation = L_SELECT_IF_GT or<para/>
-''' L_SELECT_IF_GTE.<para/>
+''' 
+''' (2) To keep narrow components, use relation = L_SELECT_IF_LT or
+''' L_SELECT_IF_LTE.
+''' To keep wide components, use relation = L_SELECT_IF_GT or
+''' L_SELECT_IF_GTE.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -251,12 +258,12 @@ End Function
 ' boxaMakeWHRatioIndicator(boxa, ratio, relation) as Numa
 ' boxaMakeWHRatioIndicator(BOXA *, l_float32, l_int32) as NUMA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) To keep narrow components, use relation = L_SELECT_IF_LT or<para/>
-''' L_SELECT_IF_LTE.<para/>
-''' To keep wide components, use relation = L_SELECT_IF_GT or<para/>
-''' L_SELECT_IF_GTE.<para/>
+''' 
+''' (1) To keep narrow components, use relation = L_SELECT_IF_LT or
+''' L_SELECT_IF_LTE.
+''' To keep wide components, use relation = L_SELECT_IF_GT or
+''' L_SELECT_IF_GTE.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -282,11 +289,13 @@ End Function
 ' boxaSelectWithIndicator(boxas, na, pchanged) as Boxa
 ' boxaSelectWithIndicator(BOXA *, NUMA *, l_int32 *) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Returns a copy of the boxa if no components are removed.<para/>
+''' 
 ''' (2) Uses box copies in the new boxa.<para/>
-''' (3) The indicator numa has values 0 (ignore) and 1 (accept).<para/>
+''' 
+''' (3) The indicator numa has values 0 (ignore) and 1 (accept).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -313,12 +322,13 @@ End Function
 ' boxaPermutePseudorandom(boxas) as Boxa
 ' boxaPermutePseudorandom(BOXA *) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This does a pseudorandom in-place permutation of the boxes.<para/>
-''' (2) The result is guaranteed not to have any boxes in their<para/>
-''' original position, but it is not very random.  If you<para/>
-''' need randomness, use boxaPermuteRandom().<para/>
+''' 
+''' (2) The result is guaranteed not to have any boxes in their
+''' original position, but it is not very random.  If you
+''' need randomness, use boxaPermuteRandom().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -340,18 +350,21 @@ End Function
 ' boxaPermuteRandom(boxad, boxas) as Boxa
 ' boxaPermuteRandom(BOXA *, BOXA *) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If boxad is null, make a copy of boxas and permute the copy.<para/>
-''' Otherwise, boxad must be equal to boxas, and the operation<para/>
+''' 
+''' (1) If boxad is null, make a copy of boxas and permute the copy.
+''' Otherwise, boxad must be equal to boxas, and the operation
 ''' is done in-place.<para/>
+''' 
 ''' (2) If boxas is empty, return an empty boxad.<para/>
-''' (3) This does a random in-place permutation of the boxes,<para/>
-''' by swapping each box in turn with a random box.  The<para/>
-''' result is almost guaranteed not to have any boxes in their<para/>
+''' 
+''' (3) This does a random in-place permutation of the boxes,
+''' by swapping each box in turn with a random box.  The
+''' result is almost guaranteed not to have any boxes in their
 ''' original position.<para/>
-''' (4) MSVC rand() has MAX_RAND = 2^15 - 1, so it will not do<para/>
-''' a proper permutation is the number of boxes exceeds this.<para/>
+''' 
+''' (4) MSVC rand() has MAX_RAND = 2^15 - 1, so it will not do
+''' a proper permutation is the number of boxes exceeds this.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -399,10 +412,10 @@ End Function
 ' boxaConvertToPta(boxa, ncorners) as Pta
 ' boxaConvertToPta(BOXA *, l_int32) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If ncorners == 2, we select the UL and LR corners.<para/>
-''' Otherwise we save all 4 corners in this order: UL, UR, LL, LR.<para/>
+''' 
+''' (1) If ncorners == 2, we select the UL and LR corners.
+''' Otherwise we save all 4 corners in this order: UL, UR, LL, LR.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -426,11 +439,12 @@ End Function
 ' ptaConvertToBoxa(pta, ncorners) as Boxa
 ' ptaConvertToBoxa(PTA *, l_int32) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For 2 corners, the order of the 2 points is UL, LR.<para/>
+''' 
+''' (1) For 2 corners, the order of the 2 points is UL, LR.
 ''' For 4 corners, the order of points is UL, UR, LL, LR.<para/>
-''' (2) Each derived box is the minimum size containing all corners.<para/>
+''' 
+''' (2) Each derived box is the minimum size containing all corners.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -454,10 +468,10 @@ End Function
 ' boxConvertToPta(box, ncorners) as Pta
 ' boxConvertToPta(BOX *, l_int32) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If ncorners == 2, we select the UL and LR corners.<para/>
-''' Otherwise we save all 4 corners in this order: UL, UR, LL, LR.<para/>
+''' 
+''' (1) If ncorners == 2, we select the UL and LR corners.
+''' Otherwise we save all 4 corners in this order: UL, UR, LL, LR.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -481,10 +495,10 @@ End Function
 ' ptaConvertToBox(pta) as Box
 ' ptaConvertToBox(PTA *) as BOX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For 2 corners, the order of the 2 points is UL, LR.<para/>
-''' For 4 corners, the order of points is UL, UR, LL, LR.<para/>
+''' 
+''' (1) For 2 corners, the order of the 2 points is UL, LR.
+''' For 4 corners, the order of points is UL, UR, LL, LR.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -506,19 +520,20 @@ End Function
 ' boxaSmoothSequenceLS(boxas, factor, subflag, maxdiff, extrapixels, debug) as Boxa
 ' boxaSmoothSequenceLS(BOXA *, l_float32, l_int32, l_int32, l_int32, l_int32) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This returns a modified version of %boxas by constructing<para/>
-''' for each input box a box that has been linear least square fit<para/>
-''' (LSF) to the entire set.  The linear fitting is done to each of<para/>
-''' the box sides independently, after outliers are rejected,<para/>
-''' and it is computed separately for sequences of even and<para/>
-''' odd boxes.  Once the linear LSF box is found, the output box<para/>
-''' (in %boxad) is constructed from the input box and the LSF<para/>
-''' box, depending on %subflag.  See boxaModifyWithBoxa() for<para/>
+''' 
+''' (1) This returns a modified version of %boxas by constructing
+''' for each input box a box that has been linear least square fit
+''' (LSF) to the entire set.  The linear fitting is done to each of
+''' the box sides independently, after outliers are rejected,
+''' and it is computed separately for sequences of even and
+''' odd boxes.  Once the linear LSF box is found, the output box
+''' (in %boxad) is constructed from the input box and the LSF
+''' box, depending on %subflag.  See boxaModifyWithBoxa() for
 ''' details on the use of %subflag and %maxdiff.<para/>
-''' (2) This is useful if, in both the even and odd sets, the box<para/>
-''' edges vary roughly linearly with its index in the set.<para/>
+''' 
+''' (2) This is useful if, in both the even and odd sets, the box
+''' edges vary roughly linearly with its index in the set.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -527,7 +542,7 @@ End Function
 '''  <param name="factor">[in] - reject outliers with widths and heights deviating from the median by more than %factor times the median variation from the median typically ~3</param>
 '''  <param name="subflag">[in] - L_USE_MINSIZE, L_USE_MAXSIZE, L_SUB_ON_LOC_DIFF, L_SUB_ON_SIZE_DIFF, L_USE_CAPPED_MIN, L_USE_CAPPED_MAX</param>
 '''  <param name="maxdiff">[in] - parameter used with L_SUB_ON_LOC_DIFF, L_SUB_ON_SIZE_DIFF, L_USE_CAPPED_MIN, L_USE_CAPPED_MAX</param>
-'''  <param name="extrapixels">[in] - pixels added on all sides (or subtracted if %extrapixels  is lower  0) when using L_SUB_ON_LOC_DIFF and L_SUB_ON_SIZE_DIFF</param>
+'''  <param name="extrapixels">[in] - pixels added on all sides (or subtracted if %extrapixels  is smaller 0) when using L_SUB_ON_LOC_DIFF and L_SUB_ON_SIZE_DIFF</param>
 '''  <param name="debug">[in] - 1 for debug output</param>
 '''   <returns>boxad fitted boxa, or NULL on error</returns>
 Public Shared Function boxaSmoothSequenceLS(
@@ -550,28 +565,31 @@ End Function
 ' boxaSmoothSequenceMedian(boxas, halfwin, subflag, maxdiff, extrapixels, debug) as Boxa
 ' boxaSmoothSequenceMedian(BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The target width of the sliding window is 2  %halfwin + 1.<para/>
+''' 
+''' (1) The target width of the sliding window is 2  %halfwin + 1.
 ''' If necessary, this will be reduced by boxaWindowedMedian().<para/>
-''' (2) This returns a modified version of %boxas by constructing<para/>
-''' for each input box a box that has been smoothed with windowed<para/>
-''' median filtering.  The filtering is done to each of the<para/>
-''' box sides independently, and it is computed separately for<para/>
-''' sequences of even and odd boxes.  The output %boxad is<para/>
-''' constructed from the input boxa and the filtered boxa,<para/>
-''' depending on %subflag.  See boxaModifyWithBoxa() for<para/>
+''' 
+''' (2) This returns a modified version of %boxas by constructing
+''' for each input box a box that has been smoothed with windowed
+''' median filtering.  The filtering is done to each of the
+''' box sides independently, and it is computed separately for
+''' sequences of even and odd boxes.  The output %boxad is
+''' constructed from the input boxa and the filtered boxa,
+''' depending on %subflag.  See boxaModifyWithBoxa() for
 ''' details on the use of %subflag, %maxdiff and %extrapixels.<para/>
-''' (3) This is useful for removing noise separately in the even<para/>
-''' and odd sets, where the box edge locations can have<para/>
-''' discontinuities but otherwise vary roughly linearly within<para/>
+''' 
+''' (3) This is useful for removing noise separately in the even
+''' and odd sets, where the box edge locations can have
+''' discontinuities but otherwise vary roughly linearly within
 ''' intervals of size %halfwin or larger.<para/>
-''' (4) If you don't need to handle even and odd sets separately,<para/>
-''' just do this:<para/>
-''' boxam = boxaWindowedMedian(boxas, halfwin, debug)<para/>
-''' boxad = boxaModifyWithBoxa(boxas, boxam, subflag, maxdiff,<para/>
-''' extrapixels)<para/>
-''' boxaDestroy( and boxam)<para/>
+''' 
+''' (4) If you don't need to handle even and odd sets separately,
+''' just do this:
+''' boxam = boxaWindowedMedian(boxas, halfwin, debug)
+''' boxad = boxaModifyWithBoxa(boxas, boxam, subflag, maxdiff,
+''' extrapixels)
+''' boxaDestroy([and]boxam)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -580,7 +598,7 @@ End Function
 '''  <param name="halfwin">[in] - half-width of sliding window used to find median</param>
 '''  <param name="subflag">[in] - L_USE_MINSIZE, L_USE_MAXSIZE, L_SUB_ON_LOC_DIFF, L_SUB_ON_SIZE_DIFF, L_USE_CAPPED_MIN, L_USE_CAPPED_MAX</param>
 '''  <param name="maxdiff">[in] - parameter used with L_SUB_ON_LOC_DIFF, L_SUB_ON_SIZE_DIFF, L_USE_CAPPED_MIN, L_USE_CAPPED_MAX</param>
-'''  <param name="extrapixels">[in] - pixels added on all sides (or subtracted if %extrapixels  is lower  0) when using L_SUB_ON_LOC_DIFF and L_SUB_ON_SIZE_DIFF</param>
+'''  <param name="extrapixels">[in] - pixels added on all sides (or subtracted if %extrapixels  is smaller 0) when using L_SUB_ON_LOC_DIFF and L_SUB_ON_SIZE_DIFF</param>
 '''  <param name="debug">[in] - 1 for debug output</param>
 '''   <returns>boxad fitted boxa, or NULL on error</returns>
 Public Shared Function boxaSmoothSequenceMedian(
@@ -603,27 +621,31 @@ End Function
 ' boxaLinearFit(boxas, factor, debug) as Boxa
 ' boxaLinearFit(BOXA *, l_float32, l_int32) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This finds a set of boxes (boxad) where each edge of each box is<para/>
-''' a linear least square fit (LSF) to the edges of the<para/>
-''' input set of boxes (boxas).  Before fitting, outliers in<para/>
+''' 
+''' (1) This finds a set of boxes (boxad) where each edge of each box is
+''' a linear least square fit (LSF) to the edges of the
+''' input set of boxes (boxas).  Before fitting, outliers in
 ''' the boxes in boxas are removed (see below).<para/>
-''' (2) This is useful when each of the box edges in boxas are expected<para/>
-''' to vary linearly with box index in the set.  These could<para/>
-''' be, for example, noisy measurements of similar regions<para/>
+''' 
+''' (2) This is useful when each of the box edges in boxas are expected
+''' to vary linearly with box index in the set.  These could
+''' be, for example, noisy measurements of similar regions
 ''' on successive scanned pages.<para/>
-''' (3) Method: there are 2 steps:<para/>
-''' (a) Find and remove outliers, separately based on the deviation<para/>
-''' from the median of the width and height of the box.<para/>
-''' Use %factor to specify tolerance to outliers use a very<para/>
-''' large value of %factor to avoid rejecting any box sides<para/>
-''' in the linear LSF.<para/>
-''' (b) On the remaining boxes, do a linear LSF independently<para/>
+''' 
+''' (3) Method: there are 2 steps:
+''' (a) Find and remove outliers, separately based on the deviation
+''' from the median of the width and height of the box.
+''' Use %factor to specify tolerance to outliers use a very
+''' large value of %factor to avoid rejecting any box sides
+''' in the linear LSF.
+''' (b) On the remaining boxes, do a linear LSF independently
 ''' for each of the four sides.<para/>
+''' 
 ''' (4) Invalid input boxes are not used in computation of the LSF.<para/>
-''' (5) The returned boxad can then be used in boxaModifyWithBoxa()<para/>
-''' to selectively change the boxes in boxas.<para/>
+''' 
+''' (5) The returned boxad can then be used in boxaModifyWithBoxa()
+''' to selectively change the boxes in boxas.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -649,14 +671,16 @@ End Function
 ' boxaWindowedMedian(boxas, halfwin, debug) as Boxa
 ' boxaWindowedMedian(BOXA *, l_int32, l_int32) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This finds a set of boxes (boxad) where each edge of each box is<para/>
-''' a windowed median smoothed value to the edges of the<para/>
+''' 
+''' (1) This finds a set of boxes (boxad) where each edge of each box is
+''' a windowed median smoothed value to the edges of the
 ''' input set of boxes (boxas).<para/>
+''' 
 ''' (2) Invalid input boxes are filled from nearby ones.<para/>
-''' (3) The returned boxad can then be used in boxaModifyWithBoxa()<para/>
-''' to selectively change the boxes in the source boxa.<para/>
+''' 
+''' (3) The returned boxad can then be used in boxaModifyWithBoxa()
+''' to selectively change the boxes in the source boxa.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -682,61 +706,67 @@ End Function
 ' boxaModifyWithBoxa(boxas, boxam, subflag, maxdiff, extrapixels) as Boxa
 ' boxaModifyWithBoxa(BOXA *, BOXA *, l_int32, l_int32, l_int32) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This takes two input boxa (boxas, boxam) and constructs boxad,<para/>
-''' where each box in boxad is generated from the corresponding<para/>
-''' boxes in boxas and boxam.  The rule for constructing each<para/>
-''' output box depends on %subflag and %maxdiff.  Let boxs be<para/>
-''' a box from %boxas and boxm be a box from %boxam.<para/>
-''' If %subflag == L_USE_MINSIZE: the output box is the intersection<para/>
-''' of the two input boxes.<para/>
-''' If %subflag == L_USE_MAXSIZE: the output box is the union of the<para/>
-''' two input boxes i.e., the minimum bounding rectangle for the<para/>
-''' two input boxes.<para/>
-''' If %subflag == L_SUB_ON_LOC_DIFF: each side of the output box<para/>
-''' is found separately from the corresponding side of boxs and boxm.<para/>
-''' Use the boxm side, expanded by %extrapixels, if greater than<para/>
-''' %maxdiff pixels from the boxs side.<para/>
-''' If %subflag == L_SUB_ON_SIZE_DIFF: the sides of the output box<para/>
-''' are determined in pairs from the width and height of boxs<para/>
-''' and boxm.  If the boxm width differs by more than %maxdiff<para/>
-''' pixels from boxs, use the boxm left and right sides,<para/>
-''' expanded by %extrapixels.  Ditto for the height difference.<para/>
-''' For the last two flags, each side of the output box is found<para/>
-''' separately from the corresponding side of boxs and boxm,<para/>
-''' according to these rules, where "smaller"("bigger") mean in a<para/>
-''' direction that decreases(increases) the size of the output box:<para/>
-''' If %subflag == L_USE_CAPPED_MIN: use the Min of boxm<para/>
-''' with the Max of (boxs, boxm +- %maxdiff), where the sign<para/>
-''' is adjusted to make the box smaller (e.g., use "+" on left side).<para/>
-''' If %subflag == L_USE_CAPPED_MAX: use the Max of boxm<para/>
-''' with the Min of (boxs, boxm +- %maxdiff), where the sign<para/>
-''' is adjusted to make the box bigger (e.g., use "-" on left side).<para/>
+''' 
+''' (1) This takes two input boxa (boxas, boxam) and constructs boxad,
+''' where each box in boxad is generated from the corresponding
+''' boxes in boxas and boxam.  The rule for constructing each
+''' output box depends on %subflag and %maxdiff.  Let boxs be
+''' a box from %boxas and boxm be a box from %boxam.
+''' If %subflag == L_USE_MINSIZE: the output box is the intersection
+''' of the two input boxes.
+''' If %subflag == L_USE_MAXSIZE: the output box is the union of the
+''' two input boxes i.e., the minimum bounding rectangle for the
+''' two input boxes.
+''' If %subflag == L_SUB_ON_LOC_DIFF: each side of the output box
+''' is found separately from the corresponding side of boxs and boxm.
+''' Use the boxm side, expanded by %extrapixels, if greater than
+''' %maxdiff pixels from the boxs side.
+''' If %subflag == L_SUB_ON_SIZE_DIFF: the sides of the output box
+''' are determined in pairs from the width and height of boxs
+''' and boxm.  If the boxm width differs by more than %maxdiff
+''' pixels from boxs, use the boxm left and right sides,
+''' expanded by %extrapixels.  Ditto for the height difference.
+''' For the last two flags, each side of the output box is found
+''' separately from the corresponding side of boxs and boxm,
+''' according to these rules, where "smaller"("bigger") mean in a
+''' direction that decreases(increases) the size of the output box:
+''' If %subflag == L_USE_CAPPED_MIN: use the Min of boxm
+''' with the Max of (boxs, boxm +- %maxdiff), where the sign
+''' is adjusted to make the box smaller (e.g., use "+" on left side).
+''' If %subflag == L_USE_CAPPED_MAX: use the Max of boxm
+''' with the Min of (boxs, boxm +- %maxdiff), where the sign
+''' is adjusted to make the box bigger (e.g., use "-" on left side).
 ''' Use of the last 2 flags is further explained in (3) and (4).<para/>
-''' (2) boxas and boxam must be the same size.  If boxam == NULL,<para/>
+''' 
+''' (2) boxas and boxam must be the same size.  If boxam == NULL,
 ''' this returns a copy of boxas with a warning.<para/>
-''' (3) If %subflag == L_SUB_ON_LOC_DIFF, use boxm for each side<para/>
-''' where the corresponding sides differ by more than %maxdiff.<para/>
-''' Two extreme cases:<para/>
-''' (a) set %maxdiff == 0 to use only values from boxam in boxad.<para/>
-''' (b) set %maxdiff == 10000 to ignore all values from boxam<para/>
+''' 
+''' (3) If %subflag == L_SUB_ON_LOC_DIFF, use boxm for each side
+''' where the corresponding sides differ by more than %maxdiff.
+''' Two extreme cases:
+''' (a) set %maxdiff == 0 to use only values from boxam in boxad.
+''' (b) set %maxdiff == 10000 to ignore all values from boxam
 ''' then boxad will be the same as boxas.<para/>
-''' (4) If %subflag == L_USE_CAPPED_MAX: use boxm if boxs is smaller<para/>
-''' use boxs if boxs is bigger than boxm by an amount up to %maxdiff<para/>
-''' and use boxm +- %maxdiff (the 'capped' value) if boxs is<para/>
-''' bigger than boxm by an amount larger than %maxdiff.<para/>
-''' Similarly, with interchange of Min/Max and sign of %maxdiff,<para/>
+''' 
+''' (4) If %subflag == L_USE_CAPPED_MAX: use boxm if boxs is smaller
+''' use boxs if boxs is bigger than boxm by an amount up to %maxdiff
+''' and use boxm +- %maxdiff (the 'capped' value) if boxs is
+''' bigger than boxm by an amount larger than %maxdiff.
+''' Similarly, with interchange of Min/Max and sign of %maxdiff,
 ''' for %subflag == L_USE_CAPPED_MIN.<para/>
-''' (5) If either of corresponding boxes in boxas and boxam is invalid,<para/>
+''' 
+''' (5) If either of corresponding boxes in boxas and boxam is invalid,
 ''' an invalid box is copied to the result.<para/>
-''' (6) Typical input for boxam may be the output of boxaLinearFit().<para/>
+''' 
+''' (6) Typical input for boxam may be the output of boxaLinearFit().
 ''' where outliers have been removed and each side is LS fit to a line.<para/>
-''' (7) Unlike boxaAdjustWidthToTarget() and boxaAdjustHeightToTarget(),<para/>
-''' this uses two boxes and does not specify target dimensions.<para/>
-''' Additional constraints on the size of each box can be enforced<para/>
-''' by following this operation with boxaConstrainSize(), taking<para/>
-''' boxad as input.<para/>
+''' 
+''' (7) Unlike boxaAdjustWidthToTarget() and boxaAdjustHeightToTarget(),
+''' this uses two boxes and does not specify target dimensions.
+''' Additional constraints on the size of each box can be enforced
+''' by following this operation with boxaConstrainSize(), taking
+''' boxad as input.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -745,7 +775,7 @@ End Function
 '''  <param name="boxam">[in] - boxa with boxes used to modify those in boxas</param>
 '''  <param name="subflag">[in] - L_USE_MINSIZE, L_USE_MAXSIZE, L_SUB_ON_LOC_DIFF, L_SUB_ON_SIZE_DIFF, L_USE_CAPPED_MIN, L_USE_CAPPED_MAX</param>
 '''  <param name="maxdiff">[in] - parameter used with L_SUB_ON_LOC_DIFF, L_SUB_ON_SIZE_DIFF, L_USE_CAPPED_MIN, L_USE_CAPPED_MAX</param>
-'''  <param name="extrapixels">[in] - pixels added on all sides (or subtracted if %extrapixels  is lower  0) when using L_SUB_ON_LOC_DIFF and L_SUB_ON_SIZE_DIFF</param>
+'''  <param name="extrapixels">[in] - pixels added on all sides (or subtracted if %extrapixels  is smaller 0) when using L_SUB_ON_LOC_DIFF and L_SUB_ON_SIZE_DIFF</param>
 '''   <returns>boxad result after adjusting boxes in boxas, or NULL on error.</returns>
 Public Shared Function boxaModifyWithBoxa(
 				 ByVal boxas as Boxa, 
@@ -767,18 +797,22 @@ End Function
 ' boxaConstrainSize(boxas, width, widthflag, height, heightflag) as Boxa
 ' boxaConstrainSize(BOXA *, l_int32, l_int32, l_int32, l_int32) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Forces either width or height (or both) of every box in<para/>
+''' 
+''' (1) Forces either width or height (or both) of every box in
 ''' the boxa to a specified size, by moving the indicated sides.<para/>
-''' (2) Not all input boxes need to be valid.  Median values will be<para/>
+''' 
+''' (2) Not all input boxes need to be valid.  Median values will be
 ''' used with invalid boxes.<para/>
-''' (3) Typical input might be the output of boxaLinearFit(),<para/>
+''' 
+''' (3) Typical input might be the output of boxaLinearFit(),
 ''' where each side has been fit.<para/>
-''' (4) Unlike boxaAdjustWidthToTarget() and boxaAdjustHeightToTarget(),<para/>
+''' 
+''' (4) Unlike boxaAdjustWidthToTarget() and boxaAdjustHeightToTarget(),
 ''' this is not dependent on a difference threshold to change the size.<para/>
-''' (5) On error, a message is issued and a copy of the input boxa<para/>
-''' is returned.<para/>
+''' 
+''' (5) On error, a message is issued and a copy of the input boxa
+''' is returned.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -808,36 +842,41 @@ End Function
 ' boxaReconcileEvenOddHeight(boxas, sides, delh, op, factor, start) as Boxa
 ' boxaReconcileEvenOddHeight(BOXA *, l_int32, l_int32, l_int32, l_float32, l_int32) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The basic idea is to reconcile differences in box height<para/>
-''' in the even and odd boxes, by moving the top and/or bottom<para/>
-''' edges in the even and odd boxes.  Choose the edge or edges<para/>
-''' to be moved, whether to adjust the boxes with the min<para/>
-''' or the max of the medians, and the threshold on the median<para/>
-''' difference between even and odd box heights for the operations<para/>
-''' to take place.  The same threshold is also used to<para/>
+''' 
+''' (1) The basic idea is to reconcile differences in box height
+''' in the even and odd boxes, by moving the top and/or bottom
+''' edges in the even and odd boxes.  Choose the edge or edges
+''' to be moved, whether to adjust the boxes with the min
+''' or the max of the medians, and the threshold on the median
+''' difference between even and odd box heights for the operations
+''' to take place.  The same threshold is also used to
 ''' determine if each individual box edge is to be adjusted.<para/>
-''' (2) Boxes are conditionally reset with either the same top (y)<para/>
-''' value or the same bottom value, or both.  The value is<para/>
-''' determined by the greater or lesser of the medians of the<para/>
-''' even and odd boxes, with the choice depending on the value<para/>
-''' of %op, which selects for either min or max median height.<para/>
-''' If the median difference between even and odd boxes is<para/>
-''' greater than %dely, then any individual box edge that differs<para/>
-''' from the selected median by more than %dely is set to<para/>
+''' 
+''' (2) Boxes are conditionally reset with either the same top (y)
+''' value or the same bottom value, or both.  The value is
+''' determined by the greater or lesser of the medians of the
+''' even and odd boxes, with the choice depending on the value
+''' of %op, which selects for either min or max median height.
+''' If the median difference between even and odd boxes is
+''' greater than %dely, then any individual box edge that differs
+''' from the selected median by more than %dely is set to
 ''' the selected median times a factor typically near 1.0.<para/>
-''' (3) Note that if selecting for minimum height, you will choose<para/>
-''' the largest y-value for the top and the smallest y-value for<para/>
+''' 
+''' (3) Note that if selecting for minimum height, you will choose
+''' the largest y-value for the top and the smallest y-value for
 ''' the bottom of the box.<para/>
-''' (4) Typical input might be the output of boxaSmoothSequence(),<para/>
+''' 
+''' (4) Typical input might be the output of boxaSmoothSequence(),
 ''' where even and odd boxa have been independently regulated.<para/>
-''' (5) Require at least 3 valid even boxes and 3 valid odd boxes.<para/>
+''' 
+''' (5) Require at least 3 valid even boxes and 3 valid odd boxes.
 ''' Median values will be used for invalid boxes.<para/>
-''' (6) If the median height is not representative of the boxes<para/>
-''' in %boxas, this can make things much worse.  In that case,<para/>
-''' ignore the value of %op, and force pairwise equality of the<para/>
-''' heights, with pairwise maximal vertical extension.<para/>
+''' 
+''' (6) If the median height is not representative of the boxes
+''' in %boxas, this can make things much worse.  In that case,
+''' ignore the value of %op, and force pairwise equality of the
+''' heights, with pairwise maximal vertical extension.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -869,22 +908,24 @@ End Function
 ' boxaReconcilePairWidth(boxas, delw, op, factor, na) as Boxa
 ' boxaReconcilePairWidth(BOXA *, l_int32, l_int32, l_float32, NUMA *) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This reconciles differences in the width of adjacent boxes,<para/>
-''' by moving one side of one of the boxes in each pair.<para/>
-''' If the widths in the pair differ by more than some<para/>
-''' threshold, move either the left side for even boxes or<para/>
-''' the right side for odd boxes, depending on if we're choosing<para/>
-''' the min or max.  If choosing min, the width of the max is<para/>
-''' set to factor  (width of min).  If choosing max, the width<para/>
+''' 
+''' (1) This reconciles differences in the width of adjacent boxes,
+''' by moving one side of one of the boxes in each pair.
+''' If the widths in the pair differ by more than some
+''' threshold, move either the left side for even boxes or
+''' the right side for odd boxes, depending on if we're choosing
+''' the min or max.  If choosing min, the width of the max is
+''' set to factor  (width of min).  If choosing max, the width
 ''' of the min is set to factor  (width of max).<para/>
-''' (2) If %na exists, it is an indicator array corresponding to the<para/>
-''' boxes in %boxas.  If %na != NULL, only boxes with an<para/>
-''' indicator value of 1 are allowed to adjust otherwise,<para/>
+''' 
+''' (2) If %na exists, it is an indicator array corresponding to the
+''' boxes in %boxas.  If %na != NULL, only boxes with an
+''' indicator value of 1 are allowed to adjust otherwise,
 ''' all boxes can adjust.<para/>
-''' (3) Typical input might be the output of boxaSmoothSequence(),<para/>
-''' where even and odd boxa have been independently regulated.<para/>
+''' 
+''' (3) Typical input might be the output of boxaSmoothSequence(),
+''' where even and odd boxa have been independently regulated.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -916,15 +957,17 @@ End Function
 ' boxaPlotSides(boxa, plotname, pnal, pnat, pnar, pnab, ppixd) as Integer
 ' boxaPlotSides(BOXA *, const char *, NUMA **, NUMA **, NUMA **, NUMA **, PIX **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This debugging function shows the progression of the four<para/>
+''' 
+''' (1) This debugging function shows the progression of the four
 ''' sides in the boxa.  There must be at least 2 boxes.<para/>
-''' (2) If there are invalid boxes (e.g., if only even or odd<para/>
-''' indices have valid boxes), this will fill them with the<para/>
+''' 
+''' (2) If there are invalid boxes (e.g., if only even or odd
+''' indices have valid boxes), this will fill them with the
 ''' nearest valid box before plotting.<para/>
-''' (3) The plotfiles are put in /tmp/lept/plots/, and are named<para/>
-''' either with %plotname or, if NULL, a default name.<para/>
+''' 
+''' (3) The plotfiles are put in /tmp/lept/plots/, and are named
+''' either with %plotname or, if NULL, a default name.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -968,16 +1011,18 @@ End Function
 ' boxaPlotSizes(boxa, plotname, pnaw, pnah, ppixd) as Integer
 ' boxaPlotSizes(BOXA *, const char *, NUMA **, NUMA **, PIX **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This debugging function shows the progression of box width<para/>
+''' 
+''' (1) This debugging function shows the progression of box width
 ''' and height in the boxa.  There must be at least 2 boxes.<para/>
-''' (2) If there are invalid boxes (e.g., if only even or odd<para/>
-''' indices have valid boxes), this will fill them with the<para/>
+''' 
+''' (2) If there are invalid boxes (e.g., if only even or odd
+''' indices have valid boxes), this will fill them with the
 ''' nearest valid box before plotting.<para/>
-''' (3) The plotfiles are put in /tmp/lept/plots/, and are named<para/>
-''' either with %plotname or, if NULL, a default name.  Make sure<para/>
-''' that %plotname is a string with no whitespace characters.<para/>
+''' 
+''' (3) The plotfiles are put in /tmp/lept/plots/, and are named
+''' either with %plotname or, if NULL, a default name.  Make sure
+''' that %plotname is a string with no whitespace characters.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1013,14 +1058,15 @@ End Function
 ' boxaFillSequence(boxas, useflag, debug) as Boxa
 ' boxaFillSequence(BOXA *, l_int32, l_int32) as BOXA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This simple function replaces invalid boxes with a copy of<para/>
-''' the nearest valid box, selected from either the entire<para/>
-''' sequence (L_USE_ALL_BOXES) or from the boxes with the<para/>
+''' 
+''' (1) This simple function replaces invalid boxes with a copy of
+''' the nearest valid box, selected from either the entire
+''' sequence (L_USE_ALL_BOXES) or from the boxes with the
 ''' same parity (L_USE_SAME_PARITY_BOXES).  It returns a new boxa.<para/>
-''' (2) This is useful if you expect boxes in the sequence to<para/>
-''' vary slowly with index.<para/>
+''' 
+''' (2) This is useful if you expect boxes in the sequence to
+''' vary slowly with index.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1046,15 +1092,17 @@ End Function
 ' boxaSizeVariation(boxa, type, pdel_evenodd, prms_even, prms_odd, prms_all) as Integer
 ' boxaSizeVariation(BOXA *, l_int32, l_float32 *, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This gives several measures of the smoothness of either the<para/>
+''' 
+''' (1) This gives several measures of the smoothness of either the
 ''' width or height of a sequence of boxes.<para/>
-''' (2) Statistics can be found separately for even and odd boxes.<para/>
-''' Additionally, the average pair-wise difference between<para/>
+''' 
+''' (2) Statistics can be found separately for even and odd boxes.
+''' Additionally, the average pair-wise difference between
 ''' adjacent even and odd boxes can be returned.<para/>
-''' (3) The use case is bounding boxes for scanned page images,<para/>
-''' where ideally the sizes should have little variance.<para/>
+''' 
+''' (3) The use case is bounding boxes for scanned page images,
+''' where ideally the sizes should have little variance.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1085,14 +1133,15 @@ End Function
 ' boxaGetExtent(boxa, pw, ph, pbox) as Integer
 ' boxaGetExtent(BOXA *, l_int32 *, l_int32 *, BOX **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The returned w and h are the minimum size image<para/>
+''' 
+''' (1) The returned w and h are the minimum size image
 ''' that would contain all boxes untranslated.<para/>
-''' (2) If there are no valid boxes, returned w and h are 0 and<para/>
-''' all parameters in the returned box are 0.  This<para/>
-''' is not an error, because an empty boxa is valid and<para/>
-''' boxaGetExtent() is required for serialization.<para/>
+''' 
+''' (2) If there are no valid boxes, returned w and h are 0 and
+''' all parameters in the returned box are 0.  This
+''' is not an error, because an empty boxa is valid and
+''' boxaGetExtent() is required for serialization.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1122,16 +1171,17 @@ End Function
 ' boxaGetCoverage(boxa, wc, hc, exactflag, pfract) as Integer
 ' boxaGetCoverage(BOXA *, l_int32, l_int32, l_int32, l_float32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The boxes in boxa are clipped to the input rectangle.<para/>
-''' (2)  When %exactflag == 1, we generate a 1 bpp pix of size<para/>
-''' wc x hc, paint all the boxes black, and count the fg pixels.<para/>
-''' This can take 1 msec on a large page with many boxes.<para/>
-''' When %exactflag == 0, we clip each box to the wc x hc region<para/>
-''' and sum the resulting areas.  This is faster.<para/>
-''' The results are the same when none of the boxes overlap<para/>
-''' within the wc x hc region.<para/>
+''' 
+''' (2)  When %exactflag == 1, we generate a 1 bpp pix of size
+''' wc x hc, paint all the boxes black, and count the fg pixels.
+''' This can take 1 msec on a large page with many boxes.
+''' When %exactflag == 0, we clip each box to the wc x hc region
+''' and sum the resulting areas.  This is faster.
+''' The results are the same when none of the boxes overlap
+''' within the wc x hc region.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1265,9 +1315,9 @@ End Function
 ' boxaGetArea(boxa, parea) as Integer
 ' boxaGetArea(BOXA *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Measures the total area of the boxes, without regard to overlaps.<para/>
+''' 
+''' (1) Measures the total area of the boxes, without regard to overlaps.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1290,14 +1340,16 @@ End Function
 ' boxaDisplayTiled(boxas, pixa, maxwidth, linewidth, scalefactor, background, spacing, border) as Pix
 ' boxaDisplayTiled(BOXA *, PIXA *, l_int32, l_int32, l_float32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Displays each box separately in a tiled 32 bpp image.<para/>
-''' (2) If pixa is defined, it must have the same count as the boxa,<para/>
-''' and it will be a background over with each box is rendered.<para/>
-''' If pixa is not defined, the boxes will be rendered over<para/>
+''' 
+''' (2) If pixa is defined, it must have the same count as the boxa,
+''' and it will be a background over with each box is rendered.
+''' If pixa is not defined, the boxes will be rendered over
 ''' blank images of identical size.<para/>
-''' (3) See pixaDisplayTiledInRows() for other parameters.<para/>
+''' 
+''' (3) See pixaDisplayTiledInRows() for other parameters.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

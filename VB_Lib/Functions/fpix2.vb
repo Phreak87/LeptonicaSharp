@@ -7,12 +7,13 @@ Partial Public Class _All
 ' pixConvertToFPix(pixs, ncomps) as FPix
 ' pixConvertToFPix(PIX *, l_int32) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) If colormapped, remove to grayscale.<para/>
-''' (2) If 32 bpp and %ncomps == 3, this is RGB convert to luminance.<para/>
-''' In all other cases the src image is treated as having a single<para/>
-''' component of pixel values.<para/>
+''' 
+''' (2) If 32 bpp and %ncomps == 3, this is RGB convert to luminance.
+''' In all other cases the src image is treated as having a single
+''' component of pixel values.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -38,12 +39,13 @@ End Function
 ' pixConvertToDPix(pixs, ncomps) as DPix
 ' pixConvertToDPix(PIX *, l_int32) as DPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) If colormapped, remove to grayscale.<para/>
-''' (2) If 32 bpp and %ncomps == 3, this is RGB convert to luminance.<para/>
-''' In all other cases the src image is treated as having a single<para/>
-''' component of pixel values.<para/>
+''' 
+''' (2) If 32 bpp and %ncomps == 3, this is RGB convert to luminance.
+''' In all other cases the src image is treated as having a single
+''' component of pixel values.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -69,18 +71,20 @@ End Function
 ' fpixConvertToPix(fpixs, outdepth, negvals, errorflag) as Pix
 ' fpixConvertToPix(FPIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Use %outdepth = 0 to programmatically determine the<para/>
-''' output depth.  If no values are greater than 255,<para/>
+''' 
+''' (1) Use %outdepth = 0 to programmatically determine the
+''' output depth.  If no values are greater than 255,
 ''' it will set outdepth = 8 otherwise to 16 or 32.<para/>
-''' (2) Because we are converting a float to an unsigned int<para/>
-''' with a specified dynamic range (8, 16 or 32 bits), errors<para/>
-''' can occur.  If errorflag == TRUE, output the number<para/>
+''' 
+''' (2) Because we are converting a float to an unsigned int
+''' with a specified dynamic range (8, 16 or 32 bits), errors
+''' can occur.  If errorflag == TRUE, output the number
 ''' of values out of range, both negative and positive.<para/>
-''' (3) If a pixel value is positive and out of range, clip to<para/>
-''' the maximum value represented at the outdepth of 8, 16<para/>
-''' or 32 bits.<para/>
+''' 
+''' (3) If a pixel value is positive and out of range, clip to
+''' the maximum value represented at the outdepth of 8, 16
+''' or 32 bits.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -146,18 +150,20 @@ End Function
 ' dpixConvertToPix(dpixs, outdepth, negvals, errorflag) as Pix
 ' dpixConvertToPix(DPIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Use %outdepth = 0 to programmatically determine the<para/>
-''' output depth.  If no values are greater than 255,<para/>
+''' 
+''' (1) Use %outdepth = 0 to programmatically determine the
+''' output depth.  If no values are greater than 255,
 ''' it will set outdepth = 8 otherwise to 16 or 32.<para/>
-''' (2) Because we are converting a float to an unsigned int<para/>
-''' with a specified dynamic range (8, 16 or 32 bits), errors<para/>
-''' can occur.  If errorflag == TRUE, output the number<para/>
+''' 
+''' (2) Because we are converting a float to an unsigned int
+''' with a specified dynamic range (8, 16 or 32 bits), errors
+''' can occur.  If errorflag == TRUE, output the number
 ''' of values out of range, both negative and positive.<para/>
-''' (3) If a pixel value is positive and out of range, clip to<para/>
-''' the maximum value represented at the outdepth of 8, 16<para/>
-''' or 32 bits.<para/>
+''' 
+''' (3) If a pixel value is positive and out of range, clip to
+''' the maximum value represented at the outdepth of 8, 16
+''' or 32 bits.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -300,17 +306,17 @@ End Function
 ' fpixScaleByInteger(fpixs, factor) as FPix
 ' fpixScaleByInteger(FPIX *, l_int32) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The width wd of fpixd is related to ws of fpixs by:<para/>
-''' wd = factor  (ws - 1) + 1 (and ditto for the height)<para/>
-''' We avoid special-casing boundary pixels in the interpolation<para/>
-''' by constructing fpixd by inserting (factor - 1) interpolated<para/>
-''' pixels between each pixel in fpixs.  Then<para/>
-''' wd = ws + (ws - 1)  (factor - 1)  (same as above)<para/>
-''' This also has the advantage that if we subsample by %factor,<para/>
-''' throwing out all the interpolated pixels, we regain the<para/>
-''' original low resolution fpix.<para/>
+''' 
+''' (1) The width wd of fpixd is related to ws of fpixs by:
+''' wd = factor  (ws - 1) + 1 (and ditto for the height)
+''' We avoid special-casing boundary pixels in the interpolation
+''' by constructing fpixd by inserting (factor - 1) interpolated
+''' pixels between each pixel in fpixs.  Then
+''' wd = ws + (ws - 1)  (factor - 1)  (same as above)
+''' This also has the advantage that if we subsample by %factor,
+''' throwing out all the interpolated pixels, we regain the
+''' original low resolution fpix.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -334,17 +340,17 @@ End Function
 ' dpixScaleByInteger(dpixs, factor) as DPix
 ' dpixScaleByInteger(DPIX *, l_int32) as DPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The width wd of dpixd is related to ws of dpixs by:<para/>
-''' wd = factor  (ws - 1) + 1 (and ditto for the height)<para/>
-''' We avoid special-casing boundary pixels in the interpolation<para/>
-''' by constructing fpixd by inserting (factor - 1) interpolated<para/>
-''' pixels between each pixel in fpixs.  Then<para/>
-''' wd = ws + (ws - 1)  (factor - 1)  (same as above)<para/>
-''' This also has the advantage that if we subsample by %factor,<para/>
-''' throwing out all the interpolated pixels, we regain the<para/>
-''' original low resolution dpix.<para/>
+''' 
+''' (1) The width wd of dpixd is related to ws of dpixs by:
+''' wd = factor  (ws - 1) + 1 (and ditto for the height)
+''' We avoid special-casing boundary pixels in the interpolation
+''' by constructing fpixd by inserting (factor - 1) interpolated
+''' pixels between each pixel in fpixs.  Then
+''' wd = ws + (ws - 1)  (factor - 1)  (same as above)
+''' This also has the advantage that if we subsample by %factor,
+''' throwing out all the interpolated pixels, we regain the
+''' original low resolution dpix.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -368,16 +374,19 @@ End Function
 ' fpixLinearCombination(fpixd, fpixs1, fpixs2, a, b) as FPix
 ' fpixLinearCombination(FPIX *, FPIX *, FPIX *, l_float32, l_float32) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Computes pixelwise linear combination: a  src1 + b  src2<para/>
+''' 
 ''' (2) Alignment is to UL corner.<para/>
-''' (3) There are 3 cases.  The result can go to a new dest,<para/>
-''' in-place to fpixs1, or to an existing input dest:<para/>
-''' fpixd == null: (src1 + src2) -- is greater  new fpixd<para/>
-''' fpixd == fpixs1:  (src1 + src2) -- is greater  src1  (in-place)<para/>
-''' fpixd != fpixs1: (src1 + src2) -- is greater  input fpixd<para/>
-''' (4) fpixs2 must be different from both fpixd and fpixs1.<para/>
+''' 
+''' (3) There are 3 cases.  The result can go to a new dest,
+''' in-place to fpixs1, or to an existing input dest:
+''' fpixd == null: (src1 + src2) to new fpixd
+''' fpixd == fpixs1:  (src1 + src2) to src1  (in-place)
+''' fpixd != fpixs1: (src1 + src2) to input fpixd<para/>
+''' 
+''' (4) fpixs2 must be different from both fpixd and fpixs1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -410,12 +419,13 @@ End Function
 ' fpixAddMultConstant(fpix, addc, multc) as Integer
 ' fpixAddMultConstant(FPIX *, l_float32, l_float32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is an in-place operation.<para/>
-''' (2) It can be used to multiply each pixel by a constant,<para/>
-''' and also to add a constant to each pixel.  Multiplication<para/>
-''' is done first.<para/>
+''' 
+''' (2) It can be used to multiply each pixel by a constant,
+''' and also to add a constant to each pixel.  Multiplication
+''' is done first.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -440,16 +450,19 @@ End Function
 ' dpixLinearCombination(dpixd, dpixs1, dpixs2, a, b) as DPix
 ' dpixLinearCombination(DPIX *, DPIX *, DPIX *, l_float32, l_float32) as DPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Computes pixelwise linear combination: a  src1 + b  src2<para/>
+''' 
 ''' (2) Alignment is to UL corner.<para/>
-''' (3) There are 3 cases.  The result can go to a new dest,<para/>
-''' in-place to dpixs1, or to an existing input dest:<para/>
-''' dpixd == null: (src1 + src2) -- is greater  new dpixd<para/>
-''' dpixd == dpixs1:  (src1 + src2) -- is greater  src1  (in-place)<para/>
-''' dpixd != dpixs1: (src1 + src2) -- is greater  input dpixd<para/>
-''' (4) dpixs2 must be different from both dpixd and dpixs1.<para/>
+''' 
+''' (3) There are 3 cases.  The result can go to a new dest,
+''' in-place to dpixs1, or to an existing input dest:
+''' dpixd == null: (src1 + src2) to new dpixd
+''' dpixd == dpixs1:  (src1 + src2) to src1  (in-place)
+''' dpixd != dpixs1: (src1 + src2) to input dpixd<para/>
+''' 
+''' (4) dpixs2 must be different from both dpixd and dpixs1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -482,12 +495,13 @@ End Function
 ' dpixAddMultConstant(dpix, addc, multc) as Integer
 ' dpixAddMultConstant(DPIX *, l_float64, l_float64) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is an in-place operation.<para/>
-''' (2) It can be used to multiply each pixel by a constant,<para/>
-''' and also to add a constant to each pixel.  Multiplication<para/>
-''' is done first.<para/>
+''' 
+''' (2) It can be used to multiply each pixel by a constant,
+''' and also to add a constant to each pixel.  Multiplication
+''' is done first.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -555,9 +569,9 @@ End Function
 ' fpixAddBorder(fpixs, left, right, top, bot) as FPix
 ' fpixAddBorder(FPIX *, l_int32, l_int32, l_int32, l_int32) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Adds border of '0' 32-bit pixels<para/>
+''' 
+''' (1) Adds border of '0' 32-bit pixels
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -614,9 +628,9 @@ End Function
 ' fpixAddMirroredBorder(fpixs, left, right, top, bot) as FPix
 ' fpixAddMirroredBorder(FPIX *, l_int32, l_int32, l_int32, l_int32) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See pixAddMirroredBorder() for situations of usage.<para/>
+''' 
+''' (1) See pixAddMirroredBorder() for situations of usage.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -646,10 +660,10 @@ End Function
 ' fpixAddContinuedBorder(fpixs, left, right, top, bot) as FPix
 ' fpixAddContinuedBorder(FPIX *, l_int32, l_int32, l_int32, l_int32) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This adds pixels on each side whose values are equal to<para/>
-''' the value on the closest boundary pixel.<para/>
+''' 
+''' (1) This adds pixels on each side whose values are equal to
+''' the value on the closest boundary pixel.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -679,11 +693,11 @@ End Function
 ' fpixAddSlopeBorder(fpixs, left, right, top, bot) as FPix
 ' fpixAddSlopeBorder(FPIX *, l_int32, l_int32, l_int32, l_int32) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This adds pixels on each side whose values have a normal<para/>
-''' derivative equal to the normal derivative at the boundary<para/>
-''' of fpixs.<para/>
+''' 
+''' (1) This adds pixels on each side whose values have a normal
+''' derivative equal to the normal derivative at the boundary
+''' of fpixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -713,16 +727,18 @@ End Function
 ' fpixRasterop(fpixd, dx, dy, dw, dh, fpixs, sx, sy) as Integer
 ' fpixRasterop(FPIX *, l_int32, l_int32, l_int32, l_int32, FPIX *, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is similar in structure to pixRasterop(), except<para/>
-''' it only allows copying from the source into the destination.<para/>
-''' For that reason, no op code is necessary.  Additionally,<para/>
-''' all pixels are 32 bit words (float values), which makes<para/>
+''' 
+''' (1) This is similar in structure to pixRasterop(), except
+''' it only allows copying from the source into the destination.
+''' For that reason, no op code is necessary.  Additionally,
+''' all pixels are 32 bit words (float values), which makes
 ''' the copy very simple.<para/>
+''' 
 ''' (2) Clipping of both src and dest fpix are done automatically.<para/>
-''' (3) This allows in-place copying, without checking to see if<para/>
-''' the result is valid:  use for in-place with caution!<para/>
+''' 
+''' (3) This allows in-place copying, without checking to see if
+''' the result is valid:  use for in-place with caution!
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -779,20 +795,22 @@ End Function
 ' fpixRotate180(fpixd, fpixs) as FPix
 ' fpixRotate180(FPIX *, FPIX *) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This does a 180 rotation of the image about the center,<para/>
-''' which is equivalent to a left-right flip about a vertical<para/>
-''' line through the image center, followed by a top-bottom<para/>
+''' 
+''' (1) This does a 180 rotation of the image about the center,
+''' which is equivalent to a left-right flip about a vertical
+''' line through the image center, followed by a top-bottom
 ''' flip about a horizontal line through the image center.<para/>
-''' (2) There are 3 cases for input:<para/>
-''' (a) fpixd == null (creates a new fpixd)<para/>
-''' (b) fpixd == fpixs (in-place operation)<para/>
+''' 
+''' (2) There are 3 cases for input:
+''' (a) fpixd == null (creates a new fpixd)
+''' (b) fpixd == fpixs (in-place operation)
 ''' (c) fpixd != fpixs (existing fpixd)<para/>
-''' (3) For clarity, use these three patterns, respectively:<para/>
-''' (a) fpixd = fpixRotate180(NULL, fpixs)<para/>
-''' (b) fpixRotate180(fpixs, fpixs)<para/>
-''' (c) fpixRotate180(fpixd, fpixs)<para/>
+''' 
+''' (3) For clarity, use these three patterns, respectively:
+''' (a) fpixd = fpixRotate180(NULL, fpixs)
+''' (b) fpixRotate180(fpixs, fpixs)
+''' (c) fpixRotate180(fpixd, fpixs)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -818,11 +836,12 @@ End Function
 ' fpixRotate90(fpixs, direction) as FPix
 ' fpixRotate90(FPIX *, l_int32) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This does a 90 degree rotation of the image about the center,<para/>
+''' 
+''' (1) This does a 90 degree rotation of the image about the center,
 ''' either cw or ccw, returning a new pix.<para/>
-''' (2) The direction must be either 1 (cw) or -1 (ccw).<para/>
+''' 
+''' (2) The direction must be either 1 (cw) or -1 (ccw).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -846,21 +865,24 @@ End Function
 ' fpixFlipLR(fpixd, fpixs) as FPix
 ' fpixFlipLR(FPIX *, FPIX *) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This does a left-right flip of the image, which is<para/>
-''' equivalent to a rotation out of the plane about a<para/>
+''' 
+''' (1) This does a left-right flip of the image, which is
+''' equivalent to a rotation out of the plane about a
 ''' vertical line through the image center.<para/>
-''' (2) There are 3 cases for input:<para/>
-''' (a) fpixd == null (creates a new fpixd)<para/>
-''' (b) fpixd == fpixs (in-place operation)<para/>
+''' 
+''' (2) There are 3 cases for input:
+''' (a) fpixd == null (creates a new fpixd)
+''' (b) fpixd == fpixs (in-place operation)
 ''' (c) fpixd != fpixs (existing fpixd)<para/>
-''' (3) For clarity, use these three patterns, respectively:<para/>
-''' (a) fpixd = fpixFlipLR(NULL, fpixs)<para/>
-''' (b) fpixFlipLR(fpixs, fpixs)<para/>
+''' 
+''' (3) For clarity, use these three patterns, respectively:
+''' (a) fpixd = fpixFlipLR(NULL, fpixs)
+''' (b) fpixFlipLR(fpixs, fpixs)
 ''' (c) fpixFlipLR(fpixd, fpixs)<para/>
-''' (4) If an existing fpixd is not the same size as fpixs, the<para/>
-''' image data will be reallocated.<para/>
+''' 
+''' (4) If an existing fpixd is not the same size as fpixs, the
+''' image data will be reallocated.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -886,21 +908,24 @@ End Function
 ' fpixFlipTB(fpixd, fpixs) as FPix
 ' fpixFlipTB(FPIX *, FPIX *) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This does a top-bottom flip of the image, which is<para/>
-''' equivalent to a rotation out of the plane about a<para/>
+''' 
+''' (1) This does a top-bottom flip of the image, which is
+''' equivalent to a rotation out of the plane about a
 ''' horizontal line through the image center.<para/>
-''' (2) There are 3 cases for input:<para/>
-''' (a) fpixd == null (creates a new fpixd)<para/>
-''' (b) fpixd == fpixs (in-place operation)<para/>
+''' 
+''' (2) There are 3 cases for input:
+''' (a) fpixd == null (creates a new fpixd)
+''' (b) fpixd == fpixs (in-place operation)
 ''' (c) fpixd != fpixs (existing fpixd)<para/>
-''' (3) For clarity, use these three patterns, respectively:<para/>
-''' (a) fpixd = fpixFlipTB(NULL, fpixs)<para/>
-''' (b) fpixFlipTB(fpixs, fpixs)<para/>
+''' 
+''' (3) For clarity, use these three patterns, respectively:
+''' (a) fpixd = fpixFlipTB(NULL, fpixs)
+''' (b) fpixFlipTB(fpixs, fpixs)
 ''' (c) fpixFlipTB(fpixd, fpixs)<para/>
-''' (4) If an existing fpixd is not the same size as fpixs, the<para/>
-''' image data will be reallocated.<para/>
+''' 
+''' (4) If an existing fpixd is not the same size as fpixs, the
+''' image data will be reallocated.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -926,16 +951,17 @@ End Function
 ' fpixAffinePta(fpixs, ptad, ptas, border, inval) as FPix
 ' fpixAffinePta(FPIX *, PTA *, PTA *, l_int32, l_float32) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If %border  is greater  0, all four sides are extended by that distance,<para/>
-''' and removed after the transformation is finished.  Pixels<para/>
-''' that would be brought in to the trimmed result from outside<para/>
-''' the extended region are assigned %inval.  The purpose of<para/>
+''' 
+''' (1) If %border  is greater  0, all four sides are extended by that distance,
+''' and removed after the transformation is finished.  Pixels
+''' that would be brought in to the trimmed result from outside
+''' the extended region are assigned %inval.  The purpose of
 ''' extending the image is to avoid such assignments.<para/>
-''' (2) On the other hand, you may want to give all pixels that<para/>
-''' are brought in from outside fpixs a specific value.  In that<para/>
-''' case, set %border == 0.<para/>
+''' 
+''' (2) On the other hand, you may want to give all pixels that
+''' are brought in from outside fpixs a specific value.  In that
+''' case, set %border == 0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -991,16 +1017,17 @@ End Function
 ' fpixProjectivePta(fpixs, ptad, ptas, border, inval) as FPix
 ' fpixProjectivePta(FPIX *, PTA *, PTA *, l_int32, l_float32) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If %border  is greater  0, all four sides are extended by that distance,<para/>
-''' and removed after the transformation is finished.  Pixels<para/>
-''' that would be brought in to the trimmed result from outside<para/>
-''' the extended region are assigned %inval.  The purpose of<para/>
+''' 
+''' (1) If %border  is greater  0, all four sides are extended by that distance,
+''' and removed after the transformation is finished.  Pixels
+''' that would be brought in to the trimmed result from outside
+''' the extended region are assigned %inval.  The purpose of
 ''' extending the image is to avoid such assignments.<para/>
-''' (2) On the other hand, you may want to give all pixels that<para/>
-''' are brought in from outside fpixs a specific value.  In that<para/>
-''' case, set %border == 0.<para/>
+''' 
+''' (2) On the other hand, you may want to give all pixels that
+''' are brought in from outside fpixs a specific value.  In that
+''' case, set %border == 0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1056,11 +1083,11 @@ End Function
 ' linearInterpolatePixelFloat(datas, w, h, x, y, inval, pval) as Integer
 ' linearInterpolatePixelFloat(l_float32 *, l_int32, l_int32, l_float32, l_float32, l_float32, l_float32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a standard linear interpolation function.  It is<para/>
-''' equivalent to area weighting on each component, and<para/>
-''' avoids "jaggies" when rendering sharp edges.<para/>
+''' 
+''' (1) This is a standard linear interpolation function.  It is
+''' equivalent to area weighting on each component, and
+''' avoids "jaggies" when rendering sharp edges.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1093,10 +1120,10 @@ End Function
 ' fpixThresholdToPix(fpix, thresh) as Pix
 ' fpixThresholdToPix(FPIX *, l_float32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For all values of fpix that are  is lower = thresh, sets the pixel<para/>
-''' in pixd to 1.<para/>
+''' 
+''' (1) For all values of fpix that are smaller or equal thresh, sets the pixel
+''' in pixd to 1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1120,17 +1147,19 @@ End Function
 ' pixComponentFunction(pix, rnum, gnum, bnum, rdenom, gdenom, bdenom) as FPix
 ' pixComponentFunction(PIX *, l_float32, l_float32, l_float32, l_float32, l_float32, l_float32) as FPIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This stores a function of the component values of each<para/>
+''' 
+''' (1) This stores a function of the component values of each
 ''' input pixel in %fpixd.<para/>
-''' (2) The function is a ratio of linear combinations of component values.<para/>
-''' There are two special cases for denominator coefficients:<para/>
-''' (a) The denominator is 1.0: input 0 for all denominator coefficients<para/>
-''' (b) Only one component is used in the denominator: input 1.0<para/>
+''' 
+''' (2) The function is a ratio of linear combinations of component values.
+''' There are two special cases for denominator coefficients:
+''' (a) The denominator is 1.0: input 0 for all denominator coefficients
+''' (b) Only one component is used in the denominator: input 1.0
 ''' for that denominator component and 0.0 for the other two.<para/>
-''' (3) If the denominator is 0, multiply by an arbitrary number that<para/>
-''' is much larger than 1.  Choose 256 "arbitrarily".<para/>
+''' 
+''' (3) If the denominator is 0, multiply by an arbitrary number that
+''' is much larger than 1.  Choose 256 "arbitrarily".
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

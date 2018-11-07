@@ -7,9 +7,9 @@ Partial Public Class _All
 ' lqueueCreate(nalloc) as L_Queue
 ' lqueueCreate(l_int32) as L_QUEUE *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Allocates a ptr array of given size, and initializes counters.<para/>
+''' 
+''' (1) Allocates a ptr array of given size, and initializes counters.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -29,17 +29,19 @@ End Function
 ' lqueueDestroy(plq, freeflag) as Object
 ' lqueueDestroy(L_QUEUE **, l_int32) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) If freeflag is TRUE, frees each struct in the array.<para/>
-''' (2) If freeflag is FALSE but there are elements on the array,<para/>
-''' gives a warning and destroys the array.  This will<para/>
-''' cause a memory leak of all the items that were on the queue.<para/>
-''' So if the items require their own destroy function, they<para/>
-''' must be destroyed before the queue.  The same applies to the<para/>
+''' 
+''' (2) If freeflag is FALSE but there are elements on the array,
+''' gives a warning and destroys the array.  This will
+''' cause a memory leak of all the items that were on the queue.
+''' So if the items require their own destroy function, they
+''' must be destroyed before the queue.  The same applies to the
 ''' auxiliary stack, if it is used.<para/>
-''' (3) To destroy the L_Queue, we destroy the ptr array, then<para/>
-''' the lqueue, and then null the contents of the input ptr.<para/>
+''' 
+''' (3) To destroy the L_Queue, we destroy the ptr array, then
+''' the lqueue, and then null the contents of the input ptr.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -61,14 +63,14 @@ End Sub
 ' lqueueAdd(lq, item) as Integer
 ' lqueueAdd(L_QUEUE *, void *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The algorithm is as follows.  If the queue is populated<para/>
-''' to the end of the allocated array, shift all ptrs toward<para/>
-''' the beginning of the array, so that the head of the queue<para/>
-''' is at the beginning of the array.  Then, if the array is<para/>
-''' more than 0.75 full, realloc with double the array size.<para/>
-''' Finally, add the item to the tail of the queue.<para/>
+''' 
+''' (1) The algorithm is as follows.  If the queue is populated
+''' to the end of the allocated array, shift all ptrs toward
+''' the beginning of the array, so that the head of the queue
+''' is at the beginning of the array.  Then, if the array is
+''' more than 0.75 full, realloc with double the array size.
+''' Finally, add the item to the tail of the queue.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -94,10 +96,10 @@ End Function
 ' lqueueRemove(lq) as Object
 ' lqueueRemove(L_QUEUE *) as void *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If this is the last item on the queue, so that the queue<para/>
-''' becomes empty, nhead is reset to the beginning of the array.<para/>
+''' 
+''' (1) If this is the last item on the queue, so that the queue
+''' becomes empty, nhead is reset to the beginning of the array.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

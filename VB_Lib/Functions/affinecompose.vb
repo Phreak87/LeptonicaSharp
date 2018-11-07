@@ -7,20 +7,21 @@ Partial Public Class _All
 ' createMatrix2dTranslate(transx, transy) as Single()
 ' createMatrix2dTranslate(l_float32, l_float32) as l_float32 *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The translation is equivalent to:<para/>
-''' v' = Av<para/>
-''' where v and v' are 1x3 column vectors in the form<para/>
-''' v = [x, y, 1]^  ^ denotes transpose<para/>
-''' and the affine translation matrix is<para/>
-''' A = [ 1 0 tx<para/>
-''' 0 1 ty<para/>
+''' 
+''' (1) The translation is equivalent to:
+''' v' = Av
+''' where v and v' are 1x3 column vectors in the form
+''' v = [x, y, 1]^  ^ denotes transpose
+''' and the affine translation matrix is
+''' A = [ 1 0 tx
+''' 0 1 ty
 ''' 0 0  1  ]<para/>
-''' (2) We consider translation as with respect to a fixed origin.<para/>
-''' In a clipping operation, the origin moves and the points<para/>
-''' are fixed, and you use (-tx, -ty) where (tx, ty) is the<para/>
-''' translation vector of the origin.<para/>
+''' 
+''' (2) We consider translation as with respect to a fixed origin.
+''' In a clipping operation, the origin moves and the points
+''' are fixed, and you use (-tx, -ty) where (tx, ty) is the
+''' translation vector of the origin.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -41,19 +42,20 @@ End Function
 ' createMatrix2dScale(scalex, scaley) as Single()
 ' createMatrix2dScale(l_float32, l_float32) as l_float32 *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The scaling is equivalent to:<para/>
-''' v' = Av<para/>
-''' where v and v' are 1x3 column vectors in the form<para/>
-''' v = [x, y, 1]^  ^ denotes transpose<para/>
-''' and the affine scaling matrix is<para/>
-''' A = [ sx  0  0<para/>
-''' 0 sy 0<para/>
+''' 
+''' (1) The scaling is equivalent to:
+''' v' = Av
+''' where v and v' are 1x3 column vectors in the form
+''' v = [x, y, 1]^  ^ denotes transpose
+''' and the affine scaling matrix is
+''' A = [ sx  0  0
+''' 0 sy 0
 ''' 0 0  1  ]<para/>
-''' (2) We consider scaling as with respect to a fixed origin.<para/>
-''' In other words, the origin is the only point that doesn't<para/>
-''' move in the scaling transform.<para/>
+''' 
+''' (2) We consider scaling as with respect to a fixed origin.
+''' In other words, the origin is the only point that doesn't
+''' move in the scaling transform.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -74,29 +76,29 @@ End Function
 ' createMatrix2dRotate(xc, yc, angle) as Single()
 ' createMatrix2dRotate(l_float32, l_float32, l_float32) as l_float32 *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The rotation is equivalent to:<para/>
-''' v' = Av<para/>
-''' where v and v' are 1x3 column vectors in the form<para/>
-''' v = [x, y, 1]^  ^ denotes transpose<para/>
-''' and the affine rotation matrix is<para/>
-''' A = [ cosa -sina  xc1-cosa + ycsina<para/>
-''' sina  cosa  yc1-cosa - xcsina<para/>
-''' 0 0   1 ]<para/>
-''' If the rotation is about the origin, xc, yc) = (0, 0 and<para/>
-''' this simplifies to<para/>
-''' A = [ cosa -sina  0<para/>
-''' sina  cosa  0<para/>
-''' 0 0 1 ]<para/>
-''' These relations follow from the following equations, which<para/>
-''' you can convince yourself are correct as follows.  Draw a<para/>
-''' circle centered on xc,yc) and passing through (x,y), with<para/>
-''' (x',y') on the arc at an angle 'a' clockwise from (x,y).<para/>
-''' [ Hint: cosa + b = cosa  cosb - sina  sinb<para/>
-''' sina + b = sina  cosb + cosa  sinb ]<para/>
-''' x' - xc =  x - xc)  cosa - (y - yc  sina<para/>
-''' y' - yc =  x - xc)  sina + (y - yc  cosa<para/>
+''' 
+''' (1) The rotation is equivalent to:
+''' v' = Av
+''' where v and v' are 1x3 column vectors in the form
+''' v = [x, y, 1]^  ^ denotes transpose
+''' and the affine rotation matrix is
+''' A = [ cosa -sina  xc1-cosa + ycsina
+''' sina  cosa  yc1-cosa - xcsina
+''' 0 0   1 ]
+''' If the rotation is about the origin, xc, yc) = (0, 0 and
+''' this simplifies to
+''' A = [ cosa -sina  0
+''' sina  cosa  0
+''' 0 0 1 ]
+''' These relations follow from the following equations, which
+''' you can convince yourself are correct as follows.  Draw a
+''' circle centered on xc,yc) and passing through (x,y), with
+''' (x',y') on the arc at an angle 'a' clockwise from (x,y).
+''' [ Hint: cosa + b = cosa  cosb - sina  sinb
+''' sina + b = sina  cosb + cosa  sinb ]
+''' x' - xc =  x - xc)  cosa - (y - yc  sina
+''' y' - yc =  x - xc)  sina + (y - yc  cosa
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -119,9 +121,9 @@ End Function
 ' ptaTranslate(ptas, transx, transy) as Pta
 ' ptaTranslate(PTA *, l_float32, l_float32) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See createMatrix2dTranslate() for details of transform.<para/>
+''' 
+''' (1) See createMatrix2dTranslate() for details of transform.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -147,9 +149,9 @@ End Function
 ' ptaScale(ptas, scalex, scaley) as Pta
 ' ptaScale(PTA *, l_float32, l_float32) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) See createMatrix2dScale() for details of transform.<para/>
+''' 
+''' (1) See createMatrix2dScale() for details of transform.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -175,21 +177,22 @@ End Function
 ' ptaRotate(ptas, xc, yc, angle) as Pta
 ' ptaRotate(PTA *, l_float32, l_float32, l_float32) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes<para/>
+''' 
 ''' (1) See createMatrix2dScale() for details of transform.<para/>
-''' (2) This transform can be thought of as composed of the<para/>
-''' sum of two parts:<para/>
-''' a) an (x,y)-dependent rotation about the origin:<para/>
-''' xr = x  cosa - y  sina<para/>
-''' yr = x  sina + y  cosa<para/>
-''' b) an (x,y)-independent translation that depends on the<para/>
-''' rotation center and the angle:<para/>
-''' xt = xc - xc  cosa + yc  sina<para/>
-''' yt = yc - xc  sina - yc  cosa<para/>
-''' The translation part (xt,yt) is equal to the difference<para/>
-''' between the center (xc,yc) and the location of the<para/>
-''' center after it is rotated about the origin.<para/>
+''' 
+''' (2) This transform can be thought of as composed of the
+''' sum of two parts:
+''' a) an (x,y)-dependent rotation about the origin:
+''' xr = x  cosa - y  sina
+''' yr = x  sina + y  cosa
+''' b) an (x,y)-independent translation that depends on the
+''' rotation center and the angle:
+''' xt = xc - xc  cosa + yc  sina
+''' yt = yc - xc  sina - yc  cosa
+''' The translation part (xt,yt) is equal to the difference
+''' between the center (xc,yc) and the location of the
+''' center after it is rotated about the origin.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

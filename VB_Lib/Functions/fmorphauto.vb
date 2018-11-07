@@ -7,11 +7,12 @@ Partial Public Class _All
 ' fmorphautogen(sela, fileindex, filename) as Integer
 ' fmorphautogen(SELA *, l_int32, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This function generates all the code for implementing<para/>
+''' 
+''' (1) This function generates all the code for implementing
 ''' dwa morphological operations using all the sels in the sela.<para/>
-''' (2) See fmorphautogen1() and fmorphautogen2() for details.<para/>
+''' 
+''' (2) See fmorphautogen1() and fmorphautogen2() for details.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -38,17 +39,20 @@ End Function
 ' fmorphautogen1(sela, fileindex, filename) as Integer
 ' fmorphautogen1(SELA *, l_int32, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This function uses morphtemplate1.txt to create a<para/>
-''' top-level file that contains two functions.  These<para/>
-''' functions will carry out dilation, erosion,<para/>
+''' 
+''' (1) This function uses morphtemplate1.txt to create a
+''' top-level file that contains two functions.  These
+''' functions will carry out dilation, erosion,
 ''' opening or closing for any of the sels in the input sela.<para/>
-''' (2) The fileindex parameter is inserted into the output<para/>
+''' 
+''' (2) The fileindex parameter is inserted into the output
 ''' filename, as described below.<para/>
-''' (3) If filename == NULL, the output file is fmorphgen.[n].c,<para/>
+''' 
+''' (3) If filename == NULL, the output file is fmorphgen.[n].c,
 ''' where [n] is equal to the %fileindex parameter.<para/>
-''' (4) If filename != NULL, the output file is [%filename].[n].c.<para/>
+''' 
+''' (4) If filename != NULL, the output file is [%filename].[n].c.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

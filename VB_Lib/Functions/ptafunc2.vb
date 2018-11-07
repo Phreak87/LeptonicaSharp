@@ -112,7 +112,7 @@ End Function
 '''  <param name="fract">[in] - use 0.0 for smallest, 1.0 for largest</param>
 '''  <param name="ptasort">[in][optional] - version of %pta sorted by %sorttype</param>
 '''  <param name="sorttype">[in] - L_SORT_BY_X, L_SORT_BY_Y</param>
-'''  <param name="pval">[out] - and rankval: the x or y value at %fract</param>
+'''  <param name="pval">[out] - [and]rankval: the x or y value at %fract</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptaGetRankValue(
 				 ByVal pta as Pta, 
@@ -134,15 +134,18 @@ End Function
 ' ptaUnionByAset(pta1, pta2) as Pta
 ' ptaUnionByAset(PTA *, PTA *) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) See sarrayRemoveDupsByAset() for the approach.<para/>
+''' 
 ''' (2) The key is a 64-bit hash from the (x,y) pair.<para/>
-''' (3) This is slower than ptaUnionByHash(), mostly because of the<para/>
-''' nlogn sort to build up the rbtree.  Do not use for large<para/>
+''' 
+''' (3) This is slower than ptaUnionByHash(), mostly because of the
+''' nlogn sort to build up the rbtree.  Do not use for large
 ''' numbers of points (say,  is greater  1M).<para/>
-''' (4) The Aset() functions use the sorted l_Aset, which is just<para/>
-''' an rbtree in disguise.<para/>
+''' 
+''' (4) The Aset() functions use the sorted l_Aset, which is just
+''' an rbtree in disguise.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -167,11 +170,11 @@ End Function
 ' ptaRemoveDupsByAset(ptas) as Pta
 ' ptaRemoveDupsByAset(PTA *) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is slower than ptaRemoveDupsByHash(), mostly because<para/>
-''' of the nlogn sort to build up the rbtree.  Do not use for<para/>
-''' large numbers of points (say,  is greater  1M).<para/>
+''' 
+''' (1) This is slower than ptaRemoveDupsByHash(), mostly because
+''' of the nlogn sort to build up the rbtree.  Do not use for
+''' large numbers of points (say,  is greater  1M).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -193,13 +196,15 @@ End Function
 ' ptaIntersectionByAset(pta1, pta2) as Pta
 ' ptaIntersectionByAset(PTA *, PTA *) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) See sarrayIntersectionByAset() for the approach.<para/>
+''' 
 ''' (2) The key is a 64-bit hash from the (x,y) pair.<para/>
-''' (3) This is slower than ptaIntersectionByHash(), mostly because<para/>
-''' of the nlogn sort to build up the rbtree.  Do not use for<para/>
-''' large numbers of points (say,  is greater  1M).<para/>
+''' 
+''' (3) This is slower than ptaIntersectionByHash(), mostly because
+''' of the nlogn sort to build up the rbtree.  Do not use for
+''' large numbers of points (say,  is greater  1M).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -243,11 +248,11 @@ End Function
 ' ptaUnionByHash(pta1, pta2) as Pta
 ' ptaUnionByHash(PTA *, PTA *) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is faster than ptaUnionByAset(), because the<para/>
-''' bucket lookup is O(n).  It should be used if the pts are<para/>
-''' integers (e.g., representing pixel positions).<para/>
+''' 
+''' (1) This is faster than ptaUnionByAset(), because the
+''' bucket lookup is O(n).  It should be used if the pts are
+''' integers (e.g., representing pixel positions).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -272,22 +277,26 @@ End Function
 ' ptaRemoveDupsByHash(ptas, pptad, pdahash) as Integer
 ' ptaRemoveDupsByHash(PTA *, PTA **, L_DNAHASH **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Generates a pta with unique values.<para/>
-''' (2) The dnahash is built up with ptad to assure uniqueness.<para/>
-''' It can be used to find if a point is in the set:<para/>
-''' ptaFindPtByHash(ptad, dahash, x, y,  and index)<para/>
-''' (3) The hash of the (x,y) location is simple and fast.  It scales<para/>
-''' up with the number of buckets to insure a fairly random<para/>
+''' 
+''' (2) The dnahash is built up with ptad to assure uniqueness.
+''' It can be used to find if a point is in the set:
+''' ptaFindPtByHash(ptad, dahash, x, y, [and]index)<para/>
+''' 
+''' (3) The hash of the (x,y) location is simple and fast.  It scales
+''' up with the number of buckets to insure a fairly random
 ''' bucket selection for adjacent points.<para/>
-''' (4) A Dna is used rather than a Numa because we need accurate<para/>
-''' representation of 32-bit integers that are indices into ptas.<para/>
-''' Integer -- is greater  float -- is greater  integer conversion makes errors for<para/>
+''' 
+''' (4) A Dna is used rather than a Numa because we need accurate
+''' representation of 32-bit integers that are indices into ptas.
+''' Integer to float to integer conversion makes errors for
 ''' integers larger than 10M.<para/>
-''' (5) This is faster than ptaRemoveDupsByAset(), because the<para/>
-''' bucket lookup is O(n), although there is a double-loop<para/>
-''' lookup within the dna in each bucket.<para/>
+''' 
+''' (5) This is faster than ptaRemoveDupsByAset(), because the
+''' bucket lookup is O(n), although there is a double-loop
+''' lookup within the dna in each bucket.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -317,11 +326,11 @@ End Function
 ' ptaIntersectionByHash(pta1, pta2) as Pta
 ' ptaIntersectionByHash(PTA *, PTA *) as PTA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is faster than ptaIntersectionByAset(), because the<para/>
-''' bucket lookup is O(n).  It should be used if the pts are<para/>
-''' integers (e.g., representing pixel positions).<para/>
+''' 
+''' (1) This is faster than ptaIntersectionByAset(), because the
+''' bucket lookup is O(n).  It should be used if the pts are
+''' integers (e.g., representing pixel positions).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -346,18 +355,20 @@ End Function
 ' ptaFindPtByHash(pta, dahash, x, y, pindex) as Integer
 ' ptaFindPtByHash(PTA *, L_DNAHASH *, l_int32, l_int32, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Fast lookup in dnaHash associated with a pta, to see if a<para/>
+''' 
+''' (1) Fast lookup in dnaHash associated with a pta, to see if a
 ''' random point (x,y) is already stored in the hash table.<para/>
-''' (2) We use a strong hash function to minimize the chance that<para/>
+''' 
+''' (2) We use a strong hash function to minimize the chance that
 ''' two different points hash to the same key value.<para/>
-''' (3) We select the number of buckets to be about 5% of the size<para/>
-''' of the input %pta, so that when fully populated, each<para/>
-''' bucket (dna) will have about 20 entries, each being an index<para/>
-''' into %pta.  In lookup, after hashing to the key, and then<para/>
-''' again to the bucket, we traverse the bucket (dna), using the<para/>
-''' index into %pta to check if the point (x,y) has been found before.<para/>
+''' 
+''' (3) We select the number of buckets to be about 5% of the size
+''' of the input %pta, so that when fully populated, each
+''' bucket (dna) will have about 20 entries, each being an index
+''' into %pta.  In lookup, after hashing to the key, and then
+''' again to the bucket, we traverse the bucket (dna), using the
+''' index into %pta to check if the point (x,y) has been found before.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

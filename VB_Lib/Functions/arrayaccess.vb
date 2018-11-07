@@ -69,14 +69,15 @@ End Sub
 ' l_setDataBitVal(line, n, val) as Object
 ' l_setDataBitVal(void *, l_int32, l_int32) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is an accessor for a 1 bpp pix.<para/>
-''' (2) It is actually a little slower than using:<para/>
-''' if (val == 0)<para/>
-''' l_ClearDataBit(line, n)<para/>
-''' else<para/>
-''' l_SetDataBit(line, n)<para/>
+''' 
+''' (2) It is actually a little slower than using:
+''' if (val == 0)
+''' l_ClearDataBit(line, n)
+''' else
+''' l_SetDataBit(line, n)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

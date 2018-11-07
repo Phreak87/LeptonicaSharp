@@ -7,11 +7,11 @@ Partial Public Class _All
 ' encodeBase64(inarray, insize, poutsize) as String
 ' encodeBase64(l_uint8 *, l_int32, l_int32 *) as char *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The input character data is unrestricted binary.<para/>
-''' The output encoded data consists of the 64 characters<para/>
-''' in the base64 set, plus newlines and the pad character '='.<para/>
+''' 
+''' (1) The input character data is unrestricted binary.
+''' The output encoded data consists of the 64 characters
+''' in the base64 set, plus newlines and the pad character '='.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -36,15 +36,16 @@ End Function
 ' decodeBase64(inarray, insize, poutsize) as Byte()
 ' decodeBase64(const char *, l_int32, l_int32 *) as l_uint8 *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The input character data should have only 66 different characters:<para/>
-''' The 64 character set for base64 encoding, plus the pad<para/>
-''' character '=' and newlines for formatting with fixed line<para/>
-''' lengths.  If there are any other characters, the decoder<para/>
+''' 
+''' (1) The input character data should have only 66 different characters:
+''' The 64 character set for base64 encoding, plus the pad
+''' character '=' and newlines for formatting with fixed line
+''' lengths.  If there are any other characters, the decoder
 ''' will declare the input data to be invalid and return NULL.<para/>
-''' (2) The decoder ignores newlines and, for a valid input string,<para/>
-''' stops reading input when a pad byte is found.<para/>
+''' 
+''' (2) The decoder ignores newlines and, for a valid input string,
+''' stops reading input when a pad byte is found.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -69,11 +70,11 @@ End Function
 ' encodeAscii85(inarray, insize, poutsize) as String
 ' encodeAscii85(l_uint8 *, l_int32, l_int32 *) as char *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Ghostscript has a stack break if the last line of<para/>
-''' data only has a ' is greater ', so we avoid the problem by<para/>
-''' always putting '~ is greater ' on the last line.<para/>
+''' 
+''' (1) Ghostscript has a stack break if the last line of
+''' data only has a ' is greater ', so we avoid the problem by
+''' always putting '~ is greater ' on the last line.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -98,12 +99,13 @@ End Function
 ' decodeAscii85(inarray, insize, poutsize) as Byte()
 ' decodeAscii85(char *, l_int32, l_int32 *) as l_uint8 *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) We assume the data is properly encoded, so we do not check<para/>
+''' 
+''' (1) We assume the data is properly encoded, so we do not check
 ''' for invalid characters or the final ' is greater ' character.<para/>
-''' (2) We permit whitespace to be added to the encoding in an<para/>
-''' arbitrary way.<para/>
+''' 
+''' (2) We permit whitespace to be added to the encoding in an
+''' arbitrary way.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -128,14 +130,15 @@ End Function
 ' reformatPacked64(inarray, insize, leadspace, linechars, addquotes, poutsize) as String
 ' reformatPacked64(char *, l_int32, l_int32, l_int32, l_int32, l_int32 *) as char *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Each line in the output array has %leadspace space characters,<para/>
-''' followed optionally by a double-quote, followed by %linechars<para/>
-''' bytes of base64 data, followed optionally by a double-quote,<para/>
+''' 
+''' (1) Each line in the output array has %leadspace space characters,
+''' followed optionally by a double-quote, followed by %linechars
+''' bytes of base64 data, followed optionally by a double-quote,
 ''' followed by a newline.<para/>
-''' (2) This can be used to convert a base64 encoded string to a<para/>
-''' string formatted for inclusion in a C source file.<para/>
+''' 
+''' (2) This can be used to convert a base64 encoded string to a
+''' string formatted for inclusion in a C source file.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

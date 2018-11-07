@@ -41,12 +41,13 @@ End Sub
 ' selCreate(height, width, name) as Sel
 ' selCreate(l_int32, l_int32, const char *) as SEL *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) selCreate() initializes all values to 0.<para/>
-''' (2) After this call, (cy,cx) and nonzero data values must be<para/>
-''' assigned.  If a text name is not assigned here, it will<para/>
-''' be needed later when the sel is put into a sela.<para/>
+''' 
+''' (2) After this call, (cy,cx) and nonzero data values must be
+''' assigned.  If a text name is not assigned here, it will
+''' be needed later when the sel is put into a sela.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -106,9 +107,9 @@ End Function
 ' selCreateBrick(h, w, cy, cx, type) as Sel
 ' selCreateBrick(l_int32, l_int32, l_int32, l_int32, l_int32) as SEL *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a rectangular sel of all hits, misses or don't cares.<para/>
+''' 
+''' (1) This is a rectangular sel of all hits, misses or don't cares.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -136,12 +137,13 @@ End Function
 ' selCreateComb(factor1, factor2, direction) as Sel
 ' selCreateComb(l_int32, l_int32, l_int32) as SEL *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This generates a comb Sel of hits with the origin as<para/>
+''' 
+''' (1) This generates a comb Sel of hits with the origin as
 ''' near the center as possible.<para/>
-''' (2) In use, this is complemented by a brick sel of size %factor1,<para/>
-''' Both brick and comb sels are made by selectComposableSels().<para/>
+''' 
+''' (2) In use, this is complemented by a brick sel of size %factor1,
+''' Both brick and comb sels are made by selectComposableSels().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -165,10 +167,10 @@ End Function
 ' create2dIntArray(sy, sx) as List (of Integer())
 ' create2dIntArray(l_int32, l_int32) as l_int32 **
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The array[sy][sx] is indexed in standard "matrix notation",<para/>
-''' with the row index first.<para/>
+''' 
+''' (1) The array[sy][sx] is indexed in standard "matrix notation",
+''' with the row index first.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -196,12 +198,13 @@ End Function
 ' selaAddSel(sela, sel, selname, copyflag) as Integer
 ' selaAddSel(SELA *, SEL *, const char *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This adds a sel, either inserting or making a copy.<para/>
-''' (2) Because every sel in a sela must have a name, it copies<para/>
-''' the input name if necessary.  You can input NULL for<para/>
-''' selname if the sel already has a name.<para/>
+''' 
+''' (2) Because every sel in a sela must have a name, it copies
+''' the input name if necessary.  You can input NULL for
+''' selname if the sel already has a name.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -248,10 +251,10 @@ End Function
 ' selaGetSel(sela, i) as Sel
 ' selaGetSel(SELA *, l_int32) as SEL *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This returns a ptr to the sel, not a copy, so the caller<para/>
-''' must not destroy it!<para/>
+''' 
+''' (1) This returns a ptr to the sel, not a copy, so the caller
+''' must not destroy it!
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -293,10 +296,11 @@ End Function
 ' selSetName(sel, name) as Integer
 ' selSetName(SEL *, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Always frees the existing sel name, if defined.<para/>
-''' (2) If name is not defined, just clears any existing sel name.<para/>
+''' 
+''' (2) If name is not defined, just clears any existing sel name.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -370,12 +374,12 @@ End Function
 ' selSetElement(sel, row, col, type) as Integer
 ' selSetElement(SEL *, l_int32, l_int32, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Because we use row and column to index into an array,<para/>
-''' they are always non-negative.  The location of the origin<para/>
-''' (and the type of operation) determine the actual<para/>
-''' direction of the rasterop.<para/>
+''' 
+''' (1) Because we use row and column to index into an array,
+''' they are always non-negative.  The location of the origin
+''' (and the type of operation) determine the actual
+''' direction of the rasterop.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -492,10 +496,11 @@ End Function
 ' selaGetCombName(sela, size, direction) as String
 ' selaGetCombName(SELA *, l_int32, l_int32) as char *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Combs are by definition 1-dimensional, either horiz or vert.<para/>
-''' (2) Use this with comb Sels e.g., from selaAddDwaCombs().<para/>
+''' 
+''' (2) Use this with comb Sels e.g., from selaAddDwaCombs().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -520,10 +525,11 @@ End Function
 ' getCompositeParameters(size, psize1, psize2, pnameh1, pnameh2, pnamev1, pnamev2) as Integer
 ' getCompositeParameters(l_int32, l_int32 *, l_int32 *, char **, char **, char **, char **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This uses the big lookup table at the top of this file.<para/>
-''' (2) All returned strings are copies that must be freed.<para/>
+''' 
+''' (2) All returned strings are copies that must be freed.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -578,11 +584,10 @@ End Function
 ' selFindMaxTranslations(sel, pxp, pyp, pxn, pyn) as Integer
 ' selFindMaxTranslations(SEL *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
-''' Notes:<para/>
-''' These are the maximum shifts for the erosion operation.<para/>
-''' For example, when j  is lower  cx, the shift of the image<para/>
-''' is +x to the cx.  This is a positive xp shift.<para/>
+''' Notes:
+'''   These are the maximum shifts for the erosion operation.
+''' For example, when j  is smaller cx, the shift of the image
+''' is +x to the cx.  This is a positive xp shift.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -792,25 +797,27 @@ End Function
 ' selCreateFromString(text, h, w, name) as Sel
 ' selCreateFromString(const char *, l_int32, l_int32, const char *) as SEL *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The text is an array of chars (in row-major order) where<para/>
-''' each char can be one of the following:<para/>
-''' 'x': hit<para/>
-''' 'o': miss<para/>
+''' 
+''' (1) The text is an array of chars (in row-major order) where
+''' each char can be one of the following:
+''' 'x': hit
+''' 'o': miss
 ''' ' ': don't-care<para/>
-''' (2) When the origin falls on a hit or miss, use an upper case<para/>
-''' char (e.g., 'X' or 'O') to indicate it.  When the origin<para/>
-''' falls on a don't-care, indicate this with a 'C'.<para/>
+''' 
+''' (2) When the origin falls on a hit or miss, use an upper case
+''' char (e.g., 'X' or 'O') to indicate it.  When the origin
+''' falls on a don't-care, indicate this with a 'C'.
 ''' The string must have exactly one origin specified.<para/>
-''' (3) The advantage of this method is that the text can be input<para/>
-''' in a format that shows the 2D layout of the Sel e.g.,<para/>
-''' \code<para/>
-''' static const char seltext = "x  "<para/>
-''' "x Oo "<para/>
-''' "x  "<para/>
-''' "xxxxx"<para/>
-''' \endcode<para/>
+''' 
+''' (3) The advantage of this method is that the text can be input
+''' in a format that shows the 2D layout of the Sel e.g.,
+''' \code
+''' static const char seltext = "x  "
+''' "x Oo "
+''' "x  "
+''' "xxxxx"
+''' \endcode
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -838,17 +845,18 @@ End Function
 ' selPrintToString(sel) as String
 ' selPrintToString(SEL *) as char *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is an inverse function of selCreateFromString.<para/>
-''' It prints a textual representation of the SEL to a malloc'd<para/>
-''' string.  The format is the same as selCreateFromString<para/>
-''' except that newlines are inserted into the output<para/>
+''' 
+''' (1) This is an inverse function of selCreateFromString.
+''' It prints a textual representation of the SEL to a malloc'd
+''' string.  The format is the same as selCreateFromString
+''' except that newlines are inserted into the output
 ''' between rows.<para/>
-''' (2) This is useful for debugging.  However, if you want to<para/>
-''' save some Sels in a file, put them in a Sela and write<para/>
-''' them out with selaWrite().  They can then be read in<para/>
-''' with selaRead().<para/>
+''' 
+''' (2) This is useful for debugging.  However, if you want to
+''' save some Sels in a file, put them in a Sela and write
+''' them out with selaWrite().  They can then be read in
+''' with selaRead().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -869,29 +877,31 @@ End Function
 ' selaCreateFromFile(filename) as Sela
 ' selaCreateFromFile(const char *) as SELA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The file contains a sequence of Sel descriptions.<para/>
-''' (2) Each Sel is formatted as follows:<para/>
-''' ~ Any number of comment lines starting with '#' are ignored<para/>
-''' ~ The next line contains the selname<para/>
-''' ~ The next lines contain the Sel data.  They must be<para/>
-''' formatted similarly to the string format in<para/>
-''' selCreateFromString(), with each line beginning and<para/>
-''' ending with a double-quote, and showing the 2D layout.<para/>
-''' ~ Each Sel ends when a blank line, a comment line, or<para/>
+''' 
+''' (2) Each Sel is formatted as follows:
+''' ~ Any number of comment lines starting with '#' are ignored
+''' ~ The next line contains the selname
+''' ~ The next lines contain the Sel data.  They must be
+''' formatted similarly to the string format in
+''' selCreateFromString(), with each line beginning and
+''' ending with a double-quote, and showing the 2D layout.
+''' ~ Each Sel ends when a blank line, a comment line, or
 ''' the end of file is reached.<para/>
-''' (3) See selCreateFromString() for a description of the string<para/>
-''' format for the Sel data.  As an example, here are the lines<para/>
-''' of is a valid file for a single Sel.  In the file, all lines<para/>
-''' are left-justified:<para/>
-''' # diagonal sel<para/>
-''' sel_5diag<para/>
-''' "x  "<para/>
-''' " x "<para/>
-''' "  X  "<para/>
-''' " x "<para/>
-''' "  x"<para/>
+''' 
+''' (3) See selCreateFromString() for a description of the string
+''' format for the Sel data.  As an example, here are the lines
+''' of is a valid file for a single Sel.  In the file, all lines
+''' are left-justified:
+''' # diagonal sel
+''' sel_5diag
+''' "x  "
+''' " x "
+''' "  X  "
+''' " x "
+''' "  x"
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -915,9 +925,9 @@ End Function
 ' selCreateFromPta(pta, cy, cx, name) as Sel
 ' selCreateFromPta(PTA *, l_int32, l_int32, const char *) as SEL *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The origin and all points in the pta must be positive.<para/>
+''' 
+''' (1) The origin and all points in the pta must be positive.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -945,9 +955,9 @@ End Function
 ' selCreateFromPix(pix, cy, cx, name) as Sel
 ' selCreateFromPix(PIX *, l_int32, l_int32, const char *) as SEL *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The origin must be positive.<para/>
+''' 
+''' (1) The origin must be positive.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -975,11 +985,12 @@ End Function
 ' selReadFromColorImage(pathname) as Sel
 ' selReadFromColorImage(const char *) as SEL *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Loads an image from a file and creates a (hit-miss) sel.<para/>
-''' (2) The sel name is taken from the pathname without the directory<para/>
-''' and extension.<para/>
+''' 
+''' (2) The sel name is taken from the pathname without the directory
+''' and extension.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1001,19 +1012,22 @@ End Function
 ' selCreateFromColorPix(pixs, selname) as Sel
 ' selCreateFromColorPix(PIX *, const char *) as SEL *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The sel size is given by the size of pixs.<para/>
-''' (2) In pixs, hits are represented by green pixels, misses by red<para/>
+''' 
+''' (2) In pixs, hits are represented by green pixels, misses by red
 ''' pixels, and don't-cares by white pixels.<para/>
+''' 
 ''' (3) In pixs, there may be no misses, but there must be at least 1 hit.<para/>
-''' (4) At most there can be only one origin pixel, which is optionally<para/>
-''' specified by using a lower-intensity pixel:<para/>
-''' if a hit:  dark green<para/>
-''' if a miss: dark red<para/>
-''' if a don't care: gray<para/>
-''' If there is no such pixel, the origin defaults to the approximate<para/>
-''' center of the sel.<para/>
+''' 
+''' (4) At most there can be only one origin pixel, which is optionally
+''' specified by using a lower-intensity pixel:
+''' if a hit:  dark green
+''' if a miss: dark red
+''' if a don't care: gray
+''' If there is no such pixel, the origin defaults to the approximate
+''' center of the sel.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1037,14 +1051,16 @@ End Function
 ' selDisplayInPix(sel, size, gthick) as Pix
 ' selDisplayInPix(SEL *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This gives a visual representation of a general (hit-miss) sel.<para/>
+''' 
 ''' (2) The empty sel is represented by a grid of intersecting lines.<para/>
-''' (3) Three different patterns are generated for the sel elements:<para/>
-''' ~ hit (solid black circle)<para/>
-''' ~ miss (black ring inner radius is radius2)<para/>
-''' ~ origin (cross, XORed with whatever is there)<para/>
+''' 
+''' (3) Three different patterns are generated for the sel elements:
+''' ~ hit (solid black circle)
+''' ~ miss (black ring inner radius is radius2)
+''' ~ origin (cross, XORed with whatever is there)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1070,12 +1086,14 @@ End Function
 ' selaDisplayInPix(sela, size, gthick, spacing, ncols) as Pix
 ' selaDisplayInPix(SELA *, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This gives a visual representation of all the sels in a sela.<para/>
+''' 
 ''' (2) See notes in selDisplayInPix() for display params of each sel.<para/>
-''' (3) This gives the nicest results when all sels in the sela<para/>
-''' are the same size.<para/>
+''' 
+''' (3) This gives the nicest results when all sels in the sela
+''' are the same size.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

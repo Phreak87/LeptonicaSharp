@@ -7,18 +7,21 @@ Partial Public Class _All
 ' pixDilate(pixd, pixs, sel) as Pix
 ' pixDilate(PIX *, PIX *, SEL *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This dilates src using hits in Sel.<para/>
-''' (2) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (2) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (3) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixDilate(NULL, pixs, ...)<para/>
-''' (b) pixDilate(pixs, pixs, ...)<para/>
+''' 
+''' (3) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixDilate(NULL, pixs, ...)
+''' (b) pixDilate(pixs, pixs, ...)
 ''' (c) pixDilate(pixd, pixs, ...)<para/>
-''' (4) The size of the result is determined by pixs.<para/>
+''' 
+''' (4) The size of the result is determined by pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -49,18 +52,21 @@ End Function
 ' pixErode(pixd, pixs, sel) as Pix
 ' pixErode(PIX *, PIX *, SEL *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This erodes src using hits in Sel.<para/>
-''' (2) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (2) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (3) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixErode(NULL, pixs, ...)<para/>
-''' (b) pixErode(pixs, pixs, ...)<para/>
+''' 
+''' (3) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixErode(NULL, pixs, ...)
+''' (b) pixErode(pixs, pixs, ...)
 ''' (c) pixErode(pixd, pixs, ...)<para/>
-''' (4) The size of the result is determined by pixs.<para/>
+''' 
+''' (4) The size of the result is determined by pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -91,20 +97,23 @@ End Function
 ' pixHMT(pixd, pixs, sel) as Pix
 ' pixHMT(PIX *, PIX *, SEL *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The hit-miss transform erodes the src, using both hits<para/>
-''' and misses in the Sel.  It ANDs the shifted src for hits<para/>
+''' 
+''' (1) The hit-miss transform erodes the src, using both hits
+''' and misses in the Sel.  It ANDs the shifted src for hits
 ''' and ANDs the inverted shifted src for misses.<para/>
-''' (2) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (2) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (3) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixHMT(NULL, pixs, ...)<para/>
-''' (b) pixHMT(pixs, pixs, ...)<para/>
+''' 
+''' (3) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixHMT(NULL, pixs, ...)
+''' (b) pixHMT(pixs, pixs, ...)
 ''' (c) pixHMT(pixd, pixs, ...)<para/>
-''' (4) The size of the result is determined by pixs.<para/>
+''' 
+''' (4) The size of the result is determined by pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -135,18 +144,21 @@ End Function
 ' pixOpen(pixd, pixs, sel) as Pix
 ' pixOpen(PIX *, PIX *, SEL *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Generic morphological opening, using hits in the Sel.<para/>
-''' (2) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (2) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (3) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixOpen(NULL, pixs, ...)<para/>
-''' (b) pixOpen(pixs, pixs, ...)<para/>
+''' 
+''' (3) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixOpen(NULL, pixs, ...)
+''' (b) pixOpen(pixs, pixs, ...)
 ''' (c) pixOpen(pixd, pixs, ...)<para/>
-''' (4) The size of the result is determined by pixs.<para/>
+''' 
+''' (4) The size of the result is determined by pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -177,21 +189,25 @@ End Function
 ' pixClose(pixd, pixs, sel) as Pix
 ' pixClose(PIX *, PIX *, SEL *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Generic morphological closing, using hits in the Sel.<para/>
-''' (2) This implementation is a strict dual of the opening if<para/>
-''' symmetric boundary conditions are used (see notes at top<para/>
+''' 
+''' (2) This implementation is a strict dual of the opening if
+''' symmetric boundary conditions are used (see notes at top
 ''' of this file).<para/>
-''' (3) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (3) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (4) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixClose(NULL, pixs, ...)<para/>
-''' (b) pixClose(pixs, pixs, ...)<para/>
+''' 
+''' (4) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixClose(NULL, pixs, ...)
+''' (b) pixClose(pixs, pixs, ...)
 ''' (c) pixClose(pixd, pixs, ...)<para/>
-''' (5) The size of the result is determined by pixs.<para/>
+''' 
+''' (5) The size of the result is determined by pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -222,25 +238,30 @@ End Function
 ' pixCloseSafe(pixd, pixs, sel) as Pix
 ' pixCloseSafe(PIX *, PIX *, SEL *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Generic morphological closing, using hits in the Sel.<para/>
-''' (2) If non-symmetric boundary conditions are used, this<para/>
-''' function adds a border of OFF pixels that is of<para/>
-''' sufficient size to avoid losing pixels from the dilation,<para/>
-''' and it removes the border after the operation is finished.<para/>
+''' 
+''' (2) If non-symmetric boundary conditions are used, this
+''' function adds a border of OFF pixels that is of
+''' sufficient size to avoid losing pixels from the dilation,
+''' and it removes the border after the operation is finished.
 ''' It thus enforces a correct extensive result for closing.<para/>
-''' (3) If symmetric b.c. are used, it is not necessary to add<para/>
+''' 
+''' (3) If symmetric b.c. are used, it is not necessary to add
 ''' and remove this border.<para/>
-''' (4) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (4) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (5) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixCloseSafe(NULL, pixs, ...)<para/>
-''' (b) pixCloseSafe(pixs, pixs, ...)<para/>
+''' 
+''' (5) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixCloseSafe(NULL, pixs, ...)
+''' (b) pixCloseSafe(pixs, pixs, ...)
 ''' (c) pixCloseSafe(pixd, pixs, ...)<para/>
-''' (6) The size of the result is determined by pixs.<para/>
+''' 
+''' (6) The size of the result is determined by pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -271,21 +292,25 @@ End Function
 ' pixOpenGeneralized(pixd, pixs, sel) as Pix
 ' pixOpenGeneralized(PIX *, PIX *, SEL *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Generalized morphological opening, using both hits and<para/>
+''' 
+''' (1) Generalized morphological opening, using both hits and
 ''' misses in the Sel.<para/>
-''' (2) This does a hit-miss transform, followed by a dilation<para/>
+''' 
+''' (2) This does a hit-miss transform, followed by a dilation
 ''' using the hits.<para/>
-''' (3) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (3) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (4) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixOpenGeneralized(NULL, pixs, ...)<para/>
-''' (b) pixOpenGeneralized(pixs, pixs, ...)<para/>
+''' 
+''' (4) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixOpenGeneralized(NULL, pixs, ...)
+''' (b) pixOpenGeneralized(pixs, pixs, ...)
 ''' (c) pixOpenGeneralized(pixd, pixs, ...)<para/>
-''' (5) The size of the result is determined by pixs.<para/>
+''' 
+''' (5) The size of the result is determined by pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -316,22 +341,27 @@ End Function
 ' pixCloseGeneralized(pixd, pixs, sel) as Pix
 ' pixCloseGeneralized(PIX *, PIX *, SEL *) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Generalized morphological closing, using both hits and<para/>
+''' 
+''' (1) Generalized morphological closing, using both hits and
 ''' misses in the Sel.<para/>
-''' (2) This does a dilation using the hits, followed by a<para/>
+''' 
+''' (2) This does a dilation using the hits, followed by a
 ''' hit-miss transform.<para/>
+''' 
 ''' (3) This operation is a dual of the generalized opening.<para/>
-''' (4) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (4) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (5) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixCloseGeneralized(NULL, pixs, ...)<para/>
-''' (b) pixCloseGeneralized(pixs, pixs, ...)<para/>
+''' 
+''' (5) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixCloseGeneralized(NULL, pixs, ...)
+''' (b) pixCloseGeneralized(pixs, pixs, ...)
 ''' (c) pixCloseGeneralized(pixd, pixs, ...)<para/>
-''' (6) The size of the result is determined by pixs.<para/>
+''' 
+''' (6) The size of the result is determined by pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -362,20 +392,25 @@ End Function
 ' pixDilateBrick(pixd, pixs, hsize, vsize) as Pix
 ' pixDilateBrick(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Sel is a brick with all elements being hits<para/>
+''' 
 ''' (2) The origin is at (x, y) = (hsize/2, vsize/2)<para/>
+''' 
 ''' (3) Do separably if both hsize and vsize are  is greater  1.<para/>
-''' (4) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (4) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (5) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixDilateBrick(NULL, pixs, ...)<para/>
-''' (b) pixDilateBrick(pixs, pixs, ...)<para/>
+''' 
+''' (5) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixDilateBrick(NULL, pixs, ...)
+''' (b) pixDilateBrick(pixs, pixs, ...)
 ''' (c) pixDilateBrick(pixd, pixs, ...)<para/>
-''' (6) The size of the result is determined by pixs.<para/>
+''' 
+''' (6) The size of the result is determined by pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -407,20 +442,25 @@ End Function
 ' pixErodeBrick(pixd, pixs, hsize, vsize) as Pix
 ' pixErodeBrick(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Sel is a brick with all elements being hits<para/>
+''' 
 ''' (2) The origin is at (x, y) = (hsize/2, vsize/2)<para/>
+''' 
 ''' (3) Do separably if both hsize and vsize are  is greater  1.<para/>
-''' (4) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (4) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (5) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixErodeBrick(NULL, pixs, ...)<para/>
-''' (b) pixErodeBrick(pixs, pixs, ...)<para/>
+''' 
+''' (5) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixErodeBrick(NULL, pixs, ...)
+''' (b) pixErodeBrick(pixs, pixs, ...)
 ''' (c) pixErodeBrick(pixd, pixs, ...)<para/>
-''' (6) The size of the result is determined by pixs.<para/>
+''' 
+''' (6) The size of the result is determined by pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -452,20 +492,25 @@ End Function
 ' pixOpenBrick(pixd, pixs, hsize, vsize) as Pix
 ' pixOpenBrick(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Sel is a brick with all elements being hits<para/>
+''' 
 ''' (2) The origin is at (x, y) = (hsize/2, vsize/2)<para/>
+''' 
 ''' (3) Do separably if both hsize and vsize are  is greater  1.<para/>
-''' (4) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (4) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (5) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixOpenBrick(NULL, pixs, ...)<para/>
-''' (b) pixOpenBrick(pixs, pixs, ...)<para/>
+''' 
+''' (5) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixOpenBrick(NULL, pixs, ...)
+''' (b) pixOpenBrick(pixs, pixs, ...)
 ''' (c) pixOpenBrick(pixd, pixs, ...)<para/>
-''' (6) The size of the result is determined by pixs.<para/>
+''' 
+''' (6) The size of the result is determined by pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -497,20 +542,25 @@ End Function
 ' pixCloseBrick(pixd, pixs, hsize, vsize) as Pix
 ' pixCloseBrick(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Sel is a brick with all elements being hits<para/>
+''' 
 ''' (2) The origin is at (x, y) = (hsize/2, vsize/2)<para/>
+''' 
 ''' (3) Do separably if both hsize and vsize are  is greater  1.<para/>
-''' (4) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (4) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (5) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixCloseBrick(NULL, pixs, ...)<para/>
-''' (b) pixCloseBrick(pixs, pixs, ...)<para/>
+''' 
+''' (5) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixCloseBrick(NULL, pixs, ...)
+''' (b) pixCloseBrick(pixs, pixs, ...)
 ''' (c) pixCloseBrick(pixd, pixs, ...)<para/>
-''' (6) The size of the result is determined by pixs.<para/>
+''' 
+''' (6) The size of the result is determined by pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -542,25 +592,31 @@ End Function
 ' pixCloseSafeBrick(pixd, pixs, hsize, vsize) as Pix
 ' pixCloseSafeBrick(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Sel is a brick with all elements being hits<para/>
+''' 
 ''' (2) The origin is at (x, y) = (hsize/2, vsize/2)<para/>
+''' 
 ''' (3) Do separably if both hsize and vsize are  is greater  1.<para/>
-''' (4) Safe closing adds a border of 0 pixels, of sufficient size so<para/>
-''' that all pixels in input image are processed within<para/>
-''' 32-bit words in the expanded image.  As a result, there is<para/>
-''' no special processing for pixels near the boundary, and there<para/>
+''' 
+''' (4) Safe closing adds a border of 0 pixels, of sufficient size so
+''' that all pixels in input image are processed within
+''' 32-bit words in the expanded image.  As a result, there is
+''' no special processing for pixels near the boundary, and there
 ''' are no boundary effects.  The border is removed at the end.<para/>
-''' (5) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (5) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (6) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixCloseBrick(NULL, pixs, ...)<para/>
-''' (b) pixCloseBrick(pixs, pixs, ...)<para/>
+''' 
+''' (6) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixCloseBrick(NULL, pixs, ...)
+''' (b) pixCloseBrick(pixs, pixs, ...)
 ''' (c) pixCloseBrick(pixd, pixs, ...)<para/>
-''' (7) The size of the result is determined by pixs.<para/>
+''' 
+''' (7) The size of the result is determined by pixs.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -616,17 +672,20 @@ End Function
 ' selectComposableSizes(size, pfactor1, pfactor2) as Integer
 ' selectComposableSizes(l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This works for Sel sizes up to 62500, which seems sufficient.<para/>
-''' (2) The composable sel size is typically within +- 1 of<para/>
-''' the requested size.  Up to size = 300, the maximum difference<para/>
+''' 
+''' (2) The composable sel size is typically within +- 1 of
+''' the requested size.  Up to size = 300, the maximum difference
 ''' is +- 2.<para/>
-''' (3) We choose an overall cost function where the penalty for<para/>
-''' the size difference between input and actual is 4 times<para/>
+''' 
+''' (3) We choose an overall cost function where the penalty for
+''' the size difference between input and actual is 4 times
 ''' the penalty for additional rasterops.<para/>
-''' (4) Returned values: factor1  is greater = factor2<para/>
-''' If size  is greater  1, then factor1  is greater  1.<para/>
+''' 
+''' (4) Returned values: factor1 greater or equal factor2
+''' If size  is greater  1, then factor1  is greater  1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -649,34 +708,41 @@ End Function
 ' pixDilateCompBrick(pixd, pixs, hsize, vsize) as Pix
 ' pixDilateCompBrick(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Sel is a brick with all elements being hits<para/>
+''' 
 ''' (2) The origin is at (x, y) = (hsize/2, vsize/2)<para/>
+''' 
 ''' (3) Do compositely for each dimension  is greater  1.<para/>
+''' 
 ''' (4) Do separably if both hsize and vsize are  is greater  1.<para/>
-''' (5) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (5) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (6) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixDilateCompBrick(NULL, pixs, ...)<para/>
-''' (b) pixDilateCompBrick(pixs, pixs, ...)<para/>
+''' 
+''' (6) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixDilateCompBrick(NULL, pixs, ...)
+''' (b) pixDilateCompBrick(pixs, pixs, ...)
 ''' (c) pixDilateCompBrick(pixd, pixs, ...)<para/>
+''' 
 ''' (7) The dimensions of the resulting image are determined by pixs.<para/>
-''' (8) CAUTION: both hsize and vsize are being decomposed.<para/>
-''' The decomposer chooses a product of sizes (call them<para/>
-''' 'terms') for each that is close to the input size,<para/>
-''' but not necessarily equal to it.  It attempts to optimize:<para/>
-''' (a) for consistency with the input values: the product<para/>
-''' of terms is close to the input size<para/>
-''' (b) for efficiency of the operation: the sum of the<para/>
-''' terms is small ideally about twice the square<para/>
-''' root of the input size.<para/>
-''' So, for example, if the input hsize = 37, which is<para/>
-''' a prime number, the decomposer will break this into two<para/>
-''' terms, 6 and 6, so that the net result is a dilation<para/>
-''' with hsize = 36.<para/>
+''' 
+''' (8) CAUTION: both hsize and vsize are being decomposed.
+''' The decomposer chooses a product of sizes (call them
+''' 'terms') for each that is close to the input size,
+''' but not necessarily equal to it.  It attempts to optimize:
+''' (a) for consistency with the input values: the product
+''' of terms is close to the input size
+''' (b) for efficiency of the operation: the sum of the
+''' terms is small ideally about twice the square
+''' root of the input size.
+''' So, for example, if the input hsize = 37, which is
+''' a prime number, the decomposer will break this into two
+''' terms, 6 and 6, so that the net result is a dilation
+''' with hsize = 36.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -708,34 +774,41 @@ End Function
 ' pixErodeCompBrick(pixd, pixs, hsize, vsize) as Pix
 ' pixErodeCompBrick(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Sel is a brick with all elements being hits<para/>
+''' 
 ''' (2) The origin is at (x, y) = (hsize/2, vsize/2)<para/>
+''' 
 ''' (3) Do compositely for each dimension  is greater  1.<para/>
+''' 
 ''' (4) Do separably if both hsize and vsize are  is greater  1.<para/>
-''' (5) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (5) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (6) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixErodeCompBrick(NULL, pixs, ...)<para/>
-''' (b) pixErodeCompBrick(pixs, pixs, ...)<para/>
+''' 
+''' (6) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixErodeCompBrick(NULL, pixs, ...)
+''' (b) pixErodeCompBrick(pixs, pixs, ...)
 ''' (c) pixErodeCompBrick(pixd, pixs, ...)<para/>
+''' 
 ''' (7) The dimensions of the resulting image are determined by pixs.<para/>
-''' (8) CAUTION: both hsize and vsize are being decomposed.<para/>
-''' The decomposer chooses a product of sizes (call them<para/>
-''' 'terms') for each that is close to the input size,<para/>
-''' but not necessarily equal to it.  It attempts to optimize:<para/>
-''' (a) for consistency with the input values: the product<para/>
-''' of terms is close to the input size<para/>
-''' (b) for efficiency of the operation: the sum of the<para/>
-''' terms is small ideally about twice the square<para/>
-''' root of the input size.<para/>
-''' So, for example, if the input hsize = 37, which is<para/>
-''' a prime number, the decomposer will break this into two<para/>
-''' terms, 6 and 6, so that the net result is a dilation<para/>
-''' with hsize = 36.<para/>
+''' 
+''' (8) CAUTION: both hsize and vsize are being decomposed.
+''' The decomposer chooses a product of sizes (call them
+''' 'terms') for each that is close to the input size,
+''' but not necessarily equal to it.  It attempts to optimize:
+''' (a) for consistency with the input values: the product
+''' of terms is close to the input size
+''' (b) for efficiency of the operation: the sum of the
+''' terms is small ideally about twice the square
+''' root of the input size.
+''' So, for example, if the input hsize = 37, which is
+''' a prime number, the decomposer will break this into two
+''' terms, 6 and 6, so that the net result is a dilation
+''' with hsize = 36.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -767,34 +840,41 @@ End Function
 ' pixOpenCompBrick(pixd, pixs, hsize, vsize) as Pix
 ' pixOpenCompBrick(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Sel is a brick with all elements being hits<para/>
+''' 
 ''' (2) The origin is at (x, y) = (hsize/2, vsize/2)<para/>
+''' 
 ''' (3) Do compositely for each dimension  is greater  1.<para/>
+''' 
 ''' (4) Do separably if both hsize and vsize are  is greater  1.<para/>
-''' (5) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (5) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (6) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixOpenCompBrick(NULL, pixs, ...)<para/>
-''' (b) pixOpenCompBrick(pixs, pixs, ...)<para/>
+''' 
+''' (6) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixOpenCompBrick(NULL, pixs, ...)
+''' (b) pixOpenCompBrick(pixs, pixs, ...)
 ''' (c) pixOpenCompBrick(pixd, pixs, ...)<para/>
+''' 
 ''' (7) The dimensions of the resulting image are determined by pixs.<para/>
-''' (8) CAUTION: both hsize and vsize are being decomposed.<para/>
-''' The decomposer chooses a product of sizes (call them<para/>
-''' 'terms') for each that is close to the input size,<para/>
-''' but not necessarily equal to it.  It attempts to optimize:<para/>
-''' (a) for consistency with the input values: the product<para/>
-''' of terms is close to the input size<para/>
-''' (b) for efficiency of the operation: the sum of the<para/>
-''' terms is small ideally about twice the square<para/>
-''' root of the input size.<para/>
-''' So, for example, if the input hsize = 37, which is<para/>
-''' a prime number, the decomposer will break this into two<para/>
-''' terms, 6 and 6, so that the net result is a dilation<para/>
-''' with hsize = 36.<para/>
+''' 
+''' (8) CAUTION: both hsize and vsize are being decomposed.
+''' The decomposer chooses a product of sizes (call them
+''' 'terms') for each that is close to the input size,
+''' but not necessarily equal to it.  It attempts to optimize:
+''' (a) for consistency with the input values: the product
+''' of terms is close to the input size
+''' (b) for efficiency of the operation: the sum of the
+''' terms is small ideally about twice the square
+''' root of the input size.
+''' So, for example, if the input hsize = 37, which is
+''' a prime number, the decomposer will break this into two
+''' terms, 6 and 6, so that the net result is a dilation
+''' with hsize = 36.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -826,34 +906,41 @@ End Function
 ' pixCloseCompBrick(pixd, pixs, hsize, vsize) as Pix
 ' pixCloseCompBrick(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Sel is a brick with all elements being hits<para/>
+''' 
 ''' (2) The origin is at (x, y) = (hsize/2, vsize/2)<para/>
+''' 
 ''' (3) Do compositely for each dimension  is greater  1.<para/>
+''' 
 ''' (4) Do separably if both hsize and vsize are  is greater  1.<para/>
-''' (5) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (5) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (6) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixCloseCompBrick(NULL, pixs, ...)<para/>
-''' (b) pixCloseCompBrick(pixs, pixs, ...)<para/>
+''' 
+''' (6) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixCloseCompBrick(NULL, pixs, ...)
+''' (b) pixCloseCompBrick(pixs, pixs, ...)
 ''' (c) pixCloseCompBrick(pixd, pixs, ...)<para/>
+''' 
 ''' (7) The dimensions of the resulting image are determined by pixs.<para/>
-''' (8) CAUTION: both hsize and vsize are being decomposed.<para/>
-''' The decomposer chooses a product of sizes (call them<para/>
-''' 'terms') for each that is close to the input size,<para/>
-''' but not necessarily equal to it.  It attempts to optimize:<para/>
-''' (a) for consistency with the input values: the product<para/>
-''' of terms is close to the input size<para/>
-''' (b) for efficiency of the operation: the sum of the<para/>
-''' terms is small ideally about twice the square<para/>
-''' root of the input size.<para/>
-''' So, for example, if the input hsize = 37, which is<para/>
-''' a prime number, the decomposer will break this into two<para/>
-''' terms, 6 and 6, so that the net result is a dilation<para/>
-''' with hsize = 36.<para/>
+''' 
+''' (8) CAUTION: both hsize and vsize are being decomposed.
+''' The decomposer chooses a product of sizes (call them
+''' 'terms') for each that is close to the input size,
+''' but not necessarily equal to it.  It attempts to optimize:
+''' (a) for consistency with the input values: the product
+''' of terms is close to the input size
+''' (b) for efficiency of the operation: the sum of the
+''' terms is small ideally about twice the square
+''' root of the input size.
+''' So, for example, if the input hsize = 37, which is
+''' a prime number, the decomposer will break this into two
+''' terms, 6 and 6, so that the net result is a dilation
+''' with hsize = 36.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -885,39 +972,47 @@ End Function
 ' pixCloseSafeCompBrick(pixd, pixs, hsize, vsize) as Pix
 ' pixCloseSafeCompBrick(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Sel is a brick with all elements being hits<para/>
+''' 
 ''' (2) The origin is at (x, y) = (hsize/2, vsize/2)<para/>
+''' 
 ''' (3) Do compositely for each dimension  is greater  1.<para/>
+''' 
 ''' (4) Do separably if both hsize and vsize are  is greater  1.<para/>
-''' (5) Safe closing adds a border of 0 pixels, of sufficient size so<para/>
-''' that all pixels in input image are processed within<para/>
-''' 32-bit words in the expanded image.  As a result, there is<para/>
-''' no special processing for pixels near the boundary, and there<para/>
+''' 
+''' (5) Safe closing adds a border of 0 pixels, of sufficient size so
+''' that all pixels in input image are processed within
+''' 32-bit words in the expanded image.  As a result, there is
+''' no special processing for pixels near the boundary, and there
 ''' are no boundary effects.  The border is removed at the end.<para/>
-''' (6) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (6) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (7) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixCloseSafeCompBrick(NULL, pixs, ...)<para/>
-''' (b) pixCloseSafeCompBrick(pixs, pixs, ...)<para/>
+''' 
+''' (7) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixCloseSafeCompBrick(NULL, pixs, ...)
+''' (b) pixCloseSafeCompBrick(pixs, pixs, ...)
 ''' (c) pixCloseSafeCompBrick(pixd, pixs, ...)<para/>
+''' 
 ''' (8) The dimensions of the resulting image are determined by pixs.<para/>
-''' (9) CAUTION: both hsize and vsize are being decomposed.<para/>
-''' The decomposer chooses a product of sizes (call them<para/>
-''' 'terms') for each that is close to the input size,<para/>
-''' but not necessarily equal to it.  It attempts to optimize:<para/>
-''' (a) for consistency with the input values: the product<para/>
-''' of terms is close to the input size<para/>
-''' (b) for efficiency of the operation: the sum of the<para/>
-''' terms is small ideally about twice the square<para/>
-''' root of the input size.<para/>
-''' So, for example, if the input hsize = 37, which is<para/>
-''' a prime number, the decomposer will break this into two<para/>
-''' terms, 6 and 6, so that the net result is a dilation<para/>
-''' with hsize = 36.<para/>
+''' 
+''' (9) CAUTION: both hsize and vsize are being decomposed.
+''' The decomposer chooses a product of sizes (call them
+''' 'terms') for each that is close to the input size,
+''' but not necessarily equal to it.  It attempts to optimize:
+''' (a) for consistency with the input values: the product
+''' of terms is close to the input size
+''' (b) for efficiency of the operation: the sum of the
+''' terms is small ideally about twice the square
+''' root of the input size.
+''' So, for example, if the input hsize = 37, which is
+''' a prime number, the decomposer will break this into two
+''' terms, 6 and 6, so that the net result is a dilation
+''' with hsize = 36.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

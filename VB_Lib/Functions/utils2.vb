@@ -25,14 +25,16 @@ End Function
 ' stringCopy(dest, src, n) as Integer
 ' stringCopy(char *, const char *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Relatively safe wrapper for strncpy, that checks the input,<para/>
-''' and does not complain if %src is null or %n  is lower  1.<para/>
-''' If %n  is lower  1, this is a no-op.<para/>
+''' 
+''' (1) Relatively safe wrapper for strncpy, that checks the input,
+''' and does not complain if %src is null or %n  is smaller 1.
+''' If %n  is smaller 1, this is a no-op.<para/>
+''' 
 ''' (2) %dest needs to be at least %n bytes in size.<para/>
-''' (3) We don't call strncpy() because valgrind complains about<para/>
-''' use of uninitialized values.<para/>
+''' 
+''' (3) We don't call strncpy() because valgrind complains about
+''' use of uninitialized values.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -57,11 +59,13 @@ End Function
 ' stringReplace(pdest, src) as Integer
 ' stringReplace(char **, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Frees any existing dest string<para/>
+''' 
 ''' (2) Puts a copy of src string in the dest<para/>
-''' (3) If either or both strings are null, does something reasonable.<para/>
+''' 
+''' (3) If either or both strings are null, does something reasonable.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -84,13 +88,14 @@ End Function
 ' stringLength(src, size) as Integer
 ' stringLength(const char *, size_t) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Safe implementation of strlen that only checks size bytes<para/>
+''' 
+''' (1) Safe implementation of strlen that only checks size bytes
 ''' for trailing NUL.<para/>
-''' (2) Valid returned string lengths are between 0 and size - 1.<para/>
-''' If size bytes are checked without finding a NUL byte, then<para/>
-''' an error is indicated by returning size.<para/>
+''' 
+''' (2) Valid returned string lengths are between 0 and size - 1.
+''' If size bytes are checked without finding a NUL byte, then
+''' an error is indicated by returning size.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -113,16 +118,19 @@ End Function
 ' stringCat(dest, size, src) as Integer
 ' stringCat(char *, size_t, const char *) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Alternative implementation of strncat, that checks the input,<para/>
-''' is easier to use (since the size of the dest buffer is specified<para/>
-''' rather than the number of bytes to copy), and does not complain<para/>
+''' 
+''' (1) Alternative implementation of strncat, that checks the input,
+''' is easier to use (since the size of the dest buffer is specified
+''' rather than the number of bytes to copy), and does not complain
 ''' if %src is null.<para/>
+''' 
 ''' (2) Never writes past end of dest.<para/>
+''' 
 ''' (3) If it can't append src (an error), it does nothing.<para/>
-''' (4) N.B. The order of 2nd and 3rd args is reversed from that in<para/>
-''' strncat, as in the Windows function strcat_s().<para/>
+''' 
+''' (4) N.B. The order of 2nd and 3rd args is reversed from that in
+''' strncat, as in the Windows function strcat_s().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -148,10 +156,11 @@ End Function
 ' stringConcatNew(first) as String
 ' stringConcatNew(const char *, ...) as char *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The last arg in the list of strings must be NULL.<para/>
-''' (2) Caller must free the returned string.<para/>
+''' 
+''' (2) Caller must free the returned string.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -172,11 +181,12 @@ End Function
 ' stringJoin(src1, src2) as String
 ' stringJoin(const char *, const char *) as char *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is a safe version of strcat it makes a new string.<para/>
-''' (2) It is not an error if either or both of the strings<para/>
-''' are empty, or if either or both of the pointers are null.<para/>
+''' 
+''' (2) It is not an error if either or both of the strings
+''' are empty, or if either or both of the pointers are null.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -197,28 +207,32 @@ End Function
 ' stringJoinIP(psrc1, src2) as Integer
 ' stringJoinIP(char **, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a safe in-place version of strcat.  The contents of<para/>
+''' 
+''' (1) This is a safe in-place version of strcat.  The contents of
 ''' src1 is replaced by the concatenation of src1 and src2.<para/>
-''' (2) It is not an error if either or both of the strings<para/>
-''' are empty (""), or if the pointers to the strings (psrc1, src2)<para/>
+''' 
+''' (2) It is not an error if either or both of the strings
+''' are empty (""), or if the pointers to the strings (psrc1, src2)
 ''' are null.<para/>
-''' (3) src1 should be initialized to null or an empty string<para/>
-''' before the first call.  Use one of these:<para/>
-''' char src1 = NULL<para/>
-''' char src1 = stringNew("")<para/>
-''' Then call with:<para/>
-''' stringJoinIP( and src1, src2)<para/>
-''' (4) This can also be implemented as a macro:<para/>
-''' \code<para/>
-''' #define stringJoinIP(src1, src2) \<para/>
-''' {tmpstr = stringJoin((src1),(src2)) \<para/>
-''' LEPT_FREE(src1) \<para/>
-''' (src1) = tmpstr}<para/>
+''' 
+''' (3) src1 should be initialized to null or an empty string
+''' before the first call.  Use one of these:
+''' char src1 = NULL
+''' char src1 = stringNew("")
+''' Then call with:
+''' stringJoinIP([and]src1, src2)<para/>
+''' 
+''' (4) This can also be implemented as a macro:
+''' \code
+''' #define stringJoinIP(src1, src2) \
+''' {tmpstr = stringJoin((src1),(src2)) \
+''' LEPT_FREE(src1) \
+''' (src1) = tmpstr}
 ''' \endcode<para/>
-''' (5) Another function to consider for joining many strings is<para/>
-''' stringConcatNew().<para/>
+''' 
+''' (5) Another function to consider for joining many strings is
+''' stringConcatNew().
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -259,24 +273,30 @@ End Function
 ' strtokSafe(cstr, seps, psaveptr) as String
 ' strtokSafe(char *, const char *, char **) as char *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is a thread-safe implementation of strtok.<para/>
+''' 
 ''' (2) It has the same interface as strtok_r.<para/>
-''' (3) It differs from strtok_r in usage in two respects:<para/>
-''' (a) the input string is not altered<para/>
-''' (b) each returned substring is newly allocated and must<para/>
+''' 
+''' (3) It differs from strtok_r in usage in two respects:
+''' (a) the input string is not altered
+''' (b) each returned substring is newly allocated and must
 ''' be freed after use.<para/>
-''' (4) Let me repeat that.  This is "safe" because the input<para/>
-''' string is not altered and because each returned string<para/>
+''' 
+''' (4) Let me repeat that.  This is "safe" because the input
+''' string is not altered and because each returned string
 ''' is newly allocated on the heap.<para/>
-''' (5) It is here because, surprisingly, some C libraries don't<para/>
+''' 
+''' (5) It is here because, surprisingly, some C libraries don't
 ''' include strtok_r.<para/>
-''' (6) Important usage points:<para/>
-''' ~ Input the string to be parsed on the first invocation.<para/>
-''' ~ Then input NULL after that the value returned in saveptr<para/>
+''' 
+''' (6) Important usage points:
+''' ~ Input the string to be parsed on the first invocation.
+''' ~ Then input NULL after that the value returned in saveptr
 ''' is used in all subsequent calls.<para/>
-''' (7) This is only slightly slower than strtok_r.<para/>
+''' 
+''' (7) This is only slightly slower than strtok_r.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -303,17 +323,21 @@ End Function
 ' stringSplitOnToken(cstr, seps, phead, ptail) as Integer
 ' stringSplitOnToken(char *, const char *, char **, char **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) The input string is not altered all split parts are new strings.<para/>
-''' (2) The split occurs around the first consecutive sequence of<para/>
+''' 
+''' (2) The split occurs around the first consecutive sequence of
 ''' tokens encountered.<para/>
-''' (3) The head goes from the beginning of the string up to<para/>
+''' 
+''' (3) The head goes from the beginning of the string up to
 ''' but not including the first token found.<para/>
-''' (4) The tail contains the second part of the string, starting<para/>
+''' 
+''' (4) The tail contains the second part of the string, starting
 ''' with the first char in that part that is NOT a token.<para/>
-''' (5) If no separator token is found, 'head' contains a copy<para/>
-''' of the input string and 'tail' is null.<para/>
+''' 
+''' (5) If no separator token is found, 'head' contains a copy
+''' of the input string and 'tail' is null.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -343,10 +367,10 @@ End Function
 ' stringCheckForChars(src, chars, pfound) as Integer
 ' stringCheckForChars(const char *, const char *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This can be used to sanitize an operation by checking for<para/>
-''' special characters that don't belong in a string.<para/>
+''' 
+''' (1) This can be used to sanitize an operation by checking for
+''' special characters that don't belong in a string.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -393,13 +417,15 @@ End Function
 ' stringFindSubstr(src, sub, ploc) as Integer
 ' stringFindSubstr(const char *, const char *, l_int32 *) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This is a wrapper around strstr().<para/>
-''' (2) Both %src and %sub must be defined, and %sub must have<para/>
+''' 
+''' (2) Both %src and %sub must be defined, and %sub must have
 ''' length of at least 1.<para/>
-''' (3) If the substring is not found and loc is returned, it has<para/>
-''' the value -1.<para/>
+''' 
+''' (3) If the substring is not found and loc is returned, it has
+''' the value -1.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -424,17 +450,21 @@ End Function
 ' stringReplaceSubstr(src, sub1, sub2, pfound, ploc) as String
 ' stringReplaceSubstr(const char *, const char *, const char *, l_int32 *, l_int32 *) as char *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Replaces the first instance.<para/>
+''' 
 ''' (2) To only remove sub1, use "" for sub2<para/>
+''' 
 ''' (3) Returns a new string if sub1 and sub2 are the same.<para/>
-''' (4) The optional loc is input as the byte offset within the src<para/>
-''' from which the search starts, and after the search it is the<para/>
-''' char position in the string of the next character after<para/>
+''' 
+''' (4) The optional loc is input as the byte offset within the src
+''' from which the search starts, and after the search it is the
+''' char position in the string of the next character after
 ''' the substituted string.<para/>
-''' (5) N.B. If ploc is not null, loc must always be initialized.<para/>
-''' To search the string from the beginning, set loc = 0.<para/>
+''' 
+''' (5) N.B. If ploc is not null, loc must always be initialized.
+''' To search the string from the beginning, set loc = 0.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -465,11 +495,13 @@ End Function
 ' stringReplaceEachSubstr(src, sub1, sub2, pcount) as String
 ' stringReplaceEachSubstr(const char *, const char *, const char *, l_int32 *) as char *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Replaces every instance.<para/>
+''' 
 ''' (2) To only remove each instance of sub1, use "" for sub2<para/>
-''' (3) Returns NULL if sub1 and sub2 are the same.<para/>
+''' 
+''' (3) Returns NULL if sub1 and sub2 are the same.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -498,12 +530,13 @@ End Function
 ' arrayFindEachSequence(data, datalen, sequence, seqlen) as L_Dna
 ' arrayFindEachSequence(const l_uint8 *, size_t, const l_uint8 *, size_t) as L_DNA *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The byte arrays %data and %sequence are not C strings,<para/>
-''' as they can contain null bytes.  Therefore, for each<para/>
+''' 
+''' (1) The byte arrays %data and %sequence are not C strings,
+''' as they can contain null bytes.  Therefore, for each
 ''' we must give the length of the array.<para/>
-''' (2) This finds every occurrence in %data of %sequence.<para/>
+''' 
+''' (2) This finds every occurrence in %data of %sequence.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -532,16 +565,18 @@ End Function
 ' arrayFindSequence(data, datalen, sequence, seqlen, poffset, pfound) as Integer
 ' arrayFindSequence(const l_uint8 *, size_t, const l_uint8 *, size_t, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The byte arrays 'data' and 'sequence' are not C strings,<para/>
-''' as they can contain null bytes.  Therefore, for each<para/>
+''' 
+''' (1) The byte arrays 'data' and 'sequence' are not C strings,
+''' as they can contain null bytes.  Therefore, for each
 ''' we must give the length of the array.<para/>
-''' (2) This searches for the first occurrence in %data of %sequence,<para/>
-''' which consists of %seqlen bytes.  The parameter %seqlen<para/>
+''' 
+''' (2) This searches for the first occurrence in %data of %sequence,
+''' which consists of %seqlen bytes.  The parameter %seqlen
 ''' must not exceed the actual length of the %sequence byte array.<para/>
-''' (3) If the sequence is not found, the offset will be 0, so you<para/>
-''' must check %found.<para/>
+''' 
+''' (3) If the sequence is not found, the offset will be 0, so you
+''' must check %found.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -573,15 +608,17 @@ End Function
 ' reallocNew(pindata, oldsize, newsize) as Object
 ' reallocNew(void **, l_int32, l_int32) as void *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) If newsize  is lower =0, just frees input data and nulls ptr<para/>
+''' 
+''' (1) If newsize smaller or equal0, just frees input data and nulls ptr<para/>
+''' 
 ''' (2) If input ptr is null, just callocs new memory<para/>
-''' (3) This differs from realloc in that it always allocates<para/>
-''' new memory (if newsize  is greater  0) and initializes it to 0,<para/>
-''' it requires the amount of old data to be copied,<para/>
-''' and it takes the address of the input ptr and<para/>
-''' nulls the handle.<para/>
+''' 
+''' (3) This differs from realloc in that it always allocates
+''' new memory (if newsize  is greater  0) and initializes it to 0,
+''' it requires the amount of old data to be copied,
+''' and it takes the address of the input ptr and
+''' nulls the handle.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -628,23 +665,25 @@ End Function
 ' l_binaryReadStream(fp, pnbytes) as Byte()
 ' l_binaryReadStream(FILE *, size_t *) as l_uint8 *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The returned array is terminated with a null byte so that it can<para/>
+''' 
+''' (1) The returned array is terminated with a null byte so that it can
 ''' be used to read ascii data from a file into a proper C string.<para/>
-''' (2) This can be used to capture data that is piped in via stdin,<para/>
+''' 
+''' (2) This can be used to capture data that is piped in via stdin,
 ''' because it does not require seeking within the file.<para/>
-''' (3) For example, you can read an image from stdin into memory<para/>
-''' using shell redirection, with one of these shell commands:<para/>
-''' \code<para/>
-''' cat  is lower imagefile is greater  | readprog<para/>
-''' readprog  is lower is lower imagefile is greater <para/>
-''' \endcode<para/>
-''' where readprog is:<para/>
-''' \code<para/>
-''' l_uint8 data = l_binaryReadStream(stdin,  and nbytes)<para/>
-''' Pix pix = pixReadMem(data, nbytes)<para/>
-''' \endcode<para/>
+''' 
+''' (3) For example, you can read an image from stdin into memory
+''' using shell redirection, with one of these shell commands:
+''' \code
+''' cat  is smallerimagefile is greater  | readprog
+''' readprog  is smaller  is smallerimagefile is greater 
+''' \endcode
+''' where readprog is:
+''' \code
+''' l_uint8 data = l_binaryReadStream(stdin, [and]nbytes)
+''' Pix pix = pixReadMem(data, nbytes)
+''' \endcode
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -667,10 +706,10 @@ End Function
 ' l_binaryReadSelect(filename, start, nbytes, pnread) as Byte()
 ' l_binaryReadSelect(const char *, size_t, size_t, size_t *) as l_uint8 *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The returned array is terminated with a null byte so that it can<para/>
-''' be used to read ascii data from a file into a proper C string.<para/>
+''' 
+''' (1) The returned array is terminated with a null byte so that it can
+''' be used to read ascii data from a file into a proper C string.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -699,14 +738,15 @@ End Function
 ' l_binaryReadSelectStream(fp, start, nbytes, pnread) as Byte()
 ' l_binaryReadSelectStream(FILE *, size_t, size_t, size_t *) as l_uint8 *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The returned array is terminated with a null byte so that it can<para/>
-''' be used to read ascii data from a file into a proper C string.<para/>
-''' If the file to be read is empty and %start == 0, an array<para/>
+''' 
+''' (1) The returned array is terminated with a null byte so that it can
+''' be used to read ascii data from a file into a proper C string.
+''' If the file to be read is empty and %start == 0, an array
 ''' with a single null byte is returned.<para/>
-''' (2) Side effect: the stream pointer is re-positioned to the<para/>
-''' beginning of the file.<para/>
+''' 
+''' (2) Side effect: the stream pointer is re-positioned to the
+''' beginning of the file.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -801,12 +841,12 @@ End Function
 ' l_binaryCopy(datas, size) as Byte()
 ' l_binaryCopy(l_uint8 *, size_t) as l_uint8 *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) We add 4 bytes to the zeroed output because in some cases<para/>
-''' (e.g., string handling) it is important to have the data<para/>
-''' be null terminated.  This guarantees that after the memcpy,<para/>
-''' the result is automatically null terminated.<para/>
+''' 
+''' (1) We add 4 bytes to the zeroed output because in some cases
+''' (e.g., string handling) it is important to have the data
+''' be null terminated.  This guarantees that after the memcpy,
+''' the result is automatically null terminated.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -894,12 +934,13 @@ End Function
 ' fopenReadStream(filename) as FILE
 ' fopenReadStream(const char *) as FILE *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This should be used whenever you want to run fopen() to<para/>
+''' 
+''' (1) This should be used whenever you want to run fopen() to
 ''' read from a stream.  Never call fopen() directory.<para/>
-''' (2) This handles the temp directory pathname conversion on windows:<para/>
-''' /tmp  == is greater [Windows Temp directory]<para/>
+''' 
+''' (2) This handles the temp directory pathname conversion on windows:
+''' /tmp  == is greater [Windows Temp directory]
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -923,12 +964,13 @@ End Function
 ' fopenWriteStream(filename, modestring) as FILE
 ' fopenWriteStream(const char *, const char *) as FILE *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This should be used whenever you want to run fopen() to<para/>
+''' 
+''' (1) This should be used whenever you want to run fopen() to
 ''' write or append to a stream.  Never call fopen() directory.<para/>
-''' (2) This handles the temp directory pathname conversion on windows:<para/>
-''' /tmp  == is greater [Windows Temp directory]<para/>
+''' 
+''' (2) This handles the temp directory pathname conversion on windows:
+''' /tmp  == is greater [Windows Temp directory]
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -955,11 +997,12 @@ End Function
 ' fopenReadFromMemory(data, size) as FILE
 ' fopenReadFromMemory(const l_uint8 *, size_t) as FILE *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Work-around if fmemopen() not available.<para/>
-''' (2) Windows tmpfile() writes into the root C:\ directory, which<para/>
-''' requires admin privileges.  This also works around that.<para/>
+''' 
+''' (2) Windows tmpfile() writes into the root C:\ directory, which
+''' requires admin privileges.  This also works around that.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -983,11 +1026,11 @@ End Function
 ' fopenWriteWinTempfile() as FILE
 ' fopenWriteWinTempfile() as FILE *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The Windows version of tmpfile() writes into the root<para/>
-''' C:\ directory, which requires admin privileges.  This<para/>
-''' function provides an alternative implementation.<para/>
+''' 
+''' (1) The Windows version of tmpfile() writes into the root
+''' C:\ directory, which requires admin privileges.  This
+''' function provides an alternative implementation.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1005,10 +1048,10 @@ End Function
 ' lept_fopen(filename, mode) as FILE
 ' lept_fopen(const char *, const char *) as FILE *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This must be used by any application that passes<para/>
-''' a file handle to a leptonica Windows DLL.<para/>
+''' 
+''' (1) This must be used by any application that passes
+''' a file handle to a leptonica Windows DLL.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1035,10 +1078,10 @@ End Function
 ' lept_fclose(fp) as Integer
 ' lept_fclose(FILE *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This should be used by any application that accepts<para/>
-''' a file handle generated by a leptonica Windows DLL.<para/>
+''' 
+''' (1) This should be used by any application that accepts
+''' a file handle generated by a leptonica Windows DLL.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1059,11 +1102,11 @@ End Function
 ' lept_calloc(nmemb, size) as Object
 ' lept_calloc(size_t, size_t) as void *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) For safety with windows DLLs, this can be used in conjunction<para/>
-''' with lept_free() to avoid C-runtime boundary problems.<para/>
-''' Just use these two functions throughout your application.<para/>
+''' 
+''' (1) For safety with windows DLLs, this can be used in conjunction
+''' with lept_free() to avoid C-runtime boundary problems.
+''' Just use these two functions throughout your application.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1084,10 +1127,10 @@ End Function
 ' lept_free(ptr) as Object
 ' lept_free(void *) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This should be used by any application that accepts<para/>
-''' heap data allocated by a leptonica Windows DLL.<para/>
+''' 
+''' (1) This should be used by any application that accepts
+''' heap data allocated by a leptonica Windows DLL.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1108,14 +1151,16 @@ End Sub
 ' lept_mkdir(subdir) as Integer
 ' lept_mkdir(const char *) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) %subdir is a partial path that can consist of one or more<para/>
+''' 
+''' (1) %subdir is a partial path that can consist of one or more
 ''' directories.<para/>
+''' 
 ''' (2) This makes any subdirectories of /tmp that are required.<para/>
-''' (3) The root temp directory is:<para/>
-''' /tmp  (unix)  [default]<para/>
-''' [Temp]  (windows)<para/>
+''' 
+''' (3) The root temp directory is:
+''' /tmp  (unix)  [default]
+''' [Temp]  (windows)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1136,19 +1181,21 @@ End Function
 ' lept_rmdir(subdir) as Integer
 ' lept_rmdir(const char *) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) %subdir is a partial path that can consist of one or more<para/>
+''' 
+''' (1) %subdir is a partial path that can consist of one or more
 ''' directories.<para/>
-''' (2) This removes all files from the specified subdirectory of<para/>
-''' the root temp directory:<para/>
-''' /tmp  (unix)<para/>
-''' [Temp]  (windows)<para/>
+''' 
+''' (2) This removes all files from the specified subdirectory of
+''' the root temp directory:
+''' /tmp  (unix)
+''' [Temp]  (windows)
 ''' and then removes the subdirectory.<para/>
-''' (3) The combination<para/>
-''' lept_rmdir(subdir)<para/>
-''' lept_mkdir(subdir)<para/>
-''' is guaranteed to give you an empty subdirectory.<para/>
+''' 
+''' (3) The combination
+''' lept_rmdir(subdir)
+''' lept_mkdir(subdir)
+''' is guaranteed to give you an empty subdirectory.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1169,13 +1216,14 @@ End Function
 ' lept_direxists(dir, pexists) as Object
 ' lept_direxists(const char *, l_int32 *) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Always use unix pathname separators.<para/>
-''' (2) By calling genPathname(), if the pathname begins with "/tmp"<para/>
-''' this does an automatic directory translation on windows<para/>
-''' to a path in the windows [Temp] directory:<para/>
-''' "/tmp"  == is greater [Temp] (windows)<para/>
+''' 
+''' (2) By calling genPathname(), if the pathname begins with "/tmp"
+''' this does an automatic directory translation on windows
+''' to a path in the windows [Temp] directory:
+''' "/tmp"  == is greater [Temp] (windows)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1196,22 +1244,26 @@ End Sub
 ' lept_rm_match(subdir, substr) as Integer
 ' lept_rm_match(const char *, const char *) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This removes the matched files in /tmp or a subdirectory of /tmp.<para/>
+''' 
+''' (1) This removes the matched files in /tmp or a subdirectory of /tmp.
 ''' Use NULL for %subdir if the files are in /tmp.<para/>
-''' (2) If %substr == NULL, this removes all files in the directory.<para/>
-''' If %substr == "" (empty), this removes no files.<para/>
-''' If both %subdir == NULL and %substr == NULL, this removes<para/>
+''' 
+''' (2) If %substr == NULL, this removes all files in the directory.
+''' If %substr == "" (empty), this removes no files.
+''' If both %subdir == NULL and %substr == NULL, this removes
 ''' all files in /tmp.<para/>
+''' 
 ''' (3) Use unix pathname separators.<para/>
-''' (4) By calling genPathname(), if the pathname begins with "/tmp"<para/>
-''' this does an automatic directory translation on windows<para/>
-''' to a path in the windows [Temp] directory:<para/>
+''' 
+''' (4) By calling genPathname(), if the pathname begins with "/tmp"
+''' this does an automatic directory translation on windows
+''' to a path in the windows [Temp] directory:
 ''' "/tmp"  == is greater [Temp] (windows)<para/>
-''' (5) Error conditions:<para/>
-''' returns -1 if the directory is not found<para/>
-''' returns the number of files ( is greater  0) that it was unable to remove.<para/>
+''' 
+''' (5) Error conditions:
+''' returns -1 if the directory is not found
+''' returns the number of files ( is greater  0) that it was unable to remove.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1232,11 +1284,11 @@ End Function
 ' lept_rm(subdir, tail) as Integer
 ' lept_rm(const char *, const char *) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) By calling genPathname(), this does an automatic directory<para/>
-''' translation on windows to a path in the windows [Temp] directory:<para/>
-''' "/tmp/..."  == is greater [Temp]/... (windows)<para/>
+''' 
+''' (1) By calling genPathname(), this does an automatic directory
+''' translation on windows to a path in the windows [Temp] directory:
+''' "/tmp/..."  == is greater [Temp]/... (windows)
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1259,14 +1311,17 @@ End Function
 ' lept_rmfile(filepath) as Integer
 ' lept_rmfile(const char *) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This removes the named file.<para/>
+''' 
 ''' (2) Use unix pathname separators.<para/>
+''' 
 ''' (3) There is no name translation.<para/>
-''' (4) Unlike the other lept_ functions in this section, this can remove<para/>
-''' any file -- it is not restricted to files that are in /tmp or a<para/>
-''' subdirectory of it.<para/>
+''' 
+''' (4) Unlike the other lept_ functions in this section, this can remove
+''' any file -- it is not restricted to files that are in /tmp or a
+''' subdirectory of it.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1287,28 +1342,34 @@ End Function
 ' lept_mv(srcfile, newdir, newtail, pnewpath) as Integer
 ' lept_mv(const char *, const char *, const char *, char **) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This moves %srcfile to /tmp or to a subdirectory of /tmp.<para/>
-''' (2) %srcfile can either be a full path or relative to the<para/>
+''' 
+''' (2) %srcfile can either be a full path or relative to the
 ''' current directory.<para/>
-''' (3) %newdir can either specify an existing subdirectory of /tmp<para/>
-''' or can be NULL.  In the latter case, the file will be written<para/>
+''' 
+''' (3) %newdir can either specify an existing subdirectory of /tmp
+''' or can be NULL.  In the latter case, the file will be written
 ''' into /tmp.<para/>
-''' (4) %newtail can either specify a filename tail or, if NULL,<para/>
+''' 
+''' (4) %newtail can either specify a filename tail or, if NULL,
 ''' the filename is taken from src-tail, the tail of %srcfile.<para/>
-''' (5) For debugging, the computed newpath can be returned.  It must<para/>
+''' 
+''' (5) For debugging, the computed newpath can be returned.  It must
 ''' be freed by the caller.<para/>
-''' (6) Reminders:<para/>
-''' (a) specify files using unix pathnames<para/>
-''' (b) for windows, translates<para/>
-''' /tmp  == is greater [Temp]<para/>
+''' 
+''' (6) Reminders:
+''' (a) specify files using unix pathnames
+''' (b) for windows, translates
+''' /tmp  == is greater [Temp]
 ''' where [Temp] is the windows temp directory<para/>
-''' (7) Examples:<para/>
-''' newdir = NULL,  newtail = NULL  == is greater  /tmp/src-tail<para/>
-''' newdir = NULL,  newtail = abc == is greater  /tmp/abc<para/>
-''' newdir = def/ghi, newtail = NULL  == is greater  /tmp/def/ghi/src-tail<para/>
-''' newdir = def/ghi, newtail = abc == is greater  /tmp/def/ghi/abc<para/>
+''' 
+''' (7) Examples:
+''' newdir = NULL,  newtail = NULL  == is greater  /tmp/src-tail
+''' newdir = NULL,  newtail = abc == is greater  /tmp/abc
+''' newdir = def/ghi, newtail = NULL  == is greater  /tmp/def/ghi/src-tail
+''' newdir = def/ghi, newtail = abc == is greater  /tmp/def/ghi/abc
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1337,28 +1398,34 @@ End Function
 ' lept_cp(srcfile, newdir, newtail, pnewpath) as Integer
 ' lept_cp(const char *, const char *, const char *, char **) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) This copies %srcfile to /tmp or to a subdirectory of /tmp.<para/>
-''' (2) %srcfile can either be a full path or relative to the<para/>
+''' 
+''' (2) %srcfile can either be a full path or relative to the
 ''' current directory.<para/>
-''' (3) %newdir can either specify an existing subdirectory of /tmp,<para/>
-''' or can be NULL.  In the latter case, the file will be written<para/>
+''' 
+''' (3) %newdir can either specify an existing subdirectory of /tmp,
+''' or can be NULL.  In the latter case, the file will be written
 ''' into /tmp.<para/>
-''' (4) %newtail can either specify a filename tail or, if NULL,<para/>
+''' 
+''' (4) %newtail can either specify a filename tail or, if NULL,
 ''' the filename is taken from src-tail, the tail of %srcfile.<para/>
-''' (5) For debugging, the computed newpath can be returned.  It must<para/>
+''' 
+''' (5) For debugging, the computed newpath can be returned.  It must
 ''' be freed by the caller.<para/>
-''' (6) Reminders:<para/>
-''' (a) specify files using unix pathnames<para/>
-''' (b) for windows, translates<para/>
-''' /tmp  == is greater [Temp]<para/>
+''' 
+''' (6) Reminders:
+''' (a) specify files using unix pathnames
+''' (b) for windows, translates
+''' /tmp  == is greater [Temp]
 ''' where [Temp] is the windows temp directory<para/>
-''' (7) Examples:<para/>
-''' newdir = NULL,  newtail = NULL  == is greater  /tmp/src-tail<para/>
-''' newdir = NULL,  newtail = abc == is greater  /tmp/abc<para/>
-''' newdir = def/ghi, newtail = NULL  == is greater  /tmp/def/ghi/src-tail<para/>
-''' newdir = def/ghi, newtail = abc == is greater  /tmp/def/ghi/abc<para/>
+''' 
+''' (7) Examples:
+''' newdir = NULL,  newtail = NULL  == is greater  /tmp/src-tail
+''' newdir = NULL,  newtail = abc == is greater  /tmp/abc
+''' newdir = def/ghi, newtail = NULL  == is greater  /tmp/def/ghi/src-tail
+''' newdir = def/ghi, newtail = abc == is greater  /tmp/def/ghi/abc
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1387,13 +1454,13 @@ End Function
 ' callSystemDebug(cmd) as Object
 ' callSystemDebug(const char *) as void
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The C library 'system' call is only made through this function.<para/>
-''' It only works in debug/test mode, where the global variable<para/>
-''' LeptDebugOK == TRUE.  This variable is set to FALSE in the<para/>
-''' library as distributed, and calling this function will<para/>
-''' generate an error message.<para/>
+''' 
+''' (1) The C library 'system' call is only made through this function.
+''' It only works in debug/test mode, where the global variable
+''' LeptDebugOK == TRUE.  This variable is set to FALSE in the
+''' library as distributed, and calling this function will
+''' generate an error message.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1412,23 +1479,26 @@ End Sub
 ' splitPathAtDirectory(pathname, pdir, ptail) as Integer
 ' splitPathAtDirectory(const char *, char **, char **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) If you only want the tail, input null for the root directory ptr.<para/>
-''' (2) If you only want the root directory name, input null for the<para/>
+''' 
+''' (2) If you only want the root directory name, input null for the
 ''' tail ptr.<para/>
-''' (3) This function makes decisions based only on the lexical<para/>
-''' structure of the input.  Examples:<para/>
-''' /usr/tmp/abc  -- is greater dir: /usr/tmp/ tail: abc<para/>
-''' /usr/tmp/ -- is greater dir: /usr/tmp/ tail: [empty string]<para/>
-''' /usr/tmp  -- is greater dir: /usr/   tail: tmp<para/>
-''' abc   -- is greater dir: [empty string]  tail: abc<para/>
-''' (4) The input can have either forward (unix) or backward (win)<para/>
-''' slash separators.  The output has unix separators.<para/>
-''' Note that Win32 pathname functions generally accept both<para/>
-''' slash forms, but the windows command line interpreter<para/>
-''' only accepts backward slashes, because forward slashes are<para/>
-''' used to demarcate switches (vs. dashes in unix).<para/>
+''' 
+''' (3) This function makes decisions based only on the lexical
+''' structure of the input.  Examples:
+''' /usr/tmp/abc  to  dir: /usr/tmp/ tail: abc
+''' /usr/tmp/ to  dir: /usr/tmp/ tail: [empty string]
+''' /usr/tmp  to  dir: /usr/   tail: tmp
+''' abc   to  dir: [empty string]  tail: abc<para/>
+''' 
+''' (4) The input can have either forward (unix) or backward (win)
+''' slash separators.  The output has unix separators.
+''' Note that Win32 pathname functions generally accept both
+''' slash forms, but the windows command line interpreter
+''' only accepts backward slashes, because forward slashes are
+''' used to demarcate switches (vs. dashes in unix).
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1456,19 +1526,22 @@ End Function
 ' splitPathAtExtension(pathname, pbasename, pextension) as Integer
 ' splitPathAtExtension(const char *, char **, char **) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) If you only want the extension, input null for the basename ptr.<para/>
-''' (2) If you only want the basename without extension, input null<para/>
+''' 
+''' (2) If you only want the basename without extension, input null
 ''' for the extension ptr.<para/>
-''' (3) This function makes decisions based only on the lexical<para/>
-''' structure of the input.  Examples:<para/>
-''' /usr/tmp/abc.jpg  -- is greater basename: /usr/tmp/abc  ext: .jpg<para/>
-''' /usr/tmp/.jpg -- is greater basename: /usr/tmp/ ext: .jpg<para/>
-''' /usr/tmp.jpg/ -- is greater basename: /usr/tmp.jpg/ ext: [empty str]<para/>
-''' ./.jpg  -- is greater basename: ./  ext: .jpg<para/>
-''' (4) The input can have either forward (unix) or backward (win)<para/>
-''' slash separators.  The output has unix separators.<para/>
+''' 
+''' (3) This function makes decisions based only on the lexical
+''' structure of the input.  Examples:
+''' /usr/tmp/abc.jpg  to  basename: /usr/tmp/abc  ext: .jpg
+''' /usr/tmp/.jpg to  basename: /usr/tmp/ ext: .jpg
+''' /usr/tmp.jpg/ to  basename: /usr/tmp.jpg/ ext: [empty str]
+''' ./.jpg  to  basename: ./  ext: .jpg<para/>
+''' 
+''' (4) The input can have either forward (unix) or backward (win)
+''' slash separators.  The output has unix separators.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1496,35 +1569,41 @@ End Function
 ' pathJoin(dir, fname) as String
 ' pathJoin(const char *, const char *) as char *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Use unix-style pathname separators ('/').<para/>
-''' (2) %fname can be the entire path, or part of the path containing<para/>
+''' 
+''' (2) %fname can be the entire path, or part of the path containing
 ''' at least one directory, or a tail without a directory, or NULL.<para/>
-''' (3) It produces a path that strips multiple slashes to a single<para/>
-''' slash, joins %dir and %fname by a slash, and has no trailing<para/>
-''' slashes (except in the cases where %dir == "/" and<para/>
+''' 
+''' (3) It produces a path that strips multiple slashes to a single
+''' slash, joins %dir and %fname by a slash, and has no trailing
+''' slashes (except in the cases where %dir == "/" and
 ''' %fname == NULL, or v.v.).<para/>
+''' 
 ''' (4) If both %dir and %fname are null, produces an empty string.<para/>
+''' 
 ''' (5) Neither %dir nor %fname can begin with '..'.<para/>
-''' (6) The result is not canonicalized or tested for correctness:<para/>
-''' garbage in (e.g., / and %), garbage out.<para/>
-''' (7) Examples:<para/>
-''' //tmp// + //abc/  -- is greater /tmp/abc<para/>
-''' tmp/ + /abc/  -- is greater tmp/abc<para/>
-''' tmp/ + abc/ -- is greater tmp/abc<para/>
-''' /tmp/ + /// -- is greater /tmp<para/>
-''' /tmp/ + NULL  -- is greater /tmp<para/>
-''' // + /abc// -- is greater /abc<para/>
-''' // + NULL -- is greater /<para/>
-''' NULL + /abc/def/  -- is greater /abc/def<para/>
-''' NULL + abc//  -- is greater abc<para/>
-''' NULL + // -- is greater /<para/>
-''' NULL + NULL -- is greater (empty string)<para/>
-''' "" + ""   -- is greater (empty string)<para/>
-''' "" + /  -- is greater /<para/>
-''' ".." + /etc/foo -- is greater NULL<para/>
-''' /tmp + ".." -- is greater NULL<para/>
+''' 
+''' (6) The result is not canonicalized or tested for correctness:
+''' garbage in (e.g., /[and]%), garbage out.<para/>
+''' 
+''' (7) Examples:
+''' //tmp// + //abc/  to  /tmp/abc
+''' tmp/ + /abc/  to  tmp/abc
+''' tmp/ + abc/ to  tmp/abc
+''' /tmp/ + /// to  /tmp
+''' /tmp/ + NULL  to  /tmp
+''' // + /abc// to  /abc
+''' // + NULL to  /
+''' NULL + /abc/def/  to  /abc/def
+''' NULL + abc//  to  abc
+''' NULL + // to  /
+''' NULL + NULL to  (empty string)
+''' "" + ""   to  (empty string)
+''' "" + /  to  /
+''' ".." + /etc/foo to  NULL
+''' /tmp + ".." to  NULL
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1545,10 +1624,11 @@ End Function
 ' appendSubdirs(basedir, subdirs) as String
 ' appendSubdirs(const char *, const char *) as char *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) Use unix pathname separators<para/>
-''' (2) Allocates a new string:  [basedir]/[subdirs]<para/>
+''' 
+''' (2) Allocates a new string:  [basedir]/[subdirs]
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1572,13 +1652,15 @@ End Function
 ' convertSepCharsInPath(path, type) as Integer
 ' convertSepCharsInPath(char *, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) In-place conversion.<para/>
-''' (2) Type is the resulting type:<para/>
-''' UNIX_PATH_SEPCHAR:  '\\' == is greater  '/'<para/>
+''' 
+''' (2) Type is the resulting type:
+''' UNIX_PATH_SEPCHAR:  '\\' == is greater  '/'
 ''' WIN_PATH_SEPCHAR: '/' == is greater  '\\'<para/>
-''' (3) Virtually all path operations in leptonica use unix separators.<para/>
+''' 
+''' (3) Virtually all path operations in leptonica use unix separators.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1601,30 +1683,35 @@ End Function
 ' genPathname(dir, fname) as String
 ' genPathname(const char *, const char *) as char *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This function generates actual paths in the following ways:<para/>
-''' from two sub-parts (e.g., a directory and a file name).<para/>
-''' from a single path full path, placed in %dir, with<para/>
-''' %fname == NULL.<para/>
-''' from the name of a file in the local directory placed in<para/>
-''' %fname, with %dir == NULL.<para/>
-''' if in a "/tmp" directory and on windows, the windows<para/>
+''' 
+''' (1) This function generates actual paths in the following ways:
+''' from two sub-parts (e.g., a directory and a file name).
+''' from a single path full path, placed in %dir, with
+''' %fname == NULL.
+''' from the name of a file in the local directory placed in
+''' %fname, with %dir == NULL.
+''' if in a "/tmp" directory and on windows, the windows
 ''' temp directory is used.<para/>
-''' (2) On windows, if the root of %dir is '/tmp', this does a name<para/>
-''' translation:<para/>
-''' "/tmp"  == is greater [Temp] (windows)<para/>
+''' 
+''' (2) On windows, if the root of %dir is '/tmp', this does a name
+''' translation:
+''' "/tmp"  == is greater [Temp] (windows)
 ''' where [Temp] is the windows temp directory.<para/>
-''' (3) On unix, the TMPDIR variable is ignored.  No rewriting<para/>
+''' 
+''' (3) On unix, the TMPDIR variable is ignored.  No rewriting
 ''' of temp directories is permitted.<para/>
-''' (4) There are four cases for the input:<para/>
-''' (a) %dir is a directory and %fname is defined: result is a full path<para/>
-''' (b) %dir is a directory and %fname is null: result is a directory<para/>
-''' (c) %dir is a full path and %fname is null: result is a full path<para/>
-''' (d) %dir is null or an empty string: start in the current dir<para/>
+''' 
+''' (4) There are four cases for the input:
+''' (a) %dir is a directory and %fname is defined: result is a full path
+''' (b) %dir is a directory and %fname is null: result is a directory
+''' (c) %dir is a full path and %fname is null: result is a full path
+''' (d) %dir is null or an empty string: start in the current dir
 ''' result is a full path<para/>
+''' 
 ''' (5) In all cases, the resulting pathname is not terminated with a slash<para/>
-''' (6) The caller is responsible for freeing the returned pathname.<para/>
+''' 
+''' (6) The caller is responsible for freeing the returned pathname.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1645,23 +1732,25 @@ End Function
 ' makeTempDirname(result, nbytes, subdir) as Integer
 ' makeTempDirname(char *, size_t, const char *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This generates the directory path for output temp files,<para/>
+''' 
+''' (1) This generates the directory path for output temp files,
 ''' written into %result with unix separators.<para/>
-''' (2) Caller allocates %result, large enough to hold the path,<para/>
-''' which is:<para/>
-''' /tmp/%subdir (unix)<para/>
-''' [Temp]/%subdir (windows)<para/>
-''' where [Temp] is a path on windows determined by GenTempPath()<para/>
-''' and %subdir is in general a set of nested subdirectories:<para/>
-''' dir1/dir2/.../dirN<para/>
+''' 
+''' (2) Caller allocates %result, large enough to hold the path,
+''' which is:
+''' /tmp/%subdir (unix)
+''' [Temp]/%subdir (windows)
+''' where [Temp] is a path on windows determined by GenTempPath()
+''' and %subdir is in general a set of nested subdirectories:
+''' dir1/dir2/.../dirN
 ''' which in use would not typically exceed 2 levels.<para/>
-''' (3) Usage example:<para/>
-''' \code<para/>
-''' char  result[256]<para/>
-''' makeTempDirname(result, 256, "lept/golden")<para/>
-''' \endcode<para/>
+''' 
+''' (3) Usage example:
+''' \code
+''' char  result[256]
+''' makeTempDirname(result, 256, "lept/golden")
+''' \endcode
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1686,9 +1775,9 @@ End Function
 ' modifyTrailingSlash(path, nbytes, flag) as Integer
 ' modifyTrailingSlash(char *, size_t, l_int32) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This carries out the requested action if necessary.<para/>
+''' 
+''' (1) This carries out the requested action if necessary.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1713,22 +1802,28 @@ End Function
 ' l_makeTempFilename() as String
 ' l_makeTempFilename() as char *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) On unix, this makes a filename of the form<para/>
-''' "/tmp/lept.XXXXXX",<para/>
+''' 
+''' (1) On unix, this makes a filename of the form
+''' "/tmp/lept.XXXXXX",
 ''' where each X is a random character.<para/>
-''' (2) On windows, this makes a filename of the form<para/>
+''' 
+''' (2) On windows, this makes a filename of the form
 ''' "/[Temp]/lp.XXXXXX".<para/>
+''' 
 ''' (3) On all systems, this fails if the file is not writable.<para/>
+''' 
 ''' (4) Safest usage is to write to a subdirectory in debug code.<para/>
+''' 
 ''' (5) The returned filename must be freed by the caller, using lept_free.<para/>
-''' (6) The tail of the filename has a '.', so that cygwin interprets<para/>
-''' the file as having an extension.  Otherwise, cygwin assumes it<para/>
+''' 
+''' (6) The tail of the filename has a '.', so that cygwin interprets
+''' the file as having an extension.  Otherwise, cygwin assumes it
 ''' is an executable and appends ".exe" to the filename.<para/>
-''' (7) On unix, whenever possible use tmpfile() instead.  tmpfile()<para/>
-''' hides the file name, returns a stream opened for write,<para/>
-''' and deletes the temp file when the stream is closed.<para/>
+''' 
+''' (7) On unix, whenever possible use tmpfile() instead.  tmpfile()
+''' hides the file name, returns a stream opened for write,
+''' and deletes the temp file when the stream is closed.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -1745,13 +1840,14 @@ End Function
 ' extractNumberFromFilename(fname, numpre, numpost) as Integer
 ' extractNumberFromFilename(const char *, l_int32, l_int32) as l_int32
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The number is to be found in the basename, which is the<para/>
+''' 
+''' (1) The number is to be found in the basename, which is the
 ''' filename without either the directory or the last extension.<para/>
-''' (2) When a number is found, it is non-negative.  If no number<para/>
-''' is found, this returns -1, without an error message.  The<para/>
-''' caller needs to check.<para/>
+''' 
+''' (2) When a number is found, it is non-negative.  If no number
+''' is found, this returns -1, without an error message.  The
+''' caller needs to check.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

@@ -7,26 +7,34 @@ Partial Public Class _All
 ' pixDilateBrickDwa(pixd, pixs, hsize, vsize) as Pix
 ' pixDilateBrickDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) These implement 2D brick Sels, using linear Sels generated<para/>
+''' 
+''' (1) These implement 2D brick Sels, using linear Sels generated
 ''' with selaAddBasic().<para/>
+''' 
 ''' (2) A brick Sel has hits for all elements.<para/>
+''' 
 ''' (3) The origin of the Sel is at (x, y) = (hsize/2, vsize/2)<para/>
+''' 
 ''' (4) Do separably if both hsize and vsize are  is greater  1.<para/>
-''' (5) It is necessary that both horizontal and vertical Sels<para/>
+''' 
+''' (5) It is necessary that both horizontal and vertical Sels
 ''' of the input size are defined in the basic sela.<para/>
-''' (6) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (6) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (7) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixDilateBrickDwa(NULL, pixs, ...)<para/>
-''' (b) pixDilateBrickDwa(pixs, pixs, ...)<para/>
+''' 
+''' (7) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixDilateBrickDwa(NULL, pixs, ...)
+''' (b) pixDilateBrickDwa(pixs, pixs, ...)
 ''' (c) pixDilateBrickDwa(pixd, pixs, ...)<para/>
+''' 
 ''' (8) The size of pixd is determined by pixs.<para/>
-''' (9) If either linear Sel is not found, this calls<para/>
-''' the appropriate decomposible function.<para/>
+''' 
+''' (9) If either linear Sel is not found, this calls
+''' the appropriate decomposible function.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -58,29 +66,38 @@ End Function
 ' pixErodeBrickDwa(pixd, pixs, hsize, vsize) as Pix
 ' pixErodeBrickDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) These implement 2D brick Sels, using linear Sels generated<para/>
+''' 
+''' (1) These implement 2D brick Sels, using linear Sels generated
 ''' with selaAddBasic().<para/>
+''' 
 ''' (2) A brick Sel has hits for all elements.<para/>
+''' 
 ''' (3) The origin of the Sel is at (x, y) = (hsize/2, vsize/2)<para/>
+''' 
 ''' (4) Do separably if both hsize and vsize are  is greater  1.<para/>
-''' (5) It is necessary that both horizontal and vertical Sels<para/>
+''' 
+''' (5) It is necessary that both horizontal and vertical Sels
 ''' of the input size are defined in the basic sela.<para/>
-''' (6) Note that we must always set or clear the border pixels<para/>
-''' before each operation, depending on the the b.c.<para/>
+''' 
+''' (6) Note that we must always set or clear the border pixels
+''' before each operation, depending on the the b.c.
 ''' (symmetric or asymmetric).<para/>
-''' (7) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (7) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (8) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixErodeBrickDwa(NULL, pixs, ...)<para/>
-''' (b) pixErodeBrickDwa(pixs, pixs, ...)<para/>
+''' 
+''' (8) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixErodeBrickDwa(NULL, pixs, ...)
+''' (b) pixErodeBrickDwa(pixs, pixs, ...)
 ''' (c) pixErodeBrickDwa(pixd, pixs, ...)<para/>
+''' 
 ''' (9) The size of the result is determined by pixs.<para/>
-''' (10) If either linear Sel is not found, this calls<para/>
-''' the appropriate decomposible function.<para/>
+''' 
+''' (10) If either linear Sel is not found, this calls
+''' the appropriate decomposible function.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -112,29 +129,38 @@ End Function
 ' pixOpenBrickDwa(pixd, pixs, hsize, vsize) as Pix
 ' pixOpenBrickDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) These implement 2D brick Sels, using linear Sels generated<para/>
+''' 
+''' (1) These implement 2D brick Sels, using linear Sels generated
 ''' with selaAddBasic().<para/>
+''' 
 ''' (2) A brick Sel has hits for all elements.<para/>
+''' 
 ''' (3) The origin of the Sel is at (x, y) = (hsize/2, vsize/2)<para/>
+''' 
 ''' (4) Do separably if both hsize and vsize are  is greater  1.<para/>
-''' (5) It is necessary that both horizontal and vertical Sels<para/>
+''' 
+''' (5) It is necessary that both horizontal and vertical Sels
 ''' of the input size are defined in the basic sela.<para/>
-''' (6) Note that we must always set or clear the border pixels<para/>
-''' before each operation, depending on the the b.c.<para/>
+''' 
+''' (6) Note that we must always set or clear the border pixels
+''' before each operation, depending on the the b.c.
 ''' (symmetric or asymmetric).<para/>
-''' (7) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (7) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (8) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixOpenBrickDwa(NULL, pixs, ...)<para/>
-''' (b) pixOpenBrickDwa(pixs, pixs, ...)<para/>
+''' 
+''' (8) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixOpenBrickDwa(NULL, pixs, ...)
+''' (b) pixOpenBrickDwa(pixs, pixs, ...)
 ''' (c) pixOpenBrickDwa(pixd, pixs, ...)<para/>
+''' 
 ''' (9) The size of the result is determined by pixs.<para/>
-''' (10) If either linear Sel is not found, this calls<para/>
-''' the appropriate decomposible function.<para/>
+''' 
+''' (10) If either linear Sel is not found, this calls
+''' the appropriate decomposible function.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -166,31 +192,41 @@ End Function
 ' pixCloseBrickDwa(pixd, pixs, hsize, vsize) as Pix
 ' pixCloseBrickDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This is a 'safe' closing we add an extra border of 32 OFF<para/>
+''' 
+''' (1) This is a 'safe' closing we add an extra border of 32 OFF
 ''' pixels for the standard asymmetric b.c.<para/>
-''' (2) These implement 2D brick Sels, using linear Sels generated<para/>
+''' 
+''' (2) These implement 2D brick Sels, using linear Sels generated
 ''' with selaAddBasic().<para/>
+''' 
 ''' (3) A brick Sel has hits for all elements.<para/>
+''' 
 ''' (4) The origin of the Sel is at (x, y) = (hsize/2, vsize/2)<para/>
+''' 
 ''' (5) Do separably if both hsize and vsize are  is greater  1.<para/>
-''' (6) It is necessary that both horizontal and vertical Sels<para/>
+''' 
+''' (6) It is necessary that both horizontal and vertical Sels
 ''' of the input size are defined in the basic sela.<para/>
-''' (7) Note that we must always set or clear the border pixels<para/>
-''' before each operation, depending on the the b.c.<para/>
+''' 
+''' (7) Note that we must always set or clear the border pixels
+''' before each operation, depending on the the b.c.
 ''' (symmetric or asymmetric).<para/>
-''' (8) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (8) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (9) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixCloseBrickDwa(NULL, pixs, ...)<para/>
-''' (b) pixCloseBrickDwa(pixs, pixs, ...)<para/>
+''' 
+''' (9) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixCloseBrickDwa(NULL, pixs, ...)
+''' (b) pixCloseBrickDwa(pixs, pixs, ...)
 ''' (c) pixCloseBrickDwa(pixd, pixs, ...)<para/>
+''' 
 ''' (10) The size of the result is determined by pixs.<para/>
-''' (11) If either linear Sel is not found, this calls<para/>
-''' the appropriate decomposible function.<para/>
+''' 
+''' (11) If either linear Sel is not found, this calls
+''' the appropriate decomposible function.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -222,38 +258,47 @@ End Function
 ' pixDilateCompBrickDwa(pixd, pixs, hsize, vsize) as Pix
 ' pixDilateCompBrickDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) These implement a separable composite dilation with 2D brick Sels.<para/>
-''' (2) For efficiency, it may decompose each linear morphological<para/>
+''' 
+''' (2) For efficiency, it may decompose each linear morphological
 ''' operation into two (brick + comb).<para/>
+''' 
 ''' (3) A brick Sel has hits for all elements.<para/>
+''' 
 ''' (4) The origin of the Sel is at (x, y) = (hsize/2, vsize/2)<para/>
+''' 
 ''' (5) Do separably if both hsize and vsize are  is greater  1.<para/>
-''' (6) It is necessary that both horizontal and vertical Sels<para/>
+''' 
+''' (6) It is necessary that both horizontal and vertical Sels
 ''' of the input size are defined in the basic sela.<para/>
-''' (7) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (7) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (8) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixDilateCompBrickDwa(NULL, pixs, ...)<para/>
-''' (b) pixDilateCompBrickDwa(pixs, pixs, ...)<para/>
+''' 
+''' (8) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixDilateCompBrickDwa(NULL, pixs, ...)
+''' (b) pixDilateCompBrickDwa(pixs, pixs, ...)
 ''' (c) pixDilateCompBrickDwa(pixd, pixs, ...)<para/>
+''' 
 ''' (9) The size of pixd is determined by pixs.<para/>
-''' (10) CAUTION: both hsize and vsize are being decomposed.<para/>
-''' The decomposer chooses a product of sizes (call them<para/>
-''' 'terms') for each that is close to the input size,<para/>
-''' but not necessarily equal to it.  It attempts to optimize:<para/>
-''' (a) for consistency with the input values: the product<para/>
-''' of terms is close to the input size<para/>
-''' (b) for efficiency of the operation: the sum of the<para/>
-''' terms is small ideally about twice the square<para/>
-''' root of the input size.<para/>
-''' So, for example, if the input hsize = 37, which is<para/>
-''' a prime number, the decomposer will break this into two<para/>
-''' terms, 6 and 6, so that the net result is a dilation<para/>
-''' with hsize = 36.<para/>
+''' 
+''' (10) CAUTION: both hsize and vsize are being decomposed.
+''' The decomposer chooses a product of sizes (call them
+''' 'terms') for each that is close to the input size,
+''' but not necessarily equal to it.  It attempts to optimize:
+''' (a) for consistency with the input values: the product
+''' of terms is close to the input size
+''' (b) for efficiency of the operation: the sum of the
+''' terms is small ideally about twice the square
+''' root of the input size.
+''' So, for example, if the input hsize = 37, which is
+''' a prime number, the decomposer will break this into two
+''' terms, 6 and 6, so that the net result is a dilation
+''' with hsize = 36.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -285,38 +330,47 @@ End Function
 ' pixErodeCompBrickDwa(pixd, pixs, hsize, vsize) as Pix
 ' pixErodeCompBrickDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) These implement a separable composite erosion with 2D brick Sels.<para/>
-''' (2) For efficiency, it may decompose each linear morphological<para/>
+''' 
+''' (2) For efficiency, it may decompose each linear morphological
 ''' operation into two (brick + comb).<para/>
+''' 
 ''' (3) A brick Sel has hits for all elements.<para/>
+''' 
 ''' (4) The origin of the Sel is at (x, y) = (hsize/2, vsize/2)<para/>
+''' 
 ''' (5) Do separably if both hsize and vsize are  is greater  1.<para/>
-''' (6) It is necessary that both horizontal and vertical Sels<para/>
+''' 
+''' (6) It is necessary that both horizontal and vertical Sels
 ''' of the input size are defined in the basic sela.<para/>
-''' (7) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (7) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (8) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixErodeCompBrickDwa(NULL, pixs, ...)<para/>
-''' (b) pixErodeCompBrickDwa(pixs, pixs, ...)<para/>
+''' 
+''' (8) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixErodeCompBrickDwa(NULL, pixs, ...)
+''' (b) pixErodeCompBrickDwa(pixs, pixs, ...)
 ''' (c) pixErodeCompBrickDwa(pixd, pixs, ...)<para/>
+''' 
 ''' (9) The size of pixd is determined by pixs.<para/>
-''' (10) CAUTION: both hsize and vsize are being decomposed.<para/>
-''' The decomposer chooses a product of sizes (call them<para/>
-''' 'terms') for each that is close to the input size,<para/>
-''' but not necessarily equal to it.  It attempts to optimize:<para/>
-''' (a) for consistency with the input values: the product<para/>
-''' of terms is close to the input size<para/>
-''' (b) for efficiency of the operation: the sum of the<para/>
-''' terms is small ideally about twice the square<para/>
-''' root of the input size.<para/>
-''' So, for example, if the input hsize = 37, which is<para/>
-''' a prime number, the decomposer will break this into two<para/>
-''' terms, 6 and 6, so that the net result is a dilation<para/>
-''' with hsize = 36.<para/>
+''' 
+''' (10) CAUTION: both hsize and vsize are being decomposed.
+''' The decomposer chooses a product of sizes (call them
+''' 'terms') for each that is close to the input size,
+''' but not necessarily equal to it.  It attempts to optimize:
+''' (a) for consistency with the input values: the product
+''' of terms is close to the input size
+''' (b) for efficiency of the operation: the sum of the
+''' terms is small ideally about twice the square
+''' root of the input size.
+''' So, for example, if the input hsize = 37, which is
+''' a prime number, the decomposer will break this into two
+''' terms, 6 and 6, so that the net result is a dilation
+''' with hsize = 36.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -348,38 +402,47 @@ End Function
 ' pixOpenCompBrickDwa(pixd, pixs, hsize, vsize) as Pix
 ' pixOpenCompBrickDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) These implement a separable composite opening with 2D brick Sels.<para/>
-''' (2) For efficiency, it may decompose each linear morphological<para/>
+''' 
+''' (2) For efficiency, it may decompose each linear morphological
 ''' operation into two (brick + comb).<para/>
+''' 
 ''' (3) A brick Sel has hits for all elements.<para/>
+''' 
 ''' (4) The origin of the Sel is at (x, y) = (hsize/2, vsize/2)<para/>
+''' 
 ''' (5) Do separably if both hsize and vsize are  is greater  1.<para/>
-''' (6) It is necessary that both horizontal and vertical Sels<para/>
+''' 
+''' (6) It is necessary that both horizontal and vertical Sels
 ''' of the input size are defined in the basic sela.<para/>
-''' (7) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (7) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (8) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixOpenCompBrickDwa(NULL, pixs, ...)<para/>
-''' (b) pixOpenCompBrickDwa(pixs, pixs, ...)<para/>
+''' 
+''' (8) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixOpenCompBrickDwa(NULL, pixs, ...)
+''' (b) pixOpenCompBrickDwa(pixs, pixs, ...)
 ''' (c) pixOpenCompBrickDwa(pixd, pixs, ...)<para/>
+''' 
 ''' (9) The size of pixd is determined by pixs.<para/>
-''' (10) CAUTION: both hsize and vsize are being decomposed.<para/>
-''' The decomposer chooses a product of sizes (call them<para/>
-''' 'terms') for each that is close to the input size,<para/>
-''' but not necessarily equal to it.  It attempts to optimize:<para/>
-''' (a) for consistency with the input values: the product<para/>
-''' of terms is close to the input size<para/>
-''' (b) for efficiency of the operation: the sum of the<para/>
-''' terms is small ideally about twice the square<para/>
-''' root of the input size.<para/>
-''' So, for example, if the input hsize = 37, which is<para/>
-''' a prime number, the decomposer will break this into two<para/>
-''' terms, 6 and 6, so that the net result is a dilation<para/>
-''' with hsize = 36.<para/>
+''' 
+''' (10) CAUTION: both hsize and vsize are being decomposed.
+''' The decomposer chooses a product of sizes (call them
+''' 'terms') for each that is close to the input size,
+''' but not necessarily equal to it.  It attempts to optimize:
+''' (a) for consistency with the input values: the product
+''' of terms is close to the input size
+''' (b) for efficiency of the operation: the sum of the
+''' terms is small ideally about twice the square
+''' root of the input size.
+''' So, for example, if the input hsize = 37, which is
+''' a prime number, the decomposer will break this into two
+''' terms, 6 and 6, so that the net result is a dilation
+''' with hsize = 36.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -411,39 +474,48 @@ End Function
 ' pixCloseCompBrickDwa(pixd, pixs, hsize, vsize) as Pix
 ' pixCloseCompBrickDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) This implements a separable composite safe closing with 2D<para/>
+''' 
+''' (1) This implements a separable composite safe closing with 2D
 ''' brick Sels.<para/>
-''' (2) For efficiency, it may decompose each linear morphological<para/>
+''' 
+''' (2) For efficiency, it may decompose each linear morphological
 ''' operation into two (brick + comb).<para/>
+''' 
 ''' (3) A brick Sel has hits for all elements.<para/>
+''' 
 ''' (4) The origin of the Sel is at (x, y) = (hsize/2, vsize/2)<para/>
+''' 
 ''' (5) Do separably if both hsize and vsize are  is greater  1.<para/>
-''' (6) It is necessary that both horizontal and vertical Sels<para/>
+''' 
+''' (6) It is necessary that both horizontal and vertical Sels
 ''' of the input size are defined in the basic sela.<para/>
-''' (7) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (7) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (8) For clarity, if the case is known, use these patterns:<para/>
-''' (a) pixd = pixCloseCompBrickDwa(NULL, pixs, ...)<para/>
-''' (b) pixCloseCompBrickDwa(pixs, pixs, ...)<para/>
+''' 
+''' (8) For clarity, if the case is known, use these patterns:
+''' (a) pixd = pixCloseCompBrickDwa(NULL, pixs, ...)
+''' (b) pixCloseCompBrickDwa(pixs, pixs, ...)
 ''' (c) pixCloseCompBrickDwa(pixd, pixs, ...)<para/>
+''' 
 ''' (9) The size of pixd is determined by pixs.<para/>
-''' (10) CAUTION: both hsize and vsize are being decomposed.<para/>
-''' The decomposer chooses a product of sizes (call them<para/>
-''' 'terms') for each that is close to the input size,<para/>
-''' but not necessarily equal to it.  It attempts to optimize:<para/>
-''' (a) for consistency with the input values: the product<para/>
-''' of terms is close to the input size<para/>
-''' (b) for efficiency of the operation: the sum of the<para/>
-''' terms is small ideally about twice the square<para/>
-''' root of the input size.<para/>
-''' So, for example, if the input hsize = 37, which is<para/>
-''' a prime number, the decomposer will break this into two<para/>
-''' terms, 6 and 6, so that the net result is a dilation<para/>
-''' with hsize = 36.<para/>
+''' 
+''' (10) CAUTION: both hsize and vsize are being decomposed.
+''' The decomposer chooses a product of sizes (call them
+''' 'terms') for each that is close to the input size,
+''' but not necessarily equal to it.  It attempts to optimize:
+''' (a) for consistency with the input values: the product
+''' of terms is close to the input size
+''' (b) for efficiency of the operation: the sum of the
+''' terms is small ideally about twice the square
+''' root of the input size.
+''' So, for example, if the input hsize = 37, which is
+''' a prime number, the decomposer will break this into two
+''' terms, 6 and 6, so that the net result is a dilation
+''' with hsize = 36.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -475,24 +547,27 @@ End Function
 ' pixDilateCompBrickExtendDwa(pixd, pixs, hsize, vsize) as Pix
 ' pixDilateCompBrickExtendDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) Ankur Jain suggested and implemented extending the composite<para/>
-''' DWA operations beyond the 63 pixel limit.  This is a<para/>
-''' simplified and approximate implementation of the extension.<para/>
-''' This allows arbitrary Dwa morph operations using brick Sels,<para/>
-''' by decomposing the horizontal and vertical dilations into<para/>
-''' a sequence of 63-element dilations plus a dilation of size<para/>
+''' 
+''' (1) Ankur Jain suggested and implemented extending the composite
+''' DWA operations beyond the 63 pixel limit.  This is a
+''' simplified and approximate implementation of the extension.
+''' This allows arbitrary Dwa morph operations using brick Sels,
+''' by decomposing the horizontal and vertical dilations into
+''' a sequence of 63-element dilations plus a dilation of size
 ''' between 3 and 62.<para/>
-''' (2) The 63-element dilations are exact, whereas the extra dilation<para/>
-''' is approximate, because the underlying decomposition is<para/>
+''' 
+''' (2) The 63-element dilations are exact, whereas the extra dilation
+''' is approximate, because the underlying decomposition is
 ''' in pixDilateCompBrickDwa().  See there for further details.<para/>
-''' (3) There are three cases:<para/>
-''' (a) pixd == null (result into new pixd)<para/>
-''' (b) pixd == pixs (in-place writes result back to pixs)<para/>
+''' 
+''' (3) There are three cases:
+''' (a) pixd == null (result into new pixd)
+''' (b) pixd == pixs (in-place writes result back to pixs)
 ''' (c) pixd != pixs (puts result into existing pixd)<para/>
-''' (4) There is no need to call this directly:  pixDilateCompBrickDwa()<para/>
-''' calls this function if either brick dimension exceeds 63.<para/>
+''' 
+''' (4) There is no need to call this directly:  pixDilateCompBrickDwa()
+''' calls this function if either brick dimension exceeds 63.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -524,11 +599,12 @@ End Function
 ' pixErodeCompBrickExtendDwa(pixd, pixs, hsize, vsize) as Pix
 ' pixErodeCompBrickExtendDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
+''' 
 ''' (1) See pixDilateCompBrickExtendDwa() for usage.<para/>
-''' (2) There is no need to call this directly:  pixErodeCompBrickDwa()<para/>
-''' calls this function if either brick dimension exceeds 63.<para/>
+''' 
+''' (2) There is no need to call this directly:  pixErodeCompBrickDwa()
+''' calls this function if either brick dimension exceeds 63.
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
@@ -618,34 +694,36 @@ End Function
 ' getExtendedCompositeParameters(size, pn, pextra, pactualsize) as Integer
 ' getExtendedCompositeParameters(l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <summary>
-''' <para/>
 ''' Notes:<para/>
-''' (1) The DWA implementation allows Sels to be used with hits<para/>
-''' up to 31 pixels from the origin, either horizontally or<para/>
-''' vertically.  Larger Sels can be used if decomposed into<para/>
-''' a set of operations with Sels not exceeding 63 pixels<para/>
-''' in either width or height (and with the origin as close<para/>
+''' 
+''' (1) The DWA implementation allows Sels to be used with hits
+''' up to 31 pixels from the origin, either horizontally or
+''' vertically.  Larger Sels can be used if decomposed into
+''' a set of operations with Sels not exceeding 63 pixels
+''' in either width or height (and with the origin as close
 ''' to the center of the Sel as possible).<para/>
-''' (2) This returns the decomposition of a linear Sel of length<para/>
-''' %size into a set of %n Sels of length 63 plus an extra<para/>
+''' 
+''' (2) This returns the decomposition of a linear Sel of length
+''' %size into a set of %n Sels of length 63 plus an extra
 ''' Sel of length %extra.<para/>
-''' (3) For notation, let w == %size, n == %n, and e == %extra.<para/>
-''' We have 1  is lower  e  is lower  63.<para/>
-''' Then if w  is lower  64, we have n = 0 and e = w.<para/>
-''' The general formula for w  is greater  63 is:<para/>
-''' w = 63 + (n - 1)  62 + (e - 1)<para/>
-''' Where did this come from?  Each successive convolution with<para/>
-''' a Sel of length L adds a total length (L - 1) to w.<para/>
-''' This accounts for using 62 for each additional Sel of size 63,<para/>
-''' and using (e - 1) for the additional Sel of size e.<para/>
-''' Solving for n and e for w  is greater  63:<para/>
-''' n = 1 + Int((w - 63) / 62)<para/>
-''' e = w - 63 - (n - 1)  62 + 1<para/>
-''' The extra part is decomposed into two factors f1 and f2,<para/>
-''' and the actual size of the extra part is<para/>
-''' e' = f1  f2<para/>
-''' Then the actual width is:<para/>
-''' w' = 63 + (n - 1)  62 + f1  f2 - 1<para/>
+''' 
+''' (3) For notation, let w == %size, n == %n, and e == %extra.
+''' We have 1  is smaller e  is smaller 63.
+''' Then if w  is smaller 64, we have n = 0 and e = w.
+''' The general formula for w  is greater  63 is:
+''' w = 63 + (n - 1)  62 + (e - 1)
+''' Where did this come from?  Each successive convolution with
+''' a Sel of length L adds a total length (L - 1) to w.
+''' This accounts for using 62 for each additional Sel of size 63,
+''' and using (e - 1) for the additional Sel of size e.
+''' Solving for n and e for w  is greater  63:
+''' n = 1 + Int((w - 63) / 62)
+''' e = w - 63 - (n - 1)  62 + 1
+''' The extra part is decomposed into two factors f1 and f2,
+''' and the actual size of the extra part is
+''' e' = f1  f2
+''' Then the actual width is:
+''' w' = 63 + (n - 1)  62 + f1  f2 - 1
 '''  </summary>
 '''  <remarks>
 '''  </remarks>

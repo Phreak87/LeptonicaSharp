@@ -1,0 +1,1 @@
+mogrify.exe -resize 250 "HelpImages\*.jpg"

@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{a04dbec2-aed8-48fa-8dc1-f60949bfae12}</ProjectGuid>
+    <SHFBSchemaVersion>2017.9.26.0</SHFBSchemaVersion>
+    <AssemblyName>Documentation</AssemblyName>
+    <RootNamespace>Documentation</RootNamespace>
+    <Name>Documentation</Name>
+    <FrameworkVersion>.NET Framework 4.0</FrameworkVersion>
+    <OutputPath>.\</OutputPath>
+    <HtmlHelpName>LeptonicaSharp_1.77.0.2</HtmlHelpName>
+    <Language>en-US</Language>
+    <DocumentationSources>
+      <DocumentationSource sourceFile="..\..\DST\VB_LIB\VB_LIB.sln" xmlns="" />
+    </DocumentationSources>
+    <HelpFileFormat>HtmlHelp1</HelpFileFormat>
+    <SyntaxFilters>C#, Visual Basic, Visual Basic Usage, Managed C++</SyntaxFilters>
+    <PresentationStyle>VS2010</PresentationStyle>
+    <CleanIntermediates>True</CleanIntermediates>
+    <KeepLogFile>False</KeepLogFile>
+    <DisableCodeBlockComponent>False</DisableCodeBlockComponent>
+    <IndentHtml>False</IndentHtml>
+    <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
+    <HelpTitle>LeptonicaSharp</HelpTitle>
+    <HelpFileVersion>1.77.0.2.1</HelpFileVersion>
+    <RootNamespaceContainer>False</RootNamespaceContainer>
+    <NamespaceGrouping>False</NamespaceGrouping>
+    <Preliminary>False</Preliminary>
+    <SdkLinkTarget>Blank</SdkLinkTarget>
+    <HtmlSdkLinkType>None</HtmlSdkLinkType>
+    <BinaryTOC>True</BinaryTOC>
+    <IncludeFavorites>False</IncludeFavorites>
+    <WebsiteSdkLinkType>Msdn</WebsiteSdkLinkType>
+    <AppendMarkdownFileExtensionsToUrls>False</AppendMarkdownFileExtensionsToUrls>
+	<MissingTags>AutoDocumentCtors, AutoDocumentDispose</MissingTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">  </PropertyGroup>
+  <Import Project="$(SHFBROOT)\SandcastleHelpFileBuilder.targets" />
+
+  <PropertyGroup>
+    <PreBuildEvent></PreBuildEvent>
+    <PostBuildEvent></PostBuildEvent>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+
+  <ItemGroup>
+<Folder Include="HelpImages\"/>
+<Content Include="HelpImages\pixBackgroundNormSimple_S.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixBackgroundNormSimple_T.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixCleanBackgroundToWhite_S.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixCleanBackgroundToWhite_T.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixCloseSafeBrick_S.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixCloseSafeBrick_T.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixDeskew_S.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixDeskew_T.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixEqualizeTRC_S.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixEqualizeTRC_T.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixExpandBinaryPower2_S.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixExpandBinaryPower2_T.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixExtractTextlines_S.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixExtractTextlines_T.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixInvert_S.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixInvert_T.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixMorphCompSequence_S.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixMorphCompSequence_T.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixOpenBrick_S.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixOpenBrick_T.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixReduceRankBinaryCascade_S.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixReduceRankBinaryCascade_T.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixUnsharpMasking_S.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+<Content Include="HelpImages\pixUnsharpMasking_T.jpg">
+<ImageId></ImageId>
+<AlternateText></AlternateText>
+</Content>
+</ItemGroup>
+
+  
+</Project>

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LeptonicaSharp;
+using static LeptonicaSharp._All;
 
 namespace TestAppCSharp
 {
@@ -26,7 +28,28 @@ namespace TestAppCSharp
             //app.TestpixGetRegionsBinary(img1bpp);
             //app.TestProjections(img1bpp);
             //app.OtsuTest2(carplate);
-            app.TestProjectionsOnImage(carplate);
+            //app.TestProjectionsOnImage(carplate);
+            app.TestArrayFunctions();
+        }
+
+        private void TestArrayFunctions()
+        {
+            var feyn = Path.GetFullPath(@"..\..\..\..\ALL_Images\Leptonica\feyn.tif");
+            var test24 = Path.GetFullPath(@"..\..\..\..\ALL_Images\Leptonica\test24.jpg");
+
+            var lba1 = l_byteaInitFromFile(feyn);
+            var lba2 = l_byteaInitFromFile(test24);
+            var size1 = l_byteaGetSize(lba1);
+            var size2 = l_byteaGetSize(lba2);
+            l_byteaJoin(lba1, ref lba2);
+            var lba3 = l_byteaInitFromMem(lba1.data, size1);
+            //var lba4 = l_byteaInitFromMem(lba1.data + size1, size2)
+            var lba4 = l_byteaInitFromMem(lba1.data.Skip((int)size1).ToArray(), size2);
+
+            l_binaryWrite("junk1.dat", "w", lba3.data, lba3.size);
+            l_binaryWrite("junk2.dat", "w", lba4.data, lba4.size);
+            filesAreIdentical(feyn, "junk1.dat", out int psame1);
+            filesAreIdentical(test24, "junk2.dat", out int psame2);
         }
 
         private void TestProjectionsOnImage(string pixfn)

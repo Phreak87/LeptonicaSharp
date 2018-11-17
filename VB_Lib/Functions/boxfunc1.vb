@@ -2,13 +2,12 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\boxfunc1.c (99, 1)
 ' boxContains(box1, box2, presult) as Integer
 ' boxContains(BOX *, BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxContains/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxContains/*"/>
 '''  <param name="box1">[in] - </param>
 '''  <param name="box2">[in] - </param>
 '''  <param name="presult">[out] - 1 if box2 is entirely contained within box1, and 0 otherwise</param>
@@ -23,6 +22,7 @@ Public Shared Function boxContains(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxContains( box1.Pointer, box2.Pointer, presult)
 
+
 	Return _Result
 End Function
 
@@ -31,7 +31,7 @@ End Function
 ' boxIntersects(BOX *, BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxIntersects/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxIntersects/*"/>
 '''  <param name="box1">[in] - </param>
 '''  <param name="box2">[in] - </param>
 '''  <param name="presult">[out] - 1 if any part of box2 is contained in box1, and 0 otherwise</param>
@@ -46,6 +46,7 @@ Public Shared Function boxIntersects(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxIntersects( box1.Pointer, box2.Pointer, presult)
 
+
 	Return _Result
 End Function
 
@@ -59,7 +60,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaContainedInBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaContainedInBox/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="box">[in] - for containment</param>
 '''   <returns>boxad boxa with all boxes in boxas that are entirely contained in box, or NULL on error</returns>
@@ -71,6 +72,7 @@ Public Shared Function boxaContainedInBox(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaContainedInBox( boxas.Pointer, box.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -81,7 +83,7 @@ End Function
 ' boxaContainedInBoxCount(BOXA *, BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaContainedInBoxCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaContainedInBoxCount/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="box">[in] - for selecting contained boxes in %boxa</param>
 '''  <param name="pcount">[out] - number of boxes intersecting the box</param>
@@ -96,6 +98,7 @@ Public Shared Function boxaContainedInBoxCount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaContainedInBoxCount( boxa.Pointer, box.Pointer, pcount)
 
+
 	Return _Result
 End Function
 
@@ -104,7 +107,7 @@ End Function
 ' boxaContainedInBoxa(BOXA *, BOXA *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaContainedInBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaContainedInBoxa/*"/>
 '''  <param name="boxa1">[in] - </param>
 '''  <param name="boxa2">[in] - </param>
 '''  <param name="pcontained">[out] - 1 if every box in boxa2 is contained in some box in boxa1 0 otherwise</param>
@@ -118,6 +121,7 @@ Public Shared Function boxaContainedInBoxa(
 	If IsNothing (boxa2) then Throw New ArgumentNullException  ("boxa2 cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaContainedInBoxa( boxa1.Pointer, boxa2.Pointer, pcontained)
+
 
 	Return _Result
 End Function
@@ -133,7 +137,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaIntersectsBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaIntersectsBox/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="box">[in] - for intersecting</param>
 '''   <returns>boxad boxa with all boxes in boxas that intersect box, or NULL on error</returns>
@@ -145,6 +149,7 @@ Public Shared Function boxaIntersectsBox(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaIntersectsBox( boxas.Pointer, box.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -155,7 +160,7 @@ End Function
 ' boxaIntersectsBoxCount(BOXA *, BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaIntersectsBoxCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaIntersectsBoxCount/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="box">[in] - for selecting intersecting boxes in %boxa</param>
 '''  <param name="pcount">[out] - number of boxes intersecting the box</param>
@@ -169,6 +174,7 @@ Public Shared Function boxaIntersectsBoxCount(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaIntersectsBoxCount( boxa.Pointer, box.Pointer, pcount)
+
 
 	Return _Result
 End Function
@@ -184,7 +190,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaClipToBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaClipToBox/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="box">[in] - for clipping</param>
 '''   <returns>boxad boxa with boxes in boxas clipped to box, or NULL on error</returns>
@@ -196,6 +202,7 @@ Public Shared Function boxaClipToBox(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaClipToBox( boxas.Pointer, box.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -228,7 +235,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaCombineOverlaps/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaCombineOverlaps/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="pixadb">[in,out] - debug output</param>
 '''   <returns>boxad where each set of boxes in boxas that overlap are combined into a single bounding box in boxad, or NULL on error.</returns>
@@ -241,8 +248,10 @@ Public Shared Function boxaCombineOverlaps(
 Dim pixadbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixadb) Then pixadbPTR = pixadb.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaCombineOverlaps( boxas.Pointer, pixadbPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if pixadbPTR <> IntPtr.Zero then pixadb = new Pixa(pixadbPTR)
+If pixadbPTR = IntPtr.Zero Then pixadb = Nothing
+If pixadbPTR <> IntPtr.Zero Then pixadb = New Pixa(pixadbPTR)
 
 	Return  new Boxa(_Result)
 End Function
@@ -271,7 +280,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaCombineOverlapsInPair/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaCombineOverlapsInPair/*"/>
 '''  <param name="boxas1">[in] - input boxa1</param>
 '''  <param name="boxas2">[in] - input boxa2</param>
 '''  <param name="pboxad1">[out] - output boxa1</param>
@@ -293,9 +302,13 @@ Public Shared Function boxaCombineOverlapsInPair(
 Dim pixadbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixadb) Then pixadbPTR = pixadb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaCombineOverlapsInPair( boxas1.Pointer, boxas2.Pointer, pboxad1PTR, pboxad2PTR, pixadbPTR)
-	if pboxad1PTR <> IntPtr.Zero then pboxad1 = new Boxa(pboxad1PTR)
-	if pboxad2PTR <> IntPtr.Zero then pboxad2 = new Boxa(pboxad2PTR)
-	if pixadbPTR <> IntPtr.Zero then pixadb = new Pixa(pixadbPTR)
+
+If pboxad1PTR = IntPtr.Zero Then pboxad1 = Nothing
+If pboxad1PTR <> IntPtr.Zero Then pboxad1 = New Boxa(pboxad1PTR)
+If pboxad2PTR = IntPtr.Zero Then pboxad2 = Nothing
+If pboxad2PTR <> IntPtr.Zero Then pboxad2 = New Boxa(pboxad2PTR)
+If pixadbPTR = IntPtr.Zero Then pixadb = Nothing
+If pixadbPTR <> IntPtr.Zero Then pixadb = New Pixa(pixadbPTR)
 
 	Return _Result
 End Function
@@ -310,7 +323,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxOverlapRegion/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxOverlapRegion/*"/>
 '''  <param name="box1">[in] - two boxes</param>
 '''  <param name="box2">[in] - two boxes</param>
 '''   <returns>box of overlap region between input boxes, or NULL if no overlap or on error</returns>
@@ -322,6 +335,7 @@ Public Shared Function boxOverlapRegion(
 	If IsNothing (box2) then Throw New ArgumentNullException  ("box2 cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxOverlapRegion( box1.Pointer, box2.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -337,7 +351,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxBoundingRegion/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxBoundingRegion/*"/>
 '''  <param name="box1">[in] - two boxes</param>
 '''  <param name="box2">[in] - two boxes</param>
 '''   <returns>box of bounding region containing the input boxes, or NULL on error</returns>
@@ -349,6 +363,7 @@ Public Shared Function boxBoundingRegion(
 	If IsNothing (box2) then Throw New ArgumentNullException  ("box2 cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxBoundingRegion( box1.Pointer, box2.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -365,7 +380,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxOverlapFraction/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxOverlapFraction/*"/>
 '''  <param name="box1">[in] - two boxes</param>
 '''  <param name="box2">[in] - two boxes</param>
 '''  <param name="pfract">[out] - the fraction of box2 overlapped by box1</param>
@@ -380,6 +395,7 @@ Public Shared Function boxOverlapFraction(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxOverlapFraction( box1.Pointer, box2.Pointer, pfract)
 
+
 	Return _Result
 End Function
 
@@ -388,7 +404,7 @@ End Function
 ' boxOverlapArea(BOX *, BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxOverlapArea/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxOverlapArea/*"/>
 '''  <param name="box1">[in] - two boxes</param>
 '''  <param name="box2">[in] - two boxes</param>
 '''  <param name="parea">[out] - the number of pixels in the overlap</param>
@@ -402,6 +418,7 @@ Public Shared Function boxOverlapArea(
 	If IsNothing (box2) then Throw New ArgumentNullException  ("box2 cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxOverlapArea( box1.Pointer, box2.Pointer, parea)
+
 
 	Return _Result
 End Function
@@ -434,7 +451,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaHandleOverlaps/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaHandleOverlaps/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="op">[in] - L_COMBINE, L_REMOVE_SMALL</param>
 '''  <param name="range">[in] - is greater  0, forward distance over which overlaps are checked</param>
@@ -455,8 +472,10 @@ Public Shared Function boxaHandleOverlaps(
 Dim pnamapPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnamap) Then pnamapPTR = pnamap.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaHandleOverlaps( boxas.Pointer, op, range, min_overlap, max_ratio, pnamapPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if pnamapPTR <> IntPtr.Zero then pnamap = new Numa(pnamapPTR)
+If pnamapPTR = IntPtr.Zero Then pnamap = Nothing
+If pnamapPTR <> IntPtr.Zero Then pnamap = New Numa(pnamapPTR)
 
 	Return  new Boxa(_Result)
 End Function
@@ -474,7 +493,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxSeparationDistance/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxSeparationDistance/*"/>
 '''  <param name="box1">[in] - two boxes, in any order</param>
 '''  <param name="box2">[in] - two boxes, in any order</param>
 '''  <param name="ph_sep">[out][optional] - horizontal separation</param>
@@ -491,6 +510,7 @@ Public Shared Function boxSeparationDistance(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxSeparationDistance( box1.Pointer, box2.Pointer, ph_sep, pv_sep)
 
+
 	Return _Result
 End Function
 
@@ -504,7 +524,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxCompareSize/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxCompareSize/*"/>
 '''  <param name="box1">[in] - </param>
 '''  <param name="box2">[in] - </param>
 '''  <param name="type">[in] - L_SORT_BY_WIDTH, L_SORT_BY_HEIGHT, L_SORT_BY_MAX_DIMENSION, L_SORT_BY_PERIMETER, L_SORT_BY_AREA,</param>
@@ -521,6 +541,7 @@ Public Shared Function boxCompareSize(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxCompareSize( box1.Pointer, box2.Pointer, type, prel)
 
+
 	Return _Result
 End Function
 
@@ -529,7 +550,7 @@ End Function
 ' boxContainsPt(BOX *, l_float32, l_float32, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxContainsPt/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxContainsPt/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="x">[in] - a point</param>
 '''  <param name="y">[in] - a point</param>
@@ -545,6 +566,7 @@ Public Shared Function boxContainsPt(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxContainsPt( box.Pointer, x, y, pcontains)
 
+
 	Return _Result
 End Function
 
@@ -558,7 +580,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaGetNearestToPt/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaGetNearestToPt/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="x">[in] - point</param>
 '''  <param name="y">[in] - point</param>
@@ -571,6 +593,7 @@ Public Shared Function boxaGetNearestToPt(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaGetNearestToPt( boxa.Pointer, x, y)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -591,7 +614,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaGetNearestToLine/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaGetNearestToLine/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="x">[in] - (y = -1 for vertical line x = -1 for horiz line)</param>
 '''  <param name="y">[in] - (y = -1 for vertical line x = -1 for horiz line)</param>
@@ -604,6 +627,7 @@ Public Shared Function boxaGetNearestToLine(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaGetNearestToLine( boxa.Pointer, x, y)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -620,7 +644,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaFindNearestBoxes/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaFindNearestBoxes/*"/>
 '''  <param name="boxa">[in] - either unsorted, or 2D sorted in LR/TB scan order</param>
 '''  <param name="dist_select">[in] - L_NON_NEGATIVE, L_ALL</param>
 '''  <param name="range">[in] - search distance from box i use 0 to search entire boxa (e.g., if it's not 2D sorted)</param>
@@ -640,8 +664,11 @@ Public Shared Function boxaFindNearestBoxes(
 	Dim pnaadistPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaadist) Then pnaadistPTR = pnaadist.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaFindNearestBoxes( boxa.Pointer, dist_select, range, pnaaindexPTR, pnaadistPTR)
-	if pnaaindexPTR <> IntPtr.Zero then pnaaindex = new Numaa(pnaaindexPTR)
-	if pnaadistPTR <> IntPtr.Zero then pnaadist = new Numaa(pnaadistPTR)
+
+If pnaaindexPTR = IntPtr.Zero Then pnaaindex = Nothing
+If pnaaindexPTR <> IntPtr.Zero Then pnaaindex = New Numaa(pnaaindexPTR)
+If pnaadistPTR = IntPtr.Zero Then pnaadist = Nothing
+If pnaadistPTR <> IntPtr.Zero Then pnaadist = New Numaa(pnaadistPTR)
 
 	Return _Result
 End Function
@@ -663,7 +690,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaGetNearestByDirection/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaGetNearestByDirection/*"/>
 '''  <param name="boxa">[in] - either unsorted, or 2D sorted in LR/TB scan order</param>
 '''  <param name="i">[in] - box we test against</param>
 '''  <param name="dir">[in] - direction to look: L_FROM_LEFT, L_FROM_RIGHT, L_FROM_TOP, L_FROM_BOT</param>
@@ -685,6 +712,7 @@ Public Shared Function boxaGetNearestByDirection(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaGetNearestByDirection( boxa.Pointer, i, dir, dist_select, range, pindex, pdist)
 
+
 	Return _Result
 End Function
 
@@ -693,7 +721,7 @@ End Function
 ' boxGetCenter(BOX *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxGetCenter/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxGetCenter/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="pcx">[out] - location of center of box</param>
 '''  <param name="pcy">[out] - location of center of box</param>
@@ -706,6 +734,7 @@ Public Shared Function boxGetCenter(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxGetCenter( box.Pointer, pcx, pcy)
+
 
 	Return _Result
 End Function
@@ -723,7 +752,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxIntersectByLine/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxIntersectByLine/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="x">[in] - point that line goes through</param>
 '''  <param name="y">[in] - point that line goes through</param>
@@ -749,6 +778,7 @@ Public Shared Function boxIntersectByLine(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxIntersectByLine( box.Pointer, x, y, slope, px1, py1, px2, py2, pn)
 
+
 	Return _Result
 End Function
 
@@ -764,7 +794,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxClipToRectangle/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxClipToRectangle/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="wi">[in] - rectangle representing image</param>
 '''  <param name="hi">[in] - rectangle representing image</param>
@@ -777,6 +807,7 @@ Public Shared Function boxClipToRectangle(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxClipToRectangle( box.Pointer, wi, hi)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -800,7 +831,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxClipToRectangleParams/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxClipToRectangleParams/*"/>
 '''  <param name="box">[in][optional] - requested box can be null</param>
 '''  <param name="w">[in] - clipping box size typ. the size of an image</param>
 '''  <param name="h">[in] - clipping box size typ. the size of an image</param>
@@ -826,6 +857,7 @@ Public Shared Function boxClipToRectangleParams(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxClipToRectangleParams( boxPTR, w, h, pxstart, pystart, pxend, pyend, pbw, pbh)
 
+
 	Return _Result
 End Function
 
@@ -845,7 +877,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxRelocateOneSide/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxRelocateOneSide/*"/>
 '''  <param name="boxd">[in][optional] - this can be null, equal to boxs, or different from boxs</param>
 '''  <param name="boxs">[in] - starting box to have one side relocated</param>
 '''  <param name="loc">[in] - new location of the side that is changing</param>
@@ -862,6 +894,7 @@ Public Shared Function boxRelocateOneSide(
 	Dim boxdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(boxd) Then boxdPTR = boxd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxRelocateOneSide( boxdPTR, boxs.Pointer, loc, sideflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -882,7 +915,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaAdjustSides/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaAdjustSides/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="delleft">[in] - changes in location of each side for each box</param>
 '''  <param name="delright">[in] - changes in location of each side for each box</param>
@@ -899,6 +932,7 @@ Public Shared Function boxaAdjustSides(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaAdjustSides( boxas.Pointer, delleft, delright, deltop, delbot)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -925,7 +959,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxAdjustSides/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxAdjustSides/*"/>
 '''  <param name="boxd">[in][optional] - this can be null, equal to boxs, or different from boxs</param>
 '''  <param name="boxs">[in] - starting box to have sides adjusted</param>
 '''  <param name="delleft">[in] - changes in location of each side</param>
@@ -946,6 +980,7 @@ Public Shared Function boxAdjustSides(
 	Dim boxdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(boxd) Then boxdPTR = boxd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxAdjustSides( boxdPTR, boxs.Pointer, delleft, delright, deltop, delbot)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -966,7 +1001,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaSetSide/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaSetSide/*"/>
 '''  <param name="boxad">[in] - use NULL to get a new one same as boxas for in-place</param>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="side">[in] - L_SET_LEFT, L_SET_RIGHT, L_SET_TOP, L_SET_BOT</param>
@@ -984,6 +1019,7 @@ Public Shared Function boxaSetSide(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaSetSide( boxad.Pointer, boxas.Pointer, side, val, thresh)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -1006,7 +1042,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaAdjustWidthToTarget/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaAdjustWidthToTarget/*"/>
 '''  <param name="boxad">[in] - use NULL to get a new one same as boxas for in-place</param>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="sides">[in] - L_ADJUST_LEFT, L_ADJUST_RIGHT, L_ADJUST_LEFT_AND_RIGHT</param>
@@ -1024,6 +1060,7 @@ Public Shared Function boxaAdjustWidthToTarget(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaAdjustWidthToTarget( boxad.Pointer, boxas.Pointer, sides, target, thresh)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -1046,7 +1083,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaAdjustHeightToTarget/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaAdjustHeightToTarget/*"/>
 '''  <param name="boxad">[in] - use NULL to get a new one</param>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="sides">[in] - L_ADJUST_TOP, L_ADJUST_BOT, L_ADJUST_TOP_AND_BOT</param>
@@ -1064,6 +1101,7 @@ Public Shared Function boxaAdjustHeightToTarget(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaAdjustHeightToTarget( boxad.Pointer, boxas.Pointer, sides, target, thresh)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -1074,7 +1112,7 @@ End Function
 ' boxEqual(BOX *, BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxEqual/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxEqual/*"/>
 '''  <param name="box1">[in] - </param>
 '''  <param name="box2">[in] - </param>
 '''  <param name="psame">[out] - 1 if equal 0 otherwise</param>
@@ -1088,6 +1126,7 @@ Public Shared Function boxEqual(
 	If IsNothing (box2) then Throw New ArgumentNullException  ("box2 cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxEqual( box1.Pointer, box2.Pointer, psame)
+
 
 	Return _Result
 End Function
@@ -1118,7 +1157,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaEqual/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaEqual/*"/>
 '''  <param name="boxa1">[in] - </param>
 '''  <param name="boxa2">[in] - </param>
 '''  <param name="maxdist">[in] - </param>
@@ -1138,7 +1177,9 @@ Public Shared Function boxaEqual(
 Dim pnaindexPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaindex) Then pnaindexPTR = pnaindex.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaEqual( boxa1.Pointer, boxa2.Pointer, maxdist, pnaindexPTR, psame)
-	if pnaindexPTR <> IntPtr.Zero then pnaindex = new Numa(pnaindexPTR)
+
+If pnaindexPTR = IntPtr.Zero Then pnaindex = Nothing
+If pnaindexPTR <> IntPtr.Zero Then pnaindex = New Numa(pnaindexPTR)
 
 	Return _Result
 End Function
@@ -1155,7 +1196,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxSimilar/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxSimilar/*"/>
 '''  <param name="box1">[in] - </param>
 '''  <param name="box2">[in] - </param>
 '''  <param name="leftdiff">[in] - </param>
@@ -1178,6 +1219,7 @@ Public Shared Function boxSimilar(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxSimilar( box1.Pointer, box2.Pointer, leftdiff, rightdiff, topdiff, botdiff, psimilar)
 
+
 	Return _Result
 End Function
 
@@ -1198,7 +1240,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaSimilar/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaSimilar/*"/>
 '''  <param name="boxa1">[in] - </param>
 '''  <param name="boxa2">[in] - </param>
 '''  <param name="leftdiff">[in] - </param>
@@ -1226,7 +1268,9 @@ Public Shared Function boxaSimilar(
 Dim pnasimPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnasim) Then pnasimPTR = pnasim.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaSimilar( boxa1.Pointer, boxa2.Pointer, leftdiff, rightdiff, topdiff, botdiff, debug, psimilar, pnasimPTR)
-	if pnasimPTR <> IntPtr.Zero then pnasim = new Numa(pnasimPTR)
+
+If pnasimPTR = IntPtr.Zero Then pnasim = Nothing
+If pnasimPTR <> IntPtr.Zero Then pnasim = New Numa(pnasimPTR)
 
 	Return _Result
 End Function
@@ -1247,7 +1291,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaJoin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaJoin/*"/>
 '''  <param name="boxad">[in] - dest boxa add to this one</param>
 '''  <param name="boxas">[in] - source boxa add from this one</param>
 '''  <param name="istart">[in] - starting index in boxas</param>
@@ -1263,6 +1307,7 @@ Public Shared Function boxaJoin(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaJoin( boxad.Pointer, boxas.Pointer, istart, iend)
+
 
 	Return _Result
 End Function
@@ -1283,7 +1328,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaJoin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaJoin/*"/>
 '''  <param name="baad">[in] - dest boxaa add to this one</param>
 '''  <param name="baas">[in] - source boxaa add from this one</param>
 '''  <param name="istart">[in] - starting index in baas</param>
@@ -1299,6 +1344,7 @@ Public Shared Function boxaaJoin(
 	If IsNothing (baas) then Throw New ArgumentNullException  ("baas cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaJoin( baad.Pointer, baas.Pointer, istart, iend)
+
 
 	Return _Result
 End Function
@@ -1317,7 +1363,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaSplitEvenOdd/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaSplitEvenOdd/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="fillflag">[in] - 1 to put invalid boxes in place 0 to omit</param>
 '''  <param name="pboxae">[out] - save even and odd boxes in their separate boxa, setting the other type to invalid boxes.</param>
@@ -1335,8 +1381,11 @@ Public Shared Function boxaSplitEvenOdd(
 	Dim pboxaoPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxao) Then pboxaoPTR = pboxao.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaSplitEvenOdd( boxa.Pointer, fillflag, pboxaePTR, pboxaoPTR)
-	if pboxaePTR <> IntPtr.Zero then pboxae = new Boxa(pboxaePTR)
-	if pboxaoPTR <> IntPtr.Zero then pboxao = new Boxa(pboxaoPTR)
+
+If pboxaePTR = IntPtr.Zero Then pboxae = Nothing
+If pboxaePTR <> IntPtr.Zero Then pboxae = New Boxa(pboxaePTR)
+If pboxaoPTR = IntPtr.Zero Then pboxao = Nothing
+If pboxaoPTR <> IntPtr.Zero Then pboxao = New Boxa(pboxaoPTR)
 
 	Return _Result
 End Function
@@ -1356,7 +1405,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaMergeEvenOdd/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaMergeEvenOdd/*"/>
 '''  <param name="boxae">[in] - boxes to go in even positions in merged boxa</param>
 '''  <param name="boxao">[in] - boxes to go in odd positions in merged boxa</param>
 '''  <param name="fillflag">[in] - 1 if there are invalid boxes in placeholders</param>
@@ -1370,6 +1419,7 @@ Public Shared Function boxaMergeEvenOdd(
 	If IsNothing (boxao) then Throw New ArgumentNullException  ("boxao cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaMergeEvenOdd( boxae.Pointer, boxao.Pointer, fillflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)

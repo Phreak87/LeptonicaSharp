@@ -2,13 +2,12 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\jp2kheader.c (75, 1)
 ' readHeaderJp2k(filename, pw, ph, pbps, pspp) as Integer
 ' readHeaderJp2k(const char *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/readHeaderJp2k/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/readHeaderJp2k/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -24,9 +23,10 @@ Public Shared Function readHeaderJp2k(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderJp2k( filename, pw, ph, pbps, pspp)
+
 
 	Return _Result
 End Function
@@ -36,7 +36,7 @@ End Function
 ' freadHeaderJp2k(FILE *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/freadHeaderJp2k/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/freadHeaderJp2k/*"/>
 '''  <param name="fp">[in] - file stream opened for read</param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -53,6 +53,7 @@ Public Shared Function freadHeaderJp2k(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.freadHeaderJp2k( fp.Pointer, pw, ph, pbps, pspp)
+
 
 	Return _Result
 End Function
@@ -77,7 +78,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/readHeaderMemJp2k/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/readHeaderMemJp2k/*"/>
 '''  <param name="data">[in] - </param>
 '''  <param name="size">[in] - at least 80</param>
 '''  <param name="pw">[out][optional] - </param>
@@ -97,6 +98,7 @@ Public Shared Function readHeaderMemJp2k(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderMemJp2k( data, size, pw, ph, pbps, pspp)
 
+
 	Return _Result
 End Function
 
@@ -105,7 +107,7 @@ End Function
 ' fgetJp2kResolution(FILE *, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fgetJp2kResolution/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fgetJp2kResolution/*"/>
 '''   <returns></returns>
 Public Shared Function fgetJp2kResolution(
 				 ByVal fp as FILE, 
@@ -119,6 +121,7 @@ Public Shared Function fgetJp2kResolution(
 Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fgetJp2kResolution( fp.Pointer, pxres, pyres)
+
 
 	Return _Result
 End Function

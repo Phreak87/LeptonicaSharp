@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\affine.c (280, 1)
 ' pixAffineSampledPta(pixs, ptad, ptas, incolor) as Pix
 ' pixAffineSampledPta(PIX *, PTA *, PTA *, l_int32) as PIX *
@@ -35,7 +34,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAffineSampledPta/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAffineSampledPta/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="ptad">[in] - 3 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
@@ -52,6 +51,7 @@ Public Shared Function pixAffineSampledPta(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAffineSampledPta( pixs.Pointer, ptad.Pointer, ptas.Pointer, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -73,7 +73,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAffineSampled/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAffineSampled/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="vc">[in] - vector of 6 coefficients for affine transformation</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -87,6 +87,7 @@ Public Shared Function pixAffineSampled(
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAffineSampled( pixs.Pointer, vc, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -104,7 +105,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAffinePta/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAffinePta/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="ptad">[in] - 3 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
@@ -121,6 +122,7 @@ Public Shared Function pixAffinePta(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAffinePta( pixs.Pointer, ptad.Pointer, ptas.Pointer, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -138,7 +140,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAffine/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAffine/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="vc">[in] - vector of 6 coefficients for affine transformation</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -152,6 +154,7 @@ Public Shared Function pixAffine(
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAffine( pixs.Pointer, vc, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -162,7 +165,7 @@ End Function
 ' pixAffinePtaColor(PIX *, PTA *, PTA *, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAffinePtaColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAffinePtaColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="ptad">[in] - 3 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
@@ -179,6 +182,7 @@ Public Shared Function pixAffinePtaColor(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAffinePtaColor( pixs.Pointer, ptad.Pointer, ptas.Pointer, colorval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -189,7 +193,7 @@ End Function
 ' pixAffineColor(PIX *, l_float32 *, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAffineColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAffineColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="vc">[in] - vector of 6 coefficients for affine transformation</param>
 '''  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
@@ -203,6 +207,7 @@ Public Shared Function pixAffineColor(
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAffineColor( pixs.Pointer, vc, colorval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -213,7 +218,7 @@ End Function
 ' pixAffinePtaGray(PIX *, PTA *, PTA *, l_uint8) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAffinePtaGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAffinePtaGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="ptad">[in] - 3 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
@@ -233,6 +238,7 @@ Public Shared Function pixAffinePtaGray(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAffinePtaGray( pixs.Pointer, ptad.Pointer, ptas.Pointer, grayval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -243,7 +249,7 @@ End Function
 ' pixAffineGray(PIX *, l_float32 *, l_uint8) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAffineGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAffineGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="vc">[in] - vector of 6 coefficients for affine transformation</param>
 '''  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
@@ -260,6 +266,7 @@ Public Shared Function pixAffineGray(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAffineGray( pixs.Pointer, vc, grayval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -307,7 +314,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAffinePtaWithAlpha/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAffinePtaWithAlpha/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="ptad">[in] - 3 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
@@ -332,6 +339,7 @@ Public Shared Function pixAffinePtaWithAlpha(
 	Dim pixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixg) Then pixgPTR = pixg.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAffinePtaWithAlpha( pixs.Pointer, ptad.Pointer, ptas.Pointer, pixgPTR, fract, border)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -390,7 +398,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/getAffineXformCoeffs/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getAffineXformCoeffs/*"/>
 '''  <param name="ptas">[in] - source 3 points unprimed</param>
 '''  <param name="ptad">[in] - transformed 3 points primed</param>
 '''  <param name="pvc">[out] - vector of coefficients of transform</param>
@@ -406,6 +414,7 @@ Public Shared Function getAffineXformCoeffs(
 Dim pvcPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.getAffineXformCoeffs( ptas.Pointer, ptad.Pointer, pvcPTR)
+
 
 	Return _Result
 End Function
@@ -439,7 +448,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/affineInvertXform/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/affineInvertXform/*"/>
 '''  <param name="vc">[in] - vector of 6 coefficients</param>
 '''  <param name="pvci">[out] - inverted transform</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -452,6 +461,7 @@ Public Shared Function affineInvertXform(
 Dim pvciPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.affineInvertXform( vc, pvciPTR)
+
 
 	Return _Result
 End Function
@@ -468,7 +478,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/affineXformSampledPt/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/affineXformSampledPt/*"/>
 '''  <param name="vc">[in] - vector of 6 coefficients</param>
 '''  <param name="x">[in] - initial point</param>
 '''  <param name="y">[in] - initial point</param>
@@ -486,6 +496,7 @@ Public Shared Function affineXformSampledPt(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.affineXformSampledPt( vc, x, y, pxp, pyp)
 
+
 	Return _Result
 End Function
 
@@ -501,7 +512,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/affineXformPt/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/affineXformPt/*"/>
 '''  <param name="vc">[in] - vector of 6 coefficients</param>
 '''  <param name="x">[in] - initial point</param>
 '''  <param name="y">[in] - initial point</param>
@@ -519,6 +530,7 @@ Public Shared Function affineXformPt(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.affineXformPt( vc, x, y, pxp, pyp)
 
+
 	Return _Result
 End Function
 
@@ -534,7 +546,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/linearInterpolatePixelColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/linearInterpolatePixelColor/*"/>
 '''  <param name="datas">[in] - ptr to beginning of image data</param>
 '''  <param name="wpls">[in] - 32-bit word/line for this data array</param>
 '''  <param name="w">[in] - of image</param>
@@ -559,6 +571,8 @@ Public Shared Function linearInterpolatePixelColor(
 	Dim datasPTR As IntPtr = Marshal.AllocHGlobal(datas.Count) : Marshal.Copy(datas, 0, datasPTR, datas.Length)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.linearInterpolatePixelColor( datasPTR, wpls, w, h, x, y, colorval, pval)
+Marshal.FreeHGlobal(datasPTR)
+
 
 	Return _Result
 End Function
@@ -575,7 +589,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/linearInterpolatePixelGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/linearInterpolatePixelGray/*"/>
 '''  <param name="datas">[in] - ptr to beginning of image data</param>
 '''  <param name="wpls">[in] - 32-bit word/line for this data array</param>
 '''  <param name="w">[in] - of image</param>
@@ -600,6 +614,8 @@ Public Shared Function linearInterpolatePixelGray(
 	Dim datasPTR As IntPtr = Marshal.AllocHGlobal(datas.Count) : Marshal.Copy(datas, 0, datasPTR, datas.Length)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.linearInterpolatePixelGray( datasPTR, wpls, w, h, x, y, grayval, pval)
+Marshal.FreeHGlobal(datasPTR)
+
 
 	Return _Result
 End Function
@@ -623,7 +639,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/gaussjordan/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gaussjordan/*"/>
 '''  <param name="a">[in] - n x n matrix</param>
 '''  <param name="b">[in] - n x 1 right-hand side column vector</param>
 '''  <param name="n">[in] - dimension</param>
@@ -639,6 +655,7 @@ Public Shared Function gaussjordan(
 Dim aPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gaussjordan( aPTR, b, n)
+
 
 	Return _Result
 End Function
@@ -669,7 +686,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAffineSequential/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAffineSequential/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="ptad">[in] - 3 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 3 pts of initial coordinate space</param>
@@ -688,6 +705,7 @@ Public Shared Function pixAffineSequential(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAffineSequential( pixs.Pointer, ptad.Pointer, ptas.Pointer, bw, bh)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

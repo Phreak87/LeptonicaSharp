@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\numafunc1.c (153, 1)
 ' numaArithOp(nad, na1, na2, op) as Numa
 ' numaArithOp(NUMA *, NUMA *, NUMA *, l_int32) as NUMA *
@@ -18,7 +17,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaArithOp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaArithOp/*"/>
 '''  <param name="nad">[in][optional] - can be null or equal to na1 (in-place</param>
 '''  <param name="na1">[in] - </param>
 '''  <param name="na2">[in] - </param>
@@ -36,6 +35,7 @@ Public Shared Function numaArithOp(
 	Dim nadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nad) Then nadPTR = nad.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaArithOp( nadPTR, na1.Pointer, na2.Pointer, op)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -61,7 +61,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaLogicalOp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaLogicalOp/*"/>
 '''  <param name="nad">[in][optional] - can be null or equal to na1 (in-place</param>
 '''  <param name="na1">[in] - </param>
 '''  <param name="na2">[in] - </param>
@@ -79,6 +79,7 @@ Public Shared Function numaLogicalOp(
 	Dim nadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nad) Then nadPTR = nad.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaLogicalOp( nadPTR, na1.Pointer, na2.Pointer, op)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -98,7 +99,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaInvert/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaInvert/*"/>
 '''  <param name="nad">[in][optional] - can be null or equal to nas (in-place</param>
 '''  <param name="nas">[in] - </param>
 '''   <returns>nad always: 'inverts' nas</returns>
@@ -111,6 +112,7 @@ Public Shared Function numaInvert(
 	Dim nadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nad) Then nadPTR = nad.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaInvert( nadPTR, nas.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -128,7 +130,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaSimilar/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaSimilar/*"/>
 '''  <param name="na1">[in] - </param>
 '''  <param name="na2">[in] - </param>
 '''  <param name="maxdiff">[in] - use 0.0 for exact equality</param>
@@ -144,6 +146,7 @@ Public Shared Function numaSimilar(
 	If IsNothing (na2) then Throw New ArgumentNullException  ("na2 cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaSimilar( na1.Pointer, na2.Pointer, maxdiff, psimilar)
+
 
 	Return _Result
 End Function
@@ -163,7 +166,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaAddToNumber/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaAddToNumber/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="index">[in] - element to be changed</param>
 '''  <param name="val">[in] - new value to be added</param>
@@ -177,6 +180,7 @@ Public Shared Function numaAddToNumber(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaAddToNumber( na.Pointer, index, val)
 
+
 	Return _Result
 End Function
 
@@ -185,7 +189,7 @@ End Function
 ' numaGetMin(NUMA *, l_float32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetMin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetMin/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pminval">[out][optional] - min value</param>
 '''  <param name="piminloc">[out][optional] - index of min location</param>
@@ -199,6 +203,7 @@ Public Shared Function numaGetMin(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetMin( na.Pointer, pminval, piminloc)
 
+
 	Return _Result
 End Function
 
@@ -207,7 +212,7 @@ End Function
 ' numaGetMax(NUMA *, l_float32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetMax/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetMax/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pmaxval">[out][optional] - max value</param>
 '''  <param name="pimaxloc">[out][optional] - index of max location</param>
@@ -221,6 +226,7 @@ Public Shared Function numaGetMax(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetMax( na.Pointer, pmaxval, pimaxloc)
 
+
 	Return _Result
 End Function
 
@@ -229,7 +235,7 @@ End Function
 ' numaGetSum(NUMA *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetSum/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetSum/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="psum">[out] - sum of values</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -240,6 +246,7 @@ Public Shared Function numaGetSum(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetSum( na.Pointer, psum)
+
 
 	Return _Result
 End Function
@@ -258,7 +265,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetPartialSums/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetPartialSums/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''   <returns>nasum, or NULL on error</returns>
 Public Shared Function numaGetPartialSums(
@@ -267,6 +274,7 @@ Public Shared Function numaGetPartialSums(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaGetPartialSums( na.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -277,7 +285,7 @@ End Function
 ' numaGetSumOnInterval(NUMA *, l_int32, l_int32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetSumOnInterval/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetSumOnInterval/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="first">[in] - beginning index</param>
 '''  <param name="last">[in] - final index</param>
@@ -293,6 +301,7 @@ Public Shared Function numaGetSumOnInterval(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetSumOnInterval( na.Pointer, first, last, psum)
 
+
 	Return _Result
 End Function
 
@@ -307,7 +316,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaHasOnlyIntegers/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaHasOnlyIntegers/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="maxsamples">[in] - maximum number of samples to check</param>
 '''  <param name="pallints">[out] - 1 if all sampled values are ints else 0</param>
@@ -321,6 +330,7 @@ Public Shared Function numaHasOnlyIntegers(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaHasOnlyIntegers( na.Pointer, maxsamples, pallints)
 
+
 	Return _Result
 End Function
 
@@ -329,7 +339,7 @@ End Function
 ' numaSubsample(NUMA *, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaSubsample/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaSubsample/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="subfactor">[in] - subsample factor, greater or equal 1</param>
 '''   <returns>nad evenly sampled values from nas, or NULL on error</returns>
@@ -340,6 +350,7 @@ Public Shared Function numaSubsample(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaSubsample( nas.Pointer, subfactor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -350,7 +361,7 @@ End Function
 ' numaMakeDelta(NUMA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaMakeDelta/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaMakeDelta/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''   <returns>numa of difference values val[i+1] - val[i], or NULL on error</returns>
 Public Shared Function numaMakeDelta(
@@ -359,6 +370,7 @@ Public Shared Function numaMakeDelta(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaMakeDelta( nas.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -369,7 +381,7 @@ End Function
 ' numaMakeSequence(l_float32, l_float32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaMakeSequence/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaMakeSequence/*"/>
 '''  <param name="startval">[in] - </param>
 '''  <param name="increment">[in] - </param>
 '''  <param name="size">[in] - of sequence</param>
@@ -380,6 +392,7 @@ Public Shared Function numaMakeSequence(
 				 ByVal size as Integer) as Numa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaMakeSequence( startval, increment, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -390,7 +403,7 @@ End Function
 ' numaMakeConstant(l_float32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaMakeConstant/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaMakeConstant/*"/>
 '''  <param name="val">[in] - </param>
 '''  <param name="size">[in] - of numa</param>
 '''   <returns>numa of given size with all entries equal to 'val', or NULL on error</returns>
@@ -399,6 +412,7 @@ Public Shared Function numaMakeConstant(
 				 ByVal size as Integer) as Numa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaMakeConstant( val, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -409,7 +423,7 @@ End Function
 ' numaMakeAbsValue(NUMA *, NUMA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaMakeAbsValue/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaMakeAbsValue/*"/>
 '''  <param name="nad">[in]can be null - for new array, or the same as nas for inplace</param>
 '''  <param name="nas">[in] - input numa</param>
 '''   <returns>nad with all numbers being the absval of the input, or NULL on error</returns>
@@ -422,6 +436,7 @@ Public Shared Function numaMakeAbsValue(
 	Dim nadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nad) Then nadPTR = nad.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaMakeAbsValue( nadPTR, nas.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -432,7 +447,7 @@ End Function
 ' numaAddBorder(NUMA *, l_int32, l_int32, l_float32) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaAddBorder/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaAddBorder/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="left">[in] - number of elements to add on each side</param>
 '''  <param name="right">[in] - number of elements to add on each side</param>
@@ -447,6 +462,7 @@ Public Shared Function numaAddBorder(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaAddBorder( nas.Pointer, left, right, val)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -457,7 +473,7 @@ End Function
 ' numaAddSpecifiedBorder(NUMA *, l_int32, l_int32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaAddSpecifiedBorder/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaAddSpecifiedBorder/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="left">[in] - number of elements to add on each side</param>
 '''  <param name="right">[in] - number of elements to add on each side</param>
@@ -472,6 +488,7 @@ Public Shared Function numaAddSpecifiedBorder(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaAddSpecifiedBorder( nas.Pointer, left, right, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -482,7 +499,7 @@ End Function
 ' numaRemoveBorder(NUMA *, l_int32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaRemoveBorder/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaRemoveBorder/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="left">[in] - number of elements to remove from each side</param>
 '''  <param name="right">[in] - number of elements to remove from each side</param>
@@ -495,6 +512,7 @@ Public Shared Function numaRemoveBorder(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaRemoveBorder( nas.Pointer, left, right)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -505,7 +523,7 @@ End Function
 ' numaCountNonzeroRuns(NUMA *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaCountNonzeroRuns/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaCountNonzeroRuns/*"/>
 '''  <param name="na">[in] - e.g., of pixel counts in rows or columns</param>
 '''  <param name="pcount">[out] - number of nonzero runs</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -517,6 +535,7 @@ Public Shared Function numaCountNonzeroRuns(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaCountNonzeroRuns( na.Pointer, pcount)
 
+
 	Return _Result
 End Function
 
@@ -525,7 +544,7 @@ End Function
 ' numaGetNonzeroRange(NUMA *, l_float32, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetNonzeroRange/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetNonzeroRange/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="eps">[in] - largest value considered to be zero</param>
 '''  <param name="pfirst">[out] - interval of array indices where values are nonzero</param>
@@ -541,6 +560,7 @@ Public Shared Function numaGetNonzeroRange(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetNonzeroRange( na.Pointer, eps, pfirst, plast)
 
+
 	Return _Result
 End Function
 
@@ -549,7 +569,7 @@ End Function
 ' numaGetCountRelativeToZero(NUMA *, l_int32, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetCountRelativeToZero/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetCountRelativeToZero/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="type">[in] - L_LESS_THAN_ZERO, L_EQUAL_TO_ZERO, L_GREATER_THAN_ZERO</param>
 '''  <param name="pcount">[out] - count of values of given type</param>
@@ -562,6 +582,7 @@ Public Shared Function numaGetCountRelativeToZero(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetCountRelativeToZero( na.Pointer, type, pcount)
+
 
 	Return _Result
 End Function
@@ -579,7 +600,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaClipToInterval/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaClipToInterval/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="first">[in] - clipping interval</param>
 '''  <param name="last">[in] - clipping interval</param>
@@ -592,6 +613,7 @@ Public Shared Function numaClipToInterval(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaClipToInterval( nas.Pointer, first, last)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -609,7 +631,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaMakeThresholdIndicator/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaMakeThresholdIndicator/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''  <param name="thresh">[in] - threshold value</param>
 '''  <param name="type">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -622,6 +644,7 @@ Public Shared Function numaMakeThresholdIndicator(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaMakeThresholdIndicator( nas.Pointer, thresh, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -638,7 +661,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaUniformSampling/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaUniformSampling/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''  <param name="nsamp">[in] - number of samples</param>
 '''   <returns></returns>
@@ -649,6 +672,7 @@ Public Shared Function numaUniformSampling(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaUniformSampling( nas.Pointer, nsamp)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -666,7 +690,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaReverse/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaReverse/*"/>
 '''  <param name="nad">[in][optional] - can be null or equal to nas</param>
 '''  <param name="nas">[in] - input numa</param>
 '''   <returns></returns>
@@ -679,6 +703,7 @@ Public Shared Function numaReverse(
 	Dim nadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nad) Then nadPTR = nad.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaReverse( nadPTR, nas.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -696,7 +721,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaLowPassIntervals/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaLowPassIntervals/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''  <param name="thresh">[in] - threshold fraction of max in [0.0 ... 1.0]</param>
 '''  <param name="maxn">[in] - for normalizing set maxn = 0.0 to use the max in nas</param>
@@ -709,6 +734,7 @@ Public Shared Function numaLowPassIntervals(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaLowPassIntervals( nas.Pointer, thresh, maxn)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -735,7 +761,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaThresholdEdges/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaThresholdEdges/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''  <param name="thresh1">[in] - low threshold as fraction of max in [0.0 ... 1.0]</param>
 '''  <param name="thresh2">[in] - high threshold as fraction of max in [0.0 ... 1.0]</param>
@@ -750,6 +776,7 @@ Public Shared Function numaThresholdEdges(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaThresholdEdges( nas.Pointer, thresh1, thresh2, maxn)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -760,7 +787,7 @@ End Function
 ' numaGetSpanValues(NUMA *, l_int32, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetSpanValues/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetSpanValues/*"/>
 '''  <param name="na">[in] - numa that is output of numaLowPassIntervals()</param>
 '''  <param name="span">[in] - span number, zero-based</param>
 '''  <param name="pstart">[out][optional] - location of start of transition</param>
@@ -776,6 +803,7 @@ Public Shared Function numaGetSpanValues(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetSpanValues( na.Pointer, span, pstart, pend)
 
+
 	Return _Result
 End Function
 
@@ -784,7 +812,7 @@ End Function
 ' numaGetEdgeValues(NUMA *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetEdgeValues/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetEdgeValues/*"/>
 '''  <param name="na">[in] - numa that is output of numaThresholdEdges()</param>
 '''  <param name="edge">[in] - edge number, zero-based</param>
 '''  <param name="pstart">[out][optional] - location of start of transition</param>
@@ -801,6 +829,7 @@ Public Shared Function numaGetEdgeValues(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetEdgeValues( na.Pointer, edge, pstart, pend, psign)
+
 
 	Return _Result
 End Function
@@ -824,7 +853,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaInterpolateEqxVal/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaInterpolateEqxVal/*"/>
 '''  <param name="startx">[in] - xval corresponding to first element in array</param>
 '''  <param name="deltax">[in] - x increment between array elements</param>
 '''  <param name="nay">[in] - numa of ordinate values, assumed equally spaced</param>
@@ -843,6 +872,7 @@ Public Shared Function numaInterpolateEqxVal(
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaInterpolateEqxVal( startx, deltax, nay.Pointer, type, xval, pyval)
+
 
 	Return _Result
 End Function
@@ -864,7 +894,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaInterpolateArbxVal/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaInterpolateArbxVal/*"/>
 '''  <param name="nax">[in] - numa of abscissa values</param>
 '''  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 '''  <param name="type">[in] - L_LINEAR_INTERP, L_QUADRATIC_INTERP</param>
@@ -882,6 +912,7 @@ Public Shared Function numaInterpolateArbxVal(
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaInterpolateArbxVal( nax.Pointer, nay.Pointer, type, xval, pyval)
+
 
 	Return _Result
 End Function
@@ -908,7 +939,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaInterpolateEqxInterval/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaInterpolateEqxInterval/*"/>
 '''  <param name="startx">[in] - xval corresponding to first element in nas</param>
 '''  <param name="deltax">[in] - x increment between array elements in nas</param>
 '''  <param name="nasy">[in] - numa of ordinate values, assumed equally spaced</param>
@@ -936,8 +967,11 @@ Dim pnaxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnax) Then pnaxPTR = pnax
 	Dim pnayPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnay) Then pnayPTR = pnay.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaInterpolateEqxInterval( startx, deltax, nasy.Pointer, type, x0, x1, npts, pnaxPTR, pnayPTR)
-	if pnaxPTR <> IntPtr.Zero then pnax = new Numa(pnaxPTR)
-	if pnayPTR <> IntPtr.Zero then pnay = new Numa(pnayPTR)
+
+If pnaxPTR = IntPtr.Zero Then pnax = Nothing
+If pnaxPTR <> IntPtr.Zero Then pnax = New Numa(pnaxPTR)
+If pnayPTR = IntPtr.Zero Then pnay = Nothing
+If pnayPTR <> IntPtr.Zero Then pnay = New Numa(pnayPTR)
 
 	Return _Result
 End Function
@@ -966,7 +1000,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaInterpolateArbxInterval/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaInterpolateArbxInterval/*"/>
 '''  <param name="nax">[in] - numa of abscissa values</param>
 '''  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 '''  <param name="type">[in] - L_LINEAR_INTERP, L_QUADRATIC_INTERP</param>
@@ -993,8 +1027,11 @@ Dim pnadxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnadx) Then pnadxPTR = p
 	Dim pnadyPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnady) Then pnadyPTR = pnady.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaInterpolateArbxInterval( nax.Pointer, nay.Pointer, type, x0, x1, npts, pnadxPTR, pnadyPTR)
-	if pnadxPTR <> IntPtr.Zero then pnadx = new Numa(pnadxPTR)
-	if pnadyPTR <> IntPtr.Zero then pnady = new Numa(pnadyPTR)
+
+If pnadxPTR = IntPtr.Zero Then pnadx = Nothing
+If pnadxPTR <> IntPtr.Zero Then pnadx = New Numa(pnadxPTR)
+If pnadyPTR = IntPtr.Zero Then pnady = Nothing
+If pnadyPTR <> IntPtr.Zero Then pnady = New Numa(pnadyPTR)
 
 	Return _Result
 End Function
@@ -1022,7 +1059,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaFitMax/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaFitMax/*"/>
 '''  <param name="na">[in] - numa of ordinate values, to fit a max to</param>
 '''  <param name="pmaxval">[out] - max value</param>
 '''  <param name="naloc">[in][optional] - associated numa of abscissa values</param>
@@ -1039,6 +1076,7 @@ Public Shared Function numaFitMax(
 	Dim nalocPTR As IntPtr = IntPtr.Zero : If Not IsNothing(naloc) Then nalocPTR = naloc.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaFitMax( na.Pointer, pmaxval, nalocPTR, pmaxloc)
+
 
 	Return _Result
 End Function
@@ -1057,7 +1095,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaDifferentiateInterval/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaDifferentiateInterval/*"/>
 '''  <param name="nax">[in] - numa of abscissa values</param>
 '''  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 '''  <param name="x0">[in] - start value of interval</param>
@@ -1082,8 +1120,11 @@ Dim pnadxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnadx) Then pnadxPTR = p
 	Dim pnadyPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnady) Then pnadyPTR = pnady.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaDifferentiateInterval( nax.Pointer, nay.Pointer, x0, x1, npts, pnadxPTR, pnadyPTR)
-	if pnadxPTR <> IntPtr.Zero then pnadx = new Numa(pnadxPTR)
-	if pnadyPTR <> IntPtr.Zero then pnady = new Numa(pnadyPTR)
+
+If pnadxPTR = IntPtr.Zero Then pnadx = Nothing
+If pnadxPTR <> IntPtr.Zero Then pnadx = New Numa(pnadxPTR)
+If pnadyPTR = IntPtr.Zero Then pnady = Nothing
+If pnadyPTR <> IntPtr.Zero Then pnady = New Numa(pnadyPTR)
 
 	Return _Result
 End Function
@@ -1102,7 +1143,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaIntegrateInterval/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaIntegrateInterval/*"/>
 '''  <param name="nax">[in] - numa of abscissa values</param>
 '''  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 '''  <param name="x0">[in] - start value of interval</param>
@@ -1122,6 +1163,7 @@ Public Shared Function numaIntegrateInterval(
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaIntegrateInterval( nax.Pointer, nay.Pointer, x0, x1, npts, psum)
+
 
 	Return _Result
 End Function
@@ -1161,7 +1203,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaSortGeneral/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaSortGeneral/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pnasort">[out][optional] - sorted numa</param>
 '''  <param name="pnaindex">[out][optional] - index of elements in na associated with each element of nasort</param>
@@ -1184,9 +1226,13 @@ Dim pnaindexPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaindex) Then pnaind
 Dim pnainvertPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnainvert) Then pnainvertPTR = pnainvert.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaSortGeneral( na.Pointer, pnasortPTR, pnaindexPTR, pnainvertPTR, sortorder, sorttype)
-	if pnasortPTR <> IntPtr.Zero then pnasort = new Numa(pnasortPTR)
-	if pnaindexPTR <> IntPtr.Zero then pnaindex = new Numa(pnaindexPTR)
-	if pnainvertPTR <> IntPtr.Zero then pnainvert = new Numa(pnainvertPTR)
+
+If pnasortPTR = IntPtr.Zero Then pnasort = Nothing
+If pnasortPTR <> IntPtr.Zero Then pnasort = New Numa(pnasortPTR)
+If pnaindexPTR = IntPtr.Zero Then pnaindex = Nothing
+If pnaindexPTR <> IntPtr.Zero Then pnaindex = New Numa(pnaindexPTR)
+If pnainvertPTR = IntPtr.Zero Then pnainvert = Nothing
+If pnainvertPTR <> IntPtr.Zero Then pnainvert = New Numa(pnainvertPTR)
 
 	Return _Result
 End Function
@@ -1202,7 +1248,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaSortAutoSelect/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaSortAutoSelect/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 '''   <returns>naout output sorted numa, or NULL on error</returns>
@@ -1213,6 +1259,7 @@ Public Shared Function numaSortAutoSelect(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaSortAutoSelect( nas.Pointer, sortorder)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -1229,7 +1276,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaSortIndexAutoSelect/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaSortIndexAutoSelect/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 '''   <returns>nad indices of nas, sorted by value in nas, or NULL on error</returns>
@@ -1240,6 +1287,7 @@ Public Shared Function numaSortIndexAutoSelect(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaSortIndexAutoSelect( nas.Pointer, sortorder)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -1258,7 +1306,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaChooseSortType/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaChooseSortType/*"/>
 '''  <param name="nas">[in] - to be sorted</param>
 '''   <returns>sorttype L_SHELL_SORT or L_BIN_SORT, or UNDEF on error.</returns>
 Public Shared Function numaChooseSortType(
@@ -1267,6 +1315,7 @@ Public Shared Function numaChooseSortType(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaChooseSortType( nas.Pointer)
+
 
 	Return _Result
 End Function
@@ -1284,7 +1333,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaSort/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaSort/*"/>
 '''  <param name="naout">[in] - output numa can be NULL or equal to nain</param>
 '''  <param name="nain">[in] - input numa</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
@@ -1298,6 +1347,7 @@ Public Shared Function numaSort(
 	If IsNothing (nain) then Throw New ArgumentNullException  ("nain cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaSort( naout.Pointer, nain.Pointer, sortorder)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -1317,7 +1367,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaBinSort/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaBinSort/*"/>
 '''  <param name="nas">[in] - of non-negative integers with a max that is typically less than 50,000</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 '''   <returns>na sorted, or NULL on error</returns>
@@ -1328,6 +1378,7 @@ Public Shared Function numaBinSort(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaBinSort( nas.Pointer, sortorder)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -1338,7 +1389,7 @@ End Function
 ' numaGetSortIndex(NUMA *, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetSortIndex/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetSortIndex/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 '''   <returns>na giving an array of indices that would sort the input array, or NULL on error</returns>
@@ -1349,6 +1400,7 @@ Public Shared Function numaGetSortIndex(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaGetSortIndex( na.Pointer, sortorder)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -1371,7 +1423,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetBinSortIndex/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetBinSortIndex/*"/>
 '''  <param name="nas">[in] - of non-negative integers with a max that is typically less than 1,000,000</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 '''   <returns>na sorted, or NULL on error</returns>
@@ -1382,6 +1434,7 @@ Public Shared Function numaGetBinSortIndex(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaGetBinSortIndex( nas.Pointer, sortorder)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -1392,7 +1445,7 @@ End Function
 ' numaSortByIndex(NUMA *, NUMA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaSortByIndex/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaSortByIndex/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="naindex">[in] - na that maps from the new numa to the input numa</param>
 '''   <returns>nad sorted, or NULL on error</returns>
@@ -1404,6 +1457,7 @@ Public Shared Function numaSortByIndex(
 	If IsNothing (naindex) then Throw New ArgumentNullException  ("naindex cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaSortByIndex( nas.Pointer, naindex.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -1421,7 +1475,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaIsSorted/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaIsSorted/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 '''  <param name="psorted">[out] - 1 if sorted 0 if not</param>
@@ -1434,6 +1488,7 @@ Public Shared Function numaIsSorted(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaIsSorted( nas.Pointer, sortorder, psorted)
+
 
 	Return _Result
 End Function
@@ -1449,7 +1504,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaSortPair/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaSortPair/*"/>
 '''  <param name="nax">[in] - input arrays</param>
 '''  <param name="nay">[in] - input arrays</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
@@ -1470,8 +1525,11 @@ Public Shared Function numaSortPair(
 	Dim pnasyPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnasy) Then pnasyPTR = pnasy.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaSortPair( nax.Pointer, nay.Pointer, sortorder, pnasxPTR, pnasyPTR)
-	if pnasxPTR <> IntPtr.Zero then pnasx = new Numa(pnasxPTR)
-	if pnasyPTR <> IntPtr.Zero then pnasy = new Numa(pnasyPTR)
+
+If pnasxPTR = IntPtr.Zero Then pnasx = Nothing
+If pnasxPTR <> IntPtr.Zero Then pnasx = New Numa(pnasxPTR)
+If pnasyPTR = IntPtr.Zero Then pnasy = Nothing
+If pnasyPTR <> IntPtr.Zero Then pnasy = New Numa(pnasyPTR)
 
 	Return _Result
 End Function
@@ -1488,7 +1546,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaInvertMap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaInvertMap/*"/>
 '''  <param name="nas">[in] - </param>
 '''   <returns>nad the inverted map, or NULL on error or if not invertible</returns>
 Public Shared Function numaInvertMap(
@@ -1497,6 +1555,7 @@ Public Shared Function numaInvertMap(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaInvertMap( nas.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -1515,7 +1574,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaPseudorandomSequence/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaPseudorandomSequence/*"/>
 '''  <param name="size">[in] - of sequence</param>
 '''  <param name="seed">[in] - for random number generation</param>
 '''   <returns>na pseudorandom on {0,...,size - 1}, or NULL on error</returns>
@@ -1524,6 +1583,7 @@ Public Shared Function numaPseudorandomSequence(
 				 ByVal seed as Integer) as Numa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaPseudorandomSequence( size, seed)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -1534,7 +1594,7 @@ End Function
 ' numaRandomPermutation(NUMA *, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaRandomPermutation/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaRandomPermutation/*"/>
 '''  <param name="nas">[in] - input array</param>
 '''  <param name="seed">[in] - for random number generation</param>
 '''   <returns>nas randomly shuffled array, or NULL on error</returns>
@@ -1545,6 +1605,7 @@ Public Shared Function numaRandomPermutation(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaRandomPermutation( nas.Pointer, seed)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -1575,7 +1636,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetRankValue/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetRankValue/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="fract">[in] - use 0.0 for smallest, 1.0 for largest</param>
 '''  <param name="nasort">[in][optional] - increasing sorted version of na</param>
@@ -1595,6 +1656,7 @@ Public Shared Function numaGetRankValue(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetRankValue( na.Pointer, fract, nasortPTR, usebins, pval)
 
+
 	Return _Result
 End Function
 
@@ -1609,7 +1671,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetMedian/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetMedian/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pval">[out] - median value</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -1620,6 +1682,7 @@ Public Shared Function numaGetMedian(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetMedian( na.Pointer, pval)
+
 
 	Return _Result
 End Function
@@ -1638,7 +1701,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetBinnedMedian/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetBinnedMedian/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pval">[out] - integer median value</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -1649,6 +1712,7 @@ Public Shared Function numaGetBinnedMedian(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetBinnedMedian( na.Pointer, pval)
+
 
 	Return _Result
 End Function
@@ -1667,7 +1731,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetMode/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetMode/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pval">[out] - mode val</param>
 '''  <param name="pcount">[out][optional] - mode count</param>
@@ -1680,6 +1744,7 @@ Public Shared Function numaGetMode(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetMode( na.Pointer, pval, pcount)
+
 
 	Return _Result
 End Function
@@ -1699,7 +1764,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetMedianVariation/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetMedianVariation/*"/>
 '''  <param name="na">[in] - source numa</param>
 '''  <param name="pmedval">[out][optional] - median value</param>
 '''  <param name="pmedvar">[out] - median variation from median val</param>
@@ -1712,6 +1777,7 @@ Public Shared Function numaGetMedianVariation(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetMedianVariation( na.Pointer, pmedval, pmedvar)
+
 
 	Return _Result
 End Function
@@ -1730,7 +1796,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaJoin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaJoin/*"/>
 '''  <param name="nad">[in] - dest numa add to this one</param>
 '''  <param name="nas">[in][optional] - source numa add from this one</param>
 '''  <param name="istart">[in] - starting index in nas</param>
@@ -1747,6 +1813,7 @@ Public Shared Function numaJoin(
 	Dim nasPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nas) Then nasPTR = nas.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaJoin( nad.Pointer, nasPTR, istart, iend)
+
 
 	Return _Result
 End Function
@@ -1765,7 +1832,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaJoin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaJoin/*"/>
 '''  <param name="naad">[in] - dest naa add to this one</param>
 '''  <param name="naas">[in][optional] - source naa add from this one</param>
 '''  <param name="istart">[in] - starting index in nas</param>
@@ -1782,6 +1849,7 @@ Public Shared Function numaaJoin(
 	Dim naasPTR As IntPtr = IntPtr.Zero : If Not IsNothing(naas) Then naasPTR = naas.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaJoin( naad.Pointer, naasPTR, istart, iend)
+
 
 	Return _Result
 End Function
@@ -1802,7 +1870,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaFlattenToNuma/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaFlattenToNuma/*"/>
 '''  <param name="naa">[in] - </param>
 '''   <returns>numa, or NULL on error</returns>
 Public Shared Function numaaFlattenToNuma(
@@ -1811,6 +1879,7 @@ Public Shared Function numaaFlattenToNuma(
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaaFlattenToNuma( naa.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)

@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\partition.c (189, 1)
 ' boxaGetWhiteblocks(boxas, box, sortflag, maxboxes, maxoverlap, maxperim, fract, maxpops) as Boxa
 ' boxaGetWhiteblocks(BOXA *, BOX *, l_int32, l_int32, l_float32, l_int32, l_float32, l_int32) as BOXA *
@@ -103,7 +102,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaGetWhiteblocks/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaGetWhiteblocks/*"/>
 '''  <param name="boxas">[in] - typically, a set of bounding boxes of fg components</param>
 '''  <param name="box">[in] - initial region typically including all boxes in boxas if null, it computes the region to include all boxes in boxas</param>
 '''  <param name="sortflag">[in] - L_SORT_BY_WIDTH, L_SORT_BY_HEIGHT, L_SORT_BY_MIN_DIMENSION, L_SORT_BY_MAX_DIMENSION, L_SORT_BY_PERIMETER, L_SORT_BY_AREA</param>
@@ -127,6 +126,7 @@ Public Shared Function boxaGetWhiteblocks(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaGetWhiteblocks( boxas.Pointer, box.Pointer, sortflag, maxboxes, maxoverlap, maxperim, fract, maxpops)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -149,7 +149,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaPruneSortedOnOverlap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaPruneSortedOnOverlap/*"/>
 '''  <param name="boxas">[in] - sorted by size in decreasing order</param>
 '''  <param name="maxoverlap">[in] - maximum fractional overlap of a box by any of the larger boxes</param>
 '''   <returns>boxad pruned, or NULL on error</returns>
@@ -160,6 +160,7 @@ Public Shared Function boxaPruneSortedOnOverlap(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaPruneSortedOnOverlap( boxas.Pointer, maxoverlap)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)

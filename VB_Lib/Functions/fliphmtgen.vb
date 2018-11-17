@@ -2,13 +2,12 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\fliphmtgen.c (77, 1)
 ' pixFlipFHMTGen(pixd, pixs, selname) as Pix
 ' pixFlipFHMTGen(PIX *, PIX *, const char *) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFlipFHMTGen/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFlipFHMTGen/*"/>
 '''   <returns></returns>
 Public Shared Function pixFlipFHMTGen(
 				 ByVal pixd as Pix, 
@@ -23,6 +22,7 @@ Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd
 Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFlipFHMTGen( pixd.Pointer, pixs.Pointer, selname)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

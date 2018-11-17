@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\pdfio2.c (182, 1)
 ' pixConvertToPdfData(pix, type, quality, pdata, pnbytes, x, y, res, title, plpd, position) as Integer
 ' pixConvertToPdfData(PIX *, l_int32, l_int32, l_uint8 **, size_t *, l_int32, l_int32, l_int32, const char *, L_PDF_DATA **, l_int32) as l_ok
@@ -19,7 +18,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertToPdfData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertToPdfData/*"/>
 '''  <param name="pix">[in] - all depths cmap OK</param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 '''  <param name="quality">[in] - used for JPEG only 0 for default (75)</param>
@@ -51,8 +50,10 @@ Public Shared Function pixConvertToPdfData(
 	Dim plpdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(plpd) Then plpdPTR = plpd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixConvertToPdfData( pix.Pointer, type, quality, pdataPTR, pnbytes, x, y, res, title, plpdPTR, position)
+
 	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
-	if plpdPTR <> IntPtr.Zero then plpd = new L_Pdf_Data(plpdPTR)
+If plpdPTR = IntPtr.Zero Then plpd = Nothing
+If plpdPTR <> IntPtr.Zero Then plpd = New L_Pdf_Data(plpdPTR)
 
 	Return _Result
 End Function
@@ -89,7 +90,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraConcatenatePdfToData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraConcatenatePdfToData/*"/>
 '''  <param name="pa_data">[in] - ptra array of pdf strings, each for a single-page pdf file</param>
 '''  <param name="sa">[in] - string array [optional] of pathnames for input pdf files</param>
 '''  <param name="pdata">[out] - concatenated pdf data in memory</param>
@@ -107,6 +108,7 @@ Public Shared Function ptraConcatenatePdfToData(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraConcatenatePdfToData( pa_data.Pointer, saPTR, pdataPTR, pnbytes)
+
 	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -123,7 +125,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertTiffMultipageToPdf/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertTiffMultipageToPdf/*"/>
 '''  <param name="filein">[in] - (tiff)</param>
 '''  <param name="fileout">[in] - (pdf)</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -135,6 +137,7 @@ Public Shared Function convertTiffMultipageToPdf(
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertTiffMultipageToPdf( filein, fileout)
+
 
 	Return _Result
 End Function
@@ -160,7 +163,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_generateCIDataForPdf/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_generateCIDataForPdf/*"/>
 '''  <param name="fname">[in][optional] - can be null</param>
 '''  <param name="pix">[in][optional] - can be null</param>
 '''  <param name="quality">[in] - for jpeg if transcoded 75 is standard</param>
@@ -176,7 +179,9 @@ Public Shared Function l_generateCIDataForPdf(
 	Dim pcidPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pcid) Then pcidPTR = pcid.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_generateCIDataForPdf( fname, pixPTR, quality, pcidPTR)
-	if pcidPTR <> IntPtr.Zero then pcid = new L_Compressed_Data(pcidPTR)
+
+If pcidPTR = IntPtr.Zero Then pcid = Nothing
+If pcidPTR <> IntPtr.Zero Then pcid = New L_Compressed_Data(pcidPTR)
 
 	Return _Result
 End Function
@@ -199,7 +204,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_generateFlateDataPdf/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_generateFlateDataPdf/*"/>
 '''  <param name="fname">[in] - preferably png</param>
 '''  <param name="pixs">[in][optional] - can be null</param>
 '''   <returns>cid containing png data, or NULL on error</returns>
@@ -212,6 +217,7 @@ Public Shared Function l_generateFlateDataPdf(
 	Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_generateFlateDataPdf( fname, pixsPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Compressed_Data(_Result)
@@ -233,7 +239,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_generateJpegData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_generateJpegData/*"/>
 '''  <param name="fname">[in] - of jpeg file</param>
 '''  <param name="ascii85flag">[in] - 0 for jpeg 1 for ascii85-encoded jpeg</param>
 '''   <returns>cid containing jpeg data, or NULL on error</returns>
@@ -244,6 +250,7 @@ Public Shared Function l_generateJpegData(
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_generateJpegData( fname, ascii85flag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Compressed_Data(_Result)
@@ -259,7 +266,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_generateJpegDataMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_generateJpegDataMem/*"/>
 '''  <param name="data">[in] - of jpeg file</param>
 '''  <param name="nbytes">[in] - </param>
 '''  <param name="ascii85flag">[in] - 0 for jpeg 1 for ascii85-encoded jpeg</param>
@@ -272,6 +279,7 @@ Public Shared Function l_generateJpegDataMem(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_generateJpegDataMem( data, nbytes, ascii85flag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Compressed_Data(_Result)
@@ -297,7 +305,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_generateCIData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_generateCIData/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE, L_JP2K_ENCODE</param>
 '''  <param name="quality">[in] - used for jpeg only 0 for default (75)</param>
@@ -316,7 +324,9 @@ Public Shared Function l_generateCIData(
 	Dim pcidPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pcid) Then pcidPTR = pcid.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_generateCIData( fname, type, quality, ascii85, pcidPTR)
-	if pcidPTR <> IntPtr.Zero then pcid = new L_Compressed_Data(pcidPTR)
+
+If pcidPTR = IntPtr.Zero Then pcid = Nothing
+If pcidPTR <> IntPtr.Zero Then pcid = New L_Compressed_Data(pcidPTR)
 
 	Return _Result
 End Function
@@ -333,7 +343,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGenerateCIData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGenerateCIData/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp, no colormap</param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 '''  <param name="quality">[in] - used for jpeg only 0 for default (75)</param>
@@ -352,7 +362,9 @@ Public Shared Function pixGenerateCIData(
 	Dim pcidPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pcid) Then pcidPTR = pcid.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGenerateCIData( pixs.Pointer, type, quality, ascii85, pcidPTR)
-	if pcidPTR <> IntPtr.Zero then pcid = new L_Compressed_Data(pcidPTR)
+
+If pcidPTR = IntPtr.Zero Then pcid = Nothing
+If pcidPTR <> IntPtr.Zero Then pcid = New L_Compressed_Data(pcidPTR)
 
 	Return _Result
 End Function
@@ -375,7 +387,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_generateFlateData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_generateFlateData/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="ascii85flag">[in] - 0 for gzipped 1 for ascii85-encoded gzipped</param>
 '''   <returns>cid flate compressed image data, or NULL on error</returns>
@@ -386,6 +398,7 @@ Public Shared Function l_generateFlateData(
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_generateFlateData( fname, ascii85flag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Compressed_Data(_Result)
@@ -404,7 +417,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_generateG4Data/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_generateG4Data/*"/>
 '''  <param name="fname">[in] - of g4 compressed file</param>
 '''  <param name="ascii85flag">[in] - 0 for g4 compressed 1 for ascii85-encoded g4</param>
 '''   <returns>cid g4 compressed image data, or NULL on error</returns>
@@ -415,6 +428,7 @@ Public Shared Function l_generateG4Data(
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_generateG4Data( fname, ascii85flag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Compressed_Data(_Result)
@@ -431,7 +445,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/cidConvertToPdfData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/cidConvertToPdfData/*"/>
 '''  <param name="cid">[in] - compressed image data -- of jp2k image</param>
 '''  <param name="title">[in][optional] - pdf title can be NULL</param>
 '''  <param name="pdata">[out] - output pdf data for image</param>
@@ -448,6 +462,7 @@ Public Shared Function cidConvertToPdfData(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.cidConvertToPdfData( cid.Pointer, title, pdataPTR, pnbytes)
+
 	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -458,7 +473,7 @@ End Function
 ' l_CIDataDestroy(L_COMP_DATA **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_CIDataDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_CIDataDestroy/*"/>
 '''  <param name="pcid">[in,out] - will be set to null before returning</param>
 Public Shared Sub l_CIDataDestroy(
 				 ByRef pcid as L_Compressed_Data)
@@ -466,7 +481,9 @@ Public Shared Sub l_CIDataDestroy(
 	Dim pcidPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pcid) Then pcidPTR = pcid.Pointer
 
 	LeptonicaSharp.Natives.l_CIDataDestroy( pcidPTR)
-	if pcidPTR <> IntPtr.Zero then pcid = new L_Compressed_Data(pcidPTR)
+
+If pcidPTR = IntPtr.Zero Then pcid = Nothing
+If pcidPTR <> IntPtr.Zero Then pcid = New L_Compressed_Data(pcidPTR)
 
 End Sub
 
@@ -482,12 +499,13 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_pdfSetG4ImageMask/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_pdfSetG4ImageMask/*"/>
 '''  <param name="flag">[in] - 1 for writing g4 data as fg only through a mask 0 for writing fg and bg</param>
 Public Shared Sub l_pdfSetG4ImageMask(
 				 ByVal flag as Integer)
 
 	LeptonicaSharp.Natives.l_pdfSetG4ImageMask( flag)
+
 
 End Sub
 
@@ -502,12 +520,13 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_pdfSetDateAndVersion/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_pdfSetDateAndVersion/*"/>
 '''  <param name="flag">[in] - 1 for writing date/time and leptonica version 0 for omitting this from the metadata</param>
 Public Shared Sub l_pdfSetDateAndVersion(
 				 ByVal flag as Integer)
 
 	LeptonicaSharp.Natives.l_pdfSetDateAndVersion( flag)
+
 
 End Sub
 

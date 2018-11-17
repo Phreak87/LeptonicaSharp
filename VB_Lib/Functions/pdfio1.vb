@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\pdfio1.c (239, 1)
 ' convertFilesToPdf(dirname, substr, res, scalefactor, type, quality, title, fileout) as Integer
 ' convertFilesToPdf(const char *, const char *, l_int32, l_float32, l_int32, l_int32, const char *, const char *) as l_ok
@@ -27,7 +26,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertFilesToPdf/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertFilesToPdf/*"/>
 '''  <param name="dirname">[in] - directory name containing images</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="res">[in] - input resolution of all images</param>
@@ -52,6 +51,7 @@ Public Shared Function convertFilesToPdf(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertFilesToPdf( dirname, substr, res, scalefactor, type, quality, title, fileout)
 
+
 	Return _Result
 End Function
 
@@ -65,7 +65,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/saConvertFilesToPdf/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/saConvertFilesToPdf/*"/>
 '''  <param name="sa">[in] - string array of pathnames for images</param>
 '''  <param name="res">[in] - input resolution of all images</param>
 '''  <param name="scalefactor">[in] - scaling factor applied to each image  is greater  0.0</param>
@@ -88,6 +88,7 @@ Public Shared Function saConvertFilesToPdf(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.saConvertFilesToPdf( sa.Pointer, res, scalefactor, type, quality, title, fileout)
 
+
 	Return _Result
 End Function
 
@@ -101,7 +102,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/saConvertFilesToPdfData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/saConvertFilesToPdfData/*"/>
 '''  <param name="sa">[in] - string array of pathnames for images</param>
 '''  <param name="res">[in] - input resolution of all images</param>
 '''  <param name="scalefactor">[in] - scaling factor applied to each image  is greater  0.0</param>
@@ -126,6 +127,7 @@ Public Shared Function saConvertFilesToPdfData(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.saConvertFilesToPdfData( sa.Pointer, res, scalefactor, type, quality, title, pdataPTR, pnbytes)
+
 	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -149,7 +151,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selectDefaultPdfEncoding/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selectDefaultPdfEncoding/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="ptype">[out] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -160,6 +162,7 @@ Public Shared Function selectDefaultPdfEncoding(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.selectDefaultPdfEncoding( pix.Pointer, ptype)
+
 
 	Return _Result
 End Function
@@ -184,7 +187,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertUnscaledFilesToPdf/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertUnscaledFilesToPdf/*"/>
 '''  <param name="dirname">[in] - directory name containing images</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="title">[in][optional] - pdf title if null, taken from the first image filename</param>
@@ -201,6 +204,7 @@ Public Shared Function convertUnscaledFilesToPdf(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertUnscaledFilesToPdf( dirname, substr, title, fileout)
 
+
 	Return _Result
 End Function
 
@@ -214,7 +218,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/saConvertUnscaledFilesToPdf/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/saConvertUnscaledFilesToPdf/*"/>
 '''  <param name="sa">[in] - string array of pathnames for images</param>
 '''  <param name="title">[in][optional] - pdf title if null, taken from the first image filename</param>
 '''  <param name="fileout">[in] - pdf file of all images</param>
@@ -229,6 +233,7 @@ Public Shared Function saConvertUnscaledFilesToPdf(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.saConvertUnscaledFilesToPdf( sa.Pointer, title, fileout)
 
+
 	Return _Result
 End Function
 
@@ -237,7 +242,7 @@ End Function
 ' saConvertUnscaledFilesToPdfData(SARRAY *, const char *, l_uint8 **, size_t *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/saConvertUnscaledFilesToPdfData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/saConvertUnscaledFilesToPdfData/*"/>
 '''  <param name="sa">[in] - string array of pathnames for images</param>
 '''  <param name="title">[in][optional] - pdf title if null, taken from the first image filename</param>
 '''  <param name="pdata">[out] - output pdf data (of all images)</param>
@@ -254,6 +259,7 @@ Public Shared Function saConvertUnscaledFilesToPdfData(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.saConvertUnscaledFilesToPdfData( sa.Pointer, title, pdataPTR, pnbytes)
+
 	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -264,7 +270,7 @@ End Function
 ' convertUnscaledToPdfData(const char *, const char *, l_uint8 **, size_t *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertUnscaledToPdfData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertUnscaledToPdfData/*"/>
 '''  <param name="fname">[in] - of image file</param>
 '''  <param name="title">[in][optional] - pdf title can be NULL</param>
 '''  <param name="pdata">[out] - output pdf data for image</param>
@@ -281,6 +287,7 @@ Public Shared Function convertUnscaledToPdfData(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertUnscaledToPdfData( fname, title, pdataPTR, pnbytes)
+
 	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -304,7 +311,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaConvertToPdf/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaConvertToPdf/*"/>
 '''  <param name="pixa">[in] - containing images all at the same resolution</param>
 '''  <param name="res">[in] - override the resolution of each input image, in ppi use 0 to respect the resolution embedded in the input</param>
 '''  <param name="scalefactor">[in] - scaling factor applied to each image  is greater  0.0</param>
@@ -327,6 +334,7 @@ Public Shared Function pixaConvertToPdf(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaConvertToPdf( pixa.Pointer, res, scalefactor, type, quality, title, fileout)
 
+
 	Return _Result
 End Function
 
@@ -340,7 +348,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaConvertToPdfData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaConvertToPdfData/*"/>
 '''  <param name="pixa">[in] - containing images all at the same resolution</param>
 '''  <param name="res">[in] - input resolution of all images</param>
 '''  <param name="scalefactor">[in] - scaling factor applied to each image  is greater  0.0</param>
@@ -365,6 +373,7 @@ Public Shared Function pixaConvertToPdfData(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaConvertToPdfData( pixa.Pointer, res, scalefactor, type, quality, title, pdataPTR, pnbytes)
+
 	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -413,7 +422,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertToPdf/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertToPdf/*"/>
 '''  <param name="filein">[in] - input image file -- any format</param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 '''  <param name="quality">[in] - used for JPEG only 0 for default (75)</param>
@@ -443,7 +452,9 @@ Public Shared Function convertToPdf(
 	Dim plpdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(plpd) Then plpdPTR = plpd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertToPdf( filein, type, quality, fileout, x, y, res, title, plpdPTR, position)
-	if plpdPTR <> IntPtr.Zero then plpd = new L_Pdf_Data(plpdPTR)
+
+If plpdPTR = IntPtr.Zero Then plpd = Nothing
+If plpdPTR <> IntPtr.Zero Then plpd = New L_Pdf_Data(plpdPTR)
 
 	Return _Result
 End Function
@@ -461,7 +472,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertImageDataToPdf/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertImageDataToPdf/*"/>
 '''  <param name="imdata">[in] - array of formatted image data e.g., png, jpeg</param>
 '''  <param name="size">[in] - size of image data</param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
@@ -493,7 +504,9 @@ Public Shared Function convertImageDataToPdf(
 	Dim plpdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(plpd) Then plpdPTR = plpd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertImageDataToPdf( imdata, size, type, quality, fileout, x, y, res, title, plpdPTR, position)
-	if plpdPTR <> IntPtr.Zero then plpd = new L_Pdf_Data(plpdPTR)
+
+If plpdPTR = IntPtr.Zero Then plpd = Nothing
+If plpdPTR <> IntPtr.Zero Then plpd = New L_Pdf_Data(plpdPTR)
 
 	Return _Result
 End Function
@@ -511,7 +524,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertToPdfData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertToPdfData/*"/>
 '''  <param name="filein">[in] - input image file -- any format</param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 '''  <param name="quality">[in] - used for JPEG only 0 for default (75)</param>
@@ -543,8 +556,10 @@ Public Shared Function convertToPdfData(
 	Dim plpdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(plpd) Then plpdPTR = plpd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertToPdfData( filein, type, quality, pdataPTR, pnbytes, x, y, res, title, plpdPTR, position)
+
 	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
-	if plpdPTR <> IntPtr.Zero then plpd = new L_Pdf_Data(plpdPTR)
+If plpdPTR = IntPtr.Zero Then plpd = Nothing
+If plpdPTR <> IntPtr.Zero Then plpd = New L_Pdf_Data(plpdPTR)
 
 	Return _Result
 End Function
@@ -562,7 +577,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertImageDataToPdfData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertImageDataToPdfData/*"/>
 '''  <param name="imdata">[in] - array of formatted image data e.g., png, jpeg</param>
 '''  <param name="size">[in] - size of image data</param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
@@ -596,8 +611,10 @@ Public Shared Function convertImageDataToPdfData(
 	Dim plpdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(plpd) Then plpdPTR = plpd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertImageDataToPdfData( imdata, size, type, quality, pdataPTR, pnbytes, x, y, res, title, plpdPTR, position)
+
 	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
-	if plpdPTR <> IntPtr.Zero then plpd = new L_Pdf_Data(plpdPTR)
+If plpdPTR = IntPtr.Zero Then plpd = Nothing
+If plpdPTR <> IntPtr.Zero Then plpd = New L_Pdf_Data(plpdPTR)
 
 	Return _Result
 End Function
@@ -618,7 +635,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertToPdf/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertToPdf/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 '''  <param name="quality">[in] - used for JPEG only 0 for default (75)</param>
@@ -648,7 +665,9 @@ Public Shared Function pixConvertToPdf(
 	Dim plpdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(plpd) Then plpdPTR = plpd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixConvertToPdf( pix.Pointer, type, quality, fileout, x, y, res, title, plpdPTR, position)
-	if plpdPTR <> IntPtr.Zero then plpd = new L_Pdf_Data(plpdPTR)
+
+If plpdPTR = IntPtr.Zero Then plpd = Nothing
+If plpdPTR <> IntPtr.Zero Then plpd = New L_Pdf_Data(plpdPTR)
 
 	Return _Result
 End Function
@@ -666,7 +685,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamPdf/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteStreamPdf/*"/>
 '''  <param name="fp">[in] - file stream opened for writing</param>
 '''  <param name="pix">[in] - all depths, cmap OK</param>
 '''  <param name="res">[in] - override the resolution of the input image, in ppi use 0 to respect the resolution embedded in the input</param>
@@ -682,6 +701,7 @@ Public Shared Function pixWriteStreamPdf(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamPdf( fp.Pointer, pix.Pointer, res, title)
+
 
 	Return _Result
 End Function
@@ -699,7 +719,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemPdf/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteMemPdf/*"/>
 '''  <param name="pdata">[out] - pdf as byte array</param>
 '''  <param name="pnbytes">[out] - number of bytes in pdf array</param>
 '''  <param name="pix">[in] - all depths, cmap OK</param>
@@ -718,6 +738,7 @@ Public Shared Function pixWriteMemPdf(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMemPdf( pdataPTR, pnbytes, pix.Pointer, res, title)
+
 	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -758,7 +779,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertSegmentedFilesToPdf/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertSegmentedFilesToPdf/*"/>
 '''  <param name="dirname">[in] - directory name containing images</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="res">[in] - input resolution of all images</param>
@@ -789,6 +810,7 @@ Public Shared Function convertSegmentedFilesToPdf(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertSegmentedFilesToPdf( dirname, substr, res, type, thresh, baaPTR, quality, scalefactor, title, fileout)
 
+
 	Return _Result
 End Function
 
@@ -805,7 +827,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertNumberedMasksToBoxaa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertNumberedMasksToBoxaa/*"/>
 '''  <param name="dirname">[in] - directory name containing mask images</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="numpre">[in] - number of characters in name before number</param>
@@ -820,6 +842,7 @@ Public Shared Function convertNumberedMasksToBoxaa(
 	If IsNothing (dirname) then Throw New ArgumentNullException  ("dirname cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.convertNumberedMasksToBoxaa( dirname, substr, numpre, numpost)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxaa(_Result)
@@ -878,7 +901,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertToPdfSegmented/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertToPdfSegmented/*"/>
 '''  <param name="filein">[in] - input image file -- any format</param>
 '''  <param name="res">[in] - input image resolution typ. 300 ppi use 0 for default</param>
 '''  <param name="type">[in] - compression type for non-image regions the image regions are always compressed with L_JPEG_ENCODE</param>
@@ -907,6 +930,7 @@ Public Shared Function convertToPdfSegmented(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertToPdfSegmented( filein, res, type, thresh, boxaPTR, quality, scalefactor, title, fileout)
 
+
 	Return _Result
 End Function
 
@@ -920,7 +944,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertToPdfSegmented/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertToPdfSegmented/*"/>
 '''  <param name="pixs">[in] - any depth, cmap OK</param>
 '''  <param name="res">[in] - input image resolution typ. 300 ppi use 0 for default</param>
 '''  <param name="type">[in] - compression type for non-image regions the image regions are always compressed with L_JPEG_ENCODE</param>
@@ -949,6 +973,7 @@ Public Shared Function pixConvertToPdfSegmented(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixConvertToPdfSegmented( pixs.Pointer, res, type, thresh, boxaPTR, quality, scalefactor, title, fileout)
 
+
 	Return _Result
 End Function
 
@@ -965,7 +990,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertToPdfDataSegmented/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertToPdfDataSegmented/*"/>
 '''  <param name="filein">[in] - input image file -- any format</param>
 '''  <param name="res">[in] - input image resolution typ. 300 ppi use 0 for default</param>
 '''  <param name="type">[in] - compression type for non-image regions the image regions are always compressed with L_JPEG_ENCODE</param>
@@ -995,6 +1020,7 @@ Public Shared Function convertToPdfDataSegmented(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertToPdfDataSegmented( filein, res, type, thresh, boxaPTR, quality, scalefactor, title, pdataPTR, pnbytes)
+
 	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -1010,7 +1036,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertToPdfDataSegmented/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertToPdfDataSegmented/*"/>
 '''  <param name="pixs">[in] - any depth, cmap OK</param>
 '''  <param name="res">[in] - input image resolution typ. 300 ppi use 0 for default</param>
 '''  <param name="type">[in] - compression type for non-image regions the image regions are always compressed with L_JPEG_ENCODE</param>
@@ -1040,6 +1066,7 @@ Public Shared Function pixConvertToPdfDataSegmented(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixConvertToPdfDataSegmented( pixs.Pointer, res, type, thresh, boxaPTR, quality, scalefactor, title, pdataPTR, pnbytes)
+
 	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -1063,7 +1090,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/concatenatePdf/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/concatenatePdf/*"/>
 '''  <param name="dirname">[in] - directory name containing single-page pdf files</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="fileout">[in] - concatenated pdf file</param>
@@ -1078,6 +1105,7 @@ Public Shared Function concatenatePdf(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.concatenatePdf( dirname, substr, fileout)
 
+
 	Return _Result
 End Function
 
@@ -1091,7 +1119,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/saConcatenatePdf/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/saConcatenatePdf/*"/>
 '''  <param name="sa">[in] - string array of pathnames for single-page pdf files</param>
 '''  <param name="fileout">[in] - concatenated pdf file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1103,6 +1131,7 @@ Public Shared Function saConcatenatePdf(
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.saConcatenatePdf( sa.Pointer, fileout)
+
 
 	Return _Result
 End Function
@@ -1117,7 +1146,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraConcatenatePdf/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraConcatenatePdf/*"/>
 '''  <param name="pa">[in] - array of pdf strings, each for a single-page pdf file</param>
 '''  <param name="fileout">[in] - concatenated pdf file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1129,6 +1158,7 @@ Public Shared Function ptraConcatenatePdf(
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraConcatenatePdf( pa.Pointer, fileout)
+
 
 	Return _Result
 End Function
@@ -1151,7 +1181,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/concatenatePdfToData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/concatenatePdfToData/*"/>
 '''  <param name="dirname">[in] - directory name containing single-page pdf files</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="pdata">[out] - concatenated pdf data in memory</param>
@@ -1168,6 +1198,7 @@ Public Shared Function concatenatePdfToData(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.concatenatePdfToData( dirname, substr, pdataPTR, pnbytes)
+
 	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -1183,7 +1214,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/saConcatenatePdfToData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/saConcatenatePdfToData/*"/>
 '''  <param name="sa">[in] - string array of pathnames for single-page pdf files</param>
 '''  <param name="pdata">[out] - concatenated pdf data in memory</param>
 '''  <param name="pnbytes">[out] - number of bytes in pdf data</param>
@@ -1198,6 +1229,7 @@ Public Shared Function saConcatenatePdfToData(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.saConcatenatePdfToData( sa.Pointer, pdataPTR, pnbytes)
+
 	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result

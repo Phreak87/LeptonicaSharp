@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\rop.c (193, 1)
 ' pixRasterop(pixd, dx, dy, dw, dh, op, pixs, sx, sy) as Integer
 ' pixRasterop(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, PIX *, l_int32, l_int32) as l_ok
@@ -118,7 +117,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRasterop/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRasterop/*"/>
 '''  <param name="pixd">[in] - dest pix</param>
 '''  <param name="dx">[in] - x val of UL corner of dest rectangle</param>
 '''  <param name="dy">[in] - y val of UL corner of dest rectangle</param>
@@ -145,6 +144,7 @@ Public Shared Function pixRasterop(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRasterop( pixd.Pointer, dx, dy, dw, dh, op, pixs.Pointer, sx, sy)
 
+
 	Return _Result
 End Function
 
@@ -165,7 +165,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRasteropVip/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRasteropVip/*"/>
 '''  <param name="pixd">[in] - in-place</param>
 '''  <param name="bx">[in] - left edge of vertical band</param>
 '''  <param name="bw">[in] - width of vertical band</param>
@@ -182,6 +182,7 @@ Public Shared Function pixRasteropVip(
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRasteropVip( pixd.Pointer, bx, bw, vshift, incolor)
+
 
 	Return _Result
 End Function
@@ -203,7 +204,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRasteropHip/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRasteropHip/*"/>
 '''  <param name="pixd">[in] - in-place operation</param>
 '''  <param name="by">[in] - top of horizontal band</param>
 '''  <param name="bh">[in] - height of horizontal band</param>
@@ -220,6 +221,7 @@ Public Shared Function pixRasteropHip(
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRasteropHip( pixd.Pointer, by, bh, hshift, incolor)
+
 
 	Return _Result
 End Function
@@ -242,7 +244,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixTranslate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixTranslate/*"/>
 '''  <param name="pixd">[in][optional] - destination: this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="hshift">[in] - horizontal shift hshift  is greater  0 is to right</param>
@@ -261,6 +263,7 @@ Public Shared Function pixTranslate(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixTranslate( pixdPTR, pixs.Pointer, hshift, vshift, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -271,7 +274,7 @@ End Function
 ' pixRasteropIP(PIX *, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRasteropIP/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRasteropIP/*"/>
 '''  <param name="pixd">[in] - in-place translation</param>
 '''  <param name="hshift">[in] - horizontal shift hshift  is greater  0 is to right</param>
 '''  <param name="vshift">[in] - vertical shift vshift  is greater  0 is down</param>
@@ -286,6 +289,7 @@ Public Shared Function pixRasteropIP(
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRasteropIP( pixd.Pointer, hshift, vshift, incolor)
+
 
 	Return _Result
 End Function
@@ -303,7 +307,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRasteropFullImage/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRasteropFullImage/*"/>
 '''  <param name="pixd">[in] - </param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="op">[in] - any of the op-codes</param>
@@ -317,6 +321,7 @@ Public Shared Function pixRasteropFullImage(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRasteropFullImage( pixd.Pointer, pixs.Pointer, op)
+
 
 	Return _Result
 End Function

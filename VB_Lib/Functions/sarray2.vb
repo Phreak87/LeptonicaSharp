@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\sarray2.c (95, 1)
 ' sarraySort(saout, sain, sortorder) as Sarray
 ' sarraySort(SARRAY *, SARRAY *, l_int32) as SARRAY *
@@ -16,7 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarraySort/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarraySort/*"/>
 '''  <param name="saout">[in] - output sarray can be NULL or equal to sain</param>
 '''  <param name="sain">[in] - input sarray</param>
 '''  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
@@ -30,6 +29,7 @@ Public Shared Function sarraySort(
 	If IsNothing (sain) then Throw New ArgumentNullException  ("sain cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarraySort( saout.Pointer, sain.Pointer, sortorder)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -40,7 +40,7 @@ End Function
 ' sarraySortByIndex(SARRAY *, NUMA *) as SARRAY *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarraySortByIndex/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarraySortByIndex/*"/>
 '''  <param name="sain">[in] - </param>
 '''  <param name="naindex">[in] - na that maps from the new sarray to the input sarray</param>
 '''   <returns>saout sorted, or NULL on error</returns>
@@ -52,6 +52,7 @@ Public Shared Function sarraySortByIndex(
 	If IsNothing (naindex) then Throw New ArgumentNullException  ("naindex cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarraySortByIndex( sain.Pointer, naindex.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -68,7 +69,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/stringCompareLexical/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stringCompareLexical/*"/>
 '''  <param name="str1">[in] - </param>
 '''  <param name="str2">[in] - </param>
 '''   <returns>1 if str1  is greater  str2 lexically 0 otherwise</returns>
@@ -80,6 +81,7 @@ Public Shared Function stringCompareLexical(
 	If IsNothing (str2) then Throw New ArgumentNullException  ("str2 cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.stringCompareLexical( str1, str2)
+
 
 	Return _Result
 End Function
@@ -101,7 +103,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayUnionByAset/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayUnionByAset/*"/>
 '''  <param name="sa1">[in] - </param>
 '''  <param name="sa2">[in] - </param>
 '''   <returns>sad with the union of the string set, or NULL on error</returns>
@@ -113,6 +115,7 @@ Public Shared Function sarrayUnionByAset(
 	If IsNothing (sa2) then Throw New ArgumentNullException  ("sa2 cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayUnionByAset( sa1.Pointer, sa2.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -135,7 +138,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayRemoveDupsByAset/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayRemoveDupsByAset/*"/>
 '''  <param name="sas">[in] - </param>
 '''   <returns>sad with duplicates removed, or NULL on error</returns>
 Public Shared Function sarrayRemoveDupsByAset(
@@ -144,6 +147,7 @@ Public Shared Function sarrayRemoveDupsByAset(
 	If IsNothing (sas) then Throw New ArgumentNullException  ("sas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayRemoveDupsByAset( sas.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -166,7 +170,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayIntersectionByAset/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayIntersectionByAset/*"/>
 '''  <param name="sa1">[in] - </param>
 '''  <param name="sa2">[in] - </param>
 '''   <returns>sad with the intersection of the string set, or NULL on error</returns>
@@ -178,6 +182,7 @@ Public Shared Function sarrayIntersectionByAset(
 	If IsNothing (sa2) then Throw New ArgumentNullException  ("sa2 cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayIntersectionByAset( sa1.Pointer, sa2.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -188,7 +193,7 @@ End Function
 ' l_asetCreateFromSarray(SARRAY *) as L_ASET *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_asetCreateFromSarray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetCreateFromSarray/*"/>
 '''  <param name="sa">[in] - </param>
 '''   <returns>set using a string hash into a uint64 as the key</returns>
 Public Shared Function l_asetCreateFromSarray(
@@ -197,6 +202,7 @@ Public Shared Function l_asetCreateFromSarray(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_asetCreateFromSarray( sa.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Rbtree(_Result)
@@ -224,7 +230,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayRemoveDupsByHash/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayRemoveDupsByHash/*"/>
 '''  <param name="sas">[in] - </param>
 '''  <param name="psad">[out] - unique set of strings duplicates removed</param>
 '''  <param name="pdahash">[out][optional] - dnahash used for lookup</param>
@@ -240,8 +246,11 @@ Public Shared Function sarrayRemoveDupsByHash(
 Dim pdahashPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdahash) Then pdahashPTR = pdahash.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayRemoveDupsByHash( sas.Pointer, psadPTR, pdahashPTR)
-	if psadPTR <> IntPtr.Zero then psad = new Sarray(psadPTR)
-	if pdahashPTR <> IntPtr.Zero then pdahash = new L_DnaHash(pdahashPTR)
+
+If psadPTR = IntPtr.Zero Then psad = Nothing
+If psadPTR <> IntPtr.Zero Then psad = New Sarray(psadPTR)
+If pdahashPTR = IntPtr.Zero Then pdahash = Nothing
+If pdahashPTR <> IntPtr.Zero Then pdahash = New L_DnaHash(pdahashPTR)
 
 	Return _Result
 End Function
@@ -257,7 +266,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayIntersectionByHash/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayIntersectionByHash/*"/>
 '''  <param name="sa1">[in] - </param>
 '''  <param name="sa2">[in] - </param>
 '''   <returns>sad intersection of the strings, or NULL on error</returns>
@@ -269,6 +278,7 @@ Public Shared Function sarrayIntersectionByHash(
 	If IsNothing (sa2) then Throw New ArgumentNullException  ("sa2 cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayIntersectionByHash( sa1.Pointer, sa2.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -295,7 +305,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayFindStringByHash/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayFindStringByHash/*"/>
 '''  <param name="sa">[in] - </param>
 '''  <param name="dahash">[in] - built from sa</param>
 '''  <param name="str">[in] - arbitrary string</param>
@@ -313,6 +323,7 @@ Public Shared Function sarrayFindStringByHash(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayFindStringByHash( sa.Pointer, dahash.Pointer, str, pindex)
 
+
 	Return _Result
 End Function
 
@@ -321,7 +332,7 @@ End Function
 ' l_dnaHashCreateFromSarray(SARRAY *) as L_DNAHASH *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashCreateFromSarray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaHashCreateFromSarray/*"/>
 '''  <param name="sa">[in] - </param>
 '''   <returns>dahash, or NULL on error</returns>
 Public Shared Function l_dnaHashCreateFromSarray(
@@ -330,6 +341,7 @@ Public Shared Function l_dnaHashCreateFromSarray(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaHashCreateFromSarray( sa.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_DnaHash(_Result)
@@ -340,13 +352,14 @@ End Function
 ' sarrayGenerateIntegers(l_int32) as SARRAY *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayGenerateIntegers/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayGenerateIntegers/*"/>
 '''  <param name="n">[in] - </param>
 '''   <returns>sa  (of printed numbers, 1 - n, or NULL on error</returns>
 Public Shared Function sarrayGenerateIntegers(
 				 ByVal n as Integer) as Sarray
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayGenerateIntegers( n)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -370,7 +383,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayLookupCSKV/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayLookupCSKV/*"/>
 '''  <param name="sa">[in] - (of strings, each being a comma-separated pair of strings, the first being a key and the second a value)</param>
 '''  <param name="keystring">[in] - (an input string to match with each key in %sa</param>
 '''  <param name="pvalstring">[out] - (the returned value string corresponding to the input key string, if found otherwise NULL)</param>
@@ -386,6 +399,7 @@ Public Shared Function sarrayLookupCSKV(
 Dim pvalstringPTR As IntPtr = pvalstringPTR = Marshal.AllocHGlobal(Marshal.sizeOf(pvalstring.toArray))
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayLookupCSKV( sa.Pointer, keystring, pvalstringPTR)
+
 
 	Return _Result
 End Function

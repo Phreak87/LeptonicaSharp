@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\morphdwa.c (175, 1)
 ' pixDilateBrickDwa(pixd, pixs, hsize, vsize) as Pix
 ' pixDilateBrickDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
@@ -38,7 +37,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDilateBrickDwa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDilateBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -57,6 +56,7 @@ Public Shared Function pixDilateBrickDwa(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDilateBrickDwa( pixdPTR, pixs.Pointer, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -101,7 +101,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixErodeBrickDwa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixErodeBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -120,6 +120,7 @@ Public Shared Function pixErodeBrickDwa(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixErodeBrickDwa( pixdPTR, pixs.Pointer, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -164,7 +165,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixOpenBrickDwa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixOpenBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -183,6 +184,7 @@ Public Shared Function pixOpenBrickDwa(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOpenBrickDwa( pixdPTR, pixs.Pointer, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -230,7 +232,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCloseBrickDwa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCloseBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -249,6 +251,7 @@ Public Shared Function pixCloseBrickDwa(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCloseBrickDwa( pixdPTR, pixs.Pointer, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -302,7 +305,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDilateCompBrickDwa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDilateCompBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -321,6 +324,7 @@ Public Shared Function pixDilateCompBrickDwa(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDilateCompBrickDwa( pixdPTR, pixs.Pointer, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -374,7 +378,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixErodeCompBrickDwa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixErodeCompBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -393,6 +397,7 @@ Public Shared Function pixErodeCompBrickDwa(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixErodeCompBrickDwa( pixdPTR, pixs.Pointer, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -446,7 +451,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixOpenCompBrickDwa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixOpenCompBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -465,6 +470,7 @@ Public Shared Function pixOpenCompBrickDwa(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOpenCompBrickDwa( pixdPTR, pixs.Pointer, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -519,7 +525,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCloseCompBrickDwa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCloseCompBrickDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -538,6 +544,7 @@ Public Shared Function pixCloseCompBrickDwa(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCloseCompBrickDwa( pixdPTR, pixs.Pointer, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -571,7 +578,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDilateCompBrickExtendDwa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDilateCompBrickExtendDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -590,6 +597,7 @@ Public Shared Function pixDilateCompBrickExtendDwa(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDilateCompBrickExtendDwa( pixdPTR, pixs.Pointer, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -608,7 +616,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixErodeCompBrickExtendDwa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixErodeCompBrickExtendDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -627,6 +635,7 @@ Public Shared Function pixErodeCompBrickExtendDwa(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixErodeCompBrickExtendDwa( pixdPTR, pixs.Pointer, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -637,7 +646,7 @@ End Function
 ' pixOpenCompBrickExtendDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixOpenCompBrickExtendDwa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixOpenCompBrickExtendDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -656,6 +665,7 @@ Public Shared Function pixOpenCompBrickExtendDwa(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOpenCompBrickExtendDwa( pixdPTR, pixs.Pointer, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -666,7 +676,7 @@ End Function
 ' pixCloseCompBrickExtendDwa(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCloseCompBrickExtendDwa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCloseCompBrickExtendDwa/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="hsize">[in] - width of brick Sel</param>
@@ -685,6 +695,7 @@ Public Shared Function pixCloseCompBrickExtendDwa(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCloseCompBrickExtendDwa( pixdPTR, pixs.Pointer, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -727,7 +738,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/getExtendedCompositeParameters/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getExtendedCompositeParameters/*"/>
 '''  <param name="size">[in] - of linear Sel</param>
 '''  <param name="pn">[out] - number of 63 wide convolutions</param>
 '''  <param name="pextra">[out] - size of extra Sel</param>
@@ -740,6 +751,7 @@ Public Shared Function getExtendedCompositeParameters(
 				<Out()> Optional ByRef pactualsize as Integer = Nothing) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.getExtendedCompositeParameters( size, pn, pextra, pactualsize)
+
 
 	Return _Result
 End Function

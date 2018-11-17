@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\stringcode.c (156, 1)
 ' strcodeCreate(fileno) as L_StrCode
 ' strcodeCreate(l_int32) as L_STRCODE *
@@ -16,13 +15,14 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/strcodeCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/strcodeCreate/*"/>
 '''  <param name="fileno">[in] - integer that labels the two output files</param>
 '''   <returns>initialized L_StrCode, or NULL on error</returns>
 Public Shared Function strcodeCreate(
 				 ByVal fileno as Integer) as L_StrCode
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.strcodeCreate( fileno)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_StrCode(_Result)
@@ -43,7 +43,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/strcodeCreateFromFile/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/strcodeCreateFromFile/*"/>
 '''  <param name="filein">[in] - containing filenames of serialized data</param>
 '''  <param name="fileno">[in] - integer that labels the two output files</param>
 '''  <param name="outdir">[in][optional] - if null, files are made in /tmp/lept/auto</param>
@@ -56,6 +56,7 @@ Public Shared Function strcodeCreateFromFile(
 	If IsNothing (filein) then Throw New ArgumentNullException  ("filein cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.strcodeCreateFromFile( filein, fileno, outdir)
+
 
 	Return _Result
 End Function
@@ -76,7 +77,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/strcodeGenerate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/strcodeGenerate/*"/>
 '''  <param name="strcode">[in] - for accumulating data</param>
 '''  <param name="filein">[in] - input file with serialized data</param>
 '''  <param name="type">[in] - of data use the typedef string</param>
@@ -92,6 +93,7 @@ Public Shared Function strcodeGenerate(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.strcodeGenerate( strcode.Pointer, filein, type)
 
+
 	Return _Result
 End Function
 
@@ -100,7 +102,7 @@ End Function
 ' strcodeFinalize(L_STRCODE **, const char *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/strcodeFinalize/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/strcodeFinalize/*"/>
 '''  <param name="pstrcode">[in,out] - destroys after .c and .h files have been generated</param>
 '''  <param name="outdir">[in][optional] - if NULL, files are made in /tmp/lept/auto</param>
 '''   <returns>void</returns>
@@ -111,7 +113,9 @@ Public Shared Function strcodeFinalize(
 	Dim pstrcodePTR As IntPtr = IntPtr.Zero : If Not IsNothing(pstrcode) Then pstrcodePTR = pstrcode.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.strcodeFinalize( pstrcodePTR, outdir)
-	if pstrcodePTR <> IntPtr.Zero then pstrcode = new L_StrCode(pstrcodePTR)
+
+If pstrcodePTR = IntPtr.Zero Then pstrcode = Nothing
+If pstrcodePTR <> IntPtr.Zero Then pstrcode = New L_StrCode(pstrcodePTR)
 
 	Return _Result
 End Function
@@ -129,7 +133,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_getStructStrFromFile/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_getStructStrFromFile/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="field">[in] - (L_STR_TYPE, L_STR_NAME, L_STR_READER, L_STR_MEMREADER)</param>
 '''  <param name="pstr">[out] - struct string for this file</param>
@@ -141,11 +145,12 @@ Public Shared Function l_getStructStrFromFile(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 Dim pstrPTR As IntPtr = pstrPTR = Marshal.AllocHGlobal(Marshal.sizeOf(pstr.toArray))
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_getStructStrFromFile( filename, field, pstrPTR)
+
 
 	Return _Result
 End Function

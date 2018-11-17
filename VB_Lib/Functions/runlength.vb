@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\runlength.c (99, 1)
 ' pixStrokeWidthTransform(pixs, color, depth, nangles) as Pix
 ' pixStrokeWidthTransform(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -32,7 +31,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixStrokeWidthTransform/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixStrokeWidthTransform/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="color">[in] - 0 for white runs, 1 for black runs</param>
 '''  <param name="depth">[in] - of pixd: 8 or 16 bpp</param>
@@ -49,6 +48,7 @@ Public Shared Function pixStrokeWidthTransform(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixStrokeWidthTransform( pixs.Pointer, color, depth, nangles)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -75,7 +75,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRunlengthTransform/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRunlengthTransform/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="color">[in] - 0 for white runs, 1 for black runs</param>
 '''  <param name="direction">[in] - L_HORIZONTAL_RUNS, L_VERTICAL_RUNS</param>
@@ -92,6 +92,7 @@ Public Shared Function pixRunlengthTransform(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRunlengthTransform( pixs.Pointer, color, direction, depth)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -114,7 +115,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindHorizontalRuns/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindHorizontalRuns/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="y">[in] - line to traverse</param>
 '''  <param name="xstart">[in] - returns array of start positions for fg runs</param>
@@ -136,6 +137,7 @@ Public Shared Function pixFindHorizontalRuns(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindHorizontalRuns( pix.Pointer, y, xstart, xend, pn)
 
+
 	Return _Result
 End Function
 
@@ -156,7 +158,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindVerticalRuns/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindVerticalRuns/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="x">[in] - line to traverse</param>
 '''  <param name="ystart">[in] - returns array of start positions for fg runs</param>
@@ -178,6 +180,7 @@ Public Shared Function pixFindVerticalRuns(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindVerticalRuns( pix.Pointer, x, ystart, yend, pn)
 
+
 	Return _Result
 End Function
 
@@ -194,7 +197,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindMaxRuns/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindMaxRuns/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="direction">[in] - L_HORIZONTAL_RUNS or L_VERTICAL_RUNS</param>
 '''  <param name="pnastart">[out][optional] - start locations of longest runs</param>
@@ -211,8 +214,10 @@ Public Shared Function pixFindMaxRuns(
 Dim pnastartPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnastart) Then pnastartPTR = pnastart.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFindMaxRuns( pix.Pointer, direction, pnastartPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if pnastartPTR <> IntPtr.Zero then pnastart = new Numa(pnastartPTR)
+If pnastartPTR = IntPtr.Zero Then pnastart = Nothing
+If pnastartPTR <> IntPtr.Zero Then pnastart = New Numa(pnastartPTR)
 
 	Return  new Numa(_Result)
 End Function
@@ -230,7 +235,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindMaxHorizontalRunOnLine/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindMaxHorizontalRunOnLine/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="y">[in] - line to traverse</param>
 '''  <param name="pxstart">[out][optional] - start position</param>
@@ -248,6 +253,7 @@ Public Shared Function pixFindMaxHorizontalRunOnLine(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindMaxHorizontalRunOnLine( pix.Pointer, y, pxstart, psize)
 
+
 	Return _Result
 End Function
 
@@ -264,7 +270,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindMaxVerticalRunOnLine/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindMaxVerticalRunOnLine/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="x">[in] - column to traverse</param>
 '''  <param name="pystart">[out][optional] - start position</param>
@@ -281,6 +287,7 @@ Public Shared Function pixFindMaxVerticalRunOnLine(
 	If {1}.contains (pix.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindMaxVerticalRunOnLine( pix.Pointer, x, pystart, psize)
+
 
 	Return _Result
 End Function
@@ -299,7 +306,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/runlengthMembershipOnLine/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/runlengthMembershipOnLine/*"/>
 '''  <param name="buffer">[in] - into which full line of data is placed</param>
 '''  <param name="size">[in] - full size of line w or h</param>
 '''  <param name="depth">[in] - 8 or 16 bpp</param>
@@ -320,6 +327,7 @@ Public Shared Function runlengthMembershipOnLine(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.runlengthMembershipOnLine( buffer, size, depth, start, _end_, n)
 
+
 	Return _Result
 End Function
 
@@ -337,13 +345,14 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/makeMSBitLocTab/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makeMSBitLocTab/*"/>
 '''  <param name="bitval">[in] - either 0 or 1</param>
 '''   <returns>table giving, for an input byte, the MS bit location, starting at 0 with the MSBit in the byte, or NULL on error.</returns>
 Public Shared Function makeMSBitLocTab(
 				 ByVal bitval as Integer) as Integer()
 
 	Dim _Result as Integer() = LeptonicaSharp.Natives.makeMSBitLocTab( bitval)
+
 
 	Return _Result
 End Function

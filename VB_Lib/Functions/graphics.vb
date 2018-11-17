@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\graphics.c (138, 1)
 ' generatePtaLine(x1, y1, x2, y2) as Pta
 ' generatePtaLine(l_int32, l_int32, l_int32, l_int32) as PTA *
@@ -13,7 +12,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/generatePtaLine/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generatePtaLine/*"/>
 '''  <param name="x1">[in] - end point 1</param>
 '''  <param name="y1">[in] - end point 1</param>
 '''  <param name="x2">[in] - end point 2</param>
@@ -26,6 +25,7 @@ Public Shared Function generatePtaLine(
 				 ByVal y2 as Integer) as Pta
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaLine( x1, y1, x2, y2)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -36,7 +36,7 @@ End Function
 ' generatePtaWideLine(l_int32, l_int32, l_int32, l_int32, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/generatePtaWideLine/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generatePtaWideLine/*"/>
 '''  <param name="x1">[in] - end point 1</param>
 '''  <param name="y1">[in] - end point 1</param>
 '''  <param name="x2">[in] - end point 2</param>
@@ -51,6 +51,7 @@ Public Shared Function generatePtaWideLine(
 				 ByVal width as Integer) as Pta
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaWideLine( x1, y1, x2, y2, width)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -67,7 +68,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/generatePtaBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generatePtaBox/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="width">[in] - of line</param>
 '''   <returns>ptad, or NULL on error</returns>
@@ -78,6 +79,7 @@ Public Shared Function generatePtaBox(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaBox( box.Pointer, width)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -96,7 +98,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/generatePtaBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generatePtaBoxa/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="width">[in] - </param>
 '''  <param name="removedups">[in] - 1 to remove, 0 to leave</param>
@@ -109,6 +111,7 @@ Public Shared Function generatePtaBoxa(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaBoxa( boxa.Pointer, width, removedups)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -127,7 +130,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/generatePtaHashBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generatePtaHashBox/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
 '''  <param name="width">[in] - of line</param>
@@ -144,6 +147,7 @@ Public Shared Function generatePtaHashBox(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaHashBox( box.Pointer, spacing, width, orient, outline)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -167,7 +171,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/generatePtaHashBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generatePtaHashBoxa/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
 '''  <param name="width">[in] - of line</param>
@@ -186,6 +190,7 @@ Public Shared Function generatePtaHashBoxa(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaHashBoxa( boxa.Pointer, spacing, width, orient, outline, removedups)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -205,7 +210,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/generatePtaaBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generatePtaaBoxa/*"/>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>ptaa, or NULL on error</returns>
 Public Shared Function generatePtaaBoxa(
@@ -214,6 +219,7 @@ Public Shared Function generatePtaaBoxa(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaaBoxa( boxa.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Ptaa(_Result)
@@ -235,7 +241,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/generatePtaaHashBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generatePtaaHashBoxa/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="spacing">[in] - spacing between hash lines must be  is greater  1</param>
 '''  <param name="width">[in] - hash line width</param>
@@ -252,6 +258,7 @@ Public Shared Function generatePtaaHashBoxa(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaaHashBoxa( boxa.Pointer, spacing, width, orient, outline)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Ptaa(_Result)
@@ -262,7 +269,7 @@ End Function
 ' generatePtaPolyline(PTA *, l_int32, l_int32, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/generatePtaPolyline/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generatePtaPolyline/*"/>
 '''  <param name="ptas">[in] - vertices of polyline</param>
 '''  <param name="width">[in] - </param>
 '''  <param name="closeflag">[in] - 1 to close the contour 0 otherwise</param>
@@ -277,6 +284,7 @@ Public Shared Function generatePtaPolyline(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaPolyline( ptas.Pointer, width, closeflag, removedups)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -287,7 +295,7 @@ End Function
 ' generatePtaGrid(l_int32, l_int32, l_int32, l_int32, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/generatePtaGrid/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generatePtaGrid/*"/>
 '''  <param name="w">[in] - of region where grid will be displayed</param>
 '''  <param name="h">[in] - of region where grid will be displayed</param>
 '''  <param name="nx">[in] - number of rectangles in each direction in grid</param>
@@ -302,6 +310,7 @@ Public Shared Function generatePtaGrid(
 				 ByVal width as Integer) as Pta
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaGrid( w, h, nx, ny, width)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -322,7 +331,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertPtaLineTo4cc/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertPtaLineTo4cc/*"/>
 '''  <param name="ptas">[in] - 8-connected line of points</param>
 '''   <returns>ptad 4-connected line, or NULL on error</returns>
 Public Shared Function convertPtaLineTo4cc(
@@ -331,6 +340,7 @@ Public Shared Function convertPtaLineTo4cc(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.convertPtaLineTo4cc( ptas.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -352,13 +362,14 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/generatePtaFilledCircle/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generatePtaFilledCircle/*"/>
 '''  <param name="radius">[in] - </param>
 '''   <returns>pta, or NULL on error</returns>
 Public Shared Function generatePtaFilledCircle(
 				 ByVal radius as Integer) as Pta
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaFilledCircle( radius)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -376,13 +387,14 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/generatePtaFilledSquare/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generatePtaFilledSquare/*"/>
 '''  <param name="side">[in] - </param>
 '''   <returns>pta, or NULL on error</returns>
 Public Shared Function generatePtaFilledSquare(
 				 ByVal side as Integer) as Pta
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaFilledSquare( side)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -400,7 +412,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/generatePtaLineFromPt/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generatePtaLineFromPt/*"/>
 '''  <param name="x">[in] - point of origination</param>
 '''  <param name="y">[in] - point of origination</param>
 '''  <param name="length">[in] - of line, including starting point</param>
@@ -416,6 +428,7 @@ Public Shared Function generatePtaLineFromPt(
 	If IsNothing (radang) then Throw New ArgumentNullException  ("radang cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generatePtaLineFromPt( x, y, length, radang)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -426,7 +439,7 @@ End Function
 ' locatePtRadially(l_int32, l_int32, l_float64, l_float64, l_float64 *, l_float64 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/locatePtRadially/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/locatePtRadially/*"/>
 '''  <param name="xr">[in] - reference point</param>
 '''  <param name="yr">[in] - reference point</param>
 '''  <param name="dist">[in] - distance of point from reference point along line given by the specified angle</param>
@@ -447,6 +460,7 @@ Public Shared Function locatePtRadially(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.locatePtRadially( xr, yr, dist, radang, px, py)
 
+
 	Return _Result
 End Function
 
@@ -466,7 +480,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderPlotFromNuma/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderPlotFromNuma/*"/>
 '''  <param name="ppix">[in,out] - any type replaced if not 32 bpp rgb</param>
 '''  <param name="na">[in] - to be plotted</param>
 '''  <param name="plotloc">[in] - location of plot: L_PLOT_AT_TOP, etc</param>
@@ -487,7 +501,9 @@ Public Shared Function pixRenderPlotFromNuma(
 	Dim ppixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppix) Then ppixPTR = ppix.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderPlotFromNuma( ppixPTR, na.Pointer, plotloc, linewidth, max, color)
-	if ppixPTR <> IntPtr.Zero then ppix = new Pix(ppixPTR)
+
+If ppixPTR = IntPtr.Zero Then ppix = Nothing
+If ppixPTR <> IntPtr.Zero Then ppix = New Pix(ppixPTR)
 
 	Return _Result
 End Function
@@ -508,7 +524,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/makePlotPtaFromNuma/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makePlotPtaFromNuma/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="size">[in] - pix height for horizontal plot width for vertical plot</param>
 '''  <param name="plotloc">[in] - location of plot: L_PLOT_AT_TOP, etc</param>
@@ -525,6 +541,7 @@ Public Shared Function makePlotPtaFromNuma(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.makePlotPtaFromNuma( na.Pointer, size, plotloc, linewidth, max)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -546,7 +563,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderPlotFromNumaGen/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderPlotFromNumaGen/*"/>
 '''  <param name="ppix">[in,out] - any type replaced if not 32 bpp rgb</param>
 '''  <param name="na">[in] - to be plotted</param>
 '''  <param name="orient">[in] - L_HORIZONTAL_LINE, L_VERTICAL_LINE</param>
@@ -571,7 +588,9 @@ Public Shared Function pixRenderPlotFromNumaGen(
 	Dim ppixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppix) Then ppixPTR = ppix.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderPlotFromNumaGen( ppixPTR, na.Pointer, orient, linewidth, refpos, max, drawref, color)
-	if ppixPTR <> IntPtr.Zero then ppix = new Pix(ppixPTR)
+
+If ppixPTR = IntPtr.Zero Then ppix = Nothing
+If ppixPTR <> IntPtr.Zero Then ppix = New Pix(ppixPTR)
 
 	Return _Result
 End Function
@@ -602,7 +621,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/makePlotPtaFromNumaGen/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makePlotPtaFromNumaGen/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="orient">[in] - L_HORIZONTAL_LINE, L_VERTICAL_LINE</param>
 '''  <param name="linewidth">[in] - width of "line" that is drawn between 1 and 7</param>
@@ -621,6 +640,7 @@ Public Shared Function makePlotPtaFromNumaGen(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.makePlotPtaFromNumaGen( na.Pointer, orient, linewidth, refpos, max, drawref)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -646,7 +666,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderPta/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderPta/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="pta">[in] - arbitrary set of points</param>
 '''  <param name="op">[in] - one of L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
@@ -660,6 +680,7 @@ Public Shared Function pixRenderPta(
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderPta( pix.Pointer, pta.Pointer, op)
+
 
 	Return _Result
 End Function
@@ -685,7 +706,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderPtaArb/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderPtaArb/*"/>
 '''  <param name="pix">[in] - any depth, cmapped ok</param>
 '''  <param name="pta">[in] - arbitrary set of points</param>
 '''  <param name="rval">[in] - </param>
@@ -707,6 +728,7 @@ Public Shared Function pixRenderPtaArb(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderPtaArb( pix.Pointer, pta.Pointer, rval, gval, bval)
 
+
 	Return _Result
 End Function
 
@@ -720,7 +742,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderPtaBlend/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderPtaBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="pta">[in] - arbitrary set of points</param>
 '''  <param name="rval">[in] - </param>
@@ -746,6 +768,7 @@ Public Shared Function pixRenderPtaBlend(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderPtaBlend( pix.Pointer, pta.Pointer, rval, gval, bval, fract)
 
+
 	Return _Result
 End Function
 
@@ -754,7 +777,7 @@ End Function
 ' pixRenderLine(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderLine/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderLine/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="x1">[in] - </param>
 '''  <param name="y1">[in] - </param>
@@ -776,6 +799,7 @@ Public Shared Function pixRenderLine(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderLine( pix.Pointer, x1, y1, x2, y2, width, op)
 
+
 	Return _Result
 End Function
 
@@ -784,7 +808,7 @@ End Function
 ' pixRenderLineArb(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_uint8, l_uint8, l_uint8) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderLineArb/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderLineArb/*"/>
 '''  <param name="pix">[in] - any depth, cmapped ok</param>
 '''  <param name="x1">[in] - </param>
 '''  <param name="y1">[in] - </param>
@@ -813,6 +837,7 @@ Public Shared Function pixRenderLineArb(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderLineArb( pix.Pointer, x1, y1, x2, y2, width, rval, gval, bval)
 
+
 	Return _Result
 End Function
 
@@ -821,7 +846,7 @@ End Function
 ' pixRenderLineBlend(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_uint8, l_uint8, l_uint8, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderLineBlend/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderLineBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="x1">[in] - </param>
 '''  <param name="y1">[in] - </param>
@@ -854,6 +879,7 @@ Public Shared Function pixRenderLineBlend(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderLineBlend( pix.Pointer, x1, y1, x2, y2, width, rval, gval, bval, fract)
 
+
 	Return _Result
 End Function
 
@@ -862,7 +888,7 @@ End Function
 ' pixRenderBox(PIX *, BOX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderBox/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="box">[in] - </param>
 '''  <param name="width">[in] - thickness of box lines</param>
@@ -879,6 +905,7 @@ Public Shared Function pixRenderBox(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderBox( pix.Pointer, box.Pointer, width, op)
 
+
 	Return _Result
 End Function
 
@@ -887,7 +914,7 @@ End Function
 ' pixRenderBoxArb(PIX *, BOX *, l_int32, l_uint8, l_uint8, l_uint8) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderBoxArb/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderBoxArb/*"/>
 '''  <param name="pix">[in] - any depth, cmapped ok</param>
 '''  <param name="box">[in] - </param>
 '''  <param name="width">[in] - thickness of box lines</param>
@@ -911,6 +938,7 @@ Public Shared Function pixRenderBoxArb(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderBoxArb( pix.Pointer, box.Pointer, width, rval, gval, bval)
 
+
 	Return _Result
 End Function
 
@@ -919,7 +947,7 @@ End Function
 ' pixRenderBoxBlend(PIX *, BOX *, l_int32, l_uint8, l_uint8, l_uint8, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderBoxBlend/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderBoxBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="box">[in] - </param>
 '''  <param name="width">[in] - thickness of box lines</param>
@@ -947,6 +975,7 @@ Public Shared Function pixRenderBoxBlend(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderBoxBlend( pix.Pointer, box.Pointer, width, rval, gval, bval, fract)
 
+
 	Return _Result
 End Function
 
@@ -955,7 +984,7 @@ End Function
 ' pixRenderBoxa(PIX *, BOXA *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderBoxa/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -972,6 +1001,7 @@ Public Shared Function pixRenderBoxa(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderBoxa( pix.Pointer, boxa.Pointer, width, op)
 
+
 	Return _Result
 End Function
 
@@ -980,7 +1010,7 @@ End Function
 ' pixRenderBoxaArb(PIX *, BOXA *, l_int32, l_uint8, l_uint8, l_uint8) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderBoxaArb/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderBoxaArb/*"/>
 '''  <param name="pix">[in] - any depth colormapped is ok</param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -1004,6 +1034,7 @@ Public Shared Function pixRenderBoxaArb(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderBoxaArb( pix.Pointer, boxa.Pointer, width, rval, gval, bval)
 
+
 	Return _Result
 End Function
 
@@ -1012,7 +1043,7 @@ End Function
 ' pixRenderBoxaBlend(PIX *, BOXA *, l_int32, l_uint8, l_uint8, l_uint8, l_float32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderBoxaBlend/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderBoxaBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -1042,6 +1073,7 @@ Public Shared Function pixRenderBoxaBlend(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderBoxaBlend( pix.Pointer, boxa.Pointer, width, rval, gval, bval, fract, removedups)
 
+
 	Return _Result
 End Function
 
@@ -1050,7 +1082,7 @@ End Function
 ' pixRenderHashBox(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderHashBox/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="box">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
@@ -1073,6 +1105,7 @@ Public Shared Function pixRenderHashBox(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderHashBox( pix.Pointer, box.Pointer, spacing, width, orient, outline, op)
 
+
 	Return _Result
 End Function
 
@@ -1081,7 +1114,7 @@ End Function
 ' pixRenderHashBoxArb(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashBoxArb/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderHashBoxArb/*"/>
 '''  <param name="pix">[in] - any depth cmapped ok</param>
 '''  <param name="box">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
@@ -1108,6 +1141,7 @@ Public Shared Function pixRenderHashBoxArb(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderHashBoxArb( pix.Pointer, box.Pointer, spacing, width, orient, outline, rval, gval, bval)
 
+
 	Return _Result
 End Function
 
@@ -1116,7 +1150,7 @@ End Function
 ' pixRenderHashBoxBlend(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashBoxBlend/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderHashBoxBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp</param>
 '''  <param name="box">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
@@ -1145,6 +1179,7 @@ Public Shared Function pixRenderHashBoxBlend(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderHashBoxBlend( pix.Pointer, box.Pointer, spacing, width, orient, outline, rval, gval, bval, fract)
 
+
 	Return _Result
 End Function
 
@@ -1160,7 +1195,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashMaskArb/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderHashMaskArb/*"/>
 '''  <param name="pix">[in] - any depth cmapped ok</param>
 '''  <param name="pixm">[in] - 1 bpp clipping mask for hash marks</param>
 '''  <param name="x">[in] - ,y   UL corner of %pixm with respect to %pix</param>
@@ -1190,6 +1225,7 @@ Public Shared Function pixRenderHashMaskArb(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderHashMaskArb( pix.Pointer, pixm.Pointer, x, y, spacing, width, orient, outline, rval, gval, bval)
 
+
 	Return _Result
 End Function
 
@@ -1198,7 +1234,7 @@ End Function
 ' pixRenderHashBoxa(PIX *, BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderHashBoxa/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
@@ -1221,6 +1257,7 @@ Public Shared Function pixRenderHashBoxa(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderHashBoxa( pix.Pointer, boxa.Pointer, spacing, width, orient, outline, op)
 
+
 	Return _Result
 End Function
 
@@ -1229,7 +1266,7 @@ End Function
 ' pixRenderHashBoxaArb(PIX *, BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashBoxaArb/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderHashBoxaArb/*"/>
 '''  <param name="pix">[in] - any depth cmapped ok</param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
@@ -1256,6 +1293,7 @@ Public Shared Function pixRenderHashBoxaArb(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderHashBoxaArb( pix.Pointer, boxa.Pointer, spacing, width, orient, outline, rval, gval, bval)
 
+
 	Return _Result
 End Function
 
@@ -1264,7 +1302,7 @@ End Function
 ' pixRenderHashBoxaBlend(PIX *, BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderHashBoxaBlend/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderHashBoxaBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="spacing">[in] - spacing between lines must be  is greater  1</param>
@@ -1295,6 +1333,7 @@ Public Shared Function pixRenderHashBoxaBlend(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderHashBoxaBlend( pix.Pointer, boxa.Pointer, spacing, width, orient, outline, rval, gval, bval, fract)
 
+
 	Return _Result
 End Function
 
@@ -1307,7 +1346,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderPolyline/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderPolyline/*"/>
 '''  <param name="pix">[in] - any depth, not cmapped</param>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -1326,6 +1365,7 @@ Public Shared Function pixRenderPolyline(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderPolyline( pix.Pointer, ptas.Pointer, width, op, closeflag)
 
+
 	Return _Result
 End Function
 
@@ -1338,7 +1378,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderPolylineArb/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderPolylineArb/*"/>
 '''  <param name="pix">[in] - any depth cmapped ok</param>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -1364,6 +1404,7 @@ Public Shared Function pixRenderPolylineArb(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderPolylineArb( pix.Pointer, ptas.Pointer, width, rval, gval, bval, closeflag)
 
+
 	Return _Result
 End Function
 
@@ -1372,7 +1413,7 @@ End Function
 ' pixRenderPolylineBlend(PIX *, PTA *, l_int32, l_uint8, l_uint8, l_uint8, l_float32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderPolylineBlend/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderPolylineBlend/*"/>
 '''  <param name="pix">[in] - 32 bpp rgb</param>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -1404,6 +1445,7 @@ Public Shared Function pixRenderPolylineBlend(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderPolylineBlend( pix.Pointer, ptas.Pointer, width, rval, gval, bval, fract, closeflag, removedups)
 
+
 	Return _Result
 End Function
 
@@ -1412,7 +1454,7 @@ End Function
 ' pixRenderGridArb(PIX *, l_int32, l_int32, l_int32, l_uint8, l_uint8, l_uint8) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderGridArb/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderGridArb/*"/>
 '''  <param name="pix">[in] - any depth, cmapped ok</param>
 '''  <param name="nx">[in] - number of rectangles in each direction</param>
 '''  <param name="ny">[in] - number of rectangles in each direction</param>
@@ -1436,6 +1478,7 @@ Public Shared Function pixRenderGridArb(
 	If IsNothing (bval) then Throw New ArgumentNullException  ("bval cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRenderGridArb( pix.Pointer, nx, ny, width, rval, gval, bval)
+
 
 	Return _Result
 End Function
@@ -1465,7 +1508,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderRandomCmapPtaa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderRandomCmapPtaa/*"/>
 '''  <param name="pix">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 '''  <param name="ptaa">[in] - </param>
 '''  <param name="polyflag">[in] - 1 to interpret each Pta as a polyline 0 to simply render the Pta as a set of pixels</param>
@@ -1485,6 +1528,7 @@ Public Shared Function pixRenderRandomCmapPtaa(
 	If {1,2,4,8,16,32}.contains (pix.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16, 32 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRenderRandomCmapPtaa( pix.Pointer, ptaa.Pointer, polyflag, width, closeflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1505,7 +1549,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderPolygon/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderPolygon/*"/>
 '''  <param name="ptas">[in] - of vertices, none repeated</param>
 '''  <param name="width">[in] - of polygon outline</param>
 '''  <param name="pxmin">[out][optional] - min x value of input pts</param>
@@ -1520,6 +1564,7 @@ Public Shared Function pixRenderPolygon(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRenderPolygon( ptas.Pointer, width, pxmin, pymin)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1541,7 +1586,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFillPolygon/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFillPolygon/*"/>
 '''  <param name="pixs">[in] - 1 bpp, with 4-connected polygon outline</param>
 '''  <param name="pta">[in] - vertices of the polygon</param>
 '''  <param name="xmin">[in] - min values of vertices of polygon</param>
@@ -1557,6 +1602,7 @@ Public Shared Function pixFillPolygon(
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFillPolygon( pixs.Pointer, pta.Pointer, xmin, ymin)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1574,7 +1620,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRenderContours/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRenderContours/*"/>
 '''  <param name="pixs">[in] - 8 or 16 bpp no colormap</param>
 '''  <param name="startval">[in] - value of lowest contour must be in [0 ... maxval]</param>
 '''  <param name="incr">[in] - increment to next contour must be  is greater  0</param>
@@ -1589,6 +1635,7 @@ Public Shared Function pixRenderContours(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRenderContours( pixs.Pointer, startval, incr, outdepth)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1609,7 +1656,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixAutoRenderContours/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixAutoRenderContours/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="ncontours">[in] - is greater  1,  is smaller 500, typ. about 50</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
@@ -1620,6 +1667,7 @@ Public Shared Function fpixAutoRenderContours(
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixAutoRenderContours( fpix.Pointer, ncontours)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1639,7 +1687,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixRenderContours/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixRenderContours/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''  <param name="incr">[in] - increment between contours must be  is greater  0.0</param>
 '''  <param name="proxim">[in] - required proximity to target value default 0.15</param>
@@ -1652,6 +1700,7 @@ Public Shared Function fpixRenderContours(
 	If IsNothing (fpixs) then Throw New ArgumentNullException  ("fpixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixRenderContours( fpixs.Pointer, incr, proxim)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1675,7 +1724,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGeneratePtaBoundary/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGeneratePtaBoundary/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="width">[in] - of boundary line</param>
 '''   <returns>pta, or NULL on error</returns>
@@ -1688,6 +1737,7 @@ Public Shared Function pixGeneratePtaBoundary(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGeneratePtaBoundary( pixs.Pointer, width)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)

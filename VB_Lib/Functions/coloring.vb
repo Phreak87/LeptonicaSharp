@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\coloring.c (126, 1)
 ' pixColorGrayRegions(pixs, boxa, type, thresh, rval, gval, bval) as Pix
 ' pixColorGrayRegions(PIX *, BOXA *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -28,7 +27,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixColorGrayRegions/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixColorGrayRegions/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp gray, rgb, or colormapped</param>
 '''  <param name="boxa">[in] - of regions in which to apply color</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
@@ -50,6 +49,7 @@ Public Shared Function pixColorGrayRegions(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixColorGrayRegions( pixs.Pointer, boxa.Pointer, type, thresh, rval, gval, bval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -95,7 +95,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixColorGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixColorGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray, rgb or colormapped image</param>
 '''  <param name="box">[in][optional] - region in which to apply color can be NULL</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
@@ -118,6 +118,7 @@ Public Shared Function pixColorGray(
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixColorGray( pixs.Pointer, boxPTR, type, thresh, rval, gval, bval)
+
 
 	Return _Result
 End Function
@@ -150,7 +151,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixColorGrayMasked/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixColorGrayMasked/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray, rgb or colormapped image</param>
 '''  <param name="pixm">[in] - 1 bpp mask, through which to apply color</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
@@ -172,6 +173,7 @@ Public Shared Function pixColorGrayMasked(
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixColorGrayMasked( pixs.Pointer, pixm.Pointer, type, thresh, rval, gval, bval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -196,7 +198,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSnapColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSnapColor/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs for in-place</param>
 '''  <param name="pixs">[in] - colormapped or 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="srcval">[in] - color center to be selected for change: 0xrrggbb00</param>
@@ -215,6 +217,7 @@ Public Shared Function pixSnapColor(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSnapColor( pixdPTR, pixs.Pointer, srcval, dstval, diff)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -239,7 +242,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSnapColorCmap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSnapColorCmap/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs for in-place</param>
 '''  <param name="pixs">[in] - colormapped</param>
 '''  <param name="srcval">[in] - color center to be selected for change: 0xrrggbb00</param>
@@ -258,6 +261,7 @@ Public Shared Function pixSnapColorCmap(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSnapColorCmap( pixdPTR, pixs.Pointer, srcval, dstval, diff)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -290,7 +294,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixLinearMapToTargetColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixLinearMapToTargetColor/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs for in-place</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="srcval">[in] - source color: 0xrrggbb00</param>
@@ -309,6 +313,7 @@ Public Shared Function pixLinearMapToTargetColor(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixLinearMapToTargetColor( pixdPTR, pixs.Pointer, srcval, dstval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -340,7 +345,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixelLinearMapToTargetColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixelLinearMapToTargetColor/*"/>
 '''  <param name="scolor">[in] - rgb source color: 0xrrggbb00</param>
 '''  <param name="srcmap">[in] - source mapping color: 0xrrggbb00</param>
 '''  <param name="dstmap">[in] - target mapping color: 0xrrggbb00</param>
@@ -353,6 +358,7 @@ Public Shared Function pixelLinearMapToTargetColor(
 				<Out()> ByRef pdcolor as UInteger) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixelLinearMapToTargetColor( scolor, srcmap, dstmap, pdcolor)
+
 
 	Return _Result
 End Function
@@ -398,7 +404,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixShiftByComponent/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixShiftByComponent/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs for in-place</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="srcval">[in] - source color: 0xrrggbb00</param>
@@ -417,6 +423,7 @@ Public Shared Function pixShiftByComponent(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixShiftByComponent( pixdPTR, pixs.Pointer, srcval, dstval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -437,7 +444,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixelShiftByComponent/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixelShiftByComponent/*"/>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>
@@ -454,6 +461,7 @@ Public Shared Function pixelShiftByComponent(
 				<Out()> ByRef ppixel as UInteger) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixelShiftByComponent( rval, gval, bval, srcval, dstval, ppixel)
+
 
 	Return _Result
 End Function
@@ -475,7 +483,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixelFractionalShift/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixelFractionalShift/*"/>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>
@@ -490,6 +498,7 @@ Public Shared Function pixelFractionalShift(
 				<Out()> ByRef ppixel as UInteger) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixelFractionalShift( rval, gval, bval, fraction, ppixel)
+
 
 	Return _Result
 End Function

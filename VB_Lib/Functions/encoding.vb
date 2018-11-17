@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\encoding.c (100, 1)
 ' encodeBase64(inarray, insize, poutsize) as String
 ' encodeBase64(l_uint8 *, l_int32, l_int32 *) as char *
@@ -15,7 +14,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/encodeBase64/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/encodeBase64/*"/>
 '''  <param name="inarray">[in] - input binary data</param>
 '''  <param name="insize">[in] - number of bytes in input array</param>
 '''  <param name="poutsize">[out] - number of bytes in output char array</param>
@@ -28,6 +27,7 @@ Public Shared Function encodeBase64(
 	If IsNothing (inarray) then Throw New ArgumentNullException  ("inarray cannot be Nothing")
 
 	Dim _Result as String = LeptonicaSharp.Natives.encodeBase64( inarray, insize, poutsize)
+
 
 	Return _Result
 End Function
@@ -49,7 +49,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/decodeBase64/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/decodeBase64/*"/>
 '''  <param name="inarray">[in] - input encoded char data, with 72 chars/line)</param>
 '''  <param name="insize">[in] - number of bytes in input array</param>
 '''  <param name="poutsize">[out] - number of bytes in output byte array</param>
@@ -62,6 +62,7 @@ Public Shared Function decodeBase64(
 	If IsNothing (inarray) then Throw New ArgumentNullException  ("inarray cannot be Nothing")
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.decodeBase64( inarray, insize, poutsize)
+
 
 	Return _Result
 End Function
@@ -78,7 +79,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/encodeAscii85/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/encodeAscii85/*"/>
 '''  <param name="inarray">[in] - input data</param>
 '''  <param name="insize">[in] - number of bytes in input array</param>
 '''  <param name="poutsize">[out] - number of bytes in output char array</param>
@@ -91,6 +92,7 @@ Public Shared Function encodeAscii85(
 	If IsNothing (inarray) then Throw New ArgumentNullException  ("inarray cannot be Nothing")
 
 	Dim _Result as String = LeptonicaSharp.Natives.encodeAscii85( inarray, insize, poutsize)
+
 
 	Return _Result
 End Function
@@ -109,7 +111,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/decodeAscii85/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/decodeAscii85/*"/>
 '''  <param name="inarray">[in] - ascii85 input data</param>
 '''  <param name="insize">[in] - number of bytes in input array</param>
 '''  <param name="poutsize">[out] - number of bytes in output l_uint8 array</param>
@@ -122,6 +124,7 @@ Public Shared Function decodeAscii85(
 	If IsNothing (inarray) then Throw New ArgumentNullException  ("inarray cannot be Nothing")
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.decodeAscii85( inarray, insize, poutsize)
+
 
 	Return _Result
 End Function
@@ -142,7 +145,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/reformatPacked64/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/reformatPacked64/*"/>
 '''  <param name="inarray">[in] - base64 encoded string with newlines</param>
 '''  <param name="insize">[in] - number of bytes in input array</param>
 '''  <param name="leadspace">[in] - number of spaces in each line before the data</param>
@@ -161,6 +164,7 @@ Public Shared Function reformatPacked64(
 	If IsNothing (inarray) then Throw New ArgumentNullException  ("inarray cannot be Nothing")
 
 	Dim _Result as String = LeptonicaSharp.Natives.reformatPacked64( inarray, insize, leadspace, linechars, addquotes, poutsize)
+
 
 	Return _Result
 End Function

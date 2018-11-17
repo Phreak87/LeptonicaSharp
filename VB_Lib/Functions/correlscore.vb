@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\correlscore.c (125, 1)
 ' pixCorrelationScore(pix1, pix2, area1, area2, delx, dely, maxdiffw, maxdiffh, tab, pscore) as Integer
 ' pixCorrelationScore(PIX *, PIX *, l_int32, l_int32, l_float32, l_float32, l_int32, l_int32, l_int32 *, l_float32 *) as l_ok
@@ -52,7 +51,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCorrelationScore/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCorrelationScore/*"/>
 '''  <param name="pix1">[in] - test pix, 1 bpp</param>
 '''  <param name="pix2">[in] - exemplar pix, 1 bpp</param>
 '''  <param name="area1">[in] - number of on pixels in pix1</param>
@@ -81,6 +80,7 @@ Public Shared Function pixCorrelationScore(
 	If IsNothing (tab) then Throw New ArgumentNullException  ("tab cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCorrelationScore( pix1.Pointer, pix2.Pointer, area1, area2, delx, dely, maxdiffw, maxdiffh, tab, pscore)
+
 
 	Return _Result
 End Function
@@ -121,7 +121,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCorrelationScoreThresholded/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCorrelationScoreThresholded/*"/>
 '''  <param name="pix1">[in] - test pix, 1 bpp</param>
 '''  <param name="pix2">[in] - exemplar pix, 1 bpp</param>
 '''  <param name="area1">[in] - number of on pixels in pix1</param>
@@ -154,6 +154,7 @@ Public Shared Function pixCorrelationScoreThresholded(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCorrelationScoreThresholded( pix1.Pointer, pix2.Pointer, area1, area2, delx, dely, maxdiffw, maxdiffh, tab, downcount, score_threshold)
 
+
 	Return _Result
 End Function
 
@@ -171,7 +172,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCorrelationScoreSimple/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCorrelationScoreSimple/*"/>
 '''  <param name="pix1">[in] - test pix, 1 bpp</param>
 '''  <param name="pix2">[in] - exemplar pix, 1 bpp</param>
 '''  <param name="area1">[in] - number of on pixels in pix1</param>
@@ -200,6 +201,7 @@ Public Shared Function pixCorrelationScoreSimple(
 	If IsNothing (tab) then Throw New ArgumentNullException  ("tab cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCorrelationScoreSimple( pix1.Pointer, pix2.Pointer, area1, area2, delx, dely, maxdiffw, maxdiffh, tab, pscore)
+
 
 	Return _Result
 End Function
@@ -233,7 +235,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCorrelationScoreShifted/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCorrelationScoreShifted/*"/>
 '''  <param name="pix1">[in] - 1 bpp</param>
 '''  <param name="pix2">[in] - 1 bpp</param>
 '''  <param name="area1">[in] - number of on pixels in pix1</param>
@@ -261,6 +263,7 @@ Public Shared Function pixCorrelationScoreShifted(
 	If {1}.contains (pix2.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCorrelationScoreShifted( pix1.Pointer, pix2.Pointer, area1, area2, delx, dely, tab, pscore)
+
 
 	Return _Result
 End Function

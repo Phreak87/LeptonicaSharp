@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\kernel.c (106, 1)
 ' kernelCreate(height, width) as L_Kernel
 ' kernelCreate(l_int32, l_int32) as L_KERNEL *
@@ -18,7 +17,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/kernelCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelCreate/*"/>
 '''  <param name="height">[in] - </param>
 '''  <param name="width">[in] - </param>
 '''   <returns>kernel, or NULL on error</returns>
@@ -27,6 +26,7 @@ Public Shared Function kernelCreate(
 				 ByVal width as Integer) as L_Kernel
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelCreate( height, width)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Kernel(_Result)
@@ -37,7 +37,7 @@ End Function
 ' kernelDestroy(L_KERNEL **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/kernelDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelDestroy/*"/>
 '''  <param name="pkel">[in,out] - to be nulled</param>
 Public Shared Sub kernelDestroy(
 				 ByRef pkel as L_Kernel)
@@ -45,7 +45,9 @@ Public Shared Sub kernelDestroy(
 	Dim pkelPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pkel) Then pkelPTR = pkel.Pointer
 
 	LeptonicaSharp.Natives.kernelDestroy( pkelPTR)
-	if pkelPTR <> IntPtr.Zero then pkel = new L_Kernel(pkelPTR)
+
+If pkelPTR = IntPtr.Zero Then pkel = Nothing
+If pkelPTR <> IntPtr.Zero Then pkel = New L_Kernel(pkelPTR)
 
 End Sub
 
@@ -54,7 +56,7 @@ End Sub
 ' kernelCopy(L_KERNEL *) as L_KERNEL *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/kernelCopy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelCopy/*"/>
 '''  <param name="kels">[in] - source kernel</param>
 '''   <returns>keld copy of kels, or NULL on error</returns>
 Public Shared Function kernelCopy(
@@ -63,6 +65,7 @@ Public Shared Function kernelCopy(
 	If IsNothing (kels) then Throw New ArgumentNullException  ("kels cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelCopy( kels.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Kernel(_Result)
@@ -73,7 +76,7 @@ End Function
 ' kernelGetElement(L_KERNEL *, l_int32, l_int32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/kernelGetElement/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelGetElement/*"/>
 '''  <param name="kel">[in] - </param>
 '''  <param name="row">[in] - </param>
 '''  <param name="col">[in] - </param>
@@ -89,6 +92,7 @@ Public Shared Function kernelGetElement(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.kernelGetElement( kel.Pointer, row, col, pval)
 
+
 	Return _Result
 End Function
 
@@ -97,7 +101,7 @@ End Function
 ' kernelSetElement(L_KERNEL *, l_int32, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/kernelSetElement/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelSetElement/*"/>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="row">[in] - </param>
 '''  <param name="col">[in] - </param>
@@ -113,6 +117,7 @@ Public Shared Function kernelSetElement(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.kernelSetElement( kel.Pointer, row, col, val)
 
+
 	Return _Result
 End Function
 
@@ -121,7 +126,7 @@ End Function
 ' kernelGetParameters(L_KERNEL *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/kernelGetParameters/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelGetParameters/*"/>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="psy">[out][optional] - each can be null</param>
 '''  <param name="psx">[out][optional] - each can be null</param>
@@ -139,6 +144,7 @@ Public Shared Function kernelGetParameters(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.kernelGetParameters( kel.Pointer, psy, psx, pcy, pcx)
 
+
 	Return _Result
 End Function
 
@@ -147,7 +153,7 @@ End Function
 ' kernelSetOrigin(L_KERNEL *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/kernelSetOrigin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelSetOrigin/*"/>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="cy">[in] - </param>
 '''  <param name="cx">[in] - </param>
@@ -161,6 +167,7 @@ Public Shared Function kernelSetOrigin(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.kernelSetOrigin( kel.Pointer, cy, cx)
 
+
 	Return _Result
 End Function
 
@@ -169,7 +176,7 @@ End Function
 ' kernelGetSum(L_KERNEL *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/kernelGetSum/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelGetSum/*"/>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="psum">[out] - sum of all kernel values</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -181,6 +188,7 @@ Public Shared Function kernelGetSum(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.kernelGetSum( kel.Pointer, psum)
 
+
 	Return _Result
 End Function
 
@@ -189,7 +197,7 @@ End Function
 ' kernelGetMinMax(L_KERNEL *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/kernelGetMinMax/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelGetMinMax/*"/>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="pmin">[out][optional] - minimum value</param>
 '''  <param name="pmax">[out][optional] - maximum value</param>
@@ -202,6 +210,7 @@ Public Shared Function kernelGetMinMax(
 	If IsNothing (kel) then Throw New ArgumentNullException  ("kel cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.kernelGetMinMax( kel.Pointer, pmin, pmax)
+
 
 	Return _Result
 End Function
@@ -218,7 +227,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/kernelNormalize/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelNormalize/*"/>
 '''  <param name="kels">[in] - source kel, to be normalized</param>
 '''  <param name="normsum">[in] - desired sum of elements in keld</param>
 '''   <returns>keld normalized version of kels, or NULL on error or if sum of elements is very close to 0)</returns>
@@ -229,6 +238,7 @@ Public Shared Function kernelNormalize(
 	If IsNothing (kels) then Throw New ArgumentNullException  ("kels cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelNormalize( kels.Pointer, normsum)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Kernel(_Result)
@@ -245,7 +255,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/kernelInvert/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelInvert/*"/>
 '''  <param name="kels">[in] - source kel, to be inverted</param>
 '''   <returns>keld spatially inverted, about the origin, or NULL on error</returns>
 Public Shared Function kernelInvert(
@@ -254,6 +264,7 @@ Public Shared Function kernelInvert(
 	If IsNothing (kels) then Throw New ArgumentNullException  ("kels cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelInvert( kels.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Kernel(_Result)
@@ -272,7 +283,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/create2dFloatArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/create2dFloatArray/*"/>
 '''  <param name="sy">[in] - rows == height</param>
 '''  <param name="sx">[in] - columns == width</param>
 '''   <returns>doubly indexed array i.e., an array of sy row pointers, each of which points to an array of sx floats</returns>
@@ -281,12 +292,13 @@ Public Shared Function create2dFloatArray(
 				 ByVal sx as Integer) as List(Of Single())
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.create2dFloatArray( sy, sx)
+
 Dim PTRArr(1) As IntPtr : Marshal.Copy(_Result, PTRArr, 0, PTRArr.Length)
 Dim B As New List(Of Single())
 For Each eintrag In PTRArr
-Dim SingleLST(1) As Single
-Marshal.Copy(eintrag, SingleLST, 0, SingleLST.Count)
-B.Add(SingleLST)
+   Dim SingleLST(1) As Single
+   Marshal.Copy(eintrag, SingleLST, 0, SingleLST.Count)
+   B.Add(SingleLST)
 Next
 
 	Return B
@@ -297,7 +309,7 @@ End Function
 ' kernelRead(const char *) as L_KERNEL *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/kernelRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelRead/*"/>
 '''  <param name="fname">[in] - filename</param>
 '''   <returns>kernel, or NULL on error</returns>
 Public Shared Function kernelRead(
@@ -305,7 +317,10 @@ Public Shared Function kernelRead(
 
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 
+	If My.Computer.Filesystem.FileExists (fname) = false then Throw New ArgumentException ("File is missing")
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelRead( fname)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Kernel(_Result)
@@ -316,7 +331,7 @@ End Function
 ' kernelReadStream(FILE *) as L_KERNEL *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/kernelReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>kernel, or NULL on error</returns>
 Public Shared Function kernelReadStream(
@@ -325,6 +340,7 @@ Public Shared Function kernelReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelReadStream( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Kernel(_Result)
@@ -335,7 +351,7 @@ End Function
 ' kernelWrite(const char *, L_KERNEL *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/kernelWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelWrite/*"/>
 '''  <param name="fname">[in] - output file</param>
 '''  <param name="kel">[in] - kernel</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -348,6 +364,7 @@ Public Shared Function kernelWrite(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.kernelWrite( fname, kel.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -356,7 +373,7 @@ End Function
 ' kernelWriteStream(FILE *, L_KERNEL *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/kernelWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="kel">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -368,6 +385,7 @@ Public Shared Function kernelWriteStream(
 	If IsNothing (kel) then Throw New ArgumentNullException  ("kel cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.kernelWriteStream( fp.Pointer, kel.Pointer)
+
 
 	Return _Result
 End Function
@@ -392,7 +410,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/kernelCreateFromString/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelCreateFromString/*"/>
 '''  <param name="h">[in] - height, width</param>
 '''  <param name="w">[in] - height, width</param>
 '''  <param name="cy">[in] - origin</param>
@@ -409,6 +427,7 @@ Public Shared Function kernelCreateFromString(
 	If IsNothing (kdata) then Throw New ArgumentNullException  ("kdata cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelCreateFromString( h, w, cy, cx, kdata)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Kernel(_Result)
@@ -450,7 +469,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/kernelCreateFromFile/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelCreateFromFile/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>kernel, or NULL on error</returns>
 Public Shared Function kernelCreateFromFile(
@@ -458,9 +477,10 @@ Public Shared Function kernelCreateFromFile(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelCreateFromFile( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Kernel(_Result)
@@ -476,7 +496,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/kernelCreateFromPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelCreateFromPix/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="cy">[in] - origin of kernel</param>
 '''  <param name="cx">[in] - origin of kernel</param>
@@ -489,6 +509,7 @@ Public Shared Function kernelCreateFromPix(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelCreateFromPix( pix.Pointer, cy, cx)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Kernel(_Result)
@@ -518,7 +539,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/kernelDisplayInPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelDisplayInPix/*"/>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="size">[in] - of grid interiors odd either 1 or a minimum size of 17 is enforced</param>
 '''  <param name="gthick">[in] - grid thickness either 0 or a minimum size of 2 is enforced</param>
@@ -531,6 +552,7 @@ Public Shared Function kernelDisplayInPix(
 	If IsNothing (kel) then Throw New ArgumentNullException  ("kel cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.kernelDisplayInPix( kel.Pointer, size, gthick)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -546,7 +568,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/parseStringForNumbers/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/parseStringForNumbers/*"/>
 '''  <param name="str">[in] - string containing numbers not changed</param>
 '''  <param name="seps">[in] - string of characters that can be used between ints</param>
 '''   <returns>numa of numbers found, or NULL on error</returns>
@@ -558,6 +580,7 @@ Public Shared Function parseStringForNumbers(
 	If IsNothing (seps) then Throw New ArgumentNullException  ("seps cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.parseStringForNumbers( str, seps)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -581,7 +604,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/makeFlatKernel/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makeFlatKernel/*"/>
 '''  <param name="height">[in] - </param>
 '''  <param name="width">[in] - </param>
 '''  <param name="cy">[in] - origin of kernel</param>
@@ -594,6 +617,7 @@ Public Shared Function makeFlatKernel(
 				 ByVal cx as Integer) as L_Kernel
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.makeFlatKernel( height, width, cy, cx)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Kernel(_Result)
@@ -618,7 +642,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/makeGaussianKernel/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makeGaussianKernel/*"/>
 '''  <param name="halfheight">[in] - sx = 2  halfwidth + 1, etc</param>
 '''  <param name="halfwidth">[in] - sx = 2  halfwidth + 1, etc</param>
 '''  <param name="stdev">[in] - standard deviation</param>
@@ -631,6 +655,7 @@ Public Shared Function makeGaussianKernel(
 				 ByVal max as Single) as L_Kernel
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.makeGaussianKernel( halfheight, halfwidth, stdev, max)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Kernel(_Result)
@@ -657,7 +682,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/makeGaussianKernelSep/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makeGaussianKernelSep/*"/>
 '''  <param name="halfheight">[in] - sx = 2  halfwidth + 1, etc</param>
 '''  <param name="halfwidth">[in] - sx = 2  halfwidth + 1, etc</param>
 '''  <param name="stdev">[in] - standard deviation</param>
@@ -677,8 +702,11 @@ Public Shared Function makeGaussianKernelSep(
 	Dim pkelyPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pkely) Then pkelyPTR = pkely.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.makeGaussianKernelSep( halfheight, halfwidth, stdev, max, pkelxPTR, pkelyPTR)
-	if pkelxPTR <> IntPtr.Zero then pkelx = new L_Kernel(pkelxPTR)
-	if pkelyPTR <> IntPtr.Zero then pkely = new L_Kernel(pkelyPTR)
+
+If pkelxPTR = IntPtr.Zero Then pkelx = Nothing
+If pkelxPTR <> IntPtr.Zero Then pkelx = New L_Kernel(pkelxPTR)
+If pkelyPTR = IntPtr.Zero Then pkely = Nothing
+If pkelyPTR <> IntPtr.Zero Then pkely = New L_Kernel(pkelyPTR)
 
 	Return _Result
 End Function
@@ -711,7 +739,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/makeDoGKernel/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makeDoGKernel/*"/>
 '''  <param name="halfheight">[in] - sx = 2  halfwidth + 1, etc</param>
 '''  <param name="halfwidth">[in] - sx = 2  halfwidth + 1, etc</param>
 '''  <param name="stdev">[in] - standard deviation of narrower gaussian</param>
@@ -724,6 +752,7 @@ Public Shared Function makeDoGKernel(
 				 ByVal ratio as Single) as L_Kernel
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.makeDoGKernel( halfheight, halfwidth, stdev, ratio)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Kernel(_Result)

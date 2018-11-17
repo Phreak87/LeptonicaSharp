@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\pixlabel.c (114, 1)
 ' pixConnCompTransform(pixs, connect, depth) as Pix
 ' pixConnCompTransform(PIX *, l_int32, l_int32) as PIX *
@@ -24,7 +23,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConnCompTransform/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConnCompTransform/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connect">[in] - connectivity: 4 or 8</param>
 '''  <param name="depth">[in] - of pixd: 8 or 16 bpp use 0 for auto determination</param>
@@ -39,6 +38,7 @@ Public Shared Function pixConnCompTransform(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConnCompTransform( pixs.Pointer, connect, depth)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -58,7 +58,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConnCompAreaTransform/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConnCompAreaTransform/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connect">[in] - connectivity: 4 or 8</param>
 '''   <returns>pixd 32 bpp, 1 spp, or NULL on error</returns>
@@ -71,6 +71,7 @@ Public Shared Function pixConnCompAreaTransform(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConnCompAreaTransform( pixs.Pointer, connect)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -99,7 +100,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConnCompIncrInit/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConnCompIncrInit/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="conn">[in] - connectivity: 4 or 8</param>
 '''  <param name="ppixd">[out] - 32 bpp, with c.c. labelled</param>
@@ -121,8 +122,11 @@ Public Shared Function pixConnCompIncrInit(
 	Dim pptaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pptaa) Then pptaaPTR = pptaa.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixConnCompIncrInit( pixs.Pointer, conn, ppixdPTR, pptaaPTR, pncc)
-	if ppixdPTR <> IntPtr.Zero then ppixd = new Pix(ppixdPTR)
-	if pptaaPTR <> IntPtr.Zero then pptaa = new Ptaa(pptaaPTR)
+
+If ppixdPTR = IntPtr.Zero Then ppixd = Nothing
+If ppixdPTR <> IntPtr.Zero Then ppixd = New Pix(ppixdPTR)
+If pptaaPTR = IntPtr.Zero Then pptaa = Nothing
+If pptaaPTR <> IntPtr.Zero Then pptaa = New Ptaa(pptaaPTR)
 
 	Return _Result
 End Function
@@ -159,7 +163,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConnCompIncrAdd/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConnCompIncrAdd/*"/>
 '''  <param name="pixs">[in] - 32 bpp, with pixels labeled by c.c.</param>
 '''  <param name="ptaa">[in] - with each pta of pixel locations indexed by c.c.</param>
 '''  <param name="pncc">[out] - number of c.c</param>
@@ -178,6 +182,7 @@ Public Shared Function pixConnCompIncrAdd(
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixConnCompIncrAdd( pixs.Pointer, ptaa.Pointer, pncc, x, y, debug)
+
 
 	Return _Result
 End Function
@@ -201,7 +206,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetSortedNeighborValues/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetSortedNeighborValues/*"/>
 '''  <param name="pixs">[in] - 8, 16 or 32 bpp, with pixels labeled by c.c.</param>
 '''  <param name="x">[in] - location of pixel</param>
 '''  <param name="y">[in] - location of pixel</param>
@@ -222,6 +227,7 @@ Public Shared Function pixGetSortedNeighborValues(
 Dim pneighPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetSortedNeighborValues( pixs.Pointer, x, y, conn, pneighPTR, pnvals)
+
 
 	Return _Result
 End Function
@@ -245,7 +251,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixLocToColorTransform/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixLocToColorTransform/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 32 bpp rgb, or NULL on error</returns>
 Public Shared Function pixLocToColorTransform(
@@ -256,6 +262,7 @@ Public Shared Function pixLocToColorTransform(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixLocToColorTransform( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

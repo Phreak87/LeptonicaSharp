@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\quadtree.c (92, 1)
 ' pixQuadtreeMean(pixs, nlevels, pix_ma, pfpixa) as Integer
 ' pixQuadtreeMean(PIX *, l_int32, PIX *, FPIXA **) as l_ok
@@ -15,7 +14,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixQuadtreeMean/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixQuadtreeMean/*"/>
 '''  <param name="pixs">[in] - 8 bpp, no colormap</param>
 '''  <param name="nlevels">[in] - in quadtree max allowed depends on image size</param>
 '''  <param name="pix_ma">[in] - input mean accumulator can be null</param>
@@ -33,7 +32,9 @@ Public Shared Function pixQuadtreeMean(
 	Dim pfpixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pfpixa) Then pfpixaPTR = pfpixa.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixQuadtreeMean( pixs.Pointer, nlevels, pix_ma.Pointer, pfpixaPTR)
-	if pfpixaPTR <> IntPtr.Zero then pfpixa = new FPixa(pfpixaPTR)
+
+If pfpixaPTR = IntPtr.Zero Then pfpixa = Nothing
+If pfpixaPTR <> IntPtr.Zero Then pfpixa = New FPixa(pfpixaPTR)
 
 	Return _Result
 End Function
@@ -50,7 +51,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixQuadtreeVariance/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixQuadtreeVariance/*"/>
 '''  <param name="pixs">[in] - 8 bpp, no colormap</param>
 '''  <param name="nlevels">[in] - in quadtree</param>
 '''  <param name="pix_ma">[in] - input mean accumulator can be null</param>
@@ -74,8 +75,11 @@ Dim pfpixa_vPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pfpixa_v) Then pfpixa
 Dim pfpixa_rvPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pfpixa_rv) Then pfpixa_rvPTR = pfpixa_rv.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixQuadtreeVariance( pixs.Pointer, nlevels, pix_ma.Pointer, dpix_msa.Pointer, pfpixa_vPTR, pfpixa_rvPTR)
-	if pfpixa_vPTR <> IntPtr.Zero then pfpixa_v = new FPixa(pfpixa_vPTR)
-	if pfpixa_rvPTR <> IntPtr.Zero then pfpixa_rv = new FPixa(pfpixa_rvPTR)
+
+If pfpixa_vPTR = IntPtr.Zero Then pfpixa_v = Nothing
+If pfpixa_vPTR <> IntPtr.Zero Then pfpixa_v = New FPixa(pfpixa_vPTR)
+If pfpixa_rvPTR = IntPtr.Zero Then pfpixa_rv = Nothing
+If pfpixa_rvPTR <> IntPtr.Zero Then pfpixa_rv = New FPixa(pfpixa_rvPTR)
 
 	Return _Result
 End Function
@@ -92,7 +96,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMeanInRectangle/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMeanInRectangle/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="box">[in] - region to compute mean value</param>
 '''  <param name="pixma">[in] - mean accumulator</param>
@@ -112,6 +116,7 @@ Public Shared Function pixMeanInRectangle(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixMeanInRectangle( pixs.Pointer, box.Pointer, pixma.Pointer, pval)
 
+
 	Return _Result
 End Function
 
@@ -128,7 +133,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixVarianceInRectangle/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixVarianceInRectangle/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="box">[in] - region to compute variance and/or root variance</param>
 '''  <param name="pix_ma">[in] - mean accumulator</param>
@@ -153,6 +158,7 @@ Public Shared Function pixVarianceInRectangle(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixVarianceInRectangle( pixs.Pointer, box.Pointer, pix_ma.Pointer, dpix_msa.Pointer, pvar, prvar)
 
+
 	Return _Result
 End Function
 
@@ -173,7 +179,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaQuadtreeRegions/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaQuadtreeRegions/*"/>
 '''  <param name="w">[in] - size of pix that is being quadtree-ized</param>
 '''  <param name="h">[in] - size of pix that is being quadtree-ized</param>
 '''  <param name="nlevels">[in] - number of levels in quadtree</param>
@@ -184,6 +190,7 @@ Public Shared Function boxaaQuadtreeRegions(
 				 ByVal nlevels as Integer) as Boxaa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaQuadtreeRegions( w, h, nlevels)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxaa(_Result)
@@ -203,7 +210,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/quadtreeGetParent/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/quadtreeGetParent/*"/>
 '''  <param name="fpixa">[in] - mean, variance or root variance</param>
 '''  <param name="level">[in] - x, y of current pixel</param>
 '''  <param name="pval">[out] - parent pixel value, or 0.0 on error</param>
@@ -218,6 +225,7 @@ Public Shared Function quadtreeGetParent(
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.quadtreeGetParent( fpixa.Pointer, level, x, y, pval)
+
 
 	Return _Result
 End Function
@@ -236,7 +244,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/quadtreeGetChildren/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/quadtreeGetChildren/*"/>
 '''  <param name="fpixa">[in] - mean, variance or root variance</param>
 '''  <param name="level">[in] - x, y of current pixel</param>
 '''  <param name="pval00">[out] - four child pixel values</param>
@@ -258,6 +266,7 @@ Public Shared Function quadtreeGetChildren(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.quadtreeGetChildren( fpixa.Pointer, level, x, y, pval00, pval10, pval01, pval11)
 
+
 	Return _Result
 End Function
 
@@ -274,7 +283,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/quadtreeMaxLevels/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/quadtreeMaxLevels/*"/>
 '''  <param name="w">[in] - dimensions of image</param>
 '''  <param name="h">[in] - dimensions of image</param>
 '''   <returns>maxlevels maximum number of levels allowed, or -1 on error</returns>
@@ -283,6 +292,7 @@ Public Shared Function quadtreeMaxLevels(
 				 ByVal h as Integer) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.quadtreeMaxLevels( w, h)
+
 
 	Return _Result
 End Function
@@ -300,7 +310,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixaDisplayQuadtree/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaDisplayQuadtree/*"/>
 '''  <param name="fpixa">[in] - mean, variance or root variance</param>
 '''  <param name="factor">[in] - replication factor at lowest level</param>
 '''  <param name="fontsize">[in] - 4, ... 20</param>
@@ -313,6 +323,7 @@ Public Shared Function fpixaDisplayQuadtree(
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixaDisplayQuadtree( fpixa.Pointer, factor, fontsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

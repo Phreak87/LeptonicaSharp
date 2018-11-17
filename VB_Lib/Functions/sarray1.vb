@@ -2,19 +2,19 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\sarray1.c (163, 1)
 ' sarrayCreate(n) as Sarray
 ' sarrayCreate(l_int32) as SARRAY *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayCreate/*"/>
 '''  <param name="n">[in] - size of string ptr array to be alloc'd use 0 for default</param>
 '''   <returns>sarray, or NULL on error</returns>
 Public Shared Function sarrayCreate(
 				 ByVal n as Integer) as Sarray
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayCreate( n)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -25,7 +25,7 @@ End Function
 ' sarrayCreateInitialized(l_int32, const char *) as SARRAY *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayCreateInitialized/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayCreateInitialized/*"/>
 '''  <param name="n">[in] - size of string ptr array to be alloc'd</param>
 '''  <param name="initstr">[in] - string to be initialized on the full array</param>
 '''   <returns>sarray, or NULL on error</returns>
@@ -36,6 +36,7 @@ Public Shared Function sarrayCreateInitialized(
 	If IsNothing (initstr) then Throw New ArgumentNullException  ("initstr cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayCreateInitialized( n, initstr)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -52,7 +53,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayCreateWordsFromString/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayCreateWordsFromString/*"/>
 '''   <returns>sarray, or NULL on error</returns>
 Public Shared Function sarrayCreateWordsFromString(
 				 ByVal _string_ as String) as Sarray
@@ -60,6 +61,7 @@ Public Shared Function sarrayCreateWordsFromString(
 	If IsNothing (_string_) then Throw New ArgumentNullException  ("_string_ cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayCreateWordsFromString( _string_)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -79,7 +81,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayCreateLinesFromString/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayCreateLinesFromString/*"/>
 '''  <param name="blankflag">[in] - 0 to exclude blank lines 1 to include</param>
 '''   <returns>sarray, or NULL on error</returns>
 Public Shared Function sarrayCreateLinesFromString(
@@ -89,6 +91,7 @@ Public Shared Function sarrayCreateLinesFromString(
 	If IsNothing (_string_) then Throw New ArgumentNullException  ("_string_ cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayCreateLinesFromString( _string_, blankflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -106,7 +109,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayDestroy/*"/>
 '''  <param name="psa">[in,out] - to be nulled</param>
 Public Shared Sub sarrayDestroy(
 				 ByRef psa as Sarray)
@@ -114,7 +117,9 @@ Public Shared Sub sarrayDestroy(
 	Dim psaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(psa) Then psaPTR = psa.Pointer
 
 	LeptonicaSharp.Natives.sarrayDestroy( psaPTR)
-	if psaPTR <> IntPtr.Zero then psa = new Sarray(psaPTR)
+
+If psaPTR = IntPtr.Zero Then psa = Nothing
+If psaPTR <> IntPtr.Zero Then psa = New Sarray(psaPTR)
 
 End Sub
 
@@ -123,7 +128,7 @@ End Sub
 ' sarrayCopy(SARRAY *) as SARRAY *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayCopy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayCopy/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''   <returns>copy of sarray, or NULL on error</returns>
 Public Shared Function sarrayCopy(
@@ -132,6 +137,7 @@ Public Shared Function sarrayCopy(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayCopy( sa.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -142,7 +148,7 @@ End Function
 ' sarrayClone(SARRAY *) as SARRAY *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayClone/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayClone/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''   <returns>ptr to same sarray, or NULL on error</returns>
 Public Shared Function sarrayClone(
@@ -151,6 +157,7 @@ Public Shared Function sarrayClone(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayClone( sa.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -167,7 +174,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayAddString/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayAddString/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_NOCOPY or L_COPY</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -181,6 +188,7 @@ Public Shared Function sarrayAddString(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayAddString( sa.Pointer, _string_, copyflag)
 
+
 	Return _Result
 End Function
 
@@ -189,7 +197,7 @@ End Function
 ' sarrayRemoveString(SARRAY *, l_int32) as char *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayRemoveString/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayRemoveString/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''  <param name="index">[in] - of string within sarray</param>
 '''   <returns>removed string, or NULL on error</returns>
@@ -200,6 +208,7 @@ Public Shared Function sarrayRemoveString(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
 	Dim _Result as String = LeptonicaSharp.Natives.sarrayRemoveString( sa.Pointer, index)
+
 
 	Return _Result
 End Function
@@ -219,7 +228,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayReplaceString/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayReplaceString/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''  <param name="index">[in] - of string within sarray to be replaced</param>
 '''  <param name="newstr">[in] - string to replace existing one</param>
@@ -236,6 +245,7 @@ Public Shared Function sarrayReplaceString(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayReplaceString( sa.Pointer, index, newstr, copyflag)
 
+
 	Return _Result
 End Function
 
@@ -244,7 +254,7 @@ End Function
 ' sarrayClear(SARRAY *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayClear/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayClear/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function sarrayClear(
@@ -254,6 +264,7 @@ Public Shared Function sarrayClear(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayClear( sa.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -262,7 +273,7 @@ End Function
 ' sarrayGetCount(SARRAY *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayGetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayGetCount/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''   <returns>count, or 0 if no strings or on error</returns>
 Public Shared Function sarrayGetCount(
@@ -271,6 +282,7 @@ Public Shared Function sarrayGetCount(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayGetCount( sa.Pointer)
+
 
 	Return _Result
 End Function
@@ -286,7 +298,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayGetArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayGetArray/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''  <param name="pnalloc">[out][optional] - number allocated string ptrs</param>
 '''  <param name="pn">[out][optional] - number allocated strings</param>
@@ -299,6 +311,7 @@ Public Shared Function sarrayGetArray(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayGetArray( sa.Pointer, pnalloc, pn)
+
 	Dim PTRARR(pnalloc-1) As IntPtr : Marshal.Copy(_Result, PTRARR, 0, PTRARR.Length)
 	Dim BLST As New List(Of String) : For Each eintrag In PTRARR : BLST.Add(Marshal.PtrToStringAnsi(eintrag)) : Next
 	Dim B As String() = BLST.toArray()
@@ -319,7 +332,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayGetString/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayGetString/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''  <param name="index">[in] - to the index-th string</param>
 '''  <param name="copyflag">[in] - L_NOCOPY or L_COPY</param>
@@ -333,6 +346,7 @@ Public Shared Function sarrayGetString(
 
 	Dim _Result as String = LeptonicaSharp.Natives.sarrayGetString( sa.Pointer, index, copyflag)
 
+
 	Return _Result
 End Function
 
@@ -341,7 +355,7 @@ End Function
 ' sarrayGetRefcount(SARRAY *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayGetRefcount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayGetRefcount/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''   <returns>refcount, or UNDEF on error</returns>
 Public Shared Function sarrayGetRefcount(
@@ -351,6 +365,7 @@ Public Shared Function sarrayGetRefcount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayGetRefcount( sa.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -359,7 +374,7 @@ End Function
 ' sarrayChangeRefcount(SARRAY *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayChangeRefcount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayChangeRefcount/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''  <param name="delta">[in] - change to be applied</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -370,6 +385,7 @@ Public Shared Function sarrayChangeRefcount(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayChangeRefcount( sa.Pointer, delta)
+
 
 	Return _Result
 End Function
@@ -393,7 +409,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayToString/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayToString/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''  <param name="addnlflag">[in] - flag: 0 adds nothing to each substring 1 adds '\n' to each substring 2 adds ' ' to each substring</param>
 '''   <returns>dest string, or NULL on error</returns>
@@ -404,6 +420,7 @@ Public Shared Function sarrayToString(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
 	Dim _Result as String = LeptonicaSharp.Natives.sarrayToString( sa.Pointer, addnlflag)
+
 
 	Return _Result
 End Function
@@ -425,7 +442,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayToStringRange/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayToStringRange/*"/>
 '''  <param name="sa">[in] - string array</param>
 '''  <param name="first">[in] - index of first string to use starts with 0</param>
 '''  <param name="nstrings">[in] - number of strings to append into the result use 0 to append to the end of the sarray</param>
@@ -441,6 +458,7 @@ Public Shared Function sarrayToStringRange(
 
 	Dim _Result as String = LeptonicaSharp.Natives.sarrayToStringRange( sa.Pointer, first, nstrings, addnlflag)
 
+
 	Return _Result
 End Function
 
@@ -454,7 +472,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayJoin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayJoin/*"/>
 '''  <param name="sa1">[in] - to be added to</param>
 '''  <param name="sa2">[in] - append to sa1</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -466,6 +484,7 @@ Public Shared Function sarrayJoin(
 	If IsNothing (sa2) then Throw New ArgumentNullException  ("sa2 cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayJoin( sa1.Pointer, sa2.Pointer)
+
 
 	Return _Result
 End Function
@@ -484,7 +503,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayAppendRange/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayAppendRange/*"/>
 '''  <param name="sa1">[in] - to be added to</param>
 '''  <param name="sa2">[in] - append specified range of strings in sa2 to sa1</param>
 '''  <param name="start">[in] - index of first string of sa2 to append</param>
@@ -499,6 +518,7 @@ Public Shared Function sarrayAppendRange(
 	If IsNothing (sa2) then Throw New ArgumentNullException  ("sa2 cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayAppendRange( sa1.Pointer, sa2.Pointer, start, _end_)
+
 
 	Return _Result
 End Function
@@ -517,7 +537,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayPadToSameSize/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayPadToSameSize/*"/>
 '''  <param name="sa1">[in] - </param>
 '''  <param name="sa2">[in] - </param>
 '''  <param name="padstring">[in] - </param>
@@ -533,6 +553,7 @@ Public Shared Function sarrayPadToSameSize(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayPadToSameSize( sa1.Pointer, sa2.Pointer, padstring)
 
+
 	Return _Result
 End Function
 
@@ -541,7 +562,7 @@ End Function
 ' sarrayConvertWordsToLines(SARRAY *, l_int32) as SARRAY *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayConvertWordsToLines/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayConvertWordsToLines/*"/>
 '''  <param name="sa">[in] - sa of individual words</param>
 '''  <param name="linesize">[in] - max num of chars in each line</param>
 '''   <returns>saout sa of formatted lines, or NULL on error This is useful for re-typesetting text to a specific maximum line length.  The individual words in the input sarray are concatenated into textlines.  An input word string of zero length is taken to be a paragraph separator.  Each time such a string is found, the current line is ended and a new line is also produced that contains just the string of zero length "".  When the output sarray of lines is eventually converted to a string with newlines typically appended to each line string, the empty strings are just converted to newlines, producing the visible paragraph separation. What happens when a word is larger than linesize? We write it out as a single line anyway!  Words preceding or following this long word are placed on lines preceding or following the line with the long word.  Why this choice? Long "words" found in text documents are typically URLs, and it's often desirable not to put newlines in the middle of a URL. The text display program e.g., text editor will typically wrap the long "word" to fit in the window.</returns>
@@ -552,6 +573,7 @@ Public Shared Function sarrayConvertWordsToLines(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayConvertWordsToLines( sa.Pointer, linesize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -562,7 +584,7 @@ End Function
 ' sarraySplitString(SARRAY *, const char *, const char *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarraySplitString/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarraySplitString/*"/>
 '''   <returns></returns>
 Public Shared Function sarraySplitString(
 				 ByVal sa as Sarray, 
@@ -576,6 +598,7 @@ Public Shared Function sarraySplitString(
 Dim saPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sa) Then saPTR = sa.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarraySplitString( sa.Pointer, str, separators)
+
 
 	Return _Result
 End Function
@@ -594,7 +617,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarraySelectBySubstring/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarraySelectBySubstring/*"/>
 '''  <param name="sain">[in] - input sarray</param>
 '''  <param name="substr">[in][optional] - substring for matching can be NULL</param>
 '''   <returns>saout output sarray, filtered with substring or NULL on error</returns>
@@ -605,6 +628,7 @@ Public Shared Function sarraySelectBySubstring(
 	If IsNothing (sain) then Throw New ArgumentNullException  ("sain cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarraySelectBySubstring( sain.Pointer, substr)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -622,7 +646,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarraySelectByRange/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarraySelectByRange/*"/>
 '''  <param name="sain">[in] - input sarray</param>
 '''  <param name="first">[in] - index of first string to be selected</param>
 '''  <param name="last">[in] - index of last string to be selected use 0 to go to the end of the sarray</param>
@@ -635,6 +659,7 @@ Public Shared Function sarraySelectByRange(
 	If IsNothing (sain) then Throw New ArgumentNullException  ("sain cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarraySelectByRange( sain.Pointer, first, last)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -672,7 +697,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayParseRange/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayParseRange/*"/>
 '''  <param name="sa">[in] - input sarray</param>
 '''  <param name="start">[in] - index to start range search</param>
 '''  <param name="pactualstart">[out] - index of actual start may be  is greater  'start'</param>
@@ -695,6 +720,7 @@ Public Shared Function sarrayParseRange(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayParseRange( sa.Pointer, start, pactualstart, pend, pnewstart, substr, loc)
 
+
 	Return _Result
 End Function
 
@@ -703,7 +729,7 @@ End Function
 ' sarrayRead(const char *) as SARRAY *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>sarray, or NULL on error</returns>
 Public Shared Function sarrayRead(
@@ -711,9 +737,10 @@ Public Shared Function sarrayRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayRead( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -735,7 +762,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>sarray, or NULL on error</returns>
 Public Shared Function sarrayReadStream(
@@ -744,6 +771,7 @@ Public Shared Function sarrayReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayReadStream( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -754,7 +782,7 @@ End Function
 ' sarrayReadMem(const l_uint8 *, size_t) as SARRAY *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayReadMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayReadMem/*"/>
 '''  <param name="data">[in] - serialization in ascii</param>
 '''  <param name="size">[in] - of data can use strlen to get it</param>
 '''   <returns>sarray, or NULL on error</returns>
@@ -765,6 +793,7 @@ Public Shared Function sarrayReadMem(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sarrayReadMem( data, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -775,7 +804,7 @@ End Function
 ' sarrayWrite(const char *, SARRAY *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="sa">[in] - string array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -786,9 +815,8 @@ Public Shared Function sarrayWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayWrite( filename, sa.Pointer)
+
 
 	Return _Result
 End Function
@@ -804,7 +832,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="sa">[in] - string array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -816,6 +844,7 @@ Public Shared Function sarrayWriteStream(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayWriteStream( fp.Pointer, sa.Pointer)
+
 
 	Return _Result
 End Function
@@ -830,7 +859,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayWriteMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized sarray ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="sa">[in] - </param>
@@ -845,6 +874,7 @@ Public Shared Function sarrayWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayWriteMem( pdataPTR, psize, sa.Pointer)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -855,7 +885,7 @@ End Function
 ' sarrayAppend(const char *, SARRAY *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayAppend/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayAppend/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="sa">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -866,9 +896,10 @@ Public Shared Function sarrayAppend(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayAppend( filename, sa.Pointer)
+
 
 	Return _Result
 End Function
@@ -912,7 +943,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/getNumberedPathnamesInDirectory/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getNumberedPathnamesInDirectory/*"/>
 '''  <param name="dirname">[in] - directory name</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="numpre">[in] - number of characters in name before number</param>
@@ -929,6 +960,7 @@ Public Shared Function getNumberedPathnamesInDirectory(
 	If IsNothing (dirname) then Throw New ArgumentNullException  ("dirname cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.getNumberedPathnamesInDirectory( dirname, substr, numpre, numpost, maxnum)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -952,7 +984,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/getSortedPathnamesInDirectory/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getSortedPathnamesInDirectory/*"/>
 '''  <param name="dirname">[in] - directory name</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="first">[in] - 0-based</param>
@@ -967,6 +999,7 @@ Public Shared Function getSortedPathnamesInDirectory(
 	If IsNothing (dirname) then Throw New ArgumentNullException  ("dirname cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.getSortedPathnamesInDirectory( dirname, substr, first, nfiles)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -983,7 +1016,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertSortedToNumberedPathnames/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertSortedToNumberedPathnames/*"/>
 '''  <param name="sa">[in] - sorted pathnames including zero-padded integers</param>
 '''  <param name="numpre">[in] - number of characters in name before number</param>
 '''  <param name="numpost">[in] - number of characters in name after the number, up to a dot before an extension</param>
@@ -998,6 +1031,7 @@ Public Shared Function convertSortedToNumberedPathnames(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.convertSortedToNumberedPathnames( sa.Pointer, numpre, numpost, maxnum)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -1008,7 +1042,7 @@ End Function
 ' getFilenamesInDirectory(const char *) as SARRAY *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/getFilenamesInDirectory/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getFilenamesInDirectory/*"/>
 '''   <returns></returns>
 Public Shared Function getFilenamesInDirectory(
 				 ByVal dirname as String) as Sarray
@@ -1016,6 +1050,7 @@ Public Shared Function getFilenamesInDirectory(
 	If IsNothing (dirname) then Throw New ArgumentNullException  ("dirname cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.getFilenamesInDirectory( dirname)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)

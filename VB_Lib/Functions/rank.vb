@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\rank.c (147, 1)
 ' pixRankFilter(pixs, wf, hf, rank) as Pix
 ' pixRankFilter(PIX *, l_int32, l_int32, l_float32) as PIX *
@@ -21,7 +20,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRankFilter/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRankFilter/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp no colormap</param>
 '''  <param name="wf">[in] - width and height of filter each is greater or equal 1</param>
 '''  <param name="hf">[in] - width and height of filter each is greater or equal 1</param>
@@ -36,6 +35,7 @@ Public Shared Function pixRankFilter(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRankFilter( pixs.Pointer, wf, hf, rank)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -61,7 +61,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRankFilterRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRankFilterRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="wf">[in] - width and height of filter each is greater or equal 1</param>
 '''  <param name="hf">[in] - width and height of filter each is greater or equal 1</param>
@@ -76,6 +76,7 @@ Public Shared Function pixRankFilterRGB(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRankFilterRGB( pixs.Pointer, wf, hf, rank)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -111,7 +112,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRankFilterGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRankFilterGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="wf">[in] - width and height of filter each is greater or equal 1</param>
 '''  <param name="hf">[in] - width and height of filter each is greater or equal 1</param>
@@ -126,6 +127,7 @@ Public Shared Function pixRankFilterGray(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRankFilterGray( pixs.Pointer, wf, hf, rank)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -136,7 +138,7 @@ End Function
 ' pixMedianFilter(PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMedianFilter/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMedianFilter/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp no colormap</param>
 '''  <param name="wf">[in] - width and height of filter each is greater or equal 1</param>
 '''  <param name="hf">[in] - width and height of filter each is greater or equal 1</param>
@@ -149,6 +151,7 @@ Public Shared Function pixMedianFilter(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMedianFilter( pixs.Pointer, wf, hf)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -169,7 +172,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRankFilterWithScaling/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRankFilterWithScaling/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp no colormap</param>
 '''  <param name="wf">[in] - width and height of filter each is greater or equal 1</param>
 '''  <param name="hf">[in] - width and height of filter each is greater or equal 1</param>
@@ -186,6 +189,7 @@ Public Shared Function pixRankFilterWithScaling(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRankFilterWithScaling( pixs.Pointer, wf, hf, rank, scalefactor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

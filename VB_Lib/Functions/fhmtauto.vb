@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\fhmtauto.c (207, 1)
 ' fhmtautogen(sela, fileindex, filename) as Integer
 ' fhmtautogen(SELA *, l_int32, const char *) as l_ok
@@ -16,7 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fhmtautogen/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fhmtautogen/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="fileindex">[in] - </param>
 '''  <param name="filename">[in][optional] - can be null</param>
@@ -28,9 +27,8 @@ Public Shared Function fhmtautogen(
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.fhmtautogen( sela.Pointer, fileindex, filename)
+
 
 	Return _Result
 End Function
@@ -59,7 +57,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fhmtautogen1/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fhmtautogen1/*"/>
 '''  <param name="sela">[in] - array</param>
 '''  <param name="fileindex">[in] - </param>
 '''  <param name="filename">[in][optional] - can be null</param>
@@ -71,9 +69,8 @@ Public Shared Function fhmtautogen1(
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.fhmtautogen1( sela.Pointer, fileindex, filename)
+
 
 	Return _Result
 End Function
@@ -99,7 +96,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fhmtautogen2/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fhmtautogen2/*"/>
 '''  <param name="sela">[in] - array</param>
 '''  <param name="fileindex">[in] - </param>
 '''  <param name="filename">[in][optional] - can be null</param>
@@ -111,9 +108,8 @@ Public Shared Function fhmtautogen2(
 
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.fhmtautogen2( sela.Pointer, fileindex, filename)
+
 
 	Return _Result
 End Function

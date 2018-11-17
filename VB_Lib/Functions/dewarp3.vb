@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\dewarp3.c (114, 1)
 ' dewarpaApplyDisparity(dewa, pageno, pixs, grayin, x, y, ppixd, debugfile) as Integer
 ' dewarpaApplyDisparity(L_DEWARPA *, l_int32, PIX *, l_int32, l_int32, l_int32, PIX **, const char *) as l_ok
@@ -45,7 +44,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaApplyDisparity/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaApplyDisparity/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="pageno">[in] - of page model to be used may be a ref model</param>
 '''  <param name="pixs">[in] - image to be modified can be 1, 8 or 32 bpp</param>
@@ -71,7 +70,9 @@ Public Shared Function dewarpaApplyDisparity(
 	Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaApplyDisparity( dewa.Pointer, pageno, pixs.Pointer, grayin, x, y, ppixdPTR, debugfile)
-	if ppixdPTR <> IntPtr.Zero then ppixd = new Pix(ppixdPTR)
+
+If ppixdPTR = IntPtr.Zero Then ppixd = Nothing
+If ppixdPTR <> IntPtr.Zero Then ppixd = New Pix(ppixdPTR)
 
 	Return _Result
 End Function
@@ -97,7 +98,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaApplyDisparityBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaApplyDisparityBoxa/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="pageno">[in] - of page model to be used may be a ref model</param>
 '''  <param name="pixs">[in] - initial pix reference for alignment and debugging</param>
@@ -126,7 +127,9 @@ Public Shared Function dewarpaApplyDisparityBoxa(
 	Dim pboxadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxad) Then pboxadPTR = pboxad.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaApplyDisparityBoxa( dewa.Pointer, pageno, pixs.Pointer, boxas.Pointer, mapdir, x, y, pboxadPTR, debugfile)
-	if pboxadPTR <> IntPtr.Zero then pboxad = new Boxa(pboxadPTR)
+
+If pboxadPTR = IntPtr.Zero Then pboxad = Nothing
+If pboxadPTR <> IntPtr.Zero Then pboxad = New Boxa(pboxadPTR)
 
 	Return _Result
 End Function
@@ -143,7 +146,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpMinimize/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpMinimize/*"/>
 '''  <param name="dew">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function dewarpMinimize(
@@ -152,6 +155,7 @@ Public Shared Function dewarpMinimize(
 	If IsNothing (dew) then Throw New ArgumentNullException  ("dew cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpMinimize( dew.Pointer)
+
 
 	Return _Result
 End Function
@@ -184,7 +188,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpPopulateFullRes/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpPopulateFullRes/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="pix">[in][optional] - , to give size of actual image</param>
 '''  <param name="x">[in] - origin for generation of disparity arrays</param>
@@ -201,6 +205,7 @@ Public Shared Function dewarpPopulateFullRes(
 	Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpPopulateFullRes( dew.Pointer, pixPTR, x, y)
+
 
 	Return _Result
 End Function

@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\pixacc.c (90, 1)
 ' pixaccCreate(w, h, negflag) as Pixacc
 ' pixaccCreate(l_int32, l_int32, l_int32) as PIXACC *
@@ -19,7 +18,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaccCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaccCreate/*"/>
 '''  <param name="w">[in] - of 32 bpp internal Pix</param>
 '''  <param name="h">[in] - of 32 bpp internal Pix</param>
 '''  <param name="negflag">[in] - 0 if only positive numbers are involved 1 if there will be negative numbers</param>
@@ -30,6 +29,7 @@ Public Shared Function pixaccCreate(
 				 ByVal negflag as Integer) as Pixacc
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaccCreate( w, h, negflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixacc(_Result)
@@ -45,7 +45,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaccCreateFromPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaccCreateFromPix/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="negflag">[in] - 0 if only positive numbers are involved 1 if there will be negative numbers</param>
 '''   <returns>pixacc, or NULL on error</returns>
@@ -56,6 +56,7 @@ Public Shared Function pixaccCreateFromPix(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaccCreateFromPix( pix.Pointer, negflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixacc(_Result)
@@ -71,7 +72,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaccDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaccDestroy/*"/>
 '''  <param name="ppixacc">[in,out] - to be nulled</param>
 Public Shared Sub pixaccDestroy(
 				 ByRef ppixacc as Pixacc)
@@ -79,7 +80,9 @@ Public Shared Sub pixaccDestroy(
 	Dim ppixaccPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixacc) Then ppixaccPTR = ppixacc.Pointer
 
 	LeptonicaSharp.Natives.pixaccDestroy( ppixaccPTR)
-	if ppixaccPTR <> IntPtr.Zero then ppixacc = new Pixacc(ppixaccPTR)
+
+If ppixaccPTR = IntPtr.Zero Then ppixacc = Nothing
+If ppixaccPTR <> IntPtr.Zero Then ppixacc = New Pixacc(ppixaccPTR)
 
 End Sub
 
@@ -88,7 +91,7 @@ End Sub
 ' pixaccFinal(PIXACC *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaccFinal/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaccFinal/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''  <param name="outdepth">[in] - 8, 16 or 32 bpp</param>
 '''   <returns>pixd 8 , 16 or 32 bpp, or NULL on error</returns>
@@ -99,6 +102,7 @@ Public Shared Function pixaccFinal(
 	If IsNothing (pixacc) then Throw New ArgumentNullException  ("pixacc cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaccFinal( pixacc.Pointer, outdepth)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -109,7 +113,7 @@ End Function
 ' pixaccGetPix(PIXACC *) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaccGetPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaccGetPix/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''   <returns>pix, or NULL on error</returns>
 Public Shared Function pixaccGetPix(
@@ -118,6 +122,7 @@ Public Shared Function pixaccGetPix(
 	If IsNothing (pixacc) then Throw New ArgumentNullException  ("pixacc cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaccGetPix( pixacc.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -128,7 +133,7 @@ End Function
 ' pixaccGetOffset(PIXACC *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaccGetOffset/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaccGetOffset/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''   <returns>offset, or -1 on error</returns>
 Public Shared Function pixaccGetOffset(
@@ -138,6 +143,7 @@ Public Shared Function pixaccGetOffset(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaccGetOffset( pixacc.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -146,7 +152,7 @@ End Function
 ' pixaccAdd(PIXACC *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaccAdd/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaccAdd/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''  <param name="pix">[in] - to be added</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -159,6 +165,7 @@ Public Shared Function pixaccAdd(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaccAdd( pixacc.Pointer, pix.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -167,7 +174,7 @@ End Function
 ' pixaccSubtract(PIXACC *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaccSubtract/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaccSubtract/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''  <param name="pix">[in] - to be subtracted</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -180,6 +187,7 @@ Public Shared Function pixaccSubtract(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaccSubtract( pixacc.Pointer, pix.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -188,7 +196,7 @@ End Function
 ' pixaccMultConst(PIXACC *, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaccMultConst/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaccMultConst/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''  <param name="factor">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -199,6 +207,7 @@ Public Shared Function pixaccMultConst(
 	If IsNothing (pixacc) then Throw New ArgumentNullException  ("pixacc cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaccMultConst( pixacc.Pointer, factor)
+
 
 	Return _Result
 End Function
@@ -214,7 +223,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaccMultConstAccumulate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaccMultConstAccumulate/*"/>
 '''  <param name="pixacc">[in] - </param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="factor">[in] - </param>
@@ -228,6 +237,7 @@ Public Shared Function pixaccMultConstAccumulate(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaccMultConstAccumulate( pixacc.Pointer, pix.Pointer, factor)
+
 
 	Return _Result
 End Function

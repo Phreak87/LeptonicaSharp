@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\colorseg.c (129, 1)
 ' pixColorSegment(pixs, maxdist, maxcolors, selsize, finalcolors, debugflag) as Pix
 ' pixColorSegment(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -55,7 +54,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixColorSegment/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixColorSegment/*"/>
 '''  <param name="pixs">[in] - 32 bpp 24-bit color</param>
 '''  <param name="maxdist">[in] - max euclidean dist to existing cluster</param>
 '''  <param name="maxcolors">[in] - max number of colors allowed in first pass</param>
@@ -74,6 +73,7 @@ Public Shared Function pixColorSegment(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixColorSegment( pixs.Pointer, maxdist, maxcolors, selsize, finalcolors, debugflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -99,7 +99,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixColorSegmentCluster/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixColorSegmentCluster/*"/>
 '''  <param name="pixs">[in] - 32 bpp 24-bit color</param>
 '''  <param name="maxdist">[in] - max euclidean dist to existing cluster</param>
 '''  <param name="maxcolors">[in] - max number of colors allowed in first pass</param>
@@ -114,6 +114,7 @@ Public Shared Function pixColorSegmentCluster(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixColorSegmentCluster( pixs.Pointer, maxdist, maxcolors, debugflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -162,7 +163,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAssignToNearestColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAssignToNearestColor/*"/>
 '''  <param name="pixd">[in] - 8 bpp, colormapped</param>
 '''  <param name="pixs">[in] - 32 bpp 24-bit color</param>
 '''  <param name="pixm">[in][optional] - 1 bpp</param>
@@ -185,6 +186,7 @@ Public Shared Function pixAssignToNearestColor(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixAssignToNearestColor( pixd.Pointer, pixs.Pointer, pixmPTR, level, countarray)
 
+
 	Return _Result
 End Function
 
@@ -203,7 +205,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixColorSegmentClean/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixColorSegmentClean/*"/>
 '''  <param name="pixs">[in] - 8 bpp, colormapped</param>
 '''  <param name="selsize">[in] - for closing</param>
 '''  <param name="countarray">[in] - ptr to array containing the number of pixels found in each color in the colormap</param>
@@ -217,6 +219,7 @@ Public Shared Function pixColorSegmentClean(
 	If IsNothing (countarray) then Throw New ArgumentNullException  ("countarray cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixColorSegmentClean( pixs.Pointer, selsize, countarray)
+
 
 	Return _Result
 End Function
@@ -238,7 +241,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixColorSegmentRemoveColors/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixColorSegmentRemoveColors/*"/>
 '''  <param name="pixd">[in] - 8 bpp, colormapped</param>
 '''  <param name="pixs">[in] - 32 bpp rgb, with initial pixel values</param>
 '''  <param name="finalcolors">[in] - max number of colors to retain</param>
@@ -252,6 +255,7 @@ Public Shared Function pixColorSegmentRemoveColors(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixColorSegmentRemoveColors( pixd.Pointer, pixs.Pointer, finalcolors)
+
 
 	Return _Result
 End Function

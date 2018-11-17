@@ -2,19 +2,19 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\rbtree.c (132, 1)
 ' l_rbtreeCreate(keytype) as L_Rbtree
 ' l_rbtreeCreate(l_int32) as L_RBTREE *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_rbtreeCreate/*"/>
 '''  <param name="keytype">[in] - defined by an enum for an RB_TYPE union</param>
 '''   <returns>rbtree    container with empty ptr to the root</returns>
 Public Shared Function l_rbtreeCreate(
 				 ByVal keytype as Integer) as L_Rbtree
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_rbtreeCreate( keytype)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Rbtree(_Result)
@@ -25,7 +25,7 @@ End Function
 ' l_rbtreeLookup(L_RBTREE *, RB_TYPE) as RB_TYPE *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeLookup/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_rbtreeLookup/*"/>
 '''  <param name="t">[in] - rbtree, including root node</param>
 '''  <param name="key">[in] - find a node with this key</param>
 '''   <returns>[and]value     a pointer to a union, if the node exists else NULL</returns>
@@ -37,6 +37,7 @@ Public Shared Function l_rbtreeLookup(
 	If IsNothing (key) then Throw New ArgumentNullException  ("key cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_rbtreeLookup( t.Pointer, key.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new RB_TYPE(_Result)
@@ -52,7 +53,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeInsert/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_rbtreeInsert/*"/>
 '''  <param name="t">[in] - rbtree, including root node</param>
 '''  <param name="key">[in] - insert a node with this key, if the key does not already exist in the tree</param>
 '''  <param name="value">[in] - typically an int, used for an index</param>
@@ -67,6 +68,7 @@ Public Shared Sub l_rbtreeInsert(
 
 	LeptonicaSharp.Natives.l_rbtreeInsert( t.Pointer, key.Pointer, value.Pointer)
 
+
 End Sub
 
 ' SRC\rbtree.c (235, 1)
@@ -74,7 +76,7 @@ End Sub
 ' l_rbtreeDelete(L_RBTREE *, RB_TYPE) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeDelete/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_rbtreeDelete/*"/>
 '''  <param name="t">[in] - rbtree, including root node</param>
 '''  <param name="key">[in] - (delete the node with this key</param>
 Public Shared Sub l_rbtreeDelete(
@@ -85,6 +87,7 @@ Public Shared Sub l_rbtreeDelete(
 	If IsNothing (key) then Throw New ArgumentNullException  ("key cannot be Nothing")
 
 	LeptonicaSharp.Natives.l_rbtreeDelete( t.Pointer, key.Pointer)
+
 
 End Sub
 
@@ -98,7 +101,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_rbtreeDestroy/*"/>
 '''  <param name="pt">[in] - ptr to rbtree</param>
 Public Shared Sub l_rbtreeDestroy(
 				 ByVal pt as List (of L_Rbtree))
@@ -108,6 +111,7 @@ Public Shared Sub l_rbtreeDestroy(
 	Dim ptPTR As IntPtr = IntPtr.Zero ' : If Not IsNothing(pt) Then ptPTR = pt.Pointer
 
 	LeptonicaSharp.Natives.l_rbtreeDestroy( ptPTR)
+
 
 End Sub
 
@@ -121,7 +125,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeGetFirst/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_rbtreeGetFirst/*"/>
 '''  <param name="t">[in] - rbtree, including root node</param>
 '''   <returns>void</returns>
 Public Shared Function l_rbtreeGetFirst(
@@ -130,6 +134,7 @@ Public Shared Function l_rbtreeGetFirst(
 	If IsNothing (t) then Throw New ArgumentNullException  ("t cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_rbtreeGetFirst( t.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Rbtree_Node(_Result)
@@ -150,7 +155,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeGetNext/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_rbtreeGetNext/*"/>
 '''  <param name="n">[in] - current node</param>
 '''   <returns>next node, or NULL if it's the last node</returns>
 Public Shared Function l_rbtreeGetNext(
@@ -159,6 +164,7 @@ Public Shared Function l_rbtreeGetNext(
 	If IsNothing (n) then Throw New ArgumentNullException  ("n cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_rbtreeGetNext( n.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Rbtree_Node(_Result)
@@ -174,7 +180,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeGetLast/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_rbtreeGetLast/*"/>
 '''  <param name="t">[in] - rbtree, including root node</param>
 '''   <returns>void</returns>
 Public Shared Function l_rbtreeGetLast(
@@ -183,6 +189,7 @@ Public Shared Function l_rbtreeGetLast(
 	If IsNothing (t) then Throw New ArgumentNullException  ("t cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_rbtreeGetLast( t.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Rbtree_Node(_Result)
@@ -203,7 +210,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeGetPrev/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_rbtreeGetPrev/*"/>
 '''  <param name="n">[in] - current node</param>
 '''   <returns>next node, or NULL if it's the first node</returns>
 Public Shared Function l_rbtreeGetPrev(
@@ -212,6 +219,7 @@ Public Shared Function l_rbtreeGetPrev(
 	If IsNothing (n) then Throw New ArgumentNullException  ("n cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_rbtreeGetPrev( n.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Rbtree_Node(_Result)
@@ -222,7 +230,7 @@ End Function
 ' l_rbtreeGetCount(L_RBTREE *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_rbtreeGetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_rbtreeGetCount/*"/>
 '''  <param name="t">[in] - rbtree</param>
 '''   <returns>count  the number of nodes in the tree, or 0 on error</returns>
 Public Shared Function l_rbtreeGetCount(
@@ -232,6 +240,7 @@ Public Shared Function l_rbtreeGetCount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_rbtreeGetCount( t.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -240,7 +249,7 @@ End Function
 ' l_rbtreePrint(FILE *, L_RBTREE *) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_rbtreePrint/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_rbtreePrint/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="t">[in] - rbtree</param>
 Public Shared Sub l_rbtreePrint(
@@ -251,6 +260,7 @@ Public Shared Sub l_rbtreePrint(
 	If IsNothing (t) then Throw New ArgumentNullException  ("t cannot be Nothing")
 
 	LeptonicaSharp.Natives.l_rbtreePrint( fp.Pointer, t.Pointer)
+
 
 End Sub
 

@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\bmf.c (114, 1)
 ' bmfCreate(dir, fontsize) as L_Bmf
 ' bmfCreate(const char *, l_int32) as L_BMF *
@@ -20,7 +19,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/bmfCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bmfCreate/*"/>
 '''  <param name="dir">[in][optional] - directory holding pixa of character set</param>
 '''  <param name="fontsize">[in] - 4, 6, 8, ... , 20</param>
 '''   <returns>bmf holding the bitmap font and associated information</returns>
@@ -29,6 +28,7 @@ Public Shared Function bmfCreate(
 				 ByVal fontsize as Integer) as L_Bmf
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.bmfCreate( dir, fontsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Bmf(_Result)
@@ -39,7 +39,7 @@ End Function
 ' bmfDestroy(L_BMF **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/bmfDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bmfDestroy/*"/>
 '''  <param name="pbmf">[in,out] - set to null</param>
 Public Shared Sub bmfDestroy(
 				 ByRef pbmf as L_Bmf)
@@ -47,7 +47,9 @@ Public Shared Sub bmfDestroy(
 	Dim pbmfPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbmf) Then pbmfPTR = pbmf.Pointer
 
 	LeptonicaSharp.Natives.bmfDestroy( pbmfPTR)
-	if pbmfPTR <> IntPtr.Zero then pbmf = new L_Bmf(pbmfPTR)
+
+If pbmfPTR = IntPtr.Zero Then pbmf = Nothing
+If pbmfPTR <> IntPtr.Zero Then pbmf = New L_Bmf(pbmfPTR)
 
 End Sub
 
@@ -56,7 +58,7 @@ End Sub
 ' bmfGetPix(L_BMF *, char) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/bmfGetPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bmfGetPix/*"/>
 '''  <param name="bmf">[in] - </param>
 '''  <param name="chr">[in] - should be one of the 95 supported printable bitmaps</param>
 '''   <returns>pix clone of pix in bmf, or NULL on error</returns>
@@ -68,6 +70,7 @@ Public Shared Function bmfGetPix(
 	If IsNothing (chr) then Throw New ArgumentNullException  ("chr cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.bmfGetPix( bmf.Pointer, chr)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -78,7 +81,7 @@ End Function
 ' bmfGetWidth(L_BMF *, char, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/bmfGetWidth/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bmfGetWidth/*"/>
 '''  <param name="bmf">[in] - </param>
 '''  <param name="chr">[in] - should be one of the 95 supported bitmaps</param>
 '''  <param name="pw">[out] - character width -1 if not printable</param>
@@ -93,6 +96,7 @@ Public Shared Function bmfGetWidth(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.bmfGetWidth( bmf.Pointer, chr, pw)
 
+
 	Return _Result
 End Function
 
@@ -101,7 +105,7 @@ End Function
 ' bmfGetBaseline(L_BMF *, char, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/bmfGetBaseline/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bmfGetBaseline/*"/>
 '''  <param name="bmf">[in] - </param>
 '''  <param name="chr">[in] - should be one of the 95 supported bitmaps</param>
 '''  <param name="pbaseline">[out] - distance below UL corner of bitmap char</param>
@@ -116,6 +120,7 @@ Public Shared Function bmfGetBaseline(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.bmfGetBaseline( bmf.Pointer, chr, pbaseline)
 
+
 	Return _Result
 End Function
 
@@ -129,7 +134,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaGetFont/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaGetFont/*"/>
 '''  <param name="dir">[in] - directory holding pixa of character set</param>
 '''  <param name="fontsize">[in] - 4, 6, 8, ... , 20</param>
 '''  <param name="pbl0">[out] - baseline of row 1</param>
@@ -146,6 +151,7 @@ Public Shared Function pixaGetFont(
 	If IsNothing (dir) then Throw New ArgumentNullException  ("dir cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaGetFont( dir, fontsize, pbl0, pbl1, pbl2)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -167,7 +173,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaSaveFont/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaSaveFont/*"/>
 '''  <param name="indir">[in][optional] - directory holding image of character set</param>
 '''  <param name="outdir">[in] - directory into which the output pixa file will be written</param>
 '''  <param name="fontsize">[in] - in pts, at 300 ppi</param>
@@ -180,6 +186,7 @@ Public Shared Function pixaSaveFont(
 	If IsNothing (outdir) then Throw New ArgumentNullException  ("outdir cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaSaveFont( indir, outdir, fontsize)
+
 
 	Return _Result
 End Function

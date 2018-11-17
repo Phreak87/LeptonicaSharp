@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\morphseq.c (133, 1)
 ' pixMorphSequence(pixs, sequence, dispsep) as Pix
 ' pixMorphSequence(PIX *, const char *, l_int32) as PIX *
@@ -79,7 +78,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMorphSequence/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMorphSequence/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is smaller 0: pdf output abs(dispsep) is used for naming</param>
@@ -93,6 +92,7 @@ Public Shared Function pixMorphSequence(
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMorphSequence( pixs.Pointer, sequence, dispsep)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -137,7 +137,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMorphCompSequence/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMorphCompSequence/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is smaller 0: pdf output abs(dispsep) is used for naming</param>
@@ -151,6 +151,7 @@ Public Shared Function pixMorphCompSequence(
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMorphCompSequence( pixs.Pointer, sequence, dispsep)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -178,7 +179,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMorphSequenceDwa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMorphSequenceDwa/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is smaller 0: pdf output abs(dispsep) is used for naming</param>
@@ -192,6 +193,7 @@ Public Shared Function pixMorphSequenceDwa(
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMorphSequenceDwa( pixs.Pointer, sequence, dispsep)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -219,7 +221,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMorphCompSequenceDwa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMorphCompSequenceDwa/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is smaller 0: pdf output abs(dispsep) is used for naming</param>
@@ -233,6 +235,7 @@ Public Shared Function pixMorphCompSequenceDwa(
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMorphCompSequenceDwa( pixs.Pointer, sequence, dispsep)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -252,7 +255,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/morphSequenceVerify/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/morphSequenceVerify/*"/>
 '''  <param name="sa">[in] - string array of operation sequence</param>
 '''   <returns>TRUE if valid FALSE otherwise or on error</returns>
 Public Shared Function morphSequenceVerify(
@@ -261,6 +264,7 @@ Public Shared Function morphSequenceVerify(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.morphSequenceVerify( sa.Pointer)
+
 
 	Return _Result
 End Function
@@ -313,7 +317,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGrayMorphSequence/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGrayMorphSequence/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is smaller 0: pdf output abs(dispsep) is used for naming</param>
@@ -329,6 +333,7 @@ Public Shared Function pixGrayMorphSequence(
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGrayMorphSequence( pixs.Pointer, sequence, dispsep, dispy)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -377,7 +382,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixColorMorphSequence/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixColorMorphSequence/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is smaller 0: pdf output abs(dispsep) is used for naming</param>
@@ -393,6 +398,7 @@ Public Shared Function pixColorMorphSequence(
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixColorMorphSequence( pixs.Pointer, sequence, dispsep, dispy)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

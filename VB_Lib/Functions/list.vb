@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\list.c (236, 1)
 ' listDestroy(phead) as Object
 ' listDestroy(DLLIST **) as void
@@ -18,7 +17,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/listDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/listDestroy/*"/>
 '''  <param name="phead">[in,out] - to be nulled head of list</param>
 Public Shared Sub listDestroy(
 				 ByRef phead as DoubleLinkedList)
@@ -26,7 +25,9 @@ Public Shared Sub listDestroy(
 	Dim pheadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(phead) Then pheadPTR = phead.Pointer
 
 	LeptonicaSharp.Natives.listDestroy( pheadPTR)
-	if pheadPTR <> IntPtr.Zero then phead = new DoubleLinkedList(pheadPTR)
+
+If pheadPTR = IntPtr.Zero Then phead = Nothing
+If pheadPTR <> IntPtr.Zero Then phead = New DoubleLinkedList(pheadPTR)
 
 End Sub
 
@@ -44,7 +45,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/listAddToHead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/listAddToHead/*"/>
 '''  <param name="phead">[in,out][optional] - input head</param>
 '''  <param name="data">[in] - void ptr, to be added</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -55,10 +56,24 @@ Public Shared Function listAddToHead(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 Dim pheadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(phead) Then pheadPTR = phead.Pointer
-Dim dataPTR As IntPtr = Marshal.AllocHGlobal(0)
+	Dim dataPtr As IntPtr = IntPtr.Zero
+	If TypeOf (data) Is IntPtr Then dataPtr = data
+	If TypeOf (data) Is Byte() Then
+		Dim cdata = CType(data, Byte())
+		dataPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, dataPtr, cdata.Length)
+	End If
+	If Not IsNothing(data.GetType.GetProperty("data")) Then
+		Dim cdata = CType(data.data, Byte())
+		dataPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, dataPtr, cdata.Length)
+	End If
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.listAddToHead( pheadPTR, dataPTR)
-	if pheadPTR <> IntPtr.Zero then phead = new DoubleLinkedList(pheadPTR)
+Marshal.FreeHGlobal(dataPTR)
+
+If pheadPTR = IntPtr.Zero Then phead = Nothing
+If pheadPTR <> IntPtr.Zero Then phead = New DoubleLinkedList(pheadPTR)
 
 	Return _Result
 End Function
@@ -86,7 +101,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/listAddToTail/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/listAddToTail/*"/>
 '''  <param name="phead">[in,out] - [may be updated], can be NULL</param>
 '''  <param name="ptail">[in,out] - [updated], can be NULL</param>
 '''  <param name="data">[in] - void ptr, to be hung on tail cons cell</param>
@@ -100,11 +115,26 @@ Public Shared Function listAddToTail(
 
 	Dim pheadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(phead) Then pheadPTR = phead.Pointer
 	Dim ptailPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ptail) Then ptailPTR = ptail.Pointer
-Dim dataPTR As IntPtr = Marshal.AllocHGlobal(0)
+	Dim dataPtr As IntPtr = IntPtr.Zero
+	If TypeOf (data) Is IntPtr Then dataPtr = data
+	If TypeOf (data) Is Byte() Then
+		Dim cdata = CType(data, Byte())
+		dataPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, dataPtr, cdata.Length)
+	End If
+	If Not IsNothing(data.GetType.GetProperty("data")) Then
+		Dim cdata = CType(data.data, Byte())
+		dataPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, dataPtr, cdata.Length)
+	End If
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.listAddToTail( pheadPTR, ptailPTR, dataPTR)
-	if pheadPTR <> IntPtr.Zero then phead = new DoubleLinkedList(pheadPTR)
-	if ptailPTR <> IntPtr.Zero then ptail = new DoubleLinkedList(ptailPTR)
+Marshal.FreeHGlobal(dataPTR)
+
+If pheadPTR = IntPtr.Zero Then phead = Nothing
+If pheadPTR <> IntPtr.Zero Then phead = New DoubleLinkedList(pheadPTR)
+If ptailPTR = IntPtr.Zero Then ptail = Nothing
+If ptailPTR <> IntPtr.Zero Then ptail = New DoubleLinkedList(ptailPTR)
 
 	Return _Result
 End Function
@@ -129,7 +159,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/listInsertBefore/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/listInsertBefore/*"/>
 '''  <param name="phead">[in,out][optional] - input head</param>
 '''  <param name="elem">[in] - list element to be inserted in front of must be NULL if head is NULL</param>
 '''  <param name="data">[in] - void  address, to be added</param>
@@ -143,10 +173,24 @@ Public Shared Function listInsertBefore(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 Dim pheadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(phead) Then pheadPTR = phead.Pointer
-Dim dataPTR As IntPtr = Marshal.AllocHGlobal(0)
+	Dim dataPtr As IntPtr = IntPtr.Zero
+	If TypeOf (data) Is IntPtr Then dataPtr = data
+	If TypeOf (data) Is Byte() Then
+		Dim cdata = CType(data, Byte())
+		dataPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, dataPtr, cdata.Length)
+	End If
+	If Not IsNothing(data.GetType.GetProperty("data")) Then
+		Dim cdata = CType(data.data, Byte())
+		dataPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, dataPtr, cdata.Length)
+	End If
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.listInsertBefore( pheadPTR, elem.Pointer, dataPTR)
-	if pheadPTR <> IntPtr.Zero then phead = new DoubleLinkedList(pheadPTR)
+Marshal.FreeHGlobal(dataPTR)
+
+If pheadPTR = IntPtr.Zero Then phead = Nothing
+If pheadPTR <> IntPtr.Zero Then phead = New DoubleLinkedList(pheadPTR)
 
 	Return _Result
 End Function
@@ -172,7 +216,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/listInsertAfter/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/listInsertAfter/*"/>
 '''  <param name="phead">[in,out][optional] - input head</param>
 '''  <param name="elem">[in] - list element to be inserted after must be NULL if head is NULL</param>
 '''  <param name="data">[in] - void  ptr, to be added</param>
@@ -186,10 +230,24 @@ Public Shared Function listInsertAfter(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 Dim pheadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(phead) Then pheadPTR = phead.Pointer
-Dim dataPTR As IntPtr = Marshal.AllocHGlobal(0)
+	Dim dataPtr As IntPtr = IntPtr.Zero
+	If TypeOf (data) Is IntPtr Then dataPtr = data
+	If TypeOf (data) Is Byte() Then
+		Dim cdata = CType(data, Byte())
+		dataPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, dataPtr, cdata.Length)
+	End If
+	If Not IsNothing(data.GetType.GetProperty("data")) Then
+		Dim cdata = CType(data.data, Byte())
+		dataPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, dataPtr, cdata.Length)
+	End If
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.listInsertAfter( pheadPTR, elem.Pointer, dataPTR)
-	if pheadPTR <> IntPtr.Zero then phead = new DoubleLinkedList(pheadPTR)
+Marshal.FreeHGlobal(dataPTR)
+
+If pheadPTR = IntPtr.Zero Then phead = Nothing
+If pheadPTR <> IntPtr.Zero Then phead = New DoubleLinkedList(pheadPTR)
 
 	Return _Result
 End Function
@@ -207,7 +265,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/listRemoveElement/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/listRemoveElement/*"/>
 '''  <param name="phead">[in,out] - [can be changed] input head</param>
 '''  <param name="elem">[in] - list element to be removed</param>
 '''   <returns>data  void struct on cell</returns>
@@ -220,9 +278,12 @@ Public Shared Function listRemoveElement(
 	Dim pheadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(phead) Then pheadPTR = phead.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.listRemoveElement( pheadPTR, elem.Pointer)
-	if pheadPTR <> IntPtr.Zero then phead = new DoubleLinkedList(pheadPTR)
 
-	Return _Result
+	Dim B(1) As Byte : Marshal.Copy(_Result, B, 0, B.Length)
+If pheadPTR = IntPtr.Zero Then phead = Nothing
+If pheadPTR <> IntPtr.Zero Then phead = New DoubleLinkedList(pheadPTR)
+
+	Return B
 End Function
 
 ' SRC\list.c (566, 1)
@@ -238,7 +299,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/listRemoveFromHead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/listRemoveFromHead/*"/>
 '''  <param name="phead">[in,out] - head of list [to be updated]</param>
 '''   <returns>data  void struct on cell, or NULL on error</returns>
 Public Shared Function listRemoveFromHead(
@@ -247,9 +308,12 @@ Public Shared Function listRemoveFromHead(
 	Dim pheadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(phead) Then pheadPTR = phead.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.listRemoveFromHead( pheadPTR)
-	if pheadPTR <> IntPtr.Zero then phead = new DoubleLinkedList(pheadPTR)
 
-	Return _Result
+	Dim B(1) As Byte : Marshal.Copy(_Result, B, 0, B.Length)
+If pheadPTR = IntPtr.Zero Then phead = Nothing
+If pheadPTR <> IntPtr.Zero Then phead = New DoubleLinkedList(pheadPTR)
+
+	Return B
 End Function
 
 ' SRC\list.c (614, 1)
@@ -274,7 +338,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/listRemoveFromTail/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/listRemoveFromTail/*"/>
 '''  <param name="phead">[in,out] - [may be changed], head must NOT be NULL</param>
 '''  <param name="ptail">[in,out] - [always updated], tail may be NULL</param>
 '''   <returns>data  void struct on cell or NULL on error</returns>
@@ -286,10 +350,14 @@ Public Shared Function listRemoveFromTail(
 	Dim ptailPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ptail) Then ptailPTR = ptail.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.listRemoveFromTail( pheadPTR, ptailPTR)
-	if pheadPTR <> IntPtr.Zero then phead = new DoubleLinkedList(pheadPTR)
-	if ptailPTR <> IntPtr.Zero then ptail = new DoubleLinkedList(ptailPTR)
 
-	Return _Result
+	Dim B(1) As Byte : Marshal.Copy(_Result, B, 0, B.Length)
+If pheadPTR = IntPtr.Zero Then phead = Nothing
+If pheadPTR <> IntPtr.Zero Then phead = New DoubleLinkedList(pheadPTR)
+If ptailPTR = IntPtr.Zero Then ptail = Nothing
+If ptailPTR <> IntPtr.Zero Then ptail = New DoubleLinkedList(ptailPTR)
+
+	Return B
 End Function
 
 ' SRC\list.c (668, 1)
@@ -309,7 +377,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/listFindElement/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/listFindElement/*"/>
 '''  <param name="head">[in] - list head</param>
 '''  <param name="data">[in] - void  address, to be searched for</param>
 '''   <returns>cell  the containing cell, or NULL if not found or on error</returns>
@@ -320,9 +388,22 @@ Public Shared Function listFindElement(
 	If IsNothing (head) then Throw New ArgumentNullException  ("head cannot be Nothing")
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
-Dim dataPTR As IntPtr = Marshal.AllocHGlobal(0)
+	Dim dataPtr As IntPtr = IntPtr.Zero
+	If TypeOf (data) Is IntPtr Then dataPtr = data
+	If TypeOf (data) Is Byte() Then
+		Dim cdata = CType(data, Byte())
+		dataPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, dataPtr, cdata.Length)
+	End If
+	If Not IsNothing(data.GetType.GetProperty("data")) Then
+		Dim cdata = CType(data.data, Byte())
+		dataPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, dataPtr, cdata.Length)
+	End If
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.listFindElement( head.Pointer, dataPTR)
+Marshal.FreeHGlobal(dataPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new DoubleLinkedList(_Result)
@@ -333,7 +414,7 @@ End Function
 ' listFindTail(DLLIST *) as DLLIST *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/listFindTail/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/listFindTail/*"/>
 '''  <param name="head">[in] - </param>
 '''   <returns>tail, or NULL on error</returns>
 Public Shared Function listFindTail(
@@ -342,6 +423,7 @@ Public Shared Function listFindTail(
 	If IsNothing (head) then Throw New ArgumentNullException  ("head cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.listFindTail( head.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new DoubleLinkedList(_Result)
@@ -352,7 +434,7 @@ End Function
 ' listGetCount(DLLIST *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/listGetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/listGetCount/*"/>
 '''  <param name="head">[in] - of list</param>
 '''   <returns>number of elements 0 if no list or on error</returns>
 Public Shared Function listGetCount(
@@ -361,6 +443,7 @@ Public Shared Function listGetCount(
 	If IsNothing (head) then Throw New ArgumentNullException  ("head cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.listGetCount( head.Pointer)
+
 
 	Return _Result
 End Function
@@ -375,7 +458,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/listReverse/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/listReverse/*"/>
 '''  <param name="phead">[in,out] - [may be changed] list head</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function listReverse(
@@ -384,7 +467,9 @@ Public Shared Function listReverse(
 	Dim pheadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(phead) Then pheadPTR = phead.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.listReverse( pheadPTR)
-	if pheadPTR <> IntPtr.Zero then phead = new DoubleLinkedList(pheadPTR)
+
+If pheadPTR = IntPtr.Zero Then phead = Nothing
+If pheadPTR <> IntPtr.Zero Then phead = New DoubleLinkedList(pheadPTR)
 
 	Return _Result
 End Function
@@ -401,7 +486,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/listJoin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/listJoin/*"/>
 '''  <param name="phead1">[in,out] - [may be changed] head of first list</param>
 '''  <param name="phead2">[in,out] - to be nulled head of second list</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -413,8 +498,11 @@ Public Shared Function listJoin(
 	Dim phead2PTR As IntPtr = IntPtr.Zero : If Not IsNothing(phead2) Then phead2PTR = phead2.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.listJoin( phead1PTR, phead2PTR)
-	if phead1PTR <> IntPtr.Zero then phead1 = new DoubleLinkedList(phead1PTR)
-	if phead2PTR <> IntPtr.Zero then phead2 = new DoubleLinkedList(phead2PTR)
+
+If phead1PTR = IntPtr.Zero Then phead1 = Nothing
+If phead1PTR <> IntPtr.Zero Then phead1 = New DoubleLinkedList(phead1PTR)
+If phead2PTR = IntPtr.Zero Then phead2 = Nothing
+If phead2PTR <> IntPtr.Zero Then phead2 = New DoubleLinkedList(phead2PTR)
 
 	Return _Result
 End Function

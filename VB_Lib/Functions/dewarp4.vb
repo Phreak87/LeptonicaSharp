@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\dewarp4.c (97, 1)
 ' dewarpSinglePage(pixs, thresh, adaptive, useboth, check_columns, ppixd, pdewa, debug) as Integer
 ' dewarpSinglePage(PIX *, l_int32, l_int32, l_int32, l_int32, PIX **, L_DEWARPA **, l_int32) as l_ok
@@ -19,7 +18,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpSinglePage/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpSinglePage/*"/>
 '''  <param name="pixs">[in] - with text, any depth</param>
 '''  <param name="thresh">[in] - for global thresholding to 1 bpp ignored otherwise</param>
 '''  <param name="adaptive">[in] - 1 for adaptive thresholding 0 for global threshold</param>
@@ -45,8 +44,11 @@ Public Shared Function dewarpSinglePage(
 Dim pdewaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdewa) Then pdewaPTR = pdewa.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpSinglePage( pixs.Pointer, thresh, adaptive, useboth, check_columns, ppixdPTR, pdewaPTR, debug)
-	if ppixdPTR <> IntPtr.Zero then ppixd = new Pix(ppixdPTR)
-	if pdewaPTR <> IntPtr.Zero then pdewa = new L_Dewarpa(pdewaPTR)
+
+If ppixdPTR = IntPtr.Zero Then ppixd = Nothing
+If ppixdPTR <> IntPtr.Zero Then ppixd = New Pix(ppixdPTR)
+If pdewaPTR = IntPtr.Zero Then pdewa = Nothing
+If pdewaPTR <> IntPtr.Zero Then pdewa = New L_Dewarpa(pdewaPTR)
 
 	Return _Result
 End Function
@@ -73,7 +75,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpSinglePageInit/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpSinglePageInit/*"/>
 '''  <param name="pixs">[in] - with text, any depth</param>
 '''  <param name="thresh">[in] - for global thresholding to 1 bpp ignored otherwise</param>
 '''  <param name="adaptive">[in] - 1 for adaptive thresholding 0 for global threshold</param>
@@ -97,8 +99,11 @@ Public Shared Function dewarpSinglePageInit(
 	Dim pdewaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdewa) Then pdewaPTR = pdewa.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpSinglePageInit( pixs.Pointer, thresh, adaptive, useboth, check_columns, ppixbPTR, pdewaPTR)
-	if ppixbPTR <> IntPtr.Zero then ppixb = new Pix(ppixbPTR)
-	if pdewaPTR <> IntPtr.Zero then pdewa = new L_Dewarpa(pdewaPTR)
+
+If ppixbPTR = IntPtr.Zero Then ppixb = Nothing
+If ppixbPTR <> IntPtr.Zero Then ppixb = New Pix(ppixbPTR)
+If pdewaPTR = IntPtr.Zero Then pdewa = Nothing
+If pdewaPTR <> IntPtr.Zero Then pdewa = New L_Dewarpa(pdewaPTR)
 
 	Return _Result
 End Function
@@ -120,7 +125,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpSinglePageRun/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpSinglePageRun/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="pixb">[in] - 1 bpp</param>
 '''  <param name="dewa">[in] - initialized</param>
@@ -143,7 +148,9 @@ Public Shared Function dewarpSinglePageRun(
 	Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpSinglePageRun( pixs.Pointer, pixb.Pointer, dewa.Pointer, ppixdPTR, debug)
-	if ppixdPTR <> IntPtr.Zero then ppixd = new Pix(ppixdPTR)
+
+If ppixdPTR = IntPtr.Zero Then ppixd = Nothing
+If ppixdPTR <> IntPtr.Zero Then ppixd = New Pix(ppixdPTR)
 
 	Return _Result
 End Function
@@ -164,7 +171,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaListPages/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaListPages/*"/>
 '''  <param name="dewa">[in] - populated with dewarp structs for pages</param>
 '''   <returns>0 if OK, 1 on error list of page numbers, or NULL on error</returns>
 Public Shared Function dewarpaListPages(
@@ -173,6 +180,7 @@ Public Shared Function dewarpaListPages(
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaListPages( dewa.Pointer)
+
 
 	Return _Result
 End Function
@@ -199,7 +207,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaSetValidModels/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaSetValidModels/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="notests">[in] - </param>
 '''  <param name="debug">[in] - 1 to output information on invalid page models</param>
@@ -212,6 +220,7 @@ Public Shared Function dewarpaSetValidModels(
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaSetValidModels( dewa.Pointer, notests, debug)
+
 
 	Return _Result
 End Function
@@ -260,7 +269,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaInsertRefModels/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaInsertRefModels/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="notests">[in] - if 1, ignore curvature constraints on model</param>
 '''  <param name="debug">[in] - 1 to output information on invalid page models</param>
@@ -273,6 +282,7 @@ Public Shared Function dewarpaInsertRefModels(
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaInsertRefModels( dewa.Pointer, notests, debug)
+
 
 	Return _Result
 End Function
@@ -290,7 +300,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaStripRefModels/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaStripRefModels/*"/>
 '''  <param name="dewa">[in] - populated with dewarp structs for pages</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function dewarpaStripRefModels(
@@ -299,6 +309,7 @@ Public Shared Function dewarpaStripRefModels(
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaStripRefModels( dewa.Pointer)
+
 
 	Return _Result
 End Function
@@ -319,7 +330,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaRestoreModels/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaRestoreModels/*"/>
 '''  <param name="dewa">[in] - populated with dewarp structs for pages</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function dewarpaRestoreModels(
@@ -329,6 +340,7 @@ Public Shared Function dewarpaRestoreModels(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaRestoreModels( dewa.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -337,7 +349,7 @@ End Function
 ' dewarpaInfo(FILE *, L_DEWARPA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaInfo/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaInfo/*"/>
 '''  <param name="fp">[in] - </param>
 '''  <param name="dewa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -349,6 +361,7 @@ Public Shared Function dewarpaInfo(
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaInfo( fp.Pointer, dewa.Pointer)
+
 
 	Return _Result
 End Function
@@ -387,7 +400,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaModelStats/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaModelStats/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="pnnone">[out][optional] - number without any model</param>
 '''  <param name="pnvsuccess">[out][optional] - number with a vert model</param>
@@ -409,6 +422,7 @@ Public Shared Function dewarpaModelStats(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaModelStats( dewa.Pointer, pnnone, pnvsuccess, pnvvalid, pnhsuccess, pnhvalid, pnref)
 
+
 	Return _Result
 End Function
 
@@ -424,7 +438,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaShowArrays/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaShowArrays/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="scalefact">[in] - on contour images typ. 0.5</param>
 '''  <param name="first">[in] - first page model to render</param>
@@ -439,6 +453,7 @@ Public Shared Function dewarpaShowArrays(
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaShowArrays( dewa.Pointer, scalefact, first, last)
+
 
 	Return _Result
 End Function
@@ -455,7 +470,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpDebug/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpDebug/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="subdirs">[in] - one or more subdirectories of /tmp e.g., "dew1"</param>
 '''  <param name="index">[in] - to help label output images e.g., the page number</param>
@@ -469,6 +484,7 @@ Public Shared Function dewarpDebug(
 	If IsNothing (subdirs) then Throw New ArgumentNullException  ("subdirs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpDebug( dew.Pointer, subdirs, index)
+
 
 	Return _Result
 End Function
@@ -489,7 +505,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpShowResults/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpShowResults/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="sa">[in] - of indexed input images</param>
 '''  <param name="boxa">[in] - crop boxes for input images can be null</param>
@@ -511,6 +527,7 @@ Public Shared Function dewarpShowResults(
 	If IsNothing (pdfout) then Throw New ArgumentNullException  ("pdfout cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpShowResults( dewa.Pointer, sa.Pointer, boxa.Pointer, firstpage, lastpage, pdfout)
+
 
 	Return _Result
 End Function

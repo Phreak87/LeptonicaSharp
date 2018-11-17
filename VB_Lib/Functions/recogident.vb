@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\recogident.c (158, 1)
 ' recogIdentifyMultiple(recog, pixs, minh, skipsplit, pboxa, ppixa, ppixdb, debugsplit) as Integer
 ' recogIdentifyMultiple(L_RECOG *, PIX *, l_int32, l_int32, BOXA **, PIXA **, PIX **, l_int32) as l_ok
@@ -22,7 +21,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogIdentifyMultiple/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogIdentifyMultiple/*"/>
 '''  <param name="recog">[in] - with training finished</param>
 '''  <param name="pixs">[in] - containing typically a small number of characters</param>
 '''  <param name="minh">[in] - remove shorter components use 0 for default</param>
@@ -50,9 +49,13 @@ Dim ppixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixa) Then ppixaPTR = p
 Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogIdentifyMultiple( recog.Pointer, pixs.Pointer, minh, skipsplit, pboxaPTR, ppixaPTR, ppixdbPTR, debugsplit)
-	if pboxaPTR <> IntPtr.Zero then pboxa = new Boxa(pboxaPTR)
-	if ppixaPTR <> IntPtr.Zero then ppixa = new Pixa(ppixaPTR)
-	if ppixdbPTR <> IntPtr.Zero then ppixdb = new Pix(ppixdbPTR)
+
+If pboxaPTR = IntPtr.Zero Then pboxa = Nothing
+If pboxaPTR <> IntPtr.Zero Then pboxa = New Boxa(pboxaPTR)
+If ppixaPTR = IntPtr.Zero Then ppixa = Nothing
+If ppixaPTR <> IntPtr.Zero Then ppixa = New Pixa(ppixaPTR)
+If ppixdbPTR = IntPtr.Zero Then ppixdb = Nothing
+If ppixdbPTR <> IntPtr.Zero Then ppixdb = New Pix(ppixdbPTR)
 
 	Return _Result
 End Function
@@ -80,7 +83,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogSplitIntoCharacters/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogSplitIntoCharacters/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pixs">[in] - 1 bpp, contains only mostly deskewed text</param>
 '''  <param name="minh">[in] - remove shorter components use 0 for default</param>
@@ -105,8 +108,11 @@ Public Shared Function recogSplitIntoCharacters(
 	Dim ppixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixa) Then ppixaPTR = ppixa.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogSplitIntoCharacters( recog.Pointer, pixs.Pointer, minh, skipsplit, pboxaPTR, ppixaPTR, debug)
-	if pboxaPTR <> IntPtr.Zero then pboxa = new Boxa(pboxaPTR)
-	if ppixaPTR <> IntPtr.Zero then ppixa = new Pixa(ppixaPTR)
+
+If pboxaPTR = IntPtr.Zero Then pboxa = Nothing
+If pboxaPTR <> IntPtr.Zero Then pboxa = New Boxa(pboxaPTR)
+If ppixaPTR = IntPtr.Zero Then ppixa = Nothing
+If ppixaPTR <> IntPtr.Zero Then ppixa = New Pixa(ppixaPTR)
 
 	Return _Result
 End Function
@@ -125,7 +131,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogCorrelationBestRow/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogCorrelationBestRow/*"/>
 '''  <param name="recog">[in] - with LUT's pre-computed</param>
 '''  <param name="pixs">[in] - typically of multiple touching characters, 1 bpp</param>
 '''  <param name="pboxa">[out] - bounding boxs of best fit character</param>
@@ -152,10 +158,15 @@ Dim pnaindexPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaindex) Then pnaind
 Dim psacharPTR As IntPtr = IntPtr.Zero : If Not IsNothing(psachar) Then psacharPTR = psachar.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogCorrelationBestRow( recog.Pointer, pixs.Pointer, pboxaPTR, pnascorePTR, pnaindexPTR, psacharPTR, debug)
-	if pboxaPTR <> IntPtr.Zero then pboxa = new Boxa(pboxaPTR)
-	if pnascorePTR <> IntPtr.Zero then pnascore = new Numa(pnascorePTR)
-	if pnaindexPTR <> IntPtr.Zero then pnaindex = new Numa(pnaindexPTR)
-	if psacharPTR <> IntPtr.Zero then psachar = new Sarray(psacharPTR)
+
+If pboxaPTR = IntPtr.Zero Then pboxa = Nothing
+If pboxaPTR <> IntPtr.Zero Then pboxa = New Boxa(pboxaPTR)
+If pnascorePTR = IntPtr.Zero Then pnascore = Nothing
+If pnascorePTR <> IntPtr.Zero Then pnascore = New Numa(pnascorePTR)
+If pnaindexPTR = IntPtr.Zero Then pnaindex = Nothing
+If pnaindexPTR <> IntPtr.Zero Then pnaindex = New Numa(pnaindexPTR)
+If psacharPTR = IntPtr.Zero Then psachar = Nothing
+If psacharPTR <> IntPtr.Zero Then psachar = New Sarray(psacharPTR)
 
 	Return _Result
 End Function
@@ -176,7 +187,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogCorrelationBestChar/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogCorrelationBestChar/*"/>
 '''  <param name="recog">[in] - with LUT's pre-computed</param>
 '''  <param name="pixs">[in] - can be of multiple touching characters, 1 bpp</param>
 '''  <param name="pbox">[out] - bounding box of best fit character</param>
@@ -202,8 +213,11 @@ Dim pcharstrPTR As IntPtr = pcharstrPTR = Marshal.AllocHGlobal(Marshal.sizeOf(pc
 Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogCorrelationBestChar( recog.Pointer, pixs.Pointer, pboxPTR, pscore, pindex, pcharstrPTR, ppixdbPTR)
-	if pboxPTR <> IntPtr.Zero then pbox = new Box(pboxPTR)
-	if ppixdbPTR <> IntPtr.Zero then ppixdb = new Pix(ppixdbPTR)
+
+If pboxPTR = IntPtr.Zero Then pbox = Nothing
+If pboxPTR <> IntPtr.Zero Then pbox = New Box(pboxPTR)
+If ppixdbPTR = IntPtr.Zero Then ppixdb = Nothing
+If ppixdbPTR <> IntPtr.Zero Then ppixdb = New Pix(ppixdbPTR)
 
 	Return _Result
 End Function
@@ -224,7 +238,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogIdentifyPixa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogIdentifyPixa/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pixa">[in] - of 1 bpp images to match</param>
 '''  <param name="ppixdb">[out][optional] - pix showing inputs and best fits</param>
@@ -240,7 +254,9 @@ Public Shared Function recogIdentifyPixa(
 Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogIdentifyPixa( recog.Pointer, pixa.Pointer, ppixdbPTR)
-	if ppixdbPTR <> IntPtr.Zero then ppixdb = new Pix(ppixdbPTR)
+
+If ppixdbPTR = IntPtr.Zero Then ppixdb = Nothing
+If ppixdbPTR <> IntPtr.Zero Then ppixdb = New Pix(ppixdbPTR)
 
 	Return _Result
 End Function
@@ -271,7 +287,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogIdentifyPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogIdentifyPix/*"/>
 '''  <param name="recog">[in] - with LUT's pre-computed</param>
 '''  <param name="pixs">[in] - of a single character, 1 bpp</param>
 '''  <param name="ppixdb">[out][optional] - debug pix showing input and best fit</param>
@@ -287,7 +303,9 @@ Public Shared Function recogIdentifyPix(
 Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogIdentifyPix( recog.Pointer, pixs.Pointer, ppixdbPTR)
-	if ppixdbPTR <> IntPtr.Zero then ppixdb = new Pix(ppixdbPTR)
+
+If ppixdbPTR = IntPtr.Zero Then ppixdb = Nothing
+If ppixdbPTR <> IntPtr.Zero Then ppixdb = New Pix(ppixdbPTR)
 
 	Return _Result
 End Function
@@ -303,7 +321,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogSkipIdentify/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogSkipIdentify/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function recogSkipIdentify(
@@ -313,6 +331,7 @@ Public Shared Function recogSkipIdentify(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogSkipIdentify( recog.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -321,7 +340,7 @@ End Function
 ' rchaDestroy(L_RCHA **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/rchaDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/rchaDestroy/*"/>
 '''  <param name="prcha">[in,out] - to be nulled</param>
 Public Shared Sub rchaDestroy(
 				 ByRef prcha as L_Rcha)
@@ -329,7 +348,9 @@ Public Shared Sub rchaDestroy(
 	Dim prchaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(prcha) Then prchaPTR = prcha.Pointer
 
 	LeptonicaSharp.Natives.rchaDestroy( prchaPTR)
-	if prchaPTR <> IntPtr.Zero then prcha = new L_Rcha(prchaPTR)
+
+If prchaPTR = IntPtr.Zero Then prcha = Nothing
+If prchaPTR <> IntPtr.Zero Then prcha = New L_Rcha(prchaPTR)
 
 End Sub
 
@@ -338,7 +359,7 @@ End Sub
 ' rchDestroy(L_RCH **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/rchDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/rchDestroy/*"/>
 '''  <param name="prch">[in,out] - to be nulled</param>
 Public Shared Sub rchDestroy(
 				 ByRef prch as L_Rch)
@@ -346,7 +367,9 @@ Public Shared Sub rchDestroy(
 	Dim prchPTR As IntPtr = IntPtr.Zero : If Not IsNothing(prch) Then prchPTR = prch.Pointer
 
 	LeptonicaSharp.Natives.rchDestroy( prchPTR)
-	if prchPTR <> IntPtr.Zero then prch = new L_Rch(prchPTR)
+
+If prchPTR = IntPtr.Zero Then prch = Nothing
+If prchPTR <> IntPtr.Zero Then prch = New L_Rch(prchPTR)
 
 End Sub
 
@@ -361,7 +384,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/rchaExtract/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/rchaExtract/*"/>
 '''  <param name="rcha">[in] - </param>
 '''  <param name="pnaindex">[out][optional] - indices of best templates</param>
 '''  <param name="pnascore">[out][optional] - correl scores of best templates</param>
@@ -392,13 +415,21 @@ Dim pnaylocPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnayloc) Then pnaylocP
 Dim pnawidthPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnawidth) Then pnawidthPTR = pnawidth.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.rchaExtract( rcha.Pointer, pnaindexPTR, pnascorePTR, psatextPTR, pnasamplePTR, pnaxlocPTR, pnaylocPTR, pnawidthPTR)
-	if pnaindexPTR <> IntPtr.Zero then pnaindex = new Numa(pnaindexPTR)
-	if pnascorePTR <> IntPtr.Zero then pnascore = new Numa(pnascorePTR)
-	if psatextPTR <> IntPtr.Zero then psatext = new Sarray(psatextPTR)
-	if pnasamplePTR <> IntPtr.Zero then pnasample = new Numa(pnasamplePTR)
-	if pnaxlocPTR <> IntPtr.Zero then pnaxloc = new Numa(pnaxlocPTR)
-	if pnaylocPTR <> IntPtr.Zero then pnayloc = new Numa(pnaylocPTR)
-	if pnawidthPTR <> IntPtr.Zero then pnawidth = new Numa(pnawidthPTR)
+
+If pnaindexPTR = IntPtr.Zero Then pnaindex = Nothing
+If pnaindexPTR <> IntPtr.Zero Then pnaindex = New Numa(pnaindexPTR)
+If pnascorePTR = IntPtr.Zero Then pnascore = Nothing
+If pnascorePTR <> IntPtr.Zero Then pnascore = New Numa(pnascorePTR)
+If psatextPTR = IntPtr.Zero Then psatext = Nothing
+If psatextPTR <> IntPtr.Zero Then psatext = New Sarray(psatextPTR)
+If pnasamplePTR = IntPtr.Zero Then pnasample = Nothing
+If pnasamplePTR <> IntPtr.Zero Then pnasample = New Numa(pnasamplePTR)
+If pnaxlocPTR = IntPtr.Zero Then pnaxloc = Nothing
+If pnaxlocPTR <> IntPtr.Zero Then pnaxloc = New Numa(pnaxlocPTR)
+If pnaylocPTR = IntPtr.Zero Then pnayloc = Nothing
+If pnaylocPTR <> IntPtr.Zero Then pnayloc = New Numa(pnaylocPTR)
+If pnawidthPTR = IntPtr.Zero Then pnawidth = Nothing
+If pnawidthPTR <> IntPtr.Zero Then pnawidth = New Numa(pnawidthPTR)
 
 	Return _Result
 End Function
@@ -408,7 +439,7 @@ End Function
 ' rchExtract(L_RCH *, l_int32 *, l_float32 *, char **, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/rchExtract/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/rchExtract/*"/>
 '''  <param name="rch">[in] - </param>
 '''  <param name="pindex">[out][optional] - index of best template</param>
 '''  <param name="pscore">[out][optional] - correlation score of best template</param>
@@ -434,6 +465,7 @@ Dim ptextPTR As IntPtr = ptextPTR = Marshal.AllocHGlobal(Marshal.sizeOf(ptext.to
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.rchExtract( rch.Pointer, pindex, pscore, ptextPTR, psample, pxloc, pyloc, pwidth)
 
+
 	Return _Result
 End Function
 
@@ -449,7 +481,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogProcessToIdentify/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogProcessToIdentify/*"/>
 '''  <param name="recog">[in] - with LUT's pre-computed</param>
 '''  <param name="pixs">[in] - typ. single character, possibly d  is greater  1 and uncropped</param>
 '''  <param name="pad">[in] - extra pixels added to left and right sides</param>
@@ -463,6 +495,7 @@ Public Shared Function recogProcessToIdentify(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogProcessToIdentify( recog.Pointer, pixs.Pointer, pad)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -500,7 +533,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogExtractNumbers/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogExtractNumbers/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="boxas">[in] - location of components</param>
 '''  <param name="scorethresh">[in] - min score for which we accept a component</param>
@@ -523,9 +556,12 @@ Dim pbaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbaa) Then pbaaPTR = pbaa
 Dim pnaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaa) Then pnaaPTR = pnaa.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogExtractNumbers( recog.Pointer, boxas.Pointer, scorethresh, spacethresh, pbaaPTR, pnaaPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if pbaaPTR <> IntPtr.Zero then pbaa = new Boxaa(pbaaPTR)
-	if pnaaPTR <> IntPtr.Zero then pnaa = new Numaa(pnaaPTR)
+If pbaaPTR = IntPtr.Zero Then pbaa = Nothing
+If pbaaPTR <> IntPtr.Zero Then pbaa = New Boxaa(pbaaPTR)
+If pnaaPTR = IntPtr.Zero Then pnaa = Nothing
+If pnaaPTR <> IntPtr.Zero Then pnaa = New Numaa(pnaaPTR)
 
 	Return  new Sarray(_Result)
 End Function
@@ -543,7 +579,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/showExtractNumbers/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/showExtractNumbers/*"/>
 '''  <param name="pixs">[in] - input 1 bpp image</param>
 '''  <param name="sa">[in] - recognized text strings</param>
 '''  <param name="baa">[in] - boxa array for location of characters in each string</param>
@@ -565,8 +601,10 @@ Public Shared Function showExtractNumbers(
 Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.showExtractNumbers( pixs.Pointer, sa.Pointer, baa.Pointer, naa.Pointer, ppixdbPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if ppixdbPTR <> IntPtr.Zero then ppixdb = new Pix(ppixdbPTR)
+If ppixdbPTR = IntPtr.Zero Then ppixdb = Nothing
+If ppixdbPTR <> IntPtr.Zero Then ppixdb = New Pix(ppixdbPTR)
 
 	Return  new Pixa(_Result)
 End Function

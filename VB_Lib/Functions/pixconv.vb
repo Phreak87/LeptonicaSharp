@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\pixconv.c (204, 1)
 ' pixThreshold8(pixs, d, nlevels, cmapflag) as Pix
 ' pixThreshold8(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -33,7 +32,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixThreshold8/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixThreshold8/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''  <param name="d">[in] - destination depth: 1, 2, 4 or 8</param>
 '''  <param name="nlevels">[in] - number of levels to be used for colormap</param>
@@ -50,6 +49,7 @@ Public Shared Function pixThreshold8(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixThreshold8( pixs.Pointer, d, nlevels, cmapflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -68,7 +68,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRemoveColormapGeneral/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRemoveColormapGeneral/*"/>
 '''  <param name="pixs">[in] - any depth, with or without colormap</param>
 '''  <param name="type">[in] - REMOVE_CMAP_TO_BINARY, REMOVE_CMAP_TO_GRAYSCALE, REMOVE_CMAP_TO_FULL_COLOR, REMOVE_CMAP_WITH_ALPHA, REMOVE_CMAP_BASED_ON_SRC</param>
 '''  <param name="ifnocmap">[in] - L_CLONE, L_COPY</param>
@@ -81,6 +81,7 @@ Public Shared Function pixRemoveColormapGeneral(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRemoveColormapGeneral( pixs.Pointer, type, ifnocmap)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -113,7 +114,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRemoveColormap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRemoveColormap/*"/>
 '''  <param name="pixs">[in] - see restrictions below</param>
 '''  <param name="type">[in] - REMOVE_CMAP_TO_BINARY, REMOVE_CMAP_TO_GRAYSCALE, REMOVE_CMAP_TO_FULL_COLOR, REMOVE_CMAP_WITH_ALPHA, REMOVE_CMAP_BASED_ON_SRC</param>
 '''   <returns>pixd without colormap, or NULL on error</returns>
@@ -124,6 +125,7 @@ Public Shared Function pixRemoveColormap(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRemoveColormap( pixs.Pointer, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -139,7 +141,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAddGrayColormap8/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAddGrayColormap8/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixAddGrayColormap8(
@@ -150,6 +152,7 @@ Public Shared Function pixAddGrayColormap8(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixAddGrayColormap8( pixs.Pointer)
+
 
 	Return _Result
 End Function
@@ -166,7 +169,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAddMinimalGrayColormap8/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAddMinimalGrayColormap8/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixAddMinimalGrayColormap8(
@@ -177,6 +180,7 @@ Public Shared Function pixAddMinimalGrayColormap8(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAddMinimalGrayColormap8( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -192,7 +196,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToLuminance/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToLuminance/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''   <returns>8 bpp pix, or NULL on error</returns>
 Public Shared Function pixConvertRGBToLuminance(
@@ -203,6 +207,7 @@ Public Shared Function pixConvertRGBToLuminance(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp RGB")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToLuminance( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -218,7 +223,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToGray/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''  <param name="rwt">[in] - non-negative these should add to 1.0, or use 0.0 for default</param>
 '''  <param name="gwt">[in] - non-negative these should add to 1.0, or use 0.0 for default</param>
@@ -235,6 +240,7 @@ Public Shared Function pixConvertRGBToGray(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp RGB")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToGray( pixs.Pointer, rwt, gwt, bwt)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -256,7 +262,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToGrayFast/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToGrayFast/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''   <returns>8 bpp pix, or NULL on error</returns>
 Public Shared Function pixConvertRGBToGrayFast(
@@ -267,6 +273,7 @@ Public Shared Function pixConvertRGBToGrayFast(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp RGB")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToGrayFast( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -289,7 +296,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToGrayMinMax/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToGrayMinMax/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''  <param name="type">[in] - L_CHOOSE_MIN, L_CHOOSE_MAX, L_CHOOSE_MAXDIFF, L_CHOOSE_MIN_BOOST, L_CHOOSE_MAX_BOOST</param>
 '''   <returns>8 bpp pix, or NULL on error</returns>
@@ -302,6 +309,7 @@ Public Shared Function pixConvertRGBToGrayMinMax(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp RGB")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToGrayMinMax( pixs.Pointer, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -337,7 +345,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToGraySatBoost/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToGraySatBoost/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="refval">[in] - between 1 and 255 typ. less than 128</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
@@ -350,6 +358,7 @@ Public Shared Function pixConvertRGBToGraySatBoost(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToGraySatBoost( pixs.Pointer, refval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -369,7 +378,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToGrayArb/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToGrayArb/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''  <param name="rc">[in] - arithmetic factors can be negative</param>
 '''  <param name="gc">[in] - arithmetic factors can be negative</param>
@@ -386,6 +395,7 @@ Public Shared Function pixConvertRGBToGrayArb(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp RGB")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToGrayArb( pixs.Pointer, rc, gc, bc)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -404,7 +414,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToBinaryArb/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToBinaryArb/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB</param>
 '''  <param name="rc">[in] - arithmetic factors can be negative</param>
 '''  <param name="gc">[in] - arithmetic factors can be negative</param>
@@ -425,6 +435,7 @@ Public Shared Function pixConvertRGBToBinaryArb(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp RGB")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToBinaryArb( pixs.Pointer, rc, gc, bc, thresh, relation)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -455,7 +466,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertGrayToColormap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertGrayToColormap/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp grayscale</param>
 '''   <returns>pixd 2, 4 or 8 bpp with colormap, or NULL on error</returns>
 Public Shared Function pixConvertGrayToColormap(
@@ -466,6 +477,7 @@ Public Shared Function pixConvertGrayToColormap(
 	If {2,4,8}.contains (pixs.d) = false then Throw New ArgumentException ("2, 4 or 8 bpp grayscale")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertGrayToColormap( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -493,7 +505,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertGrayToColormap8/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertGrayToColormap8/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''  <param name="mindepth">[in] - of pixd valid values are 2, 4 and 8</param>
 '''   <returns>pixd 2, 4 or 8 bpp with colormap, or NULL on error</returns>
@@ -506,6 +518,7 @@ Public Shared Function pixConvertGrayToColormap8(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertGrayToColormap8( pixs.Pointer, mindepth)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -524,7 +537,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixColorizeGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixColorizeGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray 2, 4 or 8 bpp colormapped</param>
 '''  <param name="color">[in] - 32 bit rgba pixel</param>
 '''  <param name="cmapflag">[in] - 1 for result to have colormap 0 for RGB</param>
@@ -537,6 +550,7 @@ Public Shared Function pixColorizeGray(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixColorizeGray( pixs.Pointer, color, cmapflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -573,7 +587,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToColormap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToColormap/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="ditherflag">[in] - 1 to dither, 0 otherwise</param>
 '''   <returns>pixd 2, 4 or 8 bpp with colormap, or NULL on error</returns>
@@ -586,6 +600,7 @@ Public Shared Function pixConvertRGBToColormap(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToColormap( pixs.Pointer, ditherflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -606,7 +621,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertCmapTo1/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertCmapTo1/*"/>
 '''  <param name="pixs">[in] - cmapped</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
 Public Shared Function pixConvertCmapTo1(
@@ -615,6 +630,7 @@ Public Shared Function pixConvertCmapTo1(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertCmapTo1( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -644,7 +660,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixQuantizeIfFewColors/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixQuantizeIfFewColors/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="maxcolors">[in] - max number of colors allowed to be returned from pixColorsForQuantization() use 0 for default</param>
 '''  <param name="mingraycolors">[in] - min number of gray levels that a grayscale image is quantized to use 0 for default</param>
@@ -663,7 +679,9 @@ Public Shared Function pixQuantizeIfFewColors(
 	Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixQuantizeIfFewColors( pixs.Pointer, maxcolors, mingraycolors, octlevel, ppixdPTR)
-	if ppixdPTR <> IntPtr.Zero then ppixd = new Pix(ppixdPTR)
+
+If ppixdPTR = IntPtr.Zero Then ppixd = Nothing
+If ppixdPTR <> IntPtr.Zero Then ppixd = New Pix(ppixdPTR)
 
 	Return _Result
 End Function
@@ -682,7 +700,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvert16To8/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvert16To8/*"/>
 '''  <param name="pixs">[in] - 16 bpp</param>
 '''  <param name="type">[in] - L_LS_BYTE, L_MS_BYTE, L_AUTO_BYTE, L_CLIP_TO_FF</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
@@ -695,6 +713,7 @@ Public Shared Function pixConvert16To8(
 	If {16}.contains (pixs.d) = false then Throw New ArgumentException ("16 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert16To8( pixs.Pointer, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -715,7 +734,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertGrayToFalseColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertGrayToFalseColor/*"/>
 '''  <param name="pixs">[in] - 8 or 16 bpp grayscale</param>
 '''  <param name="gamma">[in] - (factor) 0.0 or 1.0 for default  is greater  1.0 for brighter 2.0 is quite nice</param>
 '''   <returns>pixd 8 bpp with colormap, or NULL on error</returns>
@@ -728,6 +747,7 @@ Public Shared Function pixConvertGrayToFalseColor(
 	If {8,16}.contains (pixs.d) = false then Throw New ArgumentException ("8 or 16 bpp grayscale")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertGrayToFalseColor( pixs.Pointer, gamma)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -744,7 +764,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixUnpackBinary/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixUnpackBinary/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="depth">[in] - of destination: 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="invert">[in] - 0:  binary 0 to grayscale 0 binary 1 to grayscale 0xff... 1:  binary 0 to grayscale 0xff... binary 1 to grayscale 0</param>
@@ -759,6 +779,7 @@ Public Shared Function pixUnpackBinary(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixUnpackBinary( pixs.Pointer, depth, invert)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -777,7 +798,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To16/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvert1To16/*"/>
 '''  <param name="pixd">[in][optional] - 16 bpp, can be null</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="val0">[in] - 16 bit value to be used for 0s in pixs</param>
@@ -798,6 +819,7 @@ Public Shared Function pixConvert1To16(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert1To16( pixdPTR, pixs.Pointer, val0, val1)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -816,7 +838,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To32/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvert1To32/*"/>
 '''  <param name="pixd">[in][optional] - 32 bpp, can be null</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="val0">[in] - 32 bit value to be used for 0s in pixs</param>
@@ -835,6 +857,7 @@ Public Shared Function pixConvert1To32(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert1To32( pixdPTR, pixs.Pointer, val0, val1)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -850,7 +873,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To2Cmap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvert1To2Cmap/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 2 bpp, cmapped</returns>
 Public Shared Function pixConvert1To2Cmap(
@@ -861,6 +884,7 @@ Public Shared Function pixConvert1To2Cmap(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert1To2Cmap( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -883,7 +907,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To2/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvert1To2/*"/>
 '''  <param name="pixd">[in][optional] - 2 bpp, can be null</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="val0">[in] - 2 bit value to be used for 0s in pixs</param>
@@ -902,6 +926,7 @@ Public Shared Function pixConvert1To2(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert1To2( pixdPTR, pixs.Pointer, val0, val1)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -917,7 +942,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To4Cmap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvert1To4Cmap/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 4 bpp, cmapped</returns>
 Public Shared Function pixConvert1To4Cmap(
@@ -928,6 +953,7 @@ Public Shared Function pixConvert1To4Cmap(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert1To4Cmap( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -950,7 +976,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To4/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvert1To4/*"/>
 '''  <param name="pixd">[in][optional] - 4 bpp, can be null</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="val0">[in] - 4 bit value to be used for 0s in pixs</param>
@@ -970,6 +996,7 @@ Public Shared Function pixConvert1To4(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert1To4( pixdPTR, pixs.Pointer, val0, val1)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -985,7 +1012,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To8Cmap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvert1To8Cmap/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 8 bpp, cmapped</returns>
 Public Shared Function pixConvert1To8Cmap(
@@ -996,6 +1023,7 @@ Public Shared Function pixConvert1To8Cmap(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert1To8Cmap( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1019,7 +1047,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvert1To8/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvert1To8/*"/>
 '''  <param name="pixd">[in][optional] - 8 bpp, can be null</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="val0">[in] - 8 bit value to be used for 0s in pixs</param>
@@ -1040,6 +1068,7 @@ Public Shared Function pixConvert1To8(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert1To8( pixdPTR, pixs.Pointer, val0, val1)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1068,7 +1097,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvert2To8/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvert2To8/*"/>
 '''  <param name="pixs">[in] - 2 bpp</param>
 '''  <param name="val0">[in] - 8 bit value to be used for 00 in pixs</param>
 '''  <param name="val1">[in] - 8 bit value to be used for 01 in pixs</param>
@@ -1091,6 +1120,7 @@ Public Shared Function pixConvert2To8(
 	If IsNothing (val3) then Throw New ArgumentNullException  ("val3 cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert2To8( pixs.Pointer, val0, val1, val2, val3, cmapflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1117,7 +1147,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvert4To8/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvert4To8/*"/>
 '''  <param name="pixs">[in] - 4 bpp</param>
 '''  <param name="cmapflag">[in] - TRUE if pixd is to have a colormap FALSE otherwise</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
@@ -1130,6 +1160,7 @@ Public Shared Function pixConvert4To8(
 	If {4}.contains (pixs.d) = false then Throw New ArgumentException ("4 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert4To8( pixs.Pointer, cmapflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1148,7 +1179,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvert8To16/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvert8To16/*"/>
 '''  <param name="pixs">[in] - 8 bpp colormap removed to gray</param>
 '''  <param name="leftshift">[in] - number of bits: 0 is no shift 8 replicates in MSB and LSB of dest</param>
 '''   <returns>pixd 16 bpp, or NULL on error</returns>
@@ -1159,6 +1190,7 @@ Public Shared Function pixConvert8To16(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert8To16( pixs.Pointer, leftshift)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1180,7 +1212,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo2/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertTo2/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp colormap OK but will be removed</param>
 '''   <returns>pixd   2 bpp, or NULL on error</returns>
 Public Shared Function pixConvertTo2(
@@ -1191,6 +1223,7 @@ Public Shared Function pixConvertTo2(
 	If {1,2,4,8,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 32 bpp colormap OK but will be removed")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo2( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1206,7 +1239,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvert8To2/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvert8To2/*"/>
 '''  <param name="pix">[in] - 8 bpp colormap OK</param>
 '''   <returns>pixd  2 bpp, or NULL on error</returns>
 Public Shared Function pixConvert8To2(
@@ -1217,6 +1250,7 @@ Public Shared Function pixConvert8To2(
 	If {8}.contains (pix.d) = false then Throw New ArgumentException ("8 bpp colormap OK")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert8To2( pix.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1238,7 +1272,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo4/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertTo4/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp colormap OK but will be removed</param>
 '''   <returns>pixd   4 bpp, or NULL on error</returns>
 Public Shared Function pixConvertTo4(
@@ -1249,6 +1283,7 @@ Public Shared Function pixConvertTo4(
 	If {1,2,4,8,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 32 bpp colormap OK but will be removed")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo4( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1264,7 +1299,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvert8To4/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvert8To4/*"/>
 '''  <param name="pix">[in] - 8 bpp colormap OK</param>
 '''   <returns>pixd  4 bpp, or NULL on error</returns>
 Public Shared Function pixConvert8To4(
@@ -1275,6 +1310,7 @@ Public Shared Function pixConvert8To4(
 	If {8}.contains (pix.d) = false then Throw New ArgumentException ("8 bpp colormap OK")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert8To4( pix.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1296,7 +1332,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo1/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertTo1/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="threshold">[in] - for final binarization, relative to 8 bpp</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
@@ -1309,6 +1345,7 @@ Public Shared Function pixConvertTo1(
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo1( pixs.Pointer, threshold)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1326,7 +1363,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo1BySampling/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertTo1BySampling/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="factor">[in] - submsampling factor integer greater or equal 1</param>
 '''  <param name="threshold">[in] - for final binarization, relative to 8 bpp</param>
@@ -1341,6 +1378,7 @@ Public Shared Function pixConvertTo1BySampling(
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo1BySampling( pixs.Pointer, factor, threshold)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1372,7 +1410,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo8/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertTo8/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="cmapflag">[in] - TRUE if pixd is to have a colormap FALSE otherwise</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
@@ -1385,6 +1423,7 @@ Public Shared Function pixConvertTo8(
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo8( pixs.Pointer, cmapflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1402,7 +1441,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo8BySampling/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertTo8BySampling/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="factor">[in] - submsampling factor integer greater or equal 1</param>
 '''  <param name="cmapflag">[in] - TRUE if pixd is to have a colormap FALSE otherwise</param>
@@ -1417,6 +1456,7 @@ Public Shared Function pixConvertTo8BySampling(
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo8BySampling( pixs.Pointer, factor, cmapflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1445,7 +1485,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo8Colormap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertTo8Colormap/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="dither">[in] - 1 to dither if necessary 0 otherwise</param>
 '''   <returns>pixd 8 bpp, cmapped, or NULL on error</returns>
@@ -1458,6 +1498,7 @@ Public Shared Function pixConvertTo8Colormap(
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo8Colormap( pixs.Pointer, dither)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1468,7 +1509,7 @@ End Function
 ' pixConvertTo16(PIX *) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo16/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertTo16/*"/>
 '''  <param name="pixs">[in] - 1, 8 bpp</param>
 '''   <returns>pixd 16 bpp, or NULL on error Usage: Top-level function, with simple default values for unpacking. 1 bpp:  val0 = 0xffff, val1 = 0 8 bpp:  replicates the 8 bit value in both the MSB and LSB of the 16 bit pixel.</returns>
 Public Shared Function pixConvertTo16(
@@ -1479,6 +1520,7 @@ Public Shared Function pixConvertTo16(
 	If {1,8}.contains (pixs.d) = false then Throw New ArgumentException ("1, 8 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo16( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1494,7 +1536,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo32/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertTo32/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''   <returns>pixd 32 bpp, or NULL on error Usage: Top-level function, with simple default values for unpacking. 1 bpp:  val0 = 255, val1 = 0 and then replication into R, G and B components 2 bpp:  if colormapped, use the colormap values otherwise, use val0 = 0, val1 = 0x55, val2 = 0xaa, val3 = 255 and replicate gray into R, G and B components 4 bpp:  if colormapped, use the colormap values otherwise, replicate 2 nybs into a byte, and then into R,G,B components 8 bpp:  if colormapped, use the colormap values otherwise, replicate gray values into R, G and B components 16 bpp: replicate MSB into R, G and B components 24 bpp: unpack the pixels, maintaining word alignment on each scanline 32 bpp: makes a copy</returns>
 Public Shared Function pixConvertTo32(
@@ -1505,6 +1547,7 @@ Public Shared Function pixConvertTo32(
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo32( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1522,7 +1565,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo32BySampling/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertTo32BySampling/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="factor">[in] - submsampling factor integer greater or equal 1</param>
 '''   <returns>pixd 32 bpp, or NULL on error</returns>
@@ -1535,6 +1578,7 @@ Public Shared Function pixConvertTo32BySampling(
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo32BySampling( pixs.Pointer, factor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1551,7 +1595,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvert8To32/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvert8To32/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''   <returns>32 bpp rgb pix, or NULL on error</returns>
 Public Shared Function pixConvert8To32(
@@ -1562,6 +1606,7 @@ Public Shared Function pixConvert8To32(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert8To32( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1584,7 +1629,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo8Or32/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertTo8Or32/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, with or without colormap or 32 bpp rgb</param>
 '''  <param name="copyflag">[in] - L_CLONE or L_COPY</param>
 '''  <param name="warnflag">[in] - 1 to issue warning if colormap is removed else 0</param>
@@ -1599,6 +1644,7 @@ Public Shared Function pixConvertTo8Or32(
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16, with or without colormap or 32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertTo8Or32( pixs.Pointer, copyflag, warnflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1625,7 +1671,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvert24To32/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvert24To32/*"/>
 '''  <param name="pixs">[in] - 24 bpp rgb</param>
 '''   <returns>pixd 32 bpp rgb, or NULL on error</returns>
 Public Shared Function pixConvert24To32(
@@ -1636,6 +1682,7 @@ Public Shared Function pixConvert24To32(
 	If {24}.contains (pixs.d) = false then Throw New ArgumentException ("24 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert24To32( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1651,7 +1698,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvert32To24/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvert32To24/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''   <returns>pixd 24 bpp rgb, or NULL on error</returns>
 Public Shared Function pixConvert32To24(
@@ -1662,6 +1709,7 @@ Public Shared Function pixConvert32To24(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert32To24( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1678,7 +1726,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvert32To16/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvert32To16/*"/>
 '''  <param name="pixs">[in] - 32 bpp, single component</param>
 '''  <param name="type">[in] - L_LS_TWO_BYTES, L_MS_TWO_BYTES, L_CLIP_TO_FFFF</param>
 '''   <returns>pixd 16 bpp , or NULL on error</returns>
@@ -1691,6 +1739,7 @@ Public Shared Function pixConvert32To16(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp, single component")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert32To16( pixs.Pointer, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1701,7 +1750,7 @@ End Function
 ' pixConvert32To8(PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvert32To8/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvert32To8/*"/>
 '''  <param name="pixs">[in] - 32 bpp, single component</param>
 '''  <param name="type16">[in] - L_LS_TWO_BYTES, L_MS_TWO_BYTES, L_CLIP_TO_FFFF</param>
 '''  <param name="type8">[in] - L_LS_BYTE, L_MS_BYTE, L_CLIP_TO_FF</param>
@@ -1716,6 +1765,7 @@ Public Shared Function pixConvert32To8(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp, single component")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvert32To8( pixs.Pointer, type16, type8)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1731,7 +1781,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRemoveAlpha/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRemoveAlpha/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''   <returns>pixd        if 32 bpp rgba, pixs blended over a white background a clone of pixs otherwise, and NULL on error</returns>
 Public Shared Function pixRemoveAlpha(
@@ -1740,6 +1790,7 @@ Public Shared Function pixRemoveAlpha(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRemoveAlpha( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1762,7 +1813,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAddAlphaTo1bpp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAddAlphaTo1bpp/*"/>
 '''  <param name="pixd">[in][optional] - 1 bpp, can be null or equal to pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 1 bpp with colormap and non-opaque alpha, or NULL on error</returns>
@@ -1777,6 +1828,7 @@ Public Shared Function pixAddAlphaTo1bpp(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAddAlphaTo1bpp( pixdPTR, pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1798,7 +1850,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertLossless/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertLossless/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8 bpp, not cmapped</param>
 '''  <param name="d">[in] - destination depth: 2, 4 or 8</param>
 '''   <returns>pixd 2, 4 or 8 bpp, or NULL on error</returns>
@@ -1811,6 +1863,7 @@ Public Shared Function pixConvertLossless(
 	If {1,2,4,8}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8 bpp, not cmapped")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertLossless( pixs.Pointer, d)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1834,7 +1887,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertForPSWrap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertForPSWrap/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 '''   <returns>pixd    1, 8, or 32 bpp, or NULL on error</returns>
 Public Shared Function pixConvertForPSWrap(
@@ -1845,6 +1898,7 @@ Public Shared Function pixConvertForPSWrap(
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16, 32 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertForPSWrap( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1874,7 +1928,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertToSubpixelRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertToSubpixelRGB/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale, 32 bpp rgb, or colormapped</param>
 '''  <param name="scalex">[in] - anisotropic scaling permitted between source and destination</param>
 '''  <param name="scaley">[in] - anisotropic scaling permitted between source and destination</param>
@@ -1891,6 +1945,7 @@ Public Shared Function pixConvertToSubpixelRGB(
 	If {8,16}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale, 32 bpp rgb, or colormapped")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertToSubpixelRGB( pixs.Pointer, scalex, scaley, order)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1921,7 +1976,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertGrayToSubpixelRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertGrayToSubpixelRGB/*"/>
 '''  <param name="pixs">[in] - 8 bpp or colormapped</param>
 '''  <param name="scalex">[in] - </param>
 '''  <param name="scaley">[in] - </param>
@@ -1936,6 +1991,7 @@ Public Shared Function pixConvertGrayToSubpixelRGB(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertGrayToSubpixelRGB( pixs.Pointer, scalex, scaley, order)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1963,7 +2019,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertColorToSubpixelRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertColorToSubpixelRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp or colormapped</param>
 '''  <param name="scalex">[in] - </param>
 '''  <param name="scaley">[in] - </param>
@@ -1980,6 +2036,7 @@ Public Shared Function pixConvertColorToSubpixelRGB(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp or colormapped")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertColorToSubpixelRGB( pixs.Pointer, scalex, scaley, order)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1996,12 +2053,13 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_setNeutralBoostVal/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_setNeutralBoostVal/*"/>
 '''  <param name="val">[in] - between 1 and 255 typical value is 180</param>
 Public Shared Sub l_setNeutralBoostVal(
 				 ByVal val as Integer)
 
 	LeptonicaSharp.Natives.l_setNeutralBoostVal( val)
+
 
 End Sub
 

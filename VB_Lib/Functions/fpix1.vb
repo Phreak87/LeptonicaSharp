@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\fpix1.c (149, 1)
 ' fpixCreate(width, height) as FPix
 ' fpixCreate(l_int32, l_int32) as FPIX *
@@ -16,7 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixCreate/*"/>
 '''  <param name="width">[in] - </param>
 '''  <param name="height">[in] - </param>
 '''   <returns>fpixd   with data allocated and initialized to 0, or NULL on error</returns>
@@ -25,6 +24,7 @@ Public Shared Function fpixCreate(
 				 ByVal height as Integer) as FPix
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixCreate( width, height)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FPix(_Result)
@@ -43,7 +43,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixCreateTemplate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixCreateTemplate/*"/>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>fpixd, or NULL on error</returns>
 Public Shared Function fpixCreateTemplate(
@@ -52,6 +52,7 @@ Public Shared Function fpixCreateTemplate(
 	If IsNothing (fpixs) then Throw New ArgumentNullException  ("fpixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixCreateTemplate( fpixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FPix(_Result)
@@ -67,7 +68,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixClone/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixClone/*"/>
 '''  <param name="fpix">[in] - </param>
 '''   <returns>same fpix ptr, or NULL on error</returns>
 Public Shared Function fpixClone(
@@ -76,6 +77,7 @@ Public Shared Function fpixClone(
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixClone( fpix.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FPix(_Result)
@@ -111,7 +113,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixCopy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixCopy/*"/>
 '''  <param name="fpixd">[in][optional] - can be null, or equal to fpixs, or different from fpixs</param>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>fpixd, or NULL on error</returns>
@@ -124,6 +126,7 @@ Public Shared Function fpixCopy(
 	Dim fpixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fpixd) Then fpixdPTR = fpixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixCopy( fpixdPTR, fpixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FPix(_Result)
@@ -142,7 +145,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixResizeImageData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixResizeImageData/*"/>
 '''  <param name="fpixd">[in] - </param>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -154,6 +157,7 @@ Public Shared Function fpixResizeImageData(
 	If IsNothing (fpixs) then Throw New ArgumentNullException  ("fpixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixResizeImageData( fpixd.Pointer, fpixs.Pointer)
+
 
 	Return _Result
 End Function
@@ -170,7 +174,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixDestroy/*"/>
 '''  <param name="pfpix">[in,out] - will be nulled</param>
 Public Shared Sub fpixDestroy(
 				 ByRef pfpix as FPix)
@@ -178,7 +182,9 @@ Public Shared Sub fpixDestroy(
 	Dim pfpixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pfpix) Then pfpixPTR = pfpix.Pointer
 
 	LeptonicaSharp.Natives.fpixDestroy( pfpixPTR)
-	if pfpixPTR <> IntPtr.Zero then pfpix = new FPix(pfpixPTR)
+
+If pfpixPTR = IntPtr.Zero Then pfpix = Nothing
+If pfpixPTR <> IntPtr.Zero Then pfpix = New FPix(pfpixPTR)
 
 End Sub
 
@@ -187,7 +193,7 @@ End Sub
 ' fpixGetDimensions(FPIX *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixGetDimensions/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixGetDimensions/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="pw">[out][optional] - each can be null</param>
 '''  <param name="ph">[out][optional] - each can be null</param>
@@ -201,6 +207,7 @@ Public Shared Function fpixGetDimensions(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixGetDimensions( fpix.Pointer, pw, ph)
 
+
 	Return _Result
 End Function
 
@@ -209,7 +216,7 @@ End Function
 ' fpixSetDimensions(FPIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixSetDimensions/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixSetDimensions/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="w">[in] - </param>
 '''  <param name="h">[in] - </param>
@@ -223,6 +230,7 @@ Public Shared Function fpixSetDimensions(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixSetDimensions( fpix.Pointer, w, h)
 
+
 	Return _Result
 End Function
 
@@ -231,7 +239,7 @@ End Function
 ' fpixGetWpl(FPIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixGetWpl/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixGetWpl/*"/>
 '''  <param name="fpix">[in] - </param>
 '''   <returns>wpl, or UNDEF on error</returns>
 Public Shared Function fpixGetWpl(
@@ -241,6 +249,7 @@ Public Shared Function fpixGetWpl(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixGetWpl( fpix.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -249,7 +258,7 @@ End Function
 ' fpixSetWpl(FPIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixSetWpl/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixSetWpl/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="wpl">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -261,6 +270,7 @@ Public Shared Function fpixSetWpl(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixSetWpl( fpix.Pointer, wpl)
 
+
 	Return _Result
 End Function
 
@@ -269,7 +279,7 @@ End Function
 ' fpixGetRefcount(FPIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixGetRefcount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixGetRefcount/*"/>
 '''  <param name="fpix">[in] - </param>
 '''   <returns>refcount, or UNDEF on error</returns>
 Public Shared Function fpixGetRefcount(
@@ -279,6 +289,7 @@ Public Shared Function fpixGetRefcount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixGetRefcount( fpix.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -287,7 +298,7 @@ End Function
 ' fpixChangeRefcount(FPIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixChangeRefcount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixChangeRefcount/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="delta">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -299,6 +310,7 @@ Public Shared Function fpixChangeRefcount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixChangeRefcount( fpix.Pointer, delta)
 
+
 	Return _Result
 End Function
 
@@ -307,7 +319,7 @@ End Function
 ' fpixGetResolution(FPIX *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixGetResolution/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixGetResolution/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="pxres">[out][optional] - x and y resolution</param>
 '''  <param name="pyres">[out][optional] - x and y resolution</param>
@@ -321,6 +333,7 @@ Public Shared Function fpixGetResolution(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixGetResolution( fpix.Pointer, pxres, pyres)
 
+
 	Return _Result
 End Function
 
@@ -329,7 +342,7 @@ End Function
 ' fpixSetResolution(FPIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixSetResolution/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixSetResolution/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="xres">[in] - x and y resolution</param>
 '''  <param name="yres">[in] - x and y resolution</param>
@@ -343,6 +356,7 @@ Public Shared Function fpixSetResolution(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixSetResolution( fpix.Pointer, xres, yres)
 
+
 	Return _Result
 End Function
 
@@ -351,7 +365,7 @@ End Function
 ' fpixCopyResolution(FPIX *, FPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixCopyResolution/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixCopyResolution/*"/>
 '''  <param name="fpixd">[in] - </param>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -364,6 +378,7 @@ Public Shared Function fpixCopyResolution(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixCopyResolution( fpixd.Pointer, fpixs.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -372,7 +387,7 @@ End Function
 ' fpixGetData(FPIX *) as l_float32 *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixGetData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixGetData/*"/>
 '''  <param name="fpix">[in] - </param>
 '''   <returns>ptr FPix::data, or NULL on error</returns>
 Public Shared Function fpixGetData(
@@ -382,6 +397,7 @@ Public Shared Function fpixGetData(
 
 	Dim _Result as Single() = LeptonicaSharp.Natives.fpixGetData( fpix.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -390,7 +406,7 @@ End Function
 ' fpixSetData(FPIX *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixSetData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixSetData/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="data">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -403,6 +419,7 @@ Public Shared Function fpixSetData(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixSetData( fpix.Pointer, data)
 
+
 	Return _Result
 End Function
 
@@ -411,7 +428,7 @@ End Function
 ' fpixGetPixel(FPIX *, l_int32, l_int32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixGetPixel/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixGetPixel/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="x">[in] - ,y pixel coords</param>
 '''  <param name="pval">[out] - pixel value</param>
@@ -426,6 +443,7 @@ Public Shared Function fpixGetPixel(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixGetPixel( fpix.Pointer, x, y, pval)
 
+
 	Return _Result
 End Function
 
@@ -434,7 +452,7 @@ End Function
 ' fpixSetPixel(FPIX *, l_int32, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixSetPixel/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixSetPixel/*"/>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="x">[in] - ,y pixel coords</param>
 '''  <param name="val">[in] - pixel value</param>
@@ -449,6 +467,7 @@ Public Shared Function fpixSetPixel(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixSetPixel( fpix.Pointer, x, y, val)
 
+
 	Return _Result
 End Function
 
@@ -457,13 +476,14 @@ End Function
 ' fpixaCreate(l_int32) as FPIXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixaCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaCreate/*"/>
 '''  <param name="n">[in] - initial number of ptrs</param>
 '''   <returns>fpixa, or NULL on error</returns>
 Public Shared Function fpixaCreate(
 				 ByVal n as Integer) as FPixa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixaCreate( n)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FPixa(_Result)
@@ -481,7 +501,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixaCopy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaCopy/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="copyflag">[in] - L_COPY, L_CLODE or L_COPY_CLONE</param>
 '''   <returns>new fpixa, or NULL on error</returns>
@@ -492,6 +512,7 @@ Public Shared Function fpixaCopy(
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixaCopy( fpixa.Pointer, copyflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FPixa(_Result)
@@ -509,7 +530,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixaDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaDestroy/*"/>
 '''  <param name="pfpixa">[in,out] - to be nulled</param>
 Public Shared Sub fpixaDestroy(
 				 ByRef pfpixa as FPixa)
@@ -517,7 +538,9 @@ Public Shared Sub fpixaDestroy(
 	Dim pfpixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pfpixa) Then pfpixaPTR = pfpixa.Pointer
 
 	LeptonicaSharp.Natives.fpixaDestroy( pfpixaPTR)
-	if pfpixaPTR <> IntPtr.Zero then pfpixa = new FPixa(pfpixaPTR)
+
+If pfpixaPTR = IntPtr.Zero Then pfpixa = Nothing
+If pfpixaPTR <> IntPtr.Zero Then pfpixa = New FPixa(pfpixaPTR)
 
 End Sub
 
@@ -526,7 +549,7 @@ End Sub
 ' fpixaAddFPix(FPIXA *, FPIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixaAddFPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaAddFPix/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="fpix">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -541,6 +564,7 @@ Public Shared Function fpixaAddFPix(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixaAddFPix( fpixa.Pointer, fpix.Pointer, copyflag)
 
+
 	Return _Result
 End Function
 
@@ -549,7 +573,7 @@ End Function
 ' fpixaGetCount(FPIXA *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixaGetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaGetCount/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''   <returns>count, or 0 if no pixa</returns>
 Public Shared Function fpixaGetCount(
@@ -559,6 +583,7 @@ Public Shared Function fpixaGetCount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixaGetCount( fpixa.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -567,7 +592,7 @@ End Function
 ' fpixaChangeRefcount(FPIXA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixaChangeRefcount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaChangeRefcount/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="delta">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -579,6 +604,7 @@ Public Shared Function fpixaChangeRefcount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixaChangeRefcount( fpixa.Pointer, delta)
 
+
 	Return _Result
 End Function
 
@@ -587,7 +613,7 @@ End Function
 ' fpixaGetFPix(FPIXA *, l_int32, l_int32) as FPIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixaGetFPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaGetFPix/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th fpix</param>
 '''  <param name="accesstype">[in] - L_COPY or L_CLONE</param>
@@ -600,6 +626,7 @@ Public Shared Function fpixaGetFPix(
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixaGetFPix( fpixa.Pointer, index, accesstype)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FPix(_Result)
@@ -610,7 +637,7 @@ End Function
 ' fpixaGetFPixDimensions(FPIXA *, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixaGetFPixDimensions/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaGetFPixDimensions/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="pw">[out][optional] - each can be null</param>
@@ -626,6 +653,7 @@ Public Shared Function fpixaGetFPixDimensions(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixaGetFPixDimensions( fpixa.Pointer, index, pw, ph)
 
+
 	Return _Result
 End Function
 
@@ -634,7 +662,7 @@ End Function
 ' fpixaGetData(FPIXA *, l_int32) as l_float32 *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixaGetData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaGetData/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="index">[in] - into fpixa array</param>
 '''   <returns>data not a copy, or NULL on error</returns>
@@ -646,6 +674,7 @@ Public Shared Function fpixaGetData(
 
 	Dim _Result as Single() = LeptonicaSharp.Natives.fpixaGetData( fpixa.Pointer, index)
 
+
 	Return _Result
 End Function
 
@@ -654,7 +683,7 @@ End Function
 ' fpixaGetPixel(FPIXA *, l_int32, l_int32, l_int32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixaGetPixel/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaGetPixel/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="index">[in] - into fpixa array</param>
 '''  <param name="x">[in] - ,y pixel coords</param>
@@ -671,6 +700,7 @@ Public Shared Function fpixaGetPixel(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixaGetPixel( fpixa.Pointer, index, x, y, pval)
 
+
 	Return _Result
 End Function
 
@@ -679,7 +709,7 @@ End Function
 ' fpixaSetPixel(FPIXA *, l_int32, l_int32, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixaSetPixel/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaSetPixel/*"/>
 '''  <param name="fpixa">[in] - </param>
 '''  <param name="index">[in] - into fpixa array</param>
 '''  <param name="x">[in] - ,y pixel coords</param>
@@ -695,6 +725,7 @@ Public Shared Function fpixaSetPixel(
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixaSetPixel( fpixa.Pointer, index, x, y, val)
+
 
 	Return _Result
 End Function
@@ -712,7 +743,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixCreate/*"/>
 '''  <param name="width">[in] - </param>
 '''  <param name="height">[in] - </param>
 '''   <returns>dpix  with data allocated and initialized to 0, or NULL on error</returns>
@@ -721,6 +752,7 @@ Public Shared Function dpixCreate(
 				 ByVal height as Integer) as DPix
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dpixCreate( width, height)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new DPix(_Result)
@@ -739,7 +771,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixCreateTemplate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixCreateTemplate/*"/>
 '''  <param name="dpixs">[in] - </param>
 '''   <returns>dpixd, or NULL on error</returns>
 Public Shared Function dpixCreateTemplate(
@@ -748,6 +780,7 @@ Public Shared Function dpixCreateTemplate(
 	If IsNothing (dpixs) then Throw New ArgumentNullException  ("dpixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dpixCreateTemplate( dpixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new DPix(_Result)
@@ -763,7 +796,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixClone/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixClone/*"/>
 '''  <param name="dpix">[in] - </param>
 '''   <returns>same dpix ptr, or NULL on error</returns>
 Public Shared Function dpixClone(
@@ -772,6 +805,7 @@ Public Shared Function dpixClone(
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dpixClone( dpix.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new DPix(_Result)
@@ -807,7 +841,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixCopy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixCopy/*"/>
 '''  <param name="dpixd">[in][optional] - can be null, or equal to dpixs, or different from dpixs</param>
 '''  <param name="dpixs">[in] - </param>
 '''   <returns>dpixd, or NULL on error</returns>
@@ -820,6 +854,7 @@ Public Shared Function dpixCopy(
 	Dim dpixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(dpixd) Then dpixdPTR = dpixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dpixCopy( dpixdPTR, dpixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new DPix(_Result)
@@ -830,7 +865,7 @@ End Function
 ' dpixResizeImageData(DPIX *, DPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixResizeImageData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixResizeImageData/*"/>
 '''  <param name="dpixd">[in] - </param>
 '''  <param name="dpixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -842,6 +877,7 @@ Public Shared Function dpixResizeImageData(
 	If IsNothing (dpixs) then Throw New ArgumentNullException  ("dpixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixResizeImageData( dpixd.Pointer, dpixs.Pointer)
+
 
 	Return _Result
 End Function
@@ -858,7 +894,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixDestroy/*"/>
 '''  <param name="pdpix">[in,out] - will be nulled</param>
 Public Shared Sub dpixDestroy(
 				 ByRef pdpix as DPix)
@@ -866,7 +902,9 @@ Public Shared Sub dpixDestroy(
 	Dim pdpixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdpix) Then pdpixPTR = pdpix.Pointer
 
 	LeptonicaSharp.Natives.dpixDestroy( pdpixPTR)
-	if pdpixPTR <> IntPtr.Zero then pdpix = new DPix(pdpixPTR)
+
+If pdpixPTR = IntPtr.Zero Then pdpix = Nothing
+If pdpixPTR <> IntPtr.Zero Then pdpix = New DPix(pdpixPTR)
 
 End Sub
 
@@ -875,7 +913,7 @@ End Sub
 ' dpixGetDimensions(DPIX *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixGetDimensions/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixGetDimensions/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="pw">[out][optional] - each can be null</param>
 '''  <param name="ph">[out][optional] - each can be null</param>
@@ -889,6 +927,7 @@ Public Shared Function dpixGetDimensions(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixGetDimensions( dpix.Pointer, pw, ph)
 
+
 	Return _Result
 End Function
 
@@ -897,7 +936,7 @@ End Function
 ' dpixSetDimensions(DPIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixSetDimensions/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixSetDimensions/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="w">[in] - </param>
 '''  <param name="h">[in] - </param>
@@ -911,6 +950,7 @@ Public Shared Function dpixSetDimensions(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixSetDimensions( dpix.Pointer, w, h)
 
+
 	Return _Result
 End Function
 
@@ -919,7 +959,7 @@ End Function
 ' dpixGetWpl(DPIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixGetWpl/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixGetWpl/*"/>
 '''  <param name="dpix">[in] - </param>
 '''   <returns>wpl, or UNDEF on error</returns>
 Public Shared Function dpixGetWpl(
@@ -929,6 +969,7 @@ Public Shared Function dpixGetWpl(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixGetWpl( dpix.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -937,7 +978,7 @@ End Function
 ' dpixSetWpl(DPIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixSetWpl/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixSetWpl/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="wpl">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -949,6 +990,7 @@ Public Shared Function dpixSetWpl(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixSetWpl( dpix.Pointer, wpl)
 
+
 	Return _Result
 End Function
 
@@ -957,7 +999,7 @@ End Function
 ' dpixGetRefcount(DPIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixGetRefcount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixGetRefcount/*"/>
 '''  <param name="dpix">[in] - </param>
 '''   <returns>refcount, or UNDEF on error</returns>
 Public Shared Function dpixGetRefcount(
@@ -967,6 +1009,7 @@ Public Shared Function dpixGetRefcount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixGetRefcount( dpix.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -975,7 +1018,7 @@ End Function
 ' dpixChangeRefcount(DPIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixChangeRefcount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixChangeRefcount/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="delta">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -987,6 +1030,7 @@ Public Shared Function dpixChangeRefcount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixChangeRefcount( dpix.Pointer, delta)
 
+
 	Return _Result
 End Function
 
@@ -995,7 +1039,7 @@ End Function
 ' dpixGetResolution(DPIX *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixGetResolution/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixGetResolution/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="pxres">[out][optional] - x and y resolution</param>
 '''  <param name="pyres">[out][optional] - x and y resolution</param>
@@ -1009,6 +1053,7 @@ Public Shared Function dpixGetResolution(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixGetResolution( dpix.Pointer, pxres, pyres)
 
+
 	Return _Result
 End Function
 
@@ -1017,7 +1062,7 @@ End Function
 ' dpixSetResolution(DPIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixSetResolution/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixSetResolution/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="xres">[in] - x and y resolution</param>
 '''  <param name="yres">[in] - x and y resolution</param>
@@ -1031,6 +1076,7 @@ Public Shared Function dpixSetResolution(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixSetResolution( dpix.Pointer, xres, yres)
 
+
 	Return _Result
 End Function
 
@@ -1039,7 +1085,7 @@ End Function
 ' dpixCopyResolution(DPIX *, DPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixCopyResolution/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixCopyResolution/*"/>
 '''  <param name="dpixd">[in] - </param>
 '''  <param name="dpixs">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1052,6 +1098,7 @@ Public Shared Function dpixCopyResolution(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixCopyResolution( dpixd.Pointer, dpixs.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -1060,7 +1107,7 @@ End Function
 ' dpixGetData(DPIX *) as l_float64 *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixGetData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixGetData/*"/>
 '''  <param name="dpix">[in] - </param>
 '''   <returns>ptr DPix::data, or NULL on error</returns>
 Public Shared Function dpixGetData(
@@ -1070,6 +1117,7 @@ Public Shared Function dpixGetData(
 
 	Dim _Result as Double() = LeptonicaSharp.Natives.dpixGetData( dpix.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -1078,7 +1126,7 @@ End Function
 ' dpixSetData(DPIX *, l_float64 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixSetData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixSetData/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="data">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1091,6 +1139,7 @@ Public Shared Function dpixSetData(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixSetData( dpix.Pointer, data)
 
+
 	Return _Result
 End Function
 
@@ -1099,7 +1148,7 @@ End Function
 ' dpixGetPixel(DPIX *, l_int32, l_int32, l_float64 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixGetPixel/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixGetPixel/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="x">[in] - ,y pixel coords</param>
 '''  <param name="pval">[out] - pixel value</param>
@@ -1114,6 +1163,7 @@ Public Shared Function dpixGetPixel(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixGetPixel( dpix.Pointer, x, y, pval)
 
+
 	Return _Result
 End Function
 
@@ -1122,7 +1172,7 @@ End Function
 ' dpixSetPixel(DPIX *, l_int32, l_int32, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixSetPixel/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixSetPixel/*"/>
 '''  <param name="dpix">[in] - </param>
 '''  <param name="x">[in] - ,y pixel coords</param>
 '''  <param name="val">[in] - pixel value</param>
@@ -1138,6 +1188,7 @@ Public Shared Function dpixSetPixel(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixSetPixel( dpix.Pointer, x, y, val)
 
+
 	Return _Result
 End Function
 
@@ -1146,7 +1197,7 @@ End Function
 ' fpixRead(const char *) as FPIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>fpix, or NULL on error</returns>
 Public Shared Function fpixRead(
@@ -1154,9 +1205,10 @@ Public Shared Function fpixRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixRead( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FPix(_Result)
@@ -1167,7 +1219,7 @@ End Function
 ' fpixReadStream(FILE *) as FPIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>fpix, or NULL on error</returns>
 Public Shared Function fpixReadStream(
@@ -1176,6 +1228,7 @@ Public Shared Function fpixReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixReadStream( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FPix(_Result)
@@ -1186,7 +1239,7 @@ End Function
 ' fpixReadMem(const l_uint8 *, size_t) as FPIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixReadMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixReadMem/*"/>
 '''  <param name="data">[in] - of serialized fpix</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>fpix, or NULL on error</returns>
@@ -1197,6 +1250,7 @@ Public Shared Function fpixReadMem(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixReadMem( data, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FPix(_Result)
@@ -1207,7 +1261,7 @@ End Function
 ' fpixWrite(const char *, FPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="fpix">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1218,9 +1272,8 @@ Public Shared Function fpixWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixWrite( filename, fpix.Pointer)
+
 
 	Return _Result
 End Function
@@ -1230,7 +1283,7 @@ End Function
 ' fpixWriteStream(FILE *, FPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="fpix">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1242,6 +1295,7 @@ Public Shared Function fpixWriteStream(
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixWriteStream( fp.Pointer, fpix.Pointer)
+
 
 	Return _Result
 End Function
@@ -1256,7 +1310,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixWriteMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized fpix</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="fpix">[in] - </param>
@@ -1271,6 +1325,7 @@ Public Shared Function fpixWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixWriteMem( pdataPTR, psize, fpix.Pointer)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -1294,7 +1349,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixEndianByteSwap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixEndianByteSwap/*"/>
 '''  <param name="fpixd">[in] - can be equal to fpixs or NULL</param>
 '''  <param name="fpixs">[in] - </param>
 '''   <returns>fpixd always</returns>
@@ -1306,6 +1361,7 @@ Public Shared Function fpixEndianByteSwap(
 	If IsNothing (fpixs) then Throw New ArgumentNullException  ("fpixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixEndianByteSwap( fpixd.Pointer, fpixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FPix(_Result)
@@ -1316,7 +1372,7 @@ End Function
 ' dpixRead(const char *) as DPIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>dpix, or NULL on error</returns>
 Public Shared Function dpixRead(
@@ -1324,9 +1380,10 @@ Public Shared Function dpixRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dpixRead( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new DPix(_Result)
@@ -1337,7 +1394,7 @@ End Function
 ' dpixReadStream(FILE *) as DPIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>dpix, or NULL on error</returns>
 Public Shared Function dpixReadStream(
@@ -1346,6 +1403,7 @@ Public Shared Function dpixReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dpixReadStream( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new DPix(_Result)
@@ -1356,7 +1414,7 @@ End Function
 ' dpixReadMem(const l_uint8 *, size_t) as DPIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixReadMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixReadMem/*"/>
 '''  <param name="data">[in] - of serialized dpix</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>dpix, or NULL on error</returns>
@@ -1367,6 +1425,7 @@ Public Shared Function dpixReadMem(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dpixReadMem( data, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new DPix(_Result)
@@ -1377,7 +1436,7 @@ End Function
 ' dpixWrite(const char *, DPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="dpix">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1388,9 +1447,8 @@ Public Shared Function dpixWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixWrite( filename, dpix.Pointer)
+
 
 	Return _Result
 End Function
@@ -1400,7 +1458,7 @@ End Function
 ' dpixWriteStream(FILE *, DPIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="dpix">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1412,6 +1470,7 @@ Public Shared Function dpixWriteStream(
 	If IsNothing (dpix) then Throw New ArgumentNullException  ("dpix cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixWriteStream( fp.Pointer, dpix.Pointer)
+
 
 	Return _Result
 End Function
@@ -1426,7 +1485,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixWriteMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized dpix</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="dpix">[in] - </param>
@@ -1441,6 +1500,7 @@ Public Shared Function dpixWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dpixWriteMem( pdataPTR, psize, dpix.Pointer)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -1464,7 +1524,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dpixEndianByteSwap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixEndianByteSwap/*"/>
 '''  <param name="dpixd">[in] - can be equal to dpixs or NULL</param>
 '''  <param name="dpixs">[in] - </param>
 '''   <returns>dpixd always</returns>
@@ -1476,6 +1536,7 @@ Public Shared Function dpixEndianByteSwap(
 	If IsNothing (dpixs) then Throw New ArgumentNullException  ("dpixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dpixEndianByteSwap( dpixd.Pointer, dpixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new DPix(_Result)
@@ -1491,7 +1552,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixPrintStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixPrintStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="fpix">[in] - </param>
 '''  <param name="factor">[in] - subsampled</param>
@@ -1505,6 +1566,7 @@ Public Shared Function fpixPrintStream(
 	If IsNothing (fpix) then Throw New ArgumentNullException  ("fpix cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fpixPrintStream( fp.Pointer, fpix.Pointer, factor)
+
 
 	Return _Result
 End Function

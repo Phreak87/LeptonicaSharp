@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\pix4.c (109, 1)
 ' pixGetGrayHistogram(pixs, factor) as Numa
 ' pixGetGrayHistogram(PIX *, l_int32) as NUMA *
@@ -20,7 +19,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetGrayHistogram/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetGrayHistogram/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 bpp can be colormapped</param>
 '''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''   <returns>na histogram, or NULL on error</returns>
@@ -31,6 +30,7 @@ Public Shared Function pixGetGrayHistogram(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetGrayHistogram( pixs.Pointer, factor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -56,7 +56,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetGrayHistogramMasked/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetGrayHistogramMasked/*"/>
 '''  <param name="pixs">[in] - 8 bpp, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which histogram is to be computed use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0 these values are ignored if pixm is null</param>
@@ -75,6 +75,7 @@ Public Shared Function pixGetGrayHistogramMasked(
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetGrayHistogramMasked( pixs.Pointer, pixmPTR, x, y, factor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -96,7 +97,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetGrayHistogramInRect/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetGrayHistogramInRect/*"/>
 '''  <param name="pixs">[in] - 8 bpp, or colormapped</param>
 '''  <param name="box">[in][optional] - over which histogram is to be computed use full image if NULL</param>
 '''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
@@ -111,6 +112,7 @@ Public Shared Function pixGetGrayHistogramInRect(
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetGrayHistogramInRect( pixs.Pointer, boxPTR, factor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -130,7 +132,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetGrayHistogramTiled/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetGrayHistogramTiled/*"/>
 '''  <param name="pixs">[in] - any depth, colormap OK</param>
 '''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''  <param name="nx">[in] - tiling greater or equal 1 typically small</param>
@@ -145,6 +147,7 @@ Public Shared Function pixGetGrayHistogramTiled(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetGrayHistogramTiled( pixs.Pointer, factor, nx, ny)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numaa(_Result)
@@ -163,7 +166,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetColorHistogram/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetColorHistogram/*"/>
 '''  <param name="pixs">[in] - rgb or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''  <param name="pnar">[out] - red histogram</param>
@@ -184,9 +187,13 @@ Public Shared Function pixGetColorHistogram(
 	Dim pnabPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnab) Then pnabPTR = pnab.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetColorHistogram( pixs.Pointer, factor, pnarPTR, pnagPTR, pnabPTR)
-	if pnarPTR <> IntPtr.Zero then pnar = new Numa(pnarPTR)
-	if pnagPTR <> IntPtr.Zero then pnag = new Numa(pnagPTR)
-	if pnabPTR <> IntPtr.Zero then pnab = new Numa(pnabPTR)
+
+If pnarPTR = IntPtr.Zero Then pnar = Nothing
+If pnarPTR <> IntPtr.Zero Then pnar = New Numa(pnarPTR)
+If pnagPTR = IntPtr.Zero Then pnag = Nothing
+If pnagPTR <> IntPtr.Zero Then pnag = New Numa(pnagPTR)
+If pnabPTR = IntPtr.Zero Then pnab = Nothing
+If pnabPTR <> IntPtr.Zero Then pnab = New Numa(pnabPTR)
 
 	Return _Result
 End Function
@@ -207,7 +214,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetColorHistogramMasked/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetColorHistogramMasked/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which histogram is to be computed use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0 these values are ignored if pixm is null</param>
@@ -235,9 +242,13 @@ Public Shared Function pixGetColorHistogramMasked(
 	Dim pnabPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnab) Then pnabPTR = pnab.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetColorHistogramMasked( pixs.Pointer, pixmPTR, x, y, factor, pnarPTR, pnagPTR, pnabPTR)
-	if pnarPTR <> IntPtr.Zero then pnar = new Numa(pnarPTR)
-	if pnagPTR <> IntPtr.Zero then pnag = new Numa(pnagPTR)
-	if pnabPTR <> IntPtr.Zero then pnab = new Numa(pnabPTR)
+
+If pnarPTR = IntPtr.Zero Then pnar = Nothing
+If pnarPTR <> IntPtr.Zero Then pnar = New Numa(pnarPTR)
+If pnagPTR = IntPtr.Zero Then pnag = Nothing
+If pnagPTR <> IntPtr.Zero Then pnag = New Numa(pnagPTR)
+If pnabPTR = IntPtr.Zero Then pnab = Nothing
+If pnabPTR <> IntPtr.Zero Then pnab = New Numa(pnabPTR)
 
 	Return _Result
 End Function
@@ -255,7 +266,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetCmapHistogram/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetCmapHistogram/*"/>
 '''  <param name="pixs">[in] - colormapped: d = 2, 4 or 8</param>
 '''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''   <returns>na histogram of cmap indices, or NULL on error</returns>
@@ -266,6 +277,7 @@ Public Shared Function pixGetCmapHistogram(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetCmapHistogram( pixs.Pointer, factor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -286,7 +298,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetCmapHistogramMasked/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetCmapHistogramMasked/*"/>
 '''  <param name="pixs">[in] - colormapped: d = 2, 4 or 8</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which histogram is to be computed use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0 these values are ignored if pixm is null</param>
@@ -305,6 +317,7 @@ Public Shared Function pixGetCmapHistogramMasked(
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetCmapHistogramMasked( pixs.Pointer, pixmPTR, x, y, factor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -325,7 +338,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetCmapHistogramInRect/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetCmapHistogramInRect/*"/>
 '''  <param name="pixs">[in] - colormapped: d = 2, 4 or 8</param>
 '''  <param name="box">[in][optional] - over which histogram is to be computed use full image if NULL</param>
 '''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
@@ -340,6 +353,7 @@ Public Shared Function pixGetCmapHistogramInRect(
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetCmapHistogramInRect( pixs.Pointer, boxPTR, factor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -350,7 +364,7 @@ End Function
 ' pixCountRGBColors(PIX *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCountRGBColors/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCountRGBColors/*"/>
 '''  <param name="pixs">[in] - rgb or rgba</param>
 '''   <returns>ncolors, or -1 on error</returns>
 Public Shared Function pixCountRGBColors(
@@ -359,6 +373,7 @@ Public Shared Function pixCountRGBColors(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCountRGBColors( pixs.Pointer)
+
 
 	Return _Result
 End Function
@@ -375,7 +390,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetColorAmapHistogram/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetColorAmapHistogram/*"/>
 '''  <param name="pixs">[in] - rgb or rgba</param>
 '''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''   <returns>amap, or NULL on error</returns>
@@ -386,6 +401,7 @@ Public Shared Function pixGetColorAmapHistogram(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetColorAmapHistogram( pixs.Pointer, factor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Rbtree(_Result)
@@ -401,7 +417,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/amapGetCountForColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/amapGetCountForColor/*"/>
 '''  <param name="amap">[in] - map from pixel value to count</param>
 '''  <param name="val">[in] - rgb or rgba pixel value</param>
 '''   <returns>count, or -1 on error</returns>
@@ -412,6 +428,7 @@ Public Shared Function amapGetCountForColor(
 	If IsNothing (amap) then Throw New ArgumentNullException  ("amap cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.amapGetCountForColor( amap.Pointer, val)
+
 
 	Return _Result
 End Function
@@ -429,7 +446,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetRankValue/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetRankValue/*"/>
 '''  <param name="pixs">[in] - 8 bpp, 32 bpp or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''  <param name="rank">[in] - between 0.0 and 1.0 1.0 is brightest, 0.0 is darkest</param>
@@ -444,6 +461,7 @@ Public Shared Function pixGetRankValue(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetRankValue( pixs.Pointer, factor, rank, pvalue)
+
 
 	Return _Result
 End Function
@@ -468,7 +486,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetRankValueMaskedRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetRankValueMaskedRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which rank val is to be taken use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0 these values are ignored if pixm is null</param>
@@ -495,6 +513,7 @@ Public Shared Function pixGetRankValueMaskedRGB(
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetRankValueMaskedRGB( pixs.Pointer, pixmPTR, x, y, factor, rank, prval, pgval, pbval)
+
 
 	Return _Result
 End Function
@@ -527,7 +546,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetRankValueMasked/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetRankValueMasked/*"/>
 '''  <param name="pixs">[in] - 8 bpp, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask, over which the rank val is to be taken use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0 these values are ignored if pixm is null</param>
@@ -553,7 +572,9 @@ Public Shared Function pixGetRankValueMasked(
 Dim pnaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pna) Then pnaPTR = pna.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetRankValueMasked( pixs.Pointer, pixmPTR, x, y, factor, rank, pval, pnaPTR)
-	if pnaPTR <> IntPtr.Zero then pna = new Numa(pnaPTR)
+
+If pnaPTR = IntPtr.Zero Then pna = Nothing
+If pnaPTR <> IntPtr.Zero Then pna = New Numa(pnaPTR)
 
 	Return _Result
 End Function
@@ -583,7 +604,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetPixelAverage/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetPixelAverage/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which average is to be taken use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0</param>
@@ -605,6 +626,7 @@ Public Shared Function pixGetPixelAverage(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetPixelAverage( pixs.Pointer, pixmPTR, x, y, factor, pval)
 
+
 	Return _Result
 End Function
 
@@ -623,7 +645,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetPixelStats/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetPixelStats/*"/>
 '''  <param name="pixs">[in] - 8 bpp, 32 bpp or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''  <param name="type">[in] - L_MEAN_ABSVAL, L_ROOT_MEAN_SQUARE, L_STANDARD_DEVIATION, L_VARIANCE</param>
@@ -638,6 +660,7 @@ Public Shared Function pixGetPixelStats(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetPixelStats( pixs.Pointer, factor, type, pvalue)
+
 
 	Return _Result
 End Function
@@ -657,7 +680,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetAverageMaskedRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetAverageMaskedRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which average is to be taken use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0</param>
@@ -684,6 +707,7 @@ Public Shared Function pixGetAverageMaskedRGB(
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetAverageMaskedRGB( pixs.Pointer, pixmPTR, x, y, factor, type, prval, pgval, pbval)
+
 
 	Return _Result
 End Function
@@ -717,7 +741,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetAverageMasked/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetAverageMasked/*"/>
 '''  <param name="pixs">[in] - 8 or 16 bpp, or colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask over which average is to be taken use all pixels if null</param>
 '''  <param name="x">[in] - UL corner of pixm relative to the UL corner of pixs can be  is smaller 0</param>
@@ -741,6 +765,7 @@ Public Shared Function pixGetAverageMasked(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetAverageMasked( pixs.Pointer, pixmPTR, x, y, factor, type, pval)
 
+
 	Return _Result
 End Function
 
@@ -757,7 +782,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetAverageTiledRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetAverageTiledRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp, or colormapped</param>
 '''  <param name="sx">[in] - tile size must be at least 2 x 2</param>
 '''  <param name="sy">[in] - tile size must be at least 2 x 2</param>
@@ -782,9 +807,13 @@ Dim ppixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixg) Then ppixgPTR = p
 Dim ppixbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixb) Then ppixbPTR = ppixb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetAverageTiledRGB( pixs.Pointer, sx, sy, type, ppixrPTR, ppixgPTR, ppixbPTR)
-	if ppixrPTR <> IntPtr.Zero then ppixr = new Pix(ppixrPTR)
-	if ppixgPTR <> IntPtr.Zero then ppixg = new Pix(ppixgPTR)
-	if ppixbPTR <> IntPtr.Zero then ppixb = new Pix(ppixbPTR)
+
+If ppixrPTR = IntPtr.Zero Then ppixr = Nothing
+If ppixrPTR <> IntPtr.Zero Then ppixr = New Pix(ppixrPTR)
+If ppixgPTR = IntPtr.Zero Then ppixg = Nothing
+If ppixgPTR <> IntPtr.Zero Then ppixg = New Pix(ppixgPTR)
+If ppixbPTR = IntPtr.Zero Then ppixb = Nothing
+If ppixbPTR <> IntPtr.Zero Then ppixb = New Pix(ppixbPTR)
 
 	Return _Result
 End Function
@@ -806,7 +835,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetAverageTiled/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetAverageTiled/*"/>
 '''  <param name="pixs">[in] - 8 bpp, or colormapped</param>
 '''  <param name="sx">[in] - tile size must be at least 2 x 2</param>
 '''  <param name="sy">[in] - tile size must be at least 2 x 2</param>
@@ -821,6 +850,7 @@ Public Shared Function pixGetAverageTiled(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetAverageTiled( pixs.Pointer, sx, sy, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -845,7 +875,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRowStats/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRowStats/*"/>
 '''  <param name="pixs">[in] - 8 bpp not cmapped</param>
 '''  <param name="box">[in][optional] - clipping box can be null</param>
 '''  <param name="pnamean">[out][optional] - numa of mean values</param>
@@ -876,12 +906,19 @@ Dim pnavarPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnavar) Then pnavarPTR 
 Dim pnarootvarPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnarootvar) Then pnarootvarPTR = pnarootvar.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRowStats( pixs.Pointer, boxPTR, pnameanPTR, pnamedianPTR, pnamodePTR, pnamodecountPTR, pnavarPTR, pnarootvarPTR)
-	if pnameanPTR <> IntPtr.Zero then pnamean = new Numa(pnameanPTR)
-	if pnamedianPTR <> IntPtr.Zero then pnamedian = new Numa(pnamedianPTR)
-	if pnamodePTR <> IntPtr.Zero then pnamode = new Numa(pnamodePTR)
-	if pnamodecountPTR <> IntPtr.Zero then pnamodecount = new Numa(pnamodecountPTR)
-	if pnavarPTR <> IntPtr.Zero then pnavar = new Numa(pnavarPTR)
-	if pnarootvarPTR <> IntPtr.Zero then pnarootvar = new Numa(pnarootvarPTR)
+
+If pnameanPTR = IntPtr.Zero Then pnamean = Nothing
+If pnameanPTR <> IntPtr.Zero Then pnamean = New Numa(pnameanPTR)
+If pnamedianPTR = IntPtr.Zero Then pnamedian = Nothing
+If pnamedianPTR <> IntPtr.Zero Then pnamedian = New Numa(pnamedianPTR)
+If pnamodePTR = IntPtr.Zero Then pnamode = Nothing
+If pnamodePTR <> IntPtr.Zero Then pnamode = New Numa(pnamodePTR)
+If pnamodecountPTR = IntPtr.Zero Then pnamodecount = Nothing
+If pnamodecountPTR <> IntPtr.Zero Then pnamodecount = New Numa(pnamodecountPTR)
+If pnavarPTR = IntPtr.Zero Then pnavar = Nothing
+If pnavarPTR <> IntPtr.Zero Then pnavar = New Numa(pnavarPTR)
+If pnarootvarPTR = IntPtr.Zero Then pnarootvar = Nothing
+If pnarootvarPTR <> IntPtr.Zero Then pnarootvar = New Numa(pnarootvarPTR)
 
 	Return _Result
 End Function
@@ -905,7 +942,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixColumnStats/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixColumnStats/*"/>
 '''  <param name="pixs">[in] - 8 bpp not cmapped</param>
 '''  <param name="box">[in][optional] - clipping box can be null</param>
 '''  <param name="pnamean">[out][optional] - numa of mean values</param>
@@ -936,12 +973,19 @@ Dim pnavarPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnavar) Then pnavarPTR 
 Dim pnarootvarPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnarootvar) Then pnarootvarPTR = pnarootvar.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixColumnStats( pixs.Pointer, boxPTR, pnameanPTR, pnamedianPTR, pnamodePTR, pnamodecountPTR, pnavarPTR, pnarootvarPTR)
-	if pnameanPTR <> IntPtr.Zero then pnamean = new Numa(pnameanPTR)
-	if pnamedianPTR <> IntPtr.Zero then pnamedian = new Numa(pnamedianPTR)
-	if pnamodePTR <> IntPtr.Zero then pnamode = new Numa(pnamodePTR)
-	if pnamodecountPTR <> IntPtr.Zero then pnamodecount = new Numa(pnamodecountPTR)
-	if pnavarPTR <> IntPtr.Zero then pnavar = new Numa(pnavarPTR)
-	if pnarootvarPTR <> IntPtr.Zero then pnarootvar = new Numa(pnarootvarPTR)
+
+If pnameanPTR = IntPtr.Zero Then pnamean = Nothing
+If pnameanPTR <> IntPtr.Zero Then pnamean = New Numa(pnameanPTR)
+If pnamedianPTR = IntPtr.Zero Then pnamedian = Nothing
+If pnamedianPTR <> IntPtr.Zero Then pnamedian = New Numa(pnamedianPTR)
+If pnamodePTR = IntPtr.Zero Then pnamode = Nothing
+If pnamodePTR <> IntPtr.Zero Then pnamode = New Numa(pnamodePTR)
+If pnamodecountPTR = IntPtr.Zero Then pnamodecount = Nothing
+If pnamodecountPTR <> IntPtr.Zero Then pnamodecount = New Numa(pnamodecountPTR)
+If pnavarPTR = IntPtr.Zero Then pnavar = Nothing
+If pnavarPTR <> IntPtr.Zero Then pnavar = New Numa(pnavarPTR)
+If pnarootvarPTR = IntPtr.Zero Then pnarootvar = Nothing
+If pnarootvarPTR <> IntPtr.Zero Then pnarootvar = New Numa(pnarootvarPTR)
 
 	Return _Result
 End Function
@@ -956,7 +1000,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetRangeValues/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetRangeValues/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale, 32 bpp rgb, or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor greater or equal 1 ignored if colormapped</param>
 '''  <param name="color">[in] - L_SELECT_RED, L_SELECT_GREEN or L_SELECT_BLUE</param>
@@ -976,6 +1020,7 @@ Public Shared Function pixGetRangeValues(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetRangeValues( pixs.Pointer, factor, color, pminval, pmaxval)
 
+
 	Return _Result
 End Function
 
@@ -992,7 +1037,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetExtremeValue/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetExtremeValue/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale, 32 bpp rgb, or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor greater or equal 1 ignored if colormapped</param>
 '''  <param name="type">[in] - L_SELECT_MIN or L_SELECT_MAX</param>
@@ -1016,6 +1061,7 @@ Public Shared Function pixGetExtremeValue(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetExtremeValue( pixs.Pointer, factor, type, prval, pgval, pbval, pgrayval)
 
+
 	Return _Result
 End Function
 
@@ -1034,7 +1080,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetMaxValueInRect/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetMaxValueInRect/*"/>
 '''  <param name="pixs">[in] - 8, 16 or 32 bpp grayscale no color space components</param>
 '''  <param name="box">[in][optional] - region set box = NULL to use entire pixs</param>
 '''  <param name="pmaxval">[out][optional] - max value in region</param>
@@ -1054,6 +1100,7 @@ Public Shared Function pixGetMaxValueInRect(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetMaxValueInRect( pixs.Pointer, boxPTR, pmaxval, pxmax, pymax)
 
+
 	Return _Result
 End Function
 
@@ -1069,7 +1116,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetBinnedComponentRange/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetBinnedComponentRange/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="nbins">[in] - number of equal population bins must be  is greater  1</param>
 '''  <param name="factor">[in] - subsampling factor greater or equal 1</param>
@@ -1096,6 +1143,7 @@ Public Shared Function pixGetBinnedComponentRange(
 	Dim pcarrayPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetBinnedComponentRange( pixs.Pointer, nbins, factor, color, pminval, pmaxval, pcarrayPTR, fontsize)
+
 	ReDim pcarray(IIf(1 > 0, 1, 1) - 1) : If pcarrayPTR <> IntPtr.Zero Then Marshal.Copy(pcarrayPTR, pcarray, 0, pcarray.count)
 
 	Return _Result
@@ -1132,7 +1180,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetRankColorArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetRankColorArray/*"/>
 '''  <param name="pixs">[in] - 32 bpp or cmapped</param>
 '''  <param name="nbins">[in] - number of equal population bins must be  is greater  1</param>
 '''  <param name="type">[in] - color selection flag</param>
@@ -1155,6 +1203,7 @@ Public Shared Function pixGetRankColorArray(
 	Dim pcarrayPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetRankColorArray( pixs.Pointer, nbins, type, factor, pcarrayPTR, debugflag, fontsize)
+
 	ReDim pcarray(IIf(1 > 0, 1, 1) - 1) : If pcarrayPTR <> IntPtr.Zero Then Marshal.Copy(pcarrayPTR, pcarray, 0, pcarray.count)
 
 	Return _Result
@@ -1181,7 +1230,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetBinnedColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetBinnedColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="pixg">[in] - 8 bpp grayscale version of pixs</param>
 '''  <param name="factor">[in] - sampling factor along pixel counting direction</param>
@@ -1206,6 +1255,7 @@ Public Shared Function pixGetBinnedColor(
 	Dim pcarrayPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetBinnedColor( pixs.Pointer, pixg.Pointer, factor, nbins, nalut.Pointer, pcarrayPTR, debugflag)
+
 	ReDim pcarray(IIf(1 > 0, 1, 1) - 1) : If pcarrayPTR <> IntPtr.Zero Then Marshal.Copy(pcarrayPTR, pcarray, 0, pcarray.count)
 
 	Return _Result
@@ -1216,7 +1266,7 @@ End Function
 ' pixDisplayColorArray(l_uint32 *, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDisplayColorArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDisplayColorArray/*"/>
 '''  <param name="carray">[in] - array of colors: 0xrrggbb00</param>
 '''  <param name="ncolors">[in] - size of array</param>
 '''  <param name="side">[in] - size of each color square suggest 200</param>
@@ -1235,6 +1285,8 @@ Public Shared Function pixDisplayColorArray(
 	Dim carrayPTR As IntPtr = Marshal.AllocHGlobal(carray.Count) : Marshal.Copy(carray, 0, carrayPTR, carray.Length)
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDisplayColorArray( carrayPTR, ncolors, side, ncols, fontsize)
+Marshal.FreeHGlobal(carrayPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1266,7 +1318,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRankBinByStrip/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRankBinByStrip/*"/>
 '''  <param name="pixs">[in] - 32 bpp or cmapped</param>
 '''  <param name="direction">[in] - L_SCAN_HORIZONTAL or L_SCAN_VERTICAL</param>
 '''  <param name="size">[in] - of strips in scan direction</param>
@@ -1283,6 +1335,7 @@ Public Shared Function pixRankBinByStrip(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRankBinByStrip( pixs.Pointer, direction, size, nbins, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1306,7 +1359,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaGetAlignedStats/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaGetAlignedStats/*"/>
 '''  <param name="pixa">[in] - of identically sized, 8 bpp pix not cmapped</param>
 '''  <param name="type">[in] - L_MEAN_ABSVAL, L_MEDIAN_VAL, L_MODE_VAL, L_MODE_COUNT</param>
 '''  <param name="nbins">[in] - of histogram for median and mode ignored for mean</param>
@@ -1321,6 +1374,7 @@ Public Shared Function pixaGetAlignedStats(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaGetAlignedStats( pixa.Pointer, type, nbins, thresh)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1331,7 +1385,7 @@ End Function
 ' pixaExtractColumnFromEachPix(PIXA *, l_int32, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaExtractColumnFromEachPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaExtractColumnFromEachPix/*"/>
 '''  <param name="pixa">[in] - of identically sized, 8 bpp not cmapped</param>
 '''  <param name="col">[in] - column index</param>
 '''  <param name="pixd">[in] - pix into which each column is inserted</param>
@@ -1345,6 +1399,7 @@ Public Shared Function pixaExtractColumnFromEachPix(
 	If IsNothing (pixd) then Throw New ArgumentNullException  ("pixd cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaExtractColumnFromEachPix( pixa.Pointer, col, pixd.Pointer)
+
 
 	Return _Result
 End Function
@@ -1379,7 +1434,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetRowStats/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetRowStats/*"/>
 '''  <param name="pixs">[in] - 8 bpp not cmapped</param>
 '''  <param name="type">[in] - L_MEAN_ABSVAL, L_MEDIAN_VAL, L_MODE_VAL, L_MODE_COUNT</param>
 '''  <param name="nbins">[in] - of histogram for median and mode ignored for mean</param>
@@ -1397,6 +1452,7 @@ Public Shared Function pixGetRowStats(
 	If IsNothing (colvect) then Throw New ArgumentNullException  ("colvect cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetRowStats( pixs.Pointer, type, nbins, thresh, colvect)
+
 
 	Return _Result
 End Function
@@ -1425,7 +1481,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetColumnStats/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetColumnStats/*"/>
 '''  <param name="pixs">[in] - 8 bpp not cmapped</param>
 '''  <param name="type">[in] - L_MEAN_ABSVAL, L_MEDIAN_VAL, L_MODE_VAL, L_MODE_COUNT</param>
 '''  <param name="nbins">[in] - of histogram for median and mode ignored for mean</param>
@@ -1444,6 +1500,7 @@ Public Shared Function pixGetColumnStats(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetColumnStats( pixs.Pointer, type, nbins, thresh, rowvect)
 
+
 	Return _Result
 End Function
 
@@ -1452,7 +1509,7 @@ End Function
 ' pixSetPixelColumn(PIX *, l_int32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSetPixelColumn/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetPixelColumn/*"/>
 '''  <param name="pix">[in] - 8 bpp not cmapped</param>
 '''  <param name="col">[in] - column index</param>
 '''  <param name="colvect">[in] - vector of floats</param>
@@ -1467,6 +1524,7 @@ Public Shared Function pixSetPixelColumn(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetPixelColumn( pix.Pointer, col, colvect)
 
+
 	Return _Result
 End Function
 
@@ -1475,7 +1533,7 @@ End Function
 ' pixThresholdForFgBg(PIX *, l_int32, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixThresholdForFgBg/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixThresholdForFgBg/*"/>
 '''  <param name="pixs">[in] - any depth cmapped ok</param>
 '''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''  <param name="thresh">[in] - threshold for generating foreground mask</param>
@@ -1493,6 +1551,7 @@ Public Shared Function pixThresholdForFgBg(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixThresholdForFgBg( pixs.Pointer, factor, thresh, pfgval, pbgval)
 
+
 	Return _Result
 End Function
 
@@ -1507,7 +1566,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSplitDistributionFgBg/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSplitDistributionFgBg/*"/>
 '''  <param name="pixs">[in] - any depth cmapped ok</param>
 '''  <param name="scorefract">[in] - fraction of the max score, used to determine the range over which the histogram min is searched</param>
 '''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
@@ -1530,7 +1589,9 @@ Public Shared Function pixSplitDistributionFgBg(
 Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSplitDistributionFgBg( pixs.Pointer, scorefract, factor, pthresh, pfgval, pbgval, ppixdbPTR)
-	if ppixdbPTR <> IntPtr.Zero then ppixdb = new Pix(ppixdbPTR)
+
+If ppixdbPTR = IntPtr.Zero Then ppixdb = Nothing
+If ppixdbPTR <> IntPtr.Zero Then ppixdb = New Pix(ppixdbPTR)
 
 	Return _Result
 End Function

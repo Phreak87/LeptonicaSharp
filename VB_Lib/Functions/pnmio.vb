@@ -2,13 +2,12 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\pnmio.c (145, 1)
 ' pixReadStreamPnm(fp) as Pix
 ' pixReadStreamPnm(FILE *) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamPnm/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadStreamPnm/*"/>
 '''  <param name="fp">[in] - file stream opened for read</param>
 '''   <returns>pix, or NULL on error</returns>
 Public Shared Function pixReadStreamPnm(
@@ -17,6 +16,7 @@ Public Shared Function pixReadStreamPnm(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadStreamPnm( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -27,7 +27,7 @@ End Function
 ' readHeaderPnm(const char *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/readHeaderPnm/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/readHeaderPnm/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -47,9 +47,10 @@ Public Shared Function readHeaderPnm(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderPnm( filename, pw, ph, pd, ptype, pbps, pspp)
+
 
 	Return _Result
 End Function
@@ -59,7 +60,7 @@ End Function
 ' freadHeaderPnm(FILE *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/freadHeaderPnm/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/freadHeaderPnm/*"/>
 '''  <param name="fp">[in] - file stream opened for read</param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -81,6 +82,7 @@ Public Shared Function freadHeaderPnm(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.freadHeaderPnm( fp.Pointer, pw, ph, pd, ptype, pbps, pspp)
 
+
 	Return _Result
 End Function
 
@@ -100,7 +102,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamPnm/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteStreamPnm/*"/>
 '''  <param name="fp">[in] - file stream opened for write</param>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -113,6 +115,7 @@ Public Shared Function pixWriteStreamPnm(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamPnm( fp.Pointer, pix.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -121,7 +124,7 @@ End Function
 ' pixWriteStreamAsciiPnm(FILE *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamAsciiPnm/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteStreamAsciiPnm/*"/>
 '''  <param name="fp">[in] - file stream opened for write</param>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK 1 on error Writes "ASCII" format only: 1 bpp to pbm P1 2, 4, 8, 16 bpp, no colormap or grayscale colormap to pgm P2 2, 4, 8 bpp with color-valued colormap, or rgb to rgb ppm P3</returns>
@@ -133,6 +136,7 @@ Public Shared Function pixWriteStreamAsciiPnm(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamAsciiPnm( fp.Pointer, pix.Pointer)
+
 
 	Return _Result
 End Function
@@ -150,7 +154,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamPam/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteStreamPam/*"/>
 '''  <param name="fp">[in] - file stream opened for write</param>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -162,6 +166,7 @@ Public Shared Function pixWriteStreamPam(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamPam( fp.Pointer, pix.Pointer)
+
 
 	Return _Result
 End Function
@@ -176,7 +181,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadMemPnm/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadMemPnm/*"/>
 '''  <param name="data">[in] - const pnm-encoded</param>
 '''  <param name="size">[in] - of data</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -187,6 +192,7 @@ Public Shared Function pixReadMemPnm(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemPnm( data, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -197,7 +203,7 @@ End Function
 ' readHeaderMemPnm(const l_uint8 *, size_t, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/readHeaderMemPnm/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/readHeaderMemPnm/*"/>
 '''  <param name="data">[in] - const pnm-encoded</param>
 '''  <param name="size">[in] - of data</param>
 '''  <param name="pw">[out][optional] - </param>
@@ -221,6 +227,7 @@ Public Shared Function readHeaderMemPnm(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderMemPnm( data, size, pw, ph, pd, ptype, pbps, pspp)
 
+
 	Return _Result
 End Function
 
@@ -235,7 +242,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemPnm/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteMemPnm/*"/>
 '''  <param name="pdata">[out] - data of PNM image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - </param>
@@ -250,6 +257,7 @@ Public Shared Function pixWriteMemPnm(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMemPnm( pdataPTR, psize, pix.Pointer)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -266,7 +274,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemPam/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteMemPam/*"/>
 '''  <param name="pdata">[out] - data of PAM image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - </param>
@@ -281,6 +289,7 @@ Public Shared Function pixWriteMemPam(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMemPam( pdataPTR, psize, pix.Pointer)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result

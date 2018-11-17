@@ -2,19 +2,19 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\sel1.c (239, 1)
 ' selaCreate(n) as Sela
 ' selaCreate(l_int32) as SELA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaCreate/*"/>
 '''  <param name="n">[in] - initial number of sel ptrs use 0 for default</param>
 '''   <returns>sela, or NULL on error</returns>
 Public Shared Function selaCreate(
 				 ByVal n as Integer) as Sela
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaCreate( n)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sela(_Result)
@@ -25,7 +25,7 @@ End Function
 ' selaDestroy(SELA **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaDestroy/*"/>
 '''  <param name="psela">[in,out] - to be nulled</param>
 Public Shared Sub selaDestroy(
 				 ByRef psela as Sela)
@@ -33,7 +33,9 @@ Public Shared Sub selaDestroy(
 	Dim pselaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(psela) Then pselaPTR = psela.Pointer
 
 	LeptonicaSharp.Natives.selaDestroy( pselaPTR)
-	if pselaPTR <> IntPtr.Zero then psela = new Sela(pselaPTR)
+
+If pselaPTR = IntPtr.Zero Then psela = Nothing
+If pselaPTR <> IntPtr.Zero Then psela = New Sela(pselaPTR)
 
 End Sub
 
@@ -51,7 +53,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selCreate/*"/>
 '''  <param name="height">[in] - </param>
 '''  <param name="width">[in] - </param>
 '''  <param name="name">[in][optional] - sel name can be null</param>
@@ -62,6 +64,7 @@ Public Shared Function selCreate(
 				 Optional ByVal name as String = Nothing) as Sel
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selCreate( height, width, name)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sel(_Result)
@@ -72,7 +75,7 @@ End Function
 ' selDestroy(SEL **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selDestroy/*"/>
 '''  <param name="psel">[in,out] - to be nulled</param>
 Public Shared Sub selDestroy(
 				 ByRef psel as Sel)
@@ -80,7 +83,9 @@ Public Shared Sub selDestroy(
 	Dim pselPTR As IntPtr = IntPtr.Zero : If Not IsNothing(psel) Then pselPTR = psel.Pointer
 
 	LeptonicaSharp.Natives.selDestroy( pselPTR)
-	if pselPTR <> IntPtr.Zero then psel = new Sel(pselPTR)
+
+If pselPTR = IntPtr.Zero Then psel = Nothing
+If pselPTR <> IntPtr.Zero Then psel = New Sel(pselPTR)
 
 End Sub
 
@@ -89,7 +94,7 @@ End Sub
 ' selCopy(SEL *) as SEL *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selCopy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selCopy/*"/>
 '''  <param name="sel">[in] - </param>
 '''   <returns>a copy of the sel, or NULL on error</returns>
 Public Shared Function selCopy(
@@ -98,6 +103,7 @@ Public Shared Function selCopy(
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selCopy( sel.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sel(_Result)
@@ -113,7 +119,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selCreateBrick/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selCreateBrick/*"/>
 '''  <param name="h">[in] - height, width</param>
 '''  <param name="w">[in] - height, width</param>
 '''  <param name="cy">[in] - origin, relative to UL corner at 0,0</param>
@@ -128,6 +134,7 @@ Public Shared Function selCreateBrick(
 				 ByVal type as Enumerations.SEL) as Sel
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selCreateBrick( h, w, cy, cx, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sel(_Result)
@@ -147,7 +154,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selCreateComb/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selCreateComb/*"/>
 '''  <param name="factor1">[in] - contiguous space between comb tines</param>
 '''  <param name="factor2">[in] - number of comb tines</param>
 '''  <param name="direction">[in] - L_HORIZ, L_VERT</param>
@@ -158,6 +165,7 @@ Public Shared Function selCreateComb(
 				 ByVal direction as Enumerations.L_direction) as Sel
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selCreateComb( factor1, factor2, direction)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sel(_Result)
@@ -174,7 +182,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/create2dIntArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/create2dIntArray/*"/>
 '''  <param name="sy">[in] - rows == height</param>
 '''  <param name="sx">[in] - columns == width</param>
 '''   <returns>doubly indexed array i.e., an array of sy row pointers, each of which points to an array of sx ints</returns>
@@ -183,12 +191,13 @@ Public Shared Function create2dIntArray(
 				 ByVal sx as Integer) as List (of Integer())
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.create2dIntArray( sy, sx)
+
 Dim PTRArr(1) As IntPtr : Marshal.Copy(_Result, PTRArr, 0, PTRArr.Length)
 Dim B As New List(Of Integer())
 For Each eintrag In PTRArr
-Dim IntegerLST(1) As Integer
-Marshal.Copy(eintrag, IntegerLST, 0, IntegerLST.Count)
-B.Add(IntegerLST)
+   Dim IntegerLST(1) As Integer
+   Marshal.Copy(eintrag, IntegerLST, 0, IntegerLST.Count)
+   B.Add(IntegerLST)
 Next
 
 	Return B
@@ -208,7 +217,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaAddSel/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaAddSel/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="sel">[in] - to be added</param>
 '''  <param name="selname">[in] - ignored if already defined in sel req'd in sel when added to a sela</param>
@@ -226,6 +235,7 @@ Public Shared Function selaAddSel(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.selaAddSel( sela.Pointer, sel.Pointer, selname, copyflag)
 
+
 	Return _Result
 End Function
 
@@ -234,7 +244,7 @@ End Function
 ' selaGetCount(SELA *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaGetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaGetCount/*"/>
 '''  <param name="sela">[in] - </param>
 '''   <returns>count, or 0 on error</returns>
 Public Shared Function selaGetCount(
@@ -243,6 +253,7 @@ Public Shared Function selaGetCount(
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.selaGetCount( sela.Pointer)
+
 
 	Return _Result
 End Function
@@ -258,7 +269,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaGetSel/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaGetSel/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="i">[in] - index of sel to be retrieved not copied</param>
 '''   <returns>sel, or NULL on error</returns>
@@ -269,6 +280,7 @@ Public Shared Function selaGetSel(
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaGetSel( sela.Pointer, i)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sel(_Result)
@@ -279,7 +291,7 @@ End Function
 ' selGetName(SEL *) as char *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selGetName/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selGetName/*"/>
 '''  <param name="sel">[in] - </param>
 '''   <returns>sel name not copied, or NULL if no name or on error</returns>
 Public Shared Function selGetName(
@@ -288,6 +300,7 @@ Public Shared Function selGetName(
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
 
 	Dim _Result as String = LeptonicaSharp.Natives.selGetName( sel.Pointer)
+
 
 	Return _Result
 End Function
@@ -304,7 +317,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selSetName/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selSetName/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="name">[in][optional] - can be null</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -316,6 +329,7 @@ Public Shared Function selSetName(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.selSetName( sel.Pointer, name)
 
+
 	Return _Result
 End Function
 
@@ -324,7 +338,7 @@ End Function
 ' selaFindSelByName(SELA *, const char *, l_int32 *, SEL **) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaFindSelByName/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaFindSelByName/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="name">[in] - sel name</param>
 '''  <param name="pindex">[out][optional] - </param>
@@ -343,6 +357,7 @@ Dim pselPTR As IntPtr = Marshal.AllocHGlobal(Marshal.Sizeof(psel.ToArray))
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.selaFindSelByName( sela.Pointer, name, pindex, pselPTR)
 
+
 	Return _Result
 End Function
 
@@ -351,7 +366,7 @@ End Function
 ' selGetElement(SEL *, l_int32, l_int32, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selGetElement/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selGetElement/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="row">[in] - </param>
 '''  <param name="col">[in] - </param>
@@ -366,6 +381,7 @@ Public Shared Function selGetElement(
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.selGetElement( sel.Pointer, row, col, ptype)
+
 
 	Return _Result
 End Function
@@ -383,7 +399,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selSetElement/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selSetElement/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="row">[in] - </param>
 '''  <param name="col">[in] - </param>
@@ -399,6 +415,7 @@ Public Shared Function selSetElement(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.selSetElement( sel.Pointer, row, col, type)
 
+
 	Return _Result
 End Function
 
@@ -407,7 +424,7 @@ End Function
 ' selGetParameters(SEL *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selGetParameters/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selGetParameters/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="psy">[out][optional] - each can be null</param>
 '''  <param name="psx">[out][optional] - each can be null</param>
@@ -425,6 +442,7 @@ Public Shared Function selGetParameters(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.selGetParameters( sel.Pointer, psy, psx, pcy, pcx)
 
+
 	Return _Result
 End Function
 
@@ -433,7 +451,7 @@ End Function
 ' selSetOrigin(SEL *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selSetOrigin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selSetOrigin/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="cy">[in] - </param>
 '''  <param name="cx">[in] - </param>
@@ -447,6 +465,7 @@ Public Shared Function selSetOrigin(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.selSetOrigin( sel.Pointer, cy, cx)
 
+
 	Return _Result
 End Function
 
@@ -455,7 +474,7 @@ End Function
 ' selGetTypeAtOrigin(SEL *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selGetTypeAtOrigin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selGetTypeAtOrigin/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="ptype">[out] - SEL_HIT, SEL_MISS, SEL_DONT_CARE</param>
 '''   <returns>0 if OK 1 on error or if origin is not found</returns>
@@ -467,6 +486,7 @@ Public Shared Function selGetTypeAtOrigin(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.selGetTypeAtOrigin( sel.Pointer, ptype)
 
+
 	Return _Result
 End Function
 
@@ -475,7 +495,7 @@ End Function
 ' selaGetBrickName(SELA *, l_int32, l_int32) as char *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaGetBrickName/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaGetBrickName/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="hsize">[in] - of brick sel</param>
 '''  <param name="vsize">[in] - of brick sel</param>
@@ -488,6 +508,7 @@ Public Shared Function selaGetBrickName(
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
 
 	Dim _Result as String = LeptonicaSharp.Natives.selaGetBrickName( sela.Pointer, hsize, vsize)
+
 
 	Return _Result
 End Function
@@ -504,7 +525,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaGetCombName/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaGetCombName/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="size">[in] - the product of sizes of the brick and comb parts</param>
 '''  <param name="direction">[in] - L_HORIZ, L_VERT</param>
@@ -517,6 +538,7 @@ Public Shared Function selaGetCombName(
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
 
 	Dim _Result as String = LeptonicaSharp.Natives.selaGetCombName( sela.Pointer, size, direction)
+
 
 	Return _Result
 End Function
@@ -533,7 +555,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/getCompositeParameters/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getCompositeParameters/*"/>
 '''  <param name="size">[in] - </param>
 '''  <param name="psize1">[out][optional] - brick factor size</param>
 '''  <param name="psize2">[out][optional] - comb factor size</param>
@@ -558,6 +580,7 @@ Dim pnamev2PTR As IntPtr = pnamev2PTR = Marshal.AllocHGlobal(Marshal.sizeOf(pnam
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.getCompositeParameters( size, psize1, psize2, pnameh1PTR, pnameh2PTR, pnamev1PTR, pnamev2PTR)
 
+
 	Return _Result
 End Function
 
@@ -566,7 +589,7 @@ End Function
 ' selaGetSelnames(SELA *) as SARRAY *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaGetSelnames/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaGetSelnames/*"/>
 '''  <param name="sela">[in] - </param>
 '''   <returns>sa of all sel names, or NULL on error</returns>
 Public Shared Function selaGetSelnames(
@@ -575,6 +598,7 @@ Public Shared Function selaGetSelnames(
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaGetSelnames( sela.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -591,7 +615,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selFindMaxTranslations/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selFindMaxTranslations/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="pxp">[out] - max shifts</param>
 '''  <param name="pyp">[out] - max shifts</param>
@@ -609,6 +633,7 @@ Public Shared Function selFindMaxTranslations(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.selFindMaxTranslations( sel.Pointer, pxp, pyp, pxn, pyn)
 
+
 	Return _Result
 End Function
 
@@ -617,7 +642,7 @@ End Function
 ' selRotateOrth(SEL *, l_int32) as SEL *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selRotateOrth/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selRotateOrth/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="quads">[in] - 0 - 4 number of 90 degree cw rotations</param>
 '''   <returns>seld, or NULL on error</returns>
@@ -628,6 +653,7 @@ Public Shared Function selRotateOrth(
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selRotateOrth( sel.Pointer, quads)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sel(_Result)
@@ -638,7 +664,7 @@ End Function
 ' selaRead(const char *) as SELA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaRead/*"/>
 '''  <param name="fname">[in] - filename</param>
 '''   <returns>sela, or NULL on error</returns>
 Public Shared Function selaRead(
@@ -646,7 +672,10 @@ Public Shared Function selaRead(
 
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 
+	If My.Computer.Filesystem.FileExists (fname) = false then Throw New ArgumentException ("File is missing")
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaRead( fname)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sela(_Result)
@@ -657,7 +686,7 @@ End Function
 ' selaReadStream(FILE *) as SELA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>sela, or NULL on error</returns>
 Public Shared Function selaReadStream(
@@ -666,6 +695,7 @@ Public Shared Function selaReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaReadStream( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sela(_Result)
@@ -676,7 +706,7 @@ End Function
 ' selRead(const char *) as SEL *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selRead/*"/>
 '''  <param name="fname">[in] - filename</param>
 '''   <returns>sel, or NULL on error</returns>
 Public Shared Function selRead(
@@ -684,7 +714,10 @@ Public Shared Function selRead(
 
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 
+	If My.Computer.Filesystem.FileExists (fname) = false then Throw New ArgumentException ("File is missing")
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selRead( fname)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sel(_Result)
@@ -695,7 +728,7 @@ End Function
 ' selReadStream(FILE *) as SEL *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>sel, or NULL on error</returns>
 Public Shared Function selReadStream(
@@ -704,6 +737,7 @@ Public Shared Function selReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selReadStream( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sel(_Result)
@@ -714,7 +748,7 @@ End Function
 ' selaWrite(const char *, SELA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaWrite/*"/>
 '''  <param name="fname">[in] - filename</param>
 '''  <param name="sela">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -727,6 +761,7 @@ Public Shared Function selaWrite(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.selaWrite( fname, sela.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -735,7 +770,7 @@ End Function
 ' selaWriteStream(FILE *, SELA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="sela">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -748,6 +783,7 @@ Public Shared Function selaWriteStream(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.selaWriteStream( fp.Pointer, sela.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -756,7 +792,7 @@ End Function
 ' selWrite(const char *, SEL *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selWrite/*"/>
 '''  <param name="fname">[in] - filename</param>
 '''  <param name="sel">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -769,6 +805,7 @@ Public Shared Function selWrite(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.selWrite( fname, sel.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -777,7 +814,7 @@ End Function
 ' selWriteStream(FILE *, SEL *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="sel">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -789,6 +826,7 @@ Public Shared Function selWriteStream(
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.selWriteStream( fp.Pointer, sel.Pointer)
+
 
 	Return _Result
 End Function
@@ -821,7 +859,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selCreateFromString/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selCreateFromString/*"/>
 '''  <param name="text">[in] - </param>
 '''  <param name="h">[in] - height, width</param>
 '''  <param name="w">[in] - height, width</param>
@@ -836,6 +874,7 @@ Public Shared Function selCreateFromString(
 	If IsNothing (text) then Throw New ArgumentNullException  ("text cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selCreateFromString( text, h, w, name)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sel(_Result)
@@ -860,7 +899,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selPrintToString/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selPrintToString/*"/>
 '''  <param name="sel">[in] - </param>
 '''   <returns>str string caller must free</returns>
 Public Shared Function selPrintToString(
@@ -869,6 +908,7 @@ Public Shared Function selPrintToString(
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
 
 	Dim _Result as String = LeptonicaSharp.Natives.selPrintToString( sel.Pointer)
+
 
 	Return _Result
 End Function
@@ -905,7 +945,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaCreateFromFile/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaCreateFromFile/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>sela, or NULL on error</returns>
 Public Shared Function selaCreateFromFile(
@@ -913,9 +953,10 @@ Public Shared Function selaCreateFromFile(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaCreateFromFile( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sela(_Result)
@@ -931,7 +972,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selCreateFromPta/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selCreateFromPta/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="cy">[in] - origin of sel</param>
 '''  <param name="cx">[in] - origin of sel</param>
@@ -946,6 +987,7 @@ Public Shared Function selCreateFromPta(
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selCreateFromPta( pta.Pointer, cy, cx, name)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sel(_Result)
@@ -961,7 +1003,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selCreateFromPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selCreateFromPix/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="cy">[in] - origin of sel</param>
 '''  <param name="cx">[in] - origin of sel</param>
@@ -976,6 +1018,7 @@ Public Shared Function selCreateFromPix(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selCreateFromPix( pix.Pointer, cy, cx, name)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sel(_Result)
@@ -994,7 +1037,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selReadFromColorImage/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selReadFromColorImage/*"/>
 '''  <param name="pathname">[in] - </param>
 '''   <returns>sel if OK NULL on error</returns>
 Public Shared Function selReadFromColorImage(
@@ -1003,6 +1046,7 @@ Public Shared Function selReadFromColorImage(
 	If IsNothing (pathname) then Throw New ArgumentNullException  ("pathname cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selReadFromColorImage( pathname)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sel(_Result)
@@ -1031,7 +1075,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selCreateFromColorPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selCreateFromColorPix/*"/>
 '''  <param name="pixs">[in] - cmapped or rgb</param>
 '''  <param name="selname">[in][optional] - sel name can be null</param>
 '''   <returns>sel if OK, NULL on error</returns>
@@ -1042,6 +1086,7 @@ Public Shared Function selCreateFromColorPix(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selCreateFromColorPix( pixs.Pointer, selname)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sel(_Result)
@@ -1064,7 +1109,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selDisplayInPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selDisplayInPix/*"/>
 '''  <param name="sel">[in] - </param>
 '''  <param name="size">[in] - of grid interiors odd minimum size of 13 is enforced</param>
 '''  <param name="gthick">[in] - grid thickness minimum size of 2 is enforced</param>
@@ -1077,6 +1122,7 @@ Public Shared Function selDisplayInPix(
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selDisplayInPix( sel.Pointer, size, gthick)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1097,7 +1143,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaDisplayInPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaDisplayInPix/*"/>
 '''  <param name="sela">[in] - </param>
 '''  <param name="size">[in] - of grid interiors odd minimum size of 13 is enforced</param>
 '''  <param name="gthick">[in] - grid thickness minimum size of 2 is enforced</param>
@@ -1114,6 +1160,7 @@ Public Shared Function selaDisplayInPix(
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaDisplayInPix( sela.Pointer, size, gthick, spacing, ncols)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

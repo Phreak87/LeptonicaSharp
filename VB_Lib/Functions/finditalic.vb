@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\finditalic.c (110, 1)
 ' pixItalicWords(pixs, boxaw, pixw, pboxa, debugflag) as Integer
 ' pixItalicWords(PIX *, BOXA *, PIX *, BOXA **, l_int32) as l_ok
@@ -33,7 +32,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixItalicWords/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixItalicWords/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="boxaw">[in][optional] - word bounding boxes can be NULL</param>
 '''  <param name="pixw">[in][optional] - word box mask can be NULL</param>
@@ -56,7 +55,9 @@ Public Shared Function pixItalicWords(
 	Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = pboxa.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixItalicWords( pixs.Pointer, boxawPTR, pixwPTR, pboxaPTR, debugflag)
-	if pboxaPTR <> IntPtr.Zero then pboxa = new Boxa(pboxaPTR)
+
+If pboxaPTR = IntPtr.Zero Then pboxa = Nothing
+If pboxaPTR <> IntPtr.Zero Then pboxa = New Boxa(pboxaPTR)
 
 	Return _Result
 End Function

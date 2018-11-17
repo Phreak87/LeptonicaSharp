@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\scale2.c (204, 1)
 ' pixScaleToGray(pixs, scalefactor) as Pix
 ' pixScaleToGray(PIX *, l_float32) as PIX *
@@ -70,7 +69,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixScaleToGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleToGray/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="scalefactor">[in] - reduction: must be  is greater  0.0 and  is smaller 1.0</param>
 '''   <returns>pixd 8 bpp, scaled down by scalefactor in each direction, or NULL on error.</returns>
@@ -83,6 +82,7 @@ Public Shared Function pixScaleToGray(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleToGray( pixs.Pointer, scalefactor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -109,7 +109,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixScaleToGrayFast/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleToGrayFast/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="scalefactor">[in] - reduction: must be  is greater  0.0 and  is smaller 1.0</param>
 '''   <returns>pixd 8 bpp, scaled down by scalefactor in each direction, or NULL on error.</returns>
@@ -122,6 +122,7 @@ Public Shared Function pixScaleToGrayFast(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleToGrayFast( pixs.Pointer, scalefactor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -132,7 +133,7 @@ End Function
 ' pixScaleToGray2(PIX *) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixScaleToGray2/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleToGray2/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 8 bpp, scaled down by 2x in each direction, or NULL on error.</returns>
 Public Shared Function pixScaleToGray2(
@@ -143,6 +144,7 @@ Public Shared Function pixScaleToGray2(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleToGray2( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -162,7 +164,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixScaleToGray3/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleToGray3/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 8 bpp, scaled down by 3x in each direction, or NULL on error.</returns>
 Public Shared Function pixScaleToGray3(
@@ -173,6 +175,7 @@ Public Shared Function pixScaleToGray3(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleToGray3( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -188,7 +191,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixScaleToGray4/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleToGray4/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 8 bpp, scaled down by 4x in each direction, or NULL on error.</returns>
 Public Shared Function pixScaleToGray4(
@@ -199,6 +202,7 @@ Public Shared Function pixScaleToGray4(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleToGray4( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -214,7 +218,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixScaleToGray6/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleToGray6/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 8 bpp, scaled down by 6x in each direction, or NULL on error.</returns>
 Public Shared Function pixScaleToGray6(
@@ -225,6 +229,7 @@ Public Shared Function pixScaleToGray6(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleToGray6( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -235,7 +240,7 @@ End Function
 ' pixScaleToGray8(PIX *) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixScaleToGray8/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleToGray8/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 8 bpp, scaled down by 8x in each direction, or NULL on error</returns>
 Public Shared Function pixScaleToGray8(
@@ -246,6 +251,7 @@ Public Shared Function pixScaleToGray8(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleToGray8( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -256,7 +262,7 @@ End Function
 ' pixScaleToGray16(PIX *) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixScaleToGray16/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleToGray16/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd 8 bpp, scaled down by 16x in each direction, or NULL on error.</returns>
 Public Shared Function pixScaleToGray16(
@@ -267,6 +273,7 @@ Public Shared Function pixScaleToGray16(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleToGray16( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -297,7 +304,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixScaleToGrayMipmap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleToGrayMipmap/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="scalefactor">[in] - reduction: must be  is greater  0.0 and  is smaller 1.0</param>
 '''   <returns>pixd 8 bpp, scaled down by scalefactor in each direction, or NULL on error.</returns>
@@ -310,6 +317,7 @@ Public Shared Function pixScaleToGrayMipmap(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleToGrayMipmap( pixs.Pointer, scalefactor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -328,7 +336,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixScaleMipmap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleMipmap/*"/>
 '''  <param name="pixs1">[in] - high res 8 bpp, no cmap</param>
 '''  <param name="pixs2">[in] - low res -- 2x reduced -- 8 bpp, no cmap</param>
 '''  <param name="scale">[in] - reduction with respect to high res image,  is greater  0.5</param>
@@ -342,6 +350,7 @@ Public Shared Function pixScaleMipmap(
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleMipmap( pixs1.Pointer, pixs2.Pointer, scale)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -352,7 +361,7 @@ End Function
 ' pixExpandReplicate(PIX *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixExpandReplicate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixExpandReplicate/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 '''  <param name="factor">[in] - integer scale factor for replicative expansion</param>
 '''   <returns>pixd scaled up, or NULL on error.</returns>
@@ -365,6 +374,7 @@ Public Shared Function pixExpandReplicate(
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16, 32 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExpandReplicate( pixs.Pointer, factor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -392,7 +402,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixScaleGrayMinMax/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleGrayMinMax/*"/>
 '''  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 '''  <param name="xfact">[in] - x downscaling factor integer</param>
 '''  <param name="yfact">[in] - y downscaling factor integer</param>
@@ -407,6 +417,7 @@ Public Shared Function pixScaleGrayMinMax(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleGrayMinMax( pixs.Pointer, xfact, yfact, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -439,7 +450,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixScaleGrayMinMax2/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleGrayMinMax2/*"/>
 '''  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 '''  <param name="type">[in] - L_CHOOSE_MIN, L_CHOOSE_MAX, L_CHOOSE_MAXDIFF</param>
 '''   <returns>pixd 8 bpp downscaled by 2x</returns>
@@ -450,6 +461,7 @@ Public Shared Function pixScaleGrayMinMax2(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleGrayMinMax2( pixs.Pointer, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -467,7 +479,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixScaleGrayRankCascade/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleGrayRankCascade/*"/>
 '''  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 '''  <param name="level1">[in] - rank thresholds, in set {0, 1, 2, 3, 4}</param>
 '''  <param name="level2">[in] - rank thresholds, in set {0, 1, 2, 3, 4}</param>
@@ -484,6 +496,7 @@ Public Shared Function pixScaleGrayRankCascade(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleGrayRankCascade( pixs.Pointer, level1, level2, level3, level4)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -511,7 +524,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixScaleGrayRank2/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleGrayRank2/*"/>
 '''  <param name="pixs">[in] - 8 bpp, no cmap</param>
 '''  <param name="rank">[in] - 1 (darkest), 2, 3, 4 (lightest)</param>
 '''   <returns>pixd 8 bpp, downscaled by 2x</returns>
@@ -522,6 +535,7 @@ Public Shared Function pixScaleGrayRank2(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleGrayRank2( pixs.Pointer, rank)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -537,7 +551,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixScaleAndTransferAlpha/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleAndTransferAlpha/*"/>
 '''  <param name="pixd">[in] - 32 bpp, scaled image</param>
 '''  <param name="pixs">[in] - 32 bpp, original unscaled image</param>
 '''  <param name="scalex">[in] - both  is greater  0.0</param>
@@ -553,6 +567,7 @@ Public Shared Function pixScaleAndTransferAlpha(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixScaleAndTransferAlpha( pixd.Pointer, pixs.Pointer, scalex, scaley)
+
 
 	Return _Result
 End Function
@@ -601,7 +616,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixScaleWithAlpha/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleWithAlpha/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb or cmapped</param>
 '''  <param name="scalex">[in] - must be  is greater  0.0</param>
 '''  <param name="scaley">[in] - must be  is greater  0.0</param>
@@ -620,6 +635,7 @@ Public Shared Function pixScaleWithAlpha(
 	Dim pixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixg) Then pixgPTR = pixg.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixScaleWithAlpha( pixs.Pointer, scalex, scaley, pixgPTR, fract)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

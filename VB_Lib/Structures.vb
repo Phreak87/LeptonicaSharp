@@ -7,30 +7,27 @@ Imports LeptonicaSharp.Enumerations
 '  Timing struct
 Public Class L_WallTimer
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_WallTimer
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_WallTimer
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -116,30 +113,27 @@ End Class
 '  Number array: an array of floats
 Public Class Numa
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_Numa
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_Numa
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.NumaDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.NumaDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -261,30 +255,27 @@ End Class
 '  Array of number arrays
 Public Class Numaa
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_Numaa
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_Numaa
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.NumaaDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.NumaaDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -359,30 +350,27 @@ End Class
 '  Double number array: an array of doubles
 Public Class L_Dna
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Dna
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Dna
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.L_DnaDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.L_DnaDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -504,30 +492,27 @@ End Class
 '  Array of double number arrays
 Public Class L_Dnaa
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Dnaa
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Dnaa
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.L_DnaaDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.L_DnaaDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -602,30 +587,27 @@ End Class
 '  A hash table of Dnas
 Public Class L_DnaHash
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_DnaHash
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_DnaHash
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.L_DnaHashDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.L_DnaHashDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -700,30 +682,27 @@ End Class
 '  String array: an array of C strings
 Public Class Sarray
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_Sarray
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_Sarray
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.SarrayDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.SarrayDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -810,30 +789,27 @@ End Class
 '  Byte array (analogous to C++ "string")
 Public Class L_Bytea
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Bytea
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Bytea
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.L_ByteaDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.L_ByteaDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -923,30 +899,27 @@ End Class
 '  Expandable byte buffer for memory read/write operations
 Public Class L_ByteBuffer
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_ByteBuffer
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_ByteBuffer
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -1036,30 +1009,27 @@ End Class
 '  Heap of arbitrary void* data
 Public Class L_Heap
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Heap
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Heap
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -1149,30 +1119,27 @@ End Class
 '  list.h
 Public Class DoubleLinkedList
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_DoubleLinkedList
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_DoubleLinkedList
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -1218,7 +1185,7 @@ End Property
 '''  Brf: 
 '''  Loc: SRC/list.h (65, 33)
 '''  Org: [void * data]
-'''  Msh: void * | 2:Void |  ... Pointer auf Object = IntPtr
+'''  Msh: void * | 2:Void | Object -  - IntPtr
 '''  </summary>
 ReadOnly property data as IntPtr
 	Get
@@ -1247,30 +1214,27 @@ End Class
 '  Generic pointer array
 Public Class L_Ptra
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Ptra
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Ptra
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -1358,30 +1322,27 @@ End Class
 '  Array of generic pointer arrays
 Public Class L_Ptraa
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Ptraa
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Ptraa
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -1441,30 +1402,27 @@ End Class
 '  Expandable pointer queue for arbitrary void* data
 Public Class L_Queue
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Queue
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Queue
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -1573,30 +1531,27 @@ End Class
 '  Storage for keys and values for red-black trees, maps and sets. Note: (1) Keys and values of the valid key types are all 64-bit (2) (void *) can be used for values but not for keys.
 Public Class Rb_Type
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_Rb_Type
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_Rb_Type
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -1654,7 +1609,7 @@ End Property
 '''  Brf: 
 '''  Loc: SRC/rbtree.h (65, 16)
 '''  Org: [void * ptype]
-'''  Msh: void * | 2:Void |  ... Pointer auf Object = IntPtr
+'''  Msh: void * | 2:Void | Object -  - IntPtr
 '''  </summary>
 ReadOnly property ptype as IntPtr
 	Get
@@ -1682,30 +1637,27 @@ End Class
 '  
 Public Class L_Rbtree
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Rbtree
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Rbtree
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.L_RbtreeDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.L_RbtreeDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -1757,30 +1709,27 @@ End Class
 '  
 Public Class L_Rbtree_Node
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Rbtree_Node
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Rbtree_Node
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -1906,30 +1855,27 @@ End Class
 '  Expandable pointer stack for arbitrary void* data. Note that array[n] is the first null ptr in the array
 Public Class L_Stack
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Stack
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Stack
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -2021,30 +1967,27 @@ End Class
 '  Data structure to hold bitmap fonts and related data
 Public Class L_Bmf
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Bmf
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Bmf
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -2299,30 +2242,27 @@ End Class
 '  CCBord contains:
 Public Class CCBord
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_CCBord
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_CCBord
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -2507,30 +2447,27 @@ End Class
 '  Array of CCBord
 Public Class CCBorda
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_CCBorda
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_CCBorda
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -2660,30 +2597,27 @@ End Class
 '  Data structure to hold a number of Dewarp
 Public Class L_Dewarpa
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Dewarpa
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Dewarpa
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -3042,30 +2976,27 @@ End Class
 '  Data structure for a single dewarp
 Public Class L_Dewarp
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Dewarp
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Dewarp
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -3681,30 +3612,27 @@ End Class
 '  Data structure for generating gnuplot files
 Public Class GPlot
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_GPlot
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_GPlot
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.GPlotDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.GPlotDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -3982,30 +3910,27 @@ End Class
 '  Compressed image data
 Public Class L_Compressed_Data
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Compressed_Data
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Compressed_Data
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -4303,30 +4228,27 @@ End Class
 '  Intermediate pdf generation data
 Public Class L_Pdf_Data
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Pdf_Data
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Pdf_Data
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -4718,30 +4640,27 @@ End Class
 '  The JbClasser struct holds all the data accumulated during the classification process that can be used for a compressed jbig2-type representation of a set of images. This is created in an initialization process and added to as the selected components on each successive page are analyzed.
 Public Class JbClasser
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_JbClasser
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_JbClasser
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.JbClasserDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.JbClasserDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -5261,30 +5180,27 @@ End Class
 '  The JbData struct holds all the data required for the compressed jbig-type representation of a set of images. The data can be written to file, read back, and used to regenerate an approximate version of the original, which differs in two ways from the original: (1) It uses a template image for each c.c. instead of the original instance, for each occurrence on each page. (2) It discards components with either a height or width larger than the maximuma, given here by the lattice dimensions used for storing the templates.
 Public Class JbData
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_JbData
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_JbData
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.JbDataDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.JbDataDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -5480,30 +5396,27 @@ End Class
 '  Selection
 Public Class Sel
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_Sel
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_Sel
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.SelDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.SelDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -5631,30 +5544,27 @@ End Class
 '  Array of Sel
 Public Class Sela
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_Sela
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_Sela
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.SelaDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.SelaDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -5729,30 +5639,27 @@ End Class
 '  Kernel
 Public Class L_Kernel
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Kernel
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Kernel
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -5863,30 +5770,27 @@ End Class
 '  Basic Pix
 Public Class Pix
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_Pix
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_Pix
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.PixDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.PixDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -6129,30 +6033,27 @@ End Class
 '  Colormap of a Pix
 Public Class PixColormap
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_PixColormap
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_PixColormap
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -6162,7 +6063,7 @@ End Sub
 '''  Brf: colormap table (array of RGBA_QUAD)
 '''  Loc: SRC/pix.h (157, 22)
 '''  Org: [void * array]
-'''  Msh: void * | 2:Void |  ... Pointer auf Object = IntPtr
+'''  Msh: void * | 2:Void | Object -  - IntPtr
 '''  </summary>
 ReadOnly property array as IntPtr
 	Get
@@ -6238,30 +6139,27 @@ End Class
 '  Colormap table entry (after the BMP version). Note that the BMP format stores the colormap table exactly as it appears here, with color samples being stored sequentially, in the order (b,g,r,a).
 Public Class RGBA_Quad
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_RGBA_Quad
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_RGBA_Quad
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -6345,30 +6243,27 @@ End Class
 '  Array of pix
 Public Class Pixa
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_Pixa
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_Pixa
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.PixaDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.PixaDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -6479,30 +6374,27 @@ End Class
 '  Array of arrays of pix
 Public Class Pixaa
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_Pixaa
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_Pixaa
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.PixaaDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.PixaaDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -6596,30 +6488,27 @@ End Class
 '  Basic rectangle
 Public Class Box
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_Box
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_Box
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.BoxDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.BoxDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -6720,30 +6609,27 @@ End Class
 '  Array of Box
 Public Class Boxa
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_Boxa
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_Boxa
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.BoxaDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.BoxaDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -6835,30 +6721,27 @@ End Class
 '  Array of Boxa
 Public Class Boxaa
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_Boxaa
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_Boxaa
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.BoxaaDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.BoxaaDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -6933,30 +6816,27 @@ End Class
 '  Array of points
 Public Class Pta
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_Pta
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_Pta
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.PtaDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.PtaDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -7065,30 +6945,27 @@ End Class
 '  Array of Pta
 Public Class Ptaa
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_Ptaa
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_Ptaa
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.PtaaDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.PtaaDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -7163,30 +7040,27 @@ End Class
 '  Pix accumulator container
 Public Class Pixacc
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_Pixacc
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_Pixacc
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.PixaccDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.PixaccDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -7272,30 +7146,27 @@ End Class
 '  Pix tiling
 Public Class PixTiling
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_PixTiling
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_PixTiling
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.PixTilingDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.PixTilingDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -7449,30 +7320,27 @@ End Class
 '  Pix with float array
 Public Class FPix
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_FPix
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_FPix
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.FPixDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.FPixDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -7611,30 +7479,27 @@ End Class
 '  Array of FPix
 Public Class FPixa
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_FPixa
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_FPixa
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.FPixaDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.FPixaDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -7726,30 +7591,27 @@ End Class
 '  Pix with double array
 Public Class DPix
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_DPix
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_DPix
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.DPixDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.DPixDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -7888,30 +7750,27 @@ End Class
 '  Compressed Pix
 Public Class PixComp
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_PixComp
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_PixComp
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.PixCompDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.PixCompDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -8103,30 +7962,27 @@ End Class
 '  Array of compressed pix
 Public Class PixaComp
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_PixaComp
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_PixaComp
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-			LeptonicaSharp.Natives.PixaCompDestroy(Pointer)
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       		LeptonicaSharp.Natives.PixaCompDestroy(Pointer)
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -8239,30 +8095,27 @@ End Class
 '  
 Public Class L_Recog
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Recog
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Recog
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -9220,30 +9073,27 @@ End Class
 '  Data returned from correlation matching on a single character
 Public Class L_Rch
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Rch
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Rch
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -9380,30 +9230,27 @@ End Class
 '  Data returned from correlation matching on an array of characters
 Public Class L_Rcha
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Rcha
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Rcha
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -9552,30 +9399,27 @@ End Class
 '  Data used for decoding a line of characters.
 Public Class L_Rdid
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Rdid
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Rdid
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -10084,30 +9928,27 @@ End Class
 '  Regression test parameter packer
 Public Class L_RegParams
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_RegParams
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_RegParams
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -10267,30 +10108,27 @@ End Class
 '  stringcode.h
 Public Class L_StrCode
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_StrCode
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_StrCode
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -10416,30 +10254,27 @@ End Class
 '  sudoku.h
 Public Class L_Sudoku
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Sudoku
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Sudoku
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -10605,30 +10440,27 @@ End Class
 '  Simple data structure to hold watershed data.
 Public Class L_WShed
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_WShed
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_WShed
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -11051,30 +10883,27 @@ End Class
 '  Bilateral filter
 Public Class L_Bilateral
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Bilateral
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Bilateral
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -11381,30 +11210,27 @@ End Class
 '  BMP file header
 Public Class BMP_FileHeader
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_BMP_FileHeader
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_BMP_FileHeader
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -11539,30 +11365,27 @@ End Class
 '  BMP info header
 Public Class BMP_InfoHeader
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_BMP_InfoHeader
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_BMP_InfoHeader
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -11767,30 +11590,27 @@ End Class
 '  
 Public Class ColorQuantCell
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_ColorQuantCell
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_ColorQuantCell
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -11925,30 +11745,27 @@ End Class
 '  
 Public Class OctcubeQuantCell
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_OctcubeQuantCell
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_OctcubeQuantCell
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -12100,30 +11917,27 @@ End Class
 '  
 Public Class L_OctcubePop
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_OctcubePop
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_OctcubePop
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -12226,30 +12040,27 @@ End Class
 '  
 Public Class L_Box3d
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Box3d
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Box3d
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -12420,30 +12231,27 @@ End Class
 '  The struct FillSeg is used by the Heckbert seedfill algorithm to hold information about image segments that are waiting to be investigated. We use two Stacks, one to hold the FillSegs in use, and an auxiliary Stack as a reservoir to hold FillSegs for re-use.
 Public Class FillSeg
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_FillSeg
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_FillSeg
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -12529,30 +12337,27 @@ End Class
 '  
 Public Class JbFindTemplatesState
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_JbFindTemplatesState
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_JbFindTemplatesState
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -12676,30 +12481,27 @@ End Class
 '  
 Public Class callback_data
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_callback_data
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_callback_data
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -12755,30 +12557,27 @@ End Class
 '  
 Public Class MazeElement
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_MazeElement
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_MazeElement
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -12881,30 +12680,27 @@ End Class
 '  Partition element
 Public Class PartitionElement
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_PartitionElement
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_PartitionElement
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -12977,30 +12773,27 @@ End Class
 '  Pix memory manager
 Public Class PixMemoryManager
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_PixMemoryManager
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_PixMemoryManager
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -13052,30 +12845,27 @@ End Class
 '  Pix memory storage
 Public Class PixMemoryStore
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_PixMemoryStore
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_PixMemoryStore
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -13403,30 +13193,27 @@ End Class
 '  A node in a linked list of memory buffers that hold I/O content
 Public Class MemIOData
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_MemIOData
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_MemIOData
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -13535,30 +13322,27 @@ End Class
 '  
 Public Class L_Pixel
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Pixel
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Pixel
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -13610,30 +13394,27 @@ End Class
 '  
 Public Class CompParameterMap
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_CompParameterMap
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_CompParameterMap
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -13770,30 +13551,27 @@ End Class
 '  Associations between names and functions
 Public Class L_GenAssoc
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_GenAssoc
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_GenAssoc
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -13896,30 +13674,27 @@ End Class
 '  
 Public Class tiff_transform
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_tiff_transform
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_tiff_transform
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -13986,30 +13761,27 @@ End Class
 '  Memory stream buffer used with TIFFClientOpen()
 Public Class L_Memstream
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_Memstream
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_Memstream
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -14143,30 +13915,27 @@ End Class
 '  New pixel coordinates
 Public Class L_NewPixel
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_NewPixel
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_NewPixel
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -14216,30 +13985,27 @@ End Class
 '  Wartshed pixel
 Public Class L_WSPixel
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_L_WSPixel
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_L_WSPixel
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub
@@ -14325,30 +14091,27 @@ End Class
 '  
 Public Class ExtensionMap
 	Implements IDisposable
-	Public Pointer as IntPtr
-	Private Values as new Marshal_ExtensionMap
-	Private Caching as new Dictionary (of String, Object)
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Public Pointer as IntPtr
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Values as new Marshal_ExtensionMap
+	<DebuggerBrowsable(DebuggerBrowsableState.Never)> Private Caching as new Dictionary (of String, Object)
 
 
 #Region "IDisposable Support"
-	Private disposedValue As Boolean
-
-	Protected Overridable Sub Dispose(ByVal disposing As Boolean)
-	
-	For Each Entry In Caching
-		Try : Entry.Value.dispose() : Catch : End Try
-	Next : : Caching.Clear() : Caching = Nothing
-	If Not Me.disposedValue Then
-		If disposing Then Values = Nothing
-	End If : Me.disposedValue = True
-	End Sub
-
-	Public Sub Dispose() Implements IDisposable.Dispose
-		Dispose(True) : System.GC.SuppressFinalize(Me)
-	End Sub
-
-	#End Region
-
+   <DebuggerBrowsable(DebuggerBrowsableState.Never)>
+   Private disposedValue As Boolean
+       Protected Overridable Sub Dispose(ByVal disposing As Boolean)
+       
+       For Each Entry In Caching
+           Try : Entry.Value.dispose() : Catch : End Try
+       Next : Caching.Clear() : Caching = Nothing
+       If Not Me.disposedValue Then
+           If disposing Then Values = Nothing
+       End If : Me.disposedValue = True
+   End Sub
+   Public Sub Dispose() Implements IDisposable.Dispose
+       Dispose(True) : System.GC.SuppressFinalize(Me)
+   End Sub
+#End Region
 
 Sub New (PTR as IntPtr)
 	If PTR = IntPtr.Zero Then Exit Sub

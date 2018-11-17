@@ -2,19 +2,19 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\dnabasic.c (169, 1)
 ' l_dnaCreate(n) as L_Dna
 ' l_dnaCreate(l_int32) as L_DNA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaCreate/*"/>
 '''  <param name="n">[in] - size of number array to be alloc'd 0 for default</param>
 '''   <returns>da, or NULL on error</returns>
 Public Shared Function l_dnaCreate(
 				 ByVal n as Integer) as L_Dna
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaCreate( n)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dna(_Result)
@@ -33,7 +33,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaCreateFromIArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaCreateFromIArray/*"/>
 '''  <param name="iarray">[in] - integer</param>
 '''  <param name="size">[in] - of the array</param>
 '''   <returns>da, or NULL on error</returns>
@@ -44,6 +44,7 @@ Public Shared Function l_dnaCreateFromIArray(
 	If IsNothing (iarray) then Throw New ArgumentNullException  ("iarray cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaCreateFromIArray( iarray, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dna(_Result)
@@ -61,7 +62,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaCreateFromDArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaCreateFromDArray/*"/>
 '''  <param name="darray">[in] - float</param>
 '''  <param name="size">[in] - of the array</param>
 '''  <param name="copyflag">[in] - L_INSERT or L_COPY</param>
@@ -74,6 +75,7 @@ Public Shared Function l_dnaCreateFromDArray(
 	If IsNothing (darray) then Throw New ArgumentNullException  ("darray cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaCreateFromDArray( darray, size, copyflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dna(_Result)
@@ -84,7 +86,7 @@ End Function
 ' l_dnaMakeSequence(l_float64, l_float64, l_int32) as L_DNA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaMakeSequence/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaMakeSequence/*"/>
 '''  <param name="startval">[in] - </param>
 '''  <param name="increment">[in] - </param>
 '''  <param name="size">[in] - of sequence</param>
@@ -98,6 +100,7 @@ Public Shared Function l_dnaMakeSequence(
 	If IsNothing (increment) then Throw New ArgumentNullException  ("increment cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaMakeSequence( startval, increment, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dna(_Result)
@@ -115,7 +118,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaDestroy/*"/>
 '''  <param name="pda">[in,out] - to be nulled if it exists</param>
 Public Shared Sub l_dnaDestroy(
 				 ByRef pda as L_Dna)
@@ -123,7 +126,9 @@ Public Shared Sub l_dnaDestroy(
 	Dim pdaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pda) Then pdaPTR = pda.Pointer
 
 	LeptonicaSharp.Natives.l_dnaDestroy( pdaPTR)
-	if pdaPTR <> IntPtr.Zero then pda = new L_Dna(pdaPTR)
+
+If pdaPTR = IntPtr.Zero Then pda = Nothing
+If pdaPTR <> IntPtr.Zero Then pda = New L_Dna(pdaPTR)
 
 End Sub
 
@@ -137,7 +142,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaCopy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaCopy/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>copy of da, or NULL on error</returns>
 Public Shared Function l_dnaCopy(
@@ -146,6 +151,7 @@ Public Shared Function l_dnaCopy(
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaCopy( da.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dna(_Result)
@@ -156,7 +162,7 @@ End Function
 ' l_dnaClone(L_DNA *) as L_DNA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaClone/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaClone/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>ptr to same da, or NULL on error</returns>
 Public Shared Function l_dnaClone(
@@ -165,6 +171,7 @@ Public Shared Function l_dnaClone(
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaClone( da.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dna(_Result)
@@ -182,7 +189,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaEmpty/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaEmpty/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function l_dnaEmpty(
@@ -192,6 +199,7 @@ Public Shared Function l_dnaEmpty(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaEmpty( da.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -200,7 +208,7 @@ End Function
 ' l_dnaAddNumber(L_DNA *, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaAddNumber/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaAddNumber/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="val">[in] - float or int to be added stored as a float</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -212,6 +220,7 @@ Public Shared Function l_dnaAddNumber(
 	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaAddNumber( da.Pointer, val)
+
 
 	Return _Result
 End Function
@@ -230,7 +239,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaInsertNumber/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaInsertNumber/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - location in da to insert new value</param>
 '''  <param name="val">[in] - float64 or integer to be added</param>
@@ -244,6 +253,7 @@ Public Shared Function l_dnaInsertNumber(
 	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaInsertNumber( da.Pointer, index, val)
+
 
 	Return _Result
 End Function
@@ -261,7 +271,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaRemoveNumber/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaRemoveNumber/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - element to be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -273,6 +283,7 @@ Public Shared Function l_dnaRemoveNumber(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaRemoveNumber( da.Pointer, index)
 
+
 	Return _Result
 End Function
 
@@ -281,7 +292,7 @@ End Function
 ' l_dnaReplaceNumber(L_DNA *, l_int32, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaReplaceNumber/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaReplaceNumber/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - element to be replaced</param>
 '''  <param name="val">[in] - new value to replace old one</param>
@@ -296,6 +307,7 @@ Public Shared Function l_dnaReplaceNumber(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaReplaceNumber( da.Pointer, index, val)
 
+
 	Return _Result
 End Function
 
@@ -304,7 +316,7 @@ End Function
 ' l_dnaGetCount(L_DNA *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaGetCount/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>count, or 0 if no numbers or on error</returns>
 Public Shared Function l_dnaGetCount(
@@ -313,6 +325,7 @@ Public Shared Function l_dnaGetCount(
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaGetCount( da.Pointer)
+
 
 	Return _Result
 End Function
@@ -333,7 +346,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaSetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaSetCount/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="newcount">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -344,6 +357,7 @@ Public Shared Function l_dnaSetCount(
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaSetCount( da.Pointer, newcount)
+
 
 	Return _Result
 End Function
@@ -359,7 +373,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetDValue/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaGetDValue/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - into l_dna</param>
 '''  <param name="pval">[out] - double value 0.0 on error</param>
@@ -372,6 +386,7 @@ Public Shared Function l_dnaGetDValue(
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaGetDValue( da.Pointer, index, pval)
+
 
 	Return _Result
 End Function
@@ -387,7 +402,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetIValue/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaGetIValue/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - into l_dna</param>
 '''  <param name="pival">[out] - integer value 0 on error</param>
@@ -401,6 +416,7 @@ Public Shared Function l_dnaGetIValue(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaGetIValue( da.Pointer, index, pival)
 
+
 	Return _Result
 End Function
 
@@ -409,7 +425,7 @@ End Function
 ' l_dnaSetValue(L_DNA *, l_int32, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaSetValue/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaSetValue/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - to element to be set</param>
 '''  <param name="val">[in] - to set element</param>
@@ -424,6 +440,7 @@ Public Shared Function l_dnaSetValue(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaSetValue( da.Pointer, index, val)
 
+
 	Return _Result
 End Function
 
@@ -432,7 +449,7 @@ End Function
 ' l_dnaShiftValue(L_DNA *, l_int32, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaShiftValue/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaShiftValue/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="index">[in] - to element to change relative to the current value</param>
 '''  <param name="diff">[in] - increment if diff  is greater  0 or decrement if diff  is smaller 0</param>
@@ -446,6 +463,7 @@ Public Shared Function l_dnaShiftValue(
 	If IsNothing (diff) then Throw New ArgumentNullException  ("diff cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaShiftValue( da.Pointer, index, diff)
+
 
 	Return _Result
 End Function
@@ -470,7 +488,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetIArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaGetIArray/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>a copy of the bare internal array, integerized by rounding, or NULL on error</returns>
 Public Shared Function l_dnaGetIArray(
@@ -479,6 +497,7 @@ Public Shared Function l_dnaGetIArray(
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
 	Dim _Result as Integer() = LeptonicaSharp.Natives.l_dnaGetIArray( da.Pointer)
+
 
 	Return _Result
 End Function
@@ -503,7 +522,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetDArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaGetDArray/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="copyflag">[in] - L_NOCOPY or L_COPY</param>
 '''   <returns>either the bare internal array or a copy of it, or NULL on error</returns>
@@ -515,6 +534,7 @@ Public Shared Function l_dnaGetDArray(
 
 	Dim _Result as Double() = LeptonicaSharp.Natives.l_dnaGetDArray( da.Pointer, copyflag)
 
+
 	Return _Result
 End Function
 
@@ -523,7 +543,7 @@ End Function
 ' l_dnaGetRefcount(L_DNA *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetRefcount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaGetRefcount/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>refcount, or UNDEF on error</returns>
 Public Shared Function l_dnaGetRefcount(
@@ -533,6 +553,7 @@ Public Shared Function l_dnaGetRefcount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaGetRefcount( da.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -541,7 +562,7 @@ End Function
 ' l_dnaChangeRefcount(L_DNA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaChangeRefcount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaChangeRefcount/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="delta">[in] - change to be applied</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -553,6 +574,7 @@ Public Shared Function l_dnaChangeRefcount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaChangeRefcount( da.Pointer, delta)
 
+
 	Return _Result
 End Function
 
@@ -561,7 +583,7 @@ End Function
 ' l_dnaGetParameters(L_DNA *, l_float64 *, l_float64 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaGetParameters/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaGetParameters/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="pstartx">[out][optional] - startx</param>
 '''  <param name="pdelx">[out][optional] - delx</param>
@@ -575,6 +597,7 @@ Public Shared Function l_dnaGetParameters(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaGetParameters( da.Pointer, pstartx, pdelx)
 
+
 	Return _Result
 End Function
 
@@ -583,7 +606,7 @@ End Function
 ' l_dnaSetParameters(L_DNA *, l_float64, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaSetParameters/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaSetParameters/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="startx">[in] - x value corresponding to da[0]</param>
 '''  <param name="delx">[in] - difference in x values for the situation where the elements of da correspond to the evaulation of a function at equal intervals of size %delx</param>
@@ -599,6 +622,7 @@ Public Shared Function l_dnaSetParameters(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaSetParameters( da.Pointer, startx, delx)
 
+
 	Return _Result
 End Function
 
@@ -607,7 +631,7 @@ End Function
 ' l_dnaCopyParameters(L_DNA *, L_DNA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaCopyParameters/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaCopyParameters/*"/>
 '''  <param name="dad">[in] - destination DNuma</param>
 '''  <param name="das">[in] - source DNuma</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -620,6 +644,7 @@ Public Shared Function l_dnaCopyParameters(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaCopyParameters( dad.Pointer, das.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -628,7 +653,7 @@ End Function
 ' l_dnaRead(const char *) as L_DNA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>da, or NULL on error</returns>
 Public Shared Function l_dnaRead(
@@ -636,9 +661,10 @@ Public Shared Function l_dnaRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaRead( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dna(_Result)
@@ -654,7 +680,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>da, or NULL on error</returns>
 Public Shared Function l_dnaReadStream(
@@ -663,6 +689,7 @@ Public Shared Function l_dnaReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaReadStream( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dna(_Result)
@@ -673,7 +700,7 @@ End Function
 ' l_dnaWrite(const char *, L_DNA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="da">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -684,9 +711,8 @@ Public Shared Function l_dnaWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaWrite( filename, da.Pointer)
+
 
 	Return _Result
 End Function
@@ -696,7 +722,7 @@ End Function
 ' l_dnaWriteStream(FILE *, L_DNA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="da">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -709,6 +735,7 @@ Public Shared Function l_dnaWriteStream(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaWriteStream( fp.Pointer, da.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -717,13 +744,14 @@ End Function
 ' l_dnaaCreate(l_int32) as L_DNAA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaaCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaaCreate/*"/>
 '''  <param name="n">[in] - size of l_dna ptr array to be alloc'd 0 for default</param>
 '''   <returns>daa, or NULL on error</returns>
 Public Shared Function l_dnaaCreate(
 				 ByVal n as Integer) as L_Dnaa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaaCreate( n)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dnaa(_Result)
@@ -742,7 +770,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaaCreateFull/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaaCreateFull/*"/>
 '''  <param name="nptr">[in] - : size of dna ptr array to be alloc'd</param>
 '''  <param name="n">[in] - : size of individual dna arrays to be alloc'd 0 for default</param>
 '''   <returns>daa, or NULL on error</returns>
@@ -751,6 +779,7 @@ Public Shared Function l_dnaaCreateFull(
 				 ByVal n as Integer) as L_Dnaa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaaCreateFull( nptr, n)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dnaa(_Result)
@@ -768,7 +797,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaaTruncate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaaTruncate/*"/>
 '''  <param name="daa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function l_dnaaTruncate(
@@ -778,6 +807,7 @@ Public Shared Function l_dnaaTruncate(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaaTruncate( daa.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -786,7 +816,7 @@ End Function
 ' l_dnaaDestroy(L_DNAA **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaaDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaaDestroy/*"/>
 '''  <param name="pdaa">[in,out] - to be nulled if it exists</param>
 Public Shared Sub l_dnaaDestroy(
 				 ByRef pdaa as L_Dnaa)
@@ -794,7 +824,9 @@ Public Shared Sub l_dnaaDestroy(
 	Dim pdaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdaa) Then pdaaPTR = pdaa.Pointer
 
 	LeptonicaSharp.Natives.l_dnaaDestroy( pdaaPTR)
-	if pdaaPTR <> IntPtr.Zero then pdaa = new L_Dnaa(pdaaPTR)
+
+If pdaaPTR = IntPtr.Zero Then pdaa = Nothing
+If pdaaPTR <> IntPtr.Zero Then pdaa = New L_Dnaa(pdaaPTR)
 
 End Sub
 
@@ -803,7 +835,7 @@ End Sub
 ' l_dnaaAddDna(L_DNAA *, L_DNA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaaAddDna/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaaAddDna/*"/>
 '''  <param name="daa">[in] - </param>
 '''  <param name="da">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -818,6 +850,7 @@ Public Shared Function l_dnaaAddDna(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaaAddDna( daa.Pointer, da.Pointer, copyflag)
 
+
 	Return _Result
 End Function
 
@@ -826,7 +859,7 @@ End Function
 ' l_dnaaGetCount(L_DNAA *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaaGetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaaGetCount/*"/>
 '''  <param name="daa">[in] - </param>
 '''   <returns>count number of l_dna, or 0 if no l_dna or on error</returns>
 Public Shared Function l_dnaaGetCount(
@@ -836,6 +869,7 @@ Public Shared Function l_dnaaGetCount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaaGetCount( daa.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -844,7 +878,7 @@ End Function
 ' l_dnaaGetDnaCount(L_DNAA *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaaGetDnaCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaaGetDnaCount/*"/>
 '''  <param name="daa">[in] - </param>
 '''  <param name="index">[in] - of l_dna in daa</param>
 '''   <returns>count of numbers in the referenced l_dna, or 0 on error.</returns>
@@ -856,6 +890,7 @@ Public Shared Function l_dnaaGetDnaCount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaaGetDnaCount( daa.Pointer, index)
 
+
 	Return _Result
 End Function
 
@@ -864,7 +899,7 @@ End Function
 ' l_dnaaGetNumberCount(L_DNAA *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaaGetNumberCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaaGetNumberCount/*"/>
 '''  <param name="daa">[in] - </param>
 '''   <returns>count total number of numbers in the l_dnaa, or 0 if no numbers or on error</returns>
 Public Shared Function l_dnaaGetNumberCount(
@@ -874,6 +909,7 @@ Public Shared Function l_dnaaGetNumberCount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaaGetNumberCount( daa.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -882,7 +918,7 @@ End Function
 ' l_dnaaGetDna(L_DNAA *, l_int32, l_int32) as L_DNA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaaGetDna/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaaGetDna/*"/>
 '''  <param name="daa">[in] - </param>
 '''  <param name="index">[in] - to the index-th l_dna</param>
 '''  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
@@ -895,6 +931,7 @@ Public Shared Function l_dnaaGetDna(
 	If IsNothing (daa) then Throw New ArgumentNullException  ("daa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaaGetDna( daa.Pointer, index, accessflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dna(_Result)
@@ -913,7 +950,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaaReplaceDna/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaaReplaceDna/*"/>
 '''  <param name="daa">[in] - </param>
 '''  <param name="index">[in] - to the index-th l_dna</param>
 '''  <param name="da">[in] - insert and replace any existing one</param>
@@ -928,6 +965,7 @@ Public Shared Function l_dnaaReplaceDna(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaaReplaceDna( daa.Pointer, index, da.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -936,7 +974,7 @@ End Function
 ' l_dnaaGetValue(L_DNAA *, l_int32, l_int32, l_float64 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaaGetValue/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaaGetValue/*"/>
 '''  <param name="daa">[in] - </param>
 '''  <param name="i">[in] - index of l_dna within l_dnaa</param>
 '''  <param name="j">[in] - index into l_dna</param>
@@ -952,6 +990,7 @@ Public Shared Function l_dnaaGetValue(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaaGetValue( daa.Pointer, i, j, pval)
 
+
 	Return _Result
 End Function
 
@@ -965,7 +1004,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaaAddNumber/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaaAddNumber/*"/>
 '''  <param name="daa">[in] - </param>
 '''  <param name="index">[in] - of l_dna within l_dnaa</param>
 '''  <param name="val">[in] - number to be added stored as a double</param>
@@ -980,6 +1019,7 @@ Public Shared Function l_dnaaAddNumber(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaaAddNumber( daa.Pointer, index, val)
 
+
 	Return _Result
 End Function
 
@@ -988,7 +1028,7 @@ End Function
 ' l_dnaaRead(const char *) as L_DNAA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaaRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>daa, or NULL on error</returns>
 Public Shared Function l_dnaaRead(
@@ -996,9 +1036,10 @@ Public Shared Function l_dnaaRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaaRead( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dnaa(_Result)
@@ -1009,7 +1050,7 @@ End Function
 ' l_dnaaReadStream(FILE *) as L_DNAA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaaReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>daa, or NULL on error</returns>
 Public Shared Function l_dnaaReadStream(
@@ -1018,6 +1059,7 @@ Public Shared Function l_dnaaReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaaReadStream( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dnaa(_Result)
@@ -1028,7 +1070,7 @@ End Function
 ' l_dnaaWrite(const char *, L_DNAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaaWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="daa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1039,9 +1081,8 @@ Public Shared Function l_dnaaWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (daa) then Throw New ArgumentNullException  ("daa cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaaWrite( filename, daa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1051,7 +1092,7 @@ End Function
 ' l_dnaaWriteStream(FILE *, L_DNAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaaWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="daa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1063,6 +1104,7 @@ Public Shared Function l_dnaaWriteStream(
 	If IsNothing (daa) then Throw New ArgumentNullException  ("daa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaaWriteStream( fp.Pointer, daa.Pointer)
+
 
 	Return _Result
 End Function

@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\writefile.c (182, 1)
 ' l_jpegSetQuality(new_quality) as Integer
 ' l_jpegSetQuality(l_int32) as l_int32
@@ -21,13 +20,14 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_jpegSetQuality/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_jpegSetQuality/*"/>
 '''  <param name="new_quality">[in] - 1 - 100 75 is default 0 defaults to 75</param>
 '''   <returns>prev           previous quality</returns>
 Public Shared Function l_jpegSetQuality(
 				 ByVal new_quality as Integer) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_jpegSetQuality( new_quality)
+
 
 	Return _Result
 End Function
@@ -47,13 +47,14 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/setLeptDebugOK/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/setLeptDebugOK/*"/>
 '''  <param name="allow">[in] - TRUE (1) or FALSE (0)</param>
 Public Shared Sub setLeptDebugOK(
 				 ByVal allow as Integer)
 
 If IsNothing(Natives.GetFullPathFromWindows("i_view32.exe")) Then MsgBox("I_View32.exe missing", MsgBoxStyle.Exclamation)
 	LeptonicaSharp.Natives.setLeptDebugOK( allow)
+
 
 End Sub
 
@@ -68,7 +69,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaWriteFiles/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaWriteFiles/*"/>
 '''  <param name="rootname">[in] - </param>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="format">[in] - defined in imageio.h see notes for default</param>
@@ -82,6 +83,7 @@ Public Shared Function pixaWriteFiles(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaWriteFiles( rootname, pixa.Pointer, format)
+
 
 	Return _Result
 End Function
@@ -101,7 +103,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteDebug/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteDebug/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="format">[in] - defined in imageio.h</param>
@@ -115,6 +117,7 @@ Public Shared Function pixWriteDebug(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteDebug( fname, pix.Pointer, format)
+
 
 	Return _Result
 End Function
@@ -139,7 +142,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWrite/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="format">[in] - defined in imageio.h</param>
@@ -154,6 +157,7 @@ Public Shared Function pixWrite(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWrite( fname, pix.Pointer, format)
 
+
 	Return _Result
 End Function
 
@@ -162,7 +166,7 @@ End Function
 ' pixWriteAutoFormat(const char *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteAutoFormat/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteAutoFormat/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -173,9 +177,8 @@ Public Shared Function pixWriteAutoFormat(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteAutoFormat( filename, pix.Pointer)
+
 
 	Return _Result
 End Function
@@ -185,7 +188,7 @@ End Function
 ' pixWriteStream(FILE *, PIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="format">[in] - </param>
@@ -199,6 +202,7 @@ Public Shared Function pixWriteStream(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStream( fp.Pointer, pix.Pointer, format)
+
 
 	Return _Result
 End Function
@@ -217,7 +221,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteImpliedFormat/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteImpliedFormat/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="quality">[in] - iff JPEG 1 - 100, 0 for default</param>
@@ -232,9 +236,8 @@ Public Shared Function pixWriteImpliedFormat(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteImpliedFormat( filename, pix.Pointer, quality, progressive)
+
 
 	Return _Result
 End Function
@@ -253,7 +256,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixChooseOutputFormat/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixChooseOutputFormat/*"/>
 '''  <param name="pix">[in] - </param>
 '''   <returns>output format, or 0 on error</returns>
 Public Shared Function pixChooseOutputFormat(
@@ -262,6 +265,7 @@ Public Shared Function pixChooseOutputFormat(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixChooseOutputFormat( pix.Pointer)
+
 
 	Return _Result
 End Function
@@ -277,7 +281,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/getImpliedFileFormat/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getImpliedFileFormat/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>output format, or IFF_UNKNOWN on error or invalid extension.</returns>
 Public Shared Function getImpliedFileFormat(
@@ -285,9 +289,10 @@ Public Shared Function getImpliedFileFormat(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.getImpliedFileFormat( filename)
+
 
 	Return _Result
 End Function
@@ -309,7 +314,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetAutoFormat/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetAutoFormat/*"/>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixGetAutoFormat(
@@ -320,6 +325,7 @@ Public Shared Function pixGetAutoFormat(
 	If IsNothing (pformat) then Throw New ArgumentNullException  ("pformat cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetAutoFormat( pix.Pointer, pformat)
+
 
 	Return _Result
 End Function
@@ -335,13 +341,14 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/getFormatExtension/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getFormatExtension/*"/>
 '''  <param name="format">[in] - integer</param>
 '''   <returns>extension string, or NULL if format is out of range</returns>
 Public Shared Function getFormatExtension(
 				 ByVal format as Enumerations.IFF) as String
 
 	Dim _Result as String = LeptonicaSharp.Natives.getFormatExtension( format)
+
 
 	Return _Result
 End Function
@@ -364,7 +371,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteMem/*"/>
 '''  <param name="pdata">[out] - data of tiff compressed image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - </param>
@@ -381,6 +388,7 @@ Public Shared Function pixWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMem( pdataPTR, psize, pix.Pointer, format)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -402,7 +410,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_fileDisplay/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_fileDisplay/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="x">[in] - location of display frame on the screen</param>
 '''  <param name="y">[in] - location of display frame on the screen</param>
@@ -416,7 +424,10 @@ Public Shared Function l_fileDisplay(
 
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 
+	If My.Computer.Filesystem.FileExists (fname) = false then Throw New ArgumentException ("File is missing")
+
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_fileDisplay( fname, x, y, scale)
+
 
 	Return _Result
 End Function
@@ -463,7 +474,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDisplay/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDisplay/*"/>
 '''  <param name="x">[in] - location of display frame on the screen</param>
 '''  <param name="y">[in] - location of display frame on the screen</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -477,6 +488,7 @@ Public Shared Function pixDisplay(
 Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixDisplay( pixs.Pointer, x, y)
+
 
 	Return _Result
 End Function
@@ -493,7 +505,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDisplayWithTitle/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDisplayWithTitle/*"/>
 '''  <param name="x">[in] - location of display frame</param>
 '''  <param name="y">[in] - location of display frame</param>
 '''  <param name="title">[in][optional] - on frame can be NULL</param>
@@ -512,6 +524,7 @@ Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixDisplayWithTitle( pixs.Pointer, x, y, title, dispflag)
 
+
 	Return _Result
 End Function
 
@@ -520,7 +533,7 @@ End Function
 ' pixSaveTiled(PIX *, PIXA *, l_float32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSaveTiled/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSaveTiled/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp</param>
 '''  <param name="pixa">[in] - the pix are accumulated here</param>
 '''  <param name="scalefactor">[in] - 0.0 to disable otherwise this is a scale factor</param>
@@ -542,6 +555,7 @@ Public Shared Function pixSaveTiled(
 	If {1,2,4,8,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 32 bpp")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSaveTiled( pixs.Pointer, pixa.Pointer, scalefactor, newrow, space, dp)
+
 
 	Return _Result
 End Function
@@ -581,7 +595,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSaveTiledOutline/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSaveTiledOutline/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp</param>
 '''  <param name="pixa">[in] - the pix are accumulated here</param>
 '''  <param name="scalefactor">[in] - 0.0 to disable otherwise this is a scale factor</param>
@@ -605,6 +619,7 @@ Public Shared Function pixSaveTiledOutline(
 	If {1,2,4,8,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 32 bpp")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSaveTiledOutline( pixs.Pointer, pixa.Pointer, scalefactor, newrow, space, linewidth, dp)
+
 
 	Return _Result
 End Function
@@ -641,7 +656,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSaveTiledWithText/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSaveTiledWithText/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp</param>
 '''  <param name="pixa">[in] - the pix are accumulated here as 32 bpp</param>
 '''  <param name="outwidth">[in] - in pixels use 0 to disable entirely</param>
@@ -674,6 +689,7 @@ Public Shared Function pixSaveTiledWithText(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSaveTiledWithText( pixs.Pointer, pixa.Pointer, outwidth, newrow, space, linewidth, bmfPTR, textstr, val, location)
 
+
 	Return _Result
 End Function
 
@@ -682,11 +698,12 @@ End Function
 ' l_chooseDisplayProg(l_int32) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_chooseDisplayProg/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_chooseDisplayProg/*"/>
 Public Shared Sub l_chooseDisplayProg(
 				 ByVal selection as Integer)
 
 	LeptonicaSharp.Natives.l_chooseDisplayProg( selection)
+
 
 End Sub
 
@@ -721,7 +738,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDisplayWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDisplayWrite/*"/>
 '''  <param name="reduction">[in] - -1 to reset/erase 0 to disable otherwise this is a reduction factor</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixDisplayWrite(
@@ -735,6 +752,7 @@ Public Shared Function pixDisplayWrite(
 Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixDisplayWrite( pixs.Pointer, reduction)
+
 
 	Return _Result
 End Function

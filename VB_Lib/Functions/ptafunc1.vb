@@ -2,13 +2,12 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\ptafunc1.c (111, 1)
 ' ptaSubsample(ptas, subfactor) as Pta
 ' ptaSubsample(PTA *, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaSubsample/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaSubsample/*"/>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="subfactor">[in] - subsample factor, greater or equal 1</param>
 '''   <returns>ptad evenly sampled pt values from ptas, or NULL on error</returns>
@@ -19,6 +18,7 @@ Public Shared Function ptaSubsample(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaSubsample( ptas.Pointer, subfactor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -38,7 +38,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaJoin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaJoin/*"/>
 '''  <param name="ptad">[in] - dest pta add to this one</param>
 '''  <param name="ptas">[in] - source pta add from this one</param>
 '''  <param name="istart">[in] - starting index in ptas</param>
@@ -54,6 +54,7 @@ Public Shared Function ptaJoin(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaJoin( ptad.Pointer, ptas.Pointer, istart, iend)
+
 
 	Return _Result
 End Function
@@ -72,7 +73,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaaJoin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaaJoin/*"/>
 '''  <param name="ptaad">[in] - dest ptaa add to this one</param>
 '''  <param name="ptaas">[in] - source ptaa add from this one</param>
 '''  <param name="istart">[in] - starting index in ptaas</param>
@@ -89,6 +90,7 @@ Public Shared Function ptaaJoin(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaaJoin( ptaad.Pointer, ptaas.Pointer, istart, iend)
 
+
 	Return _Result
 End Function
 
@@ -97,7 +99,7 @@ End Function
 ' ptaReverse(PTA *, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaReverse/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaReverse/*"/>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="type">[in] - 0 for float values 1 for integer values</param>
 '''   <returns>ptad reversed pta, or NULL on error</returns>
@@ -108,6 +110,7 @@ Public Shared Function ptaReverse(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaReverse( ptas.Pointer, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -118,7 +121,7 @@ End Function
 ' ptaTranspose(PTA *) as PTA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaTranspose/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaTranspose/*"/>
 '''  <param name="ptas">[in] - </param>
 '''   <returns>ptad with x and y values swapped, or NULL on error</returns>
 Public Shared Function ptaTranspose(
@@ -127,6 +130,7 @@ Public Shared Function ptaTranspose(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaTranspose( ptas.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -145,7 +149,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaCyclicPerm/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaCyclicPerm/*"/>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="xs">[in] - start point must be in ptas</param>
 '''  <param name="ys">[in] - start point must be in ptas</param>
@@ -158,6 +162,7 @@ Public Shared Function ptaCyclicPerm(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaCyclicPerm( ptas.Pointer, xs, ys)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -168,7 +173,7 @@ End Function
 ' ptaSelectRange(PTA *, l_int32, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaSelectRange/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaSelectRange/*"/>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="first">[in] - use 0 to select from the beginning</param>
 '''  <param name="last">[in] - use 0 to select to the end</param>
@@ -181,6 +186,7 @@ Public Shared Function ptaSelectRange(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaSelectRange( ptas.Pointer, first, last)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -198,7 +204,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaGetBoundingRegion/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaGetBoundingRegion/*"/>
 '''  <param name="pta">[in] - </param>
 '''   <returns>box, or NULL on error</returns>
 Public Shared Function ptaGetBoundingRegion(
@@ -207,6 +213,7 @@ Public Shared Function ptaGetBoundingRegion(
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaGetBoundingRegion( pta.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -224,7 +231,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaGetRange/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaGetRange/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="pminx">[out][optional] - min value of x</param>
 '''  <param name="pmaxx">[out][optional] - max value of x</param>
@@ -242,6 +249,7 @@ Public Shared Function ptaGetRange(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetRange( pta.Pointer, pminx, pmaxx, pminy, pmaxy)
 
+
 	Return _Result
 End Function
 
@@ -250,7 +258,7 @@ End Function
 ' ptaGetInsideBox(PTA *, BOX *) as PTA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaGetInsideBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaGetInsideBox/*"/>
 '''  <param name="ptas">[in] - input pts</param>
 '''  <param name="box">[in] - </param>
 '''   <returns>ptad of pts in ptas that are inside the box, or NULL on error</returns>
@@ -262,6 +270,7 @@ Public Shared Function ptaGetInsideBox(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaGetInsideBox( ptas.Pointer, box.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -278,7 +287,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindCornerPixels/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindCornerPixels/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pta, or NULL on error</returns>
 Public Shared Function pixFindCornerPixels(
@@ -289,6 +298,7 @@ Public Shared Function pixFindCornerPixels(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFindCornerPixels( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -299,7 +309,7 @@ End Function
 ' ptaContainsPt(PTA *, l_int32, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaContainsPt/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaContainsPt/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="x">[in] - point</param>
 '''  <param name="y">[in] - point</param>
@@ -313,6 +323,7 @@ Public Shared Function ptaContainsPt(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaContainsPt( pta.Pointer, x, y)
 
+
 	Return _Result
 End Function
 
@@ -321,7 +332,7 @@ End Function
 ' ptaTestIntersection(PTA *, PTA *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaTestIntersection/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaTestIntersection/*"/>
 '''  <param name="pta1">[in] - </param>
 '''  <param name="pta2">[in] - </param>
 '''   <returns>bval which is 1 if they have any elements in common 0 otherwise or on error.</returns>
@@ -333,6 +344,7 @@ Public Shared Function ptaTestIntersection(
 	If IsNothing (pta2) then Throw New ArgumentNullException  ("pta2 cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaTestIntersection( pta1.Pointer, pta2.Pointer)
+
 
 	Return _Result
 End Function
@@ -347,7 +359,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaTransform/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaTransform/*"/>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="shiftx">[in] - </param>
 '''  <param name="shifty">[in] - </param>
@@ -364,6 +376,7 @@ Public Shared Function ptaTransform(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaTransform( ptas.Pointer, shiftx, shifty, scalex, scaley)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -374,7 +387,7 @@ End Function
 ' ptaPtInsidePolygon(PTA *, l_float32, l_float32, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaPtInsidePolygon/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaPtInsidePolygon/*"/>
 '''  <param name="pta">[in] - vertices of a polygon</param>
 '''  <param name="x">[in] - point to be tested</param>
 '''  <param name="y">[in] - point to be tested</param>
@@ -389,6 +402,7 @@ Public Shared Function ptaPtInsidePolygon(
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaPtInsidePolygon( pta.Pointer, x, y, pinside)
+
 
 	Return _Result
 End Function
@@ -406,7 +420,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_angleBetweenVectors/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_angleBetweenVectors/*"/>
 '''  <param name="x1">[in] - end point of first vector</param>
 '''  <param name="y1">[in] - end point of first vector</param>
 '''  <param name="x2">[in] - end point of second vector</param>
@@ -420,6 +434,7 @@ Public Shared Function l_angleBetweenVectors(
 
 	Dim _Result as Single = LeptonicaSharp.Natives.l_angleBetweenVectors( x1, y1, x2, y2)
 
+
 	Return _Result
 End Function
 
@@ -428,7 +443,7 @@ End Function
 ' ptaGetMinMax(PTA *, l_float32 *, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaGetMinMax/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaGetMinMax/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="pxmin">[out][optional] - min of x</param>
 '''  <param name="pymin">[out][optional] - min of y</param>
@@ -446,6 +461,7 @@ Public Shared Function ptaGetMinMax(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetMinMax( pta.Pointer, pxmin, pymin, pxmax, pymax)
 
+
 	Return _Result
 End Function
 
@@ -454,7 +470,7 @@ End Function
 ' ptaSelectByValue(PTA *, l_float32, l_float32, l_int32, l_int32) as PTA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaSelectByValue/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaSelectByValue/*"/>
 '''  <param name="ptas">[in] - </param>
 '''  <param name="xth">[in] - threshold values</param>
 '''  <param name="yth">[in] - threshold values</param>
@@ -471,6 +487,7 @@ Public Shared Function ptaSelectByValue(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaSelectByValue( ptas.Pointer, xth, yth, type, relation)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -481,7 +498,7 @@ End Function
 ' ptaCropToMask(PTA *, PIX *) as PTA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaCropToMask/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaCropToMask/*"/>
 '''  <param name="ptas">[in] - input pta</param>
 '''  <param name="pixm">[in] - 1 bpp mask</param>
 '''   <returns>ptad  with only pts under the mask fg, or NULL on error</returns>
@@ -493,6 +510,7 @@ Public Shared Function ptaCropToMask(
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaCropToMask( ptas.Pointer, pixm.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -528,7 +546,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaGetLinearLSF/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaGetLinearLSF/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="pa">[out][optional] - slope a of least square fit: y = ax + b</param>
 '''  <param name="pb">[out][optional] - intercept b of least square fit</param>
@@ -545,7 +563,9 @@ Public Shared Function ptaGetLinearLSF(
 Dim pnafitPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnafit) Then pnafitPTR = pnafit.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetLinearLSF( pta.Pointer, pa, pb, pnafitPTR)
-	if pnafitPTR <> IntPtr.Zero then pnafit = new Numa(pnafitPTR)
+
+If pnafitPTR = IntPtr.Zero Then pnafit = Nothing
+If pnafitPTR <> IntPtr.Zero Then pnafit = New Numa(pnafitPTR)
 
 	Return _Result
 End Function
@@ -576,7 +596,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaGetQuadraticLSF/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaGetQuadraticLSF/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="pa">[out][optional] - coeff a of LSF: y = ax^2 + bx + c</param>
 '''  <param name="pb">[out][optional] - coeff b of LSF: y = ax^2 + bx + c</param>
@@ -595,7 +615,9 @@ Public Shared Function ptaGetQuadraticLSF(
 Dim pnafitPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnafit) Then pnafitPTR = pnafit.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetQuadraticLSF( pta.Pointer, pa, pb, pc, pnafitPTR)
-	if pnafitPTR <> IntPtr.Zero then pnafit = new Numa(pnafitPTR)
+
+If pnafitPTR = IntPtr.Zero Then pnafit = Nothing
+If pnafitPTR <> IntPtr.Zero Then pnafit = New Numa(pnafitPTR)
 
 	Return _Result
 End Function
@@ -628,7 +650,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaGetCubicLSF/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaGetCubicLSF/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="pa">[out][optional] - coeff a of LSF: y = ax^3 + bx^2 + cx + d</param>
 '''  <param name="pb">[out][optional] - coeff b of LSF</param>
@@ -649,7 +671,9 @@ Public Shared Function ptaGetCubicLSF(
 Dim pnafitPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnafit) Then pnafitPTR = pnafit.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetCubicLSF( pta.Pointer, pa, pb, pc, pd, pnafitPTR)
-	if pnafitPTR <> IntPtr.Zero then pnafit = new Numa(pnafitPTR)
+
+If pnafitPTR = IntPtr.Zero Then pnafit = Nothing
+If pnafitPTR <> IntPtr.Zero Then pnafit = New Numa(pnafitPTR)
 
 	Return _Result
 End Function
@@ -683,7 +707,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaGetQuarticLSF/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaGetQuarticLSF/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="pa">[out][optional] - coeff a of LSF: y = ax^4 + bx^3 + cx^2 + dx + e</param>
 '''  <param name="pb">[out][optional] - coeff b of LSF</param>
@@ -706,7 +730,9 @@ Public Shared Function ptaGetQuarticLSF(
 Dim pnafitPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnafit) Then pnafitPTR = pnafit.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaGetQuarticLSF( pta.Pointer, pa, pb, pc, pd, pe, pnafitPTR)
-	if pnafitPTR <> IntPtr.Zero then pnafit = new Numa(pnafitPTR)
+
+If pnafitPTR = IntPtr.Zero Then pnafit = Nothing
+If pnafitPTR <> IntPtr.Zero Then pnafit = New Numa(pnafitPTR)
 
 	Return _Result
 End Function
@@ -730,7 +756,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaNoisyLinearLSF/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaNoisyLinearLSF/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="factor">[in] - reject outliers with error greater than this number of medians typically ~ 3</param>
 '''  <param name="pptad">[out][optional] - with outliers removed</param>
@@ -754,8 +780,11 @@ Dim pptadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pptad) Then pptadPTR = p
 Dim pnafitPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnafit) Then pnafitPTR = pnafit.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaNoisyLinearLSF( pta.Pointer, factor, pptadPTR, pa, pb, pmederr, pnafitPTR)
-	if pptadPTR <> IntPtr.Zero then pptad = new Pta(pptadPTR)
-	if pnafitPTR <> IntPtr.Zero then pnafit = new Numa(pnafitPTR)
+
+If pptadPTR = IntPtr.Zero Then pptad = Nothing
+If pptadPTR <> IntPtr.Zero Then pptad = New Pta(pptadPTR)
+If pnafitPTR = IntPtr.Zero Then pnafit = Nothing
+If pnafitPTR <> IntPtr.Zero Then pnafit = New Numa(pnafitPTR)
 
 	Return _Result
 End Function
@@ -773,7 +802,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaNoisyQuadraticLSF/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaNoisyQuadraticLSF/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="factor">[in] - reject outliers with error greater than this number of medians typically ~ 3</param>
 '''  <param name="pptad">[out][optional] - with outliers removed</param>
@@ -799,8 +828,11 @@ Dim pptadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pptad) Then pptadPTR = p
 Dim pnafitPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnafit) Then pnafitPTR = pnafit.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaNoisyQuadraticLSF( pta.Pointer, factor, pptadPTR, pa, pb, pc, pmederr, pnafitPTR)
-	if pptadPTR <> IntPtr.Zero then pptad = new Pta(pptadPTR)
-	if pnafitPTR <> IntPtr.Zero then pnafit = new Numa(pnafitPTR)
+
+If pptadPTR = IntPtr.Zero Then pptad = Nothing
+If pptadPTR <> IntPtr.Zero Then pptad = New Pta(pptadPTR)
+If pnafitPTR = IntPtr.Zero Then pnafit = Nothing
+If pnafitPTR <> IntPtr.Zero Then pnafit = New Numa(pnafitPTR)
 
 	Return _Result
 End Function
@@ -810,7 +842,7 @@ End Function
 ' applyLinearFit(l_float32, l_float32, l_float32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/applyLinearFit/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/applyLinearFit/*"/>
 '''  <param name="a">[in] - linear fit coefficients</param>
 '''  <param name="b">[in] - linear fit coefficients</param>
 '''  <param name="x">[in] - </param>
@@ -824,6 +856,7 @@ Public Shared Function applyLinearFit(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.applyLinearFit( a, b, x, py)
 
+
 	Return _Result
 End Function
 
@@ -832,7 +865,7 @@ End Function
 ' applyQuadraticFit(l_float32, l_float32, l_float32, l_float32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/applyQuadraticFit/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/applyQuadraticFit/*"/>
 '''  <param name="a">[in] - quadratic fit coefficients</param>
 '''  <param name="b">[in] - quadratic fit coefficients</param>
 '''  <param name="c">[in] - quadratic fit coefficients</param>
@@ -848,6 +881,7 @@ Public Shared Function applyQuadraticFit(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.applyQuadraticFit( a, b, c, x, py)
 
+
 	Return _Result
 End Function
 
@@ -856,7 +890,7 @@ End Function
 ' applyCubicFit(l_float32, l_float32, l_float32, l_float32, l_float32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/applyCubicFit/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/applyCubicFit/*"/>
 '''  <param name="a">[in] - cubic fit coefficients</param>
 '''  <param name="b">[in] - cubic fit coefficients</param>
 '''  <param name="c">[in] - cubic fit coefficients</param>
@@ -874,6 +908,7 @@ Public Shared Function applyCubicFit(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.applyCubicFit( a, b, c, d, x, py)
 
+
 	Return _Result
 End Function
 
@@ -882,7 +917,7 @@ End Function
 ' applyQuarticFit(l_float32, l_float32, l_float32, l_float32, l_float32, l_float32, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/applyQuarticFit/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/applyQuarticFit/*"/>
 '''  <param name="a">[in] - quartic fit coefficients</param>
 '''  <param name="b">[in] - quartic fit coefficients</param>
 '''  <param name="c">[in] - quartic fit coefficients</param>
@@ -902,6 +937,7 @@ Public Shared Function applyQuarticFit(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.applyQuarticFit( a, b, c, d, e, x, py)
 
+
 	Return _Result
 End Function
 
@@ -919,7 +955,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixPlotAlongPta/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixPlotAlongPta/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="pta">[in] - set of points on which to plot</param>
 '''  <param name="outformat">[in] - GPLOT_PNG, GPLOT_PS, GPLOT_EPS, GPLOT_LATEX</param>
@@ -936,6 +972,7 @@ Public Shared Function pixPlotAlongPta(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixPlotAlongPta( pixs.Pointer, pta.Pointer, outformat, title)
 
+
 	Return _Result
 End Function
 
@@ -950,7 +987,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaGetPixelsFromPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaGetPixelsFromPix/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="box">[in][optional] - can be null</param>
 '''   <returns>pta, or NULL on error</returns>
@@ -965,6 +1002,7 @@ Public Shared Function ptaGetPixelsFromPix(
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaGetPixelsFromPix( pixs.Pointer, boxPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -984,7 +1022,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGenerateFromPta/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGenerateFromPta/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="w">[in] - of pix</param>
 '''  <param name="h">[in] - of pix</param>
@@ -997,6 +1035,7 @@ Public Shared Function pixGenerateFromPta(
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenerateFromPta( pta.Pointer, w, h)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1015,7 +1054,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaGetBoundaryPixels/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaGetBoundaryPixels/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="type">[in] - L_BOUNDARY_FG, L_BOUNDARY_BG</param>
 '''   <returns>pta, or NULL on error</returns>
@@ -1028,6 +1067,7 @@ Public Shared Function ptaGetBoundaryPixels(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaGetBoundaryPixels( pixs.Pointer, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -1052,7 +1092,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaaGetBoundaryPixels/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaaGetBoundaryPixels/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="type">[in] - L_BOUNDARY_FG, L_BOUNDARY_BG</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -1074,9 +1114,12 @@ Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = p
 Dim ppixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixa) Then ppixaPTR = ppixa.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaaGetBoundaryPixels( pixs.Pointer, type, connectivity, pboxaPTR, ppixaPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if pboxaPTR <> IntPtr.Zero then pboxa = new Boxa(pboxaPTR)
-	if ppixaPTR <> IntPtr.Zero then ppixa = new Pixa(ppixaPTR)
+If pboxaPTR = IntPtr.Zero Then pboxa = Nothing
+If pboxaPTR <> IntPtr.Zero Then pboxa = New Boxa(pboxaPTR)
+If ppixaPTR = IntPtr.Zero Then ppixa = Nothing
+If ppixaPTR <> IntPtr.Zero Then ppixa = New Pixa(ppixaPTR)
 
 	Return  new Ptaa(_Result)
 End Function
@@ -1102,7 +1145,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaaIndexLabeledPixels/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaaIndexLabeledPixels/*"/>
 '''  <param name="pixs">[in] - 32 bpp, of indices of c.c.</param>
 '''  <param name="pncc">[out][optional] - number of connected components</param>
 '''   <returns>ptaa, or NULL on error</returns>
@@ -1113,6 +1156,7 @@ Public Shared Function ptaaIndexLabeledPixels(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaaIndexLabeledPixels( pixs.Pointer, pncc)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Ptaa(_Result)
@@ -1129,7 +1173,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaGetNeighborPixLocs/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaGetNeighborPixLocs/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="x">[in] - pixel from which we search for nearest neighbors</param>
 '''  <param name="y">[in] - pixel from which we search for nearest neighbors</param>
@@ -1144,6 +1188,7 @@ Public Shared Function ptaGetNeighborPixLocs(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaGetNeighborPixLocs( pixs.Pointer, x, y, conn)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -1154,7 +1199,7 @@ End Function
 ' numaConvertToPta1(NUMA *) as PTA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaConvertToPta1/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaConvertToPta1/*"/>
 '''  <param name="na">[in] - numa with implicit y(x)</param>
 '''   <returns>pta if OK null on error</returns>
 Public Shared Function numaConvertToPta1(
@@ -1163,6 +1208,7 @@ Public Shared Function numaConvertToPta1(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaConvertToPta1( na.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -1173,7 +1219,7 @@ End Function
 ' numaConvertToPta2(NUMA *, NUMA *) as PTA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaConvertToPta2/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaConvertToPta2/*"/>
 '''  <param name="nax">[in] - </param>
 '''  <param name="nay">[in] - </param>
 '''   <returns>pta if OK null on error</returns>
@@ -1185,6 +1231,7 @@ Public Shared Function numaConvertToPta2(
 	If IsNothing (nay) then Throw New ArgumentNullException  ("nay cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaConvertToPta2( nax.Pointer, nay.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -1195,7 +1242,7 @@ End Function
 ' ptaConvertToNuma(PTA *, NUMA **, NUMA **) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaConvertToNuma/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaConvertToNuma/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="pnax">[out] - addr of nax</param>
 '''  <param name="pnay">[out] - addr of nay</param>
@@ -1211,8 +1258,11 @@ Public Shared Function ptaConvertToNuma(
 	Dim pnayPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnay) Then pnayPTR = pnay.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptaConvertToNuma( pta.Pointer, pnaxPTR, pnayPTR)
-	if pnaxPTR <> IntPtr.Zero then pnax = new Numa(pnaxPTR)
-	if pnayPTR <> IntPtr.Zero then pnay = new Numa(pnayPTR)
+
+If pnaxPTR = IntPtr.Zero Then pnax = Nothing
+If pnaxPTR <> IntPtr.Zero Then pnax = New Numa(pnaxPTR)
+If pnayPTR = IntPtr.Zero Then pnay = Nothing
+If pnayPTR <> IntPtr.Zero Then pnay = New Numa(pnayPTR)
 
 	Return _Result
 End Function
@@ -1234,7 +1284,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDisplayPta/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDisplayPta/*"/>
 '''  <param name="pixd">[in] - can be same as pixs or NULL 32 bpp if in-place</param>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="pta">[in] - of path to be plotted</param>
@@ -1251,6 +1301,7 @@ Public Shared Function pixDisplayPta(
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDisplayPta( pixd.Pointer, pixs.Pointer, pta.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1278,7 +1329,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDisplayPtaaPattern/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDisplayPtaaPattern/*"/>
 '''  <param name="pixd">[in] - 32 bpp</param>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp 32 bpp if in place</param>
 '''  <param name="ptaa">[in] - giving locations at which the pattern is displayed</param>
@@ -1300,6 +1351,7 @@ Public Shared Function pixDisplayPtaaPattern(
 	If IsNothing (pixp) then Throw New ArgumentNullException  ("pixp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDisplayPtaaPattern( pixd.Pointer, pixs.Pointer, ptaa.Pointer, pixp.Pointer, cx, cy)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1325,7 +1377,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDisplayPtaPattern/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDisplayPtaPattern/*"/>
 '''  <param name="pixd">[in] - can be same as pixs or NULL 32 bpp if in-place</param>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="pta">[in] - giving locations at which the pattern is displayed</param>
@@ -1351,6 +1403,7 @@ Public Shared Function pixDisplayPtaPattern(
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDisplayPtaPattern( pixd.Pointer, pixs.Pointer, pta.Pointer, pixp.Pointer, cx, cy, color)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1371,7 +1424,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaReplicatePattern/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaReplicatePattern/*"/>
 '''  <param name="ptas">[in] - "sparse" input pta</param>
 '''  <param name="pixp">[in][optional] - 1 bpp pattern, to be replicated in output pta</param>
 '''  <param name="ptap">[in][optional] - set of pts, to be replicated in output pta</param>
@@ -1395,6 +1448,7 @@ Public Shared Function ptaReplicatePattern(
 	Dim ptapPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ptap) Then ptapPTR = ptap.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaReplicatePattern( ptas.Pointer, pixpPTR, ptapPTR, cx, cy, w, h)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -1405,7 +1459,7 @@ End Function
 ' pixDisplayPtaa(PIX *, PTAA *) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDisplayPtaa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDisplayPtaa/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16 or 32 bpp</param>
 '''  <param name="ptaa">[in] - array of paths to be plotted</param>
 '''   <returns>pixd 32 bpp RGB version of pixs, with paths plotted in different colors, or NULL on error</returns>
@@ -1419,6 +1473,7 @@ Public Shared Function pixDisplayPtaa(
 	If {1,2,4,8,16,32}.contains (pixs.d) = false then Throw New ArgumentException ("1, 2, 4, 8, 16 or 32 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDisplayPtaa( pixs.Pointer, ptaa.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

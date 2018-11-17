@@ -2,19 +2,19 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\stack.c (78, 1)
 ' lstackCreate(nalloc) as L_Stack
 ' lstackCreate(l_int32) as L_STACK *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/lstackCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lstackCreate/*"/>
 '''  <param name="nalloc">[in] - initial ptr array size use 0 for default</param>
 '''   <returns>lstack, or NULL on error</returns>
 Public Shared Function lstackCreate(
 				 ByVal nalloc as Integer) as L_Stack
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.lstackCreate( nalloc)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Stack(_Result)
@@ -39,7 +39,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/lstackDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lstackDestroy/*"/>
 '''  <param name="plstack">[in,out] - to be nulled</param>
 '''  <param name="freeflag">[in] - TRUE to free each remaining struct in the array</param>
 Public Shared Sub lstackDestroy(
@@ -49,7 +49,9 @@ Public Shared Sub lstackDestroy(
 	Dim plstackPTR As IntPtr = IntPtr.Zero : If Not IsNothing(plstack) Then plstackPTR = plstack.Pointer
 
 	LeptonicaSharp.Natives.lstackDestroy( plstackPTR, freeflag)
-	if plstackPTR <> IntPtr.Zero then plstack = new L_Stack(plstackPTR)
+
+If plstackPTR = IntPtr.Zero Then plstack = Nothing
+If plstackPTR <> IntPtr.Zero Then plstack = New L_Stack(plstackPTR)
 
 End Sub
 
@@ -58,7 +60,7 @@ End Sub
 ' lstackAdd(L_STACK *, void *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/lstackAdd/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lstackAdd/*"/>
 '''  <param name="lstack">[in] - </param>
 '''  <param name="item">[in] - to be added to the lstack</param>
 '''   <returns>0 if OK 1 on error.</returns>
@@ -69,9 +71,22 @@ Public Shared Function lstackAdd(
 	If IsNothing (lstack) then Throw New ArgumentNullException  ("lstack cannot be Nothing")
 	If IsNothing (item) then Throw New ArgumentNullException  ("item cannot be Nothing")
 
-Dim itemPTR As IntPtr = Marshal.AllocHGlobal(0)
+	Dim itemPtr As IntPtr = IntPtr.Zero
+	If TypeOf (item) Is IntPtr Then itemPtr = item
+	If TypeOf (item) Is Byte() Then
+		Dim cdata = CType(item, Byte())
+		itemPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, itemPtr, cdata.Length)
+	End If
+	If Not IsNothing(item.GetType.GetProperty("data")) Then
+		Dim cdata = CType(item.data, Byte())
+		itemPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, itemPtr, cdata.Length)
+	End If
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lstackAdd( lstack.Pointer, itemPTR)
+Marshal.FreeHGlobal(itemPTR)
+
 
 	Return _Result
 End Function
@@ -81,7 +96,7 @@ End Function
 ' lstackRemove(L_STACK *) as void *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/lstackRemove/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lstackRemove/*"/>
 '''  <param name="lstack">[in] - </param>
 '''   <returns>ptr to item popped from the top of the lstack, or NULL if the lstack is empty or on error</returns>
 Public Shared Function lstackRemove(
@@ -91,7 +106,9 @@ Public Shared Function lstackRemove(
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.lstackRemove( lstack.Pointer)
 
-	Return _Result
+	Dim B(1) As Byte : Marshal.Copy(_Result, B, 0, B.Length)
+
+	Return B
 End Function
 
 ' SRC\stack.c (247, 1)
@@ -99,7 +116,7 @@ End Function
 ' lstackGetCount(L_STACK *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/lstackGetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lstackGetCount/*"/>
 '''  <param name="lstack">[in] - </param>
 '''   <returns>count, or 0 on error</returns>
 Public Shared Function lstackGetCount(
@@ -109,6 +126,7 @@ Public Shared Function lstackGetCount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lstackGetCount( lstack.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -117,7 +135,7 @@ End Function
 ' lstackPrint(FILE *, L_STACK *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/lstackPrint/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lstackPrint/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="lstack">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -129,6 +147,7 @@ Public Shared Function lstackPrint(
 	If IsNothing (lstack) then Throw New ArgumentNullException  ("lstack cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lstackPrint( fp.Pointer, lstack.Pointer)
+
 
 	Return _Result
 End Function

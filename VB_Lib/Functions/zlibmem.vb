@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\zlibmem.c (92, 1)
 ' zlibCompress(datain, nin, pnout) as Byte()
 ' zlibCompress(l_uint8 *, size_t, size_t *) as l_uint8 *
@@ -21,7 +20,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/zlibCompress/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/zlibCompress/*"/>
 '''  <param name="datain">[in] - byte buffer with input data</param>
 '''  <param name="nin">[in] - number of bytes of input data</param>
 '''  <param name="pnout">[out] - number of bytes of output data</param>
@@ -34,6 +33,7 @@ Public Shared Function zlibCompress(
 	If IsNothing (datain) then Throw New ArgumentNullException  ("datain cannot be Nothing")
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.zlibCompress( datain, nin, pnout)
+
 
 	Return _Result
 End Function
@@ -48,7 +48,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/zlibUncompress/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/zlibUncompress/*"/>
 '''  <param name="datain">[in] - byte buffer with compressed input data</param>
 '''  <param name="nin">[in] - number of bytes of input data</param>
 '''  <param name="pnout">[out] - number of bytes of output data</param>
@@ -61,6 +61,7 @@ Public Shared Function zlibUncompress(
 	If IsNothing (datain) then Throw New ArgumentNullException  ("datain cannot be Nothing")
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.zlibUncompress( datain, nin, pnout)
+
 
 	Return _Result
 End Function

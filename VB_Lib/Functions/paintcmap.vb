@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\paintcmap.c (98, 1)
 ' pixSetSelectCmap(pixs, box, sindex, rval, gval, bval) as Integer
 ' pixSetSelectCmap(PIX *, BOX *, l_int32, l_int32, l_int32, l_int32) as l_ok
@@ -31,7 +30,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSetSelectCmap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetSelectCmap/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4 or 8 bpp, with colormap</param>
 '''  <param name="box">[in][optional] - region to set color can be NULL</param>
 '''  <param name="sindex">[in] - colormap index of pixels to be changed</param>
@@ -52,6 +51,7 @@ Public Shared Function pixSetSelectCmap(
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetSelectCmap( pixs.Pointer, boxPTR, sindex, rval, gval, bval)
+
 
 	Return _Result
 End Function
@@ -83,7 +83,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixColorGrayRegionsCmap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixColorGrayRegionsCmap/*"/>
 '''  <param name="pixs">[in] - 8 bpp, with colormap</param>
 '''  <param name="boxa">[in] - of regions in which to apply color</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
@@ -103,6 +103,7 @@ Public Shared Function pixColorGrayRegionsCmap(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixColorGrayRegionsCmap( pixs.Pointer, boxa.Pointer, type, rval, gval, bval)
+
 
 	Return _Result
 End Function
@@ -147,7 +148,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixColorGrayCmap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixColorGrayCmap/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp, with colormap</param>
 '''  <param name="box">[in][optional] - region to set color can be NULL</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
@@ -168,6 +169,7 @@ Public Shared Function pixColorGrayCmap(
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixColorGrayCmap( pixs.Pointer, boxPTR, type, rval, gval, bval)
+
 
 	Return _Result
 End Function
@@ -192,7 +194,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixColorGrayMaskedCmap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixColorGrayMaskedCmap/*"/>
 '''  <param name="pixs">[in] - 8 bpp, with colormap</param>
 '''  <param name="pixm">[in] - 1 bpp mask, through which to apply color</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
@@ -212,6 +214,7 @@ Public Shared Function pixColorGrayMaskedCmap(
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixColorGrayMaskedCmap( pixs.Pointer, pixm.Pointer, type, rval, gval, bval)
+
 
 	Return _Result
 End Function
@@ -245,7 +248,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/addColorizedGrayToCmap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/addColorizedGrayToCmap/*"/>
 '''  <param name="cmap">[in] - from 2 or 4 bpp pix</param>
 '''  <param name="type">[in] - L_PAINT_LIGHT, L_PAINT_DARK</param>
 '''  <param name="rval">[in] - target color</param>
@@ -266,7 +269,9 @@ Public Shared Function addColorizedGrayToCmap(
 Dim pnaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pna) Then pnaPTR = pna.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.addColorizedGrayToCmap( cmap.Pointer, type, rval, gval, bval, pnaPTR)
-	if pnaPTR <> IntPtr.Zero then pna = new Numa(pnaPTR)
+
+If pnaPTR = IntPtr.Zero Then pna = Nothing
+If pnaPTR <> IntPtr.Zero Then pna = New Numa(pnaPTR)
 
 	Return _Result
 End Function
@@ -293,7 +298,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSetSelectMaskedCmap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetSelectMaskedCmap/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp, with colormap</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask no-op if NULL</param>
 '''  <param name="x">[in] - UL corner of mask relative to pixs</param>
@@ -318,6 +323,7 @@ Public Shared Function pixSetSelectMaskedCmap(
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetSelectMaskedCmap( pixs.Pointer, pixmPTR, x, y, sindex, rval, gval, bval)
+
 
 	Return _Result
 End Function
@@ -346,7 +352,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSetMaskedCmap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetMaskedCmap/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp, colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask no-op if NULL</param>
 '''  <param name="x">[in] - origin of pixm relative to pixs can be negative</param>
@@ -369,6 +375,7 @@ Public Shared Function pixSetMaskedCmap(
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetMaskedCmap( pixs.Pointer, pixmPTR, x, y, rval, gval, bval)
+
 
 	Return _Result
 End Function

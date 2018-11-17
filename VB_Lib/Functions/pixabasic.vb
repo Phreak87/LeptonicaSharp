@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\pixabasic.c (162, 1)
 ' pixaCreate(n) as Pixa
 ' pixaCreate(l_int32) as PIXA *
@@ -13,13 +12,14 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaCreate/*"/>
 '''  <param name="n">[in] - initial number of ptrs</param>
 '''   <returns>pixa, or NULL on error</returns>
 Public Shared Function pixaCreate(
 				 ByVal n as Integer) as Pixa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaCreate( n)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -36,7 +36,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaCreateFromPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaCreateFromPix/*"/>
 '''  <param name="pixs">[in] - with individual components on a lattice</param>
 '''  <param name="n">[in] - number of components</param>
 '''  <param name="cellw">[in] - width of each cell</param>
@@ -51,6 +51,7 @@ Public Shared Function pixaCreateFromPix(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaCreateFromPix( pixs.Pointer, n, cellw, cellh)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -74,7 +75,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaCreateFromBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaCreateFromBoxa/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pcropwarn">[out][optional] - TRUE if the boxa extent is larger than pixs.</param>
@@ -88,6 +89,7 @@ Public Shared Function pixaCreateFromBoxa(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaCreateFromBoxa( pixs.Pointer, boxa.Pointer, pcropwarn)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -114,7 +116,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaSplitPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaSplitPix/*"/>
 '''  <param name="pixs">[in] - with individual components on a lattice</param>
 '''  <param name="nx">[in] - number of mosaic cells horizontally</param>
 '''  <param name="ny">[in] - number of mosaic cells vertically</param>
@@ -131,6 +133,7 @@ Public Shared Function pixaSplitPix(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaSplitPix( pixs.Pointer, nx, ny, borderwidth, bordercolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -148,7 +151,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaDestroy/*"/>
 '''  <param name="ppixa">[in,out]can be null - ed</param>
 Public Shared Sub pixaDestroy(
 				 ByRef ppixa as Pixa)
@@ -156,7 +159,9 @@ Public Shared Sub pixaDestroy(
 Dim ppixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixa) Then ppixaPTR = ppixa.Pointer
 
 	LeptonicaSharp.Natives.pixaDestroy( ppixaPTR)
-	if ppixaPTR <> IntPtr.Zero then ppixa = new Pixa(ppixaPTR)
+
+If ppixaPTR = IntPtr.Zero Then ppixa = Nothing
+If ppixaPTR <> IntPtr.Zero Then ppixa = New Pixa(ppixaPTR)
 
 End Sub
 
@@ -165,7 +170,7 @@ End Sub
 ' pixaCopy(PIXA *, l_int32) as PIXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaCopy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaCopy/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="copyflag">[in] - see pix.h for details: L_COPY makes a new pixa and copies each pix and each box L_CLONE gives a new ref-counted handle to the input pixa L_COPY_CLONE makes a new pixa and inserts clones of all pix and boxes</param>
 '''   <returns>new pixa, or NULL on error</returns>
@@ -176,6 +181,7 @@ Public Shared Function pixaCopy(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaCopy( pixa.Pointer, copyflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -186,7 +192,7 @@ End Function
 ' pixaAddPix(PIXA *, PIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaAddPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaAddPix/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pix">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -201,6 +207,7 @@ Public Shared Function pixaAddPix(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaAddPix( pixa.Pointer, pix.Pointer, copyflag)
 
+
 	Return _Result
 End Function
 
@@ -209,7 +216,7 @@ End Function
 ' pixaAddBox(PIXA *, BOX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaAddBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaAddBox/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="box">[in] - </param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -223,6 +230,7 @@ Public Shared Function pixaAddBox(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaAddBox( pixa.Pointer, box.Pointer, copyflag)
+
 
 	Return _Result
 End Function
@@ -238,7 +246,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaExtendArrayToSize/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaExtendArrayToSize/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="size">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -250,6 +258,7 @@ Public Shared Function pixaExtendArrayToSize(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaExtendArrayToSize( pixa.Pointer, size)
 
+
 	Return _Result
 End Function
 
@@ -258,7 +267,7 @@ End Function
 ' pixaGetCount(PIXA *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaGetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaGetCount/*"/>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>count, or 0 if no pixa</returns>
 Public Shared Function pixaGetCount(
@@ -268,6 +277,7 @@ Public Shared Function pixaGetCount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaGetCount( pixa.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -276,7 +286,7 @@ End Function
 ' pixaChangeRefcount(PIXA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaChangeRefcount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaChangeRefcount/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="delta">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -288,6 +298,7 @@ Public Shared Function pixaChangeRefcount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaChangeRefcount( pixa.Pointer, delta)
 
+
 	Return _Result
 End Function
 
@@ -296,7 +307,7 @@ End Function
 ' pixaGetPix(PIXA *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaGetPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaGetPix/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th pix</param>
 '''  <param name="accesstype">[in] - L_COPY or L_CLONE</param>
@@ -309,6 +320,7 @@ Public Shared Function pixaGetPix(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaGetPix( pixa.Pointer, index, accesstype)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -319,7 +331,7 @@ End Function
 ' pixaGetPixDimensions(PIXA *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaGetPixDimensions/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaGetPixDimensions/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="pw">[out][optional] - each can be null</param>
@@ -337,6 +349,7 @@ Public Shared Function pixaGetPixDimensions(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaGetPixDimensions( pixa.Pointer, index, pw, ph, pd)
 
+
 	Return _Result
 End Function
 
@@ -345,7 +358,7 @@ End Function
 ' pixaGetBoxa(PIXA *, l_int32) as BOXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaGetBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaGetBoxa/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
 '''   <returns>boxa, or NULL on error</returns>
@@ -356,6 +369,7 @@ Public Shared Function pixaGetBoxa(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaGetBoxa( pixa.Pointer, accesstype)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -366,7 +380,7 @@ End Function
 ' pixaGetBoxaCount(PIXA *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaGetBoxaCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaGetBoxaCount/*"/>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>count, or 0 on error</returns>
 Public Shared Function pixaGetBoxaCount(
@@ -375,6 +389,7 @@ Public Shared Function pixaGetBoxaCount(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaGetBoxaCount( pixa.Pointer)
+
 
 	Return _Result
 End Function
@@ -398,7 +413,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaGetBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaGetBox/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th pix</param>
 '''  <param name="accesstype">[in] - L_COPY or L_CLONE</param>
@@ -411,6 +426,7 @@ Public Shared Function pixaGetBox(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaGetBox( pixa.Pointer, index, accesstype)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -421,7 +437,7 @@ End Function
 ' pixaGetBoxGeometry(PIXA *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaGetBoxGeometry/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaGetBoxGeometry/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="px">[out][optional] - each can be null</param>
@@ -441,6 +457,7 @@ Public Shared Function pixaGetBoxGeometry(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaGetBoxGeometry( pixa.Pointer, index, px, py, pw, ph)
 
+
 	Return _Result
 End Function
 
@@ -454,7 +471,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaSetBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaSetBoxa/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="accesstype">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -468,6 +485,7 @@ Public Shared Function pixaSetBoxa(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaSetBoxa( pixa.Pointer, boxa.Pointer, accesstype)
+
 
 	Return _Result
 End Function
@@ -486,7 +504,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaGetPixArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaGetPixArray/*"/>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>pix array, or NULL on error</returns>
 Public Shared Function pixaGetPixArray(
@@ -495,6 +513,7 @@ Public Shared Function pixaGetPixArray(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaGetPixArray( pixa.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 Dim B as new Pix(_Result)
 
@@ -511,7 +530,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaVerifyDepth/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaVerifyDepth/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="psame">[out] - 1 if depth is the same for all pix 0 otherwise</param>
 '''  <param name="pmaxd">[out][optional] - max depth of all pix</param>
@@ -524,6 +543,7 @@ Public Shared Function pixaVerifyDepth(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaVerifyDepth( pixa.Pointer, psame, pmaxd)
+
 
 	Return _Result
 End Function
@@ -538,7 +558,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaVerifyDimensions/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaVerifyDimensions/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="psame">[out] - 1 if dimensions are the same for all pix 0 otherwise</param>
 '''  <param name="pmaxw">[out][optional] - max width of all pix</param>
@@ -554,6 +574,7 @@ Public Shared Function pixaVerifyDimensions(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaVerifyDimensions( pixa.Pointer, psame, pmaxw, pmaxh)
 
+
 	Return _Result
 End Function
 
@@ -568,7 +589,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaIsFull/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaIsFull/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pfullpa">[out][optional] - 1 if pixa is full</param>
 '''  <param name="pfullba">[out][optional] - 1 if boxa is full</param>
@@ -581,6 +602,7 @@ Public Shared Function pixaIsFull(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaIsFull( pixa.Pointer, pfullpa, pfullba)
+
 
 	Return _Result
 End Function
@@ -596,7 +618,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaCountText/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaCountText/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pntext">[out] - number of pix with non-empty text strings</param>
 '''   <returns>0 if OK, 1 on error.</returns>
@@ -607,6 +629,7 @@ Public Shared Function pixaCountText(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaCountText( pixa.Pointer, pntext)
+
 
 	Return _Result
 End Function
@@ -623,7 +646,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaSetText/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaSetText/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="sa">[in][optional] - array of text strings, to insert in each pix</param>
 '''   <returns>0 if OK, 1 on error.</returns>
@@ -636,6 +659,7 @@ Public Shared Function pixaSetText(
 	Dim saPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sa) Then saPTR = sa.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaSetText( pixa.Pointer, saPTR)
+
 
 	Return _Result
 End Function
@@ -659,7 +683,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaGetLinePtrs/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaGetLinePtrs/*"/>
 '''  <param name="pixa">[in] - of pix that all have the same depth</param>
 '''  <param name="psize">[out][optional] - number of pix in the pixa</param>
 '''   <returns>array of array of line ptrs, or NULL on error</returns>
@@ -670,6 +694,7 @@ Public Shared Function pixaGetLinePtrs(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaGetLinePtrs( pixa.Pointer, psize)
+
 
 	Return _Result
 End Function
@@ -685,7 +710,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaWriteStreamInfo/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaWriteStreamInfo/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>0 if OK, 1 on error.</returns>
@@ -697,6 +722,7 @@ Public Shared Function pixaWriteStreamInfo(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaWriteStreamInfo( fp.Pointer, pixa.Pointer)
+
 
 	Return _Result
 End Function
@@ -713,7 +739,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaReplacePix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaReplacePix/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - to the index-th pix</param>
 '''  <param name="pix">[in] - insert to replace existing one</param>
@@ -731,6 +757,7 @@ Public Shared Function pixaReplacePix(
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaReplacePix( pixa.Pointer, index, pix.Pointer, boxPTR)
+
 
 	Return _Result
 End Function
@@ -753,7 +780,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaInsertPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaInsertPix/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - at which pix is to be inserted</param>
 '''  <param name="pixs">[in] - new pix to be inserted</param>
@@ -771,6 +798,7 @@ Public Shared Function pixaInsertPix(
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaInsertPix( pixa.Pointer, index, pixs.Pointer, boxPTR)
+
 
 	Return _Result
 End Function
@@ -790,7 +818,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaRemovePix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaRemovePix/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - of pix to be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -801,6 +829,7 @@ Public Shared Function pixaRemovePix(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaRemovePix( pixa.Pointer, index)
+
 
 	Return _Result
 End Function
@@ -822,7 +851,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaRemovePixAndSave/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaRemovePixAndSave/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="index">[in] - of pix to be removed</param>
 '''  <param name="ppix">[out][optional] - removed pix</param>
@@ -840,8 +869,11 @@ Dim ppixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppix) Then ppixPTR = ppix
 Dim pboxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbox) Then pboxPTR = pbox.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaRemovePixAndSave( pixa.Pointer, index, ppixPTR, pboxPTR)
-	if ppixPTR <> IntPtr.Zero then ppix = new Pix(ppixPTR)
-	if pboxPTR <> IntPtr.Zero then pbox = new Box(pboxPTR)
+
+If ppixPTR = IntPtr.Zero Then ppix = Nothing
+If ppixPTR <> IntPtr.Zero Then ppix = New Pix(ppixPTR)
+If pboxPTR = IntPtr.Zero Then pbox = Nothing
+If pboxPTR <> IntPtr.Zero Then pbox = New Box(pboxPTR)
 
 	Return _Result
 End Function
@@ -881,7 +913,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaInitFull/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaInitFull/*"/>
 '''  <param name="pixa">[in] - typically empty</param>
 '''  <param name="pix">[in][optional] - to be replicated into the entire pixa ptr array</param>
 '''  <param name="box">[in][optional] - to be replicated into the entire boxa ptr array</param>
@@ -898,6 +930,7 @@ Public Shared Function pixaInitFull(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaInitFull( pixa.Pointer, pixPTR, boxPTR)
 
+
 	Return _Result
 End Function
 
@@ -913,7 +946,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaClear/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaClear/*"/>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaClear(
@@ -922,6 +955,7 @@ Public Shared Function pixaClear(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaClear( pixa.Pointer)
+
 
 	Return _Result
 End Function
@@ -942,7 +976,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaJoin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaJoin/*"/>
 '''  <param name="pixad">[in] - dest pixa add to this one</param>
 '''  <param name="pixas">[in][optional] - source pixa add from this one</param>
 '''  <param name="istart">[in] - starting index in pixas</param>
@@ -959,6 +993,7 @@ Public Shared Function pixaJoin(
 	Dim pixasPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixas) Then pixasPTR = pixas.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaJoin( pixad.Pointer, pixasPTR, istart, iend)
+
 
 	Return _Result
 End Function
@@ -977,7 +1012,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaInterleave/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaInterleave/*"/>
 '''  <param name="pixa1">[in] - first src pixa</param>
 '''  <param name="pixa2">[in] - second src pixa</param>
 '''  <param name="copyflag">[in] - L_CLONE, L_COPY</param>
@@ -991,6 +1026,7 @@ Public Shared Function pixaInterleave(
 	If IsNothing (pixa2) then Throw New ArgumentNullException  ("pixa2 cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaInterleave( pixa1.Pointer, pixa2.Pointer, copyflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -1010,7 +1046,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaJoin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaJoin/*"/>
 '''  <param name="paad">[in] - dest pixaa add to this one</param>
 '''  <param name="paas">[in][optional] - source pixaa add from this one</param>
 '''  <param name="istart">[in] - starting index in pixaas</param>
@@ -1027,6 +1063,7 @@ Public Shared Function pixaaJoin(
 	Dim paasPTR As IntPtr = IntPtr.Zero : If Not IsNothing(paas) Then paasPTR = paas.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaJoin( paad.Pointer, paasPTR, istart, iend)
+
 
 	Return _Result
 End Function
@@ -1053,13 +1090,14 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaCreate/*"/>
 '''  <param name="n">[in] - initial number of pixa ptrs</param>
 '''   <returns>paa, or NULL on error</returns>
 Public Shared Function pixaaCreate(
 				 ByVal n as Integer) as Pixaa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaaCreate( n)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixaa(_Result)
@@ -1083,7 +1121,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaCreateFromPixa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaCreateFromPixa/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="n">[in] - number specifying subdivision of pixa</param>
 '''  <param name="type">[in] - L_CHOOSE_CONSECUTIVE, L_CHOOSE_SKIP_BY</param>
@@ -1098,6 +1136,7 @@ Public Shared Function pixaaCreateFromPixa(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaaCreateFromPixa( pixa.Pointer, n, type, copyflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixaa(_Result)
@@ -1108,7 +1147,7 @@ End Function
 ' pixaaDestroy(PIXAA **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaDestroy/*"/>
 '''  <param name="ppaa">[in,out] - to be nulled</param>
 Public Shared Sub pixaaDestroy(
 				 ByRef ppaa as Pixaa)
@@ -1116,7 +1155,9 @@ Public Shared Sub pixaaDestroy(
 	Dim ppaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppaa) Then ppaaPTR = ppaa.Pointer
 
 	LeptonicaSharp.Natives.pixaaDestroy( ppaaPTR)
-	if ppaaPTR <> IntPtr.Zero then ppaa = new Pixaa(ppaaPTR)
+
+If ppaaPTR = IntPtr.Zero Then ppaa = Nothing
+If ppaaPTR <> IntPtr.Zero Then ppaa = New Pixaa(ppaaPTR)
 
 End Sub
 
@@ -1125,7 +1166,7 @@ End Sub
 ' pixaaAddPixa(PIXAA *, PIXA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaAddPixa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaAddPixa/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="pixa">[in] - to be added</param>
 '''  <param name="copyflag">[in] - : L_INSERT inserts the pixa directly L_COPY makes a new pixa and copies each pix and each box L_CLONE gives a new handle to the input pixa L_COPY_CLONE makes a new pixa and inserts clones of all pix and boxes</param>
@@ -1140,6 +1181,7 @@ Public Shared Function pixaaAddPixa(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaAddPixa( paa.Pointer, pixa.Pointer, copyflag)
 
+
 	Return _Result
 End Function
 
@@ -1148,7 +1190,7 @@ End Function
 ' pixaaExtendArray(PIXAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaExtendArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaExtendArray/*"/>
 '''  <param name="paa">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixaaExtendArray(
@@ -1158,6 +1200,7 @@ Public Shared Function pixaaExtendArray(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaExtendArray( paa.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -1166,7 +1209,7 @@ End Function
 ' pixaaAddPix(PIXAA *, l_int32, PIX *, BOX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaAddPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaAddPix/*"/>
 '''  <param name="paa">[in] - input paa</param>
 '''  <param name="index">[in] - index of pixa in paa</param>
 '''  <param name="pix">[in] - to be added</param>
@@ -1187,6 +1230,7 @@ Public Shared Function pixaaAddPix(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaAddPix( paa.Pointer, index, pix.Pointer, boxPTR, copyflag)
 
+
 	Return _Result
 End Function
 
@@ -1201,7 +1245,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaAddBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaAddBox/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="box">[in] - </param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -1216,6 +1260,7 @@ Public Shared Function pixaaAddBox(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaAddBox( paa.Pointer, box.Pointer, copyflag)
 
+
 	Return _Result
 End Function
 
@@ -1229,7 +1274,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaGetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaGetCount/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="pna">[out][optional] - number of pix in each pixa</param>
 '''   <returns>count, or 0 if no pixaa</returns>
@@ -1242,7 +1287,9 @@ Public Shared Function pixaaGetCount(
 Dim pnaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pna) Then pnaPTR = pna.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaGetCount( paa.Pointer, pnaPTR)
-	if pnaPTR <> IntPtr.Zero then pna = new Numa(pnaPTR)
+
+If pnaPTR = IntPtr.Zero Then pna = Nothing
+If pnaPTR <> IntPtr.Zero Then pna = New Numa(pnaPTR)
 
 	Return _Result
 End Function
@@ -1267,7 +1314,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaGetPixa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaGetPixa/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="index">[in] - to the index-th pixa</param>
 '''  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
@@ -1280,6 +1327,7 @@ Public Shared Function pixaaGetPixa(
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaaGetPixa( paa.Pointer, index, accesstype)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -1297,7 +1345,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaGetBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaGetBoxa/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="accesstype">[in] - L_COPY, L_CLONE</param>
 '''   <returns>boxa, or NULL on error</returns>
@@ -1308,6 +1356,7 @@ Public Shared Function pixaaGetBoxa(
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaaGetBoxa( paa.Pointer, accesstype)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -1318,7 +1367,7 @@ End Function
 ' pixaaGetPix(PIXAA *, l_int32, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaGetPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaGetPix/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="index">[in] - index into the pixa array in the pixaa</param>
 '''  <param name="ipix">[in] - index into the pix array in the pixa</param>
@@ -1333,6 +1382,7 @@ Public Shared Function pixaaGetPix(
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaaGetPix( paa.Pointer, index, ipix, accessflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1348,7 +1398,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaVerifyDepth/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaVerifyDepth/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="psame">[out] - 1 if all pix have the same depth 0 otherwise</param>
 '''  <param name="pmaxd">[out][optional] - max depth of all pix in pixaa</param>
@@ -1361,6 +1411,7 @@ Public Shared Function pixaaVerifyDepth(
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaVerifyDepth( paa.Pointer, psame, pmaxd)
+
 
 	Return _Result
 End Function
@@ -1375,7 +1426,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaVerifyDimensions/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaVerifyDimensions/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="psame">[out] - 1 if all pix have the same depth 0 otherwise</param>
 '''  <param name="pmaxw">[out][optional] - max width of all pix in pixaa</param>
@@ -1391,6 +1442,7 @@ Public Shared Function pixaaVerifyDimensions(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaVerifyDimensions( paa.Pointer, psame, pmaxw, pmaxh)
 
+
 	Return _Result
 End Function
 
@@ -1404,7 +1456,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaIsFull/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaIsFull/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="pfull">[out] - 1 if all pixa in the paa have full pix arrays</param>
 '''   <returns>return 0 if OK, 1 on error</returns>
@@ -1415,6 +1467,7 @@ Public Shared Function pixaaIsFull(
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaIsFull( paa.Pointer, pfull)
+
 
 	Return _Result
 End Function
@@ -1439,7 +1492,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaInitFull/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaInitFull/*"/>
 '''  <param name="paa">[in] - typically empty</param>
 '''  <param name="pixa">[in] - to be replicated into the entire pixa ptr array</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1451,6 +1504,7 @@ Public Shared Function pixaaInitFull(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaInitFull( paa.Pointer, pixa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1471,7 +1525,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaReplacePixa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaReplacePixa/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="index">[in] - to the index-th pixa</param>
 '''  <param name="pixa">[in] - insert to replace existing one</param>
@@ -1485,6 +1539,7 @@ Public Shared Function pixaaReplacePixa(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaReplacePixa( paa.Pointer, index, pixa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1500,7 +1555,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaClear/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaClear/*"/>
 '''  <param name="paa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaaClear(
@@ -1509,6 +1564,7 @@ Public Shared Function pixaaClear(
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaClear( paa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1525,7 +1581,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaTruncate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaTruncate/*"/>
 '''  <param name="paa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixaaTruncate(
@@ -1534,6 +1590,7 @@ Public Shared Function pixaaTruncate(
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaTruncate( paa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1549,7 +1606,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>pixa, or NULL on error</returns>
 Public Shared Function pixaRead(
@@ -1557,9 +1614,10 @@ Public Shared Function pixaRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaRead( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -1576,7 +1634,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>pixa, or NULL on error</returns>
 Public Shared Function pixaReadStream(
@@ -1585,6 +1643,7 @@ Public Shared Function pixaReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaReadStream( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -1595,7 +1654,7 @@ End Function
 ' pixaReadMem(const l_uint8 *, size_t) as PIXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaReadMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaReadMem/*"/>
 '''  <param name="data">[in] - of serialized pixa</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>pixa, or NULL on error</returns>
@@ -1606,6 +1665,7 @@ Public Shared Function pixaReadMem(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaReadMem( data, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -1626,7 +1686,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaWriteDebug/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaWriteDebug/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -1638,6 +1698,7 @@ Public Shared Function pixaWriteDebug(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaWriteDebug( fname, pixa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1653,7 +1714,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1664,9 +1725,8 @@ Public Shared Function pixaWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaWrite( filename, pixa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1682,7 +1742,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="pixa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1694,6 +1754,7 @@ Public Shared Function pixaWriteStream(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaWriteStream( fp.Pointer, pixa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1708,7 +1769,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaWriteMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized pixa</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pixa">[in] - </param>
@@ -1723,6 +1784,7 @@ Public Shared Function pixaWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaWriteMem( pdataPTR, psize, pixa.Pointer)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -1739,7 +1801,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaReadBoth/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaReadBoth/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>pixa, or NULL on error</returns>
 Public Shared Function pixaReadBoth(
@@ -1747,9 +1809,10 @@ Public Shared Function pixaReadBoth(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaReadBoth( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -1773,7 +1836,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaReadFromFiles/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaReadFromFiles/*"/>
 '''  <param name="dirname">[in] - directory</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="first">[in] - 0-based</param>
@@ -1788,6 +1851,7 @@ Public Shared Function pixaaReadFromFiles(
 	If IsNothing (dirname) then Throw New ArgumentNullException  ("dirname cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaaReadFromFiles( dirname, substr, first, nfiles)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixaa(_Result)
@@ -1804,7 +1868,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>paa, or NULL on error</returns>
 Public Shared Function pixaaRead(
@@ -1812,9 +1876,10 @@ Public Shared Function pixaaRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaaRead( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixaa(_Result)
@@ -1831,7 +1896,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>paa, or NULL on error</returns>
 Public Shared Function pixaaReadStream(
@@ -1840,6 +1905,7 @@ Public Shared Function pixaaReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaaReadStream( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixaa(_Result)
@@ -1850,7 +1916,7 @@ End Function
 ' pixaaReadMem(const l_uint8 *, size_t) as PIXAA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaReadMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaReadMem/*"/>
 '''  <param name="data">[in] - of serialized pixaa</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>paa, or NULL on error</returns>
@@ -1861,6 +1927,7 @@ Public Shared Function pixaaReadMem(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaaReadMem( data, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixaa(_Result)
@@ -1877,7 +1944,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="paa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1888,9 +1955,8 @@ Public Shared Function pixaaWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaWrite( filename, paa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1906,7 +1972,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="paa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1918,6 +1984,7 @@ Public Shared Function pixaaWriteStream(
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaWriteStream( fp.Pointer, paa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1932,7 +1999,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaaWriteMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized pixaa</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="paa">[in] - </param>
@@ -1947,6 +2014,7 @@ Public Shared Function pixaaWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaaWriteMem( pdataPTR, psize, paa.Pointer)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result

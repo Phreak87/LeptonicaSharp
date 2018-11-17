@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\colormorph.c (66, 1)
 ' pixColorMorph(pixs, type, hsize, vsize) as Pix
 ' pixColorMorph(PIX *, l_int32, l_int32, l_int32) as PIX *
@@ -18,7 +17,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixColorMorph/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixColorMorph/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="type">[in] - L_MORPH_DILATE, L_MORPH_ERODE, L_MORPH_OPEN, or L_MORPH_CLOSE</param>
 '''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
@@ -33,6 +32,7 @@ Public Shared Function pixColorMorph(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixColorMorph( pixs.Pointer, type, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

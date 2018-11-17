@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\pixalloc.c (168, 1)
 ' pmsCreate(minsize, smallest, numalloc, logfile) as Integer
 ' pmsCreate(size_t, size_t, NUMA *, const char *) as l_ok
@@ -29,7 +28,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pmsCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pmsCreate/*"/>
 '''  <param name="minsize">[in] - of data chunk that can be supplied by pms</param>
 '''  <param name="smallest">[in] - bytes of the smallest pre-allocated data chunk.</param>
 '''  <param name="numalloc">[in] - array with the number of data chunks for each size that are in the memory store</param>
@@ -46,6 +45,7 @@ Public Shared Function pmsCreate(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pmsCreate( minsize, smallest, numalloc.Pointer, logfile)
 
+
 	Return _Result
 End Function
 
@@ -60,10 +60,11 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pmsDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pmsDestroy/*"/>
 Public Shared Sub pmsDestroy()
 
 	LeptonicaSharp.Natives.pmsDestroy( )
+
 
 End Sub
 
@@ -82,7 +83,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pmsCustomAlloc/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pmsCustomAlloc/*"/>
 '''  <param name="nbytes">[in] - min number of bytes in the chunk to be retrieved</param>
 '''   <returns>data ptr to chunk</returns>
 Public Shared Function pmsCustomAlloc(
@@ -90,7 +91,9 @@ Public Shared Function pmsCustomAlloc(
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pmsCustomAlloc( nbytes)
 
-	Return _Result
+	Dim B(1) As Byte : Marshal.Copy(_Result, B, 0, B.Length)
+
+	Return B
 End Function
 
 ' SRC\pixalloc.c (355, 1)
@@ -98,16 +101,29 @@ End Function
 ' pmsCustomDealloc(void *) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pmsCustomDealloc/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pmsCustomDealloc/*"/>
 '''  <param name="data">[in] - to be freed or returned to the storage</param>
 Public Shared Sub pmsCustomDealloc(
 				 ByVal data as Object)
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
-Dim dataPTR As IntPtr = Marshal.AllocHGlobal(0)
+	Dim dataPtr As IntPtr = IntPtr.Zero
+	If TypeOf (data) Is IntPtr Then dataPtr = data
+	If TypeOf (data) Is Byte() Then
+		Dim cdata = CType(data, Byte())
+		dataPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, dataPtr, cdata.Length)
+	End If
+	If Not IsNothing(data.GetType.GetProperty("data")) Then
+		Dim cdata = CType(data.data, Byte())
+		dataPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, dataPtr, cdata.Length)
+	End If
 
 	LeptonicaSharp.Natives.pmsCustomDealloc( dataPTR)
+Marshal.FreeHGlobal(dataPTR)
+
 
 End Sub
 
@@ -131,7 +147,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pmsGetAlloc/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pmsGetAlloc/*"/>
 '''  <param name="nbytes">[in] - </param>
 '''   <returns>data</returns>
 Public Shared Function pmsGetAlloc(
@@ -139,7 +155,9 @@ Public Shared Function pmsGetAlloc(
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pmsGetAlloc( nbytes)
 
-	Return _Result
+	Dim B(1) As Byte : Marshal.Copy(_Result, B, 0, B.Length)
+
+	Return B
 End Function
 
 ' SRC\pixalloc.c (437, 1)
@@ -147,7 +165,7 @@ End Function
 ' pmsGetLevelForAlloc(size_t, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pmsGetLevelForAlloc/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pmsGetLevelForAlloc/*"/>
 '''  <param name="nbytes">[in] - min number of bytes in the chunk to be retrieved</param>
 '''  <param name="plevel">[out] - -1 if either too small or too large</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -157,6 +175,7 @@ Public Shared Function pmsGetLevelForAlloc(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pmsGetLevelForAlloc( nbytes, plevel)
 
+
 	Return _Result
 End Function
 
@@ -165,7 +184,7 @@ End Function
 ' pmsGetLevelForDealloc(void *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pmsGetLevelForDealloc/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pmsGetLevelForDealloc/*"/>
 '''  <param name="data">[in] - ptr to memory chunk</param>
 '''  <param name="plevel">[out] - level in memory store -1 if allocated outside the store</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -175,9 +194,22 @@ Public Shared Function pmsGetLevelForDealloc(
 
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
-Dim dataPTR As IntPtr = Marshal.AllocHGlobal(0)
+	Dim dataPtr As IntPtr = IntPtr.Zero
+	If TypeOf (data) Is IntPtr Then dataPtr = data
+	If TypeOf (data) Is Byte() Then
+		Dim cdata = CType(data, Byte())
+		dataPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, dataPtr, cdata.Length)
+	End If
+	If Not IsNothing(data.GetType.GetProperty("data")) Then
+		Dim cdata = CType(data.data, Byte())
+		dataPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, dataPtr, cdata.Length)
+	End If
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pmsGetLevelForDealloc( dataPTR, plevel)
+Marshal.FreeHGlobal(dataPTR)
+
 
 	Return _Result
 End Function
@@ -187,10 +219,11 @@ End Function
 ' pmsLogInfo() as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pmsLogInfo/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pmsLogInfo/*"/>
 Public Shared Sub pmsLogInfo()
 
 	LeptonicaSharp.Natives.pmsLogInfo( )
+
 
 End Sub
 

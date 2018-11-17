@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\graymorph.c (158, 1)
 ' pixErodeGray(pixs, hsize, vsize) as Pix
 ' pixErodeGray(PIX *, l_int32, l_int32) as PIX *
@@ -15,7 +14,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixErodeGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixErodeGray/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
 '''  <param name="vsize">[in] - ditto</param>
@@ -28,6 +27,7 @@ Public Shared Function pixErodeGray(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixErodeGray( pixs.Pointer, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -45,7 +45,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDilateGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDilateGray/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
 '''  <param name="vsize">[in] - ditto</param>
@@ -58,6 +58,7 @@ Public Shared Function pixDilateGray(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDilateGray( pixs.Pointer, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -75,7 +76,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixOpenGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixOpenGray/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
 '''  <param name="vsize">[in] - ditto</param>
@@ -88,6 +89,7 @@ Public Shared Function pixOpenGray(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOpenGray( pixs.Pointer, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -105,7 +107,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCloseGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCloseGray/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
 '''  <param name="vsize">[in] - ditto</param>
@@ -118,6 +120,7 @@ Public Shared Function pixCloseGray(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCloseGray( pixs.Pointer, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -141,7 +144,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixErodeGray3/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixErodeGray3/*"/>
 '''  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 '''  <param name="hsize">[in] - 1 or 3</param>
 '''  <param name="vsize">[in] - 1 or 3</param>
@@ -154,6 +157,7 @@ Public Shared Function pixErodeGray3(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixErodeGray3( pixs.Pointer, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -171,7 +175,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDilateGray3/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDilateGray3/*"/>
 '''  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 '''  <param name="hsize">[in] - 1 or 3</param>
 '''  <param name="vsize">[in] - 1 or 3</param>
@@ -184,6 +188,7 @@ Public Shared Function pixDilateGray3(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDilateGray3( pixs.Pointer, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -204,7 +209,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixOpenGray3/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixOpenGray3/*"/>
 '''  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 '''  <param name="hsize">[in] - 1 or 3</param>
 '''  <param name="vsize">[in] - 1 or 3</param>
@@ -217,6 +222,7 @@ Public Shared Function pixOpenGray3(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOpenGray3( pixs.Pointer, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -234,7 +240,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCloseGray3/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCloseGray3/*"/>
 '''  <param name="pixs">[in] - 8 bpp, not cmapped</param>
 '''  <param name="hsize">[in] - 1 or 3</param>
 '''  <param name="vsize">[in] - 1 or 3</param>
@@ -247,6 +253,7 @@ Public Shared Function pixCloseGray3(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCloseGray3( pixs.Pointer, hsize, vsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

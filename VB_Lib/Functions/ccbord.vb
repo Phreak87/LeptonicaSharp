@@ -2,13 +2,12 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\ccbord.c (299, 1)
 ' ccbaCreate(pixs, n) as CCBorda
 ' ccbaCreate(PIX *, l_int32) as CCBORDA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbaCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaCreate/*"/>
 '''  <param name="pixs">[in] - binary image can be null</param>
 '''  <param name="n">[in] - initial number of ptrs</param>
 '''   <returns>ccba, or NULL on error</returns>
@@ -19,6 +18,7 @@ Public Shared Function ccbaCreate(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ccbaCreate( pixs.Pointer, n)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new CCBorda(_Result)
@@ -29,7 +29,7 @@ End Function
 ' ccbaDestroy(CCBORDA **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbaDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaDestroy/*"/>
 '''  <param name="pccba">[in,out] - to be nulled</param>
 Public Shared Sub ccbaDestroy(
 				 ByRef pccba as CCBorda)
@@ -37,7 +37,9 @@ Public Shared Sub ccbaDestroy(
 	Dim pccbaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pccba) Then pccbaPTR = pccba.Pointer
 
 	LeptonicaSharp.Natives.ccbaDestroy( pccbaPTR)
-	if pccbaPTR <> IntPtr.Zero then pccba = new CCBorda(pccbaPTR)
+
+If pccbaPTR = IntPtr.Zero Then pccba = Nothing
+If pccbaPTR <> IntPtr.Zero Then pccba = New CCBorda(pccbaPTR)
 
 End Sub
 
@@ -46,7 +48,7 @@ End Sub
 ' ccbCreate(PIX *) as CCBORD *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbCreate/*"/>
 '''  <param name="pixs">[in][optional] - </param>
 '''   <returns>ccb or NULL on error</returns>
 Public Shared Function ccbCreate(
@@ -55,6 +57,7 @@ Public Shared Function ccbCreate(
 	Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ccbCreate( pixsPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new CCBord(_Result)
@@ -65,7 +68,7 @@ End Function
 ' ccbDestroy(CCBORD **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbDestroy/*"/>
 '''  <param name="pccb">[in,out] - to be nulled</param>
 Public Shared Sub ccbDestroy(
 				 ByRef pccb as CCBord)
@@ -73,7 +76,9 @@ Public Shared Sub ccbDestroy(
 	Dim pccbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pccb) Then pccbPTR = pccb.Pointer
 
 	LeptonicaSharp.Natives.ccbDestroy( pccbPTR)
-	if pccbPTR <> IntPtr.Zero then pccb = new CCBord(pccbPTR)
+
+If pccbPTR = IntPtr.Zero Then pccb = Nothing
+If pccbPTR <> IntPtr.Zero Then pccb = New CCBord(pccbPTR)
 
 End Sub
 
@@ -82,7 +87,7 @@ End Sub
 ' ccbaAddCcb(CCBORDA *, CCBORD *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbaAddCcb/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaAddCcb/*"/>
 '''  <param name="ccba">[in] - </param>
 '''  <param name="ccb">[in] - to be added by insertion</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -95,6 +100,7 @@ Public Shared Function ccbaAddCcb(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ccbaAddCcb( ccba.Pointer, ccb.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -103,7 +109,7 @@ End Function
 ' ccbaGetCount(CCBORDA *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbaGetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaGetCount/*"/>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>count, with 0 on error</returns>
 Public Shared Function ccbaGetCount(
@@ -112,6 +118,7 @@ Public Shared Function ccbaGetCount(
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ccbaGetCount( ccba.Pointer)
+
 
 	Return _Result
 End Function
@@ -126,7 +133,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbaGetCcb/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaGetCcb/*"/>
 '''  <param name="ccba">[in] - </param>
 '''  <param name="index">[in] - </param>
 '''   <returns>ccb, or NULL on error</returns>
@@ -137,6 +144,7 @@ Public Shared Function ccbaGetCcb(
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ccbaGetCcb( ccba.Pointer, index)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new CCBord(_Result)
@@ -147,7 +155,7 @@ End Function
 ' pixGetAllCCBorders(PIX *) as CCBORDA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetAllCCBorders/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetAllCCBorders/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>ccborda, or NULL on error</returns>
 Public Shared Function pixGetAllCCBorders(
@@ -158,6 +166,7 @@ Public Shared Function pixGetAllCCBorders(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetAllCCBorders( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new CCBorda(_Result)
@@ -190,7 +199,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetCCBorders/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetCCBorders/*"/>
 '''  <param name="pixs">[in] - 1 bpp, one 8-connected component</param>
 '''  <param name="box">[in] - xul, yul, width, height in global coords</param>
 '''   <returns>ccbord, or NULL on error</returns>
@@ -202,6 +211,7 @@ Public Shared Function pixGetCCBorders(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetCCBorders( pixs.Pointer, box.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new CCBord(_Result)
@@ -212,7 +222,7 @@ End Function
 ' pixGetOuterBordersPtaa(PIX *) as PTAA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetOuterBordersPtaa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetOuterBordersPtaa/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>ptaa of outer borders, in global coords, or NULL on error</returns>
 Public Shared Function pixGetOuterBordersPtaa(
@@ -223,6 +233,7 @@ Public Shared Function pixGetOuterBordersPtaa(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetOuterBordersPtaa( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Ptaa(_Result)
@@ -244,7 +255,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetOuterBorderPta/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetOuterBorderPta/*"/>
 '''  <param name="pixs">[in] - 1 bpp, one 8-connected component</param>
 '''  <param name="box">[in][optional] - of pixs, in global coordinates</param>
 '''   <returns>pta of outer border, in global coords, or NULL on error</returns>
@@ -257,6 +268,7 @@ Public Shared Function pixGetOuterBorderPta(
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetOuterBorderPta( pixs.Pointer, boxPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -280,7 +292,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetOuterBorder/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetOuterBorder/*"/>
 '''  <param name="ccb">[in] - unfilled</param>
 '''  <param name="pixs">[in] - for the component at hand</param>
 '''  <param name="box">[in] - for the component, in global coords</param>
@@ -295,6 +307,7 @@ Public Shared Function pixGetOuterBorder(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetOuterBorder( ccb.Pointer, pixs.Pointer, box.Pointer)
+
 
 	Return _Result
 End Function
@@ -315,7 +328,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetHoleBorder/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetHoleBorder/*"/>
 '''  <param name="ccb">[in] - the exterior border is already made</param>
 '''  <param name="pixs">[in] - for the connected component at hand</param>
 '''  <param name="box">[in] - for the specific hole border, in relative coordinates to the c.c.</param>
@@ -335,6 +348,7 @@ Public Shared Function pixGetHoleBorder(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetHoleBorder( ccb.Pointer, pixs.Pointer, box.Pointer, xs, ys)
 
+
 	Return _Result
 End Function
 
@@ -352,7 +366,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/findNextBorderPixel/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/findNextBorderPixel/*"/>
 '''  <param name="w">[in] - </param>
 '''  <param name="h">[in] - </param>
 '''  <param name="data">[in] - </param>
@@ -379,6 +393,8 @@ Public Shared Function findNextBorderPixel(
 	Dim dataPTR As IntPtr = Marshal.AllocHGlobal(data.Count) : Marshal.Copy(data, 0, dataPTR, data.Length)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.findNextBorderPixel( w, h, dataPTR, wpl, px, py, pqpos, pnpx, pnpy)
+Marshal.FreeHGlobal(dataPTR)
+
 
 	Return _Result
 End Function
@@ -401,7 +417,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/locateOutsideSeedPixel/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/locateOutsideSeedPixel/*"/>
 '''  <param name="fpx">[in] - location of first pixel</param>
 '''  <param name="fpy">[in] - location of first pixel</param>
 '''  <param name="spx">[in] - location of second pixel</param>
@@ -418,6 +434,7 @@ Public Shared Sub locateOutsideSeedPixel(
 
 	LeptonicaSharp.Natives.locateOutsideSeedPixel( fpx, fpy, spx, spy, pxs, pys)
 
+
 End Sub
 
 ' SRC\ccbord.c (1160, 1)
@@ -425,7 +442,7 @@ End Sub
 ' ccbaGenerateGlobalLocs(CCBORDA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbaGenerateGlobalLocs/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaGenerateGlobalLocs/*"/>
 '''  <param name="ccba">[in] - with local chain ptaa of borders computed</param>
 '''   <returns>0 if OK, 1 on error Action: this uses the pixel locs in the local ptaa, which are all relative to each c.c., to find the global pixel locations, and stores them in the global ptaa.</returns>
 Public Shared Function ccbaGenerateGlobalLocs(
@@ -434,6 +451,7 @@ Public Shared Function ccbaGenerateGlobalLocs(
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ccbaGenerateGlobalLocs( ccba.Pointer)
+
 
 	Return _Result
 End Function
@@ -460,7 +478,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbaGenerateStepChains/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaGenerateStepChains/*"/>
 '''  <param name="ccba">[in] - with local chain ptaa of borders computed</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ccbaGenerateStepChains(
@@ -469,6 +487,7 @@ Public Shared Function ccbaGenerateStepChains(
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ccbaGenerateStepChains( ccba.Pointer)
+
 
 	Return _Result
 End Function
@@ -487,7 +506,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbaStepChainsToPixCoords/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaStepChainsToPixCoords/*"/>
 '''  <param name="ccba">[in] - with step chains numaa of borders</param>
 '''  <param name="coordtype">[in] - CCB_GLOBAL_COORDS or CCB_LOCAL_COORDS</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -498,6 +517,7 @@ Public Shared Function ccbaStepChainsToPixCoords(
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ccbaStepChainsToPixCoords( ccba.Pointer, coordtype)
+
 
 	Return _Result
 End Function
@@ -521,7 +541,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbaGenerateSPGlobalLocs/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaGenerateSPGlobalLocs/*"/>
 '''  <param name="ccba">[in] - </param>
 '''  <param name="ptsflag">[in] - CCB_SAVE_ALL_PTS or CCB_SAVE_TURNING_PTS</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -532,6 +552,7 @@ Public Shared Function ccbaGenerateSPGlobalLocs(
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ccbaGenerateSPGlobalLocs( ccba.Pointer, ptsflag)
+
 
 	Return _Result
 End Function
@@ -571,7 +592,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbaGenerateSinglePath/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaGenerateSinglePath/*"/>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ccbaGenerateSinglePath(
@@ -580,6 +601,7 @@ Public Shared Function ccbaGenerateSinglePath(
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ccbaGenerateSinglePath( ccba.Pointer)
+
 
 	Return _Result
 End Function
@@ -603,7 +625,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/getCutPathForHole/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getCutPathForHole/*"/>
 '''  <param name="pix">[in] - of c.c.</param>
 '''  <param name="pta">[in] - of outer border</param>
 '''  <param name="boxinner">[in] - b.b. of hole path</param>
@@ -622,6 +644,7 @@ Public Shared Function getCutPathForHole(
 	If IsNothing (boxinner) then Throw New ArgumentNullException  ("boxinner cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.getCutPathForHole( pix.Pointer, pta.Pointer, boxinner.Pointer, pdir, plen)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -639,7 +662,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbaDisplayBorder/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaDisplayBorder/*"/>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>pix of border pixels, or NULL on error</returns>
 Public Shared Function ccbaDisplayBorder(
@@ -648,6 +671,7 @@ Public Shared Function ccbaDisplayBorder(
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ccbaDisplayBorder( ccba.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -665,7 +689,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbaDisplaySPBorder/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaDisplaySPBorder/*"/>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>pix of border pixels, or NULL on error</returns>
 Public Shared Function ccbaDisplaySPBorder(
@@ -674,6 +698,7 @@ Public Shared Function ccbaDisplaySPBorder(
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ccbaDisplaySPBorder( ccba.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -731,7 +756,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbaDisplayImage1/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaDisplayImage1/*"/>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>pix of image, or NULL on error</returns>
 Public Shared Function ccbaDisplayImage1(
@@ -740,6 +765,7 @@ Public Shared Function ccbaDisplayImage1(
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ccbaDisplayImage1( ccba.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -768,7 +794,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbaDisplayImage2/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaDisplayImage2/*"/>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>pix of image, or NULL on error</returns>
 Public Shared Function ccbaDisplayImage2(
@@ -777,6 +803,7 @@ Public Shared Function ccbaDisplayImage2(
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ccbaDisplayImage2( ccba.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -787,7 +814,7 @@ End Function
 ' ccbaWrite(const char *, CCBORDA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbaWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -798,9 +825,8 @@ Public Shared Function ccbaWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.ccbaWrite( filename, ccba.Pointer)
+
 
 	Return _Result
 End Function
@@ -810,7 +836,7 @@ End Function
 ' ccbaWriteStream(FILE *, CCBORDA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbaWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>0 if OK 1 on error Format: \code ccba: %7d cc\n num. c.c.) (ascii)   (18B pix width 4B pix height 4B [for i = 1, ncc] ulx  4B uly  4B w    4B       -- not req'd for reconstruction h    4B       -- not req'd for reconstruction number of borders 4B [for j = 1, nb] startx  4B starty  4B [for k = 1, nb] 2 steps 1B end in z8 or 88  1B \endcode</returns>
@@ -823,6 +849,7 @@ Public Shared Function ccbaWriteStream(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ccbaWriteStream( fp.Pointer, ccba.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -831,7 +858,7 @@ End Function
 ' ccbaRead(const char *) as CCBORDA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbaRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>ccba, or NULL on error</returns>
 Public Shared Function ccbaRead(
@@ -839,9 +866,10 @@ Public Shared Function ccbaRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ccbaRead( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new CCBorda(_Result)
@@ -852,7 +880,7 @@ End Function
 ' ccbaReadStream(FILE *) as CCBORDA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbaReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>ccba, or NULL on error \code Format:  ccba: %7d cc\n num. c.c.) (ascii)   (17B pix width 4B pix height 4B [for i = 1, ncc] ulx  4B uly  4B w    4B       -- not req'd for reconstruction h    4B       -- not req'd for reconstruction number of borders 4B [for j = 1, nb] startx  4B starty  4B [for k = 1, nb] 2 steps 1B end in z8 or 88  1B \endcode</returns>
 Public Shared Function ccbaReadStream(
@@ -861,6 +889,7 @@ Public Shared Function ccbaReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ccbaReadStream( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new CCBorda(_Result)
@@ -871,7 +900,7 @@ End Function
 ' ccbaWriteSVG(const char *, CCBORDA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbaWriteSVG/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaWriteSVG/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -882,9 +911,8 @@ Public Shared Function ccbaWriteSVG(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.ccbaWriteSVG( filename, ccba.Pointer)
+
 
 	Return _Result
 End Function
@@ -894,7 +922,7 @@ End Function
 ' ccbaWriteSVGString(const char *, CCBORDA *) as char *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ccbaWriteSVGString/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaWriteSVGString/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="ccba">[in] - </param>
 '''   <returns>string in svg-formatted, that can be written to file, or NULL on error.</returns>
@@ -905,9 +933,8 @@ Public Shared Function ccbaWriteSVGString(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (ccba) then Throw New ArgumentNullException  ("ccba cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as String = LeptonicaSharp.Natives.ccbaWriteSVGString( filename, ccba.Pointer)
+
 
 	Return _Result
 End Function

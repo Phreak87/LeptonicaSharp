@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\leptwin.c (303, 1)
 ' pixGetWindowsHBITMAP(pix) as IntPtr
 ' pixGetWindowsHBITMAP(PIX *) as HBITMAP
@@ -15,7 +14,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetWindowsHBITMAP/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetWindowsHBITMAP/*"/>
 '''  <param name="pix">[in] - </param>
 '''   <returns>Windows hBitmap, or NULL on error</returns>
 Public Shared Function pixGetWindowsHBITMAP(
@@ -24,6 +23,7 @@ Public Shared Function pixGetWindowsHBITMAP(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetWindowsHBITMAP( pix.Pointer)
+
 
 	Return _Result
 End Function

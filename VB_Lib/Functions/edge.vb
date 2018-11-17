@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\edge.c (91, 1)
 ' pixSobelEdgeFilter(pixs, orientflag) as Pix
 ' pixSobelEdgeFilter(PIX *, l_int32) as PIX *
@@ -27,7 +26,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSobelEdgeFilter/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSobelEdgeFilter/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="orientflag">[in] - L_HORIZONTAL_EDGES, L_VERTICAL_EDGES, L_ALL_EDGES</param>
 '''   <returns>pixd 8 bpp, edges are brighter, or NULL on error</returns>
@@ -38,6 +37,7 @@ Public Shared Function pixSobelEdgeFilter(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSobelEdgeFilter( pixs.Pointer, orientflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -71,7 +71,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixTwoSidedEdgeFilter/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixTwoSidedEdgeFilter/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="orientflag">[in] - L_HORIZONTAL_EDGES, L_VERTICAL_EDGES</param>
 '''   <returns>pixd 8 bpp, edges are brighter, or NULL on error</returns>
@@ -82,6 +82,7 @@ Public Shared Function pixTwoSidedEdgeFilter(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixTwoSidedEdgeFilter( pixs.Pointer, orientflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -109,7 +110,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMeasureEdgeSmoothness/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMeasureEdgeSmoothness/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="side">[in] - L_FROM_LEFT, L_FROM_RIGHT, L_FROM_TOP, L_FROM_BOT</param>
 '''  <param name="minjump">[in] - minimum jump to be counted greater or equal 1</param>
@@ -135,6 +136,7 @@ Public Shared Function pixMeasureEdgeSmoothness(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixMeasureEdgeSmoothness( pixs.Pointer, side, minjump, minreversal, pjpl, pjspl, prpl, debugfile)
 
+
 	Return _Result
 End Function
 
@@ -143,7 +145,7 @@ End Function
 ' pixGetEdgeProfile(PIX *, l_int32, const char *) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetEdgeProfile/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetEdgeProfile/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="side">[in] - L_FROM_LEFT, L_FROM_RIGHT, L_FROM_TOP, L_FROM_BOT</param>
 '''  <param name="debugfile">[in][optional] - displays constructed edge use NULL for no output</param>
@@ -158,6 +160,7 @@ Public Shared Function pixGetEdgeProfile(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetEdgeProfile( pixs.Pointer, side, debugfile)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -168,7 +171,7 @@ End Function
 ' pixGetLastOffPixelInRun(PIX *, l_int32, l_int32, l_int32, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetLastOffPixelInRun/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetLastOffPixelInRun/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetLastOffPixelInRun(
 				 ByVal pixs as Pix, 
@@ -184,6 +187,7 @@ Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetLastOffPixelInRun( pixs.Pointer, x, y, direction, ploc)
 
+
 	Return _Result
 End Function
 
@@ -192,7 +196,7 @@ End Function
 ' pixGetLastOnPixelInRun(PIX *, l_int32, l_int32, l_int32, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetLastOnPixelInRun/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetLastOnPixelInRun/*"/>
 '''   <returns></returns>
 Public Shared Function pixGetLastOnPixelInRun(
 				 ByVal pixs as Pix, 
@@ -207,6 +211,7 @@ Public Shared Function pixGetLastOnPixelInRun(
 Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetLastOnPixelInRun( pixs.Pointer, x, y, direction, ploc)
+
 
 	Return _Result
 End Function

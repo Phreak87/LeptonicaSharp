@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\colorquant2.c (257, 1)
 ' pixMedianCutQuant(pixs, ditherflag) as Pix
 ' pixMedianCutQuant(PIX *, l_int32) as PIX *
@@ -14,7 +13,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMedianCutQuant/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMedianCutQuant/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb color</param>
 '''  <param name="ditherflag">[in] - 1 for dither 0 for no dither</param>
 '''   <returns>pixd 8 bit with colormap, or NULL on error</returns>
@@ -25,6 +24,7 @@ Public Shared Function pixMedianCutQuant(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMedianCutQuant( pixs.Pointer, ditherflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -68,7 +68,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMedianCutQuantGeneral/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMedianCutQuantGeneral/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb color</param>
 '''  <param name="ditherflag">[in] - 1 for dither 0 for no dither</param>
 '''  <param name="outdepth">[in] - output depth valid: 0, 1, 2, 4, 8</param>
@@ -89,6 +89,7 @@ Public Shared Function pixMedianCutQuantGeneral(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMedianCutQuantGeneral( pixs.Pointer, ditherflag, outdepth, maxcolors, sigbits, maxsub, checkbw)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -127,7 +128,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMedianCutQuantMixed/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMedianCutQuantMixed/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb color</param>
 '''  <param name="ncolor">[in] - maximum number of colors assigned to pixels with significant color</param>
 '''  <param name="ngray">[in] - number of gray colors to be used must be greater or equal 2</param>
@@ -146,6 +147,7 @@ Public Shared Function pixMedianCutQuantMixed(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMedianCutQuantMixed( pixs.Pointer, ncolor, ngray, darkthresh, lightthresh, diffthresh)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -189,7 +191,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFewColorsMedianCutQuantMixed/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFewColorsMedianCutQuantMixed/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="ncolor">[in] - number of colors to be assigned to pixels with significant color</param>
 '''  <param name="ngray">[in] - number of gray colors to be used must be greater or equal 2</param>
@@ -212,6 +214,7 @@ Public Shared Function pixFewColorsMedianCutQuantMixed(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFewColorsMedianCutQuantMixed( pixs.Pointer, ncolor, ngray, maxncolors, darkthresh, lightthresh, diffthresh)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -231,7 +234,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMedianCutHisto/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMedianCutHisto/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb color</param>
 '''  <param name="sigbits">[in] - valid: 5 or 6</param>
 '''  <param name="subsample">[in] - integer  is greater  0</param>
@@ -244,6 +247,7 @@ Public Shared Function pixMedianCutHisto(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer() = LeptonicaSharp.Natives.pixMedianCutHisto( pixs.Pointer, sigbits, subsample)
+
 
 	Return _Result
 End Function

@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\classapp.c (96, 1)
 ' jbCorrelation(dirin, thresh, weight, components, rootname, firstpage, npages, renderflag) as Integer
 ' jbCorrelation(const char *, l_float32, l_float32, l_int32, const char *, l_int32, l_int32, l_int32) as l_ok
@@ -17,7 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbCorrelation/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbCorrelation/*"/>
 '''  <param name="dirin">[in] - directory of input images</param>
 '''  <param name="thresh">[in] - typically ~0.8</param>
 '''  <param name="weight">[in] - typically ~0.6</param>
@@ -42,6 +41,7 @@ Public Shared Function jbCorrelation(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.jbCorrelation( dirin, thresh, weight, components, rootname, firstpage, npages, renderflag)
 
+
 	Return _Result
 End Function
 
@@ -56,7 +56,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbRankHaus/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbRankHaus/*"/>
 '''  <param name="dirin">[in] - directory of input images</param>
 '''  <param name="size">[in] - of Sel used for dilation typ. 2</param>
 '''  <param name="rank">[in] - rank value of match typ. 0.97</param>
@@ -81,6 +81,7 @@ Public Shared Function jbRankHaus(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.jbRankHaus( dirin, size, rank, components, rootname, firstpage, npages, renderflag)
 
+
 	Return _Result
 End Function
 
@@ -97,7 +98,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbWordsInTextlines/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbWordsInTextlines/*"/>
 '''  <param name="dirin">[in] - directory of input pages</param>
 '''  <param name="reduction">[in] - 1 for full res 2 for half-res</param>
 '''  <param name="maxwidth">[in] - of word mask components, to be kept</param>
@@ -126,8 +127,10 @@ Public Shared Function jbWordsInTextlines(
 	Dim pnatlPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnatl) Then pnatlPTR = pnatl.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.jbWordsInTextlines( dirin, reduction, maxwidth, maxheight, thresh, weight, pnatlPTR, firstpage, npages)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if pnatlPTR <> IntPtr.Zero then pnatl = new Numa(pnatlPTR)
+If pnatlPTR = IntPtr.Zero Then pnatl = Nothing
+If pnatlPTR <> IntPtr.Zero Then pnatl = New Numa(pnatlPTR)
 
 	Return  new JbClasser(_Result)
 End Function
@@ -174,7 +177,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetWordsInTextlines/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetWordsInTextlines/*"/>
 '''  <param name="pixs">[in] - 1 bpp, typ. 75 - 150 ppi</param>
 '''  <param name="minwidth">[in] - of saved components smaller are discarded</param>
 '''  <param name="minheight">[in] - of saved components smaller are discarded</param>
@@ -201,9 +204,13 @@ Public Shared Function pixGetWordsInTextlines(
 	Dim pnaiPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnai) Then pnaiPTR = pnai.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetWordsInTextlines( pixs.Pointer, minwidth, minheight, maxwidth, maxheight, pboxadPTR, ppixadPTR, pnaiPTR)
-	if pboxadPTR <> IntPtr.Zero then pboxad = new Boxa(pboxadPTR)
-	if ppixadPTR <> IntPtr.Zero then ppixad = new Pixa(ppixadPTR)
-	if pnaiPTR <> IntPtr.Zero then pnai = new Numa(pnaiPTR)
+
+If pboxadPTR = IntPtr.Zero Then pboxad = Nothing
+If pboxadPTR <> IntPtr.Zero Then pboxad = New Boxa(pboxadPTR)
+If ppixadPTR = IntPtr.Zero Then ppixad = Nothing
+If ppixadPTR <> IntPtr.Zero Then ppixad = New Pixa(ppixadPTR)
+If pnaiPTR = IntPtr.Zero Then pnai = Nothing
+If pnaiPTR <> IntPtr.Zero Then pnai = New Numa(pnaiPTR)
 
 	Return _Result
 End Function
@@ -223,7 +230,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetWordBoxesInTextlines/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetWordBoxesInTextlines/*"/>
 '''  <param name="pixs">[in] - 1 bpp, typ. 300 ppi</param>
 '''  <param name="minwidth">[in] - of saved components smaller are discarded</param>
 '''  <param name="minheight">[in] - of saved components smaller are discarded</param>
@@ -247,8 +254,11 @@ Public Shared Function pixGetWordBoxesInTextlines(
 Dim pnaiPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnai) Then pnaiPTR = pnai.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetWordBoxesInTextlines( pixs.Pointer, minwidth, minheight, maxwidth, maxheight, pboxadPTR, pnaiPTR)
-	if pboxadPTR <> IntPtr.Zero then pboxad = new Boxa(pboxadPTR)
-	if pnaiPTR <> IntPtr.Zero then pnai = new Numa(pnaiPTR)
+
+If pboxadPTR = IntPtr.Zero Then pboxad = Nothing
+If pboxadPTR <> IntPtr.Zero Then pboxad = New Boxa(pboxadPTR)
+If pnaiPTR = IntPtr.Zero Then pnai = Nothing
+If pnaiPTR <> IntPtr.Zero Then pnai = New Numa(pnaiPTR)
 
 	Return _Result
 End Function
@@ -268,7 +278,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaExtractSortedPattern/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaExtractSortedPattern/*"/>
 '''  <param name="boxa">[in] - typ. of word bounding boxes, in textline order</param>
 '''  <param name="na">[in] - index of textline for each box in boxa</param>
 '''   <returns>naa NUMAA, where each numa represents one textline, or NULL on error</returns>
@@ -280,6 +290,7 @@ Public Shared Function boxaExtractSortedPattern(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaExtractSortedPattern( boxa.Pointer, na.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numaa(_Result)
@@ -321,7 +332,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaCompareImagesByBoxes/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaCompareImagesByBoxes/*"/>
 '''  <param name="naa1">[in] - for image 1, formatted by boxaExtractSortedPattern()</param>
 '''  <param name="naa2">[in] - ditto for image 2</param>
 '''  <param name="nperline">[in] - number of box regions to be used in each textline</param>
@@ -349,6 +360,7 @@ Public Shared Function numaaCompareImagesByBoxes(
 	If IsNothing (naa2) then Throw New ArgumentNullException  ("naa2 cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaCompareImagesByBoxes( naa1.Pointer, naa2.Pointer, nperline, nreq, maxshiftx, maxshifty, delx, dely, psame, debugflag)
+
 
 	Return _Result
 End Function

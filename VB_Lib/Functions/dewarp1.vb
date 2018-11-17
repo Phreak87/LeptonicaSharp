@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\dewarp1.c (446, 1)
 ' dewarpCreate(pixs, pageno) as L_Dewarp
 ' dewarpCreate(PIX *, l_int32) as L_DEWARP *
@@ -17,7 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpCreate/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pageno">[in] - page number</param>
 '''   <returns>dew or NULL on error</returns>
@@ -30,6 +29,7 @@ Public Shared Function dewarpCreate(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpCreate( pixs.Pointer, pageno)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dewarp(_Result)
@@ -51,7 +51,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpCreateRef/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpCreateRef/*"/>
 '''  <param name="pageno">[in] - this page number</param>
 '''  <param name="refpage">[in] - page number of dewarp disparity arrays to be used</param>
 '''   <returns>dew or NULL on error</returns>
@@ -60,6 +60,7 @@ Public Shared Function dewarpCreateRef(
 				 ByVal refpage as Integer) as L_Dewarp
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpCreateRef( pageno, refpage)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dewarp(_Result)
@@ -70,7 +71,7 @@ End Function
 ' dewarpDestroy(L_DEWARP **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpDestroy/*"/>
 '''  <param name="pdew">[in,out] - will be set to null before returning</param>
 Public Shared Sub dewarpDestroy(
 				 ByRef pdew as L_Dewarp)
@@ -78,7 +79,9 @@ Public Shared Sub dewarpDestroy(
 	Dim pdewPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdew) Then pdewPTR = pdew.Pointer
 
 	LeptonicaSharp.Natives.dewarpDestroy( pdewPTR)
-	if pdewPTR <> IntPtr.Zero then pdew = new L_Dewarp(pdewPTR)
+
+If pdewPTR = IntPtr.Zero Then pdew = Nothing
+If pdewPTR <> IntPtr.Zero Then pdew = New L_Dewarp(pdewPTR)
 
 End Sub
 
@@ -113,7 +116,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaCreate/*"/>
 '''  <param name="nptrs">[in] - number of dewarp page ptrs typically the number of pages</param>
 '''  <param name="sampling">[in] - use 0 for default value the minimum allowed is 8</param>
 '''  <param name="redfactor">[in] - of input images: 1 is full resolution 2 is 2x reduced</param>
@@ -128,6 +131,7 @@ Public Shared Function dewarpaCreate(
 				 ByVal maxdist as Integer) as L_Dewarpa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpaCreate( nptrs, sampling, redfactor, minlines, maxdist)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dewarpa(_Result)
@@ -163,7 +167,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaCreateFromPixacomp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaCreateFromPixacomp/*"/>
 '''  <param name="pixac">[in] - pixacomp of G4, 1 bpp images with 1x1x1 placeholders</param>
 '''  <param name="useboth">[in] - 0 for only vert disparity 1 for both vert and horiz</param>
 '''  <param name="sampling">[in] - use -1 or 0 for default value otherwise minimum of 5</param>
@@ -180,6 +184,7 @@ Public Shared Function dewarpaCreateFromPixacomp(
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpaCreateFromPixacomp( pixac.Pointer, useboth, sampling, minlines, maxdist)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dewarpa(_Result)
@@ -190,7 +195,7 @@ End Function
 ' dewarpaDestroy(L_DEWARPA **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaDestroy/*"/>
 '''  <param name="pdewa">[in,out] - will be set to null before returning</param>
 Public Shared Sub dewarpaDestroy(
 				 ByRef pdewa as L_Dewarpa)
@@ -198,7 +203,9 @@ Public Shared Sub dewarpaDestroy(
 	Dim pdewaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdewa) Then pdewaPTR = pdewa.Pointer
 
 	LeptonicaSharp.Natives.dewarpaDestroy( pdewaPTR)
-	if pdewaPTR <> IntPtr.Zero then pdewa = new L_Dewarpa(pdewaPTR)
+
+If pdewaPTR = IntPtr.Zero Then pdewa = Nothing
+If pdewaPTR <> IntPtr.Zero Then pdewa = New L_Dewarpa(pdewaPTR)
 
 End Sub
 
@@ -207,7 +214,7 @@ End Sub
 ' dewarpaDestroyDewarp(L_DEWARPA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaDestroyDewarp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaDestroyDewarp/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="pageno">[in] - of dew to be destroyed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -218,6 +225,7 @@ Public Shared Function dewarpaDestroyDewarp(
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaDestroyDewarp( dewa.Pointer, pageno)
+
 
 	Return _Result
 End Function
@@ -240,7 +248,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaInsertDewarp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaInsertDewarp/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="dew">[in] - to be added</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -253,6 +261,7 @@ Public Shared Function dewarpaInsertDewarp(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaInsertDewarp( dewa.Pointer, dew.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -261,7 +270,7 @@ End Function
 ' dewarpaGetDewarp(L_DEWARPA *, l_int32) as L_DEWARP *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaGetDewarp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaGetDewarp/*"/>
 '''  <param name="dewa">[in] - populated with dewarp structs for pages</param>
 '''  <param name="index">[in] - into dewa: this is the pageno</param>
 '''   <returns>dew handle still owned by dewa, or NULL on error</returns>
@@ -272,6 +281,7 @@ Public Shared Function dewarpaGetDewarp(
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpaGetDewarp( dewa.Pointer, index)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dewarp(_Result)
@@ -317,7 +327,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaSetCurvatures/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaSetCurvatures/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="max_linecurv">[in] - -1 for default</param>
 '''  <param name="min_diff_linecurv">[in] - -1 for default 0 to accept all models</param>
@@ -339,6 +349,7 @@ Public Shared Function dewarpaSetCurvatures(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaSetCurvatures( dewa.Pointer, max_linecurv, min_diff_linecurv, max_diff_linecurv, max_edgecurv, max_diff_edgecurv, max_edgeslope)
 
+
 	Return _Result
 End Function
 
@@ -355,7 +366,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaUseBothArrays/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaUseBothArrays/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="useboth">[in] - 0 for false, 1 for true</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -366,6 +377,7 @@ Public Shared Function dewarpaUseBothArrays(
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaUseBothArrays( dewa.Pointer, useboth)
+
 
 	Return _Result
 End Function
@@ -392,7 +404,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaSetCheckColumns/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaSetCheckColumns/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="check_columns">[in] - 0 for false, 1 for true</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -403,6 +415,7 @@ Public Shared Function dewarpaSetCheckColumns(
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaSetCheckColumns( dewa.Pointer, check_columns)
+
 
 	Return _Result
 End Function
@@ -417,7 +430,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaSetMaxDistance/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaSetMaxDistance/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="maxdist">[in] - for using ref models</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -429,6 +442,7 @@ Public Shared Function dewarpaSetMaxDistance(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaSetMaxDistance( dewa.Pointer, maxdist)
 
+
 	Return _Result
 End Function
 
@@ -437,7 +451,7 @@ End Function
 ' dewarpRead(const char *) as L_DEWARP *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>dew, or NULL on error</returns>
 Public Shared Function dewarpRead(
@@ -445,9 +459,10 @@ Public Shared Function dewarpRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpRead( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dewarp(_Result)
@@ -470,7 +485,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>dew, or NULL on error</returns>
 Public Shared Function dewarpReadStream(
@@ -479,6 +494,7 @@ Public Shared Function dewarpReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpReadStream( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dewarp(_Result)
@@ -489,7 +505,7 @@ End Function
 ' dewarpReadMem(const l_uint8 *, size_t) as L_DEWARP *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpReadMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpReadMem/*"/>
 '''  <param name="data">[in] - serialization of dewarp</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>dew  dewarp, or NULL on error</returns>
@@ -500,6 +516,7 @@ Public Shared Function dewarpReadMem(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpReadMem( data, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dewarp(_Result)
@@ -510,7 +527,7 @@ End Function
 ' dewarpWrite(const char *, L_DEWARP *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="dew">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -521,9 +538,8 @@ Public Shared Function dewarpWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (dew) then Throw New ArgumentNullException  ("dew cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpWrite( filename, dew.Pointer)
+
 
 	Return _Result
 End Function
@@ -540,7 +556,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="dew">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -552,6 +568,7 @@ Public Shared Function dewarpWriteStream(
 	If IsNothing (dew) then Throw New ArgumentNullException  ("dew cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpWriteStream( fp.Pointer, dew.Pointer)
+
 
 	Return _Result
 End Function
@@ -566,7 +583,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpWriteMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized dewarp (not ascii)</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="dew">[in] - </param>
@@ -581,6 +598,7 @@ Public Shared Function dewarpWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpWriteMem( pdataPTR, psize, dew.Pointer)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -591,7 +609,7 @@ End Function
 ' dewarpaRead(const char *) as L_DEWARPA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>dewa, or NULL on error</returns>
 Public Shared Function dewarpaRead(
@@ -599,9 +617,10 @@ Public Shared Function dewarpaRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpaRead( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dewarpa(_Result)
@@ -621,7 +640,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>dewa, or NULL on error</returns>
 Public Shared Function dewarpaReadStream(
@@ -630,6 +649,7 @@ Public Shared Function dewarpaReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpaReadStream( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dewarpa(_Result)
@@ -640,7 +660,7 @@ End Function
 ' dewarpaReadMem(const l_uint8 *, size_t) as L_DEWARPA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaReadMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaReadMem/*"/>
 '''  <param name="data">[in] - serialization of dewarpa</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>dewa  dewarpa, or NULL on error</returns>
@@ -651,6 +671,7 @@ Public Shared Function dewarpaReadMem(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpaReadMem( data, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dewarpa(_Result)
@@ -661,7 +682,7 @@ End Function
 ' dewarpaWrite(const char *, L_DEWARPA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="dewa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -672,9 +693,8 @@ Public Shared Function dewarpaWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaWrite( filename, dewa.Pointer)
+
 
 	Return _Result
 End Function
@@ -684,7 +704,7 @@ End Function
 ' dewarpaWriteStream(FILE *, L_DEWARPA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="dewa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -696,6 +716,7 @@ Public Shared Function dewarpaWriteStream(
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaWriteStream( fp.Pointer, dewa.Pointer)
+
 
 	Return _Result
 End Function
@@ -710,7 +731,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaWriteMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized dewarpa (not ascii)</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="dewa">[in] - </param>
@@ -725,6 +746,7 @@ Public Shared Function dewarpaWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaWriteMem( pdataPTR, psize, dewa.Pointer)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result

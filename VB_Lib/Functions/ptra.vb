@@ -2,19 +2,19 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\ptra.c (139, 1)
 ' ptraCreate(n) as L_Ptra
 ' ptraCreate(l_int32) as L_PTRA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraCreate/*"/>
 '''  <param name="n">[in] - size of ptr array to be alloc'd 0 for default</param>
 '''   <returns>pa, or NULL on error</returns>
 Public Shared Function ptraCreate(
 				 ByVal n as Integer) as L_Ptra
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptraCreate( n)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Ptra(_Result)
@@ -44,7 +44,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraDestroy/*"/>
 '''  <param name="ppa">[in,out] - ptra to be nulled</param>
 '''  <param name="freeflag">[in] - TRUE to free each remaining item in the array</param>
 '''  <param name="warnflag">[in] - TRUE to warn if any remaining items are not destroyed</param>
@@ -56,7 +56,9 @@ Public Shared Sub ptraDestroy(
 	Dim ppaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppa) Then ppaPTR = ppa.Pointer
 
 	LeptonicaSharp.Natives.ptraDestroy( ppaPTR, freeflag, warnflag)
-	if ppaPTR <> IntPtr.Zero then ppa = new L_Ptra(ppaPTR)
+
+If ppaPTR = IntPtr.Zero Then ppa = Nothing
+If ppaPTR <> IntPtr.Zero Then ppa = New L_Ptra(ppaPTR)
 
 End Sub
 
@@ -74,7 +76,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraAdd/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraAdd/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="item">[in] - generic ptr to a struct</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -85,9 +87,22 @@ Public Shared Function ptraAdd(
 	If IsNothing (pa) then Throw New ArgumentNullException  ("pa cannot be Nothing")
 	If IsNothing (item) then Throw New ArgumentNullException  ("item cannot be Nothing")
 
-Dim itemPTR As IntPtr = Marshal.AllocHGlobal(0)
+	Dim itemPtr As IntPtr = IntPtr.Zero
+	If TypeOf (item) Is IntPtr Then itemPtr = item
+	If TypeOf (item) Is Byte() Then
+		Dim cdata = CType(item, Byte())
+		itemPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, itemPtr, cdata.Length)
+	End If
+	If Not IsNothing(item.GetType.GetProperty("data")) Then
+		Dim cdata = CType(item.data, Byte())
+		itemPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, itemPtr, cdata.Length)
+	End If
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraAdd( pa.Pointer, itemPTR)
+Marshal.FreeHGlobal(itemPTR)
+
 
 	Return _Result
 End Function
@@ -139,7 +154,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraInsert/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraInsert/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="index">[in] - location in ptra to insert new value</param>
 '''  <param name="item">[in] - generic ptr to a struct can be null</param>
@@ -154,9 +169,22 @@ Public Shared Function ptraInsert(
 	If IsNothing (pa) then Throw New ArgumentNullException  ("pa cannot be Nothing")
 	If IsNothing (item) then Throw New ArgumentNullException  ("item cannot be Nothing")
 
-Dim itemPTR As IntPtr = Marshal.AllocHGlobal(0)
+	Dim itemPtr As IntPtr = IntPtr.Zero
+	If TypeOf (item) Is IntPtr Then itemPtr = item
+	If TypeOf (item) Is Byte() Then
+		Dim cdata = CType(item, Byte())
+		itemPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, itemPtr, cdata.Length)
+	End If
+	If Not IsNothing(item.GetType.GetProperty("data")) Then
+		Dim cdata = CType(item.data, Byte())
+		itemPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, itemPtr, cdata.Length)
+	End If
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraInsert( pa.Pointer, index, itemPTR, shiftflag)
+Marshal.FreeHGlobal(itemPTR)
+
 
 	Return _Result
 End Function
@@ -180,7 +208,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraRemove/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraRemove/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="index">[in] - element to be removed</param>
 '''  <param name="flag">[in] - L_NO_COMPACTION, L_COMPACTION</param>
@@ -194,7 +222,9 @@ Public Shared Function ptraRemove(
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptraRemove( pa.Pointer, index, flag)
 
-	Return _Result
+	Dim B(1) As Byte : Marshal.Copy(_Result, B, 0, B.Length)
+
+	Return B
 End Function
 
 ' SRC\ptra.c (483, 1)
@@ -202,7 +232,7 @@ End Function
 ' ptraRemoveLast(L_PTRA *) as void *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraRemoveLast/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraRemoveLast/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''   <returns>item, or NULL on error or if the array is empty</returns>
 Public Shared Function ptraRemoveLast(
@@ -212,7 +242,9 @@ Public Shared Function ptraRemoveLast(
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptraRemoveLast( pa.Pointer)
 
-	Return _Result
+	Dim B(1) As Byte : Marshal.Copy(_Result, B, 0, B.Length)
+
+	Return B
 End Function
 
 ' SRC\ptra.c (512, 1)
@@ -220,7 +252,7 @@ End Function
 ' ptraReplace(L_PTRA *, l_int32, void *, l_int32) as void *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraReplace/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraReplace/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="index">[in] - element to be replaced</param>
 '''  <param name="item">[in] - new generic ptr to a struct can be null</param>
@@ -235,11 +267,25 @@ Public Shared Function ptraReplace(
 	If IsNothing (pa) then Throw New ArgumentNullException  ("pa cannot be Nothing")
 	If IsNothing (item) then Throw New ArgumentNullException  ("item cannot be Nothing")
 
-Dim itemPTR As IntPtr = Marshal.AllocHGlobal(0)
+	Dim itemPtr As IntPtr = IntPtr.Zero
+	If TypeOf (item) Is IntPtr Then itemPtr = item
+	If TypeOf (item) Is Byte() Then
+		Dim cdata = CType(item, Byte())
+		itemPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, itemPtr, cdata.Length)
+	End If
+	If Not IsNothing(item.GetType.GetProperty("data")) Then
+		Dim cdata = CType(item.data, Byte())
+		itemPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, itemPtr, cdata.Length)
+	End If
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptraReplace( pa.Pointer, index, itemPTR, freeflag)
+Marshal.FreeHGlobal(itemPTR)
 
-	Return _Result
+	Dim B(1) As Byte : Marshal.Copy(_Result, B, 0, B.Length)
+
+	Return B
 End Function
 
 ' SRC\ptra.c (553, 1)
@@ -247,7 +293,7 @@ End Function
 ' ptraSwap(L_PTRA *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraSwap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraSwap/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="index1">[in] - </param>
 '''  <param name="index2">[in] - </param>
@@ -260,6 +306,7 @@ Public Shared Function ptraSwap(
 	If IsNothing (pa) then Throw New ArgumentNullException  ("pa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraSwap( pa.Pointer, index1, index2)
+
 
 	Return _Result
 End Function
@@ -276,7 +323,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraCompactArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraCompactArray/*"/>
 '''  <param name="pa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptraCompactArray(
@@ -286,6 +333,7 @@ Public Shared Function ptraCompactArray(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraCompactArray( pa.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -294,7 +342,7 @@ End Function
 ' ptraReverse(L_PTRA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraReverse/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraReverse/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function ptraReverse(
@@ -304,6 +352,7 @@ Public Shared Function ptraReverse(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraReverse( pa.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -312,7 +361,7 @@ End Function
 ' ptraJoin(L_PTRA *, L_PTRA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraJoin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraJoin/*"/>
 '''  <param name="pa1">[in] - add to this one</param>
 '''  <param name="pa2">[in] - appended to pa1, and emptied of items can be null</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -324,6 +373,7 @@ Public Shared Function ptraJoin(
 	If IsNothing (pa2) then Throw New ArgumentNullException  ("pa2 cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraJoin( pa1.Pointer, pa2.Pointer)
+
 
 	Return _Result
 End Function
@@ -350,7 +400,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraGetMaxIndex/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraGetMaxIndex/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="pmaxindex">[out] - index of last item in the array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -361,6 +411,7 @@ Public Shared Function ptraGetMaxIndex(
 	If IsNothing (pa) then Throw New ArgumentNullException  ("pa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraGetMaxIndex( pa.Pointer, pmaxindex)
+
 
 	Return _Result
 End Function
@@ -376,7 +427,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraGetActualCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraGetActualCount/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="pcount">[out] - actual number of items on the ptr array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -387,6 +438,7 @@ Public Shared Function ptraGetActualCount(
 	If IsNothing (pa) then Throw New ArgumentNullException  ("pa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraGetActualCount( pa.Pointer, pcount)
+
 
 	Return _Result
 End Function
@@ -406,7 +458,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraGetPtrToItem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraGetPtrToItem/*"/>
 '''  <param name="pa">[in] - ptra</param>
 '''  <param name="index">[in] - of element to be retrieved</param>
 '''   <returns>a ptr to the element, or NULL on error</returns>
@@ -418,7 +470,9 @@ Public Shared Function ptraGetPtrToItem(
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptraGetPtrToItem( pa.Pointer, index)
 
-	Return _Result
+	Dim B(1) As Byte : Marshal.Copy(_Result, B, 0, B.Length)
+
+	Return B
 End Function
 
 ' SRC\ptra.c (790, 1)
@@ -432,13 +486,14 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraaCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraaCreate/*"/>
 '''  <param name="n">[in] - size of ptr array to be alloc'd</param>
 '''   <returns>paa, or NULL on error</returns>
 Public Shared Function ptraaCreate(
 				 ByVal n as Integer) as L_Ptraa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptraaCreate( n)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Ptraa(_Result)
@@ -457,7 +512,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraaDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraaDestroy/*"/>
 '''  <param name="ppaa">[in,out] - to be nulled</param>
 '''  <param name="freeflag">[in] - TRUE to free each remaining item in each ptra</param>
 '''  <param name="warnflag">[in] - TRUE to warn if any remaining items are not destroyed</param>
@@ -469,7 +524,9 @@ Public Shared Sub ptraaDestroy(
 	Dim ppaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppaa) Then ppaaPTR = ppaa.Pointer
 
 	LeptonicaSharp.Natives.ptraaDestroy( ppaaPTR, freeflag, warnflag)
-	if ppaaPTR <> IntPtr.Zero then ppaa = new L_Ptraa(ppaaPTR)
+
+If ppaaPTR = IntPtr.Zero Then ppaa = Nothing
+If ppaaPTR <> IntPtr.Zero Then ppaa = New L_Ptraa(ppaaPTR)
 
 End Sub
 
@@ -478,7 +535,7 @@ End Sub
 ' ptraaGetSize(L_PTRAA *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraaGetSize/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraaGetSize/*"/>
 '''  <param name="paa">[in] - </param>
 '''  <param name="psize">[out] - size of ptr array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -489,6 +546,7 @@ Public Shared Function ptraaGetSize(
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraaGetSize( paa.Pointer, psize)
+
 
 	Return _Result
 End Function
@@ -505,7 +563,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraaInsertPtra/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraaInsertPtra/*"/>
 '''  <param name="paa">[in] - ptraa</param>
 '''  <param name="index">[in] - location in array for insertion</param>
 '''  <param name="pa">[in] - to be inserted</param>
@@ -519,6 +577,7 @@ Public Shared Function ptraaInsertPtra(
 	If IsNothing (pa) then Throw New ArgumentNullException  ("pa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ptraaInsertPtra( paa.Pointer, index, pa.Pointer)
+
 
 	Return _Result
 End Function
@@ -539,7 +598,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraaGetPtra/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraaGetPtra/*"/>
 '''  <param name="paa">[in] - ptraa</param>
 '''  <param name="index">[in] - location in array</param>
 '''  <param name="accessflag">[in] - L_HANDLE_ONLY, L_REMOVE</param>
@@ -552,6 +611,7 @@ Public Shared Function ptraaGetPtra(
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptraaGetPtra( paa.Pointer, index, accessflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Ptra(_Result)
@@ -571,7 +631,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptraaFlattenToPtra/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptraaFlattenToPtra/*"/>
 '''  <param name="paa">[in] - ptraa</param>
 '''   <returns>ptra, or NULL on error</returns>
 Public Shared Function ptraaFlattenToPtra(
@@ -580,6 +640,7 @@ Public Shared Function ptraaFlattenToPtra(
 	If IsNothing (paa) then Throw New ArgumentNullException  ("paa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptraaFlattenToPtra( paa.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Ptra(_Result)

@@ -1,21 +1,45 @@
 ﻿Imports System.Drawing
 Imports LeptonicaSharp
+Imports LeptonicaSharp._All
 Imports LeptonicaSharp.Enumerations
 Imports System.Runtime.InteropServices
 Imports System.Drawing.Imaging
 
 Module Module1
+
     Sub Main()
+
+        Dim adsf = GetType(Pix)
+        Dim asdf = adsf.GetProperty("data")
+
+        Dim x As New L_Bytea(CUInt(1))
+
+        Dim x1 As New L_Bytea(New Byte() {4, 5, 6}, 3)
+        Dim x2 As New L_Bytea(New Byte() {1, 2, 3}, 3)
+        l_byteaJoin(x1, x2)
+
+        x.l_byteaAppendString("Hallo")
+
         Dim Lic As New Pix("Lic.png")
-        Lic.pixBackgroundNormSimple()
-        Lic.pixCleanBackgroundToWhite()
+
+        Dim sel = LeptonicaSharp._All.l_binaryWrite("Test", "w", New Byte() {1, 2, 2}, 3)
+        Dim sel1 = LeptonicaSharp._All.l_binaryWrite("Test", "w", Lic, Lic.data.Length)
+        Dim sel2 = LeptonicaSharp._All.l_binaryWrite("Test", "w", Lic.Pointer, 1)
+        LeptonicaSharp._All.pixWriteJpeg("asdf.jpg", Lic, 95, 0)
+        'Convert.WriteHelpExtension("pixBackgroundNormSimple", Lic, Lic.pixBackgroundNormSimple, {"pix.pixBackgroundNormSimple()"})
+        'Convert.WriteHelpExtension("pixCleanBackgroundToWhite", Lic, Lic.pixCleanBackgroundToWhite, {"pix.pixCleanBackgroundToWhite()"})
+        'LeptonicaSharp.Convert.WriteHelpExtension("pixBackgroundNormSimple", New Pix("Amoris.jpg"), New Pix("Amoris.jpg").pixBackgroundNormSimple, {"Dim Res = pix.pixBackgroundNormSimple"})
+
+        Lic = Lic.pixBackgroundNormSimple()
+        Lic = Lic.pixCleanBackgroundToWhite()
         Lic.Display()
-        Lic = Lic.pixConvertTo1(128)
-        Lic.Display()
+        Dim LicB As Pix = Nothing
+        LeptonicaSharp._All.pixOtsuAdaptiveThreshold(Lic, 16, 16, 8, 8, 0.4F, Nothing, LicB)
+        LicB.Display()
         Dim LC2 As Pix = Lic.pixCopy
 
         Dim P1 As New Example1
-        'P1.Test1()
+        P1.Test1()
         P1.Test2()
         ' Dim N1 As New NoteShrink(): N1.CleanUp2(New Pix("img\Examples\Notea1.jpg"))
 
@@ -27,7 +51,7 @@ Module Module1
         PixT3.Display()
         Dim pa As New Pixa(3)
         pixs.pixCleanBackgroundToWhite().Display()
-        pa.display(50, 50)
+        pa.Display()
 
         Dim NotesA1 As Pix = New Pix("img\Examples\Note1.jpg")
         Dim SNoteasA1 As Pix = LeptonicaSharp._All.pixOctcubeQuantMixedWithGray(NotesA1, 8, 2, 64).pixConvertTo32
@@ -59,8 +83,8 @@ Module Module1
         'Dim pixt3 As Integer = LeptonicaSharp._All.pixCombineMasked(PIxs, pixt1, Nothing)
         Dim PixG1 As Pix = LeptonicaSharp._All.pixConvertRGBToGray(PIX32, 0, 0, 0)
 
-        PIxs = PIxs.pixBackgroundNormSimple()
-        Dim bmp1 As Bitmap = PIxs.ToBitmap
+        pixs = pixs.pixBackgroundNormSimple()
+        Dim bmp1 As Bitmap = pixs.ToBitmap
 
         PIX32.Dispose()
         'PIX32.Display()
@@ -90,6 +114,27 @@ Module Module1
 
     End Sub
 
+    Sub DisplayChecks()
+        Dim Amor As New Pix("amoris.jpg")
+        Dim LicPIXA As New Pixa(1)
+        Dim SEL As New LeptonicaSharp.Sel("ooooCoooo", 3, 3, "TEST")
+        Dim LicPixa2 As Pixa = _All.pixExtractTextlines(Amor, 25, 25, 15, 15, 1, 1, LicPIXA)
+        Dim pxByCol = _All.pixCountPixelsByColumn(LicPIXA.pix(2))
+        Dim pxByRow = _All.pixCountPixelsByRow(LicPIXA.pix(2), Nothing)
+
+        SEL.Display()
+        Amor.Display()
+        LicPIXA.Display()
+        LicPixa2.Display()
+        LicPixa2.boxa.Display(Amor)
+        LicPixa2.boxa.box(0).Display(Amor)
+        LicPixa2.boxa.Display()
+        LicPixa2.boxa.box(0).Display()
+        pxByRow.DisplayNumaHeatmap(pxByCol)
+        pxByRow.DisplayNumaHeatmap(pxByCol, LicPIXA.pix(2))
+        pxByRow.DisplayNumaBarGraph(pxByCol)
+        pxByRow.DisplayNumaBarGraph(pxByCol, LicPIXA.pix(2))
+    End Sub
     Sub TestErrorChecks()
         ' ------------------------------------------------------------------------------
         ' Teste Raw-Check wenn "I_View32.exe" nicht existiert                   => OK

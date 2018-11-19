@@ -1,0 +1,5 @@
+Dim PIXD As Pix = Nothing ' ByRef
+Dim DEWA As L_Dewarpa = Nothing ' ByRef
+Dim PIX32 As New Pix("Image.jpg") : PIX32.Display()
+Dim RSU = _All.dewarpSinglePage(PIX32, 1, 1, 0, 0, PIXD, DEWA, DebugOnOff.DebugOn)
+PIXD.save_jpg("DewarpSinglePageTest.jpg")

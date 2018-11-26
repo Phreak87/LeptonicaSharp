@@ -11,12 +11,12 @@ namespace TestAppCSharp
 {
     class Program
     {
-        private const string img1bpp = @"..\..\..\..\ALL_Images\Leptonica\feyn.tif";
-        private const string img8bpp = @"..\..\..\..\ALL_Images\Leptonica\w91frag.jpg";
-        private const string img24bpp = @"..\..\..\..\ALL_Images\Leptonica\zanotti-78.jpg";
-        private const string img32bpp = @"..\..\..\..\ALL_Images\Leptonica\books_logo.png";
-        private const string cat007 = @"..\..\..\..\ALL_Images\Leptonica\cat.007.jpg";
-        private const string carplate = @"..\..\..\..\ALL_Images\input\ca03pers.png";
+        private const string img1bpp =  @"..\..\..\..\CHM_Help\ExampleImages\Leptonica\feyn.tif";
+        private const string img8bpp =  @"..\..\..\..\CHM_Help\ExampleImages\Leptonica\w91frag.jpg";
+        private const string img24bpp = @"..\..\..\..\CHM_Help\ExampleImages\Leptonica\zanotti-78.jpg";
+        private const string img32bpp = @"..\..\..\..\CHM_Help\ExampleImages\Leptonica\books_logo.png";
+        private const string cat007 =   @"..\..\..\..\CHM_Help\ExampleImages\Leptonica\cat.007.jpg";
+        private const string carplate = @"..\..\..\..\CHM_Help\ExampleImages\input\ca03pers.png";
 
         static void Main(string[] args)
         {
@@ -29,7 +29,14 @@ namespace TestAppCSharp
             //app.TestProjections(img1bpp);
             //app.OtsuTest2(carplate);
             //app.TestProjectionsOnImage(carplate);
-            app.TestArrayFunctions();
+            //app.TestArrayFunctions();
+            app.TestCCBorder(img1bpp);
+        }
+
+        private void TestCCBorder(string pixfn)
+        {
+            var pixs = new Pix(pixfn);
+            var cbba = pixGetAllCCBorders(pixs);
         }
 
         private void TestArrayFunctions()

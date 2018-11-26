@@ -2,13 +2,12 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\readbarcode.c (134, 1)
 ' pixProcessBarcodes(pixs, format, method, psaw, debugflag) as Sarray
 ' pixProcessBarcodes(PIX *, l_int32, l_int32, SARRAY **, l_int32) as SARRAY *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixProcessBarcodes/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixProcessBarcodes/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="format">[in] - L_BF_ANY, L_BF_CODEI2OF5, L_BF_CODE93, ...</param>
 '''  <param name="method">[in] - L_USE_WIDTHS, L_USE_WINDOWS</param>
@@ -27,8 +26,10 @@ Public Shared Function pixProcessBarcodes(
 Dim psawPTR As IntPtr = IntPtr.Zero : If Not IsNothing(psaw) Then psawPTR = psaw.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixProcessBarcodes( pixs.Pointer, format, method, psawPTR, debugflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if psawPTR <> IntPtr.Zero then psaw = new Sarray(psawPTR)
+If psawPTR = IntPtr.Zero Then psaw = Nothing
+If psawPTR <> IntPtr.Zero Then psaw = New Sarray(psawPTR)
 
 	Return  new Sarray(_Result)
 End Function
@@ -38,7 +39,7 @@ End Function
 ' pixExtractBarcodes(PIX *, l_int32) as PIXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixExtractBarcodes/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixExtractBarcodes/*"/>
 '''  <param name="pixs">[in] - 8 bpp, no colormap</param>
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
 '''   <returns>pixa deskewed and cropped barcodes, or NULL if none found or on error</returns>
@@ -49,6 +50,7 @@ Public Shared Function pixExtractBarcodes(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtractBarcodes( pixs.Pointer, debugflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -59,7 +61,7 @@ End Function
 ' pixReadBarcodes(PIXA *, l_int32, l_int32, SARRAY **, l_int32) as SARRAY *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadBarcodes/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadBarcodes/*"/>
 '''  <param name="pixa">[in] - of 8 bpp deskewed and cropped barcodes</param>
 '''  <param name="format">[in] - L_BF_ANY, L_BF_CODEI2OF5, L_BF_CODE93, ...</param>
 '''  <param name="method">[in] - L_USE_WIDTHS, L_USE_WINDOWS</param>
@@ -78,8 +80,10 @@ Public Shared Function pixReadBarcodes(
 Dim psawPTR As IntPtr = IntPtr.Zero : If Not IsNothing(psaw) Then psawPTR = psaw.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadBarcodes( pixa.Pointer, format, method, psawPTR, debugflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if psawPTR <> IntPtr.Zero then psaw = new Sarray(psawPTR)
+If psawPTR = IntPtr.Zero Then psaw = Nothing
+If psawPTR <> IntPtr.Zero Then psaw = New Sarray(psawPTR)
 
 	Return  new Sarray(_Result)
 End Function
@@ -89,7 +93,7 @@ End Function
 ' pixReadBarcodeWidths(PIX *, l_int32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadBarcodeWidths/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadBarcodeWidths/*"/>
 '''  <param name="pixs">[in] - of 8 bpp deskewed and cropped barcode</param>
 '''  <param name="method">[in] - L_USE_WIDTHS, L_USE_WINDOWS</param>
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
@@ -102,6 +106,7 @@ Public Shared Function pixReadBarcodeWidths(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadBarcodeWidths( pixs.Pointer, method, debugflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -112,7 +117,7 @@ End Function
 ' pixLocateBarcodes(PIX *, l_int32, PIX **, PIX **) as BOXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixLocateBarcodes/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixLocateBarcodes/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="thresh">[in] - for binarization of edge filter output typ. 20</param>
 '''  <param name="ppixb">[out][optional] - binarized edge filtered input image</param>
@@ -130,9 +135,12 @@ Dim ppixbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixb) Then ppixbPTR = p
 Dim ppixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixm) Then ppixmPTR = ppixm.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixLocateBarcodes( pixs.Pointer, thresh, ppixbPTR, ppixmPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if ppixbPTR <> IntPtr.Zero then ppixb = new Pix(ppixbPTR)
-	if ppixmPTR <> IntPtr.Zero then ppixm = new Pix(ppixmPTR)
+If ppixbPTR = IntPtr.Zero Then ppixb = Nothing
+If ppixbPTR <> IntPtr.Zero Then ppixb = New Pix(ppixbPTR)
+If ppixmPTR = IntPtr.Zero Then ppixm = Nothing
+If ppixmPTR <> IntPtr.Zero Then ppixm = New Pix(ppixmPTR)
 
 	Return  new Boxa(_Result)
 End Function
@@ -148,7 +156,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDeskewBarcode/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDeskewBarcode/*"/>
 '''  <param name="pixs">[in] - input image 8 bpp</param>
 '''  <param name="pixb">[in] - binarized edge-filtered input image</param>
 '''  <param name="box">[in] - identified region containing barcode</param>
@@ -171,6 +179,7 @@ Public Shared Function pixDeskewBarcode(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDeskewBarcode( pixs.Pointer, pixb.Pointer, box.Pointer, margin, threshold, pangle, pconf)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -192,7 +201,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixExtractBarcodeWidths1/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixExtractBarcodeWidths1/*"/>
 '''  <param name="pixs">[in] - input image 8 bpp</param>
 '''  <param name="thresh">[in] - estimated pixel threshold for crossing white  is smallerto black typ. ~120</param>
 '''  <param name="binfract">[in] - histo binsize as a fraction of minsize e.g., 0.25</param>
@@ -214,9 +223,12 @@ Dim pnaehistPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaehist) Then pnaehi
 Dim pnaohistPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaohist) Then pnaohistPTR = pnaohist.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtractBarcodeWidths1( pixs.Pointer, thresh, binfract, pnaehistPTR, pnaohistPTR, debugflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if pnaehistPTR <> IntPtr.Zero then pnaehist = new Numa(pnaehistPTR)
-	if pnaohistPTR <> IntPtr.Zero then pnaohist = new Numa(pnaohistPTR)
+If pnaehistPTR = IntPtr.Zero Then pnaehist = Nothing
+If pnaehistPTR <> IntPtr.Zero Then pnaehist = New Numa(pnaehistPTR)
+If pnaohistPTR = IntPtr.Zero Then pnaohist = Nothing
+If pnaohistPTR <> IntPtr.Zero Then pnaohist = New Numa(pnaohistPTR)
 
 	Return  new Numa(_Result)
 End Function
@@ -242,7 +254,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixExtractBarcodeWidths2/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixExtractBarcodeWidths2/*"/>
 '''  <param name="pixs">[in] - input image 8 bpp</param>
 '''  <param name="thresh">[in] - estimated pixel threshold for crossing white  is smallerto black typ. ~120</param>
 '''  <param name="pwidth">[out][optional] - best decoding window width, in pixels</param>
@@ -261,8 +273,10 @@ Public Shared Function pixExtractBarcodeWidths2(
 Dim pnacPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnac) Then pnacPTR = pnac.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtractBarcodeWidths2( pixs.Pointer, thresh, pwidth, pnacPTR, debugflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if pnacPTR <> IntPtr.Zero then pnac = new Numa(pnacPTR)
+If pnacPTR = IntPtr.Zero Then pnac = Nothing
+If pnacPTR <> IntPtr.Zero Then pnac = New Numa(pnacPTR)
 
 	Return  new Numa(_Result)
 End Function
@@ -272,7 +286,7 @@ End Function
 ' pixExtractBarcodeCrossings(PIX *, l_float32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixExtractBarcodeCrossings/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixExtractBarcodeCrossings/*"/>
 '''  <param name="pixs">[in] - input image 8 bpp</param>
 '''  <param name="thresh">[in] - estimated pixel threshold for crossing white  is smallerto black typ. ~120</param>
 '''  <param name="debugflag">[in] - use 1 to generate debug output</param>
@@ -285,6 +299,7 @@ Public Shared Function pixExtractBarcodeCrossings(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtractBarcodeCrossings( pixs.Pointer, thresh, debugflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -309,7 +324,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaQuantizeCrossingsByWidth/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaQuantizeCrossingsByWidth/*"/>
 '''  <param name="nas">[in] - numa of crossing locations, in pixel units</param>
 '''  <param name="binfract">[in] - histo binsize as a fraction of minsize e.g., 0.25</param>
 '''  <param name="pnaehist">[out][optional] - histo of even (black) bar widths</param>
@@ -329,9 +344,12 @@ Dim pnaehistPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaehist) Then pnaehi
 Dim pnaohistPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaohist) Then pnaohistPTR = pnaohist.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaQuantizeCrossingsByWidth( nas.Pointer, binfract, pnaehistPTR, pnaohistPTR, debugflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if pnaehistPTR <> IntPtr.Zero then pnaehist = new Numa(pnaehistPTR)
-	if pnaohistPTR <> IntPtr.Zero then pnaohist = new Numa(pnaohistPTR)
+If pnaehistPTR = IntPtr.Zero Then pnaehist = Nothing
+If pnaehistPTR <> IntPtr.Zero Then pnaehist = New Numa(pnaehistPTR)
+If pnaohistPTR = IntPtr.Zero Then pnaohist = Nothing
+If pnaohistPTR <> IntPtr.Zero Then pnaohist = New Numa(pnaohistPTR)
 
 	Return  new Numa(_Result)
 End Function
@@ -352,7 +370,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaQuantizeCrossingsByWindow/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaQuantizeCrossingsByWindow/*"/>
 '''  <param name="nas">[in] - numa of crossing locations</param>
 '''  <param name="ratio">[in] - of max window size over min window size in search typ. 2.0</param>
 '''  <param name="pwidth">[out][optional] - best window width</param>
@@ -373,8 +391,10 @@ Public Shared Function numaQuantizeCrossingsByWindow(
 Dim pnacPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnac) Then pnacPTR = pnac.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaQuantizeCrossingsByWindow( nas.Pointer, ratio, pwidth, pfirstloc, pnacPTR, debugflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if pnacPTR <> IntPtr.Zero then pnac = new Numa(pnacPTR)
+If pnacPTR = IntPtr.Zero Then pnac = Nothing
+If pnacPTR <> IntPtr.Zero Then pnac = New Numa(pnacPTR)
 
 	Return  new Numa(_Result)
 End Function

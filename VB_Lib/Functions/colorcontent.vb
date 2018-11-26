@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\colorcontent.c (179, 1)
 ' pixColorContent(pixs, rwhite, gwhite, bwhite, mingray, ppixr, ppixg, ppixb) as Integer
 ' pixColorContent(PIX *, l_int32, l_int32, l_int32, l_int32, PIX **, PIX **, PIX **) as l_ok
@@ -32,7 +31,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixColorContent/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixColorContent/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb or 8 bpp colormapped</param>
 '''  <param name="rwhite">[in] - color value associated with white point</param>
 '''  <param name="gwhite">[in] - color value associated with white point</param>
@@ -59,9 +58,13 @@ Dim ppixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixg) Then ppixgPTR = p
 Dim ppixbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixb) Then ppixbPTR = ppixb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixColorContent( pixs.Pointer, rwhite, gwhite, bwhite, mingray, ppixrPTR, ppixgPTR, ppixbPTR)
-	if ppixrPTR <> IntPtr.Zero then ppixr = new Pix(ppixrPTR)
-	if ppixgPTR <> IntPtr.Zero then ppixg = new Pix(ppixgPTR)
-	if ppixbPTR <> IntPtr.Zero then ppixb = new Pix(ppixbPTR)
+
+If ppixrPTR = IntPtr.Zero Then ppixr = Nothing
+If ppixrPTR <> IntPtr.Zero Then ppixr = New Pix(ppixrPTR)
+If ppixgPTR = IntPtr.Zero Then ppixg = Nothing
+If ppixgPTR <> IntPtr.Zero Then ppixg = New Pix(ppixgPTR)
+If ppixbPTR = IntPtr.Zero Then ppixb = Nothing
+If ppixbPTR <> IntPtr.Zero Then ppixb = New Pix(ppixbPTR)
 
 	Return _Result
 End Function
@@ -113,7 +116,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixColorMagnitude/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixColorMagnitude/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb or 8 bpp colormapped</param>
 '''  <param name="rwhite">[in] - color value associated with white point</param>
 '''  <param name="gwhite">[in] - color value associated with white point</param>
@@ -130,6 +133,7 @@ Public Shared Function pixColorMagnitude(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixColorMagnitude( pixs.Pointer, rwhite, gwhite, bwhite, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -160,7 +164,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMaskOverColorPixels/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMaskOverColorPixels/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb or 8 bpp colormapped</param>
 '''  <param name="threshdiff">[in] - threshold for minimum of the max difference between components</param>
 '''  <param name="mindist">[in] - minimum allowed distance from nearest non-color pixel</param>
@@ -173,6 +177,7 @@ Public Shared Function pixMaskOverColorPixels(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMaskOverColorPixels( pixs.Pointer, threshdiff, mindist)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -183,7 +188,7 @@ End Function
 ' pixMaskOverColorRange(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMaskOverColorRange/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMaskOverColorRange/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb or 8 bpp colormapped</param>
 '''  <param name="rmin">[in] - min and max allowed values for red component</param>
 '''  <param name="rmax">[in] - min and max allowed values for red component</param>
@@ -204,6 +209,7 @@ Public Shared Function pixMaskOverColorRange(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMaskOverColorRange( pixs.Pointer, rmin, rmax, gmin, gmax, bmin, bmax)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -253,7 +259,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixColorFraction/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixColorFraction/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="darkthresh">[in] - threshold near black if the lightest component is below this, the pixel is not considered in the statistics typ. 20</param>
 '''  <param name="lightthresh">[in] - threshold near white if the darkest component is above this, the pixel is not considered in the statistics typ. 244</param>
@@ -276,6 +282,7 @@ Public Shared Function pixColorFraction(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixColorFraction( pixs.Pointer, darkthresh, lightthresh, diffthresh, factor, ppixfract, pcolorfract)
+
 
 	Return _Result
 End Function
@@ -335,7 +342,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindColorRegions/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindColorRegions/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask image</param>
 '''  <param name="factor">[in] - subsample factor integer greater or equal 1</param>
@@ -373,9 +380,13 @@ Dim pcolormask2PTR As IntPtr = IntPtr.Zero : If Not IsNothing(pcolormask2) Then 
 	Dim pixadbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixadb) Then pixadbPTR = pixadb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindColorRegions( pixs.Pointer, pixmPTR, factor, lightthresh, darkthresh, mindiff, colordiff, edgefract, pcolorfract, pcolormask1PTR, pcolormask2PTR, pixadbPTR)
-	if pcolormask1PTR <> IntPtr.Zero then pcolormask1 = new Pix(pcolormask1PTR)
-	if pcolormask2PTR <> IntPtr.Zero then pcolormask2 = new Pix(pcolormask2PTR)
-	if pixadbPTR <> IntPtr.Zero then pixadb = new Pixa(pixadbPTR)
+
+If pcolormask1PTR = IntPtr.Zero Then pcolormask1 = Nothing
+If pcolormask1PTR <> IntPtr.Zero Then pcolormask1 = New Pix(pcolormask1PTR)
+If pcolormask2PTR = IntPtr.Zero Then pcolormask2 = Nothing
+If pcolormask2PTR <> IntPtr.Zero Then pcolormask2 = New Pix(pcolormask2PTR)
+If pixadbPTR = IntPtr.Zero Then pixadb = Nothing
+If pixadbPTR <> IntPtr.Zero Then pixadb = New Pixa(pixadbPTR)
 
 	Return _Result
 End Function
@@ -405,7 +416,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixNumSignificantGrayColors/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixNumSignificantGrayColors/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray</param>
 '''  <param name="darkthresh">[in] - dark threshold for minimum intensity to be considered typ. 20</param>
 '''  <param name="lightthresh">[in] - threshold near white, for maximum intensity to be considered typ. 236</param>
@@ -424,6 +435,7 @@ Public Shared Function pixNumSignificantGrayColors(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixNumSignificantGrayColors( pixs.Pointer, darkthresh, lightthresh, minfract, factor, pncolors)
+
 
 	Return _Result
 End Function
@@ -501,7 +513,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixColorsForQuantization/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixColorsForQuantization/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb with or without colormap</param>
 '''  <param name="thresh">[in] - binary threshold on edge gradient 0 for default</param>
 '''  <param name="pncolors">[out] - the number of colors found</param>
@@ -518,6 +530,7 @@ Public Shared Function pixColorsForQuantization(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixColorsForQuantization( pixs.Pointer, thresh, pncolors, piscolor, debug)
+
 
 	Return _Result
 End Function
@@ -544,7 +557,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixNumColors/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixNumColors/*"/>
 '''  <param name="pixs">[in] - 2, 4, 8, 32 bpp</param>
 '''  <param name="factor">[in] - subsampling factor integer</param>
 '''  <param name="pncolors">[out] - the number of colors found, or 0 if there are more than 256</param>
@@ -557,6 +570,7 @@ Public Shared Function pixNumColors(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixNumColors( pixs.Pointer, factor, pncolors)
+
 
 	Return _Result
 End Function
@@ -578,7 +592,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetMostPopulatedColors/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetMostPopulatedColors/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="sigbits">[in] - 2-6, significant bits retained in the quantizer for each component of the input image</param>
 '''  <param name="factor">[in] - subsampling factor use 1 for no subsampling</param>
@@ -602,8 +616,10 @@ Public Shared Function pixGetMostPopulatedColors(
 Dim pcmapPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pcmap) Then pcmapPTR = pcmap.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetMostPopulatedColors( pixs.Pointer, sigbits, factor, ncolors, parrayPTR, pcmapPTR)
+
 	ReDim parray(IIf(1 > 0, 1, 1) - 1) : If parrayPTR <> IntPtr.Zero Then Marshal.Copy(parrayPTR, parray, 0, parray.count)
-	if pcmapPTR <> IntPtr.Zero then pcmap = new PixColormap(pcmapPTR)
+If pcmapPTR = IntPtr.Zero Then pcmap = Nothing
+If pcmapPTR <> IntPtr.Zero Then pcmap = New PixColormap(pcmapPTR)
 
 	Return _Result
 End Function
@@ -633,7 +649,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSimpleColorQuantize/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSimpleColorQuantize/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="sigbits">[in] - 2-4, significant bits retained in the quantizer for each component of the input image</param>
 '''  <param name="factor">[in] - subsampling factor use 1 for no subsampling</param>
@@ -650,6 +666,7 @@ Public Shared Function pixSimpleColorQuantize(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSimpleColorQuantize( pixs.Pointer, sigbits, factor, ncolors)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -670,7 +687,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetRGBHistogram/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetRGBHistogram/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="sigbits">[in] - 2-6, significant bits retained in the quantizer for each component of the input image</param>
 '''  <param name="factor">[in] - subsampling factor use 1 for no subsampling</param>
@@ -685,6 +702,7 @@ Public Shared Function pixGetRGBHistogram(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetRGBHistogram( pixs.Pointer, sigbits, factor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -704,7 +722,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/makeRGBIndexTables/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makeRGBIndexTables/*"/>
 '''  <param name="prtab">[out] - 256-entry index tables</param>
 '''  <param name="pgtab">[out] - 256-entry index tables</param>
 '''  <param name="pbtab">[out] - 256-entry index tables</param>
@@ -721,6 +739,7 @@ Public Shared Function makeRGBIndexTables(
 	Dim pbtabPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.makeRGBIndexTables( prtabPTR, pgtabPTR, pbtabPTR, sigbits)
+
 	ReDim prtab(IIf(1 > 0, 1, 1) - 1) : If prtabPTR <> IntPtr.Zero Then Marshal.Copy(prtabPTR, prtab, 0, prtab.count)
 	ReDim pgtab(IIf(1 > 0, 1, 1) - 1) : If pgtabPTR <> IntPtr.Zero Then Marshal.Copy(pgtabPTR, pgtab, 0, pgtab.count)
 	ReDim pbtab(IIf(1 > 0, 1, 1) - 1) : If pbtabPTR <> IntPtr.Zero Then Marshal.Copy(pbtabPTR, pbtab, 0, pbtab.count)
@@ -743,7 +762,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/getRGBFromIndex/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getRGBFromIndex/*"/>
 '''  <param name="index">[in] - rgbindex</param>
 '''  <param name="sigbits">[in] - 2-6, significant bits retained in the quantizer for each component of the input image</param>
 '''  <param name="prval">[out] - rgb values</param>
@@ -758,6 +777,7 @@ Public Shared Function getRGBFromIndex(
 				<Out()> ByRef pbval as Integer) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.getRGBFromIndex( index, sigbits, prval, pgval, pbval)
+
 
 	Return _Result
 End Function
@@ -784,7 +804,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixHasHighlightRed/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixHasHighlightRed/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="factor">[in] - subsampling an integer greater or equal 1 use 1 for all pixels</param>
 '''  <param name="fract">[in] - threshold fraction of all image pixels</param>
@@ -809,7 +829,9 @@ Public Shared Function pixHasHighlightRed(
 Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixHasHighlightRed( pixs.Pointer, factor, fract, fthresh, phasred, pratio, ppixdbPTR)
-	if ppixdbPTR <> IntPtr.Zero then ppixdb = new Pix(ppixdbPTR)
+
+If ppixdbPTR = IntPtr.Zero Then ppixdb = Nothing
+If ppixdbPTR <> IntPtr.Zero Then ppixdb = New Pix(ppixdbPTR)
 
 	Return _Result
 End Function

@@ -2,13 +2,12 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\jbclass.c (283, 1)
 ' jbRankHausInit(components, maxwidth, maxheight, size, rank) as JbClasser
 ' jbRankHausInit(l_int32, l_int32, l_int32, l_int32, l_float32) as JBCLASSER *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbRankHausInit/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbRankHausInit/*"/>
 '''  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
 '''  <param name="maxwidth">[in] - of component use 0 for default</param>
 '''  <param name="maxheight">[in] - of component use 0 for default</param>
@@ -23,6 +22,7 @@ Public Shared Function jbRankHausInit(
 				 ByVal rank as Single) as JbClasser
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.jbRankHausInit( components, maxwidth, maxheight, size, rank)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new JbClasser(_Result)
@@ -44,7 +44,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbCorrelationInit/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbCorrelationInit/*"/>
 '''  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
 '''  <param name="maxwidth">[in] - of component use 0 for default</param>
 '''  <param name="maxheight">[in] - of component use 0 for default</param>
@@ -59,6 +59,7 @@ Public Shared Function jbCorrelationInit(
 				 ByVal weightfactor as Single) as JbClasser
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.jbCorrelationInit( components, maxwidth, maxheight, thresh, weightfactor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new JbClasser(_Result)
@@ -74,7 +75,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbCorrelationInitWithoutComponents/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbCorrelationInitWithoutComponents/*"/>
 '''  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
 '''  <param name="maxwidth">[in] - of component use 0 for default</param>
 '''  <param name="maxheight">[in] - of component use 0 for default</param>
@@ -89,6 +90,7 @@ Public Shared Function jbCorrelationInitWithoutComponents(
 				 ByVal weightfactor as Single) as JbClasser
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.jbCorrelationInitWithoutComponents( components, maxwidth, maxheight, thresh, weightfactor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new JbClasser(_Result)
@@ -106,7 +108,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbAddPages/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbAddPages/*"/>
 '''  <param name="safiles">[in] - of page image file names</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function jbAddPages(
@@ -120,6 +122,7 @@ Dim classerPTR As IntPtr = IntPtr.Zero : If Not IsNothing(classer) Then classerP
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.jbAddPages( classer.Pointer, safiles.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -128,7 +131,7 @@ End Function
 ' jbAddPage(JBCLASSER *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbAddPage/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbAddPage/*"/>
 '''  <param name="pixs">[in] - input page</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function jbAddPage(
@@ -141,6 +144,7 @@ Public Shared Function jbAddPage(
 Dim classerPTR As IntPtr = IntPtr.Zero : If Not IsNothing(classer) Then classerPTR = classer.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.jbAddPage( classer.Pointer, pixs.Pointer)
+
 
 	Return _Result
 End Function
@@ -156,7 +160,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbAddPageComponents/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbAddPageComponents/*"/>
 '''  <param name="pixs">[in] - input page</param>
 '''  <param name="boxas">[in] - b.b. of components for this page</param>
 '''  <param name="pixas">[in] - components for this page</param>
@@ -176,6 +180,7 @@ Dim classerPTR As IntPtr = IntPtr.Zero : If Not IsNothing(classer) Then classerP
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.jbAddPageComponents( classer.Pointer, pixs.Pointer, boxas.Pointer, pixas.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -184,7 +189,7 @@ End Function
 ' jbClassifyRankHaus(JBCLASSER *, BOXA *, PIXA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbClassifyRankHaus/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbClassifyRankHaus/*"/>
 '''  <param name="boxa">[in] - new components for classification</param>
 '''  <param name="pixas">[in] - new components for classification</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -200,6 +205,7 @@ Public Shared Function jbClassifyRankHaus(
 Dim classerPTR As IntPtr = IntPtr.Zero : If Not IsNothing(classer) Then classerPTR = classer.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.jbClassifyRankHaus( classer.Pointer, boxa.Pointer, pixas.Pointer)
+
 
 	Return _Result
 End Function
@@ -221,7 +227,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixHaustest/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixHaustest/*"/>
 '''  <param name="pix1">[in] - new pix, not dilated</param>
 '''  <param name="pix2">[in] - new pix, dilated</param>
 '''  <param name="pix3">[in] - exemplar pix, not dilated</param>
@@ -248,6 +254,7 @@ Public Shared Function pixHaustest(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixHaustest( pix1.Pointer, pix2.Pointer, pix3.Pointer, pix4.Pointer, delx, dely, maxdiffw, maxdiffh)
 
+
 	Return _Result
 End Function
 
@@ -271,7 +278,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRankHaustest/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRankHaustest/*"/>
 '''  <param name="pix1">[in] - new pix, not dilated</param>
 '''  <param name="pix2">[in] - new pix, dilated</param>
 '''  <param name="pix3">[in] - exemplar pix, not dilated</param>
@@ -307,6 +314,7 @@ Public Shared Function pixRankHaustest(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRankHaustest( pix1.Pointer, pix2.Pointer, pix3.Pointer, pix4.Pointer, delx, dely, maxdiffw, maxdiffh, area1, area3, rank, tab8)
 
+
 	Return _Result
 End Function
 
@@ -315,7 +323,7 @@ End Function
 ' jbClassifyCorrelation(JBCLASSER *, BOXA *, PIXA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbClassifyCorrelation/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbClassifyCorrelation/*"/>
 '''  <param name="boxa">[in] - new components for classification</param>
 '''  <param name="pixas">[in] - new components for classification</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -332,6 +340,7 @@ Dim classerPTR As IntPtr = IntPtr.Zero : If Not IsNothing(classer) Then classerP
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.jbClassifyCorrelation( classer.Pointer, boxa.Pointer, pixas.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -340,7 +349,7 @@ End Function
 ' jbGetComponents(PIX *, l_int32, l_int32, l_int32, BOXA **, PIXA **) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbGetComponents/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbGetComponents/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
 '''  <param name="maxwidth">[in] - of saved components larger are discarded</param>
@@ -364,6 +373,7 @@ Public Shared Function jbGetComponents(
 	Dim ppixadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixad) Then ppixadPTR = ppixad.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.jbGetComponents( pixs.Pointer, components, maxwidth, maxheight, pboxadPTR, ppixadPTR)
+
 
 	Return _Result
 End Function
@@ -398,7 +408,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWordMaskByDilation/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWordMaskByDilation/*"/>
 '''  <param name="pixs">[in] - 1 bpp typ. at 75 to 150 ppi</param>
 '''  <param name="psize">[out][optional] - size of good horizontal dilation</param>
 '''  <param name="pixadb">[out][optional] - debug: pixa of intermediate steps</param>
@@ -416,7 +426,9 @@ Public Shared Function pixWordMaskByDilation(
 	Dim pixadbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixadb) Then pixadbPTR = pixadb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWordMaskByDilation( pixs.Pointer, ppixmPTR, psize, pixadbPTR)
-	if pixadbPTR <> IntPtr.Zero then pixadb = new Pixa(pixadbPTR)
+
+If pixadbPTR = IntPtr.Zero Then pixadb = Nothing
+If pixadbPTR <> IntPtr.Zero Then pixadb = New Pixa(pixadbPTR)
 
 	Return _Result
 End Function
@@ -433,7 +445,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWordBoxesByDilation/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWordBoxesByDilation/*"/>
 '''  <param name="pixs">[in] - 1 bpp typ. 75 - 200 ppi</param>
 '''  <param name="minwidth">[in] - saved components smaller are discarded</param>
 '''  <param name="minheight">[in] - saved components smaller are discarded</param>
@@ -459,8 +471,11 @@ Public Shared Function pixWordBoxesByDilation(
 	Dim pixadbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixadb) Then pixadbPTR = pixadb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWordBoxesByDilation( pixs.Pointer, minwidth, minheight, maxwidth, maxheight, pboxaPTR, psize, pixadbPTR)
-	if pboxaPTR <> IntPtr.Zero then pboxa = new Boxa(pboxaPTR)
-	if pixadbPTR <> IntPtr.Zero then pixadb = new Pixa(pixadbPTR)
+
+If pboxaPTR = IntPtr.Zero Then pboxa = Nothing
+If pboxaPTR <> IntPtr.Zero Then pboxa = New Boxa(pboxaPTR)
+If pixadbPTR = IntPtr.Zero Then pixadb = Nothing
+If pixadbPTR <> IntPtr.Zero Then pixadb = New Pixa(pixadbPTR)
 
 	Return _Result
 End Function
@@ -470,7 +485,7 @@ End Function
 ' jbAccumulateComposites(PIXAA *, NUMA **, PTA **) as PIXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbAccumulateComposites/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbAccumulateComposites/*"/>
 '''  <param name="pixaa">[in] - one pixa for each class</param>
 '''  <param name="pptat">[out] - centroids of bordered composites</param>
 '''   <returns>pixad accumulated sum of samples in each class, or NULL on error</returns>
@@ -486,8 +501,10 @@ Public Shared Function jbAccumulateComposites(
 	Dim pptatPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pptat) Then pptatPTR = pptat.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.jbAccumulateComposites( pixaa.Pointer, pnaPTR, pptatPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if pptatPTR <> IntPtr.Zero then pptat = new Pta(pptatPTR)
+If pptatPTR = IntPtr.Zero Then pptat = Nothing
+If pptatPTR <> IntPtr.Zero Then pptat = New Pta(pptatPTR)
 
 	Return  new Pixa(_Result)
 End Function
@@ -497,7 +514,7 @@ End Function
 ' jbTemplatesFromComposites(PIXA *, NUMA *) as PIXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbTemplatesFromComposites/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbTemplatesFromComposites/*"/>
 '''  <param name="pixac">[in] - one pix of composites for each class</param>
 '''  <param name="na">[in] - number of samples used for each class composite</param>
 '''   <returns>pixad 8 bpp templates for each class, or NULL on error</returns>
@@ -509,6 +526,7 @@ Public Shared Function jbTemplatesFromComposites(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.jbTemplatesFromComposites( pixac.Pointer, na.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -519,7 +537,7 @@ End Function
 ' jbClasserCreate(l_int32, l_int32) as JBCLASSER *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbClasserCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbClasserCreate/*"/>
 '''  <param name="method">[in] - JB_RANKHAUS, JB_CORRELATION</param>
 '''  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
 '''   <returns>jbclasser, or NULL on error</returns>
@@ -528,6 +546,7 @@ Public Shared Function jbClasserCreate(
 				 ByVal components as Enumerations.JB_S) as JbClasser
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.jbClasserCreate( method, components)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new JbClasser(_Result)
@@ -538,7 +557,7 @@ End Function
 ' jbClasserDestroy(JBCLASSER **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbClasserDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbClasserDestroy/*"/>
 Public Shared Sub jbClasserDestroy(
 				 ByVal pclasser as JbClasser)
 
@@ -547,6 +566,7 @@ Public Shared Sub jbClasserDestroy(
 	Dim pclasserPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pclasser) Then pclasserPTR = pclasser.Pointer
 
 	LeptonicaSharp.Natives.jbClasserDestroy( pclasserPTR)
+
 
 End Sub
 
@@ -569,7 +589,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbDataSave/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbDataSave/*"/>
 '''   <returns>jbdata, or NULL on error</returns>
 Public Shared Function jbDataSave(
 				 ByVal classer as JbClasser) as JbData
@@ -579,6 +599,7 @@ Public Shared Function jbDataSave(
 Dim classerPTR As IntPtr = IntPtr.Zero : If Not IsNothing(classer) Then classerPTR = classer.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.jbDataSave( classer.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new JbData(_Result)
@@ -589,7 +610,7 @@ End Function
 ' jbDataDestroy(JBDATA **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbDataDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbDataDestroy/*"/>
 Public Shared Sub jbDataDestroy(
 				 ByVal pdata as JbData)
 
@@ -598,6 +619,7 @@ Public Shared Sub jbDataDestroy(
 	Dim pdataPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdata) Then pdataPTR = pdata.Pointer
 
 	LeptonicaSharp.Natives.jbDataDestroy( pdataPTR)
+
 
 End Sub
 
@@ -611,7 +633,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbDataWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbDataWrite/*"/>
 '''  <param name="jbdata">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function jbDataWrite(
@@ -623,6 +645,7 @@ Public Shared Function jbDataWrite(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.jbDataWrite( rootout, jbdata.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -631,7 +654,7 @@ End Function
 ' jbDataRead(const char *) as JBDATA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbDataRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbDataRead/*"/>
 '''  <param name="rootname">[in] - for template and data files</param>
 '''   <returns>jbdata, or NULL on error</returns>
 Public Shared Function jbDataRead(
@@ -640,6 +663,7 @@ Public Shared Function jbDataRead(
 	If IsNothing (rootname) then Throw New ArgumentNullException  ("rootname cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.jbDataRead( rootname)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new JbData(_Result)
@@ -650,7 +674,7 @@ End Function
 ' jbDataRender(JBDATA *, l_int32) as PIXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbDataRender/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbDataRender/*"/>
 '''  <param name="debugflag">[in] - if TRUE, writes into 2 bpp pix and adds component outlines in color</param>
 '''   <returns>pixa reconstruction of original images, using templates or NULL on error</returns>
 Public Shared Function jbDataRender(
@@ -662,6 +686,7 @@ Public Shared Function jbDataRender(
 Dim dataPTR As IntPtr = IntPtr.Zero : If Not IsNothing(data) Then dataPTR = data.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.jbDataRender( data.Pointer, debugflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -691,7 +716,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbGetULCorners/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbGetULCorners/*"/>
 '''  <param name="pixs">[in] - full res image</param>
 '''  <param name="boxa">[in] - of c.c. bounding rectangles for this page</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -707,6 +732,7 @@ Public Shared Function jbGetULCorners(
 Dim classerPTR As IntPtr = IntPtr.Zero : If Not IsNothing(classer) Then classerPTR = classer.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.jbGetULCorners( classer.Pointer, pixs.Pointer, boxa.Pointer)
+
 
 	Return _Result
 End Function
@@ -739,7 +765,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/jbGetLLCorners/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbGetLLCorners/*"/>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function jbGetLLCorners(
 				 ByVal classer as JbClasser) as Integer
@@ -749,6 +775,7 @@ Public Shared Function jbGetLLCorners(
 Dim classerPTR As IntPtr = IntPtr.Zero : If Not IsNothing(classer) Then classerPTR = classer.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.jbGetLLCorners( classer.Pointer)
+
 
 	Return _Result
 End Function

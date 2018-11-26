@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\seedfill.c (243, 1)
 ' pixSeedfillBinary(pixd, pixs, pixm, connectivity) as Pix
 ' pixSeedfillBinary(PIX *, PIX *, PIX *, l_int32) as PIX *
@@ -33,7 +32,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillBinary/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSeedfillBinary/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs 1 bpp</param>
 '''  <param name="pixs">[in] - 1 bpp seed</param>
 '''  <param name="pixm">[in] - 1 bpp filling mask</param>
@@ -51,6 +50,7 @@ Public Shared Function pixSeedfillBinary(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSeedfillBinary( pixdPTR, pixs.Pointer, pixm.Pointer, connectivity)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -85,7 +85,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillBinaryRestricted/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSeedfillBinaryRestricted/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs 1 bpp</param>
 '''  <param name="pixs">[in] - 1 bpp seed</param>
 '''  <param name="pixm">[in] - 1 bpp filling mask</param>
@@ -107,6 +107,7 @@ Public Shared Function pixSeedfillBinaryRestricted(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSeedfillBinaryRestricted( pixdPTR, pixs.Pointer, pixm.Pointer, connectivity, xmax, ymax)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -124,7 +125,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixHolesByFilling/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixHolesByFilling/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''   <returns>pixd  inverted image of all holes, or NULL on error Action: 1 Start with 1-pixel black border on otherwise white pixd 2 Use the inverted pixs as the filling mask to fill in all the pixels from the border to the pixs foreground 3 OR the result with pixs to have an image with all ON pixels except for the holes. 4 Invert the result to get the holes as foreground</returns>
@@ -137,6 +138,7 @@ Public Shared Function pixHolesByFilling(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixHolesByFilling( pixs.Pointer, connectivity)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -166,7 +168,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFillClosedBorders/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFillClosedBorders/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - filling connectivity 4 or 8</param>
 '''   <returns>pixd  all topologically outer closed borders are filled as connected comonents, or NULL on error</returns>
@@ -179,6 +181,7 @@ Public Shared Function pixFillClosedBorders(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFillClosedBorders( pixs.Pointer, connectivity)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -189,7 +192,7 @@ End Function
 ' pixExtractBorderConnComps(PIX *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixExtractBorderConnComps/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixExtractBorderConnComps/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - filling connectivity 4 or 8</param>
 '''   <returns>pixd  all pixels in the src that are in connected components touching the border, or NULL on error</returns>
@@ -202,6 +205,7 @@ Public Shared Function pixExtractBorderConnComps(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtractBorderConnComps( pixs.Pointer, connectivity)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -217,7 +221,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRemoveBorderConnComps/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRemoveBorderConnComps/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - filling connectivity 4 or 8</param>
 '''   <returns>pixd  all pixels in the src that are not touching the border or NULL on error</returns>
@@ -230,6 +234,7 @@ Public Shared Function pixRemoveBorderConnComps(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRemoveBorderConnComps( pixs.Pointer, connectivity)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -260,7 +265,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFillBgFromBorder/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFillBgFromBorder/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - filling connectivity 4 or 8</param>
 '''   <returns>pixd with the background c.c. touching the border filled to foreground, or NULL on error</returns>
@@ -273,6 +278,7 @@ Public Shared Function pixFillBgFromBorder(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFillBgFromBorder( pixs.Pointer, connectivity)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -308,7 +314,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFillHolesToBoundingRect/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFillHolesToBoundingRect/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="minsize">[in] - min number of pixels in the hole</param>
 '''  <param name="maxhfract">[in] - max hole area as fraction of fg pixels in the cc</param>
@@ -325,6 +331,7 @@ Public Shared Function pixFillHolesToBoundingRect(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFillHolesToBoundingRect( pixs.Pointer, minsize, maxhfract, minfgfract)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -354,7 +361,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSeedfillGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp seed filled in place</param>
 '''  <param name="pixm">[in] - 8 bpp filling mask</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -368,6 +375,7 @@ Public Shared Function pixSeedfillGray(
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSeedfillGray( pixs.Pointer, pixm.Pointer, connectivity)
+
 
 	Return _Result
 End Function
@@ -398,7 +406,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillGrayInv/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSeedfillGrayInv/*"/>
 '''  <param name="pixs">[in] - 8 bpp seed filled in place</param>
 '''  <param name="pixm">[in] - 8 bpp filling mask</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -412,6 +420,7 @@ Public Shared Function pixSeedfillGrayInv(
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSeedfillGrayInv( pixs.Pointer, pixm.Pointer, connectivity)
+
 
 	Return _Result
 End Function
@@ -440,7 +449,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillGraySimple/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSeedfillGraySimple/*"/>
 '''  <param name="pixs">[in] - 8 bpp seed filled in place</param>
 '''  <param name="pixm">[in] - 8 bpp filling mask</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -454,6 +463,7 @@ Public Shared Function pixSeedfillGraySimple(
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSeedfillGraySimple( pixs.Pointer, pixm.Pointer, connectivity)
+
 
 	Return _Result
 End Function
@@ -479,7 +489,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillGrayInvSimple/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSeedfillGrayInvSimple/*"/>
 '''  <param name="pixs">[in] - 8 bpp seed filled in place</param>
 '''  <param name="pixm">[in] - 8 bpp filling mask</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -493,6 +503,7 @@ Public Shared Function pixSeedfillGrayInvSimple(
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSeedfillGrayInvSimple( pixs.Pointer, pixm.Pointer, connectivity)
+
 
 	Return _Result
 End Function
@@ -527,7 +538,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillGrayBasin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSeedfillGrayBasin/*"/>
 '''  <param name="pixb">[in] - binary mask giving seed locations</param>
 '''  <param name="pixm">[in] - 8 bpp basin-type filling mask</param>
 '''  <param name="delta">[in] - amount of seed value above mask</param>
@@ -543,6 +554,7 @@ Public Shared Function pixSeedfillGrayBasin(
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSeedfillGrayBasin( pixb.Pointer, pixm.Pointer, delta, connectivity)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -590,7 +602,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDistanceFunction/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDistanceFunction/*"/>
 '''  <param name="pixs">[in] - 1 bpp source</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''  <param name="outdepth">[in] - 8 or 16 bits for pixd</param>
@@ -605,6 +617,7 @@ Public Shared Function pixDistanceFunction(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDistanceFunction( pixs.Pointer, connectivity, outdepth, boundcond)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -651,7 +664,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSeedspread/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSeedspread/*"/>
 '''  <param name="pixs">[in] - 8 bpp source</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -662,6 +675,7 @@ Public Shared Function pixSeedspread(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSeedspread( pixs.Pointer, connectivity)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -700,7 +714,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixLocalExtrema/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixLocalExtrema/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="maxmin">[in] - max allowed for the min in a 3x3 neighborhood use 0 for default which is to have no upper bound</param>
 '''  <param name="minmax">[in] - min allowed for the max in a 3x3 neighborhood use 0 for default which is to have no lower bound</param>
@@ -722,8 +736,11 @@ Dim ppixminPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixmin) Then ppixminP
 Dim ppixmaxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixmax) Then ppixmaxPTR = ppixmax.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixLocalExtrema( pixs.Pointer, maxmin, minmax, ppixminPTR, ppixmaxPTR)
-	if ppixminPTR <> IntPtr.Zero then ppixmin = new Pix(ppixminPTR)
-	if ppixmaxPTR <> IntPtr.Zero then ppixmax = new Pix(ppixmaxPTR)
+
+If ppixminPTR = IntPtr.Zero Then ppixmin = Nothing
+If ppixminPTR <> IntPtr.Zero Then ppixmin = New Pix(ppixminPTR)
+If ppixmaxPTR = IntPtr.Zero Then ppixmax = Nothing
+If ppixmaxPTR <> IntPtr.Zero Then ppixmax = New Pix(ppixmaxPTR)
 
 	Return _Result
 End Function
@@ -758,7 +775,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSelectedLocalExtrema/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSelectedLocalExtrema/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="mindist">[in] - -1 for keeping all pixels greater or equal 0 specifies distance</param>
 '''  <param name="ppixmin">[out] - mask of local minima</param>
@@ -778,8 +795,11 @@ Public Shared Function pixSelectedLocalExtrema(
 	Dim ppixmaxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixmax) Then ppixmaxPTR = ppixmax.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSelectedLocalExtrema( pixs.Pointer, mindist, ppixminPTR, ppixmaxPTR)
-	if ppixminPTR <> IntPtr.Zero then ppixmin = new Pix(ppixminPTR)
-	if ppixmaxPTR <> IntPtr.Zero then ppixmax = new Pix(ppixmaxPTR)
+
+If ppixminPTR = IntPtr.Zero Then ppixmin = Nothing
+If ppixminPTR <> IntPtr.Zero Then ppixmin = New Pix(ppixminPTR)
+If ppixmaxPTR = IntPtr.Zero Then ppixmax = Nothing
+If ppixmaxPTR <> IntPtr.Zero Then ppixmax = New Pix(ppixmaxPTR)
 
 	Return _Result
 End Function
@@ -796,7 +816,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindEqualValues/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindEqualValues/*"/>
 '''  <param name="pixs1">[in] - 8 bpp</param>
 '''  <param name="pixs2">[in] - 8 bpp</param>
 '''   <returns>pixd 1 bpp mask, or NULL on error</returns>
@@ -811,6 +831,7 @@ Public Shared Function pixFindEqualValues(
 	If {8}.contains (pixs2.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFindEqualValues( pixs1.Pointer, pixs2.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -834,7 +855,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSelectMinInConnComp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSelectMinInConnComp/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="pixm">[in] - 1 bpp</param>
 '''  <param name="ppta">[out] - pta of min pixel locations</param>
@@ -856,8 +877,11 @@ Public Shared Function pixSelectMinInConnComp(
 Dim pnavPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnav) Then pnavPTR = pnav.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSelectMinInConnComp( pixs.Pointer, pixm.Pointer, pptaPTR, pnavPTR)
-	if pptaPTR <> IntPtr.Zero then ppta = new Pta(pptaPTR)
-	if pnavPTR <> IntPtr.Zero then pnav = new Numa(pnavPTR)
+
+If pptaPTR = IntPtr.Zero Then ppta = Nothing
+If pptaPTR <> IntPtr.Zero Then ppta = New Pta(pptaPTR)
+If pnavPTR = IntPtr.Zero Then pnav = Nothing
+If pnavPTR <> IntPtr.Zero Then pnav = New Numa(pnavPTR)
 
 	Return _Result
 End Function
@@ -881,7 +905,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRemoveSeededComponents/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRemoveSeededComponents/*"/>
 '''  <param name="pixd">[in][optional] - this can be null or equal to pixm 1 bpp</param>
 '''  <param name="pixs">[in] - 1 bpp seed</param>
 '''  <param name="pixm">[in] - 1 bpp filling mask</param>
@@ -901,6 +925,7 @@ Public Shared Function pixRemoveSeededComponents(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRemoveSeededComponents( pixdPTR, pixs.Pointer, pixm.Pointer, connectivity, bordersize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

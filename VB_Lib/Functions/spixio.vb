@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\spixio.c (88, 1)
 ' pixReadStreamSpix(fp) as Pix
 ' pixReadStreamSpix(FILE *) as PIX *
@@ -14,7 +13,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamSpix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadStreamSpix/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>pix, or NULL on error.</returns>
 Public Shared Function pixReadStreamSpix(
@@ -23,6 +22,7 @@ Public Shared Function pixReadStreamSpix(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadStreamSpix( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -38,7 +38,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/readHeaderSpix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/readHeaderSpix/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pwidth">[out] - width</param>
 '''  <param name="pheight">[out] - height</param>
@@ -56,9 +56,10 @@ Public Shared Function readHeaderSpix(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderSpix( filename, pwidth, pheight, pbps, pspp, piscmap)
+
 
 	Return _Result
 End Function
@@ -73,7 +74,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/freadHeaderSpix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/freadHeaderSpix/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pwidth">[out] - width</param>
 '''  <param name="pheight">[out] - height</param>
@@ -93,6 +94,7 @@ Public Shared Function freadHeaderSpix(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.freadHeaderSpix( fp.Pointer, pwidth, pheight, pbps, pspp, piscmap)
 
+
 	Return _Result
 End Function
 
@@ -106,7 +108,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sreadHeaderSpix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sreadHeaderSpix/*"/>
 '''  <param name="data">[in] - </param>
 '''  <param name="pwidth">[out] - width</param>
 '''  <param name="pheight">[out] - height</param>
@@ -127,6 +129,8 @@ Public Shared Function sreadHeaderSpix(
 	Dim dataPTR As IntPtr = Marshal.AllocHGlobal(data.Count) : Marshal.Copy(data, 0, dataPTR, data.Length)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sreadHeaderSpix( dataPTR, pwidth, pheight, pbps, pspp, piscmap)
+Marshal.FreeHGlobal(dataPTR)
+
 
 	Return _Result
 End Function
@@ -136,7 +140,7 @@ End Function
 ' pixWriteStreamSpix(FILE *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamSpix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteStreamSpix/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pix">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -149,6 +153,7 @@ Public Shared Function pixWriteStreamSpix(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamSpix( fp.Pointer, pix.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -157,7 +162,7 @@ End Function
 ' pixReadMemSpix(const l_uint8 *, size_t) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadMemSpix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadMemSpix/*"/>
 '''  <param name="data">[in] - const uncompressed</param>
 '''  <param name="size">[in] - bytes of data</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -168,6 +173,7 @@ Public Shared Function pixReadMemSpix(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemSpix( data, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -178,7 +184,7 @@ End Function
 ' pixWriteMemSpix(l_uint8 **, size_t *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemSpix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteMemSpix/*"/>
 '''  <param name="pdata">[out] - data of serialized, uncompressed pix</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - all depths colormap OK</param>
@@ -193,6 +199,7 @@ Public Shared Function pixWriteMemSpix(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMemSpix( pdataPTR, psize, pix.Pointer)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -219,7 +226,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSerializeToMemory/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSerializeToMemory/*"/>
 '''  <param name="pixs">[in] - all depths, colormap OK</param>
 '''  <param name="pdata">[out] - serialized data in memory</param>
 '''  <param name="pnbytes">[out] - number of bytes in data string</param>
@@ -234,6 +241,7 @@ Public Shared Function pixSerializeToMemory(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSerializeToMemory( pixs.Pointer, pdataPTR, pnbytes)
+
 	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -251,7 +259,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDeserializeFromMemory/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDeserializeFromMemory/*"/>
 '''  <param name="data">[in] - serialized data in memory</param>
 '''  <param name="nbytes">[in] - number of bytes in data string</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -264,6 +272,8 @@ Public Shared Function pixDeserializeFromMemory(
 	Dim dataPTR As IntPtr = Marshal.AllocHGlobal(data.Count) : Marshal.Copy(data, 0, dataPTR, data.Length)
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDeserializeFromMemory( dataPTR, nbytes)
+Marshal.FreeHGlobal(dataPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

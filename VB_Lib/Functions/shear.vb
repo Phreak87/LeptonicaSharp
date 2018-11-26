@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\shear.c (113, 1)
 ' pixHShear(pixd, pixs, yloc, radang, incolor) as Pix
 ' pixHShear(PIX *, PIX *, l_int32, l_float32, l_int32) as PIX *
@@ -43,7 +42,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixHShear/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixHShear/*"/>
 '''  <param name="pixd">[in][optional] - , this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - no restrictions on depth</param>
 '''  <param name="yloc">[in] - location of horizontal line, measured from origin</param>
@@ -62,6 +61,7 @@ Public Shared Function pixHShear(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixHShear( pixdPTR, pixs.Pointer, yloc, radang, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -107,7 +107,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixVShear/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixVShear/*"/>
 '''  <param name="pixd">[in][optional] - , this can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - no restrictions on depth</param>
 '''  <param name="xloc">[in] - location of vertical line, measured from origin</param>
@@ -126,6 +126,7 @@ Public Shared Function pixVShear(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixVShear( pixdPTR, pixs.Pointer, xloc, radang, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -144,7 +145,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixHShearCorner/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixHShearCorner/*"/>
 '''  <param name="pixd">[in][optional] - , if not null, must be equal to pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="radang">[in] - angle in radians</param>
@@ -161,6 +162,7 @@ Public Shared Function pixHShearCorner(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixHShearCorner( pixdPTR, pixs.Pointer, radang, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -179,7 +181,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixVShearCorner/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixVShearCorner/*"/>
 '''  <param name="pixd">[in][optional] - , if not null, must be equal to pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="radang">[in] - angle in radians</param>
@@ -196,6 +198,7 @@ Public Shared Function pixVShearCorner(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixVShearCorner( pixdPTR, pixs.Pointer, radang, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -214,7 +217,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixHShearCenter/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixHShearCenter/*"/>
 '''  <param name="pixd">[in][optional] - , if not null, must be equal to pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="radang">[in] - angle in radians</param>
@@ -231,6 +234,7 @@ Public Shared Function pixHShearCenter(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixHShearCenter( pixdPTR, pixs.Pointer, radang, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -249,7 +253,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixVShearCenter/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixVShearCenter/*"/>
 '''  <param name="pixd">[in][optional] - , if not null, must be equal to pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="radang">[in] - angle in radians</param>
@@ -266,6 +270,7 @@ Public Shared Function pixVShearCenter(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixVShearCenter( pixdPTR, pixs.Pointer, radang, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -289,7 +294,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixHShearIP/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixHShearIP/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="yloc">[in] - location of horizontal line, measured from origin</param>
 '''  <param name="radang">[in] - angle in radians</param>
@@ -304,6 +309,7 @@ Public Shared Function pixHShearIP(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixHShearIP( pixs.Pointer, yloc, radang, incolor)
+
 
 	Return _Result
 End Function
@@ -326,7 +332,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixVShearIP/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixVShearIP/*"/>
 '''  <param name="pixs">[in] - all depths not colormapped</param>
 '''  <param name="xloc">[in] - location of vertical line, measured from origin</param>
 '''  <param name="radang">[in] - angle in radians</param>
@@ -341,6 +347,7 @@ Public Shared Function pixVShearIP(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixVShearIP( pixs.Pointer, xloc, radang, incolor)
+
 
 	Return _Result
 End Function
@@ -368,7 +375,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixHShearLI/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixHShearLI/*"/>
 '''  <param name="pixs">[in] - 8 bpp or 32 bpp, or colormapped</param>
 '''  <param name="yloc">[in] - location of horizontal line, measured from origin</param>
 '''  <param name="radang">[in] - angle in radians, in range (-pi/2 ... pi/2)</param>
@@ -383,6 +390,7 @@ Public Shared Function pixHShearLI(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixHShearLI( pixs.Pointer, yloc, radang, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -411,7 +419,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixVShearLI/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixVShearLI/*"/>
 '''  <param name="pixs">[in] - 8 bpp or 32 bpp, or colormapped</param>
 '''  <param name="xloc">[in] - location of vertical line, measured from origin</param>
 '''  <param name="radang">[in] - angle in radians, in range (-pi/2 ... pi/2)</param>
@@ -426,6 +434,7 @@ Public Shared Function pixVShearLI(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixVShearLI( pixs.Pointer, xloc, radang, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

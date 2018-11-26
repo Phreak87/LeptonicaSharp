@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\skew.c (162, 1)
 ' pixDeskewBoth(pixs, redsearch) as Pix
 ' pixDeskewBoth(PIX *, l_int32) as PIX *
@@ -17,7 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDeskewBoth/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDeskewBoth/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="redsearch">[in] - for binary search: reduction factor = 1, 2 or 4 use 0 for default</param>
 '''   <returns>pixd deskewed pix, or NULL on error</returns>
@@ -30,6 +29,7 @@ Public Shared Function pixDeskewBoth(
 	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("for binary search: reduction factor = 1, 2 or 4 use 0 for default")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDeskewBoth( pixs.Pointer, redsearch)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -50,7 +50,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDeskew/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDeskew/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="redsearch">[in] - for binary search: reduction factor = 1, 2 or 4 use 0 for default</param>
 '''   <returns>pixd deskewed pix, or NULL on error</returns>
@@ -63,6 +63,7 @@ Public Shared Function pixDeskew(
 	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("for binary search: reduction factor = 1, 2 or 4 use 0 for default")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDeskew( pixs.Pointer, redsearch)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -80,7 +81,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindSkewAndDeskew/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindSkewAndDeskew/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="redsearch">[in] - for binary search: reduction factor = 1, 2 or 4 use 0 for default</param>
 '''  <param name="pangle">[out][optional] - angle required to deskew, in degrees use NULL to skip</param>
@@ -97,6 +98,7 @@ Public Shared Function pixFindSkewAndDeskew(
 	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("for binary search: reduction factor = 1, 2 or 4 use 0 for default")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFindSkewAndDeskew( pixs.Pointer, redsearch, pangle, pconf)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -114,7 +116,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDeskewGeneral/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDeskewGeneral/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="redsweep">[in] - for linear search: reduction factor = 1, 2 or 4 use 0 for default</param>
 '''  <param name="sweeprange">[in] - in degrees in each direction from 0 use 0.0 for default</param>
@@ -140,6 +142,7 @@ Public Shared Function pixDeskewGeneral(
 	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("for binary search: reduction factor = 1, 2 or 4 use 0 for default")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDeskewGeneral( pixs.Pointer, redsweep, sweeprange, sweepdelta, redsearch, thresh, pangle, pconf)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -160,7 +163,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindSkew/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindSkew/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pangle">[out] - angle required to deskew, in degrees</param>
 '''  <param name="pconf">[out] - confidence value is ratio max/min scores</param>
@@ -175,6 +178,7 @@ Public Shared Function pixFindSkew(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindSkew( pixs.Pointer, pangle, pconf)
+
 
 	Return _Result
 End Function
@@ -191,7 +195,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindSkewSweep/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindSkewSweep/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pangle">[out] - angle required to deskew, in degrees</param>
 '''  <param name="reduction">[in] - factor = 1, 2, 4 or 8</param>
@@ -211,6 +215,7 @@ Public Shared Function pixFindSkewSweep(
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("factor = 1, 2, 4 or 8")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindSkewSweep( pixs.Pointer, pangle, reduction, sweeprange, sweepdelta)
+
 
 	Return _Result
 End Function
@@ -237,7 +242,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindSkewSweepAndSearch/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindSkewSweepAndSearch/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pangle">[out] - angle required to deskew in degrees</param>
 '''  <param name="pconf">[out] - confidence given by ratio of max/min score</param>
@@ -264,6 +269,7 @@ Public Shared Function pixFindSkewSweepAndSearch(
 	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("binary search reduction factor = 1, 2, 4 or 8 and must not exceed redsweep")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindSkewSweepAndSearch( pixs.Pointer, pangle, pconf, redsweep, redsearch, sweeprange, sweepdelta, minbsdelta)
+
 
 	Return _Result
 End Function
@@ -297,7 +303,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindSkewSweepAndSearchScore/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindSkewSweepAndSearchScore/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pangle">[out] - angle required to deskew in degrees</param>
 '''  <param name="pconf">[out] - confidence given by ratio of max/min score</param>
@@ -329,6 +335,7 @@ Public Shared Function pixFindSkewSweepAndSearchScore(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindSkewSweepAndSearchScore( pixs.Pointer, pangle, pconf, pendscore, redsweep, redsearch, sweepcenter, sweeprange, sweepdelta, minbsdelta)
 
+
 	Return _Result
 End Function
 
@@ -349,7 +356,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindSkewSweepAndSearchScorePivot/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindSkewSweepAndSearchScorePivot/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pangle">[out] - angle required to deskew in degrees</param>
 '''  <param name="pconf">[out] - confidence given by ratio of max/min score</param>
@@ -383,6 +390,7 @@ Public Shared Function pixFindSkewSweepAndSearchScorePivot(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindSkewSweepAndSearchScorePivot( pixs.Pointer, pangle, pconf, pendscore, redsweep, redsearch, sweepcenter, sweeprange, sweepdelta, minbsdelta, pivot)
 
+
 	Return _Result
 End Function
 
@@ -391,7 +399,7 @@ End Function
 ' pixFindSkewOrthogonalRange(PIX *, l_float32 *, l_float32 *, l_int32, l_int32, l_float32, l_float32, l_float32, l_float32) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindSkewOrthogonalRange/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindSkewOrthogonalRange/*"/>
 '''   <returns></returns>
 Public Shared Function pixFindSkewOrthogonalRange(
 				 ByVal pixs as Pix, 
@@ -415,6 +423,7 @@ Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindSkewOrthogonalRange( pixs.Pointer, pangle, pconf, redsweep, redsearch, sweeprange, sweepdelta, minbsdelta, confprior)
 
+
 	Return _Result
 End Function
 
@@ -431,7 +440,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindDifferentialSquareSum/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindDifferentialSquareSum/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="psum">[out] - result</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -442,6 +451,7 @@ Public Shared Function pixFindDifferentialSquareSum(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindDifferentialSquareSum( pixs.Pointer, psum)
+
 
 	Return _Result
 End Function
@@ -464,7 +474,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindNormalizedSquareSum/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindNormalizedSquareSum/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="phratio">[out][optional] - ratio of normalized horiz square sum to result if the pixel distribution were uniform</param>
 '''  <param name="pvratio">[out][optional] - ratio of normalized vert square sum to result if the pixel distribution were uniform</param>
@@ -479,6 +489,7 @@ Public Shared Function pixFindNormalizedSquareSum(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindNormalizedSquareSum( pixs.Pointer, phratio, pvratio, pfract)
+
 
 	Return _Result
 End Function

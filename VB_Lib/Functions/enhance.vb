@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\enhance.c (174, 1)
 ' pixGammaTRC(pixd, pixs, gamma, minval, maxval) as Pix
 ' pixGammaTRC(PIX *, PIX *, l_float32, l_int32, l_int32) as PIX *
@@ -49,7 +48,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGammaTRC/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGammaTRC/*"/>
 '''  <param name="pixd">[in][optional] - null or equal to pixs</param>
 '''  <param name="pixs">[in] - 8 or 32 bpp or 2, 4 or 8 bpp with colormap</param>
 '''  <param name="gamma">[in] - gamma correction must be  is greater  0.0</param>
@@ -68,6 +67,7 @@ Public Shared Function pixGammaTRC(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGammaTRC( pixdPTR, pixs.Pointer, gamma, minval, maxval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -88,7 +88,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGammaTRCMasked/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGammaTRCMasked/*"/>
 '''  <param name="pixd">[in][optional] - null or equal to pixs</param>
 '''  <param name="pixs">[in] - 8 or 32 bpp not colormapped</param>
 '''  <param name="pixm">[in][optional] - null or 1 bpp</param>
@@ -110,6 +110,7 @@ Public Shared Function pixGammaTRCMasked(
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGammaTRCMasked( pixdPTR, pixs.Pointer, pixmPTR, gamma, minval, maxval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -128,7 +129,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGammaTRCWithAlpha/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGammaTRCWithAlpha/*"/>
 '''  <param name="pixd">[in][optional] - null or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="gamma">[in] - gamma correction must be  is greater  0.0</param>
@@ -147,6 +148,7 @@ Public Shared Function pixGammaTRCWithAlpha(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGammaTRCWithAlpha( pixdPTR, pixs.Pointer, gamma, minval, maxval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -170,7 +172,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGammaTRC/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGammaTRC/*"/>
 '''  <param name="gamma">[in] - gamma factor must be  is greater  0.0</param>
 '''  <param name="minval">[in] - input value that gives 0 for output</param>
 '''  <param name="maxval">[in] - input value that gives 255 for output</param>
@@ -181,6 +183,7 @@ Public Shared Function numaGammaTRC(
 				 ByVal maxval as Integer) as Numa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaGammaTRC( gamma, minval, maxval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -217,7 +220,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixContrastTRC/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixContrastTRC/*"/>
 '''  <param name="pixd">[in][optional] - null or equal to pixs</param>
 '''  <param name="pixs">[in] - 8 or 32 bpp or 2, 4 or 8 bpp with colormap</param>
 '''  <param name="factor">[in] - 0.0 is no enhancement</param>
@@ -232,6 +235,7 @@ Public Shared Function pixContrastTRC(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixContrastTRC( pixdPTR, pixs.Pointer, factor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -252,7 +256,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixContrastTRCMasked/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixContrastTRCMasked/*"/>
 '''  <param name="pixd">[in][optional] - null or equal to pixs</param>
 '''  <param name="pixs">[in] - 8 or 32 bpp or 2, 4 or 8 bpp with colormap</param>
 '''  <param name="pixm">[in][optional] - null or 1 bpp</param>
@@ -270,6 +274,7 @@ Public Shared Function pixContrastTRCMasked(
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixContrastTRCMasked( pixdPTR, pixs.Pointer, pixmPTR, factor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -290,13 +295,14 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaContrastTRC/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaContrastTRC/*"/>
 '''  <param name="factor">[in] - generally between 0.0 [no enhancement] and 1.0, but can be larger than 1.0</param>
 '''   <returns>na, or NULL on error</returns>
 Public Shared Function numaContrastTRC(
 				 ByVal factor as Single) as Numa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaContrastTRC( factor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -337,7 +343,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixEqualizeTRC/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixEqualizeTRC/*"/>
 '''  <param name="pixd">[in][optional] - null or equal to pixs</param>
 '''  <param name="pixs">[in] - 8 bpp gray, 32 bpp rgb, or colormapped</param>
 '''  <param name="fract">[in] - fraction of equalization movement of pixel values</param>
@@ -354,6 +360,7 @@ Public Shared Function pixEqualizeTRC(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixEqualizeTRC( pixdPTR, pixs.Pointer, fract, factor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -376,7 +383,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaEqualizeTRC/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaEqualizeTRC/*"/>
 '''  <param name="pix">[in] - 8 bpp, no colormap</param>
 '''  <param name="fract">[in] - fraction of equalization movement of pixel values</param>
 '''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
@@ -389,6 +396,7 @@ Public Shared Function numaEqualizeTRC(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaEqualizeTRC( pix.Pointer, fract, factor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -416,7 +424,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixTRCMap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixTRCMap/*"/>
 '''  <param name="pixs">[in] - 8 grayscale or 32 bpp rgb not colormapped</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask</param>
 '''  <param name="na">[in] - mapping array</param>
@@ -432,6 +440,7 @@ Public Shared Function pixTRCMap(
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixTRCMap( pixs.Pointer, pixmPTR, na.Pointer)
+
 
 	Return _Result
 End Function
@@ -453,7 +462,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixUnsharpMasking/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixUnsharpMasking/*"/>
 '''  <param name="pixs">[in] - all depths except 1 bpp with or without colormaps</param>
 '''  <param name="halfwidth">[in] - "half-width" of smoothing filter</param>
 '''  <param name="fract">[in] - fraction of edge added back into image</param>
@@ -466,6 +475,7 @@ Public Shared Function pixUnsharpMasking(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixUnsharpMasking( pixs.Pointer, halfwidth, fract)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -488,7 +498,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixUnsharpMaskingGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixUnsharpMaskingGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="halfwidth">[in] - "half-width" of smoothing filter</param>
 '''  <param name="fract">[in] - fraction of edge added back into image</param>
@@ -501,6 +511,7 @@ Public Shared Function pixUnsharpMaskingGray(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixUnsharpMaskingGray( pixs.Pointer, halfwidth, fract)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -545,7 +556,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixUnsharpMaskingFast/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixUnsharpMaskingFast/*"/>
 '''  <param name="pixs">[in] - all depths except 1 bpp with or without colormaps</param>
 '''  <param name="halfwidth">[in] - "half-width" of smoothing filter 1 and 2 only</param>
 '''  <param name="fract">[in] - fraction of high frequency added to image</param>
@@ -560,6 +571,7 @@ Public Shared Function pixUnsharpMaskingFast(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixUnsharpMaskingFast( pixs.Pointer, halfwidth, fract, direction)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -578,7 +590,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixUnsharpMaskingGrayFast/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixUnsharpMaskingGrayFast/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="halfwidth">[in] - "half-width" of smoothing filter: 1 or 2</param>
 '''  <param name="fract">[in] - fraction of high frequency added to image</param>
@@ -593,6 +605,7 @@ Public Shared Function pixUnsharpMaskingGrayFast(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixUnsharpMaskingGrayFast( pixs.Pointer, halfwidth, fract, direction)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -611,7 +624,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixUnsharpMaskingGray1D/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixUnsharpMaskingGray1D/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="halfwidth">[in] - "half-width" of smoothing filter: 1 or 2</param>
 '''  <param name="fract">[in] - fraction of high frequency added to image</param>
@@ -626,6 +639,7 @@ Public Shared Function pixUnsharpMaskingGray1D(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixUnsharpMaskingGray1D( pixs.Pointer, halfwidth, fract, direction)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -645,7 +659,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixUnsharpMaskingGray2D/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixUnsharpMaskingGray2D/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="halfwidth">[in] - "half-width" of smoothing filter: 1 or 2</param>
 '''  <param name="fract">[in] - fraction of high frequency added to image</param>
@@ -658,6 +672,7 @@ Public Shared Function pixUnsharpMaskingGray2D(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixUnsharpMaskingGray2D( pixs.Pointer, halfwidth, fract)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -685,7 +700,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixModifyHue/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixModifyHue/*"/>
 '''  <param name="pixd">[in][optional] - can be null or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="fract">[in] - between -1.0 and 1.0</param>
@@ -702,6 +717,7 @@ Public Shared Function pixModifyHue(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixModifyHue( pixdPTR, pixs.Pointer, fract)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -727,7 +743,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixModifySaturation/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixModifySaturation/*"/>
 '''  <param name="pixd">[in][optional] - can be null, existing or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="fract">[in] - between -1.0 and 1.0</param>
@@ -744,6 +760,7 @@ Public Shared Function pixModifySaturation(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixModifySaturation( pixdPTR, pixs.Pointer, fract)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -754,7 +771,7 @@ End Function
 ' pixMeasureSaturation(PIX *, l_int32, l_float32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMeasureSaturation/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMeasureSaturation/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 '''  <param name="psat">[out] - average saturation</param>
@@ -769,6 +786,7 @@ Public Shared Function pixMeasureSaturation(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixMeasureSaturation( pixs.Pointer, factor, psat)
+
 
 	Return _Result
 End Function
@@ -793,7 +811,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixModifyBrightness/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixModifyBrightness/*"/>
 '''  <param name="pixd">[in][optional] - can be null, existing or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="fract">[in] - between -1.0 and 1.0</param>
@@ -810,6 +828,7 @@ Public Shared Function pixModifyBrightness(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixModifyBrightness( pixdPTR, pixs.Pointer, fract)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -838,7 +857,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMosaicColorShiftRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMosaicColorShiftRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="roff">[in] - center offset of red component</param>
 '''  <param name="goff">[in] - center offset of green component</param>
@@ -859,6 +878,7 @@ Public Shared Function pixMosaicColorShiftRGB(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMosaicColorShiftRGB( pixs.Pointer, roff, goff, boff, delta, nincr)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -888,7 +908,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixColorShiftRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixColorShiftRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="rfract">[in] - fractional shift in red component</param>
 '''  <param name="gfract">[in] - fractional shift in green component</param>
@@ -905,6 +925,7 @@ Public Shared Function pixColorShiftRGB(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixColorShiftRGB( pixs.Pointer, rfract, gfract, bfract)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -932,7 +953,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDarkenGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDarkenGray/*"/>
 '''  <param name="pixd">[in][optional] - can be null or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="thresh">[in] - pixels with max component greater or equal %thresh are unchanged</param>
@@ -951,6 +972,7 @@ Public Shared Function pixDarkenGray(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDarkenGray( pixdPTR, pixs.Pointer, thresh, satlimit)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -971,7 +993,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMultConstantColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMultConstantColor/*"/>
 '''  <param name="pixs">[in] - colormapped or rgb</param>
 '''  <param name="rfact">[in] - red multiplicative factor</param>
 '''  <param name="gfact">[in] - green multiplicative factor</param>
@@ -986,6 +1008,7 @@ Public Shared Function pixMultConstantColor(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMultConstantColor( pixs.Pointer, rfact, gfact, bfact)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1025,7 +1048,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMultMatrixColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMultMatrixColor/*"/>
 '''  <param name="pixs">[in] - colormapped or rgb</param>
 '''  <param name="kel">[in] - kernel 3x3 matrix of floats</param>
 '''   <returns>pixd colormapped or rgb, or NULL on error</returns>
@@ -1037,6 +1060,7 @@ Public Shared Function pixMultMatrixColor(
 	If IsNothing (kel) then Throw New ArgumentNullException  ("kel cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMultMatrixColor( pixs.Pointer, kel.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1073,7 +1097,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixHalfEdgeByBandpass/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixHalfEdgeByBandpass/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="sm1h">[in] - "half-widths" of smoothing filter sm1</param>
 '''  <param name="sm1v">[in] - "half-widths" of smoothing filter sm1</param>
@@ -1090,6 +1114,7 @@ Public Shared Function pixHalfEdgeByBandpass(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixHalfEdgeByBandpass( pixs.Pointer, sm1h, sm1v, sm2h, sm2v)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\ccthin.c (68, 1)
 ' pixaThinConnected(pixas, type, connectivity, maxiters) as Pixa
 ' pixaThinConnected(PIXA *, l_int32, l_int32, l_int32) as PIXA *
@@ -13,7 +12,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaThinConnected/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaThinConnected/*"/>
 '''  <param name="pixas">[in] - of 1 bpp pix</param>
 '''  <param name="type">[in] - L_THIN_FG, L_THIN_BG</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -28,6 +27,7 @@ Public Shared Function pixaThinConnected(
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaThinConnected( pixas.Pointer, type, connectivity, maxiters)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -78,7 +78,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixThinConnected/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixThinConnected/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="type">[in] - L_THIN_FG, L_THIN_BG</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -95,6 +95,7 @@ Public Shared Function pixThinConnected(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixThinConnected( pixs.Pointer, type, connectivity, maxiters)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -126,7 +127,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixThinConnectedBySet/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixThinConnectedBySet/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="type">[in] - L_THIN_FG, L_THIN_BG</param>
 '''  <param name="sela">[in] - of Sels for parallel composite HMTs</param>
@@ -144,6 +145,7 @@ Public Shared Function pixThinConnectedBySet(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixThinConnectedBySet( pixs.Pointer, type, sela.Pointer, maxiters)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -178,7 +180,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaMakeThinSets/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaMakeThinSets/*"/>
 '''  <param name="index">[in] - into specific sets</param>
 '''  <param name="debug">[in] - 1 to output display of sela</param>
 '''   <returns>sela, or NULL on error</returns>
@@ -187,6 +189,7 @@ Public Shared Function selaMakeThinSets(
 				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Sela
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaMakeThinSets( index, debug)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sela(_Result)

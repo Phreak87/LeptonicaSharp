@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\binarize.c (140, 1)
 ' pixOtsuAdaptiveThreshold(pixs, sx, sy, smoothx, smoothy, scorefract, ppixth, ppixd) as Integer
 ' pixOtsuAdaptiveThreshold(PIX *, l_int32, l_int32, l_int32, l_int32, l_float32, PIX **, PIX **) as l_ok
@@ -55,7 +54,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixOtsuAdaptiveThreshold/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixOtsuAdaptiveThreshold/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="sx">[in] - desired tile dimensions actual size may vary</param>
 '''  <param name="sy">[in] - desired tile dimensions actual size may vary</param>
@@ -83,8 +82,11 @@ Dim ppixthPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixth) Then ppixthPTR 
 Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixOtsuAdaptiveThreshold( pixs.Pointer, sx, sy, smoothx, smoothy, scorefract, ppixthPTR, ppixdPTR)
-	if ppixthPTR <> IntPtr.Zero then ppixth = new Pix(ppixthPTR)
-	if ppixdPTR <> IntPtr.Zero then ppixd = new Pix(ppixdPTR)
+
+If ppixthPTR = IntPtr.Zero Then ppixth = Nothing
+If ppixthPTR <> IntPtr.Zero Then ppixth = New Pix(ppixthPTR)
+If ppixdPTR = IntPtr.Zero Then ppixd = Nothing
+If ppixdPTR <> IntPtr.Zero Then ppixd = New Pix(ppixdPTR)
 
 	Return _Result
 End Function
@@ -114,7 +116,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixOtsuThreshOnBackgroundNorm/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixOtsuThreshOnBackgroundNorm/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="sx">[in] - tile size in pixels</param>
@@ -145,6 +147,7 @@ Public Shared Function pixOtsuThreshOnBackgroundNorm(
 	Dim piximPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixim) Then piximPTR = pixim.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOtsuThreshOnBackgroundNorm( pixs.Pointer, piximPTR, sx, sy, thresh, mincount, bgval, smoothx, smoothy, scorefract, pthresh)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -181,7 +184,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMaskedThreshOnBackgroundNorm/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMaskedThreshOnBackgroundNorm/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="sx">[in] - tile size in pixels</param>
@@ -210,6 +213,7 @@ Public Shared Function pixMaskedThreshOnBackgroundNorm(
 	Dim piximPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixim) Then piximPTR = pixim.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMaskedThreshOnBackgroundNorm( pixs.Pointer, piximPTR, sx, sy, thresh, mincount, smoothx, smoothy, scorefract, pthresh)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -241,7 +245,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSauvolaBinarizeTiled/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSauvolaBinarizeTiled/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale, not colormapped</param>
 '''  <param name="whsize">[in] - window half-width for measuring local statistics</param>
 '''  <param name="factor">[in] - factor for reducing threshold due to variance greater or equal 0</param>
@@ -265,8 +269,11 @@ Dim ppixthPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixth) Then ppixthPTR 
 Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSauvolaBinarizeTiled( pixs.Pointer, whsize, factor, nx, ny, ppixthPTR, ppixdPTR)
-	if ppixthPTR <> IntPtr.Zero then ppixth = new Pix(ppixthPTR)
-	if ppixdPTR <> IntPtr.Zero then ppixd = new Pix(ppixdPTR)
+
+If ppixthPTR = IntPtr.Zero Then ppixth = Nothing
+If ppixthPTR <> IntPtr.Zero Then ppixth = New Pix(ppixthPTR)
+If ppixdPTR = IntPtr.Zero Then ppixd = Nothing
+If ppixdPTR <> IntPtr.Zero Then ppixd = New Pix(ppixdPTR)
 
 	Return _Result
 End Function
@@ -305,7 +312,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSauvolaBinarize/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSauvolaBinarize/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="whsize">[in] - window half-width for measuring local statistics</param>
 '''  <param name="factor">[in] - factor for reducing threshold due to variance greater or equal 0</param>
@@ -333,10 +340,15 @@ Dim ppixthPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixth) Then ppixthPTR 
 Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSauvolaBinarize( pixs.Pointer, whsize, factor, addborder, ppixmPTR, ppixsdPTR, ppixthPTR, ppixdPTR)
-	if ppixmPTR <> IntPtr.Zero then ppixm = new Pix(ppixmPTR)
-	if ppixsdPTR <> IntPtr.Zero then ppixsd = new Pix(ppixsdPTR)
-	if ppixthPTR <> IntPtr.Zero then ppixth = new Pix(ppixthPTR)
-	if ppixdPTR <> IntPtr.Zero then ppixd = new Pix(ppixdPTR)
+
+If ppixmPTR = IntPtr.Zero Then ppixm = Nothing
+If ppixmPTR <> IntPtr.Zero Then ppixm = New Pix(ppixmPTR)
+If ppixsdPTR = IntPtr.Zero Then ppixsd = Nothing
+If ppixsdPTR <> IntPtr.Zero Then ppixsd = New Pix(ppixsdPTR)
+If ppixthPTR = IntPtr.Zero Then ppixth = Nothing
+If ppixthPTR <> IntPtr.Zero Then ppixth = New Pix(ppixthPTR)
+If ppixdPTR = IntPtr.Zero Then ppixd = Nothing
+If ppixdPTR <> IntPtr.Zero Then ppixd = New Pix(ppixdPTR)
 
 	Return _Result
 End Function
@@ -376,7 +388,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSauvolaGetThreshold/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSauvolaGetThreshold/*"/>
 '''  <param name="pixm">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="pixms">[in] - 32 bpp</param>
 '''  <param name="factor">[in] - factor for reducing threshold due to variance greater or equal 0</param>
@@ -394,8 +406,10 @@ Public Shared Function pixSauvolaGetThreshold(
 Dim ppixsdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixsd) Then ppixsdPTR = ppixsd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSauvolaGetThreshold( pixm.Pointer, pixms.Pointer, factor, ppixsdPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if ppixsdPTR <> IntPtr.Zero then ppixsd = new Pix(ppixsdPTR)
+If ppixsdPTR = IntPtr.Zero Then ppixsd = Nothing
+If ppixsdPTR <> IntPtr.Zero Then ppixsd = New Pix(ppixsdPTR)
 
 	Return  new Pix(_Result)
 End Function
@@ -405,7 +419,7 @@ End Function
 ' pixApplyLocalThreshold(PIX *, PIX *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixApplyLocalThreshold/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixApplyLocalThreshold/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="pixth">[in] - 8 bpp array of local thresholds</param>
 '''  <param name="redfactor">[in] - ...</param>
@@ -419,6 +433,7 @@ Public Shared Function pixApplyLocalThreshold(
 	If IsNothing (pixth) then Throw New ArgumentNullException  ("pixth cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixApplyLocalThreshold( pixs.Pointer, pixth.Pointer, redfactor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -469,7 +484,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixThresholdByConnComp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixThresholdByConnComp/*"/>
 '''  <param name="pixs">[in] - depth  is greater  1, colormap OK</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask giving region to ignore by setting pixels to white use NULL if no mask</param>
 '''  <param name="start">[in] - binarization threshold levels to test</param>
@@ -498,7 +513,9 @@ Public Shared Function pixThresholdByConnComp(
 Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixThresholdByConnComp( pixs.Pointer, pixmPTR, start, _end_, incr, thresh48, threshdiff, pglobthresh, ppixdPTR, debugflag)
-	if ppixdPTR <> IntPtr.Zero then ppixd = new Pix(ppixdPTR)
+
+If ppixdPTR = IntPtr.Zero Then ppixd = Nothing
+If ppixdPTR <> IntPtr.Zero Then ppixd = New Pix(ppixdPTR)
 
 	Return _Result
 End Function

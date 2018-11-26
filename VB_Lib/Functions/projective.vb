@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\projective.c (141, 1)
 ' pixProjectiveSampledPta(pixs, ptad, ptas, incolor) as Pix
 ' pixProjectiveSampledPta(PIX *, PTA *, PTA *, l_int32) as PIX *
@@ -21,7 +20,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixProjectiveSampledPta/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixProjectiveSampledPta/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -38,6 +37,7 @@ Public Shared Function pixProjectiveSampledPta(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixProjectiveSampledPta( pixs.Pointer, ptad.Pointer, ptas.Pointer, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -59,7 +59,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixProjectiveSampled/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixProjectiveSampled/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for projective transformation</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -73,6 +73,7 @@ Public Shared Function pixProjectiveSampled(
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixProjectiveSampled( pixs.Pointer, vc, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -90,7 +91,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixProjectivePta/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixProjectivePta/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -107,6 +108,7 @@ Public Shared Function pixProjectivePta(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixProjectivePta( pixs.Pointer, ptad.Pointer, ptas.Pointer, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -124,7 +126,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixProjective/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixProjective/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for projective transformation</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -138,6 +140,7 @@ Public Shared Function pixProjective(
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixProjective( pixs.Pointer, vc, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -148,7 +151,7 @@ End Function
 ' pixProjectivePtaColor(PIX *, PTA *, PTA *, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixProjectivePtaColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixProjectivePtaColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -165,6 +168,7 @@ Public Shared Function pixProjectivePtaColor(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixProjectivePtaColor( pixs.Pointer, ptad.Pointer, ptas.Pointer, colorval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -175,7 +179,7 @@ End Function
 ' pixProjectiveColor(PIX *, l_float32 *, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixProjectiveColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixProjectiveColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for projective transformation</param>
 '''  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
@@ -189,6 +193,7 @@ Public Shared Function pixProjectiveColor(
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixProjectiveColor( pixs.Pointer, vc, colorval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -199,7 +204,7 @@ End Function
 ' pixProjectivePtaGray(PIX *, PTA *, PTA *, l_uint8) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixProjectivePtaGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixProjectivePtaGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -219,6 +224,7 @@ Public Shared Function pixProjectivePtaGray(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixProjectivePtaGray( pixs.Pointer, ptad.Pointer, ptas.Pointer, grayval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -229,7 +235,7 @@ End Function
 ' pixProjectiveGray(PIX *, l_float32 *, l_uint8) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixProjectiveGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixProjectiveGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for projective transformation</param>
 '''  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
@@ -246,6 +252,7 @@ Public Shared Function pixProjectiveGray(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixProjectiveGray( pixs.Pointer, vc, grayval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -294,7 +301,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixProjectivePtaWithAlpha/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixProjectivePtaWithAlpha/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -319,6 +326,7 @@ Public Shared Function pixProjectivePtaWithAlpha(
 	Dim pixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixg) Then pixgPTR = pixg.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixProjectivePtaWithAlpha( pixs.Pointer, ptad.Pointer, ptas.Pointer, pixgPTR, fract, border)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -329,7 +337,7 @@ End Function
 ' getProjectiveXformCoeffs(PTA *, PTA *, l_float32 **) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/getProjectiveXformCoeffs/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getProjectiveXformCoeffs/*"/>
 '''  <param name="ptas">[in] - source 4 points unprimed</param>
 '''  <param name="ptad">[in] - transformed 4 points primed</param>
 '''  <param name="pvc">[out] - vector of coefficients of transform</param>
@@ -346,6 +354,7 @@ Dim pvcPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.getProjectiveXformCoeffs( ptas.Pointer, ptad.Pointer, pvcPTR)
 
+
 	Return _Result
 End Function
 
@@ -361,7 +370,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/projectiveXformSampledPt/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/projectiveXformSampledPt/*"/>
 '''  <param name="vc">[in] - vector of 8 coefficients</param>
 '''  <param name="x">[in] - initial point</param>
 '''  <param name="y">[in] - initial point</param>
@@ -379,6 +388,7 @@ Public Shared Function projectiveXformSampledPt(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.projectiveXformSampledPt( vc, x, y, pxp, pyp)
 
+
 	Return _Result
 End Function
 
@@ -394,7 +404,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/projectiveXformPt/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/projectiveXformPt/*"/>
 '''  <param name="vc">[in] - vector of 8 coefficients</param>
 '''  <param name="x">[in] - initial point</param>
 '''  <param name="y">[in] - initial point</param>
@@ -411,6 +421,7 @@ Public Shared Function projectiveXformPt(
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.projectiveXformPt( vc, x, y, pxp, pyp)
+
 
 	Return _Result
 End Function

@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\strokes.c (75, 1)
 ' pixFindStrokeLength(pixs, tab8, plength) as Integer
 ' pixFindStrokeLength(PIX *, l_int32 *, l_int32 *) as l_ok
@@ -13,7 +12,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindStrokeLength/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindStrokeLength/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="tab8">[in][optional] - table for counting fg pixels can be NULL</param>
 '''  <param name="plength">[out] - estimated length of the strokes</param>
@@ -28,6 +27,7 @@ Public Shared Function pixFindStrokeLength(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindStrokeLength( pixs.Pointer, tab8, plength)
+
 
 	Return _Result
 End Function
@@ -50,7 +50,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindStrokeWidth/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindStrokeWidth/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="thresh">[in] - fractional count threshold relative to distance 1</param>
 '''  <param name="tab8">[in][optional] - table for counting fg pixels can be NULL</param>
@@ -71,7 +71,9 @@ Public Shared Function pixFindStrokeWidth(
 Dim pnahistoPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnahisto) Then pnahistoPTR = pnahisto.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindStrokeWidth( pixs.Pointer, thresh, tab8, pwidth, pnahistoPTR)
-	if pnahistoPTR <> IntPtr.Zero then pnahisto = new Numa(pnahistoPTR)
+
+If pnahistoPTR = IntPtr.Zero Then pnahisto = Nothing
+If pnahistoPTR <> IntPtr.Zero Then pnahisto = New Numa(pnahistoPTR)
 
 	Return _Result
 End Function
@@ -86,7 +88,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaFindStrokeWidth/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaFindStrokeWidth/*"/>
 '''  <param name="pixa">[in] - of 1 bpp images</param>
 '''  <param name="thresh">[in] - fractional count threshold relative to distance 1</param>
 '''  <param name="tab8">[in][optional] - table for counting fg pixels can be NULL</param>
@@ -101,6 +103,7 @@ Public Shared Function pixaFindStrokeWidth(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaFindStrokeWidth( pixa.Pointer, thresh, tab8, debug)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -111,7 +114,7 @@ End Function
 ' pixaModifyStrokeWidth(PIXA *, l_float32) as PIXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaModifyStrokeWidth/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaModifyStrokeWidth/*"/>
 '''  <param name="pixas">[in] - of 1 bpp pix</param>
 '''  <param name="targetw">[out] - desired width for strokes in each pix</param>
 '''   <returns>pixa  with modified stroke widths, or NULL on error</returns>
@@ -122,6 +125,7 @@ Public Shared Function pixaModifyStrokeWidth(
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaModifyStrokeWidth( pixas.Pointer, targetw)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -132,7 +136,7 @@ End Function
 ' pixModifyStrokeWidth(PIX *, l_float32, l_float32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixModifyStrokeWidth/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixModifyStrokeWidth/*"/>
 '''  <param name="pixs">[in] - of 1 bpp pix</param>
 '''  <param name="width">[in] - measured average stroke width</param>
 '''  <param name="targetw">[in] - desired stroke width</param>
@@ -145,6 +149,7 @@ Public Shared Function pixModifyStrokeWidth(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixModifyStrokeWidth( pixs.Pointer, width, targetw)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -167,7 +172,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaSetStrokeWidth/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaSetStrokeWidth/*"/>
 '''  <param name="pixas">[in] - of 1 bpp pix</param>
 '''  <param name="width">[in] - set stroke width to this value, in [1 ... 100].</param>
 '''  <param name="thinfirst">[in] - 1 to thin all pix to a skeleton first 0 to skip</param>
@@ -182,6 +187,7 @@ Public Shared Function pixaSetStrokeWidth(
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaSetStrokeWidth( pixas.Pointer, width, thinfirst, connectivity)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -202,7 +208,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSetStrokeWidth/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetStrokeWidth/*"/>
 '''  <param name="pixs">[in] - 1 bpp pix</param>
 '''  <param name="width">[in] - set stroke width to this value, in [1 ... 100].</param>
 '''  <param name="thinfirst">[in] - 1 to thin all pix to a skeleton first 0 to skip</param>
@@ -217,6 +223,7 @@ Public Shared Function pixSetStrokeWidth(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSetStrokeWidth( pixs.Pointer, width, thinfirst, connectivity)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

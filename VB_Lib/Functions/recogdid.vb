@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\recogdid.c (215, 1)
 ' recogDecode(recog, pixs, nlevels, ppixdb) as Boxa
 ' recogDecode(L_RECOG *, PIX *, l_int32, PIX **) as BOXA *
@@ -27,7 +26,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogDecode/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogDecode/*"/>
 '''  <param name="recog">[in] - with LUT's pre-computed</param>
 '''  <param name="pixs">[in] - typically of multiple touching characters, 1 bpp</param>
 '''  <param name="nlevels">[in] - of templates 2 for now</param>
@@ -45,8 +44,10 @@ Public Shared Function recogDecode(
 Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogDecode( recog.Pointer, pixs.Pointer, nlevels, ppixdbPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if ppixdbPTR <> IntPtr.Zero then ppixdb = new Pix(ppixdbPTR)
+If ppixdbPTR = IntPtr.Zero Then ppixdb = Nothing
+If ppixdbPTR <> IntPtr.Zero Then ppixdb = New Pix(ppixdbPTR)
 
 	Return  new Boxa(_Result)
 End Function
@@ -56,7 +57,7 @@ End Function
 ' recogCreateDid(L_RECOG *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogCreateDid/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogCreateDid/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pixs">[in] - of 1 bpp image to match</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -68,6 +69,7 @@ Public Shared Function recogCreateDid(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogCreateDid( recog.Pointer, pixs.Pointer)
+
 
 	Return _Result
 End Function
@@ -83,7 +85,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogDestroyDid/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogDestroyDid/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function recogDestroyDid(
@@ -93,6 +95,7 @@ Public Shared Function recogDestroyDid(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogDestroyDid( recog.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -101,7 +104,7 @@ End Function
 ' recogDidExists(L_RECOG *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogDidExists/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogDidExists/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>1 if recogtodid exists 0 if not or on error.</returns>
 Public Shared Function recogDidExists(
@@ -110,6 +113,7 @@ Public Shared Function recogDidExists(
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogDidExists( recog.Pointer)
+
 
 	Return _Result
 End Function
@@ -124,7 +128,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogGetDid/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogGetDid/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>did still owned by the recog, or NULL on error</returns>
 Public Shared Function recogGetDid(
@@ -133,6 +137,7 @@ Public Shared Function recogGetDid(
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogGetDid( recog.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Rdid(_Result)
@@ -153,7 +158,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogSetChannelParams/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogSetChannelParams/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="nlevels">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -164,6 +169,7 @@ Public Shared Function recogSetChannelParams(
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogSetChannelParams( recog.Pointer, nlevels)
+
 
 	Return _Result
 End Function

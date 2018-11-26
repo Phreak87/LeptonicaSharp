@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\fhmtgen.1.c (37, 6)
 ' pixHMTDwa_1(pixd, pixs, selname) as Pix
 ' pixHMTDwa_1(PIX *, PIX *, const char *) as PIX *
@@ -15,7 +14,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixHMTDwa_1/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixHMTDwa_1/*"/>
 '''  <param name="pixd">[in] - usual 3 choices: null, == pixs, != pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd</returns>
@@ -31,6 +30,7 @@ Public Shared Function pixHMTDwa_1(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixHMTDwa_1( pixd.Pointer, pixs.Pointer, selname)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -54,7 +54,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFHMTGen_1/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFHMTGen_1/*"/>
 '''  <param name="pixd">[in] - usual 3 choices: null, == pixs, != pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''   <returns>pixd</returns>
@@ -70,6 +70,7 @@ Public Shared Function pixFHMTGen_1(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFHMTGen_1( pixd.Pointer, pixs.Pointer, selname)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -80,7 +81,7 @@ End Function
 ' fhmtgen_low_1(l_uint32 *, l_int32, l_int32, l_int32, l_uint32 *, l_int32, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fhmtgen_low_1/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fhmtgen_low_1/*"/>
 '''   <returns></returns>
 Public Shared Function fhmtgen_low_1(
 				 ByVal datad as Object, 
@@ -95,6 +96,7 @@ Public Shared Function fhmtgen_low_1(
 	If IsNothing (datas) then Throw New ArgumentNullException  ("datas cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fhmtgen_low_1( datad, w, h, wpld, datas, wpls, index)
+
 
 	Return _Result
 End Function

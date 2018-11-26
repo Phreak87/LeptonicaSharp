@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\bytearray.c (93, 1)
 ' l_byteaCreate(nbytes) as L_Bytea
 ' l_byteaCreate(size_t) as L_BYTEA *
@@ -14,13 +13,14 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_byteaCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaCreate/*"/>
 '''  <param name="nbytes">[in] - determines initial size of data array</param>
 '''   <returns>l_bytea, or NULL on error</returns>
 Public Shared Function l_byteaCreate(
 				 ByVal nbytes as UInteger) as L_Bytea
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_byteaCreate( nbytes)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Bytea(_Result)
@@ -31,7 +31,7 @@ End Function
 ' l_byteaInitFromMem(const l_uint8 *, size_t) as L_BYTEA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_byteaInitFromMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaInitFromMem/*"/>
 '''  <param name="data">[in] - to be copied to the array</param>
 '''  <param name="size">[in] - amount of data</param>
 '''   <returns>l_bytea, or NULL on error</returns>
@@ -42,6 +42,7 @@ Public Shared Function l_byteaInitFromMem(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_byteaInitFromMem( data, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Bytea(_Result)
@@ -52,7 +53,7 @@ End Function
 ' l_byteaInitFromFile(const char *) as L_BYTEA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_byteaInitFromFile/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaInitFromFile/*"/>
 '''  <param name="fname">[in] - </param>
 '''   <returns>l_bytea, or NULL on error</returns>
 Public Shared Function l_byteaInitFromFile(
@@ -60,7 +61,10 @@ Public Shared Function l_byteaInitFromFile(
 
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 
+	If My.Computer.Filesystem.FileExists (fname) = false then Throw New ArgumentException ("File is missing")
+
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_byteaInitFromFile( fname)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Bytea(_Result)
@@ -71,7 +75,7 @@ End Function
 ' l_byteaInitFromStream(FILE *) as L_BYTEA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_byteaInitFromStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaInitFromStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>l_bytea, or NULL on error</returns>
 Public Shared Function l_byteaInitFromStream(
@@ -80,6 +84,7 @@ Public Shared Function l_byteaInitFromStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_byteaInitFromStream( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Bytea(_Result)
@@ -95,7 +100,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_byteaCopy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaCopy/*"/>
 '''  <param name="bas">[in] - source lba</param>
 '''  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 '''   <returns>clone or copy of bas, or NULL on error</returns>
@@ -106,6 +111,7 @@ Public Shared Function l_byteaCopy(
 	If IsNothing (bas) then Throw New ArgumentNullException  ("bas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_byteaCopy( bas.Pointer, copyflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Bytea(_Result)
@@ -126,7 +132,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_byteaDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaDestroy/*"/>
 '''  <param name="pba">[in,out] - will be set to null before returning</param>
 Public Shared Sub l_byteaDestroy(
 				 ByRef pba as L_Bytea)
@@ -134,7 +140,9 @@ Public Shared Sub l_byteaDestroy(
 	Dim pbaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pba) Then pbaPTR = pba.Pointer
 
 	LeptonicaSharp.Natives.l_byteaDestroy( pbaPTR)
-	if pbaPTR <> IntPtr.Zero then pba = new L_Bytea(pbaPTR)
+
+If pbaPTR = IntPtr.Zero Then pba = Nothing
+If pbaPTR <> IntPtr.Zero Then pba = New L_Bytea(pbaPTR)
 
 End Sub
 
@@ -143,7 +151,7 @@ End Sub
 ' l_byteaGetSize(L_BYTEA *) as size_t
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_byteaGetSize/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaGetSize/*"/>
 '''  <param name="ba">[in] - </param>
 '''   <returns>size of stored byte array, or 0 on error</returns>
 Public Shared Function l_byteaGetSize(
@@ -152,6 +160,7 @@ Public Shared Function l_byteaGetSize(
 	If IsNothing (ba) then Throw New ArgumentNullException  ("ba cannot be Nothing")
 
 	Dim _Result as UInteger = LeptonicaSharp.Natives.l_byteaGetSize( ba.Pointer)
+
 
 	Return _Result
 End Function
@@ -166,7 +175,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_byteaGetData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaGetData/*"/>
 '''  <param name="ba">[in] - </param>
 '''  <param name="psize">[out] - size of data in lba</param>
 '''   <returns>ptr to existing data array, or NULL on error</returns>
@@ -177,6 +186,7 @@ Public Shared Function l_byteaGetData(
 	If IsNothing (ba) then Throw New ArgumentNullException  ("ba cannot be Nothing")
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.l_byteaGetData( ba.Pointer, psize)
+
 
 	Return _Result
 End Function
@@ -192,7 +202,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_byteaCopyData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaCopyData/*"/>
 '''  <param name="ba">[in] - </param>
 '''  <param name="psize">[out] - size of data in lba</param>
 '''   <returns>copy of data in use in the data array, or NULL on error.</returns>
@@ -204,6 +214,7 @@ Public Shared Function l_byteaCopyData(
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.l_byteaCopyData( ba.Pointer, psize)
 
+
 	Return _Result
 End Function
 
@@ -212,7 +223,7 @@ End Function
 ' l_byteaAppendData(L_BYTEA *, const l_uint8 *, size_t) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_byteaAppendData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaAppendData/*"/>
 '''  <param name="ba">[in] - </param>
 '''  <param name="newdata">[in] - byte array to be appended</param>
 '''  <param name="newbytes">[in] - size of data array</param>
@@ -227,6 +238,7 @@ Public Shared Function l_byteaAppendData(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_byteaAppendData( ba.Pointer, newdata, newbytes)
 
+
 	Return _Result
 End Function
 
@@ -235,7 +247,7 @@ End Function
 ' l_byteaAppendString(L_BYTEA *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_byteaAppendString/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaAppendString/*"/>
 '''  <param name="ba">[in] - </param>
 '''  <param name="str">[in] - null-terminated string to be appended</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -247,6 +259,7 @@ Public Shared Function l_byteaAppendString(
 	If IsNothing (str) then Throw New ArgumentNullException  ("str cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_byteaAppendString( ba.Pointer, str)
+
 
 	Return _Result
 End Function
@@ -261,7 +274,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_byteaJoin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaJoin/*"/>
 '''  <param name="ba1">[in] - </param>
 '''  <param name="pba2">[in,out] - data array is added to the one in ba1, and then ba2 is destroyed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -274,7 +287,9 @@ Public Shared Function l_byteaJoin(
 	Dim pba2PTR As IntPtr = IntPtr.Zero : If Not IsNothing(pba2) Then pba2PTR = pba2.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_byteaJoin( ba1.Pointer, pba2PTR)
-	if pba2PTR <> IntPtr.Zero then pba2 = new L_Bytea(pba2PTR)
+
+If pba2PTR = IntPtr.Zero Then pba2 = Nothing
+If pba2PTR <> IntPtr.Zero Then pba2 = New L_Bytea(pba2PTR)
 
 	Return _Result
 End Function
@@ -284,7 +299,7 @@ End Function
 ' l_byteaSplit(L_BYTEA *, size_t, L_BYTEA **) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_byteaSplit/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaSplit/*"/>
 '''  <param name="ba1">[in] - lba to split array bytes nulled beyond the split loc</param>
 '''  <param name="splitloc">[in] - location in ba1 to split ba2 begins there</param>
 '''  <param name="pba2">[out] - with data starting at splitloc</param>
@@ -299,7 +314,9 @@ Public Shared Function l_byteaSplit(
 	Dim pba2PTR As IntPtr = IntPtr.Zero : If Not IsNothing(pba2) Then pba2PTR = pba2.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_byteaSplit( ba1.Pointer, splitloc, pba2PTR)
-	if pba2PTR <> IntPtr.Zero then pba2 = new L_Bytea(pba2PTR)
+
+If pba2PTR = IntPtr.Zero Then pba2 = Nothing
+If pba2PTR <> IntPtr.Zero Then pba2 = New L_Bytea(pba2PTR)
 
 	Return _Result
 End Function
@@ -309,7 +326,7 @@ End Function
 ' l_byteaFindEachSequence(L_BYTEA *, const l_uint8 *, size_t, L_DNA **) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_byteaFindEachSequence/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaFindEachSequence/*"/>
 '''  <param name="ba">[in] - </param>
 '''  <param name="sequence">[in] - subarray of bytes to find in data</param>
 '''  <param name="seqlen">[in] - length of sequence, in bytes</param>
@@ -327,7 +344,9 @@ Public Shared Function l_byteaFindEachSequence(
 	Dim pdaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pda) Then pdaPTR = pda.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_byteaFindEachSequence( ba.Pointer, sequence, seqlen, pdaPTR)
-	if pdaPTR <> IntPtr.Zero then pda = new L_Dna(pdaPTR)
+
+If pdaPTR = IntPtr.Zero Then pda = Nothing
+If pdaPTR <> IntPtr.Zero Then pda = New L_Dna(pdaPTR)
 
 	Return _Result
 End Function
@@ -337,7 +356,7 @@ End Function
 ' l_byteaWrite(const char *, L_BYTEA *, size_t, size_t) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_byteaWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaWrite/*"/>
 '''  <param name="fname">[in] - output file</param>
 '''  <param name="ba">[in] - </param>
 '''  <param name="startloc">[in] - first byte to output</param>
@@ -354,6 +373,7 @@ Public Shared Function l_byteaWrite(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_byteaWrite( fname, ba.Pointer, startloc, endloc)
 
+
 	Return _Result
 End Function
 
@@ -362,7 +382,7 @@ End Function
 ' l_byteaWriteStream(FILE *, L_BYTEA *, size_t, size_t) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_byteaWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for binary write</param>
 '''  <param name="ba">[in] - </param>
 '''  <param name="startloc">[in] - first byte to output</param>
@@ -378,6 +398,7 @@ Public Shared Function l_byteaWriteStream(
 	If IsNothing (ba) then Throw New ArgumentNullException  ("ba cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_byteaWriteStream( fp.Pointer, ba.Pointer, startloc, endloc)
+
 
 	Return _Result
 End Function

@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\jpegio.c (214, 1)
 ' pixReadJpeg(filename, cmapflag, reduction, pnwarn, hint) as Pix
 ' pixReadJpeg(const char *, l_int32, l_int32, l_int32 *, l_int32) as PIX *
@@ -36,7 +35,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadJpeg/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadJpeg/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="cmapflag">[in] - 0 for no colormap in returned pix 1 to return an 8 bpp cmapped pix if spp = 3 or 4</param>
 '''  <param name="reduction">[in] - scaling factor: 1, 2, 4 or 8</param>
@@ -52,10 +51,11 @@ Public Shared Function pixReadJpeg(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("scaling factor: 1, 2, 4 or 8")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadJpeg( filename, cmapflag, reduction, pnwarn, hint)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -71,7 +71,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamJpeg/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadStreamJpeg/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="cmapflag">[in] - 0 for no colormap in returned pix 1 to return an 8 bpp cmapped pix if spp = 3 or 4</param>
 '''  <param name="reduction">[in] - scaling factor: 1, 2, 4 or 8</param>
@@ -90,6 +90,7 @@ Public Shared Function pixReadStreamJpeg(
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("scaling factor: 1, 2, 4 or 8")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadStreamJpeg( fp.Pointer, cmapflag, reduction, pnwarn, hint)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -100,7 +101,7 @@ End Function
 ' readHeaderJpeg(const char *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/readHeaderJpeg/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/readHeaderJpeg/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -118,9 +119,10 @@ Public Shared Function readHeaderJpeg(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderJpeg( filename, pw, ph, pspp, pycck, pcmyk)
+
 
 	Return _Result
 End Function
@@ -130,7 +132,7 @@ End Function
 ' freadHeaderJpeg(FILE *, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/freadHeaderJpeg/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/freadHeaderJpeg/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -150,6 +152,7 @@ Public Shared Function freadHeaderJpeg(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.freadHeaderJpeg( fp.Pointer, pw, ph, pspp, pycck, pcmyk)
 
+
 	Return _Result
 End Function
 
@@ -158,7 +161,7 @@ End Function
 ' fgetJpegResolution(FILE *, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fgetJpegResolution/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fgetJpegResolution/*"/>
 '''   <returns></returns>
 Public Shared Function fgetJpegResolution(
 				 ByVal fp as FILE, 
@@ -173,6 +176,7 @@ Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fgetJpegResolution( fp.Pointer, pxres, pyres)
 
+
 	Return _Result
 End Function
 
@@ -181,7 +185,7 @@ End Function
 ' fgetJpegComment(FILE *, l_uint8 **) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fgetJpegComment/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fgetJpegComment/*"/>
 '''   <returns></returns>
 Public Shared Function fgetJpegComment(
 				 ByVal fp as FILE, 
@@ -194,6 +198,7 @@ Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fgetJpegComment( fp.Pointer, pcomment)
 
+
 	Return _Result
 End Function
 
@@ -202,7 +207,7 @@ End Function
 ' pixWriteJpeg(const char *, PIX *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteJpeg/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteJpeg/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pix">[in] - any depth cmap is OK</param>
 '''  <param name="quality">[in] - 1 - 100 75 is default</param>
@@ -217,9 +222,8 @@ Public Shared Function pixWriteJpeg(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteJpeg( filename, pix.Pointer, quality, progressive)
+
 
 	Return _Result
 End Function
@@ -257,7 +261,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamJpeg/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteStreamJpeg/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pixs">[in] - any depth cmap is OK</param>
 '''  <param name="quality">[in] - 1 - 100 75 is default value 0 is also default</param>
@@ -273,6 +277,7 @@ Public Shared Function pixWriteStreamJpeg(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamJpeg( fp.Pointer, pixs.Pointer, quality, progressive)
+
 
 	Return _Result
 End Function
@@ -292,7 +297,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadMemJpeg/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadMemJpeg/*"/>
 '''  <param name="data">[in] - const jpeg-encoded</param>
 '''  <param name="size">[in] - of data</param>
 '''  <param name="cmflag">[in] - colormap flag 0 means return RGB image if color 1 means create a colormap and return an 8 bpp colormapped image if color</param>
@@ -313,6 +318,7 @@ Public Shared Function pixReadMemJpeg(
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("scaling factor: 1, 2, 4 or 8")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemJpeg( data, size, cmflag, reduction, pnwarn, hint)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -323,7 +329,7 @@ End Function
 ' readHeaderMemJpeg(const l_uint8 *, size_t, l_int32 *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/readHeaderMemJpeg/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/readHeaderMemJpeg/*"/>
 '''  <param name="data">[in] - const jpeg-encoded</param>
 '''  <param name="size">[in] - of data</param>
 '''  <param name="pw">[out][optional] - width</param>
@@ -345,6 +351,7 @@ Public Shared Function readHeaderMemJpeg(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderMemJpeg( data, size, pw, ph, pspp, pycck, pcmyk)
 
+
 	Return _Result
 End Function
 
@@ -353,7 +360,7 @@ End Function
 ' readResolutionMemJpeg(const l_uint8 *, size_t, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/readResolutionMemJpeg/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/readResolutionMemJpeg/*"/>
 '''  <param name="data">[in] - const jpeg-encoded</param>
 '''  <param name="size">[in] - of data</param>
 '''  <param name="pxres">[out][optional] - </param>
@@ -369,6 +376,7 @@ Public Shared Function readResolutionMemJpeg(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readResolutionMemJpeg( data, size, pxres, pyres)
 
+
 	Return _Result
 End Function
 
@@ -383,7 +391,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemJpeg/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteMemJpeg/*"/>
 '''  <param name="pdata">[out] - data of jpeg compressed image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - any depth cmap is OK</param>
@@ -402,6 +410,7 @@ Public Shared Function pixWriteMemJpeg(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMemJpeg( pdataPTR, psize, pix.Pointer, quality, progressive)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -420,7 +429,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSetChromaSampling/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetChromaSampling/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="sampling">[in] - 1 for subsampling 0 for no subsampling</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -431,6 +440,7 @@ Public Shared Function pixSetChromaSampling(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetChromaSampling( pix.Pointer, sampling)
+
 
 	Return _Result
 End Function

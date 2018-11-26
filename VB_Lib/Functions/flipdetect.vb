@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\flipdetect.c (242, 1)
 ' pixOrientCorrect(pixs, minupconf, minratio, pupconf, pleftconf, protation, debug) as Pix
 ' pixOrientCorrect(PIX *, l_float32, l_float32, l_float32 *, l_float32 *, l_int32 *, l_int32) as PIX *
@@ -22,7 +21,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixOrientCorrect/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixOrientCorrect/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text, 150 - 300 ppi</param>
 '''  <param name="minupconf">[in] - minimum value for which a decision can be made</param>
 '''  <param name="minratio">[in] - minimum conf ratio required for a decision</param>
@@ -43,6 +42,7 @@ Public Shared Function pixOrientCorrect(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOrientCorrect( pixs.Pointer, minupconf, minratio, pupconf, pleftconf, protation, debug)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -107,7 +107,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixOrientDetect/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixOrientDetect/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text, 150 - 300 ppi</param>
 '''  <param name="pupconf">[out][optional] - may be NULL</param>
 '''  <param name="pleftconf">[out][optional] - may be NULL</param>
@@ -124,6 +124,7 @@ Public Shared Function pixOrientDetect(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixOrientDetect( pixs.Pointer, pupconf, pleftconf, mincount, debug)
+
 
 	Return _Result
 End Function
@@ -156,7 +157,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/makeOrientDecision/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makeOrientDecision/*"/>
 '''  <param name="upconf">[in] - nonzero</param>
 '''  <param name="leftconf">[in] - nonzero</param>
 '''  <param name="minupconf">[in] - minimum value for which a decision can be made</param>
@@ -173,6 +174,7 @@ Public Shared Function makeOrientDecision(
 				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.makeOrientDecision( upconf, leftconf, minupconf, minratio, porient, debug)
+
 
 	Return _Result
 End Function
@@ -195,7 +197,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixUpDownDetect/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixUpDownDetect/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text, 150 - 300 ppi</param>
 '''  <param name="pconf">[out] - confidence that text is rightside-up</param>
 '''  <param name="mincount">[in] - min number of up + down use 0 for default</param>
@@ -210,6 +212,7 @@ Public Shared Function pixUpDownDetect(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixUpDownDetect( pixs.Pointer, pconf, mincount, debug)
+
 
 	Return _Result
 End Function
@@ -250,7 +253,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixUpDownDetectGeneral/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixUpDownDetectGeneral/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text, 150 - 300 ppi</param>
 '''  <param name="pconf">[out] - confidence that text is rightside-up</param>
 '''  <param name="mincount">[in] - min number of up + down use 0 for default</param>
@@ -267,6 +270,7 @@ Public Shared Function pixUpDownDetectGeneral(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixUpDownDetectGeneral( pixs.Pointer, pconf, mincount, npixels, debug)
+
 
 	Return _Result
 End Function
@@ -289,7 +293,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixOrientDetectDwa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixOrientDetectDwa/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text</param>
 '''  <param name="pupconf">[out][optional] - may be NULL</param>
 '''  <param name="pleftconf">[out][optional] - may be NULL</param>
@@ -306,6 +310,7 @@ Public Shared Function pixOrientDetectDwa(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixOrientDetectDwa( pixs.Pointer, pupconf, pleftconf, mincount, debug)
+
 
 	Return _Result
 End Function
@@ -331,7 +336,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixUpDownDetectDwa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixUpDownDetectDwa/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text, 150 - 300 ppi</param>
 '''  <param name="pconf">[out] - confidence that text is rightside-up</param>
 '''  <param name="mincount">[in] - min number of up + down use 0 for default</param>
@@ -347,6 +352,7 @@ Public Shared Function pixUpDownDetectDwa(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixUpDownDetectDwa( pixs.Pointer, pconf, mincount, debug)
 
+
 	Return _Result
 End Function
 
@@ -360,7 +366,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixUpDownDetectGeneralDwa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixUpDownDetectGeneralDwa/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text</param>
 '''  <param name="pconf">[out] - confidence that text is rightside-up</param>
 '''  <param name="mincount">[in] - min number of up + down use 0 for default</param>
@@ -377,6 +383,7 @@ Public Shared Function pixUpDownDetectGeneralDwa(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixUpDownDetectGeneralDwa( pixs.Pointer, pconf, mincount, npixels, debug)
+
 
 	Return _Result
 End Function
@@ -419,7 +426,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMirrorDetect/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMirrorDetect/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text</param>
 '''  <param name="pconf">[out] - confidence that text is not LR mirror reversed</param>
 '''  <param name="mincount">[in] - min number of left + right use 0 for default</param>
@@ -434,6 +441,7 @@ Public Shared Function pixMirrorDetect(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixMirrorDetect( pixs.Pointer, pconf, mincount, debug)
+
 
 	Return _Result
 End Function
@@ -451,7 +459,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMirrorDetectDwa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMirrorDetectDwa/*"/>
 '''  <param name="pixs">[in] - 1 bpp, deskewed, English text</param>
 '''  <param name="pconf">[out] - confidence that text is not LR mirror reversed</param>
 '''  <param name="mincount">[in] - min number of left + right use 0 for default</param>
@@ -466,6 +474,7 @@ Public Shared Function pixMirrorDetectDwa(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixMirrorDetectDwa( pixs.Pointer, pconf, mincount, debug)
+
 
 	Return _Result
 End Function

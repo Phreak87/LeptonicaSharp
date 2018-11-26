@@ -3,6 +3,55 @@ Imports System.Drawing
 Imports System.Reflection
 Imports System.Drawing.Imaging
 
+
+Partial Public Class Box
+    Public Function GetBitmap(Optional ByVal Pix As Pix = Nothing) As Pix
+        If IsNothing(Pix) Then Pix = New Pix(Me.w + Me.x + 5, Me.h + Me.y + 5)
+        Dim n As New Bitmap(Pix.w, Pix.h, Imaging.PixelFormat.Format24bppRgb)
+        Dim g As Graphics = Graphics.FromImage(n)
+        Dim p As New Pen(Brushes.Red, 3)
+        g.DrawImage(Pix.BitmapStatic, 0, 0, Pix.w, Pix.h)
+        g.DrawRectangle(p, New Rectangle(Me.x, Me.y, Me.w, Me.h))
+        Dim RPix As New Pix(n): n.Dispose(): Return RPix
+    End Function
+    Public Sub Display(Optional Pix As Pix = Nothing)
+        Dim n As New ShowPix(GetBitmap(Pix))
+    End Sub
+End Class
+
+Partial Public Class Boxa
+    Public Function GetBitmap(Optional ByVal Pix As Pix = Nothing) As Pix
+        Dim MaxW As Integer = 0
+        Dim MaxH As Integer = 0
+        For Each Entry In Me.box
+            If Entry.x + Entry.w + 5 > MaxW Then MaxW = Entry.x + Entry.w + 5
+            If Entry.y + Entry.h + 5 > MaxH Then MaxH = Entry.y + Entry.h + 5
+        Next
+        If IsNothing(Pix) Then Pix = New Pix(MaxW, MaxH)
+        Dim n As New Bitmap(Pix.w, Pix.h, Imaging.PixelFormat.Format24bppRgb)
+        Dim g As Graphics = Graphics.FromImage(n)
+        Dim p As New Pen(Brushes.Red, 3)
+        g.DrawImage(Pix.BitmapStatic, 0, 0, Pix.w, Pix.h)
+        For Each Boxe In Me.box
+            g.DrawRectangle(p, New Rectangle(Boxe.x, Boxe.y, Boxe.w, Boxe.h))
+        Next
+        Dim RPix As New Pix(n) : n.Dispose() : Return RPix
+    End Function
+    Public Sub Display(Optional Pix As Pix = Nothing)
+        Dim n As New ShowPix(GetBitmap(Pix))
+    End Sub
+End Class
+
+Partial Public Class Pixa
+    Function GetBitmap(Optional NCols As Integer = 4) As Pix
+        Dim pixc = LeptonicaSharp._All.pixaDisplayTiledAndScaled(Me, 32, 500, NCols, 0, 1, 3)
+        Return pixc
+    End Function
+    Sub Display(Optional NCols As Integer = 4)
+        Dim n As New ShowPix(GetBitmap)
+    End Sub
+End Class
+
 Partial Public Class Pix
 #Region "Redirects"
     ''' <summary>
@@ -105,12 +154,6 @@ Partial Public Class Pix
         Return Nothing
     End Function
 #End Region
-End Class
-Partial Public Class Pixa
-    Sub display(w As Integer, h As Integer)
-        Dim pixc = LeptonicaSharp._All.pixaDisplayTiledAndScaled(Me, 32, 1000, 3, 0, 1, 3)
-        pixc.Display()
-    End Sub
 End Class
 Partial Public Class Numa
     Sub DisplayNumaBarGraph(Optional ByVal NumaH As Numa = Nothing,

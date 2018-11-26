@@ -2,6 +2,209 @@ Imports System.Runtime.InteropServices
 
 Imports LeptonicaSharp.Enumerations
 
+Partial Public Class L_Bytea
+' SRC\bytearray.c (93, 1)
+' l_byteaCreate(nbytes) as L_Bytea
+' l_byteaCreate(size_t) as L_BYTEA *
+'''  <summary>
+''' Notes:<para/>
+''' 
+''' (1) The allocated array is n + 1 bytes.  This allows room
+''' for null termination.
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaCreate/*"/>
+'''  <param name="nbytes">[in] - determines initial size of data array</param>
+Sub New (
+				 ByVal nbytes as UInteger)
+	Dim RetObj = _All.l_byteaCreate(nbytes)
+	Pointer = RetObj.Pointer
+End Sub
+' SRC\bytearray.c (122, 1)
+' l_byteaInitFromMem(data, size) as L_Bytea
+' l_byteaInitFromMem(const l_uint8 *, size_t) as L_BYTEA *
+'''  <remarks>
+'''  </remarks>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaInitFromMem/*"/>
+'''  <param name="data">[in] - to be copied to the array</param>
+'''  <param name="size">[in] - amount of data</param>
+Sub New (
+				 ByVal data as Byte(), 
+				 ByVal size as UInteger)
+	Dim RetObj = _All.l_byteaInitFromMem(data, size)
+	Pointer = RetObj.Pointer
+End Sub
+' SRC\bytearray.c (149, 1)
+' l_byteaInitFromFile(fname) as L_Bytea
+' l_byteaInitFromFile(const char *) as L_BYTEA *
+'''  <remarks>
+'''  </remarks>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaInitFromFile/*"/>
+'''  <param name="fname">[in] - </param>
+Sub New (
+				 ByVal fname as String)
+	Dim RetObj = _All.l_byteaInitFromFile(fname)
+	Pointer = RetObj.Pointer
+End Sub
+' SRC\bytearray.c (396, 1)
+' l_byteaAppendString(ba, str) as Integer
+' l_byteaAppendString(L_BYTEA *, const char *) as l_ok
+'''  <remarks>
+'''  </remarks>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaAppendString/*"/>
+'''  <param name="str">[in] - null-terminated string to be appended</param>
+'''   <returns>0 if OK, 1 on error</returns>
+Public Function l_byteaAppendString(
+				 ByVal str as String) as Integer
+	Dim RetObj = _All.l_byteaAppendString(me, str)
+	Return RetObj
+End Function
+' SRC\bytearray.c (363, 1)
+' l_byteaAppendData(ba, newdata, newbytes) as Integer
+' l_byteaAppendData(L_BYTEA *, const l_uint8 *, size_t) as l_ok
+'''  <remarks>
+'''  </remarks>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaAppendData/*"/>
+'''  <param name="newdata">[in] - byte array to be appended</param>
+'''  <param name="newbytes">[in] - size of data array</param>
+'''   <returns>0 if OK, 1 on error</returns>
+Public Function l_byteaAppendData(
+				 ByVal newdata as Byte(), 
+				 ByVal newbytes as UInteger) as Integer
+	Dim RetObj = _All.l_byteaAppendData(me, newdata, newbytes)
+	Return RetObj
+End Function
+' SRC\bytearray.c (213, 1)
+' l_byteaCopy(bas, copyflag) as L_Bytea
+' l_byteaCopy(L_BYTEA *, l_int32) as L_BYTEA *
+'''  <summary>
+''' Notes:<para/>
+''' 
+''' (1) If cloning, up the refcount and return a ptr to %bas.
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaCopy/*"/>
+'''  <param name="bas">[in] - source lba</param>
+'''  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
+'''   <returns>clone or copy of bas, or NULL on error</returns>
+Public Function l_byteaCopy(
+				 ByVal bas as L_Bytea, 
+				 ByVal copyflag as Enumerations.L_access_storage) as L_Bytea
+	Dim RetObj = _All.l_byteaCopy(bas, copyflag)
+	Return RetObj
+End Function
+' SRC\bytearray.c (333, 1)
+' l_byteaCopyData(ba, psize) as Byte()
+' l_byteaCopyData(L_BYTEA *, size_t *) as l_uint8 *
+'''  <summary>
+''' Notes:<para/>
+''' 
+''' (1) The returned data is owned by the caller.  The input %ba
+''' still owns the original data array.
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaCopyData/*"/>
+'''  <param name="psize">[out] - size of data in lba</param>
+'''   <returns>copy of data in use in the data array, or NULL on error.</returns>
+Public Function l_byteaCopyData(
+				<Out()> ByRef psize as UInteger) as Byte()
+	Dim RetObj = _All.l_byteaCopyData(me, psize)
+	Return RetObj
+End Function
+' SRC\bytearray.c (304, 1)
+' l_byteaGetData(ba, psize) as Byte()
+' l_byteaGetData(L_BYTEA *, size_t *) as l_uint8 *
+'''  <summary>
+''' Notes:<para/>
+''' 
+''' (1) The returned ptr is owned by %ba.  Do not free it!
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaGetData/*"/>
+'''  <param name="psize">[out] - size of data in lba</param>
+'''   <returns>ptr to existing data array, or NULL on error</returns>
+Public Function l_byteaGetData(
+				<Out()> ByRef psize as UInteger) as Byte()
+	Dim RetObj = _All.l_byteaGetData(me, psize)
+	Return RetObj
+End Function
+' SRC\bytearray.c (465, 1)
+' l_byteaJoin(ba1, pba2) as Integer
+' l_byteaJoin(L_BYTEA *, L_BYTEA **) as l_ok
+'''  <summary>
+''' Notes:<para/>
+''' 
+''' (1) It is a no-op, not an error, for %ba2 to be null.
+'''  </summary>
+'''  <remarks>
+'''  </remarks>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaJoin/*"/>
+'''  <param name="ba1">[in] - </param>
+'''  <param name="pba2">[in,out] - data array is added to the one in ba1, and then ba2 is destroyed</param>
+'''   <returns>0 if OK, 1 on error</returns>
+Public Function l_byteaJoin(
+				 ByVal ba1 as L_Bytea, 
+				 ByRef pba2 as L_Bytea) as Integer
+	Dim RetObj = _All.l_byteaJoin(ba1, pba2)
+	Return RetObj
+End Function
+' SRC\bytearray.c (497, 1)
+' l_byteaSplit(ba1, splitloc, pba2) as Integer
+' l_byteaSplit(L_BYTEA *, size_t, L_BYTEA **) as l_ok
+'''  <remarks>
+'''  </remarks>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaSplit/*"/>
+'''  <param name="ba1">[in] - lba to split array bytes nulled beyond the split loc</param>
+'''  <param name="splitloc">[in] - location in ba1 to split ba2 begins there</param>
+'''  <param name="pba2">[out] - with data starting at splitloc</param>
+'''   <returns>0 if OK, 1 on error</returns>
+Public Function l_byteaSplit(
+				 ByVal ba1 as L_Bytea, 
+				 ByVal splitloc as UInteger, 
+				<Out()> ByRef pba2 as L_Bytea) as Integer
+	Dim RetObj = _All.l_byteaSplit(ba1, splitloc, pba2)
+	Return RetObj
+End Function
+' SRC\bytearray.c (578, 1)
+' l_byteaWrite(fname, ba, startloc, endloc) as Integer
+' l_byteaWrite(const char *, L_BYTEA *, size_t, size_t) as l_ok
+'''  <remarks>
+'''  </remarks>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaWrite/*"/>
+'''  <param name="fname">[in] - output file</param>
+'''  <param name="startloc">[in] - first byte to output</param>
+'''  <param name="endloc">[in] - last byte to output use 0 to write to the end of the data array</param>
+'''   <returns>0 if OK, 1 on error</returns>
+Public Function l_byteaWrite(
+				 ByVal fname as String, 
+				 ByVal startloc as UInteger, 
+				 ByVal endloc as UInteger) as Integer
+	Dim RetObj = _All.l_byteaWrite(fname, me, startloc, endloc)
+	Return RetObj
+End Function
+' SRC\bytearray.c (612, 1)
+' l_byteaWriteStream(fp, ba, startloc, endloc) as Integer
+' l_byteaWriteStream(FILE *, L_BYTEA *, size_t, size_t) as l_ok
+'''  <remarks>
+'''  </remarks>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaWriteStream/*"/>
+'''  <param name="fp">[in] - file stream opened for binary write</param>
+'''  <param name="startloc">[in] - first byte to output</param>
+'''  <param name="endloc">[in] - last byte to output use 0 to write to the end of the data array</param>
+'''   <returns>0 if OK, 1 on error</returns>
+Public Function l_byteaWriteStream(
+				 ByVal fp as FILE, 
+				 ByVal startloc as UInteger, 
+				 ByVal endloc as UInteger) as Integer
+	Dim RetObj = _All.l_byteaWriteStream(fp, me, startloc, endloc)
+	Return RetObj
+End Function
+
+End Class
 Partial Public Class Pix
 ' SRC\readfile.c (189, 1)
 ' pixRead(filename) as Pix
@@ -13,7 +216,7 @@ Partial Public Class Pix
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRead/*"/>
 '''  <param name="filename">[in] - with full pathname or in local directory</param>
 Sub New (
 				 ByVal filename as String)
@@ -30,7 +233,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo32/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertTo32/*"/>
 '''   <returns>pixd 32 bpp, or NULL on error Usage: Top-level function, with simple default values for unpacking. 1 bpp:  val0 = 255, val1 = 0 and then replication into R, G and B components 2 bpp:  if colormapped, use the colormap values otherwise, use val0 = 0, val1 = 0x55, val2 = 0xaa, val3 = 255 and replicate gray into R, G and B components 4 bpp:  if colormapped, use the colormap values otherwise, replicate 2 nybs into a byte, and then into R,G,B components 8 bpp:  if colormapped, use the colormap values otherwise, replicate gray values into R, G and B components 16 bpp: replicate MSB into R, G and B components 24 bpp: unpack the pixels, maintaining word alignment on each scanline 32 bpp: makes a copy</returns>
 Public Function pixConvertTo32(
 ) as Pix
@@ -42,7 +245,7 @@ End Function
 ' pixConvertTo16(PIX *) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo16/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertTo16/*"/>
 '''   <returns>pixd 16 bpp, or NULL on error Usage: Top-level function, with simple default values for unpacking. 1 bpp:  val0 = 0xffff, val1 = 0 8 bpp:  replicates the 8 bit value in both the MSB and LSB of the 16 bit pixel.</returns>
 Public Function pixConvertTo16(
 ) as Pix
@@ -75,7 +278,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo8/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertTo8/*"/>
 '''  <param name="cmapflag">[in] - TRUE if pixd is to have a colormap FALSE otherwise</param>
 '''   <returns>pixd 8 bpp, or NULL on error</returns>
 Public Function pixConvertTo8(
@@ -99,7 +302,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo4/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertTo4/*"/>
 '''   <returns>pixd   4 bpp, or NULL on error</returns>
 Public Function pixConvertTo4(
 ) as Pix
@@ -122,7 +325,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo2/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertTo2/*"/>
 '''   <returns>pixd   2 bpp, or NULL on error</returns>
 Public Function pixConvertTo2(
 ) as Pix
@@ -145,7 +348,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertTo1/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertTo1/*"/>
 '''  <param name="threshold">[in] - for final binarization, relative to 8 bpp</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
 Public Function pixConvertTo1(
@@ -183,7 +386,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCopy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCopy/*"/>
 '''  <param name="pixd">[in][optional] - can be null, equal to pixs, different from pixs</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Function pixCopy(
@@ -206,7 +409,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDeskew/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDeskew/*"/>
 '''  <param name="redsearch">[in] - for binary search: reduction factor = 1, 2 or 4 use 0 for default</param>
 '''   <returns>pixd deskewed pix, or NULL on error</returns>
 Public Function pixDeskew(
@@ -234,7 +437,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixInvert/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixInvert/*"/>
 '''  <param name="pixd">[in][optional] - this can be null, equal to pixs, or different from pixs</param>
 '''   <returns>pixd, or NULL on error</returns>
 Public Function pixInvert(
@@ -261,7 +464,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixOrientCorrect/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixOrientCorrect/*"/>
 '''  <param name="minupconf">[in] - minimum value for which a decision can be made</param>
 '''  <param name="minratio">[in] - minimum conf ratio required for a decision</param>
 '''  <param name="pupconf">[out][optional] - use NULL to skip</param>
@@ -294,7 +497,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormSimple/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBackgroundNormSimple/*"/>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
 '''   <returns>pixd 8 bpp or 32 bpp rgb, or NULL on error</returns>
@@ -321,7 +524,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCleanBackgroundToWhite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCleanBackgroundToWhite/*"/>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
 '''  <param name="gamma">[in] - gamma correction must be  is greater  0.0 typically ~1.0</param>
@@ -349,7 +552,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetRegionsBinary/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetRegionsBinary/*"/>
 '''  <param name="ppixhm">[out][optional] - halftone mask</param>
 '''  <param name="ppixtm">[out][optional] - textline mask</param>
 '''  <param name="ppixtb">[out][optional] - textblock mask</param>
@@ -373,7 +576,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToGray/*"/>
 '''  <param name="rwt">[in] - non-negative these should add to 1.0, or use 0.0 for default</param>
 '''  <param name="gwt">[in] - non-negative these should add to 1.0, or use 0.0 for default</param>
 '''  <param name="bwt">[in] - non-negative these should add to 1.0, or use 0.0 for default</param>
@@ -414,7 +617,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixOctcubeQuantMixedWithGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixOctcubeQuantMixedWithGray/*"/>
 '''  <param name="depth">[in] - of output pix</param>
 '''  <param name="graylevels">[in] - graylevels (must be  is greater  1)</param>
 '''  <param name="delta">[in] - threshold for deciding if a pix is color or gray</param>
@@ -431,7 +634,7 @@ End Function
 ' pixGetColormap(PIX *) as PIXCMAP *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetColormap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetColormap/*"/>
 '''   <returns></returns>
 Public Function pixGetColormap(
 ) as PixColormap
@@ -451,7 +654,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSetColormap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetColormap/*"/>
 '''  <param name="colormap">[in] - to be assigned</param>
 '''   <returns>0 if OK, 1 on error.</returns>
 Public Function pixSetColormap(
@@ -475,7 +678,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpSinglePage/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpSinglePage/*"/>
 '''  <param name="thresh">[in] - for global thresholding to 1 bpp ignored otherwise</param>
 '''  <param name="adaptive">[in] - 1 for adaptive thresholding 0 for global threshold</param>
 '''  <param name="useboth">[in] - 1 for horizontal and vertical 0 for vertical only</param>
@@ -510,7 +713,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertToPdf/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertToPdf/*"/>
 '''  <param name="type">[in] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 '''  <param name="quality">[in] - used for JPEG only 0 for default (75)</param>
 '''  <param name="fileout">[in] - output pdf file only required on last image on page</param>
@@ -540,7 +743,7 @@ Partial Public Class PixColormap
 ' pixcmapCreate(l_int32) as PIXCMAP *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixcmapCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixcmapCreate/*"/>
 '''  <param name="depth">[in] - bpp, of pix</param>
 Sub New (
 				 ByVal depth as Integer)
@@ -552,7 +755,7 @@ End Sub
 ' pixcmapGetCount(PIXCMAP *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixcmapGetCount/*"/>
 '''   <returns>count, or 0 on error</returns>
 Public Function pixcmapGetCount(
 ) as Integer
@@ -564,7 +767,7 @@ End Function
 ' pixcmapGetColor(PIXCMAP *, l_int32, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixcmapGetColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixcmapGetColor/*"/>
 '''  <param name="index">[in] - </param>
 '''  <param name="prval">[out] - each color value</param>
 '''  <param name="pgval">[out] - each color value</param>
@@ -590,7 +793,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixcmapAddColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixcmapAddColor/*"/>
 '''  <param name="rval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 '''  <param name="gval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 '''  <param name="bval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>

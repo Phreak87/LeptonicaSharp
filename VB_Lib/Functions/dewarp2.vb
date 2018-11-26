@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\dewarp2.c (148, 1)
 ' dewarpBuildPageModel(dew, debugfile) as Integer
 ' dewarpBuildPageModel(L_DEWARP *, const char *) as l_ok
@@ -55,7 +54,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpBuildPageModel/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpBuildPageModel/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="debugfile">[in]use NULL to skip - writing this</param>
 '''   <returns>0 if OK, 1 if unable to build the model or on error</returns>
@@ -66,6 +65,7 @@ Public Shared Function dewarpBuildPageModel(
 	If IsNothing (dew) then Throw New ArgumentNullException  ("dew cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpBuildPageModel( dew.Pointer, debugfile)
+
 
 	Return _Result
 End Function
@@ -99,7 +99,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpFindVertDisparity/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpFindVertDisparity/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="ptaa">[in] - unsmoothed lines, not vertically ordered</param>
 '''  <param name="rotflag">[in] - 0 if using dewtopixs 1 if rotated by 90 degrees cw</param>
@@ -113,6 +113,7 @@ Public Shared Function dewarpFindVertDisparity(
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpFindVertDisparity( dew.Pointer, ptaa.Pointer, rotflag)
+
 
 	Return _Result
 End Function
@@ -140,7 +141,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpFindHorizDisparity/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpFindHorizDisparity/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="ptaa">[in] - unsmoothed lines, not vertically ordered</param>
 '''   <returns>0 if OK, 1 if horizontal disparity array is not built, or on error</returns>
@@ -152,6 +153,7 @@ Public Shared Function dewarpFindHorizDisparity(
 	If IsNothing (ptaa) then Throw New ArgumentNullException  ("ptaa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpFindHorizDisparity( dew.Pointer, ptaa.Pointer)
+
 
 	Return _Result
 End Function
@@ -169,7 +171,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpGetTextlineCenters/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpGetTextlineCenters/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="debugflag">[in] - 1 for debug output</param>
 '''   <returns>ptaa of center values of textlines</returns>
@@ -182,6 +184,7 @@ Public Shared Function dewarpGetTextlineCenters(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpGetTextlineCenters( pixs.Pointer, debugflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Ptaa(_Result)
@@ -192,7 +195,7 @@ End Function
 ' dewarpRemoveShortLines(PIX *, PTAA *, l_float32, l_int32) as PTAA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpRemoveShortLines/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpRemoveShortLines/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="ptaas">[in] - input lines</param>
 '''  <param name="fract">[in] - minimum fraction of longest line to keep</param>
@@ -210,6 +213,7 @@ Public Shared Function dewarpRemoveShortLines(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.dewarpRemoveShortLines( pixs.Pointer, ptaas.Pointer, fract, debugflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Ptaa(_Result)
@@ -254,7 +258,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpFindHorizSlopeDisparity/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpFindHorizSlopeDisparity/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="pixb">[in] - (1 bpp, with vertical and horizontal disparity removed)</param>
 '''  <param name="fractthresh">[in] - (threshold fractional difference in density)</param>
@@ -270,6 +274,7 @@ Public Shared Function dewarpFindHorizSlopeDisparity(
 	If IsNothing (pixb) then Throw New ArgumentNullException  ("pixb cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpFindHorizSlopeDisparity( dew.Pointer, pixb.Pointer, fractthresh, parity)
+
 
 	Return _Result
 End Function
@@ -303,7 +308,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpBuildLineModel/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpBuildLineModel/*"/>
 '''  <param name="dew">[in] - </param>
 '''  <param name="opensize">[in] - size of opening to remove perpendicular lines</param>
 '''  <param name="debugfile">[in]use NULL to skip - writing this</param>
@@ -316,6 +321,7 @@ Public Shared Function dewarpBuildLineModel(
 	If IsNothing (dew) then Throw New ArgumentNullException  ("dew cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpBuildLineModel( dew.Pointer, opensize, debugfile)
+
 
 	Return _Result
 End Function
@@ -330,7 +336,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/dewarpaModelStatus/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaModelStatus/*"/>
 '''  <param name="dewa">[in] - </param>
 '''  <param name="pageno">[in] - </param>
 '''  <param name="pvsuccess">[out][optional] - 1 on success</param>
@@ -345,6 +351,7 @@ Public Shared Function dewarpaModelStatus(
 	If IsNothing (dewa) then Throw New ArgumentNullException  ("dewa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.dewarpaModelStatus( dewa.Pointer, pageno, pvsuccess, phsuccess)
+
 
 	Return _Result
 End Function

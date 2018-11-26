@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\maze.c (142, 1)
 ' generateBinaryMaze(w, h, xi, yi, wallps, ranis) as Pix
 ' generateBinaryMaze(l_int32, l_int32, l_int32, l_int32, l_float32, l_float32) as PIX *
@@ -41,7 +40,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/generateBinaryMaze/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generateBinaryMaze/*"/>
 '''  <param name="w">[in] - size of maze</param>
 '''  <param name="h">[in] - size of maze</param>
 '''  <param name="xi">[in] - initial location</param>
@@ -58,6 +57,7 @@ Public Shared Function generateBinaryMaze(
 				 ByVal ranis as Single) as Pix
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.generateBinaryMaze( w, h, xi, yi, wallps, ranis)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -101,7 +101,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSearchBinaryMaze/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSearchBinaryMaze/*"/>
 '''  <param name="pixs">[in] - 1 bpp, maze</param>
 '''  <param name="xi">[in] - beginning point use same initial point that was used to generate the maze</param>
 '''  <param name="yi">[in] - beginning point use same initial point that was used to generate the maze</param>
@@ -122,8 +122,10 @@ Public Shared Function pixSearchBinaryMaze(
 Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSearchBinaryMaze( pixs.Pointer, xi, yi, xf, yf, ppixdPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if ppixdPTR <> IntPtr.Zero then ppixd = new Pix(ppixdPTR)
+If ppixdPTR = IntPtr.Zero Then ppixd = Nothing
+If ppixdPTR <> IntPtr.Zero Then ppixd = New Pix(ppixdPTR)
 
 	Return  new Pta(_Result)
 End Function
@@ -133,7 +135,7 @@ End Function
 ' pixSearchGrayMaze(PIX *, l_int32, l_int32, l_int32, l_int32, PIX **) as PTA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSearchGrayMaze/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSearchGrayMaze/*"/>
 '''  <param name="pixs">[in] - 1 bpp, maze</param>
 '''  <param name="xi">[in] - beginning point use same initial point that was used to generate the maze</param>
 '''  <param name="yi">[in] - beginning point use same initial point that was used to generate the maze</param>
@@ -154,8 +156,10 @@ Public Shared Function pixSearchGrayMaze(
 Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSearchGrayMaze( pixs.Pointer, xi, yi, xf, yf, ppixdPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if ppixdPTR <> IntPtr.Zero then ppixd = new Pix(ppixdPTR)
+If ppixdPTR = IntPtr.Zero Then ppixd = Nothing
+If ppixdPTR <> IntPtr.Zero Then ppixd = New Pix(ppixdPTR)
 
 	Return  new Pta(_Result)
 End Function

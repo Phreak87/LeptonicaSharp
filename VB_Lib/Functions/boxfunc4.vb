@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\boxfunc4.c (111, 1)
 ' boxaSelectRange(boxas, first, last, copyflag) as Boxa
 ' boxaSelectRange(BOXA *, l_int32, l_int32, l_int32) as BOXA *
@@ -15,7 +14,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaSelectRange/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaSelectRange/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="first">[in] - use 0 to select from the beginning</param>
 '''  <param name="last">[in] - use 0 to select to the end</param>
@@ -30,6 +29,7 @@ Public Shared Function boxaSelectRange(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaSelectRange( boxas.Pointer, first, last, copyflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -47,7 +47,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaSelectRange/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaSelectRange/*"/>
 '''  <param name="baas">[in] - </param>
 '''  <param name="first">[in] - use 0 to select from the beginning</param>
 '''  <param name="last">[in] - use 0 to select to the end</param>
@@ -62,6 +62,7 @@ Public Shared Function boxaaSelectRange(
 	If IsNothing (baas) then Throw New ArgumentNullException  ("baas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaSelectRange( baas.Pointer, first, last, copyflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxaa(_Result)
@@ -88,7 +89,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaSelectBySize/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaSelectBySize/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="width">[in] - threshold dimensions</param>
 '''  <param name="height">[in] - threshold dimensions</param>
@@ -107,6 +108,7 @@ Public Shared Function boxaSelectBySize(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaSelectBySize( boxas.Pointer, width, height, type, relation, pchanged)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -131,7 +133,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaMakeSizeIndicator/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaMakeSizeIndicator/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="width">[in] - threshold dimensions</param>
 '''  <param name="height">[in] - threshold dimensions</param>
@@ -148,6 +150,7 @@ Public Shared Function boxaMakeSizeIndicator(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaMakeSizeIndicator( boxa.Pointer, width, height, type, relation)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -168,7 +171,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaSelectByArea/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaSelectByArea/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="area">[in] - threshold value of width  height</param>
 '''  <param name="relation">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -183,6 +186,7 @@ Public Shared Function boxaSelectByArea(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaSelectByArea( boxas.Pointer, area, relation, pchanged)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -201,7 +205,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaMakeAreaIndicator/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaMakeAreaIndicator/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="area">[in] - threshold value of width  height</param>
 '''  <param name="relation">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -214,6 +218,7 @@ Public Shared Function boxaMakeAreaIndicator(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaMakeAreaIndicator( boxa.Pointer, area, relation)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -234,7 +239,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaSelectByWHRatio/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaSelectByWHRatio/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="ratio">[in] - width/height threshold value</param>
 '''  <param name="relation">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -249,6 +254,7 @@ Public Shared Function boxaSelectByWHRatio(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaSelectByWHRatio( boxas.Pointer, ratio, relation, pchanged)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -267,7 +273,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaMakeWHRatioIndicator/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaMakeWHRatioIndicator/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="ratio">[in] - width/height threshold value</param>
 '''  <param name="relation">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
@@ -280,6 +286,7 @@ Public Shared Function boxaMakeWHRatioIndicator(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaMakeWHRatioIndicator( boxa.Pointer, ratio, relation)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -299,7 +306,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaSelectWithIndicator/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaSelectWithIndicator/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="na">[in] - indicator numa</param>
 '''  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
@@ -313,6 +320,7 @@ Public Shared Function boxaSelectWithIndicator(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaSelectWithIndicator( boxas.Pointer, na.Pointer, pchanged)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -332,7 +340,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaPermutePseudorandom/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaPermutePseudorandom/*"/>
 '''  <param name="boxas">[in] - input boxa</param>
 '''   <returns>boxad with boxes permuted, or NULL on error</returns>
 Public Shared Function boxaPermutePseudorandom(
@@ -341,6 +349,7 @@ Public Shared Function boxaPermutePseudorandom(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaPermutePseudorandom( boxas.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -368,7 +377,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaPermuteRandom/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaPermuteRandom/*"/>
 '''  <param name="boxad">[in][optional] - can be null or equal to boxas</param>
 '''  <param name="boxas">[in] - input boxa</param>
 '''   <returns>boxad with boxes permuted, or NULL on error</returns>
@@ -381,6 +390,7 @@ Public Shared Function boxaPermuteRandom(
 	Dim boxadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(boxad) Then boxadPTR = boxad.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaPermuteRandom( boxadPTR, boxas.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -391,7 +401,7 @@ End Function
 ' boxaSwapBoxes(BOXA *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaSwapBoxes/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaSwapBoxes/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="i">[in] - two indices of boxes, that are to be swapped</param>
 '''  <param name="j">[in] - two indices of boxes, that are to be swapped</param>
@@ -404,6 +414,7 @@ Public Shared Function boxaSwapBoxes(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaSwapBoxes( boxa.Pointer, i, j)
+
 
 	Return _Result
 End Function
@@ -419,7 +430,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaConvertToPta/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaConvertToPta/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="ncorners">[in] - 2 or 4 for the representation of each box</param>
 '''   <returns>pta with %ncorners points for each box in the boxa, or NULL on error</returns>
@@ -430,6 +441,7 @@ Public Shared Function boxaConvertToPta(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaConvertToPta( boxa.Pointer, ncorners)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -448,7 +460,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaConvertToBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaConvertToBoxa/*"/>
 '''  <param name="pta">[in] - </param>
 '''  <param name="ncorners">[in] - 2 or 4 for the representation of each box</param>
 '''   <returns>boxa with one box for each 2 or 4 points in the pta, or NULL on error</returns>
@@ -459,6 +471,7 @@ Public Shared Function ptaConvertToBoxa(
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaConvertToBoxa( pta.Pointer, ncorners)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -475,7 +488,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxConvertToPta/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxConvertToPta/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="ncorners">[in] - 2 or 4 for the representation of the box</param>
 '''   <returns>pta with %ncorners points, or NULL on error</returns>
@@ -486,6 +499,7 @@ Public Shared Function boxConvertToPta(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxConvertToPta( box.Pointer, ncorners)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -502,7 +516,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaConvertToBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaConvertToBox/*"/>
 '''  <param name="pta">[in] - </param>
 '''   <returns>box minimum containing all points in the pta, or NULL on error</returns>
 Public Shared Function ptaConvertToBox(
@@ -511,6 +525,7 @@ Public Shared Function ptaConvertToBox(
 	If IsNothing (pta) then Throw New ArgumentNullException  ("pta cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaConvertToBox( pta.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -537,7 +552,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaSmoothSequenceLS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaSmoothSequenceLS/*"/>
 '''  <param name="boxas">[in] - source boxa</param>
 '''  <param name="factor">[in] - reject outliers with widths and heights deviating from the median by more than %factor times the median variation from the median typically ~3</param>
 '''  <param name="subflag">[in] - L_USE_MINSIZE, L_USE_MAXSIZE, L_SUB_ON_LOC_DIFF, L_SUB_ON_SIZE_DIFF, L_USE_CAPPED_MIN, L_USE_CAPPED_MAX</param>
@@ -556,6 +571,7 @@ Public Shared Function boxaSmoothSequenceLS(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaSmoothSequenceLS( boxas.Pointer, factor, subflag, maxdiff, extrapixels, debug)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -593,7 +609,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaSmoothSequenceMedian/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaSmoothSequenceMedian/*"/>
 '''  <param name="boxas">[in] - source boxa</param>
 '''  <param name="halfwin">[in] - half-width of sliding window used to find median</param>
 '''  <param name="subflag">[in] - L_USE_MINSIZE, L_USE_MAXSIZE, L_SUB_ON_LOC_DIFF, L_SUB_ON_SIZE_DIFF, L_USE_CAPPED_MIN, L_USE_CAPPED_MAX</param>
@@ -612,6 +628,7 @@ Public Shared Function boxaSmoothSequenceMedian(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaSmoothSequenceMedian( boxas.Pointer, halfwin, subflag, maxdiff, extrapixels, debug)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -649,7 +666,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaLinearFit/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaLinearFit/*"/>
 '''  <param name="boxas">[in] - source boxa</param>
 '''  <param name="factor">[in] - reject outliers with widths and heights deviating from the median by more than %factor times the median deviation from the median typically ~3</param>
 '''  <param name="debug">[in] - 1 for debug output</param>
@@ -662,6 +679,7 @@ Public Shared Function boxaLinearFit(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaLinearFit( boxas.Pointer, factor, debug)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -684,7 +702,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaWindowedMedian/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaWindowedMedian/*"/>
 '''  <param name="boxas">[in] - source boxa</param>
 '''  <param name="halfwin">[in] - half width of window over which the median is found</param>
 '''  <param name="debug">[in] - 1 for debug output</param>
@@ -697,6 +715,7 @@ Public Shared Function boxaWindowedMedian(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaWindowedMedian( boxas.Pointer, halfwin, debug)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -770,7 +789,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaModifyWithBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaModifyWithBoxa/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="boxam">[in] - boxa with boxes used to modify those in boxas</param>
 '''  <param name="subflag">[in] - L_USE_MINSIZE, L_USE_MAXSIZE, L_SUB_ON_LOC_DIFF, L_SUB_ON_SIZE_DIFF, L_USE_CAPPED_MIN, L_USE_CAPPED_MAX</param>
@@ -788,6 +807,7 @@ Public Shared Function boxaModifyWithBoxa(
 	If IsNothing (boxam) then Throw New ArgumentNullException  ("boxam cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaModifyWithBoxa( boxas.Pointer, boxam.Pointer, subflag, maxdiff, extrapixels)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -816,7 +836,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaConstrainSize/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaConstrainSize/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="width">[in] - force width of all boxes to this size input 0 to use the median width</param>
 '''  <param name="widthflag">[in] - L_ADJUST_SKIP, L_ADJUST_LEFT, L_ADJUST_RIGHT, or L_ADJUST_LEFT_AND_RIGHT</param>
@@ -833,6 +853,7 @@ Public Shared Function boxaConstrainSize(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaConstrainSize( boxas.Pointer, width, widthflag, height, heightflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -880,7 +901,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaReconcileEvenOddHeight/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaReconcileEvenOddHeight/*"/>
 '''  <param name="boxas">[in] - containing at least 3 valid boxes in even and odd</param>
 '''  <param name="sides">[in] - L_ADJUST_TOP, L_ADJUST_BOT, L_ADJUST_TOP_AND_BOT</param>
 '''  <param name="delh">[in] - threshold on median height difference</param>
@@ -899,6 +920,7 @@ Public Shared Function boxaReconcileEvenOddHeight(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaReconcileEvenOddHeight( boxas.Pointer, sides, delh, op, factor, start)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -929,7 +951,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaReconcilePairWidth/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaReconcilePairWidth/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="delw">[in] - threshold on adjacent width difference</param>
 '''  <param name="op">[in] - L_ADJUST_CHOOSE_MIN, L_ADJUST_CHOOSE_MAX</param>
@@ -948,6 +970,7 @@ Public Shared Function boxaReconcilePairWidth(
 	Dim naPTR As IntPtr = IntPtr.Zero : If Not IsNothing(na) Then naPTR = na.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaReconcilePairWidth( boxas.Pointer, delw, op, factor, naPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -971,7 +994,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaPlotSides/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaPlotSides/*"/>
 '''  <param name="boxa">[in] - source boxa</param>
 '''  <param name="plotname">[in][optional] - , can be NULL</param>
 '''  <param name="pnal">[out][optional] - na of left sides</param>
@@ -998,11 +1021,17 @@ Dim pnabPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnab) Then pnabPTR = pnab
 Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaPlotSides( boxa.Pointer, plotname, pnalPTR, pnatPTR, pnarPTR, pnabPTR, ppixdPTR)
-	if pnalPTR <> IntPtr.Zero then pnal = new Numa(pnalPTR)
-	if pnatPTR <> IntPtr.Zero then pnat = new Numa(pnatPTR)
-	if pnarPTR <> IntPtr.Zero then pnar = new Numa(pnarPTR)
-	if pnabPTR <> IntPtr.Zero then pnab = new Numa(pnabPTR)
-	if ppixdPTR <> IntPtr.Zero then ppixd = new Pix(ppixdPTR)
+
+If pnalPTR = IntPtr.Zero Then pnal = Nothing
+If pnalPTR <> IntPtr.Zero Then pnal = New Numa(pnalPTR)
+If pnatPTR = IntPtr.Zero Then pnat = Nothing
+If pnatPTR <> IntPtr.Zero Then pnat = New Numa(pnatPTR)
+If pnarPTR = IntPtr.Zero Then pnar = Nothing
+If pnarPTR <> IntPtr.Zero Then pnar = New Numa(pnarPTR)
+If pnabPTR = IntPtr.Zero Then pnab = Nothing
+If pnabPTR <> IntPtr.Zero Then pnab = New Numa(pnabPTR)
+If ppixdPTR = IntPtr.Zero Then ppixd = Nothing
+If ppixdPTR <> IntPtr.Zero Then ppixd = New Pix(ppixdPTR)
 
 	Return _Result
 End Function
@@ -1026,7 +1055,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaPlotSizes/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaPlotSizes/*"/>
 '''  <param name="boxa">[in] - source boxa</param>
 '''  <param name="plotname">[in][optional] - , can be NULL</param>
 '''  <param name="pnaw">[out][optional] - na of widths</param>
@@ -1047,9 +1076,13 @@ Dim pnahPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnah) Then pnahPTR = pnah
 Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaPlotSizes( boxa.Pointer, plotname, pnawPTR, pnahPTR, ppixdPTR)
-	if pnawPTR <> IntPtr.Zero then pnaw = new Numa(pnawPTR)
-	if pnahPTR <> IntPtr.Zero then pnah = new Numa(pnahPTR)
-	if ppixdPTR <> IntPtr.Zero then ppixd = new Pix(ppixdPTR)
+
+If pnawPTR = IntPtr.Zero Then pnaw = Nothing
+If pnawPTR <> IntPtr.Zero Then pnaw = New Numa(pnawPTR)
+If pnahPTR = IntPtr.Zero Then pnah = Nothing
+If pnahPTR <> IntPtr.Zero Then pnah = New Numa(pnahPTR)
+If ppixdPTR = IntPtr.Zero Then ppixd = Nothing
+If ppixdPTR <> IntPtr.Zero Then ppixd = New Pix(ppixdPTR)
 
 	Return _Result
 End Function
@@ -1070,7 +1103,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaFillSequence/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaFillSequence/*"/>
 '''  <param name="boxas">[in] - with at least 3 boxes</param>
 '''  <param name="useflag">[in] - L_USE_ALL_BOXES, L_USE_SAME_PARITY_BOXES</param>
 '''  <param name="debug">[in] - 1 for debug output</param>
@@ -1083,6 +1116,7 @@ Public Shared Function boxaFillSequence(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaFillSequence( boxas.Pointer, useflag, debug)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -1106,7 +1140,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaSizeVariation/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaSizeVariation/*"/>
 '''  <param name="boxa">[in] - at least 4 boxes</param>
 '''  <param name="type">[in] - L_SELECT_WIDTH, L_SELECT_HEIGHT</param>
 '''  <param name="pdel_evenodd">[out][optional] - average absolute value of (even - odd) size pairs</param>
@@ -1125,6 +1159,7 @@ Public Shared Function boxaSizeVariation(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaSizeVariation( boxa.Pointer, type, pdel_evenodd, prms_even, prms_odd, prms_all)
+
 
 	Return _Result
 End Function
@@ -1145,7 +1180,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaGetExtent/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaGetExtent/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pw">[out][optional] - width</param>
 '''  <param name="ph">[out][optional] - height</param>
@@ -1162,7 +1197,9 @@ Public Shared Function boxaGetExtent(
 Dim pboxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbox) Then pboxPTR = pbox.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaGetExtent( boxa.Pointer, pw, ph, pboxPTR)
-	if pboxPTR <> IntPtr.Zero then pbox = new Box(pboxPTR)
+
+If pboxPTR = IntPtr.Zero Then pbox = Nothing
+If pboxPTR <> IntPtr.Zero Then pbox = New Box(pboxPTR)
 
 	Return _Result
 End Function
@@ -1185,7 +1222,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaGetCoverage/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaGetCoverage/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="wc">[in] - dimensions of overall clipping rectangle with UL corner at (0, 0 that is covered by the boxes.</param>
 '''  <param name="hc">[in] - dimensions of overall clipping rectangle with UL corner at (0, 0 that is covered by the boxes.</param>
@@ -1203,6 +1240,7 @@ Public Shared Function boxaGetCoverage(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaGetCoverage( boxa.Pointer, wc, hc, exactflag, pfract)
 
+
 	Return _Result
 End Function
 
@@ -1211,7 +1249,7 @@ End Function
 ' boxaaSizeRange(BOXAA *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaSizeRange/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaSizeRange/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="pminw">[out][optional] - range of dimensions of all boxes</param>
 '''  <param name="pminh">[out][optional] - range of dimensions of all boxes</param>
@@ -1229,6 +1267,7 @@ Public Shared Function boxaaSizeRange(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaSizeRange( baa.Pointer, pminw, pminh, pmaxw, pmaxh)
 
+
 	Return _Result
 End Function
 
@@ -1237,7 +1276,7 @@ End Function
 ' boxaSizeRange(BOXA *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaSizeRange/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaSizeRange/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pminw">[out][optional] - range of dimensions of box in the array</param>
 '''  <param name="pminh">[out][optional] - range of dimensions of box in the array</param>
@@ -1255,6 +1294,7 @@ Public Shared Function boxaSizeRange(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaSizeRange( boxa.Pointer, pminw, pminh, pmaxw, pmaxh)
 
+
 	Return _Result
 End Function
 
@@ -1263,7 +1303,7 @@ End Function
 ' boxaLocationRange(BOXA *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaLocationRange/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaLocationRange/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pminx">[out][optional] - range of UL corner positions</param>
 '''  <param name="pminy">[out][optional] - range of UL corner positions</param>
@@ -1281,6 +1321,7 @@ Public Shared Function boxaLocationRange(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaLocationRange( boxa.Pointer, pminx, pminy, pmaxx, pmaxy)
 
+
 	Return _Result
 End Function
 
@@ -1289,7 +1330,7 @@ End Function
 ' boxaGetSizes(BOXA *, NUMA **, NUMA **) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaGetSizes/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaGetSizes/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pnaw">[out][optional] - widths and heights of valid boxes</param>
 '''  <param name="pnah">[out][optional] - widths and heights of valid boxes</param>
@@ -1305,8 +1346,11 @@ Dim pnawPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaw) Then pnawPTR = pnaw
 Dim pnahPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnah) Then pnahPTR = pnah.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaGetSizes( boxa.Pointer, pnawPTR, pnahPTR)
-	if pnawPTR <> IntPtr.Zero then pnaw = new Numa(pnawPTR)
-	if pnahPTR <> IntPtr.Zero then pnah = new Numa(pnahPTR)
+
+If pnawPTR = IntPtr.Zero Then pnaw = Nothing
+If pnawPTR <> IntPtr.Zero Then pnaw = New Numa(pnawPTR)
+If pnahPTR = IntPtr.Zero Then pnah = Nothing
+If pnahPTR <> IntPtr.Zero Then pnah = New Numa(pnahPTR)
 
 	Return _Result
 End Function
@@ -1321,7 +1365,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaGetArea/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaGetArea/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="parea">[out] - total area of all boxes</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1332,6 +1376,7 @@ Public Shared Function boxaGetArea(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaGetArea( boxa.Pointer, parea)
+
 
 	Return _Result
 End Function
@@ -1353,7 +1398,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaDisplayTiled/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaDisplayTiled/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="pixa">[in][optional] - background for each box</param>
 '''  <param name="maxwidth">[in] - of output image</param>
@@ -1378,6 +1423,7 @@ Public Shared Function boxaDisplayTiled(
 	Dim pixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixa) Then pixaPTR = pixa.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaDisplayTiled( boxas.Pointer, pixaPTR, maxwidth, linewidth, scalefactor, background, spacing, border)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

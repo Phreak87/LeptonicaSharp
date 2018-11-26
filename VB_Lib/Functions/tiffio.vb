@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\tiffio.c (371, 1)
 ' pixReadTiff(filename, n) as Pix
 ' pixReadTiff(const char *, l_int32) as PIX *
@@ -18,7 +17,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadTiff/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadTiff/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="n">[in] - page number 0 based</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -28,9 +27,10 @@ Public Shared Function pixReadTiff(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadTiff( filename, n)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -48,7 +48,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamTiff/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadStreamTiff/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="n">[in] - page number: 0 based</param>
 '''   <returns>pix, or NULL on error or if there are no more images in the file</returns>
@@ -59,6 +59,7 @@ Public Shared Function pixReadStreamTiff(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadStreamTiff( fp.Pointer, n)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -80,7 +81,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteTiff/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteTiff/*"/>
 '''  <param name="filename">[in] - to write to</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="comptype">[in] - IFF_TIFF, IFF_TIFF_RLE, IFF_TIFF_PACKBITS, IFF_TIFF_G3, IFF_TIFF_G4, IFF_TIFF_LZW, IFF_TIFF_ZIP</param>
@@ -96,9 +97,8 @@ Public Shared Function pixWriteTiff(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 	If IsNothing (modestr) then Throw New ArgumentNullException  ("modestr cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteTiff( filename, pix.Pointer, comptype, modestr)
+
 
 	Return _Result
 End Function
@@ -108,7 +108,7 @@ End Function
 ' pixWriteTiffCustom(const char *, PIX *, l_int32, const char *, NUMA *, SARRAY *, SARRAY *, NUMA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteTiffCustom/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteTiffCustom/*"/>
 '''  <param name="filename">[in] - to write to</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="comptype">[in] - IFF_TIFF, IFF_TIFF_RLE, IFF_TIFF_PACKBITS, IFF_TIFF_G3, IFF_TIFF_G4, IFF_TIFF_LZW, IFF_TIFF_ZIP</param>
@@ -132,14 +132,13 @@ Public Shared Function pixWriteTiffCustom(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 	If IsNothing (modestr) then Throw New ArgumentNullException  ("modestr cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim natagsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(natags) Then natagsPTR = natags.Pointer
 	Dim savalsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(savals) Then savalsPTR = savals.Pointer
 	Dim satypesPTR As IntPtr = IntPtr.Zero : If Not IsNothing(satypes) Then satypesPTR = satypes.Pointer
 	Dim nasizesPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nasizes) Then nasizesPTR = nasizes.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteTiffCustom( filename, pix.Pointer, comptype, modestr, natagsPTR, savalsPTR, satypesPTR, nasizesPTR)
+
 
 	Return _Result
 End Function
@@ -169,7 +168,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamTiff/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteStreamTiff/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="comptype">[in] - IFF_TIFF, IFF_TIFF_RLE, IFF_TIFF_PACKBITS, IFF_TIFF_G3, IFF_TIFF_G4, IFF_TIFF_LZW, IFF_TIFF_ZIP</param>
@@ -184,6 +183,7 @@ Public Shared Function pixWriteStreamTiff(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamTiff( fp.Pointer, pix.Pointer, comptype)
 
+
 	Return _Result
 End Function
 
@@ -192,7 +192,7 @@ End Function
 ' pixWriteStreamTiffWA(FILE *, PIX *, l_int32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamTiffWA/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteStreamTiffWA/*"/>
 '''  <param name="fp">[in] - file stream opened for append or write</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="comptype">[in] - IFF_TIFF, IFF_TIFF_RLE, IFF_TIFF_PACKBITS, IFF_TIFF_G3, IFF_TIFF_G4, IFF_TIFF_LZW, IFF_TIFF_ZIP</param>
@@ -209,6 +209,7 @@ Public Shared Function pixWriteStreamTiffWA(
 	If IsNothing (modestr) then Throw New ArgumentNullException  ("modestr cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamTiffWA( fp.Pointer, pix.Pointer, comptype, modestr)
+
 
 	Return _Result
 End Function
@@ -248,7 +249,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadFromMultipageTiff/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadFromMultipageTiff/*"/>
 '''  <param name="fname">[in] - filename</param>
 '''  <param name="poffset">[in,out] - set offset to 0 for first image</param>
 '''   <returns>pix, or NULL on error or if previous call returned the last image</returns>
@@ -258,9 +259,13 @@ Public Shared Function pixReadFromMultipageTiff(
 
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 
+	If My.Computer.Filesystem.FileExists (fname) = false then Throw New ArgumentException ("File is missing")
+
 	Dim poffsetPTR As IntPtr = Marshal.AllocHGlobal(poffset.Count) : Marshal.Copy(poffset, 0, poffsetPTR, poffset.Length)
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadFromMultipageTiff( fname, poffsetPTR)
+Marshal.FreeHGlobal(poffsetPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 	ReDim poffset(IIf(1 > 0, 1, 1) - 1) : If poffsetPTR <> IntPtr.Zero Then Marshal.Copy(poffsetPTR, poffset, 0, poffset.count)
 
@@ -272,7 +277,7 @@ End Function
 ' pixaReadMultipageTiff(const char *) as PIXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaReadMultipageTiff/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaReadMultipageTiff/*"/>
 '''  <param name="filename">[in] - input tiff file</param>
 '''   <returns>pixa of page images, or NULL on error</returns>
 Public Shared Function pixaReadMultipageTiff(
@@ -280,9 +285,10 @@ Public Shared Function pixaReadMultipageTiff(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaReadMultipageTiff( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -300,7 +306,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaWriteMultipageTiff/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaWriteMultipageTiff/*"/>
 '''  <param name="fname">[in] - input tiff file</param>
 '''  <param name="pixa">[in] - any depth colormap will be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -312,6 +318,7 @@ Public Shared Function pixaWriteMultipageTiff(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaWriteMultipageTiff( fname, pixa.Pointer)
+
 
 	Return _Result
 End Function
@@ -340,7 +347,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/writeMultipageTiff/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/writeMultipageTiff/*"/>
 '''  <param name="dirin">[in] - input directory</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="fileout">[in] - output multipage tiff file</param>
@@ -355,6 +362,7 @@ Public Shared Function writeMultipageTiff(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.writeMultipageTiff( dirin, substr, fileout)
 
+
 	Return _Result
 End Function
 
@@ -368,7 +376,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/writeMultipageTiffSA/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/writeMultipageTiffSA/*"/>
 '''  <param name="sa">[in] - string array of full path names</param>
 '''  <param name="fileout">[in] - output ps file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -381,6 +389,7 @@ Public Shared Function writeMultipageTiffSA(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.writeMultipageTiffSA( sa.Pointer, fileout)
 
+
 	Return _Result
 End Function
 
@@ -389,7 +398,7 @@ End Function
 ' fprintTiffInfo(FILE *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fprintTiffInfo/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fprintTiffInfo/*"/>
 '''  <param name="fpout">[in] - stream for output of tag data</param>
 '''  <param name="tiffile">[in] - input</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -402,6 +411,7 @@ Public Shared Function fprintTiffInfo(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fprintTiffInfo( fpout.Pointer, tiffile)
 
+
 	Return _Result
 End Function
 
@@ -410,7 +420,7 @@ End Function
 ' tiffGetCount(FILE *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/tiffGetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/tiffGetCount/*"/>
 '''  <param name="fp">[in] - file stream opened for read</param>
 '''  <param name="pn">[out] - number of images</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -421,6 +431,7 @@ Public Shared Function tiffGetCount(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.tiffGetCount( fp.Pointer, pn)
+
 
 	Return _Result
 End Function
@@ -436,7 +447,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/getTiffResolution/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getTiffResolution/*"/>
 '''  <param name="fp">[in] - file stream opened for read</param>
 '''  <param name="pxres">[out] - resolution in ppi</param>
 '''  <param name="pyres">[out] - resolution in ppi</param>
@@ -449,6 +460,7 @@ Public Shared Function getTiffResolution(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.getTiffResolution( fp.Pointer, pxres, pyres)
+
 
 	Return _Result
 End Function
@@ -465,7 +477,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/readHeaderTiff/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/readHeaderTiff/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="n">[in] - page image number: 0-based</param>
 '''  <param name="pw">[out][optional] - width</param>
@@ -489,9 +501,10 @@ Public Shared Function readHeaderTiff(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderTiff( filename, n, pw, ph, pbps, pspp, pres, pcmap, pformat)
+
 
 	Return _Result
 End Function
@@ -508,7 +521,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/freadHeaderTiff/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/freadHeaderTiff/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="n">[in] - page image number: 0-based</param>
 '''  <param name="pw">[out][optional] - width</param>
@@ -534,6 +547,7 @@ Public Shared Function freadHeaderTiff(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.freadHeaderTiff( fp.Pointer, n, pw, ph, pbps, pspp, pres, pcmap, pformat)
 
+
 	Return _Result
 End Function
 
@@ -547,7 +561,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/readHeaderMemTiff/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/readHeaderMemTiff/*"/>
 '''  <param name="cdata">[in] - const tiff-encoded</param>
 '''  <param name="size">[in] - size of data</param>
 '''  <param name="n">[in] - page image number: 0-based</param>
@@ -575,6 +589,7 @@ Public Shared Function readHeaderMemTiff(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderMemTiff( cdata, size, n, pw, ph, pbps, pspp, pres, pcmap, pformat)
 
+
 	Return _Result
 End Function
 
@@ -597,7 +612,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/findTiffCompression/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/findTiffCompression/*"/>
 '''  <param name="fp">[in] - file stream must be rewound to BOF</param>
 '''  <param name="pcomptype">[out] - compression type</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -609,6 +624,7 @@ Public Shared Function findTiffCompression(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.findTiffCompression( fp.Pointer, pcomptype)
 
+
 	Return _Result
 End Function
 
@@ -617,7 +633,7 @@ End Function
 ' extractG4DataFromFile(const char *, l_uint8 **, size_t *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/extractG4DataFromFile/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/extractG4DataFromFile/*"/>
 '''  <param name="filein">[in] - </param>
 '''  <param name="pdata">[out] - binary data of ccitt g4 encoded stream</param>
 '''  <param name="pnbytes">[out] - size of binary data</param>
@@ -638,6 +654,7 @@ Public Shared Function extractG4DataFromFile(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.extractG4DataFromFile( filein, pdataPTR, pnbytes, pw, ph, pminisblack)
+
 	ReDim pdata(IIf(pnbytes > 0, pnbytes, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -663,7 +680,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadMemTiff/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadMemTiff/*"/>
 '''  <param name="cdata">[in] - const tiff-encoded</param>
 '''  <param name="size">[in] - size of cdata</param>
 '''  <param name="n">[in] - page image number: 0-based</param>
@@ -676,6 +693,7 @@ Public Shared Function pixReadMemTiff(
 	If IsNothing (cdata) then Throw New ArgumentNullException  ("cdata cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemTiff( cdata, size, n)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -703,7 +721,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadMemFromMultipageTiff/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadMemFromMultipageTiff/*"/>
 '''  <param name="cdata">[in] - const tiff-encoded</param>
 '''  <param name="size">[in] - size of cdata</param>
 '''  <param name="poffset">[in,out] - set offset to 0 for first image</param>
@@ -718,6 +736,8 @@ Public Shared Function pixReadMemFromMultipageTiff(
 	Dim poffsetPTR As IntPtr = Marshal.AllocHGlobal(poffset.Count) : Marshal.Copy(poffset, 0, poffsetPTR, poffset.Length)
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemFromMultipageTiff( cdata, size, poffsetPTR)
+Marshal.FreeHGlobal(poffsetPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 	ReDim poffset(IIf(size > 0, size, 1) - 1) : If poffsetPTR <> IntPtr.Zero Then Marshal.Copy(poffsetPTR, poffset, 0, poffset.count)
 
@@ -734,7 +754,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaReadMemMultipageTiff/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaReadMemMultipageTiff/*"/>
 '''  <param name="data">[in] - const multiple pages tiff-encoded</param>
 '''  <param name="size">[in] - size of cdata</param>
 '''   <returns>pixa, or NULL on error</returns>
@@ -745,6 +765,7 @@ Public Shared Function pixaReadMemMultipageTiff(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaReadMemMultipageTiff( data, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -765,7 +786,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaWriteMemMultipageTiff/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaWriteMemMultipageTiff/*"/>
 '''  <param name="pdata">[out] - const tiff-encoded</param>
 '''  <param name="psize">[out] - size of data</param>
 '''  <param name="pixa">[in] - any depth colormap will be removed</param>
@@ -780,6 +801,7 @@ Public Shared Function pixaWriteMemMultipageTiff(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaWriteMemMultipageTiff( pdataPTR, psize, pixa.Pointer)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -790,7 +812,7 @@ End Function
 ' pixWriteMemTiff(l_uint8 **, size_t *, PIX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemTiff/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteMemTiff/*"/>
 '''  <param name="pdata">[out] - data of tiff compressed image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - </param>
@@ -807,6 +829,7 @@ Public Shared Function pixWriteMemTiff(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMemTiff( pdataPTR, psize, pix.Pointer, comptype)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -817,7 +840,7 @@ End Function
 ' pixWriteMemTiffCustom(l_uint8 **, size_t *, PIX *, l_int32, NUMA *, SARRAY *, SARRAY *, NUMA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemTiffCustom/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteMemTiffCustom/*"/>
 '''  <param name="pdata">[out] - data of tiff compressed image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - </param>
@@ -846,6 +869,7 @@ Public Shared Function pixWriteMemTiffCustom(
 	Dim nasizesPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nasizes) Then nasizesPTR = nasizes.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMemTiffCustom( pdataPTR, psize, pix.Pointer, comptype, natagsPTR, savalsPTR, satypesPTR, nasizesPTR)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result

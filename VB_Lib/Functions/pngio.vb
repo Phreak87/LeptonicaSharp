@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\pngio.c (185, 1)
 ' pixReadStreamPng(fp) as Pix
 ' pixReadStreamPng(FILE *) as PIX *
@@ -36,7 +35,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamPng/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadStreamPng/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>pix, or NULL on error</returns>
 Public Shared Function pixReadStreamPng(
@@ -45,6 +44,7 @@ Public Shared Function pixReadStreamPng(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadStreamPng( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -64,7 +64,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/readHeaderPng/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/readHeaderPng/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -82,9 +82,10 @@ Public Shared Function readHeaderPng(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderPng( filename, pw, ph, pbps, pspp, piscmap)
+
 
 	Return _Result
 End Function
@@ -99,7 +100,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/freadHeaderPng/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/freadHeaderPng/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pw">[out][optional] - </param>
 '''  <param name="ph">[out][optional] - </param>
@@ -118,6 +119,7 @@ Public Shared Function freadHeaderPng(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.freadHeaderPng( fp.Pointer, pw, ph, pbps, pspp, piscmap)
+
 
 	Return _Result
 End Function
@@ -142,7 +144,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/readHeaderMemPng/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/readHeaderMemPng/*"/>
 '''  <param name="data">[in] - </param>
 '''  <param name="size">[in] - 40 bytes is sufficient</param>
 '''  <param name="pw">[out][optional] - </param>
@@ -164,6 +166,7 @@ Public Shared Function readHeaderMemPng(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.readHeaderMemPng( data, size, pw, ph, pbps, pspp, piscmap)
 
+
 	Return _Result
 End Function
 
@@ -172,7 +175,7 @@ End Function
 ' fgetPngResolution(FILE *, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fgetPngResolution/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fgetPngResolution/*"/>
 '''   <returns></returns>
 Public Shared Function fgetPngResolution(
 				 ByVal fp as FILE, 
@@ -187,6 +190,7 @@ Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fgetPngResolution( fp.Pointer, pxres, pyres)
 
+
 	Return _Result
 End Function
 
@@ -195,7 +199,7 @@ End Function
 ' isPngInterlaced(const char *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/isPngInterlaced/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/isPngInterlaced/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pinterlaced">[out] - 1 if interlaced png 0 otherwise</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -205,9 +209,10 @@ Public Shared Function isPngInterlaced(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.isPngInterlaced( filename, pinterlaced)
+
 
 	Return _Result
 End Function
@@ -217,7 +222,7 @@ End Function
 ' fgetPngColormapInfo(FILE *, PIXCMAP **, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fgetPngColormapInfo/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fgetPngColormapInfo/*"/>
 '''   <returns></returns>
 Public Shared Function fgetPngColormapInfo(
 				 ByVal fp as FILE, 
@@ -233,6 +238,7 @@ Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fgetPngColormapInfo( fp.Pointer, pcmapPTR, ptransparency)
 
+
 	Return _Result
 End Function
 
@@ -247,7 +253,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWritePng/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWritePng/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="gamma">[in] - </param>
@@ -260,9 +266,8 @@ Public Shared Function pixWritePng(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWritePng( filename, pix.Pointer, gamma)
+
 
 	Return _Result
 End Function
@@ -344,7 +349,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamPng/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteStreamPng/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="gamma">[in] - use 0.0 if gamma is not defined</param>
@@ -358,6 +363,7 @@ Public Shared Function pixWriteStreamPng(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamPng( fp.Pointer, pix.Pointer, gamma)
+
 
 	Return _Result
 End Function
@@ -382,7 +388,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSetZlibCompression/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetZlibCompression/*"/>
 '''  <param name="pix">[in] - </param>
 '''  <param name="compval">[in] - zlib compression value</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -394,6 +400,7 @@ Public Shared Function pixSetZlibCompression(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetZlibCompression( pix.Pointer, compval)
 
+
 	Return _Result
 End Function
 
@@ -402,12 +409,13 @@ End Function
 ' l_pngSetReadStrip16To8(l_int32) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_pngSetReadStrip16To8/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_pngSetReadStrip16To8/*"/>
 '''  <param name="flag">[in] - 1 for stripping 16 bpp to 8 bpp on reading 0 for leaving 16 bpp</param>
 Public Shared Sub l_pngSetReadStrip16To8(
 				 ByVal flag as Integer)
 
 	LeptonicaSharp.Natives.l_pngSetReadStrip16To8( flag)
+
 
 End Sub
 
@@ -421,7 +429,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadMemPng/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadMemPng/*"/>
 '''  <param name="filedata">[in] - png compressed data in memory</param>
 '''  <param name="filesize">[in] - number of bytes in data</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -432,6 +440,7 @@ Public Shared Function pixReadMemPng(
 	If IsNothing (filedata) then Throw New ArgumentNullException  ("filedata cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemPng( filedata, filesize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -447,7 +456,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemPng/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteMemPng/*"/>
 '''  <param name="pfiledata">[out] - png encoded data of pix</param>
 '''  <param name="pfilesize">[out] - size of png encoded data</param>
 '''  <param name="pix">[in] - </param>
@@ -464,6 +473,7 @@ Public Shared Function pixWriteMemPng(
 	Dim pfiledataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMemPng( pfiledataPTR, pfilesize, pix.Pointer, gamma)
+
 	ReDim pfiledata(IIf(pfilesize > 0, pfilesize, 1) - 1) : If pfiledataPTR <> IntPtr.Zero Then Marshal.Copy(pfiledataPTR, pfiledata, 0, pfiledata.count)
 
 	Return _Result

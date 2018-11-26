@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\boxfunc3.c (94, 1)
 ' pixMaskConnComp(pixs, connectivity, pboxa) as Pix
 ' pixMaskConnComp(PIX *, l_int32, BOXA **) as PIX *
@@ -15,7 +14,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMaskConnComp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMaskConnComp/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''  <param name="pboxa">[out][optional] - bounding boxes of c.c.</param>
@@ -32,8 +31,10 @@ Public Shared Function pixMaskConnComp(
 Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = pboxa.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMaskConnComp( pixs.Pointer, connectivity, pboxaPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if pboxaPTR <> IntPtr.Zero then pboxa = new Boxa(pboxaPTR)
+If pboxaPTR = IntPtr.Zero Then pboxa = Nothing
+If pboxaPTR <> IntPtr.Zero Then pboxa = New Boxa(pboxaPTR)
 
 	Return  new Pix(_Result)
 End Function
@@ -63,7 +64,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMaskBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMaskBoxa/*"/>
 '''  <param name="pixd">[in][optional] - may be NULL</param>
 '''  <param name="pixs">[in] - any depth not cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to paint</param>
@@ -81,6 +82,7 @@ Public Shared Function pixMaskBoxa(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMaskBoxa( pixdPTR, pixs.Pointer, boxa.Pointer, op)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -109,7 +111,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixPaintBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixPaintBoxa/*"/>
 '''  <param name="pixs">[in] - any depth, can be cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to paint</param>
 '''  <param name="val">[in] - rgba color to paint</param>
@@ -123,6 +125,7 @@ Public Shared Function pixPaintBoxa(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixPaintBoxa( pixs.Pointer, boxa.Pointer, val)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -133,7 +136,7 @@ End Function
 ' pixSetBlackOrWhiteBoxa(PIX *, BOXA *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSetBlackOrWhiteBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetBlackOrWhiteBoxa/*"/>
 '''  <param name="pixs">[in] - any depth, can be cmapped</param>
 '''  <param name="boxa">[in][optional] - of boxes, to clear or set</param>
 '''  <param name="op">[in] - L_SET_BLACK, L_SET_WHITE</param>
@@ -148,6 +151,7 @@ Public Shared Function pixSetBlackOrWhiteBoxa(
 	Dim boxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(boxa) Then boxaPTR = boxa.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSetBlackOrWhiteBoxa( pixs.Pointer, boxaPTR, op)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -168,7 +172,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixPaintBoxaRandom/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixPaintBoxaRandom/*"/>
 '''  <param name="pixs">[in] - any depth, can be cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to paint</param>
 '''   <returns>pixd with painted boxes, or NULL on error</returns>
@@ -180,6 +184,7 @@ Public Shared Function pixPaintBoxaRandom(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixPaintBoxaRandom( pixs.Pointer, boxa.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -203,7 +208,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlendBoxaRandom/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlendBoxaRandom/*"/>
 '''  <param name="pixs">[in] - any depth can be cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to blend/paint</param>
 '''  <param name="fract">[in] - of box color to use</param>
@@ -217,6 +222,7 @@ Public Shared Function pixBlendBoxaRandom(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlendBoxaRandom( pixs.Pointer, boxa.Pointer, fract)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -234,7 +240,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDrawBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDrawBoxa/*"/>
 '''  <param name="pixs">[in] - any depth can be cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to draw</param>
 '''  <param name="width">[in] - of lines</param>
@@ -250,6 +256,7 @@ Public Shared Function pixDrawBoxa(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDrawBoxa( pixs.Pointer, boxa.Pointer, width, val)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -270,7 +277,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDrawBoxaRandom/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDrawBoxaRandom/*"/>
 '''  <param name="pixs">[in] - any depth, can be cmapped</param>
 '''  <param name="boxa">[in] - of boxes, to draw</param>
 '''  <param name="width">[in] - thickness of line</param>
@@ -284,6 +291,7 @@ Public Shared Function pixDrawBoxaRandom(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDrawBoxaRandom( pixs.Pointer, boxa.Pointer, width)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -307,7 +315,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaDisplay/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaDisplay/*"/>
 '''  <param name="pixs">[in][optional] - 1 bpp</param>
 '''  <param name="baa">[in] - boxaa, typically from a 2d sort</param>
 '''  <param name="linewba">[in] - line width to display outline of each boxa</param>
@@ -334,6 +342,7 @@ Public Shared Function boxaaDisplay(
 	Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaDisplay( pixsPTR, baa.Pointer, linewba, linewb, colorba, colorb, w, h)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -358,7 +367,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaDisplayBoxaa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaDisplayBoxaa/*"/>
 '''  <param name="pixas">[in] - any depth, can be cmapped</param>
 '''  <param name="baa">[in] - boxes to draw on input pixa</param>
 '''  <param name="colorflag">[in] - (L_DRAW_RED, L_DRAW_GREEN, etc)</param>
@@ -374,6 +383,7 @@ Public Shared Function pixaDisplayBoxaa(
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaDisplayBoxaa( pixas.Pointer, baa.Pointer, colorflag, width)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -410,7 +420,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSplitIntoBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSplitIntoBoxa/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="minsum">[in] - minimum pixels to trigger propagation</param>
 '''  <param name="skipdist">[in] - distance before computing sum for propagation</param>
@@ -433,6 +443,7 @@ Public Shared Function pixSplitIntoBoxa(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSplitIntoBoxa( pixs.Pointer, minsum, skipdist, delta, maxbg, maxcomps, remainder)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -507,7 +518,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSplitComponentIntoBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSplitComponentIntoBoxa/*"/>
 '''  <param name="pix">[in] - 1 bpp</param>
 '''  <param name="box">[in][optional] - location of pix w/rt an origin</param>
 '''  <param name="minsum">[in] - minimum pixels to trigger propagation</param>
@@ -534,6 +545,7 @@ Public Shared Function pixSplitComponentIntoBoxa(
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSplitComponentIntoBoxa( pix.Pointer, boxPTR, minsum, skipdist, delta, maxbg, maxcomps, remainder)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -555,7 +567,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/makeMosaicStrips/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makeMosaicStrips/*"/>
 '''  <param name="w">[in] - </param>
 '''  <param name="h">[in] - </param>
 '''  <param name="direction">[in] - L_SCAN_HORIZONTAL or L_SCAN_VERTICAL</param>
@@ -568,6 +580,7 @@ Public Shared Function makeMosaicStrips(
 				 ByVal size as Integer) as Boxa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.makeMosaicStrips( w, h, direction, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -602,7 +615,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaCompareRegions/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaCompareRegions/*"/>
 '''  <param name="boxa1">[in] - </param>
 '''  <param name="boxa2">[in] - </param>
 '''  <param name="areathresh">[in] - minimum area of boxes to be considered</param>
@@ -626,7 +639,9 @@ Public Shared Function boxaCompareRegions(
 Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaCompareRegions( boxa1.Pointer, boxa2.Pointer, areathresh, pnsame, pdiffarea, pdiffxor, ppixdbPTR)
-	if ppixdbPTR <> IntPtr.Zero then ppixdb = new Pix(ppixdbPTR)
+
+If ppixdbPTR = IntPtr.Zero Then ppixdb = Nothing
+If ppixdbPTR <> IntPtr.Zero Then ppixdb = New Pix(ppixdbPTR)
 
 	Return _Result
 End Function
@@ -655,7 +670,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSelectLargeULComp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSelectLargeULComp/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="areaslop">[in] - fraction near but less than 1.0</param>
 '''  <param name="yslop">[in] - number of pixels in y direction</param>
@@ -672,6 +687,7 @@ Public Shared Function pixSelectLargeULComp(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSelectLargeULComp( pixs.Pointer, areaslop, yslop, connectivity)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -687,7 +703,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaSelectLargeULBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaSelectLargeULBox/*"/>
 '''  <param name="boxas">[in] - 1 bpp</param>
 '''  <param name="areaslop">[in] - fraction near but less than 1.0</param>
 '''  <param name="yslop">[in] - number of pixels in y direction</param>
@@ -700,6 +716,7 @@ Public Shared Function boxaSelectLargeULBox(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaSelectLargeULBox( boxas.Pointer, areaslop, yslop)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)

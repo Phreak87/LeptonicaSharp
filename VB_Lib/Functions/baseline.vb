@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\baseline.c (113, 1)
 ' pixFindBaselines(pixs, ppta, pixadb) as Numa
 ' pixFindBaselines(PIX *, PTA **, PIXA *) as NUMA *
@@ -37,7 +36,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindBaselines/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindBaselines/*"/>
 '''  <param name="pixs">[in] - 1 bpp, 300 ppi</param>
 '''  <param name="ppta">[out][optional] - pairs of pts corresponding to approx. ends of each text line</param>
 '''  <param name="pixadb">[in] - for debug output use NULL to skip</param>
@@ -53,8 +52,10 @@ Public Shared Function pixFindBaselines(
 Dim pptaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppta) Then pptaPTR = ppta.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFindBaselines( pixs.Pointer, pptaPTR, pixadb.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if pptaPTR <> IntPtr.Zero then ppta = new Pta(pptaPTR)
+If pptaPTR = IntPtr.Zero Then ppta = Nothing
+If pptaPTR <> IntPtr.Zero Then ppta = New Pta(pptaPTR)
 
 	Return  new Numa(_Result)
 End Function
@@ -86,7 +87,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDeskewLocal/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDeskewLocal/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="nslices">[in] - the number of horizontal overlapping slices must be larger than 1 and not exceed 20 use 0 for default</param>
 '''  <param name="redsweep">[in] - sweep reduction factor: 1, 2, 4 or 8 use 0 for default value</param>
@@ -111,6 +112,7 @@ Public Shared Function pixDeskewLocal(
 	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("search reduction factor: 1, 2, 4 or 8, and not larger than redsweep use 0 for default value")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDeskewLocal( pixs.Pointer, nslices, redsweep, redsearch, sweeprange, sweepdelta, minbsdelta)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -132,7 +134,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetLocalSkewTransform/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetLocalSkewTransform/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="nslices">[in] - the number of horizontal overlapping slices must be larger than 1 and not exceed 20 use 0 for default</param>
 '''  <param name="redsweep">[in] - sweep reduction factor: 1, 2, 4 or 8 use 0 for default value</param>
@@ -163,8 +165,11 @@ Public Shared Function pixGetLocalSkewTransform(
 	Dim pptadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pptad) Then pptadPTR = pptad.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetLocalSkewTransform( pixs.Pointer, nslices, redsweep, redsearch, sweeprange, sweepdelta, minbsdelta, pptasPTR, pptadPTR)
-	if pptasPTR <> IntPtr.Zero then pptas = new Pta(pptasPTR)
-	if pptadPTR <> IntPtr.Zero then pptad = new Pta(pptadPTR)
+
+If pptasPTR = IntPtr.Zero Then pptas = Nothing
+If pptasPTR <> IntPtr.Zero Then pptas = New Pta(pptasPTR)
+If pptadPTR = IntPtr.Zero Then pptad = Nothing
+If pptadPTR <> IntPtr.Zero Then pptad = New Pta(pptadPTR)
 
 	Return _Result
 End Function
@@ -191,7 +196,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetLocalSkewAngles/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetLocalSkewAngles/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="nslices">[in] - the number of horizontal overlapping slices must be larger than 1 and not exceed 20 0 for default</param>
 '''  <param name="redsweep">[in] - sweep reduction factor: 1, 2, 4 or 8 use 0 for default value</param>
@@ -222,6 +227,7 @@ Public Shared Function pixGetLocalSkewAngles(
 	If {0,1,2,4,8}.contains (redsearch) = false then Throw New ArgumentException ("search reduction factor: 1, 2, 4 or 8, and not larger than redsweep use 0 for default value")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetLocalSkewAngles( pixs.Pointer, nslices, redsweep, redsearch, sweeprange, sweepdelta, minbsdelta, pa, pb, debug)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)

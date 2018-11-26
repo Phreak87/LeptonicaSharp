@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\rotate.c (99, 1)
 ' pixRotate(pixs, angle, type, incolor, width, height) as Pix
 ' pixRotate(PIX *, l_float32, l_int32, l_int32, l_int32, l_int32) as PIX *
@@ -32,7 +31,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRotate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRotate/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp rgb</param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="type">[in] - L_ROTATE_AREA_MAP, L_ROTATE_SHEAR, L_ROTATE_SAMPLING</param>
@@ -51,6 +50,7 @@ Public Shared Function pixRotate(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotate( pixs.Pointer, angle, type, incolor, width, height)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -97,7 +97,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixEmbedForRotation/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixEmbedForRotation/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 32 bpp rgb</param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -114,6 +114,7 @@ Public Shared Function pixEmbedForRotation(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixEmbedForRotation( pixs.Pointer, angle, incolor, width, height)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -134,7 +135,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRotateBySampling/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRotateBySampling/*"/>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp rgb can be cmapped</param>
 '''  <param name="xcen">[in] - x value of center of rotation</param>
 '''  <param name="ycen">[in] - y value of center of rotation</param>
@@ -151,6 +152,7 @@ Public Shared Function pixRotateBySampling(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotateBySampling( pixs.Pointer, xcen, ycen, angle, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -180,7 +182,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRotateBinaryNice/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRotateBinaryNice/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="angle">[in] - radians clockwise is positive about the center</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -195,6 +197,7 @@ Public Shared Function pixRotateBinaryNice(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotateBinaryNice( pixs.Pointer, angle, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -249,7 +252,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRotateWithAlpha/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRotateWithAlpha/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb or cmapped</param>
 '''  <param name="angle">[in] - radians clockwise is positive</param>
 '''  <param name="pixg">[in][optional] - 8 bpp, can be null</param>
@@ -266,6 +269,7 @@ Public Shared Function pixRotateWithAlpha(
 	Dim pixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixg) Then pixgPTR = pixg.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotateWithAlpha( pixs.Pointer, angle, pixgPTR, fract)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

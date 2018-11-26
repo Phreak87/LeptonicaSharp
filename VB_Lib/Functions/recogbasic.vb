@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\recogbasic.c (232, 1)
 ' recogCreateFromRecog(recs, scalew, scaleh, linew, threshold, maxyshift) as L_Recog
 ' recogCreateFromRecog(L_RECOG *, l_int32, l_int32, l_int32, l_int32, l_int32) as L_RECOG *
@@ -18,7 +17,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogCreateFromRecog/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogCreateFromRecog/*"/>
 '''  <param name="recs">[in] - source recog with arbitrary input parameters</param>
 '''  <param name="scalew">[in] - scale all widths to this use 0 otherwise</param>
 '''  <param name="scaleh">[in] - scale all heights to this use 0 otherwise</param>
@@ -37,6 +36,7 @@ Public Shared Function recogCreateFromRecog(
 	If IsNothing (recs) then Throw New ArgumentNullException  ("recs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogCreateFromRecog( recs.Pointer, scalew, scaleh, linew, threshold, maxyshift)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Recog(_Result)
@@ -63,7 +63,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogCreateFromPixa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogCreateFromPixa/*"/>
 '''  <param name="pixa">[in] - of labeled, 1 bpp images</param>
 '''  <param name="scalew">[in] - scale all widths to this use 0 otherwise</param>
 '''  <param name="scaleh">[in] - scale all heights to this use 0 otherwise</param>
@@ -82,6 +82,7 @@ Public Shared Function recogCreateFromPixa(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogCreateFromPixa( pixa.Pointer, scalew, scaleh, linew, threshold, maxyshift)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Recog(_Result)
@@ -101,7 +102,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogCreateFromPixaNoFinish/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogCreateFromPixaNoFinish/*"/>
 '''  <param name="pixa">[in] - of labeled, 1 bpp images</param>
 '''  <param name="scalew">[in] - scale all widths to this use 0 otherwise</param>
 '''  <param name="scaleh">[in] - scale all heights to this use 0 otherwise</param>
@@ -120,6 +121,7 @@ Public Shared Function recogCreateFromPixaNoFinish(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogCreateFromPixaNoFinish( pixa.Pointer, scalew, scaleh, linew, threshold, maxyshift)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Recog(_Result)
@@ -154,7 +156,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogCreate/*"/>
 '''  <param name="scalew">[in] - scale all widths to this use 0 otherwise</param>
 '''  <param name="scaleh">[in] - scale all heights to this use 0 otherwise</param>
 '''  <param name="linew">[in] - width of normalized strokes use 0 to skip</param>
@@ -169,6 +171,7 @@ Public Shared Function recogCreate(
 				 ByVal maxyshift as Integer) as L_Recog
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogCreate( scalew, scaleh, linew, threshold, maxyshift)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Recog(_Result)
@@ -179,7 +182,7 @@ End Function
 ' recogDestroy(L_RECOG **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogDestroy/*"/>
 '''  <param name="precog">[in,out] - will be set to null before returning</param>
 Public Shared Sub recogDestroy(
 				 ByRef precog as L_Recog)
@@ -187,7 +190,9 @@ Public Shared Sub recogDestroy(
 	Dim precogPTR As IntPtr = IntPtr.Zero : If Not IsNothing(precog) Then precogPTR = precog.Pointer
 
 	LeptonicaSharp.Natives.recogDestroy( precogPTR)
-	if precogPTR <> IntPtr.Zero then precog = new L_Recog(precogPTR)
+
+If precogPTR = IntPtr.Zero Then precog = Nothing
+If precogPTR <> IntPtr.Zero Then precog = New L_Recog(precogPTR)
 
 End Sub
 
@@ -196,7 +201,7 @@ End Sub
 ' recogGetCount(L_RECOG *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogGetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogGetCount/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>count of classes in recog 0 if no recog or on error</returns>
 Public Shared Function recogGetCount(
@@ -205,6 +210,7 @@ Public Shared Function recogGetCount(
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogGetCount( recog.Pointer)
+
 
 	Return _Result
 End Function
@@ -230,7 +236,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogSetParams/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogSetParams/*"/>
 '''  <param name="recog">[in] - to be padded, if necessary</param>
 '''  <param name="type">[in] - type of char set -1 for default see enum in recog.h</param>
 '''  <param name="min_nopad">[in] - min number in a class without padding use -1 for default</param>
@@ -247,6 +253,7 @@ Public Shared Function recogSetParams(
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogSetParams( recog.Pointer, type, min_nopad, max_wh_ratio, max_ht_ratio)
+
 
 	Return _Result
 End Function
@@ -274,7 +281,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogGetClassIndex/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogGetClassIndex/*"/>
 '''  <param name="recog">[in] - with LUT's pre-computed</param>
 '''  <param name="val">[in] - integer value can be up to 3 bytes for UTF-8</param>
 '''  <param name="text">[in] - text from which %val was derived used if not found</param>
@@ -291,6 +298,7 @@ Public Shared Function recogGetClassIndex(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogGetClassIndex( recog.Pointer, val, text, pindex)
 
+
 	Return _Result
 End Function
 
@@ -299,7 +307,7 @@ End Function
 ' recogStringToIndex(L_RECOG *, char *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogStringToIndex/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogStringToIndex/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="text">[in] - text string for some class</param>
 '''  <param name="pindex">[out] - index for that class -1 if not found</param>
@@ -313,6 +321,7 @@ Public Shared Function recogStringToIndex(
 	If IsNothing (text) then Throw New ArgumentNullException  ("text cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogStringToIndex( recog.Pointer, text, pindex)
+
 
 	Return _Result
 End Function
@@ -330,7 +339,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogGetClassString/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogGetClassString/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="index">[in] - into array of char types</param>
 '''  <param name="pcharstr">[out] - string representation returns an empty string on error</param>
@@ -346,6 +355,7 @@ Dim pcharstrPTR As IntPtr = pcharstrPTR = Marshal.AllocHGlobal(Marshal.sizeOf(pc
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogGetClassString( recog.Pointer, index, pcharstrPTR)
 
+
 	Return _Result
 End Function
 
@@ -354,7 +364,7 @@ End Function
 ' l_convertCharstrToInt(const char *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_convertCharstrToInt/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_convertCharstrToInt/*"/>
 '''  <param name="str">[in] - input string representing one UTF-8 character not more than 4 bytes</param>
 '''  <param name="pval">[out] - integer value for the input.  Think of it as a 1-to-1 hash code.</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -365,6 +375,7 @@ Public Shared Function l_convertCharstrToInt(
 	If IsNothing (str) then Throw New ArgumentNullException  ("str cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_convertCharstrToInt( str, pval)
+
 
 	Return _Result
 End Function
@@ -393,7 +404,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>recog, or NULL on error</returns>
 Public Shared Function recogRead(
@@ -401,9 +412,10 @@ Public Shared Function recogRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogRead( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Recog(_Result)
@@ -414,7 +426,7 @@ End Function
 ' recogReadStream(FILE *) as L_RECOG *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>recog, or NULL on error</returns>
 Public Shared Function recogReadStream(
@@ -423,6 +435,7 @@ Public Shared Function recogReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogReadStream( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Recog(_Result)
@@ -433,7 +446,7 @@ End Function
 ' recogReadMem(const l_uint8 *, size_t) as L_RECOG *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogReadMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogReadMem/*"/>
 '''  <param name="data">[in] - serialization of recog (not ascii)</param>
 '''  <param name="size">[in] - of data in bytes</param>
 '''   <returns>recog, or NULL on error</returns>
@@ -444,6 +457,7 @@ Public Shared Function recogReadMem(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogReadMem( data, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Recog(_Result)
@@ -463,7 +477,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="recog">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -474,9 +488,8 @@ Public Shared Function recogWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogWrite( filename, recog.Pointer)
+
 
 	Return _Result
 End Function
@@ -486,7 +499,7 @@ End Function
 ' recogWriteStream(FILE *, L_RECOG *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogWriteStream/*"/>
 '''  <param name="fp">[in] - file stream opened for "wb"</param>
 '''  <param name="recog">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -498,6 +511,7 @@ Public Shared Function recogWriteStream(
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogWriteStream( fp.Pointer, recog.Pointer)
+
 
 	Return _Result
 End Function
@@ -512,7 +526,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogWriteMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized recog (not ascii)</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="recog">[in] - </param>
@@ -527,6 +541,7 @@ Public Shared Function recogWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogWriteMem( pdataPTR, psize, recog.Pointer)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -544,7 +559,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogExtractPixa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogExtractPixa/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>pixa if OK, NULL on error</returns>
 Public Shared Function recogExtractPixa(
@@ -553,6 +568,7 @@ Public Shared Function recogExtractPixa(
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogExtractPixa( recog.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)

@@ -2,13 +2,12 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\rotateorth.c (72, 1)
 ' pixRotateOrth(pixs, quads) as Pix
 ' pixRotateOrth(PIX *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRotateOrth/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRotateOrth/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="quads">[in] - 0-3 number of 90 degree cw rotations</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -19,6 +18,7 @@ Public Shared Function pixRotateOrth(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotateOrth( pixs.Pointer, quads)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -47,7 +47,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRotate180/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRotate180/*"/>
 '''  <param name="pixd">[in][optional] - can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - all depths</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -60,6 +60,7 @@ Public Shared Function pixRotate180(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotate180( pixdPTR, pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -78,7 +79,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRotate90/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRotate90/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="direction">[in] - 1 = clockwise,  -1 = counter-clockwise</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -89,6 +90,7 @@ Public Shared Function pixRotate90(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotate90( pixs.Pointer, direction)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -138,7 +140,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFlipLR/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFlipLR/*"/>
 '''  <param name="pixd">[in][optional] - can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - all depths</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -151,6 +153,7 @@ Public Shared Function pixFlipLR(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFlipLR( pixdPTR, pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -185,7 +188,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFlipTB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFlipTB/*"/>
 '''  <param name="pixd">[in][optional] - can be null, equal to pixs, or different from pixs</param>
 '''  <param name="pixs">[in] - all depths</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -198,6 +201,7 @@ Public Shared Function pixFlipTB(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFlipTB( pixdPTR, pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

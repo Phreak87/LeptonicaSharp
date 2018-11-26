@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\rotateshear.c (196, 1)
 ' pixRotateShear(pixs, xcen, ycen, angle, incolor) as Pix
 ' pixRotateShear(PIX *, l_int32, l_int32, l_float32, l_int32) as PIX *
@@ -22,7 +21,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRotateShear/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRotateShear/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="xcen">[in] - x value for which there is no horizontal shear</param>
 '''  <param name="ycen">[in] - y value for which there is no vertical shear</param>
@@ -39,6 +38,7 @@ Public Shared Function pixRotateShear(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotateShear( pixs.Pointer, xcen, ycen, angle, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -70,7 +70,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRotate2Shear/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRotate2Shear/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="xcen">[in] - center of rotation</param>
 '''  <param name="ycen">[in] - center of rotation</param>
@@ -87,6 +87,7 @@ Public Shared Function pixRotate2Shear(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotate2Shear( pixs.Pointer, xcen, ycen, angle, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -125,7 +126,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRotate3Shear/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRotate3Shear/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="xcen">[in] - center of rotation</param>
 '''  <param name="ycen">[in] - center of rotation</param>
@@ -142,6 +143,7 @@ Public Shared Function pixRotate3Shear(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotate3Shear( pixs.Pointer, xcen, ycen, angle, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -175,7 +177,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRotateShearIP/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRotateShearIP/*"/>
 '''  <param name="pixs">[in] - any depth not colormapped</param>
 '''  <param name="xcen">[in] - center of rotation</param>
 '''  <param name="ycen">[in] - center of rotation</param>
@@ -193,6 +195,7 @@ Public Shared Function pixRotateShearIP(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRotateShearIP( pixs.Pointer, xcen, ycen, angle, incolor)
 
+
 	Return _Result
 End Function
 
@@ -201,7 +204,7 @@ End Function
 ' pixRotateShearCenter(PIX *, l_float32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRotateShearCenter/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRotateShearCenter/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="angle">[in] - radians</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -214,6 +217,7 @@ Public Shared Function pixRotateShearCenter(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRotateShearCenter( pixs.Pointer, angle, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -224,7 +228,7 @@ End Function
 ' pixRotateShearCenterIP(PIX *, l_float32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRotateShearCenterIP/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRotateShearCenterIP/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="angle">[in] - radians</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -237,6 +241,7 @@ Public Shared Function pixRotateShearCenterIP(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRotateShearCenterIP( pixs.Pointer, angle, incolor)
+
 
 	Return _Result
 End Function

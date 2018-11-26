@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\fmorphgen.1.c (37, 6)
 ' pixMorphDwa_1(pixd, pixs, operation, selname) as Pix
 ' pixMorphDwa_1(PIX *, PIX *, l_int32, char *) as PIX *
@@ -18,7 +17,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMorphDwa_1/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMorphDwa_1/*"/>
 '''  <param name="pixd">[in] - usual 3 choices: null, == pixs, != pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="operation">[in] - L_MORPH_DILATE, L_MORPH_ERODE, L_MORPH_OPEN, L_MORPH_CLOSE</param>
@@ -36,6 +35,7 @@ Public Shared Function pixMorphDwa_1(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMorphDwa_1( pixd.Pointer, pixs.Pointer, operation, selname)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -62,7 +62,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFMorphopGen_1/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFMorphopGen_1/*"/>
 '''  <param name="pixd">[in] - usual 3 choices: null, == pixs, != pixs</param>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="operation">[in] - L_MORPH_DILATE, L_MORPH_ERODE, L_MORPH_OPEN, L_MORPH_CLOSE</param>
@@ -80,6 +80,7 @@ Public Shared Function pixFMorphopGen_1(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFMorphopGen_1( pixd.Pointer, pixs.Pointer, operation, selname)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -90,7 +91,7 @@ End Function
 ' fmorphopgen_low_1(l_uint32 *, l_int32, l_int32, l_int32, l_uint32 *, l_int32, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fmorphopgen_low_1/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fmorphopgen_low_1/*"/>
 '''   <returns></returns>
 Public Shared Function fmorphopgen_low_1(
 				 ByVal datad as Object, 
@@ -105,6 +106,7 @@ Public Shared Function fmorphopgen_low_1(
 	If IsNothing (datas) then Throw New ArgumentNullException  ("datas cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fmorphopgen_low_1( datad, w, h, wpld, datas, wpls, index)
+
 
 	Return _Result
 End Function

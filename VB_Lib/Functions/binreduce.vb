@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\binreduce.c (71, 1)
 ' pixReduceBinary2(pixs, intab) as Pix
 ' pixReduceBinary2(PIX *, l_uint8 *) as PIX *
@@ -20,7 +19,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReduceBinary2/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReduceBinary2/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="intab">[in][optional] - if null, a table is made here and destroyed before exit</param>
 '''   <returns>pixd 2x subsampled, or NULL on error</returns>
@@ -31,6 +30,7 @@ Public Shared Function pixReduceBinary2(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReduceBinary2( pixs.Pointer, intab)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -48,7 +48,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReduceRankBinaryCascade/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReduceRankBinaryCascade/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="level1">[in] - threshold, in the set {0, 1, 2, 3, 4}</param>
 '''  <param name="level2">[in] - threshold, in the set {0, 1, 2, 3, 4}</param>
@@ -67,6 +67,7 @@ Public Shared Function pixReduceRankBinaryCascade(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReduceRankBinaryCascade( pixs.Pointer, level1, level2, level3, level4)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -91,7 +92,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReduceRankBinary2/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReduceRankBinary2/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="level">[in] - rank threshold: 1, 2, 3, 4</param>
 '''  <param name="intab">[in][optional] - if null, a table is made here and destroyed before exit</param>
@@ -106,6 +107,7 @@ Public Shared Function pixReduceRankBinary2(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReduceRankBinary2( pixs.Pointer, level, intab)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -122,11 +124,12 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/makeSubsampleTab2x/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makeSubsampleTab2x/*"/>
 '''   <returns>tab table of 256 permutations, or NULL on error</returns>
 Public Shared Function makeSubsampleTab2x() as Byte()
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.makeSubsampleTab2x( )
+
 
 	Return _Result
 End Function

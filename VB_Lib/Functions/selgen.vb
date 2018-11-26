@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\selgen.c (146, 1)
 ' pixGenerateSelWithRuns(pixs, nhlines, nvlines, distance, minlength, toppix, botpix, leftpix, rightpix, ppixe) as Sel
 ' pixGenerateSelWithRuns(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, PIX **) as SEL *
@@ -46,7 +45,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGenerateSelWithRuns/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGenerateSelWithRuns/*"/>
 '''  <param name="pixs">[in] - 1 bpp, typically small, to be used as a pattern</param>
 '''  <param name="nhlines">[in] - number of hor lines along which elements are found</param>
 '''  <param name="nvlines">[in] - number of vert lines along which elements are found</param>
@@ -75,8 +74,10 @@ Public Shared Function pixGenerateSelWithRuns(
 Dim ppixePTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixe) Then ppixePTR = ppixe.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenerateSelWithRuns( pixs.Pointer, nhlines, nvlines, distance, minlength, toppix, botpix, leftpix, rightpix, ppixePTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if ppixePTR <> IntPtr.Zero then ppixe = new Pix(ppixePTR)
+If ppixePTR = IntPtr.Zero Then ppixe = Nothing
+If ppixePTR <> IntPtr.Zero Then ppixe = New Pix(ppixePTR)
 
 	Return  new Sel(_Result)
 End Function
@@ -108,7 +109,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGenerateSelRandom/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGenerateSelRandom/*"/>
 '''  <param name="pixs">[in] - 1 bpp, typically small, to be used as a pattern</param>
 '''  <param name="hitfract">[in] - fraction of allowable fg pixels that are hits</param>
 '''  <param name="missfract">[in] - fraction of allowable bg pixels that are misses</param>
@@ -135,8 +136,10 @@ Public Shared Function pixGenerateSelRandom(
 Dim ppixePTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixe) Then ppixePTR = ppixe.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenerateSelRandom( pixs.Pointer, hitfract, missfract, distance, toppix, botpix, leftpix, rightpix, ppixePTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if ppixePTR <> IntPtr.Zero then ppixe = new Pix(ppixePTR)
+If ppixePTR = IntPtr.Zero Then ppixe = Nothing
+If ppixePTR <> IntPtr.Zero Then ppixe = New Pix(ppixePTR)
 
 	Return  new Sel(_Result)
 End Function
@@ -176,7 +179,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGenerateSelBoundary/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGenerateSelBoundary/*"/>
 '''  <param name="pixs">[in] - 1 bpp, typically small, to be used as a pattern</param>
 '''  <param name="hitdist">[in] - min distance from fg boundary pixel</param>
 '''  <param name="missdist">[in] - min distance from bg boundary pixel</param>
@@ -205,8 +208,10 @@ Public Shared Function pixGenerateSelBoundary(
 Dim ppixePTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixe) Then ppixePTR = ppixe.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenerateSelBoundary( pixs.Pointer, hitdist, missdist, hitskip, missskip, topflag, botflag, leftflag, rightflag, ppixePTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if ppixePTR <> IntPtr.Zero then ppixe = new Pix(ppixePTR)
+If ppixePTR = IntPtr.Zero Then ppixe = Nothing
+If ppixePTR <> IntPtr.Zero Then ppixe = New Pix(ppixePTR)
 
 	Return  new Sel(_Result)
 End Function
@@ -241,7 +246,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetRunCentersOnLine/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetRunCentersOnLine/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="x">[in] - set one of these to -1 see notes</param>
 '''  <param name="y">[in] - set one of these to -1 see notes</param>
@@ -258,6 +263,7 @@ Public Shared Function pixGetRunCentersOnLine(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetRunCentersOnLine( pixs.Pointer, x, y, minlength)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -279,7 +285,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetRunsOnLine/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetRunsOnLine/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="x1">[in] - </param>
 '''  <param name="y1">[in] - </param>
@@ -298,6 +304,7 @@ Public Shared Function pixGetRunsOnLine(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetRunsOnLine( pixs.Pointer, x1, y1, x2, y2)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -326,7 +333,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSubsampleBoundaryPixels/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSubsampleBoundaryPixels/*"/>
 '''  <param name="pixs">[in] - 1 bpp, with only boundary pixels in fg</param>
 '''  <param name="skip">[in] - number to skip between samples as you traverse boundary</param>
 '''   <returns>pta, or NULL on error</returns>
@@ -337,6 +344,7 @@ Public Shared Function pixSubsampleBoundaryPixels(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSubsampleBoundaryPixels( pixs.Pointer, skip)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -353,7 +361,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/adjacentOnPixelInRaster/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/adjacentOnPixelInRaster/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="x">[in] - current pixel</param>
 '''  <param name="y">[in] - current pixel</param>
@@ -373,6 +381,7 @@ Public Shared Function adjacentOnPixelInRaster(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.adjacentOnPixelInRaster( pixs.Pointer, x, y, pxa, pya)
 
+
 	Return _Result
 End Function
 
@@ -389,7 +398,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDisplayHitMissSel/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDisplayHitMissSel/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sel">[in] - hit-miss in general</param>
 '''  <param name="scalefactor">[in] - an integer greater or equal 1 use 0 for default</param>
@@ -409,6 +418,7 @@ Public Shared Function pixDisplayHitMissSel(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDisplayHitMissSel( pixs.Pointer, sel.Pointer, scalefactor, hitcolor, misscolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

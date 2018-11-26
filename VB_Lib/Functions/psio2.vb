@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\psio2.c (152, 1)
 ' pixWritePSEmbed(filein, fileout) as Integer
 ' pixWritePSEmbed(const char *, const char *) as l_ok
@@ -20,7 +19,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWritePSEmbed/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWritePSEmbed/*"/>
 '''  <param name="filein">[in] - input file, all depths, colormap OK</param>
 '''  <param name="fileout">[in] - output ps file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -32,6 +31,7 @@ Public Shared Function pixWritePSEmbed(
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWritePSEmbed( filein, fileout)
+
 
 	Return _Result
 End Function
@@ -50,7 +50,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamPS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteStreamPS/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pix">[in] - </param>
 '''  <param name="box">[in][optional] - </param>
@@ -70,6 +70,7 @@ Public Shared Function pixWriteStreamPS(
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamPS( fp.Pointer, pix.Pointer, boxPTR, res, scale)
+
 
 	Return _Result
 End Function
@@ -134,7 +135,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteStringPS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteStringPS/*"/>
 '''  <param name="pixs">[in] - all depths, colormap OK</param>
 '''  <param name="box">[in] - bounding box can be NULL</param>
 '''  <param name="res">[in] - resolution, in printer ppi.  Use 0 for default 300 ppi.</param>
@@ -151,6 +152,7 @@ Public Shared Function pixWriteStringPS(
 
 	Dim _Result as String = LeptonicaSharp.Natives.pixWriteStringPS( pixs.Pointer, box.Pointer, res, scale)
 
+
 	Return _Result
 End Function
 
@@ -164,7 +166,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/generateUncompressedPS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generateUncompressedPS/*"/>
 '''  <param name="hexdata">[in] - </param>
 '''  <param name="w">[in] - raster image size in pixels</param>
 '''  <param name="h">[in] - raster image size in pixels</param>
@@ -194,6 +196,7 @@ Public Shared Function generateUncompressedPS(
 
 	Dim _Result as String = LeptonicaSharp.Natives.generateUncompressedPS( hexdata, w, h, d, psbpl, bps, xpt, ypt, wpt, hpt, boxflag)
 
+
 	Return _Result
 End Function
 
@@ -211,7 +214,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/getScaledParametersPS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getScaledParametersPS/*"/>
 '''  <param name="box">[in][optional] - location of image in mils with x,y being the LL corner</param>
 '''  <param name="wpix">[in] - pix width in pixels</param>
 '''  <param name="hpix">[in] - pix height in pixels</param>
@@ -236,6 +239,7 @@ Public Shared Sub getScaledParametersPS(
 
 	LeptonicaSharp.Natives.getScaledParametersPS( boxPTR, wpix, hpix, res, scale, pxpt, pypt, pwpt, phpt)
 
+
 End Sub
 
 ' SRC\psio2.c (601, 1)
@@ -243,7 +247,7 @@ End Sub
 ' convertByteToHexAscii(l_uint8, char *, char *) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertByteToHexAscii/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertByteToHexAscii/*"/>
 '''  <param name="byteval">[in] - input byte</param>
 '''  <param name="pnib1">[out] - two hex ascii characters</param>
 '''  <param name="pnib2">[out] - two hex ascii characters</param>
@@ -255,6 +259,7 @@ Public Shared Sub convertByteToHexAscii(
 	If IsNothing (byteval) then Throw New ArgumentNullException  ("byteval cannot be Nothing")
 
 	LeptonicaSharp.Natives.convertByteToHexAscii( byteval, pnib1, pnib2)
+
 
 End Sub
 
@@ -275,7 +280,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertJpegToPSEmbed/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertJpegToPSEmbed/*"/>
 '''  <param name="filein">[in] - input jpeg file</param>
 '''  <param name="fileout">[in] - output ps file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -287,6 +292,7 @@ Public Shared Function convertJpegToPSEmbed(
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertJpegToPSEmbed( filein, fileout)
+
 
 	Return _Result
 End Function
@@ -351,7 +357,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertJpegToPS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertJpegToPS/*"/>
 '''  <param name="filein">[in] - input jpeg file</param>
 '''  <param name="fileout">[in] - output ps file</param>
 '''  <param name="operation">[in] - "w" for write "a" for append</param>
@@ -379,6 +385,7 @@ Public Shared Function convertJpegToPS(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertJpegToPS( filein, fileout, operation, x, y, res, scale, pageno, endpage)
 
+
 	Return _Result
 End Function
 
@@ -392,7 +399,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertJpegToPSString/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertJpegToPSString/*"/>
 '''  <param name="filein">[in] - input jpeg file</param>
 '''  <param name="poutstr">[out] - PS string</param>
 '''  <param name="pnbytes">[out] - number of bytes in PS string</param>
@@ -420,6 +427,7 @@ Dim poutstrPTR As IntPtr = poutstrPTR = Marshal.AllocHGlobal(Marshal.sizeOf(pout
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertJpegToPSString( filein, poutstrPTR, pnbytes, x, y, res, scale, pageno, endpage)
 
+
 	Return _Result
 End Function
 
@@ -433,7 +441,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/generateJpegPS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generateJpegPS/*"/>
 '''  <param name="filein">[in][optional] - input jpeg filename can be null</param>
 '''  <param name="cid">[in] - jpeg compressed image data</param>
 '''  <param name="xpt">[in] - location of LL corner of image, in pts, relative to the PostScript origin (0,0) at the LL corner of the page</param>
@@ -456,6 +464,7 @@ Public Shared Function generateJpegPS(
 	If IsNothing (cid) then Throw New ArgumentNullException  ("cid cannot be Nothing")
 
 	Dim _Result as String = LeptonicaSharp.Natives.generateJpegPS( filein, cid.Pointer, xpt, ypt, wpt, hpt, pageno, endpage)
+
 
 	Return _Result
 End Function
@@ -480,7 +489,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertG4ToPSEmbed/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertG4ToPSEmbed/*"/>
 '''  <param name="filein">[in] - input tiff file</param>
 '''  <param name="fileout">[in] - output ps file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -492,6 +501,7 @@ Public Shared Function convertG4ToPSEmbed(
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertG4ToPSEmbed( filein, fileout)
+
 
 	Return _Result
 End Function
@@ -543,7 +553,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertG4ToPS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertG4ToPS/*"/>
 '''  <param name="filein">[in] - input tiff g4 file</param>
 '''  <param name="fileout">[in] - output ps file</param>
 '''  <param name="operation">[in] - "w" for write "a" for append</param>
@@ -573,6 +583,7 @@ Public Shared Function convertG4ToPS(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertG4ToPS( filein, fileout, operation, x, y, res, scale, pageno, maskflag, endpage)
 
+
 	Return _Result
 End Function
 
@@ -588,7 +599,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertG4ToPSString/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertG4ToPSString/*"/>
 '''  <param name="filein">[in] - input tiff g4 file</param>
 '''  <param name="poutstr">[out] - PS string</param>
 '''  <param name="pnbytes">[out] - number of bytes in PS string</param>
@@ -618,6 +629,7 @@ Dim poutstrPTR As IntPtr = poutstrPTR = Marshal.AllocHGlobal(Marshal.sizeOf(pout
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertG4ToPSString( filein, poutstrPTR, pnbytes, x, y, res, scale, pageno, maskflag, endpage)
 
+
 	Return _Result
 End Function
 
@@ -631,7 +643,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/generateG4PS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generateG4PS/*"/>
 '''  <param name="filein">[in][optional] - input tiff g4 file can be null</param>
 '''  <param name="cid">[in] - g4 compressed image data</param>
 '''  <param name="xpt">[in] - location of LL corner of image, in pts, relative to the PostScript origin (0,0) at the LL corner of the page</param>
@@ -657,6 +669,7 @@ Public Shared Function generateG4PS(
 
 	Dim _Result as String = LeptonicaSharp.Natives.generateG4PS( filein, cid.Pointer, xpt, ypt, wpt, hpt, maskflag, pageno, endpage)
 
+
 	Return _Result
 End Function
 
@@ -675,7 +688,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertTiffMultipageToPS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertTiffMultipageToPS/*"/>
 '''  <param name="filein">[in] - input tiff multipage file</param>
 '''  <param name="fileout">[in] - output ps file</param>
 '''  <param name="fillfract">[in] - factor for filling 8.5 x 11 inch page use 0.0 for DEFAULT_FILL_FRACTION</param>
@@ -689,6 +702,7 @@ Public Shared Function convertTiffMultipageToPS(
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertTiffMultipageToPS( filein, fileout, fillfract)
+
 
 	Return _Result
 End Function
@@ -710,7 +724,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertFlateToPSEmbed/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertFlateToPSEmbed/*"/>
 '''  <param name="filein">[in] - input file -- any format</param>
 '''  <param name="fileout">[in] - output ps file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -722,6 +736,7 @@ Public Shared Function convertFlateToPSEmbed(
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertFlateToPSEmbed( filein, fileout)
+
 
 	Return _Result
 End Function
@@ -785,7 +800,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertFlateToPS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertFlateToPS/*"/>
 '''  <param name="filein">[in] - input file -- any format</param>
 '''  <param name="fileout">[in] - output ps file</param>
 '''  <param name="operation">[in] - "w" for write "a" for append</param>
@@ -813,6 +828,7 @@ Public Shared Function convertFlateToPS(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertFlateToPS( filein, fileout, operation, x, y, res, scale, pageno, endpage)
 
+
 	Return _Result
 End Function
 
@@ -834,7 +850,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertFlateToPSString/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertFlateToPSString/*"/>
 '''  <param name="filein">[in] - input image file</param>
 '''  <param name="poutstr">[out] - PS string</param>
 '''  <param name="pnbytes">[out] - number of bytes in PS string</param>
@@ -862,6 +878,7 @@ Dim poutstrPTR As IntPtr = poutstrPTR = Marshal.AllocHGlobal(Marshal.sizeOf(pout
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertFlateToPSString( filein, poutstrPTR, pnbytes, x, y, res, scale, pageno, endpage)
 
+
 	Return _Result
 End Function
 
@@ -870,7 +887,7 @@ End Function
 ' generateFlatePS(const char *, L_COMP_DATA *, l_float32, l_float32, l_float32, l_float32, l_int32, l_int32) as char *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/generateFlatePS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/generateFlatePS/*"/>
 '''  <param name="filein">[in][optional] - input filename can be null</param>
 '''  <param name="cid">[in] - flate compressed image data</param>
 '''  <param name="xpt">[in] - location of LL corner of image, in pts, relative to the PostScript origin (0,0) at the LL corner of the page</param>
@@ -894,6 +911,7 @@ Public Shared Function generateFlatePS(
 
 	Dim _Result as String = LeptonicaSharp.Natives.generateFlatePS( filein, cid.Pointer, xpt, ypt, wpt, hpt, pageno, endpage)
 
+
 	Return _Result
 End Function
 
@@ -910,7 +928,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemPS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteMemPS/*"/>
 '''  <param name="pdata">[out] - data of tiff compressed image</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="pix">[in] - </param>
@@ -932,6 +950,7 @@ Public Shared Function pixWriteMemPS(
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMemPS( pdataPTR, psize, pix.Pointer, boxPTR, res, scale)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -942,7 +961,7 @@ End Function
 ' getResLetterPage(l_int32, l_int32, l_float32) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/getResLetterPage/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getResLetterPage/*"/>
 '''  <param name="w">[in] - image width, pixels</param>
 '''  <param name="h">[in] - image height, pixels</param>
 '''  <param name="fillfract">[in] - fraction in linear dimension of full page, not to be exceeded use 0 for default</param>
@@ -954,6 +973,7 @@ Public Shared Function getResLetterPage(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.getResLetterPage( w, h, fillfract)
 
+
 	Return _Result
 End Function
 
@@ -962,7 +982,7 @@ End Function
 ' getResA4Page(l_int32, l_int32, l_float32) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/getResA4Page/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getResA4Page/*"/>
 '''  <param name="w">[in] - image width, pixels</param>
 '''  <param name="h">[in] - image height, pixels</param>
 '''  <param name="fillfract">[in] - fraction in linear dimension of full page, not to be exceeded use 0 for default</param>
@@ -974,6 +994,7 @@ Public Shared Function getResA4Page(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.getResA4Page( w, h, fillfract)
 
+
 	Return _Result
 End Function
 
@@ -982,11 +1003,12 @@ End Function
 ' l_psWriteBoundingBox(l_int32) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_psWriteBoundingBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_psWriteBoundingBox/*"/>
 Public Shared Sub l_psWriteBoundingBox(
 				 ByVal flag as Integer)
 
 	LeptonicaSharp.Natives.l_psWriteBoundingBox( flag)
+
 
 End Sub
 

@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\dnafunc1.c (79, 1)
 ' l_dnaJoin(dad, das, istart, iend) as Integer
 ' l_dnaJoin(L_DNA *, L_DNA *, l_int32, l_int32) as l_ok
@@ -17,7 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaJoin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaJoin/*"/>
 '''  <param name="dad">[in] - dest dna add to this one</param>
 '''  <param name="das">[in][optional] - source dna add from this one</param>
 '''  <param name="istart">[in] - starting index in das</param>
@@ -35,6 +34,7 @@ Public Shared Function l_dnaJoin(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaJoin( dad.Pointer, dasPTR, istart, iend)
 
+
 	Return _Result
 End Function
 
@@ -51,7 +51,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaaFlattenToDna/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaaFlattenToDna/*"/>
 '''  <param name="daa">[in] - </param>
 '''   <returns>dad, or NULL on error</returns>
 Public Shared Function l_dnaaFlattenToDna(
@@ -60,6 +60,7 @@ Public Shared Function l_dnaaFlattenToDna(
 	If IsNothing (daa) then Throw New ArgumentNullException  ("daa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaaFlattenToDna( daa.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dna(_Result)
@@ -70,7 +71,7 @@ End Function
 ' l_dnaConvertToNuma(L_DNA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaConvertToNuma/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaConvertToNuma/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>na, or NULL on error</returns>
 Public Shared Function l_dnaConvertToNuma(
@@ -79,6 +80,7 @@ Public Shared Function l_dnaConvertToNuma(
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaConvertToNuma( da.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -89,7 +91,7 @@ End Function
 ' numaConvertToDna(NUMA *) as L_DNA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaConvertToDna/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaConvertToDna/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>da, or NULL on error</returns>
 Public Shared Function numaConvertToDna(
@@ -98,6 +100,7 @@ Public Shared Function numaConvertToDna(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaConvertToDna( na.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dna(_Result)
@@ -118,7 +121,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaUnionByAset/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaUnionByAset/*"/>
 '''  <param name="da1">[in] - </param>
 '''  <param name="da2">[in] - </param>
 '''   <returns>dad with the union of the set of numbers, or NULL on error</returns>
@@ -130,6 +133,7 @@ Public Shared Function l_dnaUnionByAset(
 	If IsNothing (da2) then Throw New ArgumentNullException  ("da2 cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaUnionByAset( da1.Pointer, da2.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dna(_Result)
@@ -140,7 +144,7 @@ End Function
 ' l_dnaRemoveDupsByAset(L_DNA *) as L_DNA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaRemoveDupsByAset/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaRemoveDupsByAset/*"/>
 '''  <param name="das">[in] - </param>
 '''   <returns>dad with duplicates removed, or NULL on error</returns>
 Public Shared Function l_dnaRemoveDupsByAset(
@@ -149,6 +153,7 @@ Public Shared Function l_dnaRemoveDupsByAset(
 	If IsNothing (das) then Throw New ArgumentNullException  ("das cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaRemoveDupsByAset( das.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dna(_Result)
@@ -169,7 +174,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaIntersectionByAset/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaIntersectionByAset/*"/>
 '''  <param name="da1">[in] - </param>
 '''  <param name="da2">[in] - </param>
 '''   <returns>dad with the intersection of the two arrays, or NULL on error</returns>
@@ -181,6 +186,7 @@ Public Shared Function l_dnaIntersectionByAset(
 	If IsNothing (da2) then Throw New ArgumentNullException  ("da2 cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaIntersectionByAset( da1.Pointer, da2.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dna(_Result)
@@ -191,7 +197,7 @@ End Function
 ' l_asetCreateFromDna(L_DNA *) as L_ASET *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_asetCreateFromDna/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetCreateFromDna/*"/>
 '''  <param name="da">[in] - source dna</param>
 '''   <returns>set using the doubles in %da as keys</returns>
 Public Shared Function l_asetCreateFromDna(
@@ -200,6 +206,7 @@ Public Shared Function l_asetCreateFromDna(
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_asetCreateFromDna( da.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Rbtree(_Result)
@@ -210,7 +217,7 @@ End Function
 ' l_dnaDiffAdjValues(L_DNA *) as L_DNA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaDiffAdjValues/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaDiffAdjValues/*"/>
 '''  <param name="das">[in] - input l_dna</param>
 '''   <returns>dad of difference values val[i+1] - val[i], or NULL on error</returns>
 Public Shared Function l_dnaDiffAdjValues(
@@ -219,6 +226,7 @@ Public Shared Function l_dnaDiffAdjValues(
 	If IsNothing (das) then Throw New ArgumentNullException  ("das cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaDiffAdjValues( das.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dna(_Result)

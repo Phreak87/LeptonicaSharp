@@ -2,13 +2,12 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\gifiostub.c (45, 7)
 ' pixReadStreamGif(fp) as Pix
 ' pixReadStreamGif(FILE *) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamGif/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadStreamGif/*"/>
 '''   <returns></returns>
 Public Shared Function pixReadStreamGif(
 				 ByVal fp as FILE) as Pix
@@ -18,6 +17,7 @@ Public Shared Function pixReadStreamGif(
 Dim fpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(fp) Then fpPTR = fp.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadStreamGif( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -28,7 +28,7 @@ End Function
 ' pixReadMemGif(const l_uint8 *, size_t) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadMemGif/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadMemGif/*"/>
 '''   <returns></returns>
 Public Shared Function pixReadMemGif(
 				 ByVal cdata as Byte(), 
@@ -37,6 +37,7 @@ Public Shared Function pixReadMemGif(
 	If IsNothing (cdata) then Throw New ArgumentNullException  ("cdata cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemGif( cdata, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -47,7 +48,7 @@ End Function
 ' pixWriteStreamGif(FILE *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamGif/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteStreamGif/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteStreamGif(
 				 ByVal fp as FILE, 
@@ -61,6 +62,7 @@ Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Poi
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamGif( fp.Pointer, pix.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -69,7 +71,7 @@ End Function
 ' pixWriteMemGif(l_uint8 **, size_t *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemGif/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteMemGif/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteMemGif(
 				 ByVal pdata as Object, 
@@ -83,6 +85,7 @@ Public Shared Function pixWriteMemGif(
 Dim pixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pix) Then pixPTR = pix.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMemGif( pdata, psize, pix.Pointer)
+
 
 	Return _Result
 End Function

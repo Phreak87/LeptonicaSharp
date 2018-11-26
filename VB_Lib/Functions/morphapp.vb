@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\morphapp.c (108, 1)
 ' pixExtractBoundary(pixs, type) as Pix
 ' pixExtractBoundary(PIX *, l_int32) as PIX *
@@ -14,7 +13,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixExtractBoundary/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixExtractBoundary/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="type">[in] - 0 for background pixels 1 for foreground pixels</param>
 '''   <returns>pixd, or NULL on error</returns>
@@ -27,6 +26,7 @@ Public Shared Function pixExtractBoundary(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtractBoundary( pixs.Pointer, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -45,7 +45,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMorphSequenceMasked/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMorphSequenceMasked/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pixm">[in][optional] - 1 bpp mask</param>
 '''  <param name="sequence">[in] - string specifying sequence of operations</param>
@@ -65,6 +65,7 @@ Public Shared Function pixMorphSequenceMasked(
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMorphSequenceMasked( pixs.Pointer, pixmPTR, sequence, dispsep)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -91,7 +92,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMorphSequenceByComponent/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMorphSequenceByComponent/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -115,8 +116,10 @@ Public Shared Function pixMorphSequenceByComponent(
 Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = pboxa.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMorphSequenceByComponent( pixs.Pointer, sequence, connectivity, minw, minh, pboxaPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if pboxaPTR <> IntPtr.Zero then pboxa = new Boxa(pboxaPTR)
+If pboxaPTR = IntPtr.Zero Then pboxa = Nothing
+If pboxaPTR <> IntPtr.Zero Then pboxa = New Boxa(pboxaPTR)
 
 	Return  new Pix(_Result)
 End Function
@@ -139,7 +142,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaMorphSequenceByComponent/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaMorphSequenceByComponent/*"/>
 '''  <param name="pixas">[in] - of 1 bpp pix</param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
 '''  <param name="minw">[in] - minimum width to consider use 0 or 1 for any width</param>
@@ -155,6 +158,7 @@ Public Shared Function pixaMorphSequenceByComponent(
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaMorphSequenceByComponent( pixas.Pointer, sequence, minw, minh)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -185,7 +189,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMorphSequenceByRegion/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMorphSequenceByRegion/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pixm">[in] - mask specifying regions</param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
@@ -212,8 +216,10 @@ Public Shared Function pixMorphSequenceByRegion(
 Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = pboxa.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMorphSequenceByRegion( pixs.Pointer, pixm.Pointer, sequence, connectivity, minw, minh, pboxaPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if pboxaPTR <> IntPtr.Zero then pboxa = new Boxa(pboxaPTR)
+If pboxaPTR = IntPtr.Zero Then pboxa = Nothing
+If pboxaPTR <> IntPtr.Zero Then pboxa = New Boxa(pboxaPTR)
 
 	Return  new Pix(_Result)
 End Function
@@ -238,7 +244,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaMorphSequenceByRegion/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaMorphSequenceByRegion/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pixam">[in] - of 1 bpp mask elements</param>
 '''  <param name="sequence">[in] - string specifying sequence</param>
@@ -259,6 +265,7 @@ Public Shared Function pixaMorphSequenceByRegion(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaMorphSequenceByRegion( pixs.Pointer, pixam.Pointer, sequence, minw, minh)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -269,7 +276,7 @@ End Function
 ' pixUnionOfMorphOps(PIX *, SELA *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixUnionOfMorphOps/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixUnionOfMorphOps/*"/>
 '''  <param name="pixs">[in] - binary</param>
 '''  <param name="sela">[in] - </param>
 '''  <param name="type">[in] - L_MORPH_DILATE, etc.</param>
@@ -283,6 +290,7 @@ Public Shared Function pixUnionOfMorphOps(
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixUnionOfMorphOps( pixs.Pointer, sela.Pointer, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -293,7 +301,7 @@ End Function
 ' pixIntersectionOfMorphOps(PIX *, SELA *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixIntersectionOfMorphOps/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixIntersectionOfMorphOps/*"/>
 '''  <param name="pixs">[in] - binary</param>
 '''  <param name="sela">[in] - </param>
 '''  <param name="type">[in] - L_MORPH_DILATE, etc.</param>
@@ -307,6 +315,7 @@ Public Shared Function pixIntersectionOfMorphOps(
 	If IsNothing (sela) then Throw New ArgumentNullException  ("sela cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixIntersectionOfMorphOps( pixs.Pointer, sela.Pointer, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -317,7 +326,7 @@ End Function
 ' pixSelectiveConnCompFill(PIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSelectiveConnCompFill/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSelectiveConnCompFill/*"/>
 '''  <param name="pixs">[in] - binary</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''  <param name="minw">[in] - minimum width to consider use 0 or 1 for any width</param>
@@ -332,6 +341,7 @@ Public Shared Function pixSelectiveConnCompFill(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSelectiveConnCompFill( pixs.Pointer, connectivity, minw, minh)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -355,7 +365,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRemoveMatchedPattern/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRemoveMatchedPattern/*"/>
 '''  <param name="pixs">[in] - input image, 1 bpp</param>
 '''  <param name="pixp">[in] - pattern to be removed from image, 1 bpp</param>
 '''  <param name="pixe">[in] - image after erosion by Sel that approximates pixp, 1 bpp</param>
@@ -376,6 +386,7 @@ Public Shared Function pixRemoveMatchedPattern(
 	If IsNothing (pixe) then Throw New ArgumentNullException  ("pixe cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRemoveMatchedPattern( pixs.Pointer, pixp.Pointer, pixe.Pointer, x0, y0, dsize)
+
 
 	Return _Result
 End Function
@@ -402,7 +413,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDisplayMatchedPattern/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDisplayMatchedPattern/*"/>
 '''  <param name="pixs">[in] - input image, 1 bpp</param>
 '''  <param name="pixp">[in] - pattern to be removed from image, 1 bpp</param>
 '''  <param name="pixe">[in] - image after erosion by Sel that approximates pixp, 1 bpp</param>
@@ -427,6 +438,7 @@ Public Shared Function pixDisplayMatchedPattern(
 	If IsNothing (pixe) then Throw New ArgumentNullException  ("pixe cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDisplayMatchedPattern( pixs.Pointer, pixp.Pointer, pixe.Pointer, x0, y0, color, scale, nlevels)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -450,7 +462,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaExtendByMorph/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaExtendByMorph/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="type">[in] - L_MORPH_DILATE, L_MORPH_ERODE</param>
 '''  <param name="niters">[in] - </param>
@@ -468,6 +480,7 @@ Public Shared Function pixaExtendByMorph(
 	If IsNothing (sel) then Throw New ArgumentNullException  ("sel cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaExtendByMorph( pixas.Pointer, type, niters, sel.Pointer, include)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -488,7 +501,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaExtendByScaling/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaExtendByScaling/*"/>
 '''  <param name="pixas">[in] - </param>
 '''  <param name="nasc">[in] - numa of scaling factors</param>
 '''  <param name="type">[in] - L_HORIZ, L_VERT, L_BOTH_DIRECTIONS</param>
@@ -504,6 +517,7 @@ Public Shared Function pixaExtendByScaling(
 	If IsNothing (nasc) then Throw New ArgumentNullException  ("nasc cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaExtendByScaling( pixas.Pointer, nasc.Pointer, type, include)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -524,7 +538,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillMorph/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSeedfillMorph/*"/>
 '''  <param name="pixs">[in] - seed</param>
 '''  <param name="pixm">[in] - mask</param>
 '''  <param name="maxiters">[in] - use 0 to go to completion</param>
@@ -540,6 +554,7 @@ Public Shared Function pixSeedfillMorph(
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSeedfillMorph( pixs.Pointer, pixm.Pointer, maxiters, connectivity)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -550,7 +565,7 @@ End Function
 ' pixRunHistogramMorph(PIX *, l_int32, l_int32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRunHistogramMorph/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRunHistogramMorph/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="runtype">[in] - L_RUN_OFF, L_RUN_ON</param>
 '''  <param name="direction">[in] - L_HORIZ, L_VERT</param>
@@ -565,6 +580,7 @@ Public Shared Function pixRunHistogramMorph(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRunHistogramMorph( pixs.Pointer, runtype, direction, maxsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -587,7 +603,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixTophat/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixTophat/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
 '''  <param name="vsize">[in] - ditto</param>
@@ -602,6 +618,7 @@ Public Shared Function pixTophat(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixTophat( pixs.Pointer, hsize, vsize, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -657,7 +674,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixHDome/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixHDome/*"/>
 '''  <param name="pixs">[in] - 8 bpp, filling mask</param>
 '''  <param name="height">[in] - of seed below the filling maskhdome must be greater or equal 0</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -670,6 +687,7 @@ Public Shared Function pixHDome(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixHDome( pixs.Pointer, height, connectivity)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -701,7 +719,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFastTophat/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFastTophat/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="xsize">[in] - width of max/min op, smoothing any integer greater or equal 1</param>
 '''  <param name="ysize">[in] - height of max/min op, smoothing any integer greater or equal 1</param>
@@ -716,6 +734,7 @@ Public Shared Function pixFastTophat(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFastTophat( pixs.Pointer, xsize, ysize, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -726,7 +745,7 @@ End Function
 ' pixMorphGradient(PIX *, l_int32, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMorphGradient/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMorphGradient/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="hsize">[in] - of Sel must be odd origin implicitly in center</param>
 '''  <param name="vsize">[in] - ditto</param>
@@ -741,6 +760,7 @@ Public Shared Function pixMorphGradient(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMorphGradient( pixs.Pointer, hsize, vsize, smoothing)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -758,7 +778,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaCentroids/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaCentroids/*"/>
 '''  <param name="pixa">[in] - of components 1 or 8 bpp</param>
 '''   <returns>pta of centroids relative to the UL corner of each pix, or NULL on error</returns>
 Public Shared Function pixaCentroids(
@@ -767,6 +787,7 @@ Public Shared Function pixaCentroids(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaCentroids( pixa.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -783,7 +804,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCentroid/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCentroid/*"/>
 '''  <param name="pix">[in] - 1 or 8 bpp</param>
 '''  <param name="centtab">[in][optional] - table for finding centroids can be null</param>
 '''  <param name="sumtab">[in][optional] - table for finding pixel sums can be null</param>
@@ -800,6 +821,7 @@ Public Shared Function pixCentroid(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCentroid( pix.Pointer, centtab, sumtab, pxave, pyave)
+
 
 	Return _Result
 End Function

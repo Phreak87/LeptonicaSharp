@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\sel2.c (92, 1)
 ' selaAddBasic(sela) as Sela
 ' selaAddBasic(SELA *) as SELA *
@@ -17,7 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaAddBasic/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaAddBasic/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function selaAddBasic(
@@ -26,6 +25,7 @@ Public Shared Function selaAddBasic(
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaAddBasic( selaPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sela(_Result)
@@ -36,7 +36,7 @@ End Function
 ' selaAddHitMiss(SELA *) as SELA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaAddHitMiss/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaAddHitMiss/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function selaAddHitMiss(
@@ -45,6 +45,7 @@ Public Shared Function selaAddHitMiss(
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaAddHitMiss( selaPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sela(_Result)
@@ -62,7 +63,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaAddDwaLinear/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaAddDwaLinear/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function selaAddDwaLinear(
@@ -71,6 +72,7 @@ Public Shared Function selaAddDwaLinear(
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaAddDwaLinear( selaPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sela(_Result)
@@ -89,7 +91,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaAddDwaCombs/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaAddDwaCombs/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function selaAddDwaCombs(
@@ -98,6 +100,7 @@ Public Shared Function selaAddDwaCombs(
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaAddDwaCombs( selaPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sela(_Result)
@@ -127,7 +130,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaAddCrossJunctions/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaAddCrossJunctions/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''  <param name="hlsize">[in] - length of each line of hits from origin</param>
 '''  <param name="mdist">[in] - distance of misses from the origin</param>
@@ -144,6 +147,7 @@ Public Shared Function selaAddCrossJunctions(
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaAddCrossJunctions( selaPTR, hlsize, mdist, norient, debugflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sela(_Result)
@@ -167,7 +171,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/selaAddTJunctions/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaAddTJunctions/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''  <param name="hlsize">[in] - length of each line of hits from origin</param>
 '''  <param name="mdist">[in] - distance of misses from the origin</param>
@@ -184,6 +188,7 @@ Public Shared Function selaAddTJunctions(
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.selaAddTJunctions( selaPTR, hlsize, mdist, norient, debugflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sela(_Result)
@@ -199,7 +204,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sela4ccThin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sela4ccThin/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function sela4ccThin(
@@ -208,6 +213,7 @@ Public Shared Function sela4ccThin(
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sela4ccThin( selaPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sela(_Result)
@@ -223,7 +229,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sela8ccThin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sela8ccThin/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function sela8ccThin(
@@ -232,6 +238,7 @@ Public Shared Function sela8ccThin(
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sela8ccThin( selaPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sela(_Result)
@@ -247,7 +254,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sela4and8ccThin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sela4and8ccThin/*"/>
 '''  <param name="sela">[in][optional] - </param>
 '''   <returns>sela with additional sels, or NULL on error</returns>
 Public Shared Function sela4and8ccThin(
@@ -256,6 +263,7 @@ Public Shared Function sela4and8ccThin(
 	Dim selaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sela) Then selaPTR = sela.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sela4and8ccThin( selaPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sela(_Result)

@@ -2,13 +2,12 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\grayquant.c (171, 1)
 ' pixDitherToBinary(pixs) as Pix
 ' pixDitherToBinary(PIX *) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDitherToBinary/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDitherToBinary/*"/>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd dithered binary, or NULL on error The Floyd-Steinberg error diffusion dithering algorithm binarizes an 8 bpp grayscale image to a threshold of 128. If a pixel has a value above 127, it is binarized to white and the excess below 255 is subtracted from three neighboring pixels in the fractions 3/8 to i, j+1, 3/8 to i+1, j) and 1/4 to (i+1,j+1, truncating to 0 if necessary.  Likewise, if it the pixel has a value below 128, it is binarized to black and the excess above 0 is added to the neighboring pixels, truncating to 255 if necessary. This function differs from straight dithering in that it allows clipping of grayscale to 0 or 255 if the values are sufficiently close, without distribution of the excess. This uses default values to specify the range of lower and upper values near 0 and 255, rsp that are clipped to black and white without propagating the excess. Not propagating the excess has the effect of reducing the snake patterns in parts of the image that are nearly black or white however, it also prevents the attempt to reproduce gray for those values. The implementation is straightforward.  It uses a pair of line buffers to avoid changing pixs.  It is about the same speed as pixDitherToBinaryLUT(), which uses three LUTs.</returns>
 Public Shared Function pixDitherToBinary(
@@ -17,6 +16,7 @@ Public Shared Function pixDitherToBinary(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDitherToBinary( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -37,7 +37,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDitherToBinarySpec/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDitherToBinarySpec/*"/>
 '''  <param name="pixs">[in] - </param>
 '''  <param name="lowerclip">[in] - lower clip distance to black use 0 for default</param>
 '''  <param name="upperclip">[in] - upper clip distance to white use 0 for default</param>
@@ -50,6 +50,7 @@ Public Shared Function pixDitherToBinarySpec(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDitherToBinarySpec( pixs.Pointer, lowerclip, upperclip)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -60,7 +61,7 @@ End Function
 ' ditherToBinaryLineLow(l_uint32 *, l_int32, l_uint32 *, l_uint32 *, l_int32, l_int32, l_int32) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ditherToBinaryLineLow/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ditherToBinaryLineLow/*"/>
 '''  <param name="lined">[in] - ptr to beginning of dest line</param>
 '''  <param name="w">[in] - width of image in pixels</param>
 '''  <param name="bufs1">[in] - buffer of current source line</param>
@@ -86,6 +87,10 @@ Public Shared Sub ditherToBinaryLineLow(
 	Dim bufs2PTR As IntPtr = Marshal.AllocHGlobal(bufs2.Count) : Marshal.Copy(bufs2, 0, bufs2PTR, bufs2.Length)
 
 	LeptonicaSharp.Natives.ditherToBinaryLineLow( linedPTR, w, bufs1PTR, bufs2PTR, lowerclip, upperclip, lastlineflag)
+Marshal.FreeHGlobal(linedPTR)
+Marshal.FreeHGlobal(bufs1PTR)
+Marshal.FreeHGlobal(bufs2PTR)
+
 
 End Sub
 
@@ -104,7 +109,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixThresholdToBinary/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixThresholdToBinary/*"/>
 '''  <param name="pixs">[in] - 4 or 8 bpp</param>
 '''  <param name="thresh">[in] - threshold value</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
@@ -117,6 +122,7 @@ Public Shared Function pixThresholdToBinary(
 	If {4,8}.contains (pixs.d) = false then Throw New ArgumentException ("4 or 8 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixThresholdToBinary( pixs.Pointer, thresh)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -127,7 +133,7 @@ End Function
 ' thresholdToBinaryLineLow(l_uint32 *, l_int32, l_uint32 *, l_int32, l_int32) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/thresholdToBinaryLineLow/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/thresholdToBinaryLineLow/*"/>
 Public Shared Sub thresholdToBinaryLineLow(
 				 ByVal lined as Object, 
 				 ByVal w as Integer, 
@@ -139,6 +145,7 @@ Public Shared Sub thresholdToBinaryLineLow(
 	If IsNothing (lines) then Throw New ArgumentNullException  ("lines cannot be Nothing")
 
 	LeptonicaSharp.Natives.thresholdToBinaryLineLow( lined, w, lines, d, thresh)
+
 
 End Sub
 
@@ -153,7 +160,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixVarThresholdToBinary/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixVarThresholdToBinary/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="pixg">[in] - 8 bpp contains threshold values for each pixel</param>
 '''   <returns>pixd 1 bpp, or NULL on error</returns>
@@ -167,6 +174,7 @@ Public Shared Function pixVarThresholdToBinary(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixVarThresholdToBinary( pixs.Pointer, pixg.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -199,7 +207,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAdaptThresholdToBinary/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAdaptThresholdToBinary/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="pixm">[in][optional] - 1 bpp image mask can be null</param>
 '''  <param name="gamma">[in] - gamma correction must be  is greater  0.0 typically ~1.0</param>
@@ -216,6 +224,7 @@ Public Shared Function pixAdaptThresholdToBinary(
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAdaptThresholdToBinary( pixs.Pointer, pixmPTR, gamma)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -243,7 +252,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAdaptThresholdToBinaryGen/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAdaptThresholdToBinaryGen/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="pixm">[in][optional] - 1 bpp image mask can be null</param>
 '''  <param name="gamma">[in] - gamma correction must be  is greater  0.0 typically ~1.0</param>
@@ -266,6 +275,7 @@ Public Shared Function pixAdaptThresholdToBinaryGen(
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAdaptThresholdToBinaryGen( pixs.Pointer, pixmPTR, gamma, blackval, whiteval, thresh)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -288,7 +298,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGenerateMaskByValue/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGenerateMaskByValue/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp, or colormapped</param>
 '''  <param name="val">[in] - of pixels for which we set 1 in dest</param>
 '''  <param name="usecmap">[in] - 1 to retain cmap values 0 to convert to gray</param>
@@ -301,6 +311,7 @@ Public Shared Function pixGenerateMaskByValue(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenerateMaskByValue( pixs.Pointer, val, usecmap)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -325,7 +336,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGenerateMaskByBand/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGenerateMaskByBand/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp, or colormapped</param>
 '''  <param name="lower">[in] - two pixel values from which a range, either between (inband) or outside of (!inband), determines which pixels in pixs cause us to set a 1 in the dest mask</param>
 '''  <param name="upper">[in] - two pixel values from which a range, either between (inband) or outside of (!inband), determines which pixels in pixs cause us to set a 1 in the dest mask</param>
@@ -342,6 +353,7 @@ Public Shared Function pixGenerateMaskByBand(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenerateMaskByBand( pixs.Pointer, lower, upper, inband, usecmap)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -352,7 +364,7 @@ End Function
 ' pixDitherTo2bpp(PIX *, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDitherTo2bpp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDitherTo2bpp/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="cmapflag">[in] - 1 to generate a colormap</param>
 '''   <returns>pixd dithered 2 bpp, or NULL on error An analog of the Floyd-Steinberg error diffusion dithering algorithm is used to "dibitize" an 8 bpp grayscale image to 2 bpp, using equally spaced gray values of 0, 85, 170, and 255, which are served by thresholds of 43, 128 and 213. If cmapflag == 1, the colormap values are set to 0, 85, 170 and 255. If a pixel has a value between 0 and 42, it is dibitized to 0, and the excess above 0 is added to the three neighboring pixels, in the fractions 3/8 to i, j+1, 3/8 to i+1, j) and 1/4 to (i+1, j+1, truncating to 255 if necessary.  If a pixel has a value between 43 and 127, it is dibitized to 1, and the excess above 85 is added to the three neighboring pixels as before.  If the value is below 85, the excess is subtracted.  With a value between 128 and 212, it is dibitized to 2, with the excess on either side of 170 distributed as before.  Finally, with a value between 213 and 255, it is dibitized to 3, with the excess below 255 subtracted from the neighbors.  We always truncate to 0 or 255. The details can be seen in the lookup table generation. This function differs from straight dithering in that it allows clipping of grayscale to 0 or 255 if the values are sufficiently close, without distribution of the excess. This uses default values from pix.h to specify the range of lower and upper values near 0 and 255, rsp that are clipped to black and white without propagating the excess. Not propagating the excess has the effect of reducing the snake patterns in parts of the image that are nearly black or white however, it also prevents any attempt to reproduce gray for those values. The implementation uses 3 lookup tables for simplicity, and a pair of line buffers to avoid modifying pixs.</returns>
@@ -365,6 +377,7 @@ Public Shared Function pixDitherTo2bpp(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDitherTo2bpp( pixs.Pointer, cmapflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -385,7 +398,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDitherTo2bppSpec/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDitherTo2bppSpec/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="lowerclip">[in] - lower clip distance to black use 0 for default</param>
 '''  <param name="upperclip">[in] - upper clip distance to white use 0 for default</param>
@@ -402,6 +415,7 @@ Public Shared Function pixDitherTo2bppSpec(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDitherTo2bppSpec( pixs.Pointer, lowerclip, upperclip, cmapflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -454,7 +468,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixThresholdTo2bpp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixThresholdTo2bpp/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="nlevels">[in] - equally spaced must be between 2 and 4</param>
 '''  <param name="cmapflag">[in] - 1 to build colormap 0 otherwise</param>
@@ -469,6 +483,7 @@ Public Shared Function pixThresholdTo2bpp(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixThresholdTo2bpp( pixs.Pointer, nlevels, cmapflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -523,7 +538,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixThresholdTo4bpp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixThresholdTo4bpp/*"/>
 '''  <param name="pixs">[in] - 8 bpp, can have colormap</param>
 '''  <param name="nlevels">[in] - equally spaced must be between 2 and 16</param>
 '''  <param name="cmapflag">[in] - 1 to build colormap 0 otherwise</param>
@@ -536,6 +551,7 @@ Public Shared Function pixThresholdTo4bpp(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixThresholdTo4bpp( pixs.Pointer, nlevels, cmapflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -561,7 +577,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixThresholdOn8bpp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixThresholdOn8bpp/*"/>
 '''  <param name="pixs">[in] - 8 bpp, can have colormap</param>
 '''  <param name="nlevels">[in] - equally spaced must be between 2 and 256</param>
 '''  <param name="cmapflag">[in] - 1 to build colormap 0 otherwise</param>
@@ -574,6 +590,7 @@ Public Shared Function pixThresholdOn8bpp(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixThresholdOn8bpp( pixs.Pointer, nlevels, cmapflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -621,7 +638,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixThresholdGrayArb/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixThresholdGrayArb/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale can have colormap</param>
 '''  <param name="edgevals">[in] - string giving edge value of each bin</param>
 '''  <param name="outdepth">[in] - 0, 2, 4 or 8 bpp 0 is default for min depth</param>
@@ -641,6 +658,7 @@ Public Shared Function pixThresholdGrayArb(
 	If IsNothing (edgevals) then Throw New ArgumentNullException  ("edgevals cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixThresholdGrayArb( pixs.Pointer, edgevals, outdepth, use_average, setblack, setwhite)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -659,13 +677,14 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/makeGrayQuantIndexTable/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makeGrayQuantIndexTable/*"/>
 '''  <param name="nlevels">[in] - number of output levels</param>
 '''   <returns>table maps input gray level to colormap index, or NULL on error</returns>
 Public Shared Function makeGrayQuantIndexTable(
 				 ByVal nlevels as Integer) as Integer()
 
 	Dim _Result as Integer() = LeptonicaSharp.Natives.makeGrayQuantIndexTable( nlevels)
+
 
 	Return _Result
 End Function
@@ -694,7 +713,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/makeGrayQuantTableArb/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makeGrayQuantTableArb/*"/>
 '''  <param name="na">[in] - numa of bin boundaries</param>
 '''  <param name="outdepth">[in] - of colormap: 1, 2, 4 or 8</param>
 '''  <param name="ptab">[out] - table mapping input gray level to cmap index</param>
@@ -712,7 +731,9 @@ Dim ptabPTR As IntPtr = Marshal.AllocHGlobal(0)
 	Dim pcmapPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pcmap) Then pcmapPTR = pcmap.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.makeGrayQuantTableArb( na.Pointer, outdepth, ptabPTR, pcmapPTR)
-	if pcmapPTR <> IntPtr.Zero then pcmap = new PixColormap(pcmapPTR)
+
+If pcmapPTR = IntPtr.Zero Then pcmap = Nothing
+If pcmapPTR <> IntPtr.Zero Then pcmap = New PixColormap(pcmapPTR)
 
 	Return _Result
 End Function
@@ -738,7 +759,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGenerateMaskByBand32/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGenerateMaskByBand32/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="refval">[in] - reference rgb value</param>
 '''  <param name="delm">[in] - max amount below the ref value for any component</param>
@@ -757,6 +778,7 @@ Public Shared Function pixGenerateMaskByBand32(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenerateMaskByBand32( pixs.Pointer, refval, delm, delp, fractm, fractp)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -780,7 +802,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGenerateMaskByDiscr32/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGenerateMaskByDiscr32/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="refval1">[in] - reference rgb value</param>
 '''  <param name="refval2">[in] - reference rgb value</param>
@@ -795,6 +817,7 @@ Public Shared Function pixGenerateMaskByDiscr32(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenerateMaskByDiscr32( pixs.Pointer, refval1, refval2, distflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -844,7 +867,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGrayQuantFromHisto/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGrayQuantFromHisto/*"/>
 '''  <param name="pixd">[in][optional] - quantized pix with cmap can be null</param>
 '''  <param name="pixs">[in] - 8 bpp gray input pix not cmapped</param>
 '''  <param name="pixm">[in][optional] - mask over pixels in pixs to quantize</param>
@@ -864,6 +887,7 @@ Public Shared Function pixGrayQuantFromHisto(
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGrayQuantFromHisto( pixdPTR, pixs.Pointer, pixmPTR, minfract, maxsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -881,7 +905,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGrayQuantFromCmap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGrayQuantFromCmap/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale without cmap</param>
 '''  <param name="cmap">[in] - to quantize to of dest pix</param>
 '''  <param name="mindepth">[in] - minimum depth of pixd: can be 2, 4 or 8 bpp</param>
@@ -895,6 +919,7 @@ Public Shared Function pixGrayQuantFromCmap(
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGrayQuantFromCmap( pixs.Pointer, cmap.Pointer, mindepth)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

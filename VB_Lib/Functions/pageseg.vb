@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\pageseg.c (102, 1)
 ' pixGetRegionsBinary(pixs, ppixhm, ppixtm, ppixtb, pixadb) as Integer
 ' pixGetRegionsBinary(PIX *, PIX **, PIX **, PIX **, PIXA *) as l_ok
@@ -15,7 +14,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetRegionsBinary/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetRegionsBinary/*"/>
 '''  <param name="pixs">[in] - 1 bpp, assumed to be 300 to 400 ppi</param>
 '''  <param name="ppixhm">[out][optional] - halftone mask</param>
 '''  <param name="ppixtm">[out][optional] - textline mask</param>
@@ -37,9 +36,13 @@ Dim ppixtmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixtm) Then ppixtmPTR 
 Dim ppixtbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixtb) Then ppixtbPTR = ppixtb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetRegionsBinary( pixs.Pointer, ppixhmPTR, ppixtmPTR, ppixtbPTR, pixadb.Pointer)
-	if ppixhmPTR <> IntPtr.Zero then ppixhm = new Pix(ppixhmPTR)
-	if ppixtmPTR <> IntPtr.Zero then ppixtm = new Pix(ppixtmPTR)
-	if ppixtbPTR <> IntPtr.Zero then ppixtb = new Pix(ppixtbPTR)
+
+If ppixhmPTR = IntPtr.Zero Then ppixhm = Nothing
+If ppixhmPTR <> IntPtr.Zero Then ppixhm = New Pix(ppixhmPTR)
+If ppixtmPTR = IntPtr.Zero Then ppixtm = Nothing
+If ppixtmPTR <> IntPtr.Zero Then ppixtm = New Pix(ppixtmPTR)
+If ppixtbPTR = IntPtr.Zero Then ppixtb = Nothing
+If ppixtbPTR <> IntPtr.Zero Then ppixtb = New Pix(ppixtbPTR)
 
 	Return _Result
 End Function
@@ -55,7 +58,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGenHalftoneMask/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGenHalftoneMask/*"/>
 '''   <returns></returns>
 Public Shared Function pixGenHalftoneMask(
 				 ByVal pixs as Pix, 
@@ -71,6 +74,7 @@ Dim pixsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs) Then pixsPTR = pixs
 	Dim ppixtextPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixtext) Then ppixtextPTR = ppixtext.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenHalftoneMask( pixs.Pointer, ppixtextPTR, phtfound, debug)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -87,7 +91,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGenerateHalftoneMask/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGenerateHalftoneMask/*"/>
 '''  <param name="pixs">[in] - 1 bpp, assumed to be 150 to 200 ppi</param>
 '''  <param name="ppixtext">[out][optional] - text part of pixs</param>
 '''  <param name="phtfound">[out][optional] - 1 if the mask is not empty</param>
@@ -105,8 +109,10 @@ Public Shared Function pixGenerateHalftoneMask(
 Dim ppixtextPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixtext) Then ppixtextPTR = ppixtext.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenerateHalftoneMask( pixs.Pointer, ppixtextPTR, phtfound, pixadb.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if ppixtextPTR <> IntPtr.Zero then ppixtext = new Pix(ppixtextPTR)
+If ppixtextPTR = IntPtr.Zero Then ppixtext = Nothing
+If ppixtextPTR <> IntPtr.Zero Then ppixtext = New Pix(ppixtextPTR)
 
 	Return  new Pix(_Result)
 End Function
@@ -129,7 +135,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGenTextlineMask/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGenTextlineMask/*"/>
 '''  <param name="pixs">[in] - 1 bpp, assumed to be 150 to 200 ppi</param>
 '''  <param name="ppixvws">[out] - vertical whitespace mask</param>
 '''  <param name="ptlfound">[out][optional] - 1 if the mask is not empty</param>
@@ -147,8 +153,10 @@ Public Shared Function pixGenTextlineMask(
 	Dim ppixvwsPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixvws) Then ppixvwsPTR = ppixvws.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenTextlineMask( pixs.Pointer, ppixvwsPTR, ptlfound, pixadb.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if ppixvwsPTR <> IntPtr.Zero then ppixvws = new Pix(ppixvwsPTR)
+If ppixvwsPTR = IntPtr.Zero Then ppixvws = Nothing
+If ppixvwsPTR <> IntPtr.Zero Then ppixvws = New Pix(ppixvwsPTR)
 
 	Return  new Pix(_Result)
 End Function
@@ -173,7 +181,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGenTextblockMask/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGenTextblockMask/*"/>
 '''  <param name="pixs">[in] - 1 bpp, textline mask, assumed to be 150 to 200 ppi</param>
 '''  <param name="pixvws">[in] - vertical white space mask</param>
 '''  <param name="pixadb">[in] - input for collecting debug pix use NULL to skip</param>
@@ -188,6 +196,7 @@ Public Shared Function pixGenTextblockMask(
 	If IsNothing (pixadb) then Throw New ArgumentNullException  ("pixadb cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGenTextblockMask( pixs.Pointer, pixvws.Pointer, pixadb.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -216,7 +225,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindPageForeground/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindPageForeground/*"/>
 '''  <param name="pixs">[in] - full resolution (any type or depth</param>
 '''  <param name="threshold">[in] - for binarization typically about 128</param>
 '''  <param name="mindist">[in] - min distance of text from border to allow cleaning near border at 2x reduction, this should be larger than 50 typically about 70</param>
@@ -236,6 +245,7 @@ Public Shared Function pixFindPageForeground(
 	If IsNothing (pixac) then Throw New ArgumentNullException  ("pixac cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFindPageForeground( pixs.Pointer, threshold, mindist, erasedist, showmorph, pixac.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -258,7 +268,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSplitIntoCharacters/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSplitIntoCharacters/*"/>
 '''  <param name="pixs">[in] - 1 bpp, contains only deskewed text</param>
 '''  <param name="minw">[in] - min component width for initial filtering typ. 4</param>
 '''  <param name="minh">[in] - min component height for initial filtering typ. 4</param>
@@ -281,9 +291,13 @@ Dim ppixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixa) Then ppixaPTR = p
 Dim ppixdebugPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdebug) Then ppixdebugPTR = ppixdebug.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSplitIntoCharacters( pixs.Pointer, minw, minh, pboxaPTR, ppixaPTR, ppixdebugPTR)
-	if pboxaPTR <> IntPtr.Zero then pboxa = new Boxa(pboxaPTR)
-	if ppixaPTR <> IntPtr.Zero then ppixa = new Pixa(ppixaPTR)
-	if ppixdebugPTR <> IntPtr.Zero then ppixdebug = new Pix(ppixdebugPTR)
+
+If pboxaPTR = IntPtr.Zero Then pboxa = Nothing
+If pboxaPTR <> IntPtr.Zero Then pboxa = New Boxa(pboxaPTR)
+If ppixaPTR = IntPtr.Zero Then ppixa = Nothing
+If ppixaPTR <> IntPtr.Zero Then ppixa = New Pixa(ppixaPTR)
+If ppixdebugPTR = IntPtr.Zero Then ppixdebug = Nothing
+If ppixdebugPTR <> IntPtr.Zero Then ppixdebug = New Pix(ppixdebugPTR)
 
 	Return _Result
 End Function
@@ -301,7 +315,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSplitComponentWithProfile/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSplitComponentWithProfile/*"/>
 '''  <param name="pixs">[in] - 1 bpp, exactly one connected component</param>
 '''  <param name="delta">[in] - distance used in extrema finding in a numa typ. 10</param>
 '''  <param name="mindel">[in] - minimum required difference between profile minimum and profile values +2 and -2 away typ. 7</param>
@@ -318,8 +332,10 @@ Public Shared Function pixSplitComponentWithProfile(
 Dim ppixdebugPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdebug) Then ppixdebugPTR = ppixdebug.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSplitComponentWithProfile( pixs.Pointer, delta, mindel, ppixdebugPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if ppixdebugPTR <> IntPtr.Zero then ppixdebug = new Pix(ppixdebugPTR)
+If ppixdebugPTR = IntPtr.Zero Then ppixdebug = Nothing
+If ppixdebugPTR <> IntPtr.Zero Then ppixdebug = New Pix(ppixdebugPTR)
 
 	Return  new Boxa(_Result)
 End Function
@@ -366,7 +382,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixExtractTextlines/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixExtractTextlines/*"/>
 '''  <param name="pixs">[in] - any depth, assumed to have nearly horizontal text</param>
 '''  <param name="maxw">[in] - initial filtering: remove any components in pixs with components larger than maxw or maxh</param>
 '''  <param name="maxh">[in] - initial filtering: remove any components in pixs with components larger than maxw or maxh</param>
@@ -390,6 +406,7 @@ Public Shared Function pixExtractTextlines(
 	If IsNothing (pixadb) then Throw New ArgumentNullException  ("pixadb cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtractTextlines( pixs.Pointer, maxw, maxh, minw, minh, adjw, adjh, pixadb.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -429,7 +446,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixExtractRawTextlines/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixExtractRawTextlines/*"/>
 '''  <param name="pixs">[in] - any depth, assumed to have nearly horizontal text</param>
 '''  <param name="maxw">[in] - initial filtering: remove any components in pixs with components larger than maxw or maxh use 0 for default values.</param>
 '''  <param name="maxh">[in] - initial filtering: remove any components in pixs with components larger than maxw or maxh use 0 for default values.</param>
@@ -449,6 +466,7 @@ Public Shared Function pixExtractRawTextlines(
 	If IsNothing (pixadb) then Throw New ArgumentNullException  ("pixadb cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtractRawTextlines( pixs.Pointer, maxw, maxh, adjw, adjh, pixadb.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -473,7 +491,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCountTextColumns/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCountTextColumns/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="deltafract">[in] - fraction of (max - min) to be used in the delta for extrema finding typ 0.3</param>
 '''  <param name="peakfract">[in] - fraction of (max - min) to be used to threshold the peak value typ. 0.5</param>
@@ -496,6 +514,7 @@ Public Shared Function pixCountTextColumns(
 	Dim pixadbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixadb) Then pixadbPTR = pixadb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCountTextColumns( pixs.Pointer, deltafract, peakfract, clipfract, pncols, pixadbPTR)
+
 
 	Return _Result
 End Function
@@ -527,7 +546,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDecideIfText/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDecideIfText/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="box">[in][optional] - if null, use entire pixs</param>
 '''  <param name="pistext">[out] - 1 if text 0 if photo -1 if not determined or empty</param>
@@ -546,6 +565,7 @@ Public Shared Function pixDecideIfText(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixDecideIfText( pixs.Pointer, boxPTR, pistext, pixadbPTR)
 
+
 	Return _Result
 End Function
 
@@ -554,7 +574,7 @@ End Function
 ' pixFindThreshFgExtent(PIX *, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindThreshFgExtent/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindThreshFgExtent/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="thresh">[in] - threshold number of pixels in row</param>
 '''  <param name="ptop">[out][optional] - location of top of region</param>
@@ -571,6 +591,7 @@ Public Shared Function pixFindThreshFgExtent(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindThreshFgExtent( pixs.Pointer, thresh, ptop, pbot)
+
 
 	Return _Result
 End Function
@@ -620,7 +641,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDecideIfTable/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDecideIfTable/*"/>
 '''  <param name="pixs">[in] - any depth, any resolution greater or equal 75 ppi</param>
 '''  <param name="box">[in][optional] - if null, use entire pixs</param>
 '''  <param name="orient">[in] - L_PORTRAIT_MODE, L_LANDSCAPE_MODE</param>
@@ -641,6 +662,7 @@ Public Shared Function pixDecideIfTable(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixDecideIfTable( pixs.Pointer, boxPTR, orient, pscore, pixadbPTR)
 
+
 	Return _Result
 End Function
 
@@ -655,7 +677,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixPrepare1bpp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixPrepare1bpp/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="box">[in][optional] - if null, use entire pixs</param>
 '''  <param name="cropfract">[in] - fraction to be removed from the boundary use 0.0 to retain the entire image</param>
@@ -672,6 +694,7 @@ Public Shared Function pixPrepare1bpp(
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixPrepare1bpp( pixs.Pointer, boxPTR, cropfract, outres)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -687,7 +710,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixEstimateBackground/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixEstimateBackground/*"/>
 '''  <param name="pixs">[in] - 8 bpp, with or without colormap</param>
 '''  <param name="darkthresh">[in] - pixels below this value are never considered part of the background typ. 70 use 0 to skip</param>
 '''  <param name="edgecrop">[in] - fraction of half-width on each side, and of half-height at top and bottom, that are cropped</param>
@@ -702,6 +725,7 @@ Public Shared Function pixEstimateBackground(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixEstimateBackground( pixs.Pointer, darkthresh, edgecrop, pbg)
+
 
 	Return _Result
 End Function
@@ -729,7 +753,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindLargeRectangles/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindLargeRectangles/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="polarity">[in] - 0 within background, 1 within foreground</param>
 '''  <param name="nrect">[in] - number of rectangles to be found</param>
@@ -751,8 +775,11 @@ Public Shared Function pixFindLargeRectangles(
 	Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindLargeRectangles( pixs.Pointer, polarity, nrect, pboxaPTR, ppixdbPTR)
-	if pboxaPTR <> IntPtr.Zero then pboxa = new Boxa(pboxaPTR)
-	if ppixdbPTR <> IntPtr.Zero then ppixdb = new Pix(ppixdbPTR)
+
+If pboxaPTR = IntPtr.Zero Then pboxa = Nothing
+If pboxaPTR <> IntPtr.Zero Then pboxa = New Boxa(pboxaPTR)
+If ppixdbPTR = IntPtr.Zero Then ppixdb = Nothing
+If ppixdbPTR <> IntPtr.Zero Then ppixdb = New Pix(ppixdbPTR)
 
 	Return _Result
 End Function
@@ -805,7 +832,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindLargestRectangle/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindLargestRectangle/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="polarity">[in] - 0 within background, 1 within foreground</param>
 '''  <param name="pbox">[out] - largest area rectangle</param>
@@ -825,8 +852,11 @@ Public Shared Function pixFindLargestRectangle(
 	Dim ppixdbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdb) Then ppixdbPTR = ppixdb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindLargestRectangle( pixs.Pointer, polarity, pboxPTR, ppixdbPTR)
-	if pboxPTR <> IntPtr.Zero then pbox = new Box(pboxPTR)
-	if ppixdbPTR <> IntPtr.Zero then ppixdb = new Pix(ppixdbPTR)
+
+If pboxPTR = IntPtr.Zero Then pbox = Nothing
+If pboxPTR <> IntPtr.Zero Then pbox = New Box(pboxPTR)
+If ppixdbPTR = IntPtr.Zero Then ppixdb = Nothing
+If ppixdbPTR <> IntPtr.Zero Then ppixdb = New Pix(ppixdbPTR)
 
 	Return _Result
 End Function

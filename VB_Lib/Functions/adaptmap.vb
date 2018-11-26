@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\adaptmap.c (185, 1)
 ' pixCleanBackgroundToWhite(pixs, pixim, pixg, gamma, blackval, whiteval) as Pix
 ' pixCleanBackgroundToWhite(PIX *, PIX *, PIX *, l_float32, l_int32, l_int32) as PIX *
@@ -20,7 +19,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCleanBackgroundToWhite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCleanBackgroundToWhite/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale or 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
@@ -42,6 +41,7 @@ Public Shared Function pixCleanBackgroundToWhite(
 	Dim pixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixg) Then pixgPTR = pixg.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCleanBackgroundToWhite( pixs.Pointer, piximPTR, pixgPTR, gamma, blackval, whiteval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -62,7 +62,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormSimple/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBackgroundNormSimple/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale or 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
@@ -78,6 +78,7 @@ Public Shared Function pixBackgroundNormSimple(
 	Dim pixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixg) Then pixgPTR = pixg.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBackgroundNormSimple( pixs.Pointer, piximPTR, pixgPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -141,7 +142,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNorm/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBackgroundNorm/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale or 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
@@ -171,6 +172,7 @@ Public Shared Function pixBackgroundNorm(
 	Dim pixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixg) Then pixgPTR = pixg.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBackgroundNorm( pixs.Pointer, piximPTR, pixgPTR, sx, sy, thresh, mincount, bgval, smoothx, smoothy)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -216,7 +218,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormMorph/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBackgroundNormMorph/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale or 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="reduction">[in] - at which morph closings are done between 2 and 16</param>
@@ -237,6 +239,7 @@ Public Shared Function pixBackgroundNormMorph(
 	Dim piximPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixim) Then piximPTR = pixim.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBackgroundNormMorph( pixs.Pointer, piximPTR, reduction, size, bgval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -256,7 +259,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormGrayArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBackgroundNormGrayArray/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="sx">[in] - tile size in pixels</param>
@@ -288,7 +291,9 @@ Public Shared Function pixBackgroundNormGrayArray(
 	Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixBackgroundNormGrayArray( pixs.Pointer, piximPTR, sx, sy, thresh, mincount, bgval, smoothx, smoothy, ppixdPTR)
-	if ppixdPTR <> IntPtr.Zero then ppixd = new Pix(ppixdPTR)
+
+If ppixdPTR = IntPtr.Zero Then ppixd = Nothing
+If ppixdPTR <> IntPtr.Zero Then ppixd = New Pix(ppixdPTR)
 
 	Return _Result
 End Function
@@ -307,7 +312,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormRGBArrays/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBackgroundNormRGBArrays/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
@@ -348,9 +353,13 @@ Public Shared Function pixBackgroundNormRGBArrays(
 	Dim ppixbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixb) Then ppixbPTR = ppixb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixBackgroundNormRGBArrays( pixs.Pointer, piximPTR, pixgPTR, sx, sy, thresh, mincount, bgval, smoothx, smoothy, ppixrPTR, ppixgPTR, ppixbPTR)
-	if ppixrPTR <> IntPtr.Zero then ppixr = new Pix(ppixrPTR)
-	if ppixgPTR <> IntPtr.Zero then ppixg = new Pix(ppixgPTR)
-	if ppixbPTR <> IntPtr.Zero then ppixb = new Pix(ppixbPTR)
+
+If ppixrPTR = IntPtr.Zero Then ppixr = Nothing
+If ppixrPTR <> IntPtr.Zero Then ppixr = New Pix(ppixrPTR)
+If ppixgPTR = IntPtr.Zero Then ppixg = Nothing
+If ppixgPTR <> IntPtr.Zero Then ppixg = New Pix(ppixgPTR)
+If ppixbPTR = IntPtr.Zero Then ppixb = Nothing
+If ppixbPTR <> IntPtr.Zero Then ppixb = New Pix(ppixbPTR)
 
 	Return _Result
 End Function
@@ -369,7 +378,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormGrayArrayMorph/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBackgroundNormGrayArrayMorph/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="reduction">[in] - at which morph closings are done between 2 and 16</param>
@@ -394,7 +403,9 @@ Public Shared Function pixBackgroundNormGrayArrayMorph(
 	Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixBackgroundNormGrayArrayMorph( pixs.Pointer, piximPTR, reduction, size, bgval, ppixdPTR)
-	if ppixdPTR <> IntPtr.Zero then ppixd = new Pix(ppixdPTR)
+
+If ppixdPTR = IntPtr.Zero Then ppixd = Nothing
+If ppixdPTR <> IntPtr.Zero Then ppixd = New Pix(ppixdPTR)
 
 	Return _Result
 End Function
@@ -413,7 +424,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormRGBArraysMorph/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBackgroundNormRGBArraysMorph/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null</param>
 '''  <param name="reduction">[in] - at which morph closings are done between 2 and 16</param>
@@ -444,9 +455,13 @@ Public Shared Function pixBackgroundNormRGBArraysMorph(
 	Dim ppixbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixb) Then ppixbPTR = ppixb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixBackgroundNormRGBArraysMorph( pixs.Pointer, piximPTR, reduction, size, bgval, ppixrPTR, ppixgPTR, ppixbPTR)
-	if ppixrPTR <> IntPtr.Zero then ppixr = new Pix(ppixrPTR)
-	if ppixgPTR <> IntPtr.Zero then ppixg = new Pix(ppixgPTR)
-	if ppixbPTR <> IntPtr.Zero then ppixb = new Pix(ppixbPTR)
+
+If ppixrPTR = IntPtr.Zero Then ppixr = Nothing
+If ppixrPTR <> IntPtr.Zero Then ppixr = New Pix(ppixrPTR)
+If ppixgPTR = IntPtr.Zero Then ppixg = Nothing
+If ppixgPTR <> IntPtr.Zero Then ppixg = New Pix(ppixgPTR)
+If ppixbPTR = IntPtr.Zero Then ppixb = Nothing
+If ppixbPTR <> IntPtr.Zero Then ppixb = New Pix(ppixbPTR)
 
 	Return _Result
 End Function
@@ -463,7 +478,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetBackgroundGrayMap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetBackgroundGrayMap/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not cmapped</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null it should not have all foreground pixels</param>
 '''  <param name="sx">[in] - tile size in pixels</param>
@@ -487,7 +502,9 @@ Public Shared Function pixGetBackgroundGrayMap(
 	Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetBackgroundGrayMap( pixs.Pointer, piximPTR, sx, sy, thresh, mincount, ppixdPTR)
-	if ppixdPTR <> IntPtr.Zero then ppixd = new Pix(ppixdPTR)
+
+If ppixdPTR = IntPtr.Zero Then ppixd = Nothing
+If ppixdPTR <> IntPtr.Zero Then ppixd = New Pix(ppixdPTR)
 
 	Return _Result
 End Function
@@ -505,7 +522,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetBackgroundRGBMap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetBackgroundRGBMap/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null it should not have all foreground pixels</param>
 '''  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
@@ -540,9 +557,13 @@ Public Shared Function pixGetBackgroundRGBMap(
 	Dim ppixmbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixmb) Then ppixmbPTR = ppixmb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetBackgroundRGBMap( pixs.Pointer, piximPTR, pixgPTR, sx, sy, thresh, mincount, ppixmrPTR, ppixmgPTR, ppixmbPTR)
-	if ppixmrPTR <> IntPtr.Zero then ppixmr = new Pix(ppixmrPTR)
-	if ppixmgPTR <> IntPtr.Zero then ppixmg = new Pix(ppixmgPTR)
-	if ppixmbPTR <> IntPtr.Zero then ppixmb = new Pix(ppixmbPTR)
+
+If ppixmrPTR = IntPtr.Zero Then ppixmr = Nothing
+If ppixmrPTR <> IntPtr.Zero Then ppixmr = New Pix(ppixmrPTR)
+If ppixmgPTR = IntPtr.Zero Then ppixmg = Nothing
+If ppixmgPTR <> IntPtr.Zero Then ppixmg = New Pix(ppixmgPTR)
+If ppixmbPTR = IntPtr.Zero Then ppixmb = Nothing
+If ppixmbPTR <> IntPtr.Zero Then ppixmb = New Pix(ppixmbPTR)
 
 	Return _Result
 End Function
@@ -552,7 +573,7 @@ End Function
 ' pixGetBackgroundGrayMapMorph(PIX *, PIX *, l_int32, l_int32, PIX **) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetBackgroundGrayMapMorph/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetBackgroundGrayMapMorph/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not cmapped</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null it should not have all foreground pixels</param>
 '''  <param name="reduction">[in] - factor at which closing is performed</param>
@@ -574,7 +595,9 @@ Public Shared Function pixGetBackgroundGrayMapMorph(
 	Dim ppixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixm) Then ppixmPTR = ppixm.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetBackgroundGrayMapMorph( pixs.Pointer, piximPTR, reduction, size, ppixmPTR)
-	if ppixmPTR <> IntPtr.Zero then ppixm = new Pix(ppixmPTR)
+
+If ppixmPTR = IntPtr.Zero Then ppixm = Nothing
+If ppixmPTR <> IntPtr.Zero Then ppixm = New Pix(ppixmPTR)
 
 	Return _Result
 End Function
@@ -584,7 +607,7 @@ End Function
 ' pixGetBackgroundRGBMapMorph(PIX *, PIX *, l_int32, l_int32, PIX **, PIX **, PIX **) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetBackgroundRGBMapMorph/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetBackgroundRGBMapMorph/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="pixim">[in][optional] - 1 bpp 'image' mask can be null it should not have all foreground pixels</param>
 '''  <param name="reduction">[in] - factor at which closing is performed</param>
@@ -613,9 +636,13 @@ Public Shared Function pixGetBackgroundRGBMapMorph(
 	Dim ppixmbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixmb) Then ppixmbPTR = ppixmb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetBackgroundRGBMapMorph( pixs.Pointer, piximPTR, reduction, size, ppixmrPTR, ppixmgPTR, ppixmbPTR)
-	if ppixmrPTR <> IntPtr.Zero then ppixmr = new Pix(ppixmrPTR)
-	if ppixmgPTR <> IntPtr.Zero then ppixmg = new Pix(ppixmgPTR)
-	if ppixmbPTR <> IntPtr.Zero then ppixmb = new Pix(ppixmbPTR)
+
+If ppixmrPTR = IntPtr.Zero Then ppixmr = Nothing
+If ppixmrPTR <> IntPtr.Zero Then ppixmr = New Pix(ppixmrPTR)
+If ppixmgPTR = IntPtr.Zero Then ppixmg = Nothing
+If ppixmgPTR <> IntPtr.Zero Then ppixmg = New Pix(ppixmgPTR)
+If ppixmbPTR = IntPtr.Zero Then ppixmb = Nothing
+If ppixmbPTR <> IntPtr.Zero Then ppixmb = New Pix(ppixmbPTR)
 
 	Return _Result
 End Function
@@ -653,7 +680,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFillMapHoles/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFillMapHoles/*"/>
 '''  <param name="pix">[in] - 8 bpp a map, with one pixel for each tile in a larger image</param>
 '''  <param name="nx">[in] - number of horizontal pixel tiles that are entirely covered with pixels in the original source image</param>
 '''  <param name="ny">[in] - ditto for the number of vertical pixel tiles</param>
@@ -669,6 +696,7 @@ Public Shared Function pixFillMapHoles(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFillMapHoles( pix.Pointer, nx, ny, filltype)
 
+
 	Return _Result
 End Function
 
@@ -682,7 +710,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixExtendByReplication/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixExtendByReplication/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="addw">[in] - number of extra pixels horizontally to add</param>
 '''  <param name="addh">[in] - number of extra pixels vertically to add</param>
@@ -697,6 +725,7 @@ Public Shared Function pixExtendByReplication(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixExtendByReplication( pixs.Pointer, addw, addh)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -721,7 +750,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSmoothConnectedRegions/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSmoothConnectedRegions/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale no colormap</param>
 '''  <param name="pixm">[in][optional] - 1 bpp if null, this is a no-op</param>
 '''  <param name="factor">[in] - subsampling factor for getting average greater or equal 1</param>
@@ -736,6 +765,7 @@ Public Shared Function pixSmoothConnectedRegions(
 	Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSmoothConnectedRegions( pixs.Pointer, pixmPTR, factor)
+
 
 	Return _Result
 End Function
@@ -753,7 +783,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetInvBackgroundMap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetInvBackgroundMap/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale no colormap</param>
 '''  <param name="bgval">[in] - target bg val typ.  is greater  128</param>
 '''  <param name="smoothx">[in] - half-width of block convolution kernel width</param>
@@ -768,6 +798,7 @@ Public Shared Function pixGetInvBackgroundMap(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetInvBackgroundMap( pixs.Pointer, bgval, smoothx, smoothy)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -778,7 +809,7 @@ End Function
 ' pixApplyInvBackgroundGrayMap(PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixApplyInvBackgroundGrayMap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixApplyInvBackgroundGrayMap/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale no colormap</param>
 '''  <param name="pixm">[in] - 16 bpp, inverse background map</param>
 '''  <param name="sx">[in] - tile width in pixels</param>
@@ -794,6 +825,7 @@ Public Shared Function pixApplyInvBackgroundGrayMap(
 	If IsNothing (pixm) then Throw New ArgumentNullException  ("pixm cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixApplyInvBackgroundGrayMap( pixs.Pointer, pixm.Pointer, sx, sy)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -804,7 +836,7 @@ End Function
 ' pixApplyInvBackgroundRGBMap(PIX *, PIX *, PIX *, PIX *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixApplyInvBackgroundRGBMap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixApplyInvBackgroundRGBMap/*"/>
 '''  <param name="pixs">[in] - 32 bpp rbg</param>
 '''  <param name="pixmr">[in] - 16 bpp, red inverse background map</param>
 '''  <param name="pixmg">[in] - 16 bpp, green inverse background map</param>
@@ -826,6 +858,7 @@ Public Shared Function pixApplyInvBackgroundRGBMap(
 	If IsNothing (pixmb) then Throw New ArgumentNullException  ("pixmb cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixApplyInvBackgroundRGBMap( pixs.Pointer, pixmr.Pointer, pixmg.Pointer, pixmb.Pointer, sx, sy)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -855,7 +888,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixApplyVariableGrayMap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixApplyVariableGrayMap/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="pixg">[in] - 8 bpp, variable map</param>
 '''  <param name="target">[in] - typ. 128 for threshold</param>
@@ -871,6 +904,7 @@ Public Shared Function pixApplyVariableGrayMap(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixApplyVariableGrayMap( pixs.Pointer, pixg.Pointer, target)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -910,7 +944,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGlobalNormRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGlobalNormRGB/*"/>
 '''  <param name="pixd">[in][optional] - null, existing or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb, or colormapped</param>
 '''  <param name="rval">[in] - pixel values in pixs that are linearly mapped to mapval</param>
@@ -931,6 +965,7 @@ Public Shared Function pixGlobalNormRGB(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGlobalNormRGB( pixdPTR, pixs.Pointer, rval, gval, bval, mapval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -967,7 +1002,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGlobalNormNoSatRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGlobalNormNoSatRGB/*"/>
 '''  <param name="pixd">[in][optional] - null, existing or equal to pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="rval">[in] - pixel values in pixs that are linearly mapped to mapval but see below</param>
@@ -992,6 +1027,7 @@ Public Shared Function pixGlobalNormNoSatRGB(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGlobalNormNoSatRGB( pixdPTR, pixs.Pointer, rval, gval, bval, factor, rank)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1031,7 +1067,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixThresholdSpreadNorm/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixThresholdSpreadNorm/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="filtertype">[in] - L_SOBEL_EDGE or L_TWO_SIDED_EDGE</param>
 '''  <param name="edgethresh">[in] - threshold on magnitude of edge filter typ 10-20</param>
@@ -1066,9 +1102,13 @@ Dim ppixbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixb) Then ppixbPTR = p
 Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixThresholdSpreadNorm( pixs.Pointer, filtertype, edgethresh, smoothx, smoothy, gamma, minval, maxval, targetthresh, ppixthPTR, ppixbPTR, ppixdPTR)
-	if ppixthPTR <> IntPtr.Zero then ppixth = new Pix(ppixthPTR)
-	if ppixbPTR <> IntPtr.Zero then ppixb = new Pix(ppixbPTR)
-	if ppixdPTR <> IntPtr.Zero then ppixd = new Pix(ppixdPTR)
+
+If ppixthPTR = IntPtr.Zero Then ppixth = Nothing
+If ppixthPTR <> IntPtr.Zero Then ppixth = New Pix(ppixthPTR)
+If ppixbPTR = IntPtr.Zero Then ppixb = Nothing
+If ppixbPTR <> IntPtr.Zero Then ppixb = New Pix(ppixbPTR)
+If ppixdPTR = IntPtr.Zero Then ppixd = Nothing
+If ppixdPTR <> IntPtr.Zero Then ppixd = New Pix(ppixdPTR)
 
 	Return _Result
 End Function
@@ -1098,7 +1138,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBackgroundNormFlex/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBackgroundNormFlex/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="sx">[in] - desired tile dimensions actual size may vary use values between 3 and 10</param>
 '''  <param name="sy">[in] - desired tile dimensions actual size may vary use values between 3 and 10</param>
@@ -1117,6 +1157,7 @@ Public Shared Function pixBackgroundNormFlex(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBackgroundNormFlex( pixs.Pointer, sx, sy, smoothx, smoothy, delta)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1160,7 +1201,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixContrastNorm/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixContrastNorm/*"/>
 '''  <param name="pixd">[in][optional] - 8 bpp null or equal to pixs</param>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="sx">[in] - tile dimensions</param>
@@ -1183,6 +1224,7 @@ Public Shared Function pixContrastNorm(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixContrastNorm( pixdPTR, pixs.Pointer, sx, sy, mindiff, smoothx, smoothy)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1201,7 +1243,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMinMaxTiles/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMinMaxTiles/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale not colormapped</param>
 '''  <param name="sx">[in] - tile dimensions</param>
 '''  <param name="sy">[in] - tile dimensions</param>
@@ -1227,8 +1269,11 @@ Public Shared Function pixMinMaxTiles(
 	Dim ppixmaxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixmax) Then ppixmaxPTR = ppixmax.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixMinMaxTiles( pixs.Pointer, sx, sy, mindiff, smoothx, smoothy, ppixminPTR, ppixmaxPTR)
-	if ppixminPTR <> IntPtr.Zero then ppixmin = new Pix(ppixminPTR)
-	if ppixmaxPTR <> IntPtr.Zero then ppixmax = new Pix(ppixmaxPTR)
+
+If ppixminPTR = IntPtr.Zero Then ppixmin = Nothing
+If ppixminPTR <> IntPtr.Zero Then ppixmin = New Pix(ppixminPTR)
+If ppixmaxPTR = IntPtr.Zero Then ppixmax = Nothing
+If ppixmaxPTR <> IntPtr.Zero Then ppixmax = New Pix(ppixmaxPTR)
 
 	Return _Result
 End Function
@@ -1251,7 +1296,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSetLowContrast/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetLowContrast/*"/>
 '''  <param name="pixs1">[in] - 8 bpp</param>
 '''  <param name="pixs2">[in] - 8 bpp</param>
 '''  <param name="mindiff">[in] - minimum difference to accept as valid</param>
@@ -1268,6 +1313,7 @@ Public Shared Function pixSetLowContrast(
 	If {8}.contains (pixs2.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetLowContrast( pixs1.Pointer, pixs2.Pointer, mindiff)
+
 
 	Return _Result
 End Function
@@ -1294,7 +1340,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixLinearTRCTiled/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixLinearTRCTiled/*"/>
 '''  <param name="pixd">[in][optional] - 8 bpp</param>
 '''  <param name="pixs">[in] - 8 bpp, not colormapped</param>
 '''  <param name="sx">[in] - tile dimensions</param>
@@ -1319,6 +1365,7 @@ Public Shared Function pixLinearTRCTiled(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixLinearTRCTiled( pixdPTR, pixs.Pointer, sx, sy, pixmin.Pointer, pixmax.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

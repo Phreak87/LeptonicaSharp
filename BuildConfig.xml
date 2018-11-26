@@ -7,13 +7,17 @@
 	Semicolon Separates Arrays (Array(sx) of  Array (sy))
 	####################################################
 	-->
+	<!-- Klassennamen immer in UPPERCASE -->
 	<Class Name="SEL">
 		<Parameter Name ="data">		<Size>sy;sx</Size>				</Parameter>
 	</Class>
+	
 	<Class Name="PIX">
 		<!-- Diese Parameter beziehen sich NUR auf das Property in der oben benannten Klasse! -->
-		<Parameter Name ="data">		<Size>(w * h * (d/8))</Size>				</Parameter>
-		<Parameter Name ="pixGetData">	<Size>(pix.w * pix.h * (pix.d/8))</Size>	</Parameter>
+		
+		<!-- Placed here: Dim _data( [SIZE-PARAMETER] -1) as Byte -->
+		<Parameter Name ="data">		<Size>(h * (wpl * 4))</Size>			</Parameter>
+		<Parameter Name ="pixGetData">	<Size>(pix.h * (pix.wpl * 4))</Size>	</Parameter>
 		<Parameter Name ="informat">	
 			<!-- Wird nur ersetzt wenn informat ein Integer ist -->
 			<Enum>IFF</Enum>							
@@ -45,6 +49,7 @@
 		<Extend    Name="pixConvertTo2" 			Type="Function" 	Source="pixs" 		return="return"/>
 		<Extend    Name="pixConvertTo1" 			Type="Function" 	Source="pixs" 		return="return"/>
 		
+		<Extend    Name="pixCopy" 					Type="Function" 	Source="pixs" 		return="return"/>
 		<Extend    Name="pixDeskew" 				Type="Function" 	Source="pixs" 		return="return"/>
 		<Extend    Name="pixInvert" 				Type="Function" 	Source="pixs" 		return="return"/>
 		<Extend    Name="pixOrientCorrect" 			Type="Function" 	Source="pixs" 		return="return"/>
@@ -73,6 +78,21 @@
 		<Extend    Name="pixConvertToPdf" 	Type="Sub" 			Source="pix"/>
 		
 	</Class>
+		
+	<Class Name="L_BYTEA">
+		<Extend    Name="l_byteaCreate" 			Type="Construct" 	Source=""/>
+		<Extend    Name="l_byteaInitFromMem" 		Type="Construct" 	Source=""/>
+		<Extend    Name="l_byteaInitFromFile" 		Type="Construct" 	Source=""/>
+		<Extend    Name="l_byteaAppendString" 		Type="Function" 	Source="ba" 		return="return"/>
+		<Extend    Name="l_byteaAppendData" 		Type="Function" 	Source="ba" 		return="return"/>
+		<Extend    Name="l_byteaCopy" 				Type="Function" 	Source="ba" 		return="return"/>
+		<Extend    Name="l_byteaCopyData" 			Type="Function" 	Source="ba" 		return="return"/>
+		<Extend    Name="l_byteaGetData" 			Type="Function" 	Source="ba" 		return="return"/>
+		<Extend    Name="l_byteaJoin" 				Type="Function" 	Source="ba" 		return="return"/>
+		<Extend    Name="l_byteaSplit" 				Type="Function" 	Source="ba" 		return="return"/>
+		<Extend    Name="l_byteaWrite" 				Type="Function" 	Source="ba" 		return="return"/>
+		<Extend    Name="l_byteaWriteStream" 		Type="Function" 	Source="ba" 		return="return"/>
+	</Class>
 	
 	<Class Name="PIXCOLORMAP">
 		<Extend    Name="pixcmapCreate" 			Type="Construct" 	Source=""/> 
@@ -91,6 +111,11 @@
 	</Function>
 	<Function Name="pixDeskewGeneral">
 		<Parameter Name="thresh"><Default>0</Default></Parameter>
+	</Function>
+	<Function Name="pixCleanBackgroundToWhite">		
+		<Parameter Name="gamma"><Default>1.0</Default></Parameter>
+		<Parameter Name="blackval"><Default>70</Default></Parameter>
+		<Parameter Name="whiteval"><Default>180</Default></Parameter>
 	</Function>
 	<Function Name="pixSauvolaBinarize">		
 		<Parameter Name="factor"><Default>0.35</Default></Parameter>
@@ -117,6 +142,66 @@
 	<Function Name="pixGetData">
 		<Parameter Name="return"><Size>pix.w * pix.h * (pix.d/8)</Size></Parameter>
 	</Function>
+	
+	<!-- Alle Filename-Checks (only if parameter name = filename) -->
+	<Function Name="boxaaRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="boxaRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="ccbaRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="pixcmapRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="dewarpRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="dewarpaRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="l_dnaRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="l_dnaaRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="fpixRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="dpixRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="gplotRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="readHeaderJp2k"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="pixReadJp2k"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="pixReadJpeg"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="readHeaderJpeg"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="kernelCreateFromFile"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="numaRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="numaaRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="pixaRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="pixaReadBoth"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="pixaaRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="pixcompCreateFromFile"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="pixacompRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="readHeaderPng"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="isPngInterlaced"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="readHeaderPnm"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="ptaRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="ptaaRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="pixRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="pixReadWithHint"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="pixReadHeader"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="findFileFormat"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="ioFormatTest"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="recogRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="sarrayRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="sarrayAppend"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="selaCreateFromFile"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="readHeaderSpix"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="l_getStructStrFromFile"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="sudokuReadFile"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="pixReadTiff"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="pixaReadMultipageTiff"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="readHeaderTiff"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="l_binaryRead"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="l_binaryReadSelect"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="nbytesInFile"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="fileAppendString"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="fopenReadStream"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="lept_fopen"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="readHeaderWebP"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="getImpliedFileFormat"><Parameter Name="filename"><CheckFile/></Parameter></Function>
+	<Function Name="l_byteaInitFromFile"><Parameter Name="fname"><CheckFile/></Parameter></Function>
+	<Function Name="kernelRead"><Parameter Name="fname"><CheckFile/></Parameter></Function>
+	<Function Name="selaRead"><Parameter Name="fname"><CheckFile/></Parameter></Function>
+	<Function Name="selRead"><Parameter Name="fname"><CheckFile/></Parameter></Function>
+	<Function Name="pixReadFromMultipageTiff"><Parameter Name="fname"><CheckFile/></Parameter></Function>
+	<Function Name="l_fileDisplay"><Parameter Name="fname"><CheckFile/></Parameter></Function>
+
 	
 	<!-- 
 	##########################################################
@@ -171,10 +256,6 @@
 			<!-- Wird nur ersetzt wenn format ein Integer ist -->
 			<Enum>IFF</Enum>			
 		</Parameter>
-		<Parameter Name="filename" Type="String">
-			<!-- Check if Filename/Path exists -->
-			<CheckFile/>
-		</Parameter> 
 		<Parameter Name="reduction"> 
 			<!-- Check a specific Range -->
 			<CheckRange>2-16</CheckRange>	

@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\convolve.c (127, 1)
 ' pixBlockconv(pix, wc, hc) as Pix
 ' pixBlockconv(PIX *, l_int32, l_int32) as PIX *
@@ -19,7 +18,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlockconv/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlockconv/*"/>
 '''  <param name="pix">[in] - 8 or 32 bpp or 2, 4 or 8 bpp with colormap</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
 '''  <param name="hc">[in] - half width/height of convolution kernel</param>
@@ -32,6 +31,7 @@ Public Shared Function pixBlockconv(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlockconv( pix.Pointer, wc, hc)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -56,7 +56,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlockconvGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlockconvGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="pixacc">[in] - pix 32 bpp can be null</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
@@ -74,6 +74,7 @@ Public Shared Function pixBlockconvGray(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlockconvGray( pixs.Pointer, pixacc.Pointer, wc, hc)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -94,7 +95,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlockconvAccum/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlockconvAccum/*"/>
 '''  <param name="pixs">[in] - 1, 8 or 32 bpp</param>
 '''   <returns>accum pix 32 bpp, or NULL on error.</returns>
 Public Shared Function pixBlockconvAccum(
@@ -103,6 +104,7 @@ Public Shared Function pixBlockconvAccum(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlockconvAccum( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -147,7 +149,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlockconvGrayUnnormalized/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlockconvGrayUnnormalized/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
 '''  <param name="hc">[in] - half width/height of convolution kernel</param>
@@ -162,6 +164,7 @@ Public Shared Function pixBlockconvGrayUnnormalized(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlockconvGrayUnnormalized( pixs.Pointer, wc, hc)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -199,7 +202,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlockconvTiled/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlockconvTiled/*"/>
 '''  <param name="pix">[in] - 8 or 32 bpp or 2, 4 or 8 bpp with colormap</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
 '''  <param name="hc">[in] - half width/height of convolution kernel</param>
@@ -216,6 +219,7 @@ Public Shared Function pixBlockconvTiled(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlockconvTiled( pix.Pointer, wc, hc, nx, ny)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -242,7 +246,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlockconvGrayTile/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlockconvGrayTile/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray</param>
 '''  <param name="pixacc">[in] - 32 bpp accum pix</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
@@ -258,6 +262,7 @@ Public Shared Function pixBlockconvGrayTile(
 	If IsNothing (pixacc) then Throw New ArgumentNullException  ("pixacc cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlockconvGrayTile( pixs.Pointer, pixacc.Pointer, wc, hc)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -297,7 +302,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWindowedStats/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWindowedStats/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
 '''  <param name="hc">[in] - half width/height of convolution kernel</param>
@@ -327,10 +332,15 @@ Dim pfpixvPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pfpixv) Then pfpixvPTR 
 Dim pfpixrvPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pfpixrv) Then pfpixrvPTR = pfpixrv.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWindowedStats( pixs.Pointer, wc, hc, hasborder, ppixmPTR, ppixmsPTR, pfpixvPTR, pfpixrvPTR)
-	if ppixmPTR <> IntPtr.Zero then ppixm = new Pix(ppixmPTR)
-	if ppixmsPTR <> IntPtr.Zero then ppixms = new Pix(ppixmsPTR)
-	if pfpixvPTR <> IntPtr.Zero then pfpixv = new FPix(pfpixvPTR)
-	if pfpixrvPTR <> IntPtr.Zero then pfpixrv = new FPix(pfpixrvPTR)
+
+If ppixmPTR = IntPtr.Zero Then ppixm = Nothing
+If ppixmPTR <> IntPtr.Zero Then ppixm = New Pix(ppixmPTR)
+If ppixmsPTR = IntPtr.Zero Then ppixms = Nothing
+If ppixmsPTR <> IntPtr.Zero Then ppixms = New Pix(ppixmsPTR)
+If pfpixvPTR = IntPtr.Zero Then pfpixv = Nothing
+If pfpixvPTR <> IntPtr.Zero Then pfpixv = New FPix(pfpixvPTR)
+If pfpixrvPTR = IntPtr.Zero Then pfpixrv = Nothing
+If pfpixrvPTR <> IntPtr.Zero Then pfpixrv = New FPix(pfpixrvPTR)
 
 	Return _Result
 End Function
@@ -363,7 +373,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWindowedMean/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWindowedMean/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp grayscale</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
 '''  <param name="hc">[in] - half width/height of convolution kernel</param>
@@ -380,6 +390,7 @@ Public Shared Function pixWindowedMean(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixWindowedMean( pixs.Pointer, wc, hc, hasborder, normflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -416,7 +427,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWindowedMeanSquare/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWindowedMeanSquare/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''  <param name="wc">[in] - half width/height of convolution kernel</param>
 '''  <param name="hc">[in] - half width/height of convolution kernel</param>
@@ -433,6 +444,7 @@ Public Shared Function pixWindowedMeanSquare(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixWindowedMeanSquare( pixs.Pointer, wc, hc, hasborder)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -459,7 +471,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWindowedVariance/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWindowedVariance/*"/>
 '''  <param name="pixm">[in] - mean over window 8 or 32 bpp grayscale</param>
 '''  <param name="pixms">[in] - mean square over window 32 bpp</param>
 '''  <param name="pfpixv">[out][optional] - float variance -- the ms deviation from the mean</param>
@@ -478,8 +490,11 @@ Dim pfpixvPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pfpixv) Then pfpixvPTR 
 Dim pfpixrvPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pfpixrv) Then pfpixrvPTR = pfpixrv.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWindowedVariance( pixm.Pointer, pixms.Pointer, pfpixvPTR, pfpixrvPTR)
-	if pfpixvPTR <> IntPtr.Zero then pfpixv = new FPix(pfpixvPTR)
-	if pfpixrvPTR <> IntPtr.Zero then pfpixrv = new FPix(pfpixrvPTR)
+
+If pfpixvPTR = IntPtr.Zero Then pfpixv = Nothing
+If pfpixvPTR <> IntPtr.Zero Then pfpixv = New FPix(pfpixvPTR)
+If pfpixrvPTR = IntPtr.Zero Then pfpixrv = Nothing
+If pfpixrvPTR <> IntPtr.Zero Then pfpixrv = New FPix(pfpixrvPTR)
 
 	Return _Result
 End Function
@@ -504,7 +519,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMeanSquareAccum/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMeanSquareAccum/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale</param>
 '''   <returns>dpix 64 bit array, or NULL on error</returns>
 Public Shared Function pixMeanSquareAccum(
@@ -515,6 +530,7 @@ Public Shared Function pixMeanSquareAccum(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp grayscale")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMeanSquareAccum( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new DPix(_Result)
@@ -547,7 +563,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlockrank/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlockrank/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pixacc">[in] - pix [optional] 32 bpp</param>
 '''  <param name="wc">[in] - half width/height of block sum/rank kernel</param>
@@ -568,6 +584,7 @@ Public Shared Function pixBlockrank(
 	Dim pixaccPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixacc) Then pixaccPTR = pixacc.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlockrank( pixs.Pointer, pixaccPTR, wc, hc, rank)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -605,7 +622,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlocksum/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlocksum/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="pixacc">[in] - pix [optional] 32 bpp</param>
 '''  <param name="wc">[in] - half width/height of block sum/rank kernel</param>
@@ -624,6 +641,7 @@ Public Shared Function pixBlocksum(
 	Dim pixaccPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixacc) Then pixaccPTR = pixacc.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlocksum( pixs.Pointer, pixaccPTR, wc, hc)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -657,7 +675,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCensusTransform/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCensusTransform/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="halfsize">[in] - of square over which neighbors are averaged</param>
 '''  <param name="pixacc">[in] - pix [optional] 32 bpp</param>
@@ -674,6 +692,7 @@ Public Shared Function pixCensusTransform(
 	Dim pixaccPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixacc) Then pixaccPTR = pixacc.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCensusTransform( pixs.Pointer, halfsize, pixaccPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -725,7 +744,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvolve/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvolve/*"/>
 '''  <param name="pixs">[in] - 8, 16, 32 bpp no colormap</param>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="outdepth">[in] - of pixd: 8, 16 or 32</param>
@@ -741,6 +760,7 @@ Public Shared Function pixConvolve(
 	If IsNothing (kel) then Throw New ArgumentNullException  ("kel cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvolve( pixs.Pointer, kel.Pointer, outdepth, normflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -790,7 +810,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvolveSep/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvolveSep/*"/>
 '''  <param name="pixs">[in] - 8, 16, 32 bpp no colormap</param>
 '''  <param name="kelx">[in] - x-dependent kernel</param>
 '''  <param name="kely">[in] - y-dependent kernel</param>
@@ -809,6 +829,7 @@ Public Shared Function pixConvolveSep(
 	If IsNothing (kely) then Throw New ArgumentNullException  ("kely cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvolveSep( pixs.Pointer, kelx.Pointer, kely.Pointer, outdepth, normflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -840,7 +861,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvolveRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvolveRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="kel">[in] - kernel</param>
 '''   <returns>pixd 32 bpp rgb</returns>
@@ -854,6 +875,7 @@ Public Shared Function pixConvolveRGB(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvolveRGB( pixs.Pointer, kel.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -885,7 +907,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvolveRGBSep/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvolveRGBSep/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="kelx">[in] - x-dependent kernel</param>
 '''  <param name="kely">[in] - y-dependent kernel</param>
@@ -902,6 +924,7 @@ Public Shared Function pixConvolveRGBSep(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvolveRGBSep( pixs.Pointer, kelx.Pointer, kely.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -933,7 +956,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixConvolve/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixConvolve/*"/>
 '''  <param name="fpixs">[in] - 32 bit float array</param>
 '''  <param name="kel">[in] - kernel</param>
 '''  <param name="normflag">[in] - 1 to normalize kernel to unit sum 0 otherwise</param>
@@ -947,6 +970,7 @@ Public Shared Function fpixConvolve(
 	If IsNothing (kel) then Throw New ArgumentNullException  ("kel cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixConvolve( fpixs.Pointer, kel.Pointer, normflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FPix(_Result)
@@ -980,7 +1004,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixConvolveSep/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixConvolveSep/*"/>
 '''  <param name="fpixs">[in] - 32 bit float array</param>
 '''  <param name="kelx">[in] - x-dependent kernel</param>
 '''  <param name="kely">[in] - y-dependent kernel</param>
@@ -997,6 +1021,7 @@ Public Shared Function fpixConvolveSep(
 	If IsNothing (kely) then Throw New ArgumentNullException  ("kely cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixConvolveSep( fpixs.Pointer, kelx.Pointer, kely.Pointer, normflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FPix(_Result)
@@ -1030,7 +1055,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvolveWithBias/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvolveWithBias/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="kel1">[in] - </param>
 '''  <param name="kel2">[in]can be null - use if separable</param>
@@ -1050,6 +1075,7 @@ Public Shared Function pixConvolveWithBias(
 	Dim kel2PTR As IntPtr = IntPtr.Zero : If Not IsNothing(kel2) Then kel2PTR = kel2.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvolveWithBias( pixs.Pointer, kel1.Pointer, kel2PTR, force8, pbias)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1066,7 +1092,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_setConvolveSampling/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_setConvolveSampling/*"/>
 '''  <param name="xfact">[in] - integer greater or equal 1</param>
 '''  <param name="yfact">[in] - integer greater or equal 1</param>
 Public Shared Sub l_setConvolveSampling(
@@ -1074,6 +1100,7 @@ Public Shared Sub l_setConvolveSampling(
 				 ByVal yfact as Integer)
 
 	LeptonicaSharp.Natives.l_setConvolveSampling( xfact, yfact)
+
 
 End Sub
 
@@ -1088,7 +1115,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAddGaussianNoise/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAddGaussianNoise/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb no colormap</param>
 '''  <param name="stdev">[in] - of noise</param>
 '''   <returns>pixd 8 or 32 bpp, or NULL on error</returns>
@@ -1099,6 +1126,7 @@ Public Shared Function pixAddGaussianNoise(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAddGaussianNoise( pixs.Pointer, stdev)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1109,11 +1137,12 @@ End Function
 ' gaussDistribSampling() as l_float32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/gaussDistribSampling/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gaussDistribSampling/*"/>
 '''   <returns></returns>
 Public Shared Function gaussDistribSampling() as Single
 
 	Dim _Result as Single = LeptonicaSharp.Natives.gaussDistribSampling( )
+
 
 	Return _Result
 End Function

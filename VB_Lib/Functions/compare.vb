@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\compare.c (150, 1)
 ' pixEqual(pix1, pix2, psame) as Integer
 ' pixEqual(PIX *, PIX *, l_int32 *) as l_ok
@@ -35,7 +34,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixEqual/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixEqual/*"/>
 '''  <param name="pix1">[in] - </param>
 '''  <param name="pix2">[in] - </param>
 '''  <param name="psame">[out] - 1 if same 0 if different</param>
@@ -49,6 +48,7 @@ Public Shared Function pixEqual(
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixEqual( pix1.Pointer, pix2.Pointer, psame)
+
 
 	Return _Result
 End Function
@@ -67,7 +67,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixEqualWithAlpha/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixEqualWithAlpha/*"/>
 '''  <param name="pix1">[in] - </param>
 '''  <param name="pix2">[in] - </param>
 '''  <param name="use_alpha">[in] - 1 to compare alpha in RGBA 0 to ignore</param>
@@ -83,6 +83,7 @@ Public Shared Function pixEqualWithAlpha(
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixEqualWithAlpha( pix1.Pointer, pix2.Pointer, use_alpha, psame)
+
 
 	Return _Result
 End Function
@@ -107,7 +108,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixEqualWithCmap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixEqualWithCmap/*"/>
 '''  <param name="pix1">[in] - </param>
 '''  <param name="pix2">[in] - </param>
 '''  <param name="psame">[out] - </param>
@@ -121,6 +122,7 @@ Public Shared Function pixEqualWithCmap(
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixEqualWithCmap( pix1.Pointer, pix2.Pointer, psame)
+
 
 	Return _Result
 End Function
@@ -138,7 +140,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/cmapEqual/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/cmapEqual/*"/>
 '''  <param name="cmap1">[in] - </param>
 '''  <param name="cmap2">[in] - </param>
 '''  <param name="ncomps">[in] - 3 for RGB, 4 for RGBA</param>
@@ -154,6 +156,7 @@ Public Shared Function cmapEqual(
 	If IsNothing (cmap2) then Throw New ArgumentNullException  ("cmap2 cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.cmapEqual( cmap1.Pointer, cmap2.Pointer, ncomps, psame)
+
 
 	Return _Result
 End Function
@@ -175,7 +178,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixUsesCmapColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixUsesCmapColor/*"/>
 '''  <param name="pixs">[in] - any depth, colormap</param>
 '''  <param name="pcolor">[out] - TRUE if color found</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -186,6 +189,7 @@ Public Shared Function pixUsesCmapColor(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixUsesCmapColor( pixs.Pointer, pcolor)
+
 
 	Return _Result
 End Function
@@ -211,7 +215,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCorrelationBinary/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCorrelationBinary/*"/>
 '''  <param name="pix1">[in] - 1 bpp</param>
 '''  <param name="pix2">[in] - 1 bpp</param>
 '''  <param name="pval">[out] - correlation</param>
@@ -228,6 +232,7 @@ Public Shared Function pixCorrelationBinary(
 	If {1}.contains (pix2.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCorrelationBinary( pix1.Pointer, pix2.Pointer, pval)
+
 
 	Return _Result
 End Function
@@ -250,7 +255,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDisplayDiffBinary/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDisplayDiffBinary/*"/>
 '''  <param name="pix1">[in] - 1 bpp</param>
 '''  <param name="pix2">[in] - 1 bpp</param>
 '''   <returns>pixd 4 bpp cmapped, or NULL on error</returns>
@@ -265,6 +270,7 @@ Public Shared Function pixDisplayDiffBinary(
 	If {1}.contains (pix2.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixDisplayDiffBinary( pix1.Pointer, pix2.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -285,7 +291,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCompareBinary/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCompareBinary/*"/>
 '''  <param name="pix1">[in] - 1 bpp</param>
 '''  <param name="pix2">[in] - 1 bpp</param>
 '''  <param name="comptype">[in] - L_COMPARE_XOR, L_COMPARE_SUBTRACT</param>
@@ -308,7 +314,9 @@ Public Shared Function pixCompareBinary(
 Dim ppixdiffPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdiff) Then ppixdiffPTR = ppixdiff.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCompareBinary( pix1.Pointer, pix2.Pointer, comptype, pfract, ppixdiffPTR)
-	if ppixdiffPTR <> IntPtr.Zero then ppixdiff = new Pix(ppixdiffPTR)
+
+If ppixdiffPTR = IntPtr.Zero Then ppixdiff = Nothing
+If ppixdiffPTR <> IntPtr.Zero Then ppixdiff = New Pix(ppixdiffPTR)
 
 	Return _Result
 End Function
@@ -350,7 +358,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCompareGrayOrRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCompareGrayOrRGB/*"/>
 '''  <param name="pix1">[in] - 8 or 16 bpp gray, 32 bpp rgb, or colormapped</param>
 '''  <param name="pix2">[in] - 8 or 16 bpp gray, 32 bpp rgb, or colormapped</param>
 '''  <param name="comptype">[in] - L_COMPARE_SUBTRACT, L_COMPARE_ABS_DIFF</param>
@@ -376,7 +384,9 @@ Public Shared Function pixCompareGrayOrRGB(
 Dim ppixdiffPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdiff) Then ppixdiffPTR = ppixdiff.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCompareGrayOrRGB( pix1.Pointer, pix2.Pointer, comptype, plottype, psame, pdiff, prmsdiff, ppixdiffPTR)
-	if ppixdiffPTR <> IntPtr.Zero then ppixdiff = new Pix(ppixdiffPTR)
+
+If ppixdiffPTR = IntPtr.Zero Then ppixdiff = Nothing
+If ppixdiffPTR <> IntPtr.Zero Then ppixdiff = New Pix(ppixdiffPTR)
 
 	Return _Result
 End Function
@@ -396,7 +406,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCompareGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCompareGray/*"/>
 '''  <param name="pix1">[in] - 8 or 16 bpp, not cmapped</param>
 '''  <param name="pix2">[in] - 8 or 16 bpp, not cmapped</param>
 '''  <param name="comptype">[in] - L_COMPARE_SUBTRACT, L_COMPARE_ABS_DIFF</param>
@@ -422,7 +432,9 @@ Public Shared Function pixCompareGray(
 Dim ppixdiffPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdiff) Then ppixdiffPTR = ppixdiff.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCompareGray( pix1.Pointer, pix2.Pointer, comptype, plottype, psame, pdiff, prmsdiff, ppixdiffPTR)
-	if ppixdiffPTR <> IntPtr.Zero then ppixdiff = new Pix(ppixdiffPTR)
+
+If ppixdiffPTR = IntPtr.Zero Then ppixdiff = Nothing
+If ppixdiffPTR <> IntPtr.Zero Then ppixdiff = New Pix(ppixdiffPTR)
 
 	Return _Result
 End Function
@@ -440,7 +452,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCompareRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCompareRGB/*"/>
 '''  <param name="pix1">[in] - 32 bpp rgb</param>
 '''  <param name="pix2">[in] - 32 bpp rgb</param>
 '''  <param name="comptype">[in] - L_COMPARE_SUBTRACT, L_COMPARE_ABS_DIFF</param>
@@ -469,7 +481,9 @@ Public Shared Function pixCompareRGB(
 Dim ppixdiffPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdiff) Then ppixdiffPTR = ppixdiff.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCompareRGB( pix1.Pointer, pix2.Pointer, comptype, plottype, psame, pdiff, prmsdiff, ppixdiffPTR)
-	if ppixdiffPTR <> IntPtr.Zero then ppixdiff = new Pix(ppixdiffPTR)
+
+If ppixdiffPTR = IntPtr.Zero Then ppixdiff = Nothing
+If ppixdiffPTR <> IntPtr.Zero Then ppixdiff = New Pix(ppixdiffPTR)
 
 	Return _Result
 End Function
@@ -496,7 +510,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCompareTiled/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCompareTiled/*"/>
 '''  <param name="pix1">[in] - 8 bpp or 32 bpp rgb</param>
 '''  <param name="pix2">[in] - 8 bpp 32 bpp rgb</param>
 '''  <param name="sx">[in] - tile size must be  is greater  1 in each dimension</param>
@@ -518,7 +532,9 @@ Public Shared Function pixCompareTiled(
 	Dim ppixdiffPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdiff) Then ppixdiffPTR = ppixdiff.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCompareTiled( pix1.Pointer, pix2.Pointer, sx, sy, type, ppixdiffPTR)
-	if ppixdiffPTR <> IntPtr.Zero then ppixdiff = new Pix(ppixdiffPTR)
+
+If ppixdiffPTR = IntPtr.Zero Then ppixdiff = Nothing
+If ppixdiffPTR <> IntPtr.Zero Then ppixdiff = New Pix(ppixdiffPTR)
 
 	Return _Result
 End Function
@@ -549,7 +565,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCompareRankDifference/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCompareRankDifference/*"/>
 '''  <param name="pix1">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="pix2">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor use 0 or 1 for no subsampling</param>
@@ -563,6 +579,7 @@ Public Shared Function pixCompareRankDifference(
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixCompareRankDifference( pix1.Pointer, pix2.Pointer, factor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -610,7 +627,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixTestForSimilarity/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixTestForSimilarity/*"/>
 '''  <param name="pix1">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="pix2">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor use 0 or 1 for no subsampling</param>
@@ -634,6 +651,7 @@ Public Shared Function pixTestForSimilarity(
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixTestForSimilarity( pix1.Pointer, pix2.Pointer, factor, mindiff, maxfract, maxave, psimilar, details)
+
 
 	Return _Result
 End Function
@@ -675,7 +693,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetDifferenceStats/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetDifferenceStats/*"/>
 '''  <param name="pix1">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="pix2">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor use 0 or 1 for no subsampling</param>
@@ -698,6 +716,7 @@ Public Shared Function pixGetDifferenceStats(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetDifferenceStats( pix1.Pointer, pix2.Pointer, factor, mindiff, pfractdiff, pavediff, details)
 
+
 	Return _Result
 End Function
 
@@ -719,7 +738,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetDifferenceHistogram/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetDifferenceHistogram/*"/>
 '''  <param name="pix1">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="pix2">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="factor">[in] - subsampling factor use 0 or 1 for no subsampling</param>
@@ -733,6 +752,7 @@ Public Shared Function pixGetDifferenceHistogram(
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixGetDifferenceHistogram( pix1.Pointer, pix2.Pointer, factor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -782,7 +802,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetPerceptualDiff/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetPerceptualDiff/*"/>
 '''  <param name="pixs1">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="pixs2">[in] - 8 bpp gray or 32 bpp rgb, or colormapped</param>
 '''  <param name="sampling">[in] - subsampling factor use 0 or 1 for no subsampling</param>
@@ -809,8 +829,11 @@ Dim ppixdiff1PTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdiff1) Then ppix
 Dim ppixdiff2PTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixdiff2) Then ppixdiff2PTR = ppixdiff2.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetPerceptualDiff( pixs1.Pointer, pixs2.Pointer, sampling, dilation, mindiff, pfract, ppixdiff1PTR, ppixdiff2PTR)
-	if ppixdiff1PTR <> IntPtr.Zero then ppixdiff1 = new Pix(ppixdiff1PTR)
-	if ppixdiff2PTR <> IntPtr.Zero then ppixdiff2 = new Pix(ppixdiff2PTR)
+
+If ppixdiff1PTR = IntPtr.Zero Then ppixdiff1 = Nothing
+If ppixdiff1PTR <> IntPtr.Zero Then ppixdiff1 = New Pix(ppixdiff1PTR)
+If ppixdiff2PTR = IntPtr.Zero Then ppixdiff2 = Nothing
+If ppixdiff2PTR <> IntPtr.Zero Then ppixdiff2 = New Pix(ppixdiff2PTR)
 
 	Return _Result
 End Function
@@ -844,7 +867,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGetPSNR/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetPSNR/*"/>
 '''  <param name="pix1">[in] - 8 or 32 bpp no colormap</param>
 '''  <param name="pix2">[in] - 8 or 32 bpp no colormap</param>
 '''  <param name="factor">[in] - sampling factor greater or equal 1</param>
@@ -860,6 +883,7 @@ Public Shared Function pixGetPSNR(
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGetPSNR( pix1.Pointer, pix2.Pointer, factor, ppsnr)
+
 
 	Return _Result
 End Function
@@ -901,7 +925,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaComparePhotoRegionsByHisto/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaComparePhotoRegionsByHisto/*"/>
 '''  <param name="pixa">[in] - any depth colormap OK</param>
 '''  <param name="minratio">[in] - requiring sizes be compatible  is smaller 1.0</param>
 '''  <param name="textthresh">[in] - threshold for text/photo use 0 for default</param>
@@ -934,8 +958,11 @@ Dim pscoresPTR As IntPtr = IntPtr.Zero: if not isNothing (pscores) then pscoresP
 Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaComparePhotoRegionsByHisto( pixa.Pointer, minratio, textthresh, factor, nx, ny, simthresh, pnaiPTR, pscoresPTR, ppixdPTR, debug)
-	if pnaiPTR <> IntPtr.Zero then pnai = new Numa(pnaiPTR)
-	if ppixdPTR <> IntPtr.Zero then ppixd = new Pix(ppixdPTR)
+
+If pnaiPTR = IntPtr.Zero Then pnai = Nothing
+If pnaiPTR <> IntPtr.Zero Then pnai = New Numa(pnaiPTR)
+If ppixdPTR = IntPtr.Zero Then ppixd = Nothing
+If ppixdPTR <> IntPtr.Zero Then ppixd = New Pix(ppixdPTR)
 
 	Return _Result
 End Function
@@ -991,7 +1018,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixComparePhotoRegionsByHisto/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixComparePhotoRegionsByHisto/*"/>
 '''  <param name="pix1">[in] - any depth colormap OK</param>
 '''  <param name="pix2">[in] - any depth colormap OK</param>
 '''  <param name="box1">[in][optional] - photo regions from each can be null</param>
@@ -1023,6 +1050,7 @@ Public Shared Function pixComparePhotoRegionsByHisto(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixComparePhotoRegionsByHisto( pix1.Pointer, pix2.Pointer, box1PTR, box2PTR, minratio, factor, nx, ny, pscore, debugflag)
 
+
 	Return _Result
 End Function
 
@@ -1051,7 +1079,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixGenPhotoHistos/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGenPhotoHistos/*"/>
 '''  <param name="pixs">[in] - depth  is greater  1 bpp colormap OK</param>
 '''  <param name="box">[in][optional] - region to be selected can be null</param>
 '''  <param name="factor">[in] - subsampling greater or equal 1</param>
@@ -1081,7 +1109,9 @@ Public Shared Function pixGenPhotoHistos(
 	Dim pnaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaa) Then pnaaPTR = pnaa.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixGenPhotoHistos( pixs.Pointer, boxPTR, factor, thresh, nx, ny, pnaaPTR, pw, ph, debugindex)
-	if pnaaPTR <> IntPtr.Zero then pnaa = new Numaa(pnaaPTR)
+
+If pnaaPTR = IntPtr.Zero Then pnaa = Nothing
+If pnaaPTR <> IntPtr.Zero Then pnaa = New Numaa(pnaaPTR)
 
 	Return _Result
 End Function
@@ -1099,7 +1129,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixPadToCenterCentroid/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixPadToCenterCentroid/*"/>
 '''  <param name="pixs">[in] - any depth, colormap OK</param>
 '''  <param name="factor">[in] - subsampling for centroid greater or equal 1</param>
 '''   <returns>pixd padded with white pixels, or NULL on error.</returns>
@@ -1110,6 +1140,7 @@ Public Shared Function pixPadToCenterCentroid(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixPadToCenterCentroid( pixs.Pointer, factor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1129,7 +1160,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCentroid8/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCentroid8/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="factor">[in] - subsampling factor greater or equal 1</param>
 '''  <param name="pcx">[out] - x value of centroid</param>
@@ -1146,6 +1177,7 @@ Public Shared Function pixCentroid8(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCentroid8( pixs.Pointer, factor, pcx, pcy)
+
 
 	Return _Result
 End Function
@@ -1175,7 +1207,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixDecideIfPhotoImage/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDecideIfPhotoImage/*"/>
 '''  <param name="pix">[in] - 8 bpp, centroid in center</param>
 '''  <param name="factor">[in] - subsampling for histograms greater or equal 1</param>
 '''  <param name="nx">[in] - number of subregions to use for histograms</param>
@@ -1199,7 +1231,9 @@ Public Shared Function pixDecideIfPhotoImage(
 	Dim pixadebugPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixadebug) Then pixadebugPTR = pixadebug.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixDecideIfPhotoImage( pix.Pointer, factor, nx, ny, thresh, pnaaPTR, pixadebugPTR)
-	if pnaaPTR <> IntPtr.Zero then pnaa = new Numaa(pnaaPTR)
+
+If pnaaPTR = IntPtr.Zero Then pnaa = Nothing
+If pnaaPTR <> IntPtr.Zero Then pnaa = New Numaa(pnaaPTR)
 
 	Return _Result
 End Function
@@ -1223,7 +1257,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/compareTilesByHisto/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/compareTilesByHisto/*"/>
 '''  <param name="naa1">[in] - each is a set of 256 entry histograms</param>
 '''  <param name="naa2">[in] - each is a set of 256 entry histograms</param>
 '''  <param name="minratio">[in] - requiring image sizes be compatible  is smaller 1.0</param>
@@ -1251,6 +1285,7 @@ Public Shared Function compareTilesByHisto(
 	Dim pixadebugPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixadebug) Then pixadebugPTR = pixadebug.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.compareTilesByHisto( naa1.Pointer, naa2.Pointer, minratio, w1, h1, w2, h2, pscore, pixadebugPTR)
+
 
 	Return _Result
 End Function
@@ -1317,7 +1352,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCompareGrayByHisto/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCompareGrayByHisto/*"/>
 '''  <param name="pix1">[in] - any depth colormap OK</param>
 '''  <param name="pix2">[in] - any depth colormap OK</param>
 '''  <param name="box1">[in][optional] - region selected from each can be null</param>
@@ -1351,6 +1386,7 @@ Public Shared Function pixCompareGrayByHisto(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCompareGrayByHisto( pix1.Pointer, pix2.Pointer, box1PTR, box2PTR, minratio, maxgray, factor, nx, ny, pscore, debugflag)
 
+
 	Return _Result
 End Function
 
@@ -1366,7 +1402,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCropAlignedToCentroid/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCropAlignedToCentroid/*"/>
 '''  <param name="pix1">[in] - any depth colormap OK</param>
 '''  <param name="pix2">[in] - any depth colormap OK</param>
 '''  <param name="factor">[in] - subsampling greater or equal 1</param>
@@ -1387,8 +1423,11 @@ Public Shared Function pixCropAlignedToCentroid(
 	Dim pbox2PTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbox2) Then pbox2PTR = pbox2.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCropAlignedToCentroid( pix1.Pointer, pix2.Pointer, factor, pbox1PTR, pbox2PTR)
-	if pbox1PTR <> IntPtr.Zero then pbox1 = new Box(pbox1PTR)
-	if pbox2PTR <> IntPtr.Zero then pbox2 = new Box(pbox2PTR)
+
+If pbox1PTR = IntPtr.Zero Then pbox1 = Nothing
+If pbox1PTR <> IntPtr.Zero Then pbox1 = New Box(pbox1PTR)
+If pbox2PTR = IntPtr.Zero Then pbox2 = Nothing
+If pbox2PTR <> IntPtr.Zero Then pbox2 = New Box(pbox2PTR)
 
 	Return _Result
 End Function
@@ -1413,7 +1452,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_compressGrayHistograms/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_compressGrayHistograms/*"/>
 '''  <param name="naa">[in] - set of 256-entry histograms</param>
 '''  <param name="w">[in] - size of image</param>
 '''  <param name="h">[in] - size of image</param>
@@ -1428,6 +1467,7 @@ Public Shared Function l_compressGrayHistograms(
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.l_compressGrayHistograms( naa.Pointer, w, h, psize)
+
 
 	Return _Result
 End Function
@@ -1448,7 +1488,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_uncompressGrayHistograms/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_uncompressGrayHistograms/*"/>
 '''  <param name="bytea">[in] - byte array of size 8 + 256  N, N an integer</param>
 '''  <param name="size">[in] - size of byte array</param>
 '''  <param name="pw">[out] - width of the image that generated the histograms</param>
@@ -1463,6 +1503,7 @@ Public Shared Function l_uncompressGrayHistograms(
 	If IsNothing (bytea) then Throw New ArgumentNullException  ("bytea cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_uncompressGrayHistograms( bytea, size, pw, ph)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numaa(_Result)
@@ -1495,7 +1536,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCompareWithTranslation/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCompareWithTranslation/*"/>
 '''  <param name="pix1">[in] - any depth colormap OK</param>
 '''  <param name="pix2">[in] - any depth colormap OK</param>
 '''  <param name="thresh">[in] - threshold for converting to 1 bpp</param>
@@ -1517,6 +1558,7 @@ Public Shared Function pixCompareWithTranslation(
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCompareWithTranslation( pix1.Pointer, pix2.Pointer, thresh, pdelx, pdely, pscore, debugflag)
+
 
 	Return _Result
 End Function
@@ -1549,7 +1591,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBestCorrelation/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBestCorrelation/*"/>
 '''  <param name="pix1">[in] - 1 bpp</param>
 '''  <param name="pix2">[in] - 1 bpp</param>
 '''  <param name="area1">[in] - number of on pixels in pix1</param>
@@ -1584,6 +1626,7 @@ Public Shared Function pixBestCorrelation(
 	If {1}.contains (pix2.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixBestCorrelation( pix1.Pointer, pix2.Pointer, area1, area2, etransx, etransy, maxshift, tab8, pdelx, pdely, pscore, debugflag)
+
 
 	Return _Result
 End Function

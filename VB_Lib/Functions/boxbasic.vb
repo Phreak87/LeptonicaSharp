@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\boxbasic.c (165, 1)
 ' boxCreate(x, y, w, h) as Box
 ' boxCreate(l_int32, l_int32, l_int32, l_int32) as BOX *
@@ -26,7 +25,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxCreate/*"/>
 '''  <param name="x">[in] - </param>
 '''  <param name="y">[in] - </param>
 '''  <param name="w">[in] - </param>
@@ -39,6 +38,7 @@ Public Shared Function boxCreate(
 				 ByVal h as Integer) as Box
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxCreate( x, y, w, h)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -54,7 +54,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxCreateValid/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxCreateValid/*"/>
 '''  <param name="x">[in] - </param>
 '''  <param name="y">[in] - </param>
 '''  <param name="w">[in] - </param>
@@ -67,6 +67,7 @@ Public Shared Function boxCreateValid(
 				 ByVal h as Integer) as Box
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxCreateValid( x, y, w, h)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -77,7 +78,7 @@ End Function
 ' boxCopy(BOX *) as BOX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxCopy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxCopy/*"/>
 '''  <param name="box">[in] - </param>
 '''   <returns>copy of box, or NULL on error</returns>
 Public Shared Function boxCopy(
@@ -86,6 +87,7 @@ Public Shared Function boxCopy(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxCopy( box.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -96,7 +98,7 @@ End Function
 ' boxClone(BOX *) as BOX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxClone/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxClone/*"/>
 '''  <param name="box">[in] - </param>
 '''   <returns>ptr to same box, or NULL on error</returns>
 Public Shared Function boxClone(
@@ -105,6 +107,7 @@ Public Shared Function boxClone(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxClone( box.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -122,7 +125,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxDestroy/*"/>
 '''  <param name="pbox">[in,out] - will be set to null before returning</param>
 Public Shared Sub boxDestroy(
 				 ByRef pbox as Box)
@@ -130,7 +133,9 @@ Public Shared Sub boxDestroy(
 	Dim pboxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbox) Then pboxPTR = pbox.Pointer
 
 	LeptonicaSharp.Natives.boxDestroy( pboxPTR)
-	if pboxPTR <> IntPtr.Zero then pbox = new Box(pboxPTR)
+
+If pboxPTR = IntPtr.Zero Then pbox = Nothing
+If pboxPTR <> IntPtr.Zero Then pbox = New Box(pboxPTR)
 
 End Sub
 
@@ -139,7 +144,7 @@ End Sub
 ' boxGetGeometry(BOX *, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxGetGeometry/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxGetGeometry/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="px">[out][optional] - each can be null</param>
 '''  <param name="py">[out][optional] - each can be null</param>
@@ -157,6 +162,7 @@ Public Shared Function boxGetGeometry(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxGetGeometry( box.Pointer, px, py, pw, ph)
 
+
 	Return _Result
 End Function
 
@@ -165,7 +171,7 @@ End Function
 ' boxSetGeometry(BOX *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxSetGeometry/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxSetGeometry/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="x">[in][optional] - use -1 to leave unchanged</param>
 '''  <param name="y">[in][optional] - use -1 to leave unchanged</param>
@@ -183,6 +189,7 @@ Public Shared Function boxSetGeometry(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxSetGeometry( box.Pointer, x, y, w, h)
 
+
 	Return _Result
 End Function
 
@@ -196,7 +203,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxGetSideLocations/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxGetSideLocations/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="pl">[out][optional] - each can be null</param>
 '''  <param name="pr">[out][optional] - each can be null</param>
@@ -214,6 +221,7 @@ Public Shared Function boxGetSideLocations(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxGetSideLocations( box.Pointer, pl, pr, pt, pb)
 
+
 	Return _Result
 End Function
 
@@ -222,7 +230,7 @@ End Function
 ' boxSetSideLocations(BOX *, l_int32, l_int32, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxSetSideLocations/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxSetSideLocations/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="l">[in][optional] - use -1 to leave unchanged</param>
 '''  <param name="r">[in][optional] - use -1 to leave unchanged</param>
@@ -240,6 +248,7 @@ Public Shared Function boxSetSideLocations(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxSetSideLocations( box.Pointer, l, r, t, b)
 
+
 	Return _Result
 End Function
 
@@ -248,7 +257,7 @@ End Function
 ' boxGetRefcount(BOX *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxGetRefcount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxGetRefcount/*"/>
 '''  <param name="box">[in] - ptr to Box</param>
 '''   <returns>refcount</returns>
 Public Shared Function boxGetRefcount(
@@ -258,6 +267,7 @@ Public Shared Function boxGetRefcount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxGetRefcount( box.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -266,7 +276,7 @@ End Function
 ' boxChangeRefcount(BOX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxChangeRefcount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxChangeRefcount/*"/>
 '''  <param name="box">[in] - ptr to box</param>
 '''  <param name="delta">[in] - adjustment, usually -1 or 1</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -278,6 +288,7 @@ Public Shared Function boxChangeRefcount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxChangeRefcount( box.Pointer, delta)
 
+
 	Return _Result
 End Function
 
@@ -286,7 +297,7 @@ End Function
 ' boxIsValid(BOX *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxIsValid/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxIsValid/*"/>
 '''  <param name="box">[in] - </param>
 '''  <param name="pvalid">[out] - 1 if valid 0 otherwise</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -298,6 +309,7 @@ Public Shared Function boxIsValid(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxIsValid( box.Pointer, pvalid)
 
+
 	Return _Result
 End Function
 
@@ -306,13 +318,14 @@ End Function
 ' boxaCreate(l_int32) as BOXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaCreate/*"/>
 '''  <param name="n">[in] - initial number of ptrs</param>
 '''   <returns>boxa, or NULL on error</returns>
 Public Shared Function boxaCreate(
 				 ByVal n as Integer) as Boxa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaCreate( n)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -330,7 +343,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaCopy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaCopy/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="copyflag">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
 '''   <returns>new boxa, or NULL on error</returns>
@@ -341,6 +354,7 @@ Public Shared Function boxaCopy(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaCopy( boxa.Pointer, copyflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -358,7 +372,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaDestroy/*"/>
 '''  <param name="pboxa">[in,out] - will be set to null before returning</param>
 Public Shared Sub boxaDestroy(
 				 ByRef pboxa as Boxa)
@@ -366,7 +380,9 @@ Public Shared Sub boxaDestroy(
 	Dim pboxaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pboxa) Then pboxaPTR = pboxa.Pointer
 
 	LeptonicaSharp.Natives.boxaDestroy( pboxaPTR)
-	if pboxaPTR <> IntPtr.Zero then pboxa = new Boxa(pboxaPTR)
+
+If pboxaPTR = IntPtr.Zero Then pboxa = Nothing
+If pboxaPTR <> IntPtr.Zero Then pboxa = New Boxa(pboxaPTR)
 
 End Sub
 
@@ -375,7 +391,7 @@ End Sub
 ' boxaAddBox(BOXA *, BOX *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaAddBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaAddBox/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="box">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -390,6 +406,7 @@ Public Shared Function boxaAddBox(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaAddBox( boxa.Pointer, box.Pointer, copyflag)
 
+
 	Return _Result
 End Function
 
@@ -403,7 +420,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaExtendArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaExtendArray/*"/>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function boxaExtendArray(
@@ -412,6 +429,7 @@ Public Shared Function boxaExtendArray(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaExtendArray( boxa.Pointer)
+
 
 	Return _Result
 End Function
@@ -426,7 +444,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaExtendArrayToSize/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaExtendArrayToSize/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="size">[in] - new size of boxa array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -438,6 +456,7 @@ Public Shared Function boxaExtendArrayToSize(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaExtendArrayToSize( boxa.Pointer, size)
 
+
 	Return _Result
 End Function
 
@@ -446,7 +465,7 @@ End Function
 ' boxaGetCount(BOXA *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaGetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaGetCount/*"/>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>count of all boxes 0 if no boxes or on error</returns>
 Public Shared Function boxaGetCount(
@@ -456,6 +475,7 @@ Public Shared Function boxaGetCount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaGetCount( boxa.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -464,7 +484,7 @@ End Function
 ' boxaGetValidCount(BOXA *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaGetValidCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaGetValidCount/*"/>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>count of valid boxes 0 if no valid boxes or on error</returns>
 Public Shared Function boxaGetValidCount(
@@ -474,6 +494,7 @@ Public Shared Function boxaGetValidCount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaGetValidCount( boxa.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -482,7 +503,7 @@ End Function
 ' boxaGetBox(BOXA *, l_int32, l_int32) as BOX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaGetBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaGetBox/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
@@ -495,6 +516,7 @@ Public Shared Function boxaGetBox(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaGetBox( boxa.Pointer, index, accessflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -516,7 +538,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaGetValidBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaGetValidBox/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
@@ -529,6 +551,7 @@ Public Shared Function boxaGetValidBox(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaGetValidBox( boxa.Pointer, index, accessflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -539,7 +562,7 @@ End Function
 ' boxaFindInvalidBoxes(BOXA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaFindInvalidBoxes/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaFindInvalidBoxes/*"/>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>na   numa of invalid boxes NULL if there are none or on error</returns>
 Public Shared Function boxaFindInvalidBoxes(
@@ -548,6 +571,7 @@ Public Shared Function boxaFindInvalidBoxes(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaFindInvalidBoxes( boxa.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -558,7 +582,7 @@ End Function
 ' boxaGetBoxGeometry(BOXA *, l_int32, l_int32 *, l_int32 *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaGetBoxGeometry/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaGetBoxGeometry/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="px">[out][optional] - each can be null</param>
@@ -578,6 +602,7 @@ Public Shared Function boxaGetBoxGeometry(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaGetBoxGeometry( boxa.Pointer, index, px, py, pw, ph)
 
+
 	Return _Result
 End Function
 
@@ -586,7 +611,7 @@ End Function
 ' boxaIsFull(BOXA *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaIsFull/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaIsFull/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="pfull">[out] - 1 if boxa is full</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -597,6 +622,7 @@ Public Shared Function boxaIsFull(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaIsFull( boxa.Pointer, pfull)
+
 
 	Return _Result
 End Function
@@ -613,7 +639,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaReplaceBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaReplaceBox/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - to the index-th box</param>
 '''  <param name="box">[in] - insert to replace existing one</param>
@@ -627,6 +653,7 @@ Public Shared Function boxaReplaceBox(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaReplaceBox( boxa.Pointer, index, box.Pointer)
+
 
 	Return _Result
 End Function
@@ -649,7 +676,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaInsertBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaInsertBox/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - location in boxa to insert new value</param>
 '''  <param name="box">[in] - new box to be inserted</param>
@@ -663,6 +690,7 @@ Public Shared Function boxaInsertBox(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaInsertBox( boxa.Pointer, index, box.Pointer)
+
 
 	Return _Result
 End Function
@@ -681,7 +709,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaRemoveBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaRemoveBox/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - of box to be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -692,6 +720,7 @@ Public Shared Function boxaRemoveBox(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaRemoveBox( boxa.Pointer, index)
+
 
 	Return _Result
 End Function
@@ -710,7 +739,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaRemoveBoxAndSave/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaRemoveBoxAndSave/*"/>
 '''  <param name="boxa">[in] - </param>
 '''  <param name="index">[in] - of box to be removed</param>
 '''  <param name="pbox">[out][optional] - removed box</param>
@@ -725,7 +754,9 @@ Public Shared Function boxaRemoveBoxAndSave(
 Dim pboxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbox) Then pboxPTR = pbox.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaRemoveBoxAndSave( boxa.Pointer, index, pboxPTR)
-	if pboxPTR <> IntPtr.Zero then pbox = new Box(pboxPTR)
+
+If pboxPTR = IntPtr.Zero Then pbox = Nothing
+If pboxPTR <> IntPtr.Zero Then pbox = New Box(pboxPTR)
 
 	Return _Result
 End Function
@@ -740,7 +771,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaSaveValid/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaSaveValid/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="copyflag">[in] - L_COPY or L_CLONE</param>
 '''   <returns>boxad if OK, NULL on error</returns>
@@ -751,6 +782,7 @@ Public Shared Function boxaSaveValid(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaSaveValid( boxas.Pointer, copyflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -794,7 +826,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaInitFull/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaInitFull/*"/>
 '''  <param name="boxa">[in] - typically empty</param>
 '''  <param name="box">[in][optional] - to be replicated into the entire ptr array</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -807,6 +839,7 @@ Public Shared Function boxaInitFull(
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaInitFull( boxa.Pointer, boxPTR)
+
 
 	Return _Result
 End Function
@@ -822,7 +855,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaClear/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaClear/*"/>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaClear(
@@ -832,6 +865,7 @@ Public Shared Function boxaClear(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaClear( boxa.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -840,13 +874,14 @@ End Function
 ' boxaaCreate(l_int32) as BOXAA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaCreate/*"/>
 '''  <param name="n">[in] - size of boxa ptr array to be alloc'd 0 for default</param>
 '''   <returns>baa, or NULL on error</returns>
 Public Shared Function boxaaCreate(
 				 ByVal n as Integer) as Boxaa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaCreate( n)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxaa(_Result)
@@ -863,7 +898,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaCopy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaCopy/*"/>
 '''  <param name="baas">[in] - input boxaa to be copied</param>
 '''  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 '''   <returns>baad new boxaa, composed of copies or clones of the boxa in baas, or NULL on error</returns>
@@ -874,6 +909,7 @@ Public Shared Function boxaaCopy(
 	If IsNothing (baas) then Throw New ArgumentNullException  ("baas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaCopy( baas.Pointer, copyflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxaa(_Result)
@@ -884,7 +920,7 @@ End Function
 ' boxaaDestroy(BOXAA **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaDestroy/*"/>
 '''  <param name="pbaa">[in,out] - will be set to null before returning</param>
 Public Shared Sub boxaaDestroy(
 				 ByRef pbaa as Boxaa)
@@ -892,7 +928,9 @@ Public Shared Sub boxaaDestroy(
 	Dim pbaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbaa) Then pbaaPTR = pbaa.Pointer
 
 	LeptonicaSharp.Natives.boxaaDestroy( pbaaPTR)
-	if pbaaPTR <> IntPtr.Zero then pbaa = new Boxaa(pbaaPTR)
+
+If pbaaPTR = IntPtr.Zero Then pbaa = Nothing
+If pbaaPTR <> IntPtr.Zero Then pbaa = New Boxaa(pbaaPTR)
 
 End Sub
 
@@ -901,7 +939,7 @@ End Sub
 ' boxaaAddBoxa(BOXAA *, BOXA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaAddBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaAddBoxa/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="ba">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -916,6 +954,7 @@ Public Shared Function boxaaAddBoxa(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaAddBoxa( baa.Pointer, ba.Pointer, copyflag)
 
+
 	Return _Result
 End Function
 
@@ -924,7 +963,7 @@ End Function
 ' boxaaExtendArray(BOXAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaExtendArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaExtendArray/*"/>
 '''  <param name="baa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function boxaaExtendArray(
@@ -933,6 +972,7 @@ Public Shared Function boxaaExtendArray(
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaExtendArray( baa.Pointer)
+
 
 	Return _Result
 End Function
@@ -947,7 +987,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaExtendArrayToSize/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaExtendArrayToSize/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="size">[in] - new size of boxa array</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -959,6 +999,7 @@ Public Shared Function boxaaExtendArrayToSize(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaExtendArrayToSize( baa.Pointer, size)
 
+
 	Return _Result
 End Function
 
@@ -967,7 +1008,7 @@ End Function
 ' boxaaGetCount(BOXAA *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaGetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaGetCount/*"/>
 '''  <param name="baa">[in] - </param>
 '''   <returns>count number of boxa, or 0 if no boxa or on error</returns>
 Public Shared Function boxaaGetCount(
@@ -977,6 +1018,7 @@ Public Shared Function boxaaGetCount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaGetCount( baa.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -985,7 +1027,7 @@ End Function
 ' boxaaGetBoxCount(BOXAA *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaGetBoxCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaGetBoxCount/*"/>
 '''  <param name="baa">[in] - </param>
 '''   <returns>count number of boxes, or 0 if no boxes or on error</returns>
 Public Shared Function boxaaGetBoxCount(
@@ -995,6 +1037,7 @@ Public Shared Function boxaaGetBoxCount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaGetBoxCount( baa.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -1003,7 +1046,7 @@ End Function
 ' boxaaGetBoxa(BOXAA *, l_int32, l_int32) as BOXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaGetBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaGetBoxa/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="index">[in] - to the index-th boxa</param>
 '''  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
@@ -1016,6 +1059,7 @@ Public Shared Function boxaaGetBoxa(
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaGetBoxa( baa.Pointer, index, accessflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -1026,7 +1070,7 @@ End Function
 ' boxaaGetBox(BOXAA *, l_int32, l_int32, l_int32) as BOX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaGetBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaGetBox/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="iboxa">[in] - index into the boxa array in the boxaa</param>
 '''  <param name="ibox">[in] - index into the box array in the boxa</param>
@@ -1041,6 +1085,7 @@ Public Shared Function boxaaGetBox(
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaGetBox( baa.Pointer, iboxa, ibox, accessflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -1075,7 +1120,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaInitFull/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaInitFull/*"/>
 '''  <param name="baa">[in] - typically empty</param>
 '''  <param name="boxa">[in] - to be replicated into the entire ptr array</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1087,6 +1132,7 @@ Public Shared Function boxaaInitFull(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaInitFull( baa.Pointer, boxa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1104,7 +1150,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaExtendWithInit/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaExtendWithInit/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="maxindex">[in] - </param>
 '''  <param name="boxa">[in] - to be replicated into the extended ptr array</param>
@@ -1118,6 +1164,7 @@ Public Shared Function boxaaExtendWithInit(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaExtendWithInit( baa.Pointer, maxindex, boxa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1135,7 +1182,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaReplaceBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaReplaceBoxa/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="index">[in] - to the index-th boxa</param>
 '''  <param name="boxa">[in] - insert and replace any existing one</param>
@@ -1149,6 +1196,7 @@ Public Shared Function boxaaReplaceBoxa(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaReplaceBoxa( baa.Pointer, index, boxa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1171,7 +1219,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaInsertBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaInsertBoxa/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="index">[in] - location in boxaa to insert new boxa</param>
 '''  <param name="boxa">[in] - new boxa to be inserted</param>
@@ -1185,6 +1233,7 @@ Public Shared Function boxaaInsertBoxa(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaInsertBoxa( baa.Pointer, index, boxa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1205,7 +1254,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaRemoveBoxa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaRemoveBoxa/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="index">[in] - of the boxa to be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1216,6 +1265,7 @@ Public Shared Function boxaaRemoveBoxa(
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaRemoveBoxa( baa.Pointer, index)
+
 
 	Return _Result
 End Function
@@ -1230,7 +1280,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaAddBox/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaAddBox/*"/>
 '''  <param name="baa">[in] - </param>
 '''  <param name="index">[in] - of boxa with boxaa</param>
 '''  <param name="box">[in] - to be added</param>
@@ -1246,6 +1296,7 @@ Public Shared Function boxaaAddBox(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaAddBox( baa.Pointer, index, box.Pointer, accessflag)
+
 
 	Return _Result
 End Function
@@ -1268,7 +1319,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaReadFromFiles/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaReadFromFiles/*"/>
 '''  <param name="dirname">[in] - directory</param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be NULL</param>
 '''  <param name="first">[in] - 0-based</param>
@@ -1283,6 +1334,7 @@ Public Shared Function boxaaReadFromFiles(
 	If IsNothing (dirname) then Throw New ArgumentNullException  ("dirname cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaReadFromFiles( dirname, substr, first, nfiles)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxaa(_Result)
@@ -1293,7 +1345,7 @@ End Function
 ' boxaaRead(const char *) as BOXAA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>boxaa, or NULL on error</returns>
 Public Shared Function boxaaRead(
@@ -1301,9 +1353,10 @@ Public Shared Function boxaaRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaRead( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxaa(_Result)
@@ -1314,7 +1367,7 @@ End Function
 ' boxaaReadStream(FILE *) as BOXAA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>boxaa, or NULL on error</returns>
 Public Shared Function boxaaReadStream(
@@ -1323,6 +1376,7 @@ Public Shared Function boxaaReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaReadStream( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxaa(_Result)
@@ -1333,7 +1387,7 @@ End Function
 ' boxaaReadMem(const l_uint8 *, size_t) as BOXAA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaReadMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaReadMem/*"/>
 '''  <param name="data">[in] - serialization of boxaa in ascii</param>
 '''  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 '''   <returns>baa, or NULL on error</returns>
@@ -1344,6 +1398,7 @@ Public Shared Function boxaaReadMem(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaaReadMem( data, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxaa(_Result)
@@ -1354,7 +1409,7 @@ End Function
 ' boxaaWrite(const char *, BOXAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="baa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1365,9 +1420,8 @@ Public Shared Function boxaaWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaWrite( filename, baa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1377,7 +1431,7 @@ End Function
 ' boxaaWriteStream(FILE *, BOXAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="baa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1389,6 +1443,7 @@ Public Shared Function boxaaWriteStream(
 	If IsNothing (baa) then Throw New ArgumentNullException  ("baa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaWriteStream( fp.Pointer, baa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1403,7 +1458,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaaWriteMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized boxaa ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="baa">[in] - </param>
@@ -1418,6 +1473,7 @@ Public Shared Function boxaaWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaaWriteMem( pdataPTR, psize, baa.Pointer)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -1428,7 +1484,7 @@ End Function
 ' boxaRead(const char *) as BOXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>boxa, or NULL on error</returns>
 Public Shared Function boxaRead(
@@ -1436,9 +1492,10 @@ Public Shared Function boxaRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaRead( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -1449,7 +1506,7 @@ End Function
 ' boxaReadStream(FILE *) as BOXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>boxa, or NULL on error</returns>
 Public Shared Function boxaReadStream(
@@ -1458,6 +1515,7 @@ Public Shared Function boxaReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaReadStream( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -1468,7 +1526,7 @@ End Function
 ' boxaReadMem(const l_uint8 *, size_t) as BOXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaReadMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaReadMem/*"/>
 '''  <param name="data">[in] - serialization of boxa in ascii</param>
 '''  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 '''   <returns>boxa, or NULL on error</returns>
@@ -1479,6 +1537,7 @@ Public Shared Function boxaReadMem(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaReadMem( data, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -1499,7 +1558,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaWriteDebug/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaWriteDebug/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -1510,9 +1569,8 @@ Public Shared Function boxaWriteDebug(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaWriteDebug( filename, boxa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1522,7 +1580,7 @@ End Function
 ' boxaWrite(const char *, BOXA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1533,9 +1591,8 @@ Public Shared Function boxaWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaWrite( filename, boxa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1545,7 +1602,7 @@ End Function
 ' boxaWriteStream(FILE *, BOXA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="boxa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1557,6 +1614,7 @@ Public Shared Function boxaWriteStream(
 	If IsNothing (boxa) then Throw New ArgumentNullException  ("boxa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaWriteStream( fp.Pointer, boxa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1571,7 +1629,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaWriteMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized boxa ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="boxa">[in] - </param>
@@ -1586,6 +1644,7 @@ Public Shared Function boxaWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxaWriteMem( pdataPTR, psize, boxa.Pointer)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -1602,7 +1661,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxPrintStreamInfo/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxPrintStreamInfo/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="box">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1614,6 +1673,7 @@ Public Shared Function boxPrintStreamInfo(
 	If IsNothing (box) then Throw New ArgumentNullException  ("box cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.boxPrintStreamInfo( fp.Pointer, box.Pointer)
+
 
 	Return _Result
 End Function

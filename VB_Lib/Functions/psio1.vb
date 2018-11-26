@@ -2,13 +2,12 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\psio1.c (154, 1)
 ' convertFilesToPS(dirin, substr, res, fileout) as Integer
 ' convertFilesToPS(const char *, const char *, l_int32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertFilesToPS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertFilesToPS/*"/>
 '''   <returns></returns>
 Public Shared Function convertFilesToPS(
 				 ByVal dirin as String, 
@@ -22,6 +21,7 @@ Public Shared Function convertFilesToPS(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertFilesToPS( dirin, substr, res, fileout)
 
+
 	Return _Result
 End Function
 
@@ -30,7 +30,7 @@ End Function
 ' sarrayConvertFilesToPS(SARRAY *, l_int32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayConvertFilesToPS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayConvertFilesToPS/*"/>
 '''   <returns></returns>
 Public Shared Function sarrayConvertFilesToPS(
 				 ByVal sa as Sarray, 
@@ -44,6 +44,7 @@ Dim saPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sa) Then saPTR = sa.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayConvertFilesToPS( sa.Pointer, res, fileout)
 
+
 	Return _Result
 End Function
 
@@ -52,7 +53,7 @@ End Function
 ' convertFilesFittedToPS(const char *, const char *, l_float32, l_float32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertFilesFittedToPS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertFilesFittedToPS/*"/>
 '''   <returns></returns>
 Public Shared Function convertFilesFittedToPS(
 				 ByVal dirin as String, 
@@ -67,6 +68,7 @@ Public Shared Function convertFilesFittedToPS(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertFilesFittedToPS( dirin, substr, xpts, ypts, fileout)
 
+
 	Return _Result
 End Function
 
@@ -75,7 +77,7 @@ End Function
 ' sarrayConvertFilesFittedToPS(SARRAY *, l_float32, l_float32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sarrayConvertFilesFittedToPS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayConvertFilesFittedToPS/*"/>
 '''   <returns></returns>
 Public Shared Function sarrayConvertFilesFittedToPS(
 				 ByVal sa as Sarray, 
@@ -90,6 +92,7 @@ Dim saPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sa) Then saPTR = sa.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sarrayConvertFilesFittedToPS( sa.Pointer, xpts, ypts, fileout)
 
+
 	Return _Result
 End Function
 
@@ -98,7 +101,7 @@ End Function
 ' writeImageCompressedToPSFile(const char *, const char *, l_int32, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/writeImageCompressedToPSFile/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/writeImageCompressedToPSFile/*"/>
 '''   <returns></returns>
 Public Shared Function writeImageCompressedToPSFile(
 				 ByVal filein as String, 
@@ -114,6 +117,7 @@ Public Shared Function writeImageCompressedToPSFile(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.writeImageCompressedToPSFile( filein, fileout, res, pfirstfile, pindex)
 
+
 	Return _Result
 End Function
 
@@ -122,7 +126,7 @@ End Function
 ' convertSegmentedPagesToPS(const char *, const char *, l_int32, const char *, const char *, l_int32, l_int32, l_int32, l_float32, l_float32, l_int32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertSegmentedPagesToPS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertSegmentedPagesToPS/*"/>
 '''   <returns></returns>
 Public Shared Function convertSegmentedPagesToPS(
 				 ByVal pagedir as String, 
@@ -146,6 +150,7 @@ Public Shared Function convertSegmentedPagesToPS(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertSegmentedPagesToPS( pagedir, pagestr, page_numpre, maskdir, maskstr, mask_numpre, numpost, maxnum, textscale, imagescale, threshold, fileout)
 
+
 	Return _Result
 End Function
 
@@ -154,7 +159,7 @@ End Function
 ' pixWriteSegmentedPageToPS(PIX *, PIX *, l_float32, l_float32, l_int32, l_int32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteSegmentedPageToPS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteSegmentedPageToPS/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteSegmentedPageToPS(
 				 ByVal pixs as Pix, 
@@ -174,6 +179,7 @@ Dim pixmPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixm) Then pixmPTR = pixm
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteSegmentedPageToPS( pixs.Pointer, pixm.Pointer, textscale, imagescale, threshold, pageno, fileout)
 
+
 	Return _Result
 End Function
 
@@ -182,7 +188,7 @@ End Function
 ' pixWriteMixedToPS(PIX *, PIX *, l_float32, l_int32, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteMixedToPS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteMixedToPS/*"/>
 '''   <returns></returns>
 Public Shared Function pixWriteMixedToPS(
 				 ByVal pixb as Pix, 
@@ -200,6 +206,7 @@ Dim pixcPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixc) Then pixcPTR = pixc
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMixedToPS( pixb.Pointer, pixc.Pointer, scale, pageno, fileout)
 
+
 	Return _Result
 End Function
 
@@ -208,7 +215,7 @@ End Function
 ' convertToPSEmbed(const char *, const char *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertToPSEmbed/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertToPSEmbed/*"/>
 '''   <returns></returns>
 Public Shared Function convertToPSEmbed(
 				 ByVal filein as String, 
@@ -220,6 +227,7 @@ Public Shared Function convertToPSEmbed(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertToPSEmbed( filein, fileout, level)
 
+
 	Return _Result
 End Function
 
@@ -228,7 +236,7 @@ End Function
 ' pixaWriteCompressedToPS(PIXA *, const char *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaWriteCompressedToPS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaWriteCompressedToPS/*"/>
 '''   <returns></returns>
 Public Shared Function pixaWriteCompressedToPS(
 				 ByVal pixa as Pixa, 
@@ -242,6 +250,7 @@ Public Shared Function pixaWriteCompressedToPS(
 Dim pixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixa) Then pixaPTR = pixa.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaWriteCompressedToPS( pixa.Pointer, fileout, res, level)
+
 
 	Return _Result
 End Function

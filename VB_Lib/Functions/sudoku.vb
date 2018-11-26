@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\sudoku.c (181, 1)
 ' sudokuReadFile(filename) as Integer()
 ' sudokuReadFile(const char *) as l_int32 *
@@ -16,7 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sudokuReadFile/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sudokuReadFile/*"/>
 '''  <param name="filename">[in] - of formatted sudoku file</param>
 '''   <returns>array of 81 numbers, or NULL on error</returns>
 Public Shared Function sudokuReadFile(
@@ -24,9 +23,10 @@ Public Shared Function sudokuReadFile(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as Integer() = LeptonicaSharp.Natives.sudokuReadFile( filename)
+
 
 	Return _Result
 End Function
@@ -42,7 +42,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sudokuReadString/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sudokuReadString/*"/>
 '''  <param name="str">[in] - of input data</param>
 '''   <returns>array of 81 numbers, or NULL on error</returns>
 Public Shared Function sudokuReadString(
@@ -51,6 +51,7 @@ Public Shared Function sudokuReadString(
 	If IsNothing (str) then Throw New ArgumentNullException  ("str cannot be Nothing")
 
 	Dim _Result as Integer() = LeptonicaSharp.Natives.sudokuReadString( str)
+
 
 	Return _Result
 End Function
@@ -68,7 +69,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sudokuCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sudokuCreate/*"/>
 '''  <param name="array">[in] - of 81 numbers, 9 rows of 9 numbers each</param>
 '''   <returns>l_sudoku, or NULL on error</returns>
 Public Shared Function sudokuCreate(
@@ -77,6 +78,7 @@ Public Shared Function sudokuCreate(
 	If IsNothing (array) then Throw New ArgumentNullException  ("array cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sudokuCreate( array)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Sudoku(_Result)
@@ -87,7 +89,7 @@ End Function
 ' sudokuDestroy(L_SUDOKU **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sudokuDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sudokuDestroy/*"/>
 '''  <param name="psud">[in,out] - to be nulled</param>
 Public Shared Sub sudokuDestroy(
 				 ByRef psud as L_Sudoku)
@@ -95,7 +97,9 @@ Public Shared Sub sudokuDestroy(
 	Dim psudPTR As IntPtr = IntPtr.Zero : If Not IsNothing(psud) Then psudPTR = psud.Pointer
 
 	LeptonicaSharp.Natives.sudokuDestroy( psudPTR)
-	if psudPTR <> IntPtr.Zero then psud = new L_Sudoku(psudPTR)
+
+If psudPTR = IntPtr.Zero Then psud = Nothing
+If psudPTR <> IntPtr.Zero Then psud = New L_Sudoku(psudPTR)
 
 End Sub
 
@@ -104,7 +108,7 @@ End Sub
 ' sudokuSolve(L_SUDOKU *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sudokuSolve/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sudokuSolve/*"/>
 '''  <param name="sud">[in] - l_sudoku starting in initial state</param>
 '''   <returns>1 on success, 0 on failure to solve note reversal of typical unix returns</returns>
 Public Shared Function sudokuSolve(
@@ -113,6 +117,7 @@ Public Shared Function sudokuSolve(
 	If IsNothing (sud) then Throw New ArgumentNullException  ("sud cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sudokuSolve( sud.Pointer)
+
 
 	Return _Result
 End Function
@@ -131,7 +136,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sudokuTestUniqueness/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sudokuTestUniqueness/*"/>
 '''  <param name="array">[in] - of 81 numbers, 9 lines of 9 numbers each</param>
 '''  <param name="punique">[out] - 1 if unique, 0 if not</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -142,6 +147,7 @@ Public Shared Function sudokuTestUniqueness(
 	If IsNothing (array) then Throw New ArgumentNullException  ("array cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sudokuTestUniqueness( array, punique)
+
 
 	Return _Result
 End Function
@@ -164,7 +170,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sudokuGenerate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sudokuGenerate/*"/>
 '''  <param name="array">[in] - of 81 numbers, 9 rows of 9 numbers each</param>
 '''  <param name="seed">[in] - random number</param>
 '''  <param name="minelems">[in] - min non-zero elements allowed smaller or equal 80</param>
@@ -179,6 +185,7 @@ Public Shared Function sudokuGenerate(
 	If IsNothing (array) then Throw New ArgumentNullException  ("array cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.sudokuGenerate( array, seed, minelems, maxtries)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Sudoku(_Result)
@@ -195,7 +202,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/sudokuOutput/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sudokuOutput/*"/>
 '''  <param name="sud">[in] - l_sudoku at any stage</param>
 '''  <param name="arraytype">[in] - L_SUDOKU_INIT, L_SUDOKU_STATE</param>
 '''   <returns>void</returns>
@@ -206,6 +213,7 @@ Public Shared Function sudokuOutput(
 	If IsNothing (sud) then Throw New ArgumentNullException  ("sud cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.sudokuOutput( sud.Pointer, arraytype)
+
 
 	Return _Result
 End Function

@@ -1,0 +1,3 @@
+Dim Pic As New Pix("Image.png")
+Pic = Pic.pixBackgroundNormSimple()
+Pic.Display()

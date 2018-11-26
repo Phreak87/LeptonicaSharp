@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\pixtiling.c (121, 1)
 ' pixTilingCreate(pixs, nx, ny, w, h, xoverlap, yoverlap) as PixTiling
 ' pixTilingCreate(PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIXTILING *
@@ -28,7 +27,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixTilingCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixTilingCreate/*"/>
 '''  <param name="pixs">[in] - pix to be tiled any depth colormap OK</param>
 '''  <param name="nx">[in] - number of tiles across image</param>
 '''  <param name="ny">[in] - number of tiles down image</param>
@@ -49,6 +48,7 @@ Public Shared Function pixTilingCreate(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixTilingCreate( pixs.Pointer, nx, ny, w, h, xoverlap, yoverlap)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new PixTiling(_Result)
@@ -59,7 +59,7 @@ End Function
 ' pixTilingDestroy(PIXTILING **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixTilingDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixTilingDestroy/*"/>
 '''  <param name="ppt">[in,out] - will be set to null before returning</param>
 Public Shared Sub pixTilingDestroy(
 				 ByRef ppt as PixTiling)
@@ -67,7 +67,9 @@ Public Shared Sub pixTilingDestroy(
 	Dim pptPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppt) Then pptPTR = ppt.Pointer
 
 	LeptonicaSharp.Natives.pixTilingDestroy( pptPTR)
-	if pptPTR <> IntPtr.Zero then ppt = new PixTiling(pptPTR)
+
+If pptPTR = IntPtr.Zero Then ppt = Nothing
+If pptPTR <> IntPtr.Zero Then ppt = New PixTiling(pptPTR)
 
 End Sub
 
@@ -76,7 +78,7 @@ End Sub
 ' pixTilingGetCount(PIXTILING *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixTilingGetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixTilingGetCount/*"/>
 '''  <param name="pt">[in] - pixtiling</param>
 '''  <param name="pnx">[out][optional] - nx can be null</param>
 '''  <param name="pny">[out][optional] - ny can be null</param>
@@ -90,6 +92,7 @@ Public Shared Function pixTilingGetCount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixTilingGetCount( pt.Pointer, pnx, pny)
 
+
 	Return _Result
 End Function
 
@@ -98,7 +101,7 @@ End Function
 ' pixTilingGetSize(PIXTILING *, l_int32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixTilingGetSize/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixTilingGetSize/*"/>
 '''  <param name="pt">[in] - pixtiling</param>
 '''  <param name="pw">[out][optional] - tile width can be null</param>
 '''  <param name="ph">[out][optional] - tile height can be null</param>
@@ -112,6 +115,7 @@ Public Shared Function pixTilingGetSize(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixTilingGetSize( pt.Pointer, pw, ph)
 
+
 	Return _Result
 End Function
 
@@ -120,7 +124,7 @@ End Function
 ' pixTilingGetTile(PIXTILING *, l_int32, l_int32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixTilingGetTile/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixTilingGetTile/*"/>
 '''  <param name="pt">[in] - pixtiling</param>
 '''  <param name="i">[in] - tile row index</param>
 '''  <param name="j">[in] - tile column index</param>
@@ -133,6 +137,7 @@ Public Shared Function pixTilingGetTile(
 	If IsNothing (pt) then Throw New ArgumentNullException  ("pt cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixTilingGetTile( pt.Pointer, i, j)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -152,7 +157,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixTilingNoStripOnPaint/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixTilingNoStripOnPaint/*"/>
 '''  <param name="pt">[in] - pixtiling</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixTilingNoStripOnPaint(
@@ -162,6 +167,7 @@ Public Shared Function pixTilingNoStripOnPaint(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixTilingNoStripOnPaint( pt.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -170,7 +176,7 @@ End Function
 ' pixTilingPaintTile(PIX *, l_int32, l_int32, PIX *, PIXTILING *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixTilingPaintTile/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixTilingPaintTile/*"/>
 '''  <param name="pixd">[in] - dest: paint tile onto this, without overlap</param>
 '''  <param name="i">[in] - tile row index</param>
 '''  <param name="j">[in] - tile column index</param>
@@ -189,6 +195,7 @@ Public Shared Function pixTilingPaintTile(
 	If IsNothing (pt) then Throw New ArgumentNullException  ("pt cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixTilingPaintTile( pixd.Pointer, i, j, pixs.Pointer, pt.Pointer)
+
 
 	Return _Result
 End Function

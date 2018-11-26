@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\readfile.c (123, 1)
 ' pixaReadFiles(dirname, substr) as Pixa
 ' pixaReadFiles(const char *, const char *) as PIXA *
@@ -18,7 +17,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaReadFiles/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaReadFiles/*"/>
 '''  <param name="dirname">[in] - </param>
 '''  <param name="substr">[in][optional] - substring filter on filenames can be null</param>
 '''   <returns>pixa, or NULL on error</returns>
@@ -29,6 +28,7 @@ Public Shared Function pixaReadFiles(
 	If IsNothing (dirname) then Throw New ArgumentNullException  ("dirname cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaReadFiles( dirname, substr)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -39,7 +39,7 @@ End Function
 ' pixaReadFilesSA(SARRAY *) as PIXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaReadFilesSA/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaReadFilesSA/*"/>
 '''  <param name="sa">[in] - full pathnames for all files</param>
 '''   <returns>pixa, or NULL on error</returns>
 Public Shared Function pixaReadFilesSA(
@@ -48,6 +48,7 @@ Public Shared Function pixaReadFilesSA(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaReadFilesSA( sa.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -63,7 +64,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRead/*"/>
 '''  <param name="filename">[in] - with full pathname or in local directory</param>
 '''   <returns>pix if OK NULL on error</returns>
 Public Shared Function pixRead(
@@ -71,9 +72,10 @@ Public Shared Function pixRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRead( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -90,7 +92,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadWithHint/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadWithHint/*"/>
 '''  <param name="filename">[in] - with full pathname or in local directory</param>
 '''  <param name="hint">[in] - bitwise OR of L_HINT_ values for jpeg use 0 for no hint</param>
 '''   <returns>pix if OK NULL on error</returns>
@@ -100,9 +102,10 @@ Public Shared Function pixReadWithHint(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadWithHint( filename, hint)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -137,7 +140,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadIndexed/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadIndexed/*"/>
 '''  <param name="sa">[in] - string array of full pathnames</param>
 '''  <param name="index">[in] - into pathname array</param>
 '''   <returns>pix if OK null if not found</returns>
@@ -148,6 +151,7 @@ Public Shared Function pixReadIndexed(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadIndexed( sa.Pointer, index)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -163,7 +167,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="hint">[in] - bitwise OR of L_HINT_ values for jpeg use 0 for no hint</param>
 '''   <returns>pix if OK NULL on error</returns>
@@ -174,6 +178,7 @@ Public Shared Function pixReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadStream( fp.Pointer, hint)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -191,7 +196,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadHeader/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadHeader/*"/>
 '''  <param name="filename">[in] - with full pathname or in local directory</param>
 '''  <param name="pformat">[out][optional] - file format</param>
 '''  <param name="pw">[out][optional] - width and height</param>
@@ -211,9 +216,10 @@ Public Shared Function pixReadHeader(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixReadHeader( filename, pformat, pw, ph, pbps, pspp, piscmap)
+
 
 	Return _Result
 End Function
@@ -223,7 +229,7 @@ End Function
 ' findFileFormat(const char *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/findFileFormat/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/findFileFormat/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pformat">[out] - found format</param>
 '''   <returns>0 if OK, 1 on error or if format is not recognized</returns>
@@ -233,9 +239,10 @@ Public Shared Function findFileFormat(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.findFileFormat( filename, pformat)
+
 
 	Return _Result
 End Function
@@ -250,7 +257,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/findFileFormatStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/findFileFormatStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pformat">[out] - found format</param>
 '''   <returns>0 if OK, 1 on error or if format is not recognized</returns>
@@ -261,6 +268,7 @@ Public Shared Function findFileFormatStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.findFileFormatStream( fp.Pointer, pformat)
+
 
 	Return _Result
 End Function
@@ -279,7 +287,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/findFileFormatBuffer/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/findFileFormatBuffer/*"/>
 '''  <param name="buf">[in] - byte buffer at least 12 bytes in size we can't check</param>
 '''  <param name="pformat">[out] - found format</param>
 '''   <returns>0 if OK, 1 on error or if format is not recognized</returns>
@@ -291,6 +299,7 @@ Public Shared Function findFileFormatBuffer(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.findFileFormatBuffer( buf, pformat)
 
+
 	Return _Result
 End Function
 
@@ -299,7 +308,7 @@ End Function
 ' fileFormatIsTiff(FILE *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fileFormatIsTiff/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fileFormatIsTiff/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>1 if file is tiff 0 otherwise or on error</returns>
 Public Shared Function fileFormatIsTiff(
@@ -308,6 +317,7 @@ Public Shared Function fileFormatIsTiff(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fileFormatIsTiff( fp.Pointer)
+
 
 	Return _Result
 End Function
@@ -332,7 +342,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadMem/*"/>
 '''  <param name="data">[in] - const encoded</param>
 '''  <param name="size">[in] - size of data</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -343,6 +353,7 @@ Public Shared Function pixReadMem(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMem( data, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -368,7 +379,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadHeaderMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadHeaderMem/*"/>
 '''  <param name="data">[in] - const encoded</param>
 '''  <param name="size">[in] - size of data</param>
 '''  <param name="pformat">[out][optional] - image format</param>
@@ -392,6 +403,7 @@ Public Shared Function pixReadHeaderMem(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixReadHeaderMem( data, size, pformat, pw, ph, pbps, pspp, piscmap)
 
+
 	Return _Result
 End Function
 
@@ -410,7 +422,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/writeImageFileInfo/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/writeImageFileInfo/*"/>
 '''  <param name="filename">[in] - input file</param>
 '''  <param name="fpout">[in] - output file stream</param>
 '''  <param name="headeronly">[in] - 1 to read only the header 0 to read both the header and the input file</param>
@@ -423,9 +435,8 @@ Public Shared Function writeImageFileInfo(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (fpout) then Throw New ArgumentNullException  ("fpout cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.writeImageFileInfo( filename, fpout.Pointer, headeronly)
+
 
 	Return _Result
 End Function
@@ -454,7 +465,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ioFormatTest/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ioFormatTest/*"/>
 '''  <param name="filename">[in] - input file</param>
 '''   <returns>0 if OK 1 on error or if the test fails</returns>
 Public Shared Function ioFormatTest(
@@ -462,9 +473,10 @@ Public Shared Function ioFormatTest(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.ioFormatTest( filename)
+
 
 	Return _Result
 End Function

@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\dnahash.c (122, 1)
 ' l_dnaHashCreate(nbuckets, initsize) as L_DnaHash
 ' l_dnaHashCreate(l_int32, l_int32) as L_DNAHASH *
@@ -13,7 +12,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaHashCreate/*"/>
 '''  <param name="nbuckets">[in] - the number of buckets in the hash table, which should be prime.</param>
 '''  <param name="initsize">[in] - initial size of each allocated dna 0 for default</param>
 '''   <returns>ptr to new dnahash, or NULL on error</returns>
@@ -22,6 +21,7 @@ Public Shared Function l_dnaHashCreate(
 				 ByVal initsize as Integer) as L_DnaHash
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaHashCreate( nbuckets, initsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_DnaHash(_Result)
@@ -32,7 +32,7 @@ End Function
 ' l_dnaHashDestroy(L_DNAHASH **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaHashDestroy/*"/>
 '''  <param name="pdahash">[in,out] - to be nulled, if it exists</param>
 Public Shared Sub l_dnaHashDestroy(
 				 ByRef pdahash as L_DnaHash)
@@ -40,7 +40,9 @@ Public Shared Sub l_dnaHashDestroy(
 	Dim pdahashPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdahash) Then pdahashPTR = pdahash.Pointer
 
 	LeptonicaSharp.Natives.l_dnaHashDestroy( pdahashPTR)
-	if pdahashPTR <> IntPtr.Zero then pdahash = new L_DnaHash(pdahashPTR)
+
+If pdahashPTR = IntPtr.Zero Then pdahash = Nothing
+If pdahashPTR <> IntPtr.Zero Then pdahash = New L_DnaHash(pdahashPTR)
 
 End Sub
 
@@ -49,7 +51,7 @@ End Sub
 ' l_dnaHashGetCount(L_DNAHASH *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashGetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaHashGetCount/*"/>
 '''  <param name="dahash">[in] - </param>
 '''   <returns>nbuckets allocated, or 0 on error</returns>
 Public Shared Function l_dnaHashGetCount(
@@ -59,6 +61,7 @@ Public Shared Function l_dnaHashGetCount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaHashGetCount( dahash.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -67,7 +70,7 @@ End Function
 ' l_dnaHashGetTotalCount(L_DNAHASH *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashGetTotalCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaHashGetTotalCount/*"/>
 '''  <param name="dahash">[in] - </param>
 '''   <returns>n number of numbers in all dna, or 0 on error</returns>
 Public Shared Function l_dnaHashGetTotalCount(
@@ -77,6 +80,7 @@ Public Shared Function l_dnaHashGetTotalCount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaHashGetTotalCount( dahash.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -85,7 +89,7 @@ End Function
 ' l_dnaHashGetDna(L_DNAHASH *, l_uint64, l_int32) as L_DNA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashGetDna/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaHashGetDna/*"/>
 '''  <param name="dahash">[in] - </param>
 '''  <param name="key">[in] - key to be hashed into a bucket number</param>
 '''  <param name="copyflag">[in] - L_NOCOPY, L_COPY, L_CLONE</param>
@@ -99,6 +103,7 @@ Public Shared Function l_dnaHashGetDna(
 	If IsNothing (key) then Throw New ArgumentNullException  ("key cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaHashGetDna( dahash.Pointer, key, copyflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dna(_Result)
@@ -109,7 +114,7 @@ End Function
 ' l_dnaHashAdd(L_DNAHASH *, l_uint64, l_float64) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashAdd/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaHashAdd/*"/>
 '''  <param name="dahash">[in] - </param>
 '''  <param name="key">[in] - key to be hashed into a bucket number</param>
 '''  <param name="value">[in] - float value to be appended to the specific dna</param>
@@ -125,6 +130,7 @@ Public Shared Function l_dnaHashAdd(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaHashAdd( dahash.Pointer, key, value)
 
+
 	Return _Result
 End Function
 
@@ -139,7 +145,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaHashCreateFromDna/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaHashCreateFromDna/*"/>
 '''  <param name="da">[in] - </param>
 '''   <returns>dahash if OK 1 on error</returns>
 Public Shared Function l_dnaHashCreateFromDna(
@@ -148,6 +154,7 @@ Public Shared Function l_dnaHashCreateFromDna(
 	If IsNothing (da) then Throw New ArgumentNullException  ("da cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaHashCreateFromDna( da.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_DnaHash(_Result)
@@ -167,7 +174,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaRemoveDupsByHash/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaRemoveDupsByHash/*"/>
 '''  <param name="das">[in] - </param>
 '''  <param name="pdad">[out] - hash set</param>
 '''  <param name="pdahash">[out][optional] - dnahash used for lookup</param>
@@ -183,8 +190,11 @@ Public Shared Function l_dnaRemoveDupsByHash(
 Dim pdahashPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdahash) Then pdahashPTR = pdahash.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaRemoveDupsByHash( das.Pointer, pdadPTR, pdahashPTR)
-	if pdadPTR <> IntPtr.Zero then pdad = new L_Dna(pdadPTR)
-	if pdahashPTR <> IntPtr.Zero then pdahash = new L_DnaHash(pdahashPTR)
+
+If pdadPTR = IntPtr.Zero Then pdad = Nothing
+If pdadPTR <> IntPtr.Zero Then pdad = New L_Dna(pdadPTR)
+If pdahashPTR = IntPtr.Zero Then pdahash = Nothing
+If pdahashPTR <> IntPtr.Zero Then pdahash = New L_DnaHash(pdahashPTR)
 
 	Return _Result
 End Function
@@ -213,7 +223,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaMakeHistoByHash/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaMakeHistoByHash/*"/>
 '''  <param name="das">[in] - </param>
 '''  <param name="pdahash">[out] - hash map: val to index</param>
 '''  <param name="pdav">[out] - array of values: index to val</param>
@@ -232,9 +242,13 @@ Public Shared Function l_dnaMakeHistoByHash(
 	Dim pdacPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pdac) Then pdacPTR = pdac.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaMakeHistoByHash( das.Pointer, pdahashPTR, pdavPTR, pdacPTR)
-	if pdahashPTR <> IntPtr.Zero then pdahash = new L_DnaHash(pdahashPTR)
-	if pdavPTR <> IntPtr.Zero then pdav = new L_Dna(pdavPTR)
-	if pdacPTR <> IntPtr.Zero then pdac = new L_Dna(pdacPTR)
+
+If pdahashPTR = IntPtr.Zero Then pdahash = Nothing
+If pdahashPTR <> IntPtr.Zero Then pdahash = New L_DnaHash(pdahashPTR)
+If pdavPTR = IntPtr.Zero Then pdav = Nothing
+If pdavPTR <> IntPtr.Zero Then pdav = New L_Dna(pdavPTR)
+If pdacPTR = IntPtr.Zero Then pdac = Nothing
+If pdacPTR <> IntPtr.Zero Then pdac = New L_Dna(pdacPTR)
 
 	Return _Result
 End Function
@@ -250,7 +264,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaIntersectionByHash/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaIntersectionByHash/*"/>
 '''  <param name="da1">[in] - </param>
 '''  <param name="da2">[in] - </param>
 '''   <returns>dad intersection of the number arrays, or NULL on error</returns>
@@ -262,6 +276,7 @@ Public Shared Function l_dnaIntersectionByHash(
 	If IsNothing (da2) then Throw New ArgumentNullException  ("da2 cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_dnaIntersectionByHash( da1.Pointer, da2.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dna(_Result)
@@ -279,7 +294,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_dnaFindValByHash/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaFindValByHash/*"/>
 '''  <param name="da">[in] - </param>
 '''  <param name="dahash">[in] - containing indices into %da</param>
 '''  <param name="val">[in] - searching for this number in %da</param>
@@ -296,6 +311,7 @@ Public Shared Function l_dnaFindValByHash(
 	If IsNothing (val) then Throw New ArgumentNullException  ("val cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_dnaFindValByHash( da.Pointer, dahash.Pointer, val, pindex)
+
 
 	Return _Result
 End Function

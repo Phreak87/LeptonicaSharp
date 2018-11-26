@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\affinecompose.c (90, 1)
 ' createMatrix2dTranslate(transx, transy) as Single()
 ' createMatrix2dTranslate(l_float32, l_float32) as l_float32 *
@@ -25,7 +24,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/createMatrix2dTranslate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/createMatrix2dTranslate/*"/>
 '''  <param name="transx">[in] - x component of translation wrt. the origin</param>
 '''  <param name="transy">[in] - y component of translation wrt. the origin</param>
 '''   <returns>3x3 transform matrix, or NULL on error</returns>
@@ -34,6 +33,7 @@ Public Shared Function createMatrix2dTranslate(
 				 ByVal transy as Single) as Single()
 
 	Dim _Result as Single() = LeptonicaSharp.Natives.createMatrix2dTranslate( transx, transy)
+
 
 	Return _Result
 End Function
@@ -59,7 +59,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/createMatrix2dScale/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/createMatrix2dScale/*"/>
 '''  <param name="scalex">[in] - horizontal scale factor</param>
 '''  <param name="scaley">[in] - vertical scale factor</param>
 '''   <returns>3x3 transform matrix, or NULL on error</returns>
@@ -68,6 +68,7 @@ Public Shared Function createMatrix2dScale(
 				 ByVal scaley as Single) as Single()
 
 	Dim _Result as Single() = LeptonicaSharp.Natives.createMatrix2dScale( scalex, scaley)
+
 
 	Return _Result
 End Function
@@ -102,7 +103,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/createMatrix2dRotate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/createMatrix2dRotate/*"/>
 '''  <param name="xc">[in] - location of center of rotation</param>
 '''  <param name="yc">[in] - location of center of rotation</param>
 '''  <param name="angle">[in] - rotation in radians clockwise is positive</param>
@@ -113,6 +114,7 @@ Public Shared Function createMatrix2dRotate(
 				 ByVal angle as Single) as Single()
 
 	Dim _Result as Single() = LeptonicaSharp.Natives.createMatrix2dRotate( xc, yc, angle)
+
 
 	Return _Result
 End Function
@@ -127,7 +129,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaTranslate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaTranslate/*"/>
 '''  <param name="ptas">[in] - for initial points</param>
 '''  <param name="transx">[in] - x component of translation wrt. the origin</param>
 '''  <param name="transy">[in] - y component of translation wrt. the origin</param>
@@ -140,6 +142,7 @@ Public Shared Function ptaTranslate(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaTranslate( ptas.Pointer, transx, transy)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -155,7 +158,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaScale/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaScale/*"/>
 '''  <param name="ptas">[in] - for initial points</param>
 '''  <param name="scalex">[in] - horizontal scale factor</param>
 '''  <param name="scaley">[in] - vertical scale factor</param>
@@ -168,6 +171,7 @@ Public Shared Function ptaScale(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaScale( ptas.Pointer, scalex, scaley)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -196,7 +200,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaRotate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaRotate/*"/>
 '''  <param name="ptas">[in] - for initial points</param>
 '''  <param name="xc">[in] - location of center of rotation</param>
 '''  <param name="yc">[in] - location of center of rotation</param>
@@ -211,6 +215,7 @@ Public Shared Function ptaRotate(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaRotate( ptas.Pointer, xc, yc, angle)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -221,7 +226,7 @@ End Function
 ' boxaTranslate(BOXA *, l_float32, l_float32) as BOXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaTranslate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaTranslate/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="transx">[in] - x component of translation wrt. the origin</param>
 '''  <param name="transy">[in] - y component of translation wrt. the origin</param>
@@ -234,6 +239,7 @@ Public Shared Function boxaTranslate(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaTranslate( boxas.Pointer, transx, transy)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -244,7 +250,7 @@ End Function
 ' boxaScale(BOXA *, l_float32, l_float32) as BOXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaScale/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaScale/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="scalex">[in] - horizontal scale factor</param>
 '''  <param name="scaley">[in] - vertical scale factor</param>
@@ -257,6 +263,7 @@ Public Shared Function boxaScale(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaScale( boxas.Pointer, scalex, scaley)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -267,7 +274,7 @@ End Function
 ' boxaRotate(BOXA *, l_float32, l_float32, l_float32) as BOXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaRotate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaRotate/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="xc">[in] - location of center of rotation</param>
 '''  <param name="yc">[in] - location of center of rotation</param>
@@ -282,6 +289,7 @@ Public Shared Function boxaRotate(
 	If IsNothing (boxas) then Throw New ArgumentNullException  ("boxas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaRotate( boxas.Pointer, xc, yc, angle)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -292,7 +300,7 @@ End Function
 ' ptaAffineTransform(PTA *, l_float32 *) as PTA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/ptaAffineTransform/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaAffineTransform/*"/>
 '''  <param name="ptas">[in] - for initial points</param>
 '''  <param name="mat">[in] - 3x3 transform matrix canonical form</param>
 '''   <returns>ptad  transformed points, or NULL on error</returns>
@@ -304,6 +312,7 @@ Public Shared Function ptaAffineTransform(
 	If IsNothing (mat) then Throw New ArgumentNullException  ("mat cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.ptaAffineTransform( ptas.Pointer, mat)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pta(_Result)
@@ -314,7 +323,7 @@ End Function
 ' boxaAffineTransform(BOXA *, l_float32 *) as BOXA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/boxaAffineTransform/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaAffineTransform/*"/>
 '''  <param name="boxas">[in] - </param>
 '''  <param name="mat">[in] - 3x3 transform matrix canonical form</param>
 '''   <returns>boxad  transformed boxas, or NULL on error</returns>
@@ -326,6 +335,7 @@ Public Shared Function boxaAffineTransform(
 	If IsNothing (mat) then Throw New ArgumentNullException  ("mat cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.boxaAffineTransform( boxas.Pointer, mat)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -336,7 +346,7 @@ End Function
 ' l_productMatVec(l_float32 *, l_float32 *, l_float32 *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_productMatVec/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_productMatVec/*"/>
 '''  <param name="mat">[in] - square matrix, as a 1-dimensional %size^2 array</param>
 '''  <param name="vecs">[in] - input column vector of length %size</param>
 '''  <param name="vecd">[in] - result column vector</param>
@@ -354,6 +364,7 @@ Public Shared Function l_productMatVec(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_productMatVec( mat, vecs, vecd, size)
 
+
 	Return _Result
 End Function
 
@@ -362,7 +373,7 @@ End Function
 ' l_productMat2(l_float32 *, l_float32 *, l_float32 *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_productMat2/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_productMat2/*"/>
 '''  <param name="mat1">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat2">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="matd">[in] - square matrix product stored here</param>
@@ -380,6 +391,7 @@ Public Shared Function l_productMat2(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_productMat2( mat1, mat2, matd, size)
 
+
 	Return _Result
 End Function
 
@@ -388,7 +400,7 @@ End Function
 ' l_productMat3(l_float32 *, l_float32 *, l_float32 *, l_float32 *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_productMat3/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_productMat3/*"/>
 '''  <param name="mat1">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat2">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat3">[in] - square matrix, as a 1-dimensional size^2 array</param>
@@ -409,6 +421,7 @@ Public Shared Function l_productMat3(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_productMat3( mat1, mat2, mat3, matd, size)
 
+
 	Return _Result
 End Function
 
@@ -417,7 +430,7 @@ End Function
 ' l_productMat4(l_float32 *, l_float32 *, l_float32 *, l_float32 *, l_float32 *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_productMat4/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_productMat4/*"/>
 '''  <param name="mat1">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat2">[in] - square matrix, as a 1-dimensional size^2 array</param>
 '''  <param name="mat3">[in] - square matrix, as a 1-dimensional size^2 array</param>
@@ -440,6 +453,7 @@ Public Shared Function l_productMat4(
 	If IsNothing (matd) then Throw New ArgumentNullException  ("matd cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_productMat4( mat1, mat2, mat3, mat4, matd, size)
+
 
 	Return _Result
 End Function

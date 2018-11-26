@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\recogtrain.c (212, 1)
 ' recogTrainLabeled(recog, pixs, box, text, debug) as Integer
 ' recogTrainLabeled(L_RECOG *, PIX *, BOX *, char *, l_int32) as l_ok
@@ -17,7 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogTrainLabeled/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogTrainLabeled/*"/>
 '''  <param name="recog">[in] - in training mode</param>
 '''  <param name="pixs">[in] - if depth  is greater  1, will be thresholded to 1 bpp</param>
 '''  <param name="box">[in][optional] - cropping box</param>
@@ -38,6 +37,7 @@ Public Shared Function recogTrainLabeled(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogTrainLabeled( recog.Pointer, pixs.Pointer, boxPTR, text, debug)
 
+
 	Return _Result
 End Function
 
@@ -52,7 +52,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogProcessLabeled/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogProcessLabeled/*"/>
 '''  <param name="recog">[in] - in training mode</param>
 '''  <param name="pixs">[in] - if depth  is greater  1, will be thresholded to 1 bpp</param>
 '''  <param name="box">[in][optional] - cropping box</param>
@@ -73,7 +73,9 @@ Public Shared Function recogProcessLabeled(
 	Dim ppixPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppix) Then ppixPTR = ppix.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogProcessLabeled( recog.Pointer, pixs.Pointer, boxPTR, text, ppixPTR)
-	if ppixPTR <> IntPtr.Zero then ppix = new Pix(ppixPTR)
+
+If ppixPTR = IntPtr.Zero Then ppix = Nothing
+If ppixPTR <> IntPtr.Zero Then ppix = New Pix(ppixPTR)
 
 	Return _Result
 End Function
@@ -95,7 +97,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogAddSample/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogAddSample/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pix">[in] - a single character, 1 bpp</param>
 '''  <param name="debug">[in] - </param>
@@ -110,6 +112,7 @@ Public Shared Function recogAddSample(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogAddSample( recog.Pointer, pix.Pointer, debug)
 
+
 	Return _Result
 End Function
 
@@ -118,7 +121,7 @@ End Function
 ' recogModifyTemplate(L_RECOG *, PIX *) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogModifyTemplate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogModifyTemplate/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pixs">[in] - 1 bpp, to be optionally scaled and turned into strokes of fixed width</param>
 '''   <returns>pixd   modified pix if OK, NULL on error</returns>
@@ -130,6 +133,7 @@ Public Shared Function recogModifyTemplate(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogModifyTemplate( recog.Pointer, pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -158,7 +162,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogAverageSamples/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogAverageSamples/*"/>
 '''  <param name="precog">[in] - addr of existing recog may be destroyed</param>
 '''  <param name="debug">[in] - </param>
 '''   <returns>0 on success, 1 on failure</returns>
@@ -171,6 +175,7 @@ Public Shared Function recogAverageSamples(
 	Dim precogPTR As IntPtr = IntPtr.Zero ' : If Not IsNothing(precog) Then precogPTR = precog.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogAverageSamples( precogPTR, debug)
+
 
 	Return _Result
 End Function
@@ -191,7 +196,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaAccumulateSamples/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaAccumulateSamples/*"/>
 '''  <param name="pixa">[in] - of samples from the same class, 1 bpp</param>
 '''  <param name="pta">[in][optional] - of centroids of the samples</param>
 '''  <param name="ppixd">[out] - accumulated samples, 8 bpp</param>
@@ -211,7 +216,9 @@ Public Shared Function pixaAccumulateSamples(
 	Dim ppixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixd) Then ppixdPTR = ppixd.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaAccumulateSamples( pixa.Pointer, ptaPTR, ppixdPTR, px, py)
-	if ppixdPTR <> IntPtr.Zero then ppixd = new Pix(ppixdPTR)
+
+If ppixdPTR = IntPtr.Zero Then ppixd = Nothing
+If ppixdPTR <> IntPtr.Zero Then ppixd = New Pix(ppixdPTR)
 
 	Return _Result
 End Function
@@ -252,7 +259,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogTrainingFinished/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogTrainingFinished/*"/>
 '''  <param name="precog">[in] - addr of recog</param>
 '''  <param name="modifyflag">[in] - 1 to use recogModifyTemplate() 0 otherwise</param>
 '''  <param name="minsize">[in] - set to -1 for default</param>
@@ -269,6 +276,7 @@ Public Shared Function recogTrainingFinished(
 	Dim precogPTR As IntPtr = IntPtr.Zero ' : If Not IsNothing(precog) Then precogPTR = precog.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogTrainingFinished( precogPTR, modifyflag, minsize, minfract)
+
 
 	Return _Result
 End Function
@@ -296,7 +304,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogFilterPixaBySize/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogFilterPixaBySize/*"/>
 '''  <param name="pixas">[in] - labeled templates</param>
 '''  <param name="setsize">[in] - size of character set (number of classes)</param>
 '''  <param name="maxkeep">[in] - max number of templates to keep in a class</param>
@@ -315,8 +323,10 @@ Public Shared Function recogFilterPixaBySize(
 Dim pnaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pna) Then pnaPTR = pna.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogFilterPixaBySize( pixas.Pointer, setsize, maxkeep, max_ht_ratio, pnaPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if pnaPTR <> IntPtr.Zero then pna = new Numa(pnaPTR)
+If pnaPTR = IntPtr.Zero Then pna = Nothing
+If pnaPTR <> IntPtr.Zero Then pna = New Numa(pnaPTR)
 
 	Return  new Pixa(_Result)
 End Function
@@ -326,7 +336,7 @@ End Function
 ' recogSortPixaByClass(PIXA *, l_int32) as PIXAA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogSortPixaByClass/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogSortPixaByClass/*"/>
 '''  <param name="pixa">[in] - labeled templates</param>
 '''  <param name="setsize">[in] - size of character set (number of classes)</param>
 '''   <returns>paa   pixaa where each pixa has templates for one class, or null on error</returns>
@@ -337,6 +347,7 @@ Public Shared Function recogSortPixaByClass(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogSortPixaByClass( pixa.Pointer, setsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixaa(_Result)
@@ -356,7 +367,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogRemoveOutliers1/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogRemoveOutliers1/*"/>
 '''  <param name="precog">[in] - addr of recog with unscaled labeled templates</param>
 '''  <param name="minscore">[in] - keep everything with at least this score</param>
 '''  <param name="mintarget">[in] - minimum desired number to retain if possible</param>
@@ -379,8 +390,11 @@ Dim ppixsavePTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixsave) Then ppixsa
 Dim ppixremPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixrem) Then ppixremPTR = ppixrem.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogRemoveOutliers1( precogPTR, minscore, mintarget, minsize, ppixsavePTR, ppixremPTR)
-	if ppixsavePTR <> IntPtr.Zero then ppixsave = new Pix(ppixsavePTR)
-	if ppixremPTR <> IntPtr.Zero then ppixrem = new Pix(ppixremPTR)
+
+If ppixsavePTR = IntPtr.Zero Then ppixsave = Nothing
+If ppixsavePTR <> IntPtr.Zero Then ppixsave = New Pix(ppixsavePTR)
+If ppixremPTR = IntPtr.Zero Then ppixrem = Nothing
+If ppixremPTR <> IntPtr.Zero Then ppixrem = New Pix(ppixremPTR)
 
 	Return _Result
 End Function
@@ -418,7 +432,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaRemoveOutliers1/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaRemoveOutliers1/*"/>
 '''  <param name="pixas">[in] - unscaled labeled templates</param>
 '''  <param name="minscore">[in] - keep everything with at least this score use -1.0 for default.</param>
 '''  <param name="mintarget">[in] - minimum desired number to retain if possible use -1 for default.</param>
@@ -440,9 +454,12 @@ Dim ppixsavePTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixsave) Then ppixsa
 Dim ppixremPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixrem) Then ppixremPTR = ppixrem.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaRemoveOutliers1( pixas.Pointer, minscore, mintarget, minsize, ppixsavePTR, ppixremPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if ppixsavePTR <> IntPtr.Zero then ppixsave = new Pix(ppixsavePTR)
-	if ppixremPTR <> IntPtr.Zero then ppixrem = new Pix(ppixremPTR)
+If ppixsavePTR = IntPtr.Zero Then ppixsave = Nothing
+If ppixsavePTR <> IntPtr.Zero Then ppixsave = New Pix(ppixsavePTR)
+If ppixremPTR = IntPtr.Zero Then ppixrem = Nothing
+If ppixremPTR <> IntPtr.Zero Then ppixrem = New Pix(ppixremPTR)
 
 	Return  new Pixa(_Result)
 End Function
@@ -461,7 +478,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogRemoveOutliers2/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogRemoveOutliers2/*"/>
 '''  <param name="precog">[in] - addr of recog with unscaled labeled templates</param>
 '''  <param name="minscore">[in] - keep everything with at least this score</param>
 '''  <param name="minsize">[in] - minimum number of samples required for a class</param>
@@ -482,8 +499,11 @@ Dim ppixsavePTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixsave) Then ppixsa
 Dim ppixremPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixrem) Then ppixremPTR = ppixrem.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogRemoveOutliers2( precogPTR, minscore, minsize, ppixsavePTR, ppixremPTR)
-	if ppixsavePTR <> IntPtr.Zero then ppixsave = new Pix(ppixsavePTR)
-	if ppixremPTR <> IntPtr.Zero then ppixrem = new Pix(ppixremPTR)
+
+If ppixsavePTR = IntPtr.Zero Then ppixsave = Nothing
+If ppixsavePTR <> IntPtr.Zero Then ppixsave = New Pix(ppixsavePTR)
+If ppixremPTR = IntPtr.Zero Then ppixrem = Nothing
+If ppixremPTR <> IntPtr.Zero Then ppixrem = New Pix(ppixremPTR)
 
 	Return _Result
 End Function
@@ -510,7 +530,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaRemoveOutliers2/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaRemoveOutliers2/*"/>
 '''  <param name="pixas">[in] - unscaled labeled templates</param>
 '''  <param name="minscore">[in] - keep everything with at least this score use -1.0 for default.</param>
 '''  <param name="minsize">[in] - minimum number of samples required for a class use -1 for default.</param>
@@ -530,9 +550,12 @@ Dim ppixsavePTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixsave) Then ppixsa
 Dim ppixremPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixrem) Then ppixremPTR = ppixrem.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaRemoveOutliers2( pixas.Pointer, minscore, minsize, ppixsavePTR, ppixremPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if ppixsavePTR <> IntPtr.Zero then ppixsave = new Pix(ppixsavePTR)
-	if ppixremPTR <> IntPtr.Zero then ppixrem = new Pix(ppixremPTR)
+If ppixsavePTR = IntPtr.Zero Then ppixsave = Nothing
+If ppixsavePTR <> IntPtr.Zero Then ppixsave = New Pix(ppixsavePTR)
+If ppixremPTR = IntPtr.Zero Then ppixrem = Nothing
+If ppixremPTR <> IntPtr.Zero Then ppixrem = New Pix(ppixremPTR)
 
 	Return  new Pixa(_Result)
 End Function
@@ -561,7 +584,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogTrainFromBoot/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogTrainFromBoot/*"/>
 '''  <param name="recogboot">[in] - labeled boot recognizer</param>
 '''  <param name="pixas">[in] - set of unlabeled input characters</param>
 '''  <param name="minscore">[in] - min score for accepting the example e.g., 0.75</param>
@@ -579,6 +602,7 @@ Public Shared Function recogTrainFromBoot(
 	If IsNothing (pixas) then Throw New ArgumentNullException  ("pixas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogTrainFromBoot( recogboot.Pointer, pixas.Pointer, minscore, threshold, debug)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -598,7 +622,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogPadDigitTrainingSet/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogPadDigitTrainingSet/*"/>
 '''  <param name="precog">[in,out] - trained if padding is needed, it is replaced by a a new padded recog</param>
 '''  <param name="scaleh">[in] - must be  is greater  0 suggest ~40.</param>
 '''  <param name="linew">[in] - use 0 for original scanned images</param>
@@ -611,7 +635,9 @@ Public Shared Function recogPadDigitTrainingSet(
 	Dim precogPTR As IntPtr = IntPtr.Zero : If Not IsNothing(precog) Then precogPTR = precog.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogPadDigitTrainingSet( precogPTR, scaleh, linew)
-	if precogPTR <> IntPtr.Zero then precog = new L_Recog(precogPTR)
+
+If precogPTR = IntPtr.Zero Then precog = Nothing
+If precogPTR <> IntPtr.Zero Then precog = New L_Recog(precogPTR)
 
 	Return _Result
 End Function
@@ -629,7 +655,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogIsPaddingNeeded/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogIsPaddingNeeded/*"/>
 '''  <param name="recog">[in] - trained</param>
 '''  <param name="psa">[out] - addr of returned string containing text value</param>
 '''   <returns>1 on error 0 if OK, whether or not additional padding templates are required.</returns>
@@ -642,7 +668,9 @@ Public Shared Function recogIsPaddingNeeded(
 	Dim psaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(psa) Then psaPTR = psa.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogIsPaddingNeeded( recog.Pointer, psaPTR)
-	if psaPTR <> IntPtr.Zero then psa = new Sarray(psaPTR)
+
+If psaPTR = IntPtr.Zero Then psa = Nothing
+If psaPTR <> IntPtr.Zero Then psa = New Sarray(psaPTR)
 
 	Return _Result
 End Function
@@ -659,7 +687,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogAddDigitPadTemplates/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogAddDigitPadTemplates/*"/>
 '''  <param name="recog">[in] - trained</param>
 '''  <param name="sa">[in] - set of text strings that need to be padded</param>
 '''   <returns>pixa   of all templates from %recog and the additional pad templates from a boot recognizer or NULL on error</returns>
@@ -671,6 +699,7 @@ Public Shared Function recogAddDigitPadTemplates(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogAddDigitPadTemplates( recog.Pointer, sa.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -698,7 +727,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogMakeBootDigitRecog/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogMakeBootDigitRecog/*"/>
 '''  <param name="scaleh">[in] - scale all heights to this typ. use 40</param>
 '''  <param name="linew">[in] - normalized line width typ. use 5 0 to skip</param>
 '''  <param name="maxyshift">[in] - from nominal centroid alignment typically 0 or 1</param>
@@ -711,6 +740,7 @@ Public Shared Function recogMakeBootDigitRecog(
 				 Optional ByVal debug as DebugOnOff = DebugOnOff.DebugOn) as L_Recog
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogMakeBootDigitRecog( scaleh, linew, maxyshift, debug)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Recog(_Result)
@@ -726,13 +756,14 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogMakeBootDigitTemplates/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogMakeBootDigitTemplates/*"/>
 '''  <param name="debug">[in] - 1 for display of templates</param>
 '''   <returns>pixa   of templates or NULL on error</returns>
 Public Shared Function recogMakeBootDigitTemplates(
 				 ByVal debug as Enumerations.DebugOnOff) as Pixa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogMakeBootDigitTemplates( debug)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -743,7 +774,7 @@ End Function
 ' recogShowContent(FILE *, L_RECOG *, l_int32, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogShowContent/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogShowContent/*"/>
 '''  <param name="fp">[in] - file  stream</param>
 '''  <param name="recog">[in] - </param>
 '''  <param name="index">[in] - for naming of output files of template images</param>
@@ -759,6 +790,7 @@ Public Shared Function recogShowContent(
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogShowContent( fp.Pointer, recog.Pointer, index, display)
+
 
 	Return _Result
 End Function
@@ -780,7 +812,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogDebugAverages/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogDebugAverages/*"/>
 '''  <param name="precog">[in] - addr of recog</param>
 '''  <param name="debug">[in] - 0 no output 1 for images 2 for text 3 for both</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -793,6 +825,7 @@ Public Shared Function recogDebugAverages(
 	Dim precogPTR As IntPtr = IntPtr.Zero ' : If Not IsNothing(precog) Then precogPTR = precog.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogDebugAverages( precogPTR, debug)
+
 
 	Return _Result
 End Function
@@ -808,7 +841,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogShowAverageTemplates/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogShowAverageTemplates/*"/>
 '''  <param name="recog">[in] - </param>
 '''   <returns>0 on success, 1 on failure</returns>
 Public Shared Function recogShowAverageTemplates(
@@ -817,6 +850,7 @@ Public Shared Function recogShowAverageTemplates(
 	If IsNothing (recog) then Throw New ArgumentNullException  ("recog cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogShowAverageTemplates( recog.Pointer)
+
 
 	Return _Result
 End Function
@@ -838,7 +872,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogShowMatchesInRange/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogShowMatchesInRange/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pixa">[in] - of 1 bpp images to match</param>
 '''  <param name="minscore">[in] - range to include output</param>
@@ -856,6 +890,7 @@ Public Shared Function recogShowMatchesInRange(
 	If IsNothing (pixa) then Throw New ArgumentNullException  ("pixa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.recogShowMatchesInRange( recog.Pointer, pixa.Pointer, minscore, maxscore, display)
+
 
 	Return _Result
 End Function
@@ -880,7 +915,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/recogShowMatch/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogShowMatch/*"/>
 '''  <param name="recog">[in] - </param>
 '''  <param name="pix1">[in] - input pix several possibilities</param>
 '''  <param name="pix2">[in][optional] - matching template</param>
@@ -903,6 +938,7 @@ Public Shared Function recogShowMatch(
 	Dim boxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(box) Then boxPTR = box.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.recogShowMatch( recog.Pointer, pix1.Pointer, pix2PTR, boxPTR, index, score)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

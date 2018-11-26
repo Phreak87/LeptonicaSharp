@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\warper.c (107, 1)
 ' pixSimpleCaptcha(pixs, border, nterms, seed, color, cmapflag) as Pix
 ' pixSimpleCaptcha(PIX *, l_int32, l_int32, l_uint32, l_uint32, l_int32) as PIX *
@@ -16,7 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSimpleCaptcha/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSimpleCaptcha/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="border">[in] - added white pixels on each side</param>
 '''  <param name="nterms">[in] - number of x and y harmonic terms</param>
@@ -35,6 +34,7 @@ Public Shared Function pixSimpleCaptcha(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSimpleCaptcha( pixs.Pointer, border, nterms, seed, color, cmapflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -69,7 +69,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRandomHarmonicWarp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRandomHarmonicWarp/*"/>
 '''  <param name="pixs">[in] - 8 bpp no colormap</param>
 '''  <param name="xmag">[in] - maximum magnitude of x and y distortion</param>
 '''  <param name="ymag">[in] - maximum magnitude of x and y distortion</param>
@@ -94,6 +94,7 @@ Public Shared Function pixRandomHarmonicWarp(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixRandomHarmonicWarp( pixs.Pointer, xmag, ymag, xfreq, yfreq, nx, ny, seed, grayval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -176,7 +177,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWarpStereoscopic/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWarpStereoscopic/*"/>
 '''  <param name="pixs">[in] - any depth, colormap ok</param>
 '''  <param name="zbend">[in] - horizontal separation in pixels of red and cyan at the left and right sides, that gives rise to quadratic curvature out of the image plane</param>
 '''  <param name="zshiftt">[in] - uniform pixel translation difference between red and cyan, that pushes the top of the image plane away from the viewer (zshiftt  is greater  0) or towards the viewer (zshiftt  is smaller 0)</param>
@@ -197,6 +198,7 @@ Public Shared Function pixWarpStereoscopic(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixWarpStereoscopic( pixs.Pointer, zbend, zshiftt, zshiftb, ybendt, ybendb, redleft)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -227,7 +229,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixStretchHorizontal/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixStretchHorizontal/*"/>
 '''  <param name="pixs">[in] - 1, 8 or 32 bpp</param>
 '''  <param name="dir">[in] - L_WARP_TO_LEFT or L_WARP_TO_RIGHT</param>
 '''  <param name="type">[in] - L_LINEAR_WARP or L_QUADRATIC_WARP</param>
@@ -246,6 +248,7 @@ Public Shared Function pixStretchHorizontal(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixStretchHorizontal( pixs.Pointer, dir, type, hmax, operation, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -261,7 +264,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixStretchHorizontalSampled/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixStretchHorizontalSampled/*"/>
 '''  <param name="pixs">[in] - 1, 8 or 32 bpp</param>
 '''  <param name="dir">[in] - L_WARP_TO_LEFT or L_WARP_TO_RIGHT</param>
 '''  <param name="type">[in] - L_LINEAR_WARP or L_QUADRATIC_WARP</param>
@@ -278,6 +281,7 @@ Public Shared Function pixStretchHorizontalSampled(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixStretchHorizontalSampled( pixs.Pointer, dir, type, hmax, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -293,7 +297,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixStretchHorizontalLI/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixStretchHorizontalLI/*"/>
 '''  <param name="pixs">[in] - 1, 8 or 32 bpp</param>
 '''  <param name="dir">[in] - L_WARP_TO_LEFT or L_WARP_TO_RIGHT</param>
 '''  <param name="type">[in] - L_LINEAR_WARP or L_QUADRATIC_WARP</param>
@@ -310,6 +314,7 @@ Public Shared Function pixStretchHorizontalLI(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixStretchHorizontalLI( pixs.Pointer, dir, type, hmax, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -342,7 +347,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixQuadraticVShear/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixQuadraticVShear/*"/>
 '''  <param name="pixs">[in] - 1, 8 or 32 bpp</param>
 '''  <param name="dir">[in] - L_WARP_TO_LEFT or L_WARP_TO_RIGHT</param>
 '''  <param name="vmaxt">[in] - max vertical displacement at edge and at top</param>
@@ -361,6 +366,7 @@ Public Shared Function pixQuadraticVShear(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixQuadraticVShear( pixs.Pointer, dir, vmaxt, vmaxb, operation, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -376,7 +382,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixQuadraticVShearSampled/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixQuadraticVShearSampled/*"/>
 '''  <param name="pixs">[in] - 1, 8 or 32 bpp</param>
 '''  <param name="dir">[in] - L_WARP_TO_LEFT or L_WARP_TO_RIGHT</param>
 '''  <param name="vmaxt">[in] - max vertical displacement at edge and at top</param>
@@ -393,6 +399,7 @@ Public Shared Function pixQuadraticVShearSampled(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixQuadraticVShearSampled( pixs.Pointer, dir, vmaxt, vmaxb, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -408,7 +415,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixQuadraticVShearLI/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixQuadraticVShearLI/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp, or colormapped</param>
 '''  <param name="dir">[in] - L_WARP_TO_LEFT or L_WARP_TO_RIGHT</param>
 '''  <param name="vmaxt">[in] - max vertical displacement at edge and at top</param>
@@ -425,6 +432,7 @@ Public Shared Function pixQuadraticVShearLI(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixQuadraticVShearLI( pixs.Pointer, dir, vmaxt, vmaxb, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -460,7 +468,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixStereoFromPair/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixStereoFromPair/*"/>
 '''  <param name="pix1">[in] - 32 bpp rgb</param>
 '''  <param name="pix2">[in] - 32 bpp rgb</param>
 '''  <param name="rwt">[in] - weighting factors used for each component in                                pix1 to determine the output red channel</param>
@@ -481,6 +489,7 @@ Public Shared Function pixStereoFromPair(
 	If {32}.contains (pix2.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixStereoFromPair( pix1.Pointer, pix2.Pointer, rwt, gwt, bwt)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)

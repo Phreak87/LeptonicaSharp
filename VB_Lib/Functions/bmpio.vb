@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\bmpio.c (89, 1)
 ' pixReadStreamBmp(fp) as Pix
 ' pixReadStreamBmp(FILE *) as PIX *
@@ -15,7 +14,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadStreamBmp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadStreamBmp/*"/>
 '''  <param name="fp">[in] - file stream opened for read</param>
 '''   <returns>pix, or NULL on error</returns>
 Public Shared Function pixReadStreamBmp(
@@ -24,6 +23,7 @@ Public Shared Function pixReadStreamBmp(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadStreamBmp( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -34,7 +34,7 @@ End Function
 ' pixReadMemBmp(const l_uint8 *, size_t) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixReadMemBmp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadMemBmp/*"/>
 '''  <param name="cdata">[in] - bmp data</param>
 '''  <param name="size">[in] - number of bytes of bmp-formatted data</param>
 '''   <returns>pix, or NULL on error</returns>
@@ -45,6 +45,7 @@ Public Shared Function pixReadMemBmp(
 	If IsNothing (cdata) then Throw New ArgumentNullException  ("cdata cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixReadMemBmp( cdata, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -55,7 +56,7 @@ End Function
 ' pixWriteStreamBmp(FILE *, PIX *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteStreamBmp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteStreamBmp/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="pix">[in] - all depths</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -67,6 +68,7 @@ Public Shared Function pixWriteStreamBmp(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteStreamBmp( fp.Pointer, pix.Pointer)
+
 
 	Return _Result
 End Function
@@ -92,7 +94,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixWriteMemBmp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteMemBmp/*"/>
 '''  <param name="pfdata">[out] - data of bmp formatted image</param>
 '''  <param name="pfsize">[out] - size of returned data</param>
 '''  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
@@ -109,6 +111,7 @@ Public Shared Function pixWriteMemBmp(
 	Dim pfdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixWriteMemBmp( pfdataPTR, pfsize, pixs.Pointer)
+
 	ReDim pfdata(IIf(pfsize > 0, pfsize, 1) - 1) : If pfdataPTR <> IntPtr.Zero Then Marshal.Copy(pfdataPTR, pfdata, 0, pfdata.count)
 
 	Return _Result

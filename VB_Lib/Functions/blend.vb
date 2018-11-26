@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\blend.c (174, 1)
 ' pixBlend(pixs1, pixs2, x, y, fract) as Pix
 ' pixBlend(PIX *, PIX *, l_int32, l_int32, l_float32) as PIX *
@@ -14,7 +13,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlend/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlend/*"/>
 '''  <param name="pixs1">[in] - blendee</param>
 '''  <param name="pixs2">[in] - blender typ. smaller</param>
 '''  <param name="x">[in] - ,y  origin [UL corner] of pixs2 relative to the origin of pixs1 can be  is smaller 0</param>
@@ -31,6 +30,7 @@ Public Shared Function pixBlend(
 	If IsNothing (pixs2) then Throw New ArgumentNullException  ("pixs2 cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlend( pixs1.Pointer, pixs2.Pointer, x, y, fract)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -59,7 +59,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlendMask/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlendMask/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs1 for in-place</param>
 '''  <param name="pixs1">[in] - blendee, depth  is greater  1</param>
 '''  <param name="pixs2">[in] - blender, 1 bpp typ. smaller in size than pixs1</param>
@@ -82,6 +82,7 @@ Public Shared Function pixBlendMask(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlendMask( pixdPTR, pixs1.Pointer, pixs2.Pointer, x, y, fract, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -126,7 +127,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlendGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlendGray/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs1 for in-place</param>
 '''  <param name="pixs1">[in] - blendee, depth  is greater  1</param>
 '''  <param name="pixs2">[in] - blender, any depth typ. smaller in size than pixs1</param>
@@ -153,6 +154,7 @@ Public Shared Function pixBlendGray(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlendGray( pixdPTR, pixs1.Pointer, pixs2.Pointer, x, y, fract, type, transparent, transpix)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -192,7 +194,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlendGrayInverse/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlendGrayInverse/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs1 for in-place</param>
 '''  <param name="pixs1">[in] - blendee, depth  is greater  1</param>
 '''  <param name="pixs2">[in] - blender, any depth typ. smaller in size than pixs1</param>
@@ -213,6 +215,7 @@ Public Shared Function pixBlendGrayInverse(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlendGrayInverse( pixdPTR, pixs1.Pointer, pixs2.Pointer, x, y, fract)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -246,7 +249,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlendColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlendColor/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs1 for in-place</param>
 '''  <param name="pixs1">[in] - blendee depth  is greater  1</param>
 '''  <param name="pixs2">[in] - blender, any depth typ. smaller in size than pixs1</param>
@@ -271,6 +274,7 @@ Public Shared Function pixBlendColor(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlendColor( pixdPTR, pixs1.Pointer, pixs2.Pointer, x, y, fract, transparent, transpix)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -281,7 +285,7 @@ End Function
 ' pixBlendColorByChannel(PIX *, PIX *, PIX *, l_int32, l_int32, l_float32, l_float32, l_float32, l_int32, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlendColorByChannel/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlendColorByChannel/*"/>
 '''   <returns></returns>
 Public Shared Function pixBlendColorByChannel(
 				 ByVal pixd as Pix, 
@@ -304,6 +308,7 @@ Dim pixs1PTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs1) Then pixs1PTR = p
 Dim pixs2PTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs2) Then pixs2PTR = pixs2.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlendColorByChannel( pixd.Pointer, pixs1.Pointer, pixs2.Pointer, x, y, rfract, gfract, bfract, transparent, transpix)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -350,7 +355,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlendGrayAdapt/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlendGrayAdapt/*"/>
 '''  <param name="pixd">[in][optional] - either NULL or equal to pixs1 for in-place</param>
 '''  <param name="pixs1">[in] - blendee, depth  is greater  1</param>
 '''  <param name="pixs2">[in] - blender, any depth typ. smaller in size than pixs1</param>
@@ -373,6 +378,7 @@ Public Shared Function pixBlendGrayAdapt(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlendGrayAdapt( pixdPTR, pixs1.Pointer, pixs2.Pointer, x, y, fract, shift)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -394,7 +400,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFadeWithGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFadeWithGray/*"/>
 '''  <param name="pixs">[in] - colormapped or 8 bpp or 32 bpp</param>
 '''  <param name="pixb">[in] - 8 bpp blender</param>
 '''  <param name="factor">[in] - multiplicative factor to apply to blender value</param>
@@ -410,6 +416,7 @@ Public Shared Function pixFadeWithGray(
 	If IsNothing (pixb) then Throw New ArgumentNullException  ("pixb cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFadeWithGray( pixs.Pointer, pixb.Pointer, factor, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -420,7 +427,7 @@ End Function
 ' pixBlendHardLight(PIX *, PIX *, PIX *, l_int32, l_int32, l_float32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlendHardLight/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlendHardLight/*"/>
 '''   <returns></returns>
 Public Shared Function pixBlendHardLight(
 				 ByVal pixd as Pix, 
@@ -439,6 +446,7 @@ Dim pixs1PTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs1) Then pixs1PTR = p
 Dim pixs2PTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixs2) Then pixs2PTR = pixs2.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlendHardLight( pixd.Pointer, pixs1.Pointer, pixs2.Pointer, x, y, fract)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -470,7 +478,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlendCmap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlendCmap/*"/>
 '''  <param name="pixs">[in] - 2, 4 or 8 bpp, with colormap</param>
 '''  <param name="pixb">[in] - colormapped blender</param>
 '''  <param name="x">[in] - UL corner of blender relative to pixs</param>
@@ -488,6 +496,7 @@ Public Shared Function pixBlendCmap(
 	If IsNothing (pixb) then Throw New ArgumentNullException  ("pixb cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixBlendCmap( pixs.Pointer, pixb.Pointer, x, y, sindex)
+
 
 	Return _Result
 End Function
@@ -525,7 +534,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlendWithGrayMask/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlendWithGrayMask/*"/>
 '''  <param name="pixs1">[in] - 8 bpp gray, rgb, rgba or colormapped</param>
 '''  <param name="pixs2">[in] - 8 bpp gray, rgb, rgba or colormapped</param>
 '''  <param name="pixg">[in][optional] - 8 bpp gray, for transparency of pixs2 can be null</param>
@@ -545,6 +554,7 @@ Public Shared Function pixBlendWithGrayMask(
 	Dim pixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixg) Then pixgPTR = pixg.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlendWithGrayMask( pixs1.Pointer, pixs2.Pointer, pixgPTR, x, y)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -574,7 +584,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlendBackgroundToColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlendBackgroundToColor/*"/>
 '''  <param name="pixd">[in]can be NULL - or pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="box">[in] - region for blending can be NULL)</param>
@@ -600,6 +610,7 @@ Public Shared Function pixBlendBackgroundToColor(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlendBackgroundToColor( pixdPTR, pixs.Pointer, box.Pointer, color, gamma, minval, maxval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -622,7 +633,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMultiplyByColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMultiplyByColor/*"/>
 '''  <param name="pixd">[in]can be NULL - or pixs</param>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="box">[in] - region for filtering can be NULL)</param>
@@ -642,6 +653,7 @@ Public Shared Function pixMultiplyByColor(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMultiplyByColor( pixdPTR, pixs.Pointer, box.Pointer, color)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -663,7 +675,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAlphaBlendUniform/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAlphaBlendUniform/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgba, with alpha</param>
 '''  <param name="color">[in] - 32 bit color in 0xrrggbb00 format</param>
 '''   <returns>pixd 32 bpp rgb: pixs blended over uniform color %color, a clone of pixs if no alpha, and NULL on error</returns>
@@ -674,6 +686,7 @@ Public Shared Function pixAlphaBlendUniform(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAlphaBlendUniform( pixs.Pointer, color)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -703,7 +716,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAddAlphaToBlend/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAddAlphaToBlend/*"/>
 '''  <param name="pixs">[in] - any depth</param>
 '''  <param name="fract">[in] - fade fraction in the alpha component</param>
 '''  <param name="invert">[in] - 1 to photometrically invert pixs</param>
@@ -716,6 +729,7 @@ Public Shared Function pixAddAlphaToBlend(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAddAlphaToBlend( pixs.Pointer, fract, invert)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -739,7 +753,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSetAlphaOverWhite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetAlphaOverWhite/*"/>
 '''  <param name="pixs">[in] - colormapped or 32 bpp rgb no alpha</param>
 '''   <returns>pixd new pix with meaningful alpha component, or NULL on error</returns>
 Public Shared Function pixSetAlphaOverWhite(
@@ -748,6 +762,7 @@ Public Shared Function pixSetAlphaOverWhite(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSetAlphaOverWhite( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -769,7 +784,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixLinearEdgeFade/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixLinearEdgeFade/*"/>
 '''  <param name="pixs">[in] - 8 or 32 bpp no colormap</param>
 '''  <param name="dir">[in] - L_FROM_LEFT, L_FROM_RIGHT, L_FROM_TOP, L_FROM_BOT</param>
 '''  <param name="fadeto">[in] - L_BLEND_TO_WHITE, L_BLEND_TO_BLACK</param>
@@ -786,6 +801,7 @@ Public Shared Function pixLinearEdgeFade(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixLinearEdgeFade( pixs.Pointer, dir, fadeto, distfract, maxfade)
+
 
 	Return _Result
 End Function

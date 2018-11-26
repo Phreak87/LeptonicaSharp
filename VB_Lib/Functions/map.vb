@@ -2,18 +2,18 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\map.c (107, 1)
 ' l_amapCreate(keytype) as L_Rbtree
 ' l_amapCreate(l_int32) as L_AMAP *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_amapCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_amapCreate/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapCreate(
 				 ByVal keytype as Integer) as L_Rbtree
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_amapCreate( keytype)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Rbtree(_Result)
@@ -24,7 +24,7 @@ End Function
 ' l_amapFind(L_AMAP *, RB_TYPE) as RB_TYPE *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_amapFind/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_amapFind/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapFind(
 				 ByVal m as L_Rbtree, 
@@ -37,6 +37,7 @@ Dim mPTR As IntPtr = IntPtr.Zero : If Not IsNothing(m) Then mPTR = m.Pointer
 Dim keyPTR As IntPtr = IntPtr.Zero : If Not IsNothing(key) Then keyPTR = key.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_amapFind( m.Pointer, key.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new RB_TYPE(_Result)
@@ -47,7 +48,7 @@ End Function
 ' l_amapInsert(L_AMAP *, RB_TYPE, RB_TYPE) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_amapInsert/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_amapInsert/*"/>
 Public Shared Sub l_amapInsert(
 				 ByVal m as L_Rbtree, 
 				 ByVal key as Rb_Type, 
@@ -63,6 +64,7 @@ Dim valuePTR As IntPtr = IntPtr.Zero : If Not IsNothing(value) Then valuePTR = v
 
 	LeptonicaSharp.Natives.l_amapInsert( m.Pointer, key.Pointer, value.Pointer)
 
+
 End Sub
 
 ' SRC\map.c (136, 1)
@@ -70,7 +72,7 @@ End Sub
 ' l_amapDelete(L_AMAP *, RB_TYPE) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_amapDelete/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_amapDelete/*"/>
 Public Shared Sub l_amapDelete(
 				 ByVal m as L_Rbtree, 
 				 ByVal key as Rb_Type)
@@ -83,6 +85,7 @@ Dim keyPTR As IntPtr = IntPtr.Zero : If Not IsNothing(key) Then keyPTR = key.Poi
 
 	LeptonicaSharp.Natives.l_amapDelete( m.Pointer, key.Pointer)
 
+
 End Sub
 
 ' SRC\map.c (143, 1)
@@ -90,7 +93,7 @@ End Sub
 ' l_amapDestroy(L_AMAP **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_amapDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_amapDestroy/*"/>
 Public Shared Sub l_amapDestroy(
 				 ByVal pm as L_Rbtree)
 
@@ -100,6 +103,7 @@ Public Shared Sub l_amapDestroy(
 
 	LeptonicaSharp.Natives.l_amapDestroy( pmPTR)
 
+
 End Sub
 
 ' SRC\map.c (149, 1)
@@ -107,7 +111,7 @@ End Sub
 ' l_amapGetFirst(L_AMAP *) as L_AMAP_NODE *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_amapGetFirst/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_amapGetFirst/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapGetFirst(
 				 ByVal m as L_Rbtree) as L_Rbtree_Node
@@ -117,6 +121,7 @@ Public Shared Function l_amapGetFirst(
 Dim mPTR As IntPtr = IntPtr.Zero : If Not IsNothing(m) Then mPTR = m.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_amapGetFirst( m.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Rbtree_Node(_Result)
@@ -127,7 +132,7 @@ End Function
 ' l_amapGetNext(L_AMAP_NODE *) as L_AMAP_NODE *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_amapGetNext/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_amapGetNext/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapGetNext(
 				 ByVal n as L_Rbtree_Node) as L_Rbtree_Node
@@ -137,6 +142,7 @@ Public Shared Function l_amapGetNext(
 Dim nPTR As IntPtr = IntPtr.Zero : If Not IsNothing(n) Then nPTR = n.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_amapGetNext( n.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Rbtree_Node(_Result)
@@ -147,7 +153,7 @@ End Function
 ' l_amapGetLast(L_AMAP *) as L_AMAP_NODE *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_amapGetLast/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_amapGetLast/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapGetLast(
 				 ByVal m as L_Rbtree) as L_Rbtree_Node
@@ -157,6 +163,7 @@ Public Shared Function l_amapGetLast(
 Dim mPTR As IntPtr = IntPtr.Zero : If Not IsNothing(m) Then mPTR = m.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_amapGetLast( m.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Rbtree_Node(_Result)
@@ -167,7 +174,7 @@ End Function
 ' l_amapGetPrev(L_AMAP_NODE *) as L_AMAP_NODE *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_amapGetPrev/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_amapGetPrev/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapGetPrev(
 				 ByVal n as L_Rbtree_Node) as L_Rbtree_Node
@@ -177,6 +184,7 @@ Public Shared Function l_amapGetPrev(
 Dim nPTR As IntPtr = IntPtr.Zero : If Not IsNothing(n) Then nPTR = n.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_amapGetPrev( n.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Rbtree_Node(_Result)
@@ -187,7 +195,7 @@ End Function
 ' l_amapSize(L_AMAP *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_amapSize/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_amapSize/*"/>
 '''   <returns></returns>
 Public Shared Function l_amapSize(
 				 ByVal m as L_Rbtree) as Integer
@@ -198,6 +206,7 @@ Dim mPTR As IntPtr = IntPtr.Zero : If Not IsNothing(m) Then mPTR = m.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_amapSize( m.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -206,12 +215,13 @@ End Function
 ' l_asetCreate(l_int32) as L_ASET *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_asetCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetCreate/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetCreate(
 				 ByVal keytype as Integer) as L_Rbtree
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_asetCreate( keytype)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Rbtree(_Result)
@@ -222,7 +232,7 @@ End Function
 ' l_asetFind(L_ASET *, RB_TYPE) as RB_TYPE *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_asetFind/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetFind/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetFind(
 				 ByVal s as L_Rbtree, 
@@ -235,6 +245,7 @@ Dim sPTR As IntPtr = IntPtr.Zero : If Not IsNothing(s) Then sPTR = s.Pointer
 Dim keyPTR As IntPtr = IntPtr.Zero : If Not IsNothing(key) Then keyPTR = key.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_asetFind( s.Pointer, key.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new RB_TYPE(_Result)
@@ -245,7 +256,7 @@ End Function
 ' l_asetInsert(L_ASET *, RB_TYPE) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_asetInsert/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetInsert/*"/>
 Public Shared Sub l_asetInsert(
 				 ByVal s as L_Rbtree, 
 				 ByVal key as Rb_Type)
@@ -258,6 +269,7 @@ Dim keyPTR As IntPtr = IntPtr.Zero : If Not IsNothing(key) Then keyPTR = key.Poi
 
 	LeptonicaSharp.Natives.l_asetInsert( s.Pointer, key.Pointer)
 
+
 End Sub
 
 ' SRC\map.c (220, 1)
@@ -265,7 +277,7 @@ End Sub
 ' l_asetDelete(L_ASET *, RB_TYPE) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_asetDelete/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetDelete/*"/>
 Public Shared Sub l_asetDelete(
 				 ByVal s as L_Rbtree, 
 				 ByVal key as Rb_Type)
@@ -278,6 +290,7 @@ Dim keyPTR As IntPtr = IntPtr.Zero : If Not IsNothing(key) Then keyPTR = key.Poi
 
 	LeptonicaSharp.Natives.l_asetDelete( s.Pointer, key.Pointer)
 
+
 End Sub
 
 ' SRC\map.c (227, 1)
@@ -285,7 +298,7 @@ End Sub
 ' l_asetDestroy(L_ASET **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_asetDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetDestroy/*"/>
 Public Shared Sub l_asetDestroy(
 				 ByVal ps as L_Rbtree)
 
@@ -295,6 +308,7 @@ Public Shared Sub l_asetDestroy(
 
 	LeptonicaSharp.Natives.l_asetDestroy( psPTR)
 
+
 End Sub
 
 ' SRC\map.c (233, 1)
@@ -302,7 +316,7 @@ End Sub
 ' l_asetGetFirst(L_ASET *) as L_ASET_NODE *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_asetGetFirst/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetGetFirst/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetGetFirst(
 				 ByVal s as L_Rbtree) as L_Rbtree_Node
@@ -312,6 +326,7 @@ Public Shared Function l_asetGetFirst(
 Dim sPTR As IntPtr = IntPtr.Zero : If Not IsNothing(s) Then sPTR = s.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_asetGetFirst( s.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Rbtree_Node(_Result)
@@ -322,7 +337,7 @@ End Function
 ' l_asetGetNext(L_ASET_NODE *) as L_ASET_NODE *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_asetGetNext/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetGetNext/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetGetNext(
 				 ByVal n as L_Rbtree_Node) as L_Rbtree_Node
@@ -332,6 +347,7 @@ Public Shared Function l_asetGetNext(
 Dim nPTR As IntPtr = IntPtr.Zero : If Not IsNothing(n) Then nPTR = n.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_asetGetNext( n.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Rbtree_Node(_Result)
@@ -342,7 +358,7 @@ End Function
 ' l_asetGetLast(L_ASET *) as L_ASET_NODE *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_asetGetLast/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetGetLast/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetGetLast(
 				 ByVal s as L_Rbtree) as L_Rbtree_Node
@@ -352,6 +368,7 @@ Public Shared Function l_asetGetLast(
 Dim sPTR As IntPtr = IntPtr.Zero : If Not IsNothing(s) Then sPTR = s.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_asetGetLast( s.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Rbtree_Node(_Result)
@@ -362,7 +379,7 @@ End Function
 ' l_asetGetPrev(L_ASET_NODE *) as L_ASET_NODE *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_asetGetPrev/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetGetPrev/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetGetPrev(
 				 ByVal n as L_Rbtree_Node) as L_Rbtree_Node
@@ -372,6 +389,7 @@ Public Shared Function l_asetGetPrev(
 Dim nPTR As IntPtr = IntPtr.Zero : If Not IsNothing(n) Then nPTR = n.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.l_asetGetPrev( n.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Rbtree_Node(_Result)
@@ -382,7 +400,7 @@ End Function
 ' l_asetSize(L_ASET *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_asetSize/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetSize/*"/>
 '''   <returns></returns>
 Public Shared Function l_asetSize(
 				 ByVal s as L_Rbtree) as Integer
@@ -392,6 +410,7 @@ Public Shared Function l_asetSize(
 Dim sPTR As IntPtr = IntPtr.Zero : If Not IsNothing(s) Then sPTR = s.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_asetSize( s.Pointer)
+
 
 	Return _Result
 End Function

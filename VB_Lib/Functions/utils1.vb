@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\utils1.c (125, 1)
 ' setMsgSeverity(newsev) as Integer
 ' setMsgSeverity(l_int32) as l_int32
@@ -19,13 +18,14 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/setMsgSeverity/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/setMsgSeverity/*"/>
 '''  <param name="newsev">[in] - </param>
 '''   <returns>oldsev</returns>
 Public Shared Function setMsgSeverity(
 				 ByVal newsev as Integer) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.setMsgSeverity( newsev)
+
 
 	Return _Result
 End Function
@@ -35,7 +35,7 @@ End Function
 ' returnErrorInt(const char *, const char *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/returnErrorInt/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/returnErrorInt/*"/>
 '''  <param name="msg">[in] - error message</param>
 '''  <param name="procname">[in] - </param>
 '''  <param name="ival">[in] - return val</param>
@@ -50,6 +50,7 @@ Public Shared Function returnErrorInt(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.returnErrorInt( msg, procname, ival)
 
+
 	Return _Result
 End Function
 
@@ -58,7 +59,7 @@ End Function
 ' returnErrorFloat(const char *, const char *, l_float32) as l_float32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/returnErrorFloat/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/returnErrorFloat/*"/>
 '''  <param name="msg">[in] - error message</param>
 '''  <param name="procname">[in] - </param>
 '''  <param name="fval">[in] - return val</param>
@@ -73,6 +74,7 @@ Public Shared Function returnErrorFloat(
 
 	Dim _Result as Single = LeptonicaSharp.Natives.returnErrorFloat( msg, procname, fval)
 
+
 	Return _Result
 End Function
 
@@ -81,7 +83,7 @@ End Function
 ' returnErrorPtr(const char *, const char *, void *) as void *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/returnErrorPtr/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/returnErrorPtr/*"/>
 '''  <param name="msg">[in] - error message</param>
 '''  <param name="procname">[in] - </param>
 '''  <param name="pval">[in] - return val</param>
@@ -95,11 +97,25 @@ Public Shared Function returnErrorPtr(
 	If IsNothing (procname) then Throw New ArgumentNullException  ("procname cannot be Nothing")
 	If IsNothing (pval) then Throw New ArgumentNullException  ("pval cannot be Nothing")
 
-Dim pvalPTR As IntPtr = Marshal.AllocHGlobal(0)
+	Dim pvalPtr As IntPtr = IntPtr.Zero
+	If TypeOf (pval) Is IntPtr Then pvalPtr = pval
+	If TypeOf (pval) Is Byte() Then
+		Dim cdata = CType(pval, Byte())
+		pvalPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, pvalPtr, cdata.Length)
+	End If
+	If Not IsNothing(pval.GetType.GetProperty("data")) Then
+		Dim cdata = CType(pval.data, Byte())
+		pvalPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, pvalPtr, cdata.Length)
+	End If
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.returnErrorPtr( msg, procname, pvalPTR)
+Marshal.FreeHGlobal(pvalPTR)
 
-	Return _Result
+	Dim B(1) As Byte : Marshal.Copy(_Result, B, 0, B.Length)
+
+	Return B
 End Function
 
 ' SRC\utils1.c (233, 1)
@@ -107,7 +123,7 @@ End Function
 ' filesAreIdentical(const char *, const char *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/filesAreIdentical/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/filesAreIdentical/*"/>
 '''  <param name="fname1">[in] - </param>
 '''  <param name="fname2">[in] - </param>
 '''  <param name="psame">[out] - 1 if identical 0 if different</param>
@@ -122,6 +138,7 @@ Public Shared Function filesAreIdentical(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.filesAreIdentical( fname1, fname2, psame)
 
+
 	Return _Result
 End Function
 
@@ -130,7 +147,7 @@ End Function
 ' convertOnLittleEnd16(l_uint16) as l_uint16
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertOnLittleEnd16/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertOnLittleEnd16/*"/>
 '''   <returns></returns>
 Public Shared Function convertOnLittleEnd16(
 				 ByVal shortin as UShort) as UShort
@@ -138,6 +155,7 @@ Public Shared Function convertOnLittleEnd16(
 	If IsNothing (shortin) then Throw New ArgumentNullException  ("shortin cannot be Nothing")
 
 	Dim _Result as UShort = LeptonicaSharp.Natives.convertOnLittleEnd16( shortin)
+
 
 	Return _Result
 End Function
@@ -147,7 +165,7 @@ End Function
 ' convertOnBigEnd16(l_uint16) as l_uint16
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertOnBigEnd16/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertOnBigEnd16/*"/>
 '''   <returns></returns>
 Public Shared Function convertOnBigEnd16(
 				 ByVal shortin as UShort) as UShort
@@ -155,6 +173,7 @@ Public Shared Function convertOnBigEnd16(
 	If IsNothing (shortin) then Throw New ArgumentNullException  ("shortin cannot be Nothing")
 
 	Dim _Result as UShort = LeptonicaSharp.Natives.convertOnBigEnd16( shortin)
+
 
 	Return _Result
 End Function
@@ -164,12 +183,13 @@ End Function
 ' convertOnLittleEnd32(l_uint32) as l_uint32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertOnLittleEnd32/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertOnLittleEnd32/*"/>
 '''   <returns></returns>
 Public Shared Function convertOnLittleEnd32(
 				 ByVal wordin as UInteger) as UInteger
 
 	Dim _Result as UInteger = LeptonicaSharp.Natives.convertOnLittleEnd32( wordin)
+
 
 	Return _Result
 End Function
@@ -179,12 +199,13 @@ End Function
 ' convertOnBigEnd32(l_uint32) as l_uint32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertOnBigEnd32/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertOnBigEnd32/*"/>
 '''   <returns></returns>
 Public Shared Function convertOnBigEnd32(
 				 ByVal wordin as UInteger) as UInteger
 
 	Dim _Result as UInteger = LeptonicaSharp.Natives.convertOnBigEnd32( wordin)
+
 
 	Return _Result
 End Function
@@ -208,7 +229,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fileCorruptByDeletion/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fileCorruptByDeletion/*"/>
 '''  <param name="filein">[in] - </param>
 '''  <param name="loc">[in] - fractional location of start of deletion</param>
 '''  <param name="size">[in] - fractional size of deletion</param>
@@ -224,6 +245,7 @@ Public Shared Function fileCorruptByDeletion(
 	If IsNothing (fileout) then Throw New ArgumentNullException  ("fileout cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fileCorruptByDeletion( filein, loc, size, fileout)
+
 
 	Return _Result
 End Function
@@ -247,7 +269,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fileCorruptByMutation/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fileCorruptByMutation/*"/>
 '''  <param name="filein">[in] - </param>
 '''  <param name="loc">[in] - fractional location of start of randomization</param>
 '''  <param name="size">[in] - fractional size of randomization</param>
@@ -264,6 +286,7 @@ Public Shared Function fileCorruptByMutation(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fileCorruptByMutation( filein, loc, size, fileout)
 
+
 	Return _Result
 End Function
 
@@ -278,7 +301,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/genRandomIntegerInRange/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/genRandomIntegerInRange/*"/>
 '''  <param name="range">[in] - size of range must be greater or equal 2</param>
 '''  <param name="seed">[in] - use 0 to skip otherwise call srand</param>
 '''  <param name="pval">[out] - random integer in range {0 ... range-1}</param>
@@ -289,6 +312,7 @@ Public Shared Function genRandomIntegerInRange(
 				<Out()> ByRef pval as Integer) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.genRandomIntegerInRange( range, seed, pval)
+
 
 	Return _Result
 End Function
@@ -306,13 +330,14 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/lept_roundftoi/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_roundftoi/*"/>
 '''  <param name="fval">[in] - </param>
 '''   <returns>value rounded to int</returns>
 Public Shared Function lept_roundftoi(
 				 ByVal fval as Single) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lept_roundftoi( fval)
+
 
 	Return _Result
 End Function
@@ -339,7 +364,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_hashStringToUint64/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_hashStringToUint64/*"/>
 '''  <param name="str">[in] - </param>
 '''  <param name="phash">[out] - hash vale</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -352,6 +377,7 @@ Public Shared Function l_hashStringToUint64(
 Dim phashPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_hashStringToUint64( str, phashPTR)
+
 
 	Return _Result
 End Function
@@ -377,7 +403,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_hashPtToUint64/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_hashPtToUint64/*"/>
 '''  <param name="x">[in] - </param>
 '''  <param name="y">[in] - </param>
 '''  <param name="phash">[out] - hash value</param>
@@ -390,6 +416,7 @@ Public Shared Function l_hashPtToUint64(
 Dim phashPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_hashPtToUint64( x, y, phashPTR)
+
 
 	Return _Result
 End Function
@@ -418,7 +445,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_hashFloat64ToUint64/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_hashFloat64ToUint64/*"/>
 '''  <param name="nbuckets">[in] - </param>
 '''  <param name="val">[in] - </param>
 '''  <param name="phash">[out] - hash value</param>
@@ -434,6 +461,7 @@ Dim phashPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_hashFloat64ToUint64( nbuckets, val, phashPTR)
 
+
 	Return _Result
 End Function
 
@@ -442,7 +470,7 @@ End Function
 ' findNextLargerPrime(l_int32, l_uint32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/findNextLargerPrime/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/findNextLargerPrime/*"/>
 '''  <param name="start">[in] - </param>
 '''  <param name="pprime">[out] - first prime larger than %start</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -452,6 +480,7 @@ Public Shared Function findNextLargerPrime(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.findNextLargerPrime( start, pprime)
 
+
 	Return _Result
 End Function
 
@@ -460,7 +489,7 @@ End Function
 ' lept_isPrime(l_uint64, l_int32 *, l_uint32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/lept_isPrime/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_isPrime/*"/>
 '''  <param name="n">[in] - 64-bit unsigned</param>
 '''  <param name="pis_prime">[out] - 1 if prime, 0 otherwise</param>
 '''  <param name="pfactor">[out][optional] - smallest divisor, or 0 on error or if prime</param>
@@ -473,6 +502,7 @@ Public Shared Function lept_isPrime(
 	If IsNothing (n) then Throw New ArgumentNullException  ("n cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lept_isPrime( n, pis_prime, pfactor)
+
 
 	Return _Result
 End Function
@@ -488,13 +518,14 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertIntToGrayCode/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertIntToGrayCode/*"/>
 '''  <param name="val">[in] - integer value</param>
 '''   <returns>corresponding gray code value</returns>
 Public Shared Function convertIntToGrayCode(
 				 ByVal val as UInteger) as UInteger
 
 	Dim _Result as UInteger = LeptonicaSharp.Natives.convertIntToGrayCode( val)
+
 
 	Return _Result
 End Function
@@ -504,13 +535,14 @@ End Function
 ' convertGrayCodeToInt(l_uint32) as l_uint32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertGrayCodeToInt/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertGrayCodeToInt/*"/>
 '''  <param name="val">[in] - gray code value</param>
 '''   <returns>corresponding integer value</returns>
 Public Shared Function convertGrayCodeToInt(
 				 ByVal val as UInteger) as UInteger
 
 	Dim _Result as UInteger = LeptonicaSharp.Natives.convertGrayCodeToInt( val)
+
 
 	Return _Result
 End Function
@@ -520,11 +552,12 @@ End Function
 ' getLeptonicaVersion() as char *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/getLeptonicaVersion/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getLeptonicaVersion/*"/>
 '''   <returns></returns>
 Public Shared Function getLeptonicaVersion() as String
 
 	Dim _Result as String = LeptonicaSharp.Natives.getLeptonicaVersion( )
+
 
 	Return _Result
 End Function
@@ -534,10 +567,11 @@ End Function
 ' startTimer() as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/startTimer/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/startTimer/*"/>
 Public Shared Sub startTimer()
 
 	LeptonicaSharp.Natives.startTimer( )
+
 
 End Sub
 
@@ -546,11 +580,12 @@ End Sub
 ' stopTimer() as l_float32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/stopTimer/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stopTimer/*"/>
 '''   <returns></returns>
 Public Shared Function stopTimer() as Single
 
 	Dim _Result as Single = LeptonicaSharp.Natives.stopTimer( )
+
 
 	Return _Result
 End Function
@@ -560,11 +595,12 @@ End Function
 ' startTimerNested() as L_TIMER
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/startTimerNested/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/startTimerNested/*"/>
 '''   <returns></returns>
 Public Shared Function startTimerNested() as IntPtr
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.startTimerNested( )
+
 
 	Return _Result
 End Function
@@ -574,7 +610,7 @@ End Function
 ' stopTimerNested(L_TIMER) as l_float32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/stopTimerNested/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stopTimerNested/*"/>
 '''   <returns></returns>
 Public Shared Function stopTimerNested(
 				 ByVal utime_start as IntPtr) as Single
@@ -582,6 +618,7 @@ Public Shared Function stopTimerNested(
 	If IsNothing (utime_start) then Throw New ArgumentNullException  ("utime_start cannot be Nothing")
 
 	Dim _Result as Single = LeptonicaSharp.Natives.stopTimerNested( utime_start)
+
 
 	Return _Result
 End Function
@@ -591,7 +628,7 @@ End Function
 ' l_getCurrentTime(l_int32 *, l_int32 *) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_getCurrentTime/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_getCurrentTime/*"/>
 Public Shared Sub l_getCurrentTime(
 				 ByVal sec as Object, 
 				 ByVal usec as Object)
@@ -600,6 +637,7 @@ Public Shared Sub l_getCurrentTime(
 	If IsNothing (usec) then Throw New ArgumentNullException  ("usec cannot be Nothing")
 
 	LeptonicaSharp.Natives.l_getCurrentTime( sec, usec)
+
 
 End Sub
 
@@ -618,11 +656,12 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/startWallTimer/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/startWallTimer/*"/>
 '''   <returns>walltimer-ptr</returns>
 Public Shared Function startWallTimer() as L_WallTimer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.startWallTimer( )
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_WallTimer(_Result)
@@ -633,7 +672,7 @@ End Function
 ' stopWallTimer(L_WALLTIMER **) as l_float32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/stopWallTimer/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stopWallTimer/*"/>
 '''  <param name="ptimer">[in,out] - walltimer-ptr</param>
 '''   <returns>time wall time elapsed in seconds</returns>
 Public Shared Function stopWallTimer(
@@ -642,7 +681,9 @@ Public Shared Function stopWallTimer(
 	Dim ptimerPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ptimer) Then ptimerPTR = ptimer.Pointer
 
 	Dim _Result as Single = LeptonicaSharp.Natives.stopWallTimer( ptimerPTR)
-	if ptimerPTR <> IntPtr.Zero then ptimer = new L_WallTimer(ptimerPTR)
+
+If ptimerPTR = IntPtr.Zero Then ptimer = Nothing
+If ptimerPTR <> IntPtr.Zero Then ptimer = New L_WallTimer(ptimerPTR)
 
 	Return _Result
 End Function
@@ -660,11 +701,12 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_getFormattedDate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_getFormattedDate/*"/>
 '''   <returns>formatted date string, or NULL on error</returns>
 Public Shared Function l_getFormattedDate() as String
 
 	Dim _Result as String = LeptonicaSharp.Natives.l_getFormattedDate( )
+
 
 	Return _Result
 End Function

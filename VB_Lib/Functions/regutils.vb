@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\regutils.c (119, 1)
 ' regTestSetup(argc, argv, prp) as Integer
 ' regTestSetup(l_int32, char **, L_REGPARAMS **) as l_ok
@@ -38,7 +37,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/regTestSetup/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/regTestSetup/*"/>
 '''  <param name="argc">[in] - from invocation can be either 1 or 2</param>
 '''  <param name="argv">[in] - to regtest: %argv[1] is one of these: "generate", "compare", "display"</param>
 '''  <param name="prp">[out] - all regression params</param>
@@ -54,7 +53,9 @@ Dim argvPTR As IntPtr = argvPTR = Marshal.AllocHGlobal(Marshal.sizeOf(argv.toArr
 	Dim prpPTR As IntPtr = IntPtr.Zero : If Not IsNothing(prp) Then prpPTR = prp.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.regTestSetup( argc, argvPTR, prpPTR)
-	if prpPTR <> IntPtr.Zero then prp = new L_RegParams(prpPTR)
+
+If prpPTR = IntPtr.Zero Then prp = Nothing
+If prpPTR <> IntPtr.Zero Then prp = New L_RegParams(prpPTR)
 
 	Return _Result
 End Function
@@ -70,7 +71,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/regTestCleanup/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/regTestCleanup/*"/>
 '''  <param name="rp">[in] - regression test parameters</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function regTestCleanup(
@@ -80,6 +81,7 @@ Public Shared Function regTestCleanup(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.regTestCleanup( rp.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -88,7 +90,7 @@ End Function
 ' regTestCompareValues(L_REGPARAMS *, l_float32, l_float32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/regTestCompareValues/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/regTestCompareValues/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="val1">[in] - typ. the golden value</param>
 '''  <param name="val2">[in] - typ. the value computed</param>
@@ -104,6 +106,7 @@ Public Shared Function regTestCompareValues(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.regTestCompareValues( rp.Pointer, val1, val2, delta)
 
+
 	Return _Result
 End Function
 
@@ -112,7 +115,7 @@ End Function
 ' regTestCompareStrings(L_REGPARAMS *, l_uint8 *, size_t, l_uint8 *, size_t) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/regTestCompareStrings/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/regTestCompareStrings/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="string1">[in] - typ. the expected string</param>
 '''  <param name="bytes1">[in] - size of string1</param>
@@ -132,6 +135,7 @@ Public Shared Function regTestCompareStrings(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.regTestCompareStrings( rp.Pointer, string1, bytes1, string2, bytes2)
 
+
 	Return _Result
 End Function
 
@@ -146,7 +150,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/regTestComparePix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/regTestComparePix/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="pix1">[in] - to be tested for equality</param>
 '''  <param name="pix2">[in] - to be tested for equality</param>
@@ -161,6 +165,7 @@ Public Shared Function regTestComparePix(
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.regTestComparePix( rp.Pointer, pix1.Pointer, pix2.Pointer)
+
 
 	Return _Result
 End Function
@@ -188,7 +193,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/regTestCompareSimilarPix/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/regTestCompareSimilarPix/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="pix1">[in] - to be tested for near equality</param>
 '''  <param name="pix2">[in] - to be tested for near equality</param>
@@ -209,6 +214,7 @@ Public Shared Function regTestCompareSimilarPix(
 	If IsNothing (pix2) then Throw New ArgumentNullException  ("pix2 cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.regTestCompareSimilarPix( rp.Pointer, pix1.Pointer, pix2.Pointer, mindiff, maxfract, printstats)
+
 
 	Return _Result
 End Function
@@ -234,7 +240,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/regTestCheckFile/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/regTestCheckFile/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="localname">[in] - name of output file from reg test</param>
 '''   <returns>0 if OK, 1 on error a failure in comparison is not an error</returns>
@@ -246,6 +252,7 @@ Public Shared Function regTestCheckFile(
 	If IsNothing (localname) then Throw New ArgumentNullException  ("localname cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.regTestCheckFile( rp.Pointer, localname)
+
 
 	Return _Result
 End Function
@@ -266,7 +273,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/regTestCompareFiles/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/regTestCompareFiles/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="index1">[in] - of one output file from reg test</param>
 '''  <param name="index2">[in] - of another output file from reg test</param>
@@ -279,6 +286,7 @@ Public Shared Function regTestCompareFiles(
 	If IsNothing (rp) then Throw New ArgumentNullException  ("rp cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.regTestCompareFiles( rp.Pointer, index1, index2)
+
 
 	Return _Result
 End Function
@@ -307,7 +315,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/regTestWritePixAndCheck/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/regTestWritePixAndCheck/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="pix">[in] - to be written</param>
 '''  <param name="format">[in] - of output pix</param>
@@ -321,6 +329,7 @@ Public Shared Function regTestWritePixAndCheck(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.regTestWritePixAndCheck( rp.Pointer, pix.Pointer, format)
+
 
 	Return _Result
 End Function
@@ -354,7 +363,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/regTestWriteDataAndCheck/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/regTestWriteDataAndCheck/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="data">[in] - to be written</param>
 '''  <param name="nbytes">[in] - of data to be written</param>
@@ -370,9 +379,22 @@ Public Shared Function regTestWriteDataAndCheck(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 	If IsNothing (ext) then Throw New ArgumentNullException  ("ext cannot be Nothing")
 
-Dim dataPTR As IntPtr = Marshal.AllocHGlobal(0)
+	Dim dataPtr As IntPtr = IntPtr.Zero
+	If TypeOf (data) Is IntPtr Then dataPtr = data
+	If TypeOf (data) Is Byte() Then
+		Dim cdata = CType(data, Byte())
+		dataPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, dataPtr, cdata.Length)
+	End If
+	If Not IsNothing(data.GetType.GetProperty("data")) Then
+		Dim cdata = CType(data.data, Byte())
+		dataPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, dataPtr, cdata.Length)
+	End If
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.regTestWriteDataAndCheck( rp.Pointer, dataPTR, nbytes, ext)
+Marshal.FreeHGlobal(dataPTR)
+
 
 	Return _Result
 End Function
@@ -393,7 +415,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/regTestGenLocalFilename/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/regTestGenLocalFilename/*"/>
 '''  <param name="rp">[in] - regtest parameters</param>
 '''  <param name="index">[in] - use -1 for current index</param>
 '''  <param name="format">[in] - of image e.g., IFF_PNG</param>
@@ -406,6 +428,7 @@ Public Shared Function regTestGenLocalFilename(
 	If IsNothing (rp) then Throw New ArgumentNullException  ("rp cannot be Nothing")
 
 	Dim _Result as String = LeptonicaSharp.Natives.regTestGenLocalFilename( rp.Pointer, index, format)
+
 
 	Return _Result
 End Function

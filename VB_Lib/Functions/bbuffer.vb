@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\bbuffer.c (124, 1)
 ' bbufferCreate(indata, nalloc) as L_ByteBuffer
 ' bbufferCreate(const l_uint8 *, l_int32) as L_BBUFFER *
@@ -17,7 +16,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/bbufferCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bbufferCreate/*"/>
 '''  <param name="indata">[in] - address in memory [optional]</param>
 '''  <param name="nalloc">[in] - size of byte array to be alloc'd 0 for default</param>
 '''   <returns>bbuffer, or NULL on error</returns>
@@ -26,6 +25,7 @@ Public Shared Function bbufferCreate(
 				 ByVal nalloc as Integer) as L_ByteBuffer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.bbufferCreate( indata, nalloc)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_ByteBuffer(_Result)
@@ -42,7 +42,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/bbufferDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bbufferDestroy/*"/>
 '''  <param name="pbb">[in,out] - buffer to be nulled</param>
 Public Shared Sub bbufferDestroy(
 				 ByRef pbb as L_ByteBuffer)
@@ -50,7 +50,9 @@ Public Shared Sub bbufferDestroy(
 	Dim pbbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbb) Then pbbPTR = pbb.Pointer
 
 	LeptonicaSharp.Natives.bbufferDestroy( pbbPTR)
-	if pbbPTR <> IntPtr.Zero then pbb = new L_ByteBuffer(pbbPTR)
+
+If pbbPTR = IntPtr.Zero Then pbb = Nothing
+If pbbPTR <> IntPtr.Zero Then pbb = New L_ByteBuffer(pbbPTR)
 
 End Sub
 
@@ -64,7 +66,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/bbufferDestroyAndSaveData/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bbufferDestroyAndSaveData/*"/>
 '''  <param name="pbb">[in,out] - buffer to be nulled</param>
 '''  <param name="pnbytes">[out] - number of bytes saved in array</param>
 '''   <returns>barray newly allocated array of data</returns>
@@ -75,7 +77,9 @@ Public Shared Function bbufferDestroyAndSaveData(
 	Dim pbbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pbb) Then pbbPTR = pbb.Pointer
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.bbufferDestroyAndSaveData( pbbPTR, pnbytes)
-	if pbbPTR <> IntPtr.Zero then pbb = new L_ByteBuffer(pbbPTR)
+
+If pbbPTR = IntPtr.Zero Then pbb = Nothing
+If pbbPTR <> IntPtr.Zero Then pbb = New L_ByteBuffer(pbbPTR)
 
 	Return _Result
 End Function
@@ -96,7 +100,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/bbufferRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bbufferRead/*"/>
 '''  <param name="bb">[in] - bbuffer</param>
 '''  <param name="src">[in] - source memory buffer from which bytes are read</param>
 '''  <param name="nbytes">[in] - bytes to be read</param>
@@ -111,6 +115,7 @@ Public Shared Function bbufferRead(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.bbufferRead( bb.Pointer, src, nbytes)
 
+
 	Return _Result
 End Function
 
@@ -119,7 +124,7 @@ End Function
 ' bbufferReadStream(L_BBUFFER *, FILE *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/bbufferReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bbufferReadStream/*"/>
 '''  <param name="bb">[in] - bbuffer</param>
 '''  <param name="fp">[in] - source stream from which bytes are read</param>
 '''  <param name="nbytes">[in] - bytes to be read</param>
@@ -133,6 +138,7 @@ Public Shared Function bbufferReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.bbufferReadStream( bb.Pointer, fp.Pointer, nbytes)
+
 
 	Return _Result
 End Function
@@ -148,7 +154,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/bbufferExtendArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bbufferExtendArray/*"/>
 '''  <param name="bb">[in] - bbuffer</param>
 '''  <param name="nbytes">[in] - number of bytes to extend array size</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -160,6 +166,7 @@ Public Shared Function bbufferExtendArray(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.bbufferExtendArray( bb.Pointer, nbytes)
 
+
 	Return _Result
 End Function
 
@@ -168,7 +175,7 @@ End Function
 ' bbufferWrite(L_BBUFFER *, l_uint8 *, size_t, size_t *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/bbufferWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bbufferWrite/*"/>
 '''  <param name="bb">[in] - bbuffer</param>
 '''  <param name="dest">[in] - dest memory buffer to which bytes are written</param>
 '''  <param name="nbytes">[in] - bytes requested to be written</param>
@@ -185,6 +192,7 @@ Public Shared Function bbufferWrite(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.bbufferWrite( bb.Pointer, dest, nbytes, pnout)
 
+
 	Return _Result
 End Function
 
@@ -193,7 +201,7 @@ End Function
 ' bbufferWriteStream(L_BBUFFER *, FILE *, size_t, size_t *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/bbufferWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bbufferWriteStream/*"/>
 '''  <param name="bb">[in] - bbuffer</param>
 '''  <param name="fp">[in] - dest stream to which bytes are written</param>
 '''  <param name="nbytes">[in] - bytes requested to be written</param>
@@ -209,6 +217,7 @@ Public Shared Function bbufferWriteStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.bbufferWriteStream( bb.Pointer, fp.Pointer, nbytes, pnout)
+
 
 	Return _Result
 End Function

@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\conncomp.c (144, 1)
 ' pixConnComp(pixs, ppixa, connectivity) as Boxa
 ' pixConnComp(PIX *, PIXA **, l_int32) as BOXA *
@@ -15,7 +14,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConnComp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConnComp/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="ppixa">[out][optional] - pixa of each c.c.</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -32,8 +31,10 @@ Public Shared Function pixConnComp(
 Dim ppixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixa) Then ppixaPTR = ppixa.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConnComp( pixs.Pointer, ppixaPTR, connectivity)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if ppixaPTR <> IntPtr.Zero then ppixa = new Pixa(ppixaPTR)
+If ppixaPTR = IntPtr.Zero Then ppixa = Nothing
+If ppixaPTR <> IntPtr.Zero Then ppixa = New Pixa(ppixaPTR)
 
 	Return  new Boxa(_Result)
 End Function
@@ -61,7 +62,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConnCompPixa/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConnCompPixa/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="ppixa">[out] - pixa of each c.c.</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
@@ -78,8 +79,10 @@ Public Shared Function pixConnCompPixa(
 	Dim ppixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixa) Then ppixaPTR = ppixa.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConnCompPixa( pixs.Pointer, ppixaPTR, connectivity)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if ppixaPTR <> IntPtr.Zero then ppixa = new Pixa(ppixaPTR)
+If ppixaPTR = IntPtr.Zero Then ppixa = Nothing
+If ppixaPTR <> IntPtr.Zero Then ppixa = New Pixa(ppixaPTR)
 
 	Return  new Boxa(_Result)
 End Function
@@ -99,7 +102,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConnCompBB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConnCompBB/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''   <returns>boxa, or NULL on error</returns>
@@ -112,6 +115,7 @@ Public Shared Function pixConnCompBB(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConnCompBB( pixs.Pointer, connectivity)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Boxa(_Result)
@@ -122,7 +126,7 @@ End Function
 ' pixCountConnComp(PIX *, l_int32, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixCountConnComp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCountConnComp/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="connectivity">[in] - 4 or 8</param>
 '''  <param name="pcount">[out] - </param>
@@ -138,6 +142,7 @@ Public Shared Function pixCountConnComp(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixCountConnComp( pixs.Pointer, connectivity, pcount)
 
+
 	Return _Result
 End Function
 
@@ -146,7 +151,7 @@ End Function
 ' nextOnPixelInRaster(PIX *, l_int32, l_int32, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/nextOnPixelInRaster/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/nextOnPixelInRaster/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="xstart">[in] - starting point for search</param>
 '''  <param name="ystart">[in] - starting point for search</param>
@@ -166,6 +171,7 @@ Public Shared Function nextOnPixelInRaster(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.nextOnPixelInRaster( pixs.Pointer, xstart, ystart, px, py)
 
+
 	Return _Result
 End Function
 
@@ -174,7 +180,7 @@ End Function
 ' nextOnPixelInRasterLow(l_uint32 *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32 *, l_int32 *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/nextOnPixelInRasterLow/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/nextOnPixelInRasterLow/*"/>
 '''  <param name="data">[in] - pix data</param>
 '''  <param name="w">[in] - width and height</param>
 '''  <param name="h">[in] - width and height</param>
@@ -199,6 +205,8 @@ Public Shared Function nextOnPixelInRasterLow(
 	Dim dataPTR As IntPtr = Marshal.AllocHGlobal(data.Count) : Marshal.Copy(data, 0, dataPTR, data.Length)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.nextOnPixelInRasterLow( dataPTR, w, h, wpl, xstart, ystart, px, py)
+Marshal.FreeHGlobal(dataPTR)
+
 
 	Return _Result
 End Function
@@ -214,7 +222,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSeedfillBB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSeedfillBB/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="stack">[in] - for holding fillsegs</param>
 '''  <param name="x">[in] - ,y   location of seed pixel</param>
@@ -233,6 +241,7 @@ Public Shared Function pixSeedfillBB(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSeedfillBB( pixs.Pointer, stack.Pointer, x, y, connectivity)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -269,7 +278,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSeedfill4BB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSeedfill4BB/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="stack">[in] - for holding fillsegs</param>
 '''  <param name="x">[in] - ,y   location of seed pixel</param>
@@ -286,6 +295,7 @@ Public Shared Function pixSeedfill4BB(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSeedfill4BB( pixs.Pointer, stack.Pointer, x, y)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -315,7 +325,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSeedfill8BB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSeedfill8BB/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="stack">[in] - for holding fillsegs</param>
 '''  <param name="x">[in] - ,y   location of seed pixel</param>
@@ -332,6 +342,7 @@ Public Shared Function pixSeedfill8BB(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixSeedfill8BB( pixs.Pointer, stack.Pointer, x, y)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Box(_Result)
@@ -349,7 +360,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSeedfill/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSeedfill/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="stack">[in] - for holding fillsegs</param>
 '''  <param name="x">[in] - ,y   location of seed pixel</param>
@@ -368,6 +379,7 @@ Public Shared Function pixSeedfill(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSeedfill( pixs.Pointer, stack.Pointer, x, y, connectivity)
+
 
 	Return _Result
 End Function
@@ -388,7 +400,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSeedfill4/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSeedfill4/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="stack">[in] - for holding fillsegs</param>
 '''  <param name="x">[in] - ,y   location of seed pixel</param>
@@ -405,6 +417,7 @@ Public Shared Function pixSeedfill4(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSeedfill4( pixs.Pointer, stack.Pointer, x, y)
+
 
 	Return _Result
 End Function
@@ -425,7 +438,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSeedfill8/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSeedfill8/*"/>
 '''  <param name="pixs">[in] - 1 bpp</param>
 '''  <param name="stack">[in] - for holding fillsegs</param>
 '''  <param name="x">[in] - ,y   location of seed pixel</param>
@@ -442,6 +455,7 @@ Public Shared Function pixSeedfill8(
 	If {1}.contains (pixs.d) = false then Throw New ArgumentException ("1 bpp")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSeedfill8( pixs.Pointer, stack.Pointer, x, y)
+
 
 	Return _Result
 End Function

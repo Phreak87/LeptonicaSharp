@@ -2,13 +2,12 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\utils2.c (205, 1)
 ' stringNew(src) as String
 ' stringNew(const char *) as char *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/stringNew/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stringNew/*"/>
 '''  <param name="src">[in] - string</param>
 '''   <returns>dest copy of src string, or NULL on error</returns>
 Public Shared Function stringNew(
@@ -17,6 +16,7 @@ Public Shared Function stringNew(
 	If IsNothing (src) then Throw New ArgumentNullException  ("src cannot be Nothing")
 
 	Dim _Result as String = LeptonicaSharp.Natives.stringNew( src)
+
 
 	Return _Result
 End Function
@@ -38,7 +38,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/stringCopy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stringCopy/*"/>
 '''  <param name="dest">[in] - existing byte buffer</param>
 '''  <param name="src">[in] - string [optional] can be null</param>
 '''  <param name="n">[in] - max number of characters to copy</param>
@@ -51,6 +51,7 @@ Public Shared Function stringCopy(
 	If IsNothing (dest) then Throw New ArgumentNullException  ("dest cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.stringCopy( dest, src, n)
+
 
 	Return _Result
 End Function
@@ -69,7 +70,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/stringReplace/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stringReplace/*"/>
 '''  <param name="pdest">[out] - string copy</param>
 '''  <param name="src">[in] - string [optional] can be null</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -80,6 +81,7 @@ Public Shared Function stringReplace(
 Dim pdestPTR As IntPtr = pdestPTR = Marshal.AllocHGlobal(Marshal.sizeOf(pdest.toArray))
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.stringReplace( pdestPTR, src)
+
 
 	Return _Result
 End Function
@@ -99,7 +101,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/stringLength/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stringLength/*"/>
 '''  <param name="src">[in] - string can be null or NULL-terminated string</param>
 '''  <param name="size">[in] - size of src buffer</param>
 '''   <returns>length of src in bytes.</returns>
@@ -110,6 +112,7 @@ Public Shared Function stringLength(
 	If IsNothing (src) then Throw New ArgumentNullException  ("src cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.stringLength( src, size)
+
 
 	Return _Result
 End Function
@@ -134,7 +137,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/stringCat/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stringCat/*"/>
 '''  <param name="dest">[in] - null-terminated byte buffer</param>
 '''  <param name="size">[in] - size of dest</param>
 '''  <param name="src">[in] - string can be null or NULL-terminated string</param>
@@ -148,6 +151,7 @@ Public Shared Function stringCat(
 	If IsNothing (src) then Throw New ArgumentNullException  ("src cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.stringCat( dest, size, src)
+
 
 	Return _Result
 End Function
@@ -164,7 +168,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/stringConcatNew/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stringConcatNew/*"/>
 '''  <param name="first">[in] - first string in list</param>
 '''   <returns>result new string concatenating the input strings, or NULL if first == NULL</returns>
 Public Shared Function stringConcatNew(
@@ -173,6 +177,7 @@ Public Shared Function stringConcatNew(
 	If IsNothing (first) then Throw New ArgumentNullException  ("first cannot be Nothing")
 
 	Dim _Result as String = LeptonicaSharp.Natives.stringConcatNew( first)
+
 
 	Return _Result
 End Function
@@ -190,7 +195,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/stringJoin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stringJoin/*"/>
 '''  <param name="src1">[in] - string [optional] can be null</param>
 '''  <param name="src2">[in] - string [optional] can be null</param>
 '''   <returns>concatenated string, or NULL on error</returns>
@@ -199,6 +204,7 @@ Public Shared Function stringJoin(
 				 ByVal src2 as String) as String
 
 	Dim _Result as String = LeptonicaSharp.Natives.stringJoin( src1, src2)
+
 
 	Return _Result
 End Function
@@ -236,7 +242,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/stringJoinIP/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stringJoinIP/*"/>
 '''  <param name="psrc1">[in,out] - string address of src1 cannot be on the stack</param>
 '''  <param name="src2">[in] - string [optional] can be null</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -248,6 +254,7 @@ Dim psrc1PTR As IntPtr = psrc1PTR = Marshal.AllocHGlobal(Marshal.sizeOf(psrc1.to
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.stringJoinIP( psrc1PTR, src2)
 
+
 	Return _Result
 End Function
 
@@ -256,7 +263,7 @@ End Function
 ' stringReverse(const char *) as char *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/stringReverse/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stringReverse/*"/>
 '''  <param name="src">[in] - string</param>
 '''   <returns>dest newly-allocated reversed string</returns>
 Public Shared Function stringReverse(
@@ -265,6 +272,7 @@ Public Shared Function stringReverse(
 	If IsNothing (src) then Throw New ArgumentNullException  ("src cannot be Nothing")
 
 	Dim _Result as String = LeptonicaSharp.Natives.stringReverse( src)
+
 
 	Return _Result
 End Function
@@ -300,7 +308,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/strtokSafe/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/strtokSafe/*"/>
 '''  <param name="seps">[in] - a string of character separators</param>
 '''  <param name="psaveptr">[out] - ptr to the next char after the last encountered separator</param>
 '''   <returns>substr a new string that is copied from the previous saveptr up to but not including the next separator character, or NULL if end of cstr.</returns>
@@ -315,6 +323,7 @@ Public Shared Function strtokSafe(
 Dim psaveptrPTR As IntPtr = psaveptrPTR = Marshal.AllocHGlobal(Marshal.sizeOf(psaveptr.toArray))
 
 	Dim _Result as String = LeptonicaSharp.Natives.strtokSafe( _cstr_, seps, psaveptrPTR)
+
 
 	Return _Result
 End Function
@@ -341,7 +350,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/stringSplitOnToken/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stringSplitOnToken/*"/>
 '''  <param name="seps">[in] - a string of character separators</param>
 '''  <param name="phead">[out] - ptr to copy of the input string, up to the first separator token encountered</param>
 '''  <param name="ptail">[out] - ptr to copy of the part of the input string starting with the first non-separator character that occurs after the first separator is found</param>
@@ -360,6 +369,7 @@ Dim ptailPTR As IntPtr = ptailPTR = Marshal.AllocHGlobal(Marshal.sizeOf(ptail.to
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.stringSplitOnToken( _cstr_, seps, pheadPTR, ptailPTR)
 
+
 	Return _Result
 End Function
 
@@ -374,7 +384,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/stringCheckForChars/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stringCheckForChars/*"/>
 '''  <param name="src">[in] - input string can be of zero length</param>
 '''  <param name="chars">[in] - string of chars to be searched for in %src</param>
 '''  <param name="pfound">[out] - 1 if any characters are found 0 otherwise</param>
@@ -389,6 +399,7 @@ Public Shared Function stringCheckForChars(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.stringCheckForChars( src, chars, pfound)
 
+
 	Return _Result
 End Function
 
@@ -397,7 +408,7 @@ End Function
 ' stringRemoveChars(const char *, const char *) as char *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/stringRemoveChars/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stringRemoveChars/*"/>
 '''  <param name="src">[in] - input string can be of zero length</param>
 '''  <param name="remchars">[in] - string of chars to be removed from src</param>
 '''   <returns>dest string with specified chars removed, or NULL on error</returns>
@@ -409,6 +420,7 @@ Public Shared Function stringRemoveChars(
 	If IsNothing (remchars) then Throw New ArgumentNullException  ("remchars cannot be Nothing")
 
 	Dim _Result as String = LeptonicaSharp.Natives.stringRemoveChars( src, remchars)
+
 
 	Return _Result
 End Function
@@ -429,7 +441,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/stringFindSubstr/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stringFindSubstr/*"/>
 '''  <param name="src">[in] - input string can be of zero length</param>
 '''  <param name="ploc">[out][optional] - location of substring in src</param>
 '''   <returns>1 if found 0 if not found or on error</returns>
@@ -442,6 +454,7 @@ Public Shared Function stringFindSubstr(
 	If IsNothing (_sub_) then Throw New ArgumentNullException  ("_sub_ cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.stringFindSubstr( src, _sub_, ploc)
+
 
 	Return _Result
 End Function
@@ -468,7 +481,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/stringReplaceSubstr/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stringReplaceSubstr/*"/>
 '''  <param name="src">[in] - input string can be of zero length</param>
 '''  <param name="sub1">[in] - substring to be replaced</param>
 '''  <param name="sub2">[in] - substring to put in can be ""</param>
@@ -488,6 +501,7 @@ Public Shared Function stringReplaceSubstr(
 
 	Dim _Result as String = LeptonicaSharp.Natives.stringReplaceSubstr( src, sub1, sub2, pfound, ploc)
 
+
 	Return _Result
 End Function
 
@@ -505,7 +519,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/stringReplaceEachSubstr/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stringReplaceEachSubstr/*"/>
 '''  <param name="src">[in] - input string can be of zero length</param>
 '''  <param name="sub1">[in] - substring to be replaced</param>
 '''  <param name="sub2">[in] - substring to put in can be ""</param>
@@ -522,6 +536,7 @@ Public Shared Function stringReplaceEachSubstr(
 	If IsNothing (sub2) then Throw New ArgumentNullException  ("sub2 cannot be Nothing")
 
 	Dim _Result as String = LeptonicaSharp.Natives.stringReplaceEachSubstr( src, sub1, sub2, pcount)
+
 
 	Return _Result
 End Function
@@ -540,7 +555,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/arrayFindEachSequence/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/arrayFindEachSequence/*"/>
 '''  <param name="data">[in] - byte array</param>
 '''  <param name="datalen">[in] - length of data, in bytes</param>
 '''  <param name="sequence">[in] - subarray of bytes to find in data</param>
@@ -556,6 +571,7 @@ Public Shared Function arrayFindEachSequence(
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.arrayFindEachSequence( data, datalen, sequence, seqlen)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Dna(_Result)
@@ -580,7 +596,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/arrayFindSequence/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/arrayFindSequence/*"/>
 '''  <param name="data">[in] - byte array</param>
 '''  <param name="datalen">[in] - length of data, in bytes</param>
 '''  <param name="sequence">[in] - subarray of bytes to find in data</param>
@@ -600,6 +616,7 @@ Public Shared Function arrayFindSequence(
 	If IsNothing (sequence) then Throw New ArgumentNullException  ("sequence cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.arrayFindSequence( data, datalen, sequence, seqlen, poffset, pfound)
+
 
 	Return _Result
 End Function
@@ -622,7 +639,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/reallocNew/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/reallocNew/*"/>
 '''  <param name="pindata">[in,out][optional] - nulls indata</param>
 '''  <param name="oldsize">[in] - size of input data to be copied, in bytes</param>
 '''  <param name="newsize">[in] - size of data to be reallocated in bytes</param>
@@ -636,7 +653,9 @@ Dim pindataPTR As IntPtr = IntPtr.Zero: if not isNothing (pindata) then pindataP
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.reallocNew( pindataPTR, oldsize, newsize)
 
-	Return _Result
+	Dim B(1) As Byte : Marshal.Copy(_Result, B, 0, B.Length)
+
+	Return B
 End Function
 
 ' SRC\utils2.c (1158, 1)
@@ -644,7 +663,7 @@ End Function
 ' l_binaryRead(const char *, size_t *) as l_uint8 *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_binaryRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_binaryRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="pnbytes">[out] - number of bytes read</param>
 '''   <returns>data, or NULL on error</returns>
@@ -654,9 +673,10 @@ Public Shared Function l_binaryRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.l_binaryRead( filename, pnbytes)
+
 
 	Return _Result
 End Function
@@ -687,7 +707,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_binaryReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_binaryReadStream/*"/>
 '''  <param name="fp">[in] - file stream opened to read can be stdin</param>
 '''  <param name="pnbytes">[out] - number of bytes read</param>
 '''   <returns>null-terminated array, or NULL on error reading 0 bytes is not an error</returns>
@@ -698,6 +718,7 @@ Public Shared Function l_binaryReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.l_binaryReadStream( fp.Pointer, pnbytes)
+
 
 	Return _Result
 End Function
@@ -713,7 +734,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_binaryReadSelect/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_binaryReadSelect/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="start">[in] - first byte to read</param>
 '''  <param name="nbytes">[in] - number of bytes to read use 0 to read to end of file</param>
@@ -727,9 +748,10 @@ Public Shared Function l_binaryReadSelect(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.l_binaryReadSelect( filename, start, nbytes, pnread)
+
 
 	Return _Result
 End Function
@@ -750,7 +772,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_binaryReadSelectStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_binaryReadSelectStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="start">[in] - first byte to read</param>
 '''  <param name="nbytes">[in] - number of bytes to read use 0 to read to end of file</param>
@@ -766,6 +788,7 @@ Public Shared Function l_binaryReadSelectStream(
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.l_binaryReadSelectStream( fp.Pointer, start, nbytes, pnread)
 
+
 	Return _Result
 End Function
 
@@ -774,7 +797,7 @@ End Function
 ' l_binaryWrite(const char *, const char *, const void *, size_t) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_binaryWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_binaryWrite/*"/>
 '''  <param name="filename">[in] - output</param>
 '''  <param name="operation">[in] - "w" for write "a" for append</param>
 '''  <param name="data">[in] - binary data to be written</param>
@@ -790,11 +813,22 @@ Public Shared Function l_binaryWrite(
 	If IsNothing (operation) then Throw New ArgumentNullException  ("operation cannot be Nothing")
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
-Dim dataPTR As IntPtr = Marshal.AllocHGlobal(0)
+	Dim dataPtr As IntPtr = IntPtr.Zero
+	If TypeOf (data) Is IntPtr Then dataPtr = data
+	If TypeOf (data) Is Byte() Then
+		Dim cdata = CType(data, Byte())
+		dataPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, dataPtr, cdata.Length)
+	End If
+	If Not IsNothing(data.GetType.GetProperty("data")) Then
+		Dim cdata = CType(data.data, Byte())
+		dataPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, dataPtr, cdata.Length)
+	End If
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.l_binaryWrite( filename, operation, dataPTR, nbytes)
+Marshal.FreeHGlobal(dataPTR)
+
 
 	Return _Result
 End Function
@@ -804,7 +838,7 @@ End Function
 ' nbytesInFile(const char *) as size_t
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/nbytesInFile/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/nbytesInFile/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>nbytes in file 0 on error</returns>
 Public Shared Function nbytesInFile(
@@ -812,9 +846,10 @@ Public Shared Function nbytesInFile(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as UInteger = LeptonicaSharp.Natives.nbytesInFile( filename)
+
 
 	Return _Result
 End Function
@@ -824,7 +859,7 @@ End Function
 ' fnbytesInFile(FILE *) as size_t
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fnbytesInFile/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fnbytesInFile/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>nbytes in file 0 on error</returns>
 Public Shared Function fnbytesInFile(
@@ -833,6 +868,7 @@ Public Shared Function fnbytesInFile(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as UInteger = LeptonicaSharp.Natives.fnbytesInFile( fp.Pointer)
+
 
 	Return _Result
 End Function
@@ -850,7 +886,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_binaryCopy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_binaryCopy/*"/>
 '''  <param name="datas">[in] - </param>
 '''  <param name="size">[in] - of data array</param>
 '''   <returns>datad on heap, or NULL on error</returns>
@@ -862,6 +898,7 @@ Public Shared Function l_binaryCopy(
 
 	Dim _Result as Byte() = LeptonicaSharp.Natives.l_binaryCopy( datas, size)
 
+
 	Return _Result
 End Function
 
@@ -870,7 +907,7 @@ End Function
 ' fileCopy(const char *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fileCopy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fileCopy/*"/>
 '''  <param name="srcfile">[in] - copy this file</param>
 '''  <param name="newfile">[in] - to this file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -883,6 +920,7 @@ Public Shared Function fileCopy(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fileCopy( srcfile, newfile)
 
+
 	Return _Result
 End Function
 
@@ -891,7 +929,7 @@ End Function
 ' fileConcatenate(const char *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fileConcatenate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fileConcatenate/*"/>
 '''  <param name="srcfile">[in] - file to append</param>
 '''  <param name="destfile">[in] - file to add to</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -904,6 +942,7 @@ Public Shared Function fileConcatenate(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fileConcatenate( srcfile, destfile)
 
+
 	Return _Result
 End Function
 
@@ -912,7 +951,7 @@ End Function
 ' fileAppendString(const char *, const char *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fileAppendString/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fileAppendString/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="str">[in] - string to append to file</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -923,9 +962,10 @@ Public Shared Function fileAppendString(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (str) then Throw New ArgumentNullException  ("str cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.fileAppendString( filename, str)
+
 
 	Return _Result
 End Function
@@ -944,7 +984,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fopenReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fopenReadStream/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>stream, or NULL on error</returns>
 Public Shared Function fopenReadStream(
@@ -952,9 +992,10 @@ Public Shared Function fopenReadStream(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fopenReadStream( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FILE(_Result)
@@ -974,7 +1015,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fopenWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fopenWriteStream/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="modestring">[in] - </param>
 '''   <returns>stream, or NULL on error</returns>
@@ -985,9 +1026,8 @@ Public Shared Function fopenWriteStream(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (modestring) then Throw New ArgumentNullException  ("modestring cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fopenWriteStream( filename, modestring)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FILE(_Result)
@@ -1006,7 +1046,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fopenReadFromMemory/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fopenReadFromMemory/*"/>
 '''  <param name="data">[in] - </param>
 '''  <param name="size">[in] - </param>
 '''   <returns>file stream, or NULL on error</returns>
@@ -1017,6 +1057,7 @@ Public Shared Function fopenReadFromMemory(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fopenReadFromMemory( data, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FILE(_Result)
@@ -1034,11 +1075,12 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fopenWriteWinTempfile/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fopenWriteWinTempfile/*"/>
 '''   <returns>file stream, or NULL on error</returns>
 Public Shared Function fopenWriteWinTempfile() as FILE
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fopenWriteWinTempfile( )
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FILE(_Result)
@@ -1055,7 +1097,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/lept_fopen/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_fopen/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="mode">[in] - same as for fopen() e.g., "rb"</param>
 '''   <returns>stream or NULL on error</returns>
@@ -1066,9 +1108,10 @@ Public Shared Function lept_fopen(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (mode) then Throw New ArgumentNullException  ("mode cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.lept_fopen( filename, mode)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FILE(_Result)
@@ -1085,7 +1128,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/lept_fclose/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_fclose/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function lept_fclose(
@@ -1094,6 +1137,7 @@ Public Shared Function lept_fclose(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lept_fclose( fp.Pointer)
+
 
 	Return _Result
 End Function
@@ -1110,7 +1154,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/lept_calloc/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_calloc/*"/>
 '''  <param name="nmemb">[in] - number of members</param>
 '''  <param name="size">[in] - of each member</param>
 '''   <returns>void ptr, or NULL on error</returns>
@@ -1120,7 +1164,9 @@ Public Shared Function lept_calloc(
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.lept_calloc( nmemb, size)
 
-	Return _Result
+	Dim B(size) As Byte : Marshal.Copy(_Result, B, 0, B.Length)
+
+	Return B
 End Function
 
 ' SRC\utils2.c (1861, 1)
@@ -1134,16 +1180,29 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/lept_free/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_free/*"/>
 '''  <param name="ptr">[in] - </param>
 Public Shared Sub lept_free(
 				 ByVal ptr as Object)
 
 	If IsNothing (ptr) then Throw New ArgumentNullException  ("ptr cannot be Nothing")
 
-Dim ptrPTR As IntPtr = Marshal.AllocHGlobal(0)
+	Dim ptrPtr As IntPtr = IntPtr.Zero
+	If TypeOf (ptr) Is IntPtr Then ptrPtr = ptr
+	If TypeOf (ptr) Is Byte() Then
+		Dim cdata = CType(ptr, Byte())
+		ptrPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, ptrPtr, cdata.Length)
+	End If
+	If Not IsNothing(ptr.GetType.GetProperty("data")) Then
+		Dim cdata = CType(ptr.data, Byte())
+		ptrPtr = Marshal.AllocHGlobal(cdata.Length - 1)
+		Marshal.Copy(cdata, 0, ptrPtr, cdata.Length)
+	End If
 
 	LeptonicaSharp.Natives.lept_free( ptrPTR)
+Marshal.FreeHGlobal(ptrPTR)
+
 
 End Sub
 
@@ -1164,7 +1223,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/lept_mkdir/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_mkdir/*"/>
 '''  <param name="subdir">[in] - of /tmp or its equivalent on Windows</param>
 '''   <returns>0 on success, non-zero on failure</returns>
 Public Shared Function lept_mkdir(
@@ -1173,6 +1232,7 @@ Public Shared Function lept_mkdir(
 	If IsNothing (subdir) then Throw New ArgumentNullException  ("subdir cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lept_mkdir( subdir)
+
 
 	Return _Result
 End Function
@@ -1199,7 +1259,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/lept_rmdir/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_rmdir/*"/>
 '''  <param name="subdir">[in] - of /tmp or its equivalent on Windows</param>
 '''   <returns>0 on success, non-zero on failure</returns>
 Public Shared Function lept_rmdir(
@@ -1208,6 +1268,7 @@ Public Shared Function lept_rmdir(
 	If IsNothing (subdir) then Throw New ArgumentNullException  ("subdir cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lept_rmdir( subdir)
+
 
 	Return _Result
 End Function
@@ -1227,7 +1288,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/lept_direxists/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_direxists/*"/>
 '''  <param name="dir">[in] - </param>
 '''  <param name="pexists">[out] - 1 if it exists 0 otherwise</param>
 Public Shared Sub lept_direxists(
@@ -1237,6 +1298,7 @@ Public Shared Sub lept_direxists(
 	If IsNothing (dir) then Throw New ArgumentNullException  ("dir cannot be Nothing")
 
 	LeptonicaSharp.Natives.lept_direxists( dir, pexists)
+
 
 End Sub
 
@@ -1267,7 +1329,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/lept_rm_match/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_rm_match/*"/>
 '''  <param name="subdir">[in][optional] - If NULL, the removed files are in /tmp</param>
 '''  <param name="substr">[in][optional] - pattern to match in filename</param>
 '''   <returns>0 on success, non-zero on failure</returns>
@@ -1276,6 +1338,7 @@ Public Shared Function lept_rm_match(
 				 ByVal substr as String) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lept_rm_match( subdir, substr)
+
 
 	Return _Result
 End Function
@@ -1292,7 +1355,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/lept_rm/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_rm/*"/>
 '''  <param name="subdir">[in][optional] - of '/tmp' can be NULL</param>
 '''  <param name="tail">[in] - filename without the directory</param>
 '''   <returns>0 on success, non-zero on failure</returns>
@@ -1303,6 +1366,7 @@ Public Shared Function lept_rm(
 	If IsNothing (tail) then Throw New ArgumentNullException  ("tail cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lept_rm( subdir, tail)
+
 
 	Return _Result
 End Function
@@ -1325,7 +1389,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/lept_rmfile/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_rmfile/*"/>
 '''  <param name="filepath">[in] - full path to file including the directory</param>
 '''   <returns>0 on success, non-zero on failure</returns>
 Public Shared Function lept_rmfile(
@@ -1334,6 +1398,7 @@ Public Shared Function lept_rmfile(
 	If IsNothing (filepath) then Throw New ArgumentNullException  ("filepath cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lept_rmfile( filepath)
+
 
 	Return _Result
 End Function
@@ -1373,7 +1438,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/lept_mv/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_mv/*"/>
 '''  <param name="srcfile">[in] - </param>
 '''  <param name="newdir">[in][optional] - can be NULL</param>
 '''  <param name="newtail">[in][optional] - can be NULL</param>
@@ -1390,6 +1455,7 @@ Public Shared Function lept_mv(
 Dim pnewpathPTR As IntPtr = pnewpathPTR = Marshal.AllocHGlobal(Marshal.sizeOf(pnewpath.toArray))
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lept_mv( srcfile, newdir, newtail, pnewpathPTR)
+
 
 	Return _Result
 End Function
@@ -1429,7 +1495,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/lept_cp/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_cp/*"/>
 '''  <param name="srcfile">[in] - </param>
 '''  <param name="newdir">[in][optional] - can be NULL</param>
 '''  <param name="newtail">[in][optional] - can be NULL</param>
@@ -1446,6 +1512,7 @@ Public Shared Function lept_cp(
 Dim pnewpathPTR As IntPtr = pnewpathPTR = Marshal.AllocHGlobal(Marshal.sizeOf(pnewpath.toArray))
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.lept_cp( srcfile, newdir, newtail, pnewpathPTR)
+
 
 	Return _Result
 End Function
@@ -1464,7 +1531,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/callSystemDebug/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/callSystemDebug/*"/>
 '''  <param name="cmd">[in] - command to be exec'd</param>
 Public Shared Sub callSystemDebug(
 				 ByVal cmd as String)
@@ -1472,6 +1539,7 @@ Public Shared Sub callSystemDebug(
 	If IsNothing (cmd) then Throw New ArgumentNullException  ("cmd cannot be Nothing")
 
 	LeptonicaSharp.Natives.callSystemDebug( cmd)
+
 
 End Sub
 
@@ -1502,7 +1570,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/splitPathAtDirectory/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/splitPathAtDirectory/*"/>
 '''  <param name="pathname">[in] - full path can be a directory</param>
 '''  <param name="pdir">[out][optional] - root directory name of input path, including trailing '/'</param>
 '''  <param name="ptail">[out][optional] - path tail, which is either the file name within the root directory or the last sub-directory in the path</param>
@@ -1518,6 +1586,7 @@ Dim pdirPTR As IntPtr = pdirPTR = Marshal.AllocHGlobal(Marshal.sizeOf(pdir.toArr
 Dim ptailPTR As IntPtr = ptailPTR = Marshal.AllocHGlobal(Marshal.sizeOf(ptail.toArray))
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.splitPathAtDirectory( pathname, pdirPTR, ptailPTR)
+
 
 	Return _Result
 End Function
@@ -1545,7 +1614,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/splitPathAtExtension/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/splitPathAtExtension/*"/>
 '''  <param name="pathname">[in] - full path can be a directory</param>
 '''  <param name="pbasename">[out][optional] - pathname not including the last dot and characters after that</param>
 '''  <param name="pextension">[out][optional] - path extension, which is the last dot and the characters after it.  If there is no extension, it returns the empty string</param>
@@ -1561,6 +1630,7 @@ Dim pbasenamePTR As IntPtr = pbasenamePTR = Marshal.AllocHGlobal(Marshal.sizeOf(
 Dim pextensionPTR As IntPtr = pextensionPTR = Marshal.AllocHGlobal(Marshal.sizeOf(pextension.toArray))
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.splitPathAtExtension( pathname, pbasenamePTR, pextensionPTR)
+
 
 	Return _Result
 End Function
@@ -1607,7 +1677,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pathJoin/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pathJoin/*"/>
 '''  <param name="dir">[in][optional] - can be null</param>
 '''  <param name="fname">[in][optional] - can be null</param>
 '''   <returns>specially concatenated path, or NULL on error</returns>
@@ -1616,6 +1686,7 @@ Public Shared Function pathJoin(
 				 ByVal fname as String) as String
 
 	Dim _Result as String = LeptonicaSharp.Natives.pathJoin( dir, fname)
+
 
 	Return _Result
 End Function
@@ -1632,7 +1703,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/appendSubdirs/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/appendSubdirs/*"/>
 '''  <param name="basedir">[in] - </param>
 '''  <param name="subdirs">[in] - </param>
 '''   <returns>concatenated full directory path without trailing slash, or NULL on error</returns>
@@ -1644,6 +1715,7 @@ Public Shared Function appendSubdirs(
 	If IsNothing (subdirs) then Throw New ArgumentNullException  ("subdirs cannot be Nothing")
 
 	Dim _Result as String = LeptonicaSharp.Natives.appendSubdirs( basedir, subdirs)
+
 
 	Return _Result
 End Function
@@ -1664,7 +1736,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertSepCharsInPath/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertSepCharsInPath/*"/>
 '''  <param name="path">[in] - </param>
 '''  <param name="type">[in] - UNIX_PATH_SEPCHAR, WIN_PATH_SEPCHAR</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1675,6 +1747,7 @@ Public Shared Function convertSepCharsInPath(
 	If IsNothing (path) then Throw New ArgumentNullException  ("path cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertSepCharsInPath( path, type)
+
 
 	Return _Result
 End Function
@@ -1715,7 +1788,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/genPathname/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/genPathname/*"/>
 '''  <param name="dir">[in][optional] - directory or full path name, with or without trailing '/'</param>
 '''  <param name="fname">[in][optional] - file name within a directory</param>
 '''   <returns>pathname either a directory or full path, or NULL on error</returns>
@@ -1724,6 +1797,7 @@ Public Shared Function genPathname(
 				 ByVal fname as String) as String
 
 	Dim _Result as String = LeptonicaSharp.Natives.genPathname( dir, fname)
+
 
 	Return _Result
 End Function
@@ -1754,7 +1828,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/makeTempDirname/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makeTempDirname/*"/>
 '''  <param name="result">[in] - preallocated on stack or heap and passed in</param>
 '''  <param name="nbytes">[in] - size of %result array, in bytes</param>
 '''  <param name="subdir">[in][optional] - can be NULL or an empty string</param>
@@ -1767,6 +1841,7 @@ Public Shared Function makeTempDirname(
 	If IsNothing (result) then Throw New ArgumentNullException  ("result cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.makeTempDirname( result, nbytes, subdir)
+
 
 	Return _Result
 End Function
@@ -1781,7 +1856,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/modifyTrailingSlash/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/modifyTrailingSlash/*"/>
 '''  <param name="path">[in] - preallocated on stack or heap and passed in</param>
 '''  <param name="nbytes">[in] - size of %path array, in bytes</param>
 '''  <param name="flag">[in] - L_ADD_TRAIL_SLASH or L_REMOVE_TRAIL_SLASH</param>
@@ -1794,6 +1869,7 @@ Public Shared Function modifyTrailingSlash(
 	If IsNothing (path) then Throw New ArgumentNullException  ("path cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.modifyTrailingSlash( path, nbytes, flag)
+
 
 	Return _Result
 End Function
@@ -1827,11 +1903,12 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/l_makeTempFilename/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_makeTempFilename/*"/>
 '''   <returns>fname : heap allocated filename returns NULL on failure.</returns>
 Public Shared Function l_makeTempFilename() as String
 
 	Dim _Result as String = LeptonicaSharp.Natives.l_makeTempFilename( )
+
 
 	Return _Result
 End Function
@@ -1851,7 +1928,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/extractNumberFromFilename/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/extractNumberFromFilename/*"/>
 '''  <param name="fname">[in] - </param>
 '''  <param name="numpre">[in] - number of characters before the digits to be found</param>
 '''  <param name="numpost">[in] - number of characters after the digits to be found</param>
@@ -1864,6 +1941,7 @@ Public Shared Function extractNumberFromFilename(
 	If IsNothing (fname) then Throw New ArgumentNullException  ("fname cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.extractNumberFromFilename( fname, numpre, numpost)
+
 
 	Return _Result
 End Function

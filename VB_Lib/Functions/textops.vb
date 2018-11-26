@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\textops.c (115, 1)
 ' pixAddSingleTextblock(pixs, bmf, textstr, val, location, poverflow) as Pix
 ' pixAddSingleTextblock(PIX *, L_BMF *, const char *, l_uint32, l_int32, l_int32 *) as PIX *
@@ -28,7 +27,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAddSingleTextblock/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAddSingleTextblock/*"/>
 '''  <param name="pixs">[in] - input pix colormap ok</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
 '''  <param name="textstr">[in][optional] - text string to be added</param>
@@ -48,6 +47,7 @@ Public Shared Function pixAddSingleTextblock(
 	If IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAddSingleTextblock( pixs.Pointer, bmf.Pointer, textstr, val, location, poverflow)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -82,7 +82,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixAddTextlines/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixAddTextlines/*"/>
 '''  <param name="pixs">[in] - input pix colormap ok</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
 '''  <param name="textstr">[in][optional] - text string to be added</param>
@@ -100,6 +100,7 @@ Public Shared Function pixAddTextlines(
 	If IsNothing (bmf) then Throw New ArgumentNullException  ("bmf cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixAddTextlines( pixs.Pointer, bmf.Pointer, textstr, val, location)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -128,7 +129,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSetTextblock/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetTextblock/*"/>
 '''  <param name="pixs">[in] - input image</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
 '''  <param name="textstr">[in] - block text string to be set</param>
@@ -156,6 +157,7 @@ Public Shared Function pixSetTextblock(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetTextblock( pixs.Pointer, bmf.Pointer, textstr, val, x0, y0, wtext, firstindent, poverflow)
 
+
 	Return _Result
 End Function
 
@@ -182,7 +184,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixSetTextline/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetTextline/*"/>
 '''  <param name="pixs">[in] - input image</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
 '''  <param name="textstr">[in] - text string to be set on the line</param>
@@ -207,6 +209,7 @@ Public Shared Function pixSetTextline(
 	If IsNothing (textstr) then Throw New ArgumentNullException  ("textstr cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixSetTextline( pixs.Pointer, bmf.Pointer, textstr, val, x0, y0, pwidth, poverflow)
+
 
 	Return _Result
 End Function
@@ -236,7 +239,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaAddTextNumber/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaAddTextNumber/*"/>
 '''  <param name="pixas">[in] - input pixa colormap ok</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
 '''  <param name="na">[in][optional] - number array use 1 ... n if null</param>
@@ -256,6 +259,7 @@ Public Shared Function pixaAddTextNumber(
 	Dim naPTR As IntPtr = IntPtr.Zero : If Not IsNothing(na) Then naPTR = na.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaAddTextNumber( pixas.Pointer, bmf.Pointer, naPTR, val, location)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -289,7 +293,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaAddTextlines/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaAddTextlines/*"/>
 '''  <param name="pixas">[in] - input pixa colormap ok</param>
 '''  <param name="bmf">[in] - bitmap font data</param>
 '''  <param name="sa">[in][optional] - sarray use text embedded in each pix if null</param>
@@ -309,6 +313,7 @@ Public Shared Function pixaAddTextlines(
 	Dim saPTR As IntPtr = IntPtr.Zero : If Not IsNothing(sa) Then saPTR = sa.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixaAddTextlines( pixas.Pointer, bmf.Pointer, saPTR, val, location)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pixa(_Result)
@@ -340,7 +345,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixaAddPixWithText/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaAddPixWithText/*"/>
 '''  <param name="pixa">[in] - </param>
 '''  <param name="pixs">[in] - any depth, colormap ok</param>
 '''  <param name="reduction">[in] - integer subsampling factor</param>
@@ -367,6 +372,7 @@ Public Shared Function pixaAddPixWithText(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixaAddPixWithText( pixa.Pointer, pixs.Pointer, reduction, bmfPTR, textstr, val, location)
 
+
 	Return _Result
 End Function
 
@@ -381,7 +387,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/bmfGetLineStrings/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bmfGetLineStrings/*"/>
 '''  <param name="bmf">[in] - </param>
 '''  <param name="textstr">[in] - </param>
 '''  <param name="maxw">[in] - max width of a text line in pixels</param>
@@ -399,6 +405,7 @@ Public Shared Function bmfGetLineStrings(
 	If IsNothing (textstr) then Throw New ArgumentNullException  ("textstr cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.bmfGetLineStrings( bmf.Pointer, textstr, maxw, firstindent, ph)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -409,7 +416,7 @@ End Function
 ' bmfGetWordWidths(L_BMF *, const char *, SARRAY *) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/bmfGetWordWidths/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bmfGetWordWidths/*"/>
 '''  <param name="bmf">[in] - </param>
 '''  <param name="textstr">[in] - </param>
 '''  <param name="sa">[in] - of individual words</param>
@@ -424,6 +431,7 @@ Public Shared Function bmfGetWordWidths(
 	If IsNothing (sa) then Throw New ArgumentNullException  ("sa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.bmfGetWordWidths( bmf.Pointer, textstr, sa.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -434,7 +442,7 @@ End Function
 ' bmfGetStringWidth(L_BMF *, const char *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/bmfGetStringWidth/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bmfGetStringWidth/*"/>
 '''  <param name="bmf">[in] - </param>
 '''  <param name="textstr">[in] - </param>
 '''  <param name="pw">[out] - width of text string, in pixels for the font represented by the bmf</param>
@@ -449,6 +457,7 @@ Public Shared Function bmfGetStringWidth(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.bmfGetStringWidth( bmf.Pointer, textstr, pw)
 
+
 	Return _Result
 End Function
 
@@ -457,7 +466,7 @@ End Function
 ' splitStringToParagraphs(char *, l_int32) as SARRAY *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/splitStringToParagraphs/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/splitStringToParagraphs/*"/>
 '''  <param name="textstr">[in] - text string</param>
 '''  <param name="splitflag">[in] - see enum in bmf.h valid values in {1,2,3}</param>
 '''   <returns>sarray where each string is a paragraph of the input, or NULL on error.</returns>
@@ -468,6 +477,7 @@ Public Shared Function splitStringToParagraphs(
 	If IsNothing (textstr) then Throw New ArgumentNullException  ("textstr cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.splitStringToParagraphs( textstr, splitflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)

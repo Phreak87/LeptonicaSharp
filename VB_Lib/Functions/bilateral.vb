@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\bilateral.c (150, 1)
 ' pixBilateral(pixs, spatial_stdev, range_stdev, ncomps, reduction) as Pix
 ' pixBilateral(PIX *, l_float32, l_float32, l_int32, l_int32) as PIX *
@@ -58,7 +57,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBilateral/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBilateral/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb, no colormap</param>
 '''  <param name="spatial_stdev">[in] - of gaussian kernel in pixels,  is greater  0.5</param>
 '''  <param name="range_stdev">[in] - of gaussian range kernel  is greater  5.0 typ. 50.0</param>
@@ -77,6 +76,7 @@ Public Shared Function pixBilateral(
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("1, 2 or 4")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBilateral( pixs.Pointer, spatial_stdev, range_stdev, ncomps, reduction)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -94,7 +94,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBilateralGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBilateralGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray</param>
 '''  <param name="spatial_stdev">[in] - of gaussian kernel in pixels,  is greater  0.5</param>
 '''  <param name="range_stdev">[in] - of gaussian range kernel  is greater  5.0 typ. 50.0</param>
@@ -113,6 +113,7 @@ Public Shared Function pixBilateralGray(
 	If reduction > 2 and reduction < 16 then Throw New ArgumentException ("1, 2 or 4")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBilateralGray( pixs.Pointer, spatial_stdev, range_stdev, ncomps, reduction)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -140,7 +141,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBilateralExact/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBilateralExact/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="spatial_kel">[in] - gaussian kernel</param>
 '''  <param name="range_kel">[in][optional] - 256 x 1, monotonically decreasing</param>
@@ -156,6 +157,7 @@ Public Shared Function pixBilateralExact(
 	Dim range_kelPTR As IntPtr = IntPtr.Zero : If Not IsNothing(range_kel) Then range_kelPTR = range_kel.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBilateralExact( pixs.Pointer, spatial_kel.Pointer, range_kelPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -171,7 +173,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBilateralGrayExact/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBilateralGrayExact/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray</param>
 '''  <param name="spatial_kel">[in] - gaussian kernel</param>
 '''  <param name="range_kel">[in][optional] - 256 x 1, monotonically decreasing</param>
@@ -187,6 +189,7 @@ Public Shared Function pixBilateralGrayExact(
 	Dim range_kelPTR As IntPtr = IntPtr.Zero : If Not IsNothing(range_kel) Then range_kelPTR = range_kel.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBilateralGrayExact( pixs.Pointer, spatial_kel.Pointer, range_kelPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -229,7 +232,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBlockBilateralExact/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlockBilateralExact/*"/>
 '''  <param name="pixs">[in] - 8 bpp gray or 32 bpp rgb</param>
 '''  <param name="spatial_stdev">[in] - is greater  0.0</param>
 '''  <param name="range_stdev">[in] - is greater  0.0</param>
@@ -242,6 +245,7 @@ Public Shared Function pixBlockBilateralExact(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBlockBilateralExact( pixs.Pointer, spatial_stdev, range_stdev)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -263,13 +267,14 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/makeRangeKernel/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makeRangeKernel/*"/>
 '''  <param name="range_stdev">[in] - is greater  0</param>
 '''   <returns>kel, or NULL on error</returns>
 Public Shared Function makeRangeKernel(
 				 ByVal range_stdev as Single) as L_Kernel
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.makeRangeKernel( range_stdev)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new L_Kernel(_Result)

@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\colorspace.c (134, 1)
 ' pixConvertRGBToHSV(pixd, pixs) as Pix
 ' pixConvertRGBToHSV(PIX *, PIX *) as PIX *
@@ -39,7 +38,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToHSV/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToHSV/*"/>
 '''  <param name="pixd">[in]can be NULL - if not NULL, must == pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd always</returns>
@@ -52,6 +51,7 @@ Public Shared Function pixConvertRGBToHSV(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToHSV( pixdPTR, pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -75,7 +75,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertHSVToRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertHSVToRGB/*"/>
 '''  <param name="pixd">[in]can be NULL - if not NULL, must == pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd always</returns>
@@ -88,6 +88,7 @@ Public Shared Function pixConvertHSVToRGB(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertHSVToRGB( pixdPTR, pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -119,7 +120,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertRGBToHSV/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertRGBToHSV/*"/>
 '''  <param name="rval">[in] - RGB input</param>
 '''  <param name="gval">[in] - RGB input</param>
 '''  <param name="bval">[in] - RGB input</param>
@@ -137,6 +138,7 @@ Public Shared Function convertRGBToHSV(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertRGBToHSV( rval, gval, bval, phval, psval, pvval)
 
+
 	Return _Result
 End Function
 
@@ -151,7 +153,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertHSVToRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertHSVToRGB/*"/>
 '''  <param name="hval">[in] - </param>
 '''  <param name="sval">[in] - </param>
 '''  <param name="vval">[in] - </param>
@@ -169,6 +171,7 @@ Public Shared Function convertHSVToRGB(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertHSVToRGB( hval, sval, vval, prval, pgval, pbval)
 
+
 	Return _Result
 End Function
 
@@ -183,7 +186,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixcmapConvertRGBToHSV/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixcmapConvertRGBToHSV/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcmapConvertRGBToHSV(
@@ -192,6 +195,7 @@ Public Shared Function pixcmapConvertRGBToHSV(
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixcmapConvertRGBToHSV( cmap.Pointer)
+
 
 	Return _Result
 End Function
@@ -207,7 +211,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixcmapConvertHSVToRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixcmapConvertHSVToRGB/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcmapConvertHSVToRGB(
@@ -216,6 +220,7 @@ Public Shared Function pixcmapConvertHSVToRGB(
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixcmapConvertHSVToRGB( cmap.Pointer)
+
 
 	Return _Result
 End Function
@@ -236,7 +241,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToHue/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToHue/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB or 8 bpp with colormap</param>
 '''   <returns>pixd 8 bpp hue of HSV, or NULL on error</returns>
 Public Shared Function pixConvertRGBToHue(
@@ -245,6 +250,7 @@ Public Shared Function pixConvertRGBToHue(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToHue( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -265,7 +271,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToSaturation/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToSaturation/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB or 8 bpp with colormap</param>
 '''   <returns>pixd 8 bpp sat of HSV, or NULL on error</returns>
 Public Shared Function pixConvertRGBToSaturation(
@@ -274,6 +280,7 @@ Public Shared Function pixConvertRGBToSaturation(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToSaturation( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -294,7 +301,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToValue/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToValue/*"/>
 '''  <param name="pixs">[in] - 32 bpp RGB or 8 bpp with colormap</param>
 '''   <returns>pixd 8 bpp max component intensity of HSV, or NULL on error</returns>
 Public Shared Function pixConvertRGBToValue(
@@ -303,6 +310,7 @@ Public Shared Function pixConvertRGBToValue(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToValue( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -326,7 +334,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMakeRangeMaskHS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMakeRangeMaskHS/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="huecenter">[in] - center value of hue range</param>
 '''  <param name="huehw">[in] - half-width of hue range</param>
@@ -347,6 +355,7 @@ Public Shared Function pixMakeRangeMaskHS(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMakeRangeMaskHS( pixs.Pointer, huecenter, huehw, satcenter, sathw, regionflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -370,7 +379,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMakeRangeMaskHV/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMakeRangeMaskHV/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="huecenter">[in] - center value of hue range</param>
 '''  <param name="huehw">[in] - half-width of hue range</param>
@@ -391,6 +400,7 @@ Public Shared Function pixMakeRangeMaskHV(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMakeRangeMaskHV( pixs.Pointer, huecenter, huehw, valcenter, valhw, regionflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -413,7 +423,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMakeRangeMaskSV/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMakeRangeMaskSV/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="satcenter">[in] - center value of saturation range</param>
 '''  <param name="sathw">[in] - half-width of saturation range</param>
@@ -434,6 +444,7 @@ Public Shared Function pixMakeRangeMaskSV(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMakeRangeMaskSV( pixs.Pointer, satcenter, sathw, valcenter, valhw, regionflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -455,7 +466,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMakeHistoHS/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMakeHistoHS/*"/>
 '''  <param name="pixs">[in] - HSV colorspace</param>
 '''  <param name="factor">[in] - subsampling factor integer</param>
 '''  <param name="pnahue">[out][optional] - hue histogram</param>
@@ -473,9 +484,12 @@ Dim pnahuePTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnahue) Then pnahuePTR 
 Dim pnasatPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnasat) Then pnasatPTR = pnasat.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMakeHistoHS( pixs.Pointer, factor, pnahuePTR, pnasatPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if pnahuePTR <> IntPtr.Zero then pnahue = new Numa(pnahuePTR)
-	if pnasatPTR <> IntPtr.Zero then pnasat = new Numa(pnasatPTR)
+If pnahuePTR = IntPtr.Zero Then pnahue = Nothing
+If pnahuePTR <> IntPtr.Zero Then pnahue = New Numa(pnahuePTR)
+If pnasatPTR = IntPtr.Zero Then pnasat = Nothing
+If pnasatPTR <> IntPtr.Zero Then pnasat = New Numa(pnasatPTR)
 
 	Return  new Pix(_Result)
 End Function
@@ -496,7 +510,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMakeHistoHV/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMakeHistoHV/*"/>
 '''  <param name="pixs">[in] - HSV colorspace</param>
 '''  <param name="factor">[in] - subsampling factor integer</param>
 '''  <param name="pnahue">[out][optional] - hue histogram</param>
@@ -514,9 +528,12 @@ Dim pnahuePTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnahue) Then pnahuePTR 
 Dim pnavalPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaval) Then pnavalPTR = pnaval.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMakeHistoHV( pixs.Pointer, factor, pnahuePTR, pnavalPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if pnahuePTR <> IntPtr.Zero then pnahue = new Numa(pnahuePTR)
-	if pnavalPTR <> IntPtr.Zero then pnaval = new Numa(pnavalPTR)
+If pnahuePTR = IntPtr.Zero Then pnahue = Nothing
+If pnahuePTR <> IntPtr.Zero Then pnahue = New Numa(pnahuePTR)
+If pnavalPTR = IntPtr.Zero Then pnaval = Nothing
+If pnavalPTR <> IntPtr.Zero Then pnaval = New Numa(pnavalPTR)
 
 	Return  new Pix(_Result)
 End Function
@@ -537,7 +554,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixMakeHistoSV/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixMakeHistoSV/*"/>
 '''  <param name="pixs">[in] - HSV colorspace</param>
 '''  <param name="factor">[in] - subsampling factor integer</param>
 '''  <param name="pnasat">[out][optional] - sat histogram</param>
@@ -555,9 +572,12 @@ Dim pnasatPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnasat) Then pnasatPTR 
 Dim pnavalPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaval) Then pnavalPTR = pnaval.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixMakeHistoSV( pixs.Pointer, factor, pnasatPTR, pnavalPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if pnasatPTR <> IntPtr.Zero then pnasat = new Numa(pnasatPTR)
-	if pnavalPTR <> IntPtr.Zero then pnaval = new Numa(pnavalPTR)
+If pnasatPTR = IntPtr.Zero Then pnasat = Nothing
+If pnasatPTR <> IntPtr.Zero Then pnasat = New Numa(pnasatPTR)
+If pnavalPTR = IntPtr.Zero Then pnaval = Nothing
+If pnavalPTR <> IntPtr.Zero Then pnaval = New Numa(pnavalPTR)
 
 	Return  new Pix(_Result)
 End Function
@@ -583,7 +603,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFindHistoPeaksHSV/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindHistoPeaksHSV/*"/>
 '''  <param name="pixs">[in] - 32 bpp HS, HV or SV histogram not changed</param>
 '''  <param name="type">[in] - L_HS_HISTO, L_HV_HISTO or L_SV_HISTO</param>
 '''  <param name="width">[in] - half width of sliding window</param>
@@ -612,9 +632,13 @@ Public Shared Function pixFindHistoPeaksHSV(
 Dim ppixaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(ppixa) Then ppixaPTR = ppixa.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixFindHistoPeaksHSV( pixs.Pointer, type, width, height, npeaks, erasefactor, pptaPTR, pnatotPTR, ppixaPTR)
-	if pptaPTR <> IntPtr.Zero then ppta = new Pta(pptaPTR)
-	if pnatotPTR <> IntPtr.Zero then pnatot = new Numa(pnatotPTR)
-	if ppixaPTR <> IntPtr.Zero then ppixa = new Pixa(ppixaPTR)
+
+If pptaPTR = IntPtr.Zero Then ppta = Nothing
+If pptaPTR <> IntPtr.Zero Then ppta = New Pta(pptaPTR)
+If pnatotPTR = IntPtr.Zero Then pnatot = Nothing
+If pnatotPTR <> IntPtr.Zero Then pnatot = New Numa(pnatotPTR)
+If ppixaPTR = IntPtr.Zero Then ppixa = Nothing
+If ppixaPTR <> IntPtr.Zero Then ppixa = New Pixa(ppixaPTR)
 
 	Return _Result
 End Function
@@ -630,7 +654,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/displayHSVColorRange/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/displayHSVColorRange/*"/>
 '''  <param name="hval">[in] - hue center value in range [0 ... 240]</param>
 '''  <param name="sval">[in] - saturation center value in range [0 ... 255]</param>
 '''  <param name="vval">[in] - max intensity value in range [0 ... 255]</param>
@@ -649,6 +673,7 @@ Public Shared Function displayHSVColorRange(
 				 ByVal factor as Integer) as Pix
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.displayHSVColorRange( hval, sval, vval, huehw, sathw, nsamp, factor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -683,7 +708,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToYUV/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToYUV/*"/>
 '''  <param name="pixd">[in]can be NULL - if not NULL, must == pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd always</returns>
@@ -696,6 +721,7 @@ Public Shared Function pixConvertRGBToYUV(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToYUV( pixdPTR, pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -718,7 +744,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertYUVToRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertYUVToRGB/*"/>
 '''  <param name="pixd">[in]can be NULL - if not NULL, must == pixs</param>
 '''  <param name="pixs">[in] - </param>
 '''   <returns>pixd always</returns>
@@ -731,6 +757,7 @@ Public Shared Function pixConvertYUVToRGB(
 	Dim pixdPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixd) Then pixdPTR = pixd.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertYUVToRGB( pixdPTR, pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -749,7 +776,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertRGBToYUV/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertRGBToYUV/*"/>
 '''  <param name="rval">[in] - RGB input</param>
 '''  <param name="gval">[in] - RGB input</param>
 '''  <param name="bval">[in] - RGB input</param>
@@ -766,6 +793,7 @@ Public Shared Function convertRGBToYUV(
 				<Out()> ByRef pvval as Integer) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertRGBToYUV( rval, gval, bval, pyval, puval, pvval)
+
 
 	Return _Result
 End Function
@@ -789,7 +817,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertYUVToRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertYUVToRGB/*"/>
 '''  <param name="yval">[in] - </param>
 '''  <param name="uval">[in] - </param>
 '''  <param name="vval">[in] - </param>
@@ -807,6 +835,7 @@ Public Shared Function convertYUVToRGB(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertYUVToRGB( yval, uval, vval, prval, pgval, pbval)
 
+
 	Return _Result
 End Function
 
@@ -821,7 +850,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixcmapConvertRGBToYUV/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixcmapConvertRGBToYUV/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcmapConvertRGBToYUV(
@@ -830,6 +859,7 @@ Public Shared Function pixcmapConvertRGBToYUV(
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixcmapConvertRGBToYUV( cmap.Pointer)
+
 
 	Return _Result
 End Function
@@ -845,7 +875,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixcmapConvertYUVToRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixcmapConvertYUVToRGB/*"/>
 '''  <param name="cmap">[in] - colormap</param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function pixcmapConvertYUVToRGB(
@@ -854,6 +884,7 @@ Public Shared Function pixcmapConvertYUVToRGB(
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixcmapConvertYUVToRGB( cmap.Pointer)
+
 
 	Return _Result
 End Function
@@ -887,7 +918,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToXYZ/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToXYZ/*"/>
 '''  <param name="pixs">[in] - rgb</param>
 '''   <returns>fpixa xyz</returns>
 Public Shared Function pixConvertRGBToXYZ(
@@ -896,6 +927,7 @@ Public Shared Function pixConvertRGBToXYZ(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToXYZ( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FPixa(_Result)
@@ -914,7 +946,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixaConvertXYZToRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaConvertXYZToRGB/*"/>
 '''  <param name="fpixa">[in] - three fpix: x,y,z</param>
 '''   <returns>pixd rgb</returns>
 Public Shared Function fpixaConvertXYZToRGB(
@@ -923,6 +955,7 @@ Public Shared Function fpixaConvertXYZToRGB(
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixaConvertXYZToRGB( fpixa.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -939,7 +972,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertRGBToXYZ/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertRGBToXYZ/*"/>
 '''  <param name="rval">[in] - rgb input</param>
 '''  <param name="gval">[in] - rgb input</param>
 '''  <param name="bval">[in] - rgb input</param>
@@ -956,6 +989,7 @@ Public Shared Function convertRGBToXYZ(
 				<Out()> ByRef pfzval as Single) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertRGBToXYZ( rval, gval, bval, pfxval, pfyval, pfzval)
+
 
 	Return _Result
 End Function
@@ -975,7 +1009,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertXYZToRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertXYZToRGB/*"/>
 '''  <param name="fxval">[in] - </param>
 '''  <param name="fyval">[in] - </param>
 '''  <param name="fzval">[in] - </param>
@@ -994,6 +1028,7 @@ Public Shared Function convertXYZToRGB(
 				<Out()> ByRef pbval as Integer) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertXYZToRGB( fxval, fyval, fzval, blackout, prval, pgval, pbval)
+
 
 	Return _Result
 End Function
@@ -1017,7 +1052,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixaConvertXYZToLAB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaConvertXYZToLAB/*"/>
 '''  <param name="fpixas">[in] - xyz</param>
 '''   <returns>fpixa lab</returns>
 Public Shared Function fpixaConvertXYZToLAB(
@@ -1026,6 +1061,7 @@ Public Shared Function fpixaConvertXYZToLAB(
 	If IsNothing (fpixas) then Throw New ArgumentNullException  ("fpixas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixaConvertXYZToLAB( fpixas.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FPixa(_Result)
@@ -1042,7 +1078,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixaConvertLABToXYZ/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaConvertLABToXYZ/*"/>
 '''  <param name="fpixas">[in] - lab</param>
 '''   <returns>fpixa xyz</returns>
 Public Shared Function fpixaConvertLABToXYZ(
@@ -1051,6 +1087,7 @@ Public Shared Function fpixaConvertLABToXYZ(
 	If IsNothing (fpixas) then Throw New ArgumentNullException  ("fpixas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixaConvertLABToXYZ( fpixas.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FPixa(_Result)
@@ -1061,7 +1098,7 @@ End Function
 ' convertXYZToLAB(l_float32, l_float32, l_float32, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertXYZToLAB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertXYZToLAB/*"/>
 '''  <param name="xval">[in] - xyz input</param>
 '''  <param name="yval">[in] - xyz input</param>
 '''  <param name="zval">[in] - xyz input</param>
@@ -1079,6 +1116,7 @@ Public Shared Function convertXYZToLAB(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertXYZToLAB( xval, yval, zval, plval, paval, pbval)
 
+
 	Return _Result
 End Function
 
@@ -1087,7 +1125,7 @@ End Function
 ' convertLABToXYZ(l_float32, l_float32, l_float32, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertLABToXYZ/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertLABToXYZ/*"/>
 '''  <param name="lval">[in] - </param>
 '''  <param name="aval">[in] - </param>
 '''  <param name="bval">[in] - </param>
@@ -1105,6 +1143,7 @@ Public Shared Function convertLABToXYZ(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertLABToXYZ( lval, aval, bval, pxval, pyval, pzval)
 
+
 	Return _Result
 End Function
 
@@ -1119,7 +1158,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixConvertRGBToLAB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixConvertRGBToLAB/*"/>
 '''  <param name="pixs">[in] - rgb</param>
 '''   <returns>fpixa lab</returns>
 Public Shared Function pixConvertRGBToLAB(
@@ -1128,6 +1167,7 @@ Public Shared Function pixConvertRGBToLAB(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixConvertRGBToLAB( pixs.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new FPixa(_Result)
@@ -1143,7 +1183,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/fpixaConvertLABToRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaConvertLABToRGB/*"/>
 '''  <param name="fpixa">[in] - three fpix: l,a,b</param>
 '''   <returns>pixd rgb</returns>
 Public Shared Function fpixaConvertLABToRGB(
@@ -1152,6 +1192,7 @@ Public Shared Function fpixaConvertLABToRGB(
 	If IsNothing (fpixa) then Throw New ArgumentNullException  ("fpixa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.fpixaConvertLABToRGB( fpixa.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1168,7 +1209,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertRGBToLAB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertRGBToLAB/*"/>
 '''  <param name="rval">[in] - rgb input</param>
 '''  <param name="gval">[in] - rgb input</param>
 '''  <param name="bval">[in] - rgb input</param>
@@ -1186,6 +1227,7 @@ Public Shared Function convertRGBToLAB(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertRGBToLAB( rval, gval, bval, pflval, pfaval, pfbval)
 
+
 	Return _Result
 End Function
 
@@ -1200,7 +1242,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/convertLABToRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertLABToRGB/*"/>
 '''  <param name="flval">[in] - </param>
 '''  <param name="faval">[in] - </param>
 '''  <param name="fbval">[in] - </param>
@@ -1217,6 +1259,7 @@ Public Shared Function convertLABToRGB(
 				<Out()> ByRef pbval as Integer) as Integer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.convertLABToRGB( flval, faval, fbval, prval, pgval, pbval)
+
 
 	Return _Result
 End Function

@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\numafunc2.c (165, 1)
 ' numaErode(nas, size) as Numa
 ' numaErode(NUMA *, l_int32) as NUMA *
@@ -23,7 +22,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaErode/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaErode/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 '''   <returns>nad eroded, or NULL on error</returns>
@@ -34,6 +33,7 @@ Public Shared Function numaErode(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaErode( nas.Pointer, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -51,7 +51,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaDilate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaDilate/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 '''   <returns>nad dilated, or NULL on error</returns>
@@ -62,6 +62,7 @@ Public Shared Function numaDilate(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaDilate( nas.Pointer, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -79,7 +80,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaOpen/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaOpen/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 '''   <returns>nad opened, or NULL on error</returns>
@@ -90,6 +91,7 @@ Public Shared Function numaOpen(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaOpen( nas.Pointer, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -114,7 +116,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaClose/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaClose/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 '''   <returns>nad opened, or NULL on error</returns>
@@ -125,6 +127,7 @@ Public Shared Function numaClose(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaClose( nas.Pointer, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -140,7 +143,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaTransform/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaTransform/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="shift">[in] - add this to each number</param>
 '''  <param name="scale">[in] - multiply each number by this</param>
@@ -153,6 +156,7 @@ Public Shared Function numaTransform(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaTransform( nas.Pointer, shift, scale)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -163,7 +167,7 @@ End Function
 ' numaSimpleStats(NUMA *, l_int32, l_int32, l_float32 *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaSimpleStats/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaSimpleStats/*"/>
 '''  <param name="na">[in] - input numa</param>
 '''  <param name="first">[in] - first element to use</param>
 '''  <param name="last">[in] - last element to use 0 to go to the end</param>
@@ -182,6 +186,7 @@ Public Shared Function numaSimpleStats(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaSimpleStats( na.Pointer, first, last, pmean, pvar, prvar)
+
 
 	Return _Result
 End Function
@@ -214,7 +219,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaWindowedStats/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaWindowedStats/*"/>
 '''  <param name="nas">[in] - input numa</param>
 '''  <param name="wc">[in] - half width of the window</param>
 '''  <param name="pnam">[out][optional] - mean value in window</param>
@@ -238,10 +243,15 @@ Dim pnavPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnav) Then pnavPTR = pnav
 Dim pnarvPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnarv) Then pnarvPTR = pnarv.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaWindowedStats( nas.Pointer, wc, pnamPTR, pnamsPTR, pnavPTR, pnarvPTR)
-	if pnamPTR <> IntPtr.Zero then pnam = new Numa(pnamPTR)
-	if pnamsPTR <> IntPtr.Zero then pnams = new Numa(pnamsPTR)
-	if pnavPTR <> IntPtr.Zero then pnav = new Numa(pnavPTR)
-	if pnarvPTR <> IntPtr.Zero then pnarv = new Numa(pnarvPTR)
+
+If pnamPTR = IntPtr.Zero Then pnam = Nothing
+If pnamPTR <> IntPtr.Zero Then pnam = New Numa(pnamPTR)
+If pnamsPTR = IntPtr.Zero Then pnams = Nothing
+If pnamsPTR <> IntPtr.Zero Then pnams = New Numa(pnamsPTR)
+If pnavPTR = IntPtr.Zero Then pnav = Nothing
+If pnavPTR <> IntPtr.Zero Then pnav = New Numa(pnavPTR)
+If pnarvPTR = IntPtr.Zero Then pnarv = Nothing
+If pnarvPTR <> IntPtr.Zero Then pnarv = New Numa(pnarvPTR)
 
 	Return _Result
 End Function
@@ -258,7 +268,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaWindowedMean/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaWindowedMean/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="wc">[in] - half width of the convolution window</param>
 '''   <returns>nad after low-pass filtering, or NULL on error</returns>
@@ -269,6 +279,7 @@ Public Shared Function numaWindowedMean(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaWindowedMean( nas.Pointer, wc)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -286,7 +297,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaWindowedMeanSquare/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaWindowedMeanSquare/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="wc">[in] - half width of the window</param>
 '''   <returns>nad containing windowed mean square values, or NULL on error</returns>
@@ -297,6 +308,7 @@ Public Shared Function numaWindowedMeanSquare(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaWindowedMeanSquare( nas.Pointer, wc)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -319,7 +331,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaWindowedVariance/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaWindowedVariance/*"/>
 '''  <param name="nam">[in] - windowed mean values</param>
 '''  <param name="nams">[in] - windowed mean square values</param>
 '''  <param name="pnav">[out][optional] - numa of variance -- the ms deviation from the mean</param>
@@ -338,8 +350,11 @@ Dim pnavPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnav) Then pnavPTR = pnav
 Dim pnarvPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnarv) Then pnarvPTR = pnarv.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaWindowedVariance( nam.Pointer, nams.Pointer, pnavPTR, pnarvPTR)
-	if pnavPTR <> IntPtr.Zero then pnav = new Numa(pnavPTR)
-	if pnarvPTR <> IntPtr.Zero then pnarv = new Numa(pnarvPTR)
+
+If pnavPTR = IntPtr.Zero Then pnav = Nothing
+If pnavPTR <> IntPtr.Zero Then pnav = New Numa(pnavPTR)
+If pnarvPTR = IntPtr.Zero Then pnarv = Nothing
+If pnarvPTR <> IntPtr.Zero Then pnarv = New Numa(pnarvPTR)
 
 	Return _Result
 End Function
@@ -363,7 +378,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaWindowedMedian/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaWindowedMedian/*"/>
 '''  <param name="nas">[in] - </param>
 '''  <param name="halfwin">[in] - half width of window over which the median is found</param>
 '''   <returns>nad after windowed median filtering, or NULL on error</returns>
@@ -374,6 +389,7 @@ Public Shared Function numaWindowedMedian(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaWindowedMedian( nas.Pointer, halfwin)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -384,7 +400,7 @@ End Function
 ' numaConvertToInt(NUMA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaConvertToInt/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaConvertToInt/*"/>
 '''  <param name="nas">[in] - source numa</param>
 '''   <returns>na with all values rounded to nearest integer, or NULL on error</returns>
 Public Shared Function numaConvertToInt(
@@ -393,6 +409,7 @@ Public Shared Function numaConvertToInt(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaConvertToInt( nas.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -420,7 +437,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaMakeHistogram/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaMakeHistogram/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="maxbins">[in] - max number of histogram bins</param>
 '''  <param name="pbinsize">[out] - size of histogram bins</param>
@@ -435,6 +452,7 @@ Public Shared Function numaMakeHistogram(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaMakeHistogram( na.Pointer, maxbins, pbinsize, pbinstart)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -462,7 +480,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaMakeHistogramAuto/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaMakeHistogramAuto/*"/>
 '''  <param name="na">[in] - numa of floats these may be integers</param>
 '''  <param name="maxbins">[in] - max number of histogram bins greater or equal 1</param>
 '''   <returns>na consisiting of histogram of quantized float values, or NULL on error.</returns>
@@ -473,6 +491,7 @@ Public Shared Function numaMakeHistogramAuto(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaMakeHistogramAuto( na.Pointer, maxbins)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -493,7 +512,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaMakeHistogramClipped/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaMakeHistogramClipped/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="binsize">[in] - typically 1.0</param>
 '''  <param name="maxsize">[in] - of histogram ordinate</param>
@@ -506,6 +525,7 @@ Public Shared Function numaMakeHistogramClipped(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaMakeHistogramClipped( na.Pointer, binsize, maxsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -516,7 +536,7 @@ End Function
 ' numaRebinHistogram(NUMA *, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaRebinHistogram/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaRebinHistogram/*"/>
 '''  <param name="nas">[in] - input histogram</param>
 '''  <param name="newsize">[in] - number of old bins contained in each new bin</param>
 '''   <returns>nad more coarsely re-binned histogram, or NULL on error</returns>
@@ -527,6 +547,7 @@ Public Shared Function numaRebinHistogram(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaRebinHistogram( nas.Pointer, newsize)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -537,7 +558,7 @@ End Function
 ' numaNormalizeHistogram(NUMA *, l_float32) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaNormalizeHistogram/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaNormalizeHistogram/*"/>
 '''  <param name="nas">[in] - input histogram</param>
 '''  <param name="tsum">[in] - target sum of all numbers in dest histogram e.g., use %tsum= 1.0 if this represents a probability distribution</param>
 '''   <returns>nad normalized histogram, or NULL on error</returns>
@@ -548,6 +569,7 @@ Public Shared Function numaNormalizeHistogram(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaNormalizeHistogram( nas.Pointer, tsum)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -592,7 +614,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetStatsUsingHistogram/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetStatsUsingHistogram/*"/>
 '''  <param name="na">[in] - an arbitrary set of numbers not ordered and not a histogram</param>
 '''  <param name="maxbins">[in] - the maximum number of bins to be allowed in the histogram use an integer larger than the largest number in %na for consecutive integer bins</param>
 '''  <param name="pmin">[out][optional] - min value of set</param>
@@ -621,7 +643,9 @@ Public Shared Function numaGetStatsUsingHistogram(
 Dim phistoPTR As IntPtr = IntPtr.Zero : If Not IsNothing(phisto) Then phistoPTR = phisto.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetStatsUsingHistogram( na.Pointer, maxbins, pmin, pmax, pmean, pvariance, pmedian, rank, prval, phistoPTR)
-	if phistoPTR <> IntPtr.Zero then phisto = new Numa(phistoPTR)
+
+If phistoPTR = IntPtr.Zero Then phisto = Nothing
+If phistoPTR <> IntPtr.Zero Then phisto = New Numa(phistoPTR)
 
 	Return _Result
 End Function
@@ -640,7 +664,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetHistogramStats/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetHistogramStats/*"/>
 '''  <param name="nahisto">[in] - histogram: y(x(i)), i = 0 ... nbins - 1</param>
 '''  <param name="startx">[in] - x value of first bin: x(0)</param>
 '''  <param name="deltax">[in] - x increment between bins the bin size x(1) - x(0)</param>
@@ -662,6 +686,7 @@ Public Shared Function numaGetHistogramStats(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetHistogramStats( nahisto.Pointer, startx, deltax, pxmean, pxmedian, pxmode, pxvariance)
 
+
 	Return _Result
 End Function
 
@@ -679,7 +704,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetHistogramStatsOnInterval/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetHistogramStatsOnInterval/*"/>
 '''  <param name="nahisto">[in] - histogram: y(x(i)), i = 0 ... nbins - 1</param>
 '''  <param name="startx">[in] - x value of first bin: x(0)</param>
 '''  <param name="deltax">[in] - x increment between bins the bin size x(1) - x(0)</param>
@@ -705,6 +730,7 @@ Public Shared Function numaGetHistogramStatsOnInterval(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetHistogramStatsOnInterval( nahisto.Pointer, startx, deltax, ifirst, ilast, pxmean, pxmedian, pxmode, pxvariance)
 
+
 	Return _Result
 End Function
 
@@ -713,7 +739,7 @@ End Function
 ' numaMakeRankFromHistogram(l_float32, l_float32, NUMA *, l_int32, NUMA **, NUMA **) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaMakeRankFromHistogram/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaMakeRankFromHistogram/*"/>
 '''  <param name="startx">[in] - xval corresponding to first element in nay</param>
 '''  <param name="deltax">[in] - x increment between array elements in nay</param>
 '''  <param name="nasy">[in] - input histogram, assumed equally spaced</param>
@@ -735,8 +761,11 @@ Dim pnaxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnax) Then pnaxPTR = pnax
 	Dim pnayPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnay) Then pnayPTR = pnay.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaMakeRankFromHistogram( startx, deltax, nasy.Pointer, npts, pnaxPTR, pnayPTR)
-	if pnaxPTR <> IntPtr.Zero then pnax = new Numa(pnaxPTR)
-	if pnayPTR <> IntPtr.Zero then pnay = new Numa(pnayPTR)
+
+If pnaxPTR = IntPtr.Zero Then pnax = Nothing
+If pnaxPTR <> IntPtr.Zero Then pnax = New Numa(pnaxPTR)
+If pnayPTR = IntPtr.Zero Then pnay = Nothing
+If pnayPTR <> IntPtr.Zero Then pnay = New Numa(pnayPTR)
 
 	Return _Result
 End Function
@@ -762,7 +791,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaHistogramGetRankFromVal/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaHistogramGetRankFromVal/*"/>
 '''  <param name="na">[in] - histogram</param>
 '''  <param name="rval">[in] - value of input sample for which we want the rank</param>
 '''  <param name="prank">[out] - fraction of total samples below rval</param>
@@ -775,6 +804,7 @@ Public Shared Function numaHistogramGetRankFromVal(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaHistogramGetRankFromVal( na.Pointer, rval, prank)
+
 
 	Return _Result
 End Function
@@ -800,7 +830,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaHistogramGetValFromRank/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaHistogramGetValFromRank/*"/>
 '''  <param name="na">[in] - histogram</param>
 '''  <param name="rank">[in] - fraction of total samples</param>
 '''  <param name="prval">[out] - approx. to the bin value</param>
@@ -813,6 +843,7 @@ Public Shared Function numaHistogramGetValFromRank(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaHistogramGetValFromRank( na.Pointer, rank, prval)
+
 
 	Return _Result
 End Function
@@ -840,7 +871,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaDiscretizeRankAndIntensity/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaDiscretizeRankAndIntensity/*"/>
 '''  <param name="na">[in] - normalized histogram of probability density vs intensity</param>
 '''  <param name="nbins">[in] - number of bins at which the rank is divided</param>
 '''  <param name="pnarbin">[out][optional] - rank bin value vs intensity</param>
@@ -864,10 +895,15 @@ Dim pnarPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnar) Then pnarPTR = pnar
 Dim pnabbPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnabb) Then pnabbPTR = pnabb.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaDiscretizeRankAndIntensity( na.Pointer, nbins, pnarbinPTR, pnamPTR, pnarPTR, pnabbPTR)
-	if pnarbinPTR <> IntPtr.Zero then pnarbin = new Numa(pnarbinPTR)
-	if pnamPTR <> IntPtr.Zero then pnam = new Numa(pnamPTR)
-	if pnarPTR <> IntPtr.Zero then pnar = new Numa(pnarPTR)
-	if pnabbPTR <> IntPtr.Zero then pnabb = new Numa(pnabbPTR)
+
+If pnarbinPTR = IntPtr.Zero Then pnarbin = Nothing
+If pnarbinPTR <> IntPtr.Zero Then pnarbin = New Numa(pnarbinPTR)
+If pnamPTR = IntPtr.Zero Then pnam = Nothing
+If pnamPTR <> IntPtr.Zero Then pnam = New Numa(pnamPTR)
+If pnarPTR = IntPtr.Zero Then pnar = Nothing
+If pnarPTR <> IntPtr.Zero Then pnar = New Numa(pnarPTR)
+If pnabbPTR = IntPtr.Zero Then pnabb = Nothing
+If pnabbPTR <> IntPtr.Zero Then pnabb = New Numa(pnabbPTR)
 
 	Return _Result
 End Function
@@ -885,7 +921,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetRankBinValues/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetRankBinValues/*"/>
 '''  <param name="na">[in] - just an array of values</param>
 '''  <param name="nbins">[in] - number of bins at which the rank is divided</param>
 '''  <param name="pnarbin">[out][optional] - rank bin value vs array value</param>
@@ -903,8 +939,11 @@ Dim pnarbinPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnarbin) Then pnarbinP
 Dim pnamPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnam) Then pnamPTR = pnam.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetRankBinValues( na.Pointer, nbins, pnarbinPTR, pnamPTR)
-	if pnarbinPTR <> IntPtr.Zero then pnarbin = new Numa(pnarbinPTR)
-	if pnamPTR <> IntPtr.Zero then pnam = new Numa(pnamPTR)
+
+If pnarbinPTR = IntPtr.Zero Then pnarbin = Nothing
+If pnarbinPTR <> IntPtr.Zero Then pnarbin = New Numa(pnarbinPTR)
+If pnamPTR = IntPtr.Zero Then pnam = Nothing
+If pnamPTR <> IntPtr.Zero Then pnam = New Numa(pnamPTR)
 
 	Return _Result
 End Function
@@ -952,7 +991,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaSplitDistribution/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaSplitDistribution/*"/>
 '''  <param name="na">[in] - histogram</param>
 '''  <param name="scorefract">[in] - fraction of the max score, used to determine the range over which the histogram min is searched</param>
 '''  <param name="psplitindex">[out][optional] - index for splitting</param>
@@ -977,7 +1016,9 @@ Public Shared Function numaSplitDistribution(
 Dim pnascorePTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnascore) Then pnascorePTR = pnascore.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaSplitDistribution( na.Pointer, scorefract, psplitindex, pave1, pave2, pnum1, pnum2, pnascorePTR)
-	if pnascorePTR <> IntPtr.Zero then pnascore = new Numa(pnascorePTR)
+
+If pnascorePTR = IntPtr.Zero Then pnascore = Nothing
+If pnascorePTR <> IntPtr.Zero Then pnascore = New Numa(pnascorePTR)
 
 	Return _Result
 End Function
@@ -1004,7 +1045,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/grayHistogramsToEMD/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/grayHistogramsToEMD/*"/>
 '''  <param name="naa1">[in] - two numaa, each with one or more 256-element histograms</param>
 '''  <param name="naa2">[in] - two numaa, each with one or more 256-element histograms</param>
 '''  <param name="pnad">[out] - nad of EM distances for each histogram</param>
@@ -1020,7 +1061,9 @@ Public Shared Function grayHistogramsToEMD(
 	Dim pnadPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnad) Then pnadPTR = pnad.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.grayHistogramsToEMD( naa1.Pointer, naa2.Pointer, pnadPTR)
-	if pnadPTR <> IntPtr.Zero then pnad = new Numa(pnadPTR)
+
+If pnadPTR = IntPtr.Zero Then pnad = Nothing
+If pnadPTR <> IntPtr.Zero Then pnad = New Numa(pnadPTR)
 
 	Return _Result
 End Function
@@ -1053,7 +1096,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaEarthMoverDistance/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaEarthMoverDistance/*"/>
 '''  <param name="na1">[in] - two numas of the same size, typically histograms</param>
 '''  <param name="na2">[in] - two numas of the same size, typically histograms</param>
 '''  <param name="pdist">[out] - EM distance</param>
@@ -1067,6 +1110,7 @@ Public Shared Function numaEarthMoverDistance(
 	If IsNothing (na2) then Throw New ArgumentNullException  ("na2 cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaEarthMoverDistance( na1.Pointer, na2.Pointer, pdist)
+
 
 	Return _Result
 End Function
@@ -1114,7 +1158,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/grayInterHistogramStats/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/grayInterHistogramStats/*"/>
 '''  <param name="naa">[in] - numaa with two or more 256-element histograms</param>
 '''  <param name="wc">[in] - half-width of the smoothing window</param>
 '''  <param name="pnam">[out][optional] - mean values</param>
@@ -1138,10 +1182,15 @@ Dim pnavPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnav) Then pnavPTR = pnav
 Dim pnarvPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnarv) Then pnarvPTR = pnarv.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.grayInterHistogramStats( naa.Pointer, wc, pnamPTR, pnamsPTR, pnavPTR, pnarvPTR)
-	if pnamPTR <> IntPtr.Zero then pnam = new Numa(pnamPTR)
-	if pnamsPTR <> IntPtr.Zero then pnams = new Numa(pnamsPTR)
-	if pnavPTR <> IntPtr.Zero then pnav = new Numa(pnavPTR)
-	if pnarvPTR <> IntPtr.Zero then pnarv = new Numa(pnarvPTR)
+
+If pnamPTR = IntPtr.Zero Then pnam = Nothing
+If pnamPTR <> IntPtr.Zero Then pnam = New Numa(pnamPTR)
+If pnamsPTR = IntPtr.Zero Then pnams = Nothing
+If pnamsPTR <> IntPtr.Zero Then pnams = New Numa(pnamsPTR)
+If pnavPTR = IntPtr.Zero Then pnav = Nothing
+If pnavPTR <> IntPtr.Zero Then pnav = New Numa(pnavPTR)
+If pnarvPTR = IntPtr.Zero Then pnarv = Nothing
+If pnarvPTR <> IntPtr.Zero Then pnarv = New Numa(pnarvPTR)
 
 	Return _Result
 End Function
@@ -1158,7 +1207,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaFindPeaks/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaFindPeaks/*"/>
 '''  <param name="nas">[in] - source numa</param>
 '''  <param name="nmax">[in] - max number of peaks to be found</param>
 '''  <param name="fract1">[in] - min fraction of peak value</param>
@@ -1173,6 +1222,7 @@ Public Shared Function numaFindPeaks(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaFindPeaks( nas.Pointer, nmax, fract1, fract2)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -1203,7 +1253,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaFindExtrema/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaFindExtrema/*"/>
 '''  <param name="nas">[in] - input values</param>
 '''  <param name="delta">[in] - relative amount to resolve peaks and valleys</param>
 '''  <param name="pnav">[out][optional] - values of extrema</param>
@@ -1218,8 +1268,10 @@ Public Shared Function numaFindExtrema(
 Dim pnavPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnav) Then pnavPTR = pnav.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaFindExtrema( nas.Pointer, delta, pnavPTR)
+
 	If  _Result = IntPtr.Zero then Return Nothing
-	if pnavPTR <> IntPtr.Zero then pnav = new Numa(pnavPTR)
+If pnavPTR = IntPtr.Zero Then pnav = Nothing
+If pnavPTR <> IntPtr.Zero Then pnav = New Numa(pnavPTR)
 
 	Return  new Numa(_Result)
 End Function
@@ -1236,7 +1288,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaCountReversals/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaCountReversals/*"/>
 '''  <param name="nas">[in] - input values</param>
 '''  <param name="minreversal">[in] - relative amount to resolve peaks and valleys</param>
 '''  <param name="pnr">[out][optional] - number of reversals</param>
@@ -1251,6 +1303,7 @@ Public Shared Function numaCountReversals(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaCountReversals( nas.Pointer, minreversal, pnr, pnrpl)
+
 
 	Return _Result
 End Function
@@ -1276,7 +1329,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaSelectCrossingThreshold/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaSelectCrossingThreshold/*"/>
 '''  <param name="nax">[in][optional] - numa of abscissa values can be NULL</param>
 '''  <param name="nay">[in] - signal</param>
 '''  <param name="estthresh">[in] - estimated pixel threshold for crossing: e.g., for images, white  is smallerto black typ. ~120</param>
@@ -1294,6 +1347,7 @@ Public Shared Function numaSelectCrossingThreshold(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaSelectCrossingThreshold( naxPTR, nay.Pointer, estthresh, pbestthresh)
 
+
 	Return _Result
 End Function
 
@@ -1308,7 +1362,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaCrossingsByThreshold/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaCrossingsByThreshold/*"/>
 '''  <param name="nax">[in][optional] - numa of abscissa values can be NULL</param>
 '''  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 '''  <param name="thresh">[in] - threshold value for nay</param>
@@ -1323,6 +1377,7 @@ Public Shared Function numaCrossingsByThreshold(
 	Dim naxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nax) Then naxPTR = nax.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaCrossingsByThreshold( naxPTR, nay.Pointer, thresh)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -1339,7 +1394,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaCrossingsByPeaks/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaCrossingsByPeaks/*"/>
 '''  <param name="nax">[in][optional] - numa of abscissa values</param>
 '''  <param name="nay">[in] - numa of ordinate values, corresponding to nax</param>
 '''  <param name="delta">[in] - parameter used to identify when a new peak can be found</param>
@@ -1354,6 +1409,7 @@ Public Shared Function numaCrossingsByPeaks(
 	Dim naxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nax) Then naxPTR = nax.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaCrossingsByPeaks( naxPTR, nay.Pointer, delta)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -1387,7 +1443,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaEvalBestHaarParameters/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaEvalBestHaarParameters/*"/>
 '''  <param name="nas">[in] - numa of non-negative signal values</param>
 '''  <param name="relweight">[in] - relative weight of (-1 comb) / (+1 comb) contributions to the 'convolution'.  In effect, the convolution kernel is a comb consisting of alternating +1 and -weight.</param>
 '''  <param name="nwidth">[in] - number of widths to consider</param>
@@ -1412,6 +1468,7 @@ Public Shared Function numaEvalBestHaarParameters(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaEvalBestHaarParameters( nas.Pointer, relweight, nwidth, nshift, minwidth, maxwidth, pbestwidth, pbestshift, pbestscore)
+
 
 	Return _Result
 End Function
@@ -1444,7 +1501,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaEvalHaarSum/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaEvalHaarSum/*"/>
 '''  <param name="nas">[in] - numa of non-negative signal values</param>
 '''  <param name="width">[in] - distance between +1 and -1 in convolution comb</param>
 '''  <param name="shift">[in] - phase of the comb: location of first +1</param>
@@ -1461,6 +1518,7 @@ Public Shared Function numaEvalHaarSum(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaEvalHaarSum( nas.Pointer, width, shift, relweight, pscore)
+
 
 	Return _Result
 End Function
@@ -1480,7 +1538,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/genConstrainedNumaInRange/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/genConstrainedNumaInRange/*"/>
 '''  <param name="first">[in] - first number to choose greater or equal 0</param>
 '''  <param name="last">[in] - biggest possible number to reach greater or equal first</param>
 '''  <param name="nmax">[in] - maximum number of numbers to select  is greater  0</param>
@@ -1493,6 +1551,7 @@ Public Shared Function genConstrainedNumaInRange(
 				 ByVal use_pairs as Integer) as Numa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.genConstrainedNumaInRange( first, last, nmax, use_pairs)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)

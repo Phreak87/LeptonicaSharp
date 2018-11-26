@@ -70,7 +70,7 @@ Partial Public Class Sarray
     End Sub
 End Class
 Partial Public Class Pixa
-    Sub New(Count As Integer)
+    Sub New(Optional Count As Integer = 1)
         Me.New(Natives.pixaCreate(Count))
     End Sub
 End Class

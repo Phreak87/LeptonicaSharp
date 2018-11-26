@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\bilinear.c (143, 1)
 ' pixBilinearSampledPta(pixs, ptad, ptas, incolor) as Pix
 ' pixBilinearSampledPta(PIX *, PTA *, PTA *, l_int32) as PIX *
@@ -21,7 +20,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBilinearSampledPta/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBilinearSampledPta/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -38,6 +37,7 @@ Public Shared Function pixBilinearSampledPta(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBilinearSampledPta( pixs.Pointer, ptad.Pointer, ptas.Pointer, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -59,7 +59,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBilinearSampled/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBilinearSampled/*"/>
 '''  <param name="pixs">[in] - all depths</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for bilinear transformation</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -73,6 +73,7 @@ Public Shared Function pixBilinearSampled(
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBilinearSampled( pixs.Pointer, vc, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -90,7 +91,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBilinearPta/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBilinearPta/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -107,6 +108,7 @@ Public Shared Function pixBilinearPta(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBilinearPta( pixs.Pointer, ptad.Pointer, ptas.Pointer, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -124,7 +126,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBilinear/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBilinear/*"/>
 '''  <param name="pixs">[in] - all depths colormap ok</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for bilinear transformation</param>
 '''  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
@@ -138,6 +140,7 @@ Public Shared Function pixBilinear(
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBilinear( pixs.Pointer, vc, incolor)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -148,7 +151,7 @@ End Function
 ' pixBilinearPtaColor(PIX *, PTA *, PTA *, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBilinearPtaColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBilinearPtaColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -165,6 +168,7 @@ Public Shared Function pixBilinearPtaColor(
 	If IsNothing (ptas) then Throw New ArgumentNullException  ("ptas cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBilinearPtaColor( pixs.Pointer, ptad.Pointer, ptas.Pointer, colorval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -175,7 +179,7 @@ End Function
 ' pixBilinearColor(PIX *, l_float32 *, l_uint32) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBilinearColor/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBilinearColor/*"/>
 '''  <param name="pixs">[in] - 32 bpp</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for bilinear transformation</param>
 '''  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
@@ -189,6 +193,7 @@ Public Shared Function pixBilinearColor(
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBilinearColor( pixs.Pointer, vc, colorval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -199,7 +204,7 @@ End Function
 ' pixBilinearPtaGray(PIX *, PTA *, PTA *, l_uint8) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBilinearPtaGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBilinearPtaGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -219,6 +224,7 @@ Public Shared Function pixBilinearPtaGray(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBilinearPtaGray( pixs.Pointer, ptad.Pointer, ptas.Pointer, grayval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -229,7 +235,7 @@ End Function
 ' pixBilinearGray(PIX *, l_float32 *, l_uint8) as PIX *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBilinearGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBilinearGray/*"/>
 '''  <param name="pixs">[in] - 8 bpp</param>
 '''  <param name="vc">[in] - vector of 8 coefficients for bilinear transformation</param>
 '''  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
@@ -246,6 +252,7 @@ Public Shared Function pixBilinearGray(
 	If {8}.contains (pixs.d) = false then Throw New ArgumentException ("8 bpp")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBilinearGray( pixs.Pointer, vc, grayval)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -293,7 +300,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixBilinearPtaWithAlpha/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBilinearPtaWithAlpha/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="ptad">[in] - 4 pts of final coordinate space</param>
 '''  <param name="ptas">[in] - 4 pts of initial coordinate space</param>
@@ -318,6 +325,7 @@ Public Shared Function pixBilinearPtaWithAlpha(
 	Dim pixgPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pixg) Then pixgPTR = pixg.Pointer
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixBilinearPtaWithAlpha( pixs.Pointer, ptad.Pointer, ptas.Pointer, pixgPTR, fract, border)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -362,7 +370,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/getBilinearXformCoeffs/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getBilinearXformCoeffs/*"/>
 '''  <param name="ptas">[in] - source 4 points unprimed</param>
 '''  <param name="ptad">[in] - transformed 4 points primed</param>
 '''  <param name="pvc">[out] - vector of coefficients of transform</param>
@@ -379,6 +387,7 @@ Dim pvcPTR As IntPtr = Marshal.AllocHGlobal(0)
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.getBilinearXformCoeffs( ptas.Pointer, ptad.Pointer, pvcPTR)
 
+
 	Return _Result
 End Function
 
@@ -394,7 +403,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/bilinearXformSampledPt/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bilinearXformSampledPt/*"/>
 '''  <param name="vc">[in] - vector of 8 coefficients</param>
 '''  <param name="x">[in] - initial point</param>
 '''  <param name="y">[in] - initial point</param>
@@ -412,6 +421,7 @@ Public Shared Function bilinearXformSampledPt(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.bilinearXformSampledPt( vc, x, y, pxp, pyp)
 
+
 	Return _Result
 End Function
 
@@ -427,7 +437,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/bilinearXformPt/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bilinearXformPt/*"/>
 '''  <param name="vc">[in] - vector of 8 coefficients</param>
 '''  <param name="x">[in] - initial point</param>
 '''  <param name="y">[in] - initial point</param>
@@ -444,6 +454,7 @@ Public Shared Function bilinearXformPt(
 	If IsNothing (vc) then Throw New ArgumentNullException  ("vc cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.bilinearXformPt( vc, x, y, pxp, pyp)
+
 
 	Return _Result
 End Function

@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\colorquant1.c (535, 1)
 ' pixOctreeColorQuant(pixs, colors, ditherflag) as Pix
 ' pixOctreeColorQuant(PIX *, l_int32, l_int32) as PIX *
@@ -231,7 +230,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixOctreeColorQuant/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixOctreeColorQuant/*"/>
 '''  <param name="pixs">[in] - 32 bpp 24-bit color</param>
 '''  <param name="colors">[in] - in colormap some number in range [128 ... 256] the actual number of colors used will be smaller</param>
 '''  <param name="ditherflag">[in] - 1 to dither, 0 otherwise</param>
@@ -244,6 +243,7 @@ Public Shared Function pixOctreeColorQuant(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOctreeColorQuant( pixs.Pointer, colors, ditherflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -286,7 +286,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixOctreeColorQuantGeneral/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixOctreeColorQuantGeneral/*"/>
 '''  <param name="pixs">[in] - 32 bpp 24-bit color</param>
 '''  <param name="colors">[in] - in colormap some number in range [128 ... 240] the actual number of colors used will be smaller</param>
 '''  <param name="ditherflag">[in] - 1 to dither, 0 otherwise</param>
@@ -303,6 +303,7 @@ Public Shared Function pixOctreeColorQuantGeneral(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOctreeColorQuantGeneral( pixs.Pointer, colors, ditherflag, validthresh, colorthresh)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -331,7 +332,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/makeRGBToIndexTables/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/makeRGBToIndexTables/*"/>
 '''  <param name="prtab">[out] - tables</param>
 '''  <param name="pgtab">[out] - tables</param>
 '''  <param name="pbtab">[out] - tables</param>
@@ -348,6 +349,7 @@ Public Shared Function makeRGBToIndexTables(
 	Dim pbtabPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.makeRGBToIndexTables( prtabPTR, pgtabPTR, pbtabPTR, cqlevels)
+
 	ReDim prtab(IIf(1 > 0, 1, 1) - 1) : If prtabPTR <> IntPtr.Zero Then Marshal.Copy(prtabPTR, prtab, 0, prtab.count)
 	ReDim pgtab(IIf(1 > 0, 1, 1) - 1) : If pgtabPTR <> IntPtr.Zero Then Marshal.Copy(pgtabPTR, pgtab, 0, pgtab.count)
 	ReDim pbtab(IIf(1 > 0, 1, 1) - 1) : If pbtabPTR <> IntPtr.Zero Then Marshal.Copy(pbtabPTR, pbtab, 0, pbtab.count)
@@ -364,7 +366,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/getOctcubeIndexFromRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getOctcubeIndexFromRGB/*"/>
 '''  <param name="rval">[in] - </param>
 '''  <param name="gval">[in] - </param>
 '''  <param name="bval">[in] - </param>
@@ -390,6 +392,10 @@ Public Shared Sub getOctcubeIndexFromRGB(
 	Dim btabPTR As IntPtr = Marshal.AllocHGlobal(btab.Count) : Marshal.Copy(btab, 0, btabPTR, btab.Length)
 
 	LeptonicaSharp.Natives.getOctcubeIndexFromRGB( rval, gval, bval, rtabPTR, gtabPTR, btabPTR, pindex)
+Marshal.FreeHGlobal(rtabPTR)
+Marshal.FreeHGlobal(gtabPTR)
+Marshal.FreeHGlobal(btabPTR)
+
 
 End Sub
 
@@ -452,7 +458,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixOctreeQuantByPopulation/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixOctreeQuantByPopulation/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="level">[in] - significant bits for each of RGB valid for {3,4}, Use 0 for default (level 4 recommended</param>
 '''  <param name="ditherflag">[in] - 1 to dither, 0 otherwise</param>
@@ -467,6 +473,7 @@ Public Shared Function pixOctreeQuantByPopulation(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOctreeQuantByPopulation( pixs.Pointer, level, ditherflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -547,7 +554,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixOctreeQuantNumColors/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixOctreeQuantNumColors/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="maxcolors">[in] - 8 to 256 the actual number of colors used may be less than this</param>
 '''  <param name="subsample">[in] - factor for computing color distribution use 0 for default</param>
@@ -562,6 +569,7 @@ Public Shared Function pixOctreeQuantNumColors(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOctreeQuantNumColors( pixs.Pointer, maxcolors, subsample)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -596,7 +604,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixOctcubeQuantMixedWithGray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixOctcubeQuantMixedWithGray/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="depth">[in] - of output pix</param>
 '''  <param name="graylevels">[in] - graylevels (must be  is greater  1)</param>
@@ -613,6 +621,7 @@ Public Shared Function pixOctcubeQuantMixedWithGray(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOctcubeQuantMixedWithGray( pixs.Pointer, depth, graylevels, delta)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -673,7 +682,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFixedOctcubeQuant256/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFixedOctcubeQuant256/*"/>
 '''  <param name="pixs">[in] - 32 bpp 24-bit color</param>
 '''  <param name="ditherflag">[in] - 1 for dithering 0 for no dithering</param>
 '''   <returns>pixd 8 bit with colormap, or NULL on error</returns>
@@ -684,6 +693,7 @@ Public Shared Function pixFixedOctcubeQuant256(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFixedOctcubeQuant256( pixs.Pointer, ditherflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -721,7 +731,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFewColorsOctcubeQuant1/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFewColorsOctcubeQuant1/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="level">[in] - significant bits for each of RGB valid in [1...6]</param>
 '''   <returns>pixd quantized to octcube or NULL on error</returns>
@@ -734,6 +744,7 @@ Public Shared Function pixFewColorsOctcubeQuant1(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFewColorsOctcubeQuant1( pixs.Pointer, level)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -780,7 +791,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFewColorsOctcubeQuant2/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFewColorsOctcubeQuant2/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="level">[in] - of octcube indexing, for histogram: 3, 4, 5, 6</param>
 '''  <param name="na">[in] - histogram of pixel occupation in octree leaves at given level</param>
@@ -800,6 +811,7 @@ Public Shared Function pixFewColorsOctcubeQuant2(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFewColorsOctcubeQuant2( pixs.Pointer, level, na.Pointer, ncolors, pnerrors)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -853,7 +865,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFewColorsOctcubeQuantMixed/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFewColorsOctcubeQuantMixed/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="level">[in] - significant octcube bits for each of RGB valid in [1...6] use 0 for default</param>
 '''  <param name="darkthresh">[in] - threshold near black if the lightest component is below this, the pixel is not considered to be gray or color uses 0 for default</param>
@@ -876,6 +888,7 @@ Public Shared Function pixFewColorsOctcubeQuantMixed(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFewColorsOctcubeQuantMixed( pixs.Pointer, level, darkthresh, lightthresh, diffthresh, minfract, maxspan)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -896,7 +909,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixFixedOctcubeQuantGenRGB/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFixedOctcubeQuantGenRGB/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="level">[in] - significant bits for each of r,g,b</param>
 '''   <returns>pixd rgb quantized to octcube centers, or NULL on error</returns>
@@ -909,6 +922,7 @@ Public Shared Function pixFixedOctcubeQuantGenRGB(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixFixedOctcubeQuantGenRGB( pixs.Pointer, level)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -933,7 +947,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixQuantFromCmap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixQuantFromCmap/*"/>
 '''  <param name="pixs">[in] - 8 bpp grayscale without cmap, or 32 bpp rgb</param>
 '''  <param name="cmap">[in] - to quantize to insert copy into dest pix</param>
 '''  <param name="mindepth">[in] - minimum depth of pixd: can be 2, 4 or 8 bpp</param>
@@ -951,6 +965,7 @@ Public Shared Function pixQuantFromCmap(
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixQuantFromCmap( pixs.Pointer, cmap.Pointer, mindepth, level, metric)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1019,7 +1034,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixOctcubeQuantFromCmap/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixOctcubeQuantFromCmap/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="cmap">[in] - to quantize to insert copy into dest pix</param>
 '''  <param name="mindepth">[in] - minimum depth of pixd: can be 2, 4 or 8 bpp</param>
@@ -1039,6 +1054,7 @@ Public Shared Function pixOctcubeQuantFromCmap(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOctcubeQuantFromCmap( pixs.Pointer, cmap.Pointer, mindepth, level, metric)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Pix(_Result)
@@ -1054,7 +1070,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixOctcubeHistogram/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixOctcubeHistogram/*"/>
 '''  <param name="pixs">[in] - 32 bpp rgb</param>
 '''  <param name="level">[in] - significant bits for each of RGB valid in [1...6]</param>
 '''  <param name="pncolors">[out][optional] - number of occupied cubes</param>
@@ -1069,6 +1085,7 @@ Public Shared Function pixOctcubeHistogram(
 	If {32}.contains (pixs.d) = false then Throw New ArgumentException ("32 bpp rgb")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.pixOctcubeHistogram( pixs.Pointer, level, pncolors)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -1120,7 +1137,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixcmapToOctcubeLUT/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixcmapToOctcubeLUT/*"/>
 '''  <param name="cmap">[in] - </param>
 '''  <param name="level">[in] - significant bits for each of RGB valid in [1...6]</param>
 '''  <param name="metric">[in] - L_MANHATTAN_DISTANCE, L_EUCLIDEAN_DISTANCE</param>
@@ -1133,6 +1150,7 @@ Public Shared Function pixcmapToOctcubeLUT(
 	If IsNothing (cmap) then Throw New ArgumentNullException  ("cmap cannot be Nothing")
 
 	Dim _Result as Integer() = LeptonicaSharp.Natives.pixcmapToOctcubeLUT( cmap.Pointer, level, metric)
+
 
 	Return _Result
 End Function
@@ -1152,7 +1170,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixRemoveUnusedColors/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRemoveUnusedColors/*"/>
 '''  <param name="pixs">[in] - colormapped</param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function pixRemoveUnusedColors(
@@ -1161,6 +1179,7 @@ Public Shared Function pixRemoveUnusedColors(
 	If IsNothing (pixs) then Throw New ArgumentNullException  ("pixs cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixRemoveUnusedColors( pixs.Pointer)
+
 
 	Return _Result
 End Function
@@ -1179,7 +1198,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/pixNumberOccupiedOctcubes/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixNumberOccupiedOctcubes/*"/>
 '''  <param name="pix">[in] - 32 bpp</param>
 '''  <param name="level">[in] - of octcube</param>
 '''  <param name="mincount">[in] - minimum num pixels in an octcube to be counted -1 to not use</param>
@@ -1196,6 +1215,7 @@ Public Shared Function pixNumberOccupiedOctcubes(
 	If IsNothing (pix) then Throw New ArgumentNullException  ("pix cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.pixNumberOccupiedOctcubes( pix.Pointer, level, mincount, minfract, pncolors)
+
 
 	Return _Result
 End Function

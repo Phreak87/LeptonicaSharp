@@ -2,7 +2,6 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\gplot.c (138, 1)
 ' gplotCreate(rootname, outformat, title, xlabel, ylabel) as GPlot
 ' gplotCreate(const char *, l_int32, const char *, const char *, const char *) as GPLOT *
@@ -16,7 +15,7 @@ Partial Public Class _All
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/gplotCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotCreate/*"/>
 '''  <param name="rootname">[in] - root for all output files</param>
 '''  <param name="outformat">[in] - GPLOT_PNG, GPLOT_PS, GPLOT_EPS, GPLOT_LATEX</param>
 '''  <param name="title">[in][optional] - overall title</param>
@@ -33,6 +32,7 @@ Public Shared Function gplotCreate(
 	If IsNothing (rootname) then Throw New ArgumentNullException  ("rootname cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.gplotCreate( rootname, outformat, title, xlabel, ylabel)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new GPlot(_Result)
@@ -43,7 +43,7 @@ End Function
 ' gplotDestroy(GPLOT **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/gplotDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotDestroy/*"/>
 '''  <param name="pgplot">[in,out] - to be nulled</param>
 Public Shared Sub gplotDestroy(
 				 ByRef pgplot as GPlot)
@@ -51,7 +51,9 @@ Public Shared Sub gplotDestroy(
 	Dim pgplotPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pgplot) Then pgplotPTR = pgplot.Pointer
 
 	LeptonicaSharp.Natives.gplotDestroy( pgplotPTR)
-	if pgplotPTR <> IntPtr.Zero then pgplot = new GPlot(pgplotPTR)
+
+If pgplotPTR = IntPtr.Zero Then pgplot = Nothing
+If pgplotPTR <> IntPtr.Zero Then pgplot = New GPlot(pgplotPTR)
 
 End Sub
 
@@ -81,7 +83,7 @@ End Sub
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/gplotAddPlot/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotAddPlot/*"/>
 '''  <param name="gplot">[in] - </param>
 '''  <param name="nax">[in][optional] - numa: set to null for Y_VS_I required for Y_VS_X</param>
 '''  <param name="nay">[in] - numa: required for both Y_VS_I and Y_VS_X</param>
@@ -102,6 +104,7 @@ Public Shared Function gplotAddPlot(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotAddPlot( gplot.Pointer, naxPTR, nay.Pointer, plotstyle, plottitle)
 
+
 	Return _Result
 End Function
 
@@ -117,7 +120,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/gplotSetScaling/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotSetScaling/*"/>
 '''  <param name="gplot">[in] - </param>
 '''  <param name="scaling">[in] - GPLOT_LINEAR_SCALE, GPLOT_LOG_SCALE_X, GPLOT_LOG_SCALE_Y, GPLOT_LOG_SCALE_X_Y</param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -128,6 +131,7 @@ Public Shared Function gplotSetScaling(
 	If IsNothing (gplot) then Throw New ArgumentNullException  ("gplot cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotSetScaling( gplot.Pointer, scaling)
+
 
 	Return _Result
 End Function
@@ -152,7 +156,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/gplotMakeOutput/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotMakeOutput/*"/>
 '''  <param name="gplot">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function gplotMakeOutput(
@@ -162,6 +166,7 @@ Public Shared Function gplotMakeOutput(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotMakeOutput( gplot.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -170,7 +175,7 @@ End Function
 ' gplotGenCommandFile(GPLOT *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/gplotGenCommandFile/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotGenCommandFile/*"/>
 '''  <param name="gplot">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function gplotGenCommandFile(
@@ -179,6 +184,7 @@ Public Shared Function gplotGenCommandFile(
 	If IsNothing (gplot) then Throw New ArgumentNullException  ("gplot cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotGenCommandFile( gplot.Pointer)
+
 
 	Return _Result
 End Function
@@ -195,7 +201,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/gplotGenDataFiles/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotGenDataFiles/*"/>
 '''  <param name="gplot">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function gplotGenDataFiles(
@@ -204,6 +210,7 @@ Public Shared Function gplotGenDataFiles(
 	If IsNothing (gplot) then Throw New ArgumentNullException  ("gplot cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotGenDataFiles( gplot.Pointer)
+
 
 	Return _Result
 End Function
@@ -223,7 +230,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/gplotSimple1/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotSimple1/*"/>
 '''  <param name="na">[in] - numa plot Y_VS_I</param>
 '''  <param name="outformat">[in] - GPLOT_PNG, GPLOT_PS, GPLOT_EPS, GPLOT_LATEX</param>
 '''  <param name="outroot">[in] - root of output files</param>
@@ -239,6 +246,7 @@ Public Shared Function gplotSimple1(
 	If IsNothing (outroot) then Throw New ArgumentNullException  ("outroot cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotSimple1( na.Pointer, outformat, outroot, title)
+
 
 	Return _Result
 End Function
@@ -258,7 +266,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/gplotSimple2/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotSimple2/*"/>
 '''  <param name="na1">[in] - numa plotted with Y_VS_I</param>
 '''  <param name="na2">[in] - ditto</param>
 '''  <param name="outformat">[in] - GPLOT_PNG, GPLOT_PS, GPLOT_EPS, GPLOT_LATEX</param>
@@ -277,6 +285,7 @@ Public Shared Function gplotSimple2(
 	If IsNothing (outroot) then Throw New ArgumentNullException  ("outroot cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotSimple2( na1.Pointer, na2.Pointer, outformat, outroot, title)
+
 
 	Return _Result
 End Function
@@ -297,7 +306,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/gplotSimpleN/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotSimpleN/*"/>
 '''  <param name="naa">[in] - numaa we plotted with Y_VS_I for each numa</param>
 '''  <param name="outformat">[in] - GPLOT_PNG, GPLOT_PS, GPLOT_EPS, GPLOT_LATEX</param>
 '''  <param name="outroot">[in] - root of output files</param>
@@ -313,6 +322,7 @@ Public Shared Function gplotSimpleN(
 	If IsNothing (outroot) then Throw New ArgumentNullException  ("outroot cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotSimpleN( naa.Pointer, outformat, outroot, title)
+
 
 	Return _Result
 End Function
@@ -336,7 +346,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/gplotSimpleXY1/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotSimpleXY1/*"/>
 '''  <param name="nax">[in][optional] - </param>
 '''  <param name="nay">[in] - </param>
 '''  <param name="plotstyle">[in] - GPLOT_LINES, GPLOT_POINTS, GPLOT_IMPULSES, GPLOT_LINESPOINTS, GPLOT_DOTS</param>
@@ -358,6 +368,7 @@ Public Shared Function gplotSimpleXY1(
 	Dim naxPTR As IntPtr = IntPtr.Zero : If Not IsNothing(nax) Then naxPTR = nax.Pointer
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotSimpleXY1( naxPTR, nay.Pointer, plotstyle, outformat, outroot, title)
+
 
 	Return _Result
 End Function
@@ -381,7 +392,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/gplotSimpleXY2/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotSimpleXY2/*"/>
 '''  <param name="nax">[in] - is smalleroptional can be NULL</param>
 '''  <param name="nay1">[in] - </param>
 '''  <param name="nay2">[in] - </param>
@@ -406,6 +417,7 @@ Public Shared Function gplotSimpleXY2(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotSimpleXY2( nax.Pointer, nay1.Pointer, nay2.Pointer, plotstyle, outformat, outroot, title)
 
+
 	Return _Result
 End Function
 
@@ -428,7 +440,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/gplotSimpleXYN/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotSimpleXYN/*"/>
 '''  <param name="nax">[in][optional] - can be NULL</param>
 '''  <param name="naay">[in] - numaa of arrays to plot against %nax</param>
 '''  <param name="plotstyle">[in] - GPLOT_LINES, GPLOT_POINTS, GPLOT_IMPULSES, GPLOT_LINESPOINTS, GPLOT_DOTS</param>
@@ -451,6 +463,7 @@ Public Shared Function gplotSimpleXYN(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotSimpleXYN( naxPTR, naay.Pointer, plotstyle, outformat, outroot, title)
 
+
 	Return _Result
 End Function
 
@@ -459,7 +472,7 @@ End Function
 ' gplotRead(const char *) as GPLOT *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/gplotRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>gplot, or NULL on error</returns>
 Public Shared Function gplotRead(
@@ -467,9 +480,10 @@ Public Shared Function gplotRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.gplotRead( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new GPlot(_Result)
@@ -480,7 +494,7 @@ End Function
 ' gplotWrite(const char *, GPLOT *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/gplotWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="gplot">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -491,9 +505,8 @@ Public Shared Function gplotWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (gplot) then Throw New ArgumentNullException  ("gplot cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.gplotWrite( filename, gplot.Pointer)
+
 
 	Return _Result
 End Function

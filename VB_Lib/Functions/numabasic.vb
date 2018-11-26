@@ -2,19 +2,19 @@ Imports System.Runtime.InteropServices
 Imports LeptonicaSharp.Enumerations
 Partial Public Class _All
 
-
 ' SRC\numabasic.c (187, 1)
 ' numaCreate(n) as Numa
 ' numaCreate(l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaCreate/*"/>
 '''  <param name="n">[in] - size of number array to be alloc'd 0 for default</param>
 '''   <returns>na, or NULL on error</returns>
 Public Shared Function numaCreate(
 				 ByVal n as Integer) as Numa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaCreate( n)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -33,7 +33,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaCreateFromIArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaCreateFromIArray/*"/>
 '''  <param name="iarray">[in] - integer</param>
 '''  <param name="size">[in] - of the array</param>
 '''   <returns>na, or NULL on error</returns>
@@ -44,6 +44,7 @@ Public Shared Function numaCreateFromIArray(
 	If IsNothing (iarray) then Throw New ArgumentNullException  ("iarray cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaCreateFromIArray( iarray, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -61,7 +62,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaCreateFromFArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaCreateFromFArray/*"/>
 '''  <param name="farray">[in] - float</param>
 '''  <param name="size">[in] - of the array</param>
 '''  <param name="copyflag">[in] - L_INSERT or L_COPY</param>
@@ -74,6 +75,7 @@ Public Shared Function numaCreateFromFArray(
 	If IsNothing (farray) then Throw New ArgumentNullException  ("farray cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaCreateFromFArray( farray, size, copyflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -91,7 +93,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaCreateFromString/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaCreateFromString/*"/>
 '''  <param name="str">[in] - string of comma-separated numbers</param>
 '''   <returns>na, or NULL on error</returns>
 Public Shared Function numaCreateFromString(
@@ -100,6 +102,7 @@ Public Shared Function numaCreateFromString(
 	If IsNothing (str) then Throw New ArgumentNullException  ("str cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaCreateFromString( str)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -117,7 +120,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaDestroy/*"/>
 '''  <param name="pna">[in,out] - to be nulled if it exists</param>
 Public Shared Sub numaDestroy(
 				 ByRef pna as Numa)
@@ -125,7 +128,9 @@ Public Shared Sub numaDestroy(
 	Dim pnaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pna) Then pnaPTR = pna.Pointer
 
 	LeptonicaSharp.Natives.numaDestroy( pnaPTR)
-	if pnaPTR <> IntPtr.Zero then pna = new Numa(pnaPTR)
+
+If pnaPTR = IntPtr.Zero Then pna = Nothing
+If pnaPTR <> IntPtr.Zero Then pna = New Numa(pnaPTR)
 
 End Sub
 
@@ -134,7 +139,7 @@ End Sub
 ' numaCopy(NUMA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaCopy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaCopy/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>copy of numa, or NULL on error</returns>
 Public Shared Function numaCopy(
@@ -143,6 +148,7 @@ Public Shared Function numaCopy(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaCopy( na.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -153,7 +159,7 @@ End Function
 ' numaClone(NUMA *) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaClone/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaClone/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>ptr to same numa, or NULL on error</returns>
 Public Shared Function numaClone(
@@ -162,6 +168,7 @@ Public Shared Function numaClone(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaClone( na.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -179,7 +186,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaEmpty/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaEmpty/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
 Public Shared Function numaEmpty(
@@ -189,6 +196,7 @@ Public Shared Function numaEmpty(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaEmpty( na.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -197,7 +205,7 @@ End Function
 ' numaAddNumber(NUMA *, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaAddNumber/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaAddNumber/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="val">[in] - float or int to be added stored as a float</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -208,6 +216,7 @@ Public Shared Function numaAddNumber(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaAddNumber( na.Pointer, val)
+
 
 	Return _Result
 End Function
@@ -226,7 +235,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaInsertNumber/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaInsertNumber/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - location in na to insert new value</param>
 '''  <param name="val">[in] - float32 or integer to be added</param>
@@ -239,6 +248,7 @@ Public Shared Function numaInsertNumber(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaInsertNumber( na.Pointer, index, val)
+
 
 	Return _Result
 End Function
@@ -256,7 +266,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaRemoveNumber/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaRemoveNumber/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - element to be removed</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -268,6 +278,7 @@ Public Shared Function numaRemoveNumber(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaRemoveNumber( na.Pointer, index)
 
+
 	Return _Result
 End Function
 
@@ -276,7 +287,7 @@ End Function
 ' numaReplaceNumber(NUMA *, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaReplaceNumber/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaReplaceNumber/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - element to be replaced</param>
 '''  <param name="val">[in] - new value to replace old one</param>
@@ -290,6 +301,7 @@ Public Shared Function numaReplaceNumber(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaReplaceNumber( na.Pointer, index, val)
 
+
 	Return _Result
 End Function
 
@@ -298,7 +310,7 @@ End Function
 ' numaGetCount(NUMA *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetCount/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>count, or 0 if no numbers or on error</returns>
 Public Shared Function numaGetCount(
@@ -307,6 +319,7 @@ Public Shared Function numaGetCount(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetCount( na.Pointer)
+
 
 	Return _Result
 End Function
@@ -327,7 +340,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaSetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaSetCount/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="newcount">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -338,6 +351,7 @@ Public Shared Function numaSetCount(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaSetCount( na.Pointer, newcount)
+
 
 	Return _Result
 End Function
@@ -353,7 +367,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetFValue/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetFValue/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - into numa</param>
 '''  <param name="pval">[out] - float value 0.0 on error</param>
@@ -366,6 +380,7 @@ Public Shared Function numaGetFValue(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetFValue( na.Pointer, index, pval)
+
 
 	Return _Result
 End Function
@@ -381,7 +396,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetIValue/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetIValue/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - into numa</param>
 '''  <param name="pival">[out] - integer value 0 on error</param>
@@ -395,6 +410,7 @@ Public Shared Function numaGetIValue(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetIValue( na.Pointer, index, pival)
 
+
 	Return _Result
 End Function
 
@@ -403,7 +419,7 @@ End Function
 ' numaSetValue(NUMA *, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaSetValue/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaSetValue/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - to element to be set</param>
 '''  <param name="val">[in] - to set element</param>
@@ -417,6 +433,7 @@ Public Shared Function numaSetValue(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaSetValue( na.Pointer, index, val)
 
+
 	Return _Result
 End Function
 
@@ -425,7 +442,7 @@ End Function
 ' numaShiftValue(NUMA *, l_int32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaShiftValue/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaShiftValue/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="index">[in] - to element to change relative to the current value</param>
 '''  <param name="diff">[in] - increment if diff  is greater  0 or decrement if diff  is smaller 0</param>
@@ -438,6 +455,7 @@ Public Shared Function numaShiftValue(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaShiftValue( na.Pointer, index, diff)
+
 
 	Return _Result
 End Function
@@ -462,7 +480,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetIArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetIArray/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>a copy of the bare internal array, integerized by rounding, or NULL on error</returns>
 Public Shared Function numaGetIArray(
@@ -471,6 +489,7 @@ Public Shared Function numaGetIArray(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as Integer() = LeptonicaSharp.Natives.numaGetIArray( na.Pointer)
+
 
 	Return _Result
 End Function
@@ -495,7 +514,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetFArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetFArray/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="copyflag">[in] - L_NOCOPY or L_COPY</param>
 '''   <returns>either the bare internal array or a copy of it, or NULL on error</returns>
@@ -507,6 +526,7 @@ Public Shared Function numaGetFArray(
 
 	Dim _Result as Single() = LeptonicaSharp.Natives.numaGetFArray( na.Pointer, copyflag)
 
+
 	Return _Result
 End Function
 
@@ -515,7 +535,7 @@ End Function
 ' numaGetRefcount(NUMA *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetRefcount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetRefcount/*"/>
 '''  <param name="na">[in] - </param>
 '''   <returns>refcount, or UNDEF on error</returns>
 Public Shared Function numaGetRefcount(
@@ -525,6 +545,7 @@ Public Shared Function numaGetRefcount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetRefcount( na.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -533,7 +554,7 @@ End Function
 ' numaChangeRefcount(NUMA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaChangeRefcount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaChangeRefcount/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="delta">[in] - change to be applied</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -545,6 +566,7 @@ Public Shared Function numaChangeRefcount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaChangeRefcount( na.Pointer, delta)
 
+
 	Return _Result
 End Function
 
@@ -553,7 +575,7 @@ End Function
 ' numaGetParameters(NUMA *, l_float32 *, l_float32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaGetParameters/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaGetParameters/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="pstartx">[out][optional] - startx</param>
 '''  <param name="pdelx">[out][optional] - delx</param>
@@ -567,6 +589,7 @@ Public Shared Function numaGetParameters(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaGetParameters( na.Pointer, pstartx, pdelx)
 
+
 	Return _Result
 End Function
 
@@ -575,7 +598,7 @@ End Function
 ' numaSetParameters(NUMA *, l_float32, l_float32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaSetParameters/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaSetParameters/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="startx">[in] - x value corresponding to na[0]</param>
 '''  <param name="delx">[in] - difference in x values for the situation where the elements of na correspond to the evaulation of a function at equal intervals of size %delx</param>
@@ -589,6 +612,7 @@ Public Shared Function numaSetParameters(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaSetParameters( na.Pointer, startx, delx)
 
+
 	Return _Result
 End Function
 
@@ -597,7 +621,7 @@ End Function
 ' numaCopyParameters(NUMA *, NUMA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaCopyParameters/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaCopyParameters/*"/>
 '''  <param name="nad">[in] - destination Numa</param>
 '''  <param name="nas">[in] - source Numa</param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -609,6 +633,7 @@ Public Shared Function numaCopyParameters(
 	If IsNothing (nas) then Throw New ArgumentNullException  ("nas cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaCopyParameters( nad.Pointer, nas.Pointer)
+
 
 	Return _Result
 End Function
@@ -624,7 +649,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaConvertToSarray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaConvertToSarray/*"/>
 '''  <param name="na">[in] - </param>
 '''  <param name="size1">[in] - size of conversion field</param>
 '''  <param name="size2">[in] - for float conversion: size of field to the right of the decimal point</param>
@@ -641,6 +666,7 @@ Public Shared Function numaConvertToSarray(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaConvertToSarray( na.Pointer, size1, size2, addzeros, type)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Sarray(_Result)
@@ -651,7 +677,7 @@ End Function
 ' numaRead(const char *) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>na, or NULL on error</returns>
 Public Shared Function numaRead(
@@ -659,9 +685,10 @@ Public Shared Function numaRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaRead( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -672,7 +699,7 @@ End Function
 ' numaReadStream(FILE *) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>numa, or NULL on error</returns>
 Public Shared Function numaReadStream(
@@ -681,6 +708,7 @@ Public Shared Function numaReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaReadStream( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -691,7 +719,7 @@ End Function
 ' numaReadMem(const l_uint8 *, size_t) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaReadMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaReadMem/*"/>
 '''  <param name="data">[in] - numa serialization in ascii</param>
 '''  <param name="size">[in] - of data can use strlen to get it</param>
 '''   <returns>na, or NULL on error</returns>
@@ -702,6 +730,7 @@ Public Shared Function numaReadMem(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaReadMem( data, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -722,7 +751,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaWriteDebug/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaWriteDebug/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="na">[in] - </param>
 '''   <returns>0 if OK 1 on error</returns>
@@ -733,9 +762,8 @@ Public Shared Function numaWriteDebug(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaWriteDebug( filename, na.Pointer)
+
 
 	Return _Result
 End Function
@@ -745,7 +773,7 @@ End Function
 ' numaWrite(const char *, NUMA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="na">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -756,9 +784,8 @@ Public Shared Function numaWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaWrite( filename, na.Pointer)
+
 
 	Return _Result
 End Function
@@ -768,7 +795,7 @@ End Function
 ' numaWriteStream(FILE *, NUMA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="na">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -780,6 +807,7 @@ Public Shared Function numaWriteStream(
 	If IsNothing (na) then Throw New ArgumentNullException  ("na cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaWriteStream( fp.Pointer, na.Pointer)
+
 
 	Return _Result
 End Function
@@ -794,7 +822,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaWriteMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized numa ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="na">[in] - </param>
@@ -809,6 +837,7 @@ Public Shared Function numaWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaWriteMem( pdataPTR, psize, na.Pointer)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result
@@ -819,13 +848,14 @@ End Function
 ' numaaCreate(l_int32) as NUMAA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaCreate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaCreate/*"/>
 '''  <param name="n">[in] - size of numa ptr array to be alloc'd 0 for default</param>
 '''   <returns>naa, or NULL on error</returns>
 Public Shared Function numaaCreate(
 				 ByVal n as Integer) as Numaa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaaCreate( n)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numaa(_Result)
@@ -844,7 +874,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaCreateFull/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaCreateFull/*"/>
 '''  <param name="nptr">[in] - : size of numa ptr array to be alloc'd</param>
 '''  <param name="n">[in] - : size of individual numa arrays to be alloc'd 0 for default</param>
 '''   <returns>naa, or NULL on error</returns>
@@ -853,6 +883,7 @@ Public Shared Function numaaCreateFull(
 				 ByVal n as Integer) as Numaa
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaaCreateFull( nptr, n)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numaa(_Result)
@@ -870,7 +901,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaTruncate/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaTruncate/*"/>
 '''  <param name="naa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
 Public Shared Function numaaTruncate(
@@ -880,6 +911,7 @@ Public Shared Function numaaTruncate(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaTruncate( naa.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -888,7 +920,7 @@ End Function
 ' numaaDestroy(NUMAA **) as void
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaDestroy/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaDestroy/*"/>
 '''  <param name="pnaa">[in,out] - to be nulled if it exists</param>
 Public Shared Sub numaaDestroy(
 				 ByRef pnaa as Numaa)
@@ -896,7 +928,9 @@ Public Shared Sub numaaDestroy(
 	Dim pnaaPTR As IntPtr = IntPtr.Zero : If Not IsNothing(pnaa) Then pnaaPTR = pnaa.Pointer
 
 	LeptonicaSharp.Natives.numaaDestroy( pnaaPTR)
-	if pnaaPTR <> IntPtr.Zero then pnaa = new Numaa(pnaaPTR)
+
+If pnaaPTR = IntPtr.Zero Then pnaa = Nothing
+If pnaaPTR <> IntPtr.Zero Then pnaa = New Numaa(pnaaPTR)
 
 End Sub
 
@@ -905,7 +939,7 @@ End Sub
 ' numaaAddNuma(NUMAA *, NUMA *, l_int32) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaAddNuma/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaAddNuma/*"/>
 '''  <param name="naa">[in] - </param>
 '''  <param name="na">[in] - to be added</param>
 '''  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
@@ -920,6 +954,7 @@ Public Shared Function numaaAddNuma(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaAddNuma( naa.Pointer, na.Pointer, copyflag)
 
+
 	Return _Result
 End Function
 
@@ -928,7 +963,7 @@ End Function
 ' numaaGetCount(NUMAA *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaGetCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaGetCount/*"/>
 '''  <param name="naa">[in] - </param>
 '''   <returns>count number of numa, or 0 if no numa or on error</returns>
 Public Shared Function numaaGetCount(
@@ -938,6 +973,7 @@ Public Shared Function numaaGetCount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaGetCount( naa.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -946,7 +982,7 @@ End Function
 ' numaaGetNumaCount(NUMAA *, l_int32) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaGetNumaCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaGetNumaCount/*"/>
 '''  <param name="naa">[in] - </param>
 '''  <param name="index">[in] - of numa in naa</param>
 '''   <returns>count of numbers in the referenced numa, or 0 on error.</returns>
@@ -958,6 +994,7 @@ Public Shared Function numaaGetNumaCount(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaGetNumaCount( naa.Pointer, index)
 
+
 	Return _Result
 End Function
 
@@ -966,7 +1003,7 @@ End Function
 ' numaaGetNumberCount(NUMAA *) as l_int32
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaGetNumberCount/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaGetNumberCount/*"/>
 '''  <param name="naa">[in] - </param>
 '''   <returns>count total number of numbers in the numaa, or 0 if no numbers or on error</returns>
 Public Shared Function numaaGetNumberCount(
@@ -975,6 +1012,7 @@ Public Shared Function numaaGetNumberCount(
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaGetNumberCount( naa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1007,7 +1045,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaGetPtrArray/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaGetPtrArray/*"/>
 '''  <param name="naa">[in] - </param>
 '''   <returns>the internal array of ptrs to Numa, or NULL on error</returns>
 Public Shared Function numaaGetPtrArray(
@@ -1016,6 +1054,7 @@ Public Shared Function numaaGetPtrArray(
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaaGetPtrArray( naa.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 Dim B as new Numa(_Result)
 
@@ -1027,7 +1066,7 @@ End Function
 ' numaaGetNuma(NUMAA *, l_int32, l_int32) as NUMA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaGetNuma/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaGetNuma/*"/>
 '''  <param name="naa">[in] - </param>
 '''  <param name="index">[in] - to the index-th numa</param>
 '''  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
@@ -1040,6 +1079,7 @@ Public Shared Function numaaGetNuma(
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaaGetNuma( naa.Pointer, index, accessflag)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numa(_Result)
@@ -1058,7 +1098,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaReplaceNuma/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaReplaceNuma/*"/>
 '''  <param name="naa">[in] - </param>
 '''  <param name="index">[in] - to the index-th numa</param>
 '''  <param name="na">[in] - insert and replace any existing one</param>
@@ -1073,6 +1113,7 @@ Public Shared Function numaaReplaceNuma(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaReplaceNuma( naa.Pointer, index, na.Pointer)
 
+
 	Return _Result
 End Function
 
@@ -1081,7 +1122,7 @@ End Function
 ' numaaGetValue(NUMAA *, l_int32, l_int32, l_float32 *, l_int32 *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaGetValue/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaGetValue/*"/>
 '''  <param name="naa">[in] - </param>
 '''  <param name="i">[in] - index of numa within numaa</param>
 '''  <param name="j">[in] - index into numa</param>
@@ -1099,6 +1140,7 @@ Public Shared Function numaaGetValue(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaGetValue( naa.Pointer, i, j, pfval, pival)
 
+
 	Return _Result
 End Function
 
@@ -1112,7 +1154,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaAddNumber/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaAddNumber/*"/>
 '''  <param name="naa">[in] - </param>
 '''  <param name="index">[in] - of numa within numaa</param>
 '''  <param name="val">[in] - float or int to be added stored as a float</param>
@@ -1126,6 +1168,7 @@ Public Shared Function numaaAddNumber(
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaAddNumber( naa.Pointer, index, val)
 
+
 	Return _Result
 End Function
 
@@ -1134,7 +1177,7 @@ End Function
 ' numaaRead(const char *) as NUMAA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaRead/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaRead/*"/>
 '''  <param name="filename">[in] - </param>
 '''   <returns>naa, or NULL on error</returns>
 Public Shared Function numaaRead(
@@ -1142,9 +1185,10 @@ Public Shared Function numaaRead(
 
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
+	If My.Computer.Filesystem.FileExists (filename) = false then Throw New ArgumentException ("File is missing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaaRead( filename)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numaa(_Result)
@@ -1155,7 +1199,7 @@ End Function
 ' numaaReadStream(FILE *) as NUMAA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaReadStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaReadStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''   <returns>naa, or NULL on error</returns>
 Public Shared Function numaaReadStream(
@@ -1164,6 +1208,7 @@ Public Shared Function numaaReadStream(
 	If IsNothing (fp) then Throw New ArgumentNullException  ("fp cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaaReadStream( fp.Pointer)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numaa(_Result)
@@ -1174,7 +1219,7 @@ End Function
 ' numaaReadMem(const l_uint8 *, size_t) as NUMAA *
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaReadMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaReadMem/*"/>
 '''  <param name="data">[in] - numaa serialization in ascii</param>
 '''  <param name="size">[in] - of data can use strlen to get it</param>
 '''   <returns>naa, or NULL on error</returns>
@@ -1185,6 +1230,7 @@ Public Shared Function numaaReadMem(
 	If IsNothing (data) then Throw New ArgumentNullException  ("data cannot be Nothing")
 
 	Dim _Result as IntPtr = LeptonicaSharp.Natives.numaaReadMem( data, size)
+
 	If  _Result = IntPtr.Zero then Return Nothing
 
 	Return  new Numaa(_Result)
@@ -1195,7 +1241,7 @@ End Function
 ' numaaWrite(const char *, NUMAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaWrite/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaWrite/*"/>
 '''  <param name="filename">[in] - </param>
 '''  <param name="naa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1206,9 +1252,8 @@ Public Shared Function numaaWrite(
 	If IsNothing (filename) then Throw New ArgumentNullException  ("filename cannot be Nothing")
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
 
-	If My.Computer.Filesystem.Fileexists (filename) = false then Throw New ArgumentException ("File is missing")
-
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaWrite( filename, naa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1218,7 +1263,7 @@ End Function
 ' numaaWriteStream(FILE *, NUMAA *) as l_ok
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaWriteStream/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaWriteStream/*"/>
 '''  <param name="fp">[in] - file stream</param>
 '''  <param name="naa">[in] - </param>
 '''   <returns>0 if OK, 1 on error</returns>
@@ -1230,6 +1275,7 @@ Public Shared Function numaaWriteStream(
 	If IsNothing (naa) then Throw New ArgumentNullException  ("naa cannot be Nothing")
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaWriteStream( fp.Pointer, naa.Pointer)
+
 
 	Return _Result
 End Function
@@ -1244,7 +1290,7 @@ End Function
 '''  </summary>
 '''  <remarks>
 '''  </remarks>
-'''  <include file="IncludeComments.xml" path="Comments/numaaWriteMem/*"/>
+'''  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaWriteMem/*"/>
 '''  <param name="pdata">[out] - data of serialized numaa ascii</param>
 '''  <param name="psize">[out] - size of returned data</param>
 '''  <param name="naa">[in] - </param>
@@ -1259,6 +1305,7 @@ Public Shared Function numaaWriteMem(
 	Dim pdataPTR As IntPtr = IntPtr.Zero
 
 	Dim _Result as Integer = LeptonicaSharp.Natives.numaaWriteMem( pdataPTR, psize, naa.Pointer)
+
 	ReDim pdata(IIf(psize > 0, psize, 1) - 1) : If pdataPTR <> IntPtr.Zero Then Marshal.Copy(pdataPTR, pdata, 0, pdata.count)
 
 	Return _Result

@@ -1,10 +1,13 @@
+# Commit # 83
+- CSLib:	Created a C# Library too. (Alpha, only use for development)
+
 # Commit #75/76
 
 - Bugfix: 	File existing check for write-methods removed.
-- Bugfix:		PixGetData - wrong bytes count
-- Bugfix:		Handling of Void (Object) Parameters
-- Bugfix:		added memory cleanup for allocated storage
-- Bugfix:		Zero-PTR handling of byref Parameters
+- Bugfix:	PixGetData - wrong bytes count
+- Bugfix:	Handling of Void (Object) Parameters
+- Bugfix:	added memory cleanup for allocated storage
+- Bugfix:	Zero-PTR handling of byref Parameters
 - Enhance: 	(direct usage) pixcopy method 
 - Enhance:	(direct usage + 3 constructors) all l_byteA functions added to class 
 - Enhance:	(defaults) pixCleanBackgroundToWhite default values added

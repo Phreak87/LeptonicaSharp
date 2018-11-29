@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // numafunc1.c (153, 1)
 // numaArithOp(nad, na1, na2, op) as Numa
@@ -25,10 +26,10 @@ public class _All {
 ///  <param name="op">[in] - L_ARITH_ADD, L_ARITH_SUBTRACT, L_ARITH_MULTIPLY, L_ARITH_DIVIDE</param>
 ///   <returns>nad always: operation applied to na1 and na2</returns>
 public static Numa numaArithOp(
-				  Numa nad, 
-				  Numa na1, 
-				  Numa na2, 
-				  int op){
+				 Numa nad, 
+				 Numa na1, 
+				 Numa na2, 
+				 int op){
 
 	IntPtr nadPtr = IntPtr.Zero; 	if (nad != null) {nadPtr = nad.Pointer;}
 
@@ -66,10 +67,10 @@ public static Numa numaArithOp(
 ///  <param name="op">[in] - L_UNION, L_INTERSECTION, L_SUBTRACTION, L_EXCLUSIVE_OR</param>
 ///   <returns>nad always: operation applied to na1 and na2</returns>
 public static Numa numaLogicalOp(
-				  Numa nad, 
-				  Numa na1, 
-				  Numa na2, 
-				  int op){
+				 Numa nad, 
+				 Numa na1, 
+				 Numa na2, 
+				 int op){
 
 	IntPtr nadPtr = IntPtr.Zero; 	if (nad != null) {nadPtr = nad.Pointer;}
 
@@ -99,8 +100,8 @@ public static Numa numaLogicalOp(
 ///  <param name="nas">[in] - </param>
 ///   <returns>nad always: 'inverts' nas</returns>
 public static Numa numaInvert(
-				  Numa nad, 
-				  Numa nas){
+				 Numa nad, 
+				 Numa nas){
 
 	IntPtr nadPtr = IntPtr.Zero; 	if (nad != null) {nadPtr = nad.Pointer;}
 
@@ -130,15 +131,14 @@ public static Numa numaInvert(
 ///  <param name="psimilar">[out] - 1 if similar 0 if different</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaSimilar(
-				  Numa na1, 
-				  Numa na2, 
-				  Single maxdiff, 
-				 out int psimilar){
+				 Numa na1, 
+				 Numa na2, 
+				 Single maxdiff, 
+				out int psimilar){
 
 	int _Result = Natives.numaSimilar(na1.Pointer, na2.Pointer,   maxdiff, out  psimilar);
 	
 
-psimilar = 0;
 
 
 	return _Result;
@@ -163,9 +163,9 @@ psimilar = 0;
 ///  <param name="val">[in] - new value to be added</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaAddToNumber(
-				  Numa na, 
-				  int index, 
-				  Single val){
+				 Numa na, 
+				 int index, 
+				 Single val){
 
 	int _Result = Natives.numaAddToNumber(na.Pointer,   index,   val);
 	
@@ -186,15 +186,13 @@ public static int numaAddToNumber(
 ///  <param name="piminloc">[out][optional] - index of min location</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int numaGetMin(
-				  Numa na, 
+				 Numa na, 
 				out Single pminval, 
 				out int piminloc){
 
 	int _Result = Natives.numaGetMin(na.Pointer, out  pminval, out  piminloc);
 	
 
-pminval = 0f;
-piminloc = 0;
 
 
 	return _Result;
@@ -211,15 +209,13 @@ piminloc = 0;
 ///  <param name="pimaxloc">[out][optional] - index of max location</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int numaGetMax(
-				  Numa na, 
+				 Numa na, 
 				out Single pmaxval, 
 				out int pimaxloc){
 
 	int _Result = Natives.numaGetMax(na.Pointer, out  pmaxval, out  pimaxloc);
 	
 
-pmaxval = 0f;
-pimaxloc = 0;
 
 
 	return _Result;
@@ -235,13 +231,12 @@ pimaxloc = 0;
 ///  <param name="psum">[out] - sum of values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaGetSum(
-				  Numa na, 
-				 out Single psum){
+				 Numa na, 
+				out Single psum){
 
 	int _Result = Natives.numaGetSum(na.Pointer, out  psum);
 	
 
-psum = 0f;
 
 
 	return _Result;
@@ -263,7 +258,7 @@ psum = 0f;
 ///  <param name="na">[in] - source numa</param>
 ///   <returns>nasum, or NULL on error</returns>
 public static Numa numaGetPartialSums(
-				  Numa na){
+				 Numa na){
 
 	IntPtr _Result = Natives.numaGetPartialSums(na.Pointer);
 	
@@ -286,15 +281,14 @@ public static Numa numaGetPartialSums(
 ///  <param name="psum">[out] - sum of values in the index interval range</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaGetSumOnInterval(
-				  Numa na, 
-				  int first, 
-				  int last, 
-				 out Single psum){
+				 Numa na, 
+				 int first, 
+				 int last, 
+				out Single psum){
 
 	int _Result = Natives.numaGetSumOnInterval(na.Pointer,   first,   last, out  psum);
 	
 
-psum = 0f;
 
 
 	return _Result;
@@ -315,14 +309,13 @@ psum = 0f;
 ///  <param name="pallints">[out] - 1 if all sampled values are ints else 0</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaHasOnlyIntegers(
-				  Numa na, 
-				  int maxsamples, 
-				 out int pallints){
+				 Numa na, 
+				 int maxsamples, 
+				out int pallints){
 
 	int _Result = Natives.numaHasOnlyIntegers(na.Pointer,   maxsamples, out  pallints);
 	
 
-pallints = 0;
 
 
 	return _Result;
@@ -338,8 +331,8 @@ pallints = 0;
 ///  <param name="subfactor">[in] - subsample factor, greater or equal 1</param>
 ///   <returns>nad evenly sampled values from nas, or NULL on error</returns>
 public static Numa numaSubsample(
-				  Numa nas, 
-				  int subfactor){
+				 Numa nas, 
+				 int subfactor){
 
 	IntPtr _Result = Natives.numaSubsample(nas.Pointer,   subfactor);
 	
@@ -359,7 +352,7 @@ public static Numa numaSubsample(
 ///  <param name="nas">[in] - input numa</param>
 ///   <returns>numa of difference values val[i+1] - val[i], or NULL on error</returns>
 public static Numa numaMakeDelta(
-				  Numa nas){
+				 Numa nas){
 
 	IntPtr _Result = Natives.numaMakeDelta(nas.Pointer);
 	
@@ -381,9 +374,9 @@ public static Numa numaMakeDelta(
 ///  <param name="size">[in] - of sequence</param>
 ///   <returns>numa of sequence of evenly spaced values, or NULL on error</returns>
 public static Numa numaMakeSequence(
-				  Single startval, 
-				  Single increment, 
-				  int size){
+				 Single startval, 
+				 Single increment, 
+				 int size){
 
 	IntPtr _Result = Natives.numaMakeSequence(  startval,   increment,   size);
 	
@@ -404,8 +397,8 @@ public static Numa numaMakeSequence(
 ///  <param name="size">[in] - of numa</param>
 ///   <returns>numa of given size with all entries equal to 'val', or NULL on error</returns>
 public static Numa numaMakeConstant(
-				  Single val, 
-				  int size){
+				 Single val, 
+				 int size){
 
 	IntPtr _Result = Natives.numaMakeConstant(  val,   size);
 	
@@ -426,8 +419,8 @@ public static Numa numaMakeConstant(
 ///  <param name="nas">[in] - input numa</param>
 ///   <returns>nad with all numbers being the absval of the input, or NULL on error</returns>
 public static Numa numaMakeAbsValue(
-				  Numa nad, 
-				  Numa nas){
+				 Numa nad, 
+				 Numa nas){
 
 	IntPtr nadPtr = IntPtr.Zero; 	if (nad != null) {nadPtr = nad.Pointer;}
 
@@ -452,10 +445,10 @@ public static Numa numaMakeAbsValue(
 ///  <param name="val">[in] - initialize border elements</param>
 ///   <returns>nad with added elements at left and right, or NULL on error</returns>
 public static Numa numaAddBorder(
-				  Numa nas, 
-				  int left, 
-				  int right, 
-				  Single val){
+				 Numa nas, 
+				 int left, 
+				 int right, 
+				 Single val){
 
 	IntPtr _Result = Natives.numaAddBorder(nas.Pointer,   left,   right,   val);
 	
@@ -478,10 +471,10 @@ public static Numa numaAddBorder(
 ///  <param name="type">[in] - L_CONTINUED_BORDER, L_MIRRORED_BORDER</param>
 ///   <returns>nad with added elements at left and right, or NULL on error</returns>
 public static Numa numaAddSpecifiedBorder(
-				  Numa nas, 
-				  int left, 
-				  int right, 
-				  int type){
+				 Numa nas, 
+				 int left, 
+				 int right, 
+				 int type){
 
 	IntPtr _Result = Natives.numaAddSpecifiedBorder(nas.Pointer,   left,   right,   type);
 	
@@ -503,9 +496,9 @@ public static Numa numaAddSpecifiedBorder(
 ///  <param name="right">[in] - number of elements to remove from each side</param>
 ///   <returns>nad with removed elements at left and right, or NULL on error</returns>
 public static Numa numaRemoveBorder(
-				  Numa nas, 
-				  int left, 
-				  int right){
+				 Numa nas, 
+				 int left, 
+				 int right){
 
 	IntPtr _Result = Natives.numaRemoveBorder(nas.Pointer,   left,   right);
 	
@@ -526,13 +519,12 @@ public static Numa numaRemoveBorder(
 ///  <param name="pcount">[out] - number of nonzero runs</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaCountNonzeroRuns(
-				  Numa na, 
-				 out int pcount){
+				 Numa na, 
+				out int pcount){
 
 	int _Result = Natives.numaCountNonzeroRuns(na.Pointer, out  pcount);
 	
 
-pcount = 0;
 
 
 	return _Result;
@@ -550,16 +542,14 @@ pcount = 0;
 ///  <param name="plast">[out] - interval of array indices where values are nonzero</param>
 ///   <returns>0 if OK, 1 on error or if no nonzero range is found.</returns>
 public static int numaGetNonzeroRange(
-				  Numa na, 
-				  Single eps, 
-				 out int pfirst, 
-				 out int plast){
+				 Numa na, 
+				 Single eps, 
+				out int pfirst, 
+				out int plast){
 
 	int _Result = Natives.numaGetNonzeroRange(na.Pointer,   eps, out  pfirst, out  plast);
 	
 
-pfirst = 0;
-plast = 0;
 
 
 	return _Result;
@@ -576,14 +566,13 @@ plast = 0;
 ///  <param name="pcount">[out] - count of values of given type</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaGetCountRelativeToZero(
-				  Numa na, 
-				  int type, 
-				 out int pcount){
+				 Numa na, 
+				 int type, 
+				out int pcount){
 
 	int _Result = Natives.numaGetCountRelativeToZero(na.Pointer,   type, out  pcount);
 	
 
-pcount = 0;
 
 
 	return _Result;
@@ -607,9 +596,9 @@ pcount = 0;
 ///  <param name="last">[in] - clipping interval</param>
 ///   <returns>numa with the same values as the input, but clipped to the specified interval</returns>
 public static Numa numaClipToInterval(
-				  Numa nas, 
-				  int first, 
-				  int last){
+				 Numa nas, 
+				 int first, 
+				 int last){
 
 	IntPtr _Result = Natives.numaClipToInterval(nas.Pointer,   first,   last);
 	
@@ -636,9 +625,9 @@ public static Numa numaClipToInterval(
 ///  <param name="type">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
 ///   <returns></returns>
 public static Numa numaMakeThresholdIndicator(
-				  Numa nas, 
-				  Single thresh, 
-				  int type){
+				 Numa nas, 
+				 Single thresh, 
+				 int type){
 
 	IntPtr _Result = Natives.numaMakeThresholdIndicator(nas.Pointer,   thresh,   type);
 	
@@ -663,8 +652,8 @@ public static Numa numaMakeThresholdIndicator(
 ///  <param name="nsamp">[in] - number of samples</param>
 ///   <returns></returns>
 public static Numa numaUniformSampling(
-				  Numa nas, 
-				  int nsamp){
+				 Numa nas, 
+				 int nsamp){
 
 	IntPtr _Result = Natives.numaUniformSampling(nas.Pointer,   nsamp);
 	
@@ -690,8 +679,8 @@ public static Numa numaUniformSampling(
 ///  <param name="nas">[in] - input numa</param>
 ///   <returns></returns>
 public static Numa numaReverse(
-				  Numa nad, 
-				  Numa nas){
+				 Numa nad, 
+				 Numa nas){
 
 	IntPtr nadPtr = IntPtr.Zero; 	if (nad != null) {nadPtr = nad.Pointer;}
 
@@ -720,9 +709,9 @@ public static Numa numaReverse(
 ///  <param name="maxn">[in] - for normalizing set maxn = 0.0 to use the max in nas</param>
 ///   <returns></returns>
 public static Numa numaLowPassIntervals(
-				  Numa nas, 
-				  Single thresh, 
-				  Single maxn){
+				 Numa nas, 
+				 Single thresh, 
+				 Single maxn){
 
 	IntPtr _Result = Natives.numaLowPassIntervals(nas.Pointer,   thresh,   maxn);
 	
@@ -759,10 +748,10 @@ public static Numa numaLowPassIntervals(
 ///  <param name="maxn">[in] - for normalizing set maxn = 0.0 to use the max in nas</param>
 ///   <returns></returns>
 public static Numa numaThresholdEdges(
-				  Numa nas, 
-				  Single thresh1, 
-				  Single thresh2, 
-				  Single maxn){
+				 Numa nas, 
+				 Single thresh1, 
+				 Single thresh2, 
+				 Single maxn){
 
 	IntPtr _Result = Natives.numaThresholdEdges(nas.Pointer,   thresh1,   thresh2,   maxn);
 	
@@ -785,16 +774,14 @@ public static Numa numaThresholdEdges(
 ///  <param name="pend">[out][optional] - location of end of transition</param>
 ///   <returns></returns>
 public static int numaGetSpanValues(
-				  Numa na, 
-				  int span, 
+				 Numa na, 
+				 int span, 
 				out int pstart, 
 				out int pend){
 
 	int _Result = Natives.numaGetSpanValues(na.Pointer,   span, out  pstart, out  pend);
 	
 
-pstart = 0;
-pend = 0;
 
 
 	return _Result;
@@ -813,8 +800,8 @@ pend = 0;
 ///  <param name="psign">[out][optional] - transition sign: +1 is rising, -1 is falling</param>
 ///   <returns></returns>
 public static int numaGetEdgeValues(
-				  Numa na, 
-				  int edge, 
+				 Numa na, 
+				 int edge, 
 				out int pstart, 
 				out int pend, 
 				out int psign){
@@ -822,9 +809,6 @@ public static int numaGetEdgeValues(
 	int _Result = Natives.numaGetEdgeValues(na.Pointer,   edge, out  pstart, out  pend, out  psign);
 	
 
-pstart = 0;
-pend = 0;
-psign = 0;
 
 
 	return _Result;
@@ -856,17 +840,16 @@ psign = 0;
 ///  <param name="pyval">[out] - interpolated value</param>
 ///   <returns>0 if OK, 1 on error e.g., if xval is outside range</returns>
 public static int numaInterpolateEqxVal(
-				  Single startx, 
-				  Single deltax, 
-				  Numa nay, 
-				  int type, 
-				  Single xval, 
-				 out Single pyval){
+				 Single startx, 
+				 Single deltax, 
+				 Numa nay, 
+				 int type, 
+				 Single xval, 
+				out Single pyval){
 
 	int _Result = Natives.numaInterpolateEqxVal(  startx,   deltax, nay.Pointer,   type,   xval, out  pyval);
 	
 
-pyval = 0f;
 
 
 	return _Result;
@@ -895,16 +878,15 @@ pyval = 0f;
 ///  <param name="pyval">[out] - interpolated value</param>
 ///   <returns>0 if OK, 1 on error e.g., if xval is outside range</returns>
 public static int numaInterpolateArbxVal(
-				  Numa nax, 
-				  Numa nay, 
-				  int type, 
-				  Single xval, 
-				 out Single pyval){
+				 Numa nax, 
+				 Numa nay, 
+				 int type, 
+				 Single xval, 
+				out Single pyval){
 
 	int _Result = Natives.numaInterpolateArbxVal(nax.Pointer, nay.Pointer,   type,   xval, out  pyval);
 	
 
-pyval = 0f;
 
 
 	return _Result;
@@ -942,15 +924,15 @@ pyval = 0f;
 ///  <param name="pnay">[out] - array of y values in interval</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaInterpolateEqxInterval(
-				  Single startx, 
-				  Single deltax, 
-				  Numa nasy, 
-				  int type, 
-				  Single x0, 
-				  Single x1, 
-				  int npts, 
-				 out Numa pnax, 
-				 out Numa pnay){
+				 Single startx, 
+				 Single deltax, 
+				 Numa nasy, 
+				 int type, 
+				 Single x0, 
+				 Single x1, 
+				 int npts, 
+				out Numa pnax, 
+				out Numa pnay){
 
 	IntPtr pnaxPtr = IntPtr.Zero;
 	IntPtr pnayPtr = IntPtr.Zero;
@@ -958,10 +940,8 @@ public static int numaInterpolateEqxInterval(
 	int _Result = Natives.numaInterpolateEqxInterval(  startx,   deltax, nasy.Pointer,   type,   x0,   x1,   npts, out pnaxPtr, out pnayPtr);
 	
 
-pnax = null;
-	; if (pnaxPtr != IntPtr.Zero){pnax = new Numa(pnaxPtr);}
-pnay = null;
-	; if (pnayPtr != IntPtr.Zero){pnay = new Numa(pnayPtr);}
+	if (pnaxPtr == null) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
+	if (pnayPtr == null) {pnay = null;} else { pnay = new Numa(pnayPtr); };
 
 
 	return _Result;
@@ -1000,14 +980,14 @@ pnay = null;
 ///  <param name="pnady">[out] - array of y values in interval</param>
 ///   <returns>0 if OK, 1 on error e.g., if x0 or x1 is outside range</returns>
 public static int numaInterpolateArbxInterval(
-				  Numa nax, 
-				  Numa nay, 
-				  int type, 
-				  Single x0, 
-				  Single x1, 
-				  int npts, 
-				 out Numa pnadx, 
-				 out Numa pnady){
+				 Numa nax, 
+				 Numa nay, 
+				 int type, 
+				 Single x0, 
+				 Single x1, 
+				 int npts, 
+				out Numa pnadx, 
+				out Numa pnady){
 
 	IntPtr pnadxPtr = IntPtr.Zero;
 	IntPtr pnadyPtr = IntPtr.Zero;
@@ -1015,10 +995,8 @@ public static int numaInterpolateArbxInterval(
 	int _Result = Natives.numaInterpolateArbxInterval(nax.Pointer, nay.Pointer,   type,   x0,   x1,   npts, out pnadxPtr, out pnadyPtr);
 	
 
-pnadx = null;
-	; if (pnadxPtr != IntPtr.Zero){pnadx = new Numa(pnadxPtr);}
-pnady = null;
-	; if (pnadyPtr != IntPtr.Zero){pnady = new Numa(pnadyPtr);}
+	if (pnadxPtr == null) {pnadx = null;} else { pnadx = new Numa(pnadxPtr); };
+	if (pnadyPtr == null) {pnady = null;} else { pnady = new Numa(pnadyPtr); };
 
 
 	return _Result;
@@ -1053,18 +1031,16 @@ pnady = null;
 ///  <param name="pmaxloc">[out] - abscissa value that gives max value in na if naloc == null, this is given as an interpolated index value</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int numaFitMax(
-				  Numa na, 
-				 out Single pmaxval, 
-				  Numa naloc, 
-				 out Single pmaxloc){
+				 Numa na, 
+				out Single pmaxval, 
+				 Numa naloc, 
+				out Single pmaxloc){
 
 	IntPtr nalocPtr = IntPtr.Zero; 	if (naloc != null) {nalocPtr = naloc.Pointer;}
 
 	int _Result = Natives.numaFitMax(na.Pointer, out  pmaxval, nalocPtr, out  pmaxloc);
 	
 
-pmaxval = 0f;
-pmaxloc = 0f;
 
 
 	return _Result;
@@ -1092,13 +1068,13 @@ pmaxloc = 0f;
 ///  <param name="pnady">[out] - array of derivatives in interval</param>
 ///   <returns>0 if OK, 1 on error e.g., if x0 or x1 is outside range</returns>
 public static int numaDifferentiateInterval(
-				  Numa nax, 
-				  Numa nay, 
-				  Single x0, 
-				  Single x1, 
-				  int npts, 
-				 out Numa pnadx, 
-				 out Numa pnady){
+				 Numa nax, 
+				 Numa nay, 
+				 Single x0, 
+				 Single x1, 
+				 int npts, 
+				out Numa pnadx, 
+				out Numa pnady){
 
 	IntPtr pnadxPtr = IntPtr.Zero;
 	IntPtr pnadyPtr = IntPtr.Zero;
@@ -1106,10 +1082,8 @@ public static int numaDifferentiateInterval(
 	int _Result = Natives.numaDifferentiateInterval(nax.Pointer, nay.Pointer,   x0,   x1,   npts, out pnadxPtr, out pnadyPtr);
 	
 
-pnadx = null;
-	; if (pnadxPtr != IntPtr.Zero){pnadx = new Numa(pnadxPtr);}
-pnady = null;
-	; if (pnadyPtr != IntPtr.Zero){pnady = new Numa(pnadyPtr);}
+	if (pnadxPtr == null) {pnadx = null;} else { pnadx = new Numa(pnadxPtr); };
+	if (pnadyPtr == null) {pnady = null;} else { pnady = new Numa(pnadyPtr); };
 
 
 	return _Result;
@@ -1136,17 +1110,16 @@ pnady = null;
 ///  <param name="psum">[out] - integral of function over interval</param>
 ///   <returns>0 if OK, 1 on error e.g., if x0 or x1 is outside range</returns>
 public static int numaIntegrateInterval(
-				  Numa nax, 
-				  Numa nay, 
-				  Single x0, 
-				  Single x1, 
-				  int npts, 
-				 out Single psum){
+				 Numa nax, 
+				 Numa nay, 
+				 Single x0, 
+				 Single x1, 
+				 int npts, 
+				out Single psum){
 
 	int _Result = Natives.numaIntegrateInterval(nax.Pointer, nay.Pointer,   x0,   x1,   npts, out  psum);
 	
 
-psum = 0f;
 
 
 	return _Result;
@@ -1194,12 +1167,12 @@ psum = 0f;
 ///  <param name="sorttype">[in] - L_SHELL_SORT or L_BIN_SORT</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaSortGeneral(
-				  Numa na, 
-				 out Numa pnasort, 
-				 out Numa pnaindex, 
-				 out Numa pnainvert, 
-				  int sortorder, 
-				  int sorttype){
+				 Numa na, 
+				out Numa pnasort, 
+				out Numa pnaindex, 
+				out Numa pnainvert, 
+				 int sortorder, 
+				 int sorttype){
 
 	IntPtr pnasortPtr = IntPtr.Zero;
 	IntPtr pnaindexPtr = IntPtr.Zero;
@@ -1208,12 +1181,9 @@ public static int numaSortGeneral(
 	int _Result = Natives.numaSortGeneral(na.Pointer, out pnasortPtr, out pnaindexPtr, out pnainvertPtr,   sortorder,   sorttype);
 	
 
-pnasort = null;
-	; if (pnasortPtr != IntPtr.Zero){pnasort = new Numa(pnasortPtr);}
-pnaindex = null;
-	; if (pnaindexPtr != IntPtr.Zero){pnaindex = new Numa(pnaindexPtr);}
-pnainvert = null;
-	; if (pnainvertPtr != IntPtr.Zero){pnainvert = new Numa(pnainvertPtr);}
+	if (pnasortPtr == null) {pnasort = null;} else { pnasort = new Numa(pnasortPtr); };
+	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnainvertPtr == null) {pnainvert = null;} else { pnainvert = new Numa(pnainvertPtr); };
 
 
 	return _Result;
@@ -1233,8 +1203,8 @@ pnainvert = null;
 ///  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 ///   <returns>naout output sorted numa, or NULL on error</returns>
 public static Numa numaSortAutoSelect(
-				  Numa nas, 
-				  int sortorder){
+				 Numa nas, 
+				 int sortorder){
 
 	IntPtr _Result = Natives.numaSortAutoSelect(nas.Pointer,   sortorder);
 	
@@ -1259,8 +1229,8 @@ public static Numa numaSortAutoSelect(
 ///  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 ///   <returns>nad indices of nas, sorted by value in nas, or NULL on error</returns>
 public static Numa numaSortIndexAutoSelect(
-				  Numa nas, 
-				  int sortorder){
+				 Numa nas, 
+				 int sortorder){
 
 	IntPtr _Result = Natives.numaSortIndexAutoSelect(nas.Pointer,   sortorder);
 	
@@ -1286,7 +1256,7 @@ public static Numa numaSortIndexAutoSelect(
 ///  <param name="nas">[in] - to be sorted</param>
 ///   <returns>sorttype L_SHELL_SORT or L_BIN_SORT, or UNDEF on error.</returns>
 public static int numaChooseSortType(
-				  Numa nas){
+				 Numa nas){
 
 	int _Result = Natives.numaChooseSortType(nas.Pointer);
 	
@@ -1313,9 +1283,9 @@ public static int numaChooseSortType(
 ///  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 ///   <returns>naout output sorted numa, or NULL on error</returns>
 public static Numa numaSort(
-				  Numa naout, 
-				  Numa nain, 
-				  int sortorder){
+				 Numa naout, 
+				 Numa nain, 
+				 int sortorder){
 
 	IntPtr _Result = Natives.numaSort(naout.Pointer, nain.Pointer,   sortorder);
 	
@@ -1343,8 +1313,8 @@ public static Numa numaSort(
 ///  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 ///   <returns>na sorted, or NULL on error</returns>
 public static Numa numaBinSort(
-				  Numa nas, 
-				  int sortorder){
+				 Numa nas, 
+				 int sortorder){
 
 	IntPtr _Result = Natives.numaBinSort(nas.Pointer,   sortorder);
 	
@@ -1365,8 +1335,8 @@ public static Numa numaBinSort(
 ///  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 ///   <returns>na giving an array of indices that would sort the input array, or NULL on error</returns>
 public static Numa numaGetSortIndex(
-				  Numa na, 
-				  int sortorder){
+				 Numa na, 
+				 int sortorder){
 
 	IntPtr _Result = Natives.numaGetSortIndex(na.Pointer,   sortorder);
 	
@@ -1397,8 +1367,8 @@ public static Numa numaGetSortIndex(
 ///  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 ///   <returns>na sorted, or NULL on error</returns>
 public static Numa numaGetBinSortIndex(
-				  Numa nas, 
-				  int sortorder){
+				 Numa nas, 
+				 int sortorder){
 
 	IntPtr _Result = Natives.numaGetBinSortIndex(nas.Pointer,   sortorder);
 	
@@ -1419,8 +1389,8 @@ public static Numa numaGetBinSortIndex(
 ///  <param name="naindex">[in] - na that maps from the new numa to the input numa</param>
 ///   <returns>nad sorted, or NULL on error</returns>
 public static Numa numaSortByIndex(
-				  Numa nas, 
-				  Numa naindex){
+				 Numa nas, 
+				 Numa naindex){
 
 	IntPtr _Result = Natives.numaSortByIndex(nas.Pointer, naindex.Pointer);
 	
@@ -1447,14 +1417,13 @@ public static Numa numaSortByIndex(
 ///  <param name="psorted">[out] - 1 if sorted 0 if not</param>
 ///   <returns>1 if OK 0 on error</returns>
 public static int numaIsSorted(
-				  Numa nas, 
-				  int sortorder, 
-				 out int psorted){
+				 Numa nas, 
+				 int sortorder, 
+				out int psorted){
 
 	int _Result = Natives.numaIsSorted(nas.Pointer,   sortorder, out  psorted);
 	
 
-psorted = 0;
 
 
 	return _Result;
@@ -1477,11 +1446,11 @@ psorted = 0;
 ///  <param name="pnasy">[out] - sorted exactly in order of nasx</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaSortPair(
-				  Numa nax, 
-				  Numa nay, 
-				  int sortorder, 
-				 out Numa pnasx, 
-				 out Numa pnasy){
+				 Numa nax, 
+				 Numa nay, 
+				 int sortorder, 
+				out Numa pnasx, 
+				out Numa pnasy){
 
 	IntPtr pnasxPtr = IntPtr.Zero;
 	IntPtr pnasyPtr = IntPtr.Zero;
@@ -1489,10 +1458,8 @@ public static int numaSortPair(
 	int _Result = Natives.numaSortPair(nax.Pointer, nay.Pointer,   sortorder, out pnasxPtr, out pnasyPtr);
 	
 
-pnasx = null;
-	; if (pnasxPtr != IntPtr.Zero){pnasx = new Numa(pnasxPtr);}
-pnasy = null;
-	; if (pnasyPtr != IntPtr.Zero){pnasy = new Numa(pnasyPtr);}
+	if (pnasxPtr == null) {pnasx = null;} else { pnasx = new Numa(pnasxPtr); };
+	if (pnasyPtr == null) {pnasy = null;} else { pnasy = new Numa(pnasyPtr); };
 
 
 	return _Result;
@@ -1512,7 +1479,7 @@ pnasy = null;
 ///  <param name="nas">[in] - </param>
 ///   <returns>nad the inverted map, or NULL on error or if not invertible</returns>
 public static Numa numaInvertMap(
-				  Numa nas){
+				 Numa nas){
 
 	IntPtr _Result = Natives.numaInvertMap(nas.Pointer);
 	
@@ -1539,8 +1506,8 @@ public static Numa numaInvertMap(
 ///  <param name="seed">[in] - for random number generation</param>
 ///   <returns>na pseudorandom on {0,...,size - 1}, or NULL on error</returns>
 public static Numa numaPseudorandomSequence(
-				  int size, 
-				  int seed){
+				 int size, 
+				 int seed){
 
 	IntPtr _Result = Natives.numaPseudorandomSequence(  size,   seed);
 	
@@ -1561,8 +1528,8 @@ public static Numa numaPseudorandomSequence(
 ///  <param name="seed">[in] - for random number generation</param>
 ///   <returns>nas randomly shuffled array, or NULL on error</returns>
 public static Numa numaRandomPermutation(
-				  Numa nas, 
-				  int seed){
+				 Numa nas, 
+				 int seed){
 
 	IntPtr _Result = Natives.numaRandomPermutation(nas.Pointer,   seed);
 	
@@ -1604,18 +1571,17 @@ public static Numa numaRandomPermutation(
 ///  <param name="pval">[out] - rank val</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int numaGetRankValue(
-				  Numa na, 
-				  Single fract, 
-				  Numa nasort, 
-				  int usebins, 
-				 out Single pval){
+				 Numa na, 
+				 Single fract, 
+				 Numa nasort, 
+				 int usebins, 
+				out Single pval){
 
 	IntPtr nasortPtr = IntPtr.Zero; 	if (nasort != null) {nasortPtr = nasort.Pointer;}
 
 	int _Result = Natives.numaGetRankValue(na.Pointer,   fract, nasortPtr,   usebins, out  pval);
 	
 
-pval = 0f;
 
 
 	return _Result;
@@ -1635,13 +1601,12 @@ pval = 0f;
 ///  <param name="pval">[out] - median value</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int numaGetMedian(
-				  Numa na, 
-				 out Single pval){
+				 Numa na, 
+				out Single pval){
 
 	int _Result = Natives.numaGetMedian(na.Pointer, out  pval);
 	
 
-pval = 0f;
 
 
 	return _Result;
@@ -1664,13 +1629,12 @@ pval = 0f;
 ///  <param name="pval">[out] - integer median value</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int numaGetBinnedMedian(
-				  Numa na, 
-				 out int pval){
+				 Numa na, 
+				out int pval){
 
 	int _Result = Natives.numaGetBinnedMedian(na.Pointer, out  pval);
 	
 
-pval = 0;
 
 
 	return _Result;
@@ -1694,15 +1658,13 @@ pval = 0;
 ///  <param name="pcount">[out][optional] - mode count</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int numaGetMode(
-				  Numa na, 
-				 out Single pval, 
+				 Numa na, 
+				out Single pval, 
 				out int pcount){
 
 	int _Result = Natives.numaGetMode(na.Pointer, out  pval, out  pcount);
 	
 
-pval = 0f;
-pcount = 0;
 
 
 	return _Result;
@@ -1727,15 +1689,13 @@ pcount = 0;
 ///  <param name="pmedvar">[out] - median variation from median val</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int numaGetMedianVariation(
-				  Numa na, 
-				 out Single pmedval, 
-				 out Single pmedvar){
+				 Numa na, 
+				out Single pmedval, 
+				out Single pmedvar){
 
 	int _Result = Natives.numaGetMedianVariation(na.Pointer, out  pmedval, out  pmedvar);
 	
 
-pmedval = 0f;
-pmedvar = 0f;
 
 
 	return _Result;
@@ -1760,10 +1720,10 @@ pmedvar = 0f;
 ///  <param name="iend">[in] - ending index in nas use -1 to cat all</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaJoin(
-				  Numa nad, 
-				  Numa nas, 
-				  int istart, 
-				  int iend){
+				 Numa nad, 
+				 Numa nas, 
+				 int istart, 
+				 int iend){
 
 	IntPtr nasPtr = IntPtr.Zero; 	if (nas != null) {nasPtr = nas.Pointer;}
 
@@ -1794,10 +1754,10 @@ public static int numaJoin(
 ///  <param name="iend">[in] - ending index in naas use -1 to cat all</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaaJoin(
-				  Numaa naad, 
-				  Numaa naas, 
-				  int istart, 
-				  int iend){
+				 Numaa naad, 
+				 Numaa naas, 
+				 int istart, 
+				 int iend){
 
 	IntPtr naasPtr = IntPtr.Zero; 	if (naas != null) {naasPtr = naas.Pointer;}
 
@@ -1827,7 +1787,7 @@ public static int numaaJoin(
 ///  <param name="naa">[in] - </param>
 ///   <returns>numa, or NULL on error</returns>
 public static Numa numaaFlattenToNuma(
-				  Numaa naa){
+				 Numaa naa){
 
 	IntPtr _Result = Natives.numaaFlattenToNuma(naa.Pointer);
 	
@@ -1838,4 +1798,5 @@ public static Numa numaaFlattenToNuma(
 	return  new Numa(_Result);
 }
 
+}
 }

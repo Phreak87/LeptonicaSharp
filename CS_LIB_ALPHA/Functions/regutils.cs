@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // regutils.c (119, 1)
 // regTestSetup(argc, argv, prp) as int
@@ -44,9 +45,9 @@ public class _All {
 ///  <param name="prp">[out] - all regression params</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int regTestSetup(
-				  int argc, 
-				  String[] argv, 
-				 out L_RegParams prp){
+				 int argc, 
+				 String[] argv, 
+				out L_RegParams prp){
 
 	IntPtr argvPtr = 	Marshal.AllocHGlobal(Marshal.SizeOf(argv));
 	IntPtr prpPtr = IntPtr.Zero;
@@ -54,8 +55,7 @@ public static int regTestSetup(
 	int _Result = Natives.regTestSetup(  argc,   argvPtr, out prpPtr);
 	
 
-prp = null;
-	; if (prpPtr != IntPtr.Zero){prp = new L_RegParams(prpPtr);}
+	if (prpPtr == null) {prp = null;} else { prp = new L_RegParams(prpPtr); };
 
 
 	return _Result;
@@ -74,7 +74,7 @@ prp = null;
 ///  <param name="rp">[in] - regression test parameters</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int regTestCleanup(
-				  L_RegParams rp){
+				 L_RegParams rp){
 
 	int _Result = Natives.regTestCleanup(rp.Pointer);
 	
@@ -96,10 +96,10 @@ public static int regTestCleanup(
 ///  <param name="delta">[in] - allowed max absolute difference</param>
 ///   <returns>0 if OK, 1 on error a failure in comparison is not an error</returns>
 public static int regTestCompareValues(
-				  L_RegParams rp, 
-				  Single val1, 
-				  Single val2, 
-				  Single delta){
+				 L_RegParams rp, 
+				 Single val1, 
+				 Single val2, 
+				 Single delta){
 
 	int _Result = Natives.regTestCompareValues(rp.Pointer,   val1,   val2,   delta);
 	
@@ -122,11 +122,11 @@ public static int regTestCompareValues(
 ///  <param name="bytes2">[in] - size of string2</param>
 ///   <returns>0 if OK, 1 on error a failure in comparison is not an error</returns>
 public static int regTestCompareStrings(
-				  L_RegParams rp, 
-				  Byte[] string1, 
-				  uint bytes1, 
-				  Byte[] string2, 
-				  uint bytes2){
+				 L_RegParams rp, 
+				 Byte[] string1, 
+				 uint bytes1, 
+				 Byte[] string2, 
+				 uint bytes2){
 
 	int _Result = Natives.regTestCompareStrings(rp.Pointer,   string1,   bytes1,   string2,   bytes2);
 	
@@ -151,9 +151,9 @@ public static int regTestCompareStrings(
 ///  <param name="pix2">[in] - to be tested for equality</param>
 ///   <returns>0 if OK, 1 on error a failure in comparison is not an error</returns>
 public static int regTestComparePix(
-				  L_RegParams rp, 
-				  Pix pix1, 
-				  Pix pix2){
+				 L_RegParams rp, 
+				 Pix pix1, 
+				 Pix pix2){
 
 	int _Result = Natives.regTestComparePix(rp.Pointer, pix1.Pointer, pix2.Pointer);
 	
@@ -193,12 +193,12 @@ public static int regTestComparePix(
 ///  <param name="printstats">[in] - use 1 to print normalized histogram to stderr</param>
 ///   <returns>0 if OK, 1 on error a failure in similarity comparison is not an error</returns>
 public static int regTestCompareSimilarPix(
-				  L_RegParams rp, 
-				  Pix pix1, 
-				  Pix pix2, 
-				  int mindiff, 
-				  Single maxfract, 
-				  int printstats){
+				 L_RegParams rp, 
+				 Pix pix1, 
+				 Pix pix2, 
+				 int mindiff, 
+				 Single maxfract, 
+				 int printstats){
 
 	int _Result = Natives.regTestCompareSimilarPix(rp.Pointer, pix1.Pointer, pix2.Pointer,   mindiff,   maxfract,   printstats);
 	
@@ -232,8 +232,8 @@ public static int regTestCompareSimilarPix(
 ///  <param name="localname">[in] - name of output file from reg test</param>
 ///   <returns>0 if OK, 1 on error a failure in comparison is not an error</returns>
 public static int regTestCheckFile(
-				  L_RegParams rp, 
-				  String localname){
+				 L_RegParams rp, 
+				 String localname){
 
 	int _Result = Natives.regTestCheckFile(rp.Pointer,   localname);
 	
@@ -263,9 +263,9 @@ public static int regTestCheckFile(
 ///  <param name="index2">[in] - of another output file from reg test</param>
 ///   <returns>0 if OK, 1 on error a failure in comparison is not an error</returns>
 public static int regTestCompareFiles(
-				  L_RegParams rp, 
-				  int index1, 
-				  int index2){
+				 L_RegParams rp, 
+				 int index1, 
+				 int index2){
 
 	int _Result = Natives.regTestCompareFiles(rp.Pointer,   index1,   index2);
 	
@@ -303,9 +303,9 @@ public static int regTestCompareFiles(
 ///  <param name="format">[in] - of output pix</param>
 ///   <returns>0 if OK, 1 on error a failure in comparison is not an error</returns>
 public static int regTestWritePixAndCheck(
-				  L_RegParams rp, 
-				  Pix pix, 
-				  IFF format){
+				 L_RegParams rp, 
+				 Pix pix, 
+				 IFF format){
 
 	int _Result = Natives.regTestWritePixAndCheck(rp.Pointer, pix.Pointer,  (int) format);
 	
@@ -349,10 +349,10 @@ public static int regTestWritePixAndCheck(
 ///  <param name="ext">[in] - filename extension (e.g.: "ba", "pta")</param>
 ///   <returns>0 if OK, 1 on error a failure in comparison is not an error</returns>
 public static int regTestWriteDataAndCheck(
-				  L_RegParams rp, 
-				  Object data, 
-				  uint nbytes, 
-				  String ext){
+				 L_RegParams rp, 
+				 Object data, 
+				 uint nbytes, 
+				 String ext){
 
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -386,9 +386,9 @@ public static int regTestWriteDataAndCheck(
 ///  <param name="format">[in] - of image e.g., IFF_PNG</param>
 ///   <returns>filename if OK, or NULL on error</returns>
 public static String regTestGenLocalFilename(
-				  L_RegParams rp, 
-				  int index, 
-				  IFF format){
+				 L_RegParams rp, 
+				 int index, 
+				 IFF format){
 
 	String _Result = Natives.regTestGenLocalFilename(rp.Pointer,   index,  (int) format);
 	
@@ -398,4 +398,5 @@ public static String regTestGenLocalFilename(
 	return _Result;
 }
 
+}
 }

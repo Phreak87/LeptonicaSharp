@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // convertfiles.c (67, 1)
 // convertFilesTo1bpp(dirin, substr, upscaling, thresh, firstpage, npages, dirout, outformat) as int
@@ -25,14 +26,14 @@ public class _All {
 ///  <param name="outformat">[in] - IFF_PNG, IFF_TIFF_G4</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertFilesTo1bpp(
-				  String dirin, 
-				  String substr, 
-				  int upscaling, 
-				  int thresh, 
-				  int firstpage, 
-				  int npages, 
-				  String dirout, 
-				  int outformat){
+				 String dirin, 
+				 String substr, 
+				 int upscaling, 
+				 int thresh, 
+				 int firstpage, 
+				 int npages, 
+				 String dirout, 
+				 int outformat){
 
 	int _Result = Natives.convertFilesTo1bpp(  dirin,   substr,   upscaling,   thresh,   firstpage,   npages,   dirout,   outformat);
 	
@@ -42,4 +43,5 @@ public static int convertFilesTo1bpp(
 	return _Result;
 }
 
+}
 }

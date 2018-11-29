@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // list.c (236, 1)
 // listDestroy(phead) as Object
@@ -21,15 +22,14 @@ public class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/listDestroy/*"/>
 ///  <param name="phead">[in,out] - to be nulled head of list</param>
 public static void listDestroy(
-				 ref DoubleLinkedList phead){
+				ref DoubleLinkedList phead){
 
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 
 	Natives.listDestroy(ref pheadPtr);
 	
 
-phead = null;
-	; if (pheadPtr != IntPtr.Zero){phead = new DoubleLinkedList(pheadPtr);}
+	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 
 }
@@ -51,8 +51,8 @@ phead = null;
 ///  <param name="data">[in] - void ptr, to be added</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int listAddToHead(
-				 ref DoubleLinkedList phead, 
-				  Object data){
+				ref DoubleLinkedList phead, 
+				 Object data){
 
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
@@ -62,8 +62,7 @@ public static int listAddToHead(
 	
 	Marshal.FreeHGlobal(dataPtr);
 
-phead = null;
-	; if (pheadPtr != IntPtr.Zero){phead = new DoubleLinkedList(pheadPtr);}
+	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 
 	return _Result;
@@ -96,9 +95,9 @@ phead = null;
 ///  <param name="data">[in] - void ptr, to be hung on tail cons cell</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int listAddToTail(
-				 ref DoubleLinkedList phead, 
-				 ref DoubleLinkedList ptail, 
-				  Object data){
+				ref DoubleLinkedList phead, 
+				ref DoubleLinkedList ptail, 
+				 Object data){
 
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 	IntPtr ptailPtr = IntPtr.Zero; 	if (ptail != null) {ptailPtr = ptail.Pointer;}
@@ -109,10 +108,8 @@ public static int listAddToTail(
 	
 	Marshal.FreeHGlobal(dataPtr);
 
-phead = null;
-	; if (pheadPtr != IntPtr.Zero){phead = new DoubleLinkedList(pheadPtr);}
-ptail = null;
-	; if (ptailPtr != IntPtr.Zero){ptail = new DoubleLinkedList(ptailPtr);}
+	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+	if (ptailPtr == null) {ptail = null;} else { ptail = new DoubleLinkedList(ptailPtr); };
 
 
 	return _Result;
@@ -142,9 +139,9 @@ ptail = null;
 ///  <param name="data">[in] - void  address, to be added</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int listInsertBefore(
-				 ref DoubleLinkedList phead, 
-				  DoubleLinkedList elem, 
-				  Object data){
+				ref DoubleLinkedList phead, 
+				 DoubleLinkedList elem, 
+				 Object data){
 
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
@@ -154,8 +151,7 @@ public static int listInsertBefore(
 	
 	Marshal.FreeHGlobal(dataPtr);
 
-phead = null;
-	; if (pheadPtr != IntPtr.Zero){phead = new DoubleLinkedList(pheadPtr);}
+	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 
 	return _Result;
@@ -186,9 +182,9 @@ phead = null;
 ///  <param name="data">[in] - void  ptr, to be added</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int listInsertAfter(
-				 ref DoubleLinkedList phead, 
-				  DoubleLinkedList elem, 
-				  Object data){
+				ref DoubleLinkedList phead, 
+				 DoubleLinkedList elem, 
+				 Object data){
 
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
@@ -198,8 +194,7 @@ public static int listInsertAfter(
 	
 	Marshal.FreeHGlobal(dataPtr);
 
-phead = null;
-	; if (pheadPtr != IntPtr.Zero){phead = new DoubleLinkedList(pheadPtr);}
+	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 
 	return _Result;
@@ -221,16 +216,15 @@ phead = null;
 ///  <param name="elem">[in] - list element to be removed</param>
 ///   <returns>data  void struct on cell</returns>
 public static Object listRemoveElement(
-				 ref DoubleLinkedList phead, 
-				  DoubleLinkedList elem){
+				ref DoubleLinkedList phead, 
+				 DoubleLinkedList elem){
 
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 
 	IntPtr _Result = Natives.listRemoveElement(ref pheadPtr, elem.Pointer);
 	
 
-phead = null;
-	; if (pheadPtr != IntPtr.Zero){phead = new DoubleLinkedList(pheadPtr);}
+	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
 
@@ -252,15 +246,14 @@ phead = null;
 ///  <param name="phead">[in,out] - head of list [to be updated]</param>
 ///   <returns>data  void struct on cell, or NULL on error</returns>
 public static Object listRemoveFromHead(
-				 ref DoubleLinkedList phead){
+				ref DoubleLinkedList phead){
 
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 
 	IntPtr _Result = Natives.listRemoveFromHead(ref pheadPtr);
 	
 
-phead = null;
-	; if (pheadPtr != IntPtr.Zero){phead = new DoubleLinkedList(pheadPtr);}
+	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
 
@@ -292,8 +285,8 @@ phead = null;
 ///  <param name="ptail">[in,out] - [always updated], tail may be NULL</param>
 ///   <returns>data  void struct on cell or NULL on error</returns>
 public static Object listRemoveFromTail(
-				 ref DoubleLinkedList phead, 
-				 ref DoubleLinkedList ptail){
+				ref DoubleLinkedList phead, 
+				ref DoubleLinkedList ptail){
 
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 	IntPtr ptailPtr = IntPtr.Zero; 	if (ptail != null) {ptailPtr = ptail.Pointer;}
@@ -301,10 +294,8 @@ public static Object listRemoveFromTail(
 	IntPtr _Result = Natives.listRemoveFromTail(ref pheadPtr, ref ptailPtr);
 	
 
-phead = null;
-	; if (pheadPtr != IntPtr.Zero){phead = new DoubleLinkedList(pheadPtr);}
-ptail = null;
-	; if (ptailPtr != IntPtr.Zero){ptail = new DoubleLinkedList(ptailPtr);}
+	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+	if (ptailPtr == null) {ptail = null;} else { ptail = new DoubleLinkedList(ptailPtr); };
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
 
@@ -331,8 +322,8 @@ ptail = null;
 ///  <param name="data">[in] - void  address, to be searched for</param>
 ///   <returns>cell  the containing cell, or NULL if not found or on error</returns>
 public static DoubleLinkedList listFindElement(
-				  DoubleLinkedList head, 
-				  Object data){
+				 DoubleLinkedList head, 
+				 Object data){
 
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -356,7 +347,7 @@ public static DoubleLinkedList listFindElement(
 ///  <param name="head">[in] - </param>
 ///   <returns>tail, or NULL on error</returns>
 public static DoubleLinkedList listFindTail(
-				  DoubleLinkedList head){
+				 DoubleLinkedList head){
 
 	IntPtr _Result = Natives.listFindTail(head.Pointer);
 	
@@ -376,7 +367,7 @@ public static DoubleLinkedList listFindTail(
 ///  <param name="head">[in] - of list</param>
 ///   <returns>number of elements 0 if no list or on error</returns>
 public static int listGetCount(
-				  DoubleLinkedList head){
+				 DoubleLinkedList head){
 
 	int _Result = Natives.listGetCount(head.Pointer);
 	
@@ -398,15 +389,14 @@ public static int listGetCount(
 ///  <param name="phead">[in,out] - [may be changed] list head</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int listReverse(
-				 ref DoubleLinkedList phead){
+				ref DoubleLinkedList phead){
 
 	IntPtr pheadPtr = IntPtr.Zero; 	if (phead != null) {pheadPtr = phead.Pointer;}
 
 	int _Result = Natives.listReverse(ref pheadPtr);
 	
 
-phead = null;
-	; if (pheadPtr != IntPtr.Zero){phead = new DoubleLinkedList(pheadPtr);}
+	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 
 	return _Result;
@@ -427,8 +417,8 @@ phead = null;
 ///  <param name="phead2">[in,out] - to be nulled head of second list</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int listJoin(
-				 ref DoubleLinkedList phead1, 
-				 ref DoubleLinkedList phead2){
+				ref DoubleLinkedList phead1, 
+				ref DoubleLinkedList phead2){
 
 	IntPtr phead1Ptr = IntPtr.Zero; 	if (phead1 != null) {phead1Ptr = phead1.Pointer;}
 	IntPtr phead2Ptr = IntPtr.Zero; 	if (phead2 != null) {phead2Ptr = phead2.Pointer;}
@@ -436,13 +426,12 @@ public static int listJoin(
 	int _Result = Natives.listJoin(ref phead1Ptr, ref phead2Ptr);
 	
 
-phead1 = null;
-	; if (phead1Ptr != IntPtr.Zero){phead1 = new DoubleLinkedList(phead1Ptr);}
-phead2 = null;
-	; if (phead2Ptr != IntPtr.Zero){phead2 = new DoubleLinkedList(phead2Ptr);}
+	if (phead1Ptr == null) {phead1 = null;} else { phead1 = new DoubleLinkedList(phead1Ptr); };
+	if (phead2Ptr == null) {phead2 = null;} else { phead2 = new DoubleLinkedList(phead2Ptr); };
 
 
 	return _Result;
 }
 
+}
 }

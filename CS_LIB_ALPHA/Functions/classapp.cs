@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // classapp.c (96, 1)
 // jbCorrelation(dirin, thresh, weight, components, rootname, firstpage, npages, renderflag) as int
@@ -28,14 +29,14 @@ public class _All {
 ///  <param name="renderflag">[in] - 1 to render from templates 0 to skip</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int jbCorrelation(
-				  String dirin, 
-				  Single thresh, 
-				  Single weight, 
-				  int components, 
-				  String rootname, 
-				  int firstpage, 
-				  int npages, 
-				  int renderflag){
+				 String dirin, 
+				 Single thresh, 
+				 Single weight, 
+				 int components, 
+				 String rootname, 
+				 int firstpage, 
+				 int npages, 
+				 int renderflag){
 
 	int _Result = Natives.jbCorrelation(  dirin,   thresh,   weight,   components,   rootname,   firstpage,   npages,   renderflag);
 	
@@ -65,14 +66,14 @@ public static int jbCorrelation(
 ///  <param name="renderflag">[in] - 1 to render from templates 0 to skip</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int jbRankHaus(
-				  String dirin, 
-				  int size, 
-				  Single rank, 
-				  int components, 
-				  String rootname, 
-				  int firstpage, 
-				  int npages, 
-				  int renderflag){
+				 String dirin, 
+				 int size, 
+				 Single rank, 
+				 int components, 
+				 String rootname, 
+				 int firstpage, 
+				 int npages, 
+				 int renderflag){
 
 	int _Result = Natives.jbRankHaus(  dirin,   size,   rank,   components,   rootname,   firstpage,   npages,   renderflag);
 	
@@ -105,23 +106,22 @@ public static int jbRankHaus(
 ///  <param name="npages">[in] - use 0 for all pages in dirin</param>
 ///   <returns>classer for the set of pages</returns>
 public static JbClasser jbWordsInTextlines(
-				  String dirin, 
-				  int reduction, 
-				  int maxwidth, 
-				  int maxheight, 
-				  Single thresh, 
-				  Single weight, 
-				 out Numa pnatl, 
-				  int firstpage, 
-				  int npages){
+				 String dirin, 
+				 int reduction, 
+				 int maxwidth, 
+				 int maxheight, 
+				 Single thresh, 
+				 Single weight, 
+				out Numa pnatl, 
+				 int firstpage, 
+				 int npages){
 
 	IntPtr pnatlPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.jbWordsInTextlines(  dirin,   reduction,   maxwidth,   maxheight,   thresh,   weight, out pnatlPtr,   firstpage,   npages);
 	
 
-pnatl = null;
-	; if (pnatlPtr != IntPtr.Zero){pnatl = new Numa(pnatlPtr);}
+	if (pnatlPtr == null) {pnatl = null;} else { pnatl = new Numa(pnatlPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -179,14 +179,14 @@ pnatl = null;
 ///  <param name="pnai">[out] - index of textline for each word</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetWordsInTextlines(
-				  Pix pixs, 
-				  int minwidth, 
-				  int minheight, 
-				  int maxwidth, 
-				  int maxheight, 
-				 out Boxa pboxad, 
-				 out Pixa ppixad, 
-				 out Numa pnai){
+				 Pix pixs, 
+				 int minwidth, 
+				 int minheight, 
+				 int maxwidth, 
+				 int maxheight, 
+				out Boxa pboxad, 
+				out Pixa ppixad, 
+				out Numa pnai){
 
 	IntPtr pboxadPtr = IntPtr.Zero;
 	IntPtr ppixadPtr = IntPtr.Zero;
@@ -195,12 +195,9 @@ public static int pixGetWordsInTextlines(
 	int _Result = Natives.pixGetWordsInTextlines(pixs.Pointer,   minwidth,   minheight,   maxwidth,   maxheight, out pboxadPtr, out ppixadPtr, out pnaiPtr);
 	
 
-pboxad = null;
-	; if (pboxadPtr != IntPtr.Zero){pboxad = new Boxa(pboxadPtr);}
-ppixad = null;
-	; if (ppixadPtr != IntPtr.Zero){ppixad = new Pixa(ppixadPtr);}
-pnai = null;
-	; if (pnaiPtr != IntPtr.Zero){pnai = new Numa(pnaiPtr);}
+	if (pboxadPtr == null) {pboxad = null;} else { pboxad = new Boxa(pboxadPtr); };
+	if (ppixadPtr == null) {ppixad = null;} else { ppixad = new Pixa(ppixadPtr); };
+	if (pnaiPtr == null) {pnai = null;} else { pnai = new Numa(pnaiPtr); };
 
 
 	return _Result;
@@ -229,12 +226,12 @@ pnai = null;
 ///  <param name="pnai">[out][optional] - index of textline for each word</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetWordBoxesInTextlines(
-				  Pix pixs, 
-				  int minwidth, 
-				  int minheight, 
-				  int maxwidth, 
-				  int maxheight, 
-				 out Boxa pboxad, 
+				 Pix pixs, 
+				 int minwidth, 
+				 int minheight, 
+				 int maxwidth, 
+				 int maxheight, 
+				out Boxa pboxad, 
 				out Numa pnai){
 
 	IntPtr pboxadPtr = IntPtr.Zero;
@@ -243,10 +240,8 @@ public static int pixGetWordBoxesInTextlines(
 	int _Result = Natives.pixGetWordBoxesInTextlines(pixs.Pointer,   minwidth,   minheight,   maxwidth,   maxheight, out pboxadPtr, out pnaiPtr);
 	
 
-pboxad = null;
-	; if (pboxadPtr != IntPtr.Zero){pboxad = new Boxa(pboxadPtr);}
-pnai = null;
-	; if (pnaiPtr != IntPtr.Zero){pnai = new Numa(pnaiPtr);}
+	if (pboxadPtr == null) {pboxad = null;} else { pboxad = new Boxa(pboxadPtr); };
+	if (pnaiPtr == null) {pnai = null;} else { pnai = new Numa(pnaiPtr); };
 
 
 	return _Result;
@@ -270,8 +265,8 @@ pnai = null;
 ///  <param name="na">[in] - index of textline for each box in boxa</param>
 ///   <returns>naa NUMAA, where each numa represents one textline, or NULL on error</returns>
 public static Numaa boxaExtractSortedPattern(
-				  Boxa boxa, 
-				  Numa na){
+				 Boxa boxa, 
+				 Numa na){
 
 	IntPtr _Result = Natives.boxaExtractSortedPattern(boxa.Pointer, na.Pointer);
 	
@@ -329,24 +324,24 @@ public static Numaa boxaExtractSortedPattern(
 ///  <param name="debugflag">[in] - 1 for debug output</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaaCompareImagesByBoxes(
-				  Numaa naa1, 
-				  Numaa naa2, 
-				  int nperline, 
-				  int nreq, 
-				  int maxshiftx, 
-				  int maxshifty, 
-				  int delx, 
-				  int dely, 
-				 out int psame, 
-				  int debugflag){
+				 Numaa naa1, 
+				 Numaa naa2, 
+				 int nperline, 
+				 int nreq, 
+				 int maxshiftx, 
+				 int maxshifty, 
+				 int delx, 
+				 int dely, 
+				out int psame, 
+				 int debugflag){
 
 	int _Result = Natives.numaaCompareImagesByBoxes(naa1.Pointer, naa2.Pointer,   nperline,   nreq,   maxshiftx,   maxshifty,   delx,   dely, out  psame,   debugflag);
 	
 
-psame = 0;
 
 
 	return _Result;
 }
 
+}
 }

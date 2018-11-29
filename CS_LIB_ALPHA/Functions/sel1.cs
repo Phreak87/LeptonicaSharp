@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // sel1.c (239, 1)
 // selaCreate(n) as Sela
@@ -14,7 +15,7 @@ public class _All {
 ///  <param name="n">[in] - initial number of sel ptrs use 0 for default</param>
 ///   <returns>sela, or NULL on error</returns>
 public static Sela selaCreate(
-				  int n){
+				 int n){
 
 	IntPtr _Result = Natives.selaCreate(  n);
 	
@@ -33,15 +34,14 @@ public static Sela selaCreate(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selaDestroy/*"/>
 ///  <param name="psela">[in,out] - to be nulled</param>
 public static void selaDestroy(
-				 ref Sela psela){
+				ref Sela psela){
 
 	IntPtr pselaPtr = IntPtr.Zero; 	if (psela != null) {pselaPtr = psela.Pointer;}
 
 	Natives.selaDestroy(ref pselaPtr);
 	
 
-psela = null;
-	; if (pselaPtr != IntPtr.Zero){psela = new Sela(pselaPtr);}
+	if (pselaPtr == null) {psela = null;} else { psela = new Sela(pselaPtr); };
 
 
 }
@@ -64,8 +64,8 @@ psela = null;
 ///  <param name="name">[in][optional] - sel name can be null</param>
 ///   <returns>sel, or NULL on error</returns>
 public static Sel selCreate(
-				  int height, 
-				  int width, 
+				 int height, 
+				 int width, 
 				 String name){
 
 	IntPtr _Result = Natives.selCreate(  height,   width,   name);
@@ -85,15 +85,14 @@ public static Sel selCreate(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selDestroy/*"/>
 ///  <param name="psel">[in,out] - to be nulled</param>
 public static void selDestroy(
-				 ref Sel psel){
+				ref Sel psel){
 
 	IntPtr pselPtr = IntPtr.Zero; 	if (psel != null) {pselPtr = psel.Pointer;}
 
 	Natives.selDestroy(ref pselPtr);
 	
 
-psel = null;
-	; if (pselPtr != IntPtr.Zero){psel = new Sel(pselPtr);}
+	if (pselPtr == null) {psel = null;} else { psel = new Sel(pselPtr); };
 
 
 }
@@ -107,7 +106,7 @@ psel = null;
 ///  <param name="sel">[in] - </param>
 ///   <returns>a copy of the sel, or NULL on error</returns>
 public static Sel selCopy(
-				  Sel sel){
+				 Sel sel){
 
 	IntPtr _Result = Natives.selCopy(sel.Pointer);
 	
@@ -134,11 +133,11 @@ public static Sel selCopy(
 ///  <param name="type">[in] - SEL_HIT, SEL_MISS, or SEL_DONT_CARE</param>
 ///   <returns>sel, or NULL on error</returns>
 public static Sel selCreateBrick(
-				  int h, 
-				  int w, 
-				  int cy, 
-				  int cx, 
-				  int type){
+				 int h, 
+				 int w, 
+				 int cy, 
+				 int cx, 
+				 int type){
 
 	IntPtr _Result = Natives.selCreateBrick(  h,   w,   cy,   cx,   type);
 	
@@ -167,9 +166,9 @@ public static Sel selCreateBrick(
 ///  <param name="direction">[in] - L_HORIZ, L_VERT</param>
 ///   <returns>sel, or NULL on error</returns>
 public static Sel selCreateComb(
-				  int factor1, 
-				  int factor2, 
-				  int direction){
+				 int factor1, 
+				 int factor2, 
+				 int direction){
 
 	IntPtr _Result = Natives.selCreateComb(  factor1,   factor2,   direction);
 	
@@ -194,8 +193,8 @@ public static Sel selCreateComb(
 ///  <param name="sx">[in] - columns == width</param>
 ///   <returns>doubly indexed array i.e., an array of sy row pointers, each of which points to an array of sx ints</returns>
 public static List<int[]> create2dIntArray(
-				  int sy, 
-				  int sx){
+				 int sy, 
+				 int sx){
 
 	IntPtr _Result = Natives.create2dIntArray(  sy,   sx);
 	
@@ -225,10 +224,10 @@ public static List<int[]> create2dIntArray(
 ///  <param name="copyflag">[in] - L_INSERT or L_COPY</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int selaAddSel(
-				  Sela sela, 
-				  Sel sel, 
-				  String selname, 
-				  int copyflag){
+				 Sela sela, 
+				 Sel sel, 
+				 String selname, 
+				 int copyflag){
 
 	int _Result = Natives.selaAddSel(sela.Pointer, sel.Pointer,   selname,   copyflag);
 	
@@ -247,7 +246,7 @@ public static int selaAddSel(
 ///  <param name="sela">[in] - </param>
 ///   <returns>count, or 0 on error</returns>
 public static int selaGetCount(
-				  Sela sela){
+				 Sela sela){
 
 	int _Result = Natives.selaGetCount(sela.Pointer);
 	
@@ -271,8 +270,8 @@ public static int selaGetCount(
 ///  <param name="i">[in] - index of sel to be retrieved not copied</param>
 ///   <returns>sel, or NULL on error</returns>
 public static Sel selaGetSel(
-				  Sela sela, 
-				  int i){
+				 Sela sela, 
+				 int i){
 
 	IntPtr _Result = Natives.selaGetSel(sela.Pointer,   i);
 	
@@ -292,7 +291,7 @@ public static Sel selaGetSel(
 ///  <param name="sel">[in] - </param>
 ///   <returns>sel name not copied, or NULL if no name or on error</returns>
 public static String selGetName(
-				  Sel sel){
+				 Sel sel){
 
 	String _Result = Natives.selGetName(sel.Pointer);
 	
@@ -317,7 +316,7 @@ public static String selGetName(
 ///  <param name="name">[in][optional] - can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int selSetName(
-				  Sel sel, 
+				 Sel sel, 
 				 String name){
 
 	int _Result = Natives.selSetName(sel.Pointer,   name);
@@ -340,8 +339,8 @@ public static int selSetName(
 ///  <param name="psel">[in][optional] - sel (not a copy)</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int selaFindSelByName(
-				  Sela sela, 
-				  String name, 
+				 Sela sela, 
+				 String name, 
 				out int pindex, 
 				 List<Sel> psel){
 
@@ -350,7 +349,6 @@ public static int selaFindSelByName(
 	int _Result = Natives.selaFindSelByName(sela.Pointer,   name, out  pindex, pselPtr);
 	
 
-pindex = 0;
 
 
 	return _Result;
@@ -368,15 +366,14 @@ pindex = 0;
 ///  <param name="ptype">[out] - SEL_HIT, SEL_MISS, SEL_DONT_CARE</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int selGetElement(
-				  Sel sel, 
-				  int row, 
-				  int col, 
-				 out int ptype){
+				 Sel sel, 
+				 int row, 
+				 int col, 
+				out int ptype){
 
 	int _Result = Natives.selGetElement(sel.Pointer,   row,   col, out  ptype);
 	
 
-ptype = 0;
 
 
 	return _Result;
@@ -400,10 +397,10 @@ ptype = 0;
 ///  <param name="type">[in] - SEL_HIT, SEL_MISS, SEL_DONT_CARE</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int selSetElement(
-				  Sel sel, 
-				  int row, 
-				  int col, 
-				  int type){
+				 Sel sel, 
+				 int row, 
+				 int col, 
+				 int type){
 
 	int _Result = Natives.selSetElement(sel.Pointer,   row,   col,   type);
 	
@@ -426,7 +423,7 @@ public static int selSetElement(
 ///  <param name="pcx">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int selGetParameters(
-				  Sel sel, 
+				 Sel sel, 
 				out int psy, 
 				out int psx, 
 				out int pcy, 
@@ -435,10 +432,6 @@ public static int selGetParameters(
 	int _Result = Natives.selGetParameters(sel.Pointer, out  psy, out  psx, out  pcy, out  pcx);
 	
 
-psy = 0;
-psx = 0;
-pcy = 0;
-pcx = 0;
 
 
 	return _Result;
@@ -455,9 +448,9 @@ pcx = 0;
 ///  <param name="cx">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int selSetOrigin(
-				  Sel sel, 
-				  int cy, 
-				  int cx){
+				 Sel sel, 
+				 int cy, 
+				 int cx){
 
 	int _Result = Natives.selSetOrigin(sel.Pointer,   cy,   cx);
 	
@@ -477,13 +470,12 @@ public static int selSetOrigin(
 ///  <param name="ptype">[out] - SEL_HIT, SEL_MISS, SEL_DONT_CARE</param>
 ///   <returns>0 if OK 1 on error or if origin is not found</returns>
 public static int selGetTypeAtOrigin(
-				  Sel sel, 
-				 out int ptype){
+				 Sel sel, 
+				out int ptype){
 
 	int _Result = Natives.selGetTypeAtOrigin(sel.Pointer, out  ptype);
 	
 
-ptype = 0;
 
 
 	return _Result;
@@ -500,9 +492,9 @@ ptype = 0;
 ///  <param name="vsize">[in] - of brick sel</param>
 ///   <returns>sel name new string, or NULL if no name or on error</returns>
 public static String selaGetBrickName(
-				  Sela sela, 
-				  int hsize, 
-				  int vsize){
+				 Sela sela, 
+				 int hsize, 
+				 int vsize){
 
 	String _Result = Natives.selaGetBrickName(sela.Pointer,   hsize,   vsize);
 	
@@ -528,9 +520,9 @@ public static String selaGetBrickName(
 ///  <param name="direction">[in] - L_HORIZ, L_VERT</param>
 ///   <returns>sel name new string, or NULL if name not found or on error</returns>
 public static String selaGetCombName(
-				  Sela sela, 
-				  int size, 
-				  int direction){
+				 Sela sela, 
+				 int size, 
+				 int direction){
 
 	String _Result = Natives.selaGetCombName(sela.Pointer,   size,   direction);
 	
@@ -560,7 +552,7 @@ public static String selaGetCombName(
 ///  <param name="pnamev2">[out][optional] - name of vert comb</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int getCompositeParameters(
-				  int size, 
+				 int size, 
 				out int psize1, 
 				out int psize2, 
 				out String[] pnameh1, 
@@ -576,12 +568,10 @@ public static int getCompositeParameters(
 	int _Result = Natives.getCompositeParameters(  size, out  psize1, out  psize2, out  pnameh1Ptr, out  pnameh2Ptr, out  pnamev1Ptr, out  pnamev2Ptr);
 	
 
-psize1 = 0;
-psize2 = 0;
-pnameh1 = null;
-pnameh2 = null;
-pnamev1 = null;
-pnamev2 = null;
+	if (pnameh1Ptr == null) {pnameh1 = null;} else { pnameh1 = null; };
+	if (pnameh2Ptr == null) {pnameh2 = null;} else { pnameh2 = null; };
+	if (pnamev1Ptr == null) {pnamev1 = null;} else { pnamev1 = null; };
+	if (pnamev2Ptr == null) {pnamev2 = null;} else { pnamev2 = null; };
 
 
 	return _Result;
@@ -596,7 +586,7 @@ pnamev2 = null;
 ///  <param name="sela">[in] - </param>
 ///   <returns>sa of all sel names, or NULL on error</returns>
 public static Sarray selaGetSelnames(
-				  Sela sela){
+				 Sela sela){
 
 	IntPtr _Result = Natives.selaGetSelnames(sela.Pointer);
 	
@@ -625,19 +615,15 @@ public static Sarray selaGetSelnames(
 ///  <param name="pyn">[out] - max shifts</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int selFindMaxTranslations(
-				  Sel sel, 
-				 out int pxp, 
-				 out int pyp, 
-				 out int pxn, 
-				 out int pyn){
+				 Sel sel, 
+				out int pxp, 
+				out int pyp, 
+				out int pxn, 
+				out int pyn){
 
 	int _Result = Natives.selFindMaxTranslations(sel.Pointer, out  pxp, out  pyp, out  pxn, out  pyn);
 	
 
-pxp = 0;
-pyp = 0;
-pxn = 0;
-pyn = 0;
 
 
 	return _Result;
@@ -653,8 +639,8 @@ pyn = 0;
 ///  <param name="quads">[in] - 0 - 4 number of 90 degree cw rotations</param>
 ///   <returns>seld, or NULL on error</returns>
 public static Sel selRotateOrth(
-				  Sel sel, 
-				  int quads){
+				 Sel sel, 
+				 int quads){
 
 	IntPtr _Result = Natives.selRotateOrth(sel.Pointer,   quads);
 	
@@ -674,7 +660,7 @@ public static Sel selRotateOrth(
 ///  <param name="fname">[in] - filename</param>
 ///   <returns>sela, or NULL on error</returns>
 public static Sela selaRead(
-				  String fname){
+				 String fname){
 
 	IntPtr _Result = Natives.selaRead(  fname);
 	
@@ -694,7 +680,7 @@ public static Sela selaRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>sela, or NULL on error</returns>
 public static Sela selaReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.selaReadStream(fp.Pointer);
 	
@@ -714,7 +700,7 @@ public static Sela selaReadStream(
 ///  <param name="fname">[in] - filename</param>
 ///   <returns>sel, or NULL on error</returns>
 public static Sel selRead(
-				  String fname){
+				 String fname){
 
 	IntPtr _Result = Natives.selRead(  fname);
 	
@@ -734,7 +720,7 @@ public static Sel selRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>sel, or NULL on error</returns>
 public static Sel selReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.selReadStream(fp.Pointer);
 	
@@ -755,8 +741,8 @@ public static Sel selReadStream(
 ///  <param name="sela">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int selaWrite(
-				  String fname, 
-				  Sela sela){
+				 String fname, 
+				 Sela sela){
 
 	int _Result = Natives.selaWrite(  fname, sela.Pointer);
 	
@@ -776,8 +762,8 @@ public static int selaWrite(
 ///  <param name="sela">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int selaWriteStream(
-				  FILE fp, 
-				  Sela sela){
+				 FILE fp, 
+				 Sela sela){
 
 	int _Result = Natives.selaWriteStream(fp.Pointer, sela.Pointer);
 	
@@ -797,8 +783,8 @@ public static int selaWriteStream(
 ///  <param name="sel">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int selWrite(
-				  String fname, 
-				  Sel sel){
+				 String fname, 
+				 Sel sel){
 
 	int _Result = Natives.selWrite(  fname, sel.Pointer);
 	
@@ -818,8 +804,8 @@ public static int selWrite(
 ///  <param name="sel">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int selWriteStream(
-				  FILE fp, 
-				  Sel sel){
+				 FILE fp, 
+				 Sel sel){
 
 	int _Result = Natives.selWriteStream(fp.Pointer, sel.Pointer);
 	
@@ -862,9 +848,9 @@ public static int selWriteStream(
 ///  <param name="name">[in][optional] - sel name can be null</param>
 ///   <returns>sel of the given size, or NULL on error</returns>
 public static Sel selCreateFromString(
-				  String text, 
-				  int h, 
-				  int w, 
+				 String text, 
+				 int h, 
+				 int w, 
 				 String name){
 
 	IntPtr _Result = Natives.selCreateFromString(  text,   h,   w,   name);
@@ -897,7 +883,7 @@ public static Sel selCreateFromString(
 ///  <param name="sel">[in] - </param>
 ///   <returns>str string caller must free</returns>
 public static String selPrintToString(
-				  Sel sel){
+				 Sel sel){
 
 	String _Result = Natives.selPrintToString(sel.Pointer);
 	
@@ -941,7 +927,7 @@ public static String selPrintToString(
 ///  <param name="filename">[in] - </param>
 ///   <returns>sela, or NULL on error</returns>
 public static Sela selaCreateFromFile(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.selaCreateFromFile(  filename);
 	
@@ -967,9 +953,9 @@ public static Sela selaCreateFromFile(
 ///  <param name="name">[in][optional] - sel name can be null</param>
 ///   <returns>sel of minimum required size, or NULL on error</returns>
 public static Sel selCreateFromPta(
-				  Pta pta, 
-				  int cy, 
-				  int cx, 
+				 Pta pta, 
+				 int cy, 
+				 int cx, 
 				 String name){
 
 	IntPtr _Result = Natives.selCreateFromPta(pta.Pointer,   cy,   cx,   name);
@@ -996,9 +982,9 @@ public static Sel selCreateFromPta(
 ///  <param name="name">[in][optional] - sel name can be null</param>
 ///   <returns>sel, or NULL on error</returns>
 public static Sel selCreateFromPix(
-				  Pix pix, 
-				  int cy, 
-				  int cx, 
+				 Pix pix, 
+				 int cy, 
+				 int cx, 
 				 String name){
 
 	IntPtr _Result = Natives.selCreateFromPix(pix.Pointer,   cy,   cx,   name);
@@ -1025,7 +1011,7 @@ public static Sel selCreateFromPix(
 ///  <param name="pathname">[in] - </param>
 ///   <returns>sel if OK NULL on error</returns>
 public static Sel selReadFromColorImage(
-				  String pathname){
+				 String pathname){
 
 	IntPtr _Result = Natives.selReadFromColorImage(  pathname);
 	
@@ -1062,7 +1048,7 @@ public static Sel selReadFromColorImage(
 ///  <param name="selname">[in][optional] - sel name can be null</param>
 ///   <returns>sel if OK, NULL on error</returns>
 public static Sel selCreateFromColorPix(
-				  Pix pixs, 
+				 Pix pixs, 
 				 String selname){
 
 	IntPtr _Result = Natives.selCreateFromColorPix(pixs.Pointer,   selname);
@@ -1095,9 +1081,9 @@ public static Sel selCreateFromColorPix(
 ///  <param name="gthick">[in] - grid thickness minimum size of 2 is enforced</param>
 ///   <returns>pix display of sel, or NULL on error</returns>
 public static Pix selDisplayInPix(
-				  Sel sel, 
-				  int size, 
-				  int gthick){
+				 Sel sel, 
+				 int size, 
+				 int gthick){
 
 	IntPtr _Result = Natives.selDisplayInPix(sel.Pointer,   size,   gthick);
 	
@@ -1129,11 +1115,11 @@ public static Pix selDisplayInPix(
 ///  <param name="ncols">[in] - number of sels per "line"</param>
 ///   <returns>pix display of all sels in sela, or NULL on error</returns>
 public static Pix selaDisplayInPix(
-				  Sela sela, 
-				  int size, 
-				  int gthick, 
-				  int spacing, 
-				  int ncols){
+				 Sela sela, 
+				 int size, 
+				 int gthick, 
+				 int spacing, 
+				 int ncols){
 
 	IntPtr _Result = Natives.selaDisplayInPix(sela.Pointer,   size,   gthick,   spacing,   ncols);
 	
@@ -1144,4 +1130,5 @@ public static Pix selaDisplayInPix(
 	return  new Pix(_Result);
 }
 
+}
 }

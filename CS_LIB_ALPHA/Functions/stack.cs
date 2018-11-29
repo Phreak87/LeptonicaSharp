@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // stack.c (78, 1)
 // lstackCreate(nalloc) as L_Stack
@@ -14,7 +15,7 @@ public class _All {
 ///  <param name="nalloc">[in] - initial ptr array size use 0 for default</param>
 ///   <returns>lstack, or NULL on error</returns>
 public static L_Stack lstackCreate(
-				  int nalloc){
+				 int nalloc){
 
 	IntPtr _Result = Natives.lstackCreate(  nalloc);
 	
@@ -46,16 +47,15 @@ public static L_Stack lstackCreate(
 ///  <param name="plstack">[in,out] - to be nulled</param>
 ///  <param name="freeflag">[in] - TRUE to free each remaining struct in the array</param>
 public static void lstackDestroy(
-				 ref L_Stack plstack, 
-				  int freeflag){
+				ref L_Stack plstack, 
+				 int freeflag){
 
 	IntPtr plstackPtr = IntPtr.Zero; 	if (plstack != null) {plstackPtr = plstack.Pointer;}
 
 	Natives.lstackDestroy(ref plstackPtr,   freeflag);
 	
 
-plstack = null;
-	; if (plstackPtr != IntPtr.Zero){plstack = new L_Stack(plstackPtr);}
+	if (plstackPtr == null) {plstack = null;} else { plstack = new L_Stack(plstackPtr); };
 
 
 }
@@ -70,8 +70,8 @@ plstack = null;
 ///  <param name="item">[in] - to be added to the lstack</param>
 ///   <returns>0 if OK 1 on error.</returns>
 public static int lstackAdd(
-				  L_Stack lstack, 
-				  Object item){
+				 L_Stack lstack, 
+				 Object item){
 
 		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -94,7 +94,7 @@ public static int lstackAdd(
 ///  <param name="lstack">[in] - </param>
 ///   <returns>ptr to item popped from the top of the lstack, or NULL if the lstack is empty or on error</returns>
 public static Object lstackRemove(
-				  L_Stack lstack){
+				 L_Stack lstack){
 
 	IntPtr _Result = Natives.lstackRemove(lstack.Pointer);
 	
@@ -114,7 +114,7 @@ public static Object lstackRemove(
 ///  <param name="lstack">[in] - </param>
 ///   <returns>count, or 0 on error</returns>
 public static int lstackGetCount(
-				  L_Stack lstack){
+				 L_Stack lstack){
 
 	int _Result = Natives.lstackGetCount(lstack.Pointer);
 	
@@ -134,8 +134,8 @@ public static int lstackGetCount(
 ///  <param name="lstack">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int lstackPrint(
-				  FILE fp, 
-				  L_Stack lstack){
+				 FILE fp, 
+				 L_Stack lstack){
 
 	int _Result = Natives.lstackPrint(fp.Pointer, lstack.Pointer);
 	
@@ -145,4 +145,5 @@ public static int lstackPrint(
 	return _Result;
 }
 
+}
 }

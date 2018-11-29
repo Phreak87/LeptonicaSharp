@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // graphics.c (138, 1)
 // generatePtaLine(x1, y1, x2, y2) as Pta
@@ -20,10 +21,10 @@ public class _All {
 ///  <param name="y2">[in] - end point 2</param>
 ///   <returns>pta, or NULL on error</returns>
 public static Pta generatePtaLine(
-				  int x1, 
-				  int y1, 
-				  int x2, 
-				  int y2){
+				 int x1, 
+				 int y1, 
+				 int x2, 
+				 int y2){
 
 	IntPtr _Result = Natives.generatePtaLine(  x1,   y1,   x2,   y2);
 	
@@ -47,11 +48,11 @@ public static Pta generatePtaLine(
 ///  <param name="width">[in] - </param>
 ///   <returns>ptaj, or NULL on error</returns>
 public static Pta generatePtaWideLine(
-				  int x1, 
-				  int y1, 
-				  int x2, 
-				  int y2, 
-				  int width){
+				 int x1, 
+				 int y1, 
+				 int x2, 
+				 int y2, 
+				 int width){
 
 	IntPtr _Result = Natives.generatePtaWideLine(  x1,   y1,   x2,   y2,   width);
 	
@@ -76,8 +77,8 @@ public static Pta generatePtaWideLine(
 ///  <param name="width">[in] - of line</param>
 ///   <returns>ptad, or NULL on error</returns>
 public static Pta generatePtaBox(
-				  Box box, 
-				  int width){
+				 Box box, 
+				 int width){
 
 	IntPtr _Result = Natives.generatePtaBox(box.Pointer,   width);
 	
@@ -105,9 +106,9 @@ public static Pta generatePtaBox(
 ///  <param name="removedups">[in] - 1 to remove, 0 to leave</param>
 ///   <returns>ptad, or NULL on error</returns>
 public static Pta generatePtaBoxa(
-				  Boxa boxa, 
-				  int width, 
-				  int removedups){
+				 Boxa boxa, 
+				 int width, 
+				 int removedups){
 
 	IntPtr _Result = Natives.generatePtaBoxa(boxa.Pointer,   width,   removedups);
 	
@@ -137,11 +138,11 @@ public static Pta generatePtaBoxa(
 ///  <param name="outline">[in] - 0 to skip drawing box outline</param>
 ///   <returns>ptad, or NULL on error</returns>
 public static Pta generatePtaHashBox(
-				  Box box, 
-				  int spacing, 
-				  int width, 
-				  int orient, 
-				  int outline){
+				 Box box, 
+				 int spacing, 
+				 int width, 
+				 int orient, 
+				 int outline){
 
 	IntPtr _Result = Natives.generatePtaHashBox(box.Pointer,   spacing,   width,   orient,   outline);
 	
@@ -177,12 +178,12 @@ public static Pta generatePtaHashBox(
 ///  <param name="removedups">[in] - 1 to remove, 0 to leave</param>
 ///   <returns>ptad, or NULL on error</returns>
 public static Pta generatePtaHashBoxa(
-				  Boxa boxa, 
-				  int spacing, 
-				  int width, 
-				  int orient, 
-				  int outline, 
-				  int removedups){
+				 Boxa boxa, 
+				 int spacing, 
+				 int width, 
+				 int orient, 
+				 int outline, 
+				 int removedups){
 
 	IntPtr _Result = Natives.generatePtaHashBoxa(boxa.Pointer,   spacing,   width,   orient,   outline,   removedups);
 	
@@ -209,7 +210,7 @@ public static Pta generatePtaHashBoxa(
 ///  <param name="boxa">[in] - </param>
 ///   <returns>ptaa, or NULL on error</returns>
 public static Ptaa generatePtaaBoxa(
-				  Boxa boxa){
+				 Boxa boxa){
 
 	IntPtr _Result = Natives.generatePtaaBoxa(boxa.Pointer);
 	
@@ -242,11 +243,11 @@ public static Ptaa generatePtaaBoxa(
 ///  <param name="outline">[in] - 0 to skip drawing box outline</param>
 ///   <returns>ptaa, or NULL on error</returns>
 public static Ptaa generatePtaaHashBoxa(
-				  Boxa boxa, 
-				  int spacing, 
-				  int width, 
-				  int orient, 
-				  int outline){
+				 Boxa boxa, 
+				 int spacing, 
+				 int width, 
+				 int orient, 
+				 int outline){
 
 	IntPtr _Result = Natives.generatePtaaHashBoxa(boxa.Pointer,   spacing,   width,   orient,   outline);
 	
@@ -269,10 +270,10 @@ public static Ptaa generatePtaaHashBoxa(
 ///  <param name="removedups">[in] - 1 to remove, 0 to leave</param>
 ///   <returns>ptad, or NULL on error</returns>
 public static Pta generatePtaPolyline(
-				  Pta ptas, 
-				  int width, 
-				  int closeflag, 
-				  int removedups){
+				 Pta ptas, 
+				 int width, 
+				 int closeflag, 
+				 int removedups){
 
 	IntPtr _Result = Natives.generatePtaPolyline(ptas.Pointer,   width,   closeflag,   removedups);
 	
@@ -296,11 +297,11 @@ public static Pta generatePtaPolyline(
 ///  <param name="width">[in] - of rendered lines</param>
 ///   <returns>ptad, or NULL on error</returns>
 public static Pta generatePtaGrid(
-				  int w, 
-				  int h, 
-				  int nx, 
-				  int ny, 
-				  int width){
+				 int w, 
+				 int h, 
+				 int nx, 
+				 int ny, 
+				 int width){
 
 	IntPtr _Result = Natives.generatePtaGrid(  w,   h,   nx,   ny,   width);
 	
@@ -328,7 +329,7 @@ public static Pta generatePtaGrid(
 ///  <param name="ptas">[in] - 8-connected line of points</param>
 ///   <returns>ptad 4-connected line, or NULL on error</returns>
 public static Pta convertPtaLineTo4cc(
-				  Pta ptas){
+				 Pta ptas){
 
 	IntPtr _Result = Natives.convertPtaLineTo4cc(ptas.Pointer);
 	
@@ -357,7 +358,7 @@ public static Pta convertPtaLineTo4cc(
 ///  <param name="radius">[in] - </param>
 ///   <returns>pta, or NULL on error</returns>
 public static Pta generatePtaFilledCircle(
-				  int radius){
+				 int radius){
 
 	IntPtr _Result = Natives.generatePtaFilledCircle(  radius);
 	
@@ -382,7 +383,7 @@ public static Pta generatePtaFilledCircle(
 ///  <param name="side">[in] - </param>
 ///   <returns>pta, or NULL on error</returns>
 public static Pta generatePtaFilledSquare(
-				  int side){
+				 int side){
 
 	IntPtr _Result = Natives.generatePtaFilledSquare(  side);
 	
@@ -410,10 +411,10 @@ public static Pta generatePtaFilledSquare(
 ///  <param name="radang">[in] - angle in radians, CW from horizontal</param>
 ///   <returns>pta, or NULL on error</returns>
 public static Pta generatePtaLineFromPt(
-				  int x, 
-				  int y, 
-				  double length, 
-				  double radang){
+				 int x, 
+				 int y, 
+				 double length, 
+				 double radang){
 
 	IntPtr _Result = Natives.generatePtaLineFromPt(  x,   y,   length,   radang);
 	
@@ -438,18 +439,16 @@ public static Pta generatePtaLineFromPt(
 ///  <param name="py">[out] - location of point</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int locatePtRadially(
-				  int xr, 
-				  int yr, 
-				  double dist, 
-				  double radang, 
-				 out Double[] px, 
-				 out Double[] py){
+				 int xr, 
+				 int yr, 
+				 double dist, 
+				 double radang, 
+				out Double[] px, 
+				out Double[] py){
 
 	int _Result = Natives.locatePtRadially(  xr,   yr,   dist,   radang, out  px, out  py);
 	
 
-px = null;
-py = null;
 
 
 	return _Result;
@@ -478,20 +477,19 @@ py = null;
 ///  <param name="color">[in] - plot color: 0xrrggbb00</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderPlotFromNuma(
-				 ref Pix ppix, 
-				  Numa na, 
-				  int plotloc, 
-				  int linewidth, 
-				  int max, 
-				  uint color){
+				ref Pix ppix, 
+				 Numa na, 
+				 int plotloc, 
+				 int linewidth, 
+				 int max, 
+				 uint color){
 
 	IntPtr ppixPtr = IntPtr.Zero; 	if (ppix != null) {ppixPtr = ppix.Pointer;}
 
 	int _Result = Natives.pixRenderPlotFromNuma(ref ppixPtr, na.Pointer,   plotloc,   linewidth,   max,   color);
 	
 
-ppix = null;
-	; if (ppixPtr != IntPtr.Zero){ppix = new Pix(ppixPtr);}
+	if (ppixPtr == null) {ppix = null;} else { ppix = new Pix(ppixPtr); };
 
 
 	return _Result;
@@ -519,11 +517,11 @@ ppix = null;
 ///  <param name="max">[in] - maximum excursion in pixels from baseline</param>
 ///   <returns>ptad, or NULL on error</returns>
 public static Pta makePlotPtaFromNuma(
-				  Numa na, 
-				  int size, 
-				  int plotloc, 
-				  int linewidth, 
-				  int max){
+				 Numa na, 
+				 int size, 
+				 int plotloc, 
+				 int linewidth, 
+				 int max){
 
 	IntPtr _Result = Natives.makePlotPtaFromNuma(na.Pointer,   size,   plotloc,   linewidth,   max);
 	
@@ -559,22 +557,21 @@ public static Pta makePlotPtaFromNuma(
 ///  <param name="color">[in] - plot color: 0xrrggbb00</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderPlotFromNumaGen(
-				 ref Pix ppix, 
-				  Numa na, 
-				  int orient, 
-				  int linewidth, 
-				  int refpos, 
-				  int max, 
-				  int drawref, 
-				  uint color){
+				ref Pix ppix, 
+				 Numa na, 
+				 int orient, 
+				 int linewidth, 
+				 int refpos, 
+				 int max, 
+				 int drawref, 
+				 uint color){
 
 	IntPtr ppixPtr = IntPtr.Zero; 	if (ppix != null) {ppixPtr = ppix.Pointer;}
 
 	int _Result = Natives.pixRenderPlotFromNumaGen(ref ppixPtr, na.Pointer,   orient,   linewidth,   refpos,   max,   drawref,   color);
 	
 
-ppix = null;
-	; if (ppixPtr != IntPtr.Zero){ppix = new Pix(ppixPtr);}
+	if (ppixPtr == null) {ppix = null;} else { ppix = new Pix(ppixPtr); };
 
 
 	return _Result;
@@ -613,12 +610,12 @@ ppix = null;
 ///  <param name="drawref">[in] - 1 to draw the reference line and the normal to it</param>
 ///   <returns>ptad, or NULL on error</returns>
 public static Pta makePlotPtaFromNumaGen(
-				  Numa na, 
-				  int orient, 
-				  int linewidth, 
-				  int refpos, 
-				  int max, 
-				  int drawref){
+				 Numa na, 
+				 int orient, 
+				 int linewidth, 
+				 int refpos, 
+				 int max, 
+				 int drawref){
 
 	IntPtr _Result = Natives.makePlotPtaFromNumaGen(na.Pointer,   orient,   linewidth,   refpos,   max,   drawref);
 	
@@ -653,9 +650,9 @@ public static Pta makePlotPtaFromNumaGen(
 ///  <param name="op">[in] - one of L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderPta(
-				  Pix pix, 
-				  Pta pta, 
-				  int op){
+				 Pix pix, 
+				 Pta pta, 
+				 int op){
 
 	int _Result = Natives.pixRenderPta(pix.Pointer, pta.Pointer,   op);
 	
@@ -692,11 +689,11 @@ public static int pixRenderPta(
 ///  <param name="bval">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderPtaArb(
-				  Pix pix, 
-				  Pta pta, 
-				  byte rval, 
-				  byte gval, 
-				  byte bval){
+				 Pix pix, 
+				 Pta pta, 
+				 byte rval, 
+				 byte gval, 
+				 byte bval){
 
 	int _Result = Natives.pixRenderPtaArb(pix.Pointer, pta.Pointer,   rval,   gval,   bval);
 	
@@ -723,12 +720,12 @@ public static int pixRenderPtaArb(
 ///  <param name="fract">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderPtaBlend(
-				  Pix pix, 
-				  Pta pta, 
-				  byte rval, 
-				  byte gval, 
-				  byte bval, 
-				  Single fract){
+				 Pix pix, 
+				 Pta pta, 
+				 byte rval, 
+				 byte gval, 
+				 byte bval, 
+				 Single fract){
 
 	int _Result = Natives.pixRenderPtaBlend(pix.Pointer, pta.Pointer,   rval,   gval,   bval,   fract);
 	
@@ -753,13 +750,13 @@ public static int pixRenderPtaBlend(
 ///  <param name="op">[in] - one of L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderLine(
-				  Pix pix, 
-				  int x1, 
-				  int y1, 
-				  int x2, 
-				  int y2, 
-				  int width, 
-				  int op){
+				 Pix pix, 
+				 int x1, 
+				 int y1, 
+				 int x2, 
+				 int y2, 
+				 int width, 
+				 int op){
 
 	int _Result = Natives.pixRenderLine(pix.Pointer,   x1,   y1,   x2,   y2,   width,   op);
 	
@@ -786,15 +783,15 @@ public static int pixRenderLine(
 ///  <param name="bval">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderLineArb(
-				  Pix pix, 
-				  int x1, 
-				  int y1, 
-				  int x2, 
-				  int y2, 
-				  int width, 
-				  byte rval, 
-				  byte gval, 
-				  byte bval){
+				 Pix pix, 
+				 int x1, 
+				 int y1, 
+				 int x2, 
+				 int y2, 
+				 int width, 
+				 byte rval, 
+				 byte gval, 
+				 byte bval){
 
 	int _Result = Natives.pixRenderLineArb(pix.Pointer,   x1,   y1,   x2,   y2,   width,   rval,   gval,   bval);
 	
@@ -822,16 +819,16 @@ public static int pixRenderLineArb(
 ///  <param name="fract">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderLineBlend(
-				  Pix pix, 
-				  int x1, 
-				  int y1, 
-				  int x2, 
-				  int y2, 
-				  int width, 
-				  byte rval, 
-				  byte gval, 
-				  byte bval, 
-				  Single fract){
+				 Pix pix, 
+				 int x1, 
+				 int y1, 
+				 int x2, 
+				 int y2, 
+				 int width, 
+				 byte rval, 
+				 byte gval, 
+				 byte bval, 
+				 Single fract){
 
 	int _Result = Natives.pixRenderLineBlend(pix.Pointer,   x1,   y1,   x2,   y2,   width,   rval,   gval,   bval,   fract);
 	
@@ -853,10 +850,10 @@ public static int pixRenderLineBlend(
 ///  <param name="op">[in] - one of L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderBox(
-				  Pix pix, 
-				  Box box, 
-				  int width, 
-				  int op){
+				 Pix pix, 
+				 Box box, 
+				 int width, 
+				 int op){
 
 	int _Result = Natives.pixRenderBox(pix.Pointer, box.Pointer,   width,   op);
 	
@@ -880,12 +877,12 @@ public static int pixRenderBox(
 ///  <param name="bval">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderBoxArb(
-				  Pix pix, 
-				  Box box, 
-				  int width, 
-				  byte rval, 
-				  byte gval, 
-				  byte bval){
+				 Pix pix, 
+				 Box box, 
+				 int width, 
+				 byte rval, 
+				 byte gval, 
+				 byte bval){
 
 	int _Result = Natives.pixRenderBoxArb(pix.Pointer, box.Pointer,   width,   rval,   gval,   bval);
 	
@@ -910,13 +907,13 @@ public static int pixRenderBoxArb(
 ///  <param name="fract">[in] - in [0.0 - 1.0] complete transparency (no effect if 0.0 no transparency if 1.0)</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderBoxBlend(
-				  Pix pix, 
-				  Box box, 
-				  int width, 
-				  byte rval, 
-				  byte gval, 
-				  byte bval, 
-				  Single fract){
+				 Pix pix, 
+				 Box box, 
+				 int width, 
+				 byte rval, 
+				 byte gval, 
+				 byte bval, 
+				 Single fract){
 
 	int _Result = Natives.pixRenderBoxBlend(pix.Pointer, box.Pointer,   width,   rval,   gval,   bval,   fract);
 	
@@ -938,10 +935,10 @@ public static int pixRenderBoxBlend(
 ///  <param name="op">[in] - one of L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderBoxa(
-				  Pix pix, 
-				  Boxa boxa, 
-				  int width, 
-				  int op){
+				 Pix pix, 
+				 Boxa boxa, 
+				 int width, 
+				 int op){
 
 	int _Result = Natives.pixRenderBoxa(pix.Pointer, boxa.Pointer,   width,   op);
 	
@@ -965,12 +962,12 @@ public static int pixRenderBoxa(
 ///  <param name="bval">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderBoxaArb(
-				  Pix pix, 
-				  Boxa boxa, 
-				  int width, 
-				  byte rval, 
-				  byte gval, 
-				  byte bval){
+				 Pix pix, 
+				 Boxa boxa, 
+				 int width, 
+				 byte rval, 
+				 byte gval, 
+				 byte bval){
 
 	int _Result = Natives.pixRenderBoxaArb(pix.Pointer, boxa.Pointer,   width,   rval,   gval,   bval);
 	
@@ -996,14 +993,14 @@ public static int pixRenderBoxaArb(
 ///  <param name="removedups">[in] - 1 to remove 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderBoxaBlend(
-				  Pix pix, 
-				  Boxa boxa, 
-				  int width, 
-				  byte rval, 
-				  byte gval, 
-				  byte bval, 
-				  Single fract, 
-				  int removedups){
+				 Pix pix, 
+				 Boxa boxa, 
+				 int width, 
+				 byte rval, 
+				 byte gval, 
+				 byte bval, 
+				 Single fract, 
+				 int removedups){
 
 	int _Result = Natives.pixRenderBoxaBlend(pix.Pointer, boxa.Pointer,   width,   rval,   gval,   bval,   fract,   removedups);
 	
@@ -1028,13 +1025,13 @@ public static int pixRenderBoxaBlend(
 ///  <param name="op">[in] - one of L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderHashBox(
-				  Pix pix, 
-				  Box box, 
-				  int spacing, 
-				  int width, 
-				  int orient, 
-				  int outline, 
-				  int op){
+				 Pix pix, 
+				 Box box, 
+				 int spacing, 
+				 int width, 
+				 int orient, 
+				 int outline, 
+				 int op){
 
 	int _Result = Natives.pixRenderHashBox(pix.Pointer, box.Pointer,   spacing,   width,   orient,   outline,   op);
 	
@@ -1061,15 +1058,15 @@ public static int pixRenderHashBox(
 ///  <param name="bval">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderHashBoxArb(
-				  Pix pix, 
-				  Box box, 
-				  int spacing, 
-				  int width, 
-				  int orient, 
-				  int outline, 
-				  int rval, 
-				  int gval, 
-				  int bval){
+				 Pix pix, 
+				 Box box, 
+				 int spacing, 
+				 int width, 
+				 int orient, 
+				 int outline, 
+				 int rval, 
+				 int gval, 
+				 int bval){
 
 	int _Result = Natives.pixRenderHashBoxArb(pix.Pointer, box.Pointer,   spacing,   width,   orient,   outline,   rval,   gval,   bval);
 	
@@ -1097,16 +1094,16 @@ public static int pixRenderHashBoxArb(
 ///  <param name="fract">[in] - in [0.0 - 1.0] complete transparency (no effect if 0.0 no transparency if 1.0)</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderHashBoxBlend(
-				  Pix pix, 
-				  Box box, 
-				  int spacing, 
-				  int width, 
-				  int orient, 
-				  int outline, 
-				  int rval, 
-				  int gval, 
-				  int bval, 
-				  Single fract){
+				 Pix pix, 
+				 Box box, 
+				 int spacing, 
+				 int width, 
+				 int orient, 
+				 int outline, 
+				 int rval, 
+				 int gval, 
+				 int bval, 
+				 Single fract){
 
 	int _Result = Natives.pixRenderHashBoxBlend(pix.Pointer, box.Pointer,   spacing,   width,   orient,   outline,   rval,   gval,   bval,   fract);
 	
@@ -1139,17 +1136,17 @@ public static int pixRenderHashBoxBlend(
 ///  <param name="bval">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderHashMaskArb(
-				  Pix pix, 
-				  Pix pixm, 
-				  int x, 
-				  int y, 
-				  int spacing, 
-				  int width, 
-				  int orient, 
-				  int outline, 
-				  int rval, 
-				  int gval, 
-				  int bval){
+				 Pix pix, 
+				 Pix pixm, 
+				 int x, 
+				 int y, 
+				 int spacing, 
+				 int width, 
+				 int orient, 
+				 int outline, 
+				 int rval, 
+				 int gval, 
+				 int bval){
 
 	int _Result = Natives.pixRenderHashMaskArb(pix.Pointer, pixm.Pointer,   x,   y,   spacing,   width,   orient,   outline,   rval,   gval,   bval);
 	
@@ -1174,13 +1171,13 @@ public static int pixRenderHashMaskArb(
 ///  <param name="op">[in] - one of L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderHashBoxa(
-				  Pix pix, 
-				  Boxa boxa, 
-				  int spacing, 
-				  int width, 
-				  int orient, 
-				  int outline, 
-				  int op){
+				 Pix pix, 
+				 Boxa boxa, 
+				 int spacing, 
+				 int width, 
+				 int orient, 
+				 int outline, 
+				 int op){
 
 	int _Result = Natives.pixRenderHashBoxa(pix.Pointer, boxa.Pointer,   spacing,   width,   orient,   outline,   op);
 	
@@ -1207,15 +1204,15 @@ public static int pixRenderHashBoxa(
 ///  <param name="bval">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderHashBoxaArb(
-				  Pix pix, 
-				  Boxa boxa, 
-				  int spacing, 
-				  int width, 
-				  int orient, 
-				  int outline, 
-				  int rval, 
-				  int gval, 
-				  int bval){
+				 Pix pix, 
+				 Boxa boxa, 
+				 int spacing, 
+				 int width, 
+				 int orient, 
+				 int outline, 
+				 int rval, 
+				 int gval, 
+				 int bval){
 
 	int _Result = Natives.pixRenderHashBoxaArb(pix.Pointer, boxa.Pointer,   spacing,   width,   orient,   outline,   rval,   gval,   bval);
 	
@@ -1243,16 +1240,16 @@ public static int pixRenderHashBoxaArb(
 ///  <param name="fract">[in] - in [0.0 - 1.0] complete transparency (no effect if 0.0 no transparency if 1.0)</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderHashBoxaBlend(
-				  Pix pix, 
-				  Boxa boxa, 
-				  int spacing, 
-				  int width, 
-				  int orient, 
-				  int outline, 
-				  int rval, 
-				  int gval, 
-				  int bval, 
-				  Single fract){
+				 Pix pix, 
+				 Boxa boxa, 
+				 int spacing, 
+				 int width, 
+				 int orient, 
+				 int outline, 
+				 int rval, 
+				 int gval, 
+				 int bval, 
+				 Single fract){
 
 	int _Result = Natives.pixRenderHashBoxaBlend(pix.Pointer, boxa.Pointer,   spacing,   width,   orient,   outline,   rval,   gval,   bval,   fract);
 	
@@ -1278,11 +1275,11 @@ public static int pixRenderHashBoxaBlend(
 ///  <param name="closeflag">[in] - 1 to close the contour 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderPolyline(
-				  Pix pix, 
-				  Pta ptas, 
-				  int width, 
-				  int op, 
-				  int closeflag){
+				 Pix pix, 
+				 Pta ptas, 
+				 int width, 
+				 int op, 
+				 int closeflag){
 
 	int _Result = Natives.pixRenderPolyline(pix.Pointer, ptas.Pointer,   width,   op,   closeflag);
 	
@@ -1310,13 +1307,13 @@ public static int pixRenderPolyline(
 ///  <param name="closeflag">[in] - 1 to close the contour 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderPolylineArb(
-				  Pix pix, 
-				  Pta ptas, 
-				  int width, 
-				  byte rval, 
-				  byte gval, 
-				  byte bval, 
-				  int closeflag){
+				 Pix pix, 
+				 Pta ptas, 
+				 int width, 
+				 byte rval, 
+				 byte gval, 
+				 byte bval, 
+				 int closeflag){
 
 	int _Result = Natives.pixRenderPolylineArb(pix.Pointer, ptas.Pointer,   width,   rval,   gval,   bval,   closeflag);
 	
@@ -1343,15 +1340,15 @@ public static int pixRenderPolylineArb(
 ///  <param name="removedups">[in] - 1 to remove 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderPolylineBlend(
-				  Pix pix, 
-				  Pta ptas, 
-				  int width, 
-				  byte rval, 
-				  byte gval, 
-				  byte bval, 
-				  Single fract, 
-				  int closeflag, 
-				  int removedups){
+				 Pix pix, 
+				 Pta ptas, 
+				 int width, 
+				 byte rval, 
+				 byte gval, 
+				 byte bval, 
+				 Single fract, 
+				 int closeflag, 
+				 int removedups){
 
 	int _Result = Natives.pixRenderPolylineBlend(pix.Pointer, ptas.Pointer,   width,   rval,   gval,   bval,   fract,   closeflag,   removedups);
 	
@@ -1376,13 +1373,13 @@ public static int pixRenderPolylineBlend(
 ///  <param name="bval">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRenderGridArb(
-				  Pix pix, 
-				  int nx, 
-				  int ny, 
-				  int width, 
-				  byte rval, 
-				  byte gval, 
-				  byte bval){
+				 Pix pix, 
+				 int nx, 
+				 int ny, 
+				 int width, 
+				 byte rval, 
+				 byte gval, 
+				 byte bval){
 
 	int _Result = Natives.pixRenderGridArb(pix.Pointer,   nx,   ny,   width,   rval,   gval,   bval);
 	
@@ -1423,11 +1420,11 @@ public static int pixRenderGridArb(
 ///  <param name="closeflag">[in] - 1 to close the contour 0 otherwise use only for polyline mode</param>
 ///   <returns>pixd cmapped, 8 bpp or NULL on error</returns>
 public static Pix pixRenderRandomCmapPtaa(
-				  Pix pix, 
-				  Ptaa ptaa, 
-				  int polyflag, 
-				  int width, 
-				  int closeflag){
+				 Pix pix, 
+				 Ptaa ptaa, 
+				 int polyflag, 
+				 int width, 
+				 int closeflag){
 
 	IntPtr _Result = Natives.pixRenderRandomCmapPtaa(pix.Pointer, ptaa.Pointer,   polyflag,   width,   closeflag);
 	
@@ -1458,16 +1455,14 @@ public static Pix pixRenderRandomCmapPtaa(
 ///  <param name="pymin">[out][optional] - min y value of input pts</param>
 ///   <returns>pix 1 bpp, with outline generated, or NULL on error</returns>
 public static Pix pixRenderPolygon(
-				  Pta ptas, 
-				  int width, 
+				 Pta ptas, 
+				 int width, 
 				out int pxmin, 
 				out int pymin){
 
 	IntPtr _Result = Natives.pixRenderPolygon(ptas.Pointer,   width, out  pxmin, out  pymin);
 	
 
-pxmin = 0;
-pymin = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -1495,10 +1490,10 @@ pymin = 0;
 ///  <param name="ymin">[in] - min values of vertices of polygon</param>
 ///   <returns>pixd with outline filled, or NULL on error</returns>
 public static Pix pixFillPolygon(
-				  Pix pixs, 
-				  Pta pta, 
-				  int xmin, 
-				  int ymin){
+				 Pix pixs, 
+				 Pta pta, 
+				 int xmin, 
+				 int ymin){
 
 	IntPtr _Result = Natives.pixFillPolygon(pixs.Pointer, pta.Pointer,   xmin,   ymin);
 	
@@ -1526,10 +1521,10 @@ public static Pix pixFillPolygon(
 ///  <param name="outdepth">[in] - either 1 or depth of pixs</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixRenderContours(
-				  Pix pixs, 
-				  int startval, 
-				  int incr, 
-				  int outdepth){
+				 Pix pixs, 
+				 int startval, 
+				 int incr, 
+				 int outdepth){
 
 	IntPtr _Result = Natives.pixRenderContours(pixs.Pointer,   startval,   incr,   outdepth);
 	
@@ -1558,8 +1553,8 @@ public static Pix pixRenderContours(
 ///  <param name="ncontours">[in] - is greater  1,  is smaller 500, typ. about 50</param>
 ///   <returns>pixd 8 bpp, or NULL on error</returns>
 public static Pix fpixAutoRenderContours(
-				  FPix fpix, 
-				  int ncontours){
+				 FPix fpix, 
+				 int ncontours){
 
 	IntPtr _Result = Natives.fpixAutoRenderContours(fpix.Pointer,   ncontours);
 	
@@ -1588,9 +1583,9 @@ public static Pix fpixAutoRenderContours(
 ///  <param name="proxim">[in] - required proximity to target value default 0.15</param>
 ///   <returns>pixd 8 bpp, or NULL on error</returns>
 public static Pix fpixRenderContours(
-				  FPix fpixs, 
-				  Single incr, 
-				  Single proxim){
+				 FPix fpixs, 
+				 Single incr, 
+				 Single proxim){
 
 	IntPtr _Result = Natives.fpixRenderContours(fpixs.Pointer,   incr,   proxim);
 	
@@ -1622,8 +1617,8 @@ public static Pix fpixRenderContours(
 ///  <param name="width">[in] - of boundary line</param>
 ///   <returns>pta, or NULL on error</returns>
 public static Pta pixGeneratePtaBoundary(
-				  Pix pixs, 
-				  int width){
+				 Pix pixs, 
+				 int width){
 
 	IntPtr _Result = Natives.pixGeneratePtaBoundary(pixs.Pointer,   width);
 	
@@ -1634,4 +1629,5 @@ public static Pta pixGeneratePtaBoundary(
 	return  new Pta(_Result);
 }
 
+}
 }

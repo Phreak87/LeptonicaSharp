@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // numabasic.c (187, 1)
 // numaCreate(n) as Numa
@@ -14,7 +15,7 @@ public class _All {
 ///  <param name="n">[in] - size of number array to be alloc'd 0 for default</param>
 ///   <returns>na, or NULL on error</returns>
 public static Numa numaCreate(
-				  int n){
+				 int n){
 
 	IntPtr _Result = Natives.numaCreate(  n);
 	
@@ -41,8 +42,8 @@ public static Numa numaCreate(
 ///  <param name="size">[in] - of the array</param>
 ///   <returns>na, or NULL on error</returns>
 public static Numa numaCreateFromIArray(
-				  int[] iarray, 
-				  int size){
+				 int[] iarray, 
+				 int size){
 
 	IntPtr _Result = Natives.numaCreateFromIArray(  iarray,   size);
 	
@@ -69,9 +70,9 @@ public static Numa numaCreateFromIArray(
 ///  <param name="copyflag">[in] - L_INSERT or L_COPY</param>
 ///   <returns>na, or NULL on error</returns>
 public static Numa numaCreateFromFArray(
-				  Single[] farray, 
-				  int size, 
-				  int copyflag){
+				 Single[] farray, 
+				 int size, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.numaCreateFromFArray(  farray,   size,   copyflag);
 	
@@ -96,7 +97,7 @@ public static Numa numaCreateFromFArray(
 ///  <param name="str">[in] - string of comma-separated numbers</param>
 ///   <returns>na, or NULL on error</returns>
 public static Numa numaCreateFromString(
-				  String str){
+				 String str){
 
 	IntPtr _Result = Natives.numaCreateFromString(  str);
 	
@@ -120,15 +121,14 @@ public static Numa numaCreateFromString(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaDestroy/*"/>
 ///  <param name="pna">[in,out] - to be nulled if it exists</param>
 public static void numaDestroy(
-				 ref Numa pna){
+				ref Numa pna){
 
 	IntPtr pnaPtr = IntPtr.Zero; 	if (pna != null) {pnaPtr = pna.Pointer;}
 
 	Natives.numaDestroy(ref pnaPtr);
 	
 
-pna = null;
-	; if (pnaPtr != IntPtr.Zero){pna = new Numa(pnaPtr);}
+	if (pnaPtr == null) {pna = null;} else { pna = new Numa(pnaPtr); };
 
 
 }
@@ -142,7 +142,7 @@ pna = null;
 ///  <param name="na">[in] - </param>
 ///   <returns>copy of numa, or NULL on error</returns>
 public static Numa numaCopy(
-				  Numa na){
+				 Numa na){
 
 	IntPtr _Result = Natives.numaCopy(na.Pointer);
 	
@@ -162,7 +162,7 @@ public static Numa numaCopy(
 ///  <param name="na">[in] - </param>
 ///   <returns>ptr to same numa, or NULL on error</returns>
 public static Numa numaClone(
-				  Numa na){
+				 Numa na){
 
 	IntPtr _Result = Natives.numaClone(na.Pointer);
 	
@@ -187,7 +187,7 @@ public static Numa numaClone(
 ///  <param name="na">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int numaEmpty(
-				  Numa na){
+				 Numa na){
 
 	int _Result = Natives.numaEmpty(na.Pointer);
 	
@@ -207,8 +207,8 @@ public static int numaEmpty(
 ///  <param name="val">[in] - float or int to be added stored as a float</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaAddNumber(
-				  Numa na, 
-				  Single val){
+				 Numa na, 
+				 Single val){
 
 	int _Result = Natives.numaAddNumber(na.Pointer,   val);
 	
@@ -236,9 +236,9 @@ public static int numaAddNumber(
 ///  <param name="val">[in] - float32 or integer to be added</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaInsertNumber(
-				  Numa na, 
-				  int index, 
-				  Single val){
+				 Numa na, 
+				 int index, 
+				 Single val){
 
 	int _Result = Natives.numaInsertNumber(na.Pointer,   index,   val);
 	
@@ -264,8 +264,8 @@ public static int numaInsertNumber(
 ///  <param name="index">[in] - element to be removed</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaRemoveNumber(
-				  Numa na, 
-				  int index){
+				 Numa na, 
+				 int index){
 
 	int _Result = Natives.numaRemoveNumber(na.Pointer,   index);
 	
@@ -286,9 +286,9 @@ public static int numaRemoveNumber(
 ///  <param name="val">[in] - new value to replace old one</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaReplaceNumber(
-				  Numa na, 
-				  int index, 
-				  Single val){
+				 Numa na, 
+				 int index, 
+				 Single val){
 
 	int _Result = Natives.numaReplaceNumber(na.Pointer,   index,   val);
 	
@@ -307,7 +307,7 @@ public static int numaReplaceNumber(
 ///  <param name="na">[in] - </param>
 ///   <returns>count, or 0 if no numbers or on error</returns>
 public static int numaGetCount(
-				  Numa na){
+				 Numa na){
 
 	int _Result = Natives.numaGetCount(na.Pointer);
 	
@@ -336,8 +336,8 @@ public static int numaGetCount(
 ///  <param name="newcount">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaSetCount(
-				  Numa na, 
-				  int newcount){
+				 Numa na, 
+				 int newcount){
 
 	int _Result = Natives.numaSetCount(na.Pointer,   newcount);
 	
@@ -362,14 +362,13 @@ public static int numaSetCount(
 ///  <param name="pval">[out] - float value 0.0 on error</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int numaGetFValue(
-				  Numa na, 
-				  int index, 
-				 out Single pval){
+				 Numa na, 
+				 int index, 
+				out Single pval){
 
 	int _Result = Natives.numaGetFValue(na.Pointer,   index, out  pval);
 	
 
-pval = 0f;
 
 
 	return _Result;
@@ -390,14 +389,13 @@ pval = 0f;
 ///  <param name="pival">[out] - integer value 0 on error</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int numaGetIValue(
-				  Numa na, 
-				  int index, 
-				 out int pival){
+				 Numa na, 
+				 int index, 
+				out int pival){
 
 	int _Result = Natives.numaGetIValue(na.Pointer,   index, out  pival);
 	
 
-pival = 0;
 
 
 	return _Result;
@@ -414,9 +412,9 @@ pival = 0;
 ///  <param name="val">[in] - to set element</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int numaSetValue(
-				  Numa na, 
-				  int index, 
-				  Single val){
+				 Numa na, 
+				 int index, 
+				 Single val){
 
 	int _Result = Natives.numaSetValue(na.Pointer,   index,   val);
 	
@@ -437,9 +435,9 @@ public static int numaSetValue(
 ///  <param name="diff">[in] - increment if diff  is greater  0 or decrement if diff  is smaller 0</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int numaShiftValue(
-				  Numa na, 
-				  int index, 
-				  Single diff){
+				 Numa na, 
+				 int index, 
+				 Single diff){
 
 	int _Result = Natives.numaShiftValue(na.Pointer,   index,   diff);
 	
@@ -471,7 +469,7 @@ public static int numaShiftValue(
 ///  <param name="na">[in] - </param>
 ///   <returns>a copy of the bare internal array, integerized by rounding, or NULL on error</returns>
 public static int[] numaGetIArray(
-				  Numa na){
+				 Numa na){
 
 	int[] _Result = Natives.numaGetIArray(na.Pointer);
 	
@@ -504,8 +502,8 @@ public static int[] numaGetIArray(
 ///  <param name="copyflag">[in] - L_NOCOPY or L_COPY</param>
 ///   <returns>either the bare internal array or a copy of it, or NULL on error</returns>
 public static Single[] numaGetFArray(
-				  Numa na, 
-				  int copyflag){
+				 Numa na, 
+				 int copyflag){
 
 	Single[] _Result = Natives.numaGetFArray(na.Pointer,   copyflag);
 	
@@ -524,7 +522,7 @@ public static Single[] numaGetFArray(
 ///  <param name="na">[in] - </param>
 ///   <returns>refcount, or UNDEF on error</returns>
 public static int numaGetRefcount(
-				  Numa na){
+				 Numa na){
 
 	int _Result = Natives.numaGetRefcount(na.Pointer);
 	
@@ -544,8 +542,8 @@ public static int numaGetRefcount(
 ///  <param name="delta">[in] - change to be applied</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaChangeRefcount(
-				  Numa na, 
-				  int delta){
+				 Numa na, 
+				 int delta){
 
 	int _Result = Natives.numaChangeRefcount(na.Pointer,   delta);
 	
@@ -566,15 +564,13 @@ public static int numaChangeRefcount(
 ///  <param name="pdelx">[out][optional] - delx</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaGetParameters(
-				  Numa na, 
+				 Numa na, 
 				out Single pstartx, 
 				out Single pdelx){
 
 	int _Result = Natives.numaGetParameters(na.Pointer, out  pstartx, out  pdelx);
 	
 
-pstartx = 0f;
-pdelx = 0f;
 
 
 	return _Result;
@@ -591,9 +587,9 @@ pdelx = 0f;
 ///  <param name="delx">[in] - difference in x values for the situation where the elements of na correspond to the evaulation of a function at equal intervals of size %delx</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaSetParameters(
-				  Numa na, 
-				  Single startx, 
-				  Single delx){
+				 Numa na, 
+				 Single startx, 
+				 Single delx){
 
 	int _Result = Natives.numaSetParameters(na.Pointer,   startx,   delx);
 	
@@ -613,8 +609,8 @@ public static int numaSetParameters(
 ///  <param name="nas">[in] - source Numa</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaCopyParameters(
-				  Numa nad, 
-				  Numa nas){
+				 Numa nad, 
+				 Numa nas){
 
 	int _Result = Natives.numaCopyParameters(nad.Pointer, nas.Pointer);
 	
@@ -641,11 +637,11 @@ public static int numaCopyParameters(
 ///  <param name="type">[in] - L_INTEGER_VALUE, L_FLOAT_VALUE</param>
 ///   <returns>a sarray of the float values converted to strings representing either integer or float values or NULL on error.</returns>
 public static Sarray numaConvertToSarray(
-				  Numa na, 
-				  int size1, 
-				  int size2, 
-				  int addzeros, 
-				  int type){
+				 Numa na, 
+				 int size1, 
+				 int size2, 
+				 int addzeros, 
+				 int type){
 
 	IntPtr _Result = Natives.numaConvertToSarray(na.Pointer,   size1,   size2,   addzeros,   type);
 	
@@ -665,7 +661,7 @@ public static Sarray numaConvertToSarray(
 ///  <param name="filename">[in] - </param>
 ///   <returns>na, or NULL on error</returns>
 public static Numa numaRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.numaRead(  filename);
 	
@@ -685,7 +681,7 @@ public static Numa numaRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>numa, or NULL on error</returns>
 public static Numa numaReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.numaReadStream(fp.Pointer);
 	
@@ -706,8 +702,8 @@ public static Numa numaReadStream(
 ///  <param name="size">[in] - of data can use strlen to get it</param>
 ///   <returns>na, or NULL on error</returns>
 public static Numa numaReadMem(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.numaReadMem(  data,   size);
 	
@@ -736,8 +732,8 @@ public static Numa numaReadMem(
 ///  <param name="na">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int numaWriteDebug(
-				  String filename, 
-				  Numa na){
+				 String filename, 
+				 Numa na){
 
 	int _Result = Natives.numaWriteDebug(  filename, na.Pointer);
 	
@@ -757,8 +753,8 @@ public static int numaWriteDebug(
 ///  <param name="na">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaWrite(
-				  String filename, 
-				  Numa na){
+				 String filename, 
+				 Numa na){
 
 	int _Result = Natives.numaWrite(  filename, na.Pointer);
 	
@@ -778,8 +774,8 @@ public static int numaWrite(
 ///  <param name="na">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaWriteStream(
-				  FILE fp, 
-				  Numa na){
+				 FILE fp, 
+				 Numa na){
 
 	int _Result = Natives.numaWriteStream(fp.Pointer, na.Pointer);
 	
@@ -803,17 +799,16 @@ public static int numaWriteStream(
 ///  <param name="na">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaWriteMem(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  Numa na){
+				out Byte[] pdata, 
+				out uint psize, 
+				 Numa na){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.numaWriteMem(out  pdataPtr, out  psize, na.Pointer);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -828,7 +823,7 @@ psize = 0;
 ///  <param name="n">[in] - size of numa ptr array to be alloc'd 0 for default</param>
 ///   <returns>naa, or NULL on error</returns>
 public static Numaa numaaCreate(
-				  int n){
+				 int n){
 
 	IntPtr _Result = Natives.numaaCreate(  n);
 	
@@ -855,8 +850,8 @@ public static Numaa numaaCreate(
 ///  <param name="n">[in] - : size of individual numa arrays to be alloc'd 0 for default</param>
 ///   <returns>naa, or NULL on error</returns>
 public static Numaa numaaCreateFull(
-				  int nptr, 
-				  int n){
+				 int nptr, 
+				 int n){
 
 	IntPtr _Result = Natives.numaaCreateFull(  nptr,   n);
 	
@@ -881,7 +876,7 @@ public static Numaa numaaCreateFull(
 ///  <param name="naa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaaTruncate(
-				  Numaa naa){
+				 Numaa naa){
 
 	int _Result = Natives.numaaTruncate(naa.Pointer);
 	
@@ -899,15 +894,14 @@ public static int numaaTruncate(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/numaaDestroy/*"/>
 ///  <param name="pnaa">[in,out] - to be nulled if it exists</param>
 public static void numaaDestroy(
-				 ref Numaa pnaa){
+				ref Numaa pnaa){
 
 	IntPtr pnaaPtr = IntPtr.Zero; 	if (pnaa != null) {pnaaPtr = pnaa.Pointer;}
 
 	Natives.numaaDestroy(ref pnaaPtr);
 	
 
-pnaa = null;
-	; if (pnaaPtr != IntPtr.Zero){pnaa = new Numaa(pnaaPtr);}
+	if (pnaaPtr == null) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
 
 
 }
@@ -923,9 +917,9 @@ pnaa = null;
 ///  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaaAddNuma(
-				  Numaa naa, 
-				  Numa na, 
-				  int copyflag){
+				 Numaa naa, 
+				 Numa na, 
+				 int copyflag){
 
 	int _Result = Natives.numaaAddNuma(naa.Pointer, na.Pointer,   copyflag);
 	
@@ -944,7 +938,7 @@ public static int numaaAddNuma(
 ///  <param name="naa">[in] - </param>
 ///   <returns>count number of numa, or 0 if no numa or on error</returns>
 public static int numaaGetCount(
-				  Numaa naa){
+				 Numaa naa){
 
 	int _Result = Natives.numaaGetCount(naa.Pointer);
 	
@@ -964,8 +958,8 @@ public static int numaaGetCount(
 ///  <param name="index">[in] - of numa in naa</param>
 ///   <returns>count of numbers in the referenced numa, or 0 on error.</returns>
 public static int numaaGetNumaCount(
-				  Numaa naa, 
-				  int index){
+				 Numaa naa, 
+				 int index){
 
 	int _Result = Natives.numaaGetNumaCount(naa.Pointer,   index);
 	
@@ -984,7 +978,7 @@ public static int numaaGetNumaCount(
 ///  <param name="naa">[in] - </param>
 ///   <returns>count total number of numbers in the numaa, or 0 if no numbers or on error</returns>
 public static int numaaGetNumberCount(
-				  Numaa naa){
+				 Numaa naa){
 
 	int _Result = Natives.numaaGetNumberCount(naa.Pointer);
 	
@@ -1024,7 +1018,7 @@ public static int numaaGetNumberCount(
 ///  <param name="naa">[in] - </param>
 ///   <returns>the internal array of ptrs to Numa, or NULL on error</returns>
 public static Numa numaaGetPtrArray(
-				  Numaa naa){
+				 Numaa naa){
 
 	IntPtr _Result = Natives.numaaGetPtrArray(naa.Pointer);
 	
@@ -1047,9 +1041,9 @@ public static Numa numaaGetPtrArray(
 ///  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>numa, or NULL on error</returns>
 public static Numa numaaGetNuma(
-				  Numaa naa, 
-				  int index, 
-				  int accessflag){
+				 Numaa naa, 
+				 int index, 
+				 int accessflag){
 
 	IntPtr _Result = Natives.numaaGetNuma(naa.Pointer,   index,   accessflag);
 	
@@ -1077,9 +1071,9 @@ public static Numa numaaGetNuma(
 ///  <param name="na">[in] - insert and replace any existing one</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaaReplaceNuma(
-				  Numaa naa, 
-				  int index, 
-				  Numa na){
+				 Numaa naa, 
+				 int index, 
+				 Numa na){
 
 	int _Result = Natives.numaaReplaceNuma(naa.Pointer,   index, na.Pointer);
 	
@@ -1102,17 +1096,15 @@ public static int numaaReplaceNuma(
 ///  <param name="pival">[out][optional] - int value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaaGetValue(
-				  Numaa naa, 
-				  int i, 
-				  int j, 
+				 Numaa naa, 
+				 int i, 
+				 int j, 
 				out Single pfval, 
 				out int pival){
 
 	int _Result = Natives.numaaGetValue(naa.Pointer,   i,   j, out  pfval, out  pival);
 	
 
-pfval = 0f;
-pival = 0;
 
 
 	return _Result;
@@ -1132,9 +1124,9 @@ pival = 0;
 ///  <param name="val">[in] - float or int to be added stored as a float</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaaAddNumber(
-				  Numaa naa, 
-				  int index, 
-				  Single val){
+				 Numaa naa, 
+				 int index, 
+				 Single val){
 
 	int _Result = Natives.numaaAddNumber(naa.Pointer,   index,   val);
 	
@@ -1153,7 +1145,7 @@ public static int numaaAddNumber(
 ///  <param name="filename">[in] - </param>
 ///   <returns>naa, or NULL on error</returns>
 public static Numaa numaaRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.numaaRead(  filename);
 	
@@ -1173,7 +1165,7 @@ public static Numaa numaaRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>naa, or NULL on error</returns>
 public static Numaa numaaReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.numaaReadStream(fp.Pointer);
 	
@@ -1194,8 +1186,8 @@ public static Numaa numaaReadStream(
 ///  <param name="size">[in] - of data can use strlen to get it</param>
 ///   <returns>naa, or NULL on error</returns>
 public static Numaa numaaReadMem(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.numaaReadMem(  data,   size);
 	
@@ -1216,8 +1208,8 @@ public static Numaa numaaReadMem(
 ///  <param name="naa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaaWrite(
-				  String filename, 
-				  Numaa naa){
+				 String filename, 
+				 Numaa naa){
 
 	int _Result = Natives.numaaWrite(  filename, naa.Pointer);
 	
@@ -1237,8 +1229,8 @@ public static int numaaWrite(
 ///  <param name="naa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaaWriteStream(
-				  FILE fp, 
-				  Numaa naa){
+				 FILE fp, 
+				 Numaa naa){
 
 	int _Result = Natives.numaaWriteStream(fp.Pointer, naa.Pointer);
 	
@@ -1262,20 +1254,20 @@ public static int numaaWriteStream(
 ///  <param name="naa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaaWriteMem(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  Numaa naa){
+				out Byte[] pdata, 
+				out uint psize, 
+				 Numaa naa){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.numaaWriteMem(out  pdataPtr, out  psize, naa.Pointer);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
 }
 
+}
 }

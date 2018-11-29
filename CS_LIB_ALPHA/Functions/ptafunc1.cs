@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // ptafunc1.c (111, 1)
 // ptaSubsample(ptas, subfactor) as Pta
@@ -15,8 +16,8 @@ public class _All {
 ///  <param name="subfactor">[in] - subsample factor, greater or equal 1</param>
 ///   <returns>ptad evenly sampled pt values from ptas, or NULL on error</returns>
 public static Pta ptaSubsample(
-				  Pta ptas, 
-				  int subfactor){
+				 Pta ptas, 
+				 int subfactor){
 
 	IntPtr _Result = Natives.ptaSubsample(ptas.Pointer,   subfactor);
 	
@@ -46,10 +47,10 @@ public static Pta ptaSubsample(
 ///  <param name="iend">[in] - ending index in ptas use -1 to cat all</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaJoin(
-				  Pta ptad, 
-				  Pta ptas, 
-				  int istart, 
-				  int iend){
+				 Pta ptad, 
+				 Pta ptas, 
+				 int istart, 
+				 int iend){
 
 	int _Result = Natives.ptaJoin(ptad.Pointer, ptas.Pointer,   istart,   iend);
 	
@@ -78,10 +79,10 @@ public static int ptaJoin(
 ///  <param name="iend">[in] - ending index in ptaas use -1 to cat all</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaaJoin(
-				  Ptaa ptaad, 
-				  Ptaa ptaas, 
-				  int istart, 
-				  int iend){
+				 Ptaa ptaad, 
+				 Ptaa ptaas, 
+				 int istart, 
+				 int iend){
 
 	int _Result = Natives.ptaaJoin(ptaad.Pointer, ptaas.Pointer,   istart,   iend);
 	
@@ -101,8 +102,8 @@ public static int ptaaJoin(
 ///  <param name="type">[in] - 0 for float values 1 for integer values</param>
 ///   <returns>ptad reversed pta, or NULL on error</returns>
 public static Pta ptaReverse(
-				  Pta ptas, 
-				  int type){
+				 Pta ptas, 
+				 int type){
 
 	IntPtr _Result = Natives.ptaReverse(ptas.Pointer,   type);
 	
@@ -122,7 +123,7 @@ public static Pta ptaReverse(
 ///  <param name="ptas">[in] - </param>
 ///   <returns>ptad with x and y values swapped, or NULL on error</returns>
 public static Pta ptaTranspose(
-				  Pta ptas){
+				 Pta ptas){
 
 	IntPtr _Result = Natives.ptaTranspose(ptas.Pointer);
 	
@@ -150,9 +151,9 @@ public static Pta ptaTranspose(
 ///  <param name="ys">[in] - start point must be in ptas</param>
 ///   <returns>ptad cyclic permutation, starting and ending at (xs, ys, or NULL on error</returns>
 public static Pta ptaCyclicPerm(
-				  Pta ptas, 
-				  int xs, 
-				  int ys){
+				 Pta ptas, 
+				 int xs, 
+				 int ys){
 
 	IntPtr _Result = Natives.ptaCyclicPerm(ptas.Pointer,   xs,   ys);
 	
@@ -174,9 +175,9 @@ public static Pta ptaCyclicPerm(
 ///  <param name="last">[in] - use 0 to select to the end</param>
 ///   <returns>ptad, or NULL on error</returns>
 public static Pta ptaSelectRange(
-				  Pta ptas, 
-				  int first, 
-				  int last){
+				 Pta ptas, 
+				 int first, 
+				 int last){
 
 	IntPtr _Result = Natives.ptaSelectRange(ptas.Pointer,   first,   last);
 	
@@ -201,7 +202,7 @@ public static Pta ptaSelectRange(
 ///  <param name="pta">[in] - </param>
 ///   <returns>box, or NULL on error</returns>
 public static Box ptaGetBoundingRegion(
-				  Pta pta){
+				 Pta pta){
 
 	IntPtr _Result = Natives.ptaGetBoundingRegion(pta.Pointer);
 	
@@ -230,7 +231,7 @@ public static Box ptaGetBoundingRegion(
 ///  <param name="pmaxy">[out][optional] - max value of y</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaGetRange(
-				  Pta pta, 
+				 Pta pta, 
 				out Single pminx, 
 				out Single pmaxx, 
 				out Single pminy, 
@@ -239,10 +240,6 @@ public static int ptaGetRange(
 	int _Result = Natives.ptaGetRange(pta.Pointer, out  pminx, out  pmaxx, out  pminy, out  pmaxy);
 	
 
-pminx = 0f;
-pmaxx = 0f;
-pminy = 0f;
-pmaxy = 0f;
 
 
 	return _Result;
@@ -258,8 +255,8 @@ pmaxy = 0f;
 ///  <param name="box">[in] - </param>
 ///   <returns>ptad of pts in ptas that are inside the box, or NULL on error</returns>
 public static Pta ptaGetInsideBox(
-				  Pta ptas, 
-				  Box box){
+				 Pta ptas, 
+				 Box box){
 
 	IntPtr _Result = Natives.ptaGetInsideBox(ptas.Pointer, box.Pointer);
 	
@@ -283,7 +280,7 @@ public static Pta ptaGetInsideBox(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>pta, or NULL on error</returns>
 public static Pta pixFindCornerPixels(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixFindCornerPixels(pixs.Pointer);
 	
@@ -305,9 +302,9 @@ public static Pta pixFindCornerPixels(
 ///  <param name="y">[in] - point</param>
 ///   <returns>1 if contained, 0 otherwise or on error</returns>
 public static int ptaContainsPt(
-				  Pta pta, 
-				  int x, 
-				  int y){
+				 Pta pta, 
+				 int x, 
+				 int y){
 
 	int _Result = Natives.ptaContainsPt(pta.Pointer,   x,   y);
 	
@@ -327,8 +324,8 @@ public static int ptaContainsPt(
 ///  <param name="pta2">[in] - </param>
 ///   <returns>bval which is 1 if they have any elements in common 0 otherwise or on error.</returns>
 public static int ptaTestIntersection(
-				  Pta pta1, 
-				  Pta pta2){
+				 Pta pta1, 
+				 Pta pta2){
 
 	int _Result = Natives.ptaTestIntersection(pta1.Pointer, pta2.Pointer);
 	
@@ -354,9 +351,9 @@ public static int ptaTestIntersection(
 ///  <param name="scaley">[in] - </param>
 ///   <returns>pta, or NULL on error</returns>
 public static Pta ptaTransform(
-				  Pta ptas, 
-				  int shiftx, 
-				  int shifty, 
+				 Pta ptas, 
+				 int shiftx, 
+				 int shifty, 
 				 Single scalex, 
 				 Single scaley){
 
@@ -381,15 +378,14 @@ public static Pta ptaTransform(
 ///  <param name="pinside">[out] - 1 if inside 0 if outside or on boundary</param>
 ///   <returns>1 if OK, 0 on error The abs value of the sum of the angles subtended from a point by the sides of a polygon, when taken in order traversing the polygon, is 0 if the point is outside the polygon and 2pi if inside. The sign will be positive if traversed cw and negative if ccw.</returns>
 public static int ptaPtInsidePolygon(
-				  Pta pta, 
-				  Single x, 
-				  Single y, 
-				 out int pinside){
+				 Pta pta, 
+				 Single x, 
+				 Single y, 
+				out int pinside){
 
 	int _Result = Natives.ptaPtInsidePolygon(pta.Pointer,   x,   y, out  pinside);
 	
 
-pinside = 0;
 
 
 	return _Result;
@@ -413,10 +409,10 @@ pinside = 0;
 ///  <param name="y2">[in] - end point of second vector</param>
 ///   <returns>angle radians, or 0.0 on error</returns>
 public static Single l_angleBetweenVectors(
-				  Single x1, 
-				  Single y1, 
-				  Single x2, 
-				  Single y2){
+				 Single x1, 
+				 Single y1, 
+				 Single x2, 
+				 Single y2){
 
 	Single _Result = Natives.l_angleBetweenVectors(  x1,   y1,   x2,   y2);
 	
@@ -439,7 +435,7 @@ public static Single l_angleBetweenVectors(
 ///  <param name="pymax">[out][optional] - max of y</param>
 ///   <returns>0 if OK, 1 on error.  If pta is empty, requested values are returned as -1.0.</returns>
 public static int ptaGetMinMax(
-				  Pta pta, 
+				 Pta pta, 
 				out Single pxmin, 
 				out Single pymin, 
 				out Single pxmax, 
@@ -448,10 +444,6 @@ public static int ptaGetMinMax(
 	int _Result = Natives.ptaGetMinMax(pta.Pointer, out  pxmin, out  pymin, out  pxmax, out  pymax);
 	
 
-pxmin = 0f;
-pymin = 0f;
-pxmax = 0f;
-pymax = 0f;
 
 
 	return _Result;
@@ -470,11 +462,11 @@ pymax = 0f;
 ///  <param name="relation">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
 ///   <returns>ptad filtered set, or NULL on error</returns>
 public static Pta ptaSelectByValue(
-				  Pta ptas, 
-				  Single xth, 
-				  Single yth, 
-				  int type, 
-				  int relation){
+				 Pta ptas, 
+				 Single xth, 
+				 Single yth, 
+				 int type, 
+				 int relation){
 
 	IntPtr _Result = Natives.ptaSelectByValue(ptas.Pointer,   xth,   yth,   type,   relation);
 	
@@ -495,8 +487,8 @@ public static Pta ptaSelectByValue(
 ///  <param name="pixm">[in] - 1 bpp mask</param>
 ///   <returns>ptad  with only pts under the mask fg, or NULL on error</returns>
 public static Pta ptaCropToMask(
-				  Pta ptas, 
-				  Pix pixm){
+				 Pta ptas, 
+				 Pix pixm){
 
 	IntPtr _Result = Natives.ptaCropToMask(ptas.Pointer, pixm.Pointer);
 	
@@ -542,7 +534,7 @@ public static Pta ptaCropToMask(
 ///  <param name="pnafit">[out][optional] - numa of least square fit</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaGetLinearLSF(
-				  Pta pta, 
+				 Pta pta, 
 				out Single pa, 
 				out Single pb, 
 				out Numa pnafit){
@@ -552,10 +544,7 @@ public static int ptaGetLinearLSF(
 	int _Result = Natives.ptaGetLinearLSF(pta.Pointer, out  pa, out  pb, out pnafitPtr);
 	
 
-pa = 0f;
-pb = 0f;
-pnafit = null;
-	; if (pnafitPtr != IntPtr.Zero){pnafit = new Numa(pnafitPtr);}
+	if (pnafitPtr == null) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
 
 
 	return _Result;
@@ -593,7 +582,7 @@ pnafit = null;
 ///  <param name="pnafit">[out][optional] - numa of least square fit</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaGetQuadraticLSF(
-				  Pta pta, 
+				 Pta pta, 
 				out Single pa, 
 				out Single pb, 
 				out Single pc, 
@@ -604,11 +593,7 @@ public static int ptaGetQuadraticLSF(
 	int _Result = Natives.ptaGetQuadraticLSF(pta.Pointer, out  pa, out  pb, out  pc, out pnafitPtr);
 	
 
-pa = 0f;
-pb = 0f;
-pc = 0f;
-pnafit = null;
-	; if (pnafitPtr != IntPtr.Zero){pnafit = new Numa(pnafitPtr);}
+	if (pnafitPtr == null) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
 
 
 	return _Result;
@@ -649,7 +634,7 @@ pnafit = null;
 ///  <param name="pnafit">[out][optional] - numa of least square fit</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaGetCubicLSF(
-				  Pta pta, 
+				 Pta pta, 
 				out Single pa, 
 				out Single pb, 
 				out Single pc, 
@@ -661,12 +646,7 @@ public static int ptaGetCubicLSF(
 	int _Result = Natives.ptaGetCubicLSF(pta.Pointer, out  pa, out  pb, out  pc, out  pd, out pnafitPtr);
 	
 
-pa = 0f;
-pb = 0f;
-pc = 0f;
-pd = 0f;
-pnafit = null;
-	; if (pnafitPtr != IntPtr.Zero){pnafit = new Numa(pnafitPtr);}
+	if (pnafitPtr == null) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
 
 
 	return _Result;
@@ -709,7 +689,7 @@ pnafit = null;
 ///  <param name="pnafit">[out][optional] - numa of least square fit</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaGetQuarticLSF(
-				  Pta pta, 
+				 Pta pta, 
 				out Single pa, 
 				out Single pb, 
 				out Single pc, 
@@ -722,13 +702,7 @@ public static int ptaGetQuarticLSF(
 	int _Result = Natives.ptaGetQuarticLSF(pta.Pointer, out  pa, out  pb, out  pc, out  pd, out  pe, out pnafitPtr);
 	
 
-pa = 0f;
-pb = 0f;
-pc = 0f;
-pd = 0f;
-pe = 0f;
-pnafit = null;
-	; if (pnafitPtr != IntPtr.Zero){pnafit = new Numa(pnafitPtr);}
+	if (pnafitPtr == null) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
 
 
 	return _Result;
@@ -761,8 +735,8 @@ pnafit = null;
 ///  <param name="pnafit">[out][optional] - numa of least square fit to ptad</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaNoisyLinearLSF(
-				  Pta pta, 
-				  Single factor, 
+				 Pta pta, 
+				 Single factor, 
 				out Pta pptad, 
 				out Single pa, 
 				out Single pb, 
@@ -775,13 +749,8 @@ public static int ptaNoisyLinearLSF(
 	int _Result = Natives.ptaNoisyLinearLSF(pta.Pointer,   factor, out pptadPtr, out  pa, out  pb, out  pmederr, out pnafitPtr);
 	
 
-pptad = null;
-	; if (pptadPtr != IntPtr.Zero){pptad = new Pta(pptadPtr);}
-pa = 0f;
-pb = 0f;
-pmederr = 0f;
-pnafit = null;
-	; if (pnafitPtr != IntPtr.Zero){pnafit = new Numa(pnafitPtr);}
+	if (pptadPtr == null) {pptad = null;} else { pptad = new Pta(pptadPtr); };
+	if (pnafitPtr == null) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
 
 
 	return _Result;
@@ -809,8 +778,8 @@ pnafit = null;
 ///  <param name="pnafit">[out][optional] - numa of least square fit to ptad</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaNoisyQuadraticLSF(
-				  Pta pta, 
-				  Single factor, 
+				 Pta pta, 
+				 Single factor, 
 				out Pta pptad, 
 				out Single pa, 
 				out Single pb, 
@@ -824,14 +793,8 @@ public static int ptaNoisyQuadraticLSF(
 	int _Result = Natives.ptaNoisyQuadraticLSF(pta.Pointer,   factor, out pptadPtr, out  pa, out  pb, out  pc, out  pmederr, out pnafitPtr);
 	
 
-pptad = null;
-	; if (pptadPtr != IntPtr.Zero){pptad = new Pta(pptadPtr);}
-pa = 0f;
-pb = 0f;
-pc = 0f;
-pmederr = 0f;
-pnafit = null;
-	; if (pnafitPtr != IntPtr.Zero){pnafit = new Numa(pnafitPtr);}
+	if (pptadPtr == null) {pptad = null;} else { pptad = new Pta(pptadPtr); };
+	if (pnafitPtr == null) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
 
 
 	return _Result;
@@ -849,15 +812,14 @@ pnafit = null;
 ///  <param name="py">[out] - y = a  x + b</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int applyLinearFit(
-				  Single a, 
-				  Single b, 
-				  Single x, 
-				 out Single py){
+				 Single a, 
+				 Single b, 
+				 Single x, 
+				out Single py){
 
 	int _Result = Natives.applyLinearFit(  a,   b,   x, out  py);
 	
 
-py = 0f;
 
 
 	return _Result;
@@ -876,16 +838,15 @@ py = 0f;
 ///  <param name="py">[out] - y = a  x^2 + b  x + c</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int applyQuadraticFit(
-				  Single a, 
-				  Single b, 
-				  Single c, 
-				  Single x, 
-				 out Single py){
+				 Single a, 
+				 Single b, 
+				 Single c, 
+				 Single x, 
+				out Single py){
 
 	int _Result = Natives.applyQuadraticFit(  a,   b,   c,   x, out  py);
 	
 
-py = 0f;
 
 
 	return _Result;
@@ -905,17 +866,16 @@ py = 0f;
 ///  <param name="py">[out] - y = a  x^3 + b  x^2  + c  x + d</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int applyCubicFit(
-				  Single a, 
-				  Single b, 
-				  Single c, 
-				  Single d, 
-				  Single x, 
-				 out Single py){
+				 Single a, 
+				 Single b, 
+				 Single c, 
+				 Single d, 
+				 Single x, 
+				out Single py){
 
 	int _Result = Natives.applyCubicFit(  a,   b,   c,   d,   x, out  py);
 	
 
-py = 0f;
 
 
 	return _Result;
@@ -936,18 +896,17 @@ py = 0f;
 ///  <param name="py">[out] - y = a  x^4 + b  x^3  + c  x^2 + d  x + e</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int applyQuarticFit(
-				  Single a, 
-				  Single b, 
-				  Single c, 
-				  Single d, 
-				  Single e, 
-				  Single x, 
-				 out Single py){
+				 Single a, 
+				 Single b, 
+				 Single c, 
+				 Single d, 
+				 Single e, 
+				 Single x, 
+				out Single py){
 
 	int _Result = Natives.applyQuarticFit(  a,   b,   c,   d,   e,   x, out  py);
 	
 
-py = 0f;
 
 
 	return _Result;
@@ -972,9 +931,9 @@ py = 0f;
 ///  <param name="title">[in][optional] - for plot can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixPlotAlongPta(
-				  Pix pixs, 
-				  Pta pta, 
-				  int outformat, 
+				 Pix pixs, 
+				 Pta pta, 
+				 int outformat, 
 				 String title){
 
 	int _Result = Natives.pixPlotAlongPta(pixs.Pointer, pta.Pointer,   outformat,   title);
@@ -999,7 +958,7 @@ public static int pixPlotAlongPta(
 ///  <param name="box">[in][optional] - can be null</param>
 ///   <returns>pta, or NULL on error</returns>
 public static Pta ptaGetPixelsFromPix(
-				  Pix pixs, 
+				 Pix pixs, 
 				 Box box){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
@@ -1031,9 +990,9 @@ public static Pta ptaGetPixelsFromPix(
 ///  <param name="h">[in] - of pix</param>
 ///   <returns>pix 1 bpp, or NULL on error</returns>
 public static Pix pixGenerateFromPta(
-				  Pta pta, 
-				  int w, 
-				  int h){
+				 Pta pta, 
+				 int w, 
+				 int h){
 
 	IntPtr _Result = Natives.pixGenerateFromPta(pta.Pointer,   w,   h);
 	
@@ -1060,8 +1019,8 @@ public static Pix pixGenerateFromPta(
 ///  <param name="type">[in] - L_BOUNDARY_FG, L_BOUNDARY_BG</param>
 ///   <returns>pta, or NULL on error</returns>
 public static Pta ptaGetBoundaryPixels(
-				  Pix pixs, 
-				  int type){
+				 Pix pixs, 
+				 int type){
 
 	IntPtr _Result = Natives.ptaGetBoundaryPixels(pixs.Pointer,   type);
 	
@@ -1097,9 +1056,9 @@ public static Pta ptaGetBoundaryPixels(
 ///  <param name="ppixa">[out][optional] - pixa of the c.c.</param>
 ///   <returns>ptaa, or NULL on error</returns>
 public static Ptaa ptaaGetBoundaryPixels(
-				  Pix pixs, 
-				  int type, 
-				  int connectivity, 
+				 Pix pixs, 
+				 int type, 
+				 int connectivity, 
 				out Boxa pboxa, 
 				out Pixa ppixa){
 
@@ -1109,10 +1068,8 @@ public static Ptaa ptaaGetBoundaryPixels(
 	IntPtr _Result = Natives.ptaaGetBoundaryPixels(pixs.Pointer,   type,   connectivity, out pboxaPtr, out ppixaPtr);
 	
 
-pboxa = null;
-	; if (pboxaPtr != IntPtr.Zero){pboxa = new Boxa(pboxaPtr);}
-ppixa = null;
-	; if (ppixaPtr != IntPtr.Zero){ppixa = new Pixa(ppixaPtr);}
+	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -1143,13 +1100,12 @@ ppixa = null;
 ///  <param name="pncc">[out][optional] - number of connected components</param>
 ///   <returns>ptaa, or NULL on error</returns>
 public static Ptaa ptaaIndexLabeledPixels(
-				  Pix pixs, 
+				 Pix pixs, 
 				out int pncc){
 
 	IntPtr _Result = Natives.ptaaIndexLabeledPixels(pixs.Pointer, out  pncc);
 	
 
-pncc = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -1172,10 +1128,10 @@ pncc = 0;
 ///  <param name="conn">[in] - 4 or 8 connectivity</param>
 ///   <returns>pta, or NULL on error</returns>
 public static Pta ptaGetNeighborPixLocs(
-				  Pix pixs, 
-				  int x, 
-				  int y, 
-				  int conn){
+				 Pix pixs, 
+				 int x, 
+				 int y, 
+				 int conn){
 
 	IntPtr _Result = Natives.ptaGetNeighborPixLocs(pixs.Pointer,   x,   y,   conn);
 	
@@ -1195,7 +1151,7 @@ public static Pta ptaGetNeighborPixLocs(
 ///  <param name="na">[in] - numa with implicit y(x)</param>
 ///   <returns>pta if OK null on error</returns>
 public static Pta numaConvertToPta1(
-				  Numa na){
+				 Numa na){
 
 	IntPtr _Result = Natives.numaConvertToPta1(na.Pointer);
 	
@@ -1216,8 +1172,8 @@ public static Pta numaConvertToPta1(
 ///  <param name="nay">[in] - </param>
 ///   <returns>pta if OK null on error</returns>
 public static Pta numaConvertToPta2(
-				  Numa nax, 
-				  Numa nay){
+				 Numa nax, 
+				 Numa nay){
 
 	IntPtr _Result = Natives.numaConvertToPta2(nax.Pointer, nay.Pointer);
 	
@@ -1239,9 +1195,9 @@ public static Pta numaConvertToPta2(
 ///  <param name="pnay">[out] - addr of nay</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaConvertToNuma(
-				  Pta pta, 
-				 out Numa pnax, 
-				 out Numa pnay){
+				 Pta pta, 
+				out Numa pnax, 
+				out Numa pnay){
 
 	IntPtr pnaxPtr = IntPtr.Zero;
 	IntPtr pnayPtr = IntPtr.Zero;
@@ -1249,10 +1205,8 @@ public static int ptaConvertToNuma(
 	int _Result = Natives.ptaConvertToNuma(pta.Pointer, out pnaxPtr, out pnayPtr);
 	
 
-pnax = null;
-	; if (pnaxPtr != IntPtr.Zero){pnax = new Numa(pnaxPtr);}
-pnay = null;
-	; if (pnayPtr != IntPtr.Zero){pnay = new Numa(pnayPtr);}
+	if (pnaxPtr == null) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
+	if (pnayPtr == null) {pnay = null;} else { pnay = new Numa(pnayPtr); };
 
 
 	return _Result;
@@ -1279,9 +1233,9 @@ pnay = null;
 ///  <param name="pta">[in] - of path to be plotted</param>
 ///   <returns>pixd 32 bpp RGB version of pixs, with path in green.</returns>
 public static Pix pixDisplayPta(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Pta pta){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Pta pta){
 
 	IntPtr _Result = Natives.pixDisplayPta(pixd.Pointer, pixs.Pointer, pta.Pointer);
 	
@@ -1321,12 +1275,12 @@ public static Pix pixDisplayPta(
 ///  <param name="cy">[in] - reference point in pattern</param>
 ///   <returns>pixd 32 bpp RGB version of pixs.</returns>
 public static Pix pixDisplayPtaaPattern(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Ptaa ptaa, 
-				  Pix pixp, 
-				  int cx, 
-				  int cy){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Ptaa ptaa, 
+				 Pix pixp, 
+				 int cx, 
+				 int cy){
 
 	IntPtr _Result = Natives.pixDisplayPtaaPattern(pixd.Pointer, pixs.Pointer, ptaa.Pointer, pixp.Pointer,   cx,   cy);
 	
@@ -1365,13 +1319,13 @@ public static Pix pixDisplayPtaaPattern(
 ///  <param name="color">[in] - in 0xrrggbb00 format</param>
 ///   <returns>pixd 32 bpp RGB version of pixs.</returns>
 public static Pix pixDisplayPtaPattern(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Pta pta, 
-				  Pix pixp, 
-				  int cx, 
-				  int cy, 
-				  uint color){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Pta pta, 
+				 Pix pixp, 
+				 int cx, 
+				 int cy, 
+				 uint color){
 
 	IntPtr _Result = Natives.pixDisplayPtaPattern(pixd.Pointer, pixs.Pointer, pta.Pointer, pixp.Pointer,   cx,   cy,   color);
 	
@@ -1405,13 +1359,13 @@ public static Pix pixDisplayPtaPattern(
 ///  <param name="h">[in] - clipping sizes for output pta</param>
 ///   <returns>ptad with all points of replicated pattern, or NULL on error</returns>
 public static Pta ptaReplicatePattern(
-				  Pta ptas, 
-				  Pix pixp, 
-				  Pta ptap, 
-				  int cx, 
-				  int cy, 
-				  int w, 
-				  int h){
+				 Pta ptas, 
+				 Pix pixp, 
+				 Pta ptap, 
+				 int cx, 
+				 int cy, 
+				 int w, 
+				 int h){
 
 	IntPtr pixpPtr = IntPtr.Zero; 	if (pixp != null) {pixpPtr = pixp.Pointer;}
 	IntPtr ptapPtr = IntPtr.Zero; 	if (ptap != null) {ptapPtr = ptap.Pointer;}
@@ -1435,8 +1389,8 @@ public static Pta ptaReplicatePattern(
 ///  <param name="ptaa">[in] - array of paths to be plotted</param>
 ///   <returns>pixd 32 bpp RGB version of pixs, with paths plotted in different colors, or NULL on error</returns>
 public static Pix pixDisplayPtaa(
-				  Pix pixs, 
-				  Ptaa ptaa){
+				 Pix pixs, 
+				 Ptaa ptaa){
 
 	IntPtr _Result = Natives.pixDisplayPtaa(pixs.Pointer, ptaa.Pointer);
 	
@@ -1447,4 +1401,5 @@ public static Pix pixDisplayPtaa(
 	return  new Pix(_Result);
 }
 
+}
 }

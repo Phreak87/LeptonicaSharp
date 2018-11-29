@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // boxfunc1.c (99, 1)
 // boxContains(box1, box2, presult) as int
@@ -16,14 +17,13 @@ public class _All {
 ///  <param name="presult">[out] - 1 if box2 is entirely contained within box1, and 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxContains(
-				  Box box1, 
-				  Box box2, 
-				 out int presult){
+				 Box box1, 
+				 Box box2, 
+				out int presult){
 
 	int _Result = Natives.boxContains(box1.Pointer, box2.Pointer, out  presult);
 	
 
-presult = 0;
 
 
 	return _Result;
@@ -40,14 +40,13 @@ presult = 0;
 ///  <param name="presult">[out] - 1 if any part of box2 is contained in box1, and 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxIntersects(
-				  Box box1, 
-				  Box box2, 
-				 out int presult){
+				 Box box1, 
+				 Box box2, 
+				out int presult){
 
 	int _Result = Natives.boxIntersects(box1.Pointer, box2.Pointer, out  presult);
 	
 
-presult = 0;
 
 
 	return _Result;
@@ -66,8 +65,8 @@ presult = 0;
 ///  <param name="box">[in] - for containment</param>
 ///   <returns>boxad boxa with all boxes in boxas that are entirely contained in box, or NULL on error</returns>
 public static Boxa boxaContainedInBox(
-				  Boxa boxas, 
-				  Box box){
+				 Boxa boxas, 
+				 Box box){
 
 	IntPtr _Result = Natives.boxaContainedInBox(boxas.Pointer, box.Pointer);
 	
@@ -89,14 +88,13 @@ public static Boxa boxaContainedInBox(
 ///  <param name="pcount">[out] - number of boxes intersecting the box</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaContainedInBoxCount(
-				  Boxa boxa, 
-				  Box box, 
-				 out int pcount){
+				 Boxa boxa, 
+				 Box box, 
+				out int pcount){
 
 	int _Result = Natives.boxaContainedInBoxCount(boxa.Pointer, box.Pointer, out  pcount);
 	
 
-pcount = 0;
 
 
 	return _Result;
@@ -113,14 +111,13 @@ pcount = 0;
 ///  <param name="pcontained">[out] - 1 if every box in boxa2 is contained in some box in boxa1 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaContainedInBoxa(
-				  Boxa boxa1, 
-				  Boxa boxa2, 
-				 out int pcontained){
+				 Boxa boxa1, 
+				 Boxa boxa2, 
+				out int pcontained){
 
 	int _Result = Natives.boxaContainedInBoxa(boxa1.Pointer, boxa2.Pointer, out  pcontained);
 	
 
-pcontained = 0;
 
 
 	return _Result;
@@ -140,8 +137,8 @@ pcontained = 0;
 ///  <param name="box">[in] - for intersecting</param>
 ///   <returns>boxad boxa with all boxes in boxas that intersect box, or NULL on error</returns>
 public static Boxa boxaIntersectsBox(
-				  Boxa boxas, 
-				  Box box){
+				 Boxa boxas, 
+				 Box box){
 
 	IntPtr _Result = Natives.boxaIntersectsBox(boxas.Pointer, box.Pointer);
 	
@@ -163,14 +160,13 @@ public static Boxa boxaIntersectsBox(
 ///  <param name="pcount">[out] - number of boxes intersecting the box</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaIntersectsBoxCount(
-				  Boxa boxa, 
-				  Box box, 
-				 out int pcount){
+				 Boxa boxa, 
+				 Box box, 
+				out int pcount){
 
 	int _Result = Natives.boxaIntersectsBoxCount(boxa.Pointer, box.Pointer, out  pcount);
 	
 
-pcount = 0;
 
 
 	return _Result;
@@ -190,8 +186,8 @@ pcount = 0;
 ///  <param name="box">[in] - for clipping</param>
 ///   <returns>boxad boxa with boxes in boxas clipped to box, or NULL on error</returns>
 public static Boxa boxaClipToBox(
-				  Boxa boxas, 
-				  Box box){
+				 Boxa boxas, 
+				 Box box){
 
 	IntPtr _Result = Natives.boxaClipToBox(boxas.Pointer, box.Pointer);
 	
@@ -232,16 +228,15 @@ public static Boxa boxaClipToBox(
 ///  <param name="pixadb">[in,out] - debug output</param>
 ///   <returns>boxad where each set of boxes in boxas that overlap are combined into a single bounding box in boxad, or NULL on error.</returns>
 public static Boxa boxaCombineOverlaps(
-				  Boxa boxas, 
-				 ref Pixa pixadb){
+				 Boxa boxas, 
+				ref Pixa pixadb){
 
 	IntPtr pixadbPtr = IntPtr.Zero; if (pixadb != null) {pixadbPtr = pixadb.Pointer;}
 
 	IntPtr _Result = Natives.boxaCombineOverlaps(boxas.Pointer, ref pixadbPtr);
 	
 
-pixadb = null;
-	; if (pixadbPtr != IntPtr.Zero){pixadb = new Pixa(pixadbPtr);}
+	if (pixadbPtr == null) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -278,11 +273,11 @@ pixadb = null;
 ///  <param name="pixadb">[in,out] - debug output</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaCombineOverlapsInPair(
-				  Boxa boxas1, 
-				  Boxa boxas2, 
-				 out Boxa pboxad1, 
-				 out Boxa pboxad2, 
-				 ref Pixa pixadb){
+				 Boxa boxas1, 
+				 Boxa boxas2, 
+				out Boxa pboxad1, 
+				out Boxa pboxad2, 
+				ref Pixa pixadb){
 
 	IntPtr pboxad1Ptr = IntPtr.Zero;
 	IntPtr pboxad2Ptr = IntPtr.Zero;
@@ -291,12 +286,9 @@ public static int boxaCombineOverlapsInPair(
 	int _Result = Natives.boxaCombineOverlapsInPair(boxas1.Pointer, boxas2.Pointer, out pboxad1Ptr, out pboxad2Ptr, ref pixadbPtr);
 	
 
-pboxad1 = null;
-	; if (pboxad1Ptr != IntPtr.Zero){pboxad1 = new Boxa(pboxad1Ptr);}
-pboxad2 = null;
-	; if (pboxad2Ptr != IntPtr.Zero){pboxad2 = new Boxa(pboxad2Ptr);}
-pixadb = null;
-	; if (pixadbPtr != IntPtr.Zero){pixadb = new Pixa(pixadbPtr);}
+	if (pboxad1Ptr == null) {pboxad1 = null;} else { pboxad1 = new Boxa(pboxad1Ptr); };
+	if (pboxad2Ptr == null) {pboxad2 = null;} else { pboxad2 = new Boxa(pboxad2Ptr); };
+	if (pixadbPtr == null) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
 
 
 	return _Result;
@@ -315,8 +307,8 @@ pixadb = null;
 ///  <param name="box2">[in] - two boxes</param>
 ///   <returns>box of overlap region between input boxes, or NULL if no overlap or on error</returns>
 public static Box boxOverlapRegion(
-				  Box box1, 
-				  Box box2){
+				 Box box1, 
+				 Box box2){
 
 	IntPtr _Result = Natives.boxOverlapRegion(box1.Pointer, box2.Pointer);
 	
@@ -340,8 +332,8 @@ public static Box boxOverlapRegion(
 ///  <param name="box2">[in] - two boxes</param>
 ///   <returns>box of bounding region containing the input boxes, or NULL on error</returns>
 public static Box boxBoundingRegion(
-				  Box box1, 
-				  Box box2){
+				 Box box1, 
+				 Box box2){
 
 	IntPtr _Result = Natives.boxBoundingRegion(box1.Pointer, box2.Pointer);
 	
@@ -367,14 +359,13 @@ public static Box boxBoundingRegion(
 ///  <param name="pfract">[out] - the fraction of box2 overlapped by box1</param>
 ///   <returns>0 if OK, 1 on error.</returns>
 public static int boxOverlapFraction(
-				  Box box1, 
-				  Box box2, 
-				 out Single pfract){
+				 Box box1, 
+				 Box box2, 
+				out Single pfract){
 
 	int _Result = Natives.boxOverlapFraction(box1.Pointer, box2.Pointer, out  pfract);
 	
 
-pfract = 0f;
 
 
 	return _Result;
@@ -391,14 +382,13 @@ pfract = 0f;
 ///  <param name="parea">[out] - the number of pixels in the overlap</param>
 ///   <returns>0 if OK, 1 on error.</returns>
 public static int boxOverlapArea(
-				  Box box1, 
-				  Box box2, 
-				 out int parea){
+				 Box box1, 
+				 Box box2, 
+				out int parea){
 
 	int _Result = Natives.boxOverlapArea(box1.Pointer, box2.Pointer, out  parea);
 	
 
-parea = 0;
 
 
 	return _Result;
@@ -439,11 +429,11 @@ parea = 0;
 ///  <param name="pnamap">[out][optional] - combining map</param>
 ///   <returns>boxad, or NULL on error.</returns>
 public static Boxa boxaHandleOverlaps(
-				  Boxa boxas, 
-				  int op, 
-				  int range, 
-				  Single min_overlap, 
-				  Single max_ratio, 
+				 Boxa boxas, 
+				 int op, 
+				 int range, 
+				 Single min_overlap, 
+				 Single max_ratio, 
 				out Numa pnamap){
 
 	IntPtr pnamapPtr = IntPtr.Zero;
@@ -451,8 +441,7 @@ public static Boxa boxaHandleOverlaps(
 	IntPtr _Result = Natives.boxaHandleOverlaps(boxas.Pointer,   op,   range,   min_overlap,   max_ratio, out pnamapPtr);
 	
 
-pnamap = null;
-	; if (pnamapPtr != IntPtr.Zero){pnamap = new Numa(pnamapPtr);}
+	if (pnamapPtr == null) {pnamap = null;} else { pnamap = new Numa(pnamapPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -477,16 +466,14 @@ pnamap = null;
 ///  <param name="pv_sep">[out][optional] - vertical separation</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxSeparationDistance(
-				  Box box1, 
-				  Box box2, 
+				 Box box1, 
+				 Box box2, 
 				out int ph_sep, 
 				out int pv_sep){
 
 	int _Result = Natives.boxSeparationDistance(box1.Pointer, box2.Pointer, out  ph_sep, out  pv_sep);
 	
 
-ph_sep = 0;
-pv_sep = 0;
 
 
 	return _Result;
@@ -507,15 +494,14 @@ pv_sep = 0;
 ///  <param name="prel">[out] - 1 if box1  is greater  box2, 0 if the same, -1 if box1  is smaller box2</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxCompareSize(
-				  Box box1, 
-				  Box box2, 
-				  int type, 
-				 out int prel){
+				 Box box1, 
+				 Box box2, 
+				 int type, 
+				out int prel){
 
 	int _Result = Natives.boxCompareSize(box1.Pointer, box2.Pointer,   type, out  prel);
 	
 
-prel = 0;
 
 
 	return _Result;
@@ -533,15 +519,14 @@ prel = 0;
 ///  <param name="pcontains">[out] - 1 if box contains point 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error.</returns>
 public static int boxContainsPt(
-				  Box box, 
-				  Single x, 
-				  Single y, 
-				 out int pcontains){
+				 Box box, 
+				 Single x, 
+				 Single y, 
+				out int pcontains){
 
 	int _Result = Natives.boxContainsPt(box.Pointer,   x,   y, out  pcontains);
 	
 
-pcontains = 0;
 
 
 	return _Result;
@@ -561,9 +546,9 @@ pcontains = 0;
 ///  <param name="y">[in] - point</param>
 ///   <returns>box with centroid closest to the given point [x,y], or NULL if no boxes in boxa</returns>
 public static Box boxaGetNearestToPt(
-				  Boxa boxa, 
-				  int x, 
-				  int y){
+				 Boxa boxa, 
+				 int x, 
+				 int y){
 
 	IntPtr _Result = Natives.boxaGetNearestToPt(boxa.Pointer,   x,   y);
 	
@@ -593,9 +578,9 @@ public static Box boxaGetNearestToPt(
 ///  <param name="y">[in] - (y = -1 for vertical line x = -1 for horiz line)</param>
 ///   <returns>box with centroid closest to the given line, or NULL if no boxes in boxa</returns>
 public static Box boxaGetNearestToLine(
-				  Boxa boxa, 
-				  int x, 
-				  int y){
+				 Boxa boxa, 
+				 int x, 
+				 int y){
 
 	IntPtr _Result = Natives.boxaGetNearestToLine(boxa.Pointer,   x,   y);
 	
@@ -623,11 +608,11 @@ public static Box boxaGetNearestToLine(
 ///  <param name="pnaadist">[out] - for each box in %boxa, this contains a numa</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaFindNearestBoxes(
-				  Boxa boxa, 
-				  int dist_select, 
-				  int range, 
-				 out Numaa pnaaindex, 
-				 out Numaa pnaadist){
+				 Boxa boxa, 
+				 int dist_select, 
+				 int range, 
+				out Numaa pnaaindex, 
+				out Numaa pnaadist){
 
 	IntPtr pnaaindexPtr = IntPtr.Zero;
 	IntPtr pnaadistPtr = IntPtr.Zero;
@@ -635,10 +620,8 @@ public static int boxaFindNearestBoxes(
 	int _Result = Natives.boxaFindNearestBoxes(boxa.Pointer,   dist_select,   range, out pnaaindexPtr, out pnaadistPtr);
 	
 
-pnaaindex = null;
-	; if (pnaaindexPtr != IntPtr.Zero){pnaaindex = new Numaa(pnaaindexPtr);}
-pnaadist = null;
-	; if (pnaadistPtr != IntPtr.Zero){pnaadist = new Numaa(pnaadistPtr);}
+	if (pnaaindexPtr == null) {pnaaindex = null;} else { pnaaindex = new Numaa(pnaaindexPtr); };
+	if (pnaadistPtr == null) {pnaadist = null;} else { pnaadist = new Numaa(pnaadistPtr); };
 
 
 	return _Result;
@@ -669,19 +652,17 @@ pnaadist = null;
 ///  <param name="pdist">[out] - distance of the nearest box in the indicated direction 100000 if no box</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaGetNearestByDirection(
-				  Boxa boxa, 
-				  int i, 
-				  int dir, 
-				  int dist_select, 
-				  int range, 
-				 out int pindex, 
-				 out int pdist){
+				 Boxa boxa, 
+				 int i, 
+				 int dir, 
+				 int dist_select, 
+				 int range, 
+				out int pindex, 
+				out int pdist){
 
 	int _Result = Natives.boxaGetNearestByDirection(boxa.Pointer,   i,   dir,   dist_select,   range, out  pindex, out  pdist);
 	
 
-pindex = 0;
-pdist = 0;
 
 
 	return _Result;
@@ -698,15 +679,13 @@ pdist = 0;
 ///  <param name="pcy">[out] - location of center of box</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxGetCenter(
-				  Box box, 
-				 out Single pcx, 
-				 out Single pcy){
+				 Box box, 
+				out Single pcx, 
+				out Single pcy){
 
 	int _Result = Natives.boxGetCenter(box.Pointer, out  pcx, out  pcy);
 	
 
-pcx = 0f;
-pcy = 0f;
 
 
 	return _Result;
@@ -735,24 +714,19 @@ pcy = 0f;
 ///  <param name="pn">[out] - number of points of intersection</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxIntersectByLine(
-				  Box box, 
-				  int x, 
-				  int y, 
-				  Single slope, 
-				 out int px1, 
-				 out int py1, 
-				 out int px2, 
-				 out int py2, 
-				 out int pn){
+				 Box box, 
+				 int x, 
+				 int y, 
+				 Single slope, 
+				out int px1, 
+				out int py1, 
+				out int px2, 
+				out int py2, 
+				out int pn){
 
 	int _Result = Natives.boxIntersectByLine(box.Pointer,   x,   y,   slope, out  px1, out  py1, out  px2, out  py2, out  pn);
 	
 
-px1 = 0;
-py1 = 0;
-px2 = 0;
-py2 = 0;
-pn = 0;
 
 
 	return _Result;
@@ -774,9 +748,9 @@ pn = 0;
 ///  <param name="hi">[in] - rectangle representing image</param>
 ///   <returns>part of box within given rectangle, or NULL on error or if box is entirely outside the rectangle</returns>
 public static Box boxClipToRectangle(
-				  Box box, 
-				  int wi, 
-				  int hi){
+				 Box box, 
+				 int wi, 
+				 int hi){
 
 	IntPtr _Result = Natives.boxClipToRectangle(box.Pointer,   wi,   hi);
 	
@@ -815,13 +789,13 @@ public static Box boxClipToRectangle(
 ///  <param name="pbh">[out][optional] - clipped height</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int boxClipToRectangleParams(
-				  Box box, 
-				  int w, 
-				  int h, 
-				 out int pxstart, 
-				 out int pystart, 
-				 out int pxend, 
-				 out int pyend, 
+				 Box box, 
+				 int w, 
+				 int h, 
+				out int pxstart, 
+				out int pystart, 
+				out int pxend, 
+				out int pyend, 
 				out int pbw, 
 				out int pbh){
 
@@ -830,12 +804,6 @@ public static int boxClipToRectangleParams(
 	int _Result = Natives.boxClipToRectangleParams(boxPtr,   w,   h, out  pxstart, out  pystart, out  pxend, out  pyend, out  pbw, out  pbh);
 	
 
-pxstart = 0;
-pystart = 0;
-pxend = 0;
-pyend = 0;
-pbw = 0;
-pbh = 0;
 
 
 	return _Result;
@@ -862,10 +830,10 @@ pbh = 0;
 ///  <param name="sideflag">[in] - L_FROM_LEFT, etc., indicating the side that moves</param>
 ///   <returns>boxd, or NULL on error or if the computed boxd has width or height smaller or equal 0.</returns>
 public static Box boxRelocateOneSide(
-				  Box boxd, 
-				  Box boxs, 
-				  int loc, 
-				  int sideflag){
+				 Box boxd, 
+				 Box boxs, 
+				 int loc, 
+				 int sideflag){
 
 	IntPtr boxdPtr = IntPtr.Zero; 	if (boxd != null) {boxdPtr = boxd.Pointer;}
 
@@ -899,11 +867,11 @@ public static Box boxRelocateOneSide(
 ///  <param name="delbot">[in] - changes in location of each side for each box</param>
 ///   <returns>boxad, or NULL on error</returns>
 public static Boxa boxaAdjustSides(
-				  Boxa boxas, 
-				  int delleft, 
-				  int delright, 
-				  int deltop, 
-				  int delbot){
+				 Boxa boxas, 
+				 int delleft, 
+				 int delright, 
+				 int deltop, 
+				 int delbot){
 
 	IntPtr _Result = Natives.boxaAdjustSides(boxas.Pointer,   delleft,   delright,   deltop,   delbot);
 	
@@ -942,12 +910,12 @@ public static Boxa boxaAdjustSides(
 ///  <param name="delbot">[in] - changes in location of each side</param>
 ///   <returns>boxd, or NULL on error or if the computed boxd has width or height smaller or equal 0.</returns>
 public static Box boxAdjustSides(
-				  Box boxd, 
-				  Box boxs, 
-				  int delleft, 
-				  int delright, 
-				  int deltop, 
-				  int delbot){
+				 Box boxd, 
+				 Box boxs, 
+				 int delleft, 
+				 int delright, 
+				 int deltop, 
+				 int delbot){
 
 	IntPtr boxdPtr = IntPtr.Zero; 	if (boxd != null) {boxdPtr = boxd.Pointer;}
 
@@ -981,11 +949,11 @@ public static Box boxAdjustSides(
 ///  <param name="thresh">[in] - min abs difference to cause resetting to %val</param>
 ///   <returns>boxad, or NULL on error</returns>
 public static Boxa boxaSetSide(
-				  Boxa boxad, 
-				  Boxa boxas, 
-				  int side, 
-				  int val, 
-				  int thresh){
+				 Boxa boxad, 
+				 Boxa boxas, 
+				 int side, 
+				 int val, 
+				 int thresh){
 
 	IntPtr _Result = Natives.boxaSetSide(boxad.Pointer, boxas.Pointer,   side,   val,   thresh);
 	
@@ -1019,11 +987,11 @@ public static Boxa boxaSetSide(
 ///  <param name="thresh">[in] - min abs difference in width to cause adjustment</param>
 ///   <returns>boxad, or NULL on error</returns>
 public static Boxa boxaAdjustWidthToTarget(
-				  Boxa boxad, 
-				  Boxa boxas, 
-				  int sides, 
-				  int target, 
-				  int thresh){
+				 Boxa boxad, 
+				 Boxa boxas, 
+				 int sides, 
+				 int target, 
+				 int thresh){
 
 	IntPtr _Result = Natives.boxaAdjustWidthToTarget(boxad.Pointer, boxas.Pointer,   sides,   target,   thresh);
 	
@@ -1057,11 +1025,11 @@ public static Boxa boxaAdjustWidthToTarget(
 ///  <param name="thresh">[in] - min abs difference in height to cause adjustment</param>
 ///   <returns>boxad, or NULL on error</returns>
 public static Boxa boxaAdjustHeightToTarget(
-				  Boxa boxad, 
-				  Boxa boxas, 
-				  int sides, 
-				  int target, 
-				  int thresh){
+				 Boxa boxad, 
+				 Boxa boxas, 
+				 int sides, 
+				 int target, 
+				 int thresh){
 
 	IntPtr _Result = Natives.boxaAdjustHeightToTarget(boxad.Pointer, boxas.Pointer,   sides,   target,   thresh);
 	
@@ -1083,14 +1051,13 @@ public static Boxa boxaAdjustHeightToTarget(
 ///  <param name="psame">[out] - 1 if equal 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxEqual(
-				  Box box1, 
-				  Box box2, 
-				 out int psame){
+				 Box box1, 
+				 Box box2, 
+				out int psame){
 
 	int _Result = Natives.boxEqual(box1.Pointer, box2.Pointer, out  psame);
 	
 
-psame = 0;
 
 
 	return _Result;
@@ -1128,20 +1095,18 @@ psame = 0;
 ///  <param name="psame">[out] - (1 if equal 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaEqual(
-				  Boxa boxa1, 
-				  Boxa boxa2, 
-				  int maxdist, 
-				 out Numa pnaindex, 
-				 out int psame){
+				 Boxa boxa1, 
+				 Boxa boxa2, 
+				 int maxdist, 
+				out Numa pnaindex, 
+				out int psame){
 
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
 	int _Result = Natives.boxaEqual(boxa1.Pointer, boxa2.Pointer,   maxdist, out pnaindexPtr, out  psame);
 	
 
-pnaindex = null;
-	; if (pnaindexPtr != IntPtr.Zero){pnaindex = new Numa(pnaindexPtr);}
-psame = 0;
+	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 
 	return _Result;
@@ -1167,18 +1132,17 @@ psame = 0;
 ///  <param name="psimilar">[out] - 1 if similar 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxSimilar(
-				  Box box1, 
-				  Box box2, 
-				  int leftdiff, 
-				  int rightdiff, 
-				  int topdiff, 
-				  int botdiff, 
-				 out int psimilar){
+				 Box box1, 
+				 Box box2, 
+				 int leftdiff, 
+				 int rightdiff, 
+				 int topdiff, 
+				 int botdiff, 
+				out int psimilar){
 
 	int _Result = Natives.boxSimilar(box1.Pointer, box2.Pointer,   leftdiff,   rightdiff,   topdiff,   botdiff, out  psimilar);
 	
 
-psimilar = 0;
 
 
 	return _Result;
@@ -1211,14 +1175,14 @@ psimilar = 0;
 ///  <param name="pnasim">[out][optional] - na containing 1 if similar else 0</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaSimilar(
-				  Boxa boxa1, 
-				  Boxa boxa2, 
-				  int leftdiff, 
-				  int rightdiff, 
-				  int topdiff, 
-				  int botdiff, 
-				  DebugOnOff debug, 
-				 out int psimilar, 
+				 Boxa boxa1, 
+				 Boxa boxa2, 
+				 int leftdiff, 
+				 int rightdiff, 
+				 int topdiff, 
+				 int botdiff, 
+				 DebugOnOff debug, 
+				out int psimilar, 
 				out Numa pnasim){
 
 	IntPtr pnasimPtr = IntPtr.Zero;
@@ -1226,9 +1190,7 @@ public static int boxaSimilar(
 	int _Result = Natives.boxaSimilar(boxa1.Pointer, boxa2.Pointer,   leftdiff,   rightdiff,   topdiff,   botdiff,  (int) debug, out  psimilar, out pnasimPtr);
 	
 
-psimilar = 0;
-pnasim = null;
-	; if (pnasimPtr != IntPtr.Zero){pnasim = new Numa(pnasimPtr);}
+	if (pnasimPtr == null) {pnasim = null;} else { pnasim = new Numa(pnasimPtr); };
 
 
 	return _Result;
@@ -1255,10 +1217,10 @@ pnasim = null;
 ///  <param name="iend">[in] - ending index in boxas use -1 to cat all</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaJoin(
-				  Boxa boxad, 
-				  Boxa boxas, 
-				  int istart, 
-				  int iend){
+				 Boxa boxad, 
+				 Boxa boxas, 
+				 int istart, 
+				 int iend){
 
 	int _Result = Natives.boxaJoin(boxad.Pointer, boxas.Pointer,   istart,   iend);
 	
@@ -1289,10 +1251,10 @@ public static int boxaJoin(
 ///  <param name="iend">[in] - ending index in baas use -1 to cat all</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaaJoin(
-				  Boxaa baad, 
-				  Boxaa baas, 
-				  int istart, 
-				  int iend){
+				 Boxaa baad, 
+				 Boxaa baas, 
+				 int istart, 
+				 int iend){
 
 	int _Result = Natives.boxaaJoin(baad.Pointer, baas.Pointer,   istart,   iend);
 	
@@ -1321,10 +1283,10 @@ public static int boxaaJoin(
 ///  <param name="pboxao">[out] - save even and odd boxes in their separate boxa, setting the other type to invalid boxes.</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaSplitEvenOdd(
-				  Boxa boxa, 
-				  int fillflag, 
-				 out Boxa pboxae, 
-				 out Boxa pboxao){
+				 Boxa boxa, 
+				 int fillflag, 
+				out Boxa pboxae, 
+				out Boxa pboxao){
 
 	IntPtr pboxaePtr = IntPtr.Zero;
 	IntPtr pboxaoPtr = IntPtr.Zero;
@@ -1332,10 +1294,8 @@ public static int boxaSplitEvenOdd(
 	int _Result = Natives.boxaSplitEvenOdd(boxa.Pointer,   fillflag, out pboxaePtr, out pboxaoPtr);
 	
 
-pboxae = null;
-	; if (pboxaePtr != IntPtr.Zero){pboxae = new Boxa(pboxaePtr);}
-pboxao = null;
-	; if (pboxaoPtr != IntPtr.Zero){pboxao = new Boxa(pboxaoPtr);}
+	if (pboxaePtr == null) {pboxae = null;} else { pboxae = new Boxa(pboxaePtr); };
+	if (pboxaoPtr == null) {pboxao = null;} else { pboxao = new Boxa(pboxaoPtr); };
 
 
 	return _Result;
@@ -1360,9 +1320,9 @@ pboxao = null;
 ///  <param name="fillflag">[in] - 1 if there are invalid boxes in placeholders</param>
 ///   <returns>boxad merged, or NULL on error</returns>
 public static Boxa boxaMergeEvenOdd(
-				  Boxa boxae, 
-				  Boxa boxao, 
-				  int fillflag){
+				 Boxa boxae, 
+				 Boxa boxao, 
+				 int fillflag){
 
 	IntPtr _Result = Natives.boxaMergeEvenOdd(boxae.Pointer, boxao.Pointer,   fillflag);
 	
@@ -1373,4 +1333,5 @@ public static Boxa boxaMergeEvenOdd(
 	return  new Boxa(_Result);
 }
 
+}
 }

@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // fmorphauto.c (243, 1)
 // fmorphautogen(sela, fileindex, filename) as int
@@ -22,8 +23,8 @@ public class _All {
 ///  <param name="filename">[in][optional] - can be null</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int fmorphautogen(
-				  Sela sela, 
-				  int fileindex, 
+				 Sela sela, 
+				 int fileindex, 
 				 String filename){
 
 	int _Result = Natives.fmorphautogen(sela.Pointer,   fileindex,   filename);
@@ -59,8 +60,8 @@ public static int fmorphautogen(
 ///  <param name="filename">[in][optional] - can be null</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int fmorphautogen1(
-				  Sela sela, 
-				  int fileindex, 
+				 Sela sela, 
+				 int fileindex, 
 				 String filename){
 
 	int _Result = Natives.fmorphautogen1(sela.Pointer,   fileindex,   filename);
@@ -79,9 +80,9 @@ public static int fmorphautogen1(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fmorphautogen2/*"/>
 ///   <returns></returns>
 public static int fmorphautogen2(
-				  Sela sela, 
-				  int fileindex, 
-				  String filename){
+				 Sela sela, 
+				 int fileindex, 
+				 String filename){
 
 	IntPtr selaPtr = IntPtr.Zero; if (sela != null) {selaPtr = sela.Pointer;}
 
@@ -93,4 +94,5 @@ public static int fmorphautogen2(
 	return _Result;
 }
 
+}
 }

@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // colorquant1.c (535, 1)
 // pixOctreeColorQuant(pixs, colors, ditherflag) as Pix
@@ -239,9 +240,9 @@ public class _All {
 ///  <param name="ditherflag">[in] - 1 to dither, 0 otherwise</param>
 ///   <returns>pixd 8 bpp with colormap, or NULL on error</returns>
 public static Pix pixOctreeColorQuant(
-				  Pix pixs, 
-				  int colors, 
-				  int ditherflag){
+				 Pix pixs, 
+				 int colors, 
+				 int ditherflag){
 
 	IntPtr _Result = Natives.pixOctreeColorQuant(pixs.Pointer,   colors,   ditherflag);
 	
@@ -295,11 +296,11 @@ public static Pix pixOctreeColorQuant(
 ///  <param name="colorthresh">[in] - minimum fraction of pixels with color that are not near white or black, that are required for color quantization typ. ~0.01, but smaller for images that have color along with a significant fraction of gray</param>
 ///   <returns>pixd 8 bit with colormap, or NULL on error</returns>
 public static Pix pixOctreeColorQuantGeneral(
-				  Pix pixs, 
-				  int colors, 
-				  int ditherflag, 
-				  Single validthresh, 
-				  Single colorthresh){
+				 Pix pixs, 
+				 int colors, 
+				 int ditherflag, 
+				 Single validthresh, 
+				 Single colorthresh){
 
 	IntPtr _Result = Natives.pixOctreeColorQuantGeneral(pixs.Pointer,   colors,   ditherflag,   validthresh,   colorthresh);
 	
@@ -340,10 +341,10 @@ public static Pix pixOctreeColorQuantGeneral(
 ///  <param name="cqlevels">[in] - can be 1, 2, 3, 4, 5 or 6</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int makeRGBToIndexTables(
-				 out Byte[] prtab, 
-				 out Byte[] pgtab, 
-				 out Byte[] pbtab, 
-				  int cqlevels){
+				out Byte[] prtab, 
+				out Byte[] pgtab, 
+				out Byte[] pbtab, 
+				 int cqlevels){
 
 	IntPtr prtabPtr = IntPtr.Zero;
 	IntPtr pgtabPtr = IntPtr.Zero;
@@ -352,9 +353,9 @@ public static int makeRGBToIndexTables(
 	int _Result = Natives.makeRGBToIndexTables(out  prtabPtr, out  pgtabPtr, out  pbtabPtr,   cqlevels);
 	
 
-prtab = null;
-pgtab = null;
-pbtab = null;
+	if (prtabPtr == null) {prtab = null;} else { prtab = null; };
+	if (pgtabPtr == null) {pgtab = null;} else { pgtab = null; };
+	if (pbtabPtr == null) {pbtab = null;} else { pbtab = null; };
 
 
 	return _Result;
@@ -377,13 +378,13 @@ pbtab = null;
 ///  <param name="btab">[in] - generated with makeRGBToIndexTables()</param>
 ///  <param name="pindex">[out] - found index</param>
 public static void getOctcubeIndexFromRGB(
-				  int rval, 
-				  int gval, 
-				  int bval, 
-				  Byte[] rtab, 
-				  Byte[] gtab, 
-				  Byte[] btab, 
-				 out uint pindex){
+				 int rval, 
+				 int gval, 
+				 int bval, 
+				 Byte[] rtab, 
+				 Byte[] gtab, 
+				 Byte[] btab, 
+				out uint pindex){
 
 		IntPtr rtabPtr = 	Marshal.AllocHGlobal(rtab.Length);
 		Marshal.Copy(rtab, 0, rtabPtr, rtab.Length);
@@ -398,7 +399,6 @@ public static void getOctcubeIndexFromRGB(
 	Marshal.FreeHGlobal(gtabPtr);
 	Marshal.FreeHGlobal(btabPtr);
 
-pindex = 0;
 
 
 }
@@ -466,9 +466,9 @@ pindex = 0;
 ///  <param name="ditherflag">[in] - 1 to dither, 0 otherwise</param>
 ///   <returns>pixd quantized to octcubes or NULL on error</returns>
 public static Pix pixOctreeQuantByPopulation(
-				  Pix pixs, 
-				  int level, 
-				  int ditherflag){
+				 Pix pixs, 
+				 int level, 
+				 int ditherflag){
 
 	IntPtr _Result = Natives.pixOctreeQuantByPopulation(pixs.Pointer,   level,   ditherflag);
 	
@@ -560,9 +560,9 @@ public static Pix pixOctreeQuantByPopulation(
 ///  <param name="subsample">[in] - factor for computing color distribution use 0 for default</param>
 ///   <returns>pixd 4 or 8 bpp, colormapped, or NULL on error</returns>
 public static Pix pixOctreeQuantNumColors(
-				  Pix pixs, 
-				  int maxcolors, 
-				  int subsample){
+				 Pix pixs, 
+				 int maxcolors, 
+				 int subsample){
 
 	IntPtr _Result = Natives.pixOctreeQuantNumColors(pixs.Pointer,   maxcolors,   subsample);
 	
@@ -607,10 +607,10 @@ public static Pix pixOctreeQuantNumColors(
 ///  <param name="delta">[in] - threshold for deciding if a pix is color or gray</param>
 ///   <returns>pixd     quantized to octcube and gray levels or NULL on error</returns>
 public static Pix pixOctcubeQuantMixedWithGray(
-				  Pix pixs, 
-				  int depth, 
-				  int graylevels, 
-				  int delta){
+				 Pix pixs, 
+				 int depth, 
+				 int graylevels, 
+				 int delta){
 
 	IntPtr _Result = Natives.pixOctcubeQuantMixedWithGray(pixs.Pointer,   depth,   graylevels,   delta);
 	
@@ -680,8 +680,8 @@ public static Pix pixOctcubeQuantMixedWithGray(
 ///  <param name="ditherflag">[in] - 1 for dithering 0 for no dithering</param>
 ///   <returns>pixd 8 bit with colormap, or NULL on error</returns>
 public static Pix pixFixedOctcubeQuant256(
-				  Pix pixs, 
-				  int ditherflag){
+				 Pix pixs, 
+				 int ditherflag){
 
 	IntPtr _Result = Natives.pixFixedOctcubeQuant256(pixs.Pointer,   ditherflag);
 	
@@ -727,8 +727,8 @@ public static Pix pixFixedOctcubeQuant256(
 ///  <param name="level">[in] - significant bits for each of RGB valid in [1...6]</param>
 ///   <returns>pixd quantized to octcube or NULL on error</returns>
 public static Pix pixFewColorsOctcubeQuant1(
-				  Pix pixs, 
-				  int level){
+				 Pix pixs, 
+				 int level){
 
 	IntPtr _Result = Natives.pixFewColorsOctcubeQuant1(pixs.Pointer,   level);
 	
@@ -786,16 +786,15 @@ public static Pix pixFewColorsOctcubeQuant1(
 ///  <param name="pnerrors">[out][optional] - num of pixels not exactly represented in the colormap</param>
 ///   <returns>pixd 2, 4 or 8 bpp with colormap, or NULL on error</returns>
 public static Pix pixFewColorsOctcubeQuant2(
-				  Pix pixs, 
-				  int level, 
-				  Numa na, 
-				  int ncolors, 
+				 Pix pixs, 
+				 int level, 
+				 Numa na, 
+				 int ncolors, 
 				out int pnerrors){
 
 	IntPtr _Result = Natives.pixFewColorsOctcubeQuant2(pixs.Pointer,   level, na.Pointer,   ncolors, out  pnerrors);
 	
 
-pnerrors = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -858,13 +857,13 @@ pnerrors = 0;
 ///  <param name="maxspan">[in] - max size of gray histo bin use 0 for default</param>
 ///   <returns>pixd 8 bpp, quantized to octcube for pixels that are not gray gray pixels are quantized separately over the full gray range, or NULL on error</returns>
 public static Pix pixFewColorsOctcubeQuantMixed(
-				  Pix pixs, 
-				  int level, 
-				  int darkthresh, 
-				  int lightthresh, 
-				  int diffthresh, 
-				  Single minfract, 
-				  int maxspan){
+				 Pix pixs, 
+				 int level, 
+				 int darkthresh, 
+				 int lightthresh, 
+				 int diffthresh, 
+				 Single minfract, 
+				 int maxspan){
 
 	IntPtr _Result = Natives.pixFewColorsOctcubeQuantMixed(pixs.Pointer,   level,   darkthresh,   lightthresh,   diffthresh,   minfract,   maxspan);
 	
@@ -893,8 +892,8 @@ public static Pix pixFewColorsOctcubeQuantMixed(
 ///  <param name="level">[in] - significant bits for each of r,g,b</param>
 ///   <returns>pixd rgb quantized to octcube centers, or NULL on error</returns>
 public static Pix pixFixedOctcubeQuantGenRGB(
-				  Pix pixs, 
-				  int level){
+				 Pix pixs, 
+				 int level){
 
 	IntPtr _Result = Natives.pixFixedOctcubeQuantGenRGB(pixs.Pointer,   level);
 	
@@ -930,11 +929,11 @@ public static Pix pixFixedOctcubeQuantGenRGB(
 ///  <param name="metric">[in] - L_MANHATTAN_DISTANCE, L_EUCLIDEAN_DISTANCE</param>
 ///   <returns>pixd  2, 4 or 8 bpp, colormapped, or NULL on error</returns>
 public static Pix pixQuantFromCmap(
-				  Pix pixs, 
-				  PixColormap cmap, 
-				  int mindepth, 
-				  int level, 
-				  int metric){
+				 Pix pixs, 
+				 PixColormap cmap, 
+				 int mindepth, 
+				 int level, 
+				 int metric){
 
 	IntPtr _Result = Natives.pixQuantFromCmap(pixs.Pointer, cmap.Pointer,   mindepth,   level,   metric);
 	
@@ -1014,11 +1013,11 @@ public static Pix pixQuantFromCmap(
 ///  <param name="metric">[in] - L_MANHATTAN_DISTANCE, L_EUCLIDEAN_DISTANCE</param>
 ///   <returns>pixd  2, 4 or 8 bpp, colormapped, or NULL on error</returns>
 public static Pix pixOctcubeQuantFromCmap(
-				  Pix pixs, 
-				  PixColormap cmap, 
-				  int mindepth, 
-				  int level, 
-				  int metric){
+				 Pix pixs, 
+				 PixColormap cmap, 
+				 int mindepth, 
+				 int level, 
+				 int metric){
 
 	IntPtr _Result = Natives.pixOctcubeQuantFromCmap(pixs.Pointer, cmap.Pointer,   mindepth,   level,   metric);
 	
@@ -1043,14 +1042,13 @@ public static Pix pixOctcubeQuantFromCmap(
 ///  <param name="pncolors">[out][optional] - number of occupied cubes</param>
 ///   <returns>numa histogram of color pixels, or NULL on error</returns>
 public static Numa pixOctcubeHistogram(
-				  Pix pixs, 
-				  int level, 
+				 Pix pixs, 
+				 int level, 
 				out int pncolors){
 
 	IntPtr _Result = Natives.pixOctcubeHistogram(pixs.Pointer,   level, out  pncolors);
 	
 
-pncolors = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -1107,9 +1105,9 @@ pncolors = 0;
 ///  <param name="metric">[in] - L_MANHATTAN_DISTANCE, L_EUCLIDEAN_DISTANCE</param>
 ///   <returns>tab[23  level]</returns>
 public static int[] pixcmapToOctcubeLUT(
-				  PixColormap cmap, 
-				  int level, 
-				  int metric){
+				 PixColormap cmap, 
+				 int level, 
+				 int metric){
 
 	int[] _Result = Natives.pixcmapToOctcubeLUT(cmap.Pointer,   level,   metric);
 	
@@ -1136,7 +1134,7 @@ public static int[] pixcmapToOctcubeLUT(
 ///  <param name="pixs">[in] - colormapped</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRemoveUnusedColors(
-				  Pix pixs){
+				 Pix pixs){
 
 	int _Result = Natives.pixRemoveUnusedColors(pixs.Pointer);
 	
@@ -1166,19 +1164,19 @@ public static int pixRemoveUnusedColors(
 ///  <param name="pncolors">[out] - number of occupied octcubes</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixNumberOccupiedOctcubes(
-				  Pix pix, 
-				  int level, 
-				  int mincount, 
-				  Single minfract, 
-				 out int pncolors){
+				 Pix pix, 
+				 int level, 
+				 int mincount, 
+				 Single minfract, 
+				out int pncolors){
 
 	int _Result = Natives.pixNumberOccupiedOctcubes(pix.Pointer,   level,   mincount,   minfract, out  pncolors);
 	
 
-pncolors = 0;
 
 
 	return _Result;
 }
 
+}
 }

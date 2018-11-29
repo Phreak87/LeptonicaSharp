@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // writefile.c (182, 1)
 // l_jpegSetQuality(new_quality) as int
@@ -25,7 +26,7 @@ public class _All {
 ///  <param name="new_quality">[in] - 1 - 100 75 is default 0 defaults to 75</param>
 ///   <returns>prev           previous quality</returns>
 public static int l_jpegSetQuality(
-				  int new_quality){
+				 int new_quality){
 
 	int _Result = Natives.l_jpegSetQuality(  new_quality);
 	
@@ -51,7 +52,7 @@ public static int l_jpegSetQuality(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/setLeptDebugOK/*"/>
 ///  <param name="allow">[in] - TRUE (1) or FALSE (0)</param>
 public static void setLeptDebugOK(
-				  int allow){
+				 int allow){
 
 	Natives.setLeptDebugOK(  allow);
 	
@@ -75,9 +76,9 @@ public static void setLeptDebugOK(
 ///  <param name="format">[in] - defined in imageio.h see notes for default</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixaWriteFiles(
-				  String rootname, 
-				  Pixa pixa, 
-				  IFF format){
+				 String rootname, 
+				 Pixa pixa, 
+				 IFF format){
 
 	int _Result = Natives.pixaWriteFiles(  rootname, pixa.Pointer,  (int) format);
 	
@@ -106,9 +107,9 @@ public static int pixaWriteFiles(
 ///  <param name="format">[in] - defined in imageio.h</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixWriteDebug(
-				  String fname, 
-				  Pix pix, 
-				  IFF format){
+				 String fname, 
+				 Pix pix, 
+				 IFF format){
 
 	int _Result = Natives.pixWriteDebug(  fname, pix.Pointer,  (int) format);
 	
@@ -142,9 +143,9 @@ public static int pixWriteDebug(
 ///  <param name="format">[in] - defined in imageio.h</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixWrite(
-				  String fname, 
-				  Pix pix, 
-				  IFF format){
+				 String fname, 
+				 Pix pix, 
+				 IFF format){
 
 	int _Result = Natives.pixWrite(  fname, pix.Pointer,  (int) format);
 	
@@ -164,8 +165,8 @@ public static int pixWrite(
 ///  <param name="pix">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixWriteAutoFormat(
-				  String filename, 
-				  Pix pix){
+				 String filename, 
+				 Pix pix){
 
 	int _Result = Natives.pixWriteAutoFormat(  filename, pix.Pointer);
 	
@@ -186,9 +187,9 @@ public static int pixWriteAutoFormat(
 ///  <param name="format">[in] - </param>
 ///   <returns>0 if OK 1 on error.</returns>
 public static int pixWriteStream(
-				  FILE fp, 
-				  Pix pix, 
-				  IFF format){
+				 FILE fp, 
+				 Pix pix, 
+				 IFF format){
 
 	int _Result = Natives.pixWriteStream(fp.Pointer, pix.Pointer,  (int) format);
 	
@@ -217,10 +218,10 @@ public static int pixWriteStream(
 ///  <param name="progressive">[in] - iff JPEG 0 for baseline seq., 1 for progressive</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixWriteImpliedFormat(
-				  String filename, 
-				  Pix pix, 
-				  int quality, 
-				  int progressive){
+				 String filename, 
+				 Pix pix, 
+				 int quality, 
+				 int progressive){
 
 	int _Result = Natives.pixWriteImpliedFormat(  filename, pix.Pointer,   quality,   progressive);
 	
@@ -246,7 +247,7 @@ public static int pixWriteImpliedFormat(
 ///  <param name="pix">[in] - </param>
 ///   <returns>output format, or 0 on error</returns>
 public static int pixChooseOutputFormat(
-				  Pix pix){
+				 Pix pix){
 
 	int _Result = Natives.pixChooseOutputFormat(pix.Pointer);
 	
@@ -269,7 +270,7 @@ public static int pixChooseOutputFormat(
 ///  <param name="filename">[in] - </param>
 ///   <returns>output format, or IFF_UNKNOWN on error or invalid extension.</returns>
 public static int getImpliedFileFormat(
-				  String filename){
+				 String filename){
 
 	int _Result = Natives.getImpliedFileFormat(  filename);
 	
@@ -298,8 +299,8 @@ public static int getImpliedFileFormat(
 ///  <param name="pix">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetAutoFormat(
-				  Pix pix, 
-				  object pformat){
+				 Pix pix, 
+				 object pformat){
 
 	int _Result = Natives.pixGetAutoFormat(pix.Pointer,   pformat);
 	
@@ -322,7 +323,7 @@ public static int pixGetAutoFormat(
 ///  <param name="format">[in] - integer</param>
 ///   <returns>extension string, or NULL if format is out of range</returns>
 public static String getFormatExtension(
-				  IFF format){
+				 IFF format){
 
 	String _Result = Natives.getFormatExtension( (int) format);
 	
@@ -355,18 +356,17 @@ public static String getFormatExtension(
 ///  <param name="format">[in] - defined in imageio.h</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixWriteMem(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  Pix pix, 
-				  IFF format){
+				out Byte[] pdata, 
+				out uint psize, 
+				 Pix pix, 
+				 IFF format){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixWriteMem(out  pdataPtr, out  psize, pix.Pointer,  (int) format);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -393,10 +393,10 @@ psize = 0;
 ///  <param name="scale">[in] - scale factor (use 0 to skip display)</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int l_fileDisplay(
-				  String fname, 
-				  int x, 
-				  int y, 
-				  Single scale){
+				 String fname, 
+				 int x, 
+				 int y, 
+				 Single scale){
 
 	int _Result = Natives.l_fileDisplay(  fname,   x,   y,   scale);
 	
@@ -451,9 +451,9 @@ public static int l_fileDisplay(
 ///  <param name="y">[in] - location of display frame on the screen</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixDisplay(
-				  Pix pixs, 
-				  int x, 
-				  int y){
+				 Pix pixs, 
+				 int x, 
+				 int y){
 
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
@@ -482,11 +482,11 @@ public static int pixDisplay(
 ///  <param name="dispflag">[in] - 1 to write, else disabled</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixDisplayWithTitle(
-				  Pix pixs, 
-				  int x, 
-				  int y, 
-				  String title, 
-				  int dispflag){
+				 Pix pixs, 
+				 int x, 
+				 int y, 
+				 String title, 
+				 int dispflag){
 
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
@@ -512,12 +512,12 @@ public static int pixDisplayWithTitle(
 ///  <param name="dp">[in] - depth of pixa 8 or 32 bpp only used on first call</param>
 ///   <returns>0 if OK, 1 on error.</returns>
 public static int pixSaveTiled(
-				  Pix pixs, 
-				  Pixa pixa, 
-				  Single scalefactor, 
-				  int newrow, 
-				  int space, 
-				  int dp){
+				 Pix pixs, 
+				 Pixa pixa, 
+				 Single scalefactor, 
+				 int newrow, 
+				 int space, 
+				 int dp){
 
 	int _Result = Natives.pixSaveTiled(pixs.Pointer, pixa.Pointer,   scalefactor,   newrow,   space,   dp);
 	
@@ -570,13 +570,13 @@ public static int pixSaveTiled(
 ///  <param name="dp">[in] - depth of pixa 8 or 32 bpp only used on first call</param>
 ///   <returns>0 if OK, 1 on error.</returns>
 public static int pixSaveTiledOutline(
-				  Pix pixs, 
-				  Pixa pixa, 
-				  Single scalefactor, 
-				  int newrow, 
-				  int space, 
-				  int linewidth, 
-				  int dp){
+				 Pix pixs, 
+				 Pixa pixa, 
+				 Single scalefactor, 
+				 int newrow, 
+				 int space, 
+				 int linewidth, 
+				 int dp){
 
 	int _Result = Natives.pixSaveTiledOutline(pixs.Pointer, pixa.Pointer,   scalefactor,   newrow,   space,   linewidth,   dp);
 	
@@ -629,16 +629,16 @@ public static int pixSaveTiledOutline(
 ///  <param name="location">[in] - L_ADD_ABOVE, L_ADD_AT_TOP, L_ADD_AT_BOT, L_ADD_BELOW</param>
 ///   <returns>0 if OK, 1 on error.</returns>
 public static int pixSaveTiledWithText(
-				  Pix pixs, 
-				  Pixa pixa, 
-				  int outwidth, 
-				  int newrow, 
-				  int space, 
-				  int linewidth, 
-				  L_Bmf bmf, 
-				  String textstr, 
-				  uint val, 
-				  int location){
+				 Pix pixs, 
+				 Pixa pixa, 
+				 int outwidth, 
+				 int newrow, 
+				 int space, 
+				 int linewidth, 
+				 L_Bmf bmf, 
+				 String textstr, 
+				 uint val, 
+				 int location){
 
 	IntPtr bmfPtr = IntPtr.Zero; 	if (bmf != null) {bmfPtr = bmf.Pointer;}
 
@@ -657,7 +657,7 @@ public static int pixSaveTiledWithText(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_chooseDisplayProg/*"/>
 public static void l_chooseDisplayProg(
-				  int selection){
+				 int selection){
 
 	Natives.l_chooseDisplayProg(  selection);
 	
@@ -699,8 +699,8 @@ public static void l_chooseDisplayProg(
 ///  <param name="reduction">[in] - -1 to reset/erase 0 to disable otherwise this is a reduction factor</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixDisplayWrite(
-				  Pix pixs, 
-				  int reduction){
+				 Pix pixs, 
+				 int reduction){
 
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
@@ -712,4 +712,5 @@ public static int pixDisplayWrite(
 	return _Result;
 }
 
+}
 }

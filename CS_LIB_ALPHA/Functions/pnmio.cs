@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // pnmio.c (145, 1)
 // pixReadStreamPnm(fp) as Pix
@@ -14,7 +15,7 @@ public class _All {
 ///  <param name="fp">[in] - file stream opened for read</param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixReadStreamPnm(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.pixReadStreamPnm(fp.Pointer);
 	
@@ -40,7 +41,7 @@ public static Pix pixReadStreamPnm(
 ///  <param name="pspp">[out][optional] - samples/pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int readHeaderPnm(
-				  String filename, 
+				 String filename, 
 				out int pw, 
 				out int ph, 
 				out int pd, 
@@ -51,12 +52,6 @@ public static int readHeaderPnm(
 	int _Result = Natives.readHeaderPnm(  filename, out  pw, out  ph, out  pd, out  ptype, out  pbps, out  pspp);
 	
 
-pw = 0;
-ph = 0;
-pd = 0;
-ptype = 0;
-pbps = 0;
-pspp = 0;
 
 
 	return _Result;
@@ -77,7 +72,7 @@ pspp = 0;
 ///  <param name="pspp">[out][optional] - samples/pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int freadHeaderPnm(
-				  FILE fp, 
+				 FILE fp, 
 				out int pw, 
 				out int ph, 
 				out int pd, 
@@ -88,12 +83,6 @@ public static int freadHeaderPnm(
 	int _Result = Natives.freadHeaderPnm(fp.Pointer, out  pw, out  ph, out  pd, out  ptype, out  pbps, out  pspp);
 	
 
-pw = 0;
-ph = 0;
-pd = 0;
-ptype = 0;
-pbps = 0;
-pspp = 0;
 
 
 	return _Result;
@@ -118,8 +107,8 @@ pspp = 0;
 ///  <param name="pix">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixWriteStreamPnm(
-				  FILE fp, 
-				  Pix pix){
+				 FILE fp, 
+				 Pix pix){
 
 	int _Result = Natives.pixWriteStreamPnm(fp.Pointer, pix.Pointer);
 	
@@ -139,8 +128,8 @@ public static int pixWriteStreamPnm(
 ///  <param name="pix">[in] - </param>
 ///   <returns>0 if OK 1 on error Writes "ASCII" format only: 1 bpp to pbm P1 2, 4, 8, 16 bpp, no colormap or grayscale colormap to pgm P2 2, 4, 8 bpp with color-valued colormap, or rgb to rgb ppm P3</returns>
 public static int pixWriteStreamAsciiPnm(
-				  FILE fp, 
-				  Pix pix){
+				 FILE fp, 
+				 Pix pix){
 
 	int _Result = Natives.pixWriteStreamAsciiPnm(fp.Pointer, pix.Pointer);
 	
@@ -166,8 +155,8 @@ public static int pixWriteStreamAsciiPnm(
 ///  <param name="pix">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixWriteStreamPam(
-				  FILE fp, 
-				  Pix pix){
+				 FILE fp, 
+				 Pix pix){
 
 	int _Result = Natives.pixWriteStreamPam(fp.Pointer, pix.Pointer);
 	
@@ -190,8 +179,8 @@ public static int pixWriteStreamPam(
 ///  <param name="size">[in] - of data</param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixReadMemPnm(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.pixReadMemPnm(  data,   size);
 	
@@ -218,8 +207,8 @@ public static Pix pixReadMemPnm(
 ///  <param name="pspp">[out][optional] - samples/pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int readHeaderMemPnm(
-				  Byte[] data, 
-				  uint size, 
+				 Byte[] data, 
+				 uint size, 
 				out int pw, 
 				out int ph, 
 				out int pd, 
@@ -230,12 +219,6 @@ public static int readHeaderMemPnm(
 	int _Result = Natives.readHeaderMemPnm(  data,   size, out  pw, out  ph, out  pd, out  ptype, out  pbps, out  pspp);
 	
 
-pw = 0;
-ph = 0;
-pd = 0;
-ptype = 0;
-pbps = 0;
-pspp = 0;
 
 
 	return _Result;
@@ -256,17 +239,16 @@ pspp = 0;
 ///  <param name="pix">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixWriteMemPnm(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  Pix pix){
+				out Byte[] pdata, 
+				out uint psize, 
+				 Pix pix){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixWriteMemPnm(out  pdataPtr, out  psize, pix.Pointer);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -287,20 +269,20 @@ psize = 0;
 ///  <param name="pix">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixWriteMemPam(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  Pix pix){
+				out Byte[] pdata, 
+				out uint psize, 
+				 Pix pix){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixWriteMemPam(out  pdataPtr, out  psize, pix.Pointer);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
 }
 
+}
 }

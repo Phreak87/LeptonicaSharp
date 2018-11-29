@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // textops.c (115, 1)
 // pixAddSingleTextblock(pixs, bmf, textstr, val, location, poverflow) as Pix
@@ -37,17 +38,16 @@ public class _All {
 ///  <param name="poverflow">[out][optional] - 1 if text overflows allocated region and is clipped 0 otherwise</param>
 ///   <returns>pixd new pix with rendered text, or either a copy or NULL on error</returns>
 public static Pix pixAddSingleTextblock(
-				  Pix pixs, 
-				  L_Bmf bmf, 
-				  String textstr, 
-				  uint val, 
-				  int location, 
+				 Pix pixs, 
+				 L_Bmf bmf, 
+				 String textstr, 
+				 uint val, 
+				 int location, 
 				out int poverflow){
 
 	IntPtr _Result = Natives.pixAddSingleTextblock(pixs.Pointer, bmf.Pointer,   textstr,   val,   location, out  poverflow);
 	
 
-poverflow = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -89,11 +89,11 @@ poverflow = 0;
 ///  <param name="location">[in] - L_ADD_ABOVE, L_ADD_BELOW, L_ADD_LEFT, L_ADD_RIGHT</param>
 ///   <returns>pixd new pix with rendered text, or either a copy or NULL on error</returns>
 public static Pix pixAddTextlines(
-				  Pix pixs, 
-				  L_Bmf bmf, 
-				  String textstr, 
-				  uint val, 
-				  int location){
+				 Pix pixs, 
+				 L_Bmf bmf, 
+				 String textstr, 
+				 uint val, 
+				 int location){
 
 	IntPtr _Result = Natives.pixAddTextlines(pixs.Pointer, bmf.Pointer,   textstr,   val,   location);
 	
@@ -137,20 +137,19 @@ public static Pix pixAddTextlines(
 ///  <param name="poverflow">[out][optional] - 0 if text is contained in input pix 1 if it is clipped</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSetTextblock(
-				  Pix pixs, 
-				  L_Bmf bmf, 
-				  String textstr, 
-				  uint val, 
-				  int x0, 
-				  int y0, 
-				  int wtext, 
-				  int firstindent, 
+				 Pix pixs, 
+				 L_Bmf bmf, 
+				 String textstr, 
+				 uint val, 
+				 int x0, 
+				 int y0, 
+				 int wtext, 
+				 int firstindent, 
 				out int poverflow){
 
 	int _Result = Natives.pixSetTextblock(pixs.Pointer, bmf.Pointer,   textstr,   val,   x0,   y0,   wtext,   firstindent, out  poverflow);
 	
 
-poverflow = 0;
 
 
 	return _Result;
@@ -188,20 +187,18 @@ poverflow = 0;
 ///  <param name="poverflow">[out][optional] - 0 if text is contained in input pix 1 if it is clipped</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSetTextline(
-				  Pix pixs, 
-				  L_Bmf bmf, 
-				  String textstr, 
-				  uint val, 
-				  int x0, 
-				  int y0, 
+				 Pix pixs, 
+				 L_Bmf bmf, 
+				 String textstr, 
+				 uint val, 
+				 int x0, 
+				 int y0, 
 				out int pwidth, 
 				out int poverflow){
 
 	int _Result = Natives.pixSetTextline(pixs.Pointer, bmf.Pointer,   textstr,   val,   x0,   y0, out  pwidth, out  poverflow);
 	
 
-pwidth = 0;
-poverflow = 0;
 
 
 	return _Result;
@@ -238,11 +235,11 @@ poverflow = 0;
 ///  <param name="location">[in] - L_ADD_ABOVE, L_ADD_BELOW, L_ADD_LEFT, L_ADD_RIGHT</param>
 ///   <returns>pixad new pixa with rendered numbers, or NULL on error</returns>
 public static Pixa pixaAddTextNumber(
-				  Pixa pixas, 
-				  L_Bmf bmf, 
-				  Numa na, 
-				  uint val, 
-				  int location){
+				 Pixa pixas, 
+				 L_Bmf bmf, 
+				 Numa na, 
+				 uint val, 
+				 int location){
 
 	IntPtr naPtr = IntPtr.Zero; 	if (na != null) {naPtr = na.Pointer;}
 
@@ -289,11 +286,11 @@ public static Pixa pixaAddTextNumber(
 ///  <param name="location">[in] - L_ADD_ABOVE, L_ADD_BELOW, L_ADD_LEFT, L_ADD_RIGHT</param>
 ///   <returns>pixad new pixa with rendered text, or NULL on error</returns>
 public static Pixa pixaAddTextlines(
-				  Pixa pixas, 
-				  L_Bmf bmf, 
-				  Sarray sa, 
-				  uint val, 
-				  int location){
+				 Pixa pixas, 
+				 L_Bmf bmf, 
+				 Sarray sa, 
+				 uint val, 
+				 int location){
 
 	IntPtr saPtr = IntPtr.Zero; 	if (sa != null) {saPtr = sa.Pointer;}
 
@@ -340,13 +337,13 @@ public static Pixa pixaAddTextlines(
 ///  <param name="location">[in] - L_ADD_ABOVE, L_ADD_BELOW, L_ADD_LEFT, L_ADD_RIGHT</param>
 ///   <returns>0 if OK, 1 on error.</returns>
 public static int pixaAddPixWithText(
-				  Pixa pixa, 
-				  Pix pixs, 
-				  int reduction, 
-				  L_Bmf bmf, 
-				  String textstr, 
-				  uint val, 
-				  int location){
+				 Pixa pixa, 
+				 Pix pixs, 
+				 int reduction, 
+				 L_Bmf bmf, 
+				 String textstr, 
+				 uint val, 
+				 int location){
 
 	IntPtr bmfPtr = IntPtr.Zero; 	if (bmf != null) {bmfPtr = bmf.Pointer;}
 
@@ -375,16 +372,15 @@ public static int pixaAddPixWithText(
 ///  <param name="ph">[out] - height required to hold text bitmap</param>
 ///   <returns>sarray of text strings for each line, or NULL on error</returns>
 public static Sarray bmfGetLineStrings(
-				  L_Bmf bmf, 
-				  String textstr, 
-				  int maxw, 
-				  int firstindent, 
-				 out int ph){
+				 L_Bmf bmf, 
+				 String textstr, 
+				 int maxw, 
+				 int firstindent, 
+				out int ph){
 
 	IntPtr _Result = Natives.bmfGetLineStrings(bmf.Pointer,   textstr,   maxw,   firstindent, out  ph);
 	
 
-ph = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -402,9 +398,9 @@ ph = 0;
 ///  <param name="sa">[in] - of individual words</param>
 ///   <returns>numa of word lengths in pixels for the font represented by the bmf, or NULL on error</returns>
 public static Numa bmfGetWordWidths(
-				  L_Bmf bmf, 
-				  String textstr, 
-				  Sarray sa){
+				 L_Bmf bmf, 
+				 String textstr, 
+				 Sarray sa){
 
 	IntPtr _Result = Natives.bmfGetWordWidths(bmf.Pointer,   textstr, sa.Pointer);
 	
@@ -426,14 +422,13 @@ public static Numa bmfGetWordWidths(
 ///  <param name="pw">[out] - width of text string, in pixels for the font represented by the bmf</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int bmfGetStringWidth(
-				  L_Bmf bmf, 
-				  String textstr, 
-				 out int pw){
+				 L_Bmf bmf, 
+				 String textstr, 
+				out int pw){
 
 	int _Result = Natives.bmfGetStringWidth(bmf.Pointer,   textstr, out  pw);
 	
 
-pw = 0;
 
 
 	return _Result;
@@ -449,8 +444,8 @@ pw = 0;
 ///  <param name="splitflag">[in] - see enum in bmf.h valid values in {1,2,3}</param>
 ///   <returns>sarray where each string is a paragraph of the input, or NULL on error.</returns>
 public static Sarray splitStringToParagraphs(
-				  String textstr, 
-				  int splitflag){
+				 String textstr, 
+				 int splitflag){
 
 	IntPtr _Result = Natives.splitStringToParagraphs(  textstr,   splitflag);
 	
@@ -461,4 +456,5 @@ public static Sarray splitStringToParagraphs(
 	return  new Sarray(_Result);
 }
 
+}
 }

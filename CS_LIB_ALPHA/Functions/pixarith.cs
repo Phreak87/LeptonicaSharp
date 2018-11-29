@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // pixarith.c (115, 1)
 // pixAddConstantGray(pixs, val) as int
@@ -25,8 +26,8 @@ public class _All {
 ///  <param name="val">[in] - amount to add to each pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixAddConstantGray(
-				  Pix pixs, 
-				  int val){
+				 Pix pixs, 
+				 int val){
 
 	int _Result = Natives.pixAddConstantGray(pixs.Pointer,   val);
 	
@@ -53,8 +54,8 @@ public static int pixAddConstantGray(
 ///  <param name="val">[in] - greater or equal 0.0 amount to multiply by each pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixMultConstantGray(
-				  Pix pixs, 
-				  Single val){
+				 Pix pixs, 
+				 Single val){
 
 	int _Result = Natives.pixMultConstantGray(pixs.Pointer,   val);
 	
@@ -91,9 +92,9 @@ public static int pixMultConstantGray(
 ///  <param name="pixs2">[in] - </param>
 ///   <returns>pixd always</returns>
 public static Pix pixAddGray(
-				  Pix pixd, 
-				  Pix pixs1, 
-				  Pix pixs2){
+				 Pix pixd, 
+				 Pix pixs1, 
+				 Pix pixs2){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -134,9 +135,9 @@ public static Pix pixAddGray(
 ///  <param name="pixs2">[in] - </param>
 ///   <returns>pixd always</returns>
 public static Pix pixSubtractGray(
-				  Pix pixd, 
-				  Pix pixs1, 
-				  Pix pixs2){
+				 Pix pixd, 
+				 Pix pixs1, 
+				 Pix pixs2){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -167,10 +168,10 @@ public static Pix pixSubtractGray(
 ///  <param name="setval">[in] - </param>
 ///   <returns>pixd always</returns>
 public static Pix pixThresholdToValue(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int threshval, 
-				  int setval){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int threshval, 
+				 int setval){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -211,9 +212,9 @@ public static Pix pixThresholdToValue(
 ///  <param name="offset">[in] - initialize the 32 bpp to have this value not more than 0x40000000</param>
 ///   <returns>pixd 32 bpp, or NULL on error</returns>
 public static Pix pixInitAccumulate(
-				  int w, 
-				  int h, 
-				  uint offset){
+				 int w, 
+				 int h, 
+				 uint offset){
 
 	IntPtr _Result = Natives.pixInitAccumulate(  w,   h,   offset);
 	
@@ -244,9 +245,9 @@ public static Pix pixInitAccumulate(
 ///  <param name="depth">[in] - 8, 16 or 32 bpp, of destination</param>
 ///   <returns>pixd 8, 16 or 32 bpp, or NULL on error</returns>
 public static Pix pixFinalAccumulate(
-				  Pix pixs, 
-				  uint offset, 
-				  int depth){
+				 Pix pixs, 
+				 uint offset, 
+				 int depth){
 
 	IntPtr _Result = Natives.pixFinalAccumulate(pixs.Pointer,   offset,   depth);
 	
@@ -273,9 +274,9 @@ public static Pix pixFinalAccumulate(
 ///  <param name="threshold">[in] - values less than this are set in the destination</param>
 ///   <returns>pixd 1 bpp, or NULL on error</returns>
 public static Pix pixFinalAccumulateThreshold(
-				  Pix pixs, 
-				  uint offset, 
-				  uint threshold){
+				 Pix pixs, 
+				 uint offset, 
+				 uint threshold){
 
 	IntPtr _Result = Natives.pixFinalAccumulateThreshold(pixs.Pointer,   offset,   threshold);
 	
@@ -305,9 +306,9 @@ public static Pix pixFinalAccumulateThreshold(
 ///  <param name="op">[in] - L_ARITH_ADD or L_ARITH_SUBTRACT</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixAccumulate(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int op){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int op){
 
 	int _Result = Natives.pixAccumulate(pixd.Pointer, pixs.Pointer,   op);
 	
@@ -335,9 +336,9 @@ public static int pixAccumulate(
 ///  <param name="offset">[in] - same as used for initialization</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixMultConstAccumulate(
-				  Pix pixs, 
-				  Single factor, 
-				  uint offset){
+				 Pix pixs, 
+				 Single factor, 
+				 uint offset){
 
 	int _Result = Natives.pixMultConstAccumulate(pixs.Pointer,   factor,   offset);
 	
@@ -370,8 +371,8 @@ public static int pixMultConstAccumulate(
 ///  <param name="pixs2">[in] - both either 8 or 16 bpp gray, or 32 bpp RGB</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixAbsDifference(
-				  Pix pixs1, 
-				  Pix pixs2){
+				 Pix pixs1, 
+				 Pix pixs2){
 
 	IntPtr _Result = Natives.pixAbsDifference(pixs1.Pointer, pixs2.Pointer);
 	
@@ -403,8 +404,8 @@ public static Pix pixAbsDifference(
 ///  <param name="pixs2">[in] - 32 bpp RGB, or colormapped</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixAddRGB(
-				  Pix pixs1, 
-				  Pix pixs2){
+				 Pix pixs1, 
+				 Pix pixs2){
 
 	IntPtr _Result = Natives.pixAddRGB(pixs1.Pointer, pixs2.Pointer);
 	
@@ -439,10 +440,10 @@ public static Pix pixAddRGB(
 ///  <param name="type">[in] - L_CHOOSE_MIN, L_CHOOSE_MAX</param>
 ///   <returns>pixd always</returns>
 public static Pix pixMinOrMax(
-				  Pix pixd, 
-				  Pix pixs1, 
-				  Pix pixs2, 
-				  int type){
+				 Pix pixd, 
+				 Pix pixs1, 
+				 Pix pixs2, 
+				 int type){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -474,8 +475,8 @@ public static Pix pixMinOrMax(
 ///  <param name="type">[in] - L_LINEAR_SCALE or L_LOG_SCALE</param>
 ///   <returns>pixd 8 bpp, or NULL on error</returns>
 public static Pix pixMaxDynamicRange(
-				  Pix pixs, 
-				  int type){
+				 Pix pixs, 
+				 int type){
 
 	IntPtr _Result = Natives.pixMaxDynamicRange(pixs.Pointer,   type);
 	
@@ -506,8 +507,8 @@ public static Pix pixMaxDynamicRange(
 ///  <param name="type">[in] - L_LINEAR_SCALE or L_LOG_SCALE</param>
 ///   <returns>pixd 32 bpp, or NULL on error</returns>
 public static Pix pixMaxDynamicRangeRGB(
-				  Pix pixs, 
-				  int type){
+				 Pix pixs, 
+				 int type){
 
 	IntPtr _Result = Natives.pixMaxDynamicRangeRGB(pixs.Pointer,   type);
 	
@@ -536,8 +537,8 @@ public static Pix pixMaxDynamicRangeRGB(
 ///  <param name="factor">[in] - multiplication factor on each component</param>
 ///   <returns>dval  linearly scaled version of %sval</returns>
 public static uint linearScaleRGBVal(
-				  uint sval, 
-				  Single factor){
+				 uint sval, 
+				 Single factor){
 
 	uint _Result = Natives.linearScaleRGBVal(  sval,   factor);
 	
@@ -569,9 +570,9 @@ public static uint linearScaleRGBVal(
 ///  <param name="factor">[in] - multiplication factor on each component</param>
 ///   <returns>dval  log scaled version of %sval</returns>
 public static uint logScaleRGBVal(
-				  uint sval, 
-				  Single[] tab, 
-				  Single factor){
+				 uint sval, 
+				 Single[] tab, 
+				 Single factor){
 
 	uint _Result = Natives.logScaleRGBVal(  sval,   tab,   factor);
 	
@@ -606,8 +607,8 @@ public static Single[] makeLogBase2Tab(){
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getLogBase2/*"/>
 ///   <returns></returns>
 public static Single getLogBase2(
-				  int val, 
-				  Single[] logtab){
+				 int val, 
+				 Single[] logtab){
 
 	Single _Result = Natives.getLogBase2(  val,   logtab);
 	
@@ -617,4 +618,5 @@ public static Single getLogBase2(
 	return _Result;
 }
 
+}
 }

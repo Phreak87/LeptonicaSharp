@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // jbclass.c (283, 1)
 // jbRankHausInit(components, maxwidth, maxheight, size, rank) as JbClasser
@@ -18,11 +19,11 @@ public class _All {
 ///  <param name="rank">[in] - rank val of match, each way in [0.5 - 1.0] when using size = 2, 0.97 is a reasonable value</param>
 ///   <returns>jbclasser if OK NULL on error</returns>
 public static JbClasser jbRankHausInit(
-				  int components, 
-				  int maxwidth, 
-				  int maxheight, 
-				  int size, 
-				  Single rank){
+				 int components, 
+				 int maxwidth, 
+				 int maxheight, 
+				 int size, 
+				 Single rank){
 
 	IntPtr _Result = Natives.jbRankHausInit(  components,   maxwidth,   maxheight,   size,   rank);
 	
@@ -55,11 +56,11 @@ public static JbClasser jbRankHausInit(
 ///  <param name="weightfactor">[in] - corrects thresh for thick characters [0.0 - 1.0]</param>
 ///   <returns>jbclasser if OK NULL on error</returns>
 public static JbClasser jbCorrelationInit(
-				  int components, 
-				  int maxwidth, 
-				  int maxheight, 
-				  Single thresh, 
-				  Single weightfactor){
+				 int components, 
+				 int maxwidth, 
+				 int maxheight, 
+				 Single thresh, 
+				 Single weightfactor){
 
 	IntPtr _Result = Natives.jbCorrelationInit(  components,   maxwidth,   maxheight,   thresh,   weightfactor);
 	
@@ -87,11 +88,11 @@ public static JbClasser jbCorrelationInit(
 ///  <param name="weightfactor">[in] - corrects thresh for thick characters [0.0 - 1.0]</param>
 ///   <returns>jbclasser if OK NULL on error</returns>
 public static JbClasser jbCorrelationInitWithoutComponents(
-				  int components, 
-				  int maxwidth, 
-				  int maxheight, 
-				  Single thresh, 
-				  Single weightfactor){
+				 int components, 
+				 int maxwidth, 
+				 int maxheight, 
+				 Single thresh, 
+				 Single weightfactor){
 
 	IntPtr _Result = Natives.jbCorrelationInitWithoutComponents(  components,   maxwidth,   maxheight,   thresh,   weightfactor);
 	
@@ -116,8 +117,8 @@ public static JbClasser jbCorrelationInitWithoutComponents(
 ///  <param name="safiles">[in] - of page image file names</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int jbAddPages(
-				  JbClasser classer, 
-				  Sarray safiles){
+				 JbClasser classer, 
+				 Sarray safiles){
 
 	IntPtr classerPtr = IntPtr.Zero; if (classer != null) {classerPtr = classer.Pointer;}
 
@@ -138,8 +139,8 @@ public static int jbAddPages(
 ///  <param name="pixs">[in] - input page</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int jbAddPage(
-				  JbClasser classer, 
-				  Pix pixs){
+				 JbClasser classer, 
+				 Pix pixs){
 
 	IntPtr classerPtr = IntPtr.Zero; if (classer != null) {classerPtr = classer.Pointer;}
 
@@ -166,10 +167,10 @@ public static int jbAddPage(
 ///  <param name="pixas">[in] - components for this page</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int jbAddPageComponents(
-				  JbClasser classer, 
-				  Pix pixs, 
-				  Boxa boxas, 
-				  Pixa pixas){
+				 JbClasser classer, 
+				 Pix pixs, 
+				 Boxa boxas, 
+				 Pixa pixas){
 
 	IntPtr classerPtr = IntPtr.Zero; if (classer != null) {classerPtr = classer.Pointer;}
 
@@ -191,9 +192,9 @@ public static int jbAddPageComponents(
 ///  <param name="pixas">[in] - new components for classification</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int jbClassifyRankHaus(
-				  JbClasser classer, 
-				  Boxa boxa, 
-				  Pixa pixas){
+				 JbClasser classer, 
+				 Boxa boxa, 
+				 Pixa pixas){
 
 	IntPtr classerPtr = IntPtr.Zero; if (classer != null) {classerPtr = classer.Pointer;}
 
@@ -232,14 +233,14 @@ public static int jbClassifyRankHaus(
 ///  <param name="maxdiffh">[in] - max height difference of pix1 and pix2</param>
 ///   <returns>0 FALSE) if no match, 1 (TRUE if the new pix is in the same class as the exemplar.</returns>
 public static int pixHaustest(
-				  Pix pix1, 
-				  Pix pix2, 
-				  Pix pix3, 
-				  Pix pix4, 
-				  Single delx, 
-				  Single dely, 
-				  int maxdiffw, 
-				  int maxdiffh){
+				 Pix pix1, 
+				 Pix pix2, 
+				 Pix pix3, 
+				 Pix pix4, 
+				 Single delx, 
+				 Single dely, 
+				 int maxdiffw, 
+				 int maxdiffh){
 
 	int _Result = Natives.pixHaustest(pix1.Pointer, pix2.Pointer, pix3.Pointer, pix4.Pointer,   delx,   dely,   maxdiffw,   maxdiffh);
 	
@@ -283,18 +284,18 @@ public static int pixHaustest(
 ///  <param name="tab8">[in] - table of pixel sums for byte</param>
 ///   <returns>0 FALSE) if no match, 1 (TRUE if the new pix is in the same class as the exemplar.</returns>
 public static int pixRankHaustest(
-				  Pix pix1, 
-				  Pix pix2, 
-				  Pix pix3, 
-				  Pix pix4, 
-				  Single delx, 
-				  Single dely, 
-				  int maxdiffw, 
-				  int maxdiffh, 
-				  int area1, 
-				  int area3, 
-				  Single rank, 
-				  int[] tab8){
+				 Pix pix1, 
+				 Pix pix2, 
+				 Pix pix3, 
+				 Pix pix4, 
+				 Single delx, 
+				 Single dely, 
+				 int maxdiffw, 
+				 int maxdiffh, 
+				 int area1, 
+				 int area3, 
+				 Single rank, 
+				 int[] tab8){
 
 	int _Result = Natives.pixRankHaustest(pix1.Pointer, pix2.Pointer, pix3.Pointer, pix4.Pointer,   delx,   dely,   maxdiffw,   maxdiffh,   area1,   area3,   rank,   tab8);
 	
@@ -314,9 +315,9 @@ public static int pixRankHaustest(
 ///  <param name="pixas">[in] - new components for classification</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int jbClassifyCorrelation(
-				  JbClasser classer, 
-				  Boxa boxa, 
-				  Pixa pixas){
+				 JbClasser classer, 
+				 Boxa boxa, 
+				 Pixa pixas){
 
 	IntPtr classerPtr = IntPtr.Zero; if (classer != null) {classerPtr = classer.Pointer;}
 
@@ -340,12 +341,12 @@ public static int jbClassifyCorrelation(
 ///  <param name="maxheight">[in] - of saved components larger are discarded</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int jbGetComponents(
-				  Pix pixs, 
-				  int components, 
-				  int maxwidth, 
-				  int maxheight, 
-				  Boxa pboxad, 
-				  Pixa ppixad){
+				 Pix pixs, 
+				 int components, 
+				 int maxwidth, 
+				 int maxheight, 
+				 Boxa pboxad, 
+				 Pixa ppixad){
 
 	IntPtr pboxadPtr = IntPtr.Zero; 	if (pboxad != null) {pboxadPtr = pboxad.Pointer;}
 	IntPtr ppixadPtr = IntPtr.Zero; 	if (ppixad != null) {ppixadPtr = ppixad.Pointer;}
@@ -392,8 +393,8 @@ public static int jbGetComponents(
 ///  <param name="pixadb">[out][optional] - debug: pixa of intermediate steps</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixWordMaskByDilation(
-				  Pix pixs, 
-				  Pix ppixm, 
+				 Pix pixs, 
+				 Pix ppixm, 
 				out int psize, 
 				out Pixa pixadb){
 
@@ -403,9 +404,7 @@ public static int pixWordMaskByDilation(
 	int _Result = Natives.pixWordMaskByDilation(pixs.Pointer, ppixmPtr, out  psize, out pixadbPtr);
 	
 
-psize = 0;
-pixadb = null;
-	; if (pixadbPtr != IntPtr.Zero){pixadb = new Pixa(pixadbPtr);}
+	if (pixadbPtr == null) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
 
 
 	return _Result;
@@ -432,12 +431,12 @@ pixadb = null;
 ///  <param name="pixadb">[out][optional] - debug: pixa of intermediate steps</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixWordBoxesByDilation(
-				  Pix pixs, 
-				  int minwidth, 
-				  int minheight, 
-				  int maxwidth, 
-				  int maxheight, 
-				 out Boxa pboxa, 
+				 Pix pixs, 
+				 int minwidth, 
+				 int minheight, 
+				 int maxwidth, 
+				 int maxheight, 
+				out Boxa pboxa, 
 				out int psize, 
 				out Pixa pixadb){
 
@@ -447,11 +446,8 @@ public static int pixWordBoxesByDilation(
 	int _Result = Natives.pixWordBoxesByDilation(pixs.Pointer,   minwidth,   minheight,   maxwidth,   maxheight, out pboxaPtr, out  psize, out pixadbPtr);
 	
 
-pboxa = null;
-	; if (pboxaPtr != IntPtr.Zero){pboxa = new Boxa(pboxaPtr);}
-psize = 0;
-pixadb = null;
-	; if (pixadbPtr != IntPtr.Zero){pixadb = new Pixa(pixadbPtr);}
+	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (pixadbPtr == null) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
 
 
 	return _Result;
@@ -467,9 +463,9 @@ pixadb = null;
 ///  <param name="pptat">[out] - centroids of bordered composites</param>
 ///   <returns>pixad accumulated sum of samples in each class, or NULL on error</returns>
 public static Pixa jbAccumulateComposites(
-				  Pixaa pixaa, 
-				  Numa pna, 
-				 out Pta pptat){
+				 Pixaa pixaa, 
+				 Numa pna, 
+				out Pta pptat){
 
 	IntPtr pnaPtr = IntPtr.Zero; 	if (pna != null) {pnaPtr = pna.Pointer;}
 	IntPtr pptatPtr = IntPtr.Zero;
@@ -477,8 +473,7 @@ public static Pixa jbAccumulateComposites(
 	IntPtr _Result = Natives.jbAccumulateComposites(pixaa.Pointer, pnaPtr, out pptatPtr);
 	
 
-pptat = null;
-	; if (pptatPtr != IntPtr.Zero){pptat = new Pta(pptatPtr);}
+	if (pptatPtr == null) {pptat = null;} else { pptat = new Pta(pptatPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -495,8 +490,8 @@ pptat = null;
 ///  <param name="na">[in] - number of samples used for each class composite</param>
 ///   <returns>pixad 8 bpp templates for each class, or NULL on error</returns>
 public static Pixa jbTemplatesFromComposites(
-				  Pixa pixac, 
-				  Numa na){
+				 Pixa pixac, 
+				 Numa na){
 
 	IntPtr _Result = Natives.jbTemplatesFromComposites(pixac.Pointer, na.Pointer);
 	
@@ -517,8 +512,8 @@ public static Pixa jbTemplatesFromComposites(
 ///  <param name="components">[in] - JB_CONN_COMPS, JB_CHARACTERS, JB_WORDS</param>
 ///   <returns>jbclasser, or NULL on error</returns>
 public static JbClasser jbClasserCreate(
-				  int method, 
-				  int components){
+				 int method, 
+				 int components){
 
 	IntPtr _Result = Natives.jbClasserCreate(  method,   components);
 	
@@ -536,7 +531,7 @@ public static JbClasser jbClasserCreate(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbClasserDestroy/*"/>
 public static void jbClasserDestroy(
-				  JbClasser pclasser){
+				 JbClasser pclasser){
 
 	IntPtr pclasserPtr = IntPtr.Zero; 	if (pclasser != null) {pclasserPtr = pclasser.Pointer;}
 
@@ -567,7 +562,7 @@ public static void jbClasserDestroy(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbDataSave/*"/>
 ///   <returns>jbdata, or NULL on error</returns>
 public static JbData jbDataSave(
-				  JbClasser classer){
+				 JbClasser classer){
 
 	IntPtr classerPtr = IntPtr.Zero; if (classer != null) {classerPtr = classer.Pointer;}
 
@@ -587,7 +582,7 @@ public static JbData jbDataSave(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbDataDestroy/*"/>
 public static void jbDataDestroy(
-				  JbData pdata){
+				 JbData pdata){
 
 	IntPtr pdataPtr = IntPtr.Zero; 	if (pdata != null) {pdataPtr = pdata.Pointer;}
 
@@ -610,8 +605,8 @@ public static void jbDataDestroy(
 ///  <param name="jbdata">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int jbDataWrite(
-				  String rootout, 
-				  JbData jbdata){
+				 String rootout, 
+				 JbData jbdata){
 
 	int _Result = Natives.jbDataWrite(  rootout, jbdata.Pointer);
 	
@@ -630,7 +625,7 @@ public static int jbDataWrite(
 ///  <param name="rootname">[in] - for template and data files</param>
 ///   <returns>jbdata, or NULL on error</returns>
 public static JbData jbDataRead(
-				  String rootname){
+				 String rootname){
 
 	IntPtr _Result = Natives.jbDataRead(  rootname);
 	
@@ -650,8 +645,8 @@ public static JbData jbDataRead(
 ///  <param name="debugflag">[in] - if TRUE, writes into 2 bpp pix and adds component outlines in color</param>
 ///   <returns>pixa reconstruction of original images, using templates or NULL on error</returns>
 public static Pixa jbDataRender(
-				  JbData data, 
-				  int debugflag){
+				 JbData data, 
+				 int debugflag){
 
 	IntPtr dataPtr = IntPtr.Zero; if (data != null) {dataPtr = data.Pointer;}
 
@@ -691,9 +686,9 @@ public static Pixa jbDataRender(
 ///  <param name="boxa">[in] - of c.c. bounding rectangles for this page</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int jbGetULCorners(
-				  JbClasser classer, 
-				  Pix pixs, 
-				  Boxa boxa){
+				 JbClasser classer, 
+				 Pix pixs, 
+				 Boxa boxa){
 
 	IntPtr classerPtr = IntPtr.Zero; if (classer != null) {classerPtr = classer.Pointer;}
 
@@ -734,7 +729,7 @@ public static int jbGetULCorners(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/jbGetLLCorners/*"/>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int jbGetLLCorners(
-				  JbClasser classer){
+				 JbClasser classer){
 
 	IntPtr classerPtr = IntPtr.Zero; if (classer != null) {classerPtr = classer.Pointer;}
 
@@ -746,4 +741,5 @@ public static int jbGetLLCorners(
 	return _Result;
 }
 
+}
 }

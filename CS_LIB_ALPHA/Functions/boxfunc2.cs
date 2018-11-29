@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // boxfunc2.c (91, 1)
 // boxaTransform(boxas, shiftx, shifty, scalex, scaley) as Boxa
@@ -21,9 +22,9 @@ public class _All {
 ///  <param name="scaley">[in] - </param>
 ///   <returns>boxad, or NULL on error</returns>
 public static Boxa boxaTransform(
-				  Boxa boxas, 
-				  int shiftx, 
-				  int shifty, 
+				 Boxa boxas, 
+				 int shiftx, 
+				 int shifty, 
 				 Single scalex, 
 				 Single scaley){
 
@@ -54,9 +55,9 @@ public static Boxa boxaTransform(
 ///  <param name="scaley">[in] - </param>
 ///   <returns>boxd, or NULL on error</returns>
 public static Box boxTransform(
-				  Box box, 
-				  int shiftx, 
-				  int shifty, 
+				 Box box, 
+				 int shiftx, 
+				 int shifty, 
 				 Single scalex, 
 				 Single scaley){
 
@@ -109,15 +110,15 @@ public static Box boxTransform(
 ///  <param name="order">[in] - one of 6 combinations: L_TR_SC_RO, ...</param>
 ///   <returns>boxd, or NULL on error</returns>
 public static Boxa boxaTransformOrdered(
-				  Boxa boxas, 
-				  int shiftx, 
-				  int shifty, 
-				  Single scalex, 
-				  Single scaley, 
-				  int xcen, 
-				  int ycen, 
-				  Single angle, 
-				  int order){
+				 Boxa boxas, 
+				 int shiftx, 
+				 int shifty, 
+				 Single scalex, 
+				 Single scaley, 
+				 int xcen, 
+				 int ycen, 
+				 Single angle, 
+				 int order){
 
 	IntPtr _Result = Natives.boxaTransformOrdered(boxas.Pointer,   shiftx,   shifty,   scalex,   scaley,   xcen,   ycen,   angle,   order);
 	
@@ -187,15 +188,15 @@ public static Boxa boxaTransformOrdered(
 ///  <param name="order">[in] - one of 6 combinations: L_TR_SC_RO, ...</param>
 ///   <returns>boxd, or NULL on error</returns>
 public static Box boxTransformOrdered(
-				  Box boxs, 
-				  int shiftx, 
-				  int shifty, 
-				  Single scalex, 
-				  Single scaley, 
-				  int xcen, 
-				  int ycen, 
-				  Single angle, 
-				  int order){
+				 Box boxs, 
+				 int shiftx, 
+				 int shifty, 
+				 Single scalex, 
+				 Single scaley, 
+				 int xcen, 
+				 int ycen, 
+				 Single angle, 
+				 int order){
 
 	IntPtr _Result = Natives.boxTransformOrdered(boxs.Pointer,   shiftx,   shifty,   scalex,   scaley,   xcen,   ycen,   angle,   order);
 	
@@ -221,10 +222,10 @@ public static Box boxTransformOrdered(
 ///  <param name="rotation">[in] - 0 = noop, 1 = 90 deg, 2 = 180 deg, 3 = 270 deg all rotations are clockwise</param>
 ///   <returns>boxad, or NULL on error</returns>
 public static Boxa boxaRotateOrth(
-				  Boxa boxas, 
-				  int w, 
-				  int h, 
-				  int rotation){
+				 Boxa boxas, 
+				 int w, 
+				 int h, 
+				 int rotation){
 
 	IntPtr _Result = Natives.boxaRotateOrth(boxas.Pointer,   w,   h,   rotation);
 	
@@ -253,10 +254,10 @@ public static Boxa boxaRotateOrth(
 ///  <param name="rotation">[in] - 0 = noop, 1 = 90 deg, 2 = 180 deg, 3 = 270 deg all rotations are clockwise</param>
 ///   <returns>boxd, or NULL on error</returns>
 public static Box boxRotateOrth(
-				  Box box, 
-				  int w, 
-				  int h, 
-				  int rotation){
+				 Box box, 
+				 int w, 
+				 int h, 
+				 int rotation){
 
 	IntPtr _Result = Natives.boxRotateOrth(box.Pointer,   w,   h,   rotation);
 	
@@ -282,9 +283,9 @@ public static Box boxRotateOrth(
 ///  <param name="pnaindex">[out][optional] - index of sorted order into original array</param>
 ///   <returns>boxad sorted version of boxas, or NULL on error</returns>
 public static Boxa boxaSort(
-				  Boxa boxas, 
-				  int sorttype, 
-				  int sortorder, 
+				 Boxa boxas, 
+				 int sorttype, 
+				 int sortorder, 
 				out Numa pnaindex){
 
 	IntPtr pnaindexPtr = IntPtr.Zero;
@@ -292,8 +293,7 @@ public static Boxa boxaSort(
 	IntPtr _Result = Natives.boxaSort(boxas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
 	
 
-pnaindex = null;
-	; if (pnaindexPtr != IntPtr.Zero){pnaindex = new Numa(pnaindexPtr);}
+	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -320,9 +320,9 @@ pnaindex = null;
 ///  <param name="pnaindex">[out][optional] - index of sorted order into original array</param>
 ///   <returns>boxad sorted version of boxas, or NULL on error</returns>
 public static Boxa boxaBinSort(
-				  Boxa boxas, 
-				  int sorttype, 
-				  int sortorder, 
+				 Boxa boxas, 
+				 int sorttype, 
+				 int sortorder, 
 				out Numa pnaindex){
 
 	IntPtr pnaindexPtr = IntPtr.Zero;
@@ -330,8 +330,7 @@ public static Boxa boxaBinSort(
 	IntPtr _Result = Natives.boxaBinSort(boxas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
 	
 
-pnaindex = null;
-	; if (pnaindexPtr != IntPtr.Zero){pnaindex = new Numa(pnaindexPtr);}
+	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -348,8 +347,8 @@ pnaindex = null;
 ///  <param name="naindex">[in] - na that maps from the new boxa to the input boxa</param>
 ///   <returns>boxad sorted, or NULL on error</returns>
 public static Boxa boxaSortByIndex(
-				  Boxa boxas, 
-				  Numa naindex){
+				 Boxa boxas, 
+				 Numa naindex){
 
 	IntPtr _Result = Natives.boxaSortByIndex(boxas.Pointer, naindex.Pointer);
 	
@@ -409,19 +408,18 @@ public static Boxa boxaSortByIndex(
 ///  <param name="minh1">[in] - components less than this height either join an existing boxa or are set aside for pass 2</param>
 ///   <returns>baa 2d sorted version of boxa, or NULL on error</returns>
 public static Boxaa boxaSort2d(
-				  Boxa boxas, 
-				 out Numaa pnaad, 
-				  int delta1, 
-				  int delta2, 
-				  int minh1){
+				 Boxa boxas, 
+				out Numaa pnaad, 
+				 int delta1, 
+				 int delta2, 
+				 int minh1){
 
 	IntPtr pnaadPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.boxaSort2d(boxas.Pointer, out pnaadPtr,   delta1,   delta2,   minh1);
 	
 
-pnaad = null;
-	; if (pnaadPtr != IntPtr.Zero){pnaad = new Numaa(pnaadPtr);}
+	if (pnaadPtr == null) {pnaad = null;} else { pnaad = new Numaa(pnaadPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -438,8 +436,8 @@ pnaad = null;
 ///  <param name="naa">[in] - numaa that maps from the new baa to the input boxa</param>
 ///   <returns>baa sorted boxaa, or NULL on error</returns>
 public static Boxaa boxaSort2dByIndex(
-				  Boxa boxas, 
-				  Numaa naa){
+				 Boxa boxas, 
+				 Numaa naa){
 
 	IntPtr _Result = Natives.boxaSort2dByIndex(boxas.Pointer, naa.Pointer);
 	
@@ -475,14 +473,14 @@ public static Boxaa boxaSort2dByIndex(
 ///  <param name="keepinvalid">[in] - 1 to keep invalid boxes 0 to remove them</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaExtractAsNuma(
-				  Boxa boxa, 
-				 out Numa pnal, 
-				 out Numa pnat, 
-				 out Numa pnar, 
-				 out Numa pnab, 
-				 out Numa pnaw, 
-				 out Numa pnah, 
-				  int keepinvalid){
+				 Boxa boxa, 
+				out Numa pnal, 
+				out Numa pnat, 
+				out Numa pnar, 
+				out Numa pnab, 
+				out Numa pnaw, 
+				out Numa pnah, 
+				 int keepinvalid){
 
 	IntPtr pnalPtr = IntPtr.Zero;
 	IntPtr pnatPtr = IntPtr.Zero;
@@ -494,18 +492,12 @@ public static int boxaExtractAsNuma(
 	int _Result = Natives.boxaExtractAsNuma(boxa.Pointer, out pnalPtr, out pnatPtr, out pnarPtr, out pnabPtr, out pnawPtr, out pnahPtr,   keepinvalid);
 	
 
-pnal = null;
-	; if (pnalPtr != IntPtr.Zero){pnal = new Numa(pnalPtr);}
-pnat = null;
-	; if (pnatPtr != IntPtr.Zero){pnat = new Numa(pnatPtr);}
-pnar = null;
-	; if (pnarPtr != IntPtr.Zero){pnar = new Numa(pnarPtr);}
-pnab = null;
-	; if (pnabPtr != IntPtr.Zero){pnab = new Numa(pnabPtr);}
-pnaw = null;
-	; if (pnawPtr != IntPtr.Zero){pnaw = new Numa(pnawPtr);}
-pnah = null;
-	; if (pnahPtr != IntPtr.Zero){pnah = new Numa(pnahPtr);}
+	if (pnalPtr == null) {pnal = null;} else { pnal = new Numa(pnalPtr); };
+	if (pnatPtr == null) {pnat = null;} else { pnat = new Numa(pnatPtr); };
+	if (pnarPtr == null) {pnar = null;} else { pnar = new Numa(pnarPtr); };
+	if (pnabPtr == null) {pnab = null;} else { pnab = new Numa(pnabPtr); };
+	if (pnawPtr == null) {pnaw = null;} else { pnaw = new Numa(pnawPtr); };
+	if (pnahPtr == null) {pnah = null;} else { pnah = new Numa(pnahPtr); };
 
 
 	return _Result;
@@ -538,14 +530,14 @@ pnah = null;
 ///  <param name="keepinvalid">[in] - 1 to keep invalid boxes 0 to remove them</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaExtractAsPta(
-				  Boxa boxa, 
-				 out Pta pptal, 
-				 out Pta pptat, 
-				 out Pta pptar, 
-				 out Pta pptab, 
-				 out Pta pptaw, 
-				 out Pta pptah, 
-				  int keepinvalid){
+				 Boxa boxa, 
+				out Pta pptal, 
+				out Pta pptat, 
+				out Pta pptar, 
+				out Pta pptab, 
+				out Pta pptaw, 
+				out Pta pptah, 
+				 int keepinvalid){
 
 	IntPtr pptalPtr = IntPtr.Zero;
 	IntPtr pptatPtr = IntPtr.Zero;
@@ -557,18 +549,12 @@ public static int boxaExtractAsPta(
 	int _Result = Natives.boxaExtractAsPta(boxa.Pointer, out pptalPtr, out pptatPtr, out pptarPtr, out pptabPtr, out pptawPtr, out pptahPtr,   keepinvalid);
 	
 
-pptal = null;
-	; if (pptalPtr != IntPtr.Zero){pptal = new Pta(pptalPtr);}
-pptat = null;
-	; if (pptatPtr != IntPtr.Zero){pptat = new Pta(pptatPtr);}
-pptar = null;
-	; if (pptarPtr != IntPtr.Zero){pptar = new Pta(pptarPtr);}
-pptab = null;
-	; if (pptabPtr != IntPtr.Zero){pptab = new Pta(pptabPtr);}
-pptaw = null;
-	; if (pptawPtr != IntPtr.Zero){pptaw = new Pta(pptawPtr);}
-pptah = null;
-	; if (pptahPtr != IntPtr.Zero){pptah = new Pta(pptahPtr);}
+	if (pptalPtr == null) {pptal = null;} else { pptal = new Pta(pptalPtr); };
+	if (pptatPtr == null) {pptat = null;} else { pptat = new Pta(pptatPtr); };
+	if (pptarPtr == null) {pptar = null;} else { pptar = new Pta(pptarPtr); };
+	if (pptabPtr == null) {pptab = null;} else { pptab = new Pta(pptabPtr); };
+	if (pptawPtr == null) {pptaw = null;} else { pptaw = new Pta(pptawPtr); };
+	if (pptahPtr == null) {pptah = null;} else { pptah = new Pta(pptahPtr); };
 
 
 	return _Result;
@@ -602,8 +588,8 @@ pptah = null;
 ///  <param name="ph">[out][optional] - rank value of height</param>
 ///   <returns>0 if OK, 1 on error or if the boxa is empty or has no valid boxes</returns>
 public static int boxaGetRankVals(
-				  Boxa boxa, 
-				  Single fract, 
+				 Boxa boxa, 
+				 Single fract, 
 				out int px, 
 				out int py, 
 				out int pw, 
@@ -612,10 +598,6 @@ public static int boxaGetRankVals(
 	int _Result = Natives.boxaGetRankVals(boxa.Pointer,   fract, out  px, out  py, out  pw, out  ph);
 	
 
-px = 0;
-py = 0;
-pw = 0;
-ph = 0;
 
 
 	return _Result;
@@ -637,7 +619,7 @@ ph = 0;
 ///  <param name="ph">[out][optional] - median value of height</param>
 ///   <returns>0 if OK, 1 on error or if the boxa is empty or has no valid boxes</returns>
 public static int boxaGetMedianVals(
-				  Boxa boxa, 
+				 Boxa boxa, 
 				out int px, 
 				out int py, 
 				out int pw, 
@@ -646,10 +628,6 @@ public static int boxaGetMedianVals(
 	int _Result = Natives.boxaGetMedianVals(boxa.Pointer, out  px, out  py, out  pw, out  ph);
 	
 
-px = 0;
-py = 0;
-pw = 0;
-ph = 0;
 
 
 	return _Result;
@@ -666,15 +644,13 @@ ph = 0;
 ///  <param name="ph">[out][optional] - average height</param>
 ///   <returns>0 if OK, 1 on error or if the boxa is empty</returns>
 public static int boxaGetAverageSize(
-				  Boxa boxa, 
+				 Boxa boxa, 
 				out Single pw, 
 				out Single ph){
 
 	int _Result = Natives.boxaGetAverageSize(boxa.Pointer, out  pw, out  ph);
 	
 
-pw = 0f;
-ph = 0f;
 
 
 	return _Result;
@@ -703,7 +679,7 @@ ph = 0f;
 ///  <param name="pboxa">[out][optional] - boxa containing all boxes in each boxa in the boxaa</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaaGetExtent(
-				  Boxaa baa, 
+				 Boxaa baa, 
 				out int pw, 
 				out int ph, 
 				out Box pbox, 
@@ -715,12 +691,8 @@ public static int boxaaGetExtent(
 	int _Result = Natives.boxaaGetExtent(baa.Pointer, out  pw, out  ph, out pboxPtr, out pboxaPtr);
 	
 
-pw = 0;
-ph = 0;
-pbox = null;
-	; if (pboxPtr != IntPtr.Zero){pbox = new Box(pboxPtr);}
-pboxa = null;
-	; if (pboxaPtr != IntPtr.Zero){pboxa = new Boxa(pboxaPtr);}
+	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
+	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 
 	return _Result;
@@ -750,17 +722,16 @@ pboxa = null;
 ///  <param name="copyflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>boxa, or NULL on error</returns>
 public static Boxa boxaaFlattenToBoxa(
-				  Boxaa baa, 
-				 out Numa pnaindex, 
-				  int copyflag){
+				 Boxaa baa, 
+				out Numa pnaindex, 
+				 int copyflag){
 
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.boxaaFlattenToBoxa(baa.Pointer, out pnaindexPtr,   copyflag);
 	
 
-pnaindex = null;
-	; if (pnaindexPtr != IntPtr.Zero){pnaindex = new Numa(pnaindexPtr);}
+	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -788,10 +759,10 @@ pnaindex = null;
 ///  <param name="copyflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>boxa, or NULL on error</returns>
 public static Boxa boxaaFlattenAligned(
-				  Boxaa baa, 
-				  int num, 
-				  Box fillerbox, 
-				  int copyflag){
+				 Boxaa baa, 
+				 int num, 
+				 Box fillerbox, 
+				 int copyflag){
 
 	IntPtr fillerboxPtr = IntPtr.Zero; 	if (fillerbox != null) {fillerboxPtr = fillerbox.Pointer;}
 
@@ -821,9 +792,9 @@ public static Boxa boxaaFlattenAligned(
 ///  <param name="copyflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>baa, or NULL on error</returns>
 public static Boxaa boxaEncapsulateAligned(
-				  Boxa boxa, 
-				  int num, 
-				  int copyflag){
+				 Boxa boxa, 
+				 int num, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.boxaEncapsulateAligned(boxa.Pointer,   num,   copyflag);
 	
@@ -856,7 +827,7 @@ public static Boxaa boxaEncapsulateAligned(
 ///  <param name="baas">[in] - </param>
 ///   <returns>baad, or NULL on error</returns>
 public static Boxaa boxaaTranspose(
-				  Boxaa baas){
+				 Boxaa baas){
 
 	IntPtr _Result = Natives.boxaaTranspose(baas.Pointer);
 	
@@ -883,18 +854,18 @@ public static Boxaa boxaaTranspose(
 ///  <param name="pindex">[out] - index of boxa with best overlap, or if none match, this is the index of the next boxa to be generated</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaaAlignBox(
-				  Boxaa baa, 
-				  Box box, 
-				  int delta, 
-				 out int pindex){
+				 Boxaa baa, 
+				 Box box, 
+				 int delta, 
+				out int pindex){
 
 	int _Result = Natives.boxaaAlignBox(baa.Pointer, box.Pointer,   delta, out  pindex);
 	
 
-pindex = 0;
 
 
 	return _Result;
 }
 
+}
 }

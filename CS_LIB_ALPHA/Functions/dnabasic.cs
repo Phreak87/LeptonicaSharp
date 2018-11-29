@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // dnabasic.c (169, 1)
 // l_dnaCreate(n) as L_Dna
@@ -14,7 +15,7 @@ public class _All {
 ///  <param name="n">[in] - size of number array to be alloc'd 0 for default</param>
 ///   <returns>da, or NULL on error</returns>
 public static L_Dna l_dnaCreate(
-				  int n){
+				 int n){
 
 	IntPtr _Result = Natives.l_dnaCreate(  n);
 	
@@ -41,8 +42,8 @@ public static L_Dna l_dnaCreate(
 ///  <param name="size">[in] - of the array</param>
 ///   <returns>da, or NULL on error</returns>
 public static L_Dna l_dnaCreateFromIArray(
-				  int[] iarray, 
-				  int size){
+				 int[] iarray, 
+				 int size){
 
 	IntPtr _Result = Natives.l_dnaCreateFromIArray(  iarray,   size);
 	
@@ -69,9 +70,9 @@ public static L_Dna l_dnaCreateFromIArray(
 ///  <param name="copyflag">[in] - L_INSERT or L_COPY</param>
 ///   <returns>da, or NULL on error</returns>
 public static L_Dna l_dnaCreateFromDArray(
-				  Double[] darray, 
-				  int size, 
-				  int copyflag){
+				 Double[] darray, 
+				 int size, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.l_dnaCreateFromDArray(  darray,   size,   copyflag);
 	
@@ -93,9 +94,9 @@ public static L_Dna l_dnaCreateFromDArray(
 ///  <param name="size">[in] - of sequence</param>
 ///   <returns>l_dna of sequence of evenly spaced values, or NULL on error</returns>
 public static L_Dna l_dnaMakeSequence(
-				  double startval, 
-				  double increment, 
-				  int size){
+				 double startval, 
+				 double increment, 
+				 int size){
 
 	IntPtr _Result = Natives.l_dnaMakeSequence(  startval,   increment,   size);
 	
@@ -119,15 +120,14 @@ public static L_Dna l_dnaMakeSequence(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaDestroy/*"/>
 ///  <param name="pda">[in,out] - to be nulled if it exists</param>
 public static void l_dnaDestroy(
-				 ref L_Dna pda){
+				ref L_Dna pda){
 
 	IntPtr pdaPtr = IntPtr.Zero; 	if (pda != null) {pdaPtr = pda.Pointer;}
 
 	Natives.l_dnaDestroy(ref pdaPtr);
 	
 
-pda = null;
-	; if (pdaPtr != IntPtr.Zero){pda = new L_Dna(pdaPtr);}
+	if (pdaPtr == null) {pda = null;} else { pda = new L_Dna(pdaPtr); };
 
 
 }
@@ -144,7 +144,7 @@ pda = null;
 ///  <param name="da">[in] - </param>
 ///   <returns>copy of da, or NULL on error</returns>
 public static L_Dna l_dnaCopy(
-				  L_Dna da){
+				 L_Dna da){
 
 	IntPtr _Result = Natives.l_dnaCopy(da.Pointer);
 	
@@ -164,7 +164,7 @@ public static L_Dna l_dnaCopy(
 ///  <param name="da">[in] - </param>
 ///   <returns>ptr to same da, or NULL on error</returns>
 public static L_Dna l_dnaClone(
-				  L_Dna da){
+				 L_Dna da){
 
 	IntPtr _Result = Natives.l_dnaClone(da.Pointer);
 	
@@ -189,7 +189,7 @@ public static L_Dna l_dnaClone(
 ///  <param name="da">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int l_dnaEmpty(
-				  L_Dna da){
+				 L_Dna da){
 
 	int _Result = Natives.l_dnaEmpty(da.Pointer);
 	
@@ -209,8 +209,8 @@ public static int l_dnaEmpty(
 ///  <param name="val">[in] - float or int to be added stored as a float</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_dnaAddNumber(
-				  L_Dna da, 
-				  double val){
+				 L_Dna da, 
+				 double val){
 
 	int _Result = Natives.l_dnaAddNumber(da.Pointer,   val);
 	
@@ -238,9 +238,9 @@ public static int l_dnaAddNumber(
 ///  <param name="val">[in] - float64 or integer to be added</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_dnaInsertNumber(
-				  L_Dna da, 
-				  int index, 
-				  double val){
+				 L_Dna da, 
+				 int index, 
+				 double val){
 
 	int _Result = Natives.l_dnaInsertNumber(da.Pointer,   index,   val);
 	
@@ -266,8 +266,8 @@ public static int l_dnaInsertNumber(
 ///  <param name="index">[in] - element to be removed</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_dnaRemoveNumber(
-				  L_Dna da, 
-				  int index){
+				 L_Dna da, 
+				 int index){
 
 	int _Result = Natives.l_dnaRemoveNumber(da.Pointer,   index);
 	
@@ -288,9 +288,9 @@ public static int l_dnaRemoveNumber(
 ///  <param name="val">[in] - new value to replace old one</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_dnaReplaceNumber(
-				  L_Dna da, 
-				  int index, 
-				  double val){
+				 L_Dna da, 
+				 int index, 
+				 double val){
 
 	int _Result = Natives.l_dnaReplaceNumber(da.Pointer,   index,   val);
 	
@@ -309,7 +309,7 @@ public static int l_dnaReplaceNumber(
 ///  <param name="da">[in] - </param>
 ///   <returns>count, or 0 if no numbers or on error</returns>
 public static int l_dnaGetCount(
-				  L_Dna da){
+				 L_Dna da){
 
 	int _Result = Natives.l_dnaGetCount(da.Pointer);
 	
@@ -338,8 +338,8 @@ public static int l_dnaGetCount(
 ///  <param name="newcount">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_dnaSetCount(
-				  L_Dna da, 
-				  int newcount){
+				 L_Dna da, 
+				 int newcount){
 
 	int _Result = Natives.l_dnaSetCount(da.Pointer,   newcount);
 	
@@ -364,14 +364,13 @@ public static int l_dnaSetCount(
 ///  <param name="pval">[out] - double value 0.0 on error</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int l_dnaGetDValue(
-				  L_Dna da, 
-				  int index, 
-				 out Double[] pval){
+				 L_Dna da, 
+				 int index, 
+				out Double[] pval){
 
 	int _Result = Natives.l_dnaGetDValue(da.Pointer,   index, out  pval);
 	
 
-pval = null;
 
 
 	return _Result;
@@ -392,14 +391,13 @@ pval = null;
 ///  <param name="pival">[out] - integer value 0 on error</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int l_dnaGetIValue(
-				  L_Dna da, 
-				  int index, 
-				 out int pival){
+				 L_Dna da, 
+				 int index, 
+				out int pival){
 
 	int _Result = Natives.l_dnaGetIValue(da.Pointer,   index, out  pival);
 	
 
-pival = 0;
 
 
 	return _Result;
@@ -416,9 +414,9 @@ pival = 0;
 ///  <param name="val">[in] - to set element</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int l_dnaSetValue(
-				  L_Dna da, 
-				  int index, 
-				  double val){
+				 L_Dna da, 
+				 int index, 
+				 double val){
 
 	int _Result = Natives.l_dnaSetValue(da.Pointer,   index,   val);
 	
@@ -439,9 +437,9 @@ public static int l_dnaSetValue(
 ///  <param name="diff">[in] - increment if diff  is greater  0 or decrement if diff  is smaller 0</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int l_dnaShiftValue(
-				  L_Dna da, 
-				  int index, 
-				  double diff){
+				 L_Dna da, 
+				 int index, 
+				 double diff){
 
 	int _Result = Natives.l_dnaShiftValue(da.Pointer,   index,   diff);
 	
@@ -473,7 +471,7 @@ public static int l_dnaShiftValue(
 ///  <param name="da">[in] - </param>
 ///   <returns>a copy of the bare internal array, integerized by rounding, or NULL on error</returns>
 public static int[] l_dnaGetIArray(
-				  L_Dna da){
+				 L_Dna da){
 
 	int[] _Result = Natives.l_dnaGetIArray(da.Pointer);
 	
@@ -506,8 +504,8 @@ public static int[] l_dnaGetIArray(
 ///  <param name="copyflag">[in] - L_NOCOPY or L_COPY</param>
 ///   <returns>either the bare internal array or a copy of it, or NULL on error</returns>
 public static Double[] l_dnaGetDArray(
-				  L_Dna da, 
-				  int copyflag){
+				 L_Dna da, 
+				 int copyflag){
 
 	Double[] _Result = Natives.l_dnaGetDArray(da.Pointer,   copyflag);
 	
@@ -526,7 +524,7 @@ public static Double[] l_dnaGetDArray(
 ///  <param name="da">[in] - </param>
 ///   <returns>refcount, or UNDEF on error</returns>
 public static int l_dnaGetRefcount(
-				  L_Dna da){
+				 L_Dna da){
 
 	int _Result = Natives.l_dnaGetRefcount(da.Pointer);
 	
@@ -546,8 +544,8 @@ public static int l_dnaGetRefcount(
 ///  <param name="delta">[in] - change to be applied</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_dnaChangeRefcount(
-				  L_Dna da, 
-				  int delta){
+				 L_Dna da, 
+				 int delta){
 
 	int _Result = Natives.l_dnaChangeRefcount(da.Pointer,   delta);
 	
@@ -568,15 +566,13 @@ public static int l_dnaChangeRefcount(
 ///  <param name="pdelx">[out][optional] - delx</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_dnaGetParameters(
-				  L_Dna da, 
+				 L_Dna da, 
 				out Double[] pstartx, 
 				out Double[] pdelx){
 
 	int _Result = Natives.l_dnaGetParameters(da.Pointer, out  pstartx, out  pdelx);
 	
 
-pstartx = null;
-pdelx = null;
 
 
 	return _Result;
@@ -593,9 +589,9 @@ pdelx = null;
 ///  <param name="delx">[in] - difference in x values for the situation where the elements of da correspond to the evaulation of a function at equal intervals of size %delx</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_dnaSetParameters(
-				  L_Dna da, 
-				  double startx, 
-				  double delx){
+				 L_Dna da, 
+				 double startx, 
+				 double delx){
 
 	int _Result = Natives.l_dnaSetParameters(da.Pointer,   startx,   delx);
 	
@@ -615,8 +611,8 @@ public static int l_dnaSetParameters(
 ///  <param name="das">[in] - source DNuma</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_dnaCopyParameters(
-				  L_Dna dad, 
-				  L_Dna das){
+				 L_Dna dad, 
+				 L_Dna das){
 
 	int _Result = Natives.l_dnaCopyParameters(dad.Pointer, das.Pointer);
 	
@@ -635,7 +631,7 @@ public static int l_dnaCopyParameters(
 ///  <param name="filename">[in] - </param>
 ///   <returns>da, or NULL on error</returns>
 public static L_Dna l_dnaRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.l_dnaRead(  filename);
 	
@@ -658,7 +654,7 @@ public static L_Dna l_dnaRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>da, or NULL on error</returns>
 public static L_Dna l_dnaReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.l_dnaReadStream(fp.Pointer);
 	
@@ -679,8 +675,8 @@ public static L_Dna l_dnaReadStream(
 ///  <param name="da">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_dnaWrite(
-				  String filename, 
-				  L_Dna da){
+				 String filename, 
+				 L_Dna da){
 
 	int _Result = Natives.l_dnaWrite(  filename, da.Pointer);
 	
@@ -700,8 +696,8 @@ public static int l_dnaWrite(
 ///  <param name="da">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_dnaWriteStream(
-				  FILE fp, 
-				  L_Dna da){
+				 FILE fp, 
+				 L_Dna da){
 
 	int _Result = Natives.l_dnaWriteStream(fp.Pointer, da.Pointer);
 	
@@ -720,7 +716,7 @@ public static int l_dnaWriteStream(
 ///  <param name="n">[in] - size of l_dna ptr array to be alloc'd 0 for default</param>
 ///   <returns>daa, or NULL on error</returns>
 public static L_Dnaa l_dnaaCreate(
-				  int n){
+				 int n){
 
 	IntPtr _Result = Natives.l_dnaaCreate(  n);
 	
@@ -747,8 +743,8 @@ public static L_Dnaa l_dnaaCreate(
 ///  <param name="n">[in] - : size of individual dna arrays to be alloc'd 0 for default</param>
 ///   <returns>daa, or NULL on error</returns>
 public static L_Dnaa l_dnaaCreateFull(
-				  int nptr, 
-				  int n){
+				 int nptr, 
+				 int n){
 
 	IntPtr _Result = Natives.l_dnaaCreateFull(  nptr,   n);
 	
@@ -773,7 +769,7 @@ public static L_Dnaa l_dnaaCreateFull(
 ///  <param name="daa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_dnaaTruncate(
-				  L_Dnaa daa){
+				 L_Dnaa daa){
 
 	int _Result = Natives.l_dnaaTruncate(daa.Pointer);
 	
@@ -791,15 +787,14 @@ public static int l_dnaaTruncate(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaaDestroy/*"/>
 ///  <param name="pdaa">[in,out] - to be nulled if it exists</param>
 public static void l_dnaaDestroy(
-				 ref L_Dnaa pdaa){
+				ref L_Dnaa pdaa){
 
 	IntPtr pdaaPtr = IntPtr.Zero; 	if (pdaa != null) {pdaaPtr = pdaa.Pointer;}
 
 	Natives.l_dnaaDestroy(ref pdaaPtr);
 	
 
-pdaa = null;
-	; if (pdaaPtr != IntPtr.Zero){pdaa = new L_Dnaa(pdaaPtr);}
+	if (pdaaPtr == null) {pdaa = null;} else { pdaa = new L_Dnaa(pdaaPtr); };
 
 
 }
@@ -815,9 +810,9 @@ pdaa = null;
 ///  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_dnaaAddDna(
-				  L_Dnaa daa, 
-				  L_Dna da, 
-				  int copyflag){
+				 L_Dnaa daa, 
+				 L_Dna da, 
+				 int copyflag){
 
 	int _Result = Natives.l_dnaaAddDna(daa.Pointer, da.Pointer,   copyflag);
 	
@@ -836,7 +831,7 @@ public static int l_dnaaAddDna(
 ///  <param name="daa">[in] - </param>
 ///   <returns>count number of l_dna, or 0 if no l_dna or on error</returns>
 public static int l_dnaaGetCount(
-				  L_Dnaa daa){
+				 L_Dnaa daa){
 
 	int _Result = Natives.l_dnaaGetCount(daa.Pointer);
 	
@@ -856,8 +851,8 @@ public static int l_dnaaGetCount(
 ///  <param name="index">[in] - of l_dna in daa</param>
 ///   <returns>count of numbers in the referenced l_dna, or 0 on error.</returns>
 public static int l_dnaaGetDnaCount(
-				  L_Dnaa daa, 
-				  int index){
+				 L_Dnaa daa, 
+				 int index){
 
 	int _Result = Natives.l_dnaaGetDnaCount(daa.Pointer,   index);
 	
@@ -876,7 +871,7 @@ public static int l_dnaaGetDnaCount(
 ///  <param name="daa">[in] - </param>
 ///   <returns>count total number of numbers in the l_dnaa, or 0 if no numbers or on error</returns>
 public static int l_dnaaGetNumberCount(
-				  L_Dnaa daa){
+				 L_Dnaa daa){
 
 	int _Result = Natives.l_dnaaGetNumberCount(daa.Pointer);
 	
@@ -897,9 +892,9 @@ public static int l_dnaaGetNumberCount(
 ///  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>l_dna, or NULL on error</returns>
 public static L_Dna l_dnaaGetDna(
-				  L_Dnaa daa, 
-				  int index, 
-				  int accessflag){
+				 L_Dnaa daa, 
+				 int index, 
+				 int accessflag){
 
 	IntPtr _Result = Natives.l_dnaaGetDna(daa.Pointer,   index,   accessflag);
 	
@@ -927,9 +922,9 @@ public static L_Dna l_dnaaGetDna(
 ///  <param name="da">[in] - insert and replace any existing one</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_dnaaReplaceDna(
-				  L_Dnaa daa, 
-				  int index, 
-				  L_Dna da){
+				 L_Dnaa daa, 
+				 int index, 
+				 L_Dna da){
 
 	int _Result = Natives.l_dnaaReplaceDna(daa.Pointer,   index, da.Pointer);
 	
@@ -951,15 +946,14 @@ public static int l_dnaaReplaceDna(
 ///  <param name="pval">[out] - double value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_dnaaGetValue(
-				  L_Dnaa daa, 
-				  int i, 
-				  int j, 
-				 out Double[] pval){
+				 L_Dnaa daa, 
+				 int i, 
+				 int j, 
+				out Double[] pval){
 
 	int _Result = Natives.l_dnaaGetValue(daa.Pointer,   i,   j, out  pval);
 	
 
-pval = null;
 
 
 	return _Result;
@@ -979,9 +973,9 @@ pval = null;
 ///  <param name="val">[in] - number to be added stored as a double</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_dnaaAddNumber(
-				  L_Dnaa daa, 
-				  int index, 
-				  double val){
+				 L_Dnaa daa, 
+				 int index, 
+				 double val){
 
 	int _Result = Natives.l_dnaaAddNumber(daa.Pointer,   index,   val);
 	
@@ -1000,7 +994,7 @@ public static int l_dnaaAddNumber(
 ///  <param name="filename">[in] - </param>
 ///   <returns>daa, or NULL on error</returns>
 public static L_Dnaa l_dnaaRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.l_dnaaRead(  filename);
 	
@@ -1020,7 +1014,7 @@ public static L_Dnaa l_dnaaRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>daa, or NULL on error</returns>
 public static L_Dnaa l_dnaaReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.l_dnaaReadStream(fp.Pointer);
 	
@@ -1041,8 +1035,8 @@ public static L_Dnaa l_dnaaReadStream(
 ///  <param name="daa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_dnaaWrite(
-				  String filename, 
-				  L_Dnaa daa){
+				 String filename, 
+				 L_Dnaa daa){
 
 	int _Result = Natives.l_dnaaWrite(  filename, daa.Pointer);
 	
@@ -1062,8 +1056,8 @@ public static int l_dnaaWrite(
 ///  <param name="daa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_dnaaWriteStream(
-				  FILE fp, 
-				  L_Dnaa daa){
+				 FILE fp, 
+				 L_Dnaa daa){
 
 	int _Result = Natives.l_dnaaWriteStream(fp.Pointer, daa.Pointer);
 	
@@ -1073,4 +1067,5 @@ public static int l_dnaaWriteStream(
 	return _Result;
 }
 
+}
 }

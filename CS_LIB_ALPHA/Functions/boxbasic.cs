@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // boxbasic.c (165, 1)
 // boxCreate(x, y, w, h) as Box
@@ -33,10 +34,10 @@ public class _All {
 ///  <param name="h">[in] - </param>
 ///   <returns>box, or NULL on error</returns>
 public static Box boxCreate(
-				  int x, 
-				  int y, 
-				  int w, 
-				  int h){
+				 int x, 
+				 int y, 
+				 int w, 
+				 int h){
 
 	IntPtr _Result = Natives.boxCreate(  x,   y,   w,   h);
 	
@@ -62,10 +63,10 @@ public static Box boxCreate(
 ///  <param name="h">[in] - </param>
 ///   <returns>box, or NULL on error</returns>
 public static Box boxCreateValid(
-				  int x, 
-				  int y, 
-				  int w, 
-				  int h){
+				 int x, 
+				 int y, 
+				 int w, 
+				 int h){
 
 	IntPtr _Result = Natives.boxCreateValid(  x,   y,   w,   h);
 	
@@ -85,7 +86,7 @@ public static Box boxCreateValid(
 ///  <param name="box">[in] - </param>
 ///   <returns>copy of box, or NULL on error</returns>
 public static Box boxCopy(
-				  Box box){
+				 Box box){
 
 	IntPtr _Result = Natives.boxCopy(box.Pointer);
 	
@@ -105,7 +106,7 @@ public static Box boxCopy(
 ///  <param name="box">[in] - </param>
 ///   <returns>ptr to same box, or NULL on error</returns>
 public static Box boxClone(
-				  Box box){
+				 Box box){
 
 	IntPtr _Result = Natives.boxClone(box.Pointer);
 	
@@ -129,15 +130,14 @@ public static Box boxClone(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxDestroy/*"/>
 ///  <param name="pbox">[in,out] - will be set to null before returning</param>
 public static void boxDestroy(
-				 ref Box pbox){
+				ref Box pbox){
 
 	IntPtr pboxPtr = IntPtr.Zero; 	if (pbox != null) {pboxPtr = pbox.Pointer;}
 
 	Natives.boxDestroy(ref pboxPtr);
 	
 
-pbox = null;
-	; if (pboxPtr != IntPtr.Zero){pbox = new Box(pboxPtr);}
+	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
 
 
 }
@@ -155,7 +155,7 @@ pbox = null;
 ///  <param name="ph">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxGetGeometry(
-				  Box box, 
+				 Box box, 
 				out int px, 
 				out int py, 
 				out int pw, 
@@ -164,10 +164,6 @@ public static int boxGetGeometry(
 	int _Result = Natives.boxGetGeometry(box.Pointer, out  px, out  py, out  pw, out  ph);
 	
 
-px = 0;
-py = 0;
-pw = 0;
-ph = 0;
 
 
 	return _Result;
@@ -186,7 +182,7 @@ ph = 0;
 ///  <param name="h">[in][optional] - use -1 to leave unchanged</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxSetGeometry(
-				  Box box, 
+				 Box box, 
 				 int x, 
 				 int y, 
 				 int w, 
@@ -216,7 +212,7 @@ public static int boxSetGeometry(
 ///  <param name="pb">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxGetSideLocations(
-				  Box box, 
+				 Box box, 
 				out int pl, 
 				out int pr, 
 				out int pt, 
@@ -225,10 +221,6 @@ public static int boxGetSideLocations(
 	int _Result = Natives.boxGetSideLocations(box.Pointer, out  pl, out  pr, out  pt, out  pb);
 	
 
-pl = 0;
-pr = 0;
-pt = 0;
-pb = 0;
 
 
 	return _Result;
@@ -247,7 +239,7 @@ pb = 0;
 ///  <param name="b">[in][optional] - use -1 to leave unchanged</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxSetSideLocations(
-				  Box box, 
+				 Box box, 
 				 int l, 
 				 int r, 
 				 int t, 
@@ -270,7 +262,7 @@ public static int boxSetSideLocations(
 ///  <param name="box">[in] - ptr to Box</param>
 ///   <returns>refcount</returns>
 public static int boxGetRefcount(
-				  Box box){
+				 Box box){
 
 	int _Result = Natives.boxGetRefcount(box.Pointer);
 	
@@ -290,8 +282,8 @@ public static int boxGetRefcount(
 ///  <param name="delta">[in] - adjustment, usually -1 or 1</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxChangeRefcount(
-				  Box box, 
-				  int delta){
+				 Box box, 
+				 int delta){
 
 	int _Result = Natives.boxChangeRefcount(box.Pointer,   delta);
 	
@@ -311,13 +303,12 @@ public static int boxChangeRefcount(
 ///  <param name="pvalid">[out] - 1 if valid 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxIsValid(
-				  Box box, 
-				 out int pvalid){
+				 Box box, 
+				out int pvalid){
 
 	int _Result = Natives.boxIsValid(box.Pointer, out  pvalid);
 	
 
-pvalid = 0;
 
 
 	return _Result;
@@ -332,7 +323,7 @@ pvalid = 0;
 ///  <param name="n">[in] - initial number of ptrs</param>
 ///   <returns>boxa, or NULL on error</returns>
 public static Boxa boxaCreate(
-				  int n){
+				 int n){
 
 	IntPtr _Result = Natives.boxaCreate(  n);
 	
@@ -358,8 +349,8 @@ public static Boxa boxaCreate(
 ///  <param name="copyflag">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
 ///   <returns>new boxa, or NULL on error</returns>
 public static Boxa boxaCopy(
-				  Boxa boxa, 
-				  int copyflag){
+				 Boxa boxa, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.boxaCopy(boxa.Pointer,   copyflag);
 	
@@ -383,15 +374,14 @@ public static Boxa boxaCopy(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaDestroy/*"/>
 ///  <param name="pboxa">[in,out] - will be set to null before returning</param>
 public static void boxaDestroy(
-				 ref Boxa pboxa){
+				ref Boxa pboxa){
 
 	IntPtr pboxaPtr = IntPtr.Zero; 	if (pboxa != null) {pboxaPtr = pboxa.Pointer;}
 
 	Natives.boxaDestroy(ref pboxaPtr);
 	
 
-pboxa = null;
-	; if (pboxaPtr != IntPtr.Zero){pboxa = new Boxa(pboxaPtr);}
+	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 
 }
@@ -407,9 +397,9 @@ pboxa = null;
 ///  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaAddBox(
-				  Boxa boxa, 
-				  Box box, 
-				  int copyflag){
+				 Boxa boxa, 
+				 Box box, 
+				 int copyflag){
 
 	int _Result = Natives.boxaAddBox(boxa.Pointer, box.Pointer,   copyflag);
 	
@@ -431,7 +421,7 @@ public static int boxaAddBox(
 ///  <param name="boxa">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int boxaExtendArray(
-				  Boxa boxa){
+				 Boxa boxa){
 
 	int _Result = Natives.boxaExtendArray(boxa.Pointer);
 	
@@ -454,8 +444,8 @@ public static int boxaExtendArray(
 ///  <param name="size">[in] - new size of boxa array</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int boxaExtendArrayToSize(
-				  Boxa boxa, 
-				  int size){
+				 Boxa boxa, 
+				 int size){
 
 	int _Result = Natives.boxaExtendArrayToSize(boxa.Pointer,   size);
 	
@@ -474,7 +464,7 @@ public static int boxaExtendArrayToSize(
 ///  <param name="boxa">[in] - </param>
 ///   <returns>count of all boxes 0 if no boxes or on error</returns>
 public static int boxaGetCount(
-				  Boxa boxa){
+				 Boxa boxa){
 
 	int _Result = Natives.boxaGetCount(boxa.Pointer);
 	
@@ -493,7 +483,7 @@ public static int boxaGetCount(
 ///  <param name="boxa">[in] - </param>
 ///   <returns>count of valid boxes 0 if no valid boxes or on error</returns>
 public static int boxaGetValidCount(
-				  Boxa boxa){
+				 Boxa boxa){
 
 	int _Result = Natives.boxaGetValidCount(boxa.Pointer);
 	
@@ -514,9 +504,9 @@ public static int boxaGetValidCount(
 ///  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>box, or NULL on error</returns>
 public static Box boxaGetBox(
-				  Boxa boxa, 
-				  int index, 
-				  int accessflag){
+				 Boxa boxa, 
+				 int index, 
+				 int accessflag){
 
 	IntPtr _Result = Natives.boxaGetBox(boxa.Pointer,   index,   accessflag);
 	
@@ -547,9 +537,9 @@ public static Box boxaGetBox(
 ///  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>box, or NULL if box is not valid or on error</returns>
 public static Box boxaGetValidBox(
-				  Boxa boxa, 
-				  int index, 
-				  int accessflag){
+				 Boxa boxa, 
+				 int index, 
+				 int accessflag){
 
 	IntPtr _Result = Natives.boxaGetValidBox(boxa.Pointer,   index,   accessflag);
 	
@@ -569,7 +559,7 @@ public static Box boxaGetValidBox(
 ///  <param name="boxa">[in] - </param>
 ///   <returns>na   numa of invalid boxes NULL if there are none or on error</returns>
 public static Numa boxaFindInvalidBoxes(
-				  Boxa boxa){
+				 Boxa boxa){
 
 	IntPtr _Result = Natives.boxaFindInvalidBoxes(boxa.Pointer);
 	
@@ -594,8 +584,8 @@ public static Numa boxaFindInvalidBoxes(
 ///  <param name="ph">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaGetBoxGeometry(
-				  Boxa boxa, 
-				  int index, 
+				 Boxa boxa, 
+				 int index, 
 				out int px, 
 				out int py, 
 				out int pw, 
@@ -604,10 +594,6 @@ public static int boxaGetBoxGeometry(
 	int _Result = Natives.boxaGetBoxGeometry(boxa.Pointer,   index, out  px, out  py, out  pw, out  ph);
 	
 
-px = 0;
-py = 0;
-pw = 0;
-ph = 0;
 
 
 	return _Result;
@@ -623,13 +609,12 @@ ph = 0;
 ///  <param name="pfull">[out] - 1 if boxa is full</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaIsFull(
-				  Boxa boxa, 
-				 out int pfull){
+				 Boxa boxa, 
+				out int pfull){
 
 	int _Result = Natives.boxaIsFull(boxa.Pointer, out  pfull);
 	
 
-pfull = 0;
 
 
 	return _Result;
@@ -651,9 +636,9 @@ pfull = 0;
 ///  <param name="box">[in] - insert to replace existing one</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaReplaceBox(
-				  Boxa boxa, 
-				  int index, 
-				  Box box){
+				 Boxa boxa, 
+				 int index, 
+				 Box box){
 
 	int _Result = Natives.boxaReplaceBox(boxa.Pointer,   index, box.Pointer);
 	
@@ -685,9 +670,9 @@ public static int boxaReplaceBox(
 ///  <param name="box">[in] - new box to be inserted</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaInsertBox(
-				  Boxa boxa, 
-				  int index, 
-				  Box box){
+				 Boxa boxa, 
+				 int index, 
+				 Box box){
 
 	int _Result = Natives.boxaInsertBox(boxa.Pointer,   index, box.Pointer);
 	
@@ -714,8 +699,8 @@ public static int boxaInsertBox(
 ///  <param name="index">[in] - of box to be removed</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaRemoveBox(
-				  Boxa boxa, 
-				  int index){
+				 Boxa boxa, 
+				 int index){
 
 	int _Result = Natives.boxaRemoveBox(boxa.Pointer,   index);
 	
@@ -743,8 +728,8 @@ public static int boxaRemoveBox(
 ///  <param name="pbox">[out][optional] - removed box</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaRemoveBoxAndSave(
-				  Boxa boxa, 
-				  int index, 
+				 Boxa boxa, 
+				 int index, 
 				out Box pbox){
 
 	IntPtr pboxPtr = IntPtr.Zero;
@@ -752,8 +737,7 @@ public static int boxaRemoveBoxAndSave(
 	int _Result = Natives.boxaRemoveBoxAndSave(boxa.Pointer,   index, out pboxPtr);
 	
 
-pbox = null;
-	; if (pboxPtr != IntPtr.Zero){pbox = new Box(pboxPtr);}
+	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
 
 
 	return _Result;
@@ -772,8 +756,8 @@ pbox = null;
 ///  <param name="copyflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>boxad if OK, NULL on error</returns>
 public static Boxa boxaSaveValid(
-				  Boxa boxas, 
-				  int copyflag){
+				 Boxa boxas, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.boxaSaveValid(boxas.Pointer,   copyflag);
 	
@@ -825,7 +809,7 @@ public static Boxa boxaSaveValid(
 ///  <param name="box">[in][optional] - to be replicated into the entire ptr array</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaInitFull(
-				  Boxa boxa, 
+				 Boxa boxa, 
 				 Box box){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
@@ -851,7 +835,7 @@ public static int boxaInitFull(
 ///  <param name="boxa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaClear(
-				  Boxa boxa){
+				 Boxa boxa){
 
 	int _Result = Natives.boxaClear(boxa.Pointer);
 	
@@ -870,7 +854,7 @@ public static int boxaClear(
 ///  <param name="n">[in] - size of boxa ptr array to be alloc'd 0 for default</param>
 ///   <returns>baa, or NULL on error</returns>
 public static Boxaa boxaaCreate(
-				  int n){
+				 int n){
 
 	IntPtr _Result = Natives.boxaaCreate(  n);
 	
@@ -895,8 +879,8 @@ public static Boxaa boxaaCreate(
 ///  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 ///   <returns>baad new boxaa, composed of copies or clones of the boxa in baas, or NULL on error</returns>
 public static Boxaa boxaaCopy(
-				  Boxaa baas, 
-				  int copyflag){
+				 Boxaa baas, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.boxaaCopy(baas.Pointer,   copyflag);
 	
@@ -915,15 +899,14 @@ public static Boxaa boxaaCopy(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/boxaaDestroy/*"/>
 ///  <param name="pbaa">[in,out] - will be set to null before returning</param>
 public static void boxaaDestroy(
-				 ref Boxaa pbaa){
+				ref Boxaa pbaa){
 
 	IntPtr pbaaPtr = IntPtr.Zero; 	if (pbaa != null) {pbaaPtr = pbaa.Pointer;}
 
 	Natives.boxaaDestroy(ref pbaaPtr);
 	
 
-pbaa = null;
-	; if (pbaaPtr != IntPtr.Zero){pbaa = new Boxaa(pbaaPtr);}
+	if (pbaaPtr == null) {pbaa = null;} else { pbaa = new Boxaa(pbaaPtr); };
 
 
 }
@@ -939,9 +922,9 @@ pbaa = null;
 ///  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaaAddBoxa(
-				  Boxaa baa, 
-				  Boxa ba, 
-				  int copyflag){
+				 Boxaa baa, 
+				 Boxa ba, 
+				 int copyflag){
 
 	int _Result = Natives.boxaaAddBoxa(baa.Pointer, ba.Pointer,   copyflag);
 	
@@ -960,7 +943,7 @@ public static int boxaaAddBoxa(
 ///  <param name="baa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaaExtendArray(
-				  Boxaa baa){
+				 Boxaa baa){
 
 	int _Result = Natives.boxaaExtendArray(baa.Pointer);
 	
@@ -983,8 +966,8 @@ public static int boxaaExtendArray(
 ///  <param name="size">[in] - new size of boxa array</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int boxaaExtendArrayToSize(
-				  Boxaa baa, 
-				  int size){
+				 Boxaa baa, 
+				 int size){
 
 	int _Result = Natives.boxaaExtendArrayToSize(baa.Pointer,   size);
 	
@@ -1003,7 +986,7 @@ public static int boxaaExtendArrayToSize(
 ///  <param name="baa">[in] - </param>
 ///   <returns>count number of boxa, or 0 if no boxa or on error</returns>
 public static int boxaaGetCount(
-				  Boxaa baa){
+				 Boxaa baa){
 
 	int _Result = Natives.boxaaGetCount(baa.Pointer);
 	
@@ -1022,7 +1005,7 @@ public static int boxaaGetCount(
 ///  <param name="baa">[in] - </param>
 ///   <returns>count number of boxes, or 0 if no boxes or on error</returns>
 public static int boxaaGetBoxCount(
-				  Boxaa baa){
+				 Boxaa baa){
 
 	int _Result = Natives.boxaaGetBoxCount(baa.Pointer);
 	
@@ -1043,9 +1026,9 @@ public static int boxaaGetBoxCount(
 ///  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>boxa, or NULL on error</returns>
 public static Boxa boxaaGetBoxa(
-				  Boxaa baa, 
-				  int index, 
-				  int accessflag){
+				 Boxaa baa, 
+				 int index, 
+				 int accessflag){
 
 	IntPtr _Result = Natives.boxaaGetBoxa(baa.Pointer,   index,   accessflag);
 	
@@ -1068,10 +1051,10 @@ public static Boxa boxaaGetBoxa(
 ///  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>box, or NULL on error</returns>
 public static Box boxaaGetBox(
-				  Boxaa baa, 
-				  int iboxa, 
-				  int ibox, 
-				  int accessflag){
+				 Boxaa baa, 
+				 int iboxa, 
+				 int ibox, 
+				 int accessflag){
 
 	IntPtr _Result = Natives.boxaaGetBox(baa.Pointer,   iboxa,   ibox,   accessflag);
 	
@@ -1114,8 +1097,8 @@ public static Box boxaaGetBox(
 ///  <param name="boxa">[in] - to be replicated into the entire ptr array</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaaInitFull(
-				  Boxaa baa, 
-				  Boxa boxa){
+				 Boxaa baa, 
+				 Boxa boxa){
 
 	int _Result = Natives.boxaaInitFull(baa.Pointer, boxa.Pointer);
 	
@@ -1142,9 +1125,9 @@ public static int boxaaInitFull(
 ///  <param name="boxa">[in] - to be replicated into the extended ptr array</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaaExtendWithInit(
-				  Boxaa baa, 
-				  int maxindex, 
-				  Boxa boxa){
+				 Boxaa baa, 
+				 int maxindex, 
+				 Boxa boxa){
 
 	int _Result = Natives.boxaaExtendWithInit(baa.Pointer,   maxindex, boxa.Pointer);
 	
@@ -1171,9 +1154,9 @@ public static int boxaaExtendWithInit(
 ///  <param name="boxa">[in] - insert and replace any existing one</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaaReplaceBoxa(
-				  Boxaa baa, 
-				  int index, 
-				  Boxa boxa){
+				 Boxaa baa, 
+				 int index, 
+				 Boxa boxa){
 
 	int _Result = Natives.boxaaReplaceBoxa(baa.Pointer,   index, boxa.Pointer);
 	
@@ -1205,9 +1188,9 @@ public static int boxaaReplaceBoxa(
 ///  <param name="boxa">[in] - new boxa to be inserted</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaaInsertBoxa(
-				  Boxaa baa, 
-				  int index, 
-				  Boxa boxa){
+				 Boxaa baa, 
+				 int index, 
+				 Boxa boxa){
 
 	int _Result = Natives.boxaaInsertBoxa(baa.Pointer,   index, boxa.Pointer);
 	
@@ -1236,8 +1219,8 @@ public static int boxaaInsertBoxa(
 ///  <param name="index">[in] - of the boxa to be removed</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaaRemoveBoxa(
-				  Boxaa baa, 
-				  int index){
+				 Boxaa baa, 
+				 int index){
 
 	int _Result = Natives.boxaaRemoveBoxa(baa.Pointer,   index);
 	
@@ -1262,10 +1245,10 @@ public static int boxaaRemoveBoxa(
 ///  <param name="accessflag">[in] - L_INSERT, L_COPY or L_CLONE</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaaAddBox(
-				  Boxaa baa, 
-				  int index, 
-				  Box box, 
-				  int accessflag){
+				 Boxaa baa, 
+				 int index, 
+				 Box box, 
+				 int accessflag){
 
 	int _Result = Natives.boxaaAddBox(baa.Pointer,   index, box.Pointer,   accessflag);
 	
@@ -1298,10 +1281,10 @@ public static int boxaaAddBox(
 ///  <param name="nfiles">[in] - use 0 for everything from %first to the end</param>
 ///   <returns>baa, or NULL on error or if no boxa files are found.</returns>
 public static Boxaa boxaaReadFromFiles(
-				  String dirname, 
-				  String substr, 
-				  int first, 
-				  int nfiles){
+				 String dirname, 
+				 String substr, 
+				 int first, 
+				 int nfiles){
 
 	IntPtr _Result = Natives.boxaaReadFromFiles(  dirname,   substr,   first,   nfiles);
 	
@@ -1321,7 +1304,7 @@ public static Boxaa boxaaReadFromFiles(
 ///  <param name="filename">[in] - </param>
 ///   <returns>boxaa, or NULL on error</returns>
 public static Boxaa boxaaRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.boxaaRead(  filename);
 	
@@ -1341,7 +1324,7 @@ public static Boxaa boxaaRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>boxaa, or NULL on error</returns>
 public static Boxaa boxaaReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.boxaaReadStream(fp.Pointer);
 	
@@ -1362,8 +1345,8 @@ public static Boxaa boxaaReadStream(
 ///  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 ///   <returns>baa, or NULL on error</returns>
 public static Boxaa boxaaReadMem(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.boxaaReadMem(  data,   size);
 	
@@ -1384,8 +1367,8 @@ public static Boxaa boxaaReadMem(
 ///  <param name="baa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaaWrite(
-				  String filename, 
-				  Boxaa baa){
+				 String filename, 
+				 Boxaa baa){
 
 	int _Result = Natives.boxaaWrite(  filename, baa.Pointer);
 	
@@ -1405,8 +1388,8 @@ public static int boxaaWrite(
 ///  <param name="baa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaaWriteStream(
-				  FILE fp, 
-				  Boxaa baa){
+				 FILE fp, 
+				 Boxaa baa){
 
 	int _Result = Natives.boxaaWriteStream(fp.Pointer, baa.Pointer);
 	
@@ -1430,17 +1413,16 @@ public static int boxaaWriteStream(
 ///  <param name="baa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaaWriteMem(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  Boxaa baa){
+				out Byte[] pdata, 
+				out uint psize, 
+				 Boxaa baa){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.boxaaWriteMem(out  pdataPtr, out  psize, baa.Pointer);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -1455,7 +1437,7 @@ psize = 0;
 ///  <param name="filename">[in] - </param>
 ///   <returns>boxa, or NULL on error</returns>
 public static Boxa boxaRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.boxaRead(  filename);
 	
@@ -1475,7 +1457,7 @@ public static Boxa boxaRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>boxa, or NULL on error</returns>
 public static Boxa boxaReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.boxaReadStream(fp.Pointer);
 	
@@ -1496,8 +1478,8 @@ public static Boxa boxaReadStream(
 ///  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 ///   <returns>boxa, or NULL on error</returns>
 public static Boxa boxaReadMem(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.boxaReadMem(  data,   size);
 	
@@ -1526,8 +1508,8 @@ public static Boxa boxaReadMem(
 ///  <param name="boxa">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int boxaWriteDebug(
-				  String filename, 
-				  Boxa boxa){
+				 String filename, 
+				 Boxa boxa){
 
 	int _Result = Natives.boxaWriteDebug(  filename, boxa.Pointer);
 	
@@ -1547,8 +1529,8 @@ public static int boxaWriteDebug(
 ///  <param name="boxa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaWrite(
-				  String filename, 
-				  Boxa boxa){
+				 String filename, 
+				 Boxa boxa){
 
 	int _Result = Natives.boxaWrite(  filename, boxa.Pointer);
 	
@@ -1568,8 +1550,8 @@ public static int boxaWrite(
 ///  <param name="boxa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaWriteStream(
-				  FILE fp, 
-				  Boxa boxa){
+				 FILE fp, 
+				 Boxa boxa){
 
 	int _Result = Natives.boxaWriteStream(fp.Pointer, boxa.Pointer);
 	
@@ -1593,17 +1575,16 @@ public static int boxaWriteStream(
 ///  <param name="boxa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaWriteMem(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  Boxa boxa){
+				out Byte[] pdata, 
+				out uint psize, 
+				 Boxa boxa){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.boxaWriteMem(out  pdataPtr, out  psize, boxa.Pointer);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -1623,8 +1604,8 @@ psize = 0;
 ///  <param name="box">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxPrintStreamInfo(
-				  FILE fp, 
-				  Box box){
+				 FILE fp, 
+				 Box box){
 
 	int _Result = Natives.boxPrintStreamInfo(fp.Pointer, box.Pointer);
 	
@@ -1634,4 +1615,5 @@ public static int boxPrintStreamInfo(
 	return _Result;
 }
 
+}
 }

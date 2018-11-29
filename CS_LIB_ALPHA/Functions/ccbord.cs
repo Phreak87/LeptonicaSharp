@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // ccbord.c (299, 1)
 // ccbaCreate(pixs, n) as CCBorda
@@ -15,8 +16,8 @@ public class _All {
 ///  <param name="n">[in] - initial number of ptrs</param>
 ///   <returns>ccba, or NULL on error</returns>
 public static CCBorda ccbaCreate(
-				  Pix pixs, 
-				  int n){
+				 Pix pixs, 
+				 int n){
 
 	IntPtr _Result = Natives.ccbaCreate(pixs.Pointer,   n);
 	
@@ -35,15 +36,14 @@ public static CCBorda ccbaCreate(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbaDestroy/*"/>
 ///  <param name="pccba">[in,out] - to be nulled</param>
 public static void ccbaDestroy(
-				 ref CCBorda pccba){
+				ref CCBorda pccba){
 
 	IntPtr pccbaPtr = IntPtr.Zero; 	if (pccba != null) {pccbaPtr = pccba.Pointer;}
 
 	Natives.ccbaDestroy(ref pccbaPtr);
 	
 
-pccba = null;
-	; if (pccbaPtr != IntPtr.Zero){pccba = new CCBorda(pccbaPtr);}
+	if (pccbaPtr == null) {pccba = null;} else { pccba = new CCBorda(pccbaPtr); };
 
 
 }
@@ -57,7 +57,7 @@ pccba = null;
 ///  <param name="pixs">[in][optional] - </param>
 ///   <returns>ccb or NULL on error</returns>
 public static CCBord ccbCreate(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr pixsPtr = IntPtr.Zero; 	if (pixs != null) {pixsPtr = pixs.Pointer;}
 
@@ -78,15 +78,14 @@ public static CCBord ccbCreate(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ccbDestroy/*"/>
 ///  <param name="pccb">[in,out] - to be nulled</param>
 public static void ccbDestroy(
-				 ref CCBord pccb){
+				ref CCBord pccb){
 
 	IntPtr pccbPtr = IntPtr.Zero; 	if (pccb != null) {pccbPtr = pccb.Pointer;}
 
 	Natives.ccbDestroy(ref pccbPtr);
 	
 
-pccb = null;
-	; if (pccbPtr != IntPtr.Zero){pccb = new CCBord(pccbPtr);}
+	if (pccbPtr == null) {pccb = null;} else { pccb = new CCBord(pccbPtr); };
 
 
 }
@@ -101,8 +100,8 @@ pccb = null;
 ///  <param name="ccb">[in] - to be added by insertion</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int ccbaAddCcb(
-				  CCBorda ccba, 
-				  CCBord ccb){
+				 CCBorda ccba, 
+				 CCBord ccb){
 
 	int _Result = Natives.ccbaAddCcb(ccba.Pointer, ccb.Pointer);
 	
@@ -121,7 +120,7 @@ public static int ccbaAddCcb(
 ///  <param name="ccba">[in] - </param>
 ///   <returns>count, with 0 on error</returns>
 public static int ccbaGetCount(
-				  CCBorda ccba){
+				 CCBorda ccba){
 
 	int _Result = Natives.ccbaGetCount(ccba.Pointer);
 	
@@ -144,8 +143,8 @@ public static int ccbaGetCount(
 ///  <param name="index">[in] - </param>
 ///   <returns>ccb, or NULL on error</returns>
 public static CCBord ccbaGetCcb(
-				  CCBorda ccba, 
-				  int index){
+				 CCBorda ccba, 
+				 int index){
 
 	IntPtr _Result = Natives.ccbaGetCcb(ccba.Pointer,   index);
 	
@@ -165,7 +164,7 @@ public static CCBord ccbaGetCcb(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>ccborda, or NULL on error</returns>
 public static CCBorda pixGetAllCCBorders(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixGetAllCCBorders(pixs.Pointer);
 	
@@ -206,8 +205,8 @@ public static CCBorda pixGetAllCCBorders(
 ///  <param name="box">[in] - xul, yul, width, height in global coords</param>
 ///   <returns>ccbord, or NULL on error</returns>
 public static CCBord pixGetCCBorders(
-				  Pix pixs, 
-				  Box box){
+				 Pix pixs, 
+				 Box box){
 
 	IntPtr _Result = Natives.pixGetCCBorders(pixs.Pointer, box.Pointer);
 	
@@ -227,7 +226,7 @@ public static CCBord pixGetCCBorders(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>ptaa of outer borders, in global coords, or NULL on error</returns>
 public static Ptaa pixGetOuterBordersPtaa(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixGetOuterBordersPtaa(pixs.Pointer);
 	
@@ -257,7 +256,7 @@ public static Ptaa pixGetOuterBordersPtaa(
 ///  <param name="box">[in][optional] - of pixs, in global coordinates</param>
 ///   <returns>pta of outer border, in global coords, or NULL on error</returns>
 public static Pta pixGetOuterBorderPta(
-				  Pix pixs, 
+				 Pix pixs, 
 				 Box box){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
@@ -293,9 +292,9 @@ public static Pta pixGetOuterBorderPta(
 ///  <param name="box">[in] - for the component, in global coords</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetOuterBorder(
-				  CCBord ccb, 
-				  Pix pixs, 
-				  Box box){
+				 CCBord ccb, 
+				 Pix pixs, 
+				 Box box){
 
 	int _Result = Natives.pixGetOuterBorder(ccb.Pointer, pixs.Pointer, box.Pointer);
 	
@@ -327,11 +326,11 @@ public static int pixGetOuterBorder(
 ///  <param name="ys">[in] - first pixel on hole border, relative to c.c.</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetHoleBorder(
-				  CCBord ccb, 
-				  Pix pixs, 
-				  Box box, 
-				  int xs, 
-				  int ys){
+				 CCBord ccb, 
+				 Pix pixs, 
+				 Box box, 
+				 int xs, 
+				 int ys){
 
 	int _Result = Natives.pixGetHoleBorder(ccb.Pointer, pixs.Pointer, box.Pointer,   xs,   ys);
 	
@@ -365,15 +364,15 @@ public static int pixGetHoleBorder(
 ///  <param name="pnpy">[out] - new P</param>
 ///   <returns>0 if next pixel found 1 otherwise</returns>
 public static int findNextBorderPixel(
-				  int w, 
-				  int h, 
-				  Byte[] data, 
-				  int wpl, 
-				  int px, 
-				  int py, 
-				 ref int[] pqpos, 
-				 out int pnpx, 
-				 out int pnpy){
+				 int w, 
+				 int h, 
+				 Byte[] data, 
+				 int wpl, 
+				 int px, 
+				 int py, 
+				ref int[] pqpos, 
+				out int pnpx, 
+				out int pnpy){
 
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(data.Length);
 		Marshal.Copy(data, 0, dataPtr, data.Length);
@@ -382,9 +381,6 @@ public static int findNextBorderPixel(
 	
 	Marshal.FreeHGlobal(dataPtr);
 
-pqpos = null;
-pnpx = 0;
-pnpy = 0;
 
 
 	return _Result;
@@ -414,18 +410,16 @@ pnpy = 0;
 ///  <param name="pxs">[out] - seed pixel to be returned</param>
 ///  <param name="pys">[out] - seed pixel to be returned</param>
 public static void locateOutsideSeedPixel(
-				  int fpx, 
-				  int fpy, 
-				  int spx, 
-				  int spy, 
-				 out int pxs, 
-				 out int pys){
+				 int fpx, 
+				 int fpy, 
+				 int spx, 
+				 int spy, 
+				out int pxs, 
+				out int pys){
 
 	Natives.locateOutsideSeedPixel(  fpx,   fpy,   spx,   spy, out  pxs, out  pys);
 	
 
-pxs = 0;
-pys = 0;
 
 
 }
@@ -439,7 +433,7 @@ pys = 0;
 ///  <param name="ccba">[in] - with local chain ptaa of borders computed</param>
 ///   <returns>0 if OK, 1 on error Action: this uses the pixel locs in the local ptaa, which are all relative to each c.c., to find the global pixel locations, and stores them in the global ptaa.</returns>
 public static int ccbaGenerateGlobalLocs(
-				  CCBorda ccba){
+				 CCBorda ccba){
 
 	int _Result = Natives.ccbaGenerateGlobalLocs(ccba.Pointer);
 	
@@ -473,7 +467,7 @@ public static int ccbaGenerateGlobalLocs(
 ///  <param name="ccba">[in] - with local chain ptaa of borders computed</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ccbaGenerateStepChains(
-				  CCBorda ccba){
+				 CCBorda ccba){
 
 	int _Result = Natives.ccbaGenerateStepChains(ccba.Pointer);
 	
@@ -500,8 +494,8 @@ public static int ccbaGenerateStepChains(
 ///  <param name="coordtype">[in] - CCB_GLOBAL_COORDS or CCB_LOCAL_COORDS</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ccbaStepChainsToPixCoords(
-				  CCBorda ccba, 
-				  int coordtype){
+				 CCBorda ccba, 
+				 int coordtype){
 
 	int _Result = Natives.ccbaStepChainsToPixCoords(ccba.Pointer,   coordtype);
 	
@@ -533,8 +527,8 @@ public static int ccbaStepChainsToPixCoords(
 ///  <param name="ptsflag">[in] - CCB_SAVE_ALL_PTS or CCB_SAVE_TURNING_PTS</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ccbaGenerateSPGlobalLocs(
-				  CCBorda ccba, 
-				  int ptsflag){
+				 CCBorda ccba, 
+				 int ptsflag){
 
 	int _Result = Natives.ccbaGenerateSPGlobalLocs(ccba.Pointer,   ptsflag);
 	
@@ -581,7 +575,7 @@ public static int ccbaGenerateSPGlobalLocs(
 ///  <param name="ccba">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ccbaGenerateSinglePath(
-				  CCBorda ccba){
+				 CCBorda ccba){
 
 	int _Result = Natives.ccbaGenerateSinglePath(ccba.Pointer);
 	
@@ -616,17 +610,15 @@ public static int ccbaGenerateSinglePath(
 ///  <param name="plen">[out] - length of path, returned</param>
 ///   <returns>pta of pts on cut path from the hole border to the outer border, including end points on both borders or NULL on error</returns>
 public static Pta getCutPathForHole(
-				  Pix pix, 
-				  Pta pta, 
-				  Box boxinner, 
-				 out int pdir, 
-				 out int plen){
+				 Pix pix, 
+				 Pta pta, 
+				 Box boxinner, 
+				out int pdir, 
+				out int plen){
 
 	IntPtr _Result = Natives.getCutPathForHole(pix.Pointer, pta.Pointer, boxinner.Pointer, out  pdir, out  plen);
 	
 
-pdir = 0;
-plen = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -647,7 +639,7 @@ plen = 0;
 ///  <param name="ccba">[in] - </param>
 ///   <returns>pix of border pixels, or NULL on error</returns>
 public static Pix ccbaDisplayBorder(
-				  CCBorda ccba){
+				 CCBorda ccba){
 
 	IntPtr _Result = Natives.ccbaDisplayBorder(ccba.Pointer);
 	
@@ -672,7 +664,7 @@ public static Pix ccbaDisplayBorder(
 ///  <param name="ccba">[in] - </param>
 ///   <returns>pix of border pixels, or NULL on error</returns>
 public static Pix ccbaDisplaySPBorder(
-				  CCBorda ccba){
+				 CCBorda ccba){
 
 	IntPtr _Result = Natives.ccbaDisplaySPBorder(ccba.Pointer);
 	
@@ -737,7 +729,7 @@ public static Pix ccbaDisplaySPBorder(
 ///  <param name="ccba">[in] - </param>
 ///   <returns>pix of image, or NULL on error</returns>
 public static Pix ccbaDisplayImage1(
-				  CCBorda ccba){
+				 CCBorda ccba){
 
 	IntPtr _Result = Natives.ccbaDisplayImage1(ccba.Pointer);
 	
@@ -773,7 +765,7 @@ public static Pix ccbaDisplayImage1(
 ///  <param name="ccba">[in] - </param>
 ///   <returns>pix of image, or NULL on error</returns>
 public static Pix ccbaDisplayImage2(
-				  CCBorda ccba){
+				 CCBorda ccba){
 
 	IntPtr _Result = Natives.ccbaDisplayImage2(ccba.Pointer);
 	
@@ -794,8 +786,8 @@ public static Pix ccbaDisplayImage2(
 ///  <param name="ccba">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ccbaWrite(
-				  String filename, 
-				  CCBorda ccba){
+				 String filename, 
+				 CCBorda ccba){
 
 	int _Result = Natives.ccbaWrite(  filename, ccba.Pointer);
 	
@@ -815,8 +807,8 @@ public static int ccbaWrite(
 ///  <param name="ccba">[in] - </param>
 ///   <returns>0 if OK 1 on error Format: \code ccba: %7d cc\n num. c.c.) (ascii)   (18B pix width 4B pix height 4B [for i = 1, ncc] ulx  4B uly  4B w    4B       -- not req'd for reconstruction h    4B       -- not req'd for reconstruction number of borders 4B [for j = 1, nb] startx  4B starty  4B [for k = 1, nb] 2 steps 1B end in z8 or 88  1B \endcode</returns>
 public static int ccbaWriteStream(
-				  FILE fp, 
-				  CCBorda ccba){
+				 FILE fp, 
+				 CCBorda ccba){
 
 	int _Result = Natives.ccbaWriteStream(fp.Pointer, ccba.Pointer);
 	
@@ -835,7 +827,7 @@ public static int ccbaWriteStream(
 ///  <param name="filename">[in] - </param>
 ///   <returns>ccba, or NULL on error</returns>
 public static CCBorda ccbaRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.ccbaRead(  filename);
 	
@@ -855,7 +847,7 @@ public static CCBorda ccbaRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>ccba, or NULL on error \code Format:  ccba: %7d cc\n num. c.c.) (ascii)   (17B pix width 4B pix height 4B [for i = 1, ncc] ulx  4B uly  4B w    4B       -- not req'd for reconstruction h    4B       -- not req'd for reconstruction number of borders 4B [for j = 1, nb] startx  4B starty  4B [for k = 1, nb] 2 steps 1B end in z8 or 88  1B \endcode</returns>
 public static CCBorda ccbaReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.ccbaReadStream(fp.Pointer);
 	
@@ -876,8 +868,8 @@ public static CCBorda ccbaReadStream(
 ///  <param name="ccba">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ccbaWriteSVG(
-				  String filename, 
-				  CCBorda ccba){
+				 String filename, 
+				 CCBorda ccba){
 
 	int _Result = Natives.ccbaWriteSVG(  filename, ccba.Pointer);
 	
@@ -897,8 +889,8 @@ public static int ccbaWriteSVG(
 ///  <param name="ccba">[in] - </param>
 ///   <returns>string in svg-formatted, that can be written to file, or NULL on error.</returns>
 public static String ccbaWriteSVGString(
-				  String filename, 
-				  CCBorda ccba){
+				 String filename, 
+				 CCBorda ccba){
 
 	String _Result = Natives.ccbaWriteSVGString(  filename, ccba.Pointer);
 	
@@ -908,4 +900,5 @@ public static String ccbaWriteSVGString(
 	return _Result;
 }
 
+}
 }

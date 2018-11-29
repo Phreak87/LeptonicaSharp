@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // blend.c (174, 1)
 // pixBlend(pixs1, pixs2, x, y, fract) as Pix
@@ -21,11 +22,11 @@ public class _All {
 ///  <param name="fract">[in] - blending fraction</param>
 ///   <returns>pixd blended image, or NULL on error</returns>
 public static Pix pixBlend(
-				  Pix pixs1, 
-				  Pix pixs2, 
-				  int x, 
-				  int y, 
-				  Single fract){
+				 Pix pixs1, 
+				 Pix pixs2, 
+				 int x, 
+				 int y, 
+				 Single fract){
 
 	IntPtr _Result = Natives.pixBlend(pixs1.Pointer, pixs2.Pointer,   x,   y,   fract);
 	
@@ -66,13 +67,13 @@ public static Pix pixBlend(
 ///  <param name="type">[in] - L_BLEND_WITH_INVERSE, L_BLEND_TO_WHITE, L_BLEND_TO_BLACK</param>
 ///   <returns>pixd if OK NULL on error</returns>
 public static Pix pixBlendMask(
-				  Pix pixd, 
-				  Pix pixs1, 
-				  Pix pixs2, 
-				  int x, 
-				  int y, 
-				  Single fract, 
-				  int type){
+				 Pix pixd, 
+				 Pix pixs1, 
+				 Pix pixs2, 
+				 int x, 
+				 int y, 
+				 Single fract, 
+				 int type){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -133,15 +134,15 @@ public static Pix pixBlendMask(
 ///  <param name="transpix">[in] - pixel grayval in pixs2 that is to be transparent</param>
 ///   <returns>pixd if OK pixs1 on error</returns>
 public static Pix pixBlendGray(
-				  Pix pixd, 
-				  Pix pixs1, 
-				  Pix pixs2, 
-				  int x, 
-				  int y, 
-				  Single fract, 
-				  int type, 
-				  int transparent, 
-				  uint transpix){
+				 Pix pixd, 
+				 Pix pixs1, 
+				 Pix pixs2, 
+				 int x, 
+				 int y, 
+				 Single fract, 
+				 int type, 
+				 int transparent, 
+				 uint transpix){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -194,12 +195,12 @@ public static Pix pixBlendGray(
 ///  <param name="fract">[in] - blending fraction</param>
 ///   <returns>pixd if OK pixs1 on error</returns>
 public static Pix pixBlendGrayInverse(
-				  Pix pixd, 
-				  Pix pixs1, 
-				  Pix pixs2, 
-				  int x, 
-				  int y, 
-				  Single fract){
+				 Pix pixd, 
+				 Pix pixs1, 
+				 Pix pixs2, 
+				 int x, 
+				 int y, 
+				 Single fract){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -248,14 +249,14 @@ public static Pix pixBlendGrayInverse(
 ///  <param name="transpix">[in] - pixel color in pixs2 that is to be transparent</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixBlendColor(
-				  Pix pixd, 
-				  Pix pixs1, 
-				  Pix pixs2, 
-				  int x, 
-				  int y, 
-				  Single fract, 
-				  int transparent, 
-				  uint transpix){
+				 Pix pixd, 
+				 Pix pixs1, 
+				 Pix pixs2, 
+				 int x, 
+				 int y, 
+				 Single fract, 
+				 int transparent, 
+				 uint transpix){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -276,16 +277,16 @@ public static Pix pixBlendColor(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlendColorByChannel/*"/>
 ///   <returns></returns>
 public static Pix pixBlendColorByChannel(
-				  Pix pixd, 
-				  Pix pixs1, 
-				  Pix pixs2, 
-				  int x, 
-				  int y, 
-				  Single rfract, 
-				  Single gfract, 
-				  Single bfract, 
-				  int transparent, 
-				  uint transpix){
+				 Pix pixd, 
+				 Pix pixs1, 
+				 Pix pixs2, 
+				 int x, 
+				 int y, 
+				 Single rfract, 
+				 Single gfract, 
+				 Single bfract, 
+				 int transparent, 
+				 uint transpix){
 
 	IntPtr pixdPtr = IntPtr.Zero; if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixs1Ptr = IntPtr.Zero; if (pixs1 != null) {pixs1Ptr = pixs1.Pointer;}
@@ -348,13 +349,13 @@ public static Pix pixBlendColorByChannel(
 ///  <param name="shift">[in] - greater or equal 0 but smaller or equal 128: shift of zero blend value from median source use -1 for default value</param>
 ///   <returns>pixd if OK pixs1 on error</returns>
 public static Pix pixBlendGrayAdapt(
-				  Pix pixd, 
-				  Pix pixs1, 
-				  Pix pixs2, 
-				  int x, 
-				  int y, 
-				  Single fract, 
-				  int shift){
+				 Pix pixd, 
+				 Pix pixs1, 
+				 Pix pixs2, 
+				 int x, 
+				 int y, 
+				 Single fract, 
+				 int shift){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -388,10 +389,10 @@ public static Pix pixBlendGrayAdapt(
 ///  <param name="type">[in] - L_BLEND_TO_WHITE, L_BLEND_TO_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixFadeWithGray(
-				  Pix pixs, 
-				  Pix pixb, 
-				  Single factor, 
-				  int type){
+				 Pix pixs, 
+				 Pix pixb, 
+				 Single factor, 
+				 int type){
 
 	IntPtr _Result = Natives.pixFadeWithGray(pixs.Pointer, pixb.Pointer,   factor,   type);
 	
@@ -410,12 +411,12 @@ public static Pix pixFadeWithGray(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixBlendHardLight/*"/>
 ///   <returns></returns>
 public static Pix pixBlendHardLight(
-				  Pix pixd, 
-				  Pix pixs1, 
-				  Pix pixs2, 
-				  int x, 
-				  int y, 
-				  Single fract){
+				 Pix pixd, 
+				 Pix pixs1, 
+				 Pix pixs2, 
+				 int x, 
+				 int y, 
+				 Single fract){
 
 	IntPtr pixdPtr = IntPtr.Zero; if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixs1Ptr = IntPtr.Zero; if (pixs1 != null) {pixs1Ptr = pixs1.Pointer;}
@@ -462,11 +463,11 @@ public static Pix pixBlendHardLight(
 ///  <param name="sindex">[in] - colormap index of pixels in pixs to be changed</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixBlendCmap(
-				  Pix pixs, 
-				  Pix pixb, 
-				  int x, 
-				  int y, 
-				  int sindex){
+				 Pix pixs, 
+				 Pix pixb, 
+				 int x, 
+				 int y, 
+				 int sindex){
 
 	int _Result = Natives.pixBlendCmap(pixs.Pointer, pixb.Pointer,   x,   y,   sindex);
 	
@@ -515,11 +516,11 @@ public static int pixBlendCmap(
 ///  <param name="y">[in] - UL corner of pixs2 and pixg with respect to pixs1</param>
 ///   <returns>pixd blended image, or NULL on error</returns>
 public static Pix pixBlendWithGrayMask(
-				  Pix pixs1, 
-				  Pix pixs2, 
-				  Pix pixg, 
-				  int x, 
-				  int y){
+				 Pix pixs1, 
+				 Pix pixs2, 
+				 Pix pixg, 
+				 int x, 
+				 int y){
 
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
@@ -564,13 +565,13 @@ public static Pix pixBlendWithGrayMask(
 ///  <param name="maxval">[in] - args for grayscale TRC mapping</param>
 ///   <returns>pixd always</returns>
 public static Pix pixBlendBackgroundToColor(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Box box, 
-				  uint color, 
-				  Single gamma, 
-				  int minval, 
-				  int maxval){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Box box, 
+				 uint color, 
+				 Single gamma, 
+				 int minval, 
+				 int maxval){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -605,10 +606,10 @@ public static Pix pixBlendBackgroundToColor(
 ///  <param name="color">[in] - 32 bit color in 0xrrggbb00 format</param>
 ///   <returns>pixd always</returns>
 public static Pix pixMultiplyByColor(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Box box, 
-				  uint color){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Box box, 
+				 uint color){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -640,8 +641,8 @@ public static Pix pixMultiplyByColor(
 ///  <param name="color">[in] - 32 bit color in 0xrrggbb00 format</param>
 ///   <returns>pixd 32 bpp rgb: pixs blended over uniform color %color, a clone of pixs if no alpha, and NULL on error</returns>
 public static Pix pixAlphaBlendUniform(
-				  Pix pixs, 
-				  uint color){
+				 Pix pixs, 
+				 uint color){
 
 	IntPtr _Result = Natives.pixAlphaBlendUniform(pixs.Pointer,   color);
 	
@@ -680,9 +681,9 @@ public static Pix pixAlphaBlendUniform(
 ///  <param name="invert">[in] - 1 to photometrically invert pixs</param>
 ///   <returns>pixd 32 bpp with alpha, or NULL on error</returns>
 public static Pix pixAddAlphaToBlend(
-				  Pix pixs, 
-				  Single fract, 
-				  int invert){
+				 Pix pixs, 
+				 Single fract, 
+				 int invert){
 
 	IntPtr _Result = Natives.pixAddAlphaToBlend(pixs.Pointer,   fract,   invert);
 	
@@ -713,7 +714,7 @@ public static Pix pixAddAlphaToBlend(
 ///  <param name="pixs">[in] - colormapped or 32 bpp rgb no alpha</param>
 ///   <returns>pixd new pix with meaningful alpha component, or NULL on error</returns>
 public static Pix pixSetAlphaOverWhite(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixSetAlphaOverWhite(pixs.Pointer);
 	
@@ -746,11 +747,11 @@ public static Pix pixSetAlphaOverWhite(
 ///  <param name="maxfade">[in] - fraction of fading at the edge, smaller or equal 1.0</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixLinearEdgeFade(
-				  Pix pixs, 
-				  int dir, 
-				  int fadeto, 
-				  Single distfract, 
-				  Single maxfade){
+				 Pix pixs, 
+				 int dir, 
+				 int fadeto, 
+				 Single distfract, 
+				 Single maxfade){
 
 	int _Result = Natives.pixLinearEdgeFade(pixs.Pointer,   dir,   fadeto,   distfract,   maxfade);
 	
@@ -760,4 +761,5 @@ public static int pixLinearEdgeFade(
 	return _Result;
 }
 
+}
 }

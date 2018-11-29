@@ -17,7 +17,7 @@ partial public class L_Bytea{
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaCreate/*"/>
 ///  <param name="nbytes">[in] - determines initial size of data array</param>
 Sub New (
-				  uint nbytes)
+				 uint nbytes)
 	Dim RetObj = _All.l_byteaCreate(nbytes)
 	Pointer = RetObj.Pointer
 End Sub
@@ -30,8 +30,8 @@ End Sub
 ///  <param name="data">[in] - to be copied to the array</param>
 ///  <param name="size">[in] - amount of data</param>
 Sub New (
-				  Byte[] data, 
-				  uint size)
+				 Byte[] data, 
+				 uint size)
 	Dim RetObj = _All.l_byteaInitFromMem(data, size)
 	Pointer = RetObj.Pointer
 End Sub
@@ -43,7 +43,7 @@ End Sub
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaInitFromFile/*"/>
 ///  <param name="fname">[in] - </param>
 Sub New (
-				  String fname)
+				 String fname)
 	Dim RetObj = _All.l_byteaInitFromFile(fname)
 	Pointer = RetObj.Pointer
 End Sub
@@ -56,7 +56,7 @@ End Sub
 ///  <param name="str">[in] - null-terminated string to be appended</param>
 ///   <returns>0 if OK, 1 on error</returns>
 Public Function l_byteaAppendString(
-				  String str) as int
+				 String str) as int
 	Dim RetObj = _All.l_byteaAppendString(me, str)
 	return RetObj
 End Function
@@ -70,8 +70,8 @@ End Function
 ///  <param name="newbytes">[in] - size of data array</param>
 ///   <returns>0 if OK, 1 on error</returns>
 Public Function l_byteaAppendData(
-				  Byte[] newdata, 
-				  uint newbytes) as int
+				 Byte[] newdata, 
+				 uint newbytes) as int
 	Dim RetObj = _All.l_byteaAppendData(me, newdata, newbytes)
 	return RetObj
 End Function
@@ -88,8 +88,8 @@ End Function
 ///  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 ///   <returns>clone or copy of bas, or NULL on error</returns>
 Public Function l_byteaCopy(
-				  L_Bytea bas, 
-				  int copyflag) as L_Bytea
+				 L_Bytea bas, 
+				 int copyflag) as L_Bytea
 	Dim RetObj = _All.l_byteaCopy(bas, copyflag)
 	return RetObj
 End Function
@@ -106,7 +106,7 @@ End Function
 ///  <param name="psize">[out] - size of data in lba</param>
 ///   <returns>copy of data in use in the data array, or NULL on error.</returns>
 Public Function l_byteaCopyData(
-				 out uint psize) as Byte[]
+				out uint psize) as Byte[]
 	Dim RetObj = _All.l_byteaCopyData(me, psize)
 	return RetObj
 End Function
@@ -122,7 +122,7 @@ End Function
 ///  <param name="psize">[out] - size of data in lba</param>
 ///   <returns>ptr to existing data array, or NULL on error</returns>
 Public Function l_byteaGetData(
-				 out uint psize) as Byte[]
+				out uint psize) as Byte[]
 	Dim RetObj = _All.l_byteaGetData(me, psize)
 	return RetObj
 End Function
@@ -139,8 +139,8 @@ End Function
 ///  <param name="pba2">[in,out] - data array is added to the one in ba1, and then ba2 is destroyed</param>
 ///   <returns>0 if OK, 1 on error</returns>
 Public Function l_byteaJoin(
-				  L_Bytea ba1, 
-				 ref L_Bytea pba2) as int
+				 L_Bytea ba1, 
+				ref L_Bytea pba2) as int
 	Dim RetObj = _All.l_byteaJoin(ba1, pba2)
 	return RetObj
 End Function
@@ -155,9 +155,9 @@ End Function
 ///  <param name="pba2">[out] - with data starting at splitloc</param>
 ///   <returns>0 if OK, 1 on error</returns>
 Public Function l_byteaSplit(
-				  L_Bytea ba1, 
-				  uint splitloc, 
-				 out L_Bytea pba2) as int
+				 L_Bytea ba1, 
+				 uint splitloc, 
+				out L_Bytea pba2) as int
 	Dim RetObj = _All.l_byteaSplit(ba1, splitloc, pba2)
 	return RetObj
 End Function
@@ -172,9 +172,9 @@ End Function
 ///  <param name="endloc">[in] - last byte to output use 0 to write to the end of the data array</param>
 ///   <returns>0 if OK, 1 on error</returns>
 Public Function l_byteaWrite(
-				  String fname, 
-				  uint startloc, 
-				  uint endloc) as int
+				 String fname, 
+				 uint startloc, 
+				 uint endloc) as int
 	Dim RetObj = _All.l_byteaWrite(fname, me, startloc, endloc)
 	return RetObj
 End Function
@@ -189,9 +189,9 @@ End Function
 ///  <param name="endloc">[in] - last byte to output use 0 to write to the end of the data array</param>
 ///   <returns>0 if OK, 1 on error</returns>
 Public Function l_byteaWriteStream(
-				  FILE fp, 
-				  uint startloc, 
-				  uint endloc) as int
+				 FILE fp, 
+				 uint startloc, 
+				 uint endloc) as int
 	Dim RetObj = _All.l_byteaWriteStream(fp, me, startloc, endloc)
 	return RetObj
 End Function
@@ -209,7 +209,7 @@ partial public class Pix{
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixRead/*"/>
 ///  <param name="filename">[in] - with full pathname or in local directory</param>
 Sub New (
-				  String filename)
+				 String filename)
 	Dim RetObj = _All.pixRead(filename)
 	Pointer = RetObj.Pointer
 End Sub
@@ -268,7 +268,7 @@ End Function
 ///  <param name="cmapflag">[in] - TRUE if pixd is to have a colormap FALSE otherwise</param>
 ///   <returns>pixd 8 bpp, or NULL on error</returns>
 Public Function pixConvertTo8(
-				  int cmapflag) as Pix
+				 int cmapflag) as Pix
 	Dim RetObj = _All.pixConvertTo8(me, cmapflag)
 	return RetObj
 End Function
@@ -332,7 +332,7 @@ End Function
 ///  <param name="threshold">[in] - for final binarization, relative to 8 bpp</param>
 ///   <returns>pixd 1 bpp, or NULL on error</returns>
 Public Function pixConvertTo1(
-				  int threshold) as Pix
+				 int threshold) as Pix
 	Dim RetObj = _All.pixConvertTo1(me, threshold)
 	return RetObj
 End Function
@@ -445,8 +445,8 @@ End Function
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>pixd  may be rotated by 90, 180 or 270 null on error</returns>
 Public Function pixOrientCorrect(
-				  Single minupconf, 
-				  Single minratio, 
+				 Single minupconf, 
+				 Single minratio, 
 				out Single pupconf, 
 				out Single pleftconf, 
 				out int protation, 
@@ -525,7 +525,7 @@ End Function
 ///  <param name="pixadb">[in] - input for collecting debug pix use NULL to skip</param>
 ///   <returns>0 if OK, 1 on error</returns>
 Public Function pixGetRegionsBinary(
-				  Pixa pixadb, 
+				 Pixa pixadb, 
 				out Pix ppixhm, 
 				out Pix ppixtm, 
 				out Pix ppixtb) as int
@@ -585,9 +585,9 @@ End Function
 ///  <param name="delta">[in] - threshold for deciding if a pix is color or gray</param>
 ///   <returns>pixd     quantized to octcube and gray levels or NULL on error</returns>
 Public Function pixOctcubeQuantMixedWithGray(
-				  int depth, 
-				  int graylevels, 
-				  int delta) as Pix
+				 int depth, 
+				 int graylevels, 
+				 int delta) as Pix
 	Dim RetObj = _All.pixOctcubeQuantMixedWithGray(me, depth, graylevels, delta)
 	return RetObj
 End Function
@@ -618,7 +618,7 @@ End Function
 ///  <param name="colormap">[in] - to be assigned</param>
 ///   <returns>0 if OK, 1 on error.</returns>
 Public Function pixSetColormap(
-				  PixColormap colormap) as int
+				 PixColormap colormap) as int
 	Dim RetObj = _All.pixSetColormap(me, colormap)
 	return RetObj
 End Function
@@ -645,10 +645,10 @@ End Function
 ///  <param name="debug">[in] - 1 for debugging output, 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error list of page numbers, or NULL on error</returns>
 Public Function dewarpSinglePage(
-				  int thresh, 
-				  int adaptive, 
-				  int useboth, 
-				  int check_columns, 
+				 int thresh, 
+				 int adaptive, 
+				 int useboth, 
+				 int check_columns, 
 				out Pix ppixd, 
 				out L_Dewarpa pdewa, 
 				 DebugOnOff debug) as Object
@@ -680,10 +680,10 @@ End Function
 ///  <param name="plpd">[in,out] - ptr to lpd, which is created on the first invocation and returned until last image is processed</param>
 ///  <param name="position">[in] - in image sequence: L_FIRST_IMAGE, L_NEXT_IMAGE, L_LAST_IMAGE</param>
 Public Sub pixConvertToPdf(
-				  int type, 
-				  String fileout, 
-				 ref L_Pdf_Data plpd, 
-				  int position, 
+				 int type, 
+				 String fileout, 
+				ref L_Pdf_Data plpd, 
+				 int position, 
 				 int quality, 
 				 int x, 
 				 int y, 
@@ -702,7 +702,7 @@ partial public class PixColormap{
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixcmapCreate/*"/>
 ///  <param name="depth">[in] - bpp, of pix</param>
 Sub New (
-				  int depth)
+				 int depth)
 	Dim RetObj = _All.pixcmapCreate(depth)
 	Pointer = RetObj.Pointer
 End Sub
@@ -730,10 +730,10 @@ End Function
 ///  <param name="pbval">[out] - each color value</param>
 ///   <returns>0 if OK, 1 if not accessible caller should check</returns>
 Public Function pixcmapGetColor(
-				  int index, 
-				 out int prval, 
-				 out int pgval, 
-				 out int pbval) as int
+				 int index, 
+				out int prval, 
+				out int pgval, 
+				out int pbval) as int
 	Dim RetObj = _All.pixcmapGetColor(me, index, prval, pgval, pbval)
 	return RetObj
 End Function
@@ -753,9 +753,9 @@ End Function
 ///  <param name="bval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 ///   <returns>0 if OK, 1 on error</returns>
 Public Function pixcmapAddColor(
-				  int rval, 
-				  int gval, 
-				  int bval) as int
+				 int rval, 
+				 int gval, 
+				 int bval) as int
 	Dim RetObj = _All.pixcmapAddColor(me, rval, gval, bval)
 	return RetObj
 End Function

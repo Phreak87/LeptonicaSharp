@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // skew.c (162, 1)
 // pixDeskewBoth(pixs, redsearch) as Pix
@@ -22,7 +23,7 @@ public class _All {
 ///  <param name="redsearch">[in] - for binary search: reduction factor = 1, 2 or 4 use 0 for default</param>
 ///   <returns>pixd deskewed pix, or NULL on error</returns>
 public static Pix pixDeskewBoth(
-				  Pix pixs, 
+				 Pix pixs, 
 				 int redsearch){
 
 	IntPtr _Result = Natives.pixDeskewBoth(pixs.Pointer,   redsearch);
@@ -52,7 +53,7 @@ public static Pix pixDeskewBoth(
 ///  <param name="redsearch">[in] - for binary search: reduction factor = 1, 2 or 4 use 0 for default</param>
 ///   <returns>pixd deskewed pix, or NULL on error</returns>
 public static Pix pixDeskew(
-				  Pix pixs, 
+				 Pix pixs, 
 				 int redsearch){
 
 	IntPtr _Result = Natives.pixDeskew(pixs.Pointer,   redsearch);
@@ -81,7 +82,7 @@ public static Pix pixDeskew(
 ///  <param name="pconf">[out][optional] - conf value is ratio of max/min scores use NULL to skip</param>
 ///   <returns>pixd deskewed pix, or NULL on error</returns>
 public static Pix pixFindSkewAndDeskew(
-				  Pix pixs, 
+				 Pix pixs, 
 				 int redsearch, 
 				out Single pangle, 
 				out Single pconf){
@@ -89,8 +90,6 @@ public static Pix pixFindSkewAndDeskew(
 	IntPtr _Result = Natives.pixFindSkewAndDeskew(pixs.Pointer,   redsearch, out  pangle, out  pconf);
 	
 
-pangle = 0f;
-pconf = 0f;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -118,7 +117,7 @@ pconf = 0f;
 ///  <param name="pconf">[out][optional] - conf value is ratio of max/min scores use NULL to skip</param>
 ///   <returns>pixd deskewed pix, or NULL on error</returns>
 public static Pix pixDeskewGeneral(
-				  Pix pixs, 
+				 Pix pixs, 
 				 int redsweep, 
 				 Single sweeprange, 
 				 Single sweepdelta, 
@@ -130,8 +129,6 @@ public static Pix pixDeskewGeneral(
 	IntPtr _Result = Natives.pixDeskewGeneral(pixs.Pointer,   redsweep,   sweeprange,   sweepdelta,   redsearch,   thresh, out  pangle, out  pconf);
 	
 
-pangle = 0f;
-pconf = 0f;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -157,15 +154,13 @@ pconf = 0f;
 ///  <param name="pconf">[out] - confidence value is ratio max/min scores</param>
 ///   <returns>0 if OK, 1 on error or if angle measurement not valid</returns>
 public static int pixFindSkew(
-				  Pix pixs, 
-				 out Single pangle, 
-				 out Single pconf){
+				 Pix pixs, 
+				out Single pangle, 
+				out Single pconf){
 
 	int _Result = Natives.pixFindSkew(pixs.Pointer, out  pangle, out  pconf);
 	
 
-pangle = 0f;
-pconf = 0f;
 
 
 	return _Result;
@@ -189,16 +184,15 @@ pconf = 0f;
 ///  <param name="sweepdelta">[in] - angle increment of sweep in degrees</param>
 ///   <returns>0 if OK, 1 on error or if angle measurement not valid</returns>
 public static int pixFindSkewSweep(
-				  Pix pixs, 
-				 out Single pangle, 
-				  int reduction, 
-				  Single sweeprange, 
-				  Single sweepdelta){
+				 Pix pixs, 
+				out Single pangle, 
+				 int reduction, 
+				 Single sweeprange, 
+				 Single sweepdelta){
 
 	int _Result = Natives.pixFindSkewSweep(pixs.Pointer, out  pangle,   reduction,   sweeprange,   sweepdelta);
 	
 
-pangle = 0f;
 
 
 	return _Result;
@@ -235,20 +229,18 @@ pangle = 0f;
 ///  <param name="minbsdelta">[in] - min binary search increment angle in degrees</param>
 ///   <returns>0 if OK, 1 on error or if angle measurement not valid</returns>
 public static int pixFindSkewSweepAndSearch(
-				  Pix pixs, 
-				 out Single pangle, 
-				 out Single pconf, 
-				  int redsweep, 
-				  int redsearch, 
-				  Single sweeprange, 
-				  Single sweepdelta, 
-				  Single minbsdelta){
+				 Pix pixs, 
+				out Single pangle, 
+				out Single pconf, 
+				 int redsweep, 
+				 int redsearch, 
+				 Single sweeprange, 
+				 Single sweepdelta, 
+				 Single minbsdelta){
 
 	int _Result = Natives.pixFindSkewSweepAndSearch(pixs.Pointer, out  pangle, out  pconf,   redsweep,   redsearch,   sweeprange,   sweepdelta,   minbsdelta);
 	
 
-pangle = 0f;
-pconf = 0f;
 
 
 	return _Result;
@@ -294,23 +286,20 @@ pconf = 0f;
 ///  <param name="minbsdelta">[in] - min binary search increment angle in degrees</param>
 ///   <returns>0 if OK, 1 on error or if angle measurement not valid</returns>
 public static int pixFindSkewSweepAndSearchScore(
-				  Pix pixs, 
-				 out Single pangle, 
-				 out Single pconf, 
-				 out Single pendscore, 
-				  int redsweep, 
-				  int redsearch, 
-				  Single sweepcenter, 
-				  Single sweeprange, 
-				  Single sweepdelta, 
-				  Single minbsdelta){
+				 Pix pixs, 
+				out Single pangle, 
+				out Single pconf, 
+				out Single pendscore, 
+				 int redsweep, 
+				 int redsearch, 
+				 Single sweepcenter, 
+				 Single sweeprange, 
+				 Single sweepdelta, 
+				 Single minbsdelta){
 
 	int _Result = Natives.pixFindSkewSweepAndSearchScore(pixs.Pointer, out  pangle, out  pconf, out  pendscore,   redsweep,   redsearch,   sweepcenter,   sweeprange,   sweepdelta,   minbsdelta);
 	
 
-pangle = 0f;
-pconf = 0f;
-pendscore = 0f;
 
 
 	return _Result;
@@ -345,24 +334,21 @@ pendscore = 0f;
 ///  <param name="pivot">[in] - L_SHEAR_ABOUT_CORNER, L_SHEAR_ABOUT_CENTER</param>
 ///   <returns>0 if OK, 1 on error or if angle measurement not valid</returns>
 public static int pixFindSkewSweepAndSearchScorePivot(
-				  Pix pixs, 
-				 out Single pangle, 
-				 out Single pconf, 
-				 out Single pendscore, 
-				  int redsweep, 
-				  int redsearch, 
-				  Single sweepcenter, 
-				  Single sweeprange, 
-				  Single sweepdelta, 
-				  Single minbsdelta, 
-				  int pivot){
+				 Pix pixs, 
+				out Single pangle, 
+				out Single pconf, 
+				out Single pendscore, 
+				 int redsweep, 
+				 int redsearch, 
+				 Single sweepcenter, 
+				 Single sweeprange, 
+				 Single sweepdelta, 
+				 Single minbsdelta, 
+				 int pivot){
 
 	int _Result = Natives.pixFindSkewSweepAndSearchScorePivot(pixs.Pointer, out  pangle, out  pconf, out  pendscore,   redsweep,   redsearch,   sweepcenter,   sweeprange,   sweepdelta,   minbsdelta,   pivot);
 	
 
-pangle = 0f;
-pconf = 0f;
-pendscore = 0f;
 
 
 	return _Result;
@@ -376,15 +362,15 @@ pendscore = 0f;
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFindSkewOrthogonalRange/*"/>
 ///   <returns></returns>
 public static int pixFindSkewOrthogonalRange(
-				  Pix pixs, 
-				  Single[] pangle, 
-				  Single[] pconf, 
-				  int redsweep, 
-				  int redsearch, 
-				  Single sweeprange, 
-				  Single sweepdelta, 
-				  Single minbsdelta, 
-				  Single confprior){
+				 Pix pixs, 
+				 Single[] pangle, 
+				 Single[] pconf, 
+				 int redsweep, 
+				 int redsearch, 
+				 Single sweeprange, 
+				 Single sweepdelta, 
+				 Single minbsdelta, 
+				 Single confprior){
 
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
@@ -412,13 +398,12 @@ public static int pixFindSkewOrthogonalRange(
 ///  <param name="psum">[out] - result</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixFindDifferentialSquareSum(
-				  Pix pixs, 
-				 out Single psum){
+				 Pix pixs, 
+				out Single psum){
 
 	int _Result = Natives.pixFindDifferentialSquareSum(pixs.Pointer, out  psum);
 	
 
-psum = 0f;
 
 
 	return _Result;
@@ -447,7 +432,7 @@ psum = 0f;
 ///  <param name="pfract">[out][optional] - ratio of fg pixels to total pixels</param>
 ///   <returns>0 if OK, 1 on error or if there are no fg pixels</returns>
 public static int pixFindNormalizedSquareSum(
-				  Pix pixs, 
+				 Pix pixs, 
 				out Single phratio, 
 				out Single pvratio, 
 				out Single pfract){
@@ -455,12 +440,10 @@ public static int pixFindNormalizedSquareSum(
 	int _Result = Natives.pixFindNormalizedSquareSum(pixs.Pointer, out  phratio, out  pvratio, out  pfract);
 	
 
-phratio = 0f;
-pvratio = 0f;
-pfract = 0f;
 
 
 	return _Result;
 }
 
+}
 }

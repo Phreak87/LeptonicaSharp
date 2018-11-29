@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // pdfio2.c (182, 1)
 // pixConvertToPdfData(pix, type, quality, pdata, pnbytes, x, y, res, title, plpd, position) as int
@@ -33,17 +34,17 @@ public class _All {
 ///  <param name="position">[in] - in image sequence: L_FIRST_IMAGE, L_NEXT_IMAGE, L_LAST_IMAGE</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixConvertToPdfData(
-				  Pix pix, 
-				  int type, 
-				  int quality, 
-				 out Byte[] pdata, 
-				 out uint pnbytes, 
-				  int x, 
-				  int y, 
-				  int res, 
-				  String title, 
-				 ref L_Pdf_Data plpd, 
-				  int position){
+				 Pix pix, 
+				 int type, 
+				 int quality, 
+				out Byte[] pdata, 
+				out uint pnbytes, 
+				 int x, 
+				 int y, 
+				 int res, 
+				 String title, 
+				ref L_Pdf_Data plpd, 
+				 int position){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 	IntPtr plpdPtr = IntPtr.Zero; 	if (plpd != null) {plpdPtr = plpd.Pointer;}
@@ -51,10 +52,8 @@ public static int pixConvertToPdfData(
 	int _Result = Natives.pixConvertToPdfData(pix.Pointer,   type,   quality, out  pdataPtr, out  pnbytes,   x,   y,   res,   title, ref plpdPtr,   position);
 	
 
-pdata = null;
-pnbytes = 0;
-plpd = null;
-	; if (plpdPtr != IntPtr.Zero){plpd = new L_Pdf_Data(plpdPtr);}
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
+	if (plpdPtr == null) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
 
 
 	return _Result;
@@ -97,10 +96,10 @@ plpd = null;
 ///  <param name="pnbytes">[out] - number of bytes in pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptraConcatenatePdfToData(
-				  L_Ptra pa_data, 
-				  Sarray sa, 
-				 out Byte[] pdata, 
-				 out uint pnbytes){
+				 L_Ptra pa_data, 
+				 Sarray sa, 
+				out Byte[] pdata, 
+				out uint pnbytes){
 
 	IntPtr saPtr = IntPtr.Zero; 	if (sa != null) {saPtr = sa.Pointer;}
 	IntPtr pdataPtr = IntPtr.Zero;
@@ -108,8 +107,7 @@ public static int ptraConcatenatePdfToData(
 	int _Result = Natives.ptraConcatenatePdfToData(pa_data.Pointer, saPtr, out  pdataPtr, out  pnbytes);
 	
 
-pdata = null;
-pnbytes = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -129,8 +127,8 @@ pnbytes = 0;
 ///  <param name="fileout">[in] - (pdf)</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertTiffMultipageToPdf(
-				  String filein, 
-				  String fileout){
+				 String filein, 
+				 String fileout){
 
 	int _Result = Natives.convertTiffMultipageToPdf(  filein,   fileout);
 	
@@ -166,10 +164,10 @@ public static int convertTiffMultipageToPdf(
 ///  <param name="pcid">[out] - compressed data</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_generateCIDataForPdf(
-				  String fname, 
-				  Pix pix, 
-				  int quality, 
-				 out L_Compressed_Data pcid){
+				 String fname, 
+				 Pix pix, 
+				 int quality, 
+				out L_Compressed_Data pcid){
 
 	IntPtr pixPtr = IntPtr.Zero; 	if (pix != null) {pixPtr = pix.Pointer;}
 	IntPtr pcidPtr = IntPtr.Zero;
@@ -177,8 +175,7 @@ public static int l_generateCIDataForPdf(
 	int _Result = Natives.l_generateCIDataForPdf(  fname, pixPtr,   quality, out pcidPtr);
 	
 
-pcid = null;
-	; if (pcidPtr != IntPtr.Zero){pcid = new L_Compressed_Data(pcidPtr);}
+	if (pcidPtr == null) {pcid = null;} else { pcid = new L_Compressed_Data(pcidPtr); };
 
 
 	return _Result;
@@ -205,7 +202,7 @@ pcid = null;
 ///  <param name="pixs">[in][optional] - can be null</param>
 ///   <returns>cid containing png data, or NULL on error</returns>
 public static L_Compressed_Data l_generateFlateDataPdf(
-				  String fname, 
+				 String fname, 
 				 Pix pixs){
 
 	IntPtr pixsPtr = IntPtr.Zero; 	if (pixs != null) {pixsPtr = pixs.Pointer;}
@@ -238,8 +235,8 @@ public static L_Compressed_Data l_generateFlateDataPdf(
 ///  <param name="ascii85flag">[in] - 0 for jpeg 1 for ascii85-encoded jpeg</param>
 ///   <returns>cid containing jpeg data, or NULL on error</returns>
 public static L_Compressed_Data l_generateJpegData(
-				  String fname, 
-				  int ascii85flag){
+				 String fname, 
+				 int ascii85flag){
 
 	IntPtr _Result = Natives.l_generateJpegData(  fname,   ascii85flag);
 	
@@ -264,9 +261,9 @@ public static L_Compressed_Data l_generateJpegData(
 ///  <param name="ascii85flag">[in] - 0 for jpeg 1 for ascii85-encoded jpeg</param>
 ///   <returns>cid containing jpeg data, or NULL on error</returns>
 public static L_Compressed_Data l_generateJpegDataMem(
-				  Byte[] data, 
-				  uint nbytes, 
-				  int ascii85flag){
+				 Byte[] data, 
+				 uint nbytes, 
+				 int ascii85flag){
 
 	IntPtr _Result = Natives.l_generateJpegDataMem(  data,   nbytes,   ascii85flag);
 	
@@ -303,19 +300,18 @@ public static L_Compressed_Data l_generateJpegDataMem(
 ///  <param name="pcid">[out] - compressed data</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_generateCIData(
-				  String fname, 
-				  int type, 
-				  int quality, 
-				  int ascii85, 
-				 out L_Compressed_Data pcid){
+				 String fname, 
+				 int type, 
+				 int quality, 
+				 int ascii85, 
+				out L_Compressed_Data pcid){
 
 	IntPtr pcidPtr = IntPtr.Zero;
 
 	int _Result = Natives.l_generateCIData(  fname,   type,   quality,   ascii85, out pcidPtr);
 	
 
-pcid = null;
-	; if (pcidPtr != IntPtr.Zero){pcid = new L_Compressed_Data(pcidPtr);}
+	if (pcidPtr == null) {pcid = null;} else { pcid = new L_Compressed_Data(pcidPtr); };
 
 
 	return _Result;
@@ -339,19 +335,18 @@ pcid = null;
 ///  <param name="pcid">[out] - compressed data</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGenerateCIData(
-				  Pix pixs, 
-				  int type, 
-				  int quality, 
-				  int ascii85, 
-				 out L_Compressed_Data pcid){
+				 Pix pixs, 
+				 int type, 
+				 int quality, 
+				 int ascii85, 
+				out L_Compressed_Data pcid){
 
 	IntPtr pcidPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixGenerateCIData(pixs.Pointer,   type,   quality,   ascii85, out pcidPtr);
 	
 
-pcid = null;
-	; if (pcidPtr != IntPtr.Zero){pcid = new L_Compressed_Data(pcidPtr);}
+	if (pcidPtr == null) {pcid = null;} else { pcid = new L_Compressed_Data(pcidPtr); };
 
 
 	return _Result;
@@ -378,8 +373,8 @@ pcid = null;
 ///  <param name="ascii85flag">[in] - 0 for gzipped 1 for ascii85-encoded gzipped</param>
 ///   <returns>cid flate compressed image data, or NULL on error</returns>
 public static L_Compressed_Data l_generateFlateData(
-				  String fname, 
-				  int ascii85flag){
+				 String fname, 
+				 int ascii85flag){
 
 	IntPtr _Result = Natives.l_generateFlateData(  fname,   ascii85flag);
 	
@@ -406,8 +401,8 @@ public static L_Compressed_Data l_generateFlateData(
 ///  <param name="ascii85flag">[in] - 0 for g4 compressed 1 for ascii85-encoded g4</param>
 ///   <returns>cid g4 compressed image data, or NULL on error</returns>
 public static L_Compressed_Data l_generateG4Data(
-				  String fname, 
-				  int ascii85flag){
+				 String fname, 
+				 int ascii85flag){
 
 	IntPtr _Result = Natives.l_generateG4Data(  fname,   ascii85flag);
 	
@@ -434,18 +429,17 @@ public static L_Compressed_Data l_generateG4Data(
 ///  <param name="pnbytes">[out] - size of output pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int cidConvertToPdfData(
-				  L_Compressed_Data cid, 
-				  String title, 
-				 out Byte[] pdata, 
-				 out uint pnbytes){
+				 L_Compressed_Data cid, 
+				 String title, 
+				out Byte[] pdata, 
+				out uint pnbytes){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.cidConvertToPdfData(cid.Pointer,   title, out  pdataPtr, out  pnbytes);
 	
 
-pdata = null;
-pnbytes = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -459,15 +453,14 @@ pnbytes = 0;
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_CIDataDestroy/*"/>
 ///  <param name="pcid">[in,out] - will be set to null before returning</param>
 public static void l_CIDataDestroy(
-				 ref L_Compressed_Data pcid){
+				ref L_Compressed_Data pcid){
 
 	IntPtr pcidPtr = IntPtr.Zero; 	if (pcid != null) {pcidPtr = pcid.Pointer;}
 
 	Natives.l_CIDataDestroy(ref pcidPtr);
 	
 
-pcid = null;
-	; if (pcidPtr != IntPtr.Zero){pcid = new L_Compressed_Data(pcidPtr);}
+	if (pcidPtr == null) {pcid = null;} else { pcid = new L_Compressed_Data(pcidPtr); };
 
 
 }
@@ -485,7 +478,7 @@ pcid = null;
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_pdfSetG4ImageMask/*"/>
 ///  <param name="flag">[in] - 1 for writing g4 data as fg only through a mask 0 for writing fg and bg</param>
 public static void l_pdfSetG4ImageMask(
-				  int flag){
+				 int flag){
 
 	Natives.l_pdfSetG4ImageMask(  flag);
 	
@@ -506,7 +499,7 @@ public static void l_pdfSetG4ImageMask(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_pdfSetDateAndVersion/*"/>
 ///  <param name="flag">[in] - 1 for writing date/time and leptonica version 0 for omitting this from the metadata</param>
 public static void l_pdfSetDateAndVersion(
-				  int flag){
+				 int flag){
 
 	Natives.l_pdfSetDateAndVersion(  flag);
 	
@@ -515,4 +508,5 @@ public static void l_pdfSetDateAndVersion(
 
 }
 
+}
 }

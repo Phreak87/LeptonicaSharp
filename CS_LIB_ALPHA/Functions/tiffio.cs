@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // tiffio.c (371, 1)
 // pixReadTiff(filename, n) as Pix
@@ -23,8 +24,8 @@ public class _All {
 ///  <param name="n">[in] - page number 0 based</param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixReadTiff(
-				  String filename, 
-				  int n){
+				 String filename, 
+				 int n){
 
 	IntPtr _Result = Natives.pixReadTiff(  filename,   n);
 	
@@ -50,8 +51,8 @@ public static Pix pixReadTiff(
 ///  <param name="n">[in] - page number: 0 based</param>
 ///   <returns>pix, or NULL on error or if there are no more images in the file</returns>
 public static Pix pixReadStreamTiff(
-				  FILE fp, 
-				  int n){
+				 FILE fp, 
+				 int n){
 
 	IntPtr _Result = Natives.pixReadStreamTiff(fp.Pointer,   n);
 	
@@ -83,10 +84,10 @@ public static Pix pixReadStreamTiff(
 ///  <param name="modestr">[in] - "a" or "w"</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixWriteTiff(
-				  String filename, 
-				  Pix pix, 
-				  int comptype, 
-				  String modestr){
+				 String filename, 
+				 Pix pix, 
+				 int comptype, 
+				 String modestr){
 
 	int _Result = Natives.pixWriteTiff(  filename, pix.Pointer,   comptype,   modestr);
 	
@@ -112,10 +113,10 @@ public static int pixWriteTiff(
 ///  <param name="nasizes">[in][optional] - NUMA of sizes</param>
 ///   <returns>0 if OK, 1 on error Usage: 1 This writes a page image to a tiff file, with optional extra tags defined in tiff.h 2 For multipage tiff, write the first pix with mode "w" and all subsequent pix with mode "a". 3 For the custom tiff tags: a The three arrays {natags, savals, satypes} must all be either NULL or defined and of equal size. b If they are defined, the tags are an array of integers, the vals are an array of values in string format, and the types are an array of types in string format. c All valid tags are definined in tiff.h. d The types allowed are the set of strings: "char" "l_uint8" "l_uint16" "l_uint32" "l_int32" "l_float64" "l_uint16-l_uint16" note the dash use it between the two l_uint16 vals in the val string Of these, "char" and "l_uint16" are the most commonly used. e The last array, nasizes, is also optional.  It is for tags that take an array of bytes for a value, a number of elements in the array, and a type that is either "char" or "l_uint8" probably either will work. Use NULL if there are no such tags. f VERY IMPORTANT: if there are any tags that require the extra size value, stored in nasizes, they must be written first!</returns>
 public static int pixWriteTiffCustom(
-				  String filename, 
-				  Pix pix, 
-				  int comptype, 
-				  String modestr, 
+				 String filename, 
+				 Pix pix, 
+				 int comptype, 
+				 String modestr, 
 				 Numa natags, 
 				 Sarray savals, 
 				 Sarray satypes, 
@@ -163,9 +164,9 @@ public static int pixWriteTiffCustom(
 ///  <param name="comptype">[in] - IFF_TIFF, IFF_TIFF_RLE, IFF_TIFF_PACKBITS, IFF_TIFF_G3, IFF_TIFF_G4, IFF_TIFF_LZW, IFF_TIFF_ZIP</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixWriteStreamTiff(
-				  FILE fp, 
-				  Pix pix, 
-				  int comptype){
+				 FILE fp, 
+				 Pix pix, 
+				 int comptype){
 
 	int _Result = Natives.pixWriteStreamTiff(fp.Pointer, pix.Pointer,   comptype);
 	
@@ -187,10 +188,10 @@ public static int pixWriteStreamTiff(
 ///  <param name="modestr">[in] - "w" or "a"</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixWriteStreamTiffWA(
-				  FILE fp, 
-				  Pix pix, 
-				  int comptype, 
-				  String modestr){
+				 FILE fp, 
+				 Pix pix, 
+				 int comptype, 
+				 String modestr){
 
 	int _Result = Natives.pixWriteStreamTiffWA(fp.Pointer, pix.Pointer,   comptype,   modestr);
 	
@@ -238,8 +239,8 @@ public static int pixWriteStreamTiffWA(
 ///  <param name="poffset">[in,out] - set offset to 0 for first image</param>
 ///   <returns>pix, or NULL on error or if previous call returned the last image</returns>
 public static Pix pixReadFromMultipageTiff(
-				  String fname, 
-				 ref Byte[] poffset){
+				 String fname, 
+				ref Byte[] poffset){
 
 		IntPtr poffsetPtr = 	Marshal.AllocHGlobal(poffset.Length);
 		Marshal.Copy(poffset, 0, poffsetPtr, poffset.Length);
@@ -247,7 +248,7 @@ public static Pix pixReadFromMultipageTiff(
 	IntPtr _Result = Natives.pixReadFromMultipageTiff(  fname, ref  poffsetPtr);
 	
 
-poffset = null;
+	if (poffsetPtr == null) {poffset = null;} else { poffset = null; };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -263,7 +264,7 @@ poffset = null;
 ///  <param name="filename">[in] - input tiff file</param>
 ///   <returns>pixa of page images, or NULL on error</returns>
 public static Pixa pixaReadMultipageTiff(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.pixaReadMultipageTiff(  filename);
 	
@@ -289,8 +290,8 @@ public static Pixa pixaReadMultipageTiff(
 ///  <param name="pixa">[in] - any depth colormap will be removed</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaWriteMultipageTiff(
-				  String fname, 
-				  Pixa pixa){
+				 String fname, 
+				 Pixa pixa){
 
 	int _Result = Natives.pixaWriteMultipageTiff(  fname, pixa.Pointer);
 	
@@ -328,9 +329,9 @@ public static int pixaWriteMultipageTiff(
 ///  <param name="fileout">[in] - output multipage tiff file</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int writeMultipageTiff(
-				  String dirin, 
-				  String substr, 
-				  String fileout){
+				 String dirin, 
+				 String substr, 
+				 String fileout){
 
 	int _Result = Natives.writeMultipageTiff(  dirin,   substr,   fileout);
 	
@@ -353,8 +354,8 @@ public static int writeMultipageTiff(
 ///  <param name="fileout">[in] - output ps file</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int writeMultipageTiffSA(
-				  Sarray sa, 
-				  String fileout){
+				 Sarray sa, 
+				 String fileout){
 
 	int _Result = Natives.writeMultipageTiffSA(sa.Pointer,   fileout);
 	
@@ -374,8 +375,8 @@ public static int writeMultipageTiffSA(
 ///  <param name="tiffile">[in] - input</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int fprintTiffInfo(
-				  FILE fpout, 
-				  String tiffile){
+				 FILE fpout, 
+				 String tiffile){
 
 	int _Result = Natives.fprintTiffInfo(fpout.Pointer,   tiffile);
 	
@@ -395,13 +396,12 @@ public static int fprintTiffInfo(
 ///  <param name="pn">[out] - number of images</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int tiffGetCount(
-				  FILE fp, 
-				 out int pn){
+				 FILE fp, 
+				out int pn){
 
 	int _Result = Natives.tiffGetCount(fp.Pointer, out  pn);
 	
 
-pn = 0;
 
 
 	return _Result;
@@ -422,15 +422,13 @@ pn = 0;
 ///  <param name="pyres">[out] - resolution in ppi</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int getTiffResolution(
-				  FILE fp, 
-				 out int pxres, 
-				 out int pyres){
+				 FILE fp, 
+				out int pxres, 
+				out int pyres){
 
 	int _Result = Natives.getTiffResolution(fp.Pointer, out  pxres, out  pyres);
 	
 
-pxres = 0;
-pyres = 0;
 
 
 	return _Result;
@@ -458,8 +456,8 @@ pyres = 0;
 ///  <param name="pformat">[out][optional] - tiff format input NULL to ignore</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int readHeaderTiff(
-				  String filename, 
-				  int n, 
+				 String filename, 
+				 int n, 
 				out int pw, 
 				out int ph, 
 				out int pbps, 
@@ -471,13 +469,6 @@ public static int readHeaderTiff(
 	int _Result = Natives.readHeaderTiff(  filename,   n, out  pw, out  ph, out  pbps, out  pspp, out  pres, out  pcmap, out  pformat);
 	
 
-pw = 0;
-ph = 0;
-pbps = 0;
-pspp = 0;
-pres = 0;
-pcmap = 0;
-pformat = 0;
 
 
 	return _Result;
@@ -505,8 +496,8 @@ pformat = 0;
 ///  <param name="pformat">[out][optional] - tiff format input NULL to ignore</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int freadHeaderTiff(
-				  FILE fp, 
-				  int n, 
+				 FILE fp, 
+				 int n, 
 				out int pw, 
 				out int ph, 
 				out int pbps, 
@@ -518,13 +509,6 @@ public static int freadHeaderTiff(
 	int _Result = Natives.freadHeaderTiff(fp.Pointer,   n, out  pw, out  ph, out  pbps, out  pspp, out  pres, out  pcmap, out  pformat);
 	
 
-pw = 0;
-ph = 0;
-pbps = 0;
-pspp = 0;
-pres = 0;
-pcmap = 0;
-pformat = 0;
 
 
 	return _Result;
@@ -551,9 +535,9 @@ pformat = 0;
 ///  <param name="pformat">[out][optional] - tiff format input NULL to ignore</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int readHeaderMemTiff(
-				  Byte[] cdata, 
-				  uint size, 
-				  int n, 
+				 Byte[] cdata, 
+				 uint size, 
+				 int n, 
 				out int pw, 
 				out int ph, 
 				out int pbps, 
@@ -565,13 +549,6 @@ public static int readHeaderMemTiff(
 	int _Result = Natives.readHeaderMemTiff(  cdata,   size,   n, out  pw, out  ph, out  pbps, out  pspp, out  pres, out  pcmap, out  pformat);
 	
 
-pw = 0;
-ph = 0;
-pbps = 0;
-pspp = 0;
-pres = 0;
-pcmap = 0;
-pformat = 0;
 
 
 	return _Result;
@@ -599,13 +576,12 @@ pformat = 0;
 ///  <param name="pcomptype">[out] - compression type</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int findTiffCompression(
-				  FILE fp, 
-				 out int pcomptype){
+				 FILE fp, 
+				out int pcomptype){
 
 	int _Result = Natives.findTiffCompression(fp.Pointer, out  pcomptype);
 	
 
-pcomptype = 0;
 
 
 	return _Result;
@@ -625,9 +601,9 @@ pcomptype = 0;
 ///  <param name="pminisblack">[out][optional] - boolean</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int extractG4DataFromFile(
-				  String filein, 
-				 out Byte[] pdata, 
-				 out uint pnbytes, 
+				 String filein, 
+				out Byte[] pdata, 
+				out uint pnbytes, 
 				out int pw, 
 				out int ph, 
 				out int pminisblack){
@@ -637,11 +613,7 @@ public static int extractG4DataFromFile(
 	int _Result = Natives.extractG4DataFromFile(  filein, out  pdataPtr, out  pnbytes, out  pw, out  ph, out  pminisblack);
 	
 
-pdata = null;
-pnbytes = 0;
-pw = 0;
-ph = 0;
-pminisblack = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -671,9 +643,9 @@ pminisblack = 0;
 ///  <param name="n">[in] - page image number: 0-based</param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixReadMemTiff(
-				  Byte[] cdata, 
-				  uint size, 
-				  int n){
+				 Byte[] cdata, 
+				 uint size, 
+				 int n){
 
 	IntPtr _Result = Natives.pixReadMemTiff(  cdata,   size,   n);
 	
@@ -710,9 +682,9 @@ public static Pix pixReadMemTiff(
 ///  <param name="poffset">[in,out] - set offset to 0 for first image</param>
 ///   <returns>pix, or NULL on error or if previous call returned the last image</returns>
 public static Pix pixReadMemFromMultipageTiff(
-				  Byte[] cdata, 
-				  uint size, 
-				 ref Byte[] poffset){
+				 Byte[] cdata, 
+				 uint size, 
+				ref Byte[] poffset){
 
 		IntPtr poffsetPtr = 	Marshal.AllocHGlobal(poffset.Length);
 		Marshal.Copy(poffset, 0, poffsetPtr, poffset.Length);
@@ -720,7 +692,7 @@ public static Pix pixReadMemFromMultipageTiff(
 	IntPtr _Result = Natives.pixReadMemFromMultipageTiff(  cdata,   size, ref  poffsetPtr);
 	
 
-poffset = null;
+	if (poffsetPtr == null) {poffset = null;} else { poffset = null; };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -740,8 +712,8 @@ poffset = null;
 ///  <param name="size">[in] - size of cdata</param>
 ///   <returns>pixa, or NULL on error</returns>
 public static Pixa pixaReadMemMultipageTiff(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.pixaReadMemMultipageTiff(  data,   size);
 	
@@ -771,17 +743,16 @@ public static Pixa pixaReadMemMultipageTiff(
 ///  <param name="pixa">[in] - any depth colormap will be removed</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaWriteMemMultipageTiff(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  Pixa pixa){
+				out Byte[] pdata, 
+				out uint psize, 
+				 Pixa pixa){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixaWriteMemMultipageTiff(out  pdataPtr, out  psize, pixa.Pointer);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -799,18 +770,17 @@ psize = 0;
 ///  <param name="comptype">[in] - IFF_TIFF, IFF_TIFF_RLE, IFF_TIFF_PACKBITS, IFF_TIFF_G3, IFF_TIFF_G4, IFF_TIFF_LZW, IFF_TIFF_ZIP</param>
 ///   <returns>0 if OK, 1 on error Usage: 1) See pixWriteTiff(.  This version writes to memory instead of to a file.</returns>
 public static int pixWriteMemTiff(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  Pix pix, 
-				  int comptype){
+				out Byte[] pdata, 
+				out uint psize, 
+				 Pix pix, 
+				 int comptype){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixWriteMemTiff(out  pdataPtr, out  psize, pix.Pointer,   comptype);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -832,10 +802,10 @@ psize = 0;
 ///  <param name="nasizes">[in][optional] - NUMA of sizes</param>
 ///   <returns>0 if OK, 1 on error Usage: 1) See pixWriteTiffCustom(.  This version writes to memory instead of to a file. 2) Use TIFFClose() TIFFCleanup( doesn't free internal memstream.</returns>
 public static int pixWriteMemTiffCustom(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  Pix pix, 
-				  int comptype, 
+				out Byte[] pdata, 
+				out uint psize, 
+				 Pix pix, 
+				 int comptype, 
 				 Numa natags, 
 				 Sarray savals, 
 				 Sarray satypes, 
@@ -850,11 +820,11 @@ public static int pixWriteMemTiffCustom(
 	int _Result = Natives.pixWriteMemTiffCustom(out  pdataPtr, out  psize, pix.Pointer,   comptype, natagsPtr, savalsPtr, satypesPtr, nasizesPtr);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
 }
 
+}
 }

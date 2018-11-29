@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // libversions.c (101, 1)
 // getImagelibVersions() as String
@@ -22,4 +23,5 @@ public static String getImagelibVersions(){
 	return _Result;
 }
 
+}
 }

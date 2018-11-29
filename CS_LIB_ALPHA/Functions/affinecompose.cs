@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // affinecompose.c (90, 1)
 // createMatrix2dTranslate(transx, transy) as Single[]
@@ -30,8 +31,8 @@ public class _All {
 ///  <param name="transy">[in] - y component of translation wrt. the origin</param>
 ///   <returns>3x3 transform matrix, or NULL on error</returns>
 public static Single[] createMatrix2dTranslate(
-				  Single transx, 
-				  Single transy){
+				 Single transx, 
+				 Single transy){
 
 	Single[] _Result = Natives.createMatrix2dTranslate(  transx,   transy);
 	
@@ -65,8 +66,8 @@ public static Single[] createMatrix2dTranslate(
 ///  <param name="scaley">[in] - vertical scale factor</param>
 ///   <returns>3x3 transform matrix, or NULL on error</returns>
 public static Single[] createMatrix2dScale(
-				  Single scalex, 
-				  Single scaley){
+				 Single scalex, 
+				 Single scaley){
 
 	Single[] _Result = Natives.createMatrix2dScale(  scalex,   scaley);
 	
@@ -110,9 +111,9 @@ public static Single[] createMatrix2dScale(
 ///  <param name="angle">[in] - rotation in radians clockwise is positive</param>
 ///   <returns>3x3 transform matrix, or NULL on error</returns>
 public static Single[] createMatrix2dRotate(
-				  Single xc, 
-				  Single yc, 
-				  Single angle){
+				 Single xc, 
+				 Single yc, 
+				 Single angle){
 
 	Single[] _Result = Natives.createMatrix2dRotate(  xc,   yc,   angle);
 	
@@ -136,9 +137,9 @@ public static Single[] createMatrix2dRotate(
 ///  <param name="transy">[in] - y component of translation wrt. the origin</param>
 ///   <returns>ptad  translated points, or NULL on error</returns>
 public static Pta ptaTranslate(
-				  Pta ptas, 
-				  Single transx, 
-				  Single transy){
+				 Pta ptas, 
+				 Single transx, 
+				 Single transy){
 
 	IntPtr _Result = Natives.ptaTranslate(ptas.Pointer,   transx,   transy);
 	
@@ -163,7 +164,7 @@ public static Pta ptaTranslate(
 ///  <param name="scaley">[in] - vertical scale factor</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static Pta ptaScale(
-				  Pta ptas, 
+				 Pta ptas, 
 				 Single scalex, 
 				 Single scaley){
 
@@ -206,10 +207,10 @@ public static Pta ptaScale(
 ///  <param name="angle">[in] - rotation in radians clockwise is positive</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static Pta ptaRotate(
-				  Pta ptas, 
-				  Single xc, 
-				  Single yc, 
-				  Single angle){
+				 Pta ptas, 
+				 Single xc, 
+				 Single yc, 
+				 Single angle){
 
 	IntPtr _Result = Natives.ptaRotate(ptas.Pointer,   xc,   yc,   angle);
 	
@@ -231,9 +232,9 @@ public static Pta ptaRotate(
 ///  <param name="transy">[in] - y component of translation wrt. the origin</param>
 ///   <returns>boxad  translated boxas, or NULL on error Notes: (1) See createMatrix2dTranslate() for details of transform.</returns>
 public static Boxa boxaTranslate(
-				  Boxa boxas, 
-				  Single transx, 
-				  Single transy){
+				 Boxa boxas, 
+				 Single transx, 
+				 Single transy){
 
 	IntPtr _Result = Natives.boxaTranslate(boxas.Pointer,   transx,   transy);
 	
@@ -255,7 +256,7 @@ public static Boxa boxaTranslate(
 ///  <param name="scaley">[in] - vertical scale factor</param>
 ///   <returns>boxad  scaled boxas, or NULL on error Notes: (1) See createMatrix2dScale() for details of transform.</returns>
 public static Boxa boxaScale(
-				  Boxa boxas, 
+				 Boxa boxas, 
 				 Single scalex, 
 				 Single scaley){
 
@@ -280,10 +281,10 @@ public static Boxa boxaScale(
 ///  <param name="angle">[in] - rotation in radians clockwise is positive</param>
 ///   <returns>boxad  scaled boxas, or NULL on error Notes: (1) See createMatrix2dRotate() for details of transform.</returns>
 public static Boxa boxaRotate(
-				  Boxa boxas, 
-				  Single xc, 
-				  Single yc, 
-				  Single angle){
+				 Boxa boxas, 
+				 Single xc, 
+				 Single yc, 
+				 Single angle){
 
 	IntPtr _Result = Natives.boxaRotate(boxas.Pointer,   xc,   yc,   angle);
 	
@@ -304,8 +305,8 @@ public static Boxa boxaRotate(
 ///  <param name="mat">[in] - 3x3 transform matrix canonical form</param>
 ///   <returns>ptad  transformed points, or NULL on error</returns>
 public static Pta ptaAffineTransform(
-				  Pta ptas, 
-				  Single[] mat){
+				 Pta ptas, 
+				 Single[] mat){
 
 	IntPtr _Result = Natives.ptaAffineTransform(ptas.Pointer,   mat);
 	
@@ -326,8 +327,8 @@ public static Pta ptaAffineTransform(
 ///  <param name="mat">[in] - 3x3 transform matrix canonical form</param>
 ///   <returns>boxad  transformed boxas, or NULL on error</returns>
 public static Boxa boxaAffineTransform(
-				  Boxa boxas, 
-				  Single[] mat){
+				 Boxa boxas, 
+				 Single[] mat){
 
 	IntPtr _Result = Natives.boxaAffineTransform(boxas.Pointer,   mat);
 	
@@ -350,10 +351,10 @@ public static Boxa boxaAffineTransform(
 ///  <param name="size">[in] - matrix is %size x %size vectors are length %size</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_productMatVec(
-				  Single[] mat, 
-				  Single[] vecs, 
-				  Single[] vecd, 
-				  int size){
+				 Single[] mat, 
+				 Single[] vecs, 
+				 Single[] vecd, 
+				 int size){
 
 	int _Result = Natives.l_productMatVec(  mat,   vecs,   vecd,   size);
 	
@@ -375,10 +376,10 @@ public static int l_productMatVec(
 ///  <param name="size">[in] - of matrices</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_productMat2(
-				  Single[] mat1, 
-				  Single[] mat2, 
-				  Single[] matd, 
-				  int size){
+				 Single[] mat1, 
+				 Single[] mat2, 
+				 Single[] matd, 
+				 int size){
 
 	int _Result = Natives.l_productMat2(  mat1,   mat2,   matd,   size);
 	
@@ -401,11 +402,11 @@ public static int l_productMat2(
 ///  <param name="size">[in] - of matrices</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_productMat3(
-				  Single[] mat1, 
-				  Single[] mat2, 
-				  Single[] mat3, 
-				  Single[] matd, 
-				  int size){
+				 Single[] mat1, 
+				 Single[] mat2, 
+				 Single[] mat3, 
+				 Single[] matd, 
+				 int size){
 
 	int _Result = Natives.l_productMat3(  mat1,   mat2,   mat3,   matd,   size);
 	
@@ -429,12 +430,12 @@ public static int l_productMat3(
 ///  <param name="size">[in] - of matrices</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_productMat4(
-				  Single[] mat1, 
-				  Single[] mat2, 
-				  Single[] mat3, 
-				  Single[] mat4, 
-				  Single[] matd, 
-				  int size){
+				 Single[] mat1, 
+				 Single[] mat2, 
+				 Single[] mat3, 
+				 Single[] mat4, 
+				 Single[] matd, 
+				 int size){
 
 	int _Result = Natives.l_productMat4(  mat1,   mat2,   mat3,   mat4,   matd,   size);
 	
@@ -444,4 +445,5 @@ public static int l_productMat4(
 	return _Result;
 }
 
+}
 }

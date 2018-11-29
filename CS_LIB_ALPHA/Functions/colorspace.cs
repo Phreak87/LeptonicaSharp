@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // colorspace.c (134, 1)
 // pixConvertRGBToHSV(pixd, pixs) as Pix
@@ -44,8 +45,8 @@ public class _All {
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixd always</returns>
 public static Pix pixConvertRGBToHSV(
-				  Pix pixd, 
-				  Pix pixs){
+				 Pix pixd, 
+				 Pix pixs){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -79,8 +80,8 @@ public static Pix pixConvertRGBToHSV(
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixd always</returns>
 public static Pix pixConvertHSVToRGB(
-				  Pix pixd, 
-				  Pix pixs){
+				 Pix pixd, 
+				 Pix pixs){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -126,19 +127,16 @@ public static Pix pixConvertHSVToRGB(
 ///  <param name="pvval">[out] - HSV values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertRGBToHSV(
-				  int rval, 
-				  int gval, 
-				  int bval, 
-				 out int phval, 
-				 out int psval, 
-				 out int pvval){
+				 int rval, 
+				 int gval, 
+				 int bval, 
+				out int phval, 
+				out int psval, 
+				out int pvval){
 
 	int _Result = Natives.convertRGBToHSV(  rval,   gval,   bval, out  phval, out  psval, out  pvval);
 	
 
-phval = 0;
-psval = 0;
-pvval = 0;
 
 
 	return _Result;
@@ -162,19 +160,16 @@ pvval = 0;
 ///  <param name="pbval">[out] - RGB values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertHSVToRGB(
-				  int hval, 
-				  int sval, 
-				  int vval, 
-				 out int prval, 
-				 out int pgval, 
-				 out int pbval){
+				 int hval, 
+				 int sval, 
+				 int vval, 
+				out int prval, 
+				out int pgval, 
+				out int pbval){
 
 	int _Result = Natives.convertHSVToRGB(  hval,   sval,   vval, out  prval, out  pgval, out  pbval);
 	
 
-prval = 0;
-pgval = 0;
-pbval = 0;
 
 
 	return _Result;
@@ -194,7 +189,7 @@ pbval = 0;
 ///  <param name="cmap">[in] - colormap</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixcmapConvertRGBToHSV(
-				  PixColormap cmap){
+				 PixColormap cmap){
 
 	int _Result = Natives.pixcmapConvertRGBToHSV(cmap.Pointer);
 	
@@ -218,7 +213,7 @@ public static int pixcmapConvertRGBToHSV(
 ///  <param name="cmap">[in] - colormap</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixcmapConvertHSVToRGB(
-				  PixColormap cmap){
+				 PixColormap cmap){
 
 	int _Result = Natives.pixcmapConvertHSVToRGB(cmap.Pointer);
 	
@@ -246,7 +241,7 @@ public static int pixcmapConvertHSVToRGB(
 ///  <param name="pixs">[in] - 32 bpp RGB or 8 bpp with colormap</param>
 ///   <returns>pixd 8 bpp hue of HSV, or NULL on error</returns>
 public static Pix pixConvertRGBToHue(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixConvertRGBToHue(pixs.Pointer);
 	
@@ -274,7 +269,7 @@ public static Pix pixConvertRGBToHue(
 ///  <param name="pixs">[in] - 32 bpp RGB or 8 bpp with colormap</param>
 ///   <returns>pixd 8 bpp sat of HSV, or NULL on error</returns>
 public static Pix pixConvertRGBToSaturation(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixConvertRGBToSaturation(pixs.Pointer);
 	
@@ -302,7 +297,7 @@ public static Pix pixConvertRGBToSaturation(
 ///  <param name="pixs">[in] - 32 bpp RGB or 8 bpp with colormap</param>
 ///   <returns>pixd 8 bpp max component intensity of HSV, or NULL on error</returns>
 public static Pix pixConvertRGBToValue(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixConvertRGBToValue(pixs.Pointer);
 	
@@ -338,12 +333,12 @@ public static Pix pixConvertRGBToValue(
 ///  <param name="regionflag">[in] - L_INCLUDE_REGION, L_EXCLUDE_REGION</param>
 ///   <returns>pixd 1 bpp mask over selected pixels, or NULL on error</returns>
 public static Pix pixMakeRangeMaskHS(
-				  Pix pixs, 
-				  int huecenter, 
-				  int huehw, 
-				  int satcenter, 
-				  int sathw, 
-				  int regionflag){
+				 Pix pixs, 
+				 int huecenter, 
+				 int huehw, 
+				 int satcenter, 
+				 int sathw, 
+				 int regionflag){
 
 	IntPtr _Result = Natives.pixMakeRangeMaskHS(pixs.Pointer,   huecenter,   huehw,   satcenter,   sathw,   regionflag);
 	
@@ -379,12 +374,12 @@ public static Pix pixMakeRangeMaskHS(
 ///  <param name="regionflag">[in] - L_INCLUDE_REGION, L_EXCLUDE_REGION</param>
 ///   <returns>pixd 1 bpp mask over selected pixels, or NULL on error</returns>
 public static Pix pixMakeRangeMaskHV(
-				  Pix pixs, 
-				  int huecenter, 
-				  int huehw, 
-				  int valcenter, 
-				  int valhw, 
-				  int regionflag){
+				 Pix pixs, 
+				 int huecenter, 
+				 int huehw, 
+				 int valcenter, 
+				 int valhw, 
+				 int regionflag){
 
 	IntPtr _Result = Natives.pixMakeRangeMaskHV(pixs.Pointer,   huecenter,   huehw,   valcenter,   valhw,   regionflag);
 	
@@ -419,12 +414,12 @@ public static Pix pixMakeRangeMaskHV(
 ///  <param name="regionflag">[in] - L_INCLUDE_REGION, L_EXCLUDE_REGION</param>
 ///   <returns>pixd 1 bpp mask over selected pixels, or NULL on error</returns>
 public static Pix pixMakeRangeMaskSV(
-				  Pix pixs, 
-				  int satcenter, 
-				  int sathw, 
-				  int valcenter, 
-				  int valhw, 
-				  int regionflag){
+				 Pix pixs, 
+				 int satcenter, 
+				 int sathw, 
+				 int valcenter, 
+				 int valhw, 
+				 int regionflag){
 
 	IntPtr _Result = Natives.pixMakeRangeMaskSV(pixs.Pointer,   satcenter,   sathw,   valcenter,   valhw,   regionflag);
 	
@@ -456,8 +451,8 @@ public static Pix pixMakeRangeMaskSV(
 ///  <param name="pnasat">[out][optional] - saturation histogram</param>
 ///   <returns>pixd 32 bpp histogram in hue and saturation, or NULL on error</returns>
 public static Pix pixMakeHistoHS(
-				  Pix pixs, 
-				  int factor, 
+				 Pix pixs, 
+				 int factor, 
 				out Numa pnahue, 
 				out Numa pnasat){
 
@@ -467,10 +462,8 @@ public static Pix pixMakeHistoHS(
 	IntPtr _Result = Natives.pixMakeHistoHS(pixs.Pointer,   factor, out pnahuePtr, out pnasatPtr);
 	
 
-pnahue = null;
-	; if (pnahuePtr != IntPtr.Zero){pnahue = new Numa(pnahuePtr);}
-pnasat = null;
-	; if (pnasatPtr != IntPtr.Zero){pnasat = new Numa(pnasatPtr);}
+	if (pnahuePtr == null) {pnahue = null;} else { pnahue = new Numa(pnahuePtr); };
+	if (pnasatPtr == null) {pnasat = null;} else { pnasat = new Numa(pnasatPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -498,8 +491,8 @@ pnasat = null;
 ///  <param name="pnaval">[out][optional] - max intensity (value) histogram</param>
 ///   <returns>pixd 32 bpp histogram in hue and value, or NULL on error</returns>
 public static Pix pixMakeHistoHV(
-				  Pix pixs, 
-				  int factor, 
+				 Pix pixs, 
+				 int factor, 
 				out Numa pnahue, 
 				out Numa pnaval){
 
@@ -509,10 +502,8 @@ public static Pix pixMakeHistoHV(
 	IntPtr _Result = Natives.pixMakeHistoHV(pixs.Pointer,   factor, out pnahuePtr, out pnavalPtr);
 	
 
-pnahue = null;
-	; if (pnahuePtr != IntPtr.Zero){pnahue = new Numa(pnahuePtr);}
-pnaval = null;
-	; if (pnavalPtr != IntPtr.Zero){pnaval = new Numa(pnavalPtr);}
+	if (pnahuePtr == null) {pnahue = null;} else { pnahue = new Numa(pnahuePtr); };
+	if (pnavalPtr == null) {pnaval = null;} else { pnaval = new Numa(pnavalPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -540,8 +531,8 @@ pnaval = null;
 ///  <param name="pnaval">[out][optional] - max intensity (value) histogram</param>
 ///   <returns>pixd 32 bpp histogram in sat and value, or NULL on error</returns>
 public static Pix pixMakeHistoSV(
-				  Pix pixs, 
-				  int factor, 
+				 Pix pixs, 
+				 int factor, 
 				out Numa pnasat, 
 				out Numa pnaval){
 
@@ -551,10 +542,8 @@ public static Pix pixMakeHistoSV(
 	IntPtr _Result = Natives.pixMakeHistoSV(pixs.Pointer,   factor, out pnasatPtr, out pnavalPtr);
 	
 
-pnasat = null;
-	; if (pnasatPtr != IntPtr.Zero){pnasat = new Numa(pnasatPtr);}
-pnaval = null;
-	; if (pnavalPtr != IntPtr.Zero){pnaval = new Numa(pnavalPtr);}
+	if (pnasatPtr == null) {pnasat = null;} else { pnasat = new Numa(pnasatPtr); };
+	if (pnavalPtr == null) {pnaval = null;} else { pnaval = new Numa(pnavalPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -592,14 +581,14 @@ pnaval = null;
 ///  <param name="ppixa">[out][optional] - pixa for debugging NULL to skip</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixFindHistoPeaksHSV(
-				  Pix pixs, 
-				  int type, 
-				  int width, 
-				  int height, 
-				  int npeaks, 
-				  Single erasefactor, 
-				 out Pta ppta, 
-				 out Numa pnatot, 
+				 Pix pixs, 
+				 int type, 
+				 int width, 
+				 int height, 
+				 int npeaks, 
+				 Single erasefactor, 
+				out Pta ppta, 
+				out Numa pnatot, 
 				out Pixa ppixa){
 
 	IntPtr pptaPtr = IntPtr.Zero;
@@ -609,12 +598,9 @@ public static int pixFindHistoPeaksHSV(
 	int _Result = Natives.pixFindHistoPeaksHSV(pixs.Pointer,   type,   width,   height,   npeaks,   erasefactor, out pptaPtr, out pnatotPtr, out ppixaPtr);
 	
 
-ppta = null;
-	; if (pptaPtr != IntPtr.Zero){ppta = new Pta(pptaPtr);}
-pnatot = null;
-	; if (pnatotPtr != IntPtr.Zero){pnatot = new Numa(pnatotPtr);}
-ppixa = null;
-	; if (ppixaPtr != IntPtr.Zero){ppixa = new Pixa(ppixaPtr);}
+	if (pptaPtr == null) {ppta = null;} else { ppta = new Pta(pptaPtr); };
+	if (pnatotPtr == null) {pnatot = null;} else { pnatot = new Numa(pnatotPtr); };
+	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 
 
 	return _Result;
@@ -639,13 +625,13 @@ ppixa = null;
 ///  <param name="factor">[in] - linear size of each color square, in pixels  is greater  3</param>
 ///   <returns>pixd 32 bpp set of color squares over input range, or NULL on error</returns>
 public static Pix displayHSVColorRange(
-				  int hval, 
-				  int sval, 
-				  int vval, 
-				  int huehw, 
-				  int sathw, 
-				  int nsamp, 
-				  int factor){
+				 int hval, 
+				 int sval, 
+				 int vval, 
+				 int huehw, 
+				 int sathw, 
+				 int nsamp, 
+				 int factor){
 
 	IntPtr _Result = Natives.displayHSVColorRange(  hval,   sval,   vval,   huehw,   sathw,   nsamp,   factor);
 	
@@ -688,8 +674,8 @@ public static Pix displayHSVColorRange(
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixd always</returns>
 public static Pix pixConvertRGBToYUV(
-				  Pix pixd, 
-				  Pix pixs){
+				 Pix pixd, 
+				 Pix pixs){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -722,8 +708,8 @@ public static Pix pixConvertRGBToYUV(
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixd always</returns>
 public static Pix pixConvertYUVToRGB(
-				  Pix pixd, 
-				  Pix pixs){
+				 Pix pixd, 
+				 Pix pixs){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -756,19 +742,16 @@ public static Pix pixConvertYUVToRGB(
 ///  <param name="pvval">[out] - YUV values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertRGBToYUV(
-				  int rval, 
-				  int gval, 
-				  int bval, 
-				 out int pyval, 
-				 out int puval, 
-				 out int pvval){
+				 int rval, 
+				 int gval, 
+				 int bval, 
+				out int pyval, 
+				out int puval, 
+				out int pvval){
 
 	int _Result = Natives.convertRGBToYUV(  rval,   gval,   bval, out  pyval, out  puval, out  pvval);
 	
 
-pyval = 0;
-puval = 0;
-pvval = 0;
 
 
 	return _Result;
@@ -800,19 +783,16 @@ pvval = 0;
 ///  <param name="pbval">[out] - RGB values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertYUVToRGB(
-				  int yval, 
-				  int uval, 
-				  int vval, 
-				 out int prval, 
-				 out int pgval, 
-				 out int pbval){
+				 int yval, 
+				 int uval, 
+				 int vval, 
+				out int prval, 
+				out int pgval, 
+				out int pbval){
 
 	int _Result = Natives.convertYUVToRGB(  yval,   uval,   vval, out  prval, out  pgval, out  pbval);
 	
 
-prval = 0;
-pgval = 0;
-pbval = 0;
 
 
 	return _Result;
@@ -832,7 +812,7 @@ pbval = 0;
 ///  <param name="cmap">[in] - colormap</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixcmapConvertRGBToYUV(
-				  PixColormap cmap){
+				 PixColormap cmap){
 
 	int _Result = Natives.pixcmapConvertRGBToYUV(cmap.Pointer);
 	
@@ -856,7 +836,7 @@ public static int pixcmapConvertRGBToYUV(
 ///  <param name="cmap">[in] - colormap</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixcmapConvertYUVToRGB(
-				  PixColormap cmap){
+				 PixColormap cmap){
 
 	int _Result = Natives.pixcmapConvertYUVToRGB(cmap.Pointer);
 	
@@ -897,7 +877,7 @@ public static int pixcmapConvertYUVToRGB(
 ///  <param name="pixs">[in] - rgb</param>
 ///   <returns>fpixa xyz</returns>
 public static FPixa pixConvertRGBToXYZ(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixConvertRGBToXYZ(pixs.Pointer);
 	
@@ -923,7 +903,7 @@ public static FPixa pixConvertRGBToXYZ(
 ///  <param name="fpixa">[in] - three fpix: x,y,z</param>
 ///   <returns>pixd rgb</returns>
 public static Pix fpixaConvertXYZToRGB(
-				  FPixa fpixa){
+				 FPixa fpixa){
 
 	IntPtr _Result = Natives.fpixaConvertXYZToRGB(fpixa.Pointer);
 	
@@ -952,19 +932,16 @@ public static Pix fpixaConvertXYZToRGB(
 ///  <param name="pfzval">[out] - xyz values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertRGBToXYZ(
-				  int rval, 
-				  int gval, 
-				  int bval, 
-				 out Single pfxval, 
-				 out Single pfyval, 
-				 out Single pfzval){
+				 int rval, 
+				 int gval, 
+				 int bval, 
+				out Single pfxval, 
+				out Single pfyval, 
+				out Single pfzval){
 
 	int _Result = Natives.convertRGBToXYZ(  rval,   gval,   bval, out  pfxval, out  pfyval, out  pfzval);
 	
 
-pfxval = 0f;
-pfyval = 0f;
-pfzval = 0f;
 
 
 	return _Result;
@@ -993,20 +970,17 @@ pfzval = 0f;
 ///  <param name="pbval">[out] - rgb values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertXYZToRGB(
-				  Single fxval, 
-				  Single fyval, 
-				  Single fzval, 
-				  int blackout, 
-				 out int prval, 
-				 out int pgval, 
-				 out int pbval){
+				 Single fxval, 
+				 Single fyval, 
+				 Single fzval, 
+				 int blackout, 
+				out int prval, 
+				out int pgval, 
+				out int pbval){
 
 	int _Result = Natives.convertXYZToRGB(  fxval,   fyval,   fzval,   blackout, out  prval, out  pgval, out  pbval);
 	
 
-prval = 0;
-pgval = 0;
-pbval = 0;
 
 
 	return _Result;
@@ -1033,7 +1007,7 @@ pbval = 0;
 ///  <param name="fpixas">[in] - xyz</param>
 ///   <returns>fpixa lab</returns>
 public static FPixa fpixaConvertXYZToLAB(
-				  FPixa fpixas){
+				 FPixa fpixas){
 
 	IntPtr _Result = Natives.fpixaConvertXYZToLAB(fpixas.Pointer);
 	
@@ -1057,7 +1031,7 @@ public static FPixa fpixaConvertXYZToLAB(
 ///  <param name="fpixas">[in] - lab</param>
 ///   <returns>fpixa xyz</returns>
 public static FPixa fpixaConvertLABToXYZ(
-				  FPixa fpixas){
+				 FPixa fpixas){
 
 	IntPtr _Result = Natives.fpixaConvertLABToXYZ(fpixas.Pointer);
 	
@@ -1082,19 +1056,16 @@ public static FPixa fpixaConvertLABToXYZ(
 ///  <param name="pbval">[out] - lab values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertXYZToLAB(
-				  Single xval, 
-				  Single yval, 
-				  Single zval, 
-				 out Single plval, 
-				 out Single paval, 
-				 out Single pbval){
+				 Single xval, 
+				 Single yval, 
+				 Single zval, 
+				out Single plval, 
+				out Single paval, 
+				out Single pbval){
 
 	int _Result = Natives.convertXYZToLAB(  xval,   yval,   zval, out  plval, out  paval, out  pbval);
 	
 
-plval = 0f;
-paval = 0f;
-pbval = 0f;
 
 
 	return _Result;
@@ -1114,19 +1085,16 @@ pbval = 0f;
 ///  <param name="pzval">[out] - xyz values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertLABToXYZ(
-				  Single lval, 
-				  Single aval, 
-				  Single bval, 
-				 out Single pxval, 
-				 out Single pyval, 
-				 out Single pzval){
+				 Single lval, 
+				 Single aval, 
+				 Single bval, 
+				out Single pxval, 
+				out Single pyval, 
+				out Single pzval){
 
 	int _Result = Natives.convertLABToXYZ(  lval,   aval,   bval, out  pxval, out  pyval, out  pzval);
 	
 
-pxval = 0f;
-pyval = 0f;
-pzval = 0f;
 
 
 	return _Result;
@@ -1145,7 +1113,7 @@ pzval = 0f;
 ///  <param name="pixs">[in] - rgb</param>
 ///   <returns>fpixa lab</returns>
 public static FPixa pixConvertRGBToLAB(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixConvertRGBToLAB(pixs.Pointer);
 	
@@ -1168,7 +1136,7 @@ public static FPixa pixConvertRGBToLAB(
 ///  <param name="fpixa">[in] - three fpix: l,a,b</param>
 ///   <returns>pixd rgb</returns>
 public static Pix fpixaConvertLABToRGB(
-				  FPixa fpixa){
+				 FPixa fpixa){
 
 	IntPtr _Result = Natives.fpixaConvertLABToRGB(fpixa.Pointer);
 	
@@ -1197,19 +1165,16 @@ public static Pix fpixaConvertLABToRGB(
 ///  <param name="pfbval">[out] - lab values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertRGBToLAB(
-				  int rval, 
-				  int gval, 
-				  int bval, 
-				 out Single pflval, 
-				 out Single pfaval, 
-				 out Single pfbval){
+				 int rval, 
+				 int gval, 
+				 int bval, 
+				out Single pflval, 
+				out Single pfaval, 
+				out Single pfbval){
 
 	int _Result = Natives.convertRGBToLAB(  rval,   gval,   bval, out  pflval, out  pfaval, out  pfbval);
 	
 
-pflval = 0f;
-pfaval = 0f;
-pfbval = 0f;
 
 
 	return _Result;
@@ -1233,22 +1198,20 @@ pfbval = 0f;
 ///  <param name="pbval">[out] - rgb values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertLABToRGB(
-				  Single flval, 
-				  Single faval, 
-				  Single fbval, 
-				 out int prval, 
-				 out int pgval, 
-				 out int pbval){
+				 Single flval, 
+				 Single faval, 
+				 Single fbval, 
+				out int prval, 
+				out int pgval, 
+				out int pbval){
 
 	int _Result = Natives.convertLABToRGB(  flval,   faval,   fbval, out  prval, out  pgval, out  pbval);
 	
 
-prval = 0;
-pgval = 0;
-pbval = 0;
 
 
 	return _Result;
 }
 
+}
 }

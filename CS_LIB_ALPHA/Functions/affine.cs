@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // affine.c (280, 1)
 // pixAffineSampledPta(pixs, ptad, ptas, incolor) as Pix
@@ -42,10 +43,10 @@ public class _All {
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixAffineSampledPta(
-				  Pix pixs, 
-				  Pta ptad, 
-				  Pta ptas, 
-				  int incolor){
+				 Pix pixs, 
+				 Pta ptad, 
+				 Pta ptas, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixAffineSampledPta(pixs.Pointer, ptad.Pointer, ptas.Pointer,   incolor);
 	
@@ -76,9 +77,9 @@ public static Pix pixAffineSampledPta(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixAffineSampled(
-				  Pix pixs, 
-				  Single[] vc, 
-				  int incolor){
+				 Pix pixs, 
+				 Single[] vc, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixAffineSampled(pixs.Pointer,   vc,   incolor);
 	
@@ -106,10 +107,10 @@ public static Pix pixAffineSampled(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixAffinePta(
-				  Pix pixs, 
-				  Pta ptad, 
-				  Pta ptas, 
-				  int incolor){
+				 Pix pixs, 
+				 Pta ptad, 
+				 Pta ptas, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixAffinePta(pixs.Pointer, ptad.Pointer, ptas.Pointer,   incolor);
 	
@@ -136,9 +137,9 @@ public static Pix pixAffinePta(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixAffine(
-				  Pix pixs, 
-				  Single[] vc, 
-				  int incolor){
+				 Pix pixs, 
+				 Single[] vc, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixAffine(pixs.Pointer,   vc,   incolor);
 	
@@ -161,10 +162,10 @@ public static Pix pixAffine(
 ///  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixAffinePtaColor(
-				  Pix pixs, 
-				  Pta ptad, 
-				  Pta ptas, 
-				  uint colorval){
+				 Pix pixs, 
+				 Pta ptad, 
+				 Pta ptas, 
+				 uint colorval){
 
 	IntPtr _Result = Natives.pixAffinePtaColor(pixs.Pointer, ptad.Pointer, ptas.Pointer,   colorval);
 	
@@ -186,9 +187,9 @@ public static Pix pixAffinePtaColor(
 ///  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixAffineColor(
-				  Pix pixs, 
-				  Single[] vc, 
-				  uint colorval){
+				 Pix pixs, 
+				 Single[] vc, 
+				 uint colorval){
 
 	IntPtr _Result = Natives.pixAffineColor(pixs.Pointer,   vc,   colorval);
 	
@@ -211,10 +212,10 @@ public static Pix pixAffineColor(
 ///  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixAffinePtaGray(
-				  Pix pixs, 
-				  Pta ptad, 
-				  Pta ptas, 
-				  byte grayval){
+				 Pix pixs, 
+				 Pta ptad, 
+				 Pta ptas, 
+				 byte grayval){
 
 	IntPtr _Result = Natives.pixAffinePtaGray(pixs.Pointer, ptad.Pointer, ptas.Pointer,   grayval);
 	
@@ -236,9 +237,9 @@ public static Pix pixAffinePtaGray(
 ///  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixAffineGray(
-				  Pix pixs, 
-				  Single[] vc, 
-				  byte grayval){
+				 Pix pixs, 
+				 Single[] vc, 
+				 byte grayval){
 
 	IntPtr _Result = Natives.pixAffineGray(pixs.Pointer,   vc,   grayval);
 	
@@ -298,12 +299,12 @@ public static Pix pixAffineGray(
 ///  <param name="border">[in] - of pixels added to capture transformed source pixels</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixAffinePtaWithAlpha(
-				  Pix pixs, 
-				  Pta ptad, 
-				  Pta ptas, 
-				  Pix pixg, 
-				  Single fract, 
-				  int border){
+				 Pix pixs, 
+				 Pta ptad, 
+				 Pta ptas, 
+				 Pix pixg, 
+				 Single fract, 
+				 int border){
 
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
@@ -375,16 +376,16 @@ public static Pix pixAffinePtaWithAlpha(
 ///  <param name="pvc">[out] - vector of coefficients of transform</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int getAffineXformCoeffs(
-				  Pta ptas, 
-				  Pta ptad, 
-				 out List<Single[]> pvc){
+				 Pta ptas, 
+				 Pta ptad, 
+				out List<Single[]> pvc){
 
 	IntPtr pvcPtr = IntPtr.Zero;
 
 	int _Result = Natives.getAffineXformCoeffs(ptas.Pointer, ptad.Pointer, out  pvcPtr);
 	
 
-pvc = null;
+	if (pvcPtr == null) {pvc = null;} else { pvc = null; };
 
 
 	return _Result;
@@ -422,15 +423,15 @@ pvc = null;
 ///  <param name="pvci">[out] - inverted transform</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int affineInvertXform(
-				  Single[] vc, 
-				 out List<Single[]> pvci){
+				 Single[] vc, 
+				out List<Single[]> pvci){
 
 	IntPtr pvciPtr = IntPtr.Zero;
 
 	int _Result = Natives.affineInvertXform(  vc, out  pvciPtr);
 	
 
-pvci = null;
+	if (pvciPtr == null) {pvci = null;} else { pvci = null; };
 
 
 	return _Result;
@@ -454,17 +455,15 @@ pvci = null;
 ///  <param name="pyp">[out] - transformed point</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int affineXformSampledPt(
-				  Single[] vc, 
-				  int x, 
-				  int y, 
-				 out int pxp, 
-				 out int pyp){
+				 Single[] vc, 
+				 int x, 
+				 int y, 
+				out int pxp, 
+				out int pyp){
 
 	int _Result = Natives.affineXformSampledPt(  vc,   x,   y, out  pxp, out  pyp);
 	
 
-pxp = 0;
-pyp = 0;
 
 
 	return _Result;
@@ -488,17 +487,15 @@ pyp = 0;
 ///  <param name="pyp">[out] - transformed point</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int affineXformPt(
-				  Single[] vc, 
-				  int x, 
-				  int y, 
-				 out Single pxp, 
-				 out Single pyp){
+				 Single[] vc, 
+				 int x, 
+				 int y, 
+				out Single pxp, 
+				out Single pyp){
 
 	int _Result = Natives.affineXformPt(  vc,   x,   y, out  pxp, out  pyp);
 	
 
-pxp = 0f;
-pyp = 0f;
 
 
 	return _Result;
@@ -525,14 +522,14 @@ pyp = 0f;
 ///  <param name="pval">[out] - interpolated color value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int linearInterpolatePixelColor(
-				  Byte[] datas, 
-				  int wpls, 
-				  int w, 
-				  int h, 
-				  Single x, 
-				  Single y, 
-				  uint colorval, 
-				 out uint pval){
+				 Byte[] datas, 
+				 int wpls, 
+				 int w, 
+				 int h, 
+				 Single x, 
+				 Single y, 
+				 uint colorval, 
+				out uint pval){
 
 		IntPtr datasPtr = 	Marshal.AllocHGlobal(datas.Length);
 		Marshal.Copy(datas, 0, datasPtr, datas.Length);
@@ -541,7 +538,6 @@ public static int linearInterpolatePixelColor(
 	
 	Marshal.FreeHGlobal(datasPtr);
 
-pval = 0;
 
 
 	return _Result;
@@ -568,14 +564,14 @@ pval = 0;
 ///  <param name="pval">[out] - interpolated gray value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int linearInterpolatePixelGray(
-				  Byte[] datas, 
-				  int wpls, 
-				  int w, 
-				  int h, 
-				  Single x, 
-				  Single y, 
-				  int grayval, 
-				 out int pval){
+				 Byte[] datas, 
+				 int wpls, 
+				 int w, 
+				 int h, 
+				 Single x, 
+				 Single y, 
+				 int grayval, 
+				out int pval){
 
 		IntPtr datasPtr = 	Marshal.AllocHGlobal(datas.Length);
 		Marshal.Copy(datas, 0, datasPtr, datas.Length);
@@ -584,7 +580,6 @@ public static int linearInterpolatePixelGray(
 	
 	Marshal.FreeHGlobal(datasPtr);
 
-pval = 0;
 
 
 	return _Result;
@@ -613,9 +608,9 @@ pval = 0;
 ///  <param name="n">[in] - dimension</param>
 ///   <returns>0 if ok, 1 on error</returns>
 public static int gaussjordan(
-				  List<Single[]> a, 
-				  Single[] b, 
-				  int n){
+				 List<Single[]> a, 
+				 Single[] b, 
+				 int n){
 
 	IntPtr aPtr = Marshal.AllocHGlobal(a.Count);
 
@@ -659,11 +654,11 @@ public static int gaussjordan(
 ///  <param name="bh">[in] - pixels of additional border height during computation</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixAffineSequential(
-				  Pix pixs, 
-				  Pta ptad, 
-				  Pta ptas, 
-				  int bw, 
-				  int bh){
+				 Pix pixs, 
+				 Pta ptad, 
+				 Pta ptas, 
+				 int bw, 
+				 int bh){
 
 	IntPtr _Result = Natives.pixAffineSequential(pixs.Pointer, ptad.Pointer, ptas.Pointer,   bw,   bh);
 	
@@ -674,4 +669,5 @@ public static Pix pixAffineSequential(
 	return  new Pix(_Result);
 }
 
+}
 }

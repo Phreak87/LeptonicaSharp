@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // flipdetect.c (242, 1)
 // pixOrientCorrect(pixs, minupconf, minratio, pupconf, pleftconf, protation, debug) as Pix
@@ -32,9 +33,9 @@ public class _All {
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>pixd  may be rotated by 90, 180 or 270 null on error</returns>
 public static Pix pixOrientCorrect(
-				  Pix pixs, 
-				  Single minupconf, 
-				  Single minratio, 
+				 Pix pixs, 
+				 Single minupconf, 
+				 Single minratio, 
 				out Single pupconf, 
 				out Single pleftconf, 
 				out int protation, 
@@ -43,9 +44,6 @@ public static Pix pixOrientCorrect(
 	IntPtr _Result = Natives.pixOrientCorrect(pixs.Pointer,   minupconf,   minratio, out  pupconf, out  pleftconf, out  protation,  (int) debug);
 	
 
-pupconf = 0f;
-pleftconf = 0f;
-protation = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -117,17 +115,15 @@ protation = 0;
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixOrientDetect(
-				  Pix pixs, 
-				 out Single pupconf, 
-				 out Single pleftconf, 
-				  int mincount, 
+				 Pix pixs, 
+				out Single pupconf, 
+				out Single pleftconf, 
+				 int mincount, 
 				 DebugOnOff debug){
 
 	int _Result = Natives.pixOrientDetect(pixs.Pointer, out  pupconf, out  pleftconf,   mincount,  (int) debug);
 	
 
-pupconf = 0f;
-pleftconf = 0f;
 
 
 	return _Result;
@@ -168,17 +164,16 @@ pleftconf = 0f;
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int makeOrientDecision(
-				  Single upconf, 
-				  Single leftconf, 
-				  Single minupconf, 
-				  Single minratio, 
-				 out int porient, 
+				 Single upconf, 
+				 Single leftconf, 
+				 Single minupconf, 
+				 Single minratio, 
+				out int porient, 
 				 DebugOnOff debug){
 
 	int _Result = Natives.makeOrientDecision(  upconf,   leftconf,   minupconf,   minratio, out  porient,  (int) debug);
 	
 
-porient = 0;
 
 
 	return _Result;
@@ -207,15 +202,14 @@ porient = 0;
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixUpDownDetect(
-				  Pix pixs, 
-				 out Single pconf, 
-				  int mincount, 
+				 Pix pixs, 
+				out Single pconf, 
+				 int mincount, 
 				 DebugOnOff debug){
 
 	int _Result = Natives.pixUpDownDetect(pixs.Pointer, out  pconf,   mincount,  (int) debug);
 	
 
-pconf = 0f;
 
 
 	return _Result;
@@ -263,16 +257,15 @@ pconf = 0f;
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixUpDownDetectGeneral(
-				  Pix pixs, 
-				 out Single pconf, 
-				  int mincount, 
-				  int npixels, 
+				 Pix pixs, 
+				out Single pconf, 
+				 int mincount, 
+				 int npixels, 
 				 DebugOnOff debug){
 
 	int _Result = Natives.pixUpDownDetectGeneral(pixs.Pointer, out  pconf,   mincount,   npixels,  (int) debug);
 	
 
-pconf = 0f;
 
 
 	return _Result;
@@ -302,17 +295,15 @@ pconf = 0f;
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixOrientDetectDwa(
-				  Pix pixs, 
-				 out Single pupconf, 
-				 out Single pleftconf, 
-				  int mincount, 
+				 Pix pixs, 
+				out Single pupconf, 
+				out Single pleftconf, 
+				 int mincount, 
 				 DebugOnOff debug){
 
 	int _Result = Natives.pixOrientDetectDwa(pixs.Pointer, out  pupconf, out  pleftconf,   mincount,  (int) debug);
 	
 
-pupconf = 0f;
-pleftconf = 0f;
 
 
 	return _Result;
@@ -344,15 +335,14 @@ pleftconf = 0f;
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixUpDownDetectDwa(
-				  Pix pixs, 
-				 out Single pconf, 
-				  int mincount, 
+				 Pix pixs, 
+				out Single pconf, 
+				 int mincount, 
 				 DebugOnOff debug){
 
 	int _Result = Natives.pixUpDownDetectDwa(pixs.Pointer, out  pconf,   mincount,  (int) debug);
 	
 
-pconf = 0f;
 
 
 	return _Result;
@@ -374,16 +364,15 @@ pconf = 0f;
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixUpDownDetectGeneralDwa(
-				  Pix pixs, 
-				 out Single pconf, 
-				  int mincount, 
-				  int npixels, 
+				 Pix pixs, 
+				out Single pconf, 
+				 int mincount, 
+				 int npixels, 
 				 DebugOnOff debug){
 
 	int _Result = Natives.pixUpDownDetectGeneralDwa(pixs.Pointer, out  pconf,   mincount,   npixels,  (int) debug);
 	
 
-pconf = 0f;
 
 
 	return _Result;
@@ -432,15 +421,14 @@ pconf = 0f;
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixMirrorDetect(
-				  Pix pixs, 
-				 out Single pconf, 
-				  int mincount, 
+				 Pix pixs, 
+				out Single pconf, 
+				 int mincount, 
 				 DebugOnOff debug){
 
 	int _Result = Natives.pixMirrorDetect(pixs.Pointer, out  pconf,   mincount,  (int) debug);
 	
 
-pconf = 0f;
 
 
 	return _Result;
@@ -464,18 +452,18 @@ pconf = 0f;
 ///  <param name="debug">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixMirrorDetectDwa(
-				  Pix pixs, 
-				 out Single pconf, 
-				  int mincount, 
+				 Pix pixs, 
+				out Single pconf, 
+				 int mincount, 
 				 DebugOnOff debug){
 
 	int _Result = Natives.pixMirrorDetectDwa(pixs.Pointer, out  pconf,   mincount,  (int) debug);
 	
 
-pconf = 0f;
 
 
 	return _Result;
 }
 
+}
 }

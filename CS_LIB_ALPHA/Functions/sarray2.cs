@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // sarray2.c (95, 1)
 // sarraySort(saout, sain, sortorder) as Sarray
@@ -22,9 +23,9 @@ public class _All {
 ///  <param name="sortorder">[in] - L_SORT_INCREASING or L_SORT_DECREASING</param>
 ///   <returns>saout output sarray, sorted by ascii value, or NULL on error</returns>
 public static Sarray sarraySort(
-				  Sarray saout, 
-				  Sarray sain, 
-				  int sortorder){
+				 Sarray saout, 
+				 Sarray sain, 
+				 int sortorder){
 
 	IntPtr _Result = Natives.sarraySort(saout.Pointer, sain.Pointer,   sortorder);
 	
@@ -45,8 +46,8 @@ public static Sarray sarraySort(
 ///  <param name="naindex">[in] - na that maps from the new sarray to the input sarray</param>
 ///   <returns>saout sorted, or NULL on error</returns>
 public static Sarray sarraySortByIndex(
-				  Sarray sain, 
-				  Numa naindex){
+				 Sarray sain, 
+				 Numa naindex){
 
 	IntPtr _Result = Natives.sarraySortByIndex(sain.Pointer, naindex.Pointer);
 	
@@ -71,8 +72,8 @@ public static Sarray sarraySortByIndex(
 ///  <param name="str2">[in] - </param>
 ///   <returns>1 if str1  is greater  str2 lexically 0 otherwise</returns>
 public static int stringCompareLexical(
-				  String str1, 
-				  String str2){
+				 String str1, 
+				 String str2){
 
 	int _Result = Natives.stringCompareLexical(  str1,   str2);
 	
@@ -102,8 +103,8 @@ public static int stringCompareLexical(
 ///  <param name="sa2">[in] - </param>
 ///   <returns>sad with the union of the string set, or NULL on error</returns>
 public static Sarray sarrayUnionByAset(
-				  Sarray sa1, 
-				  Sarray sa2){
+				 Sarray sa1, 
+				 Sarray sa2){
 
 	IntPtr _Result = Natives.sarrayUnionByAset(sa1.Pointer, sa2.Pointer);
 	
@@ -133,7 +134,7 @@ public static Sarray sarrayUnionByAset(
 ///  <param name="sas">[in] - </param>
 ///   <returns>sad with duplicates removed, or NULL on error</returns>
 public static Sarray sarrayRemoveDupsByAset(
-				  Sarray sas){
+				 Sarray sas){
 
 	IntPtr _Result = Natives.sarrayRemoveDupsByAset(sas.Pointer);
 	
@@ -164,8 +165,8 @@ public static Sarray sarrayRemoveDupsByAset(
 ///  <param name="sa2">[in] - </param>
 ///   <returns>sad with the intersection of the string set, or NULL on error</returns>
 public static Sarray sarrayIntersectionByAset(
-				  Sarray sa1, 
-				  Sarray sa2){
+				 Sarray sa1, 
+				 Sarray sa2){
 
 	IntPtr _Result = Natives.sarrayIntersectionByAset(sa1.Pointer, sa2.Pointer);
 	
@@ -185,7 +186,7 @@ public static Sarray sarrayIntersectionByAset(
 ///  <param name="sa">[in] - </param>
 ///   <returns>set using a string hash into a uint64 as the key</returns>
 public static L_Rbtree l_asetCreateFromSarray(
-				  Sarray sa){
+				 Sarray sa){
 
 	IntPtr _Result = Natives.l_asetCreateFromSarray(sa.Pointer);
 	
@@ -222,8 +223,8 @@ public static L_Rbtree l_asetCreateFromSarray(
 ///  <param name="pdahash">[out][optional] - dnahash used for lookup</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int sarrayRemoveDupsByHash(
-				  Sarray sas, 
-				 out Sarray psad, 
+				 Sarray sas, 
+				out Sarray psad, 
 				out L_DnaHash pdahash){
 
 	IntPtr psadPtr = IntPtr.Zero;
@@ -232,10 +233,8 @@ public static int sarrayRemoveDupsByHash(
 	int _Result = Natives.sarrayRemoveDupsByHash(sas.Pointer, out psadPtr, out pdahashPtr);
 	
 
-psad = null;
-	; if (psadPtr != IntPtr.Zero){psad = new Sarray(psadPtr);}
-pdahash = null;
-	; if (pdahashPtr != IntPtr.Zero){pdahash = new L_DnaHash(pdahashPtr);}
+	if (psadPtr == null) {psad = null;} else { psad = new Sarray(psadPtr); };
+	if (pdahashPtr == null) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
 
 
 	return _Result;
@@ -255,8 +254,8 @@ pdahash = null;
 ///  <param name="sa2">[in] - </param>
 ///   <returns>sad intersection of the strings, or NULL on error</returns>
 public static Sarray sarrayIntersectionByHash(
-				  Sarray sa1, 
-				  Sarray sa2){
+				 Sarray sa1, 
+				 Sarray sa2){
 
 	IntPtr _Result = Natives.sarrayIntersectionByHash(sa1.Pointer, sa2.Pointer);
 	
@@ -293,15 +292,14 @@ public static Sarray sarrayIntersectionByHash(
 ///  <param name="pindex">[out] - index into %sa if %str is in %sa -1 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int sarrayFindStringByHash(
-				  Sarray sa, 
-				  L_DnaHash dahash, 
-				  String str, 
-				 out int pindex){
+				 Sarray sa, 
+				 L_DnaHash dahash, 
+				 String str, 
+				out int pindex){
 
 	int _Result = Natives.sarrayFindStringByHash(sa.Pointer, dahash.Pointer,   str, out  pindex);
 	
 
-pindex = 0;
 
 
 	return _Result;
@@ -316,7 +314,7 @@ pindex = 0;
 ///  <param name="sa">[in] - </param>
 ///   <returns>dahash, or NULL on error</returns>
 public static L_DnaHash l_dnaHashCreateFromSarray(
-				  Sarray sa){
+				 Sarray sa){
 
 	IntPtr _Result = Natives.l_dnaHashCreateFromSarray(sa.Pointer);
 	
@@ -336,7 +334,7 @@ public static L_DnaHash l_dnaHashCreateFromSarray(
 ///  <param name="n">[in] - </param>
 ///   <returns>sa  (of printed numbers, 1 - n, or NULL on error</returns>
 public static Sarray sarrayGenerateIntegers(
-				  int n){
+				 int n){
 
 	IntPtr _Result = Natives.sarrayGenerateIntegers(  n);
 	
@@ -369,19 +367,20 @@ public static Sarray sarrayGenerateIntegers(
 ///  <param name="pvalstring">[out] - (the returned value string corresponding to the input key string, if found otherwise NULL)</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int sarrayLookupCSKV(
-				  Sarray sa, 
-				  String keystring, 
-				 out String[] pvalstring){
+				 Sarray sa, 
+				 String keystring, 
+				out String[] pvalstring){
 
 	IntPtr pvalstringPtr = IntPtr.Zero;
 
 	int _Result = Natives.sarrayLookupCSKV(sa.Pointer,   keystring, out  pvalstringPtr);
 	
 
-pvalstring = null;
+	if (pvalstringPtr == null) {pvalstring = null;} else { pvalstring = null; };
 
 
 	return _Result;
 }
 
+}
 }

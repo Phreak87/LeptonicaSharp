@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // spixio.c (88, 1)
 // pixReadStreamSpix(fp) as Pix
@@ -18,7 +19,7 @@ public class _All {
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>pix, or NULL on error.</returns>
 public static Pix pixReadStreamSpix(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.pixReadStreamSpix(fp.Pointer);
 	
@@ -46,21 +47,16 @@ public static Pix pixReadStreamSpix(
 ///  <param name="piscmap">[out][optional] - input NULL to ignore</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int readHeaderSpix(
-				  String filename, 
-				 out int pwidth, 
-				 out int pheight, 
-				 out int pbps, 
-				 out int pspp, 
+				 String filename, 
+				out int pwidth, 
+				out int pheight, 
+				out int pbps, 
+				out int pspp, 
 				out int piscmap){
 
 	int _Result = Natives.readHeaderSpix(  filename, out  pwidth, out  pheight, out  pbps, out  pspp, out  piscmap);
 	
 
-pwidth = 0;
-pheight = 0;
-pbps = 0;
-pspp = 0;
-piscmap = 0;
 
 
 	return _Result;
@@ -83,21 +79,16 @@ piscmap = 0;
 ///  <param name="piscmap">[out][optional] - input NULL to ignore</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int freadHeaderSpix(
-				  FILE fp, 
-				 out int pwidth, 
-				 out int pheight, 
-				 out int pbps, 
-				 out int pspp, 
+				 FILE fp, 
+				out int pwidth, 
+				out int pheight, 
+				out int pbps, 
+				out int pspp, 
 				out int piscmap){
 
 	int _Result = Natives.freadHeaderSpix(fp.Pointer, out  pwidth, out  pheight, out  pbps, out  pspp, out  piscmap);
 	
 
-pwidth = 0;
-pheight = 0;
-pbps = 0;
-pspp = 0;
-piscmap = 0;
 
 
 	return _Result;
@@ -120,11 +111,11 @@ piscmap = 0;
 ///  <param name="piscmap">[out][optional] - input NULL to ignore</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int sreadHeaderSpix(
-				  Byte[] data, 
-				 out int pwidth, 
-				 out int pheight, 
-				 out int pbps, 
-				 out int pspp, 
+				 Byte[] data, 
+				out int pwidth, 
+				out int pheight, 
+				out int pbps, 
+				out int pspp, 
 				out int piscmap){
 
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(data.Length);
@@ -134,11 +125,6 @@ public static int sreadHeaderSpix(
 	
 	Marshal.FreeHGlobal(dataPtr);
 
-pwidth = 0;
-pheight = 0;
-pbps = 0;
-pspp = 0;
-piscmap = 0;
 
 
 	return _Result;
@@ -154,8 +140,8 @@ piscmap = 0;
 ///  <param name="pix">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixWriteStreamSpix(
-				  FILE fp, 
-				  Pix pix){
+				 FILE fp, 
+				 Pix pix){
 
 	int _Result = Natives.pixWriteStreamSpix(fp.Pointer, pix.Pointer);
 	
@@ -175,8 +161,8 @@ public static int pixWriteStreamSpix(
 ///  <param name="size">[in] - bytes of data</param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixReadMemSpix(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.pixReadMemSpix(  data,   size);
 	
@@ -198,17 +184,16 @@ public static Pix pixReadMemSpix(
 ///  <param name="pix">[in] - all depths colormap OK</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixWriteMemSpix(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  Pix pix){
+				out Byte[] pdata, 
+				out uint psize, 
+				 Pix pix){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixWriteMemSpix(out  pdataPtr, out  psize, pix.Pointer);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -239,17 +224,16 @@ psize = 0;
 ///  <param name="pnbytes">[out] - number of bytes in data string</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSerializeToMemory(
-				  Pix pixs, 
-				 out Byte[] pdata, 
-				 out uint pnbytes){
+				 Pix pixs, 
+				out Byte[] pdata, 
+				out uint pnbytes){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixSerializeToMemory(pixs.Pointer, out  pdataPtr, out  pnbytes);
 	
 
-pdata = null;
-pnbytes = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -270,8 +254,8 @@ pnbytes = 0;
 ///  <param name="nbytes">[in] - number of bytes in data string</param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixDeserializeFromMemory(
-				  Byte[] data, 
-				  uint nbytes){
+				 Byte[] data, 
+				 uint nbytes){
 
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(data.Length);
 		Marshal.Copy(data, 0, dataPtr, data.Length);
@@ -286,4 +270,5 @@ public static Pix pixDeserializeFromMemory(
 	return  new Pix(_Result);
 }
 
+}
 }

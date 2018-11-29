@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // gifiostub.c (45, 7)
 // pixReadStreamGif(fp) as Pix
@@ -13,7 +14,7 @@ public class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadStreamGif/*"/>
 ///   <returns></returns>
 public static Pix pixReadStreamGif(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 
@@ -34,8 +35,8 @@ public static Pix pixReadStreamGif(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadMemGif/*"/>
 ///   <returns></returns>
 public static Pix pixReadMemGif(
-				  Byte[] cdata, 
-				  uint size){
+				 Byte[] cdata, 
+				 uint size){
 
 	IntPtr _Result = Natives.pixReadMemGif(  cdata,   size);
 	
@@ -54,8 +55,8 @@ public static Pix pixReadMemGif(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteStreamGif/*"/>
 ///   <returns></returns>
 public static int pixWriteStreamGif(
-				  FILE fp, 
-				  Pix pix){
+				 FILE fp, 
+				 Pix pix){
 
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
@@ -76,9 +77,9 @@ public static int pixWriteStreamGif(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteMemGif/*"/>
 ///   <returns></returns>
 public static int pixWriteMemGif(
-				  object pdata, 
-				  object psize, 
-				  Pix pix){
+				 object pdata, 
+				 object psize, 
+				 Pix pix){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -90,4 +91,5 @@ public static int pixWriteMemGif(
 	return _Result;
 }
 
+}
 }

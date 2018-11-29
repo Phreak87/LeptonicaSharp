@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // strokes.c (75, 1)
 // pixFindStrokeLength(pixs, tab8, plength) as int
@@ -19,14 +20,13 @@ public class _All {
 ///  <param name="plength">[out] - estimated length of the strokes</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixFindStrokeLength(
-				  Pix pixs, 
-				  int[] tab8, 
-				 out int plength){
+				 Pix pixs, 
+				 int[] tab8, 
+				out int plength){
 
 	int _Result = Natives.pixFindStrokeLength(pixs.Pointer,   tab8, out  plength);
 	
 
-plength = 0;
 
 
 	return _Result;
@@ -56,10 +56,10 @@ plength = 0;
 ///  <param name="pnahisto">[out][optional] - histo of pixel distances from bg</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixFindStrokeWidth(
-				  Pix pixs, 
-				  Single thresh, 
-				  int[] tab8, 
-				 out Single pwidth, 
+				 Pix pixs, 
+				 Single thresh, 
+				 int[] tab8, 
+				out Single pwidth, 
 				out Numa pnahisto){
 
 	IntPtr pnahistoPtr = IntPtr.Zero;
@@ -67,9 +67,7 @@ public static int pixFindStrokeWidth(
 	int _Result = Natives.pixFindStrokeWidth(pixs.Pointer,   thresh,   tab8, out  pwidth, out pnahistoPtr);
 	
 
-pwidth = 0f;
-pnahisto = null;
-	; if (pnahistoPtr != IntPtr.Zero){pnahisto = new Numa(pnahistoPtr);}
+	if (pnahistoPtr == null) {pnahisto = null;} else { pnahisto = new Numa(pnahistoPtr); };
 
 
 	return _Result;
@@ -90,8 +88,8 @@ pnahisto = null;
 ///  <param name="debug">[in] - 1 for debug output 0 to skip</param>
 ///   <returns>na  array of stroke widths for each pix in %pixa NULL on error</returns>
 public static Numa pixaFindStrokeWidth(
-				  Pixa pixa, 
-				  Single thresh, 
+				 Pixa pixa, 
+				 Single thresh, 
 				 int[] tab8, 
 				 DebugOnOff debug){
 
@@ -114,13 +112,12 @@ public static Numa pixaFindStrokeWidth(
 ///  <param name="targetw">[out] - desired width for strokes in each pix</param>
 ///   <returns>pixa  with modified stroke widths, or NULL on error</returns>
 public static Pixa pixaModifyStrokeWidth(
-				  Pixa pixas, 
-				 out Single targetw){
+				 Pixa pixas, 
+				out Single targetw){
 
 	IntPtr _Result = Natives.pixaModifyStrokeWidth(pixas.Pointer, out  targetw);
 	
 
-targetw = 0f;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -138,9 +135,9 @@ targetw = 0f;
 ///  <param name="targetw">[in] - desired stroke width</param>
 ///   <returns>pix  with modified stroke width, or NULL on error</returns>
 public static Pix pixModifyStrokeWidth(
-				  Pix pixs, 
-				  Single width, 
-				  Single targetw){
+				 Pix pixs, 
+				 Single width, 
+				 Single targetw){
 
 	IntPtr _Result = Natives.pixModifyStrokeWidth(pixs.Pointer,   width,   targetw);
 	
@@ -173,10 +170,10 @@ public static Pix pixModifyStrokeWidth(
 ///  <param name="connectivity">[in] - 4 or 8, to be used if %thinfirst == 1</param>
 ///   <returns>pixa  with all stroke widths being %width, or NULL on error</returns>
 public static Pixa pixaSetStrokeWidth(
-				  Pixa pixas, 
-				  int width, 
-				  int thinfirst, 
-				  int connectivity){
+				 Pixa pixas, 
+				 int width, 
+				 int thinfirst, 
+				 int connectivity){
 
 	IntPtr _Result = Natives.pixaSetStrokeWidth(pixas.Pointer,   width,   thinfirst,   connectivity);
 	
@@ -207,10 +204,10 @@ public static Pixa pixaSetStrokeWidth(
 ///  <param name="connectivity">[in] - 4 or 8, to be used if %thinfirst == 1</param>
 ///   <returns>pixd  with stroke width set to %width, or NULL on error</returns>
 public static Pix pixSetStrokeWidth(
-				  Pix pixs, 
-				  int width, 
-				  int thinfirst, 
-				  int connectivity){
+				 Pix pixs, 
+				 int width, 
+				 int thinfirst, 
+				 int connectivity){
 
 	IntPtr _Result = Natives.pixSetStrokeWidth(pixs.Pointer,   width,   thinfirst,   connectivity);
 	
@@ -221,4 +218,5 @@ public static Pix pixSetStrokeWidth(
 	return  new Pix(_Result);
 }
 
+}
 }

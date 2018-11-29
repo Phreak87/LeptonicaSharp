@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // rop.c (193, 1)
 // pixRasterop(pixd, dx, dy, dw, dh, op, pixs, sx, sy) as int
@@ -130,15 +131,15 @@ public class _All {
 ///  <param name="sy">[in] - y val of UL corner of src rectangle</param>
 ///   <returns>0 if OK 1 on error.</returns>
 public static int pixRasterop(
-				  Pix pixd, 
-				  int dx, 
-				  int dy, 
-				  int dw, 
-				  int dh, 
-				  int op, 
-				  Pix pixs, 
-				  int sx, 
-				  int sy){
+				 Pix pixd, 
+				 int dx, 
+				 int dy, 
+				 int dw, 
+				 int dh, 
+				 int op, 
+				 Pix pixs, 
+				 int sx, 
+				 int sy){
 
 	int _Result = Natives.pixRasterop(pixd.Pointer,   dx,   dy,   dw,   dh,   op, pixs.Pointer,   sx,   sy);
 	
@@ -171,11 +172,11 @@ public static int pixRasterop(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixRasteropVip(
-				  Pix pixd, 
-				  int bx, 
-				  int bw, 
-				  int vshift, 
-				  int incolor){
+				 Pix pixd, 
+				 int bx, 
+				 int bw, 
+				 int vshift, 
+				 int incolor){
 
 	int _Result = Natives.pixRasteropVip(pixd.Pointer,   bx,   bw,   vshift,   incolor);
 	
@@ -208,11 +209,11 @@ public static int pixRasteropVip(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixRasteropHip(
-				  Pix pixd, 
-				  int by, 
-				  int bh, 
-				  int hshift, 
-				  int incolor){
+				 Pix pixd, 
+				 int by, 
+				 int bh, 
+				 int hshift, 
+				 int incolor){
 
 	int _Result = Natives.pixRasteropHip(pixd.Pointer,   by,   bh,   hshift,   incolor);
 	
@@ -246,11 +247,11 @@ public static int pixRasteropHip(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error.</returns>
 public static Pix pixTranslate(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hshift, 
-				  int vshift, 
-				  int incolor){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hshift, 
+				 int vshift, 
+				 int incolor){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -275,10 +276,10 @@ public static Pix pixTranslate(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixRasteropIP(
-				  Pix pixd, 
-				  int hshift, 
-				  int vshift, 
-				  int incolor){
+				 Pix pixd, 
+				 int hshift, 
+				 int vshift, 
+				 int incolor){
 
 	int _Result = Natives.pixRasteropIP(pixd.Pointer,   hshift,   vshift,   incolor);
 	
@@ -306,9 +307,9 @@ public static int pixRasteropIP(
 ///  <param name="op">[in] - any of the op-codes</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixRasteropFullImage(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int op){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int op){
 
 	int _Result = Natives.pixRasteropFullImage(pixd.Pointer, pixs.Pointer,   op);
 	
@@ -318,4 +319,5 @@ public static int pixRasteropFullImage(
 	return _Result;
 }
 
+}
 }

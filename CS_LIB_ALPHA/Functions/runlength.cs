@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // runlength.c (99, 1)
 // pixStrokeWidthTransform(pixs, color, depth, nangles) as Pix
@@ -39,10 +40,10 @@ public class _All {
 ///  <param name="nangles">[in] - 2, 4, 6 or 8</param>
 ///   <returns>pixd 8 or 16 bpp, or NULL on error</returns>
 public static Pix pixStrokeWidthTransform(
-				  Pix pixs, 
-				  int color, 
-				  int depth, 
-				  int nangles){
+				 Pix pixs, 
+				 int color, 
+				 int depth, 
+				 int nangles){
 
 	IntPtr _Result = Natives.pixStrokeWidthTransform(pixs.Pointer,   color,   depth,   nangles);
 	
@@ -79,10 +80,10 @@ public static Pix pixStrokeWidthTransform(
 ///  <param name="depth">[in] - 8 or 16 bpp</param>
 ///   <returns>pixd 8 or 16 bpp, or NULL on error</returns>
 public static Pix pixRunlengthTransform(
-				  Pix pixs, 
-				  int color, 
-				  int direction, 
-				  int depth){
+				 Pix pixs, 
+				 int color, 
+				 int direction, 
+				 int depth){
 
 	IntPtr _Result = Natives.pixRunlengthTransform(pixs.Pointer,   color,   direction,   depth);
 	
@@ -116,16 +117,15 @@ public static Pix pixRunlengthTransform(
 ///  <param name="pn">[out] - the number of runs found</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixFindHorizontalRuns(
-				  Pix pix, 
-				  int y, 
-				  int[] xstart, 
-				  int[] xend, 
-				 out int pn){
+				 Pix pix, 
+				 int y, 
+				 int[] xstart, 
+				 int[] xend, 
+				out int pn){
 
 	int _Result = Natives.pixFindHorizontalRuns(pix.Pointer,   y,   xstart,   xend, out  pn);
 	
 
-pn = 0;
 
 
 	return _Result;
@@ -154,16 +154,15 @@ pn = 0;
 ///  <param name="pn">[out] - the number of runs found</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixFindVerticalRuns(
-				  Pix pix, 
-				  int x, 
-				  int[] ystart, 
-				  int[] yend, 
-				 out int pn){
+				 Pix pix, 
+				 int x, 
+				 int[] ystart, 
+				 int[] yend, 
+				out int pn){
 
 	int _Result = Natives.pixFindVerticalRuns(pix.Pointer,   x,   ystart,   yend, out  pn);
 	
 
-pn = 0;
 
 
 	return _Result;
@@ -186,8 +185,8 @@ pn = 0;
 ///  <param name="pnastart">[out][optional] - start locations of longest runs</param>
 ///   <returns>na of lengths of runs, or NULL on error</returns>
 public static Numa pixFindMaxRuns(
-				  Pix pix, 
-				  int direction, 
+				 Pix pix, 
+				 int direction, 
 				out Numa pnastart){
 
 	IntPtr pnastartPtr = IntPtr.Zero;
@@ -195,8 +194,7 @@ public static Numa pixFindMaxRuns(
 	IntPtr _Result = Natives.pixFindMaxRuns(pix.Pointer,   direction, out pnastartPtr);
 	
 
-pnastart = null;
-	; if (pnastartPtr != IntPtr.Zero){pnastart = new Numa(pnastartPtr);}
+	if (pnastartPtr == null) {pnastart = null;} else { pnastart = new Numa(pnastartPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -221,16 +219,14 @@ pnastart = null;
 ///  <param name="psize">[out] - the size of the run</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixFindMaxHorizontalRunOnLine(
-				  Pix pix, 
-				  int y, 
-				 out int pxstart, 
-				 out int psize){
+				 Pix pix, 
+				 int y, 
+				out int pxstart, 
+				out int psize){
 
 	int _Result = Natives.pixFindMaxHorizontalRunOnLine(pix.Pointer,   y, out  pxstart, out  psize);
 	
 
-pxstart = 0;
-psize = 0;
 
 
 	return _Result;
@@ -254,16 +250,14 @@ psize = 0;
 ///  <param name="psize">[out] - the size of the run</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixFindMaxVerticalRunOnLine(
-				  Pix pix, 
-				  int x, 
-				 out int pystart, 
-				 out int psize){
+				 Pix pix, 
+				 int x, 
+				out int pystart, 
+				out int psize){
 
 	int _Result = Natives.pixFindMaxVerticalRunOnLine(pix.Pointer,   x, out  pystart, out  psize);
 	
 
-pystart = 0;
-psize = 0;
 
 
 	return _Result;
@@ -289,12 +283,12 @@ psize = 0;
 ///  <param name="n">[in] - the number of runs</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int runlengthMembershipOnLine(
-				  int[] buffer, 
-				  int size, 
-				  int depth, 
-				  int[] start, 
-				  object _end_, 
-				  int n){
+				 int[] buffer, 
+				 int size, 
+				 int depth, 
+				 int[] start, 
+				 object _end_, 
+				 int n){
 
 	int _Result = Natives.runlengthMembershipOnLine(  buffer,   size,   depth,   start,   _end_,   n);
 	
@@ -320,7 +314,7 @@ public static int runlengthMembershipOnLine(
 ///  <param name="bitval">[in] - either 0 or 1</param>
 ///   <returns>table giving, for an input byte, the MS bit location, starting at 0 with the MSBit in the byte, or NULL on error.</returns>
 public static int[] makeMSBitLocTab(
-				  int bitval){
+				 int bitval){
 
 	int[] _Result = Natives.makeMSBitLocTab(  bitval);
 	
@@ -330,4 +324,5 @@ public static int[] makeMSBitLocTab(
 	return _Result;
 }
 
+}
 }

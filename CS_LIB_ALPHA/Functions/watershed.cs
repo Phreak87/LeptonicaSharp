@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // watershed.c (203, 1)
 // wshedCreate(pixs, pixm, mindepth, debugflag) as L_WShed
@@ -30,10 +31,10 @@ public class _All {
 ///  <param name="debugflag">[in] - 1 for debug output</param>
 ///   <returns>WShed, or NULL on error</returns>
 public static L_WShed wshedCreate(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int mindepth, 
-				  int debugflag){
+				 Pix pixs, 
+				 Pix pixm, 
+				 int mindepth, 
+				 int debugflag){
 
 	IntPtr _Result = Natives.wshedCreate(pixs.Pointer, pixm.Pointer,   mindepth,   debugflag);
 	
@@ -52,15 +53,14 @@ public static L_WShed wshedCreate(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/wshedDestroy/*"/>
 ///  <param name="pwshed">[in,out] - will be set to null before returning</param>
 public static void wshedDestroy(
-				 ref L_WShed pwshed){
+				ref L_WShed pwshed){
 
 	IntPtr pwshedPtr = IntPtr.Zero; 	if (pwshed != null) {pwshedPtr = pwshed.Pointer;}
 
 	Natives.wshedDestroy(ref pwshedPtr);
 	
 
-pwshed = null;
-	; if (pwshedPtr != IntPtr.Zero){pwshed = new L_WShed(pwshedPtr);}
+	if (pwshedPtr == null) {pwshed = null;} else { pwshed = new L_WShed(pwshedPtr); };
 
 
 }
@@ -74,7 +74,7 @@ pwshed = null;
 ///  <param name="wshed">[in] - generated from wshedCreate()</param>
 ///   <returns>0 if OK, 1 on error Iportant note: 1 This is buggy.  It seems to locate watersheds that are duplicates.  The watershed extraction after complete fill grabs some regions belonging to existing watersheds. See prog/watershedtest.c for testing.</returns>
 public static int wshedApply(
-				  L_WShed wshed){
+				 L_WShed wshed){
 
 	int _Result = Natives.wshedApply(wshed.Pointer);
 	
@@ -95,7 +95,7 @@ public static int wshedApply(
 ///  <param name="pnalevels">[out][optional] - watershed levels</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int wshedBasins(
-				  L_WShed wshed, 
+				 L_WShed wshed, 
 				out Pixa ppixa, 
 				out Numa pnalevels){
 
@@ -105,10 +105,8 @@ public static int wshedBasins(
 	int _Result = Natives.wshedBasins(wshed.Pointer, out ppixaPtr, out pnalevelsPtr);
 	
 
-ppixa = null;
-	; if (ppixaPtr != IntPtr.Zero){ppixa = new Pixa(ppixaPtr);}
-pnalevels = null;
-	; if (pnalevelsPtr != IntPtr.Zero){pnalevels = new Numa(pnalevelsPtr);}
+	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+	if (pnalevelsPtr == null) {pnalevels = null;} else { pnalevels = new Numa(pnalevelsPtr); };
 
 
 	return _Result;
@@ -123,7 +121,7 @@ pnalevels = null;
 ///  <param name="wshed">[in] - </param>
 ///   <returns>pixd initial image with all basins filled, or NULL on error</returns>
 public static Pix wshedRenderFill(
-				  L_WShed wshed){
+				 L_WShed wshed){
 
 	IntPtr _Result = Natives.wshedRenderFill(wshed.Pointer);
 	
@@ -143,7 +141,7 @@ public static Pix wshedRenderFill(
 ///  <param name="wshed">[in] - </param>
 ///   <returns>pixd initial image with all basins filled, or NULL on error</returns>
 public static Pix wshedRenderColors(
-				  L_WShed wshed){
+				 L_WShed wshed){
 
 	IntPtr _Result = Natives.wshedRenderColors(wshed.Pointer);
 	
@@ -154,4 +152,5 @@ public static Pix wshedRenderColors(
 	return  new Pix(_Result);
 }
 
+}
 }

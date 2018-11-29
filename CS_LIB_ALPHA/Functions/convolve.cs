@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // convolve.c (127, 1)
 // pixBlockconv(pix, wc, hc) as Pix
@@ -25,9 +26,9 @@ public class _All {
 ///  <param name="hc">[in] - half width/height of convolution kernel</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixBlockconv(
-				  Pix pix, 
-				  int wc, 
-				  int hc){
+				 Pix pix, 
+				 int wc, 
+				 int hc){
 
 	IntPtr _Result = Natives.pixBlockconv(pix.Pointer,   wc,   hc);
 	
@@ -62,10 +63,10 @@ public static Pix pixBlockconv(
 ///  <param name="hc">[in] - half width/height of convolution kernel</param>
 ///   <returns>pix 8 bpp, or NULL on error</returns>
 public static Pix pixBlockconvGray(
-				  Pix pixs, 
-				  Pix pixacc, 
-				  int wc, 
-				  int hc){
+				 Pix pixs, 
+				 Pix pixacc, 
+				 int wc, 
+				 int hc){
 
 	IntPtr _Result = Natives.pixBlockconvGray(pixs.Pointer, pixacc.Pointer,   wc,   hc);
 	
@@ -93,7 +94,7 @@ public static Pix pixBlockconvGray(
 ///  <param name="pixs">[in] - 1, 8 or 32 bpp</param>
 ///   <returns>accum pix 32 bpp, or NULL on error.</returns>
 public static Pix pixBlockconvAccum(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixBlockconvAccum(pixs.Pointer);
 	
@@ -147,9 +148,9 @@ public static Pix pixBlockconvAccum(
 ///  <param name="hc">[in] - half width/height of convolution kernel</param>
 ///   <returns>pix 32 bpp containing the convolution without normalizing for the window size, or NULL on error</returns>
 public static Pix pixBlockconvGrayUnnormalized(
-				  Pix pixs, 
-				  int wc, 
-				  int hc){
+				 Pix pixs, 
+				 int wc, 
+				 int hc){
 
 	IntPtr _Result = Natives.pixBlockconvGrayUnnormalized(pixs.Pointer,   wc,   hc);
 	
@@ -198,11 +199,11 @@ public static Pix pixBlockconvGrayUnnormalized(
 ///  <param name="ny">[in] - subdivision into tiles</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixBlockconvTiled(
-				  Pix pix, 
-				  int wc, 
-				  int hc, 
-				  int nx, 
-				  int ny){
+				 Pix pix, 
+				 int wc, 
+				 int hc, 
+				 int nx, 
+				 int ny){
 
 	IntPtr _Result = Natives.pixBlockconvTiled(pix.Pointer,   wc,   hc,   nx,   ny);
 	
@@ -239,10 +240,10 @@ public static Pix pixBlockconvTiled(
 ///  <param name="hc">[in] - half width/height of convolution kernel</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixBlockconvGrayTile(
-				  Pix pixs, 
-				  Pix pixacc, 
-				  int wc, 
-				  int hc){
+				 Pix pixs, 
+				 Pix pixacc, 
+				 int wc, 
+				 int hc){
 
 	IntPtr _Result = Natives.pixBlockconvGrayTile(pixs.Pointer, pixacc.Pointer,   wc,   hc);
 	
@@ -296,10 +297,10 @@ public static Pix pixBlockconvGrayTile(
 ///  <param name="pfpixrv">[out][optional] - float rms deviation from the mean</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixWindowedStats(
-				  Pix pixs, 
-				  int wc, 
-				  int hc, 
-				  int hasborder, 
+				 Pix pixs, 
+				 int wc, 
+				 int hc, 
+				 int hasborder, 
 				out Pix ppixm, 
 				out Pix ppixms, 
 				out FPix pfpixv, 
@@ -313,14 +314,10 @@ public static int pixWindowedStats(
 	int _Result = Natives.pixWindowedStats(pixs.Pointer,   wc,   hc,   hasborder, out ppixmPtr, out ppixmsPtr, out pfpixvPtr, out pfpixrvPtr);
 	
 
-ppixm = null;
-	; if (ppixmPtr != IntPtr.Zero){ppixm = new Pix(ppixmPtr);}
-ppixms = null;
-	; if (ppixmsPtr != IntPtr.Zero){ppixms = new Pix(ppixmsPtr);}
-pfpixv = null;
-	; if (pfpixvPtr != IntPtr.Zero){pfpixv = new FPix(pfpixvPtr);}
-pfpixrv = null;
-	; if (pfpixrvPtr != IntPtr.Zero){pfpixrv = new FPix(pfpixrvPtr);}
+	if (ppixmPtr == null) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
+	if (ppixmsPtr == null) {ppixms = null;} else { ppixms = new Pix(ppixmsPtr); };
+	if (pfpixvPtr == null) {pfpixv = null;} else { pfpixv = new FPix(pfpixvPtr); };
+	if (pfpixrvPtr == null) {pfpixrv = null;} else { pfpixrv = new FPix(pfpixrvPtr); };
 
 
 	return _Result;
@@ -360,11 +357,11 @@ pfpixrv = null;
 ///  <param name="normflag">[in] - 1 for normalization to get average in window 0 for the sum in the window (un-normalized)</param>
 ///   <returns>pixd 8 or 32 bpp, average over kernel window</returns>
 public static Pix pixWindowedMean(
-				  Pix pixs, 
-				  int wc, 
-				  int hc, 
-				  int hasborder, 
-				  int normflag){
+				 Pix pixs, 
+				 int wc, 
+				 int hc, 
+				 int hasborder, 
+				 int normflag){
 
 	IntPtr _Result = Natives.pixWindowedMean(pixs.Pointer,   wc,   hc,   hasborder,   normflag);
 	
@@ -411,10 +408,10 @@ public static Pix pixWindowedMean(
 ///  <param name="hasborder">[in] - use 1 if it already has (wc + 1 border pixels on left and right, and hc + 1 on top and bottom use 0 to add kernel-dependent border)</param>
 ///   <returns>pixd 32 bpp, average over rectangular window of width = 2  wc + 1 and height = 2  hc + 1</returns>
 public static Pix pixWindowedMeanSquare(
-				  Pix pixs, 
-				  int wc, 
-				  int hc, 
-				  int hasborder){
+				 Pix pixs, 
+				 int wc, 
+				 int hc, 
+				 int hasborder){
 
 	IntPtr _Result = Natives.pixWindowedMeanSquare(pixs.Pointer,   wc,   hc,   hasborder);
 	
@@ -451,8 +448,8 @@ public static Pix pixWindowedMeanSquare(
 ///  <param name="pfpixrv">[out][optional] - float rms deviation from the mean</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixWindowedVariance(
-				  Pix pixm, 
-				  Pix pixms, 
+				 Pix pixm, 
+				 Pix pixms, 
 				out FPix pfpixv, 
 				out FPix pfpixrv){
 
@@ -462,10 +459,8 @@ public static int pixWindowedVariance(
 	int _Result = Natives.pixWindowedVariance(pixm.Pointer, pixms.Pointer, out pfpixvPtr, out pfpixrvPtr);
 	
 
-pfpixv = null;
-	; if (pfpixvPtr != IntPtr.Zero){pfpixv = new FPix(pfpixvPtr);}
-pfpixrv = null;
-	; if (pfpixrvPtr != IntPtr.Zero){pfpixrv = new FPix(pfpixrvPtr);}
+	if (pfpixvPtr == null) {pfpixv = null;} else { pfpixv = new FPix(pfpixvPtr); };
+	if (pfpixrvPtr == null) {pfpixrv = null;} else { pfpixrv = new FPix(pfpixrvPtr); };
 
 
 	return _Result;
@@ -493,7 +488,7 @@ pfpixrv = null;
 ///  <param name="pixs">[in] - 8 bpp grayscale</param>
 ///   <returns>dpix 64 bit array, or NULL on error</returns>
 public static DPix pixMeanSquareAccum(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixMeanSquareAccum(pixs.Pointer);
 	
@@ -537,11 +532,11 @@ public static DPix pixMeanSquareAccum(
 ///  <param name="rank">[in] - between 0.0 and 1.0 0.5 is median filter</param>
 ///   <returns>pixd 1 bpp</returns>
 public static Pix pixBlockrank(
-				  Pix pixs, 
-				  Pix pixacc, 
-				  int wc, 
-				  int hc, 
-				  Single rank){
+				 Pix pixs, 
+				 Pix pixacc, 
+				 int wc, 
+				 int hc, 
+				 Single rank){
 
 	IntPtr pixaccPtr = IntPtr.Zero; 	if (pixacc != null) {pixaccPtr = pixacc.Pointer;}
 
@@ -591,10 +586,10 @@ public static Pix pixBlockrank(
 ///  <param name="hc">[in] - half width/height of block sum/rank kernel</param>
 ///   <returns>pixd 8 bpp</returns>
 public static Pix pixBlocksum(
-				  Pix pixs, 
-				  Pix pixacc, 
-				  int wc, 
-				  int hc){
+				 Pix pixs, 
+				 Pix pixacc, 
+				 int wc, 
+				 int hc){
 
 	IntPtr pixaccPtr = IntPtr.Zero; 	if (pixacc != null) {pixaccPtr = pixacc.Pointer;}
 
@@ -639,8 +634,8 @@ public static Pix pixBlocksum(
 ///  <param name="pixacc">[in] - pix [optional] 32 bpp</param>
 ///   <returns>pixd 1 bpp</returns>
 public static Pix pixCensusTransform(
-				  Pix pixs, 
-				  int halfsize, 
+				 Pix pixs, 
+				 int halfsize, 
 				 Pix pixacc){
 
 	IntPtr pixaccPtr = IntPtr.Zero; 	if (pixacc != null) {pixaccPtr = pixacc.Pointer;}
@@ -705,10 +700,10 @@ public static Pix pixCensusTransform(
 ///  <param name="normflag">[in] - 1 to normalize kernel to unit sum 0 otherwise</param>
 ///   <returns>pixd 8, 16 or 32 bpp</returns>
 public static Pix pixConvolve(
-				  Pix pixs, 
-				  L_Kernel kel, 
-				  int outdepth, 
-				  int normflag){
+				 Pix pixs, 
+				 L_Kernel kel, 
+				 int outdepth, 
+				 int normflag){
 
 	IntPtr _Result = Natives.pixConvolve(pixs.Pointer, kel.Pointer,   outdepth,   normflag);
 	
@@ -769,11 +764,11 @@ public static Pix pixConvolve(
 ///  <param name="normflag">[in] - 1 to normalize kernel to unit sum 0 otherwise</param>
 ///   <returns>pixd 8, 16 or 32 bpp</returns>
 public static Pix pixConvolveSep(
-				  Pix pixs, 
-				  L_Kernel kelx, 
-				  L_Kernel kely, 
-				  int outdepth, 
-				  int normflag){
+				 Pix pixs, 
+				 L_Kernel kelx, 
+				 L_Kernel kely, 
+				 int outdepth, 
+				 int normflag){
 
 	IntPtr _Result = Natives.pixConvolveSep(pixs.Pointer, kelx.Pointer, kely.Pointer,   outdepth,   normflag);
 	
@@ -813,8 +808,8 @@ public static Pix pixConvolveSep(
 ///  <param name="kel">[in] - kernel</param>
 ///   <returns>pixd 32 bpp rgb</returns>
 public static Pix pixConvolveRGB(
-				  Pix pixs, 
-				  L_Kernel kel){
+				 Pix pixs, 
+				 L_Kernel kel){
 
 	IntPtr _Result = Natives.pixConvolveRGB(pixs.Pointer, kel.Pointer);
 	
@@ -855,9 +850,9 @@ public static Pix pixConvolveRGB(
 ///  <param name="kely">[in] - y-dependent kernel</param>
 ///   <returns>pixd 32 bpp rgb</returns>
 public static Pix pixConvolveRGBSep(
-				  Pix pixs, 
-				  L_Kernel kelx, 
-				  L_Kernel kely){
+				 Pix pixs, 
+				 L_Kernel kelx, 
+				 L_Kernel kely){
 
 	IntPtr _Result = Natives.pixConvolveRGBSep(pixs.Pointer, kelx.Pointer, kely.Pointer);
 	
@@ -898,9 +893,9 @@ public static Pix pixConvolveRGBSep(
 ///  <param name="normflag">[in] - 1 to normalize kernel to unit sum 0 otherwise</param>
 ///   <returns>fpixd 32 bit float array</returns>
 public static FPix fpixConvolve(
-				  FPix fpixs, 
-				  L_Kernel kel, 
-				  int normflag){
+				 FPix fpixs, 
+				 L_Kernel kel, 
+				 int normflag){
 
 	IntPtr _Result = Natives.fpixConvolve(fpixs.Pointer, kel.Pointer,   normflag);
 	
@@ -944,10 +939,10 @@ public static FPix fpixConvolve(
 ///  <param name="normflag">[in] - 1 to normalize kernel to unit sum 0 otherwise</param>
 ///   <returns>fpixd 32 bit float array</returns>
 public static FPix fpixConvolveSep(
-				  FPix fpixs, 
-				  L_Kernel kelx, 
-				  L_Kernel kely, 
-				  int normflag){
+				 FPix fpixs, 
+				 L_Kernel kelx, 
+				 L_Kernel kely, 
+				 int normflag){
 
 	IntPtr _Result = Natives.fpixConvolveSep(fpixs.Pointer, kelx.Pointer, kely.Pointer,   normflag);
 	
@@ -992,18 +987,17 @@ public static FPix fpixConvolveSep(
 ///  <param name="pbias">[out] - applied bias</param>
 ///   <returns>pixd 8 or 16 bpp</returns>
 public static Pix pixConvolveWithBias(
-				  Pix pixs, 
-				  L_Kernel kel1, 
-				  L_Kernel kel2, 
-				  int force8, 
-				 out int pbias){
+				 Pix pixs, 
+				 L_Kernel kel1, 
+				 L_Kernel kel2, 
+				 int force8, 
+				out int pbias){
 
 	IntPtr kel2Ptr = IntPtr.Zero; 	if (kel2 != null) {kel2Ptr = kel2.Pointer;}
 
 	IntPtr _Result = Natives.pixConvolveWithBias(pixs.Pointer, kel1.Pointer, kel2Ptr,   force8, out  pbias);
 	
 
-pbias = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -1023,8 +1017,8 @@ pbias = 0;
 ///  <param name="xfact">[in] - integer greater or equal 1</param>
 ///  <param name="yfact">[in] - integer greater or equal 1</param>
 public static void l_setConvolveSampling(
-				  int xfact, 
-				  int yfact){
+				 int xfact, 
+				 int yfact){
 
 	Natives.l_setConvolveSampling(  xfact,   yfact);
 	
@@ -1047,8 +1041,8 @@ public static void l_setConvolveSampling(
 ///  <param name="stdev">[in] - of noise</param>
 ///   <returns>pixd 8 or 32 bpp, or NULL on error</returns>
 public static Pix pixAddGaussianNoise(
-				  Pix pixs, 
-				  Single stdev){
+				 Pix pixs, 
+				 Single stdev){
 
 	IntPtr _Result = Natives.pixAddGaussianNoise(pixs.Pointer,   stdev);
 	
@@ -1076,4 +1070,5 @@ public static Single gaussDistribSampling(){
 	return _Result;
 }
 
+}
 }

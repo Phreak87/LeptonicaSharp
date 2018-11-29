@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // encoding.c (100, 1)
 // encodeBase64(inarray, insize, poutsize) as String
@@ -21,14 +22,13 @@ public class _All {
 ///  <param name="poutsize">[out] - number of bytes in output char array</param>
 ///   <returns>chara with MAX_BASE64_LINE characters + \n in each line</returns>
 public static String encodeBase64(
-				  Byte[] inarray, 
-				  int insize, 
-				 out int poutsize){
+				 Byte[] inarray, 
+				 int insize, 
+				out int poutsize){
 
 	String _Result = Natives.encodeBase64(  inarray,   insize, out  poutsize);
 	
 
-poutsize = 0;
 
 
 	return _Result;
@@ -55,14 +55,13 @@ poutsize = 0;
 ///  <param name="poutsize">[out] - number of bytes in output byte array</param>
 ///   <returns>bytea decoded byte data, or NULL on error</returns>
 public static Byte[] decodeBase64(
-				  String inarray, 
-				  int insize, 
-				 out int poutsize){
+				 String inarray, 
+				 int insize, 
+				out int poutsize){
 
 	Byte[] _Result = Natives.decodeBase64(  inarray,   insize, out  poutsize);
 	
 
-poutsize = 0;
 
 
 	return _Result;
@@ -84,14 +83,13 @@ poutsize = 0;
 ///  <param name="poutsize">[out] - number of bytes in output char array</param>
 ///   <returns>chara with 64 characters + \n in each line</returns>
 public static String encodeAscii85(
-				  Byte[] inarray, 
-				  int insize, 
-				 out int poutsize){
+				 Byte[] inarray, 
+				 int insize, 
+				out int poutsize){
 
 	String _Result = Natives.encodeAscii85(  inarray,   insize, out  poutsize);
 	
 
-poutsize = 0;
 
 
 	return _Result;
@@ -115,14 +113,13 @@ poutsize = 0;
 ///  <param name="poutsize">[out] - number of bytes in output l_uint8 array</param>
 ///   <returns>outarray binary</returns>
 public static Byte[] decodeAscii85(
-				  String inarray, 
-				  int insize, 
-				 out int poutsize){
+				 String inarray, 
+				 int insize, 
+				out int poutsize){
 
 	Byte[] _Result = Natives.decodeAscii85(  inarray,   insize, out  poutsize);
 	
 
-poutsize = 0;
 
 
 	return _Result;
@@ -151,20 +148,20 @@ poutsize = 0;
 ///  <param name="poutsize">[out] - number of bytes in output char array</param>
 ///   <returns>outarray ascii</returns>
 public static String reformatPacked64(
-				  String inarray, 
-				  int insize, 
-				  int leadspace, 
-				  int linechars, 
-				  int addquotes, 
-				 out int poutsize){
+				 String inarray, 
+				 int insize, 
+				 int leadspace, 
+				 int linechars, 
+				 int addquotes, 
+				out int poutsize){
 
 	String _Result = Natives.reformatPacked64(  inarray,   insize,   leadspace,   linechars,   addquotes, out  poutsize);
 	
 
-poutsize = 0;
 
 
 	return _Result;
 }
 
+}
 }

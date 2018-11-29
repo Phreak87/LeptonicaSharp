@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // pixalloc.c (168, 1)
 // pmsCreate(minsize, smallest, numalloc, logfile) as int
@@ -36,10 +37,10 @@ public class _All {
 ///  <param name="logfile">[in] - use for debugging null otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pmsCreate(
-				  uint minsize, 
-				  uint smallest, 
-				  Numa numalloc, 
-				  String logfile){
+				 uint minsize, 
+				 uint smallest, 
+				 Numa numalloc, 
+				 String logfile){
 
 	int _Result = Natives.pmsCreate(  minsize,   smallest, numalloc.Pointer,   logfile);
 	
@@ -85,7 +86,7 @@ public static void pmsDestroy(){
 ///  <param name="nbytes">[in] - min number of bytes in the chunk to be retrieved</param>
 ///   <returns>data ptr to chunk</returns>
 public static Object pmsCustomAlloc(
-				  uint nbytes){
+				 uint nbytes){
 
 	IntPtr _Result = Natives.pmsCustomAlloc(  nbytes);
 	
@@ -104,7 +105,7 @@ public static Object pmsCustomAlloc(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pmsCustomDealloc/*"/>
 ///  <param name="data">[in] - to be freed or returned to the storage</param>
 public static void pmsCustomDealloc(
-				  Object data){
+				 Object data){
 
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -139,7 +140,7 @@ public static void pmsCustomDealloc(
 ///  <param name="nbytes">[in] - </param>
 ///   <returns>data</returns>
 public static Object pmsGetAlloc(
-				  uint nbytes){
+				 uint nbytes){
 
 	IntPtr _Result = Natives.pmsGetAlloc(  nbytes);
 	
@@ -160,13 +161,12 @@ public static Object pmsGetAlloc(
 ///  <param name="plevel">[out] - -1 if either too small or too large</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pmsGetLevelForAlloc(
-				  uint nbytes, 
-				 out int plevel){
+				 uint nbytes, 
+				out int plevel){
 
 	int _Result = Natives.pmsGetLevelForAlloc(  nbytes, out  plevel);
 	
 
-plevel = 0;
 
 
 	return _Result;
@@ -182,8 +182,8 @@ plevel = 0;
 ///  <param name="plevel">[out] - level in memory store -1 if allocated outside the store</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pmsGetLevelForDealloc(
-				  Object data, 
-				 out int plevel){
+				 Object data, 
+				out int plevel){
 
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -192,7 +192,6 @@ public static int pmsGetLevelForDealloc(
 	
 	Marshal.FreeHGlobal(dataPtr);
 
-plevel = 0;
 
 
 	return _Result;
@@ -213,4 +212,5 @@ public static void pmsLogInfo(){
 
 }
 
+}
 }

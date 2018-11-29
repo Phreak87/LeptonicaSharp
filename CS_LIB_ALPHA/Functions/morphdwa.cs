@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // morphdwa.c (175, 1)
 // pixDilateBrickDwa(pixd, pixs, hsize, vsize) as Pix
@@ -45,10 +46,10 @@ public class _All {
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
 public static Pix pixDilateBrickDwa(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -105,10 +106,10 @@ public static Pix pixDilateBrickDwa(
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
 public static Pix pixErodeBrickDwa(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -165,10 +166,10 @@ public static Pix pixErodeBrickDwa(
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
 public static Pix pixOpenBrickDwa(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -228,10 +229,10 @@ public static Pix pixOpenBrickDwa(
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
 public static Pix pixCloseBrickDwa(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -297,10 +298,10 @@ public static Pix pixCloseBrickDwa(
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
 public static Pix pixDilateCompBrickDwa(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -366,10 +367,10 @@ public static Pix pixDilateCompBrickDwa(
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
 public static Pix pixErodeCompBrickDwa(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -435,10 +436,10 @@ public static Pix pixErodeCompBrickDwa(
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
 public static Pix pixOpenCompBrickDwa(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -505,10 +506,10 @@ public static Pix pixOpenCompBrickDwa(
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
 public static Pix pixCloseCompBrickDwa(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -554,10 +555,10 @@ public static Pix pixCloseCompBrickDwa(
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
 public static Pix pixDilateCompBrickExtendDwa(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -588,10 +589,10 @@ public static Pix pixDilateCompBrickExtendDwa(
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
 public static Pix pixErodeCompBrickExtendDwa(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -616,10 +617,10 @@ public static Pix pixErodeCompBrickExtendDwa(
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd 1 There are three cases: a) pixd == null   (result into new pixd b) pixd == pixs   (in-place writes result back to pixs c) pixd != pixs   (puts result into existing pixd 2) There is no need to call this directly:  pixOpenCompBrickDwa( calls this function if either brick dimension exceeds 63.</returns>
 public static Pix pixOpenCompBrickExtendDwa(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -644,10 +645,10 @@ public static Pix pixOpenCompBrickExtendDwa(
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd 1 There are three cases: a) pixd == null   (result into new pixd b) pixd == pixs   (in-place writes result back to pixs c) pixd != pixs   (puts result into existing pixd 2) There is no need to call this directly:  pixCloseCompBrickDwa( calls this function if either brick dimension exceeds 63.</returns>
 public static Pix pixCloseCompBrickExtendDwa(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -702,20 +703,18 @@ public static Pix pixCloseCompBrickExtendDwa(
 ///  <param name="pactualsize">[out][optional] - actual size used in operation</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int getExtendedCompositeParameters(
-				  int size, 
-				 out int pn, 
-				 out int pextra, 
+				 int size, 
+				out int pn, 
+				out int pextra, 
 				out int pactualsize){
 
 	int _Result = Natives.getExtendedCompositeParameters(  size, out  pn, out  pextra, out  pactualsize);
 	
 
-pn = 0;
-pextra = 0;
-pactualsize = 0;
 
 
 	return _Result;
 }
 
+}
 }

@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // rotate.c (99, 1)
 // pixRotate(pixs, angle, type, incolor, width, height) as Pix
@@ -41,12 +42,12 @@ public class _All {
 ///  <param name="height">[in] - original height use 0 to avoid embedding</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixRotate(
-				  Pix pixs, 
-				  Single angle, 
-				  int type, 
-				  int incolor, 
-				  int width, 
-				  int height){
+				 Pix pixs, 
+				 Single angle, 
+				 int type, 
+				 int incolor, 
+				 int width, 
+				 int height){
 
 	IntPtr _Result = Natives.pixRotate(pixs.Pointer,   angle,   type,   incolor,   width,   height);
 	
@@ -104,11 +105,11 @@ public static Pix pixRotate(
 ///  <param name="height">[in] - original height use 0 to avoid embedding</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixEmbedForRotation(
-				  Pix pixs, 
-				  Single angle, 
-				  int incolor, 
-				  int width, 
-				  int height){
+				 Pix pixs, 
+				 Single angle, 
+				 int incolor, 
+				 int width, 
+				 int height){
 
 	IntPtr _Result = Natives.pixEmbedForRotation(pixs.Pointer,   angle,   incolor,   width,   height);
 	
@@ -140,11 +141,11 @@ public static Pix pixEmbedForRotation(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixRotateBySampling(
-				  Pix pixs, 
-				  int xcen, 
-				  int ycen, 
-				  Single angle, 
-				  int incolor){
+				 Pix pixs, 
+				 int xcen, 
+				 int ycen, 
+				 Single angle, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixRotateBySampling(pixs.Pointer,   xcen,   ycen,   angle,   incolor);
 	
@@ -183,9 +184,9 @@ public static Pix pixRotateBySampling(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixRotateBinaryNice(
-				  Pix pixs, 
-				  Single angle, 
-				  int incolor){
+				 Pix pixs, 
+				 Single angle, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixRotateBinaryNice(pixs.Pointer,   angle,   incolor);
 	
@@ -250,10 +251,10 @@ public static Pix pixRotateBinaryNice(
 ///  <param name="fract">[in] - between 0.0 and 1.0, with 0.0 fully transparent and 1.0 fully opaque</param>
 ///   <returns>pixd 32 bpp rgba, or NULL on error</returns>
 public static Pix pixRotateWithAlpha(
-				  Pix pixs, 
-				  Single angle, 
-				  Pix pixg, 
-				  Single fract){
+				 Pix pixs, 
+				 Single angle, 
+				 Pix pixg, 
+				 Single fract){
 
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
@@ -266,4 +267,5 @@ public static Pix pixRotateWithAlpha(
 	return  new Pix(_Result);
 }
 
+}
 }

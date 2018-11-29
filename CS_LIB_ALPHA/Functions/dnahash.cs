@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // dnahash.c (122, 1)
 // l_dnaHashCreate(nbuckets, initsize) as L_DnaHash
@@ -18,8 +19,8 @@ public class _All {
 ///  <param name="initsize">[in] - initial size of each allocated dna 0 for default</param>
 ///   <returns>ptr to new dnahash, or NULL on error</returns>
 public static L_DnaHash l_dnaHashCreate(
-				  int nbuckets, 
-				  int initsize){
+				 int nbuckets, 
+				 int initsize){
 
 	IntPtr _Result = Natives.l_dnaHashCreate(  nbuckets,   initsize);
 	
@@ -38,15 +39,14 @@ public static L_DnaHash l_dnaHashCreate(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_dnaHashDestroy/*"/>
 ///  <param name="pdahash">[in,out] - to be nulled, if it exists</param>
 public static void l_dnaHashDestroy(
-				 ref L_DnaHash pdahash){
+				ref L_DnaHash pdahash){
 
 	IntPtr pdahashPtr = IntPtr.Zero; 	if (pdahash != null) {pdahashPtr = pdahash.Pointer;}
 
 	Natives.l_dnaHashDestroy(ref pdahashPtr);
 	
 
-pdahash = null;
-	; if (pdahashPtr != IntPtr.Zero){pdahash = new L_DnaHash(pdahashPtr);}
+	if (pdahashPtr == null) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
 
 
 }
@@ -60,7 +60,7 @@ pdahash = null;
 ///  <param name="dahash">[in] - </param>
 ///   <returns>nbuckets allocated, or 0 on error</returns>
 public static int l_dnaHashGetCount(
-				  L_DnaHash dahash){
+				 L_DnaHash dahash){
 
 	int _Result = Natives.l_dnaHashGetCount(dahash.Pointer);
 	
@@ -79,7 +79,7 @@ public static int l_dnaHashGetCount(
 ///  <param name="dahash">[in] - </param>
 ///   <returns>n number of numbers in all dna, or 0 on error</returns>
 public static int l_dnaHashGetTotalCount(
-				  L_DnaHash dahash){
+				 L_DnaHash dahash){
 
 	int _Result = Natives.l_dnaHashGetTotalCount(dahash.Pointer);
 	
@@ -100,9 +100,9 @@ public static int l_dnaHashGetTotalCount(
 ///  <param name="copyflag">[in] - L_NOCOPY, L_COPY, L_CLONE</param>
 ///   <returns>ptr to dna</returns>
 public static L_Dna l_dnaHashGetDna(
-				  L_DnaHash dahash, 
-				  ulong key, 
-				  int copyflag){
+				 L_DnaHash dahash, 
+				 ulong key, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.l_dnaHashGetDna(dahash.Pointer,   key,   copyflag);
 	
@@ -124,9 +124,9 @@ public static L_Dna l_dnaHashGetDna(
 ///  <param name="value">[in] - float value to be appended to the specific dna</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int l_dnaHashAdd(
-				  L_DnaHash dahash, 
-				  ulong key, 
-				  double value){
+				 L_DnaHash dahash, 
+				 ulong key, 
+				 double value){
 
 	int _Result = Natives.l_dnaHashAdd(dahash.Pointer,   key,   value);
 	
@@ -149,7 +149,7 @@ public static int l_dnaHashAdd(
 ///  <param name="da">[in] - </param>
 ///   <returns>dahash if OK 1 on error</returns>
 public static L_DnaHash l_dnaHashCreateFromDna(
-				  L_Dna da){
+				 L_Dna da){
 
 	IntPtr _Result = Natives.l_dnaHashCreateFromDna(da.Pointer);
 	
@@ -178,8 +178,8 @@ public static L_DnaHash l_dnaHashCreateFromDna(
 ///  <param name="pdahash">[out][optional] - dnahash used for lookup</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int l_dnaRemoveDupsByHash(
-				  L_Dna das, 
-				 out L_Dna pdad, 
+				 L_Dna das, 
+				out L_Dna pdad, 
 				out L_DnaHash pdahash){
 
 	IntPtr pdadPtr = IntPtr.Zero;
@@ -188,10 +188,8 @@ public static int l_dnaRemoveDupsByHash(
 	int _Result = Natives.l_dnaRemoveDupsByHash(das.Pointer, out pdadPtr, out pdahashPtr);
 	
 
-pdad = null;
-	; if (pdadPtr != IntPtr.Zero){pdad = new L_Dna(pdadPtr);}
-pdahash = null;
-	; if (pdahashPtr != IntPtr.Zero){pdahash = new L_DnaHash(pdahashPtr);}
+	if (pdadPtr == null) {pdad = null;} else { pdad = new L_Dna(pdadPtr); };
+	if (pdahashPtr == null) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
 
 
 	return _Result;
@@ -226,10 +224,10 @@ pdahash = null;
 ///  <param name="pdac">[out] - histo array of counts: index to count</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int l_dnaMakeHistoByHash(
-				  L_Dna das, 
-				 out L_DnaHash pdahash, 
-				 out L_Dna pdav, 
-				 out L_Dna pdac){
+				 L_Dna das, 
+				out L_DnaHash pdahash, 
+				out L_Dna pdav, 
+				out L_Dna pdac){
 
 	IntPtr pdahashPtr = IntPtr.Zero;
 	IntPtr pdavPtr = IntPtr.Zero;
@@ -238,12 +236,9 @@ public static int l_dnaMakeHistoByHash(
 	int _Result = Natives.l_dnaMakeHistoByHash(das.Pointer, out pdahashPtr, out pdavPtr, out pdacPtr);
 	
 
-pdahash = null;
-	; if (pdahashPtr != IntPtr.Zero){pdahash = new L_DnaHash(pdahashPtr);}
-pdav = null;
-	; if (pdavPtr != IntPtr.Zero){pdav = new L_Dna(pdavPtr);}
-pdac = null;
-	; if (pdacPtr != IntPtr.Zero){pdac = new L_Dna(pdacPtr);}
+	if (pdahashPtr == null) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
+	if (pdavPtr == null) {pdav = null;} else { pdav = new L_Dna(pdavPtr); };
+	if (pdacPtr == null) {pdac = null;} else { pdac = new L_Dna(pdacPtr); };
 
 
 	return _Result;
@@ -263,8 +258,8 @@ pdac = null;
 ///  <param name="da2">[in] - </param>
 ///   <returns>dad intersection of the number arrays, or NULL on error</returns>
 public static L_Dna l_dnaIntersectionByHash(
-				  L_Dna da1, 
-				  L_Dna da2){
+				 L_Dna da1, 
+				 L_Dna da2){
 
 	IntPtr _Result = Natives.l_dnaIntersectionByHash(da1.Pointer, da2.Pointer);
 	
@@ -292,18 +287,18 @@ public static L_Dna l_dnaIntersectionByHash(
 ///  <param name="pindex">[out] - index into da if found -1 otherwise</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int l_dnaFindValByHash(
-				  L_Dna da, 
-				  L_DnaHash dahash, 
-				  double val, 
-				 out int pindex){
+				 L_Dna da, 
+				 L_DnaHash dahash, 
+				 double val, 
+				out int pindex){
 
 	int _Result = Natives.l_dnaFindValByHash(da.Pointer, dahash.Pointer,   val, out  pindex);
 	
 
-pindex = 0;
 
 
 	return _Result;
 }
 
+}
 }

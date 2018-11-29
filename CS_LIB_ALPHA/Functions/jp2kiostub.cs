@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // jp2kiostub.c (47, 7)
 // pixReadJp2k(filename, reduction, box, hint, debug) as Pix
@@ -13,10 +14,10 @@ public class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadJp2k/*"/>
 ///   <returns></returns>
 public static Pix pixReadJp2k(
-				  String filename, 
-				  uint reduction, 
-				  Box box, 
-				  int hint, 
+				 String filename, 
+				 uint reduction, 
+				 Box box, 
+				 int hint, 
 				 DebugOnOff debug){
 
 	IntPtr boxPtr = IntPtr.Zero; if (box != null) {boxPtr = box.Pointer;}
@@ -38,10 +39,10 @@ public static Pix pixReadJp2k(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadStreamJp2k/*"/>
 ///   <returns></returns>
 public static Pix pixReadStreamJp2k(
-				  FILE fp, 
-				  uint reduction, 
-				  Box box, 
-				  int hint, 
+				 FILE fp, 
+				 uint reduction, 
+				 Box box, 
+				 int hint, 
 				 DebugOnOff debug){
 
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
@@ -64,11 +65,11 @@ public static Pix pixReadStreamJp2k(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteJp2k/*"/>
 ///   <returns></returns>
 public static int pixWriteJp2k(
-				  String filename, 
-				  Pix pix, 
-				  int quality, 
-				  int nlevels, 
-				  int hint, 
+				 String filename, 
+				 Pix pix, 
+				 int quality, 
+				 int nlevels, 
+				 int hint, 
 				 DebugOnOff debug){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
@@ -89,11 +90,11 @@ public static int pixWriteJp2k(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteStreamJp2k/*"/>
 ///   <returns></returns>
 public static int pixWriteStreamJp2k(
-				  FILE fp, 
-				  Pix pix, 
-				  int quality, 
-				  int nlevels, 
-				  int hint, 
+				 FILE fp, 
+				 Pix pix, 
+				 int quality, 
+				 int nlevels, 
+				 int hint, 
 				 DebugOnOff debug){
 
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
@@ -115,11 +116,11 @@ public static int pixWriteStreamJp2k(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadMemJp2k/*"/>
 ///   <returns></returns>
 public static Pix pixReadMemJp2k(
-				  Byte[] data, 
-				  uint size, 
-				  uint reduction, 
-				  Box box, 
-				  int hint, 
+				 Byte[] data, 
+				 uint size, 
+				 uint reduction, 
+				 Box box, 
+				 int hint, 
 				 DebugOnOff debug){
 
 	IntPtr boxPtr = IntPtr.Zero; if (box != null) {boxPtr = box.Pointer;}
@@ -141,12 +142,12 @@ public static Pix pixReadMemJp2k(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteMemJp2k/*"/>
 ///   <returns></returns>
 public static int pixWriteMemJp2k(
-				  object pdata, 
-				  object psize, 
-				  Pix pix, 
-				  int quality, 
-				  int nlevels, 
-				  int hint, 
+				 object pdata, 
+				 object psize, 
+				 Pix pix, 
+				 int quality, 
+				 int nlevels, 
+				 int hint, 
 				 DebugOnOff debug){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
@@ -159,4 +160,5 @@ public static int pixWriteMemJp2k(
 	return _Result;
 }
 
+}
 }

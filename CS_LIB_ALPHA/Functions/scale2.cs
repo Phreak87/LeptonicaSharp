@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // scale2.c (204, 1)
 // pixScaleToGray(pixs, scalefactor) as Pix
@@ -76,8 +77,8 @@ public class _All {
 ///  <param name="scalefactor">[in] - reduction: must be  is greater  0.0 and  is smaller 1.0</param>
 ///   <returns>pixd 8 bpp, scaled down by scalefactor in each direction, or NULL on error.</returns>
 public static Pix pixScaleToGray(
-				  Pix pixs, 
-				  Single scalefactor){
+				 Pix pixs, 
+				 Single scalefactor){
 
 	IntPtr _Result = Natives.pixScaleToGray(pixs.Pointer,   scalefactor);
 	
@@ -112,8 +113,8 @@ public static Pix pixScaleToGray(
 ///  <param name="scalefactor">[in] - reduction: must be  is greater  0.0 and  is smaller 1.0</param>
 ///   <returns>pixd 8 bpp, scaled down by scalefactor in each direction, or NULL on error.</returns>
 public static Pix pixScaleToGrayFast(
-				  Pix pixs, 
-				  Single scalefactor){
+				 Pix pixs, 
+				 Single scalefactor){
 
 	IntPtr _Result = Natives.pixScaleToGrayFast(pixs.Pointer,   scalefactor);
 	
@@ -133,7 +134,7 @@ public static Pix pixScaleToGrayFast(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>pixd 8 bpp, scaled down by 2x in each direction, or NULL on error.</returns>
 public static Pix pixScaleToGray2(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixScaleToGray2(pixs.Pointer);
 	
@@ -160,7 +161,7 @@ public static Pix pixScaleToGray2(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>pixd 8 bpp, scaled down by 3x in each direction, or NULL on error.</returns>
 public static Pix pixScaleToGray3(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixScaleToGray3(pixs.Pointer);
 	
@@ -183,7 +184,7 @@ public static Pix pixScaleToGray3(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>pixd 8 bpp, scaled down by 4x in each direction, or NULL on error.</returns>
 public static Pix pixScaleToGray4(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixScaleToGray4(pixs.Pointer);
 	
@@ -206,7 +207,7 @@ public static Pix pixScaleToGray4(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>pixd 8 bpp, scaled down by 6x in each direction, or NULL on error.</returns>
 public static Pix pixScaleToGray6(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixScaleToGray6(pixs.Pointer);
 	
@@ -226,7 +227,7 @@ public static Pix pixScaleToGray6(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>pixd 8 bpp, scaled down by 8x in each direction, or NULL on error</returns>
 public static Pix pixScaleToGray8(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixScaleToGray8(pixs.Pointer);
 	
@@ -246,7 +247,7 @@ public static Pix pixScaleToGray8(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>pixd 8 bpp, scaled down by 16x in each direction, or NULL on error.</returns>
 public static Pix pixScaleToGray16(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixScaleToGray16(pixs.Pointer);
 	
@@ -286,8 +287,8 @@ public static Pix pixScaleToGray16(
 ///  <param name="scalefactor">[in] - reduction: must be  is greater  0.0 and  is smaller 1.0</param>
 ///   <returns>pixd 8 bpp, scaled down by scalefactor in each direction, or NULL on error.</returns>
 public static Pix pixScaleToGrayMipmap(
-				  Pix pixs, 
-				  Single scalefactor){
+				 Pix pixs, 
+				 Single scalefactor){
 
 	IntPtr _Result = Natives.pixScaleToGrayMipmap(pixs.Pointer,   scalefactor);
 	
@@ -315,9 +316,9 @@ public static Pix pixScaleToGrayMipmap(
 ///  <param name="scale">[in] - reduction with respect to high res image,  is greater  0.5</param>
 ///   <returns>8 bpp pix, scaled down by reduction in each direction, or NULL on error.</returns>
 public static Pix pixScaleMipmap(
-				  Pix pixs1, 
-				  Pix pixs2, 
-				  Single scale){
+				 Pix pixs1, 
+				 Pix pixs2, 
+				 Single scale){
 
 	IntPtr _Result = Natives.pixScaleMipmap(pixs1.Pointer, pixs2.Pointer,   scale);
 	
@@ -338,8 +339,8 @@ public static Pix pixScaleMipmap(
 ///  <param name="factor">[in] - integer scale factor for replicative expansion</param>
 ///   <returns>pixd scaled up, or NULL on error.</returns>
 public static Pix pixExpandReplicate(
-				  Pix pixs, 
-				  int factor){
+				 Pix pixs, 
+				 int factor){
 
 	IntPtr _Result = Natives.pixExpandReplicate(pixs.Pointer,   factor);
 	
@@ -377,10 +378,10 @@ public static Pix pixExpandReplicate(
 ///  <param name="type">[in] - L_CHOOSE_MIN, L_CHOOSE_MAX, L_CHOOSE_MAXDIFF</param>
 ///   <returns>pixd 8 bpp</returns>
 public static Pix pixScaleGrayMinMax(
-				  Pix pixs, 
-				  int xfact, 
-				  int yfact, 
-				  int type){
+				 Pix pixs, 
+				 int xfact, 
+				 int yfact, 
+				 int type){
 
 	IntPtr _Result = Natives.pixScaleGrayMinMax(pixs.Pointer,   xfact,   yfact,   type);
 	
@@ -421,8 +422,8 @@ public static Pix pixScaleGrayMinMax(
 ///  <param name="type">[in] - L_CHOOSE_MIN, L_CHOOSE_MAX, L_CHOOSE_MAXDIFF</param>
 ///   <returns>pixd 8 bpp downscaled by 2x</returns>
 public static Pix pixScaleGrayMinMax2(
-				  Pix pixs, 
-				  int type){
+				 Pix pixs, 
+				 int type){
 
 	IntPtr _Result = Natives.pixScaleGrayMinMax2(pixs.Pointer,   type);
 	
@@ -451,11 +452,11 @@ public static Pix pixScaleGrayMinMax2(
 ///  <param name="level4">[in] - rank thresholds, in set {0, 1, 2, 3, 4}</param>
 ///   <returns>pixd 8 bpp, downscaled by up to 16x</returns>
 public static Pix pixScaleGrayRankCascade(
-				  Pix pixs, 
-				  int level1, 
-				  int level2, 
-				  int level3, 
-				  int level4){
+				 Pix pixs, 
+				 int level1, 
+				 int level2, 
+				 int level3, 
+				 int level4){
 
 	IntPtr _Result = Natives.pixScaleGrayRankCascade(pixs.Pointer,   level1,   level2,   level3,   level4);
 	
@@ -491,8 +492,8 @@ public static Pix pixScaleGrayRankCascade(
 ///  <param name="rank">[in] - 1 (darkest), 2, 3, 4 (lightest)</param>
 ///   <returns>pixd 8 bpp, downscaled by 2x</returns>
 public static Pix pixScaleGrayRank2(
-				  Pix pixs, 
-				  int rank){
+				 Pix pixs, 
+				 int rank){
 
 	IntPtr _Result = Natives.pixScaleGrayRank2(pixs.Pointer,   rank);
 	
@@ -518,8 +519,8 @@ public static Pix pixScaleGrayRank2(
 ///  <param name="scaley">[in] - both  is greater  0.0</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixScaleAndTransferAlpha(
-				  Pix pixd, 
-				  Pix pixs, 
+				 Pix pixd, 
+				 Pix pixs, 
 				 Single scalex, 
 				 Single scaley){
 
@@ -581,11 +582,11 @@ public static int pixScaleAndTransferAlpha(
 ///  <param name="fract">[in] - between 0.0 and 1.0, with 0.0 fully transparent and 1.0 fully opaque</param>
 ///   <returns>pixd 32 bpp rgba, or NULL on error</returns>
 public static Pix pixScaleWithAlpha(
-				  Pix pixs, 
-				  Single scalex, 
-				  Single scaley, 
-				  Pix pixg, 
-				  Single fract){
+				 Pix pixs, 
+				 Single scalex, 
+				 Single scaley, 
+				 Pix pixg, 
+				 Single fract){
 
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
@@ -598,4 +599,5 @@ public static Pix pixScaleWithAlpha(
 	return  new Pix(_Result);
 }
 
+}
 }

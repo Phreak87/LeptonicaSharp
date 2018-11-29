@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // jpegio.c (214, 1)
 // pixReadJpeg(filename, cmapflag, reduction, pnwarn, hint) as Pix
@@ -44,16 +45,15 @@ public class _All {
 ///  <param name="hint">[in] - a bitwise OR of L_JPEG_ values 0 for default</param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixReadJpeg(
-				  String filename, 
-				  int cmapflag, 
-				  int reduction, 
-				 out int pnwarn, 
-				  int hint){
+				 String filename, 
+				 int cmapflag, 
+				 int reduction, 
+				out int pnwarn, 
+				 int hint){
 
 	IntPtr _Result = Natives.pixReadJpeg(  filename,   cmapflag,   reduction, out  pnwarn,   hint);
 	
 
-pnwarn = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -76,16 +76,15 @@ pnwarn = 0;
 ///  <param name="hint">[in] - a bitwise OR of L_JPEG_ values 0 for default</param>
 ///   <returns>pix, or NULL on error Usage: see pixReadJpeg</returns>
 public static Pix pixReadStreamJpeg(
-				  FILE fp, 
-				  int cmapflag, 
-				  int reduction, 
-				 out int pnwarn, 
-				  int hint){
+				 FILE fp, 
+				 int cmapflag, 
+				 int reduction, 
+				out int pnwarn, 
+				 int hint){
 
 	IntPtr _Result = Natives.pixReadStreamJpeg(fp.Pointer,   cmapflag,   reduction, out  pnwarn,   hint);
 	
 
-pnwarn = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -106,7 +105,7 @@ pnwarn = 0;
 ///  <param name="pcmyk">[out][optional] - 1 if cmyk color space 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int readHeaderJpeg(
-				  String filename, 
+				 String filename, 
 				out int pw, 
 				out int ph, 
 				out int pspp, 
@@ -116,11 +115,6 @@ public static int readHeaderJpeg(
 	int _Result = Natives.readHeaderJpeg(  filename, out  pw, out  ph, out  pspp, out  pycck, out  pcmyk);
 	
 
-pw = 0;
-ph = 0;
-pspp = 0;
-pycck = 0;
-pcmyk = 0;
 
 
 	return _Result;
@@ -140,7 +134,7 @@ pcmyk = 0;
 ///  <param name="pcmyk">[out][optional] - 1 if cmyk color space 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int freadHeaderJpeg(
-				  FILE fp, 
+				 FILE fp, 
 				out int pw, 
 				out int ph, 
 				out int pspp, 
@@ -150,11 +144,6 @@ public static int freadHeaderJpeg(
 	int _Result = Natives.freadHeaderJpeg(fp.Pointer, out  pw, out  ph, out  pspp, out  pycck, out  pcmyk);
 	
 
-pw = 0;
-ph = 0;
-pspp = 0;
-pycck = 0;
-pcmyk = 0;
 
 
 	return _Result;
@@ -168,9 +157,9 @@ pcmyk = 0;
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fgetJpegResolution/*"/>
 ///   <returns></returns>
 public static int fgetJpegResolution(
-				  FILE fp, 
-				  object pxres, 
-				  object pyres){
+				 FILE fp, 
+				 object pxres, 
+				 object pyres){
 
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 
@@ -190,8 +179,8 @@ public static int fgetJpegResolution(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fgetJpegComment/*"/>
 ///   <returns></returns>
 public static int fgetJpegComment(
-				  FILE fp, 
-				  object pcomment){
+				 FILE fp, 
+				 object pcomment){
 
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 
@@ -215,10 +204,10 @@ public static int fgetJpegComment(
 ///  <param name="progressive">[in] - 0 for baseline sequential 1 for progressive</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixWriteJpeg(
-				  String filename, 
-				  Pix pix, 
-				  int quality, 
-				  int progressive){
+				 String filename, 
+				 Pix pix, 
+				 int quality, 
+				 int progressive){
 
 	int _Result = Natives.pixWriteJpeg(  filename, pix.Pointer,   quality,   progressive);
 	
@@ -266,10 +255,10 @@ public static int pixWriteJpeg(
 ///  <param name="progressive">[in] - 0 for baseline sequential 1 for progressive</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixWriteStreamJpeg(
-				  FILE fp, 
-				  Pix pixs, 
-				  int quality, 
-				  int progressive){
+				 FILE fp, 
+				 Pix pixs, 
+				 int quality, 
+				 int progressive){
 
 	int _Result = Natives.pixWriteStreamJpeg(fp.Pointer, pixs.Pointer,   quality,   progressive);
 	
@@ -301,17 +290,16 @@ public static int pixWriteStreamJpeg(
 ///  <param name="hint">[in] - a bitwise OR of L_JPEG_ values 0 for default</param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixReadMemJpeg(
-				  Byte[] data, 
-				  uint size, 
-				  int cmflag, 
-				  int reduction, 
-				 out int pnwarn, 
-				  int hint){
+				 Byte[] data, 
+				 uint size, 
+				 int cmflag, 
+				 int reduction, 
+				out int pnwarn, 
+				 int hint){
 
 	IntPtr _Result = Natives.pixReadMemJpeg(  data,   size,   cmflag,   reduction, out  pnwarn,   hint);
 	
 
-pnwarn = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -333,8 +321,8 @@ pnwarn = 0;
 ///  <param name="pcmyk">[out][optional] - 1 if cmyk color space 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int readHeaderMemJpeg(
-				  Byte[] data, 
-				  uint size, 
+				 Byte[] data, 
+				 uint size, 
 				out int pw, 
 				out int ph, 
 				out int pspp, 
@@ -344,11 +332,6 @@ public static int readHeaderMemJpeg(
 	int _Result = Natives.readHeaderMemJpeg(  data,   size, out  pw, out  ph, out  pspp, out  pycck, out  pcmyk);
 	
 
-pw = 0;
-ph = 0;
-pspp = 0;
-pycck = 0;
-pcmyk = 0;
 
 
 	return _Result;
@@ -366,16 +349,14 @@ pcmyk = 0;
 ///  <param name="pyres">[out][optional] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int readResolutionMemJpeg(
-				  Byte[] data, 
-				  uint size, 
+				 Byte[] data, 
+				 uint size, 
 				out int pxres, 
 				out int pyres){
 
 	int _Result = Natives.readResolutionMemJpeg(  data,   size, out  pxres, out  pyres);
 	
 
-pxres = 0;
-pyres = 0;
 
 
 	return _Result;
@@ -398,19 +379,18 @@ pyres = 0;
 ///  <param name="progressive">[in] - 0 for baseline sequential 1 for progressive</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixWriteMemJpeg(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  Pix pix, 
-				  int quality, 
-				  int progressive){
+				out Byte[] pdata, 
+				out uint psize, 
+				 Pix pix, 
+				 int quality, 
+				 int progressive){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixWriteMemJpeg(out  pdataPtr, out  psize, pix.Pointer,   quality,   progressive);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -432,8 +412,8 @@ psize = 0;
 ///  <param name="sampling">[in] - 1 for subsampling 0 for no subsampling</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSetChromaSampling(
-				  Pix pix, 
-				  int sampling){
+				 Pix pix, 
+				 int sampling){
 
 	int _Result = Natives.pixSetChromaSampling(pix.Pointer,   sampling);
 	
@@ -443,4 +423,5 @@ public static int pixSetChromaSampling(
 	return _Result;
 }
 
+}
 }

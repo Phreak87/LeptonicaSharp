@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // binexpand.c (67, 1)
 // pixExpandBinaryReplicate(pixs, xfact, yfact) as Pix
@@ -16,9 +17,9 @@ public class _All {
 ///  <param name="yfact">[in] - integer scale factor for vertical replicative expansion</param>
 ///   <returns>pixd scaled up, or NULL on error</returns>
 public static Pix pixExpandBinaryReplicate(
-				  Pix pixs, 
-				  int xfact, 
-				  int yfact){
+				 Pix pixs, 
+				 int xfact, 
+				 int yfact){
 
 	IntPtr _Result = Natives.pixExpandBinaryReplicate(pixs.Pointer,   xfact,   yfact);
 	
@@ -39,8 +40,8 @@ public static Pix pixExpandBinaryReplicate(
 ///  <param name="factor">[in] - expansion factor: 1, 2, 4, 8, 16</param>
 ///   <returns>pixd expanded 1 bpp by replication, or NULL on error</returns>
 public static Pix pixExpandBinaryPower2(
-				  Pix pixs, 
-				  int factor){
+				 Pix pixs, 
+				 int factor){
 
 	IntPtr _Result = Natives.pixExpandBinaryPower2(pixs.Pointer,   factor);
 	
@@ -51,4 +52,5 @@ public static Pix pixExpandBinaryPower2(
 	return  new Pix(_Result);
 }
 
+}
 }

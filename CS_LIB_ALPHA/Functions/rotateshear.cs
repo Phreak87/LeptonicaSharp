@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // rotateshear.c (196, 1)
 // pixRotateShear(pixs, xcen, ycen, angle, incolor) as Pix
@@ -30,11 +31,11 @@ public class _All {
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error.</returns>
 public static Pix pixRotateShear(
-				  Pix pixs, 
-				  int xcen, 
-				  int ycen, 
-				  Single angle, 
-				  int incolor){
+				 Pix pixs, 
+				 int xcen, 
+				 int ycen, 
+				 Single angle, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixRotateShear(pixs.Pointer,   xcen,   ycen,   angle,   incolor);
 	
@@ -77,11 +78,11 @@ public static Pix pixRotateShear(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error.</returns>
 public static Pix pixRotate2Shear(
-				  Pix pixs, 
-				  int xcen, 
-				  int ycen, 
-				  Single angle, 
-				  int incolor){
+				 Pix pixs, 
+				 int xcen, 
+				 int ycen, 
+				 Single angle, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixRotate2Shear(pixs.Pointer,   xcen,   ycen,   angle,   incolor);
 	
@@ -131,11 +132,11 @@ public static Pix pixRotate2Shear(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error.</returns>
 public static Pix pixRotate3Shear(
-				  Pix pixs, 
-				  int xcen, 
-				  int ycen, 
-				  Single angle, 
-				  int incolor){
+				 Pix pixs, 
+				 int xcen, 
+				 int ycen, 
+				 Single angle, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixRotate3Shear(pixs.Pointer,   xcen,   ycen,   angle,   incolor);
 	
@@ -180,11 +181,11 @@ public static Pix pixRotate3Shear(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixRotateShearIP(
-				  Pix pixs, 
-				  int xcen, 
-				  int ycen, 
-				  Single angle, 
-				  int incolor){
+				 Pix pixs, 
+				 int xcen, 
+				 int ycen, 
+				 Single angle, 
+				 int incolor){
 
 	int _Result = Natives.pixRotateShearIP(pixs.Pointer,   xcen,   ycen,   angle,   incolor);
 	
@@ -205,9 +206,9 @@ public static int pixRotateShearIP(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixRotateShearCenter(
-				  Pix pixs, 
-				  Single angle, 
-				  int incolor){
+				 Pix pixs, 
+				 Single angle, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixRotateShearCenter(pixs.Pointer,   angle,   incolor);
 	
@@ -229,9 +230,9 @@ public static Pix pixRotateShearCenter(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRotateShearCenterIP(
-				  Pix pixs, 
-				  Single angle, 
-				  int incolor){
+				 Pix pixs, 
+				 Single angle, 
+				 int incolor){
 
 	int _Result = Natives.pixRotateShearCenterIP(pixs.Pointer,   angle,   incolor);
 	
@@ -241,4 +242,5 @@ public static int pixRotateShearCenterIP(
 	return _Result;
 }
 
+}
 }

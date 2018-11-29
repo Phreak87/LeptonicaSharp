@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // rotateorth.c (72, 1)
 // pixRotateOrth(pixs, quads) as Pix
@@ -15,8 +16,8 @@ public class _All {
 ///  <param name="quads">[in] - 0-3 number of 90 degree cw rotations</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixRotateOrth(
-				  Pix pixs, 
-				  int quads){
+				 Pix pixs, 
+				 int quads){
 
 	IntPtr _Result = Natives.pixRotateOrth(pixs.Pointer,   quads);
 	
@@ -53,8 +54,8 @@ public static Pix pixRotateOrth(
 ///  <param name="pixs">[in] - all depths</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixRotate180(
-				  Pix pixd, 
-				  Pix pixs){
+				 Pix pixd, 
+				 Pix pixs){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -83,8 +84,8 @@ public static Pix pixRotate180(
 ///  <param name="direction">[in] - 1 = clockwise,  -1 = counter-clockwise</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixRotate90(
-				  Pix pixs, 
-				  int direction){
+				 Pix pixs, 
+				 int direction){
 
 	IntPtr _Result = Natives.pixRotate90(pixs.Pointer,   direction);
 	
@@ -142,8 +143,8 @@ public static Pix pixRotate90(
 ///  <param name="pixs">[in] - all depths</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixFlipLR(
-				  Pix pixd, 
-				  Pix pixs){
+				 Pix pixd, 
+				 Pix pixs){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -188,8 +189,8 @@ public static Pix pixFlipLR(
 ///  <param name="pixs">[in] - all depths</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixFlipTB(
-				  Pix pixd, 
-				  Pix pixs){
+				 Pix pixd, 
+				 Pix pixs){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -202,4 +203,5 @@ public static Pix pixFlipTB(
 	return  new Pix(_Result);
 }
 
+}
 }

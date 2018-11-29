@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // map.c (107, 1)
 // l_amapCreate(keytype) as L_Rbtree
@@ -13,7 +14,7 @@ public class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_amapCreate/*"/>
 ///   <returns></returns>
 public static L_Rbtree l_amapCreate(
-				  int keytype){
+				 int keytype){
 
 	IntPtr _Result = Natives.l_amapCreate(  keytype);
 	
@@ -32,8 +33,8 @@ public static L_Rbtree l_amapCreate(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_amapFind/*"/>
 ///   <returns></returns>
 public static RB_TYPE l_amapFind(
-				  L_Rbtree m, 
-				  Rb_Type key){
+				 L_Rbtree m, 
+				 Rb_Type key){
 
 	IntPtr mPtr = IntPtr.Zero; if (m != null) {mPtr = m.Pointer;}
 	IntPtr keyPtr = IntPtr.Zero; if (key != null) {keyPtr = key.Pointer;}
@@ -54,9 +55,9 @@ public static RB_TYPE l_amapFind(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_amapInsert/*"/>
 public static void l_amapInsert(
-				  L_Rbtree m, 
-				  Rb_Type key, 
-				  Rb_Type value){
+				 L_Rbtree m, 
+				 Rb_Type key, 
+				 Rb_Type value){
 
 	IntPtr mPtr = IntPtr.Zero; if (m != null) {mPtr = m.Pointer;}
 	IntPtr keyPtr = IntPtr.Zero; if (key != null) {keyPtr = key.Pointer;}
@@ -76,8 +77,8 @@ public static void l_amapInsert(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_amapDelete/*"/>
 public static void l_amapDelete(
-				  L_Rbtree m, 
-				  Rb_Type key){
+				 L_Rbtree m, 
+				 Rb_Type key){
 
 	IntPtr mPtr = IntPtr.Zero; if (m != null) {mPtr = m.Pointer;}
 	IntPtr keyPtr = IntPtr.Zero; if (key != null) {keyPtr = key.Pointer;}
@@ -96,7 +97,7 @@ public static void l_amapDelete(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_amapDestroy/*"/>
 public static void l_amapDestroy(
-				  L_Rbtree pm){
+				 L_Rbtree pm){
 
 	IntPtr pmPtr = IntPtr.Zero; 	if (pm != null) {pmPtr = pm.Pointer;}
 
@@ -115,7 +116,7 @@ public static void l_amapDestroy(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_amapGetFirst/*"/>
 ///   <returns></returns>
 public static L_Rbtree_Node l_amapGetFirst(
-				  L_Rbtree m){
+				 L_Rbtree m){
 
 	IntPtr mPtr = IntPtr.Zero; if (m != null) {mPtr = m.Pointer;}
 
@@ -136,7 +137,7 @@ public static L_Rbtree_Node l_amapGetFirst(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_amapGetNext/*"/>
 ///   <returns></returns>
 public static L_Rbtree_Node l_amapGetNext(
-				  L_Rbtree_Node n){
+				 L_Rbtree_Node n){
 
 	IntPtr nPtr = IntPtr.Zero; if (n != null) {nPtr = n.Pointer;}
 
@@ -157,7 +158,7 @@ public static L_Rbtree_Node l_amapGetNext(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_amapGetLast/*"/>
 ///   <returns></returns>
 public static L_Rbtree_Node l_amapGetLast(
-				  L_Rbtree m){
+				 L_Rbtree m){
 
 	IntPtr mPtr = IntPtr.Zero; if (m != null) {mPtr = m.Pointer;}
 
@@ -178,7 +179,7 @@ public static L_Rbtree_Node l_amapGetLast(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_amapGetPrev/*"/>
 ///   <returns></returns>
 public static L_Rbtree_Node l_amapGetPrev(
-				  L_Rbtree_Node n){
+				 L_Rbtree_Node n){
 
 	IntPtr nPtr = IntPtr.Zero; if (n != null) {nPtr = n.Pointer;}
 
@@ -199,7 +200,7 @@ public static L_Rbtree_Node l_amapGetPrev(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_amapSize/*"/>
 ///   <returns></returns>
 public static int l_amapSize(
-				  L_Rbtree m){
+				 L_Rbtree m){
 
 	IntPtr mPtr = IntPtr.Zero; if (m != null) {mPtr = m.Pointer;}
 
@@ -219,7 +220,7 @@ public static int l_amapSize(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetCreate/*"/>
 ///   <returns></returns>
 public static L_Rbtree l_asetCreate(
-				  int keytype){
+				 int keytype){
 
 	IntPtr _Result = Natives.l_asetCreate(  keytype);
 	
@@ -238,8 +239,8 @@ public static L_Rbtree l_asetCreate(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetFind/*"/>
 ///   <returns></returns>
 public static RB_TYPE l_asetFind(
-				  L_Rbtree s, 
-				  Rb_Type key){
+				 L_Rbtree s, 
+				 Rb_Type key){
 
 	IntPtr sPtr = IntPtr.Zero; if (s != null) {sPtr = s.Pointer;}
 	IntPtr keyPtr = IntPtr.Zero; if (key != null) {keyPtr = key.Pointer;}
@@ -260,8 +261,8 @@ public static RB_TYPE l_asetFind(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetInsert/*"/>
 public static void l_asetInsert(
-				  L_Rbtree s, 
-				  Rb_Type key){
+				 L_Rbtree s, 
+				 Rb_Type key){
 
 	IntPtr sPtr = IntPtr.Zero; if (s != null) {sPtr = s.Pointer;}
 	IntPtr keyPtr = IntPtr.Zero; if (key != null) {keyPtr = key.Pointer;}
@@ -280,8 +281,8 @@ public static void l_asetInsert(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetDelete/*"/>
 public static void l_asetDelete(
-				  L_Rbtree s, 
-				  Rb_Type key){
+				 L_Rbtree s, 
+				 Rb_Type key){
 
 	IntPtr sPtr = IntPtr.Zero; if (s != null) {sPtr = s.Pointer;}
 	IntPtr keyPtr = IntPtr.Zero; if (key != null) {keyPtr = key.Pointer;}
@@ -300,7 +301,7 @@ public static void l_asetDelete(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetDestroy/*"/>
 public static void l_asetDestroy(
-				  L_Rbtree ps){
+				 L_Rbtree ps){
 
 	IntPtr psPtr = IntPtr.Zero; 	if (ps != null) {psPtr = ps.Pointer;}
 
@@ -319,7 +320,7 @@ public static void l_asetDestroy(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetGetFirst/*"/>
 ///   <returns></returns>
 public static L_Rbtree_Node l_asetGetFirst(
-				  L_Rbtree s){
+				 L_Rbtree s){
 
 	IntPtr sPtr = IntPtr.Zero; if (s != null) {sPtr = s.Pointer;}
 
@@ -340,7 +341,7 @@ public static L_Rbtree_Node l_asetGetFirst(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetGetNext/*"/>
 ///   <returns></returns>
 public static L_Rbtree_Node l_asetGetNext(
-				  L_Rbtree_Node n){
+				 L_Rbtree_Node n){
 
 	IntPtr nPtr = IntPtr.Zero; if (n != null) {nPtr = n.Pointer;}
 
@@ -361,7 +362,7 @@ public static L_Rbtree_Node l_asetGetNext(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetGetLast/*"/>
 ///   <returns></returns>
 public static L_Rbtree_Node l_asetGetLast(
-				  L_Rbtree s){
+				 L_Rbtree s){
 
 	IntPtr sPtr = IntPtr.Zero; if (s != null) {sPtr = s.Pointer;}
 
@@ -382,7 +383,7 @@ public static L_Rbtree_Node l_asetGetLast(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetGetPrev/*"/>
 ///   <returns></returns>
 public static L_Rbtree_Node l_asetGetPrev(
-				  L_Rbtree_Node n){
+				 L_Rbtree_Node n){
 
 	IntPtr nPtr = IntPtr.Zero; if (n != null) {nPtr = n.Pointer;}
 
@@ -403,7 +404,7 @@ public static L_Rbtree_Node l_asetGetPrev(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_asetSize/*"/>
 ///   <returns></returns>
 public static int l_asetSize(
-				  L_Rbtree s){
+				 L_Rbtree s){
 
 	IntPtr sPtr = IntPtr.Zero; if (s != null) {sPtr = s.Pointer;}
 
@@ -415,4 +416,5 @@ public static int l_asetSize(
 	return _Result;
 }
 
+}
 }

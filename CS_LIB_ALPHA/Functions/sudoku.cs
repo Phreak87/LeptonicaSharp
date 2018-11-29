@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // sudoku.c (181, 1)
 // sudokuReadFile(filename) as int[]
@@ -20,7 +21,7 @@ public class _All {
 ///  <param name="filename">[in] - of formatted sudoku file</param>
 ///   <returns>array of 81 numbers, or NULL on error</returns>
 public static int[] sudokuReadFile(
-				  String filename){
+				 String filename){
 
 	int[] _Result = Natives.sudokuReadFile(  filename);
 	
@@ -43,7 +44,7 @@ public static int[] sudokuReadFile(
 ///  <param name="str">[in] - of input data</param>
 ///   <returns>array of 81 numbers, or NULL on error</returns>
 public static int[] sudokuReadString(
-				  String str){
+				 String str){
 
 	int[] _Result = Natives.sudokuReadString(  str);
 	
@@ -68,7 +69,7 @@ public static int[] sudokuReadString(
 ///  <param name="array">[in] - of 81 numbers, 9 rows of 9 numbers each</param>
 ///   <returns>l_sudoku, or NULL on error</returns>
 public static L_Sudoku sudokuCreate(
-				  int[] array){
+				 int[] array){
 
 	IntPtr _Result = Natives.sudokuCreate(  array);
 	
@@ -87,15 +88,14 @@ public static L_Sudoku sudokuCreate(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sudokuDestroy/*"/>
 ///  <param name="psud">[in,out] - to be nulled</param>
 public static void sudokuDestroy(
-				 ref L_Sudoku psud){
+				ref L_Sudoku psud){
 
 	IntPtr psudPtr = IntPtr.Zero; 	if (psud != null) {psudPtr = psud.Pointer;}
 
 	Natives.sudokuDestroy(ref psudPtr);
 	
 
-psud = null;
-	; if (psudPtr != IntPtr.Zero){psud = new L_Sudoku(psudPtr);}
+	if (psudPtr == null) {psud = null;} else { psud = new L_Sudoku(psudPtr); };
 
 
 }
@@ -109,7 +109,7 @@ psud = null;
 ///  <param name="sud">[in] - l_sudoku starting in initial state</param>
 ///   <returns>1 on success, 0 on failure to solve note reversal of typical unix returns</returns>
 public static int sudokuSolve(
-				  L_Sudoku sud){
+				 L_Sudoku sud){
 
 	int _Result = Natives.sudokuSolve(sud.Pointer);
 	
@@ -136,13 +136,12 @@ public static int sudokuSolve(
 ///  <param name="punique">[out] - 1 if unique, 0 if not</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int sudokuTestUniqueness(
-				  int[] array, 
-				 out int punique){
+				 int[] array, 
+				out int punique){
 
 	int _Result = Natives.sudokuTestUniqueness(  array, out  punique);
 	
 
-punique = 0;
 
 
 	return _Result;
@@ -171,10 +170,10 @@ punique = 0;
 ///  <param name="maxtries">[in] - max tries to remove a number and get a valid sudoku</param>
 ///   <returns>l_sudoku, or NULL on error</returns>
 public static L_Sudoku sudokuGenerate(
-				  int[] array, 
-				  int seed, 
-				  int minelems, 
-				  int maxtries){
+				 int[] array, 
+				 int seed, 
+				 int minelems, 
+				 int maxtries){
 
 	IntPtr _Result = Natives.sudokuGenerate(  array,   seed,   minelems,   maxtries);
 	
@@ -199,8 +198,8 @@ public static L_Sudoku sudokuGenerate(
 ///  <param name="arraytype">[in] - L_SUDOKU_INIT, L_SUDOKU_STATE</param>
 ///   <returns>void</returns>
 public static int sudokuOutput(
-				  L_Sudoku sud, 
-				  int arraytype){
+				 L_Sudoku sud, 
+				 int arraytype){
 
 	int _Result = Natives.sudokuOutput(sud.Pointer,   arraytype);
 	
@@ -210,4 +209,5 @@ public static int sudokuOutput(
 	return _Result;
 }
 
+}
 }

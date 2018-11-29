@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // bytearray.c (93, 1)
 // l_byteaCreate(nbytes) as L_Bytea
@@ -18,7 +19,7 @@ public class _All {
 ///  <param name="nbytes">[in] - determines initial size of data array</param>
 ///   <returns>l_bytea, or NULL on error</returns>
 public static L_Bytea l_byteaCreate(
-				  uint nbytes){
+				 uint nbytes){
 
 	IntPtr _Result = Natives.l_byteaCreate(  nbytes);
 	
@@ -39,8 +40,8 @@ public static L_Bytea l_byteaCreate(
 ///  <param name="size">[in] - amount of data</param>
 ///   <returns>l_bytea, or NULL on error</returns>
 public static L_Bytea l_byteaInitFromMem(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.l_byteaInitFromMem(  data,   size);
 	
@@ -60,7 +61,7 @@ public static L_Bytea l_byteaInitFromMem(
 ///  <param name="fname">[in] - </param>
 ///   <returns>l_bytea, or NULL on error</returns>
 public static L_Bytea l_byteaInitFromFile(
-				  String fname){
+				 String fname){
 
 	IntPtr _Result = Natives.l_byteaInitFromFile(  fname);
 	
@@ -80,7 +81,7 @@ public static L_Bytea l_byteaInitFromFile(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>l_bytea, or NULL on error</returns>
 public static L_Bytea l_byteaInitFromStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.l_byteaInitFromStream(fp.Pointer);
 	
@@ -104,8 +105,8 @@ public static L_Bytea l_byteaInitFromStream(
 ///  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 ///   <returns>clone or copy of bas, or NULL on error</returns>
 public static L_Bytea l_byteaCopy(
-				  L_Bytea bas, 
-				  int copyflag){
+				 L_Bytea bas, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.l_byteaCopy(bas.Pointer,   copyflag);
 	
@@ -132,15 +133,14 @@ public static L_Bytea l_byteaCopy(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_byteaDestroy/*"/>
 ///  <param name="pba">[in,out] - will be set to null before returning</param>
 public static void l_byteaDestroy(
-				 ref L_Bytea pba){
+				ref L_Bytea pba){
 
 	IntPtr pbaPtr = IntPtr.Zero; 	if (pba != null) {pbaPtr = pba.Pointer;}
 
 	Natives.l_byteaDestroy(ref pbaPtr);
 	
 
-pba = null;
-	; if (pbaPtr != IntPtr.Zero){pba = new L_Bytea(pbaPtr);}
+	if (pbaPtr == null) {pba = null;} else { pba = new L_Bytea(pbaPtr); };
 
 
 }
@@ -154,7 +154,7 @@ pba = null;
 ///  <param name="ba">[in] - </param>
 ///   <returns>size of stored byte array, or 0 on error</returns>
 public static uint l_byteaGetSize(
-				  L_Bytea ba){
+				 L_Bytea ba){
 
 	uint _Result = Natives.l_byteaGetSize(ba.Pointer);
 	
@@ -177,13 +177,12 @@ public static uint l_byteaGetSize(
 ///  <param name="psize">[out] - size of data in lba</param>
 ///   <returns>ptr to existing data array, or NULL on error</returns>
 public static Byte[] l_byteaGetData(
-				  L_Bytea ba, 
-				 out uint psize){
+				 L_Bytea ba, 
+				out uint psize){
 
 	Byte[] _Result = Natives.l_byteaGetData(ba.Pointer, out  psize);
 	
 
-psize = 0;
 
 
 	return _Result;
@@ -203,13 +202,12 @@ psize = 0;
 ///  <param name="psize">[out] - size of data in lba</param>
 ///   <returns>copy of data in use in the data array, or NULL on error.</returns>
 public static Byte[] l_byteaCopyData(
-				  L_Bytea ba, 
-				 out uint psize){
+				 L_Bytea ba, 
+				out uint psize){
 
 	Byte[] _Result = Natives.l_byteaCopyData(ba.Pointer, out  psize);
 	
 
-psize = 0;
 
 
 	return _Result;
@@ -226,9 +224,9 @@ psize = 0;
 ///  <param name="newbytes">[in] - size of data array</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_byteaAppendData(
-				  L_Bytea ba, 
-				  Byte[] newdata, 
-				  uint newbytes){
+				 L_Bytea ba, 
+				 Byte[] newdata, 
+				 uint newbytes){
 
 	int _Result = Natives.l_byteaAppendData(ba.Pointer,   newdata,   newbytes);
 	
@@ -248,8 +246,8 @@ public static int l_byteaAppendData(
 ///  <param name="str">[in] - null-terminated string to be appended</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_byteaAppendString(
-				  L_Bytea ba, 
-				  String str){
+				 L_Bytea ba, 
+				 String str){
 
 	int _Result = Natives.l_byteaAppendString(ba.Pointer,   str);
 	
@@ -272,16 +270,15 @@ public static int l_byteaAppendString(
 ///  <param name="pba2">[in,out] - data array is added to the one in ba1, and then ba2 is destroyed</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_byteaJoin(
-				  L_Bytea ba1, 
-				 ref L_Bytea pba2){
+				 L_Bytea ba1, 
+				ref L_Bytea pba2){
 
 	IntPtr pba2Ptr = IntPtr.Zero; 	if (pba2 != null) {pba2Ptr = pba2.Pointer;}
 
 	int _Result = Natives.l_byteaJoin(ba1.Pointer, ref pba2Ptr);
 	
 
-pba2 = null;
-	; if (pba2Ptr != IntPtr.Zero){pba2 = new L_Bytea(pba2Ptr);}
+	if (pba2Ptr == null) {pba2 = null;} else { pba2 = new L_Bytea(pba2Ptr); };
 
 
 	return _Result;
@@ -298,17 +295,16 @@ pba2 = null;
 ///  <param name="pba2">[out] - with data starting at splitloc</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_byteaSplit(
-				  L_Bytea ba1, 
-				  uint splitloc, 
-				 out L_Bytea pba2){
+				 L_Bytea ba1, 
+				 uint splitloc, 
+				out L_Bytea pba2){
 
 	IntPtr pba2Ptr = IntPtr.Zero;
 
 	int _Result = Natives.l_byteaSplit(ba1.Pointer,   splitloc, out pba2Ptr);
 	
 
-pba2 = null;
-	; if (pba2Ptr != IntPtr.Zero){pba2 = new L_Bytea(pba2Ptr);}
+	if (pba2Ptr == null) {pba2 = null;} else { pba2 = new L_Bytea(pba2Ptr); };
 
 
 	return _Result;
@@ -326,18 +322,17 @@ pba2 = null;
 ///  <param name="pda">[out] - byte positions of each occurrence of %sequence</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_byteaFindEachSequence(
-				  L_Bytea ba, 
-				  Byte[] sequence, 
-				  uint seqlen, 
-				 out L_Dna pda){
+				 L_Bytea ba, 
+				 Byte[] sequence, 
+				 uint seqlen, 
+				out L_Dna pda){
 
 	IntPtr pdaPtr = IntPtr.Zero;
 
 	int _Result = Natives.l_byteaFindEachSequence(ba.Pointer,   sequence,   seqlen, out pdaPtr);
 	
 
-pda = null;
-	; if (pdaPtr != IntPtr.Zero){pda = new L_Dna(pdaPtr);}
+	if (pdaPtr == null) {pda = null;} else { pda = new L_Dna(pdaPtr); };
 
 
 	return _Result;
@@ -355,10 +350,10 @@ pda = null;
 ///  <param name="endloc">[in] - last byte to output use 0 to write to the end of the data array</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_byteaWrite(
-				  String fname, 
-				  L_Bytea ba, 
-				  uint startloc, 
-				  uint endloc){
+				 String fname, 
+				 L_Bytea ba, 
+				 uint startloc, 
+				 uint endloc){
 
 	int _Result = Natives.l_byteaWrite(  fname, ba.Pointer,   startloc,   endloc);
 	
@@ -380,10 +375,10 @@ public static int l_byteaWrite(
 ///  <param name="endloc">[in] - last byte to output use 0 to write to the end of the data array</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_byteaWriteStream(
-				  FILE fp, 
-				  L_Bytea ba, 
-				  uint startloc, 
-				  uint endloc){
+				 FILE fp, 
+				 L_Bytea ba, 
+				 uint startloc, 
+				 uint endloc){
 
 	int _Result = Natives.l_byteaWriteStream(fp.Pointer, ba.Pointer,   startloc,   endloc);
 	
@@ -393,4 +388,5 @@ public static int l_byteaWriteStream(
 	return _Result;
 }
 
+}
 }

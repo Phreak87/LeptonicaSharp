@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // paintcmap.c (98, 1)
 // pixSetSelectCmap(pixs, box, sindex, rval, gval, bval) as int
@@ -40,12 +41,12 @@ public class _All {
 ///  <param name="bval">[in] - new color to paint</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSetSelectCmap(
-				  Pix pixs, 
-				  Box box, 
-				  int sindex, 
-				  int rval, 
-				  int gval, 
-				  int bval){
+				 Pix pixs, 
+				 Box box, 
+				 int sindex, 
+				 int rval, 
+				 int gval, 
+				 int bval){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
@@ -91,12 +92,12 @@ public static int pixSetSelectCmap(
 ///  <param name="bval">[in] - target color</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixColorGrayRegionsCmap(
-				  Pix pixs, 
-				  Boxa boxa, 
-				  int type, 
-				  int rval, 
-				  int gval, 
-				  int bval){
+				 Pix pixs, 
+				 Boxa boxa, 
+				 int type, 
+				 int rval, 
+				 int gval, 
+				 int bval){
 
 	int _Result = Natives.pixColorGrayRegionsCmap(pixs.Pointer, boxa.Pointer,   type,   rval,   gval,   bval);
 	
@@ -153,12 +154,12 @@ public static int pixColorGrayRegionsCmap(
 ///  <param name="bval">[in] - target color</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixColorGrayCmap(
-				  Pix pixs, 
-				  Box box, 
-				  int type, 
-				  int rval, 
-				  int gval, 
-				  int bval){
+				 Pix pixs, 
+				 Box box, 
+				 int type, 
+				 int rval, 
+				 int gval, 
+				 int bval){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
@@ -197,12 +198,12 @@ public static int pixColorGrayCmap(
 ///  <param name="bval">[in] - target color</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixColorGrayMaskedCmap(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int type, 
-				  int rval, 
-				  int gval, 
-				  int bval){
+				 Pix pixs, 
+				 Pix pixm, 
+				 int type, 
+				 int rval, 
+				 int gval, 
+				 int bval){
 
 	int _Result = Natives.pixColorGrayMaskedCmap(pixs.Pointer, pixm.Pointer,   type,   rval,   gval,   bval);
 	
@@ -248,11 +249,11 @@ public static int pixColorGrayMaskedCmap(
 ///  <param name="pna">[out][optional] - table for mapping new cmap entries</param>
 ///   <returns>0 if OK 1 on error 2 if new colors will not fit in cmap.</returns>
 public static int addColorizedGrayToCmap(
-				  PixColormap cmap, 
-				  int type, 
-				  int rval, 
-				  int gval, 
-				  int bval, 
+				 PixColormap cmap, 
+				 int type, 
+				 int rval, 
+				 int gval, 
+				 int bval, 
 				out Numa pna){
 
 	IntPtr pnaPtr = IntPtr.Zero;
@@ -260,8 +261,7 @@ public static int addColorizedGrayToCmap(
 	int _Result = Natives.addColorizedGrayToCmap(cmap.Pointer,   type,   rval,   gval,   bval, out pnaPtr);
 	
 
-pna = null;
-	; if (pnaPtr != IntPtr.Zero){pna = new Numa(pnaPtr);}
+	if (pnaPtr == null) {pna = null;} else { pna = new Numa(pnaPtr); };
 
 
 	return _Result;
@@ -298,14 +298,14 @@ pna = null;
 ///  <param name="bval">[in] - new color to substitute</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSetSelectMaskedCmap(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int x, 
-				  int y, 
-				  int sindex, 
-				  int rval, 
-				  int gval, 
-				  int bval){
+				 Pix pixs, 
+				 Pix pixm, 
+				 int x, 
+				 int y, 
+				 int sindex, 
+				 int rval, 
+				 int gval, 
+				 int bval){
 
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
@@ -349,13 +349,13 @@ public static int pixSetSelectMaskedCmap(
 ///  <param name="bval">[in] - new color to set at each masked pixel</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixSetMaskedCmap(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int x, 
-				  int y, 
-				  int rval, 
-				  int gval, 
-				  int bval){
+				 Pix pixs, 
+				 Pix pixm, 
+				 int x, 
+				 int y, 
+				 int rval, 
+				 int gval, 
+				 int bval){
 
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
@@ -367,4 +367,5 @@ public static int pixSetMaskedCmap(
 	return _Result;
 }
 
+}
 }

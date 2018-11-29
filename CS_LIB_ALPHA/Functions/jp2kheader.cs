@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // jp2kheader.c (75, 1)
 // readHeaderJp2k(filename, pw, ph, pbps, pspp) as int
@@ -18,7 +19,7 @@ public class _All {
 ///  <param name="pspp">[out][optional] - samples/pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int readHeaderJp2k(
-				  String filename, 
+				 String filename, 
 				out int pw, 
 				out int ph, 
 				out int pbps, 
@@ -27,10 +28,6 @@ public static int readHeaderJp2k(
 	int _Result = Natives.readHeaderJp2k(  filename, out  pw, out  ph, out  pbps, out  pspp);
 	
 
-pw = 0;
-ph = 0;
-pbps = 0;
-pspp = 0;
 
 
 	return _Result;
@@ -49,7 +46,7 @@ pspp = 0;
 ///  <param name="pspp">[out][optional] - samples/pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int freadHeaderJp2k(
-				  FILE fp, 
+				 FILE fp, 
 				out int pw, 
 				out int ph, 
 				out int pbps, 
@@ -58,10 +55,6 @@ public static int freadHeaderJp2k(
 	int _Result = Natives.freadHeaderJp2k(fp.Pointer, out  pw, out  ph, out  pbps, out  pspp);
 	
 
-pw = 0;
-ph = 0;
-pbps = 0;
-pspp = 0;
 
 
 	return _Result;
@@ -94,8 +87,8 @@ pspp = 0;
 ///  <param name="pspp">[out][optional] - samples/pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int readHeaderMemJp2k(
-				  Byte[] data, 
-				  uint size, 
+				 Byte[] data, 
+				 uint size, 
 				out int pw, 
 				out int ph, 
 				out int pbps, 
@@ -104,10 +97,6 @@ public static int readHeaderMemJp2k(
 	int _Result = Natives.readHeaderMemJp2k(  data,   size, out  pw, out  ph, out  pbps, out  pspp);
 	
 
-pw = 0;
-ph = 0;
-pbps = 0;
-pspp = 0;
 
 
 	return _Result;
@@ -121,9 +110,9 @@ pspp = 0;
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fgetJp2kResolution/*"/>
 ///   <returns></returns>
 public static int fgetJp2kResolution(
-				  FILE fp, 
-				  object pxres, 
-				  object pyres){
+				 FILE fp, 
+				 object pxres, 
+				 object pyres){
 
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 
@@ -135,4 +124,5 @@ public static int fgetJp2kResolution(
 	return _Result;
 }
 
+}
 }

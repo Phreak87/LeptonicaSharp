@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // recogident.c (158, 1)
 // recogIdentifyMultiple(recog, pixs, minh, skipsplit, pboxa, ppixa, ppixdb, debugsplit) as int
@@ -33,14 +34,14 @@ public class _All {
 ///  <param name="debugsplit">[in] - 1 returns pix split debugging images</param>
 ///   <returns>0 if OK 1 if nothing is found 2 for other errors.</returns>
 public static int recogIdentifyMultiple(
-				  L_Recog recog, 
-				  Pix pixs, 
-				  int minh, 
-				  int skipsplit, 
-				 out Boxa pboxa, 
-				 out Pixa ppixa, 
-				 out Pix ppixdb, 
-				  int debugsplit){
+				 L_Recog recog, 
+				 Pix pixs, 
+				 int minh, 
+				 int skipsplit, 
+				out Boxa pboxa, 
+				out Pixa ppixa, 
+				out Pix ppixdb, 
+				 int debugsplit){
 
 	IntPtr pboxaPtr = IntPtr.Zero;
 	IntPtr ppixaPtr = IntPtr.Zero;
@@ -49,12 +50,9 @@ public static int recogIdentifyMultiple(
 	int _Result = Natives.recogIdentifyMultiple(recog.Pointer, pixs.Pointer,   minh,   skipsplit, out pboxaPtr, out ppixaPtr, out ppixdbPtr,   debugsplit);
 	
 
-pboxa = null;
-	; if (pboxaPtr != IntPtr.Zero){pboxa = new Boxa(pboxaPtr);}
-ppixa = null;
-	; if (ppixaPtr != IntPtr.Zero){ppixa = new Pixa(ppixaPtr);}
-ppixdb = null;
-	; if (ppixdbPtr != IntPtr.Zero){ppixdb = new Pix(ppixdbPtr);}
+	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
@@ -91,12 +89,12 @@ ppixdb = null;
 ///  <param name="debug">[in] - 1 for results written to pixadb_split</param>
 ///   <returns>0 if OK, 1 on error or if no components are returned</returns>
 public static int recogSplitIntoCharacters(
-				  L_Recog recog, 
-				  Pix pixs, 
-				  int minh, 
-				  int skipsplit, 
-				 out Boxa pboxa, 
-				 out Pixa ppixa, 
+				 L_Recog recog, 
+				 Pix pixs, 
+				 int minh, 
+				 int skipsplit, 
+				out Boxa pboxa, 
+				out Pixa ppixa, 
 				 DebugOnOff debug){
 
 	IntPtr pboxaPtr = IntPtr.Zero;
@@ -105,10 +103,8 @@ public static int recogSplitIntoCharacters(
 	int _Result = Natives.recogSplitIntoCharacters(recog.Pointer, pixs.Pointer,   minh,   skipsplit, out pboxaPtr, out ppixaPtr,  (int) debug);
 	
 
-pboxa = null;
-	; if (pboxaPtr != IntPtr.Zero){pboxa = new Boxa(pboxaPtr);}
-ppixa = null;
-	; if (ppixaPtr != IntPtr.Zero){ppixa = new Pixa(ppixaPtr);}
+	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 
 
 	return _Result;
@@ -136,9 +132,9 @@ ppixa = null;
 ///  <param name="debug">[in] - 1 for results written to pixadb_split</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int recogCorrelationBestRow(
-				  L_Recog recog, 
-				  Pix pixs, 
-				 out Boxa pboxa, 
+				 L_Recog recog, 
+				 Pix pixs, 
+				out Boxa pboxa, 
 				out Numa pnascore, 
 				out Numa pnaindex, 
 				out Sarray psachar, 
@@ -152,14 +148,10 @@ public static int recogCorrelationBestRow(
 	int _Result = Natives.recogCorrelationBestRow(recog.Pointer, pixs.Pointer, out pboxaPtr, out pnascorePtr, out pnaindexPtr, out psacharPtr,  (int) debug);
 	
 
-pboxa = null;
-	; if (pboxaPtr != IntPtr.Zero){pboxa = new Boxa(pboxaPtr);}
-pnascore = null;
-	; if (pnascorePtr != IntPtr.Zero){pnascore = new Numa(pnascorePtr);}
-pnaindex = null;
-	; if (pnaindexPtr != IntPtr.Zero){pnaindex = new Numa(pnaindexPtr);}
-psachar = null;
-	; if (psacharPtr != IntPtr.Zero){psachar = new Sarray(psacharPtr);}
+	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (pnascorePtr == null) {pnascore = null;} else { pnascore = new Numa(pnascorePtr); };
+	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (psacharPtr == null) {psachar = null;} else { psachar = new Sarray(psacharPtr); };
 
 
 	return _Result;
@@ -189,10 +181,10 @@ psachar = null;
 ///  <param name="ppixdb">[out][optional] - debug pix showing input and best fit</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int recogCorrelationBestChar(
-				  L_Recog recog, 
-				  Pix pixs, 
-				 out Box pbox, 
-				 out Single pscore, 
+				 L_Recog recog, 
+				 Pix pixs, 
+				out Box pbox, 
+				out Single pscore, 
 				out int pindex, 
 				out String[] pcharstr, 
 				out Pix ppixdb){
@@ -204,13 +196,9 @@ public static int recogCorrelationBestChar(
 	int _Result = Natives.recogCorrelationBestChar(recog.Pointer, pixs.Pointer, out pboxPtr, out  pscore, out  pindex, out  pcharstrPtr, out ppixdbPtr);
 	
 
-pbox = null;
-	; if (pboxPtr != IntPtr.Zero){pbox = new Box(pboxPtr);}
-pscore = 0f;
-pindex = 0;
-pcharstr = null;
-ppixdb = null;
-	; if (ppixdbPtr != IntPtr.Zero){ppixdb = new Pix(ppixdbPtr);}
+	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
+	if (pcharstrPtr == null) {pcharstr = null;} else { pcharstr = null; };
+	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
@@ -236,8 +224,8 @@ ppixdb = null;
 ///  <param name="ppixdb">[out][optional] - pix showing inputs and best fits</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int recogIdentifyPixa(
-				  L_Recog recog, 
-				  Pixa pixa, 
+				 L_Recog recog, 
+				 Pixa pixa, 
 				out Pix ppixdb){
 
 	IntPtr ppixdbPtr = IntPtr.Zero;
@@ -245,8 +233,7 @@ public static int recogIdentifyPixa(
 	int _Result = Natives.recogIdentifyPixa(recog.Pointer, pixa.Pointer, out ppixdbPtr);
 	
 
-ppixdb = null;
-	; if (ppixdbPtr != IntPtr.Zero){ppixdb = new Pix(ppixdbPtr);}
+	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
@@ -282,8 +269,8 @@ ppixdb = null;
 ///  <param name="ppixdb">[out][optional] - debug pix showing input and best fit</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int recogIdentifyPix(
-				  L_Recog recog, 
-				  Pix pixs, 
+				 L_Recog recog, 
+				 Pix pixs, 
 				out Pix ppixdb){
 
 	IntPtr ppixdbPtr = IntPtr.Zero;
@@ -291,8 +278,7 @@ public static int recogIdentifyPix(
 	int _Result = Natives.recogIdentifyPix(recog.Pointer, pixs.Pointer, out ppixdbPtr);
 	
 
-ppixdb = null;
-	; if (ppixdbPtr != IntPtr.Zero){ppixdb = new Pix(ppixdbPtr);}
+	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
@@ -311,7 +297,7 @@ ppixdb = null;
 ///  <param name="recog">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int recogSkipIdentify(
-				  L_Recog recog){
+				 L_Recog recog){
 
 	int _Result = Natives.recogSkipIdentify(recog.Pointer);
 	
@@ -329,15 +315,14 @@ public static int recogSkipIdentify(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/rchaDestroy/*"/>
 ///  <param name="prcha">[in,out] - to be nulled</param>
 public static void rchaDestroy(
-				 ref L_Rcha prcha){
+				ref L_Rcha prcha){
 
 	IntPtr prchaPtr = IntPtr.Zero; 	if (prcha != null) {prchaPtr = prcha.Pointer;}
 
 	Natives.rchaDestroy(ref prchaPtr);
 	
 
-prcha = null;
-	; if (prchaPtr != IntPtr.Zero){prcha = new L_Rcha(prchaPtr);}
+	if (prchaPtr == null) {prcha = null;} else { prcha = new L_Rcha(prchaPtr); };
 
 
 }
@@ -350,15 +335,14 @@ prcha = null;
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/rchDestroy/*"/>
 ///  <param name="prch">[in,out] - to be nulled</param>
 public static void rchDestroy(
-				 ref L_Rch prch){
+				ref L_Rch prch){
 
 	IntPtr prchPtr = IntPtr.Zero; 	if (prch != null) {prchPtr = prch.Pointer;}
 
 	Natives.rchDestroy(ref prchPtr);
 	
 
-prch = null;
-	; if (prchPtr != IntPtr.Zero){prch = new L_Rch(prchPtr);}
+	if (prchPtr == null) {prch = null;} else { prch = new L_Rch(prchPtr); };
 
 
 }
@@ -383,7 +367,7 @@ prch = null;
 ///  <param name="pnawidth">[out][optional] - widths of best templates</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int rchaExtract(
-				  L_Rcha rcha, 
+				 L_Rcha rcha, 
 				out Numa pnaindex, 
 				out Numa pnascore, 
 				out Sarray psatext, 
@@ -403,20 +387,13 @@ public static int rchaExtract(
 	int _Result = Natives.rchaExtract(rcha.Pointer, out pnaindexPtr, out pnascorePtr, out psatextPtr, out pnasamplePtr, out pnaxlocPtr, out pnaylocPtr, out pnawidthPtr);
 	
 
-pnaindex = null;
-	; if (pnaindexPtr != IntPtr.Zero){pnaindex = new Numa(pnaindexPtr);}
-pnascore = null;
-	; if (pnascorePtr != IntPtr.Zero){pnascore = new Numa(pnascorePtr);}
-psatext = null;
-	; if (psatextPtr != IntPtr.Zero){psatext = new Sarray(psatextPtr);}
-pnasample = null;
-	; if (pnasamplePtr != IntPtr.Zero){pnasample = new Numa(pnasamplePtr);}
-pnaxloc = null;
-	; if (pnaxlocPtr != IntPtr.Zero){pnaxloc = new Numa(pnaxlocPtr);}
-pnayloc = null;
-	; if (pnaylocPtr != IntPtr.Zero){pnayloc = new Numa(pnaylocPtr);}
-pnawidth = null;
-	; if (pnawidthPtr != IntPtr.Zero){pnawidth = new Numa(pnawidthPtr);}
+	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnascorePtr == null) {pnascore = null;} else { pnascore = new Numa(pnascorePtr); };
+	if (psatextPtr == null) {psatext = null;} else { psatext = new Sarray(psatextPtr); };
+	if (pnasamplePtr == null) {pnasample = null;} else { pnasample = new Numa(pnasamplePtr); };
+	if (pnaxlocPtr == null) {pnaxloc = null;} else { pnaxloc = new Numa(pnaxlocPtr); };
+	if (pnaylocPtr == null) {pnayloc = null;} else { pnayloc = new Numa(pnaylocPtr); };
+	if (pnawidthPtr == null) {pnawidth = null;} else { pnawidth = new Numa(pnawidthPtr); };
 
 
 	return _Result;
@@ -438,7 +415,7 @@ pnawidth = null;
 ///  <param name="pwidth">[out][optional] - width of best template</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int rchExtract(
-				  L_Rch rch, 
+				 L_Rch rch, 
 				out int pindex, 
 				out Single pscore, 
 				out String[] ptext, 
@@ -452,13 +429,7 @@ public static int rchExtract(
 	int _Result = Natives.rchExtract(rch.Pointer, out  pindex, out  pscore, out  ptextPtr, out  psample, out  pxloc, out  pyloc, out  pwidth);
 	
 
-pindex = 0;
-pscore = 0f;
-ptext = null;
-psample = 0;
-pxloc = 0;
-pyloc = 0;
-pwidth = 0;
+	if (ptextPtr == null) {ptext = null;} else { ptext = null; };
 
 
 	return _Result;
@@ -480,9 +451,9 @@ pwidth = 0;
 ///  <param name="pad">[in] - extra pixels added to left and right sides</param>
 ///   <returns>pixd 1 bpp, clipped to foreground, or NULL if there are no fg pixels or on error.</returns>
 public static Pix recogProcessToIdentify(
-				  L_Recog recog, 
-				  Pix pixs, 
-				  int pad){
+				 L_Recog recog, 
+				 Pix pixs, 
+				 int pad){
 
 	IntPtr _Result = Natives.recogProcessToIdentify(recog.Pointer, pixs.Pointer,   pad);
 	
@@ -532,10 +503,10 @@ public static Pix recogProcessToIdentify(
 ///  <param name="pnaa">[out][optional] - scores of identified digits</param>
 ///   <returns>sa of identified numbers, or NULL on error</returns>
 public static Sarray recogExtractNumbers(
-				  L_Recog recog, 
-				  Boxa boxas, 
-				  Single scorethresh, 
-				  int spacethresh, 
+				 L_Recog recog, 
+				 Boxa boxas, 
+				 Single scorethresh, 
+				 int spacethresh, 
 				out Boxaa pbaa, 
 				out Numaa pnaa){
 
@@ -545,10 +516,8 @@ public static Sarray recogExtractNumbers(
 	IntPtr _Result = Natives.recogExtractNumbers(recog.Pointer, boxas.Pointer,   scorethresh,   spacethresh, out pbaaPtr, out pnaaPtr);
 	
 
-pbaa = null;
-	; if (pbaaPtr != IntPtr.Zero){pbaa = new Boxaa(pbaaPtr);}
-pnaa = null;
-	; if (pnaaPtr != IntPtr.Zero){pnaa = new Numaa(pnaaPtr);}
+	if (pbaaPtr == null) {pbaa = null;} else { pbaa = new Boxaa(pbaaPtr); };
+	if (pnaaPtr == null) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -574,10 +543,10 @@ pnaa = null;
 ///  <param name="ppixdb">[out][optional] - input pixs with identified chars outlined</param>
 ///   <returns>pixa   of identified strings with text and scores, or NULL on error</returns>
 public static Pixa showExtractNumbers(
-				  Pix pixs, 
-				  Sarray sa, 
-				  Boxaa baa, 
-				  Numaa naa, 
+				 Pix pixs, 
+				 Sarray sa, 
+				 Boxaa baa, 
+				 Numaa naa, 
 				out Pix ppixdb){
 
 	IntPtr ppixdbPtr = IntPtr.Zero;
@@ -585,12 +554,12 @@ public static Pixa showExtractNumbers(
 	IntPtr _Result = Natives.showExtractNumbers(pixs.Pointer, sa.Pointer, baa.Pointer, naa.Pointer, out ppixdbPtr);
 	
 
-ppixdb = null;
-	; if (ppixdbPtr != IntPtr.Zero){ppixdb = new Pix(ppixdbPtr);}
+	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
 	return  new Pixa(_Result);
 }
 
+}
 }

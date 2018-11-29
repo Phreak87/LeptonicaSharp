@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // fmorphgen.1.c (37, 6)
 // pixMorphDwa_1(pixd, pixs, operation, selname) as Pix
@@ -24,10 +25,10 @@ public class _All {
 ///  <param name="operation">[in] - L_MORPH_DILATE, L_MORPH_ERODE, L_MORPH_OPEN, L_MORPH_CLOSE</param>
 ///   <returns>pixd</returns>
 public static Pix pixMorphDwa_1(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int operation, 
-				  String selname){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int operation, 
+				 String selname){
 
 	IntPtr _Result = Natives.pixMorphDwa_1(pixd.Pointer, pixs.Pointer,   operation,   selname);
 	
@@ -63,10 +64,10 @@ public static Pix pixMorphDwa_1(
 ///  <param name="operation">[in] - L_MORPH_DILATE, L_MORPH_ERODE, L_MORPH_OPEN, L_MORPH_CLOSE</param>
 ///   <returns>pixd</returns>
 public static Pix pixFMorphopGen_1(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int operation, 
-				  String selname){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int operation, 
+				 String selname){
 
 	IntPtr _Result = Natives.pixFMorphopGen_1(pixd.Pointer, pixs.Pointer,   operation,   selname);
 	
@@ -85,13 +86,13 @@ public static Pix pixFMorphopGen_1(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fmorphopgen_low_1/*"/>
 ///   <returns></returns>
 public static int fmorphopgen_low_1(
-				  object datad, 
-				  int w, 
-				  int h, 
-				  int wpld, 
-				  object datas, 
-				  int wpls, 
-				  int index){
+				 object datad, 
+				 int w, 
+				 int h, 
+				 int wpld, 
+				 object datas, 
+				 int wpls, 
+				 int index){
 
 	int _Result = Natives.fmorphopgen_low_1(  datad,   w,   h,   wpld,   datas,   wpls,   index);
 	
@@ -101,4 +102,5 @@ public static int fmorphopgen_low_1(
 	return _Result;
 }
 
+}
 }

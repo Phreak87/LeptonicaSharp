@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // adaptmap.c (185, 1)
 // pixCleanBackgroundToWhite(pixs, pixim, pixg, gamma, blackval, whiteval) as Pix
@@ -29,23 +30,23 @@ public class _All {
 ///  <param name="whiteval">[in] - light value to set to white (255)</param>
 ///   <returns>pixd 8 bpp or 32 bpp rgb, or NULL on error</returns>
 public static Pix pixCleanBackgroundToWhite(
-				  Pix pixs, 
-				 Pix pixim, 
-				 Pix pixg, 
-				 Single gamma, 
-				 int blackval, 
-				 int whiteval){
+				Pix pixs, 
+				Pix pixim, 
+				Pix pixg, 
+				Single gamma, 
+				int blackval, 
+				int whiteval){
 
-	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
-	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
+IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
+IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
-	IntPtr _Result = Natives.pixCleanBackgroundToWhite(pixs.Pointer, piximPtr, pixgPtr,   gamma,   blackval,   whiteval);
+IntPtr _Result = Natives.pixCleanBackgroundToWhite(pixs.Pointer, piximPtr, pixgPtr,   gamma,   blackval,   whiteval);
 	
 
 
-	if (_Result == IntPtr.Zero) {return null;}
+if (_Result == IntPtr.Zero) {return null;}
 
-	return  new Pix(_Result);
+return  new Pix(_Result);
 }
 
 // adaptmap.c (231, 1)
@@ -67,20 +68,20 @@ public static Pix pixCleanBackgroundToWhite(
 ///  <param name="pixg">[in][optional] - 8 bpp grayscale version can be null</param>
 ///   <returns>pixd 8 bpp or 32 bpp rgb, or NULL on error</returns>
 public static Pix pixBackgroundNormSimple(
-				  Pix pixs, 
-				 Pix pixim, 
-				 Pix pixg){
+				Pix pixs, 
+				Pix pixim, 
+				Pix pixg){
 
-	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
-	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
+IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
+IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
-	IntPtr _Result = Natives.pixBackgroundNormSimple(pixs.Pointer, piximPtr, pixgPtr);
+IntPtr _Result = Natives.pixBackgroundNormSimple(pixs.Pointer, piximPtr, pixgPtr);
 	
 
 
-	if (_Result == IntPtr.Zero) {return null;}
+if (_Result == IntPtr.Zero) {return null;}
 
-	return  new Pix(_Result);
+return  new Pix(_Result);
 }
 
 // adaptmap.c (302, 1)
@@ -152,27 +153,27 @@ public static Pix pixBackgroundNormSimple(
 ///  <param name="smoothy">[in] - half-width of block convolution kernel height</param>
 ///   <returns>pixd 8 bpp or 32 bpp rgb, or NULL on error</returns>
 public static Pix pixBackgroundNorm(
-				  Pix pixs, 
-				  Pix pixim, 
-				  Pix pixg, 
-				  int sx, 
-				  int sy, 
-				  int thresh, 
-				  int mincount, 
-				  int bgval, 
-				  int smoothx, 
-				  int smoothy){
+				Pix pixs, 
+				Pix pixim, 
+				Pix pixg, 
+				int sx, 
+				int sy, 
+				int thresh, 
+				int mincount, 
+				int bgval, 
+				int smoothx, 
+				int smoothy){
 
-	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
-	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
+IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
+IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
-	IntPtr _Result = Natives.pixBackgroundNorm(pixs.Pointer, piximPtr, pixgPtr,   sx,   sy,   thresh,   mincount,   bgval,   smoothx,   smoothy);
+IntPtr _Result = Natives.pixBackgroundNorm(pixs.Pointer, piximPtr, pixgPtr,   sx,   sy,   thresh,   mincount,   bgval,   smoothx,   smoothy);
 	
 
 
-	if (_Result == IntPtr.Zero) {return null;}
+if (_Result == IntPtr.Zero) {return null;}
 
-	return  new Pix(_Result);
+return  new Pix(_Result);
 }
 
 // adaptmap.c (443, 1)
@@ -221,21 +222,21 @@ public static Pix pixBackgroundNorm(
 ///  <param name="bgval">[in] - target bg val typ.  is greater  128</param>
 ///   <returns>pixd 8 bpp, or NULL on error</returns>
 public static Pix pixBackgroundNormMorph(
-				  Pix pixs, 
-				  Pix pixim, 
-				  int reduction, 
-				  int size, 
-				  int bgval){
+				Pix pixs, 
+				Pix pixim, 
+				int reduction, 
+				int size, 
+				int bgval){
 
-	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
+IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
 
-	IntPtr _Result = Natives.pixBackgroundNormMorph(pixs.Pointer, piximPtr,   reduction,   size,   bgval);
+IntPtr _Result = Natives.pixBackgroundNormMorph(pixs.Pointer, piximPtr,   reduction,   size,   bgval);
 	
 
 
-	if (_Result == IntPtr.Zero) {return null;}
+if (_Result == IntPtr.Zero) {return null;}
 
-	return  new Pix(_Result);
+return  new Pix(_Result);
 }
 
 // adaptmap.c (554, 1)
@@ -263,28 +264,27 @@ public static Pix pixBackgroundNormMorph(
 ///  <param name="ppixd">[out] - 16 bpp array of inverted background value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixBackgroundNormGrayArray(
-				  Pix pixs, 
-				  Pix pixim, 
-				  int sx, 
-				  int sy, 
-				  int thresh, 
-				  int mincount, 
-				  int bgval, 
-				  int smoothx, 
-				  int smoothy, 
-				 out Pix ppixd){
+				Pix pixs, 
+				Pix pixim, 
+				int sx, 
+				int sy, 
+				int thresh, 
+				int mincount, 
+				int bgval, 
+				int smoothx, 
+				int smoothy, 
+			out Pix ppixd){
 
-	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
-	IntPtr ppixdPtr = IntPtr.Zero;
+IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
+IntPtr ppixdPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixBackgroundNormGrayArray(pixs.Pointer, piximPtr,   sx,   sy,   thresh,   mincount,   bgval,   smoothx,   smoothy, out ppixdPtr);
+int _Result = Natives.pixBackgroundNormGrayArray(pixs.Pointer, piximPtr,   sx,   sy,   thresh,   mincount,   bgval,   smoothx,   smoothy, out ppixdPtr);
 	
 
-ppixd = null;
-	; if (ppixdPtr != IntPtr.Zero){ppixd = new Pix(ppixdPtr);}
+if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
-	return _Result;
+return _Result;
 }
 
 // adaptmap.c (631, 1)
@@ -315,38 +315,35 @@ ppixd = null;
 ///  <param name="ppixb">[out] - 16 bpp array of inverted B background value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixBackgroundNormRGBArrays(
-				  Pix pixs, 
-				  Pix pixim, 
-				  Pix pixg, 
-				  int sx, 
-				  int sy, 
-				  int thresh, 
-				  int mincount, 
-				  int bgval, 
-				  int smoothx, 
-				  int smoothy, 
-				 out Pix ppixr, 
-				 out Pix ppixg, 
-				 out Pix ppixb){
+				Pix pixs, 
+				Pix pixim, 
+				Pix pixg, 
+				int sx, 
+				int sy, 
+				int thresh, 
+				int mincount, 
+				int bgval, 
+				int smoothx, 
+				int smoothy, 
+			out Pix ppixr, 
+			out Pix ppixg, 
+			out Pix ppixb){
 
-	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
-	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
-	IntPtr ppixrPtr = IntPtr.Zero;
-	IntPtr ppixgPtr = IntPtr.Zero;
-	IntPtr ppixbPtr = IntPtr.Zero;
+IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
+IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
+IntPtr ppixrPtr = IntPtr.Zero;
+IntPtr ppixgPtr = IntPtr.Zero;
+IntPtr ppixbPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixBackgroundNormRGBArrays(pixs.Pointer, piximPtr, pixgPtr,   sx,   sy,   thresh,   mincount,   bgval,   smoothx,   smoothy, out ppixrPtr, out ppixgPtr, out ppixbPtr);
+int _Result = Natives.pixBackgroundNormRGBArrays(pixs.Pointer, piximPtr, pixgPtr,   sx,   sy,   thresh,   mincount,   bgval,   smoothx,   smoothy, out ppixrPtr, out ppixgPtr, out ppixbPtr);
 	
 
-ppixr = null;
-	; if (ppixrPtr != IntPtr.Zero){ppixr = new Pix(ppixrPtr);}
-ppixg = null;
-	; if (ppixgPtr != IntPtr.Zero){ppixg = new Pix(ppixgPtr);}
-ppixb = null;
-	; if (ppixbPtr != IntPtr.Zero){ppixb = new Pix(ppixbPtr);}
+if (ppixrPtr == null) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
+if (ppixgPtr == null) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
+if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
 
 
-	return _Result;
+return _Result;
 }
 
 // adaptmap.c (714, 1)
@@ -370,24 +367,23 @@ ppixb = null;
 ///  <param name="ppixd">[out] - 16 bpp array of inverted background value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixBackgroundNormGrayArrayMorph(
-				  Pix pixs, 
-				  Pix pixim, 
-				  int reduction, 
-				  int size, 
-				  int bgval, 
-				 out Pix ppixd){
+				Pix pixs, 
+				Pix pixim, 
+				int reduction, 
+				int size, 
+				int bgval, 
+			out Pix ppixd){
 
-	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
-	IntPtr ppixdPtr = IntPtr.Zero;
+IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
+IntPtr ppixdPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixBackgroundNormGrayArrayMorph(pixs.Pointer, piximPtr,   reduction,   size,   bgval, out ppixdPtr);
+int _Result = Natives.pixBackgroundNormGrayArrayMorph(pixs.Pointer, piximPtr,   reduction,   size,   bgval, out ppixdPtr);
 	
 
-ppixd = null;
-	; if (ppixdPtr != IntPtr.Zero){ppixd = new Pix(ppixdPtr);}
+if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
-	return _Result;
+return _Result;
 }
 
 // adaptmap.c (779, 1)
@@ -413,32 +409,29 @@ ppixd = null;
 ///  <param name="ppixb">[out] - 16 bpp array of inverted B background value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixBackgroundNormRGBArraysMorph(
-				  Pix pixs, 
-				  Pix pixim, 
-				  int reduction, 
-				  int size, 
-				  int bgval, 
-				 out Pix ppixr, 
-				 out Pix ppixg, 
-				 out Pix ppixb){
+				Pix pixs, 
+				Pix pixim, 
+				int reduction, 
+				int size, 
+				int bgval, 
+			out Pix ppixr, 
+			out Pix ppixg, 
+			out Pix ppixb){
 
-	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
-	IntPtr ppixrPtr = IntPtr.Zero;
-	IntPtr ppixgPtr = IntPtr.Zero;
-	IntPtr ppixbPtr = IntPtr.Zero;
+IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
+IntPtr ppixrPtr = IntPtr.Zero;
+IntPtr ppixgPtr = IntPtr.Zero;
+IntPtr ppixbPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixBackgroundNormRGBArraysMorph(pixs.Pointer, piximPtr,   reduction,   size,   bgval, out ppixrPtr, out ppixgPtr, out ppixbPtr);
+int _Result = Natives.pixBackgroundNormRGBArraysMorph(pixs.Pointer, piximPtr,   reduction,   size,   bgval, out ppixrPtr, out ppixgPtr, out ppixbPtr);
 	
 
-ppixr = null;
-	; if (ppixrPtr != IntPtr.Zero){ppixr = new Pix(ppixrPtr);}
-ppixg = null;
-	; if (ppixgPtr != IntPtr.Zero){ppixg = new Pix(ppixgPtr);}
-ppixb = null;
-	; if (ppixbPtr != IntPtr.Zero){ppixb = new Pix(ppixbPtr);}
+if (ppixrPtr == null) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
+if (ppixgPtr == null) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
+if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
 
 
-	return _Result;
+return _Result;
 }
 
 // adaptmap.c (856, 1)
@@ -461,25 +454,24 @@ ppixb = null;
 ///  <param name="ppixd">[out] - 8 bpp grayscale map</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetBackgroundGrayMap(
-				  Pix pixs, 
-				  Pix pixim, 
-				  int sx, 
-				  int sy, 
-				  int thresh, 
-				  int mincount, 
-				 out Pix ppixd){
+				Pix pixs, 
+				Pix pixim, 
+				int sx, 
+				int sy, 
+				int thresh, 
+				int mincount, 
+			out Pix ppixd){
 
-	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
-	IntPtr ppixdPtr = IntPtr.Zero;
+IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
+IntPtr ppixdPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetBackgroundGrayMap(pixs.Pointer, piximPtr,   sx,   sy,   thresh,   mincount, out ppixdPtr);
+int _Result = Natives.pixGetBackgroundGrayMap(pixs.Pointer, piximPtr,   sx,   sy,   thresh,   mincount, out ppixdPtr);
 	
 
-ppixd = null;
-	; if (ppixdPtr != IntPtr.Zero){ppixd = new Pix(ppixdPtr);}
+if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
-	return _Result;
+return _Result;
 }
 
 // adaptmap.c (1034, 1)
@@ -506,35 +498,32 @@ ppixd = null;
 ///  <param name="ppixmb">[out] - rgb maps</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetBackgroundRGBMap(
-				  Pix pixs, 
-				  Pix pixim, 
-				  Pix pixg, 
-				  int sx, 
-				  int sy, 
-				  int thresh, 
-				  int mincount, 
-				 out Pix ppixmr, 
-				 out Pix ppixmg, 
-				 out Pix ppixmb){
+				Pix pixs, 
+				Pix pixim, 
+				Pix pixg, 
+				int sx, 
+				int sy, 
+				int thresh, 
+				int mincount, 
+			out Pix ppixmr, 
+			out Pix ppixmg, 
+			out Pix ppixmb){
 
-	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
-	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
-	IntPtr ppixmrPtr = IntPtr.Zero;
-	IntPtr ppixmgPtr = IntPtr.Zero;
-	IntPtr ppixmbPtr = IntPtr.Zero;
+IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
+IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
+IntPtr ppixmrPtr = IntPtr.Zero;
+IntPtr ppixmgPtr = IntPtr.Zero;
+IntPtr ppixmbPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetBackgroundRGBMap(pixs.Pointer, piximPtr, pixgPtr,   sx,   sy,   thresh,   mincount, out ppixmrPtr, out ppixmgPtr, out ppixmbPtr);
+int _Result = Natives.pixGetBackgroundRGBMap(pixs.Pointer, piximPtr, pixgPtr,   sx,   sy,   thresh,   mincount, out ppixmrPtr, out ppixmgPtr, out ppixmbPtr);
 	
 
-ppixmr = null;
-	; if (ppixmrPtr != IntPtr.Zero){ppixmr = new Pix(ppixmrPtr);}
-ppixmg = null;
-	; if (ppixmgPtr != IntPtr.Zero){ppixmg = new Pix(ppixmgPtr);}
-ppixmb = null;
-	; if (ppixmbPtr != IntPtr.Zero){ppixmb = new Pix(ppixmbPtr);}
+if (ppixmrPtr == null) {ppixmr = null;} else { ppixmr = new Pix(ppixmrPtr); };
+if (ppixmgPtr == null) {ppixmg = null;} else { ppixmg = new Pix(ppixmgPtr); };
+if (ppixmbPtr == null) {ppixmb = null;} else { ppixmb = new Pix(ppixmbPtr); };
 
 
-	return _Result;
+return _Result;
 }
 
 // adaptmap.c (1219, 1)
@@ -550,23 +539,22 @@ ppixmb = null;
 ///  <param name="ppixm">[out] - grayscale map</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetBackgroundGrayMapMorph(
-				  Pix pixs, 
-				  Pix pixim, 
-				  int reduction, 
-				  int size, 
-				 out Pix ppixm){
+				Pix pixs, 
+				Pix pixim, 
+				int reduction, 
+				int size, 
+			out Pix ppixm){
 
-	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
-	IntPtr ppixmPtr = IntPtr.Zero;
+IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
+IntPtr ppixmPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetBackgroundGrayMapMorph(pixs.Pointer, piximPtr,   reduction,   size, out ppixmPtr);
+int _Result = Natives.pixGetBackgroundGrayMapMorph(pixs.Pointer, piximPtr,   reduction,   size, out ppixmPtr);
 	
 
-ppixm = null;
-	; if (ppixmPtr != IntPtr.Zero){ppixm = new Pix(ppixmPtr);}
+if (ppixmPtr == null) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
 
 
-	return _Result;
+return _Result;
 }
 
 // adaptmap.c (1310, 1)
@@ -584,31 +572,28 @@ ppixm = null;
 ///  <param name="ppixmb">[out] - blue component map</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetBackgroundRGBMapMorph(
-				  Pix pixs, 
-				  Pix pixim, 
-				  int reduction, 
-				  int size, 
-				 out Pix ppixmr, 
-				 out Pix ppixmg, 
-				 out Pix ppixmb){
+				Pix pixs, 
+				Pix pixim, 
+				int reduction, 
+				int size, 
+			out Pix ppixmr, 
+			out Pix ppixmg, 
+			out Pix ppixmb){
 
-	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
-	IntPtr ppixmrPtr = IntPtr.Zero;
-	IntPtr ppixmgPtr = IntPtr.Zero;
-	IntPtr ppixmbPtr = IntPtr.Zero;
+IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
+IntPtr ppixmrPtr = IntPtr.Zero;
+IntPtr ppixmgPtr = IntPtr.Zero;
+IntPtr ppixmbPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixGetBackgroundRGBMapMorph(pixs.Pointer, piximPtr,   reduction,   size, out ppixmrPtr, out ppixmgPtr, out ppixmbPtr);
+int _Result = Natives.pixGetBackgroundRGBMapMorph(pixs.Pointer, piximPtr,   reduction,   size, out ppixmrPtr, out ppixmgPtr, out ppixmbPtr);
 	
 
-ppixmr = null;
-	; if (ppixmrPtr != IntPtr.Zero){ppixmr = new Pix(ppixmrPtr);}
-ppixmg = null;
-	; if (ppixmgPtr != IntPtr.Zero){ppixmg = new Pix(ppixmgPtr);}
-ppixmb = null;
-	; if (ppixmbPtr != IntPtr.Zero){ppixmb = new Pix(ppixmbPtr);}
+if (ppixmrPtr == null) {ppixmr = null;} else { ppixmr = new Pix(ppixmrPtr); };
+if (ppixmgPtr == null) {ppixmg = null;} else { ppixmg = new Pix(ppixmgPtr); };
+if (ppixmbPtr == null) {ppixmb = null;} else { ppixmb = new Pix(ppixmbPtr); };
 
 
-	return _Result;
+return _Result;
 }
 
 // adaptmap.c (1464, 1)
@@ -649,17 +634,17 @@ ppixmb = null;
 ///  <param name="filltype">[in] - L_FILL_WHITE or L_FILL_BLACK</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixFillMapHoles(
-				  Pix pix, 
-				  int nx, 
-				  int ny, 
-				  int filltype){
+				Pix pix, 
+				int nx, 
+				int ny, 
+				int filltype){
 
-	int _Result = Natives.pixFillMapHoles(pix.Pointer,   nx,   ny,   filltype);
+int _Result = Natives.pixFillMapHoles(pix.Pointer,   nx,   ny,   filltype);
 	
 
 
 
-	return _Result;
+return _Result;
 }
 
 // adaptmap.c (1576, 1)
@@ -676,17 +661,17 @@ public static int pixFillMapHoles(
 ///  <param name="addh">[in] - number of extra pixels vertically to add</param>
 ///   <returns>pixd extended with replicated pixel values, or NULL on error</returns>
 public static Pix pixExtendByReplication(
-				  Pix pixs, 
-				  int addw, 
-				  int addh){
+				Pix pixs, 
+				int addw, 
+				int addh){
 
-	IntPtr _Result = Natives.pixExtendByReplication(pixs.Pointer,   addw,   addh);
+IntPtr _Result = Natives.pixExtendByReplication(pixs.Pointer,   addw,   addh);
 	
 
 
-	if (_Result == IntPtr.Zero) {return null;}
+if (_Result == IntPtr.Zero) {return null;}
 
-	return  new Pix(_Result);
+return  new Pix(_Result);
 }
 
 // adaptmap.c (1639, 1)
@@ -712,18 +697,18 @@ public static Pix pixExtendByReplication(
 ///  <param name="factor">[in] - subsampling factor for getting average greater or equal 1</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSmoothConnectedRegions(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int factor){
+				Pix pixs, 
+				Pix pixm, 
+				int factor){
 
-	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
+IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
-	int _Result = Natives.pixSmoothConnectedRegions(pixs.Pointer, pixmPtr,   factor);
+int _Result = Natives.pixSmoothConnectedRegions(pixs.Pointer, pixmPtr,   factor);
 	
 
 
 
-	return _Result;
+return _Result;
 }
 
 // adaptmap.c (1840, 1)
@@ -744,18 +729,18 @@ public static int pixSmoothConnectedRegions(
 ///  <param name="smoothy">[in] - half-width of block convolution kernel height</param>
 ///   <returns>pixd 16 bpp, or NULL on error</returns>
 public static Pix pixGetInvBackgroundMap(
-				  Pix pixs, 
-				  int bgval, 
-				  int smoothx, 
-				  int smoothy){
+				Pix pixs, 
+				int bgval, 
+				int smoothx, 
+				int smoothy){
 
-	IntPtr _Result = Natives.pixGetInvBackgroundMap(pixs.Pointer,   bgval,   smoothx,   smoothy);
+IntPtr _Result = Natives.pixGetInvBackgroundMap(pixs.Pointer,   bgval,   smoothx,   smoothy);
 	
 
 
-	if (_Result == IntPtr.Zero) {return null;}
+if (_Result == IntPtr.Zero) {return null;}
 
-	return  new Pix(_Result);
+return  new Pix(_Result);
 }
 
 // adaptmap.c (1903, 1)
@@ -770,18 +755,18 @@ public static Pix pixGetInvBackgroundMap(
 ///  <param name="sy">[in] - tile height in pixels</param>
 ///   <returns>pixd 8 bpp, or NULL on error</returns>
 public static Pix pixApplyInvBackgroundGrayMap(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int sx, 
-				  int sy){
+				Pix pixs, 
+				Pix pixm, 
+				int sx, 
+				int sy){
 
-	IntPtr _Result = Natives.pixApplyInvBackgroundGrayMap(pixs.Pointer, pixm.Pointer,   sx,   sy);
+IntPtr _Result = Natives.pixApplyInvBackgroundGrayMap(pixs.Pointer, pixm.Pointer,   sx,   sy);
 	
 
 
-	if (_Result == IntPtr.Zero) {return null;}
+if (_Result == IntPtr.Zero) {return null;}
 
-	return  new Pix(_Result);
+return  new Pix(_Result);
 }
 
 // adaptmap.c (1969, 1)
@@ -798,20 +783,20 @@ public static Pix pixApplyInvBackgroundGrayMap(
 ///  <param name="sy">[in] - tile height in pixels</param>
 ///   <returns>pixd 32 bpp rbg, or NULL on error</returns>
 public static Pix pixApplyInvBackgroundRGBMap(
-				  Pix pixs, 
-				  Pix pixmr, 
-				  Pix pixmg, 
-				  Pix pixmb, 
-				  int sx, 
-				  int sy){
+				Pix pixs, 
+				Pix pixmr, 
+				Pix pixmg, 
+				Pix pixmb, 
+				int sx, 
+				int sy){
 
-	IntPtr _Result = Natives.pixApplyInvBackgroundRGBMap(pixs.Pointer, pixmr.Pointer, pixmg.Pointer, pixmb.Pointer,   sx,   sy);
+IntPtr _Result = Natives.pixApplyInvBackgroundRGBMap(pixs.Pointer, pixmr.Pointer, pixmg.Pointer, pixmb.Pointer,   sx,   sy);
 	
 
 
-	if (_Result == IntPtr.Zero) {return null;}
+if (_Result == IntPtr.Zero) {return null;}
 
-	return  new Pix(_Result);
+return  new Pix(_Result);
 }
 
 // adaptmap.c (2067, 1)
@@ -842,17 +827,17 @@ public static Pix pixApplyInvBackgroundRGBMap(
 ///  <param name="target">[in] - typ. 128 for threshold</param>
 ///   <returns>pixd 8 bpp, or NULL on error</returns>
 public static Pix pixApplyVariableGrayMap(
-				  Pix pixs, 
-				  Pix pixg, 
-				  int target){
+				Pix pixs, 
+				Pix pixg, 
+				int target){
 
-	IntPtr _Result = Natives.pixApplyVariableGrayMap(pixs.Pointer, pixg.Pointer,   target);
+IntPtr _Result = Natives.pixApplyVariableGrayMap(pixs.Pointer, pixg.Pointer,   target);
 	
 
 
-	if (_Result == IntPtr.Zero) {return null;}
+if (_Result == IntPtr.Zero) {return null;}
 
-	return  new Pix(_Result);
+return  new Pix(_Result);
 }
 
 // adaptmap.c (2185, 1)
@@ -896,22 +881,22 @@ public static Pix pixApplyVariableGrayMap(
 ///  <param name="mapval">[in] - use 255 for mapping to white</param>
 ///   <returns>pixd 32 bpp rgb or colormapped, or NULL on error</returns>
 public static Pix pixGlobalNormRGB(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int rval, 
-				  int gval, 
-				  int bval, 
-				  int mapval){
+				Pix pixd, 
+				Pix pixs, 
+				int rval, 
+				int gval, 
+				int bval, 
+				int mapval){
 
-	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
+IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixGlobalNormRGB(pixdPtr, pixs.Pointer,   rval,   gval,   bval,   mapval);
+IntPtr _Result = Natives.pixGlobalNormRGB(pixdPtr, pixs.Pointer,   rval,   gval,   bval,   mapval);
 	
 
 
-	if (_Result == IntPtr.Zero) {return null;}
+if (_Result == IntPtr.Zero) {return null;}
 
-	return  new Pix(_Result);
+return  new Pix(_Result);
 }
 
 // adaptmap.c (2294, 1)
@@ -953,23 +938,23 @@ public static Pix pixGlobalNormRGB(
 ///  <param name="rank">[in] - between 0.0 and 1.0 typ. use a value near 1.0</param>
 ///   <returns>pixd 32 bpp rgb, or NULL on error</returns>
 public static Pix pixGlobalNormNoSatRGB(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int rval, 
-				  int gval, 
-				  int bval, 
-				  int factor, 
-				  Single rank){
+				Pix pixd, 
+				Pix pixs, 
+				int rval, 
+				int gval, 
+				int bval, 
+				int factor, 
+				Single rank){
 
-	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
+IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixGlobalNormNoSatRGB(pixdPtr, pixs.Pointer,   rval,   gval,   bval,   factor,   rank);
+IntPtr _Result = Natives.pixGlobalNormNoSatRGB(pixdPtr, pixs.Pointer,   rval,   gval,   bval,   factor,   rank);
 	
 
 
-	if (_Result == IntPtr.Zero) {return null;}
+if (_Result == IntPtr.Zero) {return null;}
 
-	return  new Pix(_Result);
+return  new Pix(_Result);
 }
 
 // adaptmap.c (2394, 1)
@@ -1019,35 +1004,32 @@ public static Pix pixGlobalNormNoSatRGB(
 ///  <param name="ppixd">[out][optional] - normalized image</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixThresholdSpreadNorm(
-				  Pix pixs, 
-				  int filtertype, 
-				  int edgethresh, 
-				  int smoothx, 
-				  int smoothy, 
-				  Single gamma, 
-				  int minval, 
-				  int maxval, 
-				  int targetthresh, 
-				out Pix ppixth, 
-				out Pix ppixb, 
-				out Pix ppixd){
+				Pix pixs, 
+				int filtertype, 
+				int edgethresh, 
+				int smoothx, 
+				int smoothy, 
+				Single gamma, 
+				int minval, 
+				int maxval, 
+				int targetthresh, 
+			out Pix ppixth, 
+			out Pix ppixb, 
+			out Pix ppixd){
 
-	IntPtr ppixthPtr = IntPtr.Zero;
-	IntPtr ppixbPtr = IntPtr.Zero;
-	IntPtr ppixdPtr = IntPtr.Zero;
+IntPtr ppixthPtr = IntPtr.Zero;
+IntPtr ppixbPtr = IntPtr.Zero;
+IntPtr ppixdPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixThresholdSpreadNorm(pixs.Pointer,   filtertype,   edgethresh,   smoothx,   smoothy,   gamma,   minval,   maxval,   targetthresh, out ppixthPtr, out ppixbPtr, out ppixdPtr);
+int _Result = Natives.pixThresholdSpreadNorm(pixs.Pointer,   filtertype,   edgethresh,   smoothx,   smoothy,   gamma,   minval,   maxval,   targetthresh, out ppixthPtr, out ppixbPtr, out ppixdPtr);
 	
 
-ppixth = null;
-	; if (ppixthPtr != IntPtr.Zero){ppixth = new Pix(ppixthPtr);}
-ppixb = null;
-	; if (ppixbPtr != IntPtr.Zero){ppixb = new Pix(ppixbPtr);}
-ppixd = null;
-	; if (ppixdPtr != IntPtr.Zero){ppixd = new Pix(ppixdPtr);}
+if (ppixthPtr == null) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
+if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
-	return _Result;
+return _Result;
 }
 
 // adaptmap.c (2500, 1)
@@ -1082,20 +1064,20 @@ ppixd = null;
 ///  <param name="delta">[in] - difference parameter in basin filling use 0 to skip</param>
 ///   <returns>pixd 8 bpp, background-normalized), or NULL on error</returns>
 public static Pix pixBackgroundNormFlex(
-				  Pix pixs, 
-				  int sx, 
-				  int sy, 
-				  int smoothx, 
-				  int smoothy, 
-				  int delta){
+				Pix pixs, 
+				int sx, 
+				int sy, 
+				int smoothx, 
+				int smoothy, 
+				int delta){
 
-	IntPtr _Result = Natives.pixBackgroundNormFlex(pixs.Pointer,   sx,   sy,   smoothx,   smoothy,   delta);
+IntPtr _Result = Natives.pixBackgroundNormFlex(pixs.Pointer,   sx,   sy,   smoothx,   smoothy,   delta);
 	
 
 
-	if (_Result == IntPtr.Zero) {return null;}
+if (_Result == IntPtr.Zero) {return null;}
 
-	return  new Pix(_Result);
+return  new Pix(_Result);
 }
 
 // adaptmap.c (2595, 1)
@@ -1144,23 +1126,23 @@ public static Pix pixBackgroundNormFlex(
 ///  <param name="smoothy">[in] - half-width of convolution kernel applied to min and max arrays: use 0 for no smoothing</param>
 ///   <returns>pixd always</returns>
 public static Pix pixContrastNorm(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int sx, 
-				  int sy, 
-				  int mindiff, 
-				  int smoothx, 
-				  int smoothy){
+				Pix pixd, 
+				Pix pixs, 
+				int sx, 
+				int sy, 
+				int mindiff, 
+				int smoothx, 
+				int smoothy){
 
-	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
+IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixContrastNorm(pixdPtr, pixs.Pointer,   sx,   sy,   mindiff,   smoothx,   smoothy);
+IntPtr _Result = Natives.pixContrastNorm(pixdPtr, pixs.Pointer,   sx,   sy,   mindiff,   smoothx,   smoothy);
 	
 
 
-	if (_Result == IntPtr.Zero) {return null;}
+if (_Result == IntPtr.Zero) {return null;}
 
-	return  new Pix(_Result);
+return  new Pix(_Result);
 }
 
 // adaptmap.c (2655, 1)
@@ -1185,28 +1167,26 @@ public static Pix pixContrastNorm(
 ///  <param name="ppixmax">[out] - tiled maxima</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixMinMaxTiles(
-				  Pix pixs, 
-				  int sx, 
-				  int sy, 
-				  int mindiff, 
-				  int smoothx, 
-				  int smoothy, 
-				 out Pix ppixmin, 
-				 out Pix ppixmax){
+				Pix pixs, 
+				int sx, 
+				int sy, 
+				int mindiff, 
+				int smoothx, 
+				int smoothy, 
+			out Pix ppixmin, 
+			out Pix ppixmax){
 
-	IntPtr ppixminPtr = IntPtr.Zero;
-	IntPtr ppixmaxPtr = IntPtr.Zero;
+IntPtr ppixminPtr = IntPtr.Zero;
+IntPtr ppixmaxPtr = IntPtr.Zero;
 
-	int _Result = Natives.pixMinMaxTiles(pixs.Pointer,   sx,   sy,   mindiff,   smoothx,   smoothy, out ppixminPtr, out ppixmaxPtr);
+int _Result = Natives.pixMinMaxTiles(pixs.Pointer,   sx,   sy,   mindiff,   smoothx,   smoothy, out ppixminPtr, out ppixmaxPtr);
 	
 
-ppixmin = null;
-	; if (ppixminPtr != IntPtr.Zero){ppixmin = new Pix(ppixminPtr);}
-ppixmax = null;
-	; if (ppixmaxPtr != IntPtr.Zero){ppixmax = new Pix(ppixmaxPtr);}
+if (ppixminPtr == null) {ppixmin = null;} else { ppixmin = new Pix(ppixminPtr); };
+if (ppixmaxPtr == null) {ppixmax = null;} else { ppixmax = new Pix(ppixmaxPtr); };
 
 
-	return _Result;
+return _Result;
 }
 
 // adaptmap.c (2746, 1)
@@ -1231,16 +1211,16 @@ ppixmax = null;
 ///  <param name="mindiff">[in] - minimum difference to accept as valid</param>
 ///   <returns>0 if OK 1 if no pixel diffs are large enough, or on error</returns>
 public static int pixSetLowContrast(
-				  Pix pixs1, 
-				  Pix pixs2, 
-				  int mindiff){
+				Pix pixs1, 
+				Pix pixs2, 
+				int mindiff){
 
-	int _Result = Natives.pixSetLowContrast(pixs1.Pointer, pixs2.Pointer,   mindiff);
+int _Result = Natives.pixSetLowContrast(pixs1.Pointer, pixs2.Pointer,   mindiff);
 	
 
 
 
-	return _Result;
+return _Result;
 }
 
 // adaptmap.c (2829, 1)
@@ -1272,22 +1252,23 @@ public static int pixSetLowContrast(
 ///  <param name="pixmax">[in] - pix of max values in tiles</param>
 ///   <returns>pixd always</returns>
 public static Pix pixLinearTRCTiled(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int sx, 
-				  int sy, 
-				  Pix pixmin, 
-				  Pix pixmax){
+				Pix pixd, 
+				Pix pixs, 
+				int sx, 
+				int sy, 
+				Pix pixmin, 
+				Pix pixmax){
 
-	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
+IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
-	IntPtr _Result = Natives.pixLinearTRCTiled(pixdPtr, pixs.Pointer,   sx,   sy, pixmin.Pointer, pixmax.Pointer);
+IntPtr _Result = Natives.pixLinearTRCTiled(pixdPtr, pixs.Pointer,   sx,   sy, pixmin.Pointer, pixmax.Pointer);
 	
 
 
-	if (_Result == IntPtr.Zero) {return null;}
+if (_Result == IntPtr.Zero) {return null;}
 
-	return  new Pix(_Result);
+return  new Pix(_Result);
 }
 
+}
 }

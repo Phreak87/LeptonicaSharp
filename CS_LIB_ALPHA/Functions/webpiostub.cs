@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // webpiostub.c (45, 7)
 // pixReadStreamWebP(fp) as Pix
@@ -13,7 +14,7 @@ public class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadStreamWebP/*"/>
 ///   <returns></returns>
 public static Pix pixReadStreamWebP(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 
@@ -34,8 +35,8 @@ public static Pix pixReadStreamWebP(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixReadMemWebP/*"/>
 ///   <returns></returns>
 public static Pix pixReadMemWebP(
-				  Byte[] filedata, 
-				  uint filesize){
+				 Byte[] filedata, 
+				 uint filesize){
 
 	IntPtr _Result = Natives.pixReadMemWebP(  filedata,   filesize);
 	
@@ -54,10 +55,10 @@ public static Pix pixReadMemWebP(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/readHeaderWebP/*"/>
 ///   <returns></returns>
 public static int readHeaderWebP(
-				  String filename, 
-				  object pw, 
-				  object ph, 
-				  object pspp){
+				 String filename, 
+				 object pw, 
+				 object ph, 
+				 object pspp){
 
 	int _Result = Natives.readHeaderWebP(  filename,   pw,   ph,   pspp);
 	
@@ -75,11 +76,11 @@ public static int readHeaderWebP(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/readHeaderMemWebP/*"/>
 ///   <returns></returns>
 public static int readHeaderMemWebP(
-				  Byte[] data, 
-				  uint size, 
-				  object pw, 
-				  object ph, 
-				  object pspp){
+				 Byte[] data, 
+				 uint size, 
+				 object pw, 
+				 object ph, 
+				 object pspp){
 
 	int _Result = Natives.readHeaderMemWebP(  data,   size,   pw,   ph,   pspp);
 	
@@ -97,10 +98,10 @@ public static int readHeaderMemWebP(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteWebP/*"/>
 ///   <returns></returns>
 public static int pixWriteWebP(
-				  String filename, 
-				  Pix pixs, 
-				  int quality, 
-				  int lossless){
+				 String filename, 
+				 Pix pixs, 
+				 int quality, 
+				 int lossless){
 
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
@@ -120,10 +121,10 @@ public static int pixWriteWebP(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteStreamWebP/*"/>
 ///   <returns></returns>
 public static int pixWriteStreamWebP(
-				  FILE fp, 
-				  Pix pixs, 
-				  int quality, 
-				  int lossless){
+				 FILE fp, 
+				 Pix pixs, 
+				 int quality, 
+				 int lossless){
 
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
@@ -144,11 +145,11 @@ public static int pixWriteStreamWebP(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteMemWebP/*"/>
 ///   <returns></returns>
 public static int pixWriteMemWebP(
-				  object pencdata, 
-				  object pencsize, 
-				  Pix pixs, 
-				  int quality, 
-				  int lossless){
+				 object pencdata, 
+				 object pencsize, 
+				 Pix pixs, 
+				 int quality, 
+				 int lossless){
 
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
@@ -160,4 +161,5 @@ public static int pixWriteMemWebP(
 	return _Result;
 }
 
+}
 }

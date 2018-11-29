@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // dnafunc1.c (79, 1)
 // l_dnaJoin(dad, das, istart, iend) as int
@@ -24,10 +25,10 @@ public class _All {
 ///  <param name="iend">[in] - ending index in das use -1 to cat all</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_dnaJoin(
-				  L_Dna dad, 
-				  L_Dna das, 
-				  int istart, 
-				  int iend){
+				 L_Dna dad, 
+				 L_Dna das, 
+				 int istart, 
+				 int iend){
 
 	IntPtr dasPtr = IntPtr.Zero; 	if (das != null) {dasPtr = das.Pointer;}
 
@@ -54,7 +55,7 @@ public static int l_dnaJoin(
 ///  <param name="daa">[in] - </param>
 ///   <returns>dad, or NULL on error</returns>
 public static L_Dna l_dnaaFlattenToDna(
-				  L_Dnaa daa){
+				 L_Dnaa daa){
 
 	IntPtr _Result = Natives.l_dnaaFlattenToDna(daa.Pointer);
 	
@@ -74,7 +75,7 @@ public static L_Dna l_dnaaFlattenToDna(
 ///  <param name="da">[in] - </param>
 ///   <returns>na, or NULL on error</returns>
 public static Numa l_dnaConvertToNuma(
-				  L_Dna da){
+				 L_Dna da){
 
 	IntPtr _Result = Natives.l_dnaConvertToNuma(da.Pointer);
 	
@@ -94,7 +95,7 @@ public static Numa l_dnaConvertToNuma(
 ///  <param name="na">[in] - </param>
 ///   <returns>da, or NULL on error</returns>
 public static L_Dna numaConvertToDna(
-				  Numa na){
+				 Numa na){
 
 	IntPtr _Result = Natives.numaConvertToDna(na.Pointer);
 	
@@ -123,8 +124,8 @@ public static L_Dna numaConvertToDna(
 ///  <param name="da2">[in] - </param>
 ///   <returns>dad with the union of the set of numbers, or NULL on error</returns>
 public static L_Dna l_dnaUnionByAset(
-				  L_Dna da1, 
-				  L_Dna da2){
+				 L_Dna da1, 
+				 L_Dna da2){
 
 	IntPtr _Result = Natives.l_dnaUnionByAset(da1.Pointer, da2.Pointer);
 	
@@ -144,7 +145,7 @@ public static L_Dna l_dnaUnionByAset(
 ///  <param name="das">[in] - </param>
 ///   <returns>dad with duplicates removed, or NULL on error</returns>
 public static L_Dna l_dnaRemoveDupsByAset(
-				  L_Dna das){
+				 L_Dna das){
 
 	IntPtr _Result = Natives.l_dnaRemoveDupsByAset(das.Pointer);
 	
@@ -173,8 +174,8 @@ public static L_Dna l_dnaRemoveDupsByAset(
 ///  <param name="da2">[in] - </param>
 ///   <returns>dad with the intersection of the two arrays, or NULL on error</returns>
 public static L_Dna l_dnaIntersectionByAset(
-				  L_Dna da1, 
-				  L_Dna da2){
+				 L_Dna da1, 
+				 L_Dna da2){
 
 	IntPtr _Result = Natives.l_dnaIntersectionByAset(da1.Pointer, da2.Pointer);
 	
@@ -194,7 +195,7 @@ public static L_Dna l_dnaIntersectionByAset(
 ///  <param name="da">[in] - source dna</param>
 ///   <returns>set using the doubles in %da as keys</returns>
 public static L_Rbtree l_asetCreateFromDna(
-				  L_Dna da){
+				 L_Dna da){
 
 	IntPtr _Result = Natives.l_asetCreateFromDna(da.Pointer);
 	
@@ -214,7 +215,7 @@ public static L_Rbtree l_asetCreateFromDna(
 ///  <param name="das">[in] - input l_dna</param>
 ///   <returns>dad of difference values val[i+1] - val[i], or NULL on error</returns>
 public static L_Dna l_dnaDiffAdjValues(
-				  L_Dna das){
+				 L_Dna das){
 
 	IntPtr _Result = Natives.l_dnaDiffAdjValues(das.Pointer);
 	
@@ -225,4 +226,5 @@ public static L_Dna l_dnaDiffAdjValues(
 	return  new L_Dna(_Result);
 }
 
+}
 }

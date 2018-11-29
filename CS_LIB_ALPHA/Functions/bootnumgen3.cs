@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // bootnumgen3.c (349, 1)
 // l_bootnum_gen3() as Pixa
@@ -28,4 +29,5 @@ public static Pixa l_bootnum_gen3(){
 	return  new Pixa(_Result);
 }
 
+}
 }

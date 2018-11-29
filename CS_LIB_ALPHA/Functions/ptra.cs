@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // ptra.c (139, 1)
 // ptraCreate(n) as L_Ptra
@@ -14,7 +15,7 @@ public class _All {
 ///  <param name="n">[in] - size of ptr array to be alloc'd 0 for default</param>
 ///   <returns>pa, or NULL on error</returns>
 public static L_Ptra ptraCreate(
-				  int n){
+				 int n){
 
 	IntPtr _Result = Natives.ptraCreate(  n);
 	
@@ -52,17 +53,16 @@ public static L_Ptra ptraCreate(
 ///  <param name="freeflag">[in] - TRUE to free each remaining item in the array</param>
 ///  <param name="warnflag">[in] - TRUE to warn if any remaining items are not destroyed</param>
 public static void ptraDestroy(
-				 ref L_Ptra ppa, 
-				  int freeflag, 
-				  int warnflag){
+				ref L_Ptra ppa, 
+				 int freeflag, 
+				 int warnflag){
 
 	IntPtr ppaPtr = IntPtr.Zero; 	if (ppa != null) {ppaPtr = ppa.Pointer;}
 
 	Natives.ptraDestroy(ref ppaPtr,   freeflag,   warnflag);
 	
 
-ppa = null;
-	; if (ppaPtr != IntPtr.Zero){ppa = new L_Ptra(ppaPtr);}
+	if (ppaPtr == null) {ppa = null;} else { ppa = new L_Ptra(ppaPtr); };
 
 
 }
@@ -84,8 +84,8 @@ ppa = null;
 ///  <param name="item">[in] - generic ptr to a struct</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptraAdd(
-				  L_Ptra pa, 
-				  Object item){
+				 L_Ptra pa, 
+				 Object item){
 
 		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -151,10 +151,10 @@ public static int ptraAdd(
 ///  <param name="shiftflag">[in] - L_AUTO_DOWNSHIFT, L_MIN_DOWNSHIFT, L_FULL_DOWNSHIFT</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptraInsert(
-				  L_Ptra pa, 
-				  int index, 
-				  Object item, 
-				  int shiftflag){
+				 L_Ptra pa, 
+				 int index, 
+				 Object item, 
+				 int shiftflag){
 
 		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -191,9 +191,9 @@ public static int ptraInsert(
 ///  <param name="flag">[in] - L_NO_COMPACTION, L_COMPACTION</param>
 ///   <returns>item, or NULL on error</returns>
 public static Object ptraRemove(
-				  L_Ptra pa, 
-				  int index, 
-				  int flag){
+				 L_Ptra pa, 
+				 int index, 
+				 int flag){
 
 	IntPtr _Result = Natives.ptraRemove(pa.Pointer,   index,   flag);
 	
@@ -213,7 +213,7 @@ public static Object ptraRemove(
 ///  <param name="pa">[in] - ptra</param>
 ///   <returns>item, or NULL on error or if the array is empty</returns>
 public static Object ptraRemoveLast(
-				  L_Ptra pa){
+				 L_Ptra pa){
 
 	IntPtr _Result = Natives.ptraRemoveLast(pa.Pointer);
 	
@@ -236,10 +236,10 @@ public static Object ptraRemoveLast(
 ///  <param name="freeflag">[in] - TRUE to free old item FALSE to return it</param>
 ///   <returns>item  old item, if it exists and is not freed, or NULL on error</returns>
 public static Object ptraReplace(
-				  L_Ptra pa, 
-				  int index, 
-				  Object item, 
-				  int freeflag){
+				 L_Ptra pa, 
+				 int index, 
+				 Object item, 
+				 int freeflag){
 
 		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -265,9 +265,9 @@ public static Object ptraReplace(
 ///  <param name="index2">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptraSwap(
-				  L_Ptra pa, 
-				  int index1, 
-				  int index2){
+				 L_Ptra pa, 
+				 int index1, 
+				 int index2){
 
 	int _Result = Natives.ptraSwap(pa.Pointer,   index1,   index2);
 	
@@ -291,7 +291,7 @@ public static int ptraSwap(
 ///  <param name="pa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptraCompactArray(
-				  L_Ptra pa){
+				 L_Ptra pa){
 
 	int _Result = Natives.ptraCompactArray(pa.Pointer);
 	
@@ -310,7 +310,7 @@ public static int ptraCompactArray(
 ///  <param name="pa">[in] - ptra</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptraReverse(
-				  L_Ptra pa){
+				 L_Ptra pa){
 
 	int _Result = Natives.ptraReverse(pa.Pointer);
 	
@@ -330,8 +330,8 @@ public static int ptraReverse(
 ///  <param name="pa2">[in] - appended to pa1, and emptied of items can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptraJoin(
-				  L_Ptra pa1, 
-				  L_Ptra pa2){
+				 L_Ptra pa1, 
+				 L_Ptra pa2){
 
 	int _Result = Natives.ptraJoin(pa1.Pointer, pa2.Pointer);
 	
@@ -366,13 +366,12 @@ public static int ptraJoin(
 ///  <param name="pmaxindex">[out] - index of last item in the array</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int ptraGetMaxIndex(
-				  L_Ptra pa, 
-				 out int pmaxindex){
+				 L_Ptra pa, 
+				out int pmaxindex){
 
 	int _Result = Natives.ptraGetMaxIndex(pa.Pointer, out  pmaxindex);
 	
 
-pmaxindex = 0;
 
 
 	return _Result;
@@ -392,13 +391,12 @@ pmaxindex = 0;
 ///  <param name="pcount">[out] - actual number of items on the ptr array</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int ptraGetActualCount(
-				  L_Ptra pa, 
-				 out int pcount){
+				 L_Ptra pa, 
+				out int pcount){
 
 	int _Result = Natives.ptraGetActualCount(pa.Pointer, out  pcount);
 	
 
-pcount = 0;
 
 
 	return _Result;
@@ -422,8 +420,8 @@ pcount = 0;
 ///  <param name="index">[in] - of element to be retrieved</param>
 ///   <returns>a ptr to the element, or NULL on error</returns>
 public static Object ptraGetPtrToItem(
-				  L_Ptra pa, 
-				  int index){
+				 L_Ptra pa, 
+				 int index){
 
 	IntPtr _Result = Natives.ptraGetPtrToItem(pa.Pointer,   index);
 	
@@ -447,7 +445,7 @@ public static Object ptraGetPtrToItem(
 ///  <param name="n">[in] - size of ptr array to be alloc'd</param>
 ///   <returns>paa, or NULL on error</returns>
 public static L_Ptraa ptraaCreate(
-				  int n){
+				 int n){
 
 	IntPtr _Result = Natives.ptraaCreate(  n);
 	
@@ -474,17 +472,16 @@ public static L_Ptraa ptraaCreate(
 ///  <param name="freeflag">[in] - TRUE to free each remaining item in each ptra</param>
 ///  <param name="warnflag">[in] - TRUE to warn if any remaining items are not destroyed</param>
 public static void ptraaDestroy(
-				 ref L_Ptraa ppaa, 
-				  int freeflag, 
-				  int warnflag){
+				ref L_Ptraa ppaa, 
+				 int freeflag, 
+				 int warnflag){
 
 	IntPtr ppaaPtr = IntPtr.Zero; 	if (ppaa != null) {ppaaPtr = ppaa.Pointer;}
 
 	Natives.ptraaDestroy(ref ppaaPtr,   freeflag,   warnflag);
 	
 
-ppaa = null;
-	; if (ppaaPtr != IntPtr.Zero){ppaa = new L_Ptraa(ppaaPtr);}
+	if (ppaaPtr == null) {ppaa = null;} else { ppaa = new L_Ptraa(ppaaPtr); };
 
 
 }
@@ -499,13 +496,12 @@ ppaa = null;
 ///  <param name="psize">[out] - size of ptr array</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int ptraaGetSize(
-				  L_Ptraa paa, 
-				 out int psize){
+				 L_Ptraa paa, 
+				out int psize){
 
 	int _Result = Natives.ptraaGetSize(paa.Pointer, out  psize);
 	
 
-psize = 0;
 
 
 	return _Result;
@@ -527,9 +523,9 @@ psize = 0;
 ///  <param name="pa">[in] - to be inserted</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int ptraaInsertPtra(
-				  L_Ptraa paa, 
-				  int index, 
-				  L_Ptra pa){
+				 L_Ptraa paa, 
+				 int index, 
+				 L_Ptra pa){
 
 	int _Result = Natives.ptraaInsertPtra(paa.Pointer,   index, pa.Pointer);
 	
@@ -559,9 +555,9 @@ public static int ptraaInsertPtra(
 ///  <param name="accessflag">[in] - L_HANDLE_ONLY, L_REMOVE</param>
 ///   <returns>ptra at index location, or NULL on error or if there is no ptra there.</returns>
 public static L_Ptra ptraaGetPtra(
-				  L_Ptraa paa, 
-				  int index, 
-				  int accessflag){
+				 L_Ptraa paa, 
+				 int index, 
+				 int accessflag){
 
 	IntPtr _Result = Natives.ptraaGetPtra(paa.Pointer,   index,   accessflag);
 	
@@ -588,7 +584,7 @@ public static L_Ptra ptraaGetPtra(
 ///  <param name="paa">[in] - ptraa</param>
 ///   <returns>ptra, or NULL on error</returns>
 public static L_Ptra ptraaFlattenToPtra(
-				  L_Ptraa paa){
+				 L_Ptraa paa){
 
 	IntPtr _Result = Natives.ptraaFlattenToPtra(paa.Pointer);
 	
@@ -599,4 +595,5 @@ public static L_Ptra ptraaFlattenToPtra(
 	return  new L_Ptra(_Result);
 }
 
+}
 }

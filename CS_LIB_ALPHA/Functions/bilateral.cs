@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // bilateral.c (150, 1)
 // pixBilateral(pixs, spatial_stdev, range_stdev, ncomps, reduction) as Pix
@@ -66,11 +67,11 @@ public class _All {
 ///  <param name="reduction">[in] - 1, 2 or 4</param>
 ///   <returns>pixd bilateral filtered image, or NULL on error</returns>
 public static Pix pixBilateral(
-				  Pix pixs, 
-				  Single spatial_stdev, 
-				  Single range_stdev, 
-				  int ncomps, 
-				  int reduction){
+				 Pix pixs, 
+				 Single spatial_stdev, 
+				 Single range_stdev, 
+				 int ncomps, 
+				 int reduction){
 
 	IntPtr _Result = Natives.pixBilateral(pixs.Pointer,   spatial_stdev,   range_stdev,   ncomps,   reduction);
 	
@@ -99,11 +100,11 @@ public static Pix pixBilateral(
 ///  <param name="reduction">[in] - 1, 2 or 4</param>
 ///   <returns>pixd 8 bpp bilateral filtered image, or NULL on error</returns>
 public static Pix pixBilateralGray(
-				  Pix pixs, 
-				  Single spatial_stdev, 
-				  Single range_stdev, 
-				  int ncomps, 
-				  int reduction){
+				 Pix pixs, 
+				 Single spatial_stdev, 
+				 Single range_stdev, 
+				 int ncomps, 
+				 int reduction){
 
 	IntPtr _Result = Natives.pixBilateralGray(pixs.Pointer,   spatial_stdev,   range_stdev,   ncomps,   reduction);
 	
@@ -140,8 +141,8 @@ public static Pix pixBilateralGray(
 ///  <param name="range_kel">[in][optional] - 256 x 1, monotonically decreasing</param>
 ///   <returns>pixd 8 bpp bilateral filtered image</returns>
 public static Pix pixBilateralExact(
-				  Pix pixs, 
-				  L_Kernel spatial_kel, 
+				 Pix pixs, 
+				 L_Kernel spatial_kel, 
 				 L_Kernel range_kel){
 
 	IntPtr range_kelPtr = IntPtr.Zero; 	if (range_kel != null) {range_kelPtr = range_kel.Pointer;}
@@ -169,8 +170,8 @@ public static Pix pixBilateralExact(
 ///  <param name="range_kel">[in][optional] - 256 x 1, monotonically decreasing</param>
 ///   <returns>pixd 8 bpp bilateral filtered image</returns>
 public static Pix pixBilateralGrayExact(
-				  Pix pixs, 
-				  L_Kernel spatial_kel, 
+				 Pix pixs, 
+				 L_Kernel spatial_kel, 
 				 L_Kernel range_kel){
 
 	IntPtr range_kelPtr = IntPtr.Zero; 	if (range_kel != null) {range_kelPtr = range_kel.Pointer;}
@@ -225,9 +226,9 @@ public static Pix pixBilateralGrayExact(
 ///  <param name="range_stdev">[in] - is greater  0.0</param>
 ///   <returns>pixd 8 bpp or 32 bpp bilateral filtered image</returns>
 public static Pix pixBlockBilateralExact(
-				  Pix pixs, 
-				  Single spatial_stdev, 
-				  Single range_stdev){
+				 Pix pixs, 
+				 Single spatial_stdev, 
+				 Single range_stdev){
 
 	IntPtr _Result = Natives.pixBlockBilateralExact(pixs.Pointer,   spatial_stdev,   range_stdev);
 	
@@ -256,7 +257,7 @@ public static Pix pixBlockBilateralExact(
 ///  <param name="range_stdev">[in] - is greater  0</param>
 ///   <returns>kel, or NULL on error</returns>
 public static L_Kernel makeRangeKernel(
-				  Single range_stdev){
+				 Single range_stdev){
 
 	IntPtr _Result = Natives.makeRangeKernel(  range_stdev);
 	
@@ -267,4 +268,5 @@ public static L_Kernel makeRangeKernel(
 	return  new L_Kernel(_Result);
 }
 
+}
 }

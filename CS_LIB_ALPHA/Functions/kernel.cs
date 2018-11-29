@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // kernel.c (106, 1)
 // kernelCreate(height, width) as L_Kernel
@@ -23,8 +24,8 @@ public class _All {
 ///  <param name="width">[in] - </param>
 ///   <returns>kernel, or NULL on error</returns>
 public static L_Kernel kernelCreate(
-				  int height, 
-				  int width){
+				 int height, 
+				 int width){
 
 	IntPtr _Result = Natives.kernelCreate(  height,   width);
 	
@@ -43,15 +44,14 @@ public static L_Kernel kernelCreate(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/kernelDestroy/*"/>
 ///  <param name="pkel">[in,out] - to be nulled</param>
 public static void kernelDestroy(
-				 ref L_Kernel pkel){
+				ref L_Kernel pkel){
 
 	IntPtr pkelPtr = IntPtr.Zero; 	if (pkel != null) {pkelPtr = pkel.Pointer;}
 
 	Natives.kernelDestroy(ref pkelPtr);
 	
 
-pkel = null;
-	; if (pkelPtr != IntPtr.Zero){pkel = new L_Kernel(pkelPtr);}
+	if (pkelPtr == null) {pkel = null;} else { pkel = new L_Kernel(pkelPtr); };
 
 
 }
@@ -65,7 +65,7 @@ pkel = null;
 ///  <param name="kels">[in] - source kernel</param>
 ///   <returns>keld copy of kels, or NULL on error</returns>
 public static L_Kernel kernelCopy(
-				  L_Kernel kels){
+				 L_Kernel kels){
 
 	IntPtr _Result = Natives.kernelCopy(kels.Pointer);
 	
@@ -88,15 +88,14 @@ public static L_Kernel kernelCopy(
 ///  <param name="pval">[out] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int kernelGetElement(
-				  L_Kernel kel, 
-				  int row, 
-				  int col, 
-				 out Single pval){
+				 L_Kernel kel, 
+				 int row, 
+				 int col, 
+				out Single pval){
 
 	int _Result = Natives.kernelGetElement(kel.Pointer,   row,   col, out  pval);
 	
 
-pval = 0f;
 
 
 	return _Result;
@@ -114,10 +113,10 @@ pval = 0f;
 ///  <param name="val">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int kernelSetElement(
-				  L_Kernel kel, 
-				  int row, 
-				  int col, 
-				  Single val){
+				 L_Kernel kel, 
+				 int row, 
+				 int col, 
+				 Single val){
 
 	int _Result = Natives.kernelSetElement(kel.Pointer,   row,   col,   val);
 	
@@ -140,7 +139,7 @@ public static int kernelSetElement(
 ///  <param name="pcx">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int kernelGetParameters(
-				  L_Kernel kel, 
+				 L_Kernel kel, 
 				out int psy, 
 				out int psx, 
 				out int pcy, 
@@ -149,10 +148,6 @@ public static int kernelGetParameters(
 	int _Result = Natives.kernelGetParameters(kel.Pointer, out  psy, out  psx, out  pcy, out  pcx);
 	
 
-psy = 0;
-psx = 0;
-pcy = 0;
-pcx = 0;
 
 
 	return _Result;
@@ -169,9 +164,9 @@ pcx = 0;
 ///  <param name="cx">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int kernelSetOrigin(
-				  L_Kernel kel, 
-				  int cy, 
-				  int cx){
+				 L_Kernel kel, 
+				 int cy, 
+				 int cx){
 
 	int _Result = Natives.kernelSetOrigin(kel.Pointer,   cy,   cx);
 	
@@ -191,13 +186,12 @@ public static int kernelSetOrigin(
 ///  <param name="psum">[out] - sum of all kernel values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int kernelGetSum(
-				  L_Kernel kel, 
-				 out Single psum){
+				 L_Kernel kel, 
+				out Single psum){
 
 	int _Result = Natives.kernelGetSum(kel.Pointer, out  psum);
 	
 
-psum = 0f;
 
 
 	return _Result;
@@ -214,15 +208,13 @@ psum = 0f;
 ///  <param name="pmax">[out][optional] - maximum value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int kernelGetMinMax(
-				  L_Kernel kel, 
+				 L_Kernel kel, 
 				out Single pmin, 
 				out Single pmax){
 
 	int _Result = Natives.kernelGetMinMax(kel.Pointer, out  pmin, out  pmax);
 	
 
-pmin = 0f;
-pmax = 0f;
 
 
 	return _Result;
@@ -243,8 +235,8 @@ pmax = 0f;
 ///  <param name="normsum">[in] - desired sum of elements in keld</param>
 ///   <returns>keld normalized version of kels, or NULL on error or if sum of elements is very close to 0)</returns>
 public static L_Kernel kernelNormalize(
-				  L_Kernel kels, 
-				  Single normsum){
+				 L_Kernel kels, 
+				 Single normsum){
 
 	IntPtr _Result = Natives.kernelNormalize(kels.Pointer,   normsum);
 	
@@ -268,7 +260,7 @@ public static L_Kernel kernelNormalize(
 ///  <param name="kels">[in] - source kel, to be inverted</param>
 ///   <returns>keld spatially inverted, about the origin, or NULL on error</returns>
 public static L_Kernel kernelInvert(
-				  L_Kernel kels){
+				 L_Kernel kels){
 
 	IntPtr _Result = Natives.kernelInvert(kels.Pointer);
 	
@@ -295,8 +287,8 @@ public static L_Kernel kernelInvert(
 ///  <param name="sx">[in] - columns == width</param>
 ///   <returns>doubly indexed array i.e., an array of sy row pointers, each of which points to an array of sx floats</returns>
 public static List<Single[]> create2dFloatArray(
-				  int sy, 
-				  int sx){
+				 int sy, 
+				 int sx){
 
 	IntPtr _Result = Natives.create2dFloatArray(  sy,   sx);
 	
@@ -316,7 +308,7 @@ public static List<Single[]> create2dFloatArray(
 ///  <param name="fname">[in] - filename</param>
 ///   <returns>kernel, or NULL on error</returns>
 public static L_Kernel kernelRead(
-				  String fname){
+				 String fname){
 
 	IntPtr _Result = Natives.kernelRead(  fname);
 	
@@ -336,7 +328,7 @@ public static L_Kernel kernelRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>kernel, or NULL on error</returns>
 public static L_Kernel kernelReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.kernelReadStream(fp.Pointer);
 	
@@ -357,8 +349,8 @@ public static L_Kernel kernelReadStream(
 ///  <param name="kel">[in] - kernel</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int kernelWrite(
-				  String fname, 
-				  L_Kernel kel){
+				 String fname, 
+				 L_Kernel kel){
 
 	int _Result = Natives.kernelWrite(  fname, kel.Pointer);
 	
@@ -378,8 +370,8 @@ public static int kernelWrite(
 ///  <param name="kel">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int kernelWriteStream(
-				  FILE fp, 
-				  L_Kernel kel){
+				 FILE fp, 
+				 L_Kernel kel){
 
 	int _Result = Natives.kernelWriteStream(fp.Pointer, kel.Pointer);
 	
@@ -415,11 +407,11 @@ public static int kernelWriteStream(
 ///  <param name="kdata">[in] - </param>
 ///   <returns>kernel of the given size, or NULL on error</returns>
 public static L_Kernel kernelCreateFromString(
-				  int h, 
-				  int w, 
-				  int cy, 
-				  int cx, 
-				  String kdata){
+				 int h, 
+				 int w, 
+				 int cy, 
+				 int cx, 
+				 String kdata){
 
 	IntPtr _Result = Natives.kernelCreateFromString(  h,   w,   cy,   cx,   kdata);
 	
@@ -468,7 +460,7 @@ public static L_Kernel kernelCreateFromString(
 ///  <param name="filename">[in] - </param>
 ///   <returns>kernel, or NULL on error</returns>
 public static L_Kernel kernelCreateFromFile(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.kernelCreateFromFile(  filename);
 	
@@ -493,9 +485,9 @@ public static L_Kernel kernelCreateFromFile(
 ///  <param name="cx">[in] - origin of kernel</param>
 ///   <returns>kernel, or NULL on error</returns>
 public static L_Kernel kernelCreateFromPix(
-				  Pix pix, 
-				  int cy, 
-				  int cx){
+				 Pix pix, 
+				 int cy, 
+				 int cx){
 
 	IntPtr _Result = Natives.kernelCreateFromPix(pix.Pointer,   cy,   cx);
 	
@@ -534,9 +526,9 @@ public static L_Kernel kernelCreateFromPix(
 ///  <param name="gthick">[in] - grid thickness either 0 or a minimum size of 2 is enforced</param>
 ///   <returns>pix display of kernel, or NULL on error</returns>
 public static Pix kernelDisplayInPix(
-				  L_Kernel kel, 
-				  int size, 
-				  int gthick){
+				 L_Kernel kel, 
+				 int size, 
+				 int gthick){
 
 	IntPtr _Result = Natives.kernelDisplayInPix(kel.Pointer,   size,   gthick);
 	
@@ -560,8 +552,8 @@ public static Pix kernelDisplayInPix(
 ///  <param name="seps">[in] - string of characters that can be used between ints</param>
 ///   <returns>numa of numbers found, or NULL on error</returns>
 public static Numa parseStringForNumbers(
-				  String str, 
-				  String seps){
+				 String str, 
+				 String seps){
 
 	IntPtr _Result = Natives.parseStringForNumbers(  str,   seps);
 	
@@ -595,10 +587,10 @@ public static Numa parseStringForNumbers(
 ///  <param name="cx">[in] - origin of kernel</param>
 ///   <returns>kernel, or NULL on error</returns>
 public static L_Kernel makeFlatKernel(
-				  int height, 
-				  int width, 
-				  int cy, 
-				  int cx){
+				 int height, 
+				 int width, 
+				 int cy, 
+				 int cx){
 
 	IntPtr _Result = Natives.makeFlatKernel(  height,   width,   cy,   cx);
 	
@@ -633,10 +625,10 @@ public static L_Kernel makeFlatKernel(
 ///  <param name="max">[in] - value at (cx,cy)</param>
 ///   <returns>kernel, or NULL on error</returns>
 public static L_Kernel makeGaussianKernel(
-				  int halfheight, 
-				  int halfwidth, 
-				  Single stdev, 
-				  Single max){
+				 int halfheight, 
+				 int halfwidth, 
+				 Single stdev, 
+				 Single max){
 
 	IntPtr _Result = Natives.makeGaussianKernel(  halfheight,   halfwidth,   stdev,   max);
 	
@@ -675,12 +667,12 @@ public static L_Kernel makeGaussianKernel(
 ///  <param name="pkely">[out] - y part of kernel</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int makeGaussianKernelSep(
-				  int halfheight, 
-				  int halfwidth, 
-				  Single stdev, 
-				  Single max, 
-				 out L_Kernel pkelx, 
-				 out L_Kernel pkely){
+				 int halfheight, 
+				 int halfwidth, 
+				 Single stdev, 
+				 Single max, 
+				out L_Kernel pkelx, 
+				out L_Kernel pkely){
 
 	IntPtr pkelxPtr = IntPtr.Zero;
 	IntPtr pkelyPtr = IntPtr.Zero;
@@ -688,10 +680,8 @@ public static int makeGaussianKernelSep(
 	int _Result = Natives.makeGaussianKernelSep(  halfheight,   halfwidth,   stdev,   max, out pkelxPtr, out pkelyPtr);
 	
 
-pkelx = null;
-	; if (pkelxPtr != IntPtr.Zero){pkelx = new L_Kernel(pkelxPtr);}
-pkely = null;
-	; if (pkelyPtr != IntPtr.Zero){pkely = new L_Kernel(pkelyPtr);}
+	if (pkelxPtr == null) {pkelx = null;} else { pkelx = new L_Kernel(pkelxPtr); };
+	if (pkelyPtr == null) {pkely = null;} else { pkely = new L_Kernel(pkelyPtr); };
 
 
 	return _Result;
@@ -730,10 +720,10 @@ pkely = null;
 ///  <param name="ratio">[in] - of stdev for wide filter to stdev for narrow one</param>
 ///   <returns>kernel, or NULL on error</returns>
 public static L_Kernel makeDoGKernel(
-				  int halfheight, 
-				  int halfwidth, 
-				  Single stdev, 
-				  Single ratio){
+				 int halfheight, 
+				 int halfwidth, 
+				 Single stdev, 
+				 Single ratio){
 
 	IntPtr _Result = Natives.makeDoGKernel(  halfheight,   halfwidth,   stdev,   ratio);
 	
@@ -744,4 +734,5 @@ public static L_Kernel makeDoGKernel(
 	return  new L_Kernel(_Result);
 }
 
+}
 }

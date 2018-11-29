@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // readfile.c (123, 1)
 // pixaReadFiles(dirname, substr) as Pixa
@@ -23,7 +24,7 @@ public class _All {
 ///  <param name="substr">[in][optional] - substring filter on filenames can be null</param>
 ///   <returns>pixa, or NULL on error</returns>
 public static Pixa pixaReadFiles(
-				  String dirname, 
+				 String dirname, 
 				 String substr){
 
 	IntPtr _Result = Natives.pixaReadFiles(  dirname,   substr);
@@ -44,7 +45,7 @@ public static Pixa pixaReadFiles(
 ///  <param name="sa">[in] - full pathnames for all files</param>
 ///   <returns>pixa, or NULL on error</returns>
 public static Pixa pixaReadFilesSA(
-				  Sarray sa){
+				 Sarray sa){
 
 	IntPtr _Result = Natives.pixaReadFilesSA(sa.Pointer);
 	
@@ -67,7 +68,7 @@ public static Pixa pixaReadFilesSA(
 ///  <param name="filename">[in] - with full pathname or in local directory</param>
 ///   <returns>pix if OK NULL on error</returns>
 public static Pix pixRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.pixRead(  filename);
 	
@@ -92,8 +93,8 @@ public static Pix pixRead(
 ///  <param name="hint">[in] - bitwise OR of L_HINT_ values for jpeg use 0 for no hint</param>
 ///   <returns>pix if OK NULL on error</returns>
 public static Pix pixReadWithHint(
-				  String filename, 
-				  int hint){
+				 String filename, 
+				 int hint){
 
 	IntPtr _Result = Natives.pixReadWithHint(  filename,   hint);
 	
@@ -136,8 +137,8 @@ public static Pix pixReadWithHint(
 ///  <param name="index">[in] - into pathname array</param>
 ///   <returns>pix if OK null if not found</returns>
 public static Pix pixReadIndexed(
-				  Sarray sa, 
-				  int index){
+				 Sarray sa, 
+				 int index){
 
 	IntPtr _Result = Natives.pixReadIndexed(sa.Pointer,   index);
 	
@@ -161,8 +162,8 @@ public static Pix pixReadIndexed(
 ///  <param name="hint">[in] - bitwise OR of L_HINT_ values for jpeg use 0 for no hint</param>
 ///   <returns>pix if OK NULL on error</returns>
 public static Pix pixReadStream(
-				  FILE fp, 
-				  int hint){
+				 FILE fp, 
+				 int hint){
 
 	IntPtr _Result = Natives.pixReadStream(fp.Pointer,   hint);
 	
@@ -193,7 +194,7 @@ public static Pix pixReadStream(
 ///  <param name="piscmap">[out][optional] - 1 if cmap exists 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixReadHeader(
-				  String filename, 
+				 String filename, 
 				out int pformat, 
 				out int pw, 
 				out int ph, 
@@ -204,12 +205,6 @@ public static int pixReadHeader(
 	int _Result = Natives.pixReadHeader(  filename, out  pformat, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
 	
 
-pformat = 0;
-pw = 0;
-ph = 0;
-pbps = 0;
-pspp = 0;
-piscmap = 0;
 
 
 	return _Result;
@@ -225,13 +220,12 @@ piscmap = 0;
 ///  <param name="pformat">[out] - found format</param>
 ///   <returns>0 if OK, 1 on error or if format is not recognized</returns>
 public static int findFileFormat(
-				  String filename, 
-				 out int pformat){
+				 String filename, 
+				out int pformat){
 
 	int _Result = Natives.findFileFormat(  filename, out  pformat);
 	
 
-pformat = 0;
 
 
 	return _Result;
@@ -250,13 +244,12 @@ pformat = 0;
 ///  <param name="pformat">[out] - found format</param>
 ///   <returns>0 if OK, 1 on error or if format is not recognized</returns>
 public static int findFileFormatStream(
-				  FILE fp, 
-				 out int pformat){
+				 FILE fp, 
+				out int pformat){
 
 	int _Result = Natives.findFileFormatStream(fp.Pointer, out  pformat);
 	
 
-pformat = 0;
 
 
 	return _Result;
@@ -279,13 +272,12 @@ pformat = 0;
 ///  <param name="pformat">[out] - found format</param>
 ///   <returns>0 if OK, 1 on error or if format is not recognized</returns>
 public static int findFileFormatBuffer(
-				  Byte[] buf, 
-				 out int pformat){
+				 Byte[] buf, 
+				out int pformat){
 
 	int _Result = Natives.findFileFormatBuffer(  buf, out  pformat);
 	
 
-pformat = 0;
 
 
 	return _Result;
@@ -300,7 +292,7 @@ pformat = 0;
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>1 if file is tiff 0 otherwise or on error</returns>
 public static int fileFormatIsTiff(
-				  FILE fp){
+				 FILE fp){
 
 	int _Result = Natives.fileFormatIsTiff(fp.Pointer);
 	
@@ -333,8 +325,8 @@ public static int fileFormatIsTiff(
 ///  <param name="size">[in] - size of data</param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixReadMem(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.pixReadMem(  data,   size);
 	
@@ -374,8 +366,8 @@ public static Pix pixReadMem(
 ///  <param name="piscmap">[out][optional] - 1 if cmap exists 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixReadHeaderMem(
-				  Byte[] data, 
-				  uint size, 
+				 Byte[] data, 
+				 uint size, 
 				out int pformat, 
 				out int pw, 
 				out int ph, 
@@ -386,12 +378,6 @@ public static int pixReadHeaderMem(
 	int _Result = Natives.pixReadHeaderMem(  data,   size, out  pformat, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
 	
 
-pformat = 0;
-pw = 0;
-ph = 0;
-pbps = 0;
-pspp = 0;
-piscmap = 0;
 
 
 	return _Result;
@@ -416,9 +402,9 @@ piscmap = 0;
 ///  <param name="headeronly">[in] - 1 to read only the header 0 to read both the header and the input file</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int writeImageFileInfo(
-				  String filename, 
-				  FILE fpout, 
-				  int headeronly){
+				 String filename, 
+				 FILE fpout, 
+				 int headeronly){
 
 	int _Result = Natives.writeImageFileInfo(  filename, fpout.Pointer,   headeronly);
 	
@@ -454,7 +440,7 @@ public static int writeImageFileInfo(
 ///  <param name="filename">[in] - input file</param>
 ///   <returns>0 if OK 1 on error or if the test fails</returns>
 public static int ioFormatTest(
-				  String filename){
+				 String filename){
 
 	int _Result = Natives.ioFormatTest(  filename);
 	
@@ -464,4 +450,5 @@ public static int ioFormatTest(
 	return _Result;
 }
 
+}
 }

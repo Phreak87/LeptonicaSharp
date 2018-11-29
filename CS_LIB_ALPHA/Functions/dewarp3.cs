@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // dewarp3.c (114, 1)
 // dewarpaApplyDisparity(dewa, pageno, pixs, grayin, x, y, ppixd, debugfile) as int
@@ -56,13 +57,13 @@ public class _All {
 ///  <param name="debugfile">[in]use NULL to skip - writing this</param>
 ///   <returns>0 if OK, 1 on error no models or ref models available</returns>
 public static int dewarpaApplyDisparity(
-				  L_Dewarpa dewa, 
-				  int pageno, 
-				  Pix pixs, 
-				  int grayin, 
-				  int x, 
-				  int y, 
-				 out Pix ppixd, 
+				 L_Dewarpa dewa, 
+				 int pageno, 
+				 Pix pixs, 
+				 int grayin, 
+				 int x, 
+				 int y, 
+				out Pix ppixd, 
 				 String debugfile){
 
 	IntPtr ppixdPtr = IntPtr.Zero;
@@ -70,8 +71,7 @@ public static int dewarpaApplyDisparity(
 	int _Result = Natives.dewarpaApplyDisparity(dewa.Pointer,   pageno, pixs.Pointer,   grayin,   x,   y, out ppixdPtr,   debugfile);
 	
 
-ppixd = null;
-	; if (ppixdPtr != IntPtr.Zero){ppixd = new Pix(ppixdPtr);}
+	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -108,14 +108,14 @@ ppixd = null;
 ///  <param name="debugfile">[in]use NULL to skip - writing this</param>
 ///   <returns>0 if OK, 1 on error no models or ref models available</returns>
 public static int dewarpaApplyDisparityBoxa(
-				  L_Dewarpa dewa, 
-				  int pageno, 
-				  Pix pixs, 
-				  Boxa boxas, 
-				  int mapdir, 
-				  int x, 
-				  int y, 
-				 out Boxa pboxad, 
+				 L_Dewarpa dewa, 
+				 int pageno, 
+				 Pix pixs, 
+				 Boxa boxas, 
+				 int mapdir, 
+				 int x, 
+				 int y, 
+				out Boxa pboxad, 
 				 String debugfile){
 
 	IntPtr pboxadPtr = IntPtr.Zero;
@@ -123,8 +123,7 @@ public static int dewarpaApplyDisparityBoxa(
 	int _Result = Natives.dewarpaApplyDisparityBoxa(dewa.Pointer,   pageno, pixs.Pointer, boxas.Pointer,   mapdir,   x,   y, out pboxadPtr,   debugfile);
 	
 
-pboxad = null;
-	; if (pboxadPtr != IntPtr.Zero){pboxad = new Boxa(pboxadPtr);}
+	if (pboxadPtr == null) {pboxad = null;} else { pboxad = new Boxa(pboxadPtr); };
 
 
 	return _Result;
@@ -144,7 +143,7 @@ pboxad = null;
 ///  <param name="dew">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpMinimize(
-				  L_Dewarp dew){
+				 L_Dewarp dew){
 
 	int _Result = Natives.dewarpMinimize(dew.Pointer);
 	
@@ -187,10 +186,10 @@ public static int dewarpMinimize(
 ///  <param name="y">[in] - origin for generation of disparity arrays</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpPopulateFullRes(
-				  L_Dewarp dew, 
-				  Pix pix, 
-				  int x, 
-				  int y){
+				 L_Dewarp dew, 
+				 Pix pix, 
+				 int x, 
+				 int y){
 
 	IntPtr pixPtr = IntPtr.Zero; 	if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -202,4 +201,5 @@ public static int dewarpPopulateFullRes(
 	return _Result;
 }
 
+}
 }

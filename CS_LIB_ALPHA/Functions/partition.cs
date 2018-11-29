@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // partition.c (189, 1)
 // boxaGetWhiteblocks(boxas, box, sortflag, maxboxes, maxoverlap, maxperim, fract, maxpops) as Boxa
@@ -114,14 +115,14 @@ public class _All {
 ///  <param name="maxpops">[in] - maximum number of pops from the heap use 0 as default</param>
 ///   <returns>boxa of sorted whitespace boxes, or NULL on error</returns>
 public static Boxa boxaGetWhiteblocks(
-				  Boxa boxas, 
-				  Box box, 
-				  int sortflag, 
-				  int maxboxes, 
-				  Single maxoverlap, 
-				  int maxperim, 
-				  Single fract, 
-				  int maxpops){
+				 Boxa boxas, 
+				 Box box, 
+				 int sortflag, 
+				 int maxboxes, 
+				 Single maxoverlap, 
+				 int maxperim, 
+				 Single fract, 
+				 int maxpops){
 
 	IntPtr _Result = Natives.boxaGetWhiteblocks(boxas.Pointer, box.Pointer,   sortflag,   maxboxes,   maxoverlap,   maxperim,   fract,   maxpops);
 	
@@ -152,8 +153,8 @@ public static Boxa boxaGetWhiteblocks(
 ///  <param name="maxoverlap">[in] - maximum fractional overlap of a box by any of the larger boxes</param>
 ///   <returns>boxad pruned, or NULL on error</returns>
 public static Boxa boxaPruneSortedOnOverlap(
-				  Boxa boxas, 
-				  Single maxoverlap){
+				 Boxa boxas, 
+				 Single maxoverlap){
 
 	IntPtr _Result = Natives.boxaPruneSortedOnOverlap(boxas.Pointer,   maxoverlap);
 	
@@ -164,4 +165,5 @@ public static Boxa boxaPruneSortedOnOverlap(
 	return  new Boxa(_Result);
 }
 
+}
 }

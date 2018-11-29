@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // pixacc.c (90, 1)
 // pixaccCreate(w, h, negflag) as Pixacc
@@ -25,9 +26,9 @@ public class _All {
 ///  <param name="negflag">[in] - 0 if only positive numbers are involved 1 if there will be negative numbers</param>
 ///   <returns>pixacc, or NULL on error</returns>
 public static Pixacc pixaccCreate(
-				  int w, 
-				  int h, 
-				  int negflag){
+				 int w, 
+				 int h, 
+				 int negflag){
 
 	IntPtr _Result = Natives.pixaccCreate(  w,   h,   negflag);
 	
@@ -51,8 +52,8 @@ public static Pixacc pixaccCreate(
 ///  <param name="negflag">[in] - 0 if only positive numbers are involved 1 if there will be negative numbers</param>
 ///   <returns>pixacc, or NULL on error</returns>
 public static Pixacc pixaccCreateFromPix(
-				  Pix pix, 
-				  int negflag){
+				 Pix pix, 
+				 int negflag){
 
 	IntPtr _Result = Natives.pixaccCreateFromPix(pix.Pointer,   negflag);
 	
@@ -74,15 +75,14 @@ public static Pixacc pixaccCreateFromPix(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaccDestroy/*"/>
 ///  <param name="ppixacc">[in,out] - to be nulled</param>
 public static void pixaccDestroy(
-				 ref Pixacc ppixacc){
+				ref Pixacc ppixacc){
 
 	IntPtr ppixaccPtr = IntPtr.Zero; 	if (ppixacc != null) {ppixaccPtr = ppixacc.Pointer;}
 
 	Natives.pixaccDestroy(ref ppixaccPtr);
 	
 
-ppixacc = null;
-	; if (ppixaccPtr != IntPtr.Zero){ppixacc = new Pixacc(ppixaccPtr);}
+	if (ppixaccPtr == null) {ppixacc = null;} else { ppixacc = new Pixacc(ppixaccPtr); };
 
 
 }
@@ -97,8 +97,8 @@ ppixacc = null;
 ///  <param name="outdepth">[in] - 8, 16 or 32 bpp</param>
 ///   <returns>pixd 8 , 16 or 32 bpp, or NULL on error</returns>
 public static Pix pixaccFinal(
-				  Pixacc pixacc, 
-				  int outdepth){
+				 Pixacc pixacc, 
+				 int outdepth){
 
 	IntPtr _Result = Natives.pixaccFinal(pixacc.Pointer,   outdepth);
 	
@@ -118,7 +118,7 @@ public static Pix pixaccFinal(
 ///  <param name="pixacc">[in] - </param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixaccGetPix(
-				  Pixacc pixacc){
+				 Pixacc pixacc){
 
 	IntPtr _Result = Natives.pixaccGetPix(pixacc.Pointer);
 	
@@ -138,7 +138,7 @@ public static Pix pixaccGetPix(
 ///  <param name="pixacc">[in] - </param>
 ///   <returns>offset, or -1 on error</returns>
 public static int pixaccGetOffset(
-				  Pixacc pixacc){
+				 Pixacc pixacc){
 
 	int _Result = Natives.pixaccGetOffset(pixacc.Pointer);
 	
@@ -158,8 +158,8 @@ public static int pixaccGetOffset(
 ///  <param name="pix">[in] - to be added</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaccAdd(
-				  Pixacc pixacc, 
-				  Pix pix){
+				 Pixacc pixacc, 
+				 Pix pix){
 
 	int _Result = Natives.pixaccAdd(pixacc.Pointer, pix.Pointer);
 	
@@ -179,8 +179,8 @@ public static int pixaccAdd(
 ///  <param name="pix">[in] - to be subtracted</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaccSubtract(
-				  Pixacc pixacc, 
-				  Pix pix){
+				 Pixacc pixacc, 
+				 Pix pix){
 
 	int _Result = Natives.pixaccSubtract(pixacc.Pointer, pix.Pointer);
 	
@@ -200,8 +200,8 @@ public static int pixaccSubtract(
 ///  <param name="factor">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaccMultConst(
-				  Pixacc pixacc, 
-				  Single factor){
+				 Pixacc pixacc, 
+				 Single factor){
 
 	int _Result = Natives.pixaccMultConst(pixacc.Pointer,   factor);
 	
@@ -226,9 +226,9 @@ public static int pixaccMultConst(
 ///  <param name="factor">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaccMultConstAccumulate(
-				  Pixacc pixacc, 
-				  Pix pix, 
-				  Single factor){
+				 Pixacc pixacc, 
+				 Pix pix, 
+				 Single factor){
 
 	int _Result = Natives.pixaccMultConstAccumulate(pixacc.Pointer, pix.Pointer,   factor);
 	
@@ -238,4 +238,5 @@ public static int pixaccMultConstAccumulate(
 	return _Result;
 }
 
+}
 }

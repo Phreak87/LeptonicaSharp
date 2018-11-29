@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // rank.c (147, 1)
 // pixRankFilter(pixs, wf, hf, rank) as Pix
@@ -28,10 +29,10 @@ public class _All {
 ///  <param name="rank">[in] - in [0.0 ... 1.0]</param>
 ///   <returns>pixd of rank values, or NULL on error</returns>
 public static Pix pixRankFilter(
-				  Pix pixs, 
-				  int wf, 
-				  int hf, 
-				  Single rank){
+				 Pix pixs, 
+				 int wf, 
+				 int hf, 
+				 Single rank){
 
 	IntPtr _Result = Natives.pixRankFilter(pixs.Pointer,   wf,   hf,   rank);
 	
@@ -67,10 +68,10 @@ public static Pix pixRankFilter(
 ///  <param name="rank">[in] - in [0.0 ... 1.0]</param>
 ///   <returns>pixd of rank values, or NULL on error</returns>
 public static Pix pixRankFilterRGB(
-				  Pix pixs, 
-				  int wf, 
-				  int hf, 
-				  Single rank){
+				 Pix pixs, 
+				 int wf, 
+				 int hf, 
+				 Single rank){
 
 	IntPtr _Result = Natives.pixRankFilterRGB(pixs.Pointer,   wf,   hf,   rank);
 	
@@ -116,10 +117,10 @@ public static Pix pixRankFilterRGB(
 ///  <param name="rank">[in] - in [0.0 ... 1.0]</param>
 ///   <returns>pixd of rank values, or NULL on error</returns>
 public static Pix pixRankFilterGray(
-				  Pix pixs, 
-				  int wf, 
-				  int hf, 
-				  Single rank){
+				 Pix pixs, 
+				 int wf, 
+				 int hf, 
+				 Single rank){
 
 	IntPtr _Result = Natives.pixRankFilterGray(pixs.Pointer,   wf,   hf,   rank);
 	
@@ -141,9 +142,9 @@ public static Pix pixRankFilterGray(
 ///  <param name="hf">[in] - width and height of filter each is greater or equal 1</param>
 ///   <returns>pixd of median values, or NULL on error</returns>
 public static Pix pixMedianFilter(
-				  Pix pixs, 
-				  int wf, 
-				  int hf){
+				 Pix pixs, 
+				 int wf, 
+				 int hf){
 
 	IntPtr _Result = Natives.pixMedianFilter(pixs.Pointer,   wf,   hf);
 	
@@ -175,11 +176,11 @@ public static Pix pixMedianFilter(
 ///  <param name="scalefactor">[in] - scale factor must be greater or equal 0.2 and smaller or equal 0.7</param>
 ///   <returns>pixd of rank values, or NULL on error</returns>
 public static Pix pixRankFilterWithScaling(
-				  Pix pixs, 
-				  int wf, 
-				  int hf, 
-				  Single rank, 
-				  Single scalefactor){
+				 Pix pixs, 
+				 int wf, 
+				 int hf, 
+				 Single rank, 
+				 Single scalefactor){
 
 	IntPtr _Result = Natives.pixRankFilterWithScaling(pixs.Pointer,   wf,   hf,   rank,   scalefactor);
 	
@@ -190,4 +191,5 @@ public static Pix pixRankFilterWithScaling(
 	return  new Pix(_Result);
 }
 
+}
 }

@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // pixlabel.c (114, 1)
 // pixConnCompTransform(pixs, connect, depth) as Pix
@@ -30,9 +31,9 @@ public class _All {
 ///  <param name="depth">[in] - of pixd: 8 or 16 bpp use 0 for auto determination</param>
 ///   <returns>pixd 8, 16 or 32 bpp, or NULL on error</returns>
 public static Pix pixConnCompTransform(
-				  Pix pixs, 
-				  int connect, 
-				  int depth){
+				 Pix pixs, 
+				 int connect, 
+				 int depth){
 
 	IntPtr _Result = Natives.pixConnCompTransform(pixs.Pointer,   connect,   depth);
 	
@@ -60,8 +61,8 @@ public static Pix pixConnCompTransform(
 ///  <param name="connect">[in] - connectivity: 4 or 8</param>
 ///   <returns>pixd 32 bpp, 1 spp, or NULL on error</returns>
 public static Pix pixConnCompAreaTransform(
-				  Pix pixs, 
-				  int connect){
+				 Pix pixs, 
+				 int connect){
 
 	IntPtr _Result = Natives.pixConnCompAreaTransform(pixs.Pointer,   connect);
 	
@@ -101,11 +102,11 @@ public static Pix pixConnCompAreaTransform(
 ///  <param name="pncc">[out] - initial number of c.c.</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixConnCompIncrInit(
-				  Pix pixs, 
-				  int conn, 
-				 out Pix ppixd, 
-				 out Ptaa pptaa, 
-				 out int pncc){
+				 Pix pixs, 
+				 int conn, 
+				out Pix ppixd, 
+				out Ptaa pptaa, 
+				out int pncc){
 
 	IntPtr ppixdPtr = IntPtr.Zero;
 	IntPtr pptaaPtr = IntPtr.Zero;
@@ -113,11 +114,8 @@ public static int pixConnCompIncrInit(
 	int _Result = Natives.pixConnCompIncrInit(pixs.Pointer,   conn, out ppixdPtr, out pptaaPtr, out  pncc);
 	
 
-ppixd = null;
-	; if (ppixdPtr != IntPtr.Zero){ppixd = new Pix(ppixdPtr);}
-pptaa = null;
-	; if (pptaaPtr != IntPtr.Zero){pptaa = new Ptaa(pptaaPtr);}
-pncc = 0;
+	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (pptaaPtr == null) {pptaa = null;} else { pptaa = new Ptaa(pptaaPtr); };
 
 
 	return _Result;
@@ -161,17 +159,16 @@ pncc = 0;
 ///  <param name="debug">[in] - 0 for no output otherwise output whenever debug smaller or equal nvals, up to debug == 3</param>
 ///   <returns>-1 if nothing happens 0 if a pixel is added 1 on error</returns>
 public static int pixConnCompIncrAdd(
-				  Pix pixs, 
-				  Ptaa ptaa, 
-				 out int pncc, 
-				  Single x, 
-				  Single y, 
+				 Pix pixs, 
+				 Ptaa ptaa, 
+				out int pncc, 
+				 Single x, 
+				 Single y, 
 				 DebugOnOff debug){
 
 	int _Result = Natives.pixConnCompIncrAdd(pixs.Pointer, ptaa.Pointer, out  pncc,   x,   y,  (int) debug);
 	
 
-pncc = 0;
 
 
 	return _Result;
@@ -203,20 +200,19 @@ pncc = 0;
 ///  <param name="pnvals">[out] - the number of unique neighbor values found</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetSortedNeighborValues(
-				  Pix pixs, 
-				  int x, 
-				  int y, 
-				  int conn, 
-				 out List<int[]> pneigh, 
-				 out int pnvals){
+				 Pix pixs, 
+				 int x, 
+				 int y, 
+				 int conn, 
+				out List<int[]> pneigh, 
+				out int pnvals){
 
 	IntPtr pneighPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixGetSortedNeighborValues(pixs.Pointer,   x,   y,   conn, out  pneighPtr, out  pnvals);
 	
 
-pneigh = null;
-pnvals = 0;
+	if (pneighPtr == null) {pneigh = null;} else { pneigh = null; };
 
 
 	return _Result;
@@ -243,7 +239,7 @@ pnvals = 0;
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>pixd 32 bpp rgb, or NULL on error</returns>
 public static Pix pixLocToColorTransform(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixLocToColorTransform(pixs.Pointer);
 	
@@ -254,4 +250,5 @@ public static Pix pixLocToColorTransform(
 	return  new Pix(_Result);
 }
 
+}
 }

@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // dewarp4.c (97, 1)
 // dewarpSinglePage(pixs, thresh, adaptive, useboth, check_columns, ppixd, pdewa, debug) as int
@@ -30,12 +31,12 @@ public class _All {
 ///  <param name="debug">[in] - 1 for debugging output, 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error list of page numbers, or NULL on error</returns>
 public static int dewarpSinglePage(
-				  Pix pixs, 
-				  int thresh, 
-				  int adaptive, 
-				  int useboth, 
-				  int check_columns, 
-				 out Pix ppixd, 
+				 Pix pixs, 
+				 int thresh, 
+				 int adaptive, 
+				 int useboth, 
+				 int check_columns, 
+				out Pix ppixd, 
 				out L_Dewarpa pdewa, 
 				 DebugOnOff debug){
 
@@ -45,10 +46,8 @@ public static int dewarpSinglePage(
 	int _Result = Natives.dewarpSinglePage(pixs.Pointer,   thresh,   adaptive,   useboth,   check_columns, out ppixdPtr, out pdewaPtr,  (int) debug);
 	
 
-ppixd = null;
-	; if (ppixdPtr != IntPtr.Zero){ppixd = new Pix(ppixdPtr);}
-pdewa = null;
-	; if (pdewaPtr != IntPtr.Zero){pdewa = new L_Dewarpa(pdewaPtr);}
+	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (pdewaPtr == null) {pdewa = null;} else { pdewa = new L_Dewarpa(pdewaPtr); };
 
 
 	return _Result;
@@ -84,13 +83,13 @@ pdewa = null;
 ///  <param name="pdewa">[out] - initialized dewa</param>
 ///   <returns>0 if OK, 1 on error list of page numbers, or NULL on error</returns>
 public static int dewarpSinglePageInit(
-				  Pix pixs, 
-				  int thresh, 
-				  int adaptive, 
-				  int useboth, 
-				  int check_columns, 
-				 out Pix ppixb, 
-				 out L_Dewarpa pdewa){
+				 Pix pixs, 
+				 int thresh, 
+				 int adaptive, 
+				 int useboth, 
+				 int check_columns, 
+				out Pix ppixb, 
+				out L_Dewarpa pdewa){
 
 	IntPtr ppixbPtr = IntPtr.Zero;
 	IntPtr pdewaPtr = IntPtr.Zero;
@@ -98,10 +97,8 @@ public static int dewarpSinglePageInit(
 	int _Result = Natives.dewarpSinglePageInit(pixs.Pointer,   thresh,   adaptive,   useboth,   check_columns, out ppixbPtr, out pdewaPtr);
 	
 
-ppixb = null;
-	; if (ppixbPtr != IntPtr.Zero){ppixb = new Pix(ppixbPtr);}
-pdewa = null;
-	; if (pdewaPtr != IntPtr.Zero){pdewa = new L_Dewarpa(pdewaPtr);}
+	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+	if (pdewaPtr == null) {pdewa = null;} else { pdewa = new L_Dewarpa(pdewaPtr); };
 
 
 	return _Result;
@@ -130,10 +127,10 @@ pdewa = null;
 ///  <param name="debug">[in] - 1 for debugging output, 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error list of page numbers, or NULL on error</returns>
 public static int dewarpSinglePageRun(
-				  Pix pixs, 
-				  Pix pixb, 
-				  L_Dewarpa dewa, 
-				 out Pix ppixd, 
+				 Pix pixs, 
+				 Pix pixb, 
+				 L_Dewarpa dewa, 
+				out Pix ppixd, 
 				 DebugOnOff debug){
 
 	IntPtr ppixdPtr = IntPtr.Zero;
@@ -141,8 +138,7 @@ public static int dewarpSinglePageRun(
 	int _Result = Natives.dewarpSinglePageRun(pixs.Pointer, pixb.Pointer, dewa.Pointer, out ppixdPtr,  (int) debug);
 	
 
-ppixd = null;
-	; if (ppixdPtr != IntPtr.Zero){ppixd = new Pix(ppixdPtr);}
+	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -166,7 +162,7 @@ ppixd = null;
 ///  <param name="dewa">[in] - populated with dewarp structs for pages</param>
 ///   <returns>0 if OK, 1 on error list of page numbers, or NULL on error</returns>
 public static int dewarpaListPages(
-				  L_Dewarpa dewa){
+				 L_Dewarpa dewa){
 
 	int _Result = Natives.dewarpaListPages(dewa.Pointer);
 	
@@ -202,8 +198,8 @@ public static int dewarpaListPages(
 ///  <param name="debug">[in] - 1 to output information on invalid page models</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpaSetValidModels(
-				  L_Dewarpa dewa, 
-				  int notests, 
+				 L_Dewarpa dewa, 
+				 int notests, 
 				 DebugOnOff debug){
 
 	int _Result = Natives.dewarpaSetValidModels(dewa.Pointer,   notests,  (int) debug);
@@ -262,8 +258,8 @@ public static int dewarpaSetValidModels(
 ///  <param name="debug">[in] - 1 to output information on invalid page models</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpaInsertRefModels(
-				  L_Dewarpa dewa, 
-				  int notests, 
+				 L_Dewarpa dewa, 
+				 int notests, 
 				 DebugOnOff debug){
 
 	int _Result = Natives.dewarpaInsertRefModels(dewa.Pointer,   notests,  (int) debug);
@@ -289,7 +285,7 @@ public static int dewarpaInsertRefModels(
 ///  <param name="dewa">[in] - populated with dewarp structs for pages</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpaStripRefModels(
-				  L_Dewarpa dewa){
+				 L_Dewarpa dewa){
 
 	int _Result = Natives.dewarpaStripRefModels(dewa.Pointer);
 	
@@ -317,7 +313,7 @@ public static int dewarpaStripRefModels(
 ///  <param name="dewa">[in] - populated with dewarp structs for pages</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpaRestoreModels(
-				  L_Dewarpa dewa){
+				 L_Dewarpa dewa){
 
 	int _Result = Natives.dewarpaRestoreModels(dewa.Pointer);
 	
@@ -337,8 +333,8 @@ public static int dewarpaRestoreModels(
 ///  <param name="dewa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpaInfo(
-				  FILE fp, 
-				  L_Dewarpa dewa){
+				 FILE fp, 
+				 L_Dewarpa dewa){
 
 	int _Result = Natives.dewarpaInfo(fp.Pointer, dewa.Pointer);
 	
@@ -390,7 +386,7 @@ public static int dewarpaInfo(
 ///  <param name="pnref">[out][optional] - number with a reference model</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpaModelStats(
-				  L_Dewarpa dewa, 
+				 L_Dewarpa dewa, 
 				out int pnnone, 
 				out int pnvsuccess, 
 				out int pnvvalid, 
@@ -401,12 +397,6 @@ public static int dewarpaModelStats(
 	int _Result = Natives.dewarpaModelStats(dewa.Pointer, out  pnnone, out  pnvsuccess, out  pnvvalid, out  pnhsuccess, out  pnhvalid, out  pnref);
 	
 
-pnnone = 0;
-pnvsuccess = 0;
-pnvvalid = 0;
-pnhsuccess = 0;
-pnhvalid = 0;
-pnref = 0;
 
 
 	return _Result;
@@ -429,10 +419,10 @@ pnref = 0;
 ///  <param name="last">[in] - last page model to render use 0 to go to end</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpaShowArrays(
-				  L_Dewarpa dewa, 
-				  Single scalefact, 
-				  int first, 
-				  int last){
+				 L_Dewarpa dewa, 
+				 Single scalefact, 
+				 int first, 
+				 int last){
 
 	int _Result = Natives.dewarpaShowArrays(dewa.Pointer,   scalefact,   first,   last);
 	
@@ -458,9 +448,9 @@ public static int dewarpaShowArrays(
 ///  <param name="index">[in] - to help label output images e.g., the page number</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpDebug(
-				  L_Dewarp dew, 
-				  String subdirs, 
-				  int index){
+				 L_Dewarp dew, 
+				 String subdirs, 
+				 int index){
 
 	int _Result = Natives.dewarpDebug(dew.Pointer,   subdirs,   index);
 	
@@ -493,12 +483,12 @@ public static int dewarpDebug(
 ///  <param name="pdfout">[in] - filename</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpShowResults(
-				  L_Dewarpa dewa, 
-				  Sarray sa, 
-				  Boxa boxa, 
-				  int firstpage, 
-				  int lastpage, 
-				  String pdfout){
+				 L_Dewarpa dewa, 
+				 Sarray sa, 
+				 Boxa boxa, 
+				 int firstpage, 
+				 int lastpage, 
+				 String pdfout){
 
 	int _Result = Natives.dewarpShowResults(dewa.Pointer, sa.Pointer, boxa.Pointer,   firstpage,   lastpage,   pdfout);
 	
@@ -508,4 +498,5 @@ public static int dewarpShowResults(
 	return _Result;
 }
 
+}
 }

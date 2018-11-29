@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // binarize.c (140, 1)
 // pixOtsuAdaptiveThreshold(pixs, sx, sy, smoothx, smoothy, scorefract, ppixth, ppixd) as int
@@ -66,12 +67,12 @@ public class _All {
 ///  <param name="ppixd">[out][optional] - thresholded input pixs, based on the threshold array</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixOtsuAdaptiveThreshold(
-				  Pix pixs, 
-				  int sx, 
-				  int sy, 
-				  int smoothx, 
-				  int smoothy, 
-				  Single scorefract, 
+				 Pix pixs, 
+				 int sx, 
+				 int sy, 
+				 int smoothx, 
+				 int smoothy, 
+				 Single scorefract, 
 				out Pix ppixth, 
 				out Pix ppixd){
 
@@ -81,10 +82,8 @@ public static int pixOtsuAdaptiveThreshold(
 	int _Result = Natives.pixOtsuAdaptiveThreshold(pixs.Pointer,   sx,   sy,   smoothx,   smoothy,   scorefract, out ppixthPtr, out ppixdPtr);
 	
 
-ppixth = null;
-	; if (ppixthPtr != IntPtr.Zero){ppixth = new Pix(ppixthPtr);}
-ppixd = null;
-	; if (ppixdPtr != IntPtr.Zero){ppixd = new Pix(ppixdPtr);}
+	if (ppixthPtr == null) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
+	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -127,16 +126,16 @@ ppixd = null;
 ///  <param name="pthresh">[out][optional] - threshold value that was used on the normalized image</param>
 ///   <returns>pixd 1 bpp thresholded image, or NULL on error</returns>
 public static Pix pixOtsuThreshOnBackgroundNorm(
-				  Pix pixs, 
-				  Pix pixim, 
-				  int sx, 
-				  int sy, 
-				  int thresh, 
-				  int mincount, 
-				  int bgval, 
-				  int smoothx, 
-				  int smoothy, 
-				  Single scorefract, 
+				 Pix pixs, 
+				 Pix pixim, 
+				 int sx, 
+				 int sy, 
+				 int thresh, 
+				 int mincount, 
+				 int bgval, 
+				 int smoothx, 
+				 int smoothy, 
+				 Single scorefract, 
 				out int pthresh){
 
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
@@ -144,7 +143,6 @@ public static Pix pixOtsuThreshOnBackgroundNorm(
 	IntPtr _Result = Natives.pixOtsuThreshOnBackgroundNorm(pixs.Pointer, piximPtr,   sx,   sy,   thresh,   mincount,   bgval,   smoothx,   smoothy,   scorefract, out  pthresh);
 	
 
-pthresh = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -193,15 +191,15 @@ pthresh = 0;
 ///  <param name="pthresh">[out][optional] - threshold value that was used on the normalized image</param>
 ///   <returns>pixd 1 bpp thresholded image, or NULL on error</returns>
 public static Pix pixMaskedThreshOnBackgroundNorm(
-				  Pix pixs, 
-				  Pix pixim, 
-				  int sx, 
-				  int sy, 
-				  int thresh, 
-				  int mincount, 
-				  int smoothx, 
-				  int smoothy, 
-				  Single scorefract, 
+				 Pix pixs, 
+				 Pix pixim, 
+				 int sx, 
+				 int sy, 
+				 int thresh, 
+				 int mincount, 
+				 int smoothx, 
+				 int smoothy, 
+				 Single scorefract, 
 				out int pthresh){
 
 	IntPtr piximPtr = IntPtr.Zero; 	if (pixim != null) {piximPtr = pixim.Pointer;}
@@ -209,7 +207,6 @@ public static Pix pixMaskedThreshOnBackgroundNorm(
 	IntPtr _Result = Natives.pixMaskedThreshOnBackgroundNorm(pixs.Pointer, piximPtr,   sx,   sy,   thresh,   mincount,   smoothx,   smoothy,   scorefract, out  pthresh);
 	
 
-pthresh = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -250,11 +247,11 @@ pthresh = 0;
 ///  <param name="ppixd">[out][optional] - thresholded image</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSauvolaBinarizeTiled(
-				  Pix pixs, 
-				  int whsize, 
-				  Single factor, 
-				  int nx, 
-				  int ny, 
+				 Pix pixs, 
+				 int whsize, 
+				 Single factor, 
+				 int nx, 
+				 int ny, 
 				out Pix ppixth, 
 				out Pix ppixd){
 
@@ -264,10 +261,8 @@ public static int pixSauvolaBinarizeTiled(
 	int _Result = Natives.pixSauvolaBinarizeTiled(pixs.Pointer,   whsize,   factor,   nx,   ny, out ppixthPtr, out ppixdPtr);
 	
 
-ppixth = null;
-	; if (ppixthPtr != IntPtr.Zero){ppixth = new Pix(ppixthPtr);}
-ppixd = null;
-	; if (ppixdPtr != IntPtr.Zero){ppixd = new Pix(ppixdPtr);}
+	if (ppixthPtr == null) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
+	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -316,8 +311,8 @@ ppixd = null;
 ///  <param name="ppixd">[out][optional] - thresholded image</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSauvolaBinarize(
-				  Pix pixs, 
-				  int whsize, 
+				 Pix pixs, 
+				 int whsize, 
 				 Single factor, 
 				 int addborder, 
 				out Pix ppixm, 
@@ -333,14 +328,10 @@ public static int pixSauvolaBinarize(
 	int _Result = Natives.pixSauvolaBinarize(pixs.Pointer,   whsize,   factor,   addborder, out ppixmPtr, out ppixsdPtr, out ppixthPtr, out ppixdPtr);
 	
 
-ppixm = null;
-	; if (ppixmPtr != IntPtr.Zero){ppixm = new Pix(ppixmPtr);}
-ppixsd = null;
-	; if (ppixsdPtr != IntPtr.Zero){ppixsd = new Pix(ppixsdPtr);}
-ppixth = null;
-	; if (ppixthPtr != IntPtr.Zero){ppixth = new Pix(ppixthPtr);}
-ppixd = null;
-	; if (ppixdPtr != IntPtr.Zero){ppixd = new Pix(ppixdPtr);}
+	if (ppixmPtr == null) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
+	if (ppixsdPtr == null) {ppixsd = null;} else { ppixsd = new Pix(ppixsdPtr); };
+	if (ppixthPtr == null) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
+	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -386,9 +377,9 @@ ppixd = null;
 ///  <param name="ppixsd">[out][optional] - local standard deviation</param>
 ///   <returns>pixd 8 bpp, sauvola threshold values, or NULL on error</returns>
 public static Pix pixSauvolaGetThreshold(
-				  Pix pixm, 
-				  Pix pixms, 
-				  Single factor, 
+				 Pix pixm, 
+				 Pix pixms, 
+				 Single factor, 
 				out Pix ppixsd){
 
 	IntPtr ppixsdPtr = IntPtr.Zero;
@@ -396,8 +387,7 @@ public static Pix pixSauvolaGetThreshold(
 	IntPtr _Result = Natives.pixSauvolaGetThreshold(pixm.Pointer, pixms.Pointer,   factor, out ppixsdPtr);
 	
 
-ppixsd = null;
-	; if (ppixsdPtr != IntPtr.Zero){ppixsd = new Pix(ppixsdPtr);}
+	if (ppixsdPtr == null) {ppixsd = null;} else { ppixsd = new Pix(ppixsdPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -415,9 +405,9 @@ ppixsd = null;
 ///  <param name="redfactor">[in] - ...</param>
 ///   <returns>pixd 1 bpp, thresholded image, or NULL on error</returns>
 public static Pix pixApplyLocalThreshold(
-				  Pix pixs, 
-				  Pix pixth, 
-				  int redfactor){
+				 Pix pixs, 
+				 Pix pixth, 
+				 int redfactor){
 
 	IntPtr _Result = Natives.pixApplyLocalThreshold(pixs.Pointer, pixth.Pointer,   redfactor);
 	
@@ -483,16 +473,16 @@ public static Pix pixApplyLocalThreshold(
 ///  <param name="debugflag">[in] - 1 for plotted results</param>
 ///   <returns>0 if OK, 1 on error or if no threshold is found</returns>
 public static int pixThresholdByConnComp(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int start, 
-				  int _end_, 
-				  int incr, 
-				  Single thresh48, 
-				  Single threshdiff, 
-				 out int pglobthresh, 
-				 out Pix ppixd, 
-				  int debugflag){
+				 Pix pixs, 
+				 Pix pixm, 
+				 int start, 
+				 int _end_, 
+				 int incr, 
+				 Single thresh48, 
+				 Single threshdiff, 
+				out int pglobthresh, 
+				out Pix ppixd, 
+				 int debugflag){
 
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 	IntPtr ppixdPtr = IntPtr.Zero;
@@ -500,12 +490,11 @@ public static int pixThresholdByConnComp(
 	int _Result = Natives.pixThresholdByConnComp(pixs.Pointer, pixmPtr,   start,   _end_,   incr,   thresh48,   threshdiff, out  pglobthresh, out ppixdPtr,   debugflag);
 	
 
-pglobthresh = 0;
-ppixd = null;
-	; if (ppixdPtr != IntPtr.Zero){ppixd = new Pix(ppixdPtr);}
+	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
 }
 
+}
 }

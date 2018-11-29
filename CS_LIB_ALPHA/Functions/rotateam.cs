@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // rotateam.c (149, 1)
 // pixRotateAM(pixs, angle, incolor) as Pix
@@ -23,9 +24,9 @@ public class _All {
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixRotateAM(
-				  Pix pixs, 
-				  Single angle, 
-				  int incolor){
+				 Pix pixs, 
+				 Single angle, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixRotateAM(pixs.Pointer,   angle,   incolor);
 	
@@ -54,9 +55,9 @@ public static Pix pixRotateAM(
 ///  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixRotateAMColor(
-				  Pix pixs, 
-				  Single angle, 
-				  uint colorval){
+				 Pix pixs, 
+				 Single angle, 
+				 uint colorval){
 
 	IntPtr _Result = Natives.pixRotateAMColor(pixs.Pointer,   angle,   colorval);
 	
@@ -85,9 +86,9 @@ public static Pix pixRotateAMColor(
 ///  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixRotateAMGray(
-				  Pix pixs, 
-				  Single angle, 
-				  byte grayval){
+				 Pix pixs, 
+				 Single angle, 
+				 byte grayval){
 
 	IntPtr _Result = Natives.pixRotateAMGray(pixs.Pointer,   angle,   grayval);
 	
@@ -116,9 +117,9 @@ public static Pix pixRotateAMGray(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixRotateAMCorner(
-				  Pix pixs, 
-				  Single angle, 
-				  int incolor){
+				 Pix pixs, 
+				 Single angle, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixRotateAMCorner(pixs.Pointer,   angle,   incolor);
 	
@@ -147,9 +148,9 @@ public static Pix pixRotateAMCorner(
 ///  <param name="fillval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixRotateAMColorCorner(
-				  Pix pixs, 
-				  Single angle, 
-				  uint fillval){
+				 Pix pixs, 
+				 Single angle, 
+				 uint fillval){
 
 	IntPtr _Result = Natives.pixRotateAMColorCorner(pixs.Pointer,   angle,   fillval);
 	
@@ -178,9 +179,9 @@ public static Pix pixRotateAMColorCorner(
 ///  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixRotateAMGrayCorner(
-				  Pix pixs, 
-				  Single angle, 
-				  byte grayval){
+				 Pix pixs, 
+				 Single angle, 
+				 byte grayval){
 
 	IntPtr _Result = Natives.pixRotateAMGrayCorner(pixs.Pointer,   angle,   grayval);
 	
@@ -217,9 +218,9 @@ public static Pix pixRotateAMGrayCorner(
 ///  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixRotateAMColorFast(
-				  Pix pixs, 
-				  Single angle, 
-				  uint colorval){
+				 Pix pixs, 
+				 Single angle, 
+				 uint colorval){
 
 	IntPtr _Result = Natives.pixRotateAMColorFast(pixs.Pointer,   angle,   colorval);
 	
@@ -230,4 +231,5 @@ public static Pix pixRotateAMColorFast(
 	return  new Pix(_Result);
 }
 
+}
 }

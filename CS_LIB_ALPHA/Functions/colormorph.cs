@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // colormorph.c (66, 1)
 // pixColorMorph(pixs, type, hsize, vsize) as Pix
@@ -25,10 +26,10 @@ public class _All {
 ///  <param name="vsize">[in] - ditto</param>
 ///   <returns>pixd</returns>
 public static Pix pixColorMorph(
-				  Pix pixs, 
-				  int type, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixs, 
+				 int type, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr _Result = Natives.pixColorMorph(pixs.Pointer,   type,   hsize,   vsize);
 	
@@ -39,4 +40,5 @@ public static Pix pixColorMorph(
 	return  new Pix(_Result);
 }
 
+}
 }

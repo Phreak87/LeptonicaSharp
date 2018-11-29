@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // readbarcode.c (134, 1)
 // pixProcessBarcodes(pixs, format, method, psaw, debugflag) as Sarray
@@ -18,19 +19,18 @@ public class _All {
 ///  <param name="debugflag">[in] - use 1 to generate debug output</param>
 ///   <returns>sarray text of barcodes, or NULL if none found or on error</returns>
 public static Sarray pixProcessBarcodes(
-				  Pix pixs, 
-				  IFF format, 
-				  int method, 
-				 out Sarray psaw, 
-				  int debugflag){
+				 Pix pixs, 
+				 IFF format, 
+				 int method, 
+				out Sarray psaw, 
+				 int debugflag){
 
 	IntPtr psawPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixProcessBarcodes(pixs.Pointer,  (int) format,   method, out psawPtr,   debugflag);
 	
 
-psaw = null;
-	; if (psawPtr != IntPtr.Zero){psaw = new Sarray(psawPtr);}
+	if (psawPtr == null) {psaw = null;} else { psaw = new Sarray(psawPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -47,8 +47,8 @@ psaw = null;
 ///  <param name="debugflag">[in] - use 1 to generate debug output</param>
 ///   <returns>pixa deskewed and cropped barcodes, or NULL if none found or on error</returns>
 public static Pixa pixExtractBarcodes(
-				  Pix pixs, 
-				  int debugflag){
+				 Pix pixs, 
+				 int debugflag){
 
 	IntPtr _Result = Natives.pixExtractBarcodes(pixs.Pointer,   debugflag);
 	
@@ -72,19 +72,18 @@ public static Pixa pixExtractBarcodes(
 ///  <param name="debugflag">[in] - use 1 to generate debug output</param>
 ///   <returns>sa sarray of widths, one string for each barcode found, or NULL on error</returns>
 public static Sarray pixReadBarcodes(
-				  Pixa pixa, 
-				  IFF format, 
-				  int method, 
-				 out Sarray psaw, 
-				  int debugflag){
+				 Pixa pixa, 
+				 IFF format, 
+				 int method, 
+				out Sarray psaw, 
+				 int debugflag){
 
 	IntPtr psawPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixReadBarcodes(pixa.Pointer,  (int) format,   method, out psawPtr,   debugflag);
 	
 
-psaw = null;
-	; if (psawPtr != IntPtr.Zero){psaw = new Sarray(psawPtr);}
+	if (psawPtr == null) {psaw = null;} else { psaw = new Sarray(psawPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -102,9 +101,9 @@ psaw = null;
 ///  <param name="debugflag">[in] - use 1 to generate debug output</param>
 ///   <returns>na numa of widths (each in set {1,2,3,4}, or NULL on error</returns>
 public static Numa pixReadBarcodeWidths(
-				  Pix pixs, 
-				  int method, 
-				  int debugflag){
+				 Pix pixs, 
+				 int method, 
+				 int debugflag){
 
 	IntPtr _Result = Natives.pixReadBarcodeWidths(pixs.Pointer,   method,   debugflag);
 	
@@ -127,8 +126,8 @@ public static Numa pixReadBarcodeWidths(
 ///  <param name="ppixm">[out][optional] - mask over barcodes</param>
 ///   <returns>boxa location of barcodes, or NULL if none found or on error</returns>
 public static Boxa pixLocateBarcodes(
-				  Pix pixs, 
-				  int thresh, 
+				 Pix pixs, 
+				 int thresh, 
 				out Pix ppixb, 
 				out Pix ppixm){
 
@@ -138,10 +137,8 @@ public static Boxa pixLocateBarcodes(
 	IntPtr _Result = Natives.pixLocateBarcodes(pixs.Pointer,   thresh, out ppixbPtr, out ppixmPtr);
 	
 
-ppixb = null;
-	; if (ppixbPtr != IntPtr.Zero){ppixb = new Pix(ppixbPtr);}
-ppixm = null;
-	; if (ppixmPtr != IntPtr.Zero){ppixm = new Pix(ppixmPtr);}
+	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+	if (ppixmPtr == null) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -167,19 +164,17 @@ ppixm = null;
 ///  <param name="pconf">[out][optional] - confidence</param>
 ///   <returns>pixd deskewed barcode, or NULL on error</returns>
 public static Pix pixDeskewBarcode(
-				  Pix pixs, 
-				  Pix pixb, 
-				  Box box, 
-				  int margin, 
-				  int threshold, 
+				 Pix pixs, 
+				 Pix pixb, 
+				 Box box, 
+				 int margin, 
+				 int threshold, 
 				out Single pangle, 
 				out Single pconf){
 
 	IntPtr _Result = Natives.pixDeskewBarcode(pixs.Pointer, pixb.Pointer, box.Pointer,   margin,   threshold, out  pangle, out  pconf);
 	
 
-pangle = 0f;
-pconf = 0f;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -209,12 +204,12 @@ pconf = 0f;
 ///  <param name="debugflag">[in] - use 1 to generate debug output</param>
 ///   <returns>nad numa of barcode widths in encoded integer units, or NULL on error</returns>
 public static Numa pixExtractBarcodeWidths1(
-				  Pix pixs, 
-				  Single thresh, 
-				  Single binfract, 
-				 out Numa pnaehist, 
-				 out Numa pnaohist, 
-				  int debugflag){
+				 Pix pixs, 
+				 Single thresh, 
+				 Single binfract, 
+				out Numa pnaehist, 
+				out Numa pnaohist, 
+				 int debugflag){
 
 	IntPtr pnaehistPtr = IntPtr.Zero;
 	IntPtr pnaohistPtr = IntPtr.Zero;
@@ -222,10 +217,8 @@ public static Numa pixExtractBarcodeWidths1(
 	IntPtr _Result = Natives.pixExtractBarcodeWidths1(pixs.Pointer,   thresh,   binfract, out pnaehistPtr, out pnaohistPtr,   debugflag);
 	
 
-pnaehist = null;
-	; if (pnaehistPtr != IntPtr.Zero){pnaehist = new Numa(pnaehistPtr);}
-pnaohist = null;
-	; if (pnaohistPtr != IntPtr.Zero){pnaohist = new Numa(pnaohistPtr);}
+	if (pnaehistPtr == null) {pnaehist = null;} else { pnaehist = new Numa(pnaehistPtr); };
+	if (pnaohistPtr == null) {pnaohist = null;} else { pnaohist = new Numa(pnaohistPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -259,20 +252,18 @@ pnaohist = null;
 ///  <param name="debugflag">[in] - use 1 to generate debug output</param>
 ///   <returns>nad numa of barcode widths in encoded integer units, or NULL on error</returns>
 public static Numa pixExtractBarcodeWidths2(
-				  Pix pixs, 
-				  Single thresh, 
-				 out Single pwidth, 
-				 out Numa pnac, 
-				  int debugflag){
+				 Pix pixs, 
+				 Single thresh, 
+				out Single pwidth, 
+				out Numa pnac, 
+				 int debugflag){
 
 	IntPtr pnacPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixExtractBarcodeWidths2(pixs.Pointer,   thresh, out  pwidth, out pnacPtr,   debugflag);
 	
 
-pwidth = 0f;
-pnac = null;
-	; if (pnacPtr != IntPtr.Zero){pnac = new Numa(pnacPtr);}
+	if (pnacPtr == null) {pnac = null;} else { pnac = new Numa(pnacPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -290,9 +281,9 @@ pnac = null;
 ///  <param name="debugflag">[in] - use 1 to generate debug output</param>
 ///   <returns>numa of crossings, in pixel units, or NULL on error</returns>
 public static Numa pixExtractBarcodeCrossings(
-				  Pix pixs, 
-				  Single thresh, 
-				  int debugflag){
+				 Pix pixs, 
+				 Single thresh, 
+				 int debugflag){
 
 	IntPtr _Result = Natives.pixExtractBarcodeCrossings(pixs.Pointer,   thresh,   debugflag);
 	
@@ -328,11 +319,11 @@ public static Numa pixExtractBarcodeCrossings(
 ///  <param name="debugflag">[in] - 1 to generate plots of histograms of bar widths</param>
 ///   <returns>nad sequence of widths, in unit sizes, or NULL on error</returns>
 public static Numa numaQuantizeCrossingsByWidth(
-				  Numa nas, 
-				  Single binfract, 
-				 out Numa pnaehist, 
-				 out Numa pnaohist, 
-				  int debugflag){
+				 Numa nas, 
+				 Single binfract, 
+				out Numa pnaehist, 
+				out Numa pnaohist, 
+				 int debugflag){
 
 	IntPtr pnaehistPtr = IntPtr.Zero;
 	IntPtr pnaohistPtr = IntPtr.Zero;
@@ -340,10 +331,8 @@ public static Numa numaQuantizeCrossingsByWidth(
 	IntPtr _Result = Natives.numaQuantizeCrossingsByWidth(nas.Pointer,   binfract, out pnaehistPtr, out pnaohistPtr,   debugflag);
 	
 
-pnaehist = null;
-	; if (pnaehistPtr != IntPtr.Zero){pnaehist = new Numa(pnaehistPtr);}
-pnaohist = null;
-	; if (pnaohistPtr != IntPtr.Zero){pnaohist = new Numa(pnaohistPtr);}
+	if (pnaehistPtr == null) {pnaehist = null;} else { pnaehist = new Numa(pnaehistPtr); };
+	if (pnaohistPtr == null) {pnaohist = null;} else { pnaohist = new Numa(pnaohistPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -373,26 +362,24 @@ pnaohist = null;
 ///  <param name="debugflag">[in] - 1 to generate various plots of intermediate results</param>
 ///   <returns>nad sequence of widths, in unit sizes, or NULL on error</returns>
 public static Numa numaQuantizeCrossingsByWindow(
-				  Numa nas, 
-				  Single ratio, 
-				 out Single pwidth, 
-				 out Single pfirstloc, 
-				 out Numa pnac, 
-				  int debugflag){
+				 Numa nas, 
+				 Single ratio, 
+				out Single pwidth, 
+				out Single pfirstloc, 
+				out Numa pnac, 
+				 int debugflag){
 
 	IntPtr pnacPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.numaQuantizeCrossingsByWindow(nas.Pointer,   ratio, out  pwidth, out  pfirstloc, out pnacPtr,   debugflag);
 	
 
-pwidth = 0f;
-pfirstloc = 0f;
-pnac = null;
-	; if (pnacPtr != IntPtr.Zero){pnac = new Numa(pnacPtr);}
+	if (pnacPtr == null) {pnac = null;} else { pnac = new Numa(pnacPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
 	return  new Numa(_Result);
 }
 
+}
 }

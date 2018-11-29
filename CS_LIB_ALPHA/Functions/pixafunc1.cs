@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // pixafunc1.c (212, 1)
 // pixSelectBySize(pixs, width, height, connectivity, type, relation, pchanged) as Pix
@@ -35,18 +36,17 @@ public class _All {
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 otherwise</param>
 ///   <returns>filtered pixd, or NULL on error</returns>
 public static Pix pixSelectBySize(
-				  Pix pixs, 
-				  int width, 
-				  int height, 
-				  int connectivity, 
-				  int type, 
-				  int relation, 
+				 Pix pixs, 
+				 int width, 
+				 int height, 
+				 int connectivity, 
+				 int type, 
+				 int relation, 
 				out int pchanged){
 
 	IntPtr _Result = Natives.pixSelectBySize(pixs.Pointer,   width,   height,   connectivity,   type,   relation, out  pchanged);
 	
 
-pchanged = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -81,17 +81,16 @@ pchanged = 0;
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 otherwise</param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaSelectBySize(
-				  Pixa pixas, 
-				  int width, 
-				  int height, 
-				  int type, 
-				  int relation, 
+				 Pixa pixas, 
+				 int width, 
+				 int height, 
+				 int type, 
+				 int relation, 
 				out int pchanged){
 
 	IntPtr _Result = Natives.pixaSelectBySize(pixas.Pointer,   width,   height,   type,   relation, out  pchanged);
 	
 
-pchanged = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -123,11 +122,11 @@ pchanged = 0;
 ///  <param name="relation">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
 ///   <returns>na indicator array, or NULL on error</returns>
 public static Numa pixaMakeSizeIndicator(
-				  Pixa pixa, 
-				  int width, 
-				  int height, 
-				  int type, 
-				  int relation){
+				 Pixa pixa, 
+				 int width, 
+				 int height, 
+				 int type, 
+				 int relation){
 
 	IntPtr _Result = Natives.pixaMakeSizeIndicator(pixa.Pointer,   width,   height,   type,   relation);
 	
@@ -165,16 +164,15 @@ public static Numa pixaMakeSizeIndicator(
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixSelectByPerimToAreaRatio(
-				  Pix pixs, 
-				  Single thresh, 
-				  int connectivity, 
-				  int type, 
+				 Pix pixs, 
+				 Single thresh, 
+				 int connectivity, 
+				 int type, 
 				out int pchanged){
 
 	IntPtr _Result = Natives.pixSelectByPerimToAreaRatio(pixs.Pointer,   thresh,   connectivity,   type, out  pchanged);
 	
 
-pchanged = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -200,15 +198,14 @@ pchanged = 0;
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaSelectByPerimToAreaRatio(
-				  Pixa pixas, 
-				  Single thresh, 
-				  int type, 
+				 Pixa pixas, 
+				 Single thresh, 
+				 int type, 
 				out int pchanged){
 
 	IntPtr _Result = Natives.pixaSelectByPerimToAreaRatio(pixas.Pointer,   thresh,   type, out  pchanged);
 	
 
-pchanged = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -243,16 +240,15 @@ pchanged = 0;
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixSelectByPerimSizeRatio(
-				  Pix pixs, 
-				  Single thresh, 
-				  int connectivity, 
-				  int type, 
+				 Pix pixs, 
+				 Single thresh, 
+				 int connectivity, 
+				 int type, 
 				out int pchanged){
 
 	IntPtr _Result = Natives.pixSelectByPerimSizeRatio(pixs.Pointer,   thresh,   connectivity,   type, out  pchanged);
 	
 
-pchanged = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -278,15 +274,14 @@ pchanged = 0;
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaSelectByPerimSizeRatio(
-				  Pixa pixas, 
-				  Single thresh, 
-				  int type, 
+				 Pixa pixas, 
+				 Single thresh, 
+				 int type, 
 				out int pchanged){
 
 	IntPtr _Result = Natives.pixaSelectByPerimSizeRatio(pixas.Pointer,   thresh,   type, out  pchanged);
 	
 
-pchanged = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -320,16 +315,15 @@ pchanged = 0;
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixSelectByAreaFraction(
-				  Pix pixs, 
-				  Single thresh, 
-				  int connectivity, 
-				  int type, 
+				 Pix pixs, 
+				 Single thresh, 
+				 int connectivity, 
+				 int type, 
 				out int pchanged){
 
 	IntPtr _Result = Natives.pixSelectByAreaFraction(pixs.Pointer,   thresh,   connectivity,   type, out  pchanged);
 	
 
-pchanged = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -360,15 +354,14 @@ pchanged = 0;
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaSelectByAreaFraction(
-				  Pixa pixas, 
-				  Single thresh, 
-				  int type, 
+				 Pixa pixas, 
+				 Single thresh, 
+				 int type, 
 				out int pchanged){
 
 	IntPtr _Result = Natives.pixaSelectByAreaFraction(pixas.Pointer,   thresh,   type, out  pchanged);
 	
 
-pchanged = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -401,16 +394,15 @@ pchanged = 0;
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixSelectByWidthHeightRatio(
-				  Pix pixs, 
-				  Single thresh, 
-				  int connectivity, 
-				  int type, 
+				 Pix pixs, 
+				 Single thresh, 
+				 int connectivity, 
+				 int type, 
 				out int pchanged){
 
 	IntPtr _Result = Natives.pixSelectByWidthHeightRatio(pixs.Pointer,   thresh,   connectivity,   type, out  pchanged);
 	
 
-pchanged = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -441,15 +433,14 @@ pchanged = 0;
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaSelectByWidthHeightRatio(
-				  Pixa pixas, 
-				  Single thresh, 
-				  int type, 
+				 Pixa pixas, 
+				 Single thresh, 
+				 int type, 
 				out int pchanged){
 
 	IntPtr _Result = Natives.pixaSelectByWidthHeightRatio(pixas.Pointer,   thresh,   type, out  pchanged);
 	
 
-pchanged = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -477,16 +468,15 @@ pchanged = 0;
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaSelectByNumConnComp(
-				  Pixa pixas, 
-				  int nmin, 
-				  int nmax, 
-				  int connectivity, 
+				 Pixa pixas, 
+				 int nmin, 
+				 int nmax, 
+				 int connectivity, 
 				out int pchanged){
 
 	IntPtr _Result = Natives.pixaSelectByNumConnComp(pixas.Pointer,   nmin,   nmax,   connectivity, out  pchanged);
 	
 
-pchanged = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -514,14 +504,13 @@ pchanged = 0;
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaSelectWithIndicator(
-				  Pixa pixas, 
-				  Numa na, 
+				 Pixa pixas, 
+				 Numa na, 
 				out int pchanged){
 
 	IntPtr _Result = Natives.pixaSelectWithIndicator(pixas.Pointer, na.Pointer, out  pchanged);
 	
 
-pchanged = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -543,9 +532,9 @@ pchanged = 0;
 ///  <param name="na">[in] - numa indicator: remove components corresponding to 1s</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRemoveWithIndicator(
-				  Pix pixs, 
-				  Pixa pixa, 
-				  Numa na){
+				 Pix pixs, 
+				 Pixa pixa, 
+				 Numa na){
 
 	int _Result = Natives.pixRemoveWithIndicator(pixs.Pointer, pixa.Pointer, na.Pointer);
 	
@@ -570,9 +559,9 @@ public static int pixRemoveWithIndicator(
 ///  <param name="na">[in] - numa indicator: add components corresponding to 1s</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixAddWithIndicator(
-				  Pix pixs, 
-				  Pixa pixa, 
-				  Numa na){
+				 Pix pixs, 
+				 Pixa pixa, 
+				 Numa na){
 
 	int _Result = Natives.pixAddWithIndicator(pixs.Pointer, pixa.Pointer, na.Pointer);
 	
@@ -598,14 +587,13 @@ public static int pixAddWithIndicator(
 ///  <param name="perror">[out][optional] - 1 if any indices are invalid 0 if all indices are valid</param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaSelectWithString(
-				  Pixa pixas, 
-				  String str, 
+				 Pixa pixas, 
+				 String str, 
 				out int perror){
 
 	IntPtr _Result = Natives.pixaSelectWithString(pixas.Pointer,   str, out  perror);
 	
 
-perror = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -629,9 +617,9 @@ perror = 0;
 ///  <param name="index">[in] - of component to be rendered</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixaRenderComponent(
-				  Pix pixs, 
-				  Pixa pixa, 
-				  int index){
+				 Pix pixs, 
+				 Pixa pixa, 
+				 int index){
 
 	IntPtr pixsPtr = IntPtr.Zero; 	if (pixs != null) {pixsPtr = pixs.Pointer;}
 
@@ -669,19 +657,18 @@ public static Pix pixaRenderComponent(
 ///  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 ///   <returns>pixad sorted version of pixas, or NULL on error</returns>
 public static Pixa pixaSort(
-				  Pixa pixas, 
-				  int sorttype, 
-				  int sortorder, 
-				 out Numa pnaindex, 
-				  int copyflag){
+				 Pixa pixas, 
+				 int sorttype, 
+				 int sortorder, 
+				out Numa pnaindex, 
+				 int copyflag){
 
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixaSort(pixas.Pointer,   sorttype,   sortorder, out pnaindexPtr,   copyflag);
 	
 
-pnaindex = null;
-	; if (pnaindexPtr != IntPtr.Zero){pnaindex = new Numa(pnaindexPtr);}
+	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -716,19 +703,18 @@ pnaindex = null;
 ///  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 ///   <returns>pixad sorted version of pixas, or NULL on error</returns>
 public static Pixa pixaBinSort(
-				  Pixa pixas, 
-				  int sorttype, 
-				  int sortorder, 
-				 out Numa pnaindex, 
-				  int copyflag){
+				 Pixa pixas, 
+				 int sorttype, 
+				 int sortorder, 
+				out Numa pnaindex, 
+				 int copyflag){
 
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixaBinSort(pixas.Pointer,   sorttype,   sortorder, out pnaindexPtr,   copyflag);
 	
 
-pnaindex = null;
-	; if (pnaindexPtr != IntPtr.Zero){pnaindex = new Numa(pnaindexPtr);}
+	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -746,9 +732,9 @@ pnaindex = null;
 ///  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 ///   <returns>pixad sorted, or NULL on error</returns>
 public static Pixa pixaSortByIndex(
-				  Pixa pixas, 
-				  Numa naindex, 
-				  int copyflag){
+				 Pixa pixas, 
+				 Numa naindex, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.pixaSortByIndex(pixas.Pointer, naindex.Pointer,   copyflag);
 	
@@ -770,9 +756,9 @@ public static Pixa pixaSortByIndex(
 ///  <param name="copyflag">[in] - L_CLONE or L_COPY</param>
 ///   <returns>paa sorted, or NULL on error</returns>
 public static Pixaa pixaSort2dByIndex(
-				  Pixa pixas, 
-				  Numaa naa, 
-				  int copyflag){
+				 Pixa pixas, 
+				 Numaa naa, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.pixaSort2dByIndex(pixas.Pointer, naa.Pointer,   copyflag);
 	
@@ -800,10 +786,10 @@ public static Pixaa pixaSort2dByIndex(
 ///  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaSelectRange(
-				  Pixa pixas, 
-				  int first, 
-				  int last, 
-				  int copyflag){
+				 Pixa pixas, 
+				 int first, 
+				 int last, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.pixaSelectRange(pixas.Pointer,   first,   last,   copyflag);
 	
@@ -831,10 +817,10 @@ public static Pixa pixaSelectRange(
 ///  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 ///   <returns>paad, or NULL on error</returns>
 public static Pixaa pixaaSelectRange(
-				  Pixaa paas, 
-				  int first, 
-				  int last, 
-				  int copyflag){
+				 Pixaa paas, 
+				 int first, 
+				 int last, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.pixaaSelectRange(paas.Pointer,   first,   last,   copyflag);
 	
@@ -865,9 +851,9 @@ public static Pixaa pixaaSelectRange(
 ///  <param name="hd">[in] - target height use 0 if using width as target</param>
 ///   <returns>paad, or NULL on error</returns>
 public static Pixaa pixaaScaleToSize(
-				  Pixaa paas, 
-				  int wd, 
-				  int hd){
+				 Pixaa paas, 
+				 int wd, 
+				 int hd){
 
 	IntPtr _Result = Natives.pixaaScaleToSize(paas.Pointer,   wd,   hd);
 	
@@ -901,7 +887,7 @@ public static Pixaa pixaaScaleToSize(
 ///  <param name="nahd">[in][optional] - target height use NULL if using width</param>
 ///   <returns>paad, or NULL on error</returns>
 public static Pixaa pixaaScaleToSizeVar(
-				  Pixaa paas, 
+				 Pixaa paas, 
 				 Numa nawd, 
 				 Numa nahd){
 
@@ -931,9 +917,9 @@ public static Pixaa pixaaScaleToSizeVar(
 ///  <param name="hd">[in] - target height use 0 if using width as target</param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaScaleToSize(
-				  Pixa pixas, 
-				  int wd, 
-				  int hd){
+				 Pixa pixas, 
+				 int wd, 
+				 int hd){
 
 	IntPtr _Result = Natives.pixaScaleToSize(pixas.Pointer,   wd,   hd);
 	
@@ -960,9 +946,9 @@ public static Pixa pixaScaleToSize(
 ///  <param name="delh">[in] - change in height, in pixels 0 means no change return  pixad, or NULL on error</param>
 ///   <returns></returns>
 public static Pixa pixaScaleToSizeRel(
-				  Pixa pixas, 
-				  int delw, 
-				  int delh){
+				 Pixa pixas, 
+				 int delw, 
+				 int delh){
 
 	IntPtr _Result = Natives.pixaScaleToSizeRel(pixas.Pointer,   delw,   delh);
 	
@@ -987,7 +973,7 @@ public static Pixa pixaScaleToSizeRel(
 ///  <param name="scaley">[in] - </param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaScale(
-				  Pixa pixas, 
+				 Pixa pixas, 
 				 Single scalex, 
 				 Single scaley){
 
@@ -1014,7 +1000,7 @@ public static Pixa pixaScale(
 ///  <param name="scaley">[in] - </param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaScaleBySampling(
-				  Pixa pixas, 
+				 Pixa pixas, 
 				 Single scalex, 
 				 Single scaley){
 
@@ -1053,12 +1039,12 @@ public static Pixa pixaScaleBySampling(
 ///  <param name="height">[in] - original height use 0 to avoid embedding</param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaRotate(
-				  Pixa pixas, 
-				  Single angle, 
-				  int type, 
-				  int incolor, 
-				  int width, 
-				  int height){
+				 Pixa pixas, 
+				 Single angle, 
+				 int type, 
+				 int incolor, 
+				 int width, 
+				 int height){
 
 	IntPtr _Result = Natives.pixaRotate(pixas.Pointer,   angle,   type,   incolor,   width,   height);
 	
@@ -1083,8 +1069,8 @@ public static Pixa pixaRotate(
 ///  <param name="rotation">[in] - 0 = noop, 1 = 90 deg, 2 = 180 deg, 3 = 270 deg all rotations are clockwise</param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaRotateOrth(
-				  Pixa pixas, 
-				  int rotation){
+				 Pixa pixas, 
+				 int rotation){
 
 	IntPtr _Result = Natives.pixaRotateOrth(pixas.Pointer,   rotation);
 	
@@ -1107,10 +1093,10 @@ public static Pixa pixaRotateOrth(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixad, or NULL on error.</returns>
 public static Pixa pixaTranslate(
-				  Pixa pixas, 
-				  int hshift, 
-				  int vshift, 
-				  int incolor){
+				 Pixa pixas, 
+				 int hshift, 
+				 int vshift, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixaTranslate(pixas.Pointer,   hshift,   vshift,   incolor);
 	
@@ -1156,13 +1142,13 @@ public static Pixa pixaTranslate(
 ///  <param name="val">[in] - value of added border pixels</param>
 ///   <returns>pixad with border added to each pix, including on error</returns>
 public static Pixa pixaAddBorderGeneral(
-				  Pixa pixad, 
-				  Pixa pixas, 
-				  int left, 
-				  int right, 
-				  int top, 
-				  int bot, 
-				  uint val){
+				 Pixa pixad, 
+				 Pixa pixas, 
+				 int left, 
+				 int right, 
+				 int top, 
+				 int bot, 
+				 uint val){
 
 	IntPtr pixadPtr = IntPtr.Zero; 	if (pixad != null) {pixadPtr = pixad.Pointer;}
 
@@ -1193,17 +1179,16 @@ public static Pixa pixaAddBorderGeneral(
 ///  <param name="copyflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>pixa, or NULL on error</returns>
 public static Pixa pixaaFlattenToPixa(
-				  Pixaa paa, 
-				 out Numa pnaindex, 
-				  int copyflag){
+				 Pixaa paa, 
+				out Numa pnaindex, 
+				 int copyflag){
 
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixaaFlattenToPixa(paa.Pointer, out pnaindexPtr,   copyflag);
 	
 
-pnaindex = null;
-	; if (pnaindexPtr != IntPtr.Zero){pnaindex = new Numa(pnaindexPtr);}
+	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -1223,7 +1208,7 @@ pnaindex = null;
 ///  <param name="pmaxh">[out][optional] - range of dimensions of all boxes</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaaSizeRange(
-				  Pixaa paa, 
+				 Pixaa paa, 
 				out int pminw, 
 				out int pminh, 
 				out int pmaxw, 
@@ -1232,10 +1217,6 @@ public static int pixaaSizeRange(
 	int _Result = Natives.pixaaSizeRange(paa.Pointer, out  pminw, out  pminh, out  pmaxw, out  pmaxh);
 	
 
-pminw = 0;
-pminh = 0;
-pmaxw = 0;
-pmaxh = 0;
 
 
 	return _Result;
@@ -1254,7 +1235,7 @@ pmaxh = 0;
 ///  <param name="pmaxh">[out][optional] - range of dimensions of pix in the array</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaSizeRange(
-				  Pixa pixa, 
+				 Pixa pixa, 
 				out int pminw, 
 				out int pminh, 
 				out int pmaxw, 
@@ -1263,10 +1244,6 @@ public static int pixaSizeRange(
 	int _Result = Natives.pixaSizeRange(pixa.Pointer, out  pminw, out  pminh, out  pmaxw, out  pmaxh);
 	
 
-pminw = 0;
-pminh = 0;
-pmaxw = 0;
-pmaxh = 0;
 
 
 	return _Result;
@@ -1297,8 +1274,8 @@ pmaxh = 0;
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaClipToPix(
-				  Pixa pixas, 
-				  Pix pixs){
+				 Pixa pixas, 
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixaClipToPix(pixas.Pointer, pixs.Pointer);
 	
@@ -1327,7 +1304,7 @@ public static Pixa pixaClipToPix(
 ///  <param name="pboxa">[out][optional] - clipping boxes returned</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaClipToForeground(
-				  Pixa pixas, 
+				 Pixa pixas, 
 				out Pixa ppixad, 
 				out Boxa pboxa){
 
@@ -1337,10 +1314,8 @@ public static int pixaClipToForeground(
 	int _Result = Natives.pixaClipToForeground(pixas.Pointer, out ppixadPtr, out pboxaPtr);
 	
 
-ppixad = null;
-	; if (ppixadPtr != IntPtr.Zero){ppixad = new Pixa(ppixadPtr);}
-pboxa = null;
-	; if (pboxaPtr != IntPtr.Zero){pboxa = new Boxa(pboxaPtr);}
+	if (ppixadPtr == null) {ppixad = null;} else { ppixad = new Pixa(ppixadPtr); };
+	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 
 	return _Result;
@@ -1356,13 +1331,12 @@ pboxa = null;
 ///  <param name="pdepth">[out] - depth required to render if all colormaps are removed</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixaGetRenderingDepth(
-				  Pixa pixa, 
-				 out int pdepth){
+				 Pixa pixa, 
+				out int pdepth){
 
 	int _Result = Natives.pixaGetRenderingDepth(pixa.Pointer, out  pdepth);
 	
 
-pdepth = 0;
 
 
 	return _Result;
@@ -1378,13 +1352,12 @@ pdepth = 0;
 ///  <param name="phascolor">[out] - 1 if any pix is rgb or has a colormap with color 0 otherwise</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixaHasColor(
-				  Pixa pixa, 
-				 out int phascolor){
+				 Pixa pixa, 
+				out int phascolor){
 
 	int _Result = Natives.pixaHasColor(pixa.Pointer, out  phascolor);
 	
 
-phascolor = 0;
 
 
 	return _Result;
@@ -1400,13 +1373,12 @@ phascolor = 0;
 ///  <param name="phascmap">[out] - 1 if any pix has a colormap 0 otherwise</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixaAnyColormaps(
-				  Pixa pixa, 
-				 out int phascmap){
+				 Pixa pixa, 
+				out int phascmap){
 
 	int _Result = Natives.pixaAnyColormaps(pixa.Pointer, out  phascmap);
 	
 
-phascmap = 0;
 
 
 	return _Result;
@@ -1423,15 +1395,13 @@ phascmap = 0;
 ///  <param name="psame">[out][optional] - true if all depths are equal</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixaGetDepthInfo(
-				  Pixa pixa, 
+				 Pixa pixa, 
 				out int pmaxdepth, 
 				out int psame){
 
 	int _Result = Natives.pixaGetDepthInfo(pixa.Pointer, out  pmaxdepth, out  psame);
 	
 
-pmaxdepth = 0;
-psame = 0;
 
 
 	return _Result;
@@ -1453,7 +1423,7 @@ psame = 0;
 ///  <param name="pixas">[in] - </param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaConvertToSameDepth(
-				  Pixa pixas){
+				 Pixa pixas){
 
 	IntPtr _Result = Natives.pixaConvertToSameDepth(pixas.Pointer);
 	
@@ -1496,20 +1466,18 @@ public static Pixa pixaConvertToSameDepth(
 ///  <param name="psame">[out] - 1 if equal 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaEqual(
-				  Pixa pixa1, 
-				  Pixa pixa2, 
-				  int maxdist, 
-				 out Numa pnaindex, 
-				 out int psame){
+				 Pixa pixa1, 
+				 Pixa pixa2, 
+				 int maxdist, 
+				out Numa pnaindex, 
+				out int psame){
 
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixaEqual(pixa1.Pointer, pixa2.Pointer,   maxdist, out pnaindexPtr, out  psame);
 	
 
-pnaindex = null;
-	; if (pnaindexPtr != IntPtr.Zero){pnaindex = new Numa(pnaindexPtr);}
-psame = 0;
+	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 
 	return _Result;
@@ -1529,7 +1497,7 @@ psame = 0;
 ///  <param name="pixa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaSetFullSizeBoxa(
-				  Pixa pixa){
+				 Pixa pixa){
 
 	int _Result = Natives.pixaSetFullSizeBoxa(pixa.Pointer);
 	
@@ -1539,4 +1507,5 @@ public static int pixaSetFullSizeBoxa(
 	return _Result;
 }
 
+}
 }

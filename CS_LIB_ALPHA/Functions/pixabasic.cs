@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // pixabasic.c (162, 1)
 // pixaCreate(n) as Pixa
@@ -17,7 +18,7 @@ public class _All {
 ///  <param name="n">[in] - initial number of ptrs</param>
 ///   <returns>pixa, or NULL on error</returns>
 public static Pixa pixaCreate(
-				  int n){
+				 int n){
 
 	IntPtr _Result = Natives.pixaCreate(  n);
 	
@@ -44,10 +45,10 @@ public static Pixa pixaCreate(
 ///  <param name="cellh">[in] - height of each cell</param>
 ///   <returns>pixa, or NULL on error</returns>
 public static Pixa pixaCreateFromPix(
-				  Pix pixs, 
-				  int n, 
-				  int cellw, 
-				  int cellh){
+				 Pix pixs, 
+				 int n, 
+				 int cellw, 
+				 int cellh){
 
 	IntPtr _Result = Natives.pixaCreateFromPix(pixs.Pointer,   n,   cellw,   cellh);
 	
@@ -80,14 +81,13 @@ public static Pixa pixaCreateFromPix(
 ///  <param name="pcropwarn">[out][optional] - TRUE if the boxa extent is larger than pixs.</param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaCreateFromBoxa(
-				  Pix pixs, 
-				  Boxa boxa, 
+				 Pix pixs, 
+				 Boxa boxa, 
 				out int pcropwarn){
 
 	IntPtr _Result = Natives.pixaCreateFromBoxa(pixs.Pointer, boxa.Pointer, out  pcropwarn);
 	
 
-pcropwarn = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -121,11 +121,11 @@ pcropwarn = 0;
 ///  <param name="bordercolor">[in] - in our RGBA format: 0xrrggbbaa</param>
 ///   <returns>pixa, or NULL on error</returns>
 public static Pixa pixaSplitPix(
-				  Pix pixs, 
-				  int nx, 
-				  int ny, 
-				  int borderwidth, 
-				  uint bordercolor){
+				 Pix pixs, 
+				 int nx, 
+				 int ny, 
+				 int borderwidth, 
+				 uint bordercolor){
 
 	IntPtr _Result = Natives.pixaSplitPix(pixs.Pointer,   nx,   ny,   borderwidth,   bordercolor);
 	
@@ -149,15 +149,14 @@ public static Pixa pixaSplitPix(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaDestroy/*"/>
 ///  <param name="ppixa">[in,out]can be null - ed</param>
 public static void pixaDestroy(
-				 ref Pixa ppixa){
+				ref Pixa ppixa){
 
 	IntPtr ppixaPtr = IntPtr.Zero; 	if (ppixa != null) {ppixaPtr = ppixa.Pointer;}
 
 	Natives.pixaDestroy(ref ppixaPtr);
 	
 
-ppixa = null;
-	; if (ppixaPtr != IntPtr.Zero){ppixa = new Pixa(ppixaPtr);}
+	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 
 
 }
@@ -172,8 +171,8 @@ ppixa = null;
 ///  <param name="copyflag">[in] - see pix.h for details: L_COPY makes a new pixa and copies each pix and each box L_CLONE gives a new ref-counted handle to the input pixa L_COPY_CLONE makes a new pixa and inserts clones of all pix and boxes</param>
 ///   <returns>new pixa, or NULL on error</returns>
 public static Pixa pixaCopy(
-				  Pixa pixa, 
-				  int copyflag){
+				 Pixa pixa, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.pixaCopy(pixa.Pointer,   copyflag);
 	
@@ -195,9 +194,9 @@ public static Pixa pixaCopy(
 ///  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixaAddPix(
-				  Pixa pixa, 
-				  Pix pix, 
-				  int copyflag){
+				 Pixa pixa, 
+				 Pix pix, 
+				 int copyflag){
 
 	int _Result = Natives.pixaAddPix(pixa.Pointer, pix.Pointer,   copyflag);
 	
@@ -218,9 +217,9 @@ public static int pixaAddPix(
 ///  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaAddBox(
-				  Pixa pixa, 
-				  Box box, 
-				  int copyflag){
+				 Pixa pixa, 
+				 Box box, 
+				 int copyflag){
 
 	int _Result = Natives.pixaAddBox(pixa.Pointer, box.Pointer,   copyflag);
 	
@@ -244,8 +243,8 @@ public static int pixaAddBox(
 ///  <param name="size">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixaExtendArrayToSize(
-				  Pixa pixa, 
-				  int size){
+				 Pixa pixa, 
+				 int size){
 
 	int _Result = Natives.pixaExtendArrayToSize(pixa.Pointer,   size);
 	
@@ -264,7 +263,7 @@ public static int pixaExtendArrayToSize(
 ///  <param name="pixa">[in] - </param>
 ///   <returns>count, or 0 if no pixa</returns>
 public static int pixaGetCount(
-				  Pixa pixa){
+				 Pixa pixa){
 
 	int _Result = Natives.pixaGetCount(pixa.Pointer);
 	
@@ -284,8 +283,8 @@ public static int pixaGetCount(
 ///  <param name="delta">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaChangeRefcount(
-				  Pixa pixa, 
-				  int delta){
+				 Pixa pixa, 
+				 int delta){
 
 	int _Result = Natives.pixaChangeRefcount(pixa.Pointer,   delta);
 	
@@ -306,9 +305,9 @@ public static int pixaChangeRefcount(
 ///  <param name="accesstype">[in] - L_COPY or L_CLONE</param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixaGetPix(
-				  Pixa pixa, 
-				  int index, 
-				  int accesstype){
+				 Pixa pixa, 
+				 int index, 
+				 int accesstype){
 
 	IntPtr _Result = Natives.pixaGetPix(pixa.Pointer,   index,   accesstype);
 	
@@ -332,8 +331,8 @@ public static Pix pixaGetPix(
 ///  <param name="pd">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaGetPixDimensions(
-				  Pixa pixa, 
-				  int index, 
+				 Pixa pixa, 
+				 int index, 
 				out int pw, 
 				out int ph, 
 				out int pd){
@@ -341,9 +340,6 @@ public static int pixaGetPixDimensions(
 	int _Result = Natives.pixaGetPixDimensions(pixa.Pointer,   index, out  pw, out  ph, out  pd);
 	
 
-pw = 0;
-ph = 0;
-pd = 0;
 
 
 	return _Result;
@@ -359,8 +355,8 @@ pd = 0;
 ///  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
 ///   <returns>boxa, or NULL on error</returns>
 public static Boxa pixaGetBoxa(
-				  Pixa pixa, 
-				  int accesstype){
+				 Pixa pixa, 
+				 int accesstype){
 
 	IntPtr _Result = Natives.pixaGetBoxa(pixa.Pointer,   accesstype);
 	
@@ -380,7 +376,7 @@ public static Boxa pixaGetBoxa(
 ///  <param name="pixa">[in] - </param>
 ///   <returns>count, or 0 on error</returns>
 public static int pixaGetBoxaCount(
-				  Pixa pixa){
+				 Pixa pixa){
 
 	int _Result = Natives.pixaGetBoxaCount(pixa.Pointer);
 	
@@ -413,9 +409,9 @@ public static int pixaGetBoxaCount(
 ///  <param name="accesstype">[in] - L_COPY or L_CLONE</param>
 ///   <returns>box if null, not automatically an error, or NULL on error</returns>
 public static Box pixaGetBox(
-				  Pixa pixa, 
-				  int index, 
-				  int accesstype){
+				 Pixa pixa, 
+				 int index, 
+				 int accesstype){
 
 	IntPtr _Result = Natives.pixaGetBox(pixa.Pointer,   index,   accesstype);
 	
@@ -440,8 +436,8 @@ public static Box pixaGetBox(
 ///  <param name="ph">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaGetBoxGeometry(
-				  Pixa pixa, 
-				  int index, 
+				 Pixa pixa, 
+				 int index, 
 				out int px, 
 				out int py, 
 				out int pw, 
@@ -450,10 +446,6 @@ public static int pixaGetBoxGeometry(
 	int _Result = Natives.pixaGetBoxGeometry(pixa.Pointer,   index, out  px, out  py, out  pw, out  ph);
 	
 
-px = 0;
-py = 0;
-pw = 0;
-ph = 0;
 
 
 	return _Result;
@@ -473,9 +465,9 @@ ph = 0;
 ///  <param name="accesstype">[in] - L_INSERT, L_COPY, L_CLONE</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaSetBoxa(
-				  Pixa pixa, 
-				  Boxa boxa, 
-				  int accesstype){
+				 Pixa pixa, 
+				 Boxa boxa, 
+				 int accesstype){
 
 	int _Result = Natives.pixaSetBoxa(pixa.Pointer, boxa.Pointer,   accesstype);
 	
@@ -501,7 +493,7 @@ public static int pixaSetBoxa(
 ///  <param name="pixa">[in] - </param>
 ///   <returns>pix array, or NULL on error</returns>
 public static Pix pixaGetPixArray(
-				  Pixa pixa){
+				 Pixa pixa){
 
 	IntPtr _Result = Natives.pixaGetPixArray(pixa.Pointer);
 	
@@ -527,15 +519,13 @@ public static Pix pixaGetPixArray(
 ///  <param name="pmaxd">[out][optional] - max depth of all pix</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaVerifyDepth(
-				  Pixa pixa, 
-				 out int psame, 
+				 Pixa pixa, 
+				out int psame, 
 				out int pmaxd){
 
 	int _Result = Natives.pixaVerifyDepth(pixa.Pointer, out  psame, out  pmaxd);
 	
 
-psame = 0;
-pmaxd = 0;
 
 
 	return _Result;
@@ -556,17 +546,14 @@ pmaxd = 0;
 ///  <param name="pmaxh">[out][optional] - max height of all pix</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaVerifyDimensions(
-				  Pixa pixa, 
-				 out int psame, 
+				 Pixa pixa, 
+				out int psame, 
 				out int pmaxw, 
 				out int pmaxh){
 
 	int _Result = Natives.pixaVerifyDimensions(pixa.Pointer, out  psame, out  pmaxw, out  pmaxh);
 	
 
-psame = 0;
-pmaxw = 0;
-pmaxh = 0;
 
 
 	return _Result;
@@ -587,15 +574,13 @@ pmaxh = 0;
 ///  <param name="pfullba">[out][optional] - 1 if boxa is full</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaIsFull(
-				  Pixa pixa, 
+				 Pixa pixa, 
 				out int pfullpa, 
 				out int pfullba){
 
 	int _Result = Natives.pixaIsFull(pixa.Pointer, out  pfullpa, out  pfullba);
 	
 
-pfullpa = 0;
-pfullba = 0;
 
 
 	return _Result;
@@ -615,13 +600,12 @@ pfullba = 0;
 ///  <param name="pntext">[out] - number of pix with non-empty text strings</param>
 ///   <returns>0 if OK, 1 on error.</returns>
 public static int pixaCountText(
-				  Pixa pixa, 
-				 out int pntext){
+				 Pixa pixa, 
+				out int pntext){
 
 	int _Result = Natives.pixaCountText(pixa.Pointer, out  pntext);
 	
 
-pntext = 0;
 
 
 	return _Result;
@@ -642,7 +626,7 @@ pntext = 0;
 ///  <param name="sa">[in][optional] - array of text strings, to insert in each pix</param>
 ///   <returns>0 if OK, 1 on error.</returns>
 public static int pixaSetText(
-				  Pixa pixa, 
+				 Pixa pixa, 
 				 Sarray sa){
 
 	IntPtr saPtr = IntPtr.Zero; 	if (sa != null) {saPtr = sa.Pointer;}
@@ -677,13 +661,12 @@ public static int pixaSetText(
 ///  <param name="psize">[out][optional] - number of pix in the pixa</param>
 ///   <returns>array of array of line ptrs, or NULL on error</returns>
 public static IntPtr pixaGetLinePtrs(
-				  Pixa pixa, 
+				 Pixa pixa, 
 				out int psize){
 
 	IntPtr _Result = Natives.pixaGetLinePtrs(pixa.Pointer, out  psize);
 	
 
-psize = 0;
 
 
 	return _Result;
@@ -703,8 +686,8 @@ psize = 0;
 ///  <param name="pixa">[in] - </param>
 ///   <returns>0 if OK, 1 on error.</returns>
 public static int pixaWriteStreamInfo(
-				  FILE fp, 
-				  Pixa pixa){
+				 FILE fp, 
+				 Pixa pixa){
 
 	int _Result = Natives.pixaWriteStreamInfo(fp.Pointer, pixa.Pointer);
 	
@@ -731,9 +714,9 @@ public static int pixaWriteStreamInfo(
 ///  <param name="box">[in][optional] - insert to replace existing</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaReplacePix(
-				  Pixa pixa, 
-				  int index, 
-				  Pix pix, 
+				 Pixa pixa, 
+				 int index, 
+				 Pix pix, 
 				 Box box){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
@@ -769,9 +752,9 @@ public static int pixaReplacePix(
 ///  <param name="box">[in][optional] - new box to be inserted</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaInsertPix(
-				  Pixa pixa, 
-				  int index, 
-				  Pix pixs, 
+				 Pixa pixa, 
+				 int index, 
+				 Pix pixs, 
 				 Box box){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
@@ -802,8 +785,8 @@ public static int pixaInsertPix(
 ///  <param name="index">[in] - of pix to be removed</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaRemovePix(
-				  Pixa pixa, 
-				  int index){
+				 Pixa pixa, 
+				 int index){
 
 	int _Result = Natives.pixaRemovePix(pixa.Pointer,   index);
 	
@@ -835,8 +818,8 @@ public static int pixaRemovePix(
 ///  <param name="pbox">[out][optional] - removed box</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaRemovePixAndSave(
-				  Pixa pixa, 
-				  int index, 
+				 Pixa pixa, 
+				 int index, 
 				out Pix ppix, 
 				out Box pbox){
 
@@ -846,10 +829,8 @@ public static int pixaRemovePixAndSave(
 	int _Result = Natives.pixaRemovePixAndSave(pixa.Pointer,   index, out ppixPtr, out pboxPtr);
 	
 
-ppix = null;
-	; if (ppixPtr != IntPtr.Zero){ppix = new Pix(ppixPtr);}
-pbox = null;
-	; if (pboxPtr != IntPtr.Zero){pbox = new Box(pboxPtr);}
+	if (ppixPtr == null) {ppix = null;} else { ppix = new Pix(ppixPtr); };
+	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
 
 
 	return _Result;
@@ -894,7 +875,7 @@ pbox = null;
 ///  <param name="box">[in][optional] - to be replicated into the entire boxa ptr array</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaInitFull(
-				  Pixa pixa, 
+				 Pixa pixa, 
 				 Pix pix, 
 				 Box box){
 
@@ -923,7 +904,7 @@ public static int pixaInitFull(
 ///  <param name="pixa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaClear(
-				  Pixa pixa){
+				 Pixa pixa){
 
 	int _Result = Natives.pixaClear(pixa.Pointer);
 	
@@ -954,10 +935,10 @@ public static int pixaClear(
 ///  <param name="iend">[in] - ending index in pixas use -1 to cat all</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaJoin(
-				  Pixa pixad, 
-				  Pixa pixas, 
-				  int istart, 
-				  int iend){
+				 Pixa pixad, 
+				 Pixa pixas, 
+				 int istart, 
+				 int iend){
 
 	IntPtr pixasPtr = IntPtr.Zero; 	if (pixas != null) {pixasPtr = pixas.Pointer;}
 
@@ -987,9 +968,9 @@ public static int pixaJoin(
 ///  <param name="copyflag">[in] - L_CLONE, L_COPY</param>
 ///   <returns>pixa  interleaved from sources, or NULL on error.</returns>
 public static Pixa pixaInterleave(
-				  Pixa pixa1, 
-				  Pixa pixa2, 
-				  int copyflag){
+				 Pixa pixa1, 
+				 Pixa pixa2, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.pixaInterleave(pixa1.Pointer, pixa2.Pointer,   copyflag);
 	
@@ -1019,10 +1000,10 @@ public static Pixa pixaInterleave(
 ///  <param name="iend">[in] - ending index in pixaas use -1 to cat all</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaaJoin(
-				  Pixaa paad, 
-				  Pixaa paas, 
-				  int istart, 
-				  int iend){
+				 Pixaa paad, 
+				 Pixaa paas, 
+				 int istart, 
+				 int iend){
 
 	IntPtr paasPtr = IntPtr.Zero; 	if (paas != null) {paasPtr = paas.Pointer;}
 
@@ -1058,7 +1039,7 @@ public static int pixaaJoin(
 ///  <param name="n">[in] - initial number of pixa ptrs</param>
 ///   <returns>paa, or NULL on error</returns>
 public static Pixaa pixaaCreate(
-				  int n){
+				 int n){
 
 	IntPtr _Result = Natives.pixaaCreate(  n);
 	
@@ -1092,10 +1073,10 @@ public static Pixaa pixaaCreate(
 ///  <param name="copyflag">[in] - L_CLONE, L_COPY</param>
 ///   <returns>paa, or NULL on error</returns>
 public static Pixaa pixaaCreateFromPixa(
-				  Pixa pixa, 
-				  int n, 
-				  int type, 
-				  int copyflag){
+				 Pixa pixa, 
+				 int n, 
+				 int type, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.pixaaCreateFromPixa(pixa.Pointer,   n,   type,   copyflag);
 	
@@ -1114,15 +1095,14 @@ public static Pixaa pixaaCreateFromPixa(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaaDestroy/*"/>
 ///  <param name="ppaa">[in,out] - to be nulled</param>
 public static void pixaaDestroy(
-				 ref Pixaa ppaa){
+				ref Pixaa ppaa){
 
 	IntPtr ppaaPtr = IntPtr.Zero; 	if (ppaa != null) {ppaaPtr = ppaa.Pointer;}
 
 	Natives.pixaaDestroy(ref ppaaPtr);
 	
 
-ppaa = null;
-	; if (ppaaPtr != IntPtr.Zero){ppaa = new Pixaa(ppaaPtr);}
+	if (ppaaPtr == null) {ppaa = null;} else { ppaa = new Pixaa(ppaaPtr); };
 
 
 }
@@ -1138,9 +1118,9 @@ ppaa = null;
 ///  <param name="copyflag">[in] - : L_INSERT inserts the pixa directly L_COPY makes a new pixa and copies each pix and each box L_CLONE gives a new handle to the input pixa L_COPY_CLONE makes a new pixa and inserts clones of all pix and boxes</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixaaAddPixa(
-				  Pixaa paa, 
-				  Pixa pixa, 
-				  int copyflag){
+				 Pixaa paa, 
+				 Pixa pixa, 
+				 int copyflag){
 
 	int _Result = Natives.pixaaAddPixa(paa.Pointer, pixa.Pointer,   copyflag);
 	
@@ -1159,7 +1139,7 @@ public static int pixaaAddPixa(
 ///  <param name="paa">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixaaExtendArray(
-				  Pixaa paa){
+				 Pixaa paa){
 
 	int _Result = Natives.pixaaExtendArray(paa.Pointer);
 	
@@ -1182,11 +1162,11 @@ public static int pixaaExtendArray(
 ///  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixaaAddPix(
-				  Pixaa paa, 
-				  int index, 
-				  Pix pix, 
-				  Box box, 
-				  int copyflag){
+				 Pixaa paa, 
+				 int index, 
+				 Pix pix, 
+				 Box box, 
+				 int copyflag){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
@@ -1213,9 +1193,9 @@ public static int pixaaAddPix(
 ///  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaaAddBox(
-				  Pixaa paa, 
-				  Box box, 
-				  int copyflag){
+				 Pixaa paa, 
+				 Box box, 
+				 int copyflag){
 
 	int _Result = Natives.pixaaAddBox(paa.Pointer, box.Pointer,   copyflag);
 	
@@ -1238,7 +1218,7 @@ public static int pixaaAddBox(
 ///  <param name="pna">[out][optional] - number of pix in each pixa</param>
 ///   <returns>count, or 0 if no pixaa</returns>
 public static int pixaaGetCount(
-				  Pixaa paa, 
+				 Pixaa paa, 
 				out Numa pna){
 
 	IntPtr pnaPtr = IntPtr.Zero;
@@ -1246,8 +1226,7 @@ public static int pixaaGetCount(
 	int _Result = Natives.pixaaGetCount(paa.Pointer, out pnaPtr);
 	
 
-pna = null;
-	; if (pnaPtr != IntPtr.Zero){pna = new Numa(pnaPtr);}
+	if (pnaPtr == null) {pna = null;} else { pna = new Numa(pnaPtr); };
 
 
 	return _Result;
@@ -1277,9 +1256,9 @@ pna = null;
 ///  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
 ///   <returns>pixa, or NULL on error</returns>
 public static Pixa pixaaGetPixa(
-				  Pixaa paa, 
-				  int index, 
-				  int accesstype){
+				 Pixaa paa, 
+				 int index, 
+				 int accesstype){
 
 	IntPtr _Result = Natives.pixaaGetPixa(paa.Pointer,   index,   accesstype);
 	
@@ -1305,8 +1284,8 @@ public static Pixa pixaaGetPixa(
 ///  <param name="accesstype">[in] - L_COPY, L_CLONE</param>
 ///   <returns>boxa, or NULL on error</returns>
 public static Boxa pixaaGetBoxa(
-				  Pixaa paa, 
-				  int accesstype){
+				 Pixaa paa, 
+				 int accesstype){
 
 	IntPtr _Result = Natives.pixaaGetBoxa(paa.Pointer,   accesstype);
 	
@@ -1329,10 +1308,10 @@ public static Boxa pixaaGetBoxa(
 ///  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixaaGetPix(
-				  Pixaa paa, 
-				  int index, 
-				  int ipix, 
-				  int accessflag){
+				 Pixaa paa, 
+				 int index, 
+				 int ipix, 
+				 int accessflag){
 
 	IntPtr _Result = Natives.pixaaGetPix(paa.Pointer,   index,   ipix,   accessflag);
 	
@@ -1357,15 +1336,13 @@ public static Pix pixaaGetPix(
 ///  <param name="pmaxd">[out][optional] - max depth of all pix in pixaa</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixaaVerifyDepth(
-				  Pixaa paa, 
-				 out int psame, 
+				 Pixaa paa, 
+				out int psame, 
 				out int pmaxd){
 
 	int _Result = Natives.pixaaVerifyDepth(paa.Pointer, out  psame, out  pmaxd);
 	
 
-psame = 0;
-pmaxd = 0;
 
 
 	return _Result;
@@ -1386,17 +1363,14 @@ pmaxd = 0;
 ///  <param name="pmaxh">[out][optional] - max height of all pix in pixaa</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixaaVerifyDimensions(
-				  Pixaa paa, 
-				 out int psame, 
+				 Pixaa paa, 
+				out int psame, 
 				out int pmaxw, 
 				out int pmaxh){
 
 	int _Result = Natives.pixaaVerifyDimensions(paa.Pointer, out  psame, out  pmaxw, out  pmaxh);
 	
 
-psame = 0;
-pmaxw = 0;
-pmaxh = 0;
 
 
 	return _Result;
@@ -1415,13 +1389,12 @@ pmaxh = 0;
 ///  <param name="pfull">[out] - 1 if all pixa in the paa have full pix arrays</param>
 ///   <returns>return 0 if OK, 1 on error</returns>
 public static int pixaaIsFull(
-				  Pixaa paa, 
-				 out int pfull){
+				 Pixaa paa, 
+				out int pfull){
 
 	int _Result = Natives.pixaaIsFull(paa.Pointer, out  pfull);
 	
 
-pfull = 0;
 
 
 	return _Result;
@@ -1450,8 +1423,8 @@ pfull = 0;
 ///  <param name="pixa">[in] - to be replicated into the entire pixa ptr array</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaaInitFull(
-				  Pixaa paa, 
-				  Pixa pixa){
+				 Pixaa paa, 
+				 Pixa pixa){
 
 	int _Result = Natives.pixaaInitFull(paa.Pointer, pixa.Pointer);
 	
@@ -1481,9 +1454,9 @@ public static int pixaaInitFull(
 ///  <param name="pixa">[in] - insert to replace existing one</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaaReplacePixa(
-				  Pixaa paa, 
-				  int index, 
-				  Pixa pixa){
+				 Pixaa paa, 
+				 int index, 
+				 Pixa pixa){
 
 	int _Result = Natives.pixaaReplacePixa(paa.Pointer,   index, pixa.Pointer);
 	
@@ -1506,7 +1479,7 @@ public static int pixaaReplacePixa(
 ///  <param name="paa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaaClear(
-				  Pixaa paa){
+				 Pixaa paa){
 
 	int _Result = Natives.pixaaClear(paa.Pointer);
 	
@@ -1530,7 +1503,7 @@ public static int pixaaClear(
 ///  <param name="paa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaaTruncate(
-				  Pixaa paa){
+				 Pixaa paa){
 
 	int _Result = Natives.pixaaTruncate(paa.Pointer);
 	
@@ -1553,7 +1526,7 @@ public static int pixaaTruncate(
 ///  <param name="filename">[in] - </param>
 ///   <returns>pixa, or NULL on error</returns>
 public static Pixa pixaRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.pixaRead(  filename);
 	
@@ -1577,7 +1550,7 @@ public static Pixa pixaRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>pixa, or NULL on error</returns>
 public static Pixa pixaReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.pixaReadStream(fp.Pointer);
 	
@@ -1598,8 +1571,8 @@ public static Pixa pixaReadStream(
 ///  <param name="size">[in] - of data in bytes</param>
 ///   <returns>pixa, or NULL on error</returns>
 public static Pixa pixaReadMem(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.pixaReadMem(  data,   size);
 	
@@ -1628,8 +1601,8 @@ public static Pixa pixaReadMem(
 ///  <param name="pixa">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixaWriteDebug(
-				  String fname, 
-				  Pixa pixa){
+				 String fname, 
+				 Pixa pixa){
 
 	int _Result = Natives.pixaWriteDebug(  fname, pixa.Pointer);
 	
@@ -1653,8 +1626,8 @@ public static int pixaWriteDebug(
 ///  <param name="pixa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaWrite(
-				  String filename, 
-				  Pixa pixa){
+				 String filename, 
+				 Pixa pixa){
 
 	int _Result = Natives.pixaWrite(  filename, pixa.Pointer);
 	
@@ -1678,8 +1651,8 @@ public static int pixaWrite(
 ///  <param name="pixa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaWriteStream(
-				  FILE fp, 
-				  Pixa pixa){
+				 FILE fp, 
+				 Pixa pixa){
 
 	int _Result = Natives.pixaWriteStream(fp.Pointer, pixa.Pointer);
 	
@@ -1703,17 +1676,16 @@ public static int pixaWriteStream(
 ///  <param name="pixa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaWriteMem(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  Pixa pixa){
+				out Byte[] pdata, 
+				out uint psize, 
+				 Pixa pixa){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixaWriteMem(out  pdataPtr, out  psize, pixa.Pointer);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -1732,7 +1704,7 @@ psize = 0;
 ///  <param name="filename">[in] - </param>
 ///   <returns>pixa, or NULL on error</returns>
 public static Pixa pixaReadBoth(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.pixaReadBoth(  filename);
 	
@@ -1766,10 +1738,10 @@ public static Pixa pixaReadBoth(
 ///  <param name="nfiles">[in] - use 0 for everything from %first to the end</param>
 ///   <returns>paa, or NULL on error or if no pixa files are found.</returns>
 public static Pixaa pixaaReadFromFiles(
-				  String dirname, 
-				  String substr, 
-				  int first, 
-				  int nfiles){
+				 String dirname, 
+				 String substr, 
+				 int first, 
+				 int nfiles){
 
 	IntPtr _Result = Natives.pixaaReadFromFiles(  dirname,   substr,   first,   nfiles);
 	
@@ -1793,7 +1765,7 @@ public static Pixaa pixaaReadFromFiles(
 ///  <param name="filename">[in] - </param>
 ///   <returns>paa, or NULL on error</returns>
 public static Pixaa pixaaRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.pixaaRead(  filename);
 	
@@ -1817,7 +1789,7 @@ public static Pixaa pixaaRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>paa, or NULL on error</returns>
 public static Pixaa pixaaReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.pixaaReadStream(fp.Pointer);
 	
@@ -1838,8 +1810,8 @@ public static Pixaa pixaaReadStream(
 ///  <param name="size">[in] - of data in bytes</param>
 ///   <returns>paa, or NULL on error</returns>
 public static Pixaa pixaaReadMem(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.pixaaReadMem(  data,   size);
 	
@@ -1864,8 +1836,8 @@ public static Pixaa pixaaReadMem(
 ///  <param name="paa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaaWrite(
-				  String filename, 
-				  Pixaa paa){
+				 String filename, 
+				 Pixaa paa){
 
 	int _Result = Natives.pixaaWrite(  filename, paa.Pointer);
 	
@@ -1889,8 +1861,8 @@ public static int pixaaWrite(
 ///  <param name="paa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaaWriteStream(
-				  FILE fp, 
-				  Pixaa paa){
+				 FILE fp, 
+				 Pixaa paa){
 
 	int _Result = Natives.pixaaWriteStream(fp.Pointer, paa.Pointer);
 	
@@ -1914,20 +1886,20 @@ public static int pixaaWriteStream(
 ///  <param name="paa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaaWriteMem(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  Pixaa paa){
+				out Byte[] pdata, 
+				out uint psize, 
+				 Pixaa paa){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixaaWriteMem(out  pdataPtr, out  psize, paa.Pointer);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
 }
 
+}
 }

@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // heap.c (102, 1)
 // lheapCreate(nalloc, direction) as L_Heap
@@ -15,8 +16,8 @@ public class _All {
 ///  <param name="direction">[in] - L_SORT_INCREASING, L_SORT_DECREASING</param>
 ///   <returns>lheap, or NULL on error</returns>
 public static L_Heap lheapCreate(
-				  int nalloc, 
-				  int direction){
+				 int nalloc, 
+				 int direction){
 
 	IntPtr _Result = Natives.lheapCreate(  nalloc,   direction);
 	
@@ -46,16 +47,15 @@ public static L_Heap lheapCreate(
 ///  <param name="plh">[in,out] - to be nulled</param>
 ///  <param name="freeflag">[in] - TRUE to free each remaining struct in the array</param>
 public static void lheapDestroy(
-				 ref L_Heap plh, 
-				  int freeflag){
+				ref L_Heap plh, 
+				 int freeflag){
 
 	IntPtr plhPtr = IntPtr.Zero; 	if (plh != null) {plhPtr = plh.Pointer;}
 
 	Natives.lheapDestroy(ref plhPtr,   freeflag);
 	
 
-plh = null;
-	; if (plhPtr != IntPtr.Zero){plh = new L_Heap(plhPtr);}
+	if (plhPtr == null) {plh = null;} else { plh = new L_Heap(plhPtr); };
 
 
 }
@@ -70,8 +70,8 @@ plh = null;
 ///  <param name="item">[in] - to be added to the tail of the heap</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int lheapAdd(
-				  L_Heap lh, 
-				  Object item){
+				 L_Heap lh, 
+				 Object item){
 
 		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -94,7 +94,7 @@ public static int lheapAdd(
 ///  <param name="lh">[in] - heap</param>
 ///   <returns>ptr to item popped from the root of the heap, or NULL if the heap is empty or on error</returns>
 public static Object lheapRemove(
-				  L_Heap lh){
+				 L_Heap lh){
 
 	IntPtr _Result = Natives.lheapRemove(lh.Pointer);
 	
@@ -114,7 +114,7 @@ public static Object lheapRemove(
 ///  <param name="lh">[in] - heap</param>
 ///   <returns>count, or 0 on error</returns>
 public static int lheapGetCount(
-				  L_Heap lh){
+				 L_Heap lh){
 
 	int _Result = Natives.lheapGetCount(lh.Pointer);
 	
@@ -143,8 +143,8 @@ public static int lheapGetCount(
 ///  <param name="index">[in] - of array corresponding to node to be swapped up</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int lheapSwapUp(
-				  L_Heap lh, 
-				  int index){
+				 L_Heap lh, 
+				 int index){
 
 	int _Result = Natives.lheapSwapUp(lh.Pointer,   index);
 	
@@ -177,7 +177,7 @@ public static int lheapSwapUp(
 ///  <param name="lh">[in] - heap</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int lheapSwapDown(
-				  L_Heap lh){
+				 L_Heap lh){
 
 	int _Result = Natives.lheapSwapDown(lh.Pointer);
 	
@@ -200,7 +200,7 @@ public static int lheapSwapDown(
 ///  <param name="lh">[in] - heap, with internal array</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int lheapSort(
-				  L_Heap lh){
+				 L_Heap lh){
 
 	int _Result = Natives.lheapSort(lh.Pointer);
 	
@@ -229,7 +229,7 @@ public static int lheapSort(
 ///  <param name="lh">[in] - heap, with internal array</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int lheapSortStrictOrder(
-				  L_Heap lh){
+				 L_Heap lh){
 
 	int _Result = Natives.lheapSortStrictOrder(lh.Pointer);
 	
@@ -249,8 +249,8 @@ public static int lheapSortStrictOrder(
 ///  <param name="lh">[in] - heap</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int lheapPrint(
-				  FILE fp, 
-				  L_Heap lh){
+				 FILE fp, 
+				 L_Heap lh){
 
 	int _Result = Natives.lheapPrint(fp.Pointer, lh.Pointer);
 	
@@ -260,4 +260,5 @@ public static int lheapPrint(
 	return _Result;
 }
 
+}
 }

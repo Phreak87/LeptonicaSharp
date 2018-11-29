@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // bmf.c (114, 1)
 // bmfCreate(dir, fontsize) as L_Bmf
@@ -25,8 +26,8 @@ public class _All {
 ///  <param name="fontsize">[in] - 4, 6, 8, ... , 20</param>
 ///   <returns>bmf holding the bitmap font and associated information</returns>
 public static L_Bmf bmfCreate(
-				  String dir, 
-				  int fontsize){
+				 String dir, 
+				 int fontsize){
 
 	IntPtr _Result = Natives.bmfCreate(  dir,   fontsize);
 	
@@ -45,15 +46,14 @@ public static L_Bmf bmfCreate(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bmfDestroy/*"/>
 ///  <param name="pbmf">[in,out] - set to null</param>
 public static void bmfDestroy(
-				 ref L_Bmf pbmf){
+				ref L_Bmf pbmf){
 
 	IntPtr pbmfPtr = IntPtr.Zero; 	if (pbmf != null) {pbmfPtr = pbmf.Pointer;}
 
 	Natives.bmfDestroy(ref pbmfPtr);
 	
 
-pbmf = null;
-	; if (pbmfPtr != IntPtr.Zero){pbmf = new L_Bmf(pbmfPtr);}
+	if (pbmfPtr == null) {pbmf = null;} else { pbmf = new L_Bmf(pbmfPtr); };
 
 
 }
@@ -68,8 +68,8 @@ pbmf = null;
 ///  <param name="chr">[in] - should be one of the 95 supported printable bitmaps</param>
 ///   <returns>pix clone of pix in bmf, or NULL on error</returns>
 public static Pix bmfGetPix(
-				  L_Bmf bmf, 
-				  char chr){
+				 L_Bmf bmf, 
+				 char chr){
 
 	IntPtr _Result = Natives.bmfGetPix(bmf.Pointer,   chr);
 	
@@ -91,14 +91,13 @@ public static Pix bmfGetPix(
 ///  <param name="pw">[out] - character width -1 if not printable</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int bmfGetWidth(
-				  L_Bmf bmf, 
-				  char chr, 
-				 out int pw){
+				 L_Bmf bmf, 
+				 char chr, 
+				out int pw){
 
 	int _Result = Natives.bmfGetWidth(bmf.Pointer,   chr, out  pw);
 	
 
-pw = 0;
 
 
 	return _Result;
@@ -115,14 +114,13 @@ pw = 0;
 ///  <param name="pbaseline">[out] - distance below UL corner of bitmap char</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int bmfGetBaseline(
-				  L_Bmf bmf, 
-				  char chr, 
-				 out int pbaseline){
+				 L_Bmf bmf, 
+				 char chr, 
+				out int pbaseline){
 
 	int _Result = Natives.bmfGetBaseline(bmf.Pointer,   chr, out  pbaseline);
 	
 
-pbaseline = 0;
 
 
 	return _Result;
@@ -144,18 +142,15 @@ pbaseline = 0;
 ///  <param name="pbl2">[out] - baseline of row 3</param>
 ///   <returns>pixa of font bitmaps for 95 characters, or NULL on error</returns>
 public static Pixa pixaGetFont(
-				  String dir, 
-				  int fontsize, 
-				 out int pbl0, 
-				 out int pbl1, 
-				 out int pbl2){
+				 String dir, 
+				 int fontsize, 
+				out int pbl0, 
+				out int pbl1, 
+				out int pbl2){
 
 	IntPtr _Result = Natives.pixaGetFont(  dir,   fontsize, out  pbl0, out  pbl1, out  pbl2);
 	
 
-pbl0 = 0;
-pbl1 = 0;
-pbl2 = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -182,9 +177,9 @@ pbl2 = 0;
 ///  <param name="fontsize">[in] - in pts, at 300 ppi</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaSaveFont(
-				  String indir, 
-				  String outdir, 
-				  int fontsize){
+				 String indir, 
+				 String outdir, 
+				 int fontsize){
 
 	int _Result = Natives.pixaSaveFont(  indir,   outdir,   fontsize);
 	
@@ -194,4 +189,5 @@ public static int pixaSaveFont(
 	return _Result;
 }
 
+}
 }

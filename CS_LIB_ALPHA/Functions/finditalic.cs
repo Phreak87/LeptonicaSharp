@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // finditalic.c (110, 1)
 // pixItalicWords(pixs, boxaw, pixw, pboxa, debugflag) as int
@@ -41,11 +42,11 @@ public class _All {
 ///  <param name="debugflag">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixItalicWords(
-				  Pix pixs, 
-				  Boxa boxaw, 
-				  Pix pixw, 
-				 out Boxa pboxa, 
-				  int debugflag){
+				 Pix pixs, 
+				 Boxa boxaw, 
+				 Pix pixw, 
+				out Boxa pboxa, 
+				 int debugflag){
 
 	IntPtr boxawPtr = IntPtr.Zero; 	if (boxaw != null) {boxawPtr = boxaw.Pointer;}
 	IntPtr pixwPtr = IntPtr.Zero; 	if (pixw != null) {pixwPtr = pixw.Pointer;}
@@ -54,11 +55,11 @@ public static int pixItalicWords(
 	int _Result = Natives.pixItalicWords(pixs.Pointer, boxawPtr, pixwPtr, out pboxaPtr,   debugflag);
 	
 
-pboxa = null;
-	; if (pboxaPtr != IntPtr.Zero){pboxa = new Boxa(pboxaPtr);}
+	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 
 	return _Result;
 }
 
+}
 }

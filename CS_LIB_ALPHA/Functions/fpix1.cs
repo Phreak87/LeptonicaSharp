@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // fpix1.c (149, 1)
 // fpixCreate(width, height) as FPix
@@ -21,8 +22,8 @@ public class _All {
 ///  <param name="height">[in] - </param>
 ///   <returns>fpixd   with data allocated and initialized to 0, or NULL on error</returns>
 public static FPix fpixCreate(
-				  int width, 
-				  int height){
+				 int width, 
+				 int height){
 
 	IntPtr _Result = Natives.fpixCreate(  width,   height);
 	
@@ -48,7 +49,7 @@ public static FPix fpixCreate(
 ///  <param name="fpixs">[in] - </param>
 ///   <returns>fpixd, or NULL on error</returns>
 public static FPix fpixCreateTemplate(
-				  FPix fpixs){
+				 FPix fpixs){
 
 	IntPtr _Result = Natives.fpixCreateTemplate(fpixs.Pointer);
 	
@@ -71,7 +72,7 @@ public static FPix fpixCreateTemplate(
 ///  <param name="fpix">[in] - </param>
 ///   <returns>same fpix ptr, or NULL on error</returns>
 public static FPix fpixClone(
-				  FPix fpix){
+				 FPix fpix){
 
 	IntPtr _Result = Natives.fpixClone(fpix.Pointer);
 	
@@ -115,8 +116,8 @@ public static FPix fpixClone(
 ///  <param name="fpixs">[in] - </param>
 ///   <returns>fpixd, or NULL on error</returns>
 public static FPix fpixCopy(
-				  FPix fpixd, 
-				  FPix fpixs){
+				 FPix fpixd, 
+				 FPix fpixs){
 
 	IntPtr fpixdPtr = IntPtr.Zero; 	if (fpixd != null) {fpixdPtr = fpixd.Pointer;}
 
@@ -145,8 +146,8 @@ public static FPix fpixCopy(
 ///  <param name="fpixs">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fpixResizeImageData(
-				  FPix fpixd, 
-				  FPix fpixs){
+				 FPix fpixd, 
+				 FPix fpixs){
 
 	int _Result = Natives.fpixResizeImageData(fpixd.Pointer, fpixs.Pointer);
 	
@@ -169,15 +170,14 @@ public static int fpixResizeImageData(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixDestroy/*"/>
 ///  <param name="pfpix">[in,out] - will be nulled</param>
 public static void fpixDestroy(
-				 ref FPix pfpix){
+				ref FPix pfpix){
 
 	IntPtr pfpixPtr = IntPtr.Zero; 	if (pfpix != null) {pfpixPtr = pfpix.Pointer;}
 
 	Natives.fpixDestroy(ref pfpixPtr);
 	
 
-pfpix = null;
-	; if (pfpixPtr != IntPtr.Zero){pfpix = new FPix(pfpixPtr);}
+	if (pfpixPtr == null) {pfpix = null;} else { pfpix = new FPix(pfpixPtr); };
 
 
 }
@@ -193,15 +193,13 @@ pfpix = null;
 ///  <param name="ph">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fpixGetDimensions(
-				  FPix fpix, 
+				 FPix fpix, 
 				out int pw, 
 				out int ph){
 
 	int _Result = Natives.fpixGetDimensions(fpix.Pointer, out  pw, out  ph);
 	
 
-pw = 0;
-ph = 0;
 
 
 	return _Result;
@@ -218,9 +216,9 @@ ph = 0;
 ///  <param name="h">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fpixSetDimensions(
-				  FPix fpix, 
-				  int w, 
-				  int h){
+				 FPix fpix, 
+				 int w, 
+				 int h){
 
 	int _Result = Natives.fpixSetDimensions(fpix.Pointer,   w,   h);
 	
@@ -239,7 +237,7 @@ public static int fpixSetDimensions(
 ///  <param name="fpix">[in] - </param>
 ///   <returns>wpl, or UNDEF on error</returns>
 public static int fpixGetWpl(
-				  FPix fpix){
+				 FPix fpix){
 
 	int _Result = Natives.fpixGetWpl(fpix.Pointer);
 	
@@ -259,8 +257,8 @@ public static int fpixGetWpl(
 ///  <param name="wpl">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fpixSetWpl(
-				  FPix fpix, 
-				  int wpl){
+				 FPix fpix, 
+				 int wpl){
 
 	int _Result = Natives.fpixSetWpl(fpix.Pointer,   wpl);
 	
@@ -279,7 +277,7 @@ public static int fpixSetWpl(
 ///  <param name="fpix">[in] - </param>
 ///   <returns>refcount, or UNDEF on error</returns>
 public static int fpixGetRefcount(
-				  FPix fpix){
+				 FPix fpix){
 
 	int _Result = Natives.fpixGetRefcount(fpix.Pointer);
 	
@@ -299,8 +297,8 @@ public static int fpixGetRefcount(
 ///  <param name="delta">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fpixChangeRefcount(
-				  FPix fpix, 
-				  int delta){
+				 FPix fpix, 
+				 int delta){
 
 	int _Result = Natives.fpixChangeRefcount(fpix.Pointer,   delta);
 	
@@ -321,15 +319,13 @@ public static int fpixChangeRefcount(
 ///  <param name="pyres">[out][optional] - x and y resolution</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fpixGetResolution(
-				  FPix fpix, 
+				 FPix fpix, 
 				out int pxres, 
 				out int pyres){
 
 	int _Result = Natives.fpixGetResolution(fpix.Pointer, out  pxres, out  pyres);
 	
 
-pxres = 0;
-pyres = 0;
 
 
 	return _Result;
@@ -346,9 +342,9 @@ pyres = 0;
 ///  <param name="yres">[in] - x and y resolution</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fpixSetResolution(
-				  FPix fpix, 
-				  int xres, 
-				  int yres){
+				 FPix fpix, 
+				 int xres, 
+				 int yres){
 
 	int _Result = Natives.fpixSetResolution(fpix.Pointer,   xres,   yres);
 	
@@ -368,8 +364,8 @@ public static int fpixSetResolution(
 ///  <param name="fpixs">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fpixCopyResolution(
-				  FPix fpixd, 
-				  FPix fpixs){
+				 FPix fpixd, 
+				 FPix fpixs){
 
 	int _Result = Natives.fpixCopyResolution(fpixd.Pointer, fpixs.Pointer);
 	
@@ -388,7 +384,7 @@ public static int fpixCopyResolution(
 ///  <param name="fpix">[in] - </param>
 ///   <returns>ptr FPix::data, or NULL on error</returns>
 public static Single[] fpixGetData(
-				  FPix fpix){
+				 FPix fpix){
 
 	Single[] _Result = Natives.fpixGetData(fpix.Pointer);
 	
@@ -408,8 +404,8 @@ public static Single[] fpixGetData(
 ///  <param name="data">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fpixSetData(
-				  FPix fpix, 
-				  Single[] data){
+				 FPix fpix, 
+				 Single[] data){
 
 	int _Result = Natives.fpixSetData(fpix.Pointer,   data);
 	
@@ -430,15 +426,14 @@ public static int fpixSetData(
 ///  <param name="pval">[out] - pixel value</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int fpixGetPixel(
-				  FPix fpix, 
-				  int x, 
-				  int y, 
-				 out Single pval){
+				 FPix fpix, 
+				 int x, 
+				 int y, 
+				out Single pval){
 
 	int _Result = Natives.fpixGetPixel(fpix.Pointer,   x,   y, out  pval);
 	
 
-pval = 0f;
 
 
 	return _Result;
@@ -455,10 +450,10 @@ pval = 0f;
 ///  <param name="val">[in] - pixel value</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int fpixSetPixel(
-				  FPix fpix, 
-				  int x, 
-				  int y, 
-				  Single val){
+				 FPix fpix, 
+				 int x, 
+				 int y, 
+				 Single val){
 
 	int _Result = Natives.fpixSetPixel(fpix.Pointer,   x,   y,   val);
 	
@@ -477,7 +472,7 @@ public static int fpixSetPixel(
 ///  <param name="n">[in] - initial number of ptrs</param>
 ///   <returns>fpixa, or NULL on error</returns>
 public static FPixa fpixaCreate(
-				  int n){
+				 int n){
 
 	IntPtr _Result = Natives.fpixaCreate(  n);
 	
@@ -504,8 +499,8 @@ public static FPixa fpixaCreate(
 ///  <param name="copyflag">[in] - L_COPY, L_CLODE or L_COPY_CLONE</param>
 ///   <returns>new fpixa, or NULL on error</returns>
 public static FPixa fpixaCopy(
-				  FPixa fpixa, 
-				  int copyflag){
+				 FPixa fpixa, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.fpixaCopy(fpixa.Pointer,   copyflag);
 	
@@ -529,15 +524,14 @@ public static FPixa fpixaCopy(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fpixaDestroy/*"/>
 ///  <param name="pfpixa">[in,out] - to be nulled</param>
 public static void fpixaDestroy(
-				 ref FPixa pfpixa){
+				ref FPixa pfpixa){
 
 	IntPtr pfpixaPtr = IntPtr.Zero; 	if (pfpixa != null) {pfpixaPtr = pfpixa.Pointer;}
 
 	Natives.fpixaDestroy(ref pfpixaPtr);
 	
 
-pfpixa = null;
-	; if (pfpixaPtr != IntPtr.Zero){pfpixa = new FPixa(pfpixaPtr);}
+	if (pfpixaPtr == null) {pfpixa = null;} else { pfpixa = new FPixa(pfpixaPtr); };
 
 
 }
@@ -553,9 +547,9 @@ pfpixa = null;
 ///  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int fpixaAddFPix(
-				  FPixa fpixa, 
-				  FPix fpix, 
-				  int copyflag){
+				 FPixa fpixa, 
+				 FPix fpix, 
+				 int copyflag){
 
 	int _Result = Natives.fpixaAddFPix(fpixa.Pointer, fpix.Pointer,   copyflag);
 	
@@ -574,7 +568,7 @@ public static int fpixaAddFPix(
 ///  <param name="fpixa">[in] - </param>
 ///   <returns>count, or 0 if no pixa</returns>
 public static int fpixaGetCount(
-				  FPixa fpixa){
+				 FPixa fpixa){
 
 	int _Result = Natives.fpixaGetCount(fpixa.Pointer);
 	
@@ -594,8 +588,8 @@ public static int fpixaGetCount(
 ///  <param name="delta">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fpixaChangeRefcount(
-				  FPixa fpixa, 
-				  int delta){
+				 FPixa fpixa, 
+				 int delta){
 
 	int _Result = Natives.fpixaChangeRefcount(fpixa.Pointer,   delta);
 	
@@ -616,9 +610,9 @@ public static int fpixaChangeRefcount(
 ///  <param name="accesstype">[in] - L_COPY or L_CLONE</param>
 ///   <returns>fpix, or NULL on error</returns>
 public static FPix fpixaGetFPix(
-				  FPixa fpixa, 
-				  int index, 
-				  int accesstype){
+				 FPixa fpixa, 
+				 int index, 
+				 int accesstype){
 
 	IntPtr _Result = Natives.fpixaGetFPix(fpixa.Pointer,   index,   accesstype);
 	
@@ -641,16 +635,14 @@ public static FPix fpixaGetFPix(
 ///  <param name="ph">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fpixaGetFPixDimensions(
-				  FPixa fpixa, 
-				  int index, 
+				 FPixa fpixa, 
+				 int index, 
 				out int pw, 
 				out int ph){
 
 	int _Result = Natives.fpixaGetFPixDimensions(fpixa.Pointer,   index, out  pw, out  ph);
 	
 
-pw = 0;
-ph = 0;
 
 
 	return _Result;
@@ -666,8 +658,8 @@ ph = 0;
 ///  <param name="index">[in] - into fpixa array</param>
 ///   <returns>data not a copy, or NULL on error</returns>
 public static Single[] fpixaGetData(
-				  FPixa fpixa, 
-				  int index){
+				 FPixa fpixa, 
+				 int index){
 
 	Single[] _Result = Natives.fpixaGetData(fpixa.Pointer,   index);
 	
@@ -689,16 +681,15 @@ public static Single[] fpixaGetData(
 ///  <param name="pval">[out] - pixel value</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int fpixaGetPixel(
-				  FPixa fpixa, 
-				  int index, 
-				  int x, 
-				  int y, 
-				 out Single pval){
+				 FPixa fpixa, 
+				 int index, 
+				 int x, 
+				 int y, 
+				out Single pval){
 
 	int _Result = Natives.fpixaGetPixel(fpixa.Pointer,   index,   x,   y, out  pval);
 	
 
-pval = 0f;
 
 
 	return _Result;
@@ -716,11 +707,11 @@ pval = 0f;
 ///  <param name="val">[in] - pixel value</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int fpixaSetPixel(
-				  FPixa fpixa, 
-				  int index, 
-				  int x, 
-				  int y, 
-				  Single val){
+				 FPixa fpixa, 
+				 int index, 
+				 int x, 
+				 int y, 
+				 Single val){
 
 	int _Result = Natives.fpixaSetPixel(fpixa.Pointer,   index,   x,   y,   val);
 	
@@ -746,8 +737,8 @@ public static int fpixaSetPixel(
 ///  <param name="height">[in] - </param>
 ///   <returns>dpix  with data allocated and initialized to 0, or NULL on error</returns>
 public static DPix dpixCreate(
-				  int width, 
-				  int height){
+				 int width, 
+				 int height){
 
 	IntPtr _Result = Natives.dpixCreate(  width,   height);
 	
@@ -773,7 +764,7 @@ public static DPix dpixCreate(
 ///  <param name="dpixs">[in] - </param>
 ///   <returns>dpixd, or NULL on error</returns>
 public static DPix dpixCreateTemplate(
-				  DPix dpixs){
+				 DPix dpixs){
 
 	IntPtr _Result = Natives.dpixCreateTemplate(dpixs.Pointer);
 	
@@ -796,7 +787,7 @@ public static DPix dpixCreateTemplate(
 ///  <param name="dpix">[in] - </param>
 ///   <returns>same dpix ptr, or NULL on error</returns>
 public static DPix dpixClone(
-				  DPix dpix){
+				 DPix dpix){
 
 	IntPtr _Result = Natives.dpixClone(dpix.Pointer);
 	
@@ -840,8 +831,8 @@ public static DPix dpixClone(
 ///  <param name="dpixs">[in] - </param>
 ///   <returns>dpixd, or NULL on error</returns>
 public static DPix dpixCopy(
-				  DPix dpixd, 
-				  DPix dpixs){
+				 DPix dpixd, 
+				 DPix dpixs){
 
 	IntPtr dpixdPtr = IntPtr.Zero; 	if (dpixd != null) {dpixdPtr = dpixd.Pointer;}
 
@@ -864,8 +855,8 @@ public static DPix dpixCopy(
 ///  <param name="dpixs">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dpixResizeImageData(
-				  DPix dpixd, 
-				  DPix dpixs){
+				 DPix dpixd, 
+				 DPix dpixs){
 
 	int _Result = Natives.dpixResizeImageData(dpixd.Pointer, dpixs.Pointer);
 	
@@ -888,15 +879,14 @@ public static int dpixResizeImageData(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dpixDestroy/*"/>
 ///  <param name="pdpix">[in,out] - will be nulled</param>
 public static void dpixDestroy(
-				 ref DPix pdpix){
+				ref DPix pdpix){
 
 	IntPtr pdpixPtr = IntPtr.Zero; 	if (pdpix != null) {pdpixPtr = pdpix.Pointer;}
 
 	Natives.dpixDestroy(ref pdpixPtr);
 	
 
-pdpix = null;
-	; if (pdpixPtr != IntPtr.Zero){pdpix = new DPix(pdpixPtr);}
+	if (pdpixPtr == null) {pdpix = null;} else { pdpix = new DPix(pdpixPtr); };
 
 
 }
@@ -912,15 +902,13 @@ pdpix = null;
 ///  <param name="ph">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dpixGetDimensions(
-				  DPix dpix, 
+				 DPix dpix, 
 				out int pw, 
 				out int ph){
 
 	int _Result = Natives.dpixGetDimensions(dpix.Pointer, out  pw, out  ph);
 	
 
-pw = 0;
-ph = 0;
 
 
 	return _Result;
@@ -937,9 +925,9 @@ ph = 0;
 ///  <param name="h">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dpixSetDimensions(
-				  DPix dpix, 
-				  int w, 
-				  int h){
+				 DPix dpix, 
+				 int w, 
+				 int h){
 
 	int _Result = Natives.dpixSetDimensions(dpix.Pointer,   w,   h);
 	
@@ -958,7 +946,7 @@ public static int dpixSetDimensions(
 ///  <param name="dpix">[in] - </param>
 ///   <returns>wpl, or UNDEF on error</returns>
 public static int dpixGetWpl(
-				  DPix dpix){
+				 DPix dpix){
 
 	int _Result = Natives.dpixGetWpl(dpix.Pointer);
 	
@@ -978,8 +966,8 @@ public static int dpixGetWpl(
 ///  <param name="wpl">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dpixSetWpl(
-				  DPix dpix, 
-				  int wpl){
+				 DPix dpix, 
+				 int wpl){
 
 	int _Result = Natives.dpixSetWpl(dpix.Pointer,   wpl);
 	
@@ -998,7 +986,7 @@ public static int dpixSetWpl(
 ///  <param name="dpix">[in] - </param>
 ///   <returns>refcount, or UNDEF on error</returns>
 public static int dpixGetRefcount(
-				  DPix dpix){
+				 DPix dpix){
 
 	int _Result = Natives.dpixGetRefcount(dpix.Pointer);
 	
@@ -1018,8 +1006,8 @@ public static int dpixGetRefcount(
 ///  <param name="delta">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dpixChangeRefcount(
-				  DPix dpix, 
-				  int delta){
+				 DPix dpix, 
+				 int delta){
 
 	int _Result = Natives.dpixChangeRefcount(dpix.Pointer,   delta);
 	
@@ -1040,15 +1028,13 @@ public static int dpixChangeRefcount(
 ///  <param name="pyres">[out][optional] - x and y resolution</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dpixGetResolution(
-				  DPix dpix, 
+				 DPix dpix, 
 				out int pxres, 
 				out int pyres){
 
 	int _Result = Natives.dpixGetResolution(dpix.Pointer, out  pxres, out  pyres);
 	
 
-pxres = 0;
-pyres = 0;
 
 
 	return _Result;
@@ -1065,9 +1051,9 @@ pyres = 0;
 ///  <param name="yres">[in] - x and y resolution</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dpixSetResolution(
-				  DPix dpix, 
-				  int xres, 
-				  int yres){
+				 DPix dpix, 
+				 int xres, 
+				 int yres){
 
 	int _Result = Natives.dpixSetResolution(dpix.Pointer,   xres,   yres);
 	
@@ -1087,8 +1073,8 @@ public static int dpixSetResolution(
 ///  <param name="dpixs">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dpixCopyResolution(
-				  DPix dpixd, 
-				  DPix dpixs){
+				 DPix dpixd, 
+				 DPix dpixs){
 
 	int _Result = Natives.dpixCopyResolution(dpixd.Pointer, dpixs.Pointer);
 	
@@ -1107,7 +1093,7 @@ public static int dpixCopyResolution(
 ///  <param name="dpix">[in] - </param>
 ///   <returns>ptr DPix::data, or NULL on error</returns>
 public static Double[] dpixGetData(
-				  DPix dpix){
+				 DPix dpix){
 
 	Double[] _Result = Natives.dpixGetData(dpix.Pointer);
 	
@@ -1127,8 +1113,8 @@ public static Double[] dpixGetData(
 ///  <param name="data">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dpixSetData(
-				  DPix dpix, 
-				  Double[] data){
+				 DPix dpix, 
+				 Double[] data){
 
 	int _Result = Natives.dpixSetData(dpix.Pointer,   data);
 	
@@ -1149,15 +1135,14 @@ public static int dpixSetData(
 ///  <param name="pval">[out] - pixel value</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int dpixGetPixel(
-				  DPix dpix, 
-				  int x, 
-				  int y, 
-				 out Double[] pval){
+				 DPix dpix, 
+				 int x, 
+				 int y, 
+				out Double[] pval){
 
 	int _Result = Natives.dpixGetPixel(dpix.Pointer,   x,   y, out  pval);
 	
 
-pval = null;
 
 
 	return _Result;
@@ -1174,10 +1159,10 @@ pval = null;
 ///  <param name="val">[in] - pixel value</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int dpixSetPixel(
-				  DPix dpix, 
-				  int x, 
-				  int y, 
-				  double val){
+				 DPix dpix, 
+				 int x, 
+				 int y, 
+				 double val){
 
 	int _Result = Natives.dpixSetPixel(dpix.Pointer,   x,   y,   val);
 	
@@ -1196,7 +1181,7 @@ public static int dpixSetPixel(
 ///  <param name="filename">[in] - </param>
 ///   <returns>fpix, or NULL on error</returns>
 public static FPix fpixRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.fpixRead(  filename);
 	
@@ -1216,7 +1201,7 @@ public static FPix fpixRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>fpix, or NULL on error</returns>
 public static FPix fpixReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.fpixReadStream(fp.Pointer);
 	
@@ -1237,8 +1222,8 @@ public static FPix fpixReadStream(
 ///  <param name="size">[in] - of data in bytes</param>
 ///   <returns>fpix, or NULL on error</returns>
 public static FPix fpixReadMem(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.fpixReadMem(  data,   size);
 	
@@ -1259,8 +1244,8 @@ public static FPix fpixReadMem(
 ///  <param name="fpix">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fpixWrite(
-				  String filename, 
-				  FPix fpix){
+				 String filename, 
+				 FPix fpix){
 
 	int _Result = Natives.fpixWrite(  filename, fpix.Pointer);
 	
@@ -1280,8 +1265,8 @@ public static int fpixWrite(
 ///  <param name="fpix">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fpixWriteStream(
-				  FILE fp, 
-				  FPix fpix){
+				 FILE fp, 
+				 FPix fpix){
 
 	int _Result = Natives.fpixWriteStream(fp.Pointer, fpix.Pointer);
 	
@@ -1305,17 +1290,16 @@ public static int fpixWriteStream(
 ///  <param name="fpix">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fpixWriteMem(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  FPix fpix){
+				out Byte[] pdata, 
+				out uint psize, 
+				 FPix fpix){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.fpixWriteMem(out  pdataPtr, out  psize, fpix.Pointer);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -1342,8 +1326,8 @@ psize = 0;
 ///  <param name="fpixs">[in] - </param>
 ///   <returns>fpixd always</returns>
 public static FPix fpixEndianByteSwap(
-				  FPix fpixd, 
-				  FPix fpixs){
+				 FPix fpixd, 
+				 FPix fpixs){
 
 	IntPtr _Result = Natives.fpixEndianByteSwap(fpixd.Pointer, fpixs.Pointer);
 	
@@ -1363,7 +1347,7 @@ public static FPix fpixEndianByteSwap(
 ///  <param name="filename">[in] - </param>
 ///   <returns>dpix, or NULL on error</returns>
 public static DPix dpixRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.dpixRead(  filename);
 	
@@ -1383,7 +1367,7 @@ public static DPix dpixRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>dpix, or NULL on error</returns>
 public static DPix dpixReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.dpixReadStream(fp.Pointer);
 	
@@ -1404,8 +1388,8 @@ public static DPix dpixReadStream(
 ///  <param name="size">[in] - of data in bytes</param>
 ///   <returns>dpix, or NULL on error</returns>
 public static DPix dpixReadMem(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.dpixReadMem(  data,   size);
 	
@@ -1426,8 +1410,8 @@ public static DPix dpixReadMem(
 ///  <param name="dpix">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dpixWrite(
-				  String filename, 
-				  DPix dpix){
+				 String filename, 
+				 DPix dpix){
 
 	int _Result = Natives.dpixWrite(  filename, dpix.Pointer);
 	
@@ -1447,8 +1431,8 @@ public static int dpixWrite(
 ///  <param name="dpix">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dpixWriteStream(
-				  FILE fp, 
-				  DPix dpix){
+				 FILE fp, 
+				 DPix dpix){
 
 	int _Result = Natives.dpixWriteStream(fp.Pointer, dpix.Pointer);
 	
@@ -1472,17 +1456,16 @@ public static int dpixWriteStream(
 ///  <param name="dpix">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dpixWriteMem(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  DPix dpix){
+				out Byte[] pdata, 
+				out uint psize, 
+				 DPix dpix){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.dpixWriteMem(out  pdataPtr, out  psize, dpix.Pointer);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -1509,8 +1492,8 @@ psize = 0;
 ///  <param name="dpixs">[in] - </param>
 ///   <returns>dpixd always</returns>
 public static DPix dpixEndianByteSwap(
-				  DPix dpixd, 
-				  DPix dpixs){
+				 DPix dpixd, 
+				 DPix dpixs){
 
 	IntPtr _Result = Natives.dpixEndianByteSwap(dpixd.Pointer, dpixs.Pointer);
 	
@@ -1535,9 +1518,9 @@ public static DPix dpixEndianByteSwap(
 ///  <param name="factor">[in] - subsampled</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fpixPrintStream(
-				  FILE fp, 
-				  FPix fpix, 
-				  int factor){
+				 FILE fp, 
+				 FPix fpix, 
+				 int factor){
 
 	int _Result = Natives.fpixPrintStream(fp.Pointer, fpix.Pointer,   factor);
 	
@@ -1547,4 +1530,5 @@ public static int fpixPrintStream(
 	return _Result;
 }
 
+}
 }

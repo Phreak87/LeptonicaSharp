@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // colorcontent.c (179, 1)
 // pixColorContent(pixs, rwhite, gwhite, bwhite, mingray, ppixr, ppixg, ppixb) as int
@@ -43,11 +44,11 @@ public class _All {
 ///  <param name="ppixb">[out][optional] - 8 bpp blue 'content'</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixColorContent(
-				  Pix pixs, 
-				  int rwhite, 
-				  int gwhite, 
-				  int bwhite, 
-				  int mingray, 
+				 Pix pixs, 
+				 int rwhite, 
+				 int gwhite, 
+				 int bwhite, 
+				 int mingray, 
 				out Pix ppixr, 
 				out Pix ppixg, 
 				out Pix ppixb){
@@ -59,12 +60,9 @@ public static int pixColorContent(
 	int _Result = Natives.pixColorContent(pixs.Pointer,   rwhite,   gwhite,   bwhite,   mingray, out ppixrPtr, out ppixgPtr, out ppixbPtr);
 	
 
-ppixr = null;
-	; if (ppixrPtr != IntPtr.Zero){ppixr = new Pix(ppixrPtr);}
-ppixg = null;
-	; if (ppixgPtr != IntPtr.Zero){ppixg = new Pix(ppixgPtr);}
-ppixb = null;
-	; if (ppixbPtr != IntPtr.Zero){ppixb = new Pix(ppixbPtr);}
+	if (ppixrPtr == null) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
+	if (ppixgPtr == null) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
+	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
 
 
 	return _Result;
@@ -123,11 +121,11 @@ ppixb = null;
 ///  <param name="type">[in] - chooses the method for calculating the color magnitude: L_MAX_DIFF_FROM_AVERAGE_2, L_MAX_MIN_DIFF_FROM_2, L_MAX_DIFF</param>
 ///   <returns>pixd 8 bpp, amount of color in each source pixel, or NULL on error</returns>
 public static Pix pixColorMagnitude(
-				  Pix pixs, 
-				  int rwhite, 
-				  int gwhite, 
-				  int bwhite, 
-				  int type){
+				 Pix pixs, 
+				 int rwhite, 
+				 int gwhite, 
+				 int bwhite, 
+				 int type){
 
 	IntPtr _Result = Natives.pixColorMagnitude(pixs.Pointer,   rwhite,   gwhite,   bwhite,   type);
 	
@@ -167,9 +165,9 @@ public static Pix pixColorMagnitude(
 ///  <param name="mindist">[in] - minimum allowed distance from nearest non-color pixel</param>
 ///   <returns>pixd 1 bpp, mask over color pixels, or NULL on error</returns>
 public static Pix pixMaskOverColorPixels(
-				  Pix pixs, 
-				  int threshdiff, 
-				  int mindist){
+				 Pix pixs, 
+				 int threshdiff, 
+				 int mindist){
 
 	IntPtr _Result = Natives.pixMaskOverColorPixels(pixs.Pointer,   threshdiff,   mindist);
 	
@@ -195,13 +193,13 @@ public static Pix pixMaskOverColorPixels(
 ///  <param name="bmax">[in] - </param>
 ///   <returns>pixd 1 bpp, mask over color pixels, or NULL on error</returns>
 public static Pix pixMaskOverColorRange(
-				  Pix pixs, 
-				  int rmin, 
-				  int rmax, 
-				  int gmin, 
-				  int gmax, 
-				  int bmin, 
-				  int bmax){
+				 Pix pixs, 
+				 int rmin, 
+				 int rmax, 
+				 int gmin, 
+				 int gmax, 
+				 int bmin, 
+				 int bmax){
 
 	IntPtr _Result = Natives.pixMaskOverColorRange(pixs.Pointer,   rmin,   rmax,   gmin,   gmax,   bmin,   bmax);
 	
@@ -264,19 +262,17 @@ public static Pix pixMaskOverColorRange(
 ///  <param name="pcolorfract">[out] - fraction of pixels that meet the criterion for sufficient color 0.0 on error</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixColorFraction(
-				  Pix pixs, 
-				  int darkthresh, 
-				  int lightthresh, 
-				  int diffthresh, 
-				  int factor, 
-				 out Single ppixfract, 
-				 out Single pcolorfract){
+				 Pix pixs, 
+				 int darkthresh, 
+				 int lightthresh, 
+				 int diffthresh, 
+				 int factor, 
+				out Single ppixfract, 
+				out Single pcolorfract){
 
 	int _Result = Natives.pixColorFraction(pixs.Pointer,   darkthresh,   lightthresh,   diffthresh,   factor, out  ppixfract, out  pcolorfract);
 	
 
-ppixfract = 0f;
-pcolorfract = 0f;
 
 
 	return _Result;
@@ -350,15 +346,15 @@ pcolorfract = 0f;
 ///  <param name="pixadb">[out][optional] - debug intermediate results</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixFindColorRegions(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int factor, 
-				  int lightthresh, 
-				  int darkthresh, 
-				  int mindiff, 
-				  int colordiff, 
-				  Single edgefract, 
-				 out Single pcolorfract, 
+				 Pix pixs, 
+				 Pix pixm, 
+				 int factor, 
+				 int lightthresh, 
+				 int darkthresh, 
+				 int mindiff, 
+				 int colordiff, 
+				 Single edgefract, 
+				out Single pcolorfract, 
 				out Pix pcolormask1, 
 				out Pix pcolormask2, 
 				out Pixa pixadb){
@@ -371,13 +367,9 @@ public static int pixFindColorRegions(
 	int _Result = Natives.pixFindColorRegions(pixs.Pointer, pixmPtr,   factor,   lightthresh,   darkthresh,   mindiff,   colordiff,   edgefract, out  pcolorfract, out pcolormask1Ptr, out pcolormask2Ptr, out pixadbPtr);
 	
 
-pcolorfract = 0f;
-pcolormask1 = null;
-	; if (pcolormask1Ptr != IntPtr.Zero){pcolormask1 = new Pix(pcolormask1Ptr);}
-pcolormask2 = null;
-	; if (pcolormask2Ptr != IntPtr.Zero){pcolormask2 = new Pix(pcolormask2Ptr);}
-pixadb = null;
-	; if (pixadbPtr != IntPtr.Zero){pixadb = new Pixa(pixadbPtr);}
+	if (pcolormask1Ptr == null) {pcolormask1 = null;} else { pcolormask1 = new Pix(pcolormask1Ptr); };
+	if (pcolormask2Ptr == null) {pcolormask2 = null;} else { pcolormask2 = new Pix(pcolormask2Ptr); };
+	if (pixadbPtr == null) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
 
 
 	return _Result;
@@ -415,17 +407,16 @@ pixadb = null;
 ///  <param name="pncolors">[out] - number of significant colors 0 on error</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixNumSignificantGrayColors(
-				  Pix pixs, 
-				  int darkthresh, 
-				  int lightthresh, 
-				  Single minfract, 
-				  int factor, 
-				 out int pncolors){
+				 Pix pixs, 
+				 int darkthresh, 
+				 int lightthresh, 
+				 Single minfract, 
+				 int factor, 
+				out int pncolors){
 
 	int _Result = Natives.pixNumSignificantGrayColors(pixs.Pointer,   darkthresh,   lightthresh,   minfract,   factor, out  pncolors);
 	
 
-pncolors = 0;
 
 
 	return _Result;
@@ -510,17 +501,15 @@ pncolors = 0;
 ///  <param name="debug">[in] - 1 to output masked image that is tested for colors 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error.</returns>
 public static int pixColorsForQuantization(
-				  Pix pixs, 
-				  int thresh, 
-				 out int pncolors, 
+				 Pix pixs, 
+				 int thresh, 
+				out int pncolors, 
 				out int piscolor, 
 				 DebugOnOff debug){
 
 	int _Result = Natives.pixColorsForQuantization(pixs.Pointer,   thresh, out  pncolors, out  piscolor,  (int) debug);
 	
 
-pncolors = 0;
-piscolor = 0;
 
 
 	return _Result;
@@ -552,14 +541,13 @@ piscolor = 0;
 ///  <param name="pncolors">[out] - the number of colors found, or 0 if there are more than 256</param>
 ///   <returns>0 if OK, 1 on error.</returns>
 public static int pixNumColors(
-				  Pix pixs, 
-				  int factor, 
-				 out int pncolors){
+				 Pix pixs, 
+				 int factor, 
+				out int pncolors){
 
 	int _Result = Natives.pixNumColors(pixs.Pointer,   factor, out  pncolors);
 	
 
-pncolors = 0;
 
 
 	return _Result;
@@ -589,10 +577,10 @@ pncolors = 0;
 ///  <param name="pcmap">[out][optional] - colormap of the colors</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetMostPopulatedColors(
-				  Pix pixs, 
-				  int sigbits, 
-				  int factor, 
-				  int ncolors, 
+				 Pix pixs, 
+				 int sigbits, 
+				 int factor, 
+				 int ncolors, 
 				out Byte[] parray, 
 				out PixColormap pcmap){
 
@@ -602,9 +590,8 @@ public static int pixGetMostPopulatedColors(
 	int _Result = Natives.pixGetMostPopulatedColors(pixs.Pointer,   sigbits,   factor,   ncolors, out  parrayPtr, out pcmapPtr);
 	
 
-parray = null;
-pcmap = null;
-	; if (pcmapPtr != IntPtr.Zero){pcmap = new PixColormap(pcmapPtr);}
+	if (parrayPtr == null) {parray = null;} else { parray = null; };
+	if (pcmapPtr == null) {pcmap = null;} else { pcmap = new PixColormap(pcmapPtr); };
 
 
 	return _Result;
@@ -640,10 +627,10 @@ pcmap = null;
 ///  <param name="ncolors">[in] - the number of most populated colors to select</param>
 ///   <returns>pixd 8 bpp cmapped or NULL on error</returns>
 public static Pix pixSimpleColorQuantize(
-				  Pix pixs, 
-				  int sigbits, 
-				  int factor, 
-				  int ncolors){
+				 Pix pixs, 
+				 int sigbits, 
+				 int factor, 
+				 int ncolors){
 
 	IntPtr _Result = Natives.pixSimpleColorQuantize(pixs.Pointer,   sigbits,   factor,   ncolors);
 	
@@ -673,9 +660,9 @@ public static Pix pixSimpleColorQuantize(
 ///  <param name="factor">[in] - subsampling factor use 1 for no subsampling</param>
 ///   <returns>numa histogram of colors, indexed by RGB components, or NULL on error</returns>
 public static Numa pixGetRGBHistogram(
-				  Pix pixs, 
-				  int sigbits, 
-				  int factor){
+				 Pix pixs, 
+				 int sigbits, 
+				 int factor){
 
 	IntPtr _Result = Natives.pixGetRGBHistogram(pixs.Pointer,   sigbits,   factor);
 	
@@ -705,10 +692,10 @@ public static Numa pixGetRGBHistogram(
 ///  <param name="sigbits">[in] - 2-6, significant bits retained in the quantizer for each component of the input image</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int makeRGBIndexTables(
-				 out Byte[] prtab, 
-				 out Byte[] pgtab, 
-				 out Byte[] pbtab, 
-				  int sigbits){
+				out Byte[] prtab, 
+				out Byte[] pgtab, 
+				out Byte[] pbtab, 
+				 int sigbits){
 
 	IntPtr prtabPtr = IntPtr.Zero;
 	IntPtr pgtabPtr = IntPtr.Zero;
@@ -717,9 +704,9 @@ public static int makeRGBIndexTables(
 	int _Result = Natives.makeRGBIndexTables(out  prtabPtr, out  pgtabPtr, out  pbtabPtr,   sigbits);
 	
 
-prtab = null;
-pgtab = null;
-pbtab = null;
+	if (prtabPtr == null) {prtab = null;} else { prtab = null; };
+	if (pgtabPtr == null) {pgtab = null;} else { pgtab = null; };
+	if (pbtabPtr == null) {pbtab = null;} else { pbtab = null; };
 
 
 	return _Result;
@@ -746,18 +733,15 @@ pbtab = null;
 ///  <param name="pbval">[out] - rgb values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int getRGBFromIndex(
-				  uint index, 
-				  int sigbits, 
-				 out int prval, 
-				 out int pgval, 
-				 out int pbval){
+				 uint index, 
+				 int sigbits, 
+				out int prval, 
+				out int pgval, 
+				out int pbval){
 
 	int _Result = Natives.getRGBFromIndex(  index,   sigbits, out  prval, out  pgval, out  pbval);
 	
 
-prval = 0;
-pgval = 0;
-pbval = 0;
 
 
 	return _Result;
@@ -793,11 +777,11 @@ pbval = 0;
 ///  <param name="ppixdb">[out][optional] - seed pixel mask</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixHasHighlightRed(
-				  Pix pixs, 
-				  int factor, 
-				  Single fract, 
-				  Single fthresh, 
-				 out int phasred, 
+				 Pix pixs, 
+				 int factor, 
+				 Single fract, 
+				 Single fthresh, 
+				out int phasred, 
 				out Single pratio, 
 				out Pix ppixdb){
 
@@ -806,13 +790,11 @@ public static int pixHasHighlightRed(
 	int _Result = Natives.pixHasHighlightRed(pixs.Pointer,   factor,   fract,   fthresh, out  phasred, out  pratio, out ppixdbPtr);
 	
 
-phasred = 0;
-pratio = 0f;
-ppixdb = null;
-	; if (ppixdbPtr != IntPtr.Zero){ppixdb = new Pix(ppixdbPtr);}
+	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
 }
 
+}
 }

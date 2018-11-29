@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // edge.c (91, 1)
 // pixSobelEdgeFilter(pixs, orientflag) as Pix
@@ -32,8 +33,8 @@ public class _All {
 ///  <param name="orientflag">[in] - L_HORIZONTAL_EDGES, L_VERTICAL_EDGES, L_ALL_EDGES</param>
 ///   <returns>pixd 8 bpp, edges are brighter, or NULL on error</returns>
 public static Pix pixSobelEdgeFilter(
-				  Pix pixs, 
-				  int orientflag){
+				 Pix pixs, 
+				 int orientflag){
 
 	IntPtr _Result = Natives.pixSobelEdgeFilter(pixs.Pointer,   orientflag);
 	
@@ -75,8 +76,8 @@ public static Pix pixSobelEdgeFilter(
 ///  <param name="orientflag">[in] - L_HORIZONTAL_EDGES, L_VERTICAL_EDGES</param>
 ///   <returns>pixd 8 bpp, edges are brighter, or NULL on error</returns>
 public static Pix pixTwoSidedEdgeFilter(
-				  Pix pixs, 
-				  int orientflag){
+				 Pix pixs, 
+				 int orientflag){
 
 	IntPtr _Result = Natives.pixTwoSidedEdgeFilter(pixs.Pointer,   orientflag);
 	
@@ -118,10 +119,10 @@ public static Pix pixTwoSidedEdgeFilter(
 ///  <param name="debugfile">[in][optional] - displays constructed edge use NULL for no output</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixMeasureEdgeSmoothness(
-				  Pix pixs, 
-				  int side, 
-				  int minjump, 
-				  int minreversal, 
+				 Pix pixs, 
+				 int side, 
+				 int minjump, 
+				 int minreversal, 
 				out Single pjpl, 
 				out Single pjspl, 
 				out Single prpl, 
@@ -130,9 +131,6 @@ public static int pixMeasureEdgeSmoothness(
 	int _Result = Natives.pixMeasureEdgeSmoothness(pixs.Pointer,   side,   minjump,   minreversal, out  pjpl, out  pjspl, out  prpl,   debugfile);
 	
 
-pjpl = 0f;
-pjspl = 0f;
-prpl = 0f;
 
 
 	return _Result;
@@ -149,8 +147,8 @@ prpl = 0f;
 ///  <param name="debugfile">[in][optional] - displays constructed edge use NULL for no output</param>
 ///   <returns>na of fg edge pixel locations, or NULL on error</returns>
 public static Numa pixGetEdgeProfile(
-				  Pix pixs, 
-				  int side, 
+				 Pix pixs, 
+				 int side, 
 				 String debugfile){
 
 	IntPtr _Result = Natives.pixGetEdgeProfile(pixs.Pointer,   side,   debugfile);
@@ -170,11 +168,11 @@ public static Numa pixGetEdgeProfile(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetLastOffPixelInRun/*"/>
 ///   <returns></returns>
 public static int pixGetLastOffPixelInRun(
-				  Pix pixs, 
-				  int x, 
-				  int y, 
-				  int direction, 
-				  object ploc){
+				 Pix pixs, 
+				 int x, 
+				 int y, 
+				 int direction, 
+				 object ploc){
 
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
@@ -194,11 +192,11 @@ public static int pixGetLastOffPixelInRun(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetLastOnPixelInRun/*"/>
 ///   <returns></returns>
 public static int pixGetLastOnPixelInRun(
-				  Pix pixs, 
-				  int x, 
-				  int y, 
-				  int direction, 
-				  object ploc){
+				 Pix pixs, 
+				 int x, 
+				 int y, 
+				 int direction, 
+				 object ploc){
 
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
@@ -210,4 +208,5 @@ public static int pixGetLastOnPixelInRun(
 	return _Result;
 }
 
+}
 }

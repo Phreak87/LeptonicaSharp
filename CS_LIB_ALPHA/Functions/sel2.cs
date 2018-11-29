@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // sel2.c (92, 1)
 // selaAddBasic(sela) as Sela
@@ -21,7 +22,7 @@ public class _All {
 ///  <param name="sela">[in][optional] - </param>
 ///   <returns>sela with additional sels, or NULL on error</returns>
 public static Sela selaAddBasic(
-				  Sela sela){
+				 Sela sela){
 
 	IntPtr selaPtr = IntPtr.Zero; 	if (sela != null) {selaPtr = sela.Pointer;}
 
@@ -43,7 +44,7 @@ public static Sela selaAddBasic(
 ///  <param name="sela">[in][optional] - </param>
 ///   <returns>sela with additional sels, or NULL on error</returns>
 public static Sela selaAddHitMiss(
-				  Sela sela){
+				 Sela sela){
 
 	IntPtr selaPtr = IntPtr.Zero; 	if (sela != null) {selaPtr = sela.Pointer;}
 
@@ -70,7 +71,7 @@ public static Sela selaAddHitMiss(
 ///  <param name="sela">[in][optional] - </param>
 ///   <returns>sela with additional sels, or NULL on error</returns>
 public static Sela selaAddDwaLinear(
-				  Sela sela){
+				 Sela sela){
 
 	IntPtr selaPtr = IntPtr.Zero; 	if (sela != null) {selaPtr = sela.Pointer;}
 
@@ -98,7 +99,7 @@ public static Sela selaAddDwaLinear(
 ///  <param name="sela">[in][optional] - </param>
 ///   <returns>sela with additional sels, or NULL on error</returns>
 public static Sela selaAddDwaCombs(
-				  Sela sela){
+				 Sela sela){
 
 	IntPtr selaPtr = IntPtr.Zero; 	if (sela != null) {selaPtr = sela.Pointer;}
 
@@ -141,11 +142,11 @@ public static Sela selaAddDwaCombs(
 ///  <param name="debugflag">[in] - 1 for debug output</param>
 ///   <returns>sela with additional sels, or NULL on error</returns>
 public static Sela selaAddCrossJunctions(
-				  Sela sela, 
-				  Single hlsize, 
-				  Single mdist, 
-				  int norient, 
-				  int debugflag){
+				 Sela sela, 
+				 Single hlsize, 
+				 Single mdist, 
+				 int norient, 
+				 int debugflag){
 
 	IntPtr selaPtr = IntPtr.Zero; 	if (sela != null) {selaPtr = sela.Pointer;}
 
@@ -182,11 +183,11 @@ public static Sela selaAddCrossJunctions(
 ///  <param name="debugflag">[in] - 1 for debug output</param>
 ///   <returns>sela with additional sels, or NULL on error</returns>
 public static Sela selaAddTJunctions(
-				  Sela sela, 
-				  Single hlsize, 
-				  Single mdist, 
-				  int norient, 
-				  int debugflag){
+				 Sela sela, 
+				 Single hlsize, 
+				 Single mdist, 
+				 int norient, 
+				 int debugflag){
 
 	IntPtr selaPtr = IntPtr.Zero; 	if (sela != null) {selaPtr = sela.Pointer;}
 
@@ -211,7 +212,7 @@ public static Sela selaAddTJunctions(
 ///  <param name="sela">[in][optional] - </param>
 ///   <returns>sela with additional sels, or NULL on error</returns>
 public static Sela sela4ccThin(
-				  Sela sela){
+				 Sela sela){
 
 	IntPtr selaPtr = IntPtr.Zero; 	if (sela != null) {selaPtr = sela.Pointer;}
 
@@ -236,7 +237,7 @@ public static Sela sela4ccThin(
 ///  <param name="sela">[in][optional] - </param>
 ///   <returns>sela with additional sels, or NULL on error</returns>
 public static Sela sela8ccThin(
-				  Sela sela){
+				 Sela sela){
 
 	IntPtr selaPtr = IntPtr.Zero; 	if (sela != null) {selaPtr = sela.Pointer;}
 
@@ -261,7 +262,7 @@ public static Sela sela8ccThin(
 ///  <param name="sela">[in][optional] - </param>
 ///   <returns>sela with additional sels, or NULL on error</returns>
 public static Sela sela4and8ccThin(
-				  Sela sela){
+				 Sela sela){
 
 	IntPtr selaPtr = IntPtr.Zero; 	if (sela != null) {selaPtr = sela.Pointer;}
 
@@ -274,4 +275,5 @@ public static Sela sela4and8ccThin(
 	return  new Sela(_Result);
 }
 
+}
 }

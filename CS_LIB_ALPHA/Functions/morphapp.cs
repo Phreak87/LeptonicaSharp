@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // morphapp.c (108, 1)
 // pixExtractBoundary(pixs, type) as Pix
@@ -19,8 +20,8 @@ public class _All {
 ///  <param name="type">[in] - 0 for background pixels 1 for foreground pixels</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixExtractBoundary(
-				  Pix pixs, 
-				  int type){
+				 Pix pixs, 
+				 int type){
 
 	IntPtr _Result = Natives.pixExtractBoundary(pixs.Pointer,   type);
 	
@@ -49,10 +50,10 @@ public static Pix pixExtractBoundary(
 ///  <param name="dispsep">[in] - horizontal separation in pixels between successive displays use zero to suppress display</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixMorphSequenceMasked(
-				  Pix pixs, 
-				  Pix pixm, 
-				  String sequence, 
-				  int dispsep){
+				 Pix pixs, 
+				 Pix pixm, 
+				 String sequence, 
+				 int dispsep){
 
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
@@ -93,11 +94,11 @@ public static Pix pixMorphSequenceMasked(
 ///  <param name="pboxa">[out][optional] - return boxa of c.c. in pixs</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixMorphSequenceByComponent(
-				  Pix pixs, 
-				  String sequence, 
-				  int connectivity, 
-				  int minw, 
-				  int minh, 
+				 Pix pixs, 
+				 String sequence, 
+				 int connectivity, 
+				 int minw, 
+				 int minh, 
 				out Boxa pboxa){
 
 	IntPtr pboxaPtr = IntPtr.Zero;
@@ -105,8 +106,7 @@ public static Pix pixMorphSequenceByComponent(
 	IntPtr _Result = Natives.pixMorphSequenceByComponent(pixs.Pointer,   sequence,   connectivity,   minw,   minh, out pboxaPtr);
 	
 
-pboxa = null;
-	; if (pboxaPtr != IntPtr.Zero){pboxa = new Boxa(pboxaPtr);}
+	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -136,10 +136,10 @@ pboxa = null;
 ///  <param name="minh">[in] - minimum height to consider use 0 or 1 for any height</param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaMorphSequenceByComponent(
-				  Pixa pixas, 
-				  String sequence, 
-				  int minw, 
-				  int minh){
+				 Pixa pixas, 
+				 String sequence, 
+				 int minw, 
+				 int minh){
 
 	IntPtr _Result = Natives.pixaMorphSequenceByComponent(pixas.Pointer,   sequence,   minw,   minh);
 	
@@ -183,12 +183,12 @@ public static Pixa pixaMorphSequenceByComponent(
 ///  <param name="pboxa">[out][optional] - return boxa of c.c. in pixm</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixMorphSequenceByRegion(
-				  Pix pixs, 
-				  Pix pixm, 
-				  String sequence, 
-				  int connectivity, 
-				  int minw, 
-				  int minh, 
+				 Pix pixs, 
+				 Pix pixm, 
+				 String sequence, 
+				 int connectivity, 
+				 int minw, 
+				 int minh, 
 				out Boxa pboxa){
 
 	IntPtr pboxaPtr = IntPtr.Zero;
@@ -196,8 +196,7 @@ public static Pix pixMorphSequenceByRegion(
 	IntPtr _Result = Natives.pixMorphSequenceByRegion(pixs.Pointer, pixm.Pointer,   sequence,   connectivity,   minw,   minh, out pboxaPtr);
 	
 
-pboxa = null;
-	; if (pboxaPtr != IntPtr.Zero){pboxa = new Boxa(pboxaPtr);}
+	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -230,11 +229,11 @@ pboxa = null;
 ///  <param name="minh">[in] - minimum height to consider use 0 or 1 for any height</param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaMorphSequenceByRegion(
-				  Pix pixs, 
-				  Pixa pixam, 
-				  String sequence, 
-				  int minw, 
-				  int minh){
+				 Pix pixs, 
+				 Pixa pixam, 
+				 String sequence, 
+				 int minw, 
+				 int minh){
 
 	IntPtr _Result = Natives.pixaMorphSequenceByRegion(pixs.Pointer, pixam.Pointer,   sequence,   minw,   minh);
 	
@@ -256,9 +255,9 @@ public static Pixa pixaMorphSequenceByRegion(
 ///  <param name="type">[in] - L_MORPH_DILATE, etc.</param>
 ///   <returns>pixd union of the specified morphological operation on pixs for each Sel in the Sela, or NULL on error</returns>
 public static Pix pixUnionOfMorphOps(
-				  Pix pixs, 
-				  Sela sela, 
-				  int type){
+				 Pix pixs, 
+				 Sela sela, 
+				 int type){
 
 	IntPtr _Result = Natives.pixUnionOfMorphOps(pixs.Pointer, sela.Pointer,   type);
 	
@@ -280,9 +279,9 @@ public static Pix pixUnionOfMorphOps(
 ///  <param name="type">[in] - L_MORPH_DILATE, etc.</param>
 ///   <returns>pixd intersection of the specified morphological operation on pixs for each Sel in the Sela, or NULL on error</returns>
 public static Pix pixIntersectionOfMorphOps(
-				  Pix pixs, 
-				  Sela sela, 
-				  int type){
+				 Pix pixs, 
+				 Sela sela, 
+				 int type){
 
 	IntPtr _Result = Natives.pixIntersectionOfMorphOps(pixs.Pointer, sela.Pointer,   type);
 	
@@ -305,10 +304,10 @@ public static Pix pixIntersectionOfMorphOps(
 ///  <param name="minh">[in] - minimum height to consider use 0 or 1 for any height</param>
 ///   <returns>pix with holes filled in selected c.c., or NULL on error</returns>
 public static Pix pixSelectiveConnCompFill(
-				  Pix pixs, 
-				  int connectivity, 
-				  int minw, 
-				  int minh){
+				 Pix pixs, 
+				 int connectivity, 
+				 int minw, 
+				 int minh){
 
 	IntPtr _Result = Natives.pixSelectiveConnCompFill(pixs.Pointer,   connectivity,   minw,   minh);
 	
@@ -344,12 +343,12 @@ public static Pix pixSelectiveConnCompFill(
 ///  <param name="dsize">[in] - number of pixels on each side by which pixp is dilated before being subtracted from pixs valid values are {0, 1, 2, 3, 4}</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixRemoveMatchedPattern(
-				  Pix pixs, 
-				  Pix pixp, 
-				  Pix pixe, 
-				  int x0, 
-				  int y0, 
-				  int dsize){
+				 Pix pixs, 
+				 Pix pixp, 
+				 Pix pixe, 
+				 int x0, 
+				 int y0, 
+				 int dsize){
 
 	int _Result = Natives.pixRemoveMatchedPattern(pixs.Pointer, pixp.Pointer, pixe.Pointer,   x0,   y0,   dsize);
 	
@@ -390,14 +389,14 @@ public static int pixRemoveMatchedPattern(
 ///  <param name="nlevels">[in] - if scale  is smaller 1.0, threshold to this number of levels</param>
 ///   <returns>pixd 8 bpp, colormapped, or NULL on error</returns>
 public static Pix pixDisplayMatchedPattern(
-				  Pix pixs, 
-				  Pix pixp, 
-				  Pix pixe, 
-				  int x0, 
-				  int y0, 
-				  uint color, 
-				  Single scale, 
-				  int nlevels){
+				 Pix pixs, 
+				 Pix pixp, 
+				 Pix pixe, 
+				 int x0, 
+				 int y0, 
+				 uint color, 
+				 Single scale, 
+				 int nlevels){
 
 	IntPtr _Result = Natives.pixDisplayMatchedPattern(pixs.Pointer, pixp.Pointer, pixe.Pointer,   x0,   y0,   color,   scale,   nlevels);
 	
@@ -432,11 +431,11 @@ public static Pix pixDisplayMatchedPattern(
 ///  <param name="include">[in] - 1 to include a copy of the input pixas in pixad 0 to omit</param>
 ///   <returns>pixad   with derived pix, using all iterations, or NULL on error</returns>
 public static Pixa pixaExtendByMorph(
-				  Pixa pixas, 
-				  int type, 
-				  int niters, 
-				  Sel sel, 
-				  int include){
+				 Pixa pixas, 
+				 int type, 
+				 int niters, 
+				 Sel sel, 
+				 int include){
 
 	IntPtr _Result = Natives.pixaExtendByMorph(pixas.Pointer,   type,   niters, sel.Pointer,   include);
 	
@@ -467,10 +466,10 @@ public static Pixa pixaExtendByMorph(
 ///  <param name="include">[in] - 1 to include a copy of the input pixas in pixad 0 to omit</param>
 ///   <returns>pixad   with derived pix, using all scalings, or NULL on error</returns>
 public static Pixa pixaExtendByScaling(
-				  Pixa pixas, 
-				  Numa nasc, 
-				  int type, 
-				  int include){
+				 Pixa pixas, 
+				 Numa nasc, 
+				 int type, 
+				 int include){
 
 	IntPtr _Result = Natives.pixaExtendByScaling(pixas.Pointer, nasc.Pointer,   type,   include);
 	
@@ -501,10 +500,10 @@ public static Pixa pixaExtendByScaling(
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>pixd after filling into the mask or NULL on error</returns>
 public static Pix pixSeedfillMorph(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int maxiters, 
-				  int connectivity){
+				 Pix pixs, 
+				 Pix pixm, 
+				 int maxiters, 
+				 int connectivity){
 
 	IntPtr _Result = Natives.pixSeedfillMorph(pixs.Pointer, pixm.Pointer,   maxiters,   connectivity);
 	
@@ -527,10 +526,10 @@ public static Pix pixSeedfillMorph(
 ///  <param name="maxsize">[in] - size of largest runlength counted</param>
 ///   <returns>numa of run-lengths</returns>
 public static Numa pixRunHistogramMorph(
-				  Pix pixs, 
-				  int runtype, 
-				  int direction, 
-				  int maxsize){
+				 Pix pixs, 
+				 int runtype, 
+				 int direction, 
+				 int maxsize){
 
 	IntPtr _Result = Natives.pixRunHistogramMorph(pixs.Pointer,   runtype,   direction,   maxsize);
 	
@@ -563,10 +562,10 @@ public static Numa pixRunHistogramMorph(
 ///  <param name="type">[in] - L_TOPHAT_WHITE: image - opening L_TOPHAT_BLACK: closing - image</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixTophat(
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize, 
-				  int type){
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize, 
+				 int type){
 
 	IntPtr _Result = Natives.pixTophat(pixs.Pointer,   hsize,   vsize,   type);
 	
@@ -631,9 +630,9 @@ public static Pix pixTophat(
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>pixd 8 bpp, or NULL on error</returns>
 public static Pix pixHDome(
-				  Pix pixs, 
-				  int height, 
-				  int connectivity){
+				 Pix pixs, 
+				 int height, 
+				 int connectivity){
 
 	IntPtr _Result = Natives.pixHDome(pixs.Pointer,   height,   connectivity);
 	
@@ -675,10 +674,10 @@ public static Pix pixHDome(
 ///  <param name="type">[in] - L_TOPHAT_WHITE: image - min L_TOPHAT_BLACK: max - image</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixFastTophat(
-				  Pix pixs, 
-				  int xsize, 
-				  int ysize, 
-				  int type){
+				 Pix pixs, 
+				 int xsize, 
+				 int ysize, 
+				 int type){
 
 	IntPtr _Result = Natives.pixFastTophat(pixs.Pointer,   xsize,   ysize,   type);
 	
@@ -701,10 +700,10 @@ public static Pix pixFastTophat(
 ///  <param name="smoothing">[in] - half-width of convolution smoothing filter. The width is (2  smoothing + 1, so 0 is no-op.</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixMorphGradient(
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize, 
-				  int smoothing){
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize, 
+				 int smoothing){
 
 	IntPtr _Result = Natives.pixMorphGradient(pixs.Pointer,   hsize,   vsize,   smoothing);
 	
@@ -729,7 +728,7 @@ public static Pix pixMorphGradient(
 ///  <param name="pixa">[in] - of components 1 or 8 bpp</param>
 ///   <returns>pta of centroids relative to the UL corner of each pix, or NULL on error</returns>
 public static Pta pixaCentroids(
-				  Pixa pixa){
+				 Pixa pixa){
 
 	IntPtr _Result = Natives.pixaCentroids(pixa.Pointer);
 	
@@ -757,20 +756,19 @@ public static Pta pixaCentroids(
 ///  <param name="pyave">[out] - coordinates of centroid, relative to the UL corner of the pix</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixCentroid(
-				  Pix pix, 
-				  int[] centtab, 
-				  int[] sumtab, 
-				 out Single pxave, 
-				 out Single pyave){
+				 Pix pix, 
+				 int[] centtab, 
+				 int[] sumtab, 
+				out Single pxave, 
+				out Single pyave){
 
 	int _Result = Natives.pixCentroid(pix.Pointer,   centtab,   sumtab, out  pxave, out  pyave);
 	
 
-pxave = 0f;
-pyave = 0f;
 
 
 	return _Result;
 }
 
+}
 }

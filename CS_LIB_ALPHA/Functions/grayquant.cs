@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // grayquant.c (171, 1)
 // pixDitherToBinary(pixs) as Pix
@@ -14,7 +15,7 @@ public class _All {
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixd dithered binary, or NULL on error The Floyd-Steinberg error diffusion dithering algorithm binarizes an 8 bpp grayscale image to a threshold of 128. If a pixel has a value above 127, it is binarized to white and the excess below 255 is subtracted from three neighboring pixels in the fractions 3/8 to i, j+1, 3/8 to i+1, j) and 1/4 to (i+1,j+1, truncating to 0 if necessary.  Likewise, if it the pixel has a value below 128, it is binarized to black and the excess above 0 is added to the neighboring pixels, truncating to 255 if necessary. This function differs from straight dithering in that it allows clipping of grayscale to 0 or 255 if the values are sufficiently close, without distribution of the excess. This uses default values to specify the range of lower and upper values near 0 and 255, rsp that are clipped to black and white without propagating the excess. Not propagating the excess has the effect of reducing the snake patterns in parts of the image that are nearly black or white however, it also prevents the attempt to reproduce gray for those values. The implementation is straightforward.  It uses a pair of line buffers to avoid changing pixs.  It is about the same speed as pixDitherToBinaryLUT(), which uses three LUTs.</returns>
 public static Pix pixDitherToBinary(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixDitherToBinary(pixs.Pointer);
 	
@@ -44,9 +45,9 @@ public static Pix pixDitherToBinary(
 ///  <param name="upperclip">[in] - upper clip distance to white use 0 for default</param>
 ///   <returns>pixd dithered binary, or NULL on error</returns>
 public static Pix pixDitherToBinarySpec(
-				  Pix pixs, 
-				  int lowerclip, 
-				  int upperclip){
+				 Pix pixs, 
+				 int lowerclip, 
+				 int upperclip){
 
 	IntPtr _Result = Natives.pixDitherToBinarySpec(pixs.Pointer,   lowerclip,   upperclip);
 	
@@ -71,13 +72,13 @@ public static Pix pixDitherToBinarySpec(
 ///  <param name="upperclip">[in] - upper clip distance to white</param>
 ///  <param name="lastlineflag">[in] - 0 if not last dest line, 1 if last dest line</param>
 public static void ditherToBinaryLineLow(
-				  Byte[] lined, 
-				  int w, 
-				  Byte[] bufs1, 
-				  Byte[] bufs2, 
-				  int lowerclip, 
-				  int upperclip, 
-				  int lastlineflag){
+				 Byte[] lined, 
+				 int w, 
+				 Byte[] bufs1, 
+				 Byte[] bufs2, 
+				 int lowerclip, 
+				 int upperclip, 
+				 int lastlineflag){
 
 		IntPtr linedPtr = 	Marshal.AllocHGlobal(lined.Length);
 		Marshal.Copy(lined, 0, linedPtr, lined.Length);
@@ -114,8 +115,8 @@ public static void ditherToBinaryLineLow(
 ///  <param name="thresh">[in] - threshold value</param>
 ///   <returns>pixd 1 bpp, or NULL on error</returns>
 public static Pix pixThresholdToBinary(
-				  Pix pixs, 
-				  int thresh){
+				 Pix pixs, 
+				 int thresh){
 
 	IntPtr _Result = Natives.pixThresholdToBinary(pixs.Pointer,   thresh);
 	
@@ -133,11 +134,11 @@ public static Pix pixThresholdToBinary(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/thresholdToBinaryLineLow/*"/>
 public static void thresholdToBinaryLineLow(
-				  object lined, 
-				  int w, 
-				  object lines, 
-				  int d, 
-				  int thresh){
+				 object lined, 
+				 int w, 
+				 object lines, 
+				 int d, 
+				 int thresh){
 
 	Natives.thresholdToBinaryLineLow(  lined,   w,   lines,   d,   thresh);
 	
@@ -160,8 +161,8 @@ public static void thresholdToBinaryLineLow(
 ///  <param name="pixg">[in] - 8 bpp contains threshold values for each pixel</param>
 ///   <returns>pixd 1 bpp, or NULL on error</returns>
 public static Pix pixVarThresholdToBinary(
-				  Pix pixs, 
-				  Pix pixg){
+				 Pix pixs, 
+				 Pix pixg){
 
 	IntPtr _Result = Natives.pixVarThresholdToBinary(pixs.Pointer, pixg.Pointer);
 	
@@ -203,9 +204,9 @@ public static Pix pixVarThresholdToBinary(
 ///  <param name="gamma">[in] - gamma correction must be  is greater  0.0 typically ~1.0</param>
 ///   <returns>pixd 1 bpp, or NULL on error</returns>
 public static Pix pixAdaptThresholdToBinary(
-				  Pix pixs, 
-				  Pix pixm, 
-				  Single gamma){
+				 Pix pixs, 
+				 Pix pixm, 
+				 Single gamma){
 
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
@@ -247,12 +248,12 @@ public static Pix pixAdaptThresholdToBinary(
 ///  <param name="thresh">[in] - final threshold for binarization</param>
 ///   <returns>pixd 1 bpp, or NULL on error</returns>
 public static Pix pixAdaptThresholdToBinaryGen(
-				  Pix pixs, 
-				  Pix pixm, 
-				  Single gamma, 
-				  int blackval, 
-				  int whiteval, 
-				  int thresh){
+				 Pix pixs, 
+				 Pix pixm, 
+				 Single gamma, 
+				 int blackval, 
+				 int whiteval, 
+				 int thresh){
 
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
@@ -286,9 +287,9 @@ public static Pix pixAdaptThresholdToBinaryGen(
 ///  <param name="usecmap">[in] - 1 to retain cmap values 0 to convert to gray</param>
 ///   <returns>pixd 1 bpp, or NULL on error</returns>
 public static Pix pixGenerateMaskByValue(
-				  Pix pixs, 
-				  int val, 
-				  int usecmap){
+				 Pix pixs, 
+				 int val, 
+				 int usecmap){
 
 	IntPtr _Result = Natives.pixGenerateMaskByValue(pixs.Pointer,   val,   usecmap);
 	
@@ -324,11 +325,11 @@ public static Pix pixGenerateMaskByValue(
 ///  <param name="usecmap">[in] - 1 to retain cmap values 0 to convert to gray</param>
 ///   <returns>pixd 1 bpp, or NULL on error</returns>
 public static Pix pixGenerateMaskByBand(
-				  Pix pixs, 
-				  int lower, 
-				  int upper, 
-				  int inband, 
-				  int usecmap){
+				 Pix pixs, 
+				 int lower, 
+				 int upper, 
+				 int inband, 
+				 int usecmap){
 
 	IntPtr _Result = Natives.pixGenerateMaskByBand(pixs.Pointer,   lower,   upper,   inband,   usecmap);
 	
@@ -349,8 +350,8 @@ public static Pix pixGenerateMaskByBand(
 ///  <param name="cmapflag">[in] - 1 to generate a colormap</param>
 ///   <returns>pixd dithered 2 bpp, or NULL on error An analog of the Floyd-Steinberg error diffusion dithering algorithm is used to "dibitize" an 8 bpp grayscale image to 2 bpp, using equally spaced gray values of 0, 85, 170, and 255, which are served by thresholds of 43, 128 and 213. If cmapflag == 1, the colormap values are set to 0, 85, 170 and 255. If a pixel has a value between 0 and 42, it is dibitized to 0, and the excess above 0 is added to the three neighboring pixels, in the fractions 3/8 to i, j+1, 3/8 to i+1, j) and 1/4 to (i+1, j+1, truncating to 255 if necessary.  If a pixel has a value between 43 and 127, it is dibitized to 1, and the excess above 85 is added to the three neighboring pixels as before.  If the value is below 85, the excess is subtracted.  With a value between 128 and 212, it is dibitized to 2, with the excess on either side of 170 distributed as before.  Finally, with a value between 213 and 255, it is dibitized to 3, with the excess below 255 subtracted from the neighbors.  We always truncate to 0 or 255. The details can be seen in the lookup table generation. This function differs from straight dithering in that it allows clipping of grayscale to 0 or 255 if the values are sufficiently close, without distribution of the excess. This uses default values from pix.h to specify the range of lower and upper values near 0 and 255, rsp that are clipped to black and white without propagating the excess. Not propagating the excess has the effect of reducing the snake patterns in parts of the image that are nearly black or white however, it also prevents any attempt to reproduce gray for those values. The implementation uses 3 lookup tables for simplicity, and a pair of line buffers to avoid modifying pixs.</returns>
 public static Pix pixDitherTo2bpp(
-				  Pix pixs, 
-				  int cmapflag){
+				 Pix pixs, 
+				 int cmapflag){
 
 	IntPtr _Result = Natives.pixDitherTo2bpp(pixs.Pointer,   cmapflag);
 	
@@ -381,10 +382,10 @@ public static Pix pixDitherTo2bpp(
 ///  <param name="cmapflag">[in] - 1 to generate a colormap</param>
 ///   <returns>pixd dithered 2 bpp, or NULL on error</returns>
 public static Pix pixDitherTo2bppSpec(
-				  Pix pixs, 
-				  int lowerclip, 
-				  int upperclip, 
-				  int cmapflag){
+				 Pix pixs, 
+				 int lowerclip, 
+				 int upperclip, 
+				 int cmapflag){
 
 	IntPtr _Result = Natives.pixDitherTo2bppSpec(pixs.Pointer,   lowerclip,   upperclip,   cmapflag);
 	
@@ -446,9 +447,9 @@ public static Pix pixDitherTo2bppSpec(
 ///  <param name="cmapflag">[in] - 1 to build colormap 0 otherwise</param>
 ///   <returns>pixd 2 bpp, optionally with colormap, or NULL on error</returns>
 public static Pix pixThresholdTo2bpp(
-				  Pix pixs, 
-				  int nlevels, 
-				  int cmapflag){
+				 Pix pixs, 
+				 int nlevels, 
+				 int cmapflag){
 
 	IntPtr _Result = Natives.pixThresholdTo2bpp(pixs.Pointer,   nlevels,   cmapflag);
 	
@@ -512,9 +513,9 @@ public static Pix pixThresholdTo2bpp(
 ///  <param name="cmapflag">[in] - 1 to build colormap 0 otherwise</param>
 ///   <returns>pixd 4 bpp, optionally with colormap, or NULL on error</returns>
 public static Pix pixThresholdTo4bpp(
-				  Pix pixs, 
-				  int nlevels, 
-				  int cmapflag){
+				 Pix pixs, 
+				 int nlevels, 
+				 int cmapflag){
 
 	IntPtr _Result = Natives.pixThresholdTo4bpp(pixs.Pointer,   nlevels,   cmapflag);
 	
@@ -549,9 +550,9 @@ public static Pix pixThresholdTo4bpp(
 ///  <param name="cmapflag">[in] - 1 to build colormap 0 otherwise</param>
 ///   <returns>pixd 8 bpp, optionally with colormap, or NULL on error</returns>
 public static Pix pixThresholdOn8bpp(
-				  Pix pixs, 
-				  int nlevels, 
-				  int cmapflag){
+				 Pix pixs, 
+				 int nlevels, 
+				 int cmapflag){
 
 	IntPtr _Result = Natives.pixThresholdOn8bpp(pixs.Pointer,   nlevels,   cmapflag);
 	
@@ -611,12 +612,12 @@ public static Pix pixThresholdOn8bpp(
 ///  <param name="setwhite">[in] - 1 if lightest color is set to white</param>
 ///   <returns>pixd 2, 4 or 8 bpp quantized image with colormap, or NULL on error</returns>
 public static Pix pixThresholdGrayArb(
-				  Pix pixs, 
-				  String edgevals, 
-				  int outdepth, 
-				  int use_average, 
-				  int setblack, 
-				  int setwhite){
+				 Pix pixs, 
+				 String edgevals, 
+				 int outdepth, 
+				 int use_average, 
+				 int setblack, 
+				 int setwhite){
 
 	IntPtr _Result = Natives.pixThresholdGrayArb(pixs.Pointer,   edgevals,   outdepth,   use_average,   setblack,   setwhite);
 	
@@ -642,7 +643,7 @@ public static Pix pixThresholdGrayArb(
 ///  <param name="nlevels">[in] - number of output levels</param>
 ///   <returns>table maps input gray level to colormap index, or NULL on error</returns>
 public static int[] makeGrayQuantIndexTable(
-				  int nlevels){
+				 int nlevels){
 
 	int[] _Result = Natives.makeGrayQuantIndexTable(  nlevels);
 	
@@ -681,10 +682,10 @@ public static int[] makeGrayQuantIndexTable(
 ///  <param name="pcmap">[out] - colormap</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int makeGrayQuantTableArb(
-				  Numa na, 
-				  int outdepth, 
-				 out List<int[]> ptab, 
-				 out PixColormap pcmap){
+				 Numa na, 
+				 int outdepth, 
+				out List<int[]> ptab, 
+				out PixColormap pcmap){
 
 	IntPtr ptabPtr = IntPtr.Zero;
 	IntPtr pcmapPtr = IntPtr.Zero;
@@ -692,9 +693,8 @@ public static int makeGrayQuantTableArb(
 	int _Result = Natives.makeGrayQuantTableArb(na.Pointer,   outdepth, out  ptabPtr, out pcmapPtr);
 	
 
-ptab = null;
-pcmap = null;
-	; if (pcmapPtr != IntPtr.Zero){pcmap = new PixColormap(pcmapPtr);}
+	if (ptabPtr == null) {ptab = null;} else { ptab = null; };
+	if (pcmapPtr == null) {pcmap = null;} else { pcmap = new PixColormap(pcmapPtr); };
 
 
 	return _Result;
@@ -728,12 +728,12 @@ pcmap = null;
 ///  <param name="fractp">[in] - fractional amount above ref value for all components</param>
 ///   <returns>pixd 1 bpp, or NULL on error</returns>
 public static Pix pixGenerateMaskByBand32(
-				  Pix pixs, 
-				  uint refval, 
-				  int delm, 
-				  int delp, 
-				  Single fractm, 
-				  Single fractp){
+				 Pix pixs, 
+				 uint refval, 
+				 int delm, 
+				 int delp, 
+				 Single fractm, 
+				 Single fractp){
 
 	IntPtr _Result = Natives.pixGenerateMaskByBand32(pixs.Pointer,   refval,   delm,   delp,   fractm,   fractp);
 	
@@ -767,10 +767,10 @@ public static Pix pixGenerateMaskByBand32(
 ///  <param name="distflag">[in] - L_MANHATTAN_DISTANCE, L_EUCLIDEAN_DISTANCE</param>
 ///   <returns>pixd 1 bpp, or NULL on error</returns>
 public static Pix pixGenerateMaskByDiscr32(
-				  Pix pixs, 
-				  uint refval1, 
-				  uint refval2, 
-				  int distflag){
+				 Pix pixs, 
+				 uint refval1, 
+				 uint refval2, 
+				 int distflag){
 
 	IntPtr _Result = Natives.pixGenerateMaskByDiscr32(pixs.Pointer,   refval1,   refval2,   distflag);
 	
@@ -831,11 +831,11 @@ public static Pix pixGenerateMaskByDiscr32(
 ///  <param name="maxsize">[in] - maximum number of adjacent bins allowed to represent a color, regardless of the population of pixels in the bins must be at least 2</param>
 ///   <returns>pixd 8 bpp, cmapped, or NULL on error</returns>
 public static Pix pixGrayQuantFromHisto(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Pix pixm, 
-				  Single minfract, 
-				  int maxsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Pix pixm, 
+				 Single minfract, 
+				 int maxsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
@@ -865,9 +865,9 @@ public static Pix pixGrayQuantFromHisto(
 ///  <param name="mindepth">[in] - minimum depth of pixd: can be 2, 4 or 8 bpp</param>
 ///   <returns>pixd 2, 4 or 8 bpp, colormapped, or NULL on error</returns>
 public static Pix pixGrayQuantFromCmap(
-				  Pix pixs, 
-				  PixColormap cmap, 
-				  int mindepth){
+				 Pix pixs, 
+				 PixColormap cmap, 
+				 int mindepth){
 
 	IntPtr _Result = Natives.pixGrayQuantFromCmap(pixs.Pointer, cmap.Pointer,   mindepth);
 	
@@ -878,4 +878,5 @@ public static Pix pixGrayQuantFromCmap(
 	return  new Pix(_Result);
 }
 
+}
 }

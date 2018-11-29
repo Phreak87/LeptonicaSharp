@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // morphseq.c (133, 1)
 // pixMorphSequence(pixs, sequence, dispsep) as Pix
@@ -85,9 +86,9 @@ public class _All {
 ///  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is smaller 0: pdf output abs(dispsep) is used for naming</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixMorphSequence(
-				  Pix pixs, 
-				  String sequence, 
-				  int dispsep){
+				 Pix pixs, 
+				 String sequence, 
+				 int dispsep){
 
 	IntPtr _Result = Natives.pixMorphSequence(pixs.Pointer,   sequence,   dispsep);
 	
@@ -141,9 +142,9 @@ public static Pix pixMorphSequence(
 ///  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is smaller 0: pdf output abs(dispsep) is used for naming</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixMorphCompSequence(
-				  Pix pixs, 
-				  String sequence, 
-				  int dispsep){
+				 Pix pixs, 
+				 String sequence, 
+				 int dispsep){
 
 	IntPtr _Result = Natives.pixMorphCompSequence(pixs.Pointer,   sequence,   dispsep);
 	
@@ -180,9 +181,9 @@ public static Pix pixMorphCompSequence(
 ///  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is smaller 0: pdf output abs(dispsep) is used for naming</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixMorphSequenceDwa(
-				  Pix pixs, 
-				  String sequence, 
-				  int dispsep){
+				 Pix pixs, 
+				 String sequence, 
+				 int dispsep){
 
 	IntPtr _Result = Natives.pixMorphSequenceDwa(pixs.Pointer,   sequence,   dispsep);
 	
@@ -219,9 +220,9 @@ public static Pix pixMorphSequenceDwa(
 ///  <param name="dispsep">[in] - controls debug display of each result in the sequence: 0: no output  is greater  0: gives horizontal separation in pixels between successive displays  is smaller 0: pdf output abs(dispsep) is used for naming</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixMorphCompSequenceDwa(
-				  Pix pixs, 
-				  String sequence, 
-				  int dispsep){
+				 Pix pixs, 
+				 String sequence, 
+				 int dispsep){
 
 	IntPtr _Result = Natives.pixMorphCompSequenceDwa(pixs.Pointer,   sequence,   dispsep);
 	
@@ -248,7 +249,7 @@ public static Pix pixMorphCompSequenceDwa(
 ///  <param name="sa">[in] - string array of operation sequence</param>
 ///   <returns>TRUE if valid FALSE otherwise or on error</returns>
 public static int morphSequenceVerify(
-				  Sarray sa){
+				 Sarray sa){
 
 	int _Result = Natives.morphSequenceVerify(sa.Pointer);
 	
@@ -311,10 +312,10 @@ public static int morphSequenceVerify(
 ///  <param name="dispy">[in] - if dispsep  is greater  0, this gives the y-value of the UL corner for display otherwise it is ignored</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixGrayMorphSequence(
-				  Pix pixs, 
-				  String sequence, 
-				  int dispsep, 
-				  int dispy){
+				 Pix pixs, 
+				 String sequence, 
+				 int dispsep, 
+				 int dispy){
 
 	IntPtr _Result = Natives.pixGrayMorphSequence(pixs.Pointer,   sequence,   dispsep,   dispy);
 	
@@ -373,10 +374,10 @@ public static Pix pixGrayMorphSequence(
 ///  <param name="dispy">[in] - if dispsep  is greater  0, this gives the y-value of the UL corner for display otherwise it is ignored</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixColorMorphSequence(
-				  Pix pixs, 
-				  String sequence, 
-				  int dispsep, 
-				  int dispy){
+				 Pix pixs, 
+				 String sequence, 
+				 int dispsep, 
+				 int dispy){
 
 	IntPtr _Result = Natives.pixColorMorphSequence(pixs.Pointer,   sequence,   dispsep,   dispy);
 	
@@ -387,4 +388,5 @@ public static Pix pixColorMorphSequence(
 	return  new Pix(_Result);
 }
 
+}
 }

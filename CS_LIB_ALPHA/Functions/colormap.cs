@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // colormap.c (110, 1)
 // pixcmapCreate(depth) as PixColormap
@@ -14,7 +15,7 @@ public class _All {
 ///  <param name="depth">[in] - bpp, of pix</param>
 ///   <returns>cmap, or NULL on error</returns>
 public static PixColormap pixcmapCreate(
-				  int depth){
+				 int depth){
 
 	IntPtr _Result = Natives.pixcmapCreate(  depth);
 	
@@ -56,9 +57,9 @@ public static PixColormap pixcmapCreate(
 ///  <param name="haswhite">[in] - 1 if the last color is white 0 if no white</param>
 ///   <returns>cmap, or NULL on error</returns>
 public static PixColormap pixcmapCreateRandom(
-				  int depth, 
-				  int hasblack, 
-				  int haswhite){
+				 int depth, 
+				 int hasblack, 
+				 int haswhite){
 
 	IntPtr _Result = Natives.pixcmapCreateRandom(  depth,   hasblack,   haswhite);
 	
@@ -83,8 +84,8 @@ public static PixColormap pixcmapCreateRandom(
 ///  <param name="nlevels">[in] - valid in range [2, 2^d]</param>
 ///   <returns>cmap, or NULL on error</returns>
 public static PixColormap pixcmapCreateLinear(
-				  int d, 
-				  int nlevels){
+				 int d, 
+				 int nlevels){
 
 	IntPtr _Result = Natives.pixcmapCreateLinear(  d,   nlevels);
 	
@@ -104,7 +105,7 @@ public static PixColormap pixcmapCreateLinear(
 ///  <param name="cmaps">[in] - </param>
 ///   <returns>cmapd, or NULL on error</returns>
 public static PixColormap pixcmapCopy(
-				  PixColormap cmaps){
+				 PixColormap cmaps){
 
 	IntPtr _Result = Natives.pixcmapCopy(cmaps.Pointer);
 	
@@ -123,15 +124,14 @@ public static PixColormap pixcmapCopy(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixcmapDestroy/*"/>
 ///  <param name="pcmap">[in,out] - set to null</param>
 public static void pixcmapDestroy(
-				 ref PixColormap pcmap){
+				ref PixColormap pcmap){
 
 	IntPtr pcmapPtr = IntPtr.Zero; 	if (pcmap != null) {pcmapPtr = pcmap.Pointer;}
 
 	Natives.pixcmapDestroy(ref pcmapPtr);
 	
 
-pcmap = null;
-	; if (pcmapPtr != IntPtr.Zero){pcmap = new PixColormap(pcmapPtr);}
+	if (pcmapPtr == null) {pcmap = null;} else { pcmap = new PixColormap(pcmapPtr); };
 
 
 }
@@ -153,10 +153,10 @@ pcmap = null;
 ///  <param name="bval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcmapAddColor(
-				  PixColormap cmap, 
-				  int rval, 
-				  int gval, 
-				  int bval){
+				 PixColormap cmap, 
+				 int rval, 
+				 int gval, 
+				 int bval){
 
 	int _Result = Natives.pixcmapAddColor(cmap.Pointer,   rval,   gval,   bval);
 	
@@ -182,11 +182,11 @@ public static int pixcmapAddColor(
 ///  <param name="aval">[in] - colormap entry to be added each number is in range [0, ... 255]</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcmapAddRGBA(
-				  PixColormap cmap, 
-				  int rval, 
-				  int gval, 
-				  int bval, 
-				  int aval){
+				 PixColormap cmap, 
+				 int rval, 
+				 int gval, 
+				 int bval, 
+				 int aval){
 
 	int _Result = Natives.pixcmapAddRGBA(cmap.Pointer,   rval,   gval,   bval,   aval);
 	
@@ -219,16 +219,15 @@ public static int pixcmapAddRGBA(
 ///  <param name="pindex">[out] - index of color</param>
 ///   <returns>0 if OK, 1 on error 2 if unable to add color</returns>
 public static int pixcmapAddNewColor(
-				  PixColormap cmap, 
-				  int rval, 
-				  int gval, 
-				  int bval, 
-				 out int pindex){
+				 PixColormap cmap, 
+				 int rval, 
+				 int gval, 
+				 int bval, 
+				out int pindex){
 
 	int _Result = Natives.pixcmapAddNewColor(cmap.Pointer,   rval,   gval,   bval, out  pindex);
 	
 
-pindex = 0;
 
 
 	return _Result;
@@ -255,16 +254,15 @@ pindex = 0;
 ///  <param name="pindex">[out] - index of color</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcmapAddNearestColor(
-				  PixColormap cmap, 
-				  int rval, 
-				  int gval, 
-				  int bval, 
-				 out int pindex){
+				 PixColormap cmap, 
+				 int rval, 
+				 int gval, 
+				 int bval, 
+				out int pindex){
 
 	int _Result = Natives.pixcmapAddNearestColor(cmap.Pointer,   rval,   gval,   bval, out  pindex);
 	
 
-pindex = 0;
 
 
 	return _Result;
@@ -287,16 +285,15 @@ pindex = 0;
 ///  <param name="pusable">[out] - 1 if usable 0 if not</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcmapUsableColor(
-				  PixColormap cmap, 
-				  int rval, 
-				  int gval, 
-				  int bval, 
-				 out int pusable){
+				 PixColormap cmap, 
+				 int rval, 
+				 int gval, 
+				 int bval, 
+				out int pusable){
 
 	int _Result = Natives.pixcmapUsableColor(cmap.Pointer,   rval,   gval,   bval, out  pusable);
 	
 
-pusable = 0;
 
 
 	return _Result;
@@ -323,14 +320,13 @@ pusable = 0;
 ///  <param name="pindex">[out][optional] - index of color can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcmapAddBlackOrWhite(
-				  PixColormap cmap, 
-				  int color, 
+				 PixColormap cmap, 
+				 int color, 
 				out int pindex){
 
 	int _Result = Natives.pixcmapAddBlackOrWhite(cmap.Pointer,   color, out  pindex);
 	
 
-pindex = 0;
 
 
 	return _Result;
@@ -347,9 +343,9 @@ pindex = 0;
 ///  <param name="setwhite">[in] - 0 for no operation 1 to set lightest color to white</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcmapSetBlackAndWhite(
-				  PixColormap cmap, 
-				  int setblack, 
-				  int setwhite){
+				 PixColormap cmap, 
+				 int setblack, 
+				 int setwhite){
 
 	int _Result = Natives.pixcmapSetBlackAndWhite(cmap.Pointer,   setblack,   setwhite);
 	
@@ -368,7 +364,7 @@ public static int pixcmapSetBlackAndWhite(
 ///  <param name="cmap">[in] - </param>
 ///   <returns>count, or 0 on error</returns>
 public static int pixcmapGetCount(
-				  PixColormap cmap){
+				 PixColormap cmap){
 
 	int _Result = Natives.pixcmapGetCount(cmap.Pointer);
 	
@@ -387,7 +383,7 @@ public static int pixcmapGetCount(
 ///  <param name="cmap">[in] - </param>
 ///   <returns>free entries, or 0 on error</returns>
 public static int pixcmapGetFreeCount(
-				  PixColormap cmap){
+				 PixColormap cmap){
 
 	int _Result = Natives.pixcmapGetFreeCount(cmap.Pointer);
 	
@@ -406,7 +402,7 @@ public static int pixcmapGetFreeCount(
 ///  <param name="cmap">[in] - </param>
 ///   <returns>depth, or 0 on error</returns>
 public static int pixcmapGetDepth(
-				  PixColormap cmap){
+				 PixColormap cmap){
 
 	int _Result = Natives.pixcmapGetDepth(cmap.Pointer);
 	
@@ -429,13 +425,12 @@ public static int pixcmapGetDepth(
 ///  <param name="pmindepth">[out] - minimum depth to support the colormap</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcmapGetMinDepth(
-				  PixColormap cmap, 
-				 out int pmindepth){
+				 PixColormap cmap, 
+				out int pmindepth){
 
 	int _Result = Natives.pixcmapGetMinDepth(cmap.Pointer, out  pmindepth);
 	
 
-pmindepth = 0;
 
 
 	return _Result;
@@ -453,7 +448,7 @@ pmindepth = 0;
 ///  <param name="cmap">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcmapClear(
-				  PixColormap cmap){
+				 PixColormap cmap){
 
 	int _Result = Natives.pixcmapClear(cmap.Pointer);
 	
@@ -476,18 +471,15 @@ public static int pixcmapClear(
 ///  <param name="pbval">[out] - each color value</param>
 ///   <returns>0 if OK, 1 if not accessible caller should check</returns>
 public static int pixcmapGetColor(
-				  PixColormap cmap, 
-				  int index, 
-				 out int prval, 
-				 out int pgval, 
-				 out int pbval){
+				 PixColormap cmap, 
+				 int index, 
+				out int prval, 
+				out int pgval, 
+				out int pbval){
 
 	int _Result = Natives.pixcmapGetColor(cmap.Pointer,   index, out  prval, out  pgval, out  pbval);
 	
 
-prval = 0;
-pgval = 0;
-pbval = 0;
 
 
 	return _Result;
@@ -507,14 +499,13 @@ pbval = 0;
 ///  <param name="pval32">[out] - 32-bit rgb color value</param>
 ///   <returns>0 if OK, 1 if not accessible caller should check</returns>
 public static int pixcmapGetColor32(
-				  PixColormap cmap, 
-				  int index, 
-				 out uint pval32){
+				 PixColormap cmap, 
+				 int index, 
+				out uint pval32){
 
 	int _Result = Natives.pixcmapGetColor32(cmap.Pointer,   index, out  pval32);
 	
 
-pval32 = 0;
 
 
 	return _Result;
@@ -534,20 +525,16 @@ pval32 = 0;
 ///  <param name="paval">[out] - each color value</param>
 ///   <returns>0 if OK, 1 if not accessible caller should check</returns>
 public static int pixcmapGetRGBA(
-				  PixColormap cmap, 
-				  int index, 
-				 out int prval, 
-				 out int pgval, 
-				 out int pbval, 
-				 out int paval){
+				 PixColormap cmap, 
+				 int index, 
+				out int prval, 
+				out int pgval, 
+				out int pbval, 
+				out int paval){
 
 	int _Result = Natives.pixcmapGetRGBA(cmap.Pointer,   index, out  prval, out  pgval, out  pbval, out  paval);
 	
 
-prval = 0;
-pgval = 0;
-pbval = 0;
-paval = 0;
 
 
 	return _Result;
@@ -564,14 +551,13 @@ paval = 0;
 ///  <param name="pval32">[out] - 32-bit rgba color value</param>
 ///   <returns>0 if OK, 1 if not accessible caller should check</returns>
 public static int pixcmapGetRGBA32(
-				  PixColormap cmap, 
-				  int index, 
-				 out uint pval32){
+				 PixColormap cmap, 
+				 int index, 
+				out uint pval32){
 
 	int _Result = Natives.pixcmapGetRGBA32(cmap.Pointer,   index, out  pval32);
 	
 
-pval32 = 0;
 
 
 	return _Result;
@@ -596,11 +582,11 @@ pval32 = 0;
 ///  <param name="bval">[in] - colormap entry to be reset each number is in range [0, ... 255]</param>
 ///   <returns>0 if OK, 1 if not accessible caller should check</returns>
 public static int pixcmapResetColor(
-				  PixColormap cmap, 
-				  int index, 
-				  int rval, 
-				  int gval, 
-				  int bval){
+				 PixColormap cmap, 
+				 int index, 
+				 int rval, 
+				 int gval, 
+				 int bval){
 
 	int _Result = Natives.pixcmapResetColor(cmap.Pointer,   index,   rval,   gval,   bval);
 	
@@ -627,9 +613,9 @@ public static int pixcmapResetColor(
 ///  <param name="aval">[in] - in range [0, ... 255]</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcmapSetAlpha(
-				  PixColormap cmap, 
-				  int index, 
-				  int aval){
+				 PixColormap cmap, 
+				 int index, 
+				 int aval){
 
 	int _Result = Natives.pixcmapSetAlpha(cmap.Pointer,   index,   aval);
 	
@@ -652,16 +638,15 @@ public static int pixcmapSetAlpha(
 ///  <param name="pindex">[out] - found index</param>
 ///   <returns>0 if found, 1 if not found caller must check</returns>
 public static int pixcmapGetIndex(
-				  PixColormap cmap, 
-				  int rval, 
-				  int gval, 
-				  int bval, 
-				 out int pindex){
+				 PixColormap cmap, 
+				 int rval, 
+				 int gval, 
+				 int bval, 
+				out int pindex){
 
 	int _Result = Natives.pixcmapGetIndex(cmap.Pointer,   rval,   gval,   bval, out  pindex);
 	
 
-pindex = 0;
 
 
 	return _Result;
@@ -677,13 +662,12 @@ pindex = 0;
 ///  <param name="pcolor">[out] - TRUE if cmap has color FALSE otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcmapHasColor(
-				  PixColormap cmap, 
-				 out int pcolor){
+				 PixColormap cmap, 
+				out int pcolor){
 
 	int _Result = Natives.pixcmapHasColor(cmap.Pointer, out  pcolor);
 	
 
-pcolor = 0;
 
 
 	return _Result;
@@ -699,13 +683,12 @@ pcolor = 0;
 ///  <param name="popaque">[out] - TRUE if fully opaque: all entries are 255</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcmapIsOpaque(
-				  PixColormap cmap, 
-				 out int popaque){
+				 PixColormap cmap, 
+				out int popaque){
 
 	int _Result = Natives.pixcmapIsOpaque(cmap.Pointer, out  popaque);
 	
 
-popaque = 0;
 
 
 	return _Result;
@@ -721,13 +704,12 @@ popaque = 0;
 ///  <param name="pblackwhite">[out] - TRUE if the cmap has only two colors: black (0,0,0) and white (255,255,255)</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcmapIsBlackAndWhite(
-				  PixColormap cmap, 
-				 out int pblackwhite){
+				 PixColormap cmap, 
+				out int pblackwhite){
 
 	int _Result = Natives.pixcmapIsBlackAndWhite(cmap.Pointer, out  pblackwhite);
 	
 
-pblackwhite = 0;
 
 
 	return _Result;
@@ -746,13 +728,12 @@ pblackwhite = 0;
 ///  <param name="pngray">[out] - number of gray colors</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcmapCountGrayColors(
-				  PixColormap cmap, 
-				 out int pngray){
+				 PixColormap cmap, 
+				out int pngray){
 
 	int _Result = Natives.pixcmapCountGrayColors(cmap.Pointer, out  pngray);
 	
 
-pngray = 0;
 
 
 	return _Result;
@@ -769,14 +750,13 @@ pngray = 0;
 ///  <param name="pindex">[out] - the index into the colormap that corresponds to the rank intensity color</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcmapGetRankIntensity(
-				  PixColormap cmap, 
-				  Single rankval, 
-				 out int pindex){
+				 PixColormap cmap, 
+				 Single rankval, 
+				out int pindex){
 
 	int _Result = Natives.pixcmapGetRankIntensity(cmap.Pointer,   rankval, out  pindex);
 	
 
-pindex = 0;
 
 
 	return _Result;
@@ -802,16 +782,15 @@ pindex = 0;
 ///  <param name="pindex">[out] - the index of the nearest color</param>
 ///   <returns>0 if OK, 1 on error caller must check</returns>
 public static int pixcmapGetNearestIndex(
-				  PixColormap cmap, 
-				  int rval, 
-				  int gval, 
-				  int bval, 
-				 out int pindex){
+				 PixColormap cmap, 
+				 int rval, 
+				 int gval, 
+				 int bval, 
+				out int pindex){
 
 	int _Result = Natives.pixcmapGetNearestIndex(cmap.Pointer,   rval,   gval,   bval, out  pindex);
 	
 
-pindex = 0;
 
 
 	return _Result;
@@ -835,14 +814,13 @@ pindex = 0;
 ///  <param name="pindex">[out] - the index of the nearest color</param>
 ///   <returns>0 if OK, 1 on error caller must check</returns>
 public static int pixcmapGetNearestGrayIndex(
-				  PixColormap cmap, 
-				  int val, 
-				 out int pindex){
+				 PixColormap cmap, 
+				 int val, 
+				out int pindex){
 
 	int _Result = Natives.pixcmapGetNearestGrayIndex(cmap.Pointer,   val, out  pindex);
 	
 
-pindex = 0;
 
 
 	return _Result;
@@ -866,17 +844,16 @@ pindex = 0;
 ///  <param name="pdist">[out] - the distance from the cmap entry to target</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcmapGetDistanceToColor(
-				  PixColormap cmap, 
-				  int index, 
-				  int rval, 
-				  int gval, 
-				  int bval, 
-				 out int pdist){
+				 PixColormap cmap, 
+				 int index, 
+				 int rval, 
+				 int gval, 
+				 int bval, 
+				out int pdist){
 
 	int _Result = Natives.pixcmapGetDistanceToColor(cmap.Pointer,   index,   rval,   gval,   bval, out  pdist);
 	
 
-pdist = 0;
 
 
 	return _Result;
@@ -900,8 +877,8 @@ pdist = 0;
 ///  <param name="pmaxindex">[out][optional] - index of maximum value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcmapGetRangeValues(
-				  PixColormap cmap, 
-				  int _select_, 
+				 PixColormap cmap, 
+				 int _select_, 
 				out int pminval, 
 				out int pmaxval, 
 				out int pminindex, 
@@ -910,10 +887,6 @@ public static int pixcmapGetRangeValues(
 	int _Result = Natives.pixcmapGetRangeValues(cmap.Pointer,   _select_, out  pminval, out  pmaxval, out  pminindex, out  pmaxindex);
 	
 
-pminval = 0;
-pmaxval = 0;
-pminindex = 0;
-pmaxindex = 0;
 
 
 	return _Result;
@@ -936,7 +909,7 @@ pmaxindex = 0;
 ///  <param name="color">[in] - </param>
 ///   <returns>cmap, or NULL on error</returns>
 public static PixColormap pixcmapGrayToColor(
-				  uint color){
+				 uint color){
 
 	IntPtr _Result = Natives.pixcmapGrayToColor(  color);
 	
@@ -965,10 +938,10 @@ public static PixColormap pixcmapGrayToColor(
 ///  <param name="bwt">[in] - non-negative these should add to 1.0</param>
 ///   <returns>cmap gray, or NULL on error</returns>
 public static PixColormap pixcmapColorToGray(
-				  PixColormap cmaps, 
-				  Single rwt, 
-				  Single gwt, 
-				  Single bwt){
+				 PixColormap cmaps, 
+				 Single rwt, 
+				 Single gwt, 
+				 Single bwt){
 
 	IntPtr _Result = Natives.pixcmapColorToGray(cmaps.Pointer,   rwt,   gwt,   bwt);
 	
@@ -992,7 +965,7 @@ public static PixColormap pixcmapColorToGray(
 ///  <param name="cmaps">[in] - colormap for 2 bpp pix</param>
 ///   <returns>cmapd   (4 bpp)</returns>
 public static PixColormap pixcmapConvertTo4(
-				  PixColormap cmaps){
+				 PixColormap cmaps){
 
 	IntPtr _Result = Natives.pixcmapConvertTo4(cmaps.Pointer);
 	
@@ -1016,7 +989,7 @@ public static PixColormap pixcmapConvertTo4(
 ///  <param name="cmaps">[in] - colormap for 2 bpp or 4 bpp pix</param>
 ///   <returns>cmapd   (8 bpp)</returns>
 public static PixColormap pixcmapConvertTo8(
-				  PixColormap cmaps){
+				 PixColormap cmaps){
 
 	IntPtr _Result = Natives.pixcmapConvertTo8(cmaps.Pointer);
 	
@@ -1036,7 +1009,7 @@ public static PixColormap pixcmapConvertTo8(
 ///  <param name="filename">[in] - </param>
 ///   <returns>cmap, or NULL on error</returns>
 public static PixColormap pixcmapRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.pixcmapRead(  filename);
 	
@@ -1056,7 +1029,7 @@ public static PixColormap pixcmapRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>cmap, or NULL on error</returns>
 public static PixColormap pixcmapReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.pixcmapReadStream(fp.Pointer);
 	
@@ -1077,8 +1050,8 @@ public static PixColormap pixcmapReadStream(
 ///  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 ///   <returns>cmap, or NULL on error</returns>
 public static PixColormap pixcmapReadMem(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.pixcmapReadMem(  data,   size);
 	
@@ -1099,8 +1072,8 @@ public static PixColormap pixcmapReadMem(
 ///  <param name="cmap">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcmapWrite(
-				  String filename, 
-				  PixColormap cmap){
+				 String filename, 
+				 PixColormap cmap){
 
 	int _Result = Natives.pixcmapWrite(  filename, cmap.Pointer);
 	
@@ -1119,8 +1092,8 @@ public static int pixcmapWrite(
 ///  <param name="fp">[in] - file stream    \param[in]    cmap</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcmapWriteStream(
-				  FILE fp, 
-				  PixColormap cmap){
+				 FILE fp, 
+				 PixColormap cmap){
 
 	IntPtr cmapPtr = IntPtr.Zero; if (cmap != null) {cmapPtr = cmap.Pointer;}
 
@@ -1146,17 +1119,16 @@ public static int pixcmapWriteStream(
 ///  <param name="cmap">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcmapWriteMem(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  PixColormap cmap){
+				out Byte[] pdata, 
+				out uint psize, 
+				 PixColormap cmap){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixcmapWriteMem(out  pdataPtr, out  psize, cmap.Pointer);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -1175,10 +1147,10 @@ psize = 0;
 ///  <param name="pamap">[out][optional] - alpha array</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixcmapToArrays(
-				  PixColormap cmap, 
-				 out List<int[]> prmap, 
-				 out List<int[]> pgmap, 
-				 out List<int[]> pbmap, 
+				 PixColormap cmap, 
+				out List<int[]> prmap, 
+				out List<int[]> pgmap, 
+				out List<int[]> pbmap, 
 				out List<int[]> pamap){
 
 	IntPtr prmapPtr = IntPtr.Zero;
@@ -1189,10 +1161,10 @@ public static int pixcmapToArrays(
 	int _Result = Natives.pixcmapToArrays(cmap.Pointer, out  prmapPtr, out  pgmapPtr, out  pbmapPtr, out  pamapPtr);
 	
 
-prmap = null;
-pgmap = null;
-pbmap = null;
-pamap = null;
+	if (prmapPtr == null) {prmap = null;} else { prmap = null; };
+	if (pgmapPtr == null) {pgmap = null;} else { pgmap = null; };
+	if (pbmapPtr == null) {pbmap = null;} else { pbmap = null; };
+	if (pamapPtr == null) {pamap = null;} else { pamap = null; };
 
 
 	return _Result;
@@ -1209,8 +1181,8 @@ pamap = null;
 ///  <param name="pncolors">[out][optional] - size of table</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixcmapToRGBTable(
-				  PixColormap cmap, 
-				 out Byte[] ptab, 
+				 PixColormap cmap, 
+				out Byte[] ptab, 
 				out int pncolors){
 
 	IntPtr ptabPtr = IntPtr.Zero;
@@ -1218,8 +1190,7 @@ public static int pixcmapToRGBTable(
 	int _Result = Natives.pixcmapToRGBTable(cmap.Pointer, out  ptabPtr, out  pncolors);
 	
 
-ptab = null;
-pncolors = 0;
+	if (ptabPtr == null) {ptab = null;} else { ptab = null; };
 
 
 	return _Result;
@@ -1240,18 +1211,17 @@ pncolors = 0;
 ///  <param name="pdata">[out] - binary string, cpc bytes per color</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixcmapSerializeToMemory(
-				  PixColormap cmap, 
-				  int cpc, 
-				 out int pncolors, 
-				 out Byte[] pdata){
+				 PixColormap cmap, 
+				 int cpc, 
+				out int pncolors, 
+				out Byte[] pdata){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixcmapSerializeToMemory(cmap.Pointer,   cpc, out  pncolors, out  pdataPtr);
 	
 
-pncolors = 0;
-pdata = null;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -1268,9 +1238,9 @@ pdata = null;
 ///  <param name="ncolors">[in] - </param>
 ///   <returns>cmap, or NULL on error</returns>
 public static PixColormap pixcmapDeserializeFromMemory(
-				  Byte[] data, 
-				  int cpc, 
-				  int ncolors){
+				 Byte[] data, 
+				 int cpc, 
+				 int ncolors){
 
 	IntPtr _Result = Natives.pixcmapDeserializeFromMemory(  data,   cpc,   ncolors);
 	
@@ -1301,8 +1271,8 @@ public static PixColormap pixcmapDeserializeFromMemory(
 ///  <param name="ncolors">[in] - in colormap</param>
 ///   <returns>hexdata bracketed, space-separated ascii hex string, or NULL on error.</returns>
 public static String pixcmapConvertToHex(
-				  Byte[] data, 
-				  int ncolors){
+				 Byte[] data, 
+				 int ncolors){
 
 	String _Result = Natives.pixcmapConvertToHex(  data,   ncolors);
 	
@@ -1330,10 +1300,10 @@ public static String pixcmapConvertToHex(
 ///  <param name="maxval">[in] - input value that gives 255 for output can be  is greater  255</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixcmapGammaTRC(
-				  PixColormap cmap, 
-				  Single gamma, 
-				  int minval, 
-				  int maxval){
+				 PixColormap cmap, 
+				 Single gamma, 
+				 int minval, 
+				 int maxval){
 
 	int _Result = Natives.pixcmapGammaTRC(cmap.Pointer,   gamma,   minval,   maxval);
 	
@@ -1359,8 +1329,8 @@ public static int pixcmapGammaTRC(
 ///  <param name="factor">[in] - generally between 0.0 [no enhancement] and 1.0, but can be larger than 1.0</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixcmapContrastTRC(
-				  PixColormap cmap, 
-				  Single factor){
+				 PixColormap cmap, 
+				 Single factor){
 
 	int _Result = Natives.pixcmapContrastTRC(cmap.Pointer,   factor);
 	
@@ -1393,8 +1363,8 @@ public static int pixcmapContrastTRC(
 ///  <param name="fraction">[in] - between -1.0 and +1.0</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixcmapShiftIntensity(
-				  PixColormap cmap, 
-				  Single fraction){
+				 PixColormap cmap, 
+				 Single fraction){
 
 	int _Result = Natives.pixcmapShiftIntensity(cmap.Pointer,   fraction);
 	
@@ -1425,9 +1395,9 @@ public static int pixcmapShiftIntensity(
 ///  <param name="dstval">[in] - target color: 0xrrggbb00</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixcmapShiftByComponent(
-				  PixColormap cmap, 
-				  uint srcval, 
-				  uint dstval){
+				 PixColormap cmap, 
+				 uint srcval, 
+				 uint dstval){
 
 	int _Result = Natives.pixcmapShiftByComponent(cmap.Pointer,   srcval,   dstval);
 	
@@ -1437,4 +1407,5 @@ public static int pixcmapShiftByComponent(
 	return _Result;
 }
 
+}
 }

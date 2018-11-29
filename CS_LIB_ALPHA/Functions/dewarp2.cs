@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // dewarp2.c (148, 1)
 // dewarpBuildPageModel(dew, debugfile) as int
@@ -60,7 +61,7 @@ public class _All {
 ///  <param name="debugfile">[in]use NULL to skip - writing this</param>
 ///   <returns>0 if OK, 1 if unable to build the model or on error</returns>
 public static int dewarpBuildPageModel(
-				  L_Dewarp dew, 
+				 L_Dewarp dew, 
 				 String debugfile){
 
 	int _Result = Natives.dewarpBuildPageModel(dew.Pointer,   debugfile);
@@ -104,9 +105,9 @@ public static int dewarpBuildPageModel(
 ///  <param name="rotflag">[in] - 0 if using dewtopixs 1 if rotated by 90 degrees cw</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpFindVertDisparity(
-				  L_Dewarp dew, 
-				  Ptaa ptaa, 
-				  int rotflag){
+				 L_Dewarp dew, 
+				 Ptaa ptaa, 
+				 int rotflag){
 
 	int _Result = Natives.dewarpFindVertDisparity(dew.Pointer, ptaa.Pointer,   rotflag);
 	
@@ -142,8 +143,8 @@ public static int dewarpFindVertDisparity(
 ///  <param name="ptaa">[in] - unsmoothed lines, not vertically ordered</param>
 ///   <returns>0 if OK, 1 if horizontal disparity array is not built, or on error</returns>
 public static int dewarpFindHorizDisparity(
-				  L_Dewarp dew, 
-				  Ptaa ptaa){
+				 L_Dewarp dew, 
+				 Ptaa ptaa){
 
 	int _Result = Natives.dewarpFindHorizDisparity(dew.Pointer, ptaa.Pointer);
 	
@@ -169,8 +170,8 @@ public static int dewarpFindHorizDisparity(
 ///  <param name="debugflag">[in] - 1 for debug output</param>
 ///   <returns>ptaa of center values of textlines</returns>
 public static Ptaa dewarpGetTextlineCenters(
-				  Pix pixs, 
-				  int debugflag){
+				 Pix pixs, 
+				 int debugflag){
 
 	IntPtr _Result = Natives.dewarpGetTextlineCenters(pixs.Pointer,   debugflag);
 	
@@ -193,10 +194,10 @@ public static Ptaa dewarpGetTextlineCenters(
 ///  <param name="debugflag">[in] - </param>
 ///   <returns>ptaad containing only lines of sufficient length, or NULL on error</returns>
 public static Ptaa dewarpRemoveShortLines(
-				  Pix pixs, 
-				  Ptaa ptaas, 
-				  Single fract, 
-				  int debugflag){
+				 Pix pixs, 
+				 Ptaa ptaas, 
+				 Single fract, 
+				 int debugflag){
 
 	IntPtr _Result = Natives.dewarpRemoveShortLines(pixs.Pointer, ptaas.Pointer,   fract,   debugflag);
 	
@@ -251,10 +252,10 @@ public static Ptaa dewarpRemoveShortLines(
 ///  <param name="parity">[in] - (0 if even page, 1 if odd page)</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpFindHorizSlopeDisparity(
-				  L_Dewarp dew, 
-				  Pix pixb, 
-				  Single fractthresh, 
-				  int parity){
+				 L_Dewarp dew, 
+				 Pix pixb, 
+				 Single fractthresh, 
+				 int parity){
 
 	int _Result = Natives.dewarpFindHorizSlopeDisparity(dew.Pointer, pixb.Pointer,   fractthresh,   parity);
 	
@@ -297,8 +298,8 @@ public static int dewarpFindHorizSlopeDisparity(
 ///  <param name="debugfile">[in]use NULL to skip - writing this</param>
 ///   <returns>0 if OK, 1 if unable to build the model or on error</returns>
 public static int dewarpBuildLineModel(
-				  L_Dewarp dew, 
-				  int opensize, 
+				 L_Dewarp dew, 
+				 int opensize, 
 				 String debugfile){
 
 	int _Result = Natives.dewarpBuildLineModel(dew.Pointer,   opensize,   debugfile);
@@ -324,19 +325,18 @@ public static int dewarpBuildLineModel(
 ///  <param name="phsuccess">[out][optional] - 1 on success</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpaModelStatus(
-				  L_Dewarpa dewa, 
-				  int pageno, 
+				 L_Dewarpa dewa, 
+				 int pageno, 
 				out int pvsuccess, 
 				out int phsuccess){
 
 	int _Result = Natives.dewarpaModelStatus(dewa.Pointer,   pageno, out  pvsuccess, out  phsuccess);
 	
 
-pvsuccess = 0;
-phsuccess = 0;
 
 
 	return _Result;
 }
 
+}
 }

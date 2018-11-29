@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // selgen.c (146, 1)
 // pixGenerateSelWithRuns(pixs, nhlines, nvlines, distance, minlength, toppix, botpix, leftpix, rightpix, ppixe) as Sel
@@ -59,15 +60,15 @@ public class _All {
 ///  <param name="ppixe">[out][optional] - input pix expanded by extra pixels</param>
 ///   <returns>sel hit-miss for input pattern, or NULL on error</returns>
 public static Sel pixGenerateSelWithRuns(
-				  Pix pixs, 
-				  int nhlines, 
-				  int nvlines, 
-				  int distance, 
-				  int minlength, 
-				  int toppix, 
-				  int botpix, 
-				  int leftpix, 
-				  int rightpix, 
+				 Pix pixs, 
+				 int nhlines, 
+				 int nvlines, 
+				 int distance, 
+				 int minlength, 
+				 int toppix, 
+				 int botpix, 
+				 int leftpix, 
+				 int rightpix, 
 				out Pix ppixe){
 
 	IntPtr ppixePtr = IntPtr.Zero;
@@ -75,8 +76,7 @@ public static Sel pixGenerateSelWithRuns(
 	IntPtr _Result = Natives.pixGenerateSelWithRuns(pixs.Pointer,   nhlines,   nvlines,   distance,   minlength,   toppix,   botpix,   leftpix,   rightpix, out ppixePtr);
 	
 
-ppixe = null;
-	; if (ppixePtr != IntPtr.Zero){ppixe = new Pix(ppixePtr);}
+	if (ppixePtr == null) {ppixe = null;} else { ppixe = new Pix(ppixePtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -120,14 +120,14 @@ ppixe = null;
 ///  <param name="ppixe">[out][optional] - input pix expanded by extra pixels</param>
 ///   <returns>sel hit-miss for input pattern, or NULL on error</returns>
 public static Sel pixGenerateSelRandom(
-				  Pix pixs, 
-				  Single hitfract, 
-				  Single missfract, 
-				  int distance, 
-				  int toppix, 
-				  int botpix, 
-				  int leftpix, 
-				  int rightpix, 
+				 Pix pixs, 
+				 Single hitfract, 
+				 Single missfract, 
+				 int distance, 
+				 int toppix, 
+				 int botpix, 
+				 int leftpix, 
+				 int rightpix, 
 				out Pix ppixe){
 
 	IntPtr ppixePtr = IntPtr.Zero;
@@ -135,8 +135,7 @@ public static Sel pixGenerateSelRandom(
 	IntPtr _Result = Natives.pixGenerateSelRandom(pixs.Pointer,   hitfract,   missfract,   distance,   toppix,   botpix,   leftpix,   rightpix, out ppixePtr);
 	
 
-ppixe = null;
-	; if (ppixePtr != IntPtr.Zero){ppixe = new Pix(ppixePtr);}
+	if (ppixePtr == null) {ppixe = null;} else { ppixe = new Pix(ppixePtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -189,15 +188,15 @@ ppixe = null;
 ///  <param name="ppixe">[out][optional] - input pix expanded by extra pixels</param>
 ///   <returns>sel hit-miss for input pattern, or NULL on error</returns>
 public static Sel pixGenerateSelBoundary(
-				  Pix pixs, 
-				  int hitdist, 
-				  int missdist, 
-				  int hitskip, 
-				  int missskip, 
-				  int topflag, 
-				  int botflag, 
-				  int leftflag, 
-				  int rightflag, 
+				 Pix pixs, 
+				 int hitdist, 
+				 int missdist, 
+				 int hitskip, 
+				 int missskip, 
+				 int topflag, 
+				 int botflag, 
+				 int leftflag, 
+				 int rightflag, 
 				out Pix ppixe){
 
 	IntPtr ppixePtr = IntPtr.Zero;
@@ -205,8 +204,7 @@ public static Sel pixGenerateSelBoundary(
 	IntPtr _Result = Natives.pixGenerateSelBoundary(pixs.Pointer,   hitdist,   missdist,   hitskip,   missskip,   topflag,   botflag,   leftflag,   rightflag, out ppixePtr);
 	
 
-ppixe = null;
-	; if (ppixePtr != IntPtr.Zero){ppixe = new Pix(ppixePtr);}
+	if (ppixePtr == null) {ppixe = null;} else { ppixe = new Pix(ppixePtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -248,10 +246,10 @@ ppixe = null;
 ///  <param name="minlength">[in] - minimum length of acceptable run</param>
 ///   <returns>numa of fg runs, or NULL on error</returns>
 public static Numa pixGetRunCentersOnLine(
-				  Pix pixs, 
-				  int x, 
-				  int y, 
-				  int minlength){
+				 Pix pixs, 
+				 int x, 
+				 int y, 
+				 int minlength){
 
 	IntPtr _Result = Natives.pixGetRunCentersOnLine(pixs.Pointer,   x,   y,   minlength);
 	
@@ -284,11 +282,11 @@ public static Numa pixGetRunCentersOnLine(
 ///  <param name="y2">[in] - </param>
 ///   <returns>numa, or NULL on error</returns>
 public static Numa pixGetRunsOnLine(
-				  Pix pixs, 
-				  int x1, 
-				  int y1, 
-				  int x2, 
-				  int y2){
+				 Pix pixs, 
+				 int x1, 
+				 int y1, 
+				 int x2, 
+				 int y2){
 
 	IntPtr _Result = Natives.pixGetRunsOnLine(pixs.Pointer,   x1,   y1,   x2,   y2);
 	
@@ -325,8 +323,8 @@ public static Numa pixGetRunsOnLine(
 ///  <param name="skip">[in] - number to skip between samples as you traverse boundary</param>
 ///   <returns>pta, or NULL on error</returns>
 public static Pta pixSubsampleBoundaryPixels(
-				  Pix pixs, 
-				  int skip){
+				 Pix pixs, 
+				 int skip){
 
 	IntPtr _Result = Natives.pixSubsampleBoundaryPixels(pixs.Pointer,   skip);
 	
@@ -354,17 +352,15 @@ public static Pta pixSubsampleBoundaryPixels(
 ///  <param name="pya">[out] - adjacent ON pixel, found by simple CCW search</param>
 ///   <returns>1 if a pixel is found 0 otherwise or on error</returns>
 public static int adjacentOnPixelInRaster(
-				  Pix pixs, 
-				  int x, 
-				  int y, 
-				 out int pxa, 
-				 out int pya){
+				 Pix pixs, 
+				 int x, 
+				 int y, 
+				out int pxa, 
+				out int pya){
 
 	int _Result = Natives.adjacentOnPixelInRaster(pixs.Pointer,   x,   y, out  pxa, out  pya);
 	
 
-pxa = 0;
-pya = 0;
 
 
 	return _Result;
@@ -389,11 +385,11 @@ pya = 0;
 ///  <param name="misscolor">[in] - RGB0 color for center of miss pixels</param>
 ///   <returns>pixd RGB showing both pixs and sel, or NULL on error</returns>
 public static Pix pixDisplayHitMissSel(
-				  Pix pixs, 
-				  Sel sel, 
-				  int scalefactor, 
-				  uint hitcolor, 
-				  uint misscolor){
+				 Pix pixs, 
+				 Sel sel, 
+				 int scalefactor, 
+				 uint hitcolor, 
+				 uint misscolor){
 
 	IntPtr _Result = Natives.pixDisplayHitMissSel(pixs.Pointer, sel.Pointer,   scalefactor,   hitcolor,   misscolor);
 	
@@ -404,4 +400,5 @@ public static Pix pixDisplayHitMissSel(
 	return  new Pix(_Result);
 }
 
+}
 }

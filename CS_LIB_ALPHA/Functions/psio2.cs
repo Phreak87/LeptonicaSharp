@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // psio2.c (152, 1)
 // pixWritePSEmbed(filein, fileout) as int
@@ -25,8 +26,8 @@ public class _All {
 ///  <param name="fileout">[in] - output ps file</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixWritePSEmbed(
-				  String filein, 
-				  String fileout){
+				 String filein, 
+				 String fileout){
 
 	int _Result = Natives.pixWritePSEmbed(  filein,   fileout);
 	
@@ -56,11 +57,11 @@ public static int pixWritePSEmbed(
 ///  <param name="scale">[in] - to prevent scaling, use either 1.0 or 0.0</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixWriteStreamPS(
-				  FILE fp, 
-				  Pix pix, 
-				  Box box, 
-				  int res, 
-				  Single scale){
+				 FILE fp, 
+				 Pix pix, 
+				 Box box, 
+				 int res, 
+				 Single scale){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
@@ -139,10 +140,10 @@ public static int pixWriteStreamPS(
 ///  <param name="scale">[in] - scale factor.  If no scaling is desired, use either 1.0 or 0.0.   Scaling just resets the resolution parameter the actual scaling is done in the interpreter at rendering time.  This is important: it allows you to scale the image up without increasing the file size.</param>
 ///   <returns>ps string if OK, or NULL on error</returns>
 public static String pixWriteStringPS(
-				  Pix pixs, 
-				  Box box, 
-				  int res, 
-				  Single scale){
+				 Pix pixs, 
+				 Box box, 
+				 int res, 
+				 Single scale){
 
 	String _Result = Natives.pixWriteStringPS(pixs.Pointer, box.Pointer,   res,   scale);
 	
@@ -174,17 +175,17 @@ public static String pixWriteStringPS(
 ///  <param name="boxflag">[in] - 1 to print out bounding box hint 0 to skip</param>
 ///   <returns>PS string, or NULL on error</returns>
 public static String generateUncompressedPS(
-				  String hexdata, 
-				  int w, 
-				  int h, 
-				  int d, 
-				  int psbpl, 
-				  int bps, 
-				  Single xpt, 
-				  Single ypt, 
-				  Single wpt, 
-				  Single hpt, 
-				  int boxflag){
+				 String hexdata, 
+				 int w, 
+				 int h, 
+				 int d, 
+				 int psbpl, 
+				 int bps, 
+				 Single xpt, 
+				 Single ypt, 
+				 Single wpt, 
+				 Single hpt, 
+				 int boxflag){
 
 	String _Result = Natives.generateUncompressedPS(  hexdata,   w,   h,   d,   psbpl,   bps,   xpt,   ypt,   wpt,   hpt,   boxflag);
 	
@@ -217,25 +218,21 @@ public static String generateUncompressedPS(
 ///  <param name="pwpt">[out] - image width in pts</param>
 ///  <param name="phpt">[out] - image height in pts</param>
 public static void getScaledParametersPS(
-				  Box box, 
-				  int wpix, 
-				  int hpix, 
-				  int res, 
-				  Single scale, 
-				 out Single pxpt, 
-				 out Single pypt, 
-				 out Single pwpt, 
-				 out Single phpt){
+				 Box box, 
+				 int wpix, 
+				 int hpix, 
+				 int res, 
+				 Single scale, 
+				out Single pxpt, 
+				out Single pypt, 
+				out Single pwpt, 
+				out Single phpt){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	Natives.getScaledParametersPS(boxPtr,   wpix,   hpix,   res,   scale, out  pxpt, out  pypt, out  pwpt, out  phpt);
 	
 
-pxpt = 0f;
-pypt = 0f;
-pwpt = 0f;
-phpt = 0f;
 
 
 }
@@ -250,15 +247,13 @@ phpt = 0f;
 ///  <param name="pnib1">[out] - two hex ascii characters</param>
 ///  <param name="pnib2">[out] - two hex ascii characters</param>
 public static void convertByteToHexAscii(
-				  byte byteval, 
-				 out String pnib1, 
-				 out String pnib2){
+				 byte byteval, 
+				out String pnib1, 
+				out String pnib2){
 
 	Natives.convertByteToHexAscii(  byteval, out  pnib1, out  pnib2);
 	
 
-pnib1 = null;
-pnib2 = null;
 
 
 }
@@ -283,8 +278,8 @@ pnib2 = null;
 ///  <param name="fileout">[in] - output ps file</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertJpegToPSEmbed(
-				  String filein, 
-				  String fileout){
+				 String filein, 
+				 String fileout){
 
 	int _Result = Natives.convertJpegToPSEmbed(  filein,   fileout);
 	
@@ -364,15 +359,15 @@ public static int convertJpegToPSEmbed(
 ///  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertJpegToPS(
-				  String filein, 
-				  String fileout, 
-				  String operation, 
-				  int x, 
-				  int y, 
-				  int res, 
-				  Single scale, 
-				  int pageno, 
-				  int endpage){
+				 String filein, 
+				 String fileout, 
+				 String operation, 
+				 int x, 
+				 int y, 
+				 int res, 
+				 Single scale, 
+				 int pageno, 
+				 int endpage){
 
 	int _Result = Natives.convertJpegToPS(  filein,   fileout,   operation,   x,   y,   res,   scale,   pageno,   endpage);
 	
@@ -402,23 +397,22 @@ public static int convertJpegToPS(
 ///  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertJpegToPSString(
-				  String filein, 
-				 out String[] poutstr, 
-				 out int pnbytes, 
-				  int x, 
-				  int y, 
-				  int res, 
-				  Single scale, 
-				  int pageno, 
-				  int endpage){
+				 String filein, 
+				out String[] poutstr, 
+				out int pnbytes, 
+				 int x, 
+				 int y, 
+				 int res, 
+				 Single scale, 
+				 int pageno, 
+				 int endpage){
 
 	IntPtr poutstrPtr = IntPtr.Zero;
 
 	int _Result = Natives.convertJpegToPSString(  filein, out  poutstrPtr, out  pnbytes,   x,   y,   res,   scale,   pageno,   endpage);
 	
 
-poutstr = null;
-pnbytes = 0;
+	if (poutstrPtr == null) {poutstr = null;} else { poutstr = null; };
 
 
 	return _Result;
@@ -443,14 +437,14 @@ pnbytes = 0;
 ///  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 ///   <returns>PS string, or NULL on error</returns>
 public static String generateJpegPS(
-				  String filein, 
-				  L_Compressed_Data cid, 
-				  Single xpt, 
-				  Single ypt, 
-				  Single wpt, 
-				  Single hpt, 
-				  int pageno, 
-				  int endpage){
+				 String filein, 
+				 L_Compressed_Data cid, 
+				 Single xpt, 
+				 Single ypt, 
+				 Single wpt, 
+				 Single hpt, 
+				 int pageno, 
+				 int endpage){
 
 	String _Result = Natives.generateJpegPS(  filein, cid.Pointer,   xpt,   ypt,   wpt,   hpt,   pageno,   endpage);
 	
@@ -483,8 +477,8 @@ public static String generateJpegPS(
 ///  <param name="fileout">[in] - output ps file</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertG4ToPSEmbed(
-				  String filein, 
-				  String fileout){
+				 String filein, 
+				 String fileout){
 
 	int _Result = Natives.convertG4ToPSEmbed(  filein,   fileout);
 	
@@ -552,16 +546,16 @@ public static int convertG4ToPSEmbed(
 ///  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertG4ToPS(
-				  String filein, 
-				  String fileout, 
-				  String operation, 
-				  int x, 
-				  int y, 
-				  int res, 
-				  Single scale, 
-				  int pageno, 
-				  int maskflag, 
-				  int endpage){
+				 String filein, 
+				 String fileout, 
+				 String operation, 
+				 int x, 
+				 int y, 
+				 int res, 
+				 Single scale, 
+				 int pageno, 
+				 int maskflag, 
+				 int endpage){
 
 	int _Result = Natives.convertG4ToPS(  filein,   fileout,   operation,   x,   y,   res,   scale,   pageno,   maskflag,   endpage);
 	
@@ -594,24 +588,23 @@ public static int convertG4ToPS(
 ///  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertG4ToPSString(
-				  String filein, 
-				 out String[] poutstr, 
-				 out int pnbytes, 
-				  int x, 
-				  int y, 
-				  int res, 
-				  Single scale, 
-				  int pageno, 
-				  int maskflag, 
-				  int endpage){
+				 String filein, 
+				out String[] poutstr, 
+				out int pnbytes, 
+				 int x, 
+				 int y, 
+				 int res, 
+				 Single scale, 
+				 int pageno, 
+				 int maskflag, 
+				 int endpage){
 
 	IntPtr poutstrPtr = IntPtr.Zero;
 
 	int _Result = Natives.convertG4ToPSString(  filein, out  poutstrPtr, out  pnbytes,   x,   y,   res,   scale,   pageno,   maskflag,   endpage);
 	
 
-poutstr = null;
-pnbytes = 0;
+	if (poutstrPtr == null) {poutstr = null;} else { poutstr = null; };
 
 
 	return _Result;
@@ -637,15 +630,15 @@ pnbytes = 0;
 ///  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 ///   <returns>PS string, or NULL on error</returns>
 public static String generateG4PS(
-				  String filein, 
-				  L_Compressed_Data cid, 
-				  Single xpt, 
-				  Single ypt, 
-				  Single wpt, 
-				  Single hpt, 
-				  int maskflag, 
-				  int pageno, 
-				  int endpage){
+				 String filein, 
+				 L_Compressed_Data cid, 
+				 Single xpt, 
+				 Single ypt, 
+				 Single wpt, 
+				 Single hpt, 
+				 int maskflag, 
+				 int pageno, 
+				 int endpage){
 
 	String _Result = Natives.generateG4PS(  filein, cid.Pointer,   xpt,   ypt,   wpt,   hpt,   maskflag,   pageno,   endpage);
 	
@@ -674,8 +667,8 @@ public static String generateG4PS(
 ///  <param name="fillfract">[in] - factor for filling 8.5 x 11 inch page use 0.0 for DEFAULT_FILL_FRACTION</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertTiffMultipageToPS(
-				  String filein, 
-				  String fileout, 
+				 String filein, 
+				 String fileout, 
 				 Single fillfract){
 
 	int _Result = Natives.convertTiffMultipageToPS(  filein,   fileout,   fillfract);
@@ -706,8 +699,8 @@ public static int convertTiffMultipageToPS(
 ///  <param name="fileout">[in] - output ps file</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertFlateToPSEmbed(
-				  String filein, 
-				  String fileout){
+				 String filein, 
+				 String fileout){
 
 	int _Result = Natives.convertFlateToPSEmbed(  filein,   fileout);
 	
@@ -786,15 +779,15 @@ public static int convertFlateToPSEmbed(
 ///  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertFlateToPS(
-				  String filein, 
-				  String fileout, 
-				  String operation, 
-				  int x, 
-				  int y, 
-				  int res, 
-				  Single scale, 
-				  int pageno, 
-				  int endpage){
+				 String filein, 
+				 String fileout, 
+				 String operation, 
+				 int x, 
+				 int y, 
+				 int res, 
+				 Single scale, 
+				 int pageno, 
+				 int endpage){
 
 	int _Result = Natives.convertFlateToPS(  filein,   fileout,   operation,   x,   y,   res,   scale,   pageno,   endpage);
 	
@@ -832,23 +825,22 @@ public static int convertFlateToPS(
 ///  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertFlateToPSString(
-				  String filein, 
-				 out String[] poutstr, 
-				 out int pnbytes, 
-				  int x, 
-				  int y, 
-				  int res, 
-				  Single scale, 
-				  int pageno, 
-				  int endpage){
+				 String filein, 
+				out String[] poutstr, 
+				out int pnbytes, 
+				 int x, 
+				 int y, 
+				 int res, 
+				 Single scale, 
+				 int pageno, 
+				 int endpage){
 
 	IntPtr poutstrPtr = IntPtr.Zero;
 
 	int _Result = Natives.convertFlateToPSString(  filein, out  poutstrPtr, out  pnbytes,   x,   y,   res,   scale,   pageno,   endpage);
 	
 
-poutstr = null;
-pnbytes = 0;
+	if (poutstrPtr == null) {poutstr = null;} else { poutstr = null; };
 
 
 	return _Result;
@@ -870,14 +862,14 @@ pnbytes = 0;
 ///  <param name="endpage">[in] - boolean: use TRUE if this is the last image to be added to the page FALSE otherwise</param>
 ///   <returns>PS string, or NULL on error</returns>
 public static String generateFlatePS(
-				  String filein, 
-				  L_Compressed_Data cid, 
-				  Single xpt, 
-				  Single ypt, 
-				  Single wpt, 
-				  Single hpt, 
-				  int pageno, 
-				  int endpage){
+				 String filein, 
+				 L_Compressed_Data cid, 
+				 Single xpt, 
+				 Single ypt, 
+				 Single wpt, 
+				 Single hpt, 
+				 int pageno, 
+				 int endpage){
 
 	String _Result = Natives.generateFlatePS(  filein, cid.Pointer,   xpt,   ypt,   wpt,   hpt,   pageno,   endpage);
 	
@@ -907,12 +899,12 @@ public static String generateFlatePS(
 ///  <param name="scale">[in] - to prevent scaling, use either 1.0 or 0.0</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixWriteMemPS(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  Pix pix, 
-				  Box box, 
-				  int res, 
-				  Single scale){
+				out Byte[] pdata, 
+				out uint psize, 
+				 Pix pix, 
+				 Box box, 
+				 int res, 
+				 Single scale){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
@@ -920,8 +912,7 @@ public static int pixWriteMemPS(
 	int _Result = Natives.pixWriteMemPS(out  pdataPtr, out  psize, pix.Pointer, boxPtr,   res,   scale);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -938,9 +929,9 @@ psize = 0;
 ///  <param name="fillfract">[in] - fraction in linear dimension of full page, not to be exceeded use 0 for default</param>
 ///   <returns>resolution</returns>
 public static int getResLetterPage(
-				  int w, 
-				  int h, 
-				  Single fillfract){
+				 int w, 
+				 int h, 
+				 Single fillfract){
 
 	int _Result = Natives.getResLetterPage(  w,   h,   fillfract);
 	
@@ -961,9 +952,9 @@ public static int getResLetterPage(
 ///  <param name="fillfract">[in] - fraction in linear dimension of full page, not to be exceeded use 0 for default</param>
 ///   <returns>resolution</returns>
 public static int getResA4Page(
-				  int w, 
-				  int h, 
-				  Single fillfract){
+				 int w, 
+				 int h, 
+				 Single fillfract){
 
 	int _Result = Natives.getResA4Page(  w,   h,   fillfract);
 	
@@ -980,7 +971,7 @@ public static int getResA4Page(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_psWriteBoundingBox/*"/>
 public static void l_psWriteBoundingBox(
-				  int flag){
+				 int flag){
 
 	Natives.l_psWriteBoundingBox(  flag);
 	
@@ -989,4 +980,5 @@ public static void l_psWriteBoundingBox(
 
 }
 
+}
 }

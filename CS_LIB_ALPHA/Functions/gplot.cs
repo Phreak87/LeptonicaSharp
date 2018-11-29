@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // gplot.c (138, 1)
 // gplotCreate(rootname, outformat, title, xlabel, ylabel) as GPlot
@@ -24,8 +25,8 @@ public class _All {
 ///  <param name="ylabel">[in][optional] - y axis label</param>
 ///   <returns>gplot, or NULL on error</returns>
 public static GPlot gplotCreate(
-				  String rootname, 
-				  int outformat, 
+				 String rootname, 
+				 int outformat, 
 				 String title, 
 				 String xlabel, 
 				 String ylabel){
@@ -47,15 +48,14 @@ public static GPlot gplotCreate(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/gplotDestroy/*"/>
 ///  <param name="pgplot">[in,out] - to be nulled</param>
 public static void gplotDestroy(
-				 ref GPlot pgplot){
+				ref GPlot pgplot){
 
 	IntPtr pgplotPtr = IntPtr.Zero; 	if (pgplot != null) {pgplotPtr = pgplot.Pointer;}
 
 	Natives.gplotDestroy(ref pgplotPtr);
 	
 
-pgplot = null;
-	; if (pgplotPtr != IntPtr.Zero){pgplot = new GPlot(pgplotPtr);}
+	if (pgplotPtr == null) {pgplot = null;} else { pgplot = new GPlot(pgplotPtr); };
 
 
 }
@@ -92,10 +92,10 @@ pgplot = null;
 ///  <param name="plottitle">[in][optional] - title for individual plot</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int gplotAddPlot(
-				  GPlot gplot, 
-				  Numa nax, 
-				  Numa nay, 
-				  int plotstyle, 
+				 GPlot gplot, 
+				 Numa nax, 
+				 Numa nay, 
+				 int plotstyle, 
 				 String plottitle){
 
 	IntPtr naxPtr = IntPtr.Zero; 	if (nax != null) {naxPtr = nax.Pointer;}
@@ -123,8 +123,8 @@ public static int gplotAddPlot(
 ///  <param name="scaling">[in] - GPLOT_LINEAR_SCALE, GPLOT_LOG_SCALE_X, GPLOT_LOG_SCALE_Y, GPLOT_LOG_SCALE_X_Y</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int gplotSetScaling(
-				  GPlot gplot, 
-				  int scaling){
+				 GPlot gplot, 
+				 int scaling){
 
 	int _Result = Natives.gplotSetScaling(gplot.Pointer,   scaling);
 	
@@ -156,7 +156,7 @@ public static int gplotSetScaling(
 ///  <param name="gplot">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int gplotMakeOutput(
-				  GPlot gplot){
+				 GPlot gplot){
 
 	int _Result = Natives.gplotMakeOutput(gplot.Pointer);
 	
@@ -175,7 +175,7 @@ public static int gplotMakeOutput(
 ///  <param name="gplot">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int gplotGenCommandFile(
-				  GPlot gplot){
+				 GPlot gplot){
 
 	int _Result = Natives.gplotGenCommandFile(gplot.Pointer);
 	
@@ -199,7 +199,7 @@ public static int gplotGenCommandFile(
 ///  <param name="gplot">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int gplotGenDataFiles(
-				  GPlot gplot){
+				 GPlot gplot){
 
 	int _Result = Natives.gplotGenDataFiles(gplot.Pointer);
 	
@@ -229,9 +229,9 @@ public static int gplotGenDataFiles(
 ///  <param name="title">[in][optional] - , can be NULL</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int gplotSimple1(
-				  Numa na, 
-				  int outformat, 
-				  String outroot, 
+				 Numa na, 
+				 int outformat, 
+				 String outroot, 
 				 String title){
 
 	int _Result = Natives.gplotSimple1(na.Pointer,   outformat,   outroot,   title);
@@ -263,10 +263,10 @@ public static int gplotSimple1(
 ///  <param name="title">[in][optional] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int gplotSimple2(
-				  Numa na1, 
-				  Numa na2, 
-				  int outformat, 
-				  String outroot, 
+				 Numa na1, 
+				 Numa na2, 
+				 int outformat, 
+				 String outroot, 
 				 String title){
 
 	int _Result = Natives.gplotSimple2(na1.Pointer, na2.Pointer,   outformat,   outroot,   title);
@@ -298,9 +298,9 @@ public static int gplotSimple2(
 ///  <param name="title">[in][optional] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int gplotSimpleN(
-				  Numaa naa, 
-				  int outformat, 
-				  String outroot, 
+				 Numaa naa, 
+				 int outformat, 
+				 String outroot, 
 				 String title){
 
 	int _Result = Natives.gplotSimpleN(naa.Pointer,   outformat,   outroot,   title);
@@ -337,11 +337,11 @@ public static int gplotSimpleN(
 ///  <param name="title">[in][optional] - , can be NULL</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int gplotSimpleXY1(
-				  Numa nax, 
-				  Numa nay, 
-				  int plotstyle, 
-				  int outformat, 
-				  String outroot, 
+				 Numa nax, 
+				 Numa nay, 
+				 int plotstyle, 
+				 int outformat, 
+				 String outroot, 
 				 String title){
 
 	IntPtr naxPtr = IntPtr.Zero; 	if (nax != null) {naxPtr = nax.Pointer;}
@@ -381,12 +381,12 @@ public static int gplotSimpleXY1(
 ///  <param name="title">[in][optional] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int gplotSimpleXY2(
-				  Numa nax, 
-				  Numa nay1, 
-				  Numa nay2, 
-				  int plotstyle, 
-				  int outformat, 
-				  String outroot, 
+				 Numa nax, 
+				 Numa nay1, 
+				 Numa nay2, 
+				 int plotstyle, 
+				 int outformat, 
+				 String outroot, 
 				 String title){
 
 	int _Result = Natives.gplotSimpleXY2(nax.Pointer, nay1.Pointer, nay2.Pointer,   plotstyle,   outformat,   outroot,   title);
@@ -423,11 +423,11 @@ public static int gplotSimpleXY2(
 ///  <param name="title">[in][optional] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int gplotSimpleXYN(
-				  Numa nax, 
-				  Numaa naay, 
-				  int plotstyle, 
-				  int outformat, 
-				  String outroot, 
+				 Numa nax, 
+				 Numaa naay, 
+				 int plotstyle, 
+				 int outformat, 
+				 String outroot, 
 				 String title){
 
 	IntPtr naxPtr = IntPtr.Zero; 	if (nax != null) {naxPtr = nax.Pointer;}
@@ -449,7 +449,7 @@ public static int gplotSimpleXYN(
 ///  <param name="filename">[in] - </param>
 ///   <returns>gplot, or NULL on error</returns>
 public static GPlot gplotRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.gplotRead(  filename);
 	
@@ -470,8 +470,8 @@ public static GPlot gplotRead(
 ///  <param name="gplot">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int gplotWrite(
-				  String filename, 
-				  GPlot gplot){
+				 String filename, 
+				 GPlot gplot){
 
 	int _Result = Natives.gplotWrite(  filename, gplot.Pointer);
 	
@@ -481,4 +481,5 @@ public static int gplotWrite(
 	return _Result;
 }
 
+}
 }

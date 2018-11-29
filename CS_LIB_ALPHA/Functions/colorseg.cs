@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // colorseg.c (129, 1)
 // pixColorSegment(pixs, maxdist, maxcolors, selsize, finalcolors, debugflag) as Pix
@@ -66,12 +67,12 @@ public class _All {
 ///  <param name="debugflag">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>pixd 8 bit with colormap, or NULL on error</returns>
 public static Pix pixColorSegment(
-				  Pix pixs, 
-				  int maxdist, 
-				  int maxcolors, 
-				  int selsize, 
-				  int finalcolors, 
-				  int debugflag){
+				 Pix pixs, 
+				 int maxdist, 
+				 int maxcolors, 
+				 int selsize, 
+				 int finalcolors, 
+				 int debugflag){
 
 	IntPtr _Result = Natives.pixColorSegment(pixs.Pointer,   maxdist,   maxcolors,   selsize,   finalcolors,   debugflag);
 	
@@ -107,10 +108,10 @@ public static Pix pixColorSegment(
 ///  <param name="debugflag">[in] - 1 for debug output 0 otherwise</param>
 ///   <returns>pixd 8 bit with colormap, or NULL on error</returns>
 public static Pix pixColorSegmentCluster(
-				  Pix pixs, 
-				  int maxdist, 
-				  int maxcolors, 
-				  int debugflag){
+				 Pix pixs, 
+				 int maxdist, 
+				 int maxcolors, 
+				 int debugflag){
 
 	IntPtr _Result = Natives.pixColorSegmentCluster(pixs.Pointer,   maxdist,   maxcolors,   debugflag);
 	
@@ -170,10 +171,10 @@ public static Pix pixColorSegmentCluster(
 ///  <param name="countarray">[in][optional] - ptr to array, in which we can store the number of pixels found in each color in the colormap in pixd</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixAssignToNearestColor(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Pix pixm, 
-				  int level, 
+				 Pix pixd, 
+				 Pix pixs, 
+				 Pix pixm, 
+				 int level, 
 				 int[] countarray){
 
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
@@ -205,9 +206,9 @@ public static int pixAssignToNearestColor(
 ///  <param name="countarray">[in] - ptr to array containing the number of pixels found in each color in the colormap</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixColorSegmentClean(
-				  Pix pixs, 
-				  int selsize, 
-				  int[] countarray){
+				 Pix pixs, 
+				 int selsize, 
+				 int[] countarray){
 
 	int _Result = Natives.pixColorSegmentClean(pixs.Pointer,   selsize,   countarray);
 	
@@ -238,9 +239,9 @@ public static int pixColorSegmentClean(
 ///  <param name="finalcolors">[in] - max number of colors to retain</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixColorSegmentRemoveColors(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int finalcolors){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int finalcolors){
 
 	int _Result = Natives.pixColorSegmentRemoveColors(pixd.Pointer, pixs.Pointer,   finalcolors);
 	
@@ -250,4 +251,5 @@ public static int pixColorSegmentRemoveColors(
 	return _Result;
 }
 
+}
 }

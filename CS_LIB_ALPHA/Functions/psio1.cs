@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // psio1.c (154, 1)
 // convertFilesToPS(dirin, substr, res, fileout) as int
@@ -13,10 +14,10 @@ public class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertFilesToPS/*"/>
 ///   <returns></returns>
 public static int convertFilesToPS(
-				  String dirin, 
-				  String substr, 
-				  int res, 
-				  String fileout){
+				 String dirin, 
+				 String substr, 
+				 int res, 
+				 String fileout){
 
 	int _Result = Natives.convertFilesToPS(  dirin,   substr,   res,   fileout);
 	
@@ -34,9 +35,9 @@ public static int convertFilesToPS(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayConvertFilesToPS/*"/>
 ///   <returns></returns>
 public static int sarrayConvertFilesToPS(
-				  Sarray sa, 
-				  int res, 
-				  String fileout){
+				 Sarray sa, 
+				 int res, 
+				 String fileout){
 
 	IntPtr saPtr = IntPtr.Zero; if (sa != null) {saPtr = sa.Pointer;}
 
@@ -56,11 +57,11 @@ public static int sarrayConvertFilesToPS(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertFilesFittedToPS/*"/>
 ///   <returns></returns>
 public static int convertFilesFittedToPS(
-				  String dirin, 
-				  String substr, 
-				  Single xpts, 
-				  Single ypts, 
-				  String fileout){
+				 String dirin, 
+				 String substr, 
+				 Single xpts, 
+				 Single ypts, 
+				 String fileout){
 
 	int _Result = Natives.convertFilesFittedToPS(  dirin,   substr,   xpts,   ypts,   fileout);
 	
@@ -78,10 +79,10 @@ public static int convertFilesFittedToPS(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayConvertFilesFittedToPS/*"/>
 ///   <returns></returns>
 public static int sarrayConvertFilesFittedToPS(
-				  Sarray sa, 
-				  Single xpts, 
-				  Single ypts, 
-				  String fileout){
+				 Sarray sa, 
+				 Single xpts, 
+				 Single ypts, 
+				 String fileout){
 
 	IntPtr saPtr = IntPtr.Zero; if (sa != null) {saPtr = sa.Pointer;}
 
@@ -101,11 +102,11 @@ public static int sarrayConvertFilesFittedToPS(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/writeImageCompressedToPSFile/*"/>
 ///   <returns></returns>
 public static int writeImageCompressedToPSFile(
-				  String filein, 
-				  String fileout, 
-				  int res, 
-				  object pfirstfile, 
-				  object pindex){
+				 String filein, 
+				 String fileout, 
+				 int res, 
+				 object pfirstfile, 
+				 object pindex){
 
 	int _Result = Natives.writeImageCompressedToPSFile(  filein,   fileout,   res,   pfirstfile,   pindex);
 	
@@ -123,18 +124,18 @@ public static int writeImageCompressedToPSFile(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertSegmentedPagesToPS/*"/>
 ///   <returns></returns>
 public static int convertSegmentedPagesToPS(
-				  String pagedir, 
-				  String pagestr, 
-				  int page_numpre, 
-				  String maskdir, 
-				  String maskstr, 
-				  int mask_numpre, 
-				  int numpost, 
-				  int maxnum, 
-				  Single textscale, 
-				  Single imagescale, 
-				  int threshold, 
-				  String fileout){
+				 String pagedir, 
+				 String pagestr, 
+				 int page_numpre, 
+				 String maskdir, 
+				 String maskstr, 
+				 int mask_numpre, 
+				 int numpost, 
+				 int maxnum, 
+				 Single textscale, 
+				 Single imagescale, 
+				 int threshold, 
+				 String fileout){
 
 	int _Result = Natives.convertSegmentedPagesToPS(  pagedir,   pagestr,   page_numpre,   maskdir,   maskstr,   mask_numpre,   numpost,   maxnum,   textscale,   imagescale,   threshold,   fileout);
 	
@@ -152,13 +153,13 @@ public static int convertSegmentedPagesToPS(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteSegmentedPageToPS/*"/>
 ///   <returns></returns>
 public static int pixWriteSegmentedPageToPS(
-				  Pix pixs, 
-				  Pix pixm, 
-				  Single textscale, 
-				  Single imagescale, 
-				  int threshold, 
-				  int pageno, 
-				  String fileout){
+				 Pix pixs, 
+				 Pix pixm, 
+				 Single textscale, 
+				 Single imagescale, 
+				 int threshold, 
+				 int pageno, 
+				 String fileout){
 
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 	IntPtr pixmPtr = IntPtr.Zero; if (pixm != null) {pixmPtr = pixm.Pointer;}
@@ -179,11 +180,11 @@ public static int pixWriteSegmentedPageToPS(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixWriteMixedToPS/*"/>
 ///   <returns></returns>
 public static int pixWriteMixedToPS(
-				  Pix pixb, 
-				  Pix pixc, 
-				  Single scale, 
-				  int pageno, 
-				  String fileout){
+				 Pix pixb, 
+				 Pix pixc, 
+				 Single scale, 
+				 int pageno, 
+				 String fileout){
 
 	IntPtr pixbPtr = IntPtr.Zero; if (pixb != null) {pixbPtr = pixb.Pointer;}
 	IntPtr pixcPtr = IntPtr.Zero; if (pixc != null) {pixcPtr = pixc.Pointer;}
@@ -204,9 +205,9 @@ public static int pixWriteMixedToPS(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertToPSEmbed/*"/>
 ///   <returns></returns>
 public static int convertToPSEmbed(
-				  String filein, 
-				  String fileout, 
-				  int level){
+				 String filein, 
+				 String fileout, 
+				 int level){
 
 	int _Result = Natives.convertToPSEmbed(  filein,   fileout,   level);
 	
@@ -224,10 +225,10 @@ public static int convertToPSEmbed(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixaWriteCompressedToPS/*"/>
 ///   <returns></returns>
 public static int pixaWriteCompressedToPS(
-				  Pixa pixa, 
-				  String fileout, 
-				  int res, 
-				  int level){
+				 Pixa pixa, 
+				 String fileout, 
+				 int res, 
+				 int level){
 
 	IntPtr pixaPtr = IntPtr.Zero; if (pixa != null) {pixaPtr = pixa.Pointer;}
 
@@ -239,4 +240,5 @@ public static int pixaWriteCompressedToPS(
 	return _Result;
 }
 
+}
 }

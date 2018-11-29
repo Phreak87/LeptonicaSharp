@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // ptabasic.c (116, 1)
 // ptaCreate(n) as Pta
@@ -14,7 +15,7 @@ public class _All {
 ///  <param name="n">[in] - initial array sizes</param>
 ///   <returns>pta, or NULL on error.</returns>
 public static Pta ptaCreate(
-				  int n){
+				 int n){
 
 	IntPtr _Result = Natives.ptaCreate(  n);
 	
@@ -35,8 +36,8 @@ public static Pta ptaCreate(
 ///  <param name="nay">[in] - </param>
 ///   <returns>pta, or NULL on error.</returns>
 public static Pta ptaCreateFromNuma(
-				  Numa nax, 
-				  Numa nay){
+				 Numa nax, 
+				 Numa nay){
 
 	IntPtr naxPtr = IntPtr.Zero; 	if (nax != null) {naxPtr = nax.Pointer;}
 
@@ -62,15 +63,14 @@ public static Pta ptaCreateFromNuma(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaDestroy/*"/>
 ///  <param name="ppta">[in,out] - to be nulled</param>
 public static void ptaDestroy(
-				 ref Pta ppta){
+				ref Pta ppta){
 
 	IntPtr pptaPtr = IntPtr.Zero; 	if (ppta != null) {pptaPtr = ppta.Pointer;}
 
 	Natives.ptaDestroy(ref pptaPtr);
 	
 
-ppta = null;
-	; if (pptaPtr != IntPtr.Zero){ppta = new Pta(pptaPtr);}
+	if (pptaPtr == null) {ppta = null;} else { ppta = new Pta(pptaPtr); };
 
 
 }
@@ -84,7 +84,7 @@ ppta = null;
 ///  <param name="pta">[in] - </param>
 ///   <returns>copy of pta, or NULL on error</returns>
 public static Pta ptaCopy(
-				  Pta pta){
+				 Pta pta){
 
 	IntPtr _Result = Natives.ptaCopy(pta.Pointer);
 	
@@ -106,9 +106,9 @@ public static Pta ptaCopy(
 ///  <param name="iend">[in] - ending index in ptas use 0 to copy to end</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static Pta ptaCopyRange(
-				  Pta ptas, 
-				  int istart, 
-				  int iend){
+				 Pta ptas, 
+				 int istart, 
+				 int iend){
 
 	IntPtr _Result = Natives.ptaCopyRange(ptas.Pointer,   istart,   iend);
 	
@@ -128,7 +128,7 @@ public static Pta ptaCopyRange(
 ///  <param name="pta">[in] - </param>
 ///   <returns>ptr to same pta, or NULL on error</returns>
 public static Pta ptaClone(
-				  Pta pta){
+				 Pta pta){
 
 	IntPtr _Result = Natives.ptaClone(pta.Pointer);
 	
@@ -151,7 +151,7 @@ public static Pta ptaClone(
 ///  <param name="pta">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaEmpty(
-				  Pta pta){
+				 Pta pta){
 
 	int _Result = Natives.ptaEmpty(pta.Pointer);
 	
@@ -172,9 +172,9 @@ public static int ptaEmpty(
 ///  <param name="y">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaAddPt(
-				  Pta pta, 
-				  Single x, 
-				  Single y){
+				 Pta pta, 
+				 Single x, 
+				 Single y){
 
 	int _Result = Natives.ptaAddPt(pta.Pointer,   x,   y);
 	
@@ -196,10 +196,10 @@ public static int ptaAddPt(
 ///  <param name="y">[in] - point values</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int ptaInsertPt(
-				  Pta pta, 
-				  int index, 
-				  int x, 
-				  int y){
+				 Pta pta, 
+				 int index, 
+				 int x, 
+				 int y){
 
 	int _Result = Natives.ptaInsertPt(pta.Pointer,   index,   x,   y);
 	
@@ -225,8 +225,8 @@ public static int ptaInsertPt(
 ///  <param name="index">[in] - of point to be removed</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaRemovePt(
-				  Pta pta, 
-				  int index){
+				 Pta pta, 
+				 int index){
 
 	int _Result = Natives.ptaRemovePt(pta.Pointer,   index);
 	
@@ -244,7 +244,7 @@ public static int ptaRemovePt(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaGetRefcount/*"/>
 ///   <returns></returns>
 public static int ptaGetRefcount(
-				  Pta pta){
+				 Pta pta){
 
 	IntPtr ptaPtr = IntPtr.Zero; if (pta != null) {ptaPtr = pta.Pointer;}
 
@@ -264,8 +264,8 @@ public static int ptaGetRefcount(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaChangeRefcount/*"/>
 ///   <returns></returns>
 public static int ptaChangeRefcount(
-				  Pta pta, 
-				  int delta){
+				 Pta pta, 
+				 int delta){
 
 	IntPtr ptaPtr = IntPtr.Zero; if (pta != null) {ptaPtr = pta.Pointer;}
 
@@ -286,7 +286,7 @@ public static int ptaChangeRefcount(
 ///  <param name="pta">[in] - </param>
 ///   <returns>count, or 0 if no pta</returns>
 public static int ptaGetCount(
-				  Pta pta){
+				 Pta pta){
 
 	int _Result = Natives.ptaGetCount(pta.Pointer);
 	
@@ -308,16 +308,14 @@ public static int ptaGetCount(
 ///  <param name="py">[out][optional] - float y value</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int ptaGetPt(
-				  Pta pta, 
-				  int index, 
+				 Pta pta, 
+				 int index, 
 				out Single px, 
 				out Single py){
 
 	int _Result = Natives.ptaGetPt(pta.Pointer,   index, out  px, out  py);
 	
 
-px = 0f;
-py = 0f;
 
 
 	return _Result;
@@ -335,16 +333,14 @@ py = 0f;
 ///  <param name="py">[out][optional] - integer y value</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int ptaGetIPt(
-				  Pta pta, 
-				  int index, 
+				 Pta pta, 
+				 int index, 
 				out int px, 
 				out int py){
 
 	int _Result = Natives.ptaGetIPt(pta.Pointer,   index, out  px, out  py);
 	
 
-px = 0;
-py = 0;
 
 
 	return _Result;
@@ -362,10 +358,10 @@ py = 0;
 ///  <param name="y">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int ptaSetPt(
-				  Pta pta, 
-				  int index, 
-				  Single x, 
-				  Single y){
+				 Pta pta, 
+				 int index, 
+				 Single x, 
+				 Single y){
 
 	int _Result = Natives.ptaSetPt(pta.Pointer,   index,   x,   y);
 	
@@ -389,7 +385,7 @@ public static int ptaSetPt(
 ///  <param name="pnay">[out][optional] - numa of y array</param>
 ///   <returns>0 if OK 1 on error or if pta is empty</returns>
 public static int ptaGetArrays(
-				  Pta pta, 
+				 Pta pta, 
 				out Numa pnax, 
 				out Numa pnay){
 
@@ -399,10 +395,8 @@ public static int ptaGetArrays(
 	int _Result = Natives.ptaGetArrays(pta.Pointer, out pnaxPtr, out pnayPtr);
 	
 
-pnax = null;
-	; if (pnaxPtr != IntPtr.Zero){pnax = new Numa(pnaxPtr);}
-pnay = null;
-	; if (pnayPtr != IntPtr.Zero){pnay = new Numa(pnayPtr);}
+	if (pnaxPtr == null) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
+	if (pnayPtr == null) {pnay = null;} else { pnay = new Numa(pnayPtr); };
 
 
 	return _Result;
@@ -417,7 +411,7 @@ pnay = null;
 ///  <param name="filename">[in] - </param>
 ///   <returns>pta, or NULL on error</returns>
 public static Pta ptaRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.ptaRead(  filename);
 	
@@ -437,7 +431,7 @@ public static Pta ptaRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>pta, or NULL on error</returns>
 public static Pta ptaReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.ptaReadStream(fp.Pointer);
 	
@@ -458,8 +452,8 @@ public static Pta ptaReadStream(
 ///  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 ///   <returns>pta, or NULL on error</returns>
 public static Pta ptaReadMem(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.ptaReadMem(  data,   size);
 	
@@ -489,9 +483,9 @@ public static Pta ptaReadMem(
 ///  <param name="type">[in] - 0 for float values 1 for integer values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaWriteDebug(
-				  String filename, 
-				  Pta pta, 
-				  int type){
+				 String filename, 
+				 Pta pta, 
+				 int type){
 
 	int _Result = Natives.ptaWriteDebug(  filename, pta.Pointer,   type);
 	
@@ -512,9 +506,9 @@ public static int ptaWriteDebug(
 ///  <param name="type">[in] - 0 for float values 1 for integer values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaWrite(
-				  String filename, 
-				  Pta pta, 
-				  int type){
+				 String filename, 
+				 Pta pta, 
+				 int type){
 
 	int _Result = Natives.ptaWrite(  filename, pta.Pointer,   type);
 	
@@ -535,9 +529,9 @@ public static int ptaWrite(
 ///  <param name="type">[in] - 0 for float values 1 for integer values</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int ptaWriteStream(
-				  FILE fp, 
-				  Pta pta, 
-				  int type){
+				 FILE fp, 
+				 Pta pta, 
+				 int type){
 
 	int _Result = Natives.ptaWriteStream(fp.Pointer, pta.Pointer,   type);
 	
@@ -562,18 +556,17 @@ public static int ptaWriteStream(
 ///  <param name="type">[in] - 0 for float values 1 for integer values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaWriteMem(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  Pta pta, 
-				  int type){
+				out Byte[] pdata, 
+				out uint psize, 
+				 Pta pta, 
+				 int type){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.ptaWriteMem(out  pdataPtr, out  psize, pta.Pointer,   type);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -588,7 +581,7 @@ psize = 0;
 ///  <param name="n">[in] - initial number of ptrs</param>
 ///   <returns>ptaa, or NULL on error</returns>
 public static Ptaa ptaaCreate(
-				  int n){
+				 int n){
 
 	IntPtr _Result = Natives.ptaaCreate(  n);
 	
@@ -607,15 +600,14 @@ public static Ptaa ptaaCreate(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/ptaaDestroy/*"/>
 ///  <param name="pptaa">[in,out] - to be nulled</param>
 public static void ptaaDestroy(
-				 ref Ptaa pptaa){
+				ref Ptaa pptaa){
 
 	IntPtr pptaaPtr = IntPtr.Zero; 	if (pptaa != null) {pptaaPtr = pptaa.Pointer;}
 
 	Natives.ptaaDestroy(ref pptaaPtr);
 	
 
-pptaa = null;
-	; if (pptaaPtr != IntPtr.Zero){pptaa = new Ptaa(pptaaPtr);}
+	if (pptaaPtr == null) {pptaa = null;} else { pptaa = new Ptaa(pptaaPtr); };
 
 
 }
@@ -631,9 +623,9 @@ pptaa = null;
 ///  <param name="copyflag">[in] - L_INSERT, L_COPY, L_CLONE</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaaAddPta(
-				  Ptaa ptaa, 
-				  Pta pta, 
-				  int copyflag){
+				 Ptaa ptaa, 
+				 Pta pta, 
+				 int copyflag){
 
 	int _Result = Natives.ptaaAddPta(ptaa.Pointer, pta.Pointer,   copyflag);
 	
@@ -652,7 +644,7 @@ public static int ptaaAddPta(
 ///  <param name="ptaa">[in] - </param>
 ///   <returns>count, or 0 if no ptaa</returns>
 public static int ptaaGetCount(
-				  Ptaa ptaa){
+				 Ptaa ptaa){
 
 	int _Result = Natives.ptaaGetCount(ptaa.Pointer);
 	
@@ -673,9 +665,9 @@ public static int ptaaGetCount(
 ///  <param name="accessflag">[in] - L_COPY or L_CLONE</param>
 ///   <returns>pta, or NULL on error</returns>
 public static Pta ptaaGetPta(
-				  Ptaa ptaa, 
-				  int index, 
-				  int accessflag){
+				 Ptaa ptaa, 
+				 int index, 
+				 int accessflag){
 
 	IntPtr _Result = Natives.ptaaGetPta(ptaa.Pointer,   index,   accessflag);
 	
@@ -699,17 +691,15 @@ public static Pta ptaaGetPta(
 ///  <param name="py">[out][optional] - float y value</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int ptaaGetPt(
-				  Ptaa ptaa, 
-				  int ipta, 
-				  int jpt, 
+				 Ptaa ptaa, 
+				 int ipta, 
+				 int jpt, 
 				out Single px, 
 				out Single py){
 
 	int _Result = Natives.ptaaGetPt(ptaa.Pointer,   ipta,   jpt, out  px, out  py);
 	
 
-px = 0f;
-py = 0f;
 
 
 	return _Result;
@@ -725,8 +715,8 @@ py = 0f;
 ///  <param name="pta">[in] - to be replicated into the entire ptr array</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int ptaaInitFull(
-				  Ptaa ptaa, 
-				  Pta pta){
+				 Ptaa ptaa, 
+				 Pta pta){
 
 	int _Result = Natives.ptaaInitFull(ptaa.Pointer, pta.Pointer);
 	
@@ -753,9 +743,9 @@ public static int ptaaInitFull(
 ///  <param name="pta">[in] - insert and replace any existing one</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaaReplacePta(
-				  Ptaa ptaa, 
-				  int index, 
-				  Pta pta){
+				 Ptaa ptaa, 
+				 int index, 
+				 Pta pta){
 
 	int _Result = Natives.ptaaReplacePta(ptaa.Pointer,   index, pta.Pointer);
 	
@@ -776,10 +766,10 @@ public static int ptaaReplacePta(
 ///  <param name="x">[in] - ,y point coordinates</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int ptaaAddPt(
-				  Ptaa ptaa, 
-				  int ipta, 
-				  Single x, 
-				  Single y){
+				 Ptaa ptaa, 
+				 int ipta, 
+				 Single x, 
+				 Single y){
 
 	int _Result = Natives.ptaaAddPt(ptaa.Pointer,   ipta,   x,   y);
 	
@@ -803,7 +793,7 @@ public static int ptaaAddPt(
 ///  <param name="ptaa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaaTruncate(
-				  Ptaa ptaa){
+				 Ptaa ptaa){
 
 	int _Result = Natives.ptaaTruncate(ptaa.Pointer);
 	
@@ -822,7 +812,7 @@ public static int ptaaTruncate(
 ///  <param name="filename">[in] - </param>
 ///   <returns>ptaa, or NULL on error</returns>
 public static Ptaa ptaaRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.ptaaRead(  filename);
 	
@@ -842,7 +832,7 @@ public static Ptaa ptaaRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>ptaa, or NULL on error</returns>
 public static Ptaa ptaaReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.ptaaReadStream(fp.Pointer);
 	
@@ -863,8 +853,8 @@ public static Ptaa ptaaReadStream(
 ///  <param name="size">[in] - of data in bytes can use strlen to get it</param>
 ///   <returns>ptaa, or NULL on error</returns>
 public static Ptaa ptaaReadMem(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.ptaaReadMem(  data,   size);
 	
@@ -894,9 +884,9 @@ public static Ptaa ptaaReadMem(
 ///  <param name="type">[in] - 0 for float values 1 for integer values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaaWriteDebug(
-				  String filename, 
-				  Ptaa ptaa, 
-				  int type){
+				 String filename, 
+				 Ptaa ptaa, 
+				 int type){
 
 	int _Result = Natives.ptaaWriteDebug(  filename, ptaa.Pointer,   type);
 	
@@ -917,9 +907,9 @@ public static int ptaaWriteDebug(
 ///  <param name="type">[in] - 0 for float values 1 for integer values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaaWrite(
-				  String filename, 
-				  Ptaa ptaa, 
-				  int type){
+				 String filename, 
+				 Ptaa ptaa, 
+				 int type){
 
 	int _Result = Natives.ptaaWrite(  filename, ptaa.Pointer,   type);
 	
@@ -940,9 +930,9 @@ public static int ptaaWrite(
 ///  <param name="type">[in] - 0 for float values 1 for integer values</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int ptaaWriteStream(
-				  FILE fp, 
-				  Ptaa ptaa, 
-				  int type){
+				 FILE fp, 
+				 Ptaa ptaa, 
+				 int type){
 
 	int _Result = Natives.ptaaWriteStream(fp.Pointer, ptaa.Pointer,   type);
 	
@@ -967,21 +957,21 @@ public static int ptaaWriteStream(
 ///  <param name="type">[in] - 0 for float values 1 for integer values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaaWriteMem(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  Ptaa ptaa, 
-				  int type){
+				out Byte[] pdata, 
+				out uint psize, 
+				 Ptaa ptaa, 
+				 int type){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.ptaaWriteMem(out  pdataPtr, out  psize, ptaa.Pointer,   type);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
 }
 
+}
 }

@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // boxfunc4.c (111, 1)
 // boxaSelectRange(boxas, first, last, copyflag) as Boxa
@@ -22,10 +23,10 @@ public class _All {
 ///  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 ///   <returns>boxad, or NULL on error</returns>
 public static Boxa boxaSelectRange(
-				  Boxa boxas, 
-				  int first, 
-				  int last, 
-				  int copyflag){
+				 Boxa boxas, 
+				 int first, 
+				 int last, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.boxaSelectRange(boxas.Pointer,   first,   last,   copyflag);
 	
@@ -53,10 +54,10 @@ public static Boxa boxaSelectRange(
 ///  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 ///   <returns>baad, or NULL on error</returns>
 public static Boxaa boxaaSelectRange(
-				  Boxaa baas, 
-				  int first, 
-				  int last, 
-				  int copyflag){
+				 Boxaa baas, 
+				 int first, 
+				 int last, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.boxaaSelectRange(baas.Pointer,   first,   last,   copyflag);
 	
@@ -95,17 +96,16 @@ public static Boxaa boxaaSelectRange(
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>boxad filtered set, or NULL on error</returns>
 public static Boxa boxaSelectBySize(
-				  Boxa boxas, 
-				  int width, 
-				  int height, 
-				  int type, 
-				  int relation, 
+				 Boxa boxas, 
+				 int width, 
+				 int height, 
+				 int type, 
+				 int relation, 
 				out int pchanged){
 
 	IntPtr _Result = Natives.boxaSelectBySize(boxas.Pointer,   width,   height,   type,   relation, out  pchanged);
 	
 
-pchanged = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -137,11 +137,11 @@ pchanged = 0;
 ///  <param name="relation">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
 ///   <returns>na indicator array, or NULL on error</returns>
 public static Numa boxaMakeSizeIndicator(
-				  Boxa boxa, 
-				  int width, 
-				  int height, 
-				  int type, 
-				  int relation){
+				 Boxa boxa, 
+				 int width, 
+				 int height, 
+				 int type, 
+				 int relation){
 
 	IntPtr _Result = Natives.boxaMakeSizeIndicator(boxa.Pointer,   width,   height,   type,   relation);
 	
@@ -172,15 +172,14 @@ public static Numa boxaMakeSizeIndicator(
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>boxad filtered set, or NULL on error</returns>
 public static Boxa boxaSelectByArea(
-				  Boxa boxas, 
-				  int area, 
-				  int relation, 
+				 Boxa boxas, 
+				 int area, 
+				 int relation, 
 				out int pchanged){
 
 	IntPtr _Result = Natives.boxaSelectByArea(boxas.Pointer,   area,   relation, out  pchanged);
 	
 
-pchanged = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -204,9 +203,9 @@ pchanged = 0;
 ///  <param name="relation">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
 ///   <returns>na indicator array, or NULL on error</returns>
 public static Numa boxaMakeAreaIndicator(
-				  Boxa boxa, 
-				  int area, 
-				  int relation){
+				 Boxa boxa, 
+				 int area, 
+				 int relation){
 
 	IntPtr _Result = Natives.boxaMakeAreaIndicator(boxa.Pointer,   area,   relation);
 	
@@ -237,15 +236,14 @@ public static Numa boxaMakeAreaIndicator(
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>boxad filtered set, or NULL on error</returns>
 public static Boxa boxaSelectByWHRatio(
-				  Boxa boxas, 
-				  Single ratio, 
-				  int relation, 
+				 Boxa boxas, 
+				 Single ratio, 
+				 int relation, 
 				out int pchanged){
 
 	IntPtr _Result = Natives.boxaSelectByWHRatio(boxas.Pointer,   ratio,   relation, out  pchanged);
 	
 
-pchanged = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -269,9 +267,9 @@ pchanged = 0;
 ///  <param name="relation">[in] - L_SELECT_IF_LT, L_SELECT_IF_GT, L_SELECT_IF_LTE, L_SELECT_IF_GTE</param>
 ///   <returns>na indicator array, or NULL on error</returns>
 public static Numa boxaMakeWHRatioIndicator(
-				  Boxa boxa, 
-				  Single ratio, 
-				  int relation){
+				 Boxa boxa, 
+				 Single ratio, 
+				 int relation){
 
 	IntPtr _Result = Natives.boxaMakeWHRatioIndicator(boxa.Pointer,   ratio,   relation);
 	
@@ -300,14 +298,13 @@ public static Numa boxaMakeWHRatioIndicator(
 ///  <param name="pchanged">[out][optional] - 1 if changed 0 if clone returned</param>
 ///   <returns>boxad, or NULL on error</returns>
 public static Boxa boxaSelectWithIndicator(
-				  Boxa boxas, 
-				  Numa na, 
+				 Boxa boxas, 
+				 Numa na, 
 				out int pchanged){
 
 	IntPtr _Result = Natives.boxaSelectWithIndicator(boxas.Pointer, na.Pointer, out  pchanged);
 	
 
-pchanged = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -330,7 +327,7 @@ pchanged = 0;
 ///  <param name="boxas">[in] - input boxa</param>
 ///   <returns>boxad with boxes permuted, or NULL on error</returns>
 public static Boxa boxaPermutePseudorandom(
-				  Boxa boxas){
+				 Boxa boxas){
 
 	IntPtr _Result = Natives.boxaPermutePseudorandom(boxas.Pointer);
 	
@@ -366,8 +363,8 @@ public static Boxa boxaPermutePseudorandom(
 ///  <param name="boxas">[in] - input boxa</param>
 ///   <returns>boxad with boxes permuted, or NULL on error</returns>
 public static Boxa boxaPermuteRandom(
-				  Boxa boxad, 
-				  Boxa boxas){
+				 Boxa boxad, 
+				 Boxa boxas){
 
 	IntPtr boxadPtr = IntPtr.Zero; 	if (boxad != null) {boxadPtr = boxad.Pointer;}
 
@@ -391,9 +388,9 @@ public static Boxa boxaPermuteRandom(
 ///  <param name="j">[in] - two indices of boxes, that are to be swapped</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaSwapBoxes(
-				  Boxa boxa, 
-				  int i, 
-				  int j){
+				 Boxa boxa, 
+				 int i, 
+				 int j){
 
 	int _Result = Natives.boxaSwapBoxes(boxa.Pointer,   i,   j);
 	
@@ -417,8 +414,8 @@ public static int boxaSwapBoxes(
 ///  <param name="ncorners">[in] - 2 or 4 for the representation of each box</param>
 ///   <returns>pta with %ncorners points for each box in the boxa, or NULL on error</returns>
 public static Pta boxaConvertToPta(
-				  Boxa boxa, 
-				  int ncorners){
+				 Boxa boxa, 
+				 int ncorners){
 
 	IntPtr _Result = Natives.boxaConvertToPta(boxa.Pointer,   ncorners);
 	
@@ -445,8 +442,8 @@ public static Pta boxaConvertToPta(
 ///  <param name="ncorners">[in] - 2 or 4 for the representation of each box</param>
 ///   <returns>boxa with one box for each 2 or 4 points in the pta, or NULL on error</returns>
 public static Boxa ptaConvertToBoxa(
-				  Pta pta, 
-				  int ncorners){
+				 Pta pta, 
+				 int ncorners){
 
 	IntPtr _Result = Natives.ptaConvertToBoxa(pta.Pointer,   ncorners);
 	
@@ -471,8 +468,8 @@ public static Boxa ptaConvertToBoxa(
 ///  <param name="ncorners">[in] - 2 or 4 for the representation of the box</param>
 ///   <returns>pta with %ncorners points, or NULL on error</returns>
 public static Pta boxConvertToPta(
-				  Box box, 
-				  int ncorners){
+				 Box box, 
+				 int ncorners){
 
 	IntPtr _Result = Natives.boxConvertToPta(box.Pointer,   ncorners);
 	
@@ -496,7 +493,7 @@ public static Pta boxConvertToPta(
 ///  <param name="pta">[in] - </param>
 ///   <returns>box minimum containing all points in the pta, or NULL on error</returns>
 public static Box ptaConvertToBox(
-				  Pta pta){
+				 Pta pta){
 
 	IntPtr _Result = Natives.ptaConvertToBox(pta.Pointer);
 	
@@ -535,11 +532,11 @@ public static Box ptaConvertToBox(
 ///  <param name="debug">[in] - 1 for debug output</param>
 ///   <returns>boxad fitted boxa, or NULL on error</returns>
 public static Boxa boxaSmoothSequenceLS(
-				  Boxa boxas, 
-				  Single factor, 
-				  int subflag, 
-				  int maxdiff, 
-				  int extrapixels, 
+				 Boxa boxas, 
+				 Single factor, 
+				 int subflag, 
+				 int maxdiff, 
+				 int extrapixels, 
 				 DebugOnOff debug){
 
 	IntPtr _Result = Natives.boxaSmoothSequenceLS(boxas.Pointer,   factor,   subflag,   maxdiff,   extrapixels,  (int) debug);
@@ -590,11 +587,11 @@ public static Boxa boxaSmoothSequenceLS(
 ///  <param name="debug">[in] - 1 for debug output</param>
 ///   <returns>boxad fitted boxa, or NULL on error</returns>
 public static Boxa boxaSmoothSequenceMedian(
-				  Boxa boxas, 
-				  int halfwin, 
-				  int subflag, 
-				  int maxdiff, 
-				  int extrapixels, 
+				 Boxa boxas, 
+				 int halfwin, 
+				 int subflag, 
+				 int maxdiff, 
+				 int extrapixels, 
 				 DebugOnOff debug){
 
 	IntPtr _Result = Natives.boxaSmoothSequenceMedian(boxas.Pointer,   halfwin,   subflag,   maxdiff,   extrapixels,  (int) debug);
@@ -642,8 +639,8 @@ public static Boxa boxaSmoothSequenceMedian(
 ///  <param name="debug">[in] - 1 for debug output</param>
 ///   <returns>boxad fitted boxa, or NULL on error</returns>
 public static Boxa boxaLinearFit(
-				  Boxa boxas, 
-				  Single factor, 
+				 Boxa boxas, 
+				 Single factor, 
 				 DebugOnOff debug){
 
 	IntPtr _Result = Natives.boxaLinearFit(boxas.Pointer,   factor,  (int) debug);
@@ -676,8 +673,8 @@ public static Boxa boxaLinearFit(
 ///  <param name="debug">[in] - 1 for debug output</param>
 ///   <returns>boxad smoothed boxa, or NULL on error</returns>
 public static Boxa boxaWindowedMedian(
-				  Boxa boxas, 
-				  int halfwin, 
+				 Boxa boxas, 
+				 int halfwin, 
 				 DebugOnOff debug){
 
 	IntPtr _Result = Natives.boxaWindowedMedian(boxas.Pointer,   halfwin,  (int) debug);
@@ -763,11 +760,11 @@ public static Boxa boxaWindowedMedian(
 ///  <param name="extrapixels">[in] - pixels added on all sides (or subtracted if %extrapixels  is smaller 0) when using L_SUB_ON_LOC_DIFF and L_SUB_ON_SIZE_DIFF</param>
 ///   <returns>boxad result after adjusting boxes in boxas, or NULL on error.</returns>
 public static Boxa boxaModifyWithBoxa(
-				  Boxa boxas, 
-				  Boxa boxam, 
-				  int subflag, 
-				  int maxdiff, 
-				  int extrapixels){
+				 Boxa boxas, 
+				 Boxa boxam, 
+				 int subflag, 
+				 int maxdiff, 
+				 int extrapixels){
 
 	IntPtr _Result = Natives.boxaModifyWithBoxa(boxas.Pointer, boxam.Pointer,   subflag,   maxdiff,   extrapixels);
 	
@@ -807,11 +804,11 @@ public static Boxa boxaModifyWithBoxa(
 ///  <param name="heightflag">[in] - L_ADJUST_SKIP, L_ADJUST_TOP, L_ADJUST_BOT, or L_ADJUST_TOP_AND_BOT</param>
 ///   <returns>boxad adjusted so all boxes are the same size</returns>
 public static Boxa boxaConstrainSize(
-				  Boxa boxas, 
-				  int width, 
-				  int widthflag, 
-				  int height, 
-				  int heightflag){
+				 Boxa boxas, 
+				 int width, 
+				 int widthflag, 
+				 int height, 
+				 int heightflag){
 
 	IntPtr _Result = Natives.boxaConstrainSize(boxas.Pointer,   width,   widthflag,   height,   heightflag);
 	
@@ -871,12 +868,12 @@ public static Boxa boxaConstrainSize(
 ///  <param name="start">[in] - 0 if pairing (0,1), etc 1 if pairing (1,2), etc</param>
 ///   <returns>boxad adjusted, or a copy of boxas on error</returns>
 public static Boxa boxaReconcileEvenOddHeight(
-				  Boxa boxas, 
-				  int sides, 
-				  int delh, 
-				  int op, 
-				  Single factor, 
-				  int start){
+				 Boxa boxas, 
+				 int sides, 
+				 int delh, 
+				 int op, 
+				 Single factor, 
+				 int start){
 
 	IntPtr _Result = Natives.boxaReconcileEvenOddHeight(boxas.Pointer,   sides,   delh,   op,   factor,   start);
 	
@@ -918,10 +915,10 @@ public static Boxa boxaReconcileEvenOddHeight(
 ///  <param name="na">[in][optional] - indicator array allowing change</param>
 ///   <returns>boxad adjusted, or a copy of boxas on error</returns>
 public static Boxa boxaReconcilePairWidth(
-				  Boxa boxas, 
-				  int delw, 
-				  int op, 
-				  Single factor, 
+				 Boxa boxas, 
+				 int delw, 
+				 int op, 
+				 Single factor, 
 				 Numa na){
 
 	IntPtr naPtr = IntPtr.Zero; 	if (na != null) {naPtr = na.Pointer;}
@@ -961,7 +958,7 @@ public static Boxa boxaReconcilePairWidth(
 ///  <param name="ppixd">[out][optional] - pix of the output plot</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaPlotSides(
-				  Boxa boxa, 
+				 Boxa boxa, 
 				 String plotname, 
 				out Numa pnal, 
 				out Numa pnat, 
@@ -978,16 +975,11 @@ public static int boxaPlotSides(
 	int _Result = Natives.boxaPlotSides(boxa.Pointer,   plotname, out pnalPtr, out pnatPtr, out pnarPtr, out pnabPtr, out ppixdPtr);
 	
 
-pnal = null;
-	; if (pnalPtr != IntPtr.Zero){pnal = new Numa(pnalPtr);}
-pnat = null;
-	; if (pnatPtr != IntPtr.Zero){pnat = new Numa(pnatPtr);}
-pnar = null;
-	; if (pnarPtr != IntPtr.Zero){pnar = new Numa(pnarPtr);}
-pnab = null;
-	; if (pnabPtr != IntPtr.Zero){pnab = new Numa(pnabPtr);}
-ppixd = null;
-	; if (ppixdPtr != IntPtr.Zero){ppixd = new Pix(ppixdPtr);}
+	if (pnalPtr == null) {pnal = null;} else { pnal = new Numa(pnalPtr); };
+	if (pnatPtr == null) {pnat = null;} else { pnat = new Numa(pnatPtr); };
+	if (pnarPtr == null) {pnar = null;} else { pnar = new Numa(pnarPtr); };
+	if (pnabPtr == null) {pnab = null;} else { pnab = new Numa(pnabPtr); };
+	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -1018,7 +1010,7 @@ ppixd = null;
 ///  <param name="ppixd">[out][optional] - pix of the output plot</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaPlotSizes(
-				  Boxa boxa, 
+				 Boxa boxa, 
 				 String plotname, 
 				out Numa pnaw, 
 				out Numa pnah, 
@@ -1031,12 +1023,9 @@ public static int boxaPlotSizes(
 	int _Result = Natives.boxaPlotSizes(boxa.Pointer,   plotname, out pnawPtr, out pnahPtr, out ppixdPtr);
 	
 
-pnaw = null;
-	; if (pnawPtr != IntPtr.Zero){pnaw = new Numa(pnawPtr);}
-pnah = null;
-	; if (pnahPtr != IntPtr.Zero){pnah = new Numa(pnahPtr);}
-ppixd = null;
-	; if (ppixdPtr != IntPtr.Zero){ppixd = new Pix(ppixdPtr);}
+	if (pnawPtr == null) {pnaw = null;} else { pnaw = new Numa(pnawPtr); };
+	if (pnahPtr == null) {pnah = null;} else { pnah = new Numa(pnahPtr); };
+	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -1062,8 +1051,8 @@ ppixd = null;
 ///  <param name="debug">[in] - 1 for debug output</param>
 ///   <returns>boxad filled boxa, or NULL on error</returns>
 public static Boxa boxaFillSequence(
-				  Boxa boxas, 
-				  int useflag, 
+				 Boxa boxas, 
+				 int useflag, 
 				 DebugOnOff debug){
 
 	IntPtr _Result = Natives.boxaFillSequence(boxas.Pointer,   useflag,  (int) debug);
@@ -1100,8 +1089,8 @@ public static Boxa boxaFillSequence(
 ///  <param name="prms_all">[out][optional] - rms deviation of all boxes</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaSizeVariation(
-				  Boxa boxa, 
-				  int type, 
+				 Boxa boxa, 
+				 int type, 
 				out Single pdel_evenodd, 
 				out Single prms_even, 
 				out Single prms_odd, 
@@ -1110,10 +1099,6 @@ public static int boxaSizeVariation(
 	int _Result = Natives.boxaSizeVariation(boxa.Pointer,   type, out  pdel_evenodd, out  prms_even, out  prms_odd, out  prms_all);
 	
 
-pdel_evenodd = 0f;
-prms_even = 0f;
-prms_odd = 0f;
-prms_all = 0f;
 
 
 	return _Result;
@@ -1140,7 +1125,7 @@ prms_all = 0f;
 ///  <param name="pbox">[out][optional] - minimum box containing all boxes in boxa</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaGetExtent(
-				  Boxa boxa, 
+				 Boxa boxa, 
 				out int pw, 
 				out int ph, 
 				out Box pbox){
@@ -1150,10 +1135,7 @@ public static int boxaGetExtent(
 	int _Result = Natives.boxaGetExtent(boxa.Pointer, out  pw, out  ph, out pboxPtr);
 	
 
-pw = 0;
-ph = 0;
-pbox = null;
-	; if (pboxPtr != IntPtr.Zero){pbox = new Box(pboxPtr);}
+	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
 
 
 	return _Result;
@@ -1183,16 +1165,15 @@ pbox = null;
 ///  <param name="pfract">[out] - sum of box area as fraction of w  h</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaGetCoverage(
-				  Boxa boxa, 
-				  int wc, 
-				  int hc, 
-				  int exactflag, 
-				 out Single pfract){
+				 Boxa boxa, 
+				 int wc, 
+				 int hc, 
+				 int exactflag, 
+				out Single pfract){
 
 	int _Result = Natives.boxaGetCoverage(boxa.Pointer,   wc,   hc,   exactflag, out  pfract);
 	
 
-pfract = 0f;
 
 
 	return _Result;
@@ -1211,7 +1192,7 @@ pfract = 0f;
 ///  <param name="pmaxh">[out][optional] - range of dimensions of all boxes</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaaSizeRange(
-				  Boxaa baa, 
+				 Boxaa baa, 
 				out int pminw, 
 				out int pminh, 
 				out int pmaxw, 
@@ -1220,10 +1201,6 @@ public static int boxaaSizeRange(
 	int _Result = Natives.boxaaSizeRange(baa.Pointer, out  pminw, out  pminh, out  pmaxw, out  pmaxh);
 	
 
-pminw = 0;
-pminh = 0;
-pmaxw = 0;
-pmaxh = 0;
 
 
 	return _Result;
@@ -1242,7 +1219,7 @@ pmaxh = 0;
 ///  <param name="pmaxh">[out][optional] - range of dimensions of box in the array</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaSizeRange(
-				  Boxa boxa, 
+				 Boxa boxa, 
 				out int pminw, 
 				out int pminh, 
 				out int pmaxw, 
@@ -1251,10 +1228,6 @@ public static int boxaSizeRange(
 	int _Result = Natives.boxaSizeRange(boxa.Pointer, out  pminw, out  pminh, out  pmaxw, out  pmaxh);
 	
 
-pminw = 0;
-pminh = 0;
-pmaxw = 0;
-pmaxh = 0;
 
 
 	return _Result;
@@ -1273,7 +1246,7 @@ pmaxh = 0;
 ///  <param name="pmaxy">[out][optional] - range of UL corner positions</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaLocationRange(
-				  Boxa boxa, 
+				 Boxa boxa, 
 				out int pminx, 
 				out int pminy, 
 				out int pmaxx, 
@@ -1282,10 +1255,6 @@ public static int boxaLocationRange(
 	int _Result = Natives.boxaLocationRange(boxa.Pointer, out  pminx, out  pminy, out  pmaxx, out  pmaxy);
 	
 
-pminx = 0;
-pminy = 0;
-pmaxx = 0;
-pmaxy = 0;
 
 
 	return _Result;
@@ -1302,7 +1271,7 @@ pmaxy = 0;
 ///  <param name="pnah">[out][optional] - widths and heights of valid boxes</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaGetSizes(
-				  Boxa boxa, 
+				 Boxa boxa, 
 				out Numa pnaw, 
 				out Numa pnah){
 
@@ -1312,10 +1281,8 @@ public static int boxaGetSizes(
 	int _Result = Natives.boxaGetSizes(boxa.Pointer, out pnawPtr, out pnahPtr);
 	
 
-pnaw = null;
-	; if (pnawPtr != IntPtr.Zero){pnaw = new Numa(pnawPtr);}
-pnah = null;
-	; if (pnahPtr != IntPtr.Zero){pnah = new Numa(pnahPtr);}
+	if (pnawPtr == null) {pnaw = null;} else { pnaw = new Numa(pnawPtr); };
+	if (pnahPtr == null) {pnah = null;} else { pnah = new Numa(pnahPtr); };
 
 
 	return _Result;
@@ -1334,13 +1301,12 @@ pnah = null;
 ///  <param name="parea">[out] - total area of all boxes</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaGetArea(
-				  Boxa boxa, 
-				 out int parea){
+				 Boxa boxa, 
+				out int parea){
 
 	int _Result = Natives.boxaGetArea(boxa.Pointer, out  parea);
 	
 
-parea = 0;
 
 
 	return _Result;
@@ -1372,14 +1338,14 @@ parea = 0;
 ///  <param name="border">[in] - width of black border added to each image use 0 for no border</param>
 ///   <returns>pixd of tiled images of boxes, or NULL on error</returns>
 public static Pix boxaDisplayTiled(
-				  Boxa boxas, 
-				  Pixa pixa, 
-				  int maxwidth, 
-				  int linewidth, 
-				  Single scalefactor, 
-				  int background, 
-				  int spacing, 
-				  int border){
+				 Boxa boxas, 
+				 Pixa pixa, 
+				 int maxwidth, 
+				 int linewidth, 
+				 Single scalefactor, 
+				 int background, 
+				 int spacing, 
+				 int border){
 
 	IntPtr pixaPtr = IntPtr.Zero; 	if (pixa != null) {pixaPtr = pixa.Pointer;}
 
@@ -1392,4 +1358,5 @@ public static Pix boxaDisplayTiled(
 	return  new Pix(_Result);
 }
 
+}
 }

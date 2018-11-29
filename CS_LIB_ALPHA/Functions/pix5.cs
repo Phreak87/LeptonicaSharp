@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // pix5.c (130, 1)
 // pixaFindDimensions(pixa, pnaw, pnah) as int
@@ -16,7 +17,7 @@ public class _All {
 ///  <param name="pnah">[out][optional] - numa of pix heights</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaFindDimensions(
-				  Pixa pixa, 
+				 Pixa pixa, 
 				out Numa pnaw, 
 				out Numa pnah){
 
@@ -26,10 +27,8 @@ public static int pixaFindDimensions(
 	int _Result = Natives.pixaFindDimensions(pixa.Pointer, out pnawPtr, out pnahPtr);
 	
 
-pnaw = null;
-	; if (pnawPtr != IntPtr.Zero){pnaw = new Numa(pnawPtr);}
-pnah = null;
-	; if (pnahPtr != IntPtr.Zero){pnah = new Numa(pnahPtr);}
+	if (pnawPtr == null) {pnaw = null;} else { pnaw = new Numa(pnawPtr); };
+	if (pnahPtr == null) {pnah = null;} else { pnah = new Numa(pnahPtr); };
 
 
 	return _Result;
@@ -54,14 +53,13 @@ pnah = null;
 ///  <param name="pfract">[out] - area/perimeter ratio</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixFindAreaPerimRatio(
-				  Pix pixs, 
-				  int[] tab, 
-				 out Single pfract){
+				 Pix pixs, 
+				 int[] tab, 
+				out Single pfract){
 
 	int _Result = Natives.pixFindAreaPerimRatio(pixs.Pointer,   tab, out  pfract);
 	
 
-pfract = 0f;
 
 
 	return _Result;
@@ -80,7 +78,7 @@ pfract = 0f;
 ///  <param name="pixa">[in] - of 1 bpp pix</param>
 ///   <returns>na   of perimeter/arear ratio for each pix, or NULL on error</returns>
 public static Numa pixaFindPerimToAreaRatio(
-				  Pixa pixa){
+				 Pixa pixa){
 
 	IntPtr _Result = Natives.pixaFindPerimToAreaRatio(pixa.Pointer);
 	
@@ -116,14 +114,13 @@ public static Numa pixaFindPerimToAreaRatio(
 ///  <param name="pfract">[out] - perimeter/area ratio</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixFindPerimToAreaRatio(
-				  Pix pixs, 
-				  int[] tab, 
-				 out Single pfract){
+				 Pix pixs, 
+				 int[] tab, 
+				out Single pfract){
 
 	int _Result = Natives.pixFindPerimToAreaRatio(pixs.Pointer,   tab, out  pfract);
 	
 
-pfract = 0f;
 
 
 	return _Result;
@@ -146,7 +143,7 @@ pfract = 0f;
 ///  <param name="pixa">[in] - of 1 bpp pix</param>
 ///   <returns>na   of fg perimeter/(2(w+h)) ratio for each pix, or NULL on error</returns>
 public static Numa pixaFindPerimSizeRatio(
-				  Pixa pixa){
+				 Pixa pixa){
 
 	IntPtr _Result = Natives.pixaFindPerimSizeRatio(pixa.Pointer);
 	
@@ -182,14 +179,13 @@ public static Numa pixaFindPerimSizeRatio(
 ///  <param name="pratio">[out] - perimeter/size ratio</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixFindPerimSizeRatio(
-				  Pix pixs, 
-				  int[] tab, 
-				 out Single pratio){
+				 Pix pixs, 
+				 int[] tab, 
+				out Single pratio){
 
 	int _Result = Natives.pixFindPerimSizeRatio(pixs.Pointer,   tab, out  pratio);
 	
 
-pratio = 0f;
 
 
 	return _Result;
@@ -208,7 +204,7 @@ pratio = 0f;
 ///  <param name="pixa">[in] - of 1 bpp pix</param>
 ///   <returns>na  of area fractions for each pix, or NULL on error</returns>
 public static Numa pixaFindAreaFraction(
-				  Pixa pixa){
+				 Pixa pixa){
 
 	IntPtr _Result = Natives.pixaFindAreaFraction(pixa.Pointer);
 	
@@ -235,14 +231,13 @@ public static Numa pixaFindAreaFraction(
 ///  <param name="pfract">[out] - fg area/size ratio</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixFindAreaFraction(
-				  Pix pixs, 
-				  int[] tab, 
-				 out Single pfract){
+				 Pix pixs, 
+				 int[] tab, 
+				out Single pfract){
 
 	int _Result = Natives.pixFindAreaFraction(pixs.Pointer,   tab, out  pfract);
 	
 
-pfract = 0f;
 
 
 	return _Result;
@@ -268,8 +263,8 @@ pfract = 0f;
 ///  <param name="debug">[in] - 1 for output, 0 to suppress</param>
 ///   <returns>na of ratio masked/total fractions for each pix, or NULL on error</returns>
 public static Numa pixaFindAreaFractionMasked(
-				  Pixa pixa, 
-				  Pix pixm, 
+				 Pixa pixa, 
+				 Pix pixm, 
 				 DebugOnOff debug){
 
 	IntPtr _Result = Natives.pixaFindAreaFractionMasked(pixa.Pointer, pixm.Pointer,  (int) debug);
@@ -306,18 +301,17 @@ public static Numa pixaFindAreaFractionMasked(
 ///  <param name="pfract">[out] - fg area/size ratio</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixFindAreaFractionMasked(
-				  Pix pixs, 
-				  Box box, 
-				  Pix pixm, 
-				  int[] tab, 
-				 out Single pfract){
+				 Pix pixs, 
+				 Box box, 
+				 Pix pixm, 
+				 int[] tab, 
+				out Single pfract){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	int _Result = Natives.pixFindAreaFractionMasked(pixs.Pointer, boxPtr, pixm.Pointer,   tab, out  pfract);
 	
 
-pfract = 0f;
 
 
 	return _Result;
@@ -336,7 +330,7 @@ pfract = 0f;
 ///  <param name="pixa">[in] - of 1 bpp pix</param>
 ///   <returns>na of width/height ratios for each pix, or NULL on error</returns>
 public static Numa pixaFindWidthHeightRatio(
-				  Pixa pixa){
+				 Pixa pixa){
 
 	IntPtr _Result = Natives.pixaFindWidthHeightRatio(pixa.Pointer);
 	
@@ -360,7 +354,7 @@ public static Numa pixaFindWidthHeightRatio(
 ///  <param name="pixa">[in] - of 1 bpp pix</param>
 ///   <returns>na of widthheight products for each pix, or NULL on error</returns>
 public static Numa pixaFindWidthHeightProduct(
-				  Pixa pixa){
+				 Pixa pixa){
 
 	IntPtr _Result = Natives.pixaFindWidthHeightProduct(pixa.Pointer);
 	
@@ -391,19 +385,17 @@ public static Numa pixaFindWidthHeightProduct(
 ///  <param name="pnoverlap">[out][optional] - number of overlapping pixels</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixFindOverlapFraction(
-				  Pix pixs1, 
-				  Pix pixs2, 
-				  int x2, 
-				  int y2, 
-				  int[] tab, 
-				 out Single pratio, 
+				 Pix pixs1, 
+				 Pix pixs2, 
+				 int x2, 
+				 int y2, 
+				 int[] tab, 
+				out Single pratio, 
 				out int pnoverlap){
 
 	int _Result = Natives.pixFindOverlapFraction(pixs1.Pointer, pixs2.Pointer,   x2,   y2,   tab, out  pratio, out  pnoverlap);
 	
 
-pratio = 0f;
-pnoverlap = 0;
 
 
 	return _Result;
@@ -430,10 +422,10 @@ pnoverlap = 0;
 ///  <param name="minh">[in] - minimum size in each direction as a requirement for a conforming rectangle</param>
 ///   <returns>boxa of components that conform, or NULL on error</returns>
 public static Boxa pixFindRectangleComps(
-				  Pix pixs, 
-				  int dist, 
-				  int minw, 
-				  int minh){
+				 Pix pixs, 
+				 int dist, 
+				 int minw, 
+				 int minh){
 
 	IntPtr _Result = Natives.pixFindRectangleComps(pixs.Pointer,   dist,   minw,   minh);
 	
@@ -481,17 +473,16 @@ public static Boxa pixFindRectangleComps(
 ///  <param name="pconforms">[out] - 0 (false) if not conforming 1 (true) if conforming</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixConformsToRectangle(
-				  Pix pixs, 
-				  Box box, 
-				  int dist, 
-				 out int pconforms){
+				 Pix pixs, 
+				 Box box, 
+				 int dist, 
+				out int pconforms){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	int _Result = Natives.pixConformsToRectangle(pixs.Pointer, boxPtr,   dist, out  pconforms);
 	
 
-pconforms = 0;
 
 
 	return _Result;
@@ -511,8 +502,8 @@ pconforms = 0;
 ///  <param name="boxa">[in] - requested clipping regions</param>
 ///   <returns>pixa consisting of requested regions, or NULL on error</returns>
 public static Pixa pixClipRectangles(
-				  Pix pixs, 
-				  Boxa boxa){
+				 Pix pixs, 
+				 Boxa boxa){
 
 	IntPtr _Result = Natives.pixClipRectangles(pixs.Pointer, boxa.Pointer);
 	
@@ -557,8 +548,8 @@ public static Pixa pixClipRectangles(
 ///  <param name="pboxc">[out][optional] - actual box of clipped region</param>
 ///   <returns>clipped pix, or NULL on error or if rectangle doesn't intersect pixs</returns>
 public static Pix pixClipRectangle(
-				  Pix pixs, 
-				  Box box, 
+				 Pix pixs, 
+				 Box box, 
 				out Box pboxc){
 
 	IntPtr pboxcPtr = IntPtr.Zero;
@@ -566,8 +557,7 @@ public static Pix pixClipRectangle(
 	IntPtr _Result = Natives.pixClipRectangle(pixs.Pointer, box.Pointer, out pboxcPtr);
 	
 
-pboxc = null;
-	; if (pboxcPtr != IntPtr.Zero){pboxc = new Box(pboxcPtr);}
+	if (pboxcPtr == null) {pboxc = null;} else { pboxc = new Box(pboxcPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -608,11 +598,11 @@ pboxc = null;
 ///  <param name="outval">[in] - val to use for pixels that are outside the mask</param>
 ///   <returns>pixd, clipped pix or NULL on error or if pixm doesn't intersect pixs</returns>
 public static Pix pixClipMasked(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int x, 
-				  int y, 
-				  uint outval){
+				 Pix pixs, 
+				 Pix pixm, 
+				 int x, 
+				 int y, 
+				 uint outval){
 
 	IntPtr _Result = Natives.pixClipMasked(pixs.Pointer, pixm.Pointer,   x,   y,   outval);
 	
@@ -643,10 +633,10 @@ public static Pix pixClipMasked(
 ///  <param name="ppixd2">[out] - may be a clone</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixCropToMatch(
-				  Pix pixs1, 
-				  Pix pixs2, 
-				 out Pix ppixd1, 
-				 out Pix ppixd2){
+				 Pix pixs1, 
+				 Pix pixs2, 
+				out Pix ppixd1, 
+				out Pix ppixd2){
 
 	IntPtr ppixd1Ptr = IntPtr.Zero;
 	IntPtr ppixd2Ptr = IntPtr.Zero;
@@ -654,10 +644,8 @@ public static int pixCropToMatch(
 	int _Result = Natives.pixCropToMatch(pixs1.Pointer, pixs2.Pointer, out ppixd1Ptr, out ppixd2Ptr);
 	
 
-ppixd1 = null;
-	; if (ppixd1Ptr != IntPtr.Zero){ppixd1 = new Pix(ppixd1Ptr);}
-ppixd2 = null;
-	; if (ppixd2Ptr != IntPtr.Zero){ppixd2 = new Pix(ppixd2Ptr);}
+	if (ppixd1Ptr == null) {ppixd1 = null;} else { ppixd1 = new Pix(ppixd1Ptr); };
+	if (ppixd2Ptr == null) {ppixd2 = null;} else { ppixd2 = new Pix(ppixd2Ptr); };
 
 
 	return _Result;
@@ -679,9 +667,9 @@ ppixd2 = null;
 ///  <param name="h">[in] - max dimensions of cropped image</param>
 ///   <returns>pixd cropped if necessary or NULL on error.</returns>
 public static Pix pixCropToSize(
-				  Pix pixs, 
-				  int w, 
-				  int h){
+				 Pix pixs, 
+				 int w, 
+				 int h){
 
 	IntPtr _Result = Natives.pixCropToSize(pixs.Pointer,   w,   h);
 	
@@ -720,10 +708,10 @@ public static Pix pixCropToSize(
 ///  <param name="h">[in] - ignored if pixt is defined</param>
 ///   <returns>pixd resized to match or NULL on error</returns>
 public static Pix pixResizeToMatch(
-				  Pix pixs, 
-				  Pix pixt, 
-				  int w, 
-				  int h){
+				 Pix pixs, 
+				 Pix pixt, 
+				 int w, 
+				 int h){
 
 	IntPtr pixtPtr = IntPtr.Zero; 	if (pixt != null) {pixtPtr = pixt.Pointer;}
 
@@ -772,12 +760,12 @@ public static Pix pixResizeToMatch(
 ///  <param name="vf2">[in] - vertical fraction of half-width at inner frame bdry</param>
 ///   <returns>pixd 1 bpp, or NULL on error.</returns>
 public static Pix pixMakeFrameMask(
-				  int w, 
-				  int h, 
-				  Single hf1, 
-				  Single hf2, 
-				  Single vf1, 
-				  Single vf2){
+				 int w, 
+				 int h, 
+				 Single hf1, 
+				 Single hf2, 
+				 Single vf1, 
+				 Single vf2){
 
 	IntPtr _Result = Natives.pixMakeFrameMask(  w,   h,   hf1,   hf2,   vf1,   vf2);
 	
@@ -809,8 +797,8 @@ public static Pix pixMakeFrameMask(
 ///  <param name="maxiters">[in] - max iterations: use 0 to iterate to completion</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixMakeCoveringOfRectangles(
-				  Pix pixs, 
-				  int maxiters){
+				 Pix pixs, 
+				 int maxiters){
 
 	IntPtr _Result = Natives.pixMakeCoveringOfRectangles(pixs.Pointer,   maxiters);
 	
@@ -850,14 +838,13 @@ public static Pix pixMakeCoveringOfRectangles(
 ///  <param name="pfract">[out] - fraction of fg pixels in 1 that are aligned with the fg of 2</param>
 ///   <returns>0 if OK, 1 on error.</returns>
 public static int pixFractionFgInMask(
-				  Pix pix1, 
-				  Pix pix2, 
-				 out Single pfract){
+				 Pix pix1, 
+				 Pix pix2, 
+				out Single pfract){
 
 	int _Result = Natives.pixFractionFgInMask(pix1.Pointer, pix2.Pointer, out  pfract);
 	
 
-pfract = 0f;
 
 
 	return _Result;
@@ -879,7 +866,7 @@ pfract = 0f;
 ///  <param name="pbox">[out][optional] - bounding box</param>
 ///   <returns>0 if OK 1 on error or if there are no fg pixels</returns>
 public static int pixClipToForeground(
-				  Pix pixs, 
+				 Pix pixs, 
 				out Pix ppixd, 
 				out Box pbox){
 
@@ -889,10 +876,8 @@ public static int pixClipToForeground(
 	int _Result = Natives.pixClipToForeground(pixs.Pointer, out ppixdPtr, out pboxPtr);
 	
 
-ppixd = null;
-	; if (ppixdPtr != IntPtr.Zero){ppixd = new Pix(ppixdPtr);}
-pbox = null;
-	; if (pboxPtr != IntPtr.Zero){pbox = new Box(pboxPtr);}
+	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
 
 
 	return _Result;
@@ -917,13 +902,12 @@ pbox = null;
 ///  <param name="pcanclip">[out] - 1 if fg does not extend to all four edges</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixTestClipToForeground(
-				  Pix pixs, 
-				 out int pcanclip){
+				 Pix pixs, 
+				out int pcanclip){
 
 	int _Result = Natives.pixTestClipToForeground(pixs.Pointer, out  pcanclip);
 	
 
-pcanclip = 0;
 
 
 	return _Result;
@@ -949,7 +933,7 @@ pcanclip = 0;
 ///  <param name="pboxd">[out][optional] - bounding box</param>
 ///   <returns>0 if OK 1 on error or if there are no fg pixels</returns>
 public static int pixClipBoxToForeground(
-				  Pix pixs, 
+				 Pix pixs, 
 				 Box boxs, 
 				out Pix ppixd, 
 				out Box pboxd){
@@ -961,10 +945,8 @@ public static int pixClipBoxToForeground(
 	int _Result = Natives.pixClipBoxToForeground(pixs.Pointer, boxsPtr, out ppixdPtr, out pboxdPtr);
 	
 
-ppixd = null;
-	; if (ppixdPtr != IntPtr.Zero){ppixd = new Pix(ppixdPtr);}
-pboxd = null;
-	; if (pboxdPtr != IntPtr.Zero){pboxd = new Box(pboxdPtr);}
+	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (pboxdPtr == null) {pboxd = null;} else { pboxd = new Box(pboxdPtr); };
 
 
 	return _Result;
@@ -988,17 +970,16 @@ pboxd = null;
 ///  <param name="ploc">[out] - location in scan direction of first black pixel</param>
 ///   <returns>0 if OK 1 on error or if no fg pixels are found</returns>
 public static int pixScanForForeground(
-				  Pix pixs, 
-				  Box box, 
-				  int scanflag, 
-				 out int ploc){
+				 Pix pixs, 
+				 Box box, 
+				 int scanflag, 
+				out int ploc){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	int _Result = Natives.pixScanForForeground(pixs.Pointer, boxPtr,   scanflag, out  ploc);
 	
 
-ploc = 0;
 
 
 	return _Result;
@@ -1043,12 +1024,12 @@ ploc = 0;
 ///  <param name="pboxd">[out][optional] - bounding box</param>
 ///   <returns>0 if OK 1 on error or if a fg edge is not found from all four sides.</returns>
 public static int pixClipBoxToEdges(
-				  Pix pixs, 
-				  Box boxs, 
-				  int lowthresh, 
-				  int highthresh, 
-				  int maxwidth, 
-				  int factor, 
+				 Pix pixs, 
+				 Box boxs, 
+				 int lowthresh, 
+				 int highthresh, 
+				 int maxwidth, 
+				 int factor, 
 				out Pix ppixd, 
 				out Box pboxd){
 
@@ -1059,10 +1040,8 @@ public static int pixClipBoxToEdges(
 	int _Result = Natives.pixClipBoxToEdges(pixs.Pointer, boxsPtr,   lowthresh,   highthresh,   maxwidth,   factor, out ppixdPtr, out pboxdPtr);
 	
 
-ppixd = null;
-	; if (ppixdPtr != IntPtr.Zero){ppixd = new Pix(ppixdPtr);}
-pboxd = null;
-	; if (pboxdPtr != IntPtr.Zero){pboxd = new Box(pboxdPtr);}
+	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (pboxdPtr == null) {pboxd = null;} else { pboxd = new Box(pboxdPtr); };
 
 
 	return _Result;
@@ -1101,21 +1080,20 @@ pboxd = null;
 ///  <param name="ploc">[out] - location in scan direction of first black pixel</param>
 ///   <returns>0 if OK 1 on error or if the edge is not found</returns>
 public static int pixScanForEdge(
-				  Pix pixs, 
-				  Box box, 
-				  int lowthresh, 
-				  int highthresh, 
-				  int maxwidth, 
-				  int factor, 
-				  int scanflag, 
-				 out int ploc){
+				 Pix pixs, 
+				 Box box, 
+				 int lowthresh, 
+				 int highthresh, 
+				 int maxwidth, 
+				 int factor, 
+				 int scanflag, 
+				out int ploc){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	int _Result = Natives.pixScanForEdge(pixs.Pointer, boxPtr,   lowthresh,   highthresh,   maxwidth,   factor,   scanflag, out  ploc);
 	
 
-ploc = 0;
 
 
 	return _Result;
@@ -1147,12 +1125,12 @@ ploc = 0;
 ///  <param name="factor">[in] - sampling greater or equal 1</param>
 ///   <returns>na of pixel values along line, or NULL on error.</returns>
 public static Numa pixExtractOnLine(
-				  Pix pixs, 
-				  int x1, 
-				  int y1, 
-				  int x2, 
-				  int y2, 
-				  int factor){
+				 Pix pixs, 
+				 int x1, 
+				 int y1, 
+				 int x2, 
+				 int y2, 
+				 int factor){
 
 	IntPtr _Result = Natives.pixExtractOnLine(pixs.Pointer,   x1,   y1,   x2,   y2,   factor);
 	
@@ -1187,12 +1165,12 @@ public static Numa pixExtractOnLine(
 ///  <param name="factor">[in] - sampling greater or equal 1</param>
 ///   <returns>average of pixel values along line, or NULL on error.</returns>
 public static Single pixAverageOnLine(
-				  Pix pixs, 
-				  int x1, 
-				  int y1, 
-				  int x2, 
-				  int y2, 
-				  int factor){
+				 Pix pixs, 
+				 int x1, 
+				 int y1, 
+				 int x2, 
+				 int y2, 
+				 int factor){
 
 	Single _Result = Natives.pixAverageOnLine(pixs.Pointer,   x1,   y1,   x2,   y2,   factor);
 	
@@ -1235,13 +1213,13 @@ public static Single pixAverageOnLine(
 ///  <param name="factor2">[in] - sampling along slow scan direction greater or equal 1</param>
 ///   <returns>na of reversal profile, or NULL on error.</returns>
 public static Numa pixAverageIntensityProfile(
-				  Pix pixs, 
-				  Single fract, 
-				  int dir, 
-				  int first, 
-				  int last, 
-				  int factor1, 
-				  int factor2){
+				 Pix pixs, 
+				 Single fract, 
+				 int dir, 
+				 int first, 
+				 int last, 
+				 int factor1, 
+				 int factor2){
 
 	IntPtr _Result = Natives.pixAverageIntensityProfile(pixs.Pointer,   fract,   dir,   first,   last,   factor1,   factor2);
 	
@@ -1296,14 +1274,14 @@ public static Numa pixAverageIntensityProfile(
 ///  <param name="factor2">[in] - sampling of raster lines (slow scan) greater or equal 1</param>
 ///   <returns>na of reversal profile, or NULL on error.</returns>
 public static Numa pixReversalProfile(
-				  Pix pixs, 
-				  Single fract, 
-				  int dir, 
-				  int first, 
-				  int last, 
-				  int minreversal, 
-				  int factor1, 
-				  int factor2){
+				 Pix pixs, 
+				 Single fract, 
+				 int dir, 
+				 int first, 
+				 int last, 
+				 int minreversal, 
+				 int factor1, 
+				 int factor2){
 
 	IntPtr _Result = Natives.pixReversalProfile(pixs.Pointer,   fract,   dir,   first,   last,   minreversal,   factor1,   factor2);
 	
@@ -1342,21 +1320,20 @@ public static Numa pixReversalProfile(
 ///  <param name="pnad">[out] - windowed square root of variance</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixWindowedVarianceOnLine(
-				  Pix pixs, 
-				  int dir, 
-				  int loc, 
-				  int c1, 
-				  int c2, 
-				  int size, 
-				 out Numa pnad){
+				 Pix pixs, 
+				 int dir, 
+				 int loc, 
+				 int c1, 
+				 int c2, 
+				 int size, 
+				out Numa pnad){
 
 	IntPtr pnadPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixWindowedVarianceOnLine(pixs.Pointer,   dir,   loc,   c1,   c2,   size, out pnadPtr);
 	
 
-pnad = null;
-	; if (pnadPtr != IntPtr.Zero){pnad = new Numa(pnadPtr);}
+	if (pnadPtr == null) {pnad = null;} else { pnad = new Numa(pnadPtr); };
 
 
 	return _Result;
@@ -1397,13 +1374,13 @@ pnad = null;
 ///  <param name="pmaxave">[out][optional] - average of maximum values</param>
 ///   <returns>0 if OK 1 on error or if there are no sampled points within the image.</returns>
 public static int pixMinMaxNearLine(
-				  Pix pixs, 
-				  int x1, 
-				  int y1, 
-				  int x2, 
-				  int y2, 
-				  int dist, 
-				  int direction, 
+				 Pix pixs, 
+				 int x1, 
+				 int y1, 
+				 int x2, 
+				 int y2, 
+				 int dist, 
+				 int direction, 
 				out Numa pnamin, 
 				out Numa pnamax, 
 				out Single pminave, 
@@ -1415,12 +1392,8 @@ public static int pixMinMaxNearLine(
 	int _Result = Natives.pixMinMaxNearLine(pixs.Pointer,   x1,   y1,   x2,   y2,   dist,   direction, out pnaminPtr, out pnamaxPtr, out  pminave, out  pmaxave);
 	
 
-pnamin = null;
-	; if (pnaminPtr != IntPtr.Zero){pnamin = new Numa(pnaminPtr);}
-pnamax = null;
-	; if (pnamaxPtr != IntPtr.Zero){pnamax = new Numa(pnamaxPtr);}
-pminave = 0f;
-pmaxave = 0f;
+	if (pnaminPtr == null) {pnamin = null;} else { pnamin = new Numa(pnaminPtr); };
+	if (pnamaxPtr == null) {pnamax = null;} else { pnamax = new Numa(pnamaxPtr); };
 
 
 	return _Result;
@@ -1439,7 +1412,7 @@ pmaxave = 0f;
 ///  <param name="pixs">[in] - 8 bpp no colormap</param>
 ///   <returns>pixd with pixels sorted in each row, from min to max value</returns>
 public static Pix pixRankRowTransform(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixRankRowTransform(pixs.Pointer);
 	
@@ -1463,7 +1436,7 @@ public static Pix pixRankRowTransform(
 ///  <param name="pixs">[in] - 8 bpp no colormap</param>
 ///   <returns>pixd with pixels sorted in each column, from min to max value</returns>
 public static Pix pixRankColumnTransform(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixRankColumnTransform(pixs.Pointer);
 	
@@ -1474,4 +1447,5 @@ public static Pix pixRankColumnTransform(
 	return  new Pix(_Result);
 }
 
+}
 }

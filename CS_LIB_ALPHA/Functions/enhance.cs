@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // enhance.c (174, 1)
 // pixGammaTRC(pixd, pixs, gamma, minval, maxval) as Pix
@@ -57,11 +58,11 @@ public class _All {
 ///  <param name="maxval">[in] - input value that gives 255 for output can be  is greater  255</param>
 ///   <returns>pixd always</returns>
 public static Pix pixGammaTRC(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Single gamma, 
-				  int minval, 
-				  int maxval){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Single gamma, 
+				 int minval, 
+				 int maxval){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -96,12 +97,12 @@ public static Pix pixGammaTRC(
 ///  <param name="maxval">[in] - input value that gives 255 for output can be  is greater  255</param>
 ///   <returns>pixd always</returns>
 public static Pix pixGammaTRCMasked(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Pix pixm, 
-				  Single gamma, 
-				  int minval, 
-				  int maxval){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Pix pixm, 
+				 Single gamma, 
+				 int minval, 
+				 int maxval){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
@@ -134,11 +135,11 @@ public static Pix pixGammaTRCMasked(
 ///  <param name="maxval">[in] - input value that gives 255 for output can be  is greater  255</param>
 ///   <returns>pixd always</returns>
 public static Pix pixGammaTRCWithAlpha(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Single gamma, 
-				  int minval, 
-				  int maxval){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Single gamma, 
+				 int minval, 
+				 int maxval){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -173,9 +174,9 @@ public static Pix pixGammaTRCWithAlpha(
 ///  <param name="maxval">[in] - input value that gives 255 for output</param>
 ///   <returns>na, or NULL on error</returns>
 public static Numa numaGammaTRC(
-				  Single gamma, 
-				  int minval, 
-				  int maxval){
+				 Single gamma, 
+				 int minval, 
+				 int maxval){
 
 	IntPtr _Result = Natives.numaGammaTRC(  gamma,   minval,   maxval);
 	
@@ -221,9 +222,9 @@ public static Numa numaGammaTRC(
 ///  <param name="factor">[in] - 0.0 is no enhancement</param>
 ///   <returns>pixd always</returns>
 public static Pix pixContrastTRC(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Single factor){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Single factor){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -256,10 +257,10 @@ public static Pix pixContrastTRC(
 ///  <param name="factor">[in] - 0.0 is no enhancement</param>
 ///   <returns>pixd always</returns>
 public static Pix pixContrastTRCMasked(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Pix pixm, 
-				  Single factor){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Pix pixm, 
+				 Single factor){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
@@ -290,7 +291,7 @@ public static Pix pixContrastTRCMasked(
 ///  <param name="factor">[in] - generally between 0.0 [no enhancement] and 1.0, but can be larger than 1.0</param>
 ///   <returns>na, or NULL on error</returns>
 public static Numa numaContrastTRC(
-				  Single factor){
+				 Single factor){
 
 	IntPtr _Result = Natives.numaContrastTRC(  factor);
 	
@@ -341,10 +342,10 @@ public static Numa numaContrastTRC(
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixEqualizeTRC(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Single fract, 
-				  int factor){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Single fract, 
+				 int factor){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -378,9 +379,9 @@ public static Pix pixEqualizeTRC(
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///   <returns>nad, or NULL on error</returns>
 public static Numa numaEqualizeTRC(
-				  Pix pix, 
-				  Single fract, 
-				  int factor){
+				 Pix pix, 
+				 Single fract, 
+				 int factor){
 
 	IntPtr _Result = Natives.numaEqualizeTRC(pix.Pointer,   fract,   factor);
 	
@@ -417,9 +418,9 @@ public static Numa numaEqualizeTRC(
 ///  <param name="na">[in] - mapping array</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static int pixTRCMap(
-				  Pix pixs, 
-				  Pix pixm, 
-				  Numa na){
+				 Pix pixs, 
+				 Pix pixm, 
+				 Numa na){
 
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
@@ -452,9 +453,9 @@ public static int pixTRCMap(
 ///  <param name="fract">[in] - fraction of edge added back into image</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixUnsharpMasking(
-				  Pix pixs, 
-				  int halfwidth, 
-				  Single fract){
+				 Pix pixs, 
+				 int halfwidth, 
+				 Single fract){
 
 	IntPtr _Result = Natives.pixUnsharpMasking(pixs.Pointer,   halfwidth,   fract);
 	
@@ -486,9 +487,9 @@ public static Pix pixUnsharpMasking(
 ///  <param name="fract">[in] - fraction of edge added back into image</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixUnsharpMaskingGray(
-				  Pix pixs, 
-				  int halfwidth, 
-				  Single fract){
+				 Pix pixs, 
+				 int halfwidth, 
+				 Single fract){
 
 	IntPtr _Result = Natives.pixUnsharpMaskingGray(pixs.Pointer,   halfwidth,   fract);
 	
@@ -543,10 +544,10 @@ public static Pix pixUnsharpMaskingGray(
 ///  <param name="direction">[in] - L_HORIZ, L_VERT, L_BOTH_DIRECTIONS</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixUnsharpMaskingFast(
-				  Pix pixs, 
-				  int halfwidth, 
-				  Single fract, 
-				  int direction){
+				 Pix pixs, 
+				 int halfwidth, 
+				 Single fract, 
+				 int direction){
 
 	IntPtr _Result = Natives.pixUnsharpMaskingFast(pixs.Pointer,   halfwidth,   fract,   direction);
 	
@@ -575,10 +576,10 @@ public static Pix pixUnsharpMaskingFast(
 ///  <param name="direction">[in] - L_HORIZ, L_VERT, L_BOTH_DIRECTIONS</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixUnsharpMaskingGrayFast(
-				  Pix pixs, 
-				  int halfwidth, 
-				  Single fract, 
-				  int direction){
+				 Pix pixs, 
+				 int halfwidth, 
+				 Single fract, 
+				 int direction){
 
 	IntPtr _Result = Natives.pixUnsharpMaskingGrayFast(pixs.Pointer,   halfwidth,   fract,   direction);
 	
@@ -607,10 +608,10 @@ public static Pix pixUnsharpMaskingGrayFast(
 ///  <param name="direction">[in] - filtering direction use L_HORIZ or L_VERT</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixUnsharpMaskingGray1D(
-				  Pix pixs, 
-				  int halfwidth, 
-				  Single fract, 
-				  int direction){
+				 Pix pixs, 
+				 int halfwidth, 
+				 Single fract, 
+				 int direction){
 
 	IntPtr _Result = Natives.pixUnsharpMaskingGray1D(pixs.Pointer,   halfwidth,   fract,   direction);
 	
@@ -639,9 +640,9 @@ public static Pix pixUnsharpMaskingGray1D(
 ///  <param name="fract">[in] - fraction of high frequency added to image</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixUnsharpMaskingGray2D(
-				  Pix pixs, 
-				  int halfwidth, 
-				  Single fract){
+				 Pix pixs, 
+				 int halfwidth, 
+				 Single fract){
 
 	IntPtr _Result = Natives.pixUnsharpMaskingGray2D(pixs.Pointer,   halfwidth,   fract);
 	
@@ -678,9 +679,9 @@ public static Pix pixUnsharpMaskingGray2D(
 ///  <param name="fract">[in] - between -1.0 and 1.0</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixModifyHue(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Single fract){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Single fract){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -717,9 +718,9 @@ public static Pix pixModifyHue(
 ///  <param name="fract">[in] - between -1.0 and 1.0</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixModifySaturation(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Single fract){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Single fract){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -743,14 +744,13 @@ public static Pix pixModifySaturation(
 ///  <param name="psat">[out] - average saturation</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static int pixMeasureSaturation(
-				  Pix pixs, 
-				  int factor, 
-				 out Single psat){
+				 Pix pixs, 
+				 int factor, 
+				out Single psat){
 
 	int _Result = Natives.pixMeasureSaturation(pixs.Pointer,   factor, out  psat);
 	
 
-psat = 0f;
 
 
 	return _Result;
@@ -780,9 +780,9 @@ psat = 0f;
 ///  <param name="fract">[in] - between -1.0 and 1.0</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixModifyBrightness(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Single fract){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Single fract){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -825,12 +825,12 @@ public static Pix pixModifyBrightness(
 ///  <param name="nincr">[in] - number of increments in each (positive and negative) direction use 0 to get the default (2).</param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixMosaicColorShiftRGB(
-				  Pix pixs, 
-				  Single roff, 
-				  Single goff, 
-				  Single boff, 
-				  Single delta, 
-				  int nincr){
+				 Pix pixs, 
+				 Single roff, 
+				 Single goff, 
+				 Single boff, 
+				 Single delta, 
+				 int nincr){
 
 	IntPtr _Result = Natives.pixMosaicColorShiftRGB(pixs.Pointer,   roff,   goff,   boff,   delta,   nincr);
 	
@@ -870,10 +870,10 @@ public static Pix pixMosaicColorShiftRGB(
 ///  <param name="bfract">[in] - fractional shift in blue component</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixColorShiftRGB(
-				  Pix pixs, 
-				  Single rfract, 
-				  Single gfract, 
-				  Single bfract){
+				 Pix pixs, 
+				 Single rfract, 
+				 Single gfract, 
+				 Single bfract){
 
 	IntPtr _Result = Natives.pixColorShiftRGB(pixs.Pointer,   rfract,   gfract,   bfract);
 	
@@ -911,10 +911,10 @@ public static Pix pixColorShiftRGB(
 ///  <param name="satlimit">[in] - pixels with saturation greater or equal %satlimit are unchanged</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixDarkenGray(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int thresh, 
-				  int satlimit){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int thresh, 
+				 int satlimit){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -947,10 +947,10 @@ public static Pix pixDarkenGray(
 ///  <param name="bfact">[in] - blue multiplicative factor</param>
 ///   <returns>pixd colormapped or rgb, with colors scaled, or NULL on error</returns>
 public static Pix pixMultConstantColor(
-				  Pix pixs, 
-				  Single rfact, 
-				  Single gfact, 
-				  Single bfact){
+				 Pix pixs, 
+				 Single rfact, 
+				 Single gfact, 
+				 Single bfact){
 
 	IntPtr _Result = Natives.pixMultConstantColor(pixs.Pointer,   rfact,   gfact,   bfact);
 	
@@ -998,8 +998,8 @@ public static Pix pixMultConstantColor(
 ///  <param name="kel">[in] - kernel 3x3 matrix of floats</param>
 ///   <returns>pixd colormapped or rgb, or NULL on error</returns>
 public static Pix pixMultMatrixColor(
-				  Pix pixs, 
-				  L_Kernel kel){
+				 Pix pixs, 
+				 L_Kernel kel){
 
 	IntPtr _Result = Natives.pixMultMatrixColor(pixs.Pointer, kel.Pointer);
 	
@@ -1047,11 +1047,11 @@ public static Pix pixMultMatrixColor(
 ///  <param name="sm2v">[in] - "half-widths" of smoothing filter sm2 require sm2 != sm1</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixHalfEdgeByBandpass(
-				  Pix pixs, 
-				  int sm1h, 
-				  int sm1v, 
-				  int sm2h, 
-				  int sm2v){
+				 Pix pixs, 
+				 int sm1h, 
+				 int sm1v, 
+				 int sm2h, 
+				 int sm2v){
 
 	IntPtr _Result = Natives.pixHalfEdgeByBandpass(pixs.Pointer,   sm1h,   sm1v,   sm2h,   sm2v);
 	
@@ -1062,4 +1062,5 @@ public static Pix pixHalfEdgeByBandpass(
 	return  new Pix(_Result);
 }
 
+}
 }

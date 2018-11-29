@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // conncomp.c (144, 1)
 // pixConnComp(pixs, ppixa, connectivity) as Boxa
@@ -21,17 +22,16 @@ public class _All {
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>boxa, or NULL on error</returns>
 public static Boxa pixConnComp(
-				  Pix pixs, 
-				 out Pixa ppixa, 
-				  int connectivity){
+				 Pix pixs, 
+				out Pixa ppixa, 
+				 int connectivity){
 
 	IntPtr ppixaPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixConnComp(pixs.Pointer, out ppixaPtr,   connectivity);
 	
 
-ppixa = null;
-	; if (ppixaPtr != IntPtr.Zero){ppixa = new Pixa(ppixaPtr);}
+	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -65,17 +65,16 @@ ppixa = null;
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>boxa, or NULL on error</returns>
 public static Boxa pixConnCompPixa(
-				  Pix pixs, 
-				 out Pixa ppixa, 
-				  int connectivity){
+				 Pix pixs, 
+				out Pixa ppixa, 
+				 int connectivity){
 
 	IntPtr ppixaPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixConnCompPixa(pixs.Pointer, out ppixaPtr,   connectivity);
 	
 
-ppixa = null;
-	; if (ppixaPtr != IntPtr.Zero){ppixa = new Pixa(ppixaPtr);}
+	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -100,8 +99,8 @@ ppixa = null;
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>boxa, or NULL on error</returns>
 public static Boxa pixConnCompBB(
-				  Pix pixs, 
-				  int connectivity){
+				 Pix pixs, 
+				 int connectivity){
 
 	IntPtr _Result = Natives.pixConnCompBB(pixs.Pointer,   connectivity);
 	
@@ -123,14 +122,13 @@ public static Boxa pixConnCompBB(
 ///  <param name="pcount">[out] - </param>
 ///   <returns>0 if OK, 1 on error Notes: (1 This is the top-level call for getting the number of 4- or 8-connected components in a 1 bpp image. 2 It works on a copy of the input pix.  The c.c. are located in raster order and erased one at a time.</returns>
 public static int pixCountConnComp(
-				  Pix pixs, 
-				  int connectivity, 
-				 out int pcount){
+				 Pix pixs, 
+				 int connectivity, 
+				out int pcount){
 
 	int _Result = Natives.pixCountConnComp(pixs.Pointer,   connectivity, out  pcount);
 	
 
-pcount = 0;
 
 
 	return _Result;
@@ -149,17 +147,15 @@ pcount = 0;
 ///  <param name="py">[out] - coord value of next ON pixel</param>
 ///   <returns>1 if a pixel is found 0 otherwise or on error</returns>
 public static int nextOnPixelInRaster(
-				  Pix pixs, 
-				  int xstart, 
-				  int ystart, 
-				 out int px, 
-				 out int py){
+				 Pix pixs, 
+				 int xstart, 
+				 int ystart, 
+				out int px, 
+				out int py){
 
 	int _Result = Natives.nextOnPixelInRaster(pixs.Pointer,   xstart,   ystart, out  px, out  py);
 	
 
-px = 0;
-py = 0;
 
 
 	return _Result;
@@ -181,14 +177,14 @@ py = 0;
 ///  <param name="py">[out] - coord value of next ON pixel</param>
 ///   <returns>1 if a pixel is found 0 otherwise or on error</returns>
 public static int nextOnPixelInRasterLow(
-				  Byte[] data, 
-				  int w, 
-				  int h, 
-				  int wpl, 
-				  int xstart, 
-				  int ystart, 
-				 out int px, 
-				 out int py){
+				 Byte[] data, 
+				 int w, 
+				 int h, 
+				 int wpl, 
+				 int xstart, 
+				 int ystart, 
+				out int px, 
+				out int py){
 
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(data.Length);
 		Marshal.Copy(data, 0, dataPtr, data.Length);
@@ -197,8 +193,6 @@ public static int nextOnPixelInRasterLow(
 	
 	Marshal.FreeHGlobal(dataPtr);
 
-px = 0;
-py = 0;
 
 
 	return _Result;
@@ -220,11 +214,11 @@ py = 0;
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>box or NULL on error</returns>
 public static Box pixSeedfillBB(
-				  Pix pixs, 
-				  L_Stack stack, 
-				  int x, 
-				  int y, 
-				  int connectivity){
+				 Pix pixs, 
+				 L_Stack stack, 
+				 int x, 
+				 int y, 
+				 int connectivity){
 
 	IntPtr _Result = Natives.pixSeedfillBB(pixs.Pointer, stack.Pointer,   x,   y,   connectivity);
 	
@@ -270,10 +264,10 @@ public static Box pixSeedfillBB(
 ///  <param name="x">[in] - ,y   location of seed pixel</param>
 ///   <returns>box or NULL on error.</returns>
 public static Box pixSeedfill4BB(
-				  Pix pixs, 
-				  L_Stack stack, 
-				  int x, 
-				  int y){
+				 Pix pixs, 
+				 L_Stack stack, 
+				 int x, 
+				 int y){
 
 	IntPtr _Result = Natives.pixSeedfill4BB(pixs.Pointer, stack.Pointer,   x,   y);
 	
@@ -312,10 +306,10 @@ public static Box pixSeedfill4BB(
 ///  <param name="x">[in] - ,y   location of seed pixel</param>
 ///   <returns>box or NULL on error.</returns>
 public static Box pixSeedfill8BB(
-				  Pix pixs, 
-				  L_Stack stack, 
-				  int x, 
-				  int y){
+				 Pix pixs, 
+				 L_Stack stack, 
+				 int x, 
+				 int y){
 
 	IntPtr _Result = Natives.pixSeedfill8BB(pixs.Pointer, stack.Pointer,   x,   y);
 	
@@ -343,11 +337,11 @@ public static Box pixSeedfill8BB(
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSeedfill(
-				  Pix pixs, 
-				  L_Stack stack, 
-				  int x, 
-				  int y, 
-				  int connectivity){
+				 Pix pixs, 
+				 L_Stack stack, 
+				 int x, 
+				 int y, 
+				 int connectivity){
 
 	int _Result = Natives.pixSeedfill(pixs.Pointer, stack.Pointer,   x,   y,   connectivity);
 	
@@ -377,10 +371,10 @@ public static int pixSeedfill(
 ///  <param name="x">[in] - ,y   location of seed pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSeedfill4(
-				  Pix pixs, 
-				  L_Stack stack, 
-				  int x, 
-				  int y){
+				 Pix pixs, 
+				 L_Stack stack, 
+				 int x, 
+				 int y){
 
 	int _Result = Natives.pixSeedfill4(pixs.Pointer, stack.Pointer,   x,   y);
 	
@@ -410,10 +404,10 @@ public static int pixSeedfill4(
 ///  <param name="x">[in] - ,y   location of seed pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSeedfill8(
-				  Pix pixs, 
-				  L_Stack stack, 
-				  int x, 
-				  int y){
+				 Pix pixs, 
+				 L_Stack stack, 
+				 int x, 
+				 int y){
 
 	int _Result = Natives.pixSeedfill8(pixs.Pointer, stack.Pointer,   x,   y);
 	
@@ -423,4 +417,5 @@ public static int pixSeedfill8(
 	return _Result;
 }
 
+}
 }

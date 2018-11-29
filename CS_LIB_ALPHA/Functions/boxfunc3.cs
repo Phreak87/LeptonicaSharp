@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // boxfunc3.c (94, 1)
 // pixMaskConnComp(pixs, connectivity, pboxa) as Pix
@@ -21,8 +22,8 @@ public class _All {
 ///  <param name="pboxa">[out][optional] - bounding boxes of c.c.</param>
 ///   <returns>pixd 1 bpp mask over the c.c., or NULL on error</returns>
 public static Pix pixMaskConnComp(
-				  Pix pixs, 
-				  int connectivity, 
+				 Pix pixs, 
+				 int connectivity, 
 				out Boxa pboxa){
 
 	IntPtr pboxaPtr = IntPtr.Zero;
@@ -30,8 +31,7 @@ public static Pix pixMaskConnComp(
 	IntPtr _Result = Natives.pixMaskConnComp(pixs.Pointer,   connectivity, out pboxaPtr);
 	
 
-pboxa = null;
-	; if (pboxaPtr != IntPtr.Zero){pboxa = new Boxa(pboxaPtr);}
+	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -68,10 +68,10 @@ pboxa = null;
 ///  <param name="op">[in] - L_SET_PIXELS, L_CLEAR_PIXELS, L_FLIP_PIXELS</param>
 ///   <returns>pixd with masking op over the boxes, or NULL on error</returns>
 public static Pix pixMaskBoxa(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Boxa boxa, 
-				  int op){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Boxa boxa, 
+				 int op){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -111,9 +111,9 @@ public static Pix pixMaskBoxa(
 ///  <param name="val">[in] - rgba color to paint</param>
 ///   <returns>pixd with painted boxes, or NULL on error</returns>
 public static Pix pixPaintBoxa(
-				  Pix pixs, 
-				  Boxa boxa, 
-				  uint val){
+				 Pix pixs, 
+				 Boxa boxa, 
+				 uint val){
 
 	IntPtr _Result = Natives.pixPaintBoxa(pixs.Pointer, boxa.Pointer,   val);
 	
@@ -135,9 +135,9 @@ public static Pix pixPaintBoxa(
 ///  <param name="op">[in] - L_SET_BLACK, L_SET_WHITE</param>
 ///   <returns>pixd with boxes filled with white or black, or NULL on error</returns>
 public static Pix pixSetBlackOrWhiteBoxa(
-				  Pix pixs, 
-				  Boxa boxa, 
-				  int op){
+				 Pix pixs, 
+				 Boxa boxa, 
+				 int op){
 
 	IntPtr boxaPtr = IntPtr.Zero; 	if (boxa != null) {boxaPtr = boxa.Pointer;}
 
@@ -168,8 +168,8 @@ public static Pix pixSetBlackOrWhiteBoxa(
 ///  <param name="boxa">[in] - of boxes, to paint</param>
 ///   <returns>pixd with painted boxes, or NULL on error</returns>
 public static Pix pixPaintBoxaRandom(
-				  Pix pixs, 
-				  Boxa boxa){
+				 Pix pixs, 
+				 Boxa boxa){
 
 	IntPtr _Result = Natives.pixPaintBoxaRandom(pixs.Pointer, boxa.Pointer);
 	
@@ -202,9 +202,9 @@ public static Pix pixPaintBoxaRandom(
 ///  <param name="fract">[in] - of box color to use</param>
 ///   <returns>pixd 32 bpp, with blend/painted boxes, or NULL on error</returns>
 public static Pix pixBlendBoxaRandom(
-				  Pix pixs, 
-				  Boxa boxa, 
-				  Single fract){
+				 Pix pixs, 
+				 Boxa boxa, 
+				 Single fract){
 
 	IntPtr _Result = Natives.pixBlendBoxaRandom(pixs.Pointer, boxa.Pointer,   fract);
 	
@@ -232,10 +232,10 @@ public static Pix pixBlendBoxaRandom(
 ///  <param name="val">[in] - rgba color to draw</param>
 ///   <returns>pixd with outlines of boxes added, or NULL on error</returns>
 public static Pix pixDrawBoxa(
-				  Pix pixs, 
-				  Boxa boxa, 
-				  int width, 
-				  uint val){
+				 Pix pixs, 
+				 Boxa boxa, 
+				 int width, 
+				 uint val){
 
 	IntPtr _Result = Natives.pixDrawBoxa(pixs.Pointer, boxa.Pointer,   width,   val);
 	
@@ -265,9 +265,9 @@ public static Pix pixDrawBoxa(
 ///  <param name="width">[in] - thickness of line</param>
 ///   <returns>pixd with box outlines drawn, or NULL on error</returns>
 public static Pix pixDrawBoxaRandom(
-				  Pix pixs, 
-				  Boxa boxa, 
-				  int width){
+				 Pix pixs, 
+				 Boxa boxa, 
+				 int width){
 
 	IntPtr _Result = Natives.pixDrawBoxaRandom(pixs.Pointer, boxa.Pointer,   width);
 	
@@ -305,14 +305,14 @@ public static Pix pixDrawBoxaRandom(
 ///  <param name="h">[in] - height of outupt pix use 0 if determined by %pixs or %baa</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static Pix boxaaDisplay(
-				  Pix pixs, 
-				  Boxaa baa, 
-				  int linewba, 
-				  int linewb, 
-				  uint colorba, 
-				  uint colorb, 
-				  int w, 
-				  int h){
+				 Pix pixs, 
+				 Boxaa baa, 
+				 int linewba, 
+				 int linewb, 
+				 uint colorba, 
+				 uint colorb, 
+				 int w, 
+				 int h){
 
 	IntPtr pixsPtr = IntPtr.Zero; 	if (pixs != null) {pixsPtr = pixs.Pointer;}
 
@@ -349,10 +349,10 @@ public static Pix boxaaDisplay(
 ///  <param name="width">[in] - thickness of lines</param>
 ///   <returns>pixa with box outlines drawn on each pix, or NULL on error</returns>
 public static Pixa pixaDisplayBoxaa(
-				  Pixa pixas, 
-				  Boxaa baa, 
-				  int colorflag, 
-				  int width){
+				 Pixa pixas, 
+				 Boxaa baa, 
+				 int colorflag, 
+				 int width){
 
 	IntPtr _Result = Natives.pixaDisplayBoxaa(pixas.Pointer, baa.Pointer,   colorflag,   width);
 	
@@ -402,13 +402,13 @@ public static Pixa pixaDisplayBoxaa(
 ///  <param name="remainder">[in] - set to 1 to get b.b. of remaining stuff</param>
 ///   <returns>boxa of rectangles covering the fg of pixs, or NULL on error</returns>
 public static Boxa pixSplitIntoBoxa(
-				  Pix pixs, 
-				  int minsum, 
-				  int skipdist, 
-				  int delta, 
-				  int maxbg, 
-				  int maxcomps, 
-				  int remainder){
+				 Pix pixs, 
+				 int minsum, 
+				 int skipdist, 
+				 int delta, 
+				 int maxbg, 
+				 int maxcomps, 
+				 int remainder){
 
 	IntPtr _Result = Natives.pixSplitIntoBoxa(pixs.Pointer,   minsum,   skipdist,   delta,   maxbg,   maxcomps,   remainder);
 	
@@ -497,14 +497,14 @@ public static Boxa pixSplitIntoBoxa(
 ///  <param name="remainder">[in] - set to 1 to get b.b. of remaining stuff</param>
 ///   <returns>boxa of rectangles covering the fg of pix, or NULL on error</returns>
 public static Boxa pixSplitComponentIntoBoxa(
-				  Pix pix, 
-				  Box box, 
-				  int minsum, 
-				  int skipdist, 
-				  int delta, 
-				  int maxbg, 
-				  int maxcomps, 
-				  int remainder){
+				 Pix pix, 
+				 Box box, 
+				 int minsum, 
+				 int skipdist, 
+				 int delta, 
+				 int maxbg, 
+				 int maxcomps, 
+				 int remainder){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
@@ -538,10 +538,10 @@ public static Boxa pixSplitComponentIntoBoxa(
 ///  <param name="size">[in] - of strips in the scan direction</param>
 ///   <returns>boxa, or NULL on error</returns>
 public static Boxa makeMosaicStrips(
-				  int w, 
-				  int h, 
-				  int direction, 
-				  int size){
+				 int w, 
+				 int h, 
+				 int direction, 
+				 int size){
 
 	IntPtr _Result = Natives.makeMosaicStrips(  w,   h,   direction,   size);
 	
@@ -589,11 +589,11 @@ public static Boxa makeMosaicStrips(
 ///  <param name="ppixdb">[out][optional] - debug pix showing two boxa</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int boxaCompareRegions(
-				  Boxa boxa1, 
-				  Boxa boxa2, 
-				  int areathresh, 
-				 out int pnsame, 
-				 out Single pdiffarea, 
+				 Boxa boxa1, 
+				 Boxa boxa2, 
+				 int areathresh, 
+				out int pnsame, 
+				out Single pdiffarea, 
 				out Single pdiffxor, 
 				out Pix ppixdb){
 
@@ -602,11 +602,7 @@ public static int boxaCompareRegions(
 	int _Result = Natives.boxaCompareRegions(boxa1.Pointer, boxa2.Pointer,   areathresh, out  pnsame, out  pdiffarea, out  pdiffxor, out ppixdbPtr);
 	
 
-pnsame = 0;
-pdiffarea = 0f;
-pdiffxor = 0f;
-ppixdb = null;
-	; if (ppixdbPtr != IntPtr.Zero){ppixdb = new Pix(ppixdbPtr);}
+	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
@@ -641,10 +637,10 @@ ppixdb = null;
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>box, or NULL on error</returns>
 public static Box pixSelectLargeULComp(
-				  Pix pixs, 
-				  Single areaslop, 
-				  int yslop, 
-				  int connectivity){
+				 Pix pixs, 
+				 Single areaslop, 
+				 int yslop, 
+				 int connectivity){
 
 	IntPtr _Result = Natives.pixSelectLargeULComp(pixs.Pointer,   areaslop,   yslop,   connectivity);
 	
@@ -669,9 +665,9 @@ public static Box pixSelectLargeULComp(
 ///  <param name="yslop">[in] - number of pixels in y direction</param>
 ///   <returns>box, or NULL on error</returns>
 public static Box boxaSelectLargeULBox(
-				  Boxa boxas, 
-				  Single areaslop, 
-				  int yslop){
+				 Boxa boxas, 
+				 Single areaslop, 
+				 int yslop){
 
 	IntPtr _Result = Natives.boxaSelectLargeULBox(boxas.Pointer,   areaslop,   yslop);
 	
@@ -682,4 +678,5 @@ public static Box boxaSelectLargeULBox(
 	return  new Box(_Result);
 }
 
+}
 }

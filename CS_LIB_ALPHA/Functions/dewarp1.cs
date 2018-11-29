@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // dewarp1.c (446, 1)
 // dewarpCreate(pixs, pageno) as L_Dewarp
@@ -22,8 +23,8 @@ public class _All {
 ///  <param name="pageno">[in] - page number</param>
 ///   <returns>dew or NULL on error</returns>
 public static L_Dewarp dewarpCreate(
-				  Pix pixs, 
-				  int pageno){
+				 Pix pixs, 
+				 int pageno){
 
 	IntPtr _Result = Natives.dewarpCreate(pixs.Pointer,   pageno);
 	
@@ -53,8 +54,8 @@ public static L_Dewarp dewarpCreate(
 ///  <param name="refpage">[in] - page number of dewarp disparity arrays to be used</param>
 ///   <returns>dew or NULL on error</returns>
 public static L_Dewarp dewarpCreateRef(
-				  int pageno, 
-				  int refpage){
+				 int pageno, 
+				 int refpage){
 
 	IntPtr _Result = Natives.dewarpCreateRef(  pageno,   refpage);
 	
@@ -73,15 +74,14 @@ public static L_Dewarp dewarpCreateRef(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpDestroy/*"/>
 ///  <param name="pdew">[in,out] - will be set to null before returning</param>
 public static void dewarpDestroy(
-				 ref L_Dewarp pdew){
+				ref L_Dewarp pdew){
 
 	IntPtr pdewPtr = IntPtr.Zero; 	if (pdew != null) {pdewPtr = pdew.Pointer;}
 
 	Natives.dewarpDestroy(ref pdewPtr);
 	
 
-pdew = null;
-	; if (pdewPtr != IntPtr.Zero){pdew = new L_Dewarp(pdewPtr);}
+	if (pdewPtr == null) {pdew = null;} else { pdew = new L_Dewarp(pdewPtr); };
 
 
 }
@@ -123,11 +123,11 @@ pdew = null;
 ///  <param name="maxdist">[in] - for locating reference disparity use -1 for default</param>
 ///   <returns>dewa or NULL on error</returns>
 public static L_Dewarpa dewarpaCreate(
-				  int nptrs, 
-				  int sampling, 
-				  int redfactor, 
-				  int minlines, 
-				  int maxdist){
+				 int nptrs, 
+				 int sampling, 
+				 int redfactor, 
+				 int minlines, 
+				 int maxdist){
 
 	IntPtr _Result = Natives.dewarpaCreate(  nptrs,   sampling,   redfactor,   minlines,   maxdist);
 	
@@ -174,11 +174,11 @@ public static L_Dewarpa dewarpaCreate(
 ///  <param name="maxdist">[in] - for locating reference disparity use -1 for default</param>
 ///   <returns>dewa or NULL on error</returns>
 public static L_Dewarpa dewarpaCreateFromPixacomp(
-				  PixaComp pixac, 
-				  int useboth, 
-				  int sampling, 
-				  int minlines, 
-				  int maxdist){
+				 PixaComp pixac, 
+				 int useboth, 
+				 int sampling, 
+				 int minlines, 
+				 int maxdist){
 
 	IntPtr _Result = Natives.dewarpaCreateFromPixacomp(pixac.Pointer,   useboth,   sampling,   minlines,   maxdist);
 	
@@ -197,15 +197,14 @@ public static L_Dewarpa dewarpaCreateFromPixacomp(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/dewarpaDestroy/*"/>
 ///  <param name="pdewa">[in,out] - will be set to null before returning</param>
 public static void dewarpaDestroy(
-				 ref L_Dewarpa pdewa){
+				ref L_Dewarpa pdewa){
 
 	IntPtr pdewaPtr = IntPtr.Zero; 	if (pdewa != null) {pdewaPtr = pdewa.Pointer;}
 
 	Natives.dewarpaDestroy(ref pdewaPtr);
 	
 
-pdewa = null;
-	; if (pdewaPtr != IntPtr.Zero){pdewa = new L_Dewarpa(pdewaPtr);}
+	if (pdewaPtr == null) {pdewa = null;} else { pdewa = new L_Dewarpa(pdewaPtr); };
 
 
 }
@@ -220,8 +219,8 @@ pdewa = null;
 ///  <param name="pageno">[in] - of dew to be destroyed</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpaDestroyDewarp(
-				  L_Dewarpa dewa, 
-				  int pageno){
+				 L_Dewarpa dewa, 
+				 int pageno){
 
 	int _Result = Natives.dewarpaDestroyDewarp(dewa.Pointer,   pageno);
 	
@@ -252,8 +251,8 @@ public static int dewarpaDestroyDewarp(
 ///  <param name="dew">[in] - to be added</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpaInsertDewarp(
-				  L_Dewarpa dewa, 
-				  L_Dewarp dew){
+				 L_Dewarpa dewa, 
+				 L_Dewarp dew){
 
 	int _Result = Natives.dewarpaInsertDewarp(dewa.Pointer, dew.Pointer);
 	
@@ -273,8 +272,8 @@ public static int dewarpaInsertDewarp(
 ///  <param name="index">[in] - into dewa: this is the pageno</param>
 ///   <returns>dew handle still owned by dewa, or NULL on error</returns>
 public static L_Dewarp dewarpaGetDewarp(
-				  L_Dewarpa dewa, 
-				  int index){
+				 L_Dewarpa dewa, 
+				 int index){
 
 	IntPtr _Result = Natives.dewarpaGetDewarp(dewa.Pointer,   index);
 	
@@ -333,13 +332,13 @@ public static L_Dewarp dewarpaGetDewarp(
 ///  <param name="max_edgeslope">[in] - -1 for default</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpaSetCurvatures(
-				  L_Dewarpa dewa, 
-				  int max_linecurv, 
-				  int min_diff_linecurv, 
-				  int max_diff_linecurv, 
-				  int max_edgecurv, 
-				  int max_diff_edgecurv, 
-				  int max_edgeslope){
+				 L_Dewarpa dewa, 
+				 int max_linecurv, 
+				 int min_diff_linecurv, 
+				 int max_diff_linecurv, 
+				 int max_edgecurv, 
+				 int max_diff_edgecurv, 
+				 int max_edgeslope){
 
 	int _Result = Natives.dewarpaSetCurvatures(dewa.Pointer,   max_linecurv,   min_diff_linecurv,   max_diff_linecurv,   max_edgecurv,   max_diff_edgecurv,   max_edgeslope);
 	
@@ -365,8 +364,8 @@ public static int dewarpaSetCurvatures(
 ///  <param name="useboth">[in] - 0 for false, 1 for true</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpaUseBothArrays(
-				  L_Dewarpa dewa, 
-				  int useboth){
+				 L_Dewarpa dewa, 
+				 int useboth){
 
 	int _Result = Natives.dewarpaUseBothArrays(dewa.Pointer,   useboth);
 	
@@ -401,8 +400,8 @@ public static int dewarpaUseBothArrays(
 ///  <param name="check_columns">[in] - 0 for false, 1 for true</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpaSetCheckColumns(
-				  L_Dewarpa dewa, 
-				  int check_columns){
+				 L_Dewarpa dewa, 
+				 int check_columns){
 
 	int _Result = Natives.dewarpaSetCheckColumns(dewa.Pointer,   check_columns);
 	
@@ -425,8 +424,8 @@ public static int dewarpaSetCheckColumns(
 ///  <param name="maxdist">[in] - for using ref models</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpaSetMaxDistance(
-				  L_Dewarpa dewa, 
-				  int maxdist){
+				 L_Dewarpa dewa, 
+				 int maxdist){
 
 	int _Result = Natives.dewarpaSetMaxDistance(dewa.Pointer,   maxdist);
 	
@@ -445,7 +444,7 @@ public static int dewarpaSetMaxDistance(
 ///  <param name="filename">[in] - </param>
 ///   <returns>dew, or NULL on error</returns>
 public static L_Dewarp dewarpRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.dewarpRead(  filename);
 	
@@ -475,7 +474,7 @@ public static L_Dewarp dewarpRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>dew, or NULL on error</returns>
 public static L_Dewarp dewarpReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.dewarpReadStream(fp.Pointer);
 	
@@ -496,8 +495,8 @@ public static L_Dewarp dewarpReadStream(
 ///  <param name="size">[in] - of data in bytes</param>
 ///   <returns>dew  dewarp, or NULL on error</returns>
 public static L_Dewarp dewarpReadMem(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.dewarpReadMem(  data,   size);
 	
@@ -518,8 +517,8 @@ public static L_Dewarp dewarpReadMem(
 ///  <param name="dew">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpWrite(
-				  String filename, 
-				  L_Dewarp dew){
+				 String filename, 
+				 L_Dewarp dew){
 
 	int _Result = Natives.dewarpWrite(  filename, dew.Pointer);
 	
@@ -544,8 +543,8 @@ public static int dewarpWrite(
 ///  <param name="dew">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpWriteStream(
-				  FILE fp, 
-				  L_Dewarp dew){
+				 FILE fp, 
+				 L_Dewarp dew){
 
 	int _Result = Natives.dewarpWriteStream(fp.Pointer, dew.Pointer);
 	
@@ -569,17 +568,16 @@ public static int dewarpWriteStream(
 ///  <param name="dew">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpWriteMem(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  L_Dewarp dew){
+				out Byte[] pdata, 
+				out uint psize, 
+				 L_Dewarp dew){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.dewarpWriteMem(out  pdataPtr, out  psize, dew.Pointer);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -594,7 +592,7 @@ psize = 0;
 ///  <param name="filename">[in] - </param>
 ///   <returns>dewa, or NULL on error</returns>
 public static L_Dewarpa dewarpaRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.dewarpaRead(  filename);
 	
@@ -621,7 +619,7 @@ public static L_Dewarpa dewarpaRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>dewa, or NULL on error</returns>
 public static L_Dewarpa dewarpaReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.dewarpaReadStream(fp.Pointer);
 	
@@ -642,8 +640,8 @@ public static L_Dewarpa dewarpaReadStream(
 ///  <param name="size">[in] - of data in bytes</param>
 ///   <returns>dewa  dewarpa, or NULL on error</returns>
 public static L_Dewarpa dewarpaReadMem(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.dewarpaReadMem(  data,   size);
 	
@@ -664,8 +662,8 @@ public static L_Dewarpa dewarpaReadMem(
 ///  <param name="dewa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpaWrite(
-				  String filename, 
-				  L_Dewarpa dewa){
+				 String filename, 
+				 L_Dewarpa dewa){
 
 	int _Result = Natives.dewarpaWrite(  filename, dewa.Pointer);
 	
@@ -685,8 +683,8 @@ public static int dewarpaWrite(
 ///  <param name="dewa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpaWriteStream(
-				  FILE fp, 
-				  L_Dewarpa dewa){
+				 FILE fp, 
+				 L_Dewarpa dewa){
 
 	int _Result = Natives.dewarpaWriteStream(fp.Pointer, dewa.Pointer);
 	
@@ -710,20 +708,20 @@ public static int dewarpaWriteStream(
 ///  <param name="dewa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dewarpaWriteMem(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  L_Dewarpa dewa){
+				out Byte[] pdata, 
+				out uint psize, 
+				 L_Dewarpa dewa){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.dewarpaWriteMem(out  pdataPtr, out  psize, dewa.Pointer);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
 }
 
+}
 }

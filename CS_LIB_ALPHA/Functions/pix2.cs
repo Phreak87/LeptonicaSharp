@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // pix2.c (180, 1)
 // pixGetPixel(pix, x, y, pval) as int
@@ -31,15 +32,14 @@ public class _All {
 ///  <param name="pval">[out] - pixel value</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixGetPixel(
-				  Pix pix, 
-				  int x, 
-				  int y, 
-				 out uint pval){
+				 Pix pix, 
+				 int x, 
+				 int y, 
+				out uint pval){
 
 	int _Result = Natives.pixGetPixel(pix.Pointer,   x,   y, out  pval);
 	
 
-pval = 0;
 
 
 	return _Result;
@@ -65,10 +65,10 @@ pval = 0;
 ///  <param name="val">[in] - value to be inserted</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixSetPixel(
-				  Pix pix, 
-				  int x, 
-				  int y, 
-				  uint val){
+				 Pix pix, 
+				 int x, 
+				 int y, 
+				 uint val){
 
 	int _Result = Natives.pixSetPixel(pix.Pointer,   x,   y,   val);
 	
@@ -91,9 +91,9 @@ public static int pixSetPixel(
 ///  <param name="pbval">[out][optional] - blue component</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixGetRGBPixel(
-				  Pix pix, 
-				  int x, 
-				  int y, 
+				 Pix pix, 
+				 int x, 
+				 int y, 
 				out int prval, 
 				out int pgval, 
 				out int pbval){
@@ -101,9 +101,6 @@ public static int pixGetRGBPixel(
 	int _Result = Natives.pixGetRGBPixel(pix.Pointer,   x,   y, out  prval, out  pgval, out  pbval);
 	
 
-prval = 0;
-pgval = 0;
-pbval = 0;
 
 
 	return _Result;
@@ -122,12 +119,12 @@ pbval = 0;
 ///  <param name="bval">[in] - blue component</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixSetRGBPixel(
-				  Pix pix, 
-				  int x, 
-				  int y, 
-				  int rval, 
-				  int gval, 
-				  int bval){
+				 Pix pix, 
+				 int x, 
+				 int y, 
+				 int rval, 
+				 int gval, 
+				 int bval){
 
 	int _Result = Natives.pixSetRGBPixel(pix.Pointer,   x,   y,   rval,   gval,   bval);
 	
@@ -152,7 +149,7 @@ public static int pixSetRGBPixel(
 ///  <param name="py">[out][optional] - y coordinate chosen can be null</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixGetRandomPixel(
-				  Pix pix, 
+				 Pix pix, 
 				out uint pval, 
 				out int px, 
 				out int py){
@@ -160,9 +157,6 @@ public static int pixGetRandomPixel(
 	int _Result = Natives.pixGetRandomPixel(pix.Pointer, out  pval, out  px, out  py);
 	
 
-pval = 0;
-px = 0;
-py = 0;
 
 
 	return _Result;
@@ -178,9 +172,9 @@ py = 0;
 ///  <param name="x">[in] - ,y   pixel coords</param>
 ///   <returns>0 if OK 1 on error.</returns>
 public static int pixClearPixel(
-				  Pix pix, 
-				  int x, 
-				  int y){
+				 Pix pix, 
+				 int x, 
+				 int y){
 
 	int _Result = Natives.pixClearPixel(pix.Pointer,   x,   y);
 	
@@ -200,9 +194,9 @@ public static int pixClearPixel(
 ///  <param name="x">[in] - ,y   pixel coords</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixFlipPixel(
-				  Pix pix, 
-				  int x, 
-				  int y){
+				 Pix pix, 
+				 int x, 
+				 int y){
 
 	int _Result = Natives.pixFlipPixel(pix.Pointer,   x,   y);
 	
@@ -226,10 +220,10 @@ public static int pixFlipPixel(
 ///  <param name="depth">[in] - bpp</param>
 ///  <param name="val">[in] - to be inserted</param>
 public static void setPixelLow(
-				  Byte[] line, 
-				  int x, 
-				  int depth, 
-				  uint val){
+				 Byte[] line, 
+				 int x, 
+				 int depth, 
+				 uint val){
 
 		IntPtr linePtr = 	Marshal.AllocHGlobal(line.Length);
 		Marshal.Copy(line, 0, linePtr, line.Length);
@@ -259,14 +253,13 @@ public static void setPixelLow(
 ///  <param name="pval">[out] - pixel value</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixGetBlackOrWhiteVal(
-				  Pix pixs, 
-				  int op, 
-				 out uint pval){
+				 Pix pixs, 
+				 int op, 
+				out uint pval){
 
 	int _Result = Natives.pixGetBlackOrWhiteVal(pixs.Pointer,   op, out  pval);
 	
 
-pval = 0;
 
 
 	return _Result;
@@ -288,7 +281,7 @@ pval = 0;
 ///  <param name="pix">[in] - all depths use cmapped with caution</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixClearAll(
-				  Pix pix){
+				 Pix pix){
 
 	int _Result = Natives.pixClearAll(pix.Pointer);
 	
@@ -315,7 +308,7 @@ public static int pixClearAll(
 ///  <param name="pix">[in] - all depths use cmapped with caution</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSetAll(
-				  Pix pix){
+				 Pix pix){
 
 	int _Result = Natives.pixSetAll(pix.Pointer);
 	
@@ -349,8 +342,8 @@ public static int pixSetAll(
 ///  <param name="grayval">[in] - in range 0 ... 255</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixSetAllGray(
-				  Pix pix, 
-				  int grayval){
+				 Pix pix, 
+				 int grayval){
 
 	int _Result = Natives.pixSetAllGray(pix.Pointer,   grayval);
 	
@@ -392,8 +385,8 @@ public static int pixSetAllGray(
 ///  <param name="val">[in] - value to set all pixels</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixSetAllArbitrary(
-				  Pix pix, 
-				  uint val){
+				 Pix pix, 
+				 uint val){
 
 	int _Result = Natives.pixSetAllArbitrary(pix.Pointer,   val);
 	
@@ -422,8 +415,8 @@ public static int pixSetAllArbitrary(
 ///  <param name="op">[in] - L_SET_BLACK, L_SET_WHITE</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixSetBlackOrWhite(
-				  Pix pixs, 
-				  int op){
+				 Pix pixs, 
+				 int op){
 
 	int _Result = Natives.pixSetBlackOrWhite(pixs.Pointer,   op);
 	
@@ -448,9 +441,9 @@ public static int pixSetBlackOrWhite(
 ///  <param name="val">[in] - value to set this component</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixSetComponentArbitrary(
-				  Pix pix, 
-				  int comp, 
-				  int val){
+				 Pix pix, 
+				 int comp, 
+				 int val){
 
 	int _Result = Natives.pixSetComponentArbitrary(pix.Pointer,   comp,   val);
 	
@@ -477,8 +470,8 @@ public static int pixSetComponentArbitrary(
 ///  <param name="box">[in] - in which all pixels will be cleared</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixClearInRect(
-				  Pix pix, 
-				  Box box){
+				 Pix pix, 
+				 Box box){
 
 	int _Result = Natives.pixClearInRect(pix.Pointer, box.Pointer);
 	
@@ -506,8 +499,8 @@ public static int pixClearInRect(
 ///  <param name="box">[in] - in which all pixels will be set</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSetInRect(
-				  Pix pix, 
-				  Box box){
+				 Pix pix, 
+				 Box box){
 
 	int _Result = Natives.pixSetInRect(pix.Pointer, box.Pointer);
 	
@@ -536,9 +529,9 @@ public static int pixSetInRect(
 ///  <param name="val">[in] - value to set all pixels</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixSetInRectArbitrary(
-				  Pix pix, 
-				  Box box, 
-				  uint val){
+				 Pix pix, 
+				 Box box, 
+				 uint val){
 
 	int _Result = Natives.pixSetInRectArbitrary(pix.Pointer, box.Pointer,   val);
 	
@@ -565,10 +558,10 @@ public static int pixSetInRectArbitrary(
 ///  <param name="fract">[in] - fraction of color to be blended with each pixel in pixs</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixBlendInRect(
-				  Pix pixs, 
-				  Box box, 
-				  uint val, 
-				  Single fract){
+				 Pix pixs, 
+				 Box box, 
+				 uint val, 
+				 Single fract){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
@@ -612,8 +605,8 @@ public static int pixBlendInRect(
 ///  <param name="val">[in] - 0 or 1</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixSetPadBits(
-				  Pix pix, 
-				  int val){
+				 Pix pix, 
+				 int val){
 
 	int _Result = Natives.pixSetPadBits(pix.Pointer,   val);
 	
@@ -647,10 +640,10 @@ public static int pixSetPadBits(
 ///  <param name="val">[in] - 0 or 1</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixSetPadBitsBand(
-				  Pix pix, 
-				  int by, 
-				  int bh, 
-				  int val){
+				 Pix pix, 
+				 int by, 
+				 int bh, 
+				 int val){
 
 	int _Result = Natives.pixSetPadBitsBand(pix.Pointer,   by,   bh,   val);
 	
@@ -683,12 +676,12 @@ public static int pixSetPadBitsBand(
 ///  <param name="op">[in] - operation PIX_SET or PIX_CLR</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixSetOrClearBorder(
-				  Pix pixs, 
-				  int left, 
-				  int right, 
-				  int top, 
-				  int bot, 
-				  int op){
+				 Pix pixs, 
+				 int left, 
+				 int right, 
+				 int top, 
+				 int bot, 
+				 int op){
 
 	int _Result = Natives.pixSetOrClearBorder(pixs.Pointer,   left,   right,   top,   bot,   op);
 	
@@ -727,12 +720,12 @@ public static int pixSetOrClearBorder(
 ///  <param name="val">[in] - value to set at each border pixel</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixSetBorderVal(
-				  Pix pixs, 
-				  int left, 
-				  int right, 
-				  int top, 
-				  int bot, 
-				  uint val){
+				 Pix pixs, 
+				 int left, 
+				 int right, 
+				 int top, 
+				 int bot, 
+				 uint val){
 
 	int _Result = Natives.pixSetBorderVal(pixs.Pointer,   left,   right,   top,   bot,   val);
 	
@@ -758,9 +751,9 @@ public static int pixSetBorderVal(
 ///  <param name="val">[in] - value to set at each border pixel</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixSetBorderRingVal(
-				  Pix pixs, 
-				  int dist, 
-				  uint val){
+				 Pix pixs, 
+				 int dist, 
+				 uint val){
 
 	int _Result = Natives.pixSetBorderRingVal(pixs.Pointer,   dist,   val);
 	
@@ -793,11 +786,11 @@ public static int pixSetBorderRingVal(
 ///  <param name="bot">[in] - number of pixels to set</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSetMirroredBorder(
-				  Pix pixs, 
-				  int left, 
-				  int right, 
-				  int top, 
-				  int bot){
+				 Pix pixs, 
+				 int left, 
+				 int right, 
+				 int top, 
+				 int bot){
 
 	int _Result = Natives.pixSetMirroredBorder(pixs.Pointer,   left,   right,   top,   bot);
 	
@@ -831,12 +824,12 @@ public static int pixSetMirroredBorder(
 ///  <param name="bot">[in] - number of pixels to copy</param>
 ///   <returns>pixd, or NULL on error if pixd is not defined</returns>
 public static Pix pixCopyBorder(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int left, 
-				  int right, 
-				  int top, 
-				  int bot){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int left, 
+				 int right, 
+				 int top, 
+				 int bot){
 
 	IntPtr _Result = Natives.pixCopyBorder(pixd.Pointer, pixs.Pointer,   left,   right,   top,   bot);
 	
@@ -861,9 +854,9 @@ public static Pix pixCopyBorder(
 ///  <param name="val">[in] - value of added border pixels</param>
 ///   <returns>pixd with the added exterior pixels, or NULL on error</returns>
 public static Pix pixAddBorder(
-				  Pix pixs, 
-				  int npix, 
-				  uint val){
+				 Pix pixs, 
+				 int npix, 
+				 uint val){
 
 	IntPtr _Result = Natives.pixAddBorder(pixs.Pointer,   npix,   val);
 	
@@ -904,12 +897,12 @@ public static Pix pixAddBorder(
 ///  <param name="op">[in] - L_GET_BLACK_VAL, L_GET_WHITE_VAL</param>
 ///   <returns>pixd with the added exterior pixels, or NULL on error</returns>
 public static Pix pixAddBlackOrWhiteBorder(
-				  Pix pixs, 
-				  int left, 
-				  int right, 
-				  int top, 
-				  int bot, 
-				  int op){
+				 Pix pixs, 
+				 int left, 
+				 int right, 
+				 int top, 
+				 int bot, 
+				 int op){
 
 	IntPtr _Result = Natives.pixAddBlackOrWhiteBorder(pixs.Pointer,   left,   right,   top,   bot,   op);
 	
@@ -957,12 +950,12 @@ public static Pix pixAddBlackOrWhiteBorder(
 ///  <param name="val">[in] - value of added border pixels</param>
 ///   <returns>pixd with the added exterior pixels, or NULL on error</returns>
 public static Pix pixAddBorderGeneral(
-				  Pix pixs, 
-				  int left, 
-				  int right, 
-				  int top, 
-				  int bot, 
-				  uint val){
+				 Pix pixs, 
+				 int left, 
+				 int right, 
+				 int top, 
+				 int bot, 
+				 uint val){
 
 	IntPtr _Result = Natives.pixAddBorderGeneral(pixs.Pointer,   left,   right,   top,   bot,   val);
 	
@@ -983,8 +976,8 @@ public static Pix pixAddBorderGeneral(
 ///  <param name="npix">[in] - number to be removed from each of the 4 sides</param>
 ///   <returns>pixd with pixels removed around border, or NULL on error</returns>
 public static Pix pixRemoveBorder(
-				  Pix pixs, 
-				  int npix){
+				 Pix pixs, 
+				 int npix){
 
 	IntPtr _Result = Natives.pixRemoveBorder(pixs.Pointer,   npix);
 	
@@ -1008,11 +1001,11 @@ public static Pix pixRemoveBorder(
 ///  <param name="bot">[in] - number of pixels removed</param>
 ///   <returns>pixd with pixels removed around border, or NULL on error</returns>
 public static Pix pixRemoveBorderGeneral(
-				  Pix pixs, 
-				  int left, 
-				  int right, 
-				  int top, 
-				  int bot){
+				 Pix pixs, 
+				 int left, 
+				 int right, 
+				 int top, 
+				 int bot){
 
 	IntPtr _Result = Natives.pixRemoveBorderGeneral(pixs.Pointer,   left,   right,   top,   bot);
 	
@@ -1041,9 +1034,9 @@ public static Pix pixRemoveBorderGeneral(
 ///  <param name="hd">[in] - target height use 0 if only removing from width</param>
 ///   <returns>pixd with pixels removed around border, or NULL on error</returns>
 public static Pix pixRemoveBorderToSize(
-				  Pix pixs, 
-				  int wd, 
-				  int hd){
+				 Pix pixs, 
+				 int wd, 
+				 int hd){
 
 	IntPtr _Result = Natives.pixRemoveBorderToSize(pixs.Pointer,   wd,   hd);
 	
@@ -1084,11 +1077,11 @@ public static Pix pixRemoveBorderToSize(
 ///  <param name="bot">[in] - number of pixels added</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixAddMirroredBorder(
-				  Pix pixs, 
-				  int left, 
-				  int right, 
-				  int top, 
-				  int bot){
+				 Pix pixs, 
+				 int left, 
+				 int right, 
+				 int top, 
+				 int bot){
 
 	IntPtr _Result = Natives.pixAddMirroredBorder(pixs.Pointer,   left,   right,   top,   bot);
 	
@@ -1120,11 +1113,11 @@ public static Pix pixAddMirroredBorder(
 ///  <param name="bot">[in] - number of pixels added</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixAddRepeatedBorder(
-				  Pix pixs, 
-				  int left, 
-				  int right, 
-				  int top, 
-				  int bot){
+				 Pix pixs, 
+				 int left, 
+				 int right, 
+				 int top, 
+				 int bot){
 
 	IntPtr _Result = Natives.pixAddRepeatedBorder(pixs.Pointer,   left,   right,   top,   bot);
 	
@@ -1167,11 +1160,11 @@ public static Pix pixAddRepeatedBorder(
 ///  <param name="bot">[in] - number of pixels added</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixAddMixedBorder(
-				  Pix pixs, 
-				  int left, 
-				  int right, 
-				  int top, 
-				  int bot){
+				 Pix pixs, 
+				 int left, 
+				 int right, 
+				 int top, 
+				 int bot){
 
 	IntPtr _Result = Natives.pixAddMixedBorder(pixs.Pointer,   left,   right,   top,   bot);
 	
@@ -1199,11 +1192,11 @@ public static Pix pixAddMixedBorder(
 ///  <param name="bot">[in] - pixels on each side to be added</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixAddContinuedBorder(
-				  Pix pixs, 
-				  int left, 
-				  int right, 
-				  int top, 
-				  int bot){
+				 Pix pixs, 
+				 int left, 
+				 int right, 
+				 int top, 
+				 int bot){
 
 	IntPtr _Result = Natives.pixAddContinuedBorder(pixs.Pointer,   left,   right,   top,   bot);
 	
@@ -1226,10 +1219,10 @@ public static Pix pixAddContinuedBorder(
 ///  <param name="shifty">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixShiftAndTransferAlpha(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Single shiftx, 
-				  Single shifty){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Single shiftx, 
+				 Single shifty){
 
 	int _Result = Natives.pixShiftAndTransferAlpha(pixd.Pointer, pixs.Pointer,   shiftx,   shifty);
 	
@@ -1258,9 +1251,9 @@ public static int pixShiftAndTransferAlpha(
 ///  <param name="maxw">[in] - max output image width 0 for no scaling</param>
 ///   <returns>pixd showing various image views, or NULL on error</returns>
 public static Pix pixDisplayLayersRGBA(
-				  Pix pixs, 
-				  uint val, 
-				  int maxw){
+				 Pix pixs, 
+				 uint val, 
+				 int maxw){
 
 	IntPtr _Result = Natives.pixDisplayLayersRGBA(pixs.Pointer,   val,   maxw);
 	
@@ -1296,9 +1289,9 @@ public static Pix pixDisplayLayersRGBA(
 ///  <param name="pixb">[in] - 8 bpp blue pix</param>
 ///   <returns>32 bpp pix, interleaved with 4 samples/pixel, or NULL on error</returns>
 public static Pix pixCreateRGBImage(
-				  Pix pixr, 
-				  Pix pixg, 
-				  Pix pixb){
+				 Pix pixr, 
+				 Pix pixg, 
+				 Pix pixb){
 
 	IntPtr _Result = Natives.pixCreateRGBImage(pixr.Pointer, pixg.Pointer, pixb.Pointer);
 	
@@ -1327,8 +1320,8 @@ public static Pix pixCreateRGBImage(
 ///  <param name="comp">[in] - one of {COLOR_RED, COLOR_GREEN, COLOR_BLUE, L_ALPHA_CHANNEL}</param>
 ///   <returns>pixd the selected 8 bpp component image of the input 32 bpp image or NULL on error</returns>
 public static Pix pixGetRGBComponent(
-				  Pix pixs, 
-				  int comp){
+				 Pix pixs, 
+				 int comp){
 
 	IntPtr _Result = Natives.pixGetRGBComponent(pixs.Pointer,   comp);
 	
@@ -1357,9 +1350,9 @@ public static Pix pixGetRGBComponent(
 ///  <param name="comp">[in] - one of the set: {COLOR_RED, COLOR_GREEN, COLOR_BLUE, L_ALPHA_CHANNEL}</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixSetRGBComponent(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int comp){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int comp){
 
 	int _Result = Natives.pixSetRGBComponent(pixd.Pointer, pixs.Pointer,   comp);
 	
@@ -1382,8 +1375,8 @@ public static int pixSetRGBComponent(
 ///  <param name="comp">[in] - one of the set: {COLOR_RED, COLOR_GREEN, COLOR_BLUE}</param>
 ///   <returns>pixd  the selected 8 bpp component image of the input cmapped image, or NULL on error</returns>
 public static Pix pixGetRGBComponentCmap(
-				  Pix pixs, 
-				  int comp){
+				 Pix pixs, 
+				 int comp){
 
 	IntPtr _Result = Natives.pixGetRGBComponentCmap(pixs.Pointer,   comp);
 	
@@ -1409,9 +1402,9 @@ public static Pix pixGetRGBComponentCmap(
 ///  <param name="comp">[in] - one of the set: {COLOR_RED, COLOR_GREEN, COLOR_BLUE, L_ALPHA_CHANNEL}</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixCopyRGBComponent(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int comp){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int comp){
 
 	int _Result = Natives.pixCopyRGBComponent(pixd.Pointer, pixs.Pointer,   comp);
 	
@@ -1443,15 +1436,14 @@ public static int pixCopyRGBComponent(
 ///  <param name="ppixel">[out] - 32-bit pixel</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int composeRGBPixel(
-				  int rval, 
-				  int gval, 
-				  int bval, 
-				 out uint ppixel){
+				 int rval, 
+				 int gval, 
+				 int bval, 
+				out uint ppixel){
 
 	int _Result = Natives.composeRGBPixel(  rval,   gval,   bval, out  ppixel);
 	
 
-ppixel = 0;
 
 
 	return _Result;
@@ -1475,16 +1467,15 @@ ppixel = 0;
 ///  <param name="ppixel">[out] - 32-bit pixel</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int composeRGBAPixel(
-				  int rval, 
-				  int gval, 
-				  int bval, 
-				  int aval, 
-				 out uint ppixel){
+				 int rval, 
+				 int gval, 
+				 int bval, 
+				 int aval, 
+				out uint ppixel){
 
 	int _Result = Natives.composeRGBAPixel(  rval,   gval,   bval,   aval, out  ppixel);
 	
 
-ppixel = 0;
 
 
 	return _Result;
@@ -1507,7 +1498,7 @@ ppixel = 0;
 ///  <param name="pgval">[out][optional] - green component</param>
 ///  <param name="pbval">[out][optional] - blue component</param>
 public static void extractRGBValues(
-				  uint pixel, 
+				 uint pixel, 
 				out int prval, 
 				out int pgval, 
 				out int pbval){
@@ -1515,9 +1506,6 @@ public static void extractRGBValues(
 	Natives.extractRGBValues(  pixel, out  prval, out  pgval, out  pbval);
 	
 
-prval = 0;
-pgval = 0;
-pbval = 0;
 
 
 }
@@ -1534,7 +1522,7 @@ pbval = 0;
 ///  <param name="pbval">[out][optional] - blue component</param>
 ///  <param name="paval">[out][optional] - alpha component</param>
 public static void extractRGBAValues(
-				  uint pixel, 
+				 uint pixel, 
 				out int prval, 
 				out int pgval, 
 				out int pbval, 
@@ -1543,10 +1531,6 @@ public static void extractRGBAValues(
 	Natives.extractRGBAValues(  pixel, out  prval, out  pgval, out  pbval, out  paval);
 	
 
-prval = 0;
-pgval = 0;
-pbval = 0;
-paval = 0;
 
 
 }
@@ -1561,8 +1545,8 @@ paval = 0;
 ///  <param name="type">[in] - L_CHOOSE_MIN or L_CHOOSE_MAX</param>
 ///   <returns>component in range [0 ... 255], or NULL on error</returns>
 public static int extractMinMaxComponent(
-				  uint pixel, 
-				  int type){
+				 uint pixel, 
+				 int type){
 
 	int _Result = Natives.extractMinMaxComponent(  pixel,   type);
 	
@@ -1589,11 +1573,11 @@ public static int extractMinMaxComponent(
 ///  <param name="bufb">[in] - array of blue samples size w bytes</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixGetRGBLine(
-				  Pix pixs, 
-				  int row, 
-				  Byte[] bufr, 
-				  Byte[] bufg, 
-				  Byte[] bufb){
+				 Pix pixs, 
+				 int row, 
+				 Byte[] bufr, 
+				 Byte[] bufg, 
+				 Byte[] bufb){
 
 	int _Result = Natives.pixGetRGBLine(pixs.Pointer,   row,   bufr,   bufg,   bufb);
 	
@@ -1629,7 +1613,7 @@ public static int pixGetRGBLine(
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixEndianByteSwapNew(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixEndianByteSwapNew(pixs.Pointer);
 	
@@ -1664,7 +1648,7 @@ public static Pix pixEndianByteSwapNew(
 ///  <param name="pixs">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixEndianByteSwap(
-				  Pix pixs){
+				 Pix pixs){
 
 	int _Result = Natives.pixEndianByteSwap(pixs.Pointer);
 	
@@ -1696,9 +1680,9 @@ public static int pixEndianByteSwap(
 ///  <param name="wpl">[in] - number of 32 bit words in the line</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int lineEndianByteSwap(
-				  Byte[] datad, 
-				  Byte[] datas, 
-				  int wpl){
+				 Byte[] datad, 
+				 Byte[] datas, 
+				 int wpl){
 
 		IntPtr datadPtr = 	Marshal.AllocHGlobal(datad.Length);
 		Marshal.Copy(datad, 0, datadPtr, datad.Length);
@@ -1737,7 +1721,7 @@ public static int lineEndianByteSwap(
 ///  <param name="pixs">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static Pix pixEndianTwoByteSwapNew(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixEndianTwoByteSwapNew(pixs.Pointer);
 	
@@ -1765,7 +1749,7 @@ public static Pix pixEndianTwoByteSwapNew(
 ///  <param name="pixs">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixEndianTwoByteSwap(
-				  Pix pixs){
+				 Pix pixs){
 
 	int _Result = Natives.pixEndianTwoByteSwap(pixs.Pointer);
 	
@@ -1792,17 +1776,16 @@ public static int pixEndianTwoByteSwap(
 ///  <param name="pnbytes">[out] - number of bytes in data string</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetRasterData(
-				  Pix pixs, 
-				 out Byte[] pdata, 
-				 out uint pnbytes){
+				 Pix pixs, 
+				out Byte[] pdata, 
+				out uint pnbytes){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixGetRasterData(pixs.Pointer, out  pdataPtr, out  pnbytes);
 	
 
-pdata = null;
-pnbytes = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -1818,13 +1801,12 @@ pnbytes = 0;
 ///  <param name="popaque">[out] - 1 if spp == 4 and all alpha component values are 255 (opaque) 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error Notes: 1) On error, opaque is returned as 0 (FALSE).</returns>
 public static int pixAlphaIsOpaque(
-				  Pix pix, 
-				 out int popaque){
+				 Pix pix, 
+				out int popaque){
 
 	int _Result = Natives.pixAlphaIsOpaque(pix.Pointer, out  popaque);
 	
 
-popaque = 0;
 
 
 	return _Result;
@@ -1859,15 +1841,13 @@ popaque = 0;
 ///  <param name="ph">[out][optional] - height</param>
 ///   <returns>line ptr array, or NULL on error</returns>
 public static List<byte[]> pixSetupByteProcessing(
-				  Pix pix, 
+				 Pix pix, 
 				out int pw, 
 				out int ph){
 
 	IntPtr _Result = Natives.pixSetupByteProcessing(pix.Pointer, out  pw, out  ph);
 	
 
-pw = 0;
-ph = 0;
 
 	List<Byte[]> B = null; // Todo
 
@@ -1888,8 +1868,8 @@ ph = 0;
 ///  <param name="lineptrs">[in] - ptrs to the beginning of each raster line of data</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixCleanupByteProcessing(
-				  Pix pix, 
-				  List<byte[]> lineptrs){
+				 Pix pix, 
+				 List<byte[]> lineptrs){
 
 	IntPtr lineptrsPtr = 	Marshal.AllocHGlobal(0);
 
@@ -1927,8 +1907,8 @@ public static int pixCleanupByteProcessing(
 ///  <param name="val1">[in] - in [0.0 ... 1.0]</param>
 ///  <param name="val2">[in] - in [0.0 ... 1.0]</param>
 public static void l_setAlphaMaskBorder(
-				  Single val1, 
-				  Single val2){
+				 Single val1, 
+				 Single val2){
 
 	Natives.l_setAlphaMaskBorder(  val1,   val2);
 	
@@ -1937,4 +1917,5 @@ public static void l_setAlphaMaskBorder(
 
 }
 
+}
 }

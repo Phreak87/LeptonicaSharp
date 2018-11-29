@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // leptwin.c (303, 1)
 // pixGetWindowsHBITMAP(pix) as IntPtr
@@ -19,7 +20,7 @@ public class _All {
 ///  <param name="pix">[in] - </param>
 ///   <returns>Windows hBitmap, or NULL on error</returns>
 public static IntPtr pixGetWindowsHBITMAP(
-				  Pix pix){
+				 Pix pix){
 
 	IntPtr _Result = Natives.pixGetWindowsHBITMAP(pix.Pointer);
 	
@@ -29,4 +30,5 @@ public static IntPtr pixGetWindowsHBITMAP(
 	return _Result;
 }
 
+}
 }

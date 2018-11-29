@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // bbuffer.c (124, 1)
 // bbufferCreate(indata, nalloc) as L_ByteBuffer
@@ -22,8 +23,8 @@ public class _All {
 ///  <param name="nalloc">[in] - size of byte array to be alloc'd 0 for default</param>
 ///   <returns>bbuffer, or NULL on error</returns>
 public static L_ByteBuffer bbufferCreate(
-				  Byte[] indata, 
-				  int nalloc){
+				 Byte[] indata, 
+				 int nalloc){
 
 	IntPtr _Result = Natives.bbufferCreate(  indata,   nalloc);
 	
@@ -46,15 +47,14 @@ public static L_ByteBuffer bbufferCreate(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/bbufferDestroy/*"/>
 ///  <param name="pbb">[in,out] - buffer to be nulled</param>
 public static void bbufferDestroy(
-				 ref L_ByteBuffer pbb){
+				ref L_ByteBuffer pbb){
 
 	IntPtr pbbPtr = IntPtr.Zero; 	if (pbb != null) {pbbPtr = pbb.Pointer;}
 
 	Natives.bbufferDestroy(ref pbbPtr);
 	
 
-pbb = null;
-	; if (pbbPtr != IntPtr.Zero){pbb = new L_ByteBuffer(pbbPtr);}
+	if (pbbPtr == null) {pbb = null;} else { pbb = new L_ByteBuffer(pbbPtr); };
 
 
 }
@@ -72,17 +72,15 @@ pbb = null;
 ///  <param name="pnbytes">[out] - number of bytes saved in array</param>
 ///   <returns>barray newly allocated array of data</returns>
 public static Byte[] bbufferDestroyAndSaveData(
-				 ref L_ByteBuffer pbb, 
-				 out uint pnbytes){
+				ref L_ByteBuffer pbb, 
+				out uint pnbytes){
 
 	IntPtr pbbPtr = IntPtr.Zero; 	if (pbb != null) {pbbPtr = pbb.Pointer;}
 
 	Byte[] _Result = Natives.bbufferDestroyAndSaveData(ref pbbPtr, out  pnbytes);
 	
 
-pbb = null;
-	; if (pbbPtr != IntPtr.Zero){pbb = new L_ByteBuffer(pbbPtr);}
-pnbytes = 0;
+	if (pbbPtr == null) {pbb = null;} else { pbb = new L_ByteBuffer(pbbPtr); };
 
 
 	return _Result;
@@ -108,9 +106,9 @@ pnbytes = 0;
 ///  <param name="nbytes">[in] - bytes to be read</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int bbufferRead(
-				  L_ByteBuffer bb, 
-				  Byte[] src, 
-				  int nbytes){
+				 L_ByteBuffer bb, 
+				 Byte[] src, 
+				 int nbytes){
 
 	int _Result = Natives.bbufferRead(bb.Pointer,   src,   nbytes);
 	
@@ -131,9 +129,9 @@ public static int bbufferRead(
 ///  <param name="nbytes">[in] - bytes to be read</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int bbufferReadStream(
-				  L_ByteBuffer bb, 
-				  FILE fp, 
-				  int nbytes){
+				 L_ByteBuffer bb, 
+				 FILE fp, 
+				 int nbytes){
 
 	int _Result = Natives.bbufferReadStream(bb.Pointer, fp.Pointer,   nbytes);
 	
@@ -157,8 +155,8 @@ public static int bbufferReadStream(
 ///  <param name="nbytes">[in] - number of bytes to extend array size</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int bbufferExtendArray(
-				  L_ByteBuffer bb, 
-				  int nbytes){
+				 L_ByteBuffer bb, 
+				 int nbytes){
 
 	int _Result = Natives.bbufferExtendArray(bb.Pointer,   nbytes);
 	
@@ -180,15 +178,14 @@ public static int bbufferExtendArray(
 ///  <param name="pnout">[out] - bytes actually written</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int bbufferWrite(
-				  L_ByteBuffer bb, 
-				  Byte[] dest, 
-				  uint nbytes, 
-				 out uint pnout){
+				 L_ByteBuffer bb, 
+				 Byte[] dest, 
+				 uint nbytes, 
+				out uint pnout){
 
 	int _Result = Natives.bbufferWrite(bb.Pointer,   dest,   nbytes, out  pnout);
 	
 
-pnout = 0;
 
 
 	return _Result;
@@ -206,18 +203,18 @@ pnout = 0;
 ///  <param name="pnout">[out] - bytes actually written</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int bbufferWriteStream(
-				  L_ByteBuffer bb, 
-				  FILE fp, 
-				  uint nbytes, 
-				 out uint pnout){
+				 L_ByteBuffer bb, 
+				 FILE fp, 
+				 uint nbytes, 
+				out uint pnout){
 
 	int _Result = Natives.bbufferWriteStream(bb.Pointer, fp.Pointer,   nbytes, out  pnout);
 	
 
-pnout = 0;
 
 
 	return _Result;
 }
 
+}
 }

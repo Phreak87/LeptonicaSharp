@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // numafunc2.c (165, 1)
 // numaErode(nas, size) as Numa
@@ -28,8 +29,8 @@ public class _All {
 ///  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 ///   <returns>nad eroded, or NULL on error</returns>
 public static Numa numaErode(
-				  Numa nas, 
-				  int size){
+				 Numa nas, 
+				 int size){
 
 	IntPtr _Result = Natives.numaErode(nas.Pointer,   size);
 	
@@ -55,8 +56,8 @@ public static Numa numaErode(
 ///  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 ///   <returns>nad dilated, or NULL on error</returns>
 public static Numa numaDilate(
-				  Numa nas, 
-				  int size){
+				 Numa nas, 
+				 int size){
 
 	IntPtr _Result = Natives.numaDilate(nas.Pointer,   size);
 	
@@ -82,8 +83,8 @@ public static Numa numaDilate(
 ///  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 ///   <returns>nad opened, or NULL on error</returns>
 public static Numa numaOpen(
-				  Numa nas, 
-				  int size){
+				 Numa nas, 
+				 int size){
 
 	IntPtr _Result = Natives.numaOpen(nas.Pointer,   size);
 	
@@ -116,8 +117,8 @@ public static Numa numaOpen(
 ///  <param name="size">[in] - of sel greater than 0, odd origin implicitly in center</param>
 ///   <returns>nad opened, or NULL on error</returns>
 public static Numa numaClose(
-				  Numa nas, 
-				  int size){
+				 Numa nas, 
+				 int size){
 
 	IntPtr _Result = Natives.numaClose(nas.Pointer,   size);
 	
@@ -142,9 +143,9 @@ public static Numa numaClose(
 ///  <param name="scale">[in] - multiply each number by this</param>
 ///   <returns>nad with all values shifted and scaled, or NULL on error</returns>
 public static Numa numaTransform(
-				  Numa nas, 
-				  Single shift, 
-				  Single scale){
+				 Numa nas, 
+				 Single shift, 
+				 Single scale){
 
 	IntPtr _Result = Natives.numaTransform(nas.Pointer,   shift,   scale);
 	
@@ -169,9 +170,9 @@ public static Numa numaTransform(
 ///  <param name="prvar">[out][optional] - rms deviation from the mean</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaSimpleStats(
-				  Numa na, 
-				  int first, 
-				  int last, 
+				 Numa na, 
+				 int first, 
+				 int last, 
 				out Single pmean, 
 				out Single pvar, 
 				out Single prvar){
@@ -179,9 +180,6 @@ public static int numaSimpleStats(
 	int _Result = Natives.numaSimpleStats(na.Pointer,   first,   last, out  pmean, out  pvar, out  prvar);
 	
 
-pmean = 0f;
-pvar = 0f;
-prvar = 0f;
 
 
 	return _Result;
@@ -222,8 +220,8 @@ prvar = 0f;
 ///  <param name="pnarv">[out][optional] - rms deviation from the mean</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaWindowedStats(
-				  Numa nas, 
-				  int wc, 
+				 Numa nas, 
+				 int wc, 
 				out Numa pnam, 
 				out Numa pnams, 
 				out Numa pnav, 
@@ -237,14 +235,10 @@ public static int numaWindowedStats(
 	int _Result = Natives.numaWindowedStats(nas.Pointer,   wc, out pnamPtr, out pnamsPtr, out pnavPtr, out pnarvPtr);
 	
 
-pnam = null;
-	; if (pnamPtr != IntPtr.Zero){pnam = new Numa(pnamPtr);}
-pnams = null;
-	; if (pnamsPtr != IntPtr.Zero){pnams = new Numa(pnamsPtr);}
-pnav = null;
-	; if (pnavPtr != IntPtr.Zero){pnav = new Numa(pnavPtr);}
-pnarv = null;
-	; if (pnarvPtr != IntPtr.Zero){pnarv = new Numa(pnarvPtr);}
+	if (pnamPtr == null) {pnam = null;} else { pnam = new Numa(pnamPtr); };
+	if (pnamsPtr == null) {pnams = null;} else { pnams = new Numa(pnamsPtr); };
+	if (pnavPtr == null) {pnav = null;} else { pnav = new Numa(pnavPtr); };
+	if (pnarvPtr == null) {pnarv = null;} else { pnarv = new Numa(pnarvPtr); };
 
 
 	return _Result;
@@ -265,8 +259,8 @@ pnarv = null;
 ///  <param name="wc">[in] - half width of the convolution window</param>
 ///   <returns>nad after low-pass filtering, or NULL on error</returns>
 public static Numa numaWindowedMean(
-				  Numa nas, 
-				  int wc){
+				 Numa nas, 
+				 int wc){
 
 	IntPtr _Result = Natives.numaWindowedMean(nas.Pointer,   wc);
 	
@@ -292,8 +286,8 @@ public static Numa numaWindowedMean(
 ///  <param name="wc">[in] - half width of the window</param>
 ///   <returns>nad containing windowed mean square values, or NULL on error</returns>
 public static Numa numaWindowedMeanSquare(
-				  Numa nas, 
-				  int wc){
+				 Numa nas, 
+				 int wc){
 
 	IntPtr _Result = Natives.numaWindowedMeanSquare(nas.Pointer,   wc);
 	
@@ -326,8 +320,8 @@ public static Numa numaWindowedMeanSquare(
 ///  <param name="pnarv">[out][optional] - numa of rms deviation from the mean</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaWindowedVariance(
-				  Numa nam, 
-				  Numa nams, 
+				 Numa nam, 
+				 Numa nams, 
 				out Numa pnav, 
 				out Numa pnarv){
 
@@ -337,10 +331,8 @@ public static int numaWindowedVariance(
 	int _Result = Natives.numaWindowedVariance(nam.Pointer, nams.Pointer, out pnavPtr, out pnarvPtr);
 	
 
-pnav = null;
-	; if (pnavPtr != IntPtr.Zero){pnav = new Numa(pnavPtr);}
-pnarv = null;
-	; if (pnarvPtr != IntPtr.Zero){pnarv = new Numa(pnarvPtr);}
+	if (pnavPtr == null) {pnav = null;} else { pnav = new Numa(pnavPtr); };
+	if (pnarvPtr == null) {pnarv = null;} else { pnarv = new Numa(pnarvPtr); };
 
 
 	return _Result;
@@ -368,8 +360,8 @@ pnarv = null;
 ///  <param name="halfwin">[in] - half width of window over which the median is found</param>
 ///   <returns>nad after windowed median filtering, or NULL on error</returns>
 public static Numa numaWindowedMedian(
-				  Numa nas, 
-				  int halfwin){
+				 Numa nas, 
+				 int halfwin){
 
 	IntPtr _Result = Natives.numaWindowedMedian(nas.Pointer,   halfwin);
 	
@@ -389,7 +381,7 @@ public static Numa numaWindowedMedian(
 ///  <param name="nas">[in] - source numa</param>
 ///   <returns>na with all values rounded to nearest integer, or NULL on error</returns>
 public static Numa numaConvertToInt(
-				  Numa nas){
+				 Numa nas){
 
 	IntPtr _Result = Natives.numaConvertToInt(nas.Pointer);
 	
@@ -427,16 +419,14 @@ public static Numa numaConvertToInt(
 ///  <param name="pbinstart">[out][optional] - start val of minimum bin input NULL to force start at 0</param>
 ///   <returns>na consisiting of histogram of integerized values, or NULL on error.</returns>
 public static Numa numaMakeHistogram(
-				  Numa na, 
-				  int maxbins, 
-				 out int pbinsize, 
+				 Numa na, 
+				 int maxbins, 
+				out int pbinsize, 
 				out int pbinstart){
 
 	IntPtr _Result = Natives.numaMakeHistogram(na.Pointer,   maxbins, out  pbinsize, out  pbinstart);
 	
 
-pbinsize = 0;
-pbinstart = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -468,8 +458,8 @@ pbinstart = 0;
 ///  <param name="maxbins">[in] - max number of histogram bins greater or equal 1</param>
 ///   <returns>na consisiting of histogram of quantized float values, or NULL on error.</returns>
 public static Numa numaMakeHistogramAuto(
-				  Numa na, 
-				  int maxbins){
+				 Numa na, 
+				 int maxbins){
 
 	IntPtr _Result = Natives.numaMakeHistogramAuto(na.Pointer,   maxbins);
 	
@@ -499,9 +489,9 @@ public static Numa numaMakeHistogramAuto(
 ///  <param name="maxsize">[in] - of histogram ordinate</param>
 ///   <returns>na histogram of bins of size %binsize, starting with the na[0] (x = 0.0 and going up to a maximum of x = %maxsize, by increments of %binsize), or NULL on error</returns>
 public static Numa numaMakeHistogramClipped(
-				  Numa na, 
-				  Single binsize, 
-				  Single maxsize){
+				 Numa na, 
+				 Single binsize, 
+				 Single maxsize){
 
 	IntPtr _Result = Natives.numaMakeHistogramClipped(na.Pointer,   binsize,   maxsize);
 	
@@ -522,8 +512,8 @@ public static Numa numaMakeHistogramClipped(
 ///  <param name="newsize">[in] - number of old bins contained in each new bin</param>
 ///   <returns>nad more coarsely re-binned histogram, or NULL on error</returns>
 public static Numa numaRebinHistogram(
-				  Numa nas, 
-				  int newsize){
+				 Numa nas, 
+				 int newsize){
 
 	IntPtr _Result = Natives.numaRebinHistogram(nas.Pointer,   newsize);
 	
@@ -544,8 +534,8 @@ public static Numa numaRebinHistogram(
 ///  <param name="tsum">[in] - target sum of all numbers in dest histogram e.g., use %tsum= 1.0 if this represents a probability distribution</param>
 ///   <returns>nad normalized histogram, or NULL on error</returns>
 public static Numa numaNormalizeHistogram(
-				  Numa nas, 
-				  Single tsum){
+				 Numa nas, 
+				 Single tsum){
 
 	IntPtr _Result = Natives.numaNormalizeHistogram(nas.Pointer,   tsum);
 	
@@ -606,14 +596,14 @@ public static Numa numaNormalizeHistogram(
 ///  <param name="phisto">[out][optional] - Numa histogram use NULL to prevent</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaGetStatsUsingHistogram(
-				  Numa na, 
-				  int maxbins, 
-				 out Single pmin, 
-				 out Single pmax, 
-				 out Single pmean, 
-				 out Single pvariance, 
-				 out Single pmedian, 
-				  Single rank, 
+				 Numa na, 
+				 int maxbins, 
+				out Single pmin, 
+				out Single pmax, 
+				out Single pmean, 
+				out Single pvariance, 
+				out Single pmedian, 
+				 Single rank, 
 				out Single prval, 
 				out Numa phisto){
 
@@ -622,14 +612,7 @@ public static int numaGetStatsUsingHistogram(
 	int _Result = Natives.numaGetStatsUsingHistogram(na.Pointer,   maxbins, out  pmin, out  pmax, out  pmean, out  pvariance, out  pmedian,   rank, out  prval, out phistoPtr);
 	
 
-pmin = 0f;
-pmax = 0f;
-pmean = 0f;
-pvariance = 0f;
-pmedian = 0f;
-prval = 0f;
-phisto = null;
-	; if (phistoPtr != IntPtr.Zero){phisto = new Numa(phistoPtr);}
+	if (phistoPtr == null) {phisto = null;} else { phisto = new Numa(phistoPtr); };
 
 
 	return _Result;
@@ -657,9 +640,9 @@ phisto = null;
 ///  <param name="pxvariance">[out][optional] - variance of x</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaGetHistogramStats(
-				  Numa nahisto, 
-				  Single startx, 
-				  Single deltax, 
+				 Numa nahisto, 
+				 Single startx, 
+				 Single deltax, 
 				out Single pxmean, 
 				out Single pxmedian, 
 				out Single pxmode, 
@@ -668,10 +651,6 @@ public static int numaGetHistogramStats(
 	int _Result = Natives.numaGetHistogramStats(nahisto.Pointer,   startx,   deltax, out  pxmean, out  pxmedian, out  pxmode, out  pxvariance);
 	
 
-pxmean = 0f;
-pxmedian = 0f;
-pxmode = 0f;
-pxvariance = 0f;
 
 
 	return _Result;
@@ -701,11 +680,11 @@ pxvariance = 0f;
 ///  <param name="pxvariance">[out][optional] - variance of x</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaGetHistogramStatsOnInterval(
-				  Numa nahisto, 
-				  Single startx, 
-				  Single deltax, 
-				  int ifirst, 
-				  int ilast, 
+				 Numa nahisto, 
+				 Single startx, 
+				 Single deltax, 
+				 int ifirst, 
+				 int ilast, 
 				out Single pxmean, 
 				out Single pxmedian, 
 				out Single pxmode, 
@@ -714,10 +693,6 @@ public static int numaGetHistogramStatsOnInterval(
 	int _Result = Natives.numaGetHistogramStatsOnInterval(nahisto.Pointer,   startx,   deltax,   ifirst,   ilast, out  pxmean, out  pxmedian, out  pxmode, out  pxvariance);
 	
 
-pxmean = 0f;
-pxmedian = 0f;
-pxmode = 0f;
-pxvariance = 0f;
 
 
 	return _Result;
@@ -737,12 +712,12 @@ pxvariance = 0f;
 ///  <param name="pnay">[out] - rank array of specified npts</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaMakeRankFromHistogram(
-				  Single startx, 
-				  Single deltax, 
-				  Numa nasy, 
-				  int npts, 
-				 out Numa pnax, 
-				 out Numa pnay){
+				 Single startx, 
+				 Single deltax, 
+				 Numa nasy, 
+				 int npts, 
+				out Numa pnax, 
+				out Numa pnay){
 
 	IntPtr pnaxPtr = IntPtr.Zero;
 	IntPtr pnayPtr = IntPtr.Zero;
@@ -750,10 +725,8 @@ public static int numaMakeRankFromHistogram(
 	int _Result = Natives.numaMakeRankFromHistogram(  startx,   deltax, nasy.Pointer,   npts, out pnaxPtr, out pnayPtr);
 	
 
-pnax = null;
-	; if (pnaxPtr != IntPtr.Zero){pnax = new Numa(pnaxPtr);}
-pnay = null;
-	; if (pnayPtr != IntPtr.Zero){pnay = new Numa(pnayPtr);}
+	if (pnaxPtr == null) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
+	if (pnayPtr == null) {pnay = null;} else { pnay = new Numa(pnayPtr); };
 
 
 	return _Result;
@@ -784,14 +757,13 @@ pnay = null;
 ///  <param name="prank">[out] - fraction of total samples below rval</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaHistogramGetRankFromVal(
-				  Numa na, 
-				  Single rval, 
-				 out Single prank){
+				 Numa na, 
+				 Single rval, 
+				out Single prank){
 
 	int _Result = Natives.numaHistogramGetRankFromVal(na.Pointer,   rval, out  prank);
 	
 
-prank = 0f;
 
 
 	return _Result;
@@ -822,14 +794,13 @@ prank = 0f;
 ///  <param name="prval">[out] - approx. to the bin value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaHistogramGetValFromRank(
-				  Numa na, 
-				  Single rank, 
-				 out Single prval){
+				 Numa na, 
+				 Single rank, 
+				out Single prval){
 
 	int _Result = Natives.numaHistogramGetValFromRank(na.Pointer,   rank, out  prval);
 	
 
-prval = 0f;
 
 
 	return _Result;
@@ -865,8 +836,8 @@ prval = 0f;
 ///  <param name="pnabb">[out][optional] - intensity at the right bin boundary vs rank bin</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaDiscretizeRankAndIntensity(
-				  Numa na, 
-				  int nbins, 
+				 Numa na, 
+				 int nbins, 
 				out Numa pnarbin, 
 				out Numa pnam, 
 				out Numa pnar, 
@@ -880,14 +851,10 @@ public static int numaDiscretizeRankAndIntensity(
 	int _Result = Natives.numaDiscretizeRankAndIntensity(na.Pointer,   nbins, out pnarbinPtr, out pnamPtr, out pnarPtr, out pnabbPtr);
 	
 
-pnarbin = null;
-	; if (pnarbinPtr != IntPtr.Zero){pnarbin = new Numa(pnarbinPtr);}
-pnam = null;
-	; if (pnamPtr != IntPtr.Zero){pnam = new Numa(pnamPtr);}
-pnar = null;
-	; if (pnarPtr != IntPtr.Zero){pnar = new Numa(pnarPtr);}
-pnabb = null;
-	; if (pnabbPtr != IntPtr.Zero){pnabb = new Numa(pnabbPtr);}
+	if (pnarbinPtr == null) {pnarbin = null;} else { pnarbin = new Numa(pnarbinPtr); };
+	if (pnamPtr == null) {pnam = null;} else { pnam = new Numa(pnamPtr); };
+	if (pnarPtr == null) {pnar = null;} else { pnar = new Numa(pnarPtr); };
+	if (pnabbPtr == null) {pnabb = null;} else { pnabb = new Numa(pnabbPtr); };
 
 
 	return _Result;
@@ -911,8 +878,8 @@ pnabb = null;
 ///  <param name="pnam">[out][optional] - median intensity in a bin vs rank bin value, with %nbins of discretized rank values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaGetRankBinValues(
-				  Numa na, 
-				  int nbins, 
+				 Numa na, 
+				 int nbins, 
 				out Numa pnarbin, 
 				out Numa pnam){
 
@@ -922,10 +889,8 @@ public static int numaGetRankBinValues(
 	int _Result = Natives.numaGetRankBinValues(na.Pointer,   nbins, out pnarbinPtr, out pnamPtr);
 	
 
-pnarbin = null;
-	; if (pnarbinPtr != IntPtr.Zero){pnarbin = new Numa(pnarbinPtr);}
-pnam = null;
-	; if (pnamPtr != IntPtr.Zero){pnam = new Numa(pnamPtr);}
+	if (pnarbinPtr == null) {pnarbin = null;} else { pnarbin = new Numa(pnarbinPtr); };
+	if (pnamPtr == null) {pnam = null;} else { pnam = new Numa(pnamPtr); };
 
 
 	return _Result;
@@ -983,8 +948,8 @@ pnam = null;
 ///  <param name="pnascore">[out][optional] - for debugging otherwise use NULL</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaSplitDistribution(
-				  Numa na, 
-				  Single scorefract, 
+				 Numa na, 
+				 Single scorefract, 
 				out int psplitindex, 
 				out Single pave1, 
 				out Single pave2, 
@@ -997,13 +962,7 @@ public static int numaSplitDistribution(
 	int _Result = Natives.numaSplitDistribution(na.Pointer,   scorefract, out  psplitindex, out  pave1, out  pave2, out  pnum1, out  pnum2, out pnascorePtr);
 	
 
-psplitindex = 0;
-pave1 = 0f;
-pave2 = 0f;
-pnum1 = 0f;
-pnum2 = 0f;
-pnascore = null;
-	; if (pnascorePtr != IntPtr.Zero){pnascore = new Numa(pnascorePtr);}
+	if (pnascorePtr == null) {pnascore = null;} else { pnascore = new Numa(pnascorePtr); };
 
 
 	return _Result;
@@ -1035,17 +994,16 @@ pnascore = null;
 ///  <param name="pnad">[out] - nad of EM distances for each histogram</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int grayHistogramsToEMD(
-				  Numaa naa1, 
-				  Numaa naa2, 
-				 out Numa pnad){
+				 Numaa naa1, 
+				 Numaa naa2, 
+				out Numa pnad){
 
 	IntPtr pnadPtr = IntPtr.Zero;
 
 	int _Result = Natives.grayHistogramsToEMD(naa1.Pointer, naa2.Pointer, out pnadPtr);
 	
 
-pnad = null;
-	; if (pnadPtr != IntPtr.Zero){pnad = new Numa(pnadPtr);}
+	if (pnadPtr == null) {pnad = null;} else { pnad = new Numa(pnadPtr); };
 
 
 	return _Result;
@@ -1083,14 +1041,13 @@ pnad = null;
 ///  <param name="pdist">[out] - EM distance</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaEarthMoverDistance(
-				  Numa na1, 
-				  Numa na2, 
-				 out Single pdist){
+				 Numa na1, 
+				 Numa na2, 
+				out Single pdist){
 
 	int _Result = Natives.numaEarthMoverDistance(na1.Pointer, na2.Pointer, out  pdist);
 	
 
-pdist = 0f;
 
 
 	return _Result;
@@ -1146,8 +1103,8 @@ pdist = 0f;
 ///  <param name="pnarv">[out][optional] - rms deviations from the mean</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int grayInterHistogramStats(
-				  Numaa naa, 
-				  int wc, 
+				 Numaa naa, 
+				 int wc, 
 				out Numa pnam, 
 				out Numa pnams, 
 				out Numa pnav, 
@@ -1161,14 +1118,10 @@ public static int grayInterHistogramStats(
 	int _Result = Natives.grayInterHistogramStats(naa.Pointer,   wc, out pnamPtr, out pnamsPtr, out pnavPtr, out pnarvPtr);
 	
 
-pnam = null;
-	; if (pnamPtr != IntPtr.Zero){pnam = new Numa(pnamPtr);}
-pnams = null;
-	; if (pnamsPtr != IntPtr.Zero){pnams = new Numa(pnamsPtr);}
-pnav = null;
-	; if (pnavPtr != IntPtr.Zero){pnav = new Numa(pnavPtr);}
-pnarv = null;
-	; if (pnarvPtr != IntPtr.Zero){pnarv = new Numa(pnarvPtr);}
+	if (pnamPtr == null) {pnam = null;} else { pnam = new Numa(pnamPtr); };
+	if (pnamsPtr == null) {pnams = null;} else { pnams = new Numa(pnamsPtr); };
+	if (pnavPtr == null) {pnav = null;} else { pnav = new Numa(pnavPtr); };
+	if (pnarvPtr == null) {pnarv = null;} else { pnarv = new Numa(pnarvPtr); };
 
 
 	return _Result;
@@ -1191,10 +1144,10 @@ pnarv = null;
 ///  <param name="fract2">[in] - min slope</param>
 ///   <returns>peak na, or NULL on error.</returns>
 public static Numa numaFindPeaks(
-				  Numa nas, 
-				  int nmax, 
-				  Single fract1, 
-				  Single fract2){
+				 Numa nas, 
+				 int nmax, 
+				 Single fract1, 
+				 Single fract2){
 
 	IntPtr _Result = Natives.numaFindPeaks(nas.Pointer,   nmax,   fract1,   fract2);
 	
@@ -1234,8 +1187,8 @@ public static Numa numaFindPeaks(
 ///  <param name="pnav">[out][optional] - values of extrema</param>
 ///   <returns>nad (locations of extrema, or NULL on error</returns>
 public static Numa numaFindExtrema(
-				  Numa nas, 
-				  Single delta, 
+				 Numa nas, 
+				 Single delta, 
 				out Numa pnav){
 
 	IntPtr pnavPtr = IntPtr.Zero;
@@ -1243,8 +1196,7 @@ public static Numa numaFindExtrema(
 	IntPtr _Result = Natives.numaFindExtrema(nas.Pointer,   delta, out pnavPtr);
 	
 
-pnav = null;
-	; if (pnavPtr != IntPtr.Zero){pnav = new Numa(pnavPtr);}
+	if (pnavPtr == null) {pnav = null;} else { pnav = new Numa(pnavPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -1268,16 +1220,14 @@ pnav = null;
 ///  <param name="pnrpl">[out] - ([optional] reversal density: reversals/length</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaCountReversals(
-				  Numa nas, 
-				  Single minreversal, 
+				 Numa nas, 
+				 Single minreversal, 
 				out int pnr, 
 				out Single pnrpl){
 
 	int _Result = Natives.numaCountReversals(nas.Pointer,   minreversal, out  pnr, out  pnrpl);
 	
 
-pnr = 0;
-pnrpl = 0f;
 
 
 	return _Result;
@@ -1309,17 +1259,16 @@ pnrpl = 0f;
 ///  <param name="pbestthresh">[out] - robust estimate of threshold to use</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaSelectCrossingThreshold(
-				  Numa nax, 
-				  Numa nay, 
-				  Single estthresh, 
-				 out Single pbestthresh){
+				 Numa nax, 
+				 Numa nay, 
+				 Single estthresh, 
+				out Single pbestthresh){
 
 	IntPtr naxPtr = IntPtr.Zero; 	if (nax != null) {naxPtr = nax.Pointer;}
 
 	int _Result = Natives.numaSelectCrossingThreshold(naxPtr, nay.Pointer,   estthresh, out  pbestthresh);
 	
 
-pbestthresh = 0f;
 
 
 	return _Result;
@@ -1340,9 +1289,9 @@ pbestthresh = 0f;
 ///  <param name="thresh">[in] - threshold value for nay</param>
 ///   <returns>nad abscissa pts at threshold, or NULL on error</returns>
 public static Numa numaCrossingsByThreshold(
-				  Numa nax, 
-				  Numa nay, 
-				  Single thresh){
+				 Numa nax, 
+				 Numa nay, 
+				 Single thresh){
 
 	IntPtr naxPtr = IntPtr.Zero; 	if (nax != null) {naxPtr = nax.Pointer;}
 
@@ -1370,9 +1319,9 @@ public static Numa numaCrossingsByThreshold(
 ///  <param name="delta">[in] - parameter used to identify when a new peak can be found</param>
 ///   <returns>nad abscissa pts at threshold, or NULL on error</returns>
 public static Numa numaCrossingsByPeaks(
-				  Numa nax, 
-				  Numa nay, 
-				  Single delta){
+				 Numa nax, 
+				 Numa nay, 
+				 Single delta){
 
 	IntPtr naxPtr = IntPtr.Zero; 	if (nax != null) {naxPtr = nax.Pointer;}
 
@@ -1423,22 +1372,19 @@ public static Numa numaCrossingsByPeaks(
 ///  <param name="pbestscore">[out][optional] - convolution with "Haar"-like comb</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaEvalBestHaarParameters(
-				  Numa nas, 
-				  Single relweight, 
-				  int nwidth, 
-				  int nshift, 
-				  Single minwidth, 
-				  Single maxwidth, 
-				 out Single pbestwidth, 
-				 out Single pbestshift, 
+				 Numa nas, 
+				 Single relweight, 
+				 int nwidth, 
+				 int nshift, 
+				 Single minwidth, 
+				 Single maxwidth, 
+				out Single pbestwidth, 
+				out Single pbestshift, 
 				out Single pbestscore){
 
 	int _Result = Natives.numaEvalBestHaarParameters(nas.Pointer,   relweight,   nwidth,   nshift,   minwidth,   maxwidth, out  pbestwidth, out  pbestshift, out  pbestscore);
 	
 
-pbestwidth = 0f;
-pbestshift = 0f;
-pbestscore = 0f;
 
 
 	return _Result;
@@ -1478,16 +1424,15 @@ pbestscore = 0f;
 ///  <param name="pscore">[out] - convolution with "Haar"-like comb</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int numaEvalHaarSum(
-				  Numa nas, 
-				  Single width, 
-				  Single shift, 
-				  Single relweight, 
-				 out Single pscore){
+				 Numa nas, 
+				 Single width, 
+				 Single shift, 
+				 Single relweight, 
+				out Single pscore){
 
 	int _Result = Natives.numaEvalHaarSum(nas.Pointer,   width,   shift,   relweight, out  pscore);
 	
 
-pscore = 0f;
 
 
 	return _Result;
@@ -1513,10 +1458,10 @@ pscore = 0f;
 ///  <param name="use_pairs">[in] - 1 = select pairs of adjacent numbers 0 = select individual numbers</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static Numa genConstrainedNumaInRange(
-				  int first, 
-				  int last, 
-				  int nmax, 
-				  int use_pairs){
+				 int first, 
+				 int last, 
+				 int nmax, 
+				 int use_pairs){
 
 	IntPtr _Result = Natives.genConstrainedNumaInRange(  first,   last,   nmax,   use_pairs);
 	
@@ -1527,4 +1472,5 @@ public static Numa genConstrainedNumaInRange(
 	return  new Numa(_Result);
 }
 
+}
 }

@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // shear.c (113, 1)
 // pixHShear(pixd, pixs, yloc, radang, incolor) as Pix
@@ -51,11 +52,11 @@ public class _All {
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, always</returns>
 public static Pix pixHShear(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int yloc, 
-				  Single radang, 
-				  int incolor){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int yloc, 
+				 Single radang, 
+				 int incolor){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -114,11 +115,11 @@ public static Pix pixHShear(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixVShear(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int xloc, 
-				  Single radang, 
-				  int incolor){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int xloc, 
+				 Single radang, 
+				 int incolor){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -149,10 +150,10 @@ public static Pix pixVShear(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error.</returns>
 public static Pix pixHShearCorner(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Single radang, 
-				  int incolor){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Single radang, 
+				 int incolor){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -183,10 +184,10 @@ public static Pix pixHShearCorner(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error.</returns>
 public static Pix pixVShearCorner(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Single radang, 
-				  int incolor){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Single radang, 
+				 int incolor){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -217,10 +218,10 @@ public static Pix pixVShearCorner(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error.</returns>
 public static Pix pixHShearCenter(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Single radang, 
-				  int incolor){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Single radang, 
+				 int incolor){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -251,10 +252,10 @@ public static Pix pixHShearCenter(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error.</returns>
 public static Pix pixVShearCenter(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Single radang, 
-				  int incolor){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Single radang, 
+				 int incolor){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -290,10 +291,10 @@ public static Pix pixVShearCenter(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixHShearIP(
-				  Pix pixs, 
-				  int yloc, 
-				  Single radang, 
-				  int incolor){
+				 Pix pixs, 
+				 int yloc, 
+				 Single radang, 
+				 int incolor){
 
 	int _Result = Natives.pixHShearIP(pixs.Pointer,   yloc,   radang,   incolor);
 	
@@ -326,10 +327,10 @@ public static int pixHShearIP(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixVShearIP(
-				  Pix pixs, 
-				  int xloc, 
-				  Single radang, 
-				  int incolor){
+				 Pix pixs, 
+				 int xloc, 
+				 Single radang, 
+				 int incolor){
 
 	int _Result = Natives.pixVShearIP(pixs.Pointer,   xloc,   radang,   incolor);
 	
@@ -367,10 +368,10 @@ public static int pixVShearIP(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd sheared, or NULL on error</returns>
 public static Pix pixHShearLI(
-				  Pix pixs, 
-				  int yloc, 
-				  Single radang, 
-				  int incolor){
+				 Pix pixs, 
+				 int yloc, 
+				 Single radang, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixHShearLI(pixs.Pointer,   yloc,   radang,   incolor);
 	
@@ -409,10 +410,10 @@ public static Pix pixHShearLI(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd sheared, or NULL on error</returns>
 public static Pix pixVShearLI(
-				  Pix pixs, 
-				  int xloc, 
-				  Single radang, 
-				  int incolor){
+				 Pix pixs, 
+				 int xloc, 
+				 Single radang, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixVShearLI(pixs.Pointer,   xloc,   radang,   incolor);
 	
@@ -423,4 +424,5 @@ public static Pix pixVShearLI(
 	return  new Pix(_Result);
 }
 
+}
 }

@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // bardecode.c (96, 1)
 // barcodeDispatchDecoder(barstr, format, debugflag) as String
@@ -16,9 +17,9 @@ public class _All {
 ///  <param name="debugflag">[in] - use 1 to generate debug output</param>
 ///   <returns>data string of decoded barcode data, or NULL on error</returns>
 public static String barcodeDispatchDecoder(
-				  String barstr, 
-				  IFF format, 
-				  int debugflag){
+				 String barstr, 
+				 IFF format, 
+				 int debugflag){
 
 	String _Result = Natives.barcodeDispatchDecoder(  barstr,  (int) format,   debugflag);
 	
@@ -37,7 +38,7 @@ public static String barcodeDispatchDecoder(
 ///  <param name="format">[in] - </param>
 ///   <returns>1 if format is one of those supported 0 otherwise</returns>
 public static int barcodeFormatIsSupported(
-				  IFF format){
+				 IFF format){
 
 	int _Result = Natives.barcodeFormatIsSupported( (int) format);
 	
@@ -47,4 +48,5 @@ public static int barcodeFormatIsSupported(
 	return _Result;
 }
 
+}
 }

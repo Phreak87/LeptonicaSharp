@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // graymorph.c (158, 1)
 // pixErodeGray(pixs, hsize, vsize) as Pix
@@ -21,9 +22,9 @@ public class _All {
 ///  <param name="vsize">[in] - ditto</param>
 ///   <returns>pixd</returns>
 public static Pix pixErodeGray(
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr _Result = Natives.pixErodeGray(pixs.Pointer,   hsize,   vsize);
 	
@@ -50,9 +51,9 @@ public static Pix pixErodeGray(
 ///  <param name="vsize">[in] - ditto</param>
 ///   <returns>pixd</returns>
 public static Pix pixDilateGray(
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr _Result = Natives.pixDilateGray(pixs.Pointer,   hsize,   vsize);
 	
@@ -79,9 +80,9 @@ public static Pix pixDilateGray(
 ///  <param name="vsize">[in] - ditto</param>
 ///   <returns>pixd</returns>
 public static Pix pixOpenGray(
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr _Result = Natives.pixOpenGray(pixs.Pointer,   hsize,   vsize);
 	
@@ -108,9 +109,9 @@ public static Pix pixOpenGray(
 ///  <param name="vsize">[in] - ditto</param>
 ///   <returns>pixd</returns>
 public static Pix pixCloseGray(
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr _Result = Natives.pixCloseGray(pixs.Pointer,   hsize,   vsize);
 	
@@ -143,9 +144,9 @@ public static Pix pixCloseGray(
 ///  <param name="vsize">[in] - 1 or 3</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixErodeGray3(
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr _Result = Natives.pixErodeGray3(pixs.Pointer,   hsize,   vsize);
 	
@@ -172,9 +173,9 @@ public static Pix pixErodeGray3(
 ///  <param name="vsize">[in] - 1 or 3</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixDilateGray3(
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr _Result = Natives.pixDilateGray3(pixs.Pointer,   hsize,   vsize);
 	
@@ -204,9 +205,9 @@ public static Pix pixDilateGray3(
 ///  <param name="vsize">[in] - 1 or 3</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixOpenGray3(
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr _Result = Natives.pixOpenGray3(pixs.Pointer,   hsize,   vsize);
 	
@@ -233,9 +234,9 @@ public static Pix pixOpenGray3(
 ///  <param name="vsize">[in] - 1 or 3</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixCloseGray3(
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr _Result = Natives.pixCloseGray3(pixs.Pointer,   hsize,   vsize);
 	
@@ -246,4 +247,5 @@ public static Pix pixCloseGray3(
 	return  new Pix(_Result);
 }
 
+}
 }

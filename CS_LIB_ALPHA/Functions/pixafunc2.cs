@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // pixafunc2.c (179, 1)
 // pixaDisplay(pixa, w, h) as Pix
@@ -30,9 +31,9 @@ public class _All {
 ///  <param name="h">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixaDisplay(
-				  Pixa pixa, 
-				  int w, 
-				  int h){
+				 Pixa pixa, 
+				 int w, 
+				 int h){
 
 	IntPtr _Result = Natives.pixaDisplay(pixa.Pointer,   w,   h);
 	
@@ -67,10 +68,10 @@ public static Pix pixaDisplay(
 ///  <param name="bgcolor">[in] - background color to use</param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixaDisplayOnColor(
-				  Pixa pixa, 
-				  int w, 
-				  int h, 
-				  uint bgcolor){
+				 Pixa pixa, 
+				 int w, 
+				 int h, 
+				 uint bgcolor){
 
 	IntPtr _Result = Natives.pixaDisplayOnColor(pixa.Pointer,   w,   h,   bgcolor);
 	
@@ -100,9 +101,9 @@ public static Pix pixaDisplayOnColor(
 ///  <param name="h">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
 ///   <returns>pix   8 bpp, cmapped, with random colors assigned to each region, or NULL on error.</returns>
 public static Pix pixaDisplayRandomCmap(
-				  Pixa pixa, 
-				  int w, 
-				  int h){
+				 Pixa pixa, 
+				 int w, 
+				 int h){
 
 	IntPtr _Result = Natives.pixaDisplayRandomCmap(pixa.Pointer,   w,   h);
 	
@@ -136,12 +137,12 @@ public static Pix pixaDisplayRandomCmap(
 ///  <param name="pboxa">[out][optional] - location of images in output pix</param>
 ///   <returns>pix of composite images, or NULL on error</returns>
 public static Pix pixaDisplayLinearly(
-				  Pixa pixas, 
-				  int direction, 
-				  Single scalefactor, 
-				  int background, 
-				  int spacing, 
-				  int border, 
+				 Pixa pixas, 
+				 int direction, 
+				 Single scalefactor, 
+				 int background, 
+				 int spacing, 
+				 int border, 
 				out Boxa pboxa){
 
 	IntPtr pboxaPtr = IntPtr.Zero;
@@ -149,8 +150,7 @@ public static Pix pixaDisplayLinearly(
 	IntPtr _Result = Natives.pixaDisplayLinearly(pixas.Pointer,   direction,   scalefactor,   background,   spacing,   border, out pboxaPtr);
 	
 
-pboxa = null;
-	; if (pboxaPtr != IntPtr.Zero){pboxa = new Boxa(pboxaPtr);}
+	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -184,9 +184,9 @@ pboxa = null;
 ///  <param name="pboxa">[out][optional] - location of images in lattice</param>
 ///   <returns>pix of composite images, or NULL on error</returns>
 public static Pix pixaDisplayOnLattice(
-				  Pixa pixa, 
-				  int cellw, 
-				  int cellh, 
+				 Pixa pixa, 
+				 int cellw, 
+				 int cellh, 
 				out int pncols, 
 				out Boxa pboxa){
 
@@ -195,9 +195,7 @@ public static Pix pixaDisplayOnLattice(
 	IntPtr _Result = Natives.pixaDisplayOnLattice(pixa.Pointer,   cellw,   cellh, out  pncols, out pboxaPtr);
 	
 
-pncols = 0;
-pboxa = null;
-	; if (pboxaPtr != IntPtr.Zero){pboxa = new Boxa(pboxaPtr);}
+	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -231,11 +229,11 @@ pboxa = null;
 ///  <param name="bordercolor">[in] - in our RGBA format: 0xrrggbbaa</param>
 ///   <returns>pix of tiled images, or NULL on error</returns>
 public static Pix pixaDisplayUnsplit(
-				  Pixa pixa, 
-				  int nx, 
-				  int ny, 
-				  int borderwidth, 
-				  uint bordercolor){
+				 Pixa pixa, 
+				 int nx, 
+				 int ny, 
+				 int borderwidth, 
+				 uint bordercolor){
 
 	IntPtr _Result = Natives.pixaDisplayUnsplit(pixa.Pointer,   nx,   ny,   borderwidth,   bordercolor);
 	
@@ -275,10 +273,10 @@ public static Pix pixaDisplayUnsplit(
 ///  <param name="spacing">[in] - </param>
 ///   <returns>pix of tiled images, or NULL on error</returns>
 public static Pix pixaDisplayTiled(
-				  Pixa pixa, 
-				  int maxwidth, 
-				  int background, 
-				  int spacing){
+				 Pixa pixa, 
+				 int maxwidth, 
+				 int background, 
+				 int spacing){
 
 	IntPtr _Result = Natives.pixaDisplayTiled(pixa.Pointer,   maxwidth,   background,   spacing);
 	
@@ -328,13 +326,13 @@ public static Pix pixaDisplayTiled(
 ///  <param name="border">[in] - width of black border added to each image use 0 for no border</param>
 ///   <returns>pixd of tiled images, or NULL on error</returns>
 public static Pix pixaDisplayTiledInRows(
-				  Pixa pixa, 
-				  int outdepth, 
-				  int maxwidth, 
-				  Single scalefactor, 
-				  int background, 
-				  int spacing, 
-				  int border){
+				 Pixa pixa, 
+				 int outdepth, 
+				 int maxwidth, 
+				 Single scalefactor, 
+				 int background, 
+				 int spacing, 
+				 int border){
 
 	IntPtr _Result = Natives.pixaDisplayTiledInRows(pixa.Pointer,   outdepth,   maxwidth,   scalefactor,   background,   spacing,   border);
 	
@@ -380,11 +378,11 @@ public static Pix pixaDisplayTiledInRows(
 ///  <param name="border">[in] - width of black border added to each image use 0 for no border</param>
 ///   <returns>pixd of tiled images, or NULL on error</returns>
 public static Pix pixaDisplayTiledInColumns(
-				  Pixa pixas, 
-				  int nx, 
-				  Single scalefactor, 
-				  int spacing, 
-				  int border){
+				 Pixa pixas, 
+				 int nx, 
+				 Single scalefactor, 
+				 int spacing, 
+				 int border){
 
 	IntPtr _Result = Natives.pixaDisplayTiledInColumns(pixas.Pointer,   nx,   scalefactor,   spacing,   border);
 	
@@ -419,13 +417,13 @@ public static Pix pixaDisplayTiledInColumns(
 ///  <param name="border">[in] - width of additional black border on each image use 0 for no border</param>
 ///   <returns>pix of tiled images, or NULL on error</returns>
 public static Pix pixaDisplayTiledAndScaled(
-				  Pixa pixa, 
-				  int outdepth, 
-				  int tilewidth, 
-				  int ncols, 
-				  int background, 
-				  int spacing, 
-				  int border){
+				 Pixa pixa, 
+				 int outdepth, 
+				 int tilewidth, 
+				 int ncols, 
+				 int background, 
+				 int spacing, 
+				 int border){
 
 	IntPtr _Result = Natives.pixaDisplayTiledAndScaled(pixa.Pointer,   outdepth,   tilewidth,   ncols,   background,   spacing,   border);
 	
@@ -466,13 +464,13 @@ public static Pix pixaDisplayTiledAndScaled(
 ///  <param name="textcolor">[in] - 0xrrggbb00</param>
 ///   <returns>pixd of tiled images, or NULL on error</returns>
 public static Pix pixaDisplayTiledWithText(
-				  Pixa pixa, 
-				  int maxwidth, 
-				  Single scalefactor, 
-				  int spacing, 
-				  int border, 
-				  int fontsize, 
-				  uint textcolor){
+				 Pixa pixa, 
+				 int maxwidth, 
+				 Single scalefactor, 
+				 int spacing, 
+				 int border, 
+				 int fontsize, 
+				 uint textcolor){
 
 	IntPtr _Result = Natives.pixaDisplayTiledWithText(pixa.Pointer,   maxwidth,   scalefactor,   spacing,   border,   fontsize,   textcolor);
 	
@@ -514,13 +512,13 @@ public static Pix pixaDisplayTiledWithText(
 ///  <param name="textcolor">[in] - 0xrrggbb00</param>
 ///   <returns>pixd of tiled images, or NULL on error</returns>
 public static Pix pixaDisplayTiledByIndex(
-				  Pixa pixa, 
-				  Numa na, 
-				  int width, 
-				  int spacing, 
-				  int border, 
-				  int fontsize, 
-				  uint textcolor){
+				 Pixa pixa, 
+				 Numa na, 
+				 int width, 
+				 int spacing, 
+				 int border, 
+				 int fontsize, 
+				 uint textcolor){
 
 	IntPtr _Result = Natives.pixaDisplayTiledByIndex(pixa.Pointer, na.Pointer,   width,   spacing,   border,   fontsize,   textcolor);
 	
@@ -547,9 +545,9 @@ public static Pix pixaDisplayTiledByIndex(
 ///  <param name="h">[in] - if set to 0, the size is determined from the bounding box of the components in pixa</param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixaaDisplay(
-				  Pixaa paa, 
-				  int w, 
-				  int h){
+				 Pixaa paa, 
+				 int w, 
+				 int h){
 
 	IntPtr _Result = Natives.pixaaDisplay(paa.Pointer,   w,   h);
 	
@@ -582,10 +580,10 @@ public static Pix pixaaDisplay(
 ///  <param name="maxw">[in] - max width of output pix</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixaaDisplayByPixa(
-				  Pixaa paa, 
-				  int xspace, 
-				  int yspace, 
-				  int maxw){
+				 Pixaa paa, 
+				 int xspace, 
+				 int yspace, 
+				 int maxw){
 
 	IntPtr _Result = Natives.pixaaDisplayByPixa(paa.Pointer,   xspace,   yspace,   maxw);
 	
@@ -617,13 +615,13 @@ public static Pix pixaaDisplayByPixa(
 ///  <param name="border">[in] - width of additional black border on each image use 0 for no border</param>
 ///   <returns>pixa of tiled images, one image for each pixa in the paa, or NULL on error</returns>
 public static Pixa pixaaDisplayTiledAndScaled(
-				  Pixaa paa, 
-				  int outdepth, 
-				  int tilewidth, 
-				  int ncols, 
-				  int background, 
-				  int spacing, 
-				  int border){
+				 Pixaa paa, 
+				 int outdepth, 
+				 int tilewidth, 
+				 int ncols, 
+				 int background, 
+				 int spacing, 
+				 int border){
 
 	IntPtr _Result = Natives.pixaaDisplayTiledAndScaled(paa.Pointer,   outdepth,   tilewidth,   ncols,   background,   spacing,   border);
 	
@@ -644,8 +642,8 @@ public static Pixa pixaaDisplayTiledAndScaled(
 ///  <param name="thresh">[in] - threshold for final binarization from 8 bpp gray</param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaConvertTo1(
-				  Pixa pixas, 
-				  int thresh){
+				 Pixa pixas, 
+				 int thresh){
 
 	IntPtr _Result = Natives.pixaConvertTo1(pixas.Pointer,   thresh);
 	
@@ -669,8 +667,8 @@ public static Pixa pixaConvertTo1(
 ///  <param name="cmapflag">[in] - 1 to give pixd a colormap 0 otherwise</param>
 ///   <returns>pixad each pix is 8 bpp, or NULL on error</returns>
 public static Pixa pixaConvertTo8(
-				  Pixa pixas, 
-				  int cmapflag){
+				 Pixa pixas, 
+				 int cmapflag){
 
 	IntPtr _Result = Natives.pixaConvertTo8(pixas.Pointer,   cmapflag);
 	
@@ -694,8 +692,8 @@ public static Pixa pixaConvertTo8(
 ///  <param name="dither">[in] - 1 to dither if necessary 0 otherwise</param>
 ///   <returns>pixad each pix is 8 bpp, or NULL on error</returns>
 public static Pixa pixaConvertTo8Colormap(
-				  Pixa pixas, 
-				  int dither){
+				 Pixa pixas, 
+				 int dither){
 
 	IntPtr _Result = Natives.pixaConvertTo8Colormap(pixas.Pointer,   dither);
 	
@@ -721,7 +719,7 @@ public static Pixa pixaConvertTo8Colormap(
 ///  <param name="pixas">[in] - </param>
 ///   <returns>pixad 32 bpp rgb, or NULL on error</returns>
 public static Pixa pixaConvertTo32(
-				  Pixa pixas){
+				 Pixa pixas){
 
 	IntPtr _Result = Natives.pixaConvertTo32(pixas.Pointer);
 	
@@ -755,12 +753,12 @@ public static Pixa pixaConvertTo32(
 ///  <param name="copyflag">[in] - L_COPY, L_CLONE</param>
 ///   <returns>pixad if OK, NULL on error</returns>
 public static Pixa pixaConstrainedSelect(
-				  Pixa pixas, 
-				  int first, 
-				  int last, 
-				  int nmax, 
-				  int use_pairs, 
-				  int copyflag){
+				 Pixa pixas, 
+				 int first, 
+				 int last, 
+				 int nmax, 
+				 int use_pairs, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.pixaConstrainedSelect(pixas.Pointer,   first,   last,   nmax,   use_pairs,   copyflag);
 	
@@ -799,16 +797,16 @@ public static Pixa pixaConstrainedSelect(
 ///  <param name="fileout">[in] - pdf file of all images</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaSelectToPdf(
-				  Pixa pixas, 
-				  int first, 
-				  int last, 
-				  int res, 
-				  Single scalefactor, 
-				  int type, 
-				  int quality, 
-				  uint color, 
-				  int fontsize, 
-				  String fileout){
+				 Pixa pixas, 
+				 int first, 
+				 int last, 
+				 int res, 
+				 Single scalefactor, 
+				 int type, 
+				 int quality, 
+				 uint color, 
+				 int fontsize, 
+				 String fileout){
 
 	int _Result = Natives.pixaSelectToPdf(pixas.Pointer,   first,   last,   res,   scalefactor,   type,   quality,   color,   fontsize,   fileout);
 	
@@ -843,14 +841,14 @@ public static int pixaSelectToPdf(
 ///  <param name="border">[in] - width of additional black border on each image use 0 for no border</param>
 ///   <returns>pixad if OK, NULL on error</returns>
 public static Pixa pixaDisplayMultiTiled(
-				  Pixa pixas, 
-				  int nx, 
-				  int ny, 
-				  int maxw, 
-				  int maxh, 
-				  Single scalefactor, 
-				  int spacing, 
-				  int border){
+				 Pixa pixas, 
+				 int nx, 
+				 int ny, 
+				 int maxw, 
+				 int maxh, 
+				 Single scalefactor, 
+				 int spacing, 
+				 int border){
 
 	IntPtr _Result = Natives.pixaDisplayMultiTiled(pixas.Pointer,   nx,   ny,   maxw,   maxh,   scalefactor,   spacing,   border);
 	
@@ -884,13 +882,13 @@ public static Pixa pixaDisplayMultiTiled(
 ///  <param name="write_pdf">[in] - 1 to write pdfs of the split pixa</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaSplitIntoFiles(
-				  Pixa pixas, 
-				  int nsplit, 
-				  Single scale, 
-				  int outwidth, 
-				  int write_pixa, 
-				  int write_pix, 
-				  int write_pdf){
+				 Pixa pixas, 
+				 int nsplit, 
+				 Single scale, 
+				 int outwidth, 
+				 int write_pixa, 
+				 int write_pix, 
+				 int write_pdf){
 
 	int _Result = Natives.pixaSplitIntoFiles(pixas.Pointer,   nsplit,   scale,   outwidth,   write_pixa,   write_pix,   write_pdf);
 	
@@ -932,15 +930,15 @@ public static int pixaSplitIntoFiles(
 ///  <param name="outdir">[in] - subdirectory of /tmp to put N-up tiled images</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertToNUpFiles(
-				  String dir, 
-				  String substr, 
-				  int nx, 
-				  int ny, 
-				  int tw, 
-				  int spacing, 
-				  int border, 
-				  int fontsize, 
-				  String outdir){
+				 String dir, 
+				 String substr, 
+				 int nx, 
+				 int ny, 
+				 int tw, 
+				 int spacing, 
+				 int border, 
+				 int fontsize, 
+				 String outdir){
 
 	int _Result = Natives.convertToNUpFiles(  dir,   substr,   nx,   ny,   tw,   spacing,   border,   fontsize,   outdir);
 	
@@ -969,14 +967,14 @@ public static int convertToNUpFiles(
 ///  <param name="fontsize">[in] - to print tail of filename with image.  Valid set is {4,6,8,10,12,14,16,18,20}.  Use 0 to disable.</param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa convertToNUpPixa(
-				  String dir, 
-				  String substr, 
-				  int nx, 
-				  int ny, 
-				  int tw, 
-				  int spacing, 
-				  int border, 
-				  int fontsize){
+				 String dir, 
+				 String substr, 
+				 int nx, 
+				 int ny, 
+				 int tw, 
+				 int spacing, 
+				 int border, 
+				 int fontsize){
 
 	IntPtr _Result = Natives.convertToNUpPixa(  dir,   substr,   nx,   ny,   tw,   spacing,   border,   fontsize);
 	
@@ -1010,14 +1008,14 @@ public static Pixa convertToNUpPixa(
 ///  <param name="fontsize">[in] - to print string with each image.  Valid set is {4,6,8,10,12,14,16,18,20}.  Use 0 to disable.</param>
 ///   <returns>pixad, or NULL on error</returns>
 public static Pixa pixaConvertToNUpPixa(
-				  Pixa pixas, 
-				  Sarray sa, 
-				  int nx, 
-				  int ny, 
-				  int tw, 
-				  int spacing, 
-				  int border, 
-				  int fontsize){
+				 Pixa pixas, 
+				 Sarray sa, 
+				 int nx, 
+				 int ny, 
+				 int tw, 
+				 int spacing, 
+				 int border, 
+				 int fontsize){
 
 	IntPtr saPtr = IntPtr.Zero; 	if (sa != null) {saPtr = sa.Pointer;}
 
@@ -1074,15 +1072,15 @@ public static Pixa pixaConvertToNUpPixa(
 ///  <param name="fileout">[in] - output pdf file</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaCompareInPdf(
-				  Pixa pixa1, 
-				  Pixa pixa2, 
-				  int nx, 
-				  int ny, 
-				  int tw, 
-				  int spacing, 
-				  int border, 
-				  int fontsize, 
-				  String fileout){
+				 Pixa pixa1, 
+				 Pixa pixa2, 
+				 int nx, 
+				 int ny, 
+				 int tw, 
+				 int spacing, 
+				 int border, 
+				 int fontsize, 
+				 String fileout){
 
 	int _Result = Natives.pixaCompareInPdf(pixa1.Pointer, pixa2.Pointer,   nx,   ny,   tw,   spacing,   border,   fontsize,   fileout);
 	
@@ -1092,4 +1090,5 @@ public static int pixaCompareInPdf(
 	return _Result;
 }
 
+}
 }

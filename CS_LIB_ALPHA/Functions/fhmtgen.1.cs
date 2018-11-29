@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // fhmtgen.1.c (37, 6)
 // pixHMTDwa_1(pixd, pixs, selname) as Pix
@@ -20,9 +21,9 @@ public class _All {
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>pixd</returns>
 public static Pix pixHMTDwa_1(
-				  Pix pixd, 
-				  Pix pixs, 
-				  String selname){
+				 Pix pixd, 
+				 Pix pixs, 
+				 String selname){
 
 	IntPtr _Result = Natives.pixHMTDwa_1(pixd.Pointer, pixs.Pointer,   selname);
 	
@@ -54,9 +55,9 @@ public static Pix pixHMTDwa_1(
 ///  <param name="pixs">[in] - 1 bpp</param>
 ///   <returns>pixd</returns>
 public static Pix pixFHMTGen_1(
-				  Pix pixd, 
-				  Pix pixs, 
-				  String selname){
+				 Pix pixd, 
+				 Pix pixs, 
+				 String selname){
 
 	IntPtr _Result = Natives.pixFHMTGen_1(pixd.Pointer, pixs.Pointer,   selname);
 	
@@ -75,13 +76,13 @@ public static Pix pixFHMTGen_1(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fhmtgen_low_1/*"/>
 ///   <returns></returns>
 public static int fhmtgen_low_1(
-				  object datad, 
-				  int w, 
-				  int h, 
-				  int wpld, 
-				  object datas, 
-				  int wpls, 
-				  int index){
+				 object datad, 
+				 int w, 
+				 int h, 
+				 int wpld, 
+				 object datas, 
+				 int wpls, 
+				 int index){
 
 	int _Result = Natives.fhmtgen_low_1(  datad,   w,   h,   wpld,   datas,   wpls,   index);
 	
@@ -91,4 +92,5 @@ public static int fhmtgen_low_1(
 	return _Result;
 }
 
+}
 }

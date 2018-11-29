@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // pix1.c (282, 1)
 // setPixMemoryManager(allocator, deallocator) as Object
@@ -31,8 +32,8 @@ public class _All {
 ///  <param name="allocator">[in][optional] - use NULL to skip</param>
 ///  <param name="deallocator">[in][optional] - use NULL to skip</param>
 public static void setPixMemoryManager(
-				  IntPtr allocator, 
-				  IntPtr deallocator){
+				 IntPtr allocator, 
+				 IntPtr deallocator){
 
 	Natives.setPixMemoryManager(  allocator,   deallocator);
 	
@@ -52,9 +53,9 @@ public static void setPixMemoryManager(
 ///  <param name="depth">[in] - </param>
 ///   <returns>pixd with data allocated and initialized to 0, or NULL on error</returns>
 public static Pix pixCreate(
-				  int width, 
-				  int height, 
-				  int depth){
+				 int width, 
+				 int height, 
+				 int depth){
 
 	IntPtr _Result = Natives.pixCreate(  width,   height,   depth);
 	
@@ -80,9 +81,9 @@ public static Pix pixCreate(
 ///  <param name="depth">[in] - </param>
 ///   <returns>pixd with data allocated but not initialized, or NULL on error</returns>
 public static Pix pixCreateNoInit(
-				  int width, 
-				  int height, 
-				  int depth){
+				 int width, 
+				 int height, 
+				 int depth){
 
 	IntPtr _Result = Natives.pixCreateNoInit(  width,   height,   depth);
 	
@@ -108,7 +109,7 @@ public static Pix pixCreateNoInit(
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixCreateTemplate(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixCreateTemplate(pixs.Pointer);
 	
@@ -134,7 +135,7 @@ public static Pix pixCreateTemplate(
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixCreateTemplateNoInit(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixCreateTemplateNoInit(pixs.Pointer);
 	
@@ -168,9 +169,9 @@ public static Pix pixCreateTemplateNoInit(
 ///  <param name="depth">[in] - </param>
 ///   <returns>pixd with no data allocated, or NULL on error</returns>
 public static Pix pixCreateHeader(
-				  int width, 
-				  int height, 
-				  int depth){
+				 int width, 
+				 int height, 
+				 int depth){
 
 	IntPtr _Result = Natives.pixCreateHeader(  width,   height,   depth);
 	
@@ -207,7 +208,7 @@ public static Pix pixCreateHeader(
 ///  <param name="pixs">[in] - </param>
 ///   <returns>same pix ptr, or NULL on error</returns>
 public static Pix pixClone(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr _Result = Natives.pixClone(pixs.Pointer);
 	
@@ -231,15 +232,14 @@ public static Pix pixClone(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixDestroy/*"/>
 ///  <param name="ppix">[in,out] - will be nulled</param>
 public static void pixDestroy(
-				 ref Pix ppix){
+				ref Pix ppix){
 
 	IntPtr ppixPtr = IntPtr.Zero; 	if (ppix != null) {ppixPtr = ppix.Pointer;}
 
 	Natives.pixDestroy(ref ppixPtr);
 	
 
-ppix = null;
-	; if (ppixPtr != IntPtr.Zero){ppix = new Pix(ppixPtr);}
+	if (ppixPtr == null) {ppix = null;} else { ppix = new Pix(ppixPtr); };
 
 
 }
@@ -277,8 +277,8 @@ ppix = null;
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixCopy(
-				  Pix pixd, 
-				  Pix pixs){
+				 Pix pixd, 
+				 Pix pixs){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -310,8 +310,8 @@ public static Pix pixCopy(
 ///  <param name="pixs">[in] - determines the size of the buffer not changed</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixResizeImageData(
-				  Pix pixd, 
-				  Pix pixs){
+				 Pix pixd, 
+				 Pix pixs){
 
 	int _Result = Natives.pixResizeImageData(pixd.Pointer, pixs.Pointer);
 	
@@ -335,8 +335,8 @@ public static int pixResizeImageData(
 ///  <param name="pixs">[in] - copies the colormap to %pixd</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixCopyColormap(
-				  Pix pixd, 
-				  Pix pixs){
+				 Pix pixd, 
+				 Pix pixs){
 
 	int _Result = Natives.pixCopyColormap(pixd.Pointer, pixs.Pointer);
 	
@@ -356,8 +356,8 @@ public static int pixCopyColormap(
 ///  <param name="pix2">[in] - </param>
 ///   <returns>1 if the two pix have same {h, w, d} 0 otherwise.</returns>
 public static int pixSizesEqual(
-				  Pix pix1, 
-				  Pix pix2){
+				 Pix pix1, 
+				 Pix pix2){
 
 	int _Result = Natives.pixSizesEqual(pix1.Pointer, pix2.Pointer);
 	
@@ -424,18 +424,17 @@ public static int pixSizesEqual(
 ///  <param name="copyformat">[in] - 1 to copy the informat field 0 to skip</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixTransferAllData(
-				  Pix pixd, 
-				 ref Pix ppixs, 
-				  int copytext, 
-				  int copyformat){
+				 Pix pixd, 
+				ref Pix ppixs, 
+				 int copytext, 
+				 int copyformat){
 
 	IntPtr ppixsPtr = IntPtr.Zero; 	if (ppixs != null) {ppixsPtr = ppixs.Pointer;}
 
 	int _Result = Natives.pixTransferAllData(pixd.Pointer, ref ppixsPtr,   copytext,   copyformat);
 	
 
-ppixs = null;
-	; if (ppixsPtr != IntPtr.Zero){ppixs = new Pix(ppixsPtr);}
+	if (ppixsPtr == null) {ppixs = null;} else { ppixs = new Pix(ppixsPtr); };
 
 
 	return _Result;
@@ -481,8 +480,8 @@ ppixs = null;
 ///  <param name="ppixs">[in,out] - will be nulled after the swap</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSwapAndDestroy(
-				 out Pix ppixd, 
-				 ref Pix ppixs){
+				out Pix ppixd, 
+				ref Pix ppixs){
 
 	IntPtr ppixdPtr = IntPtr.Zero;
 	IntPtr ppixsPtr = IntPtr.Zero; 	if (ppixs != null) {ppixsPtr = ppixs.Pointer;}
@@ -490,10 +489,8 @@ public static int pixSwapAndDestroy(
 	int _Result = Natives.pixSwapAndDestroy(out ppixdPtr, ref ppixsPtr);
 	
 
-ppixd = null;
-	; if (ppixdPtr != IntPtr.Zero){ppixd = new Pix(ppixdPtr);}
-ppixs = null;
-	; if (ppixsPtr != IntPtr.Zero){ppixs = new Pix(ppixsPtr);}
+	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixsPtr == null) {ppixs = null;} else { ppixs = new Pix(ppixsPtr); };
 
 
 	return _Result;
@@ -507,7 +504,7 @@ ppixs = null;
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetWidth/*"/>
 ///   <returns></returns>
 public static int pixGetWidth(
-				  Pix pix){
+				 Pix pix){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -527,8 +524,8 @@ public static int pixGetWidth(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetWidth/*"/>
 ///   <returns></returns>
 public static int pixSetWidth(
-				  Pix pix, 
-				  int width){
+				 Pix pix, 
+				 int width){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -548,7 +545,7 @@ public static int pixSetWidth(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetHeight/*"/>
 ///   <returns></returns>
 public static int pixGetHeight(
-				  Pix pix){
+				 Pix pix){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -568,8 +565,8 @@ public static int pixGetHeight(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetHeight/*"/>
 ///   <returns></returns>
 public static int pixSetHeight(
-				  Pix pix, 
-				  int height){
+				 Pix pix, 
+				 int height){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -589,7 +586,7 @@ public static int pixSetHeight(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetDepth/*"/>
 ///   <returns></returns>
 public static int pixGetDepth(
-				  Pix pix){
+				 Pix pix){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -609,8 +606,8 @@ public static int pixGetDepth(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetDepth/*"/>
 ///   <returns></returns>
 public static int pixSetDepth(
-				  Pix pix, 
-				  int depth){
+				 Pix pix, 
+				 int depth){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -634,7 +631,7 @@ public static int pixSetDepth(
 ///  <param name="pd">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetDimensions(
-				  Pix pix, 
+				 Pix pix, 
 				out int pw, 
 				out int ph, 
 				out int pd){
@@ -642,9 +639,6 @@ public static int pixGetDimensions(
 	int _Result = Natives.pixGetDimensions(pix.Pointer, out  pw, out  ph, out  pd);
 	
 
-pw = 0;
-ph = 0;
-pd = 0;
 
 
 	return _Result;
@@ -662,10 +656,10 @@ pd = 0;
 ///  <param name="d">[in] - use 0 to skip the setting for any of these</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSetDimensions(
-				  Pix pix, 
-				  int w, 
-				  int h, 
-				  int d){
+				 Pix pix, 
+				 int w, 
+				 int h, 
+				 int d){
 
 	int _Result = Natives.pixSetDimensions(pix.Pointer,   w,   h,   d);
 	
@@ -685,8 +679,8 @@ public static int pixSetDimensions(
 ///  <param name="pixs">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixCopyDimensions(
-				  Pix pixd, 
-				  Pix pixs){
+				 Pix pixd, 
+				 Pix pixs){
 
 	int _Result = Natives.pixCopyDimensions(pixd.Pointer, pixs.Pointer);
 	
@@ -704,7 +698,7 @@ public static int pixCopyDimensions(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetSpp/*"/>
 ///   <returns></returns>
 public static int pixGetSpp(
-				  Pix pix){
+				 Pix pix){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -724,8 +718,8 @@ public static int pixGetSpp(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetSpp/*"/>
 ///   <returns></returns>
 public static int pixSetSpp(
-				  Pix pix, 
-				  int spp){
+				 Pix pix, 
+				 int spp){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -747,8 +741,8 @@ public static int pixSetSpp(
 ///  <param name="pixs">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixCopySpp(
-				  Pix pixd, 
-				  Pix pixs){
+				 Pix pixd, 
+				 Pix pixs){
 
 	int _Result = Natives.pixCopySpp(pixd.Pointer, pixs.Pointer);
 	
@@ -766,7 +760,7 @@ public static int pixCopySpp(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetWpl/*"/>
 ///   <returns></returns>
 public static int pixGetWpl(
-				  Pix pix){
+				 Pix pix){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -786,8 +780,8 @@ public static int pixGetWpl(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetWpl/*"/>
 ///   <returns></returns>
 public static int pixSetWpl(
-				  Pix pix, 
-				  int wpl){
+				 Pix pix, 
+				 int wpl){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -807,7 +801,7 @@ public static int pixSetWpl(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetRefcount/*"/>
 ///   <returns></returns>
 public static int pixGetRefcount(
-				  Pix pix){
+				 Pix pix){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -827,8 +821,8 @@ public static int pixGetRefcount(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixChangeRefcount/*"/>
 ///   <returns></returns>
 public static int pixChangeRefcount(
-				  Pix pix, 
-				  int delta){
+				 Pix pix, 
+				 int delta){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -848,7 +842,7 @@ public static int pixChangeRefcount(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetXRes/*"/>
 ///   <returns></returns>
 public static int pixGetXRes(
-				  Pix pix){
+				 Pix pix){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -868,8 +862,8 @@ public static int pixGetXRes(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetXRes/*"/>
 ///   <returns></returns>
 public static int pixSetXRes(
-				  Pix pix, 
-				  int res){
+				 Pix pix, 
+				 int res){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -889,7 +883,7 @@ public static int pixSetXRes(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetYRes/*"/>
 ///   <returns></returns>
 public static int pixGetYRes(
-				  Pix pix){
+				 Pix pix){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -909,8 +903,8 @@ public static int pixGetYRes(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetYRes/*"/>
 ///   <returns></returns>
 public static int pixSetYRes(
-				  Pix pix, 
-				  int res){
+				 Pix pix, 
+				 int res){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -933,15 +927,13 @@ public static int pixSetYRes(
 ///  <param name="pyres">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetResolution(
-				  Pix pix, 
+				 Pix pix, 
 				out int pxres, 
 				out int pyres){
 
 	int _Result = Natives.pixGetResolution(pix.Pointer, out  pxres, out  pyres);
 	
 
-pxres = 0;
-pyres = 0;
 
 
 	return _Result;
@@ -958,9 +950,9 @@ pyres = 0;
 ///  <param name="yres">[in] - use 0 to skip setting a value for either of these</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSetResolution(
-				  Pix pix, 
-				  int xres, 
-				  int yres){
+				 Pix pix, 
+				 int xres, 
+				 int yres){
 
 	int _Result = Natives.pixSetResolution(pix.Pointer,   xres,   yres);
 	
@@ -978,8 +970,8 @@ public static int pixSetResolution(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCopyResolution/*"/>
 ///   <returns></returns>
 public static int pixCopyResolution(
-				  Pix pixd, 
-				  Pix pixs){
+				 Pix pixd, 
+				 Pix pixs){
 
 	IntPtr pixdPtr = IntPtr.Zero; if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
@@ -1000,9 +992,9 @@ public static int pixCopyResolution(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixScaleResolution/*"/>
 ///   <returns></returns>
 public static int pixScaleResolution(
-				  Pix pix, 
-				  Single xscale, 
-				  Single yscale){
+				 Pix pix, 
+				 Single xscale, 
+				 Single yscale){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -1022,7 +1014,7 @@ public static int pixScaleResolution(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetInputFormat/*"/>
 ///   <returns></returns>
 public static int pixGetInputFormat(
-				  Pix pix){
+				 Pix pix){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -1042,8 +1034,8 @@ public static int pixGetInputFormat(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetInputFormat/*"/>
 ///   <returns></returns>
 public static int pixSetInputFormat(
-				  Pix pix, 
-				  IFF informat){
+				 Pix pix, 
+				 IFF informat){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -1063,8 +1055,8 @@ public static int pixSetInputFormat(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCopyInputFormat/*"/>
 ///   <returns></returns>
 public static int pixCopyInputFormat(
-				  Pix pixd, 
-				  Pix pixs){
+				 Pix pixd, 
+				 Pix pixs){
 
 	IntPtr pixdPtr = IntPtr.Zero; if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
@@ -1085,8 +1077,8 @@ public static int pixCopyInputFormat(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixSetSpecial/*"/>
 ///   <returns></returns>
 public static int pixSetSpecial(
-				  Pix pix, 
-				  int special){
+				 Pix pix, 
+				 int special){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -1111,7 +1103,7 @@ public static int pixSetSpecial(
 ///  <param name="pix">[in] - </param>
 ///   <returns>ptr to existing text string</returns>
 public static String pixGetText(
-				  Pix pix){
+				 Pix pix){
 
 	String _Result = Natives.pixGetText(pix.Pointer);
 	
@@ -1135,7 +1127,7 @@ public static String pixGetText(
 ///  <param name="textstring">[in]can be null - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSetText(
-				  Pix pix, 
+				 Pix pix, 
 				 String textstring){
 
 	int _Result = Natives.pixSetText(pix.Pointer,   textstring);
@@ -1162,7 +1154,7 @@ public static int pixSetText(
 ///  <param name="textstring">[in]can be null - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixAddText(
-				  Pix pix, 
+				 Pix pix, 
 				 String textstring){
 
 	int _Result = Natives.pixAddText(pix.Pointer,   textstring);
@@ -1181,8 +1173,8 @@ public static int pixAddText(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixCopyText/*"/>
 ///   <returns></returns>
 public static int pixCopyText(
-				  Pix pixd, 
-				  Pix pixs){
+				 Pix pixd, 
+				 Pix pixs){
 
 	IntPtr pixdPtr = IntPtr.Zero; if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
@@ -1203,7 +1195,7 @@ public static int pixCopyText(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetColormap/*"/>
 ///   <returns></returns>
 public static PixColormap pixGetColormap(
-				  Pix pix){
+				 Pix pix){
 
 	IntPtr pixPtr = IntPtr.Zero; if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -1232,8 +1224,8 @@ public static PixColormap pixGetColormap(
 ///  <param name="colormap">[in] - to be assigned</param>
 ///   <returns>0 if OK, 1 on error.</returns>
 public static int pixSetColormap(
-				  Pix pix, 
-				  PixColormap colormap){
+				 Pix pix, 
+				 PixColormap colormap){
 
 	int _Result = Natives.pixSetColormap(pix.Pointer, colormap.Pointer);
 	
@@ -1252,7 +1244,7 @@ public static int pixSetColormap(
 ///  <param name="pix">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixDestroyColormap(
-				  Pix pix){
+				 Pix pix){
 
 	int _Result = Natives.pixDestroyColormap(pix.Pointer);
 	
@@ -1275,7 +1267,7 @@ public static int pixDestroyColormap(
 ///  <param name="pix">[in] - </param>
 ///   <returns>ptr to image data</returns>
 public static Byte[] pixGetData(
-				  Pix pix){
+				 Pix pix){
 
 	IntPtr _Result = Natives.pixGetData(pix.Pointer);
 	
@@ -1300,8 +1292,8 @@ public static Byte[] pixGetData(
 ///  <param name="data">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSetData(
-				  Pix pix, 
-				  Byte[] data){
+				 Pix pix, 
+				 Byte[] data){
 
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(data.Length);
 		Marshal.Copy(data, 0, dataPtr, data.Length);
@@ -1333,7 +1325,7 @@ public static int pixSetData(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixExtractData/*"/>
 ///   <returns>ptr to data, or null on error</returns>
 public static Byte[] pixExtractData(
-				  Pix pixs){
+				 Pix pixs){
 
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
 
@@ -1361,7 +1353,7 @@ public static Byte[] pixExtractData(
 ///  <param name="pix">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixFreeData(
-				  Pix pix){
+				 Pix pix){
 
 	int _Result = Natives.pixFreeData(pix.Pointer);
 	
@@ -1446,13 +1438,12 @@ public static int pixFreeData(
 ///  <param name="psize">[out][optional] - array size, which is the pix height</param>
 ///   <returns>array of line ptrs, or NULL on error</returns>
 public static IntPtr[] pixGetLinePtrs(
-				  Pix pix, 
+				 Pix pix, 
 				out int psize){
 
 	IntPtr _Result = Natives.pixGetLinePtrs(pix.Pointer, out  psize);
 	
 
-psize = 0;
 
 	IntPtr[] B = new IntPtr[psize] ; Marshal.Copy(_Result, B, 0, B.Length);
 
@@ -1470,8 +1461,8 @@ psize = 0;
 ///  <param name="text">[in][optional] - identifying string can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixPrintStreamInfo(
-				  FILE fp, 
-				  Pix pix, 
+				 FILE fp, 
+				 Pix pix, 
 				 String text){
 
 	int _Result = Natives.pixPrintStreamInfo(fp.Pointer, pix.Pointer,   text);
@@ -1482,4 +1473,5 @@ public static int pixPrintStreamInfo(
 	return _Result;
 }
 
+}
 }

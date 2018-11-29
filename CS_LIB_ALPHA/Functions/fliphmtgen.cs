@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // fliphmtgen.c (77, 1)
 // pixFlipFHMTGen(pixd, pixs, selname) as Pix
@@ -13,9 +14,9 @@ public class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixFlipFHMTGen/*"/>
 ///   <returns></returns>
 public static Pix pixFlipFHMTGen(
-				  Pix pixd, 
-				  Pix pixs, 
-				  String selname){
+				 Pix pixd, 
+				 Pix pixs, 
+				 String selname){
 
 	IntPtr pixdPtr = IntPtr.Zero; if (pixd != null) {pixdPtr = pixd.Pointer;}
 	IntPtr pixsPtr = IntPtr.Zero; if (pixs != null) {pixsPtr = pixs.Pointer;}
@@ -29,4 +30,5 @@ public static Pix pixFlipFHMTGen(
 	return  new Pix(_Result);
 }
 
+}
 }

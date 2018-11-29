@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // pix3.c (155, 1)
 // pixSetMasked(pixd, pixm, val) as int
@@ -44,9 +45,9 @@ public class _All {
 ///  <param name="val">[in] - value to set at each masked pixel</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixSetMasked(
-				  Pix pixd, 
-				  Pix pixm, 
-				  uint val){
+				 Pix pixd, 
+				 Pix pixm, 
+				 uint val){
 
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
@@ -94,11 +95,11 @@ public static int pixSetMasked(
 ///  <param name="y">[in] - location of UL corner of pixm relative to pixd can be negative</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixSetMaskedGeneral(
-				  Pix pixd, 
-				  Pix pixm, 
-				  uint val, 
-				  int x, 
-				  int y){
+				 Pix pixd, 
+				 Pix pixm, 
+				 uint val, 
+				 int x, 
+				 int y){
 
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
@@ -145,8 +146,8 @@ public static int pixSetMaskedGeneral(
 ///  <param name="pixm">[in][optional] - 1 bpp mask no operation if NULL</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixCombineMasked(
-				  Pix pixd, 
-				  Pix pixs, 
+				 Pix pixd, 
+				 Pix pixs, 
 				 Pix pixm){
 
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
@@ -205,11 +206,11 @@ public static int pixCombineMasked(
 ///  <param name="y">[in] - origin of pixs and pixm relative to pixd can be negative</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixCombineMaskedGeneral(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Pix pixm, 
-				  int x, 
-				  int y){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Pix pixm, 
+				 int x, 
+				 int y){
 
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
@@ -273,11 +274,11 @@ public static int pixCombineMaskedGeneral(
 ///  <param name="val">[in] - pixel value to set at each masked pixel</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixPaintThroughMask(
-				  Pix pixd, 
-				  Pix pixm, 
-				  int x, 
-				  int y, 
-				  uint val){
+				 Pix pixd, 
+				 Pix pixm, 
+				 int x, 
+				 int y, 
+				 uint val){
 
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
@@ -360,15 +361,15 @@ public static int pixPaintThroughMask(
 ///  <param name="distblend">[in] - distance outside the fg used for blending with pixs</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixPaintSelfThroughMask(
-				  Pix pixd, 
-				  Pix pixm, 
-				  int x, 
-				  int y, 
-				  int searchdir, 
-				  int mindist, 
-				  int tilesize, 
-				  int ntiles, 
-				  int distblend){
+				 Pix pixd, 
+				 Pix pixm, 
+				 int x, 
+				 int y, 
+				 int searchdir, 
+				 int mindist, 
+				 int tilesize, 
+				 int ntiles, 
+				 int distblend){
 
 	int _Result = Natives.pixPaintSelfThroughMask(pixd.Pointer, pixm.Pointer,   x,   y,   searchdir,   mindist,   tilesize,   ntiles,   distblend);
 	
@@ -394,8 +395,8 @@ public static int pixPaintSelfThroughMask(
 ///  <param name="val">[in] - pixel value</param>
 ///   <returns>pixd 1 bpp mask, or NULL on error</returns>
 public static Pix pixMakeMaskFromVal(
-				  Pix pixs, 
-				  int val){
+				 Pix pixs, 
+				 int val){
 
 	IntPtr _Result = Natives.pixMakeMaskFromVal(pixs.Pointer,   val);
 	
@@ -423,8 +424,8 @@ public static Pix pixMakeMaskFromVal(
 ///  <param name="tab">[in] - 256-entry LUT 1 means to write to mask</param>
 ///   <returns>pixd 1 bpp mask, or NULL on error</returns>
 public static Pix pixMakeMaskFromLUT(
-				  Pix pixs, 
-				  int[] tab){
+				 Pix pixs, 
+				 int[] tab){
 
 	IntPtr _Result = Natives.pixMakeMaskFromLUT(pixs.Pointer,   tab);
 	
@@ -465,11 +466,11 @@ public static Pix pixMakeMaskFromLUT(
 ///  <param name="thresh">[in] - lower threshold on weighted sum of components</param>
 ///   <returns>pixd 1 bpp mask, or NULL on error</returns>
 public static Pix pixMakeArbMaskFromRGB(
-				  Pix pixs, 
-				  Single rc, 
-				  Single gc, 
-				  Single bc, 
-				  Single thresh){
+				 Pix pixs, 
+				 Single rc, 
+				 Single gc, 
+				 Single bc, 
+				 Single thresh){
 
 	IntPtr _Result = Natives.pixMakeArbMaskFromRGB(pixs.Pointer,   rc,   gc,   bc,   thresh);
 	
@@ -540,8 +541,8 @@ public static Pix pixMakeArbMaskFromRGB(
 ///  <param name="debug">[in] - displays layers of pixs</param>
 ///   <returns>pixd 32 bpp rgba, or NULL on error</returns>
 public static Pix pixSetUnderTransparency(
-				  Pix pixs, 
-				  uint val, 
+				 Pix pixs, 
+				 uint val, 
 				 DebugOnOff debug){
 
 	IntPtr _Result = Natives.pixSetUnderTransparency(pixs.Pointer,   val,  (int) debug);
@@ -587,8 +588,8 @@ public static Pix pixSetUnderTransparency(
 ///  <param name="pbox">[out][optional] - use NULL to get the full size</param>
 ///   <returns>pixd (8 bpp gray, or NULL on error</returns>
 public static Pix pixMakeAlphaFromMask(
-				  Pix pixs, 
-				  int dist, 
+				 Pix pixs, 
+				 int dist, 
 				out Box pbox){
 
 	IntPtr pboxPtr = IntPtr.Zero;
@@ -596,8 +597,7 @@ public static Pix pixMakeAlphaFromMask(
 	IntPtr _Result = Natives.pixMakeAlphaFromMask(pixs.Pointer,   dist, out pboxPtr);
 	
 
-pbox = null;
-	; if (pboxPtr != IntPtr.Zero){pbox = new Box(pboxPtr);}
+	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -623,17 +623,16 @@ pbox = null;
 ///  <param name="debug">[in] - 1 to output mask images</param>
 ///   <returns>0 if OK, 1 on error.</returns>
 public static int pixGetColorNearMaskBoundary(
-				  Pix pixs, 
-				  Pix pixm, 
-				  Box box, 
-				  int dist, 
-				 out uint pval, 
+				 Pix pixs, 
+				 Pix pixm, 
+				 Box box, 
+				 int dist, 
+				out uint pval, 
 				 DebugOnOff debug){
 
 	int _Result = Natives.pixGetColorNearMaskBoundary(pixs.Pointer, pixm.Pointer, box.Pointer,   dist, out  pval,  (int) debug);
 	
 
-pval = 0;
 
 
 	return _Result;
@@ -662,8 +661,8 @@ pval = 0;
 ///  <param name="pixs">[in] - </param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixInvert(
-				  Pix pixd, 
-				  Pix pixs){
+				 Pix pixd, 
+				 Pix pixs){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -712,9 +711,9 @@ public static Pix pixInvert(
 ///  <param name="pixs2">[in] - must be != pixd</param>
 ///   <returns>pixd always</returns>
 public static Pix pixOr(
-				  Pix pixd, 
-				  Pix pixs1, 
-				  Pix pixs2){
+				 Pix pixd, 
+				 Pix pixs1, 
+				 Pix pixs2){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -763,9 +762,9 @@ public static Pix pixOr(
 ///  <param name="pixs2">[in] - must be != pixd</param>
 ///   <returns>pixd always</returns>
 public static Pix pixAnd(
-				  Pix pixd, 
-				  Pix pixs1, 
-				  Pix pixs2){
+				 Pix pixd, 
+				 Pix pixs1, 
+				 Pix pixs2){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -814,9 +813,9 @@ public static Pix pixAnd(
 ///  <param name="pixs2">[in] - must be != pixd</param>
 ///   <returns>pixd always</returns>
 public static Pix pixXor(
-				  Pix pixd, 
-				  Pix pixs1, 
-				  Pix pixs2){
+				 Pix pixd, 
+				 Pix pixs1, 
+				 Pix pixs2){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -866,9 +865,9 @@ public static Pix pixXor(
 ///  <param name="pixs2">[in] - can be == pixd</param>
 ///   <returns>pixd always</returns>
 public static Pix pixSubtract(
-				  Pix pixd, 
-				  Pix pixs1, 
-				  Pix pixs2){
+				 Pix pixd, 
+				 Pix pixs1, 
+				 Pix pixs2){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -902,13 +901,12 @@ public static Pix pixSubtract(
 ///  <param name="pempty">[out] - 1 if all bits in image data field are 0 0 otherwise</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixZero(
-				  Pix pix, 
-				 out int pempty){
+				 Pix pix, 
+				out int pempty){
 
 	int _Result = Natives.pixZero(pix.Pointer, out  pempty);
 	
 
-pempty = 0;
 
 
 	return _Result;
@@ -924,13 +922,12 @@ pempty = 0;
 ///  <param name="pfract">[out] - fraction of ON pixels</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixForegroundFraction(
-				  Pix pix, 
-				 out Single pfract){
+				 Pix pix, 
+				out Single pfract){
 
 	int _Result = Natives.pixForegroundFraction(pix.Pointer, out  pfract);
 	
 
-pfract = 0f;
 
 
 	return _Result;
@@ -945,7 +942,7 @@ pfract = 0f;
 ///  <param name="pixa">[in] - array of 1 bpp pix</param>
 ///   <returns>na of ON pixels in each pix, or NULL on error</returns>
 public static Numa pixaCountPixels(
-				  Pixa pixa){
+				 Pixa pixa){
 
 	IntPtr _Result = Natives.pixaCountPixels(pixa.Pointer);
 	
@@ -967,14 +964,13 @@ public static Numa pixaCountPixels(
 ///  <param name="tab8">[in][optional] - 8-bit pixel lookup table</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixCountPixels(
-				  Pix pixs, 
-				 out int pcount, 
+				 Pix pixs, 
+				out int pcount, 
 				 int[] tab8){
 
 	int _Result = Natives.pixCountPixels(pixs.Pointer, out  pcount,   tab8);
 	
 
-pcount = 0;
 
 
 	return _Result;
@@ -992,15 +988,14 @@ pcount = 0;
 ///  <param name="tab8">[in][optional] - 8-bit pixel lookup table</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixCountPixelsInRect(
-				  Pix pixs, 
-				  Box box, 
-				 out int pcount, 
+				 Pix pixs, 
+				 Box box, 
+				out int pcount, 
 				 int[] tab8){
 
 	int _Result = Natives.pixCountPixelsInRect(pixs.Pointer, box.Pointer, out  pcount,   tab8);
 	
 
-pcount = 0;
 
 
 	return _Result;
@@ -1020,7 +1015,7 @@ pcount = 0;
 ///  <param name="box">[in][optional] - clipping box for count can be null</param>
 ///   <returns>na of number of ON pixels by row, or NULL on error</returns>
 public static Numa pixCountByRow(
-				  Pix pix, 
+				 Pix pix, 
 				 Box box){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
@@ -1048,7 +1043,7 @@ public static Numa pixCountByRow(
 ///  <param name="box">[in][optional] - clipping box for count can be null</param>
 ///   <returns>na of number of ON pixels by column, or NULL on error</returns>
 public static Numa pixCountByColumn(
-				  Pix pix, 
+				 Pix pix, 
 				 Box box){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
@@ -1072,7 +1067,7 @@ public static Numa pixCountByColumn(
 ///  <param name="tab8">[in][optional] - 8-bit pixel lookup table</param>
 ///   <returns>na of counts, or NULL on error</returns>
 public static Numa pixCountPixelsByRow(
-				  Pix pix, 
+				 Pix pix, 
 				 int[] tab8){
 
 	IntPtr _Result = Natives.pixCountPixelsByRow(pix.Pointer,   tab8);
@@ -1093,7 +1088,7 @@ public static Numa pixCountPixelsByRow(
 ///  <param name="pix">[in] - 1 bpp</param>
 ///   <returns>na of counts in each column, or NULL on error</returns>
 public static Numa pixCountPixelsByColumn(
-				  Pix pix){
+				 Pix pix){
 
 	IntPtr _Result = Natives.pixCountPixelsByColumn(pix.Pointer);
 	
@@ -1116,15 +1111,14 @@ public static Numa pixCountPixelsByColumn(
 ///  <param name="tab8">[in][optional] - 8-bit pixel lookup table</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixCountPixelsInRow(
-				  Pix pix, 
-				  int row, 
-				 out int pcount, 
+				 Pix pix, 
+				 int row, 
+				out int pcount, 
 				 int[] tab8){
 
 	int _Result = Natives.pixCountPixelsInRow(pix.Pointer,   row, out  pcount,   tab8);
 	
 
-pcount = 0;
 
 
 	return _Result;
@@ -1140,8 +1134,8 @@ pcount = 0;
 ///  <param name="order">[in] - of moment, either 1 or 2</param>
 ///   <returns>na of first moment of fg pixels, by column, or NULL on error</returns>
 public static Numa pixGetMomentByColumn(
-				  Pix pix, 
-				  int order){
+				 Pix pix, 
+				 int order){
 
 	IntPtr _Result = Natives.pixGetMomentByColumn(pix.Pointer,   order);
 	
@@ -1171,15 +1165,14 @@ public static Numa pixGetMomentByColumn(
 ///  <param name="tab8">[in][optional] - 8-bit pixel lookup table</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixThresholdPixelSum(
-				  Pix pix, 
-				  int thresh, 
-				 out int pabove, 
+				 Pix pix, 
+				 int thresh, 
+				out int pabove, 
 				 int[] tab8){
 
 	int _Result = Natives.pixThresholdPixelSum(pix.Pointer,   thresh, out  pabove,   tab8);
 	
 
-pabove = 0;
 
 
 	return _Result;
@@ -1251,9 +1244,9 @@ public static int[] makePixelCentroidTab8(){
 ///  <param name="type">[in] - L_WHITE_IS_MAX, L_BLACK_IS_MAX</param>
 ///   <returns>na of pixel averages by row, or NULL on error</returns>
 public static Numa pixAverageByRow(
-				  Pix pix, 
-				  Box box, 
-				  int type){
+				 Pix pix, 
+				 Box box, 
+				 int type){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
@@ -1284,9 +1277,9 @@ public static Numa pixAverageByRow(
 ///  <param name="type">[in] - L_WHITE_IS_MAX, L_BLACK_IS_MAX</param>
 ///   <returns>na of pixel averages by column, or NULL on error</returns>
 public static Numa pixAverageByColumn(
-				  Pix pix, 
-				  Box box, 
-				  int type){
+				 Pix pix, 
+				 Box box, 
+				 int type){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
@@ -1310,16 +1303,15 @@ public static Numa pixAverageByColumn(
 ///  <param name="pave">[out] - average of pixel values in region</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixAverageInRect(
-				  Pix pix, 
-				  Box box, 
-				 out Single pave){
+				 Pix pix, 
+				 Box box, 
+				out Single pave){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	int _Result = Natives.pixAverageInRect(pix.Pointer, boxPtr, out  pave);
 	
 
-pave = 0f;
 
 
 	return _Result;
@@ -1342,7 +1334,7 @@ pave = 0f;
 ///  <param name="box">[in][optional] - clipping box for variance can be null</param>
 ///   <returns>na of rmsdev by row, or NULL on error</returns>
 public static Numa pixVarianceByRow(
-				  Pix pix, 
+				 Pix pix, 
 				 Box box){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
@@ -1373,7 +1365,7 @@ public static Numa pixVarianceByRow(
 ///  <param name="box">[in][optional] - clipping box for variance can be null</param>
 ///   <returns>na of rmsdev by column, or NULL on error</returns>
 public static Numa pixVarianceByColumn(
-				  Pix pix, 
+				 Pix pix, 
 				 Box box){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
@@ -1398,16 +1390,15 @@ public static Numa pixVarianceByColumn(
 ///  <param name="prootvar">[out] - sqrt variance of pixel values in region</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixVarianceInRect(
-				  Pix pix, 
-				  Box box, 
-				 out Single prootvar){
+				 Pix pix, 
+				 Box box, 
+				out Single prootvar){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	int _Result = Natives.pixVarianceInRect(pix.Pointer, boxPtr, out  prootvar);
 	
 
-prootvar = 0f;
 
 
 	return _Result;
@@ -1430,7 +1421,7 @@ prootvar = 0f;
 ///  <param name="box">[in][optional] - clipping box for region can be null</param>
 ///   <returns>na of abs val pixel difference averages by row, or NULL on error</returns>
 public static Numa pixAbsDiffByRow(
-				  Pix pix, 
+				 Pix pix, 
 				 Box box){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
@@ -1461,7 +1452,7 @@ public static Numa pixAbsDiffByRow(
 ///  <param name="box">[in][optional] - clipping box for region can be null</param>
 ///   <returns>na of abs val pixel difference averages by column, or NULL on error</returns>
 public static Numa pixAbsDiffByColumn(
-				  Pix pix, 
+				 Pix pix, 
 				 Box box){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
@@ -1493,17 +1484,16 @@ public static Numa pixAbsDiffByColumn(
 ///  <param name="pabsdiff">[out] - average of abs diff pixel values in region</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixAbsDiffInRect(
-				  Pix pix, 
-				  Box box, 
-				  int dir, 
-				 out Single pabsdiff){
+				 Pix pix, 
+				 Box box, 
+				 int dir, 
+				out Single pabsdiff){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	int _Result = Natives.pixAbsDiffInRect(pix.Pointer, boxPtr,   dir, out  pabsdiff);
 	
 
-pabsdiff = 0f;
 
 
 	return _Result;
@@ -1530,17 +1520,16 @@ pabsdiff = 0f;
 ///  <param name="pabsdiff">[out] - average of abs diff pixel values on line</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixAbsDiffOnLine(
-				  Pix pix, 
-				  int x1, 
-				  int y1, 
-				  int x2, 
-				  int y2, 
-				 out Single pabsdiff){
+				 Pix pix, 
+				 int x1, 
+				 int y1, 
+				 int x2, 
+				 int y2, 
+				out Single pabsdiff){
 
 	int _Result = Natives.pixAbsDiffOnLine(pix.Pointer,   x1,   y1,   x2,   y2, out  pabsdiff);
 	
 
-pabsdiff = 0f;
 
 
 	return _Result;
@@ -1566,18 +1555,17 @@ pabsdiff = 0f;
 ///  <param name="pcount">[out] - count estimate it if factor  is greater  1</param>
 ///   <returns>na histogram, or NULL on error</returns>
 public static int pixCountArbInRect(
-				  Pix pixs, 
-				  Box box, 
-				  int val, 
-				  int factor, 
-				 out int pcount){
+				 Pix pixs, 
+				 Box box, 
+				 int val, 
+				 int factor, 
+				out int pcount){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
 	int _Result = Natives.pixCountArbInRect(pixs.Pointer, boxPtr,   val,   factor, out  pcount);
 	
 
-pcount = 0;
 
 
 	return _Result;
@@ -1605,9 +1593,9 @@ pcount = 0;
 ///  <param name="h">[in] - dimensions of output pix</param>
 ///   <returns>pixd usually larger pix, mirror-tiled with pixs, or NULL on error</returns>
 public static Pix pixMirroredTiling(
-				  Pix pixs, 
-				  int w, 
-				  int h){
+				 Pix pixs, 
+				 int w, 
+				 int h){
 
 	IntPtr _Result = Natives.pixMirroredTiling(pixs.Pointer,   w,   h);
 	
@@ -1649,13 +1637,13 @@ public static Pix pixMirroredTiling(
 ///  <param name="debug">[in] - 1    for debug output</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixFindRepCloseTile(
-				  Pix pixs, 
-				  Box box, 
-				  int searchdir, 
-				  int mindist, 
-				  int tsize, 
-				  int ntiles, 
-				 out Box pboxtile, 
+				 Pix pixs, 
+				 Box box, 
+				 int searchdir, 
+				 int mindist, 
+				 int tsize, 
+				 int ntiles, 
+				out Box pboxtile, 
 				 DebugOnOff debug){
 
 	IntPtr pboxtilePtr = IntPtr.Zero;
@@ -1663,11 +1651,11 @@ public static int pixFindRepCloseTile(
 	int _Result = Natives.pixFindRepCloseTile(pixs.Pointer, box.Pointer,   searchdir,   mindist,   tsize,   ntiles, out pboxtilePtr,  (int) debug);
 	
 
-pboxtile = null;
-	; if (pboxtilePtr != IntPtr.Zero){pboxtile = new Box(pboxtilePtr);}
+	if (pboxtilePtr == null) {pboxtile = null;} else { pboxtile = new Box(pboxtilePtr); };
 
 
 	return _Result;
 }
 
+}
 }

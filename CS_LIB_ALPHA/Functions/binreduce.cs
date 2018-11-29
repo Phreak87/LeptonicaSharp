@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // binreduce.c (71, 1)
 // pixReduceBinary2(pixs, intab) as Pix
@@ -25,7 +26,7 @@ public class _All {
 ///  <param name="intab">[in][optional] - if null, a table is made here and destroyed before exit</param>
 ///   <returns>pixd 2x subsampled, or NULL on error</returns>
 public static Pix pixReduceBinary2(
-				  Pix pixs, 
+				 Pix pixs, 
 				 Byte[] intab){
 
 	IntPtr _Result = Natives.pixReduceBinary2(pixs.Pointer,   intab);
@@ -55,11 +56,11 @@ public static Pix pixReduceBinary2(
 ///  <param name="level4">[in] - threshold, in the set {0, 1, 2, 3, 4}</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixReduceRankBinaryCascade(
-				  Pix pixs, 
-				  int level1, 
-				  int level2, 
-				  int level3, 
-				  int level4){
+				 Pix pixs, 
+				 int level1, 
+				 int level2, 
+				 int level3, 
+				 int level4){
 
 	IntPtr _Result = Natives.pixReduceRankBinaryCascade(pixs.Pointer,   level1,   level2,   level3,   level4);
 	
@@ -93,8 +94,8 @@ public static Pix pixReduceRankBinaryCascade(
 ///  <param name="intab">[in][optional] - if null, a table is made here and destroyed before exit</param>
 ///   <returns>pixd 1 bpp, 2x rank threshold reduced, or NULL on error</returns>
 public static Pix pixReduceRankBinary2(
-				  Pix pixs, 
-				  int level, 
+				 Pix pixs, 
+				 int level, 
 				 Byte[] intab){
 
 	IntPtr _Result = Natives.pixReduceRankBinary2(pixs.Pointer,   level,   intab);
@@ -129,4 +130,5 @@ public static Byte[] makeSubsampleTab2x(){
 	return _Result;
 }
 
+}
 }

@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // baseline.c (113, 1)
 // pixFindBaselines(pixs, ppta, pixadb) as Numa
@@ -43,17 +44,16 @@ public class _All {
 ///  <param name="pixadb">[in] - for debug output use NULL to skip</param>
 ///   <returns>na of baseline y values, or NULL on error</returns>
 public static Numa pixFindBaselines(
-				  Pix pixs, 
-				 out Pta ppta, 
-				  Pixa pixadb){
+				 Pix pixs, 
+				out Pta ppta, 
+				 Pixa pixadb){
 
 	IntPtr pptaPtr = IntPtr.Zero;
 
 	IntPtr _Result = Natives.pixFindBaselines(pixs.Pointer, out pptaPtr, pixadb.Pointer);
 	
 
-ppta = null;
-	; if (pptaPtr != IntPtr.Zero){ppta = new Pta(pptaPtr);}
+	if (pptaPtr == null) {ppta = null;} else { ppta = new Pta(pptaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -95,8 +95,8 @@ ppta = null;
 ///  <param name="minbsdelta">[in] - min binary search increment angle in degrees use 0.0 for default value</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixDeskewLocal(
-				  Pix pixs, 
-				  int nslices, 
+				 Pix pixs, 
+				 int nslices, 
 				 int redsweep, 
 				 int redsearch, 
 				 Single sweeprange, 
@@ -138,15 +138,15 @@ public static Pix pixDeskewLocal(
 ///  <param name="pptad">[out] - the corresponding 4 pts in the dest</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetLocalSkewTransform(
-				  Pix pixs, 
-				  int nslices, 
-				  int redsweep, 
-				  int redsearch, 
-				  Single sweeprange, 
-				  Single sweepdelta, 
-				  Single minbsdelta, 
-				 out Pta pptas, 
-				 out Pta pptad){
+				 Pix pixs, 
+				 int nslices, 
+				 int redsweep, 
+				 int redsearch, 
+				 Single sweeprange, 
+				 Single sweepdelta, 
+				 Single minbsdelta, 
+				out Pta pptas, 
+				out Pta pptad){
 
 	IntPtr pptasPtr = IntPtr.Zero;
 	IntPtr pptadPtr = IntPtr.Zero;
@@ -154,10 +154,8 @@ public static int pixGetLocalSkewTransform(
 	int _Result = Natives.pixGetLocalSkewTransform(pixs.Pointer,   nslices,   redsweep,   redsearch,   sweeprange,   sweepdelta,   minbsdelta, out pptasPtr, out pptadPtr);
 	
 
-pptas = null;
-	; if (pptasPtr != IntPtr.Zero){pptas = new Pta(pptasPtr);}
-pptad = null;
-	; if (pptadPtr != IntPtr.Zero){pptad = new Pta(pptadPtr);}
+	if (pptasPtr == null) {pptas = null;} else { pptas = new Pta(pptasPtr); };
+	if (pptadPtr == null) {pptad = null;} else { pptad = new Pta(pptadPtr); };
 
 
 	return _Result;
@@ -196,8 +194,8 @@ pptad = null;
 ///  <param name="debug">[in] - 1 for generating plot of skew angle vs. y 0 otherwise</param>
 ///   <returns>naskew, or NULL on error</returns>
 public static Numa pixGetLocalSkewAngles(
-				  Pix pixs, 
-				  int nslices, 
+				 Pix pixs, 
+				 int nslices, 
 				 int redsweep, 
 				 int redsearch, 
 				 Single sweeprange, 
@@ -210,12 +208,11 @@ public static Numa pixGetLocalSkewAngles(
 	IntPtr _Result = Natives.pixGetLocalSkewAngles(pixs.Pointer,   nslices,   redsweep,   redsearch,   sweeprange,   sweepdelta,   minbsdelta, out  pa, out  pb,  (int) debug);
 	
 
-pa = 0f;
-pb = 0f;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
 	return  new Numa(_Result);
 }
 
+}
 }

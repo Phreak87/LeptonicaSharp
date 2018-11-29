@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // recogtrain.c (212, 1)
 // recogTrainLabeled(recog, pixs, box, text, debug) as int
@@ -25,8 +26,8 @@ public class _All {
 ///  <param name="debug">[in] - 1 to display images of samples not captured</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int recogTrainLabeled(
-				  L_Recog recog, 
-				  Pix pixs, 
+				 L_Recog recog, 
+				 Pix pixs, 
 				 Box box, 
 				 String text, 
 				 DebugOnOff debug){
@@ -58,11 +59,11 @@ public static int recogTrainLabeled(
 ///  <param name="ppix">[out] - addr of pix, 1 bpp, labeled</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int recogProcessLabeled(
-				  L_Recog recog, 
-				  Pix pixs, 
-				  Box box, 
-				  String text, 
-				 out Pix ppix){
+				 L_Recog recog, 
+				 Pix pixs, 
+				 Box box, 
+				 String text, 
+				out Pix ppix){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 	IntPtr ppixPtr = IntPtr.Zero;
@@ -70,8 +71,7 @@ public static int recogProcessLabeled(
 	int _Result = Natives.recogProcessLabeled(recog.Pointer, pixs.Pointer, boxPtr,   text, out ppixPtr);
 	
 
-ppix = null;
-	; if (ppixPtr != IntPtr.Zero){ppix = new Pix(ppixPtr);}
+	if (ppixPtr == null) {ppix = null;} else { ppix = new Pix(ppixPtr); };
 
 
 	return _Result;
@@ -98,8 +98,8 @@ ppix = null;
 ///  <param name="debug">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int recogAddSample(
-				  L_Recog recog, 
-				  Pix pix, 
+				 L_Recog recog, 
+				 Pix pix, 
 				 DebugOnOff debug){
 
 	int _Result = Natives.recogAddSample(recog.Pointer, pix.Pointer,  (int) debug);
@@ -120,8 +120,8 @@ public static int recogAddSample(
 ///  <param name="pixs">[in] - 1 bpp, to be optionally scaled and turned into strokes of fixed width</param>
 ///   <returns>pixd   modified pix if OK, NULL on error</returns>
 public static Pix recogModifyTemplate(
-				  L_Recog recog, 
-				  Pix pixs){
+				 L_Recog recog, 
+				 Pix pixs){
 
 	IntPtr _Result = Natives.recogModifyTemplate(recog.Pointer, pixs.Pointer);
 	
@@ -158,7 +158,7 @@ public static Pix recogModifyTemplate(
 ///  <param name="debug">[in] - </param>
 ///   <returns>0 on success, 1 on failure</returns>
 public static int recogAverageSamples(
-				  List<L_Recog> precog, 
+				 List<L_Recog> precog, 
 				 DebugOnOff debug){
 
 	IntPtr precogPtr = IntPtr.Zero;
@@ -193,9 +193,9 @@ public static int recogAverageSamples(
 ///  <param name="py">[out][optional] - average y coordinate of centroids</param>
 ///   <returns>0 on success, 1 on failure</returns>
 public static int pixaAccumulateSamples(
-				  Pixa pixa, 
-				  Pta pta, 
-				 out Pix ppixd, 
+				 Pixa pixa, 
+				 Pta pta, 
+				out Pix ppixd, 
 				out Single px, 
 				out Single py){
 
@@ -205,10 +205,7 @@ public static int pixaAccumulateSamples(
 	int _Result = Natives.pixaAccumulateSamples(pixa.Pointer, ptaPtr, out ppixdPtr, out  px, out  py);
 	
 
-ppixd = null;
-	; if (ppixdPtr != IntPtr.Zero){ppixd = new Pix(ppixdPtr);}
-px = 0f;
-py = 0f;
+	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -255,10 +252,10 @@ py = 0f;
 ///  <param name="minfract">[in] - set to -1.0 for default</param>
 ///   <returns>0 if OK, 1 on error (input recog will be destroyed)</returns>
 public static int recogTrainingFinished(
-				  List<L_Recog> precog, 
-				  int modifyflag, 
-				  int minsize, 
-				  Single minfract){
+				 List<L_Recog> precog, 
+				 int modifyflag, 
+				 int minsize, 
+				 Single minfract){
 
 	IntPtr precogPtr = IntPtr.Zero;
 
@@ -299,10 +296,10 @@ public static int recogTrainingFinished(
 ///  <param name="pna">[out][optional] - debug output, giving the number in each class after filtering use NULL to skip</param>
 ///   <returns>pixa   filtered templates, or NULL on error</returns>
 public static Pixa recogFilterPixaBySize(
-				  Pixa pixas, 
-				  int setsize, 
-				  int maxkeep, 
-				  Single max_ht_ratio, 
+				 Pixa pixas, 
+				 int setsize, 
+				 int maxkeep, 
+				 Single max_ht_ratio, 
 				out Numa pna){
 
 	IntPtr pnaPtr = IntPtr.Zero;
@@ -310,8 +307,7 @@ public static Pixa recogFilterPixaBySize(
 	IntPtr _Result = Natives.recogFilterPixaBySize(pixas.Pointer,   setsize,   maxkeep,   max_ht_ratio, out pnaPtr);
 	
 
-pna = null;
-	; if (pnaPtr != IntPtr.Zero){pna = new Numa(pnaPtr);}
+	if (pnaPtr == null) {pna = null;} else { pna = new Numa(pnaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -328,8 +324,8 @@ pna = null;
 ///  <param name="setsize">[in] - size of character set (number of classes)</param>
 ///   <returns>paa   pixaa where each pixa has templates for one class, or null on error</returns>
 public static Pixaa recogSortPixaByClass(
-				  Pixa pixa, 
-				  int setsize){
+				 Pixa pixa, 
+				 int setsize){
 
 	IntPtr _Result = Natives.recogSortPixaByClass(pixa.Pointer,   setsize);
 	
@@ -361,10 +357,10 @@ public static Pixaa recogSortPixaByClass(
 ///  <param name="ppixrem">[out][optional debug] - removed templates, with scores</param>
 ///   <returns>0 if OK, 1 on error.</returns>
 public static int recogRemoveOutliers1(
-				  List<L_Recog> precog, 
-				  Single minscore, 
-				  int mintarget, 
-				  int minsize, 
+				 List<L_Recog> precog, 
+				 Single minscore, 
+				 int mintarget, 
+				 int minsize, 
 				out Pix ppixsave, 
 				out Pix ppixrem){
 
@@ -375,10 +371,8 @@ public static int recogRemoveOutliers1(
 	int _Result = Natives.recogRemoveOutliers1(precogPtr,   minscore,   mintarget,   minsize, out ppixsavePtr, out ppixremPtr);
 	
 
-ppixsave = null;
-	; if (ppixsavePtr != IntPtr.Zero){ppixsave = new Pix(ppixsavePtr);}
-ppixrem = null;
-	; if (ppixremPtr != IntPtr.Zero){ppixrem = new Pix(ppixremPtr);}
+	if (ppixsavePtr == null) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
+	if (ppixremPtr == null) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
 
 
 	return _Result;
@@ -424,10 +418,10 @@ ppixrem = null;
 ///  <param name="ppixrem">[out][optional debug] - removed templates, with scores</param>
 ///   <returns>pixa   of unscaled templates to be kept, or NULL on error</returns>
 public static Pixa pixaRemoveOutliers1(
-				  Pixa pixas, 
-				  Single minscore, 
-				  int mintarget, 
-				  int minsize, 
+				 Pixa pixas, 
+				 Single minscore, 
+				 int mintarget, 
+				 int minsize, 
 				out Pix ppixsave, 
 				out Pix ppixrem){
 
@@ -437,10 +431,8 @@ public static Pixa pixaRemoveOutliers1(
 	IntPtr _Result = Natives.pixaRemoveOutliers1(pixas.Pointer,   minscore,   mintarget,   minsize, out ppixsavePtr, out ppixremPtr);
 	
 
-ppixsave = null;
-	; if (ppixsavePtr != IntPtr.Zero){ppixsave = new Pix(ppixsavePtr);}
-ppixrem = null;
-	; if (ppixremPtr != IntPtr.Zero){ppixrem = new Pix(ppixremPtr);}
+	if (ppixsavePtr == null) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
+	if (ppixremPtr == null) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -467,9 +459,9 @@ ppixrem = null;
 ///  <param name="ppixrem">[out][optional debug] - removed templates, with scores</param>
 ///   <returns>0 if OK, 1 on error.</returns>
 public static int recogRemoveOutliers2(
-				  List<L_Recog> precog, 
-				  Single minscore, 
-				  int minsize, 
+				 List<L_Recog> precog, 
+				 Single minscore, 
+				 int minsize, 
 				out Pix ppixsave, 
 				out Pix ppixrem){
 
@@ -480,10 +472,8 @@ public static int recogRemoveOutliers2(
 	int _Result = Natives.recogRemoveOutliers2(precogPtr,   minscore,   minsize, out ppixsavePtr, out ppixremPtr);
 	
 
-ppixsave = null;
-	; if (ppixsavePtr != IntPtr.Zero){ppixsave = new Pix(ppixsavePtr);}
-ppixrem = null;
-	; if (ppixremPtr != IntPtr.Zero){ppixrem = new Pix(ppixremPtr);}
+	if (ppixsavePtr == null) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
+	if (ppixremPtr == null) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
 
 
 	return _Result;
@@ -517,9 +507,9 @@ ppixrem = null;
 ///  <param name="ppixrem">[out][optional debug] - removed templates, with scores</param>
 ///   <returns>pixa   of unscaled templates to be kept, or NULL on error</returns>
 public static Pixa pixaRemoveOutliers2(
-				  Pixa pixas, 
-				  Single minscore, 
-				  int minsize, 
+				 Pixa pixas, 
+				 Single minscore, 
+				 int minsize, 
 				out Pix ppixsave, 
 				out Pix ppixrem){
 
@@ -529,10 +519,8 @@ public static Pixa pixaRemoveOutliers2(
 	IntPtr _Result = Natives.pixaRemoveOutliers2(pixas.Pointer,   minscore,   minsize, out ppixsavePtr, out ppixremPtr);
 	
 
-ppixsave = null;
-	; if (ppixsavePtr != IntPtr.Zero){ppixsave = new Pix(ppixsavePtr);}
-ppixrem = null;
-	; if (ppixremPtr != IntPtr.Zero){ppixrem = new Pix(ppixremPtr);}
+	if (ppixsavePtr == null) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
+	if (ppixremPtr == null) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -569,10 +557,10 @@ ppixrem = null;
 ///  <param name="debug">[in] - 1 for debug output saved to recogboot 0 otherwise</param>
 ///   <returns>pixad   labeled version of input pixas, trained on a BSR, or NULL on error</returns>
 public static Pixa recogTrainFromBoot(
-				  L_Recog recogboot, 
-				  Pixa pixas, 
-				  Single minscore, 
-				  int threshold, 
+				 L_Recog recogboot, 
+				 Pixa pixas, 
+				 Single minscore, 
+				 int threshold, 
 				 DebugOnOff debug){
 
 	IntPtr _Result = Natives.recogTrainFromBoot(recogboot.Pointer, pixas.Pointer,   minscore,   threshold,  (int) debug);
@@ -602,17 +590,16 @@ public static Pixa recogTrainFromBoot(
 ///  <param name="linew">[in] - use 0 for original scanned images</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int recogPadDigitTrainingSet(
-				 ref L_Recog precog, 
-				  int scaleh, 
-				  int linew){
+				ref L_Recog precog, 
+				 int scaleh, 
+				 int linew){
 
 	IntPtr precogPtr = IntPtr.Zero; 	if (precog != null) {precogPtr = precog.Pointer;}
 
 	int _Result = Natives.recogPadDigitTrainingSet(ref precogPtr,   scaleh,   linew);
 	
 
-precog = null;
-	; if (precogPtr != IntPtr.Zero){precog = new L_Recog(precogPtr);}
+	if (precogPtr == null) {precog = null;} else { precog = new L_Recog(precogPtr); };
 
 
 	return _Result;
@@ -634,16 +621,15 @@ precog = null;
 ///  <param name="psa">[out] - addr of returned string containing text value</param>
 ///   <returns>1 on error 0 if OK, whether or not additional padding templates are required.</returns>
 public static int recogIsPaddingNeeded(
-				  L_Recog recog, 
-				 out Sarray psa){
+				 L_Recog recog, 
+				out Sarray psa){
 
 	IntPtr psaPtr = IntPtr.Zero;
 
 	int _Result = Natives.recogIsPaddingNeeded(recog.Pointer, out psaPtr);
 	
 
-psa = null;
-	; if (psaPtr != IntPtr.Zero){psa = new Sarray(psaPtr);}
+	if (psaPtr == null) {psa = null;} else { psa = new Sarray(psaPtr); };
 
 
 	return _Result;
@@ -664,8 +650,8 @@ psa = null;
 ///  <param name="sa">[in] - set of text strings that need to be padded</param>
 ///   <returns>pixa   of all templates from %recog and the additional pad templates from a boot recognizer or NULL on error</returns>
 public static Pixa recogAddDigitPadTemplates(
-				  L_Recog recog, 
-				  Sarray sa){
+				 L_Recog recog, 
+				 Sarray sa){
 
 	IntPtr _Result = Natives.recogAddDigitPadTemplates(recog.Pointer, sa.Pointer);
 	
@@ -703,9 +689,9 @@ public static Pixa recogAddDigitPadTemplates(
 ///  <param name="debug">[in] - 1 for showing templates 0 otherwise</param>
 ///   <returns>recog, or NULL on error</returns>
 public static L_Recog recogMakeBootDigitRecog(
-				  int scaleh, 
-				  int linew, 
-				  int maxyshift, 
+				 int scaleh, 
+				 int linew, 
+				 int maxyshift, 
 				 DebugOnOff debug){
 
 	IntPtr _Result = Natives.recogMakeBootDigitRecog(  scaleh,   linew,   maxyshift,  (int) debug);
@@ -729,7 +715,7 @@ public static L_Recog recogMakeBootDigitRecog(
 ///  <param name="debug">[in] - 1 for display of templates</param>
 ///   <returns>pixa   of templates or NULL on error</returns>
 public static Pixa recogMakeBootDigitTemplates(
-				  DebugOnOff debug){
+				 DebugOnOff debug){
 
 	IntPtr _Result = Natives.recogMakeBootDigitTemplates( (int) debug);
 	
@@ -752,10 +738,10 @@ public static Pixa recogMakeBootDigitTemplates(
 ///  <param name="display">[in] - 1 for showing template images, 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int recogShowContent(
-				  FILE fp, 
-				  L_Recog recog, 
-				  int index, 
-				  int display){
+				 FILE fp, 
+				 L_Recog recog, 
+				 int index, 
+				 int display){
 
 	int _Result = Natives.recogShowContent(fp.Pointer, recog.Pointer,   index,   display);
 	
@@ -785,7 +771,7 @@ public static int recogShowContent(
 ///  <param name="debug">[in] - 0 no output 1 for images 2 for text 3 for both</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int recogDebugAverages(
-				  List<L_Recog> precog, 
+				 List<L_Recog> precog, 
 				 DebugOnOff debug){
 
 	IntPtr precogPtr = IntPtr.Zero;
@@ -811,7 +797,7 @@ public static int recogDebugAverages(
 ///  <param name="recog">[in] - </param>
 ///   <returns>0 on success, 1 on failure</returns>
 public static int recogShowAverageTemplates(
-				  L_Recog recog){
+				 L_Recog recog){
 
 	int _Result = Natives.recogShowAverageTemplates(recog.Pointer);
 	
@@ -844,11 +830,11 @@ public static int recogShowAverageTemplates(
 ///  <param name="display">[in] - to display the result</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int recogShowMatchesInRange(
-				  L_Recog recog, 
-				  Pixa pixa, 
-				  Single minscore, 
-				  Single maxscore, 
-				  int display){
+				 L_Recog recog, 
+				 Pixa pixa, 
+				 Single minscore, 
+				 Single maxscore, 
+				 int display){
 
 	int _Result = Natives.recogShowMatchesInRange(recog.Pointer, pixa.Pointer,   minscore,   maxscore,   display);
 	
@@ -885,12 +871,12 @@ public static int recogShowMatchesInRange(
 ///  <param name="score">[in] - score of match</param>
 ///   <returns>pixd pair of images, showing input pix and best template, optionally with matching information, or NULL on error.</returns>
 public static Pix recogShowMatch(
-				  L_Recog recog, 
-				  Pix pix1, 
-				  Pix pix2, 
-				  Box box, 
-				  int index, 
-				  Single score){
+				 L_Recog recog, 
+				 Pix pix1, 
+				 Pix pix2, 
+				 Box box, 
+				 int index, 
+				 Single score){
 
 	IntPtr pix2Ptr = IntPtr.Zero; 	if (pix2 != null) {pix2Ptr = pix2.Pointer;}
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
@@ -904,4 +890,5 @@ public static Pix recogShowMatch(
 	return  new Pix(_Result);
 }
 
+}
 }

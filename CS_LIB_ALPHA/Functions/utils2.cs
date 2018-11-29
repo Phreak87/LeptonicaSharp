@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // utils2.c (205, 1)
 // stringNew(src) as String
@@ -14,7 +15,7 @@ public class _All {
 ///  <param name="src">[in] - string</param>
 ///   <returns>dest copy of src string, or NULL on error</returns>
 public static String stringNew(
-				  String src){
+				 String src){
 
 	String _Result = Natives.stringNew(  src);
 	
@@ -45,9 +46,9 @@ public static String stringNew(
 ///  <param name="n">[in] - max number of characters to copy</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int stringCopy(
-				  String dest, 
-				  String src, 
-				  int n){
+				 String dest, 
+				 String src, 
+				 int n){
 
 	int _Result = Natives.stringCopy(  dest,   src,   n);
 	
@@ -74,7 +75,7 @@ public static int stringCopy(
 ///  <param name="src">[in] - string [optional] can be null</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int stringReplace(
-				 out String[] pdest, 
+				out String[] pdest, 
 				 String src){
 
 	IntPtr pdestPtr = IntPtr.Zero;
@@ -82,7 +83,7 @@ public static int stringReplace(
 	int _Result = Natives.stringReplace(out  pdestPtr,   src);
 	
 
-pdest = null;
+	if (pdestPtr == null) {pdest = null;} else { pdest = null; };
 
 
 	return _Result;
@@ -106,8 +107,8 @@ pdest = null;
 ///  <param name="size">[in] - size of src buffer</param>
 ///   <returns>length of src in bytes.</returns>
 public static int stringLength(
-				  String src, 
-				  uint size){
+				 String src, 
+				 uint size){
 
 	int _Result = Natives.stringLength(  src,   size);
 	
@@ -141,9 +142,9 @@ public static int stringLength(
 ///  <param name="src">[in] - string can be null or NULL-terminated string</param>
 ///   <returns>number of bytes added to dest -1 on error</returns>
 public static int stringCat(
-				  String dest, 
-				  uint size, 
-				  String src){
+				 String dest, 
+				 uint size, 
+				 String src){
 
 	int _Result = Natives.stringCat(  dest,   size,   src);
 	
@@ -167,7 +168,7 @@ public static int stringCat(
 ///  <param name="first">[in] - first string in list</param>
 ///   <returns>result new string concatenating the input strings, or NULL if first == NULL</returns>
 public static String stringConcatNew(
-				  String first){
+				 String first){
 
 	String _Result = Natives.stringConcatNew(  first);
 	
@@ -193,8 +194,8 @@ public static String stringConcatNew(
 ///  <param name="src2">[in] - string [optional] can be null</param>
 ///   <returns>concatenated string, or NULL on error</returns>
 public static String stringJoin(
-				  String src1, 
-				  String src2){
+				 String src1, 
+				 String src2){
 
 	String _Result = Natives.stringJoin(  src1,   src2);
 	
@@ -240,7 +241,7 @@ public static String stringJoin(
 ///  <param name="src2">[in] - string [optional] can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int stringJoinIP(
-				 ref String[] psrc1, 
+				ref String[] psrc1, 
 				 String src2){
 
 	IntPtr psrc1Ptr = 	Marshal.AllocHGlobal(Marshal.SizeOf(psrc1));
@@ -248,7 +249,7 @@ public static int stringJoinIP(
 	int _Result = Natives.stringJoinIP(ref  psrc1Ptr,   src2);
 	
 
-psrc1 = null;
+	if (psrc1Ptr == null) {psrc1 = null;} else { psrc1 = null; };
 
 
 	return _Result;
@@ -263,7 +264,7 @@ psrc1 = null;
 ///  <param name="src">[in] - string</param>
 ///   <returns>dest newly-allocated reversed string</returns>
 public static String stringReverse(
-				  String src){
+				 String src){
 
 	String _Result = Natives.stringReverse(  src);
 	
@@ -307,16 +308,16 @@ public static String stringReverse(
 ///  <param name="psaveptr">[out] - ptr to the next char after the last encountered separator</param>
 ///   <returns>substr a new string that is copied from the previous saveptr up to but not including the next separator character, or NULL if end of cstr.</returns>
 public static String strtokSafe(
-				  String _cstr_, 
-				  String seps, 
-				 out String[] psaveptr){
+				 String _cstr_, 
+				 String seps, 
+				out String[] psaveptr){
 
 	IntPtr psaveptrPtr = IntPtr.Zero;
 
 	String _Result = Natives.strtokSafe(  _cstr_,   seps, out  psaveptrPtr);
 	
 
-psaveptr = null;
+	if (psaveptrPtr == null) {psaveptr = null;} else { psaveptr = null; };
 
 
 	return _Result;
@@ -348,10 +349,10 @@ psaveptr = null;
 ///  <param name="ptail">[out] - ptr to copy of the part of the input string starting with the first non-separator character that occurs after the first separator is found</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int stringSplitOnToken(
-				  String _cstr_, 
-				  String seps, 
-				 out String[] phead, 
-				 out String[] ptail){
+				 String _cstr_, 
+				 String seps, 
+				out String[] phead, 
+				out String[] ptail){
 
 	IntPtr pheadPtr = IntPtr.Zero;
 	IntPtr ptailPtr = IntPtr.Zero;
@@ -359,8 +360,8 @@ public static int stringSplitOnToken(
 	int _Result = Natives.stringSplitOnToken(  _cstr_,   seps, out  pheadPtr, out  ptailPtr);
 	
 
-phead = null;
-ptail = null;
+	if (pheadPtr == null) {phead = null;} else { phead = null; };
+	if (ptailPtr == null) {ptail = null;} else { ptail = null; };
 
 
 	return _Result;
@@ -381,14 +382,13 @@ ptail = null;
 ///  <param name="pfound">[out] - 1 if any characters are found 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int stringCheckForChars(
-				  String src, 
-				  String chars, 
-				 out int pfound){
+				 String src, 
+				 String chars, 
+				out int pfound){
 
 	int _Result = Natives.stringCheckForChars(  src,   chars, out  pfound);
 	
 
-pfound = 0;
 
 
 	return _Result;
@@ -404,8 +404,8 @@ pfound = 0;
 ///  <param name="remchars">[in] - string of chars to be removed from src</param>
 ///   <returns>dest string with specified chars removed, or NULL on error</returns>
 public static String stringRemoveChars(
-				  String src, 
-				  String remchars){
+				 String src, 
+				 String remchars){
 
 	String _Result = Natives.stringRemoveChars(  src,   remchars);
 	
@@ -434,14 +434,13 @@ public static String stringRemoveChars(
 ///  <param name="ploc">[out][optional] - location of substring in src</param>
 ///   <returns>1 if found 0 if not found or on error</returns>
 public static int stringFindSubstr(
-				  String src, 
-				  String _sub_, 
+				 String src, 
+				 String _sub_, 
 				out int ploc){
 
 	int _Result = Natives.stringFindSubstr(  src,   _sub_, out  ploc);
 	
 
-ploc = 0;
 
 
 	return _Result;
@@ -475,17 +474,15 @@ ploc = 0;
 ///  <param name="ploc">[out][optional] - location of ptr after replacement</param>
 ///   <returns>dest string with substring replaced, or NULL if the substring not found or on error.</returns>
 public static String stringReplaceSubstr(
-				  String src, 
-				  String sub1, 
-				  String sub2, 
+				 String src, 
+				 String sub1, 
+				 String sub2, 
 				out int pfound, 
 				out int ploc){
 
 	String _Result = Natives.stringReplaceSubstr(  src,   sub1,   sub2, out  pfound, out  ploc);
 	
 
-pfound = 0;
-ploc = 0;
 
 
 	return _Result;
@@ -510,15 +507,14 @@ ploc = 0;
 ///  <param name="pcount">[out][optional] - the number of times that sub1 is found in src 0 if not found</param>
 ///   <returns>dest string with substring replaced, or NULL if the substring not found or on error.</returns>
 public static String stringReplaceEachSubstr(
-				  String src, 
-				  String sub1, 
-				  String sub2, 
+				 String src, 
+				 String sub1, 
+				 String sub2, 
 				out int pcount){
 
 	String _Result = Natives.stringReplaceEachSubstr(  src,   sub1,   sub2, out  pcount);
 	
 
-pcount = 0;
 
 
 	return _Result;
@@ -543,10 +539,10 @@ pcount = 0;
 ///  <param name="seqlen">[in] - length of sequence, in bytes</param>
 ///   <returns>dna of offsets where the sequence is found, or NULL if none are found or on error</returns>
 public static L_Dna arrayFindEachSequence(
-				  Byte[] data, 
-				  uint datalen, 
-				  Byte[] sequence, 
-				  uint seqlen){
+				 Byte[] data, 
+				 uint datalen, 
+				 Byte[] sequence, 
+				 uint seqlen){
 
 	IntPtr _Result = Natives.arrayFindEachSequence(  data,   datalen,   sequence,   seqlen);
 	
@@ -583,18 +579,16 @@ public static L_Dna arrayFindEachSequence(
 ///  <param name="pfound">[out] - 1 if sequence is found 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int arrayFindSequence(
-				  Byte[] data, 
-				  uint datalen, 
-				  Byte[] sequence, 
-				  uint seqlen, 
-				 out int poffset, 
-				 out int pfound){
+				 Byte[] data, 
+				 uint datalen, 
+				 Byte[] sequence, 
+				 uint seqlen, 
+				out int poffset, 
+				out int pfound){
 
 	int _Result = Natives.arrayFindSequence(  data,   datalen,   sequence,   seqlen, out  poffset, out  pfound);
 	
 
-poffset = 0;
-pfound = 0;
 
 
 	return _Result;
@@ -622,16 +616,16 @@ pfound = 0;
 ///  <param name="newsize">[in] - size of data to be reallocated in bytes</param>
 ///   <returns>ptr to new data, or NULL on error Action: !N.B. 3) and (4! 1 Allocates memory, initialized to 0 2 Copies as much of the input data as possible to the new block, truncating the copy if necessary 3 Frees the input data 4 Zeroes the input data ptr</returns>
 public static Object reallocNew(
-				 ref IntPtr[] pindata, 
-				  int oldsize, 
-				  int newsize){
+				ref IntPtr[] pindata, 
+				 int oldsize, 
+				 int newsize){
 
 		IntPtr pindataPtr = IntPtr.Zero; 	if (pindata != null){ pindataPtr =  	Marshal.AllocHGlobal(Marshal.SizeOf(pindata)); }
 
 	IntPtr _Result = Natives.reallocNew(ref  pindataPtr,   oldsize,   newsize);
 	
 
-pindata = null;
+	if (pindataPtr == null) {pindata = null;} else { pindata = null; };
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
 
@@ -648,13 +642,12 @@ pindata = null;
 ///  <param name="pnbytes">[out] - number of bytes read</param>
 ///   <returns>data, or NULL on error</returns>
 public static Byte[] l_binaryRead(
-				  String filename, 
-				 out uint pnbytes){
+				 String filename, 
+				out uint pnbytes){
 
 	Byte[] _Result = Natives.l_binaryRead(  filename, out  pnbytes);
 	
 
-pnbytes = 0;
 
 
 	return _Result;
@@ -689,13 +682,12 @@ pnbytes = 0;
 ///  <param name="pnbytes">[out] - number of bytes read</param>
 ///   <returns>null-terminated array, or NULL on error reading 0 bytes is not an error</returns>
 public static Byte[] l_binaryReadStream(
-				  FILE fp, 
-				 out uint pnbytes){
+				 FILE fp, 
+				out uint pnbytes){
 
 	Byte[] _Result = Natives.l_binaryReadStream(fp.Pointer, out  pnbytes);
 	
 
-pnbytes = 0;
 
 
 	return _Result;
@@ -717,15 +709,14 @@ pnbytes = 0;
 ///  <param name="pnread">[out] - number of bytes actually read</param>
 ///   <returns>data, or NULL on error</returns>
 public static Byte[] l_binaryReadSelect(
-				  String filename, 
-				  uint start, 
-				  uint nbytes, 
-				 out uint pnread){
+				 String filename, 
+				 uint start, 
+				 uint nbytes, 
+				out uint pnread){
 
 	Byte[] _Result = Natives.l_binaryReadSelect(  filename,   start,   nbytes, out  pnread);
 	
 
-pnread = 0;
 
 
 	return _Result;
@@ -752,15 +743,14 @@ pnread = 0;
 ///  <param name="pnread">[out] - number of bytes actually read</param>
 ///   <returns>null-terminated array, or NULL on error reading 0 bytes is not an error</returns>
 public static Byte[] l_binaryReadSelectStream(
-				  FILE fp, 
-				  uint start, 
-				  uint nbytes, 
-				 out uint pnread){
+				 FILE fp, 
+				 uint start, 
+				 uint nbytes, 
+				out uint pnread){
 
 	Byte[] _Result = Natives.l_binaryReadSelectStream(fp.Pointer,   start,   nbytes, out  pnread);
 	
 
-pnread = 0;
 
 
 	return _Result;
@@ -778,10 +768,10 @@ pnread = 0;
 ///  <param name="nbytes">[in] - size of data array</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int l_binaryWrite(
-				  String filename, 
-				  String operation, 
-				  Object data, 
-				  uint nbytes){
+				 String filename, 
+				 String operation, 
+				 Object data, 
+				 uint nbytes){
 
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -804,7 +794,7 @@ public static int l_binaryWrite(
 ///  <param name="filename">[in] - </param>
 ///   <returns>nbytes in file 0 on error</returns>
 public static uint nbytesInFile(
-				  String filename){
+				 String filename){
 
 	uint _Result = Natives.nbytesInFile(  filename);
 	
@@ -823,7 +813,7 @@ public static uint nbytesInFile(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>nbytes in file 0 on error</returns>
 public static uint fnbytesInFile(
-				  FILE fp){
+				 FILE fp){
 
 	uint _Result = Natives.fnbytesInFile(fp.Pointer);
 	
@@ -849,8 +839,8 @@ public static uint fnbytesInFile(
 ///  <param name="size">[in] - of data array</param>
 ///   <returns>datad on heap, or NULL on error</returns>
 public static Byte[] l_binaryCopy(
-				  Byte[] datas, 
-				  uint size){
+				 Byte[] datas, 
+				 uint size){
 
 	Byte[] _Result = Natives.l_binaryCopy(  datas,   size);
 	
@@ -870,8 +860,8 @@ public static Byte[] l_binaryCopy(
 ///  <param name="newfile">[in] - to this file</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fileCopy(
-				  String srcfile, 
-				  String newfile){
+				 String srcfile, 
+				 String newfile){
 
 	int _Result = Natives.fileCopy(  srcfile,   newfile);
 	
@@ -891,8 +881,8 @@ public static int fileCopy(
 ///  <param name="destfile">[in] - file to add to</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fileConcatenate(
-				  String srcfile, 
-				  String destfile){
+				 String srcfile, 
+				 String destfile){
 
 	int _Result = Natives.fileConcatenate(  srcfile,   destfile);
 	
@@ -912,8 +902,8 @@ public static int fileConcatenate(
 ///  <param name="str">[in] - string to append to file</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fileAppendString(
-				  String filename, 
-				  String str){
+				 String filename, 
+				 String str){
 
 	int _Result = Natives.fileAppendString(  filename,   str);
 	
@@ -939,7 +929,7 @@ public static int fileAppendString(
 ///  <param name="filename">[in] - </param>
 ///   <returns>stream, or NULL on error</returns>
 public static FILE fopenReadStream(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.fopenReadStream(  filename);
 	
@@ -967,8 +957,8 @@ public static FILE fopenReadStream(
 ///  <param name="modestring">[in] - </param>
 ///   <returns>stream, or NULL on error</returns>
 public static FILE fopenWriteStream(
-				  String filename, 
-				  String modestring){
+				 String filename, 
+				 String modestring){
 
 	IntPtr _Result = Natives.fopenWriteStream(  filename,   modestring);
 	
@@ -995,8 +985,8 @@ public static FILE fopenWriteStream(
 ///  <param name="size">[in] - </param>
 ///   <returns>file stream, or NULL on error</returns>
 public static FILE fopenReadFromMemory(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.fopenReadFromMemory(  data,   size);
 	
@@ -1044,8 +1034,8 @@ public static FILE fopenWriteWinTempfile(){
 ///  <param name="mode">[in] - same as for fopen() e.g., "rb"</param>
 ///   <returns>stream or NULL on error</returns>
 public static FILE lept_fopen(
-				  String filename, 
-				  String mode){
+				 String filename, 
+				 String mode){
 
 	IntPtr _Result = Natives.lept_fopen(  filename,   mode);
 	
@@ -1069,7 +1059,7 @@ public static FILE lept_fopen(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int lept_fclose(
-				  FILE fp){
+				 FILE fp){
 
 	int _Result = Natives.lept_fclose(fp.Pointer);
 	
@@ -1094,8 +1084,8 @@ public static int lept_fclose(
 ///  <param name="size">[in] - of each member</param>
 ///   <returns>void ptr, or NULL on error</returns>
 public static Object lept_calloc(
-				  uint nmemb, 
-				  uint size){
+				 uint nmemb, 
+				 uint size){
 
 	IntPtr _Result = Natives.lept_calloc(  nmemb,   size);
 	
@@ -1118,7 +1108,7 @@ public static Object lept_calloc(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/lept_free/*"/>
 ///  <param name="ptr">[in] - </param>
 public static void lept_free(
-				  Object ptr){
+				 Object ptr){
 
 		IntPtr ptrPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -1150,7 +1140,7 @@ public static void lept_free(
 ///  <param name="subdir">[in] - of /tmp or its equivalent on Windows</param>
 ///   <returns>0 on success, non-zero on failure</returns>
 public static int lept_mkdir(
-				  String subdir){
+				 String subdir){
 
 	int _Result = Natives.lept_mkdir(  subdir);
 	
@@ -1184,7 +1174,7 @@ public static int lept_mkdir(
 ///  <param name="subdir">[in] - of /tmp or its equivalent on Windows</param>
 ///   <returns>0 on success, non-zero on failure</returns>
 public static int lept_rmdir(
-				  String subdir){
+				 String subdir){
 
 	int _Result = Natives.lept_rmdir(  subdir);
 	
@@ -1211,13 +1201,12 @@ public static int lept_rmdir(
 ///  <param name="dir">[in] - </param>
 ///  <param name="pexists">[out] - 1 if it exists 0 otherwise</param>
 public static void lept_direxists(
-				  String dir, 
-				 out int pexists){
+				 String dir, 
+				out int pexists){
 
 	Natives.lept_direxists(  dir, out  pexists);
 	
 
-pexists = 0;
 
 
 }
@@ -1252,8 +1241,8 @@ pexists = 0;
 ///  <param name="substr">[in][optional] - pattern to match in filename</param>
 ///   <returns>0 on success, non-zero on failure</returns>
 public static int lept_rm_match(
-				  String subdir, 
-				  String substr){
+				 String subdir, 
+				 String substr){
 
 	int _Result = Natives.lept_rm_match(  subdir,   substr);
 	
@@ -1278,8 +1267,8 @@ public static int lept_rm_match(
 ///  <param name="tail">[in] - filename without the directory</param>
 ///   <returns>0 on success, non-zero on failure</returns>
 public static int lept_rm(
-				  String subdir, 
-				  String tail){
+				 String subdir, 
+				 String tail){
 
 	int _Result = Natives.lept_rm(  subdir,   tail);
 	
@@ -1309,7 +1298,7 @@ public static int lept_rm(
 ///  <param name="filepath">[in] - full path to file including the directory</param>
 ///   <returns>0 on success, non-zero on failure</returns>
 public static int lept_rmfile(
-				  String filepath){
+				 String filepath){
 
 	int _Result = Natives.lept_rmfile(  filepath);
 	
@@ -1359,7 +1348,7 @@ public static int lept_rmfile(
 ///  <param name="pnewpath">[out][optional] - of actual path can be NULL</param>
 ///   <returns>0 on success, non-zero on failure</returns>
 public static int lept_mv(
-				  String srcfile, 
+				 String srcfile, 
 				 String newdir, 
 				 String newtail, 
 				out String[] pnewpath){
@@ -1369,7 +1358,7 @@ public static int lept_mv(
 	int _Result = Natives.lept_mv(  srcfile,   newdir,   newtail, out  pnewpathPtr);
 	
 
-pnewpath = null;
+	if (pnewpathPtr == null) {pnewpath = null;} else { pnewpath = null; };
 
 
 	return _Result;
@@ -1415,7 +1404,7 @@ pnewpath = null;
 ///  <param name="pnewpath">[out][optional] - of actual path can be NULL</param>
 ///   <returns>0 on success, non-zero on failure</returns>
 public static int lept_cp(
-				  String srcfile, 
+				 String srcfile, 
 				 String newdir, 
 				 String newtail, 
 				out String[] pnewpath){
@@ -1425,7 +1414,7 @@ public static int lept_cp(
 	int _Result = Natives.lept_cp(  srcfile,   newdir,   newtail, out  pnewpathPtr);
 	
 
-pnewpath = null;
+	if (pnewpathPtr == null) {pnewpath = null;} else { pnewpath = null; };
 
 
 	return _Result;
@@ -1446,7 +1435,7 @@ pnewpath = null;
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/callSystemDebug/*"/>
 ///  <param name="cmd">[in] - command to be exec'd</param>
 public static void callSystemDebug(
-				  String cmd){
+				 String cmd){
 
 	Natives.callSystemDebug(  cmd);
 	
@@ -1486,7 +1475,7 @@ public static void callSystemDebug(
 ///  <param name="ptail">[out][optional] - path tail, which is either the file name within the root directory or the last sub-directory in the path</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int splitPathAtDirectory(
-				  String pathname, 
+				 String pathname, 
 				out String[] pdir, 
 				out String[] ptail){
 
@@ -1496,8 +1485,8 @@ public static int splitPathAtDirectory(
 	int _Result = Natives.splitPathAtDirectory(  pathname, out  pdirPtr, out  ptailPtr);
 	
 
-pdir = null;
-ptail = null;
+	if (pdirPtr == null) {pdir = null;} else { pdir = null; };
+	if (ptailPtr == null) {ptail = null;} else { ptail = null; };
 
 
 	return _Result;
@@ -1530,7 +1519,7 @@ ptail = null;
 ///  <param name="pextension">[out][optional] - path extension, which is the last dot and the characters after it.  If there is no extension, it returns the empty string</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int splitPathAtExtension(
-				  String pathname, 
+				 String pathname, 
 				out String[] pbasename, 
 				out String[] pextension){
 
@@ -1540,8 +1529,8 @@ public static int splitPathAtExtension(
 	int _Result = Natives.splitPathAtExtension(  pathname, out  pbasenamePtr, out  pextensionPtr);
 	
 
-pbasename = null;
-pextension = null;
+	if (pbasenamePtr == null) {pbasename = null;} else { pbasename = null; };
+	if (pextensionPtr == null) {pextension = null;} else { pextension = null; };
 
 
 	return _Result;
@@ -1592,8 +1581,8 @@ pextension = null;
 ///  <param name="fname">[in][optional] - can be null</param>
 ///   <returns>specially concatenated path, or NULL on error</returns>
 public static String pathJoin(
-				  String dir, 
-				  String fname){
+				 String dir, 
+				 String fname){
 
 	String _Result = Natives.pathJoin(  dir,   fname);
 	
@@ -1618,8 +1607,8 @@ public static String pathJoin(
 ///  <param name="subdirs">[in] - </param>
 ///   <returns>concatenated full directory path without trailing slash, or NULL on error</returns>
 public static String appendSubdirs(
-				  String basedir, 
-				  String subdirs){
+				 String basedir, 
+				 String subdirs){
 
 	String _Result = Natives.appendSubdirs(  basedir,   subdirs);
 	
@@ -1648,8 +1637,8 @@ public static String appendSubdirs(
 ///  <param name="type">[in] - UNIX_PATH_SEPCHAR, WIN_PATH_SEPCHAR</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertSepCharsInPath(
-				  String path, 
-				  int type){
+				 String path, 
+				 int type){
 
 	int _Result = Natives.convertSepCharsInPath(  path,   type);
 	
@@ -1698,8 +1687,8 @@ public static int convertSepCharsInPath(
 ///  <param name="fname">[in][optional] - file name within a directory</param>
 ///   <returns>pathname either a directory or full path, or NULL on error</returns>
 public static String genPathname(
-				  String dir, 
-				  String fname){
+				 String dir, 
+				 String fname){
 
 	String _Result = Natives.genPathname(  dir,   fname);
 	
@@ -1739,8 +1728,8 @@ public static String genPathname(
 ///  <param name="subdir">[in][optional] - can be NULL or an empty string</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int makeTempDirname(
-				  String result, 
-				  uint nbytes, 
+				 String result, 
+				 uint nbytes, 
 				 String subdir){
 
 	int _Result = Natives.makeTempDirname(  result,   nbytes,   subdir);
@@ -1765,9 +1754,9 @@ public static int makeTempDirname(
 ///  <param name="flag">[in] - L_ADD_TRAIL_SLASH or L_REMOVE_TRAIL_SLASH</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int modifyTrailingSlash(
-				  String path, 
-				  uint nbytes, 
-				  int flag){
+				 String path, 
+				 uint nbytes, 
+				 int flag){
 
 	int _Result = Natives.modifyTrailingSlash(  path,   nbytes,   flag);
 	
@@ -1835,9 +1824,9 @@ public static String l_makeTempFilename(){
 ///  <param name="numpost">[in] - number of characters after the digits to be found</param>
 ///   <returns>num number embedded in the filename -1 on error or if not found</returns>
 public static int extractNumberFromFilename(
-				  String fname, 
-				  int numpre, 
-				  int numpost){
+				 String fname, 
+				 int numpre, 
+				 int numpost){
 
 	int _Result = Natives.extractNumberFromFilename(  fname,   numpre,   numpost);
 	
@@ -1847,4 +1836,5 @@ public static int extractNumberFromFilename(
 	return _Result;
 }
 
+}
 }

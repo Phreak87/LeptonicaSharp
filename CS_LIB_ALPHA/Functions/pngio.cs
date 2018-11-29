@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // pngio.c (185, 1)
 // pixReadStreamPng(fp) as Pix
@@ -40,7 +41,7 @@ public class _All {
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixReadStreamPng(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.pixReadStreamPng(fp.Pointer);
 	
@@ -72,7 +73,7 @@ public static Pix pixReadStreamPng(
 ///  <param name="piscmap">[out][optional] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int readHeaderPng(
-				  String filename, 
+				 String filename, 
 				out int pw, 
 				out int ph, 
 				out int pbps, 
@@ -82,11 +83,6 @@ public static int readHeaderPng(
 	int _Result = Natives.readHeaderPng(  filename, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
 	
 
-pw = 0;
-ph = 0;
-pbps = 0;
-pspp = 0;
-piscmap = 0;
 
 
 	return _Result;
@@ -109,7 +105,7 @@ piscmap = 0;
 ///  <param name="piscmap">[out][optional] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int freadHeaderPng(
-				  FILE fp, 
+				 FILE fp, 
 				out int pw, 
 				out int ph, 
 				out int pbps, 
@@ -119,11 +115,6 @@ public static int freadHeaderPng(
 	int _Result = Natives.freadHeaderPng(fp.Pointer, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
 	
 
-pw = 0;
-ph = 0;
-pbps = 0;
-pspp = 0;
-piscmap = 0;
 
 
 	return _Result;
@@ -157,8 +148,8 @@ piscmap = 0;
 ///  <param name="piscmap">[out][optional] - input NULL to ignore</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int readHeaderMemPng(
-				  Byte[] data, 
-				  uint size, 
+				 Byte[] data, 
+				 uint size, 
 				out int pw, 
 				out int ph, 
 				out int pbps, 
@@ -168,11 +159,6 @@ public static int readHeaderMemPng(
 	int _Result = Natives.readHeaderMemPng(  data,   size, out  pw, out  ph, out  pbps, out  pspp, out  piscmap);
 	
 
-pw = 0;
-ph = 0;
-pbps = 0;
-pspp = 0;
-piscmap = 0;
 
 
 	return _Result;
@@ -186,9 +172,9 @@ piscmap = 0;
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fgetPngResolution/*"/>
 ///   <returns></returns>
 public static int fgetPngResolution(
-				  FILE fp, 
-				  object pxres, 
-				  object pyres){
+				 FILE fp, 
+				 object pxres, 
+				 object pyres){
 
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 
@@ -210,13 +196,12 @@ public static int fgetPngResolution(
 ///  <param name="pinterlaced">[out] - 1 if interlaced png 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int isPngInterlaced(
-				  String filename, 
-				 out int pinterlaced){
+				 String filename, 
+				out int pinterlaced){
 
 	int _Result = Natives.isPngInterlaced(  filename, out  pinterlaced);
 	
 
-pinterlaced = 0;
 
 
 	return _Result;
@@ -230,9 +215,9 @@ pinterlaced = 0;
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/fgetPngColormapInfo/*"/>
 ///   <returns></returns>
 public static int fgetPngColormapInfo(
-				  FILE fp, 
-				  PixColormap pcmap, 
-				  object ptransparency){
+				 FILE fp, 
+				 PixColormap pcmap, 
+				 object ptransparency){
 
 	IntPtr fpPtr = IntPtr.Zero; if (fp != null) {fpPtr = fp.Pointer;}
 	IntPtr pcmapPtr = IntPtr.Zero; 	if (pcmap != null) {pcmapPtr = pcmap.Pointer;}
@@ -260,9 +245,9 @@ public static int fgetPngColormapInfo(
 ///  <param name="gamma">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixWritePng(
-				  String filename, 
-				  Pix pix, 
-				  Single gamma){
+				 String filename, 
+				 Pix pix, 
+				 Single gamma){
 
 	int _Result = Natives.pixWritePng(  filename, pix.Pointer,   gamma);
 	
@@ -353,9 +338,9 @@ public static int pixWritePng(
 ///  <param name="gamma">[in] - use 0.0 if gamma is not defined</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixWriteStreamPng(
-				  FILE fp, 
-				  Pix pix, 
-				  Single gamma){
+				 FILE fp, 
+				 Pix pix, 
+				 Single gamma){
 
 	int _Result = Natives.pixWriteStreamPng(fp.Pointer, pix.Pointer,   gamma);
 	
@@ -388,8 +373,8 @@ public static int pixWriteStreamPng(
 ///  <param name="compval">[in] - zlib compression value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSetZlibCompression(
-				  Pix pix, 
-				  int compval){
+				 Pix pix, 
+				 int compval){
 
 	int _Result = Natives.pixSetZlibCompression(pix.Pointer,   compval);
 	
@@ -407,7 +392,7 @@ public static int pixSetZlibCompression(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_pngSetReadStrip16To8/*"/>
 ///  <param name="flag">[in] - 1 for stripping 16 bpp to 8 bpp on reading 0 for leaving 16 bpp</param>
 public static void l_pngSetReadStrip16To8(
-				  int flag){
+				 int flag){
 
 	Natives.l_pngSetReadStrip16To8(  flag);
 	
@@ -429,8 +414,8 @@ public static void l_pngSetReadStrip16To8(
 ///  <param name="filesize">[in] - number of bytes in data</param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixReadMemPng(
-				  Byte[] filedata, 
-				  uint filesize){
+				 Byte[] filedata, 
+				 uint filesize){
 
 	IntPtr _Result = Natives.pixReadMemPng(  filedata,   filesize);
 	
@@ -456,21 +441,21 @@ public static Pix pixReadMemPng(
 ///  <param name="gamma">[in] - use 0.0 if gamma is not defined</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixWriteMemPng(
-				 out Byte[] pfiledata, 
-				 out uint pfilesize, 
-				  Pix pix, 
-				  Single gamma){
+				out Byte[] pfiledata, 
+				out uint pfilesize, 
+				 Pix pix, 
+				 Single gamma){
 
 	IntPtr pfiledataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixWriteMemPng(out  pfiledataPtr, out  pfilesize, pix.Pointer,   gamma);
 	
 
-pfiledata = null;
-pfilesize = 0;
+	if (pfiledataPtr == null) {pfiledata = null;} else { pfiledata = null; };
 
 
 	return _Result;
 }
 
+}
 }

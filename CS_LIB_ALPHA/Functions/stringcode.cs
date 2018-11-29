@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // stringcode.c (156, 1)
 // strcodeCreate(fileno) as L_StrCode
@@ -20,7 +21,7 @@ public class _All {
 ///  <param name="fileno">[in] - integer that labels the two output files</param>
 ///   <returns>initialized L_StrCode, or NULL on error</returns>
 public static L_StrCode strcodeCreate(
-				  int fileno){
+				 int fileno){
 
 	IntPtr _Result = Natives.strcodeCreate(  fileno);
 	
@@ -50,8 +51,8 @@ public static L_StrCode strcodeCreate(
 ///  <param name="outdir">[in][optional] - if null, files are made in /tmp/lept/auto</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int strcodeCreateFromFile(
-				  String filein, 
-				  int fileno, 
+				 String filein, 
+				 int fileno, 
 				 String outdir){
 
 	int _Result = Natives.strcodeCreateFromFile(  filein,   fileno,   outdir);
@@ -82,9 +83,9 @@ public static int strcodeCreateFromFile(
 ///  <param name="type">[in] - of data use the typedef string</param>
 ///   <returns>0 if OK, 1 on error.</returns>
 public static int strcodeGenerate(
-				  L_StrCode strcode, 
-				  String filein, 
-				  String type){
+				 L_StrCode strcode, 
+				 String filein, 
+				 String type){
 
 	int _Result = Natives.strcodeGenerate(strcode.Pointer,   filein,   type);
 	
@@ -104,7 +105,7 @@ public static int strcodeGenerate(
 ///  <param name="outdir">[in][optional] - if NULL, files are made in /tmp/lept/auto</param>
 ///   <returns>void</returns>
 public static int strcodeFinalize(
-				 ref L_StrCode pstrcode, 
+				ref L_StrCode pstrcode, 
 				 String outdir){
 
 	IntPtr pstrcodePtr = IntPtr.Zero; 	if (pstrcode != null) {pstrcodePtr = pstrcode.Pointer;}
@@ -112,8 +113,7 @@ public static int strcodeFinalize(
 	int _Result = Natives.strcodeFinalize(ref pstrcodePtr,   outdir);
 	
 
-pstrcode = null;
-	; if (pstrcodePtr != IntPtr.Zero){pstrcode = new L_StrCode(pstrcodePtr);}
+	if (pstrcodePtr == null) {pstrcode = null;} else { pstrcode = new L_StrCode(pstrcodePtr); };
 
 
 	return _Result;
@@ -136,19 +136,20 @@ pstrcode = null;
 ///  <param name="pstr">[out] - struct string for this file</param>
 ///   <returns>0 if found, 1 on error.</returns>
 public static int l_getStructStrFromFile(
-				  String filename, 
-				  int field, 
-				 out String[] pstr){
+				 String filename, 
+				 int field, 
+				out String[] pstr){
 
 	IntPtr pstrPtr = IntPtr.Zero;
 
 	int _Result = Natives.l_getStructStrFromFile(  filename,   field, out  pstrPtr);
 	
 
-pstr = null;
+	if (pstrPtr == null) {pstr = null;} else { pstr = null; };
 
 
 	return _Result;
 }
 
+}
 }

@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // pixtiling.c (121, 1)
 // pixTilingCreate(pixs, nx, ny, w, h, xoverlap, yoverlap) as PixTiling
@@ -38,13 +39,13 @@ public class _All {
 ///  <param name="yoverlap">[in] - overlap into neighboring tiles above and below</param>
 ///   <returns>pixtiling, or NULL on error</returns>
 public static PixTiling pixTilingCreate(
-				  Pix pixs, 
-				  int nx, 
-				  int ny, 
-				  int w, 
-				  int h, 
-				  int xoverlap, 
-				  int yoverlap){
+				 Pix pixs, 
+				 int nx, 
+				 int ny, 
+				 int w, 
+				 int h, 
+				 int xoverlap, 
+				 int yoverlap){
 
 	IntPtr _Result = Natives.pixTilingCreate(pixs.Pointer,   nx,   ny,   w,   h,   xoverlap,   yoverlap);
 	
@@ -63,15 +64,14 @@ public static PixTiling pixTilingCreate(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixTilingDestroy/*"/>
 ///  <param name="ppt">[in,out] - will be set to null before returning</param>
 public static void pixTilingDestroy(
-				 ref PixTiling ppt){
+				ref PixTiling ppt){
 
 	IntPtr pptPtr = IntPtr.Zero; 	if (ppt != null) {pptPtr = ppt.Pointer;}
 
 	Natives.pixTilingDestroy(ref pptPtr);
 	
 
-ppt = null;
-	; if (pptPtr != IntPtr.Zero){ppt = new PixTiling(pptPtr);}
+	if (pptPtr == null) {ppt = null;} else { ppt = new PixTiling(pptPtr); };
 
 
 }
@@ -87,15 +87,13 @@ ppt = null;
 ///  <param name="pny">[out][optional] - ny can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixTilingGetCount(
-				  PixTiling pt, 
+				 PixTiling pt, 
 				out int pnx, 
 				out int pny){
 
 	int _Result = Natives.pixTilingGetCount(pt.Pointer, out  pnx, out  pny);
 	
 
-pnx = 0;
-pny = 0;
 
 
 	return _Result;
@@ -112,15 +110,13 @@ pny = 0;
 ///  <param name="ph">[out][optional] - tile height can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixTilingGetSize(
-				  PixTiling pt, 
+				 PixTiling pt, 
 				out int pw, 
 				out int ph){
 
 	int _Result = Natives.pixTilingGetSize(pt.Pointer, out  pw, out  ph);
 	
 
-pw = 0;
-ph = 0;
 
 
 	return _Result;
@@ -137,9 +133,9 @@ ph = 0;
 ///  <param name="j">[in] - tile column index</param>
 ///   <returns>pixd tile with appropriate boundary (overlap) pixels added, or NULL on error</returns>
 public static Pix pixTilingGetTile(
-				  PixTiling pt, 
-				  int i, 
-				  int j){
+				 PixTiling pt, 
+				 int i, 
+				 int j){
 
 	IntPtr _Result = Natives.pixTilingGetTile(pt.Pointer,   i,   j);
 	
@@ -166,7 +162,7 @@ public static Pix pixTilingGetTile(
 ///  <param name="pt">[in] - pixtiling</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixTilingNoStripOnPaint(
-				  PixTiling pt){
+				 PixTiling pt){
 
 	int _Result = Natives.pixTilingNoStripOnPaint(pt.Pointer);
 	
@@ -189,11 +185,11 @@ public static int pixTilingNoStripOnPaint(
 ///  <param name="pt">[in] - pixtiling struct</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixTilingPaintTile(
-				  Pix pixd, 
-				  int i, 
-				  int j, 
-				  Pix pixs, 
-				  PixTiling pt){
+				 Pix pixd, 
+				 int i, 
+				 int j, 
+				 Pix pixs, 
+				 PixTiling pt){
 
 	int _Result = Natives.pixTilingPaintTile(pixd.Pointer,   i,   j, pixs.Pointer, pt.Pointer);
 	
@@ -203,4 +199,5 @@ public static int pixTilingPaintTile(
 	return _Result;
 }
 
+}
 }

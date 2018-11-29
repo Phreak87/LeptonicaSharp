@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // compare.c (150, 1)
 // pixEqual(pix1, pix2, psame) as int
@@ -41,14 +42,13 @@ public class _All {
 ///  <param name="psame">[out] - 1 if same 0 if different</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixEqual(
-				  Pix pix1, 
-				  Pix pix2, 
-				 out int psame){
+				 Pix pix1, 
+				 Pix pix2, 
+				out int psame){
 
 	int _Result = Natives.pixEqual(pix1.Pointer, pix2.Pointer, out  psame);
 	
 
-psame = 0;
 
 
 	return _Result;
@@ -73,15 +73,14 @@ psame = 0;
 ///  <param name="psame">[out] - 1 if same 0 if different</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixEqualWithAlpha(
-				  Pix pix1, 
-				  Pix pix2, 
-				  int use_alpha, 
-				 out int psame){
+				 Pix pix1, 
+				 Pix pix2, 
+				 int use_alpha, 
+				out int psame){
 
 	int _Result = Natives.pixEqualWithAlpha(pix1.Pointer, pix2.Pointer,   use_alpha, out  psame);
 	
 
-psame = 0;
 
 
 	return _Result;
@@ -111,14 +110,13 @@ psame = 0;
 ///  <param name="psame">[out] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixEqualWithCmap(
-				  Pix pix1, 
-				  Pix pix2, 
-				 out int psame){
+				 Pix pix1, 
+				 Pix pix2, 
+				out int psame){
 
 	int _Result = Natives.pixEqualWithCmap(pix1.Pointer, pix2.Pointer, out  psame);
 	
 
-psame = 0;
 
 
 	return _Result;
@@ -142,15 +140,14 @@ psame = 0;
 ///  <param name="psame">[out] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int cmapEqual(
-				  PixColormap cmap1, 
-				  PixColormap cmap2, 
-				  int ncomps, 
-				 out int psame){
+				 PixColormap cmap1, 
+				 PixColormap cmap2, 
+				 int ncomps, 
+				out int psame){
 
 	int _Result = Natives.cmapEqual(cmap1.Pointer, cmap2.Pointer,   ncomps, out  psame);
 	
 
-psame = 0;
 
 
 	return _Result;
@@ -176,13 +173,12 @@ psame = 0;
 ///  <param name="pcolor">[out] - TRUE if color found</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixUsesCmapColor(
-				  Pix pixs, 
-				 out int pcolor){
+				 Pix pixs, 
+				out int pcolor){
 
 	int _Result = Natives.pixUsesCmapColor(pixs.Pointer, out  pcolor);
 	
 
-pcolor = 0;
 
 
 	return _Result;
@@ -213,14 +209,13 @@ pcolor = 0;
 ///  <param name="pval">[out] - correlation</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixCorrelationBinary(
-				  Pix pix1, 
-				  Pix pix2, 
-				 out Single pval){
+				 Pix pix1, 
+				 Pix pix2, 
+				out Single pval){
 
 	int _Result = Natives.pixCorrelationBinary(pix1.Pointer, pix2.Pointer, out  pval);
 	
 
-pval = 0f;
 
 
 	return _Result;
@@ -247,8 +242,8 @@ pval = 0f;
 ///  <param name="pix2">[in] - 1 bpp</param>
 ///   <returns>pixd 4 bpp cmapped, or NULL on error</returns>
 public static Pix pixDisplayDiffBinary(
-				  Pix pix1, 
-				  Pix pix2){
+				 Pix pix1, 
+				 Pix pix2){
 
 	IntPtr _Result = Natives.pixDisplayDiffBinary(pix1.Pointer, pix2.Pointer);
 	
@@ -280,10 +275,10 @@ public static Pix pixDisplayDiffBinary(
 ///  <param name="ppixdiff">[out][optional] - pix of difference</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixCompareBinary(
-				  Pix pix1, 
-				  Pix pix2, 
-				  int comptype, 
-				 out Single pfract, 
+				 Pix pix1, 
+				 Pix pix2, 
+				 int comptype, 
+				out Single pfract, 
 				out Pix ppixdiff){
 
 	IntPtr ppixdiffPtr = IntPtr.Zero;
@@ -291,9 +286,7 @@ public static int pixCompareBinary(
 	int _Result = Natives.pixCompareBinary(pix1.Pointer, pix2.Pointer,   comptype, out  pfract, out ppixdiffPtr);
 	
 
-pfract = 0f;
-ppixdiff = null;
-	; if (ppixdiffPtr != IntPtr.Zero){ppixdiff = new Pix(ppixdiffPtr);}
+	if (ppixdiffPtr == null) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
 
 
 	return _Result;
@@ -345,10 +338,10 @@ ppixdiff = null;
 ///  <param name="ppixdiff">[out][optional] - pix of difference</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixCompareGrayOrRGB(
-				  Pix pix1, 
-				  Pix pix2, 
-				  int comptype, 
-				  int plottype, 
+				 Pix pix1, 
+				 Pix pix2, 
+				 int comptype, 
+				 int plottype, 
 				out int psame, 
 				out Single pdiff, 
 				out Single prmsdiff, 
@@ -359,11 +352,7 @@ public static int pixCompareGrayOrRGB(
 	int _Result = Natives.pixCompareGrayOrRGB(pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out  prmsdiff, out ppixdiffPtr);
 	
 
-psame = 0;
-pdiff = 0f;
-prmsdiff = 0f;
-ppixdiff = null;
-	; if (ppixdiffPtr != IntPtr.Zero){ppixdiff = new Pix(ppixdiffPtr);}
+	if (ppixdiffPtr == null) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
 
 
 	return _Result;
@@ -393,10 +382,10 @@ ppixdiff = null;
 ///  <param name="ppixdiff">[out][optional] - pix of difference</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixCompareGray(
-				  Pix pix1, 
-				  Pix pix2, 
-				  int comptype, 
-				  int plottype, 
+				 Pix pix1, 
+				 Pix pix2, 
+				 int comptype, 
+				 int plottype, 
 				out int psame, 
 				out Single pdiff, 
 				out Single prmsdiff, 
@@ -407,11 +396,7 @@ public static int pixCompareGray(
 	int _Result = Natives.pixCompareGray(pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out  prmsdiff, out ppixdiffPtr);
 	
 
-psame = 0;
-pdiff = 0f;
-prmsdiff = 0f;
-ppixdiff = null;
-	; if (ppixdiffPtr != IntPtr.Zero){ppixdiff = new Pix(ppixdiffPtr);}
+	if (ppixdiffPtr == null) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
 
 
 	return _Result;
@@ -439,10 +424,10 @@ ppixdiff = null;
 ///  <param name="ppixdiff">[out][optional] - pix of difference</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixCompareRGB(
-				  Pix pix1, 
-				  Pix pix2, 
-				  int comptype, 
-				  int plottype, 
+				 Pix pix1, 
+				 Pix pix2, 
+				 int comptype, 
+				 int plottype, 
 				out int psame, 
 				out Single pdiff, 
 				out Single prmsdiff, 
@@ -453,11 +438,7 @@ public static int pixCompareRGB(
 	int _Result = Natives.pixCompareRGB(pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out  prmsdiff, out ppixdiffPtr);
 	
 
-psame = 0;
-pdiff = 0f;
-prmsdiff = 0f;
-ppixdiff = null;
-	; if (ppixdiffPtr != IntPtr.Zero){ppixdiff = new Pix(ppixdiffPtr);}
+	if (ppixdiffPtr == null) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
 
 
 	return _Result;
@@ -492,20 +473,19 @@ ppixdiff = null;
 ///  <param name="ppixdiff">[out] - pix of difference</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixCompareTiled(
-				  Pix pix1, 
-				  Pix pix2, 
-				  int sx, 
-				  int sy, 
-				  int type, 
-				 out Pix ppixdiff){
+				 Pix pix1, 
+				 Pix pix2, 
+				 int sx, 
+				 int sy, 
+				 int type, 
+				out Pix ppixdiff){
 
 	IntPtr ppixdiffPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixCompareTiled(pix1.Pointer, pix2.Pointer,   sx,   sy,   type, out ppixdiffPtr);
 	
 
-ppixdiff = null;
-	; if (ppixdiffPtr != IntPtr.Zero){ppixdiff = new Pix(ppixdiffPtr);}
+	if (ppixdiffPtr == null) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
 
 
 	return _Result;
@@ -541,9 +521,9 @@ ppixdiff = null;
 ///  <param name="factor">[in] - subsampling factor use 0 or 1 for no subsampling</param>
 ///   <returns>narank      numa of rank difference, or NULL on error</returns>
 public static Numa pixCompareRankDifference(
-				  Pix pix1, 
-				  Pix pix2, 
-				  int factor){
+				 Pix pix1, 
+				 Pix pix2, 
+				 int factor){
 
 	IntPtr _Result = Natives.pixCompareRankDifference(pix1.Pointer, pix2.Pointer,   factor);
 	
@@ -605,19 +585,18 @@ public static Numa pixCompareRankDifference(
 ///  <param name="details">[in] - use 1 to give normalized histogram and other data</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixTestForSimilarity(
-				  Pix pix1, 
-				  Pix pix2, 
-				  int factor, 
-				  int mindiff, 
-				  Single maxfract, 
-				  Single maxave, 
-				 out int psimilar, 
-				  int details){
+				 Pix pix1, 
+				 Pix pix2, 
+				 int factor, 
+				 int mindiff, 
+				 Single maxfract, 
+				 Single maxave, 
+				out int psimilar, 
+				 int details){
 
 	int _Result = Natives.pixTestForSimilarity(pix1.Pointer, pix2.Pointer,   factor,   mindiff,   maxfract,   maxave, out  psimilar,   details);
 	
 
-psimilar = 0;
 
 
 	return _Result;
@@ -668,19 +647,17 @@ psimilar = 0;
 ///  <param name="details">[in] - use 1 to give normalized histogram and other data</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetDifferenceStats(
-				  Pix pix1, 
-				  Pix pix2, 
-				  int factor, 
-				  int mindiff, 
-				 out Single pfractdiff, 
-				 out Single pavediff, 
-				  int details){
+				 Pix pix1, 
+				 Pix pix2, 
+				 int factor, 
+				 int mindiff, 
+				out Single pfractdiff, 
+				out Single pavediff, 
+				 int details){
 
 	int _Result = Natives.pixGetDifferenceStats(pix1.Pointer, pix2.Pointer,   factor,   mindiff, out  pfractdiff, out  pavediff,   details);
 	
 
-pfractdiff = 0f;
-pavediff = 0f;
 
 
 	return _Result;
@@ -708,9 +685,9 @@ pavediff = 0f;
 ///  <param name="factor">[in] - subsampling factor use 0 or 1 for no subsampling</param>
 ///   <returns>na     Numa of histogram of differences, or NULL on error</returns>
 public static Numa pixGetDifferenceHistogram(
-				  Pix pix1, 
-				  Pix pix2, 
-				  int factor){
+				 Pix pix1, 
+				 Pix pix2, 
+				 int factor){
 
 	IntPtr _Result = Natives.pixGetDifferenceHistogram(pix1.Pointer, pix2.Pointer,   factor);
 	
@@ -774,12 +751,12 @@ public static Numa pixGetDifferenceHistogram(
 ///  <param name="ppixdiff2">[out][optional] - showing pixels of sufficient diff</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetPerceptualDiff(
-				  Pix pixs1, 
-				  Pix pixs2, 
-				  int sampling, 
-				  int dilation, 
-				  int mindiff, 
-				 out Single pfract, 
+				 Pix pixs1, 
+				 Pix pixs2, 
+				 int sampling, 
+				 int dilation, 
+				 int mindiff, 
+				out Single pfract, 
 				out Pix ppixdiff1, 
 				out Pix ppixdiff2){
 
@@ -789,11 +766,8 @@ public static int pixGetPerceptualDiff(
 	int _Result = Natives.pixGetPerceptualDiff(pixs1.Pointer, pixs2.Pointer,   sampling,   dilation,   mindiff, out  pfract, out ppixdiff1Ptr, out ppixdiff2Ptr);
 	
 
-pfract = 0f;
-ppixdiff1 = null;
-	; if (ppixdiff1Ptr != IntPtr.Zero){ppixdiff1 = new Pix(ppixdiff1Ptr);}
-ppixdiff2 = null;
-	; if (ppixdiff2Ptr != IntPtr.Zero){ppixdiff2 = new Pix(ppixdiff2Ptr);}
+	if (ppixdiff1Ptr == null) {ppixdiff1 = null;} else { ppixdiff1 = new Pix(ppixdiff1Ptr); };
+	if (ppixdiff2Ptr == null) {ppixdiff2 = null;} else { ppixdiff2 = new Pix(ppixdiff2Ptr); };
 
 
 	return _Result;
@@ -833,15 +807,14 @@ ppixdiff2 = null;
 ///  <param name="ppsnr">[out] - power signal/noise ratio difference</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetPSNR(
-				  Pix pix1, 
-				  Pix pix2, 
-				  int factor, 
-				 out Single ppsnr){
+				 Pix pix1, 
+				 Pix pix2, 
+				 int factor, 
+				out Single ppsnr){
 
 	int _Result = Natives.pixGetPSNR(pix1.Pointer, pix2.Pointer,   factor, out  ppsnr);
 	
 
-ppsnr = 0f;
 
 
 	return _Result;
@@ -896,14 +869,14 @@ ppsnr = 0f;
 ///  <param name="debug">[in] - 1 to output histograms 0 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaComparePhotoRegionsByHisto(
-				  Pixa pixa, 
-				  Single minratio, 
-				  Single textthresh, 
-				  int factor, 
-				  int nx, 
-				  int ny, 
-				  Single simthresh, 
-				 out Numa pnai, 
+				 Pixa pixa, 
+				 Single minratio, 
+				 Single textthresh, 
+				 int factor, 
+				 int nx, 
+				 int ny, 
+				 Single simthresh, 
+				out Numa pnai, 
 				out List<Single[]> pscores, 
 				out Pix ppixd, 
 				 DebugOnOff debug){
@@ -915,11 +888,9 @@ public static int pixaComparePhotoRegionsByHisto(
 	int _Result = Natives.pixaComparePhotoRegionsByHisto(pixa.Pointer,   minratio,   textthresh,   factor,   nx,   ny,   simthresh, out pnaiPtr, out  pscoresPtr, out ppixdPtr,  (int) debug);
 	
 
-pnai = null;
-	; if (pnaiPtr != IntPtr.Zero){pnai = new Numa(pnaiPtr);}
-pscores = null;
-ppixd = null;
-	; if (ppixdPtr != IntPtr.Zero){ppixd = new Pix(ppixdPtr);}
+	if (pnaiPtr == null) {pnai = null;} else { pnai = new Numa(pnaiPtr); };
+	if (pscoresPtr == null) {pscores = null;} else { pscores = null; };
+	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -987,16 +958,16 @@ ppixd = null;
 ///  <param name="debugflag">[in] - 1 for debug output 0 for no debugging</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixComparePhotoRegionsByHisto(
-				  Pix pix1, 
-				  Pix pix2, 
-				  Box box1, 
-				  Box box2, 
-				  Single minratio, 
-				  int factor, 
-				  int nx, 
-				  int ny, 
-				 out Single pscore, 
-				  int debugflag){
+				 Pix pix1, 
+				 Pix pix2, 
+				 Box box1, 
+				 Box box2, 
+				 Single minratio, 
+				 int factor, 
+				 int nx, 
+				 int ny, 
+				out Single pscore, 
+				 int debugflag){
 
 	IntPtr box1Ptr = IntPtr.Zero; 	if (box1 != null) {box1Ptr = box1.Pointer;}
 	IntPtr box2Ptr = IntPtr.Zero; 	if (box2 != null) {box2Ptr = box2.Pointer;}
@@ -1004,7 +975,6 @@ public static int pixComparePhotoRegionsByHisto(
 	int _Result = Natives.pixComparePhotoRegionsByHisto(pix1.Pointer, pix2.Pointer, box1Ptr, box2Ptr,   minratio,   factor,   nx,   ny, out  pscore,   debugflag);
 	
 
-pscore = 0f;
 
 
 	return _Result;
@@ -1046,16 +1016,16 @@ pscore = 0f;
 ///  <param name="debugindex">[in] - 0 for no debugging positive integer otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGenPhotoHistos(
-				  Pix pixs, 
-				  Box box, 
-				  int factor, 
-				  Single thresh, 
-				  int nx, 
-				  int ny, 
-				 out Numaa pnaa, 
-				 out int pw, 
-				 out int ph, 
-				  int debugindex){
+				 Pix pixs, 
+				 Box box, 
+				 int factor, 
+				 Single thresh, 
+				 int nx, 
+				 int ny, 
+				out Numaa pnaa, 
+				out int pw, 
+				out int ph, 
+				 int debugindex){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 	IntPtr pnaaPtr = IntPtr.Zero;
@@ -1063,10 +1033,7 @@ public static int pixGenPhotoHistos(
 	int _Result = Natives.pixGenPhotoHistos(pixs.Pointer, boxPtr,   factor,   thresh,   nx,   ny, out pnaaPtr, out  pw, out  ph,   debugindex);
 	
 
-pnaa = null;
-	; if (pnaaPtr != IntPtr.Zero){pnaa = new Numaa(pnaaPtr);}
-pw = 0;
-ph = 0;
+	if (pnaaPtr == null) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
 
 
 	return _Result;
@@ -1088,8 +1055,8 @@ ph = 0;
 ///  <param name="factor">[in] - subsampling for centroid greater or equal 1</param>
 ///   <returns>pixd padded with white pixels, or NULL on error.</returns>
 public static Pix pixPadToCenterCentroid(
-				  Pix pixs, 
-				  int factor){
+				 Pix pixs, 
+				 int factor){
 
 	IntPtr _Result = Natives.pixPadToCenterCentroid(pixs.Pointer,   factor);
 	
@@ -1119,16 +1086,14 @@ public static Pix pixPadToCenterCentroid(
 ///  <param name="pcy">[out] - y value of centroid</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixCentroid8(
-				  Pix pixs, 
-				  int factor, 
-				 out Single pcx, 
-				 out Single pcy){
+				 Pix pixs, 
+				 int factor, 
+				out Single pcx, 
+				out Single pcy){
 
 	int _Result = Natives.pixCentroid8(pixs.Pointer,   factor, out  pcx, out  pcy);
 	
 
-pcx = 0f;
-pcy = 0f;
 
 
 	return _Result;
@@ -1167,12 +1132,12 @@ pcy = 0f;
 ///  <param name="pixadebug">[in][optional] - use only for debug output</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixDecideIfPhotoImage(
-				  Pix pix, 
-				  int factor, 
-				  int nx, 
-				  int ny, 
-				  Single thresh, 
-				 out Numaa pnaa, 
+				 Pix pix, 
+				 int factor, 
+				 int nx, 
+				 int ny, 
+				 Single thresh, 
+				out Numaa pnaa, 
 				 Pixa pixadebug){
 
 	IntPtr pnaaPtr = IntPtr.Zero;
@@ -1181,8 +1146,7 @@ public static int pixDecideIfPhotoImage(
 	int _Result = Natives.pixDecideIfPhotoImage(pix.Pointer,   factor,   nx,   ny,   thresh, out pnaaPtr, pixadebugPtr);
 	
 
-pnaa = null;
-	; if (pnaaPtr != IntPtr.Zero){pnaa = new Numaa(pnaaPtr);}
+	if (pnaaPtr == null) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
 
 
 	return _Result;
@@ -1217,14 +1181,14 @@ pnaa = null;
 ///  <param name="pixadebug">[in][optional] - use only for debug output</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int compareTilesByHisto(
-				  Numaa naa1, 
-				  Numaa naa2, 
-				  Single minratio, 
-				  int w1, 
-				  int h1, 
-				  int w2, 
-				  int h2, 
-				 out Single pscore, 
+				 Numaa naa1, 
+				 Numaa naa2, 
+				 Single minratio, 
+				 int w1, 
+				 int h1, 
+				 int w2, 
+				 int h2, 
+				out Single pscore, 
 				 Pixa pixadebug){
 
 	IntPtr pixadebugPtr = IntPtr.Zero; 	if (pixadebug != null) {pixadebugPtr = pixadebug.Pointer;}
@@ -1232,7 +1196,6 @@ public static int compareTilesByHisto(
 	int _Result = Natives.compareTilesByHisto(naa1.Pointer, naa2.Pointer,   minratio,   w1,   h1,   w2,   h2, out  pscore, pixadebugPtr);
 	
 
-pscore = 0f;
 
 
 	return _Result;
@@ -1312,17 +1275,17 @@ pscore = 0f;
 ///  <param name="debugflag">[in] - 1 for debug output 0 for no debugging</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixCompareGrayByHisto(
-				  Pix pix1, 
-				  Pix pix2, 
-				  Box box1, 
-				  Box box2, 
-				  Single minratio, 
-				  int maxgray, 
-				  int factor, 
-				  int nx, 
-				  int ny, 
-				 out Single pscore, 
-				  int debugflag){
+				 Pix pix1, 
+				 Pix pix2, 
+				 Box box1, 
+				 Box box2, 
+				 Single minratio, 
+				 int maxgray, 
+				 int factor, 
+				 int nx, 
+				 int ny, 
+				out Single pscore, 
+				 int debugflag){
 
 	IntPtr box1Ptr = IntPtr.Zero; 	if (box1 != null) {box1Ptr = box1.Pointer;}
 	IntPtr box2Ptr = IntPtr.Zero; 	if (box2 != null) {box2Ptr = box2.Pointer;}
@@ -1330,7 +1293,6 @@ public static int pixCompareGrayByHisto(
 	int _Result = Natives.pixCompareGrayByHisto(pix1.Pointer, pix2.Pointer, box1Ptr, box2Ptr,   minratio,   maxgray,   factor,   nx,   ny, out  pscore,   debugflag);
 	
 
-pscore = 0f;
 
 
 	return _Result;
@@ -1354,11 +1316,11 @@ pscore = 0f;
 ///  <param name="pbox2">[out] - crop box for pix2</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixCropAlignedToCentroid(
-				  Pix pix1, 
-				  Pix pix2, 
-				  int factor, 
-				 out Box pbox1, 
-				 out Box pbox2){
+				 Pix pix1, 
+				 Pix pix2, 
+				 int factor, 
+				out Box pbox1, 
+				out Box pbox2){
 
 	IntPtr pbox1Ptr = IntPtr.Zero;
 	IntPtr pbox2Ptr = IntPtr.Zero;
@@ -1366,10 +1328,8 @@ public static int pixCropAlignedToCentroid(
 	int _Result = Natives.pixCropAlignedToCentroid(pix1.Pointer, pix2.Pointer,   factor, out pbox1Ptr, out pbox2Ptr);
 	
 
-pbox1 = null;
-	; if (pbox1Ptr != IntPtr.Zero){pbox1 = new Box(pbox1Ptr);}
-pbox2 = null;
-	; if (pbox2Ptr != IntPtr.Zero){pbox2 = new Box(pbox2Ptr);}
+	if (pbox1Ptr == null) {pbox1 = null;} else { pbox1 = new Box(pbox1Ptr); };
+	if (pbox2Ptr == null) {pbox2 = null;} else { pbox2 = new Box(pbox2Ptr); };
 
 
 	return _Result;
@@ -1400,15 +1360,14 @@ pbox2 = null;
 ///  <param name="psize">[out] - size of byte array</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static Byte[] l_compressGrayHistograms(
-				  Numaa naa, 
-				  int w, 
-				  int h, 
-				 out uint psize){
+				 Numaa naa, 
+				 int w, 
+				 int h, 
+				out uint psize){
 
 	Byte[] _Result = Natives.l_compressGrayHistograms(naa.Pointer,   w,   h, out  psize);
 	
 
-psize = 0;
 
 
 	return _Result;
@@ -1435,16 +1394,14 @@ psize = 0;
 ///  <param name="ph">[out] - height of the image</param>
 ///   <returns>numaa     representing N histograms, each with 256 bins, or NULL on error.</returns>
 public static Numaa l_uncompressGrayHistograms(
-				  Byte[] bytea, 
-				  uint size, 
-				 out int pw, 
-				 out int ph){
+				 Byte[] bytea, 
+				 uint size, 
+				out int pw, 
+				out int ph){
 
 	IntPtr _Result = Natives.l_uncompressGrayHistograms(  bytea,   size, out  pw, out  ph);
 	
 
-pw = 0;
-ph = 0;
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -1486,20 +1443,17 @@ ph = 0;
 ///  <param name="debugflag">[in] - 1 for debug output 0 for no debugging</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixCompareWithTranslation(
-				  Pix pix1, 
-				  Pix pix2, 
-				  int thresh, 
-				 out int pdelx, 
-				 out int pdely, 
-				 out Single pscore, 
-				  int debugflag){
+				 Pix pix1, 
+				 Pix pix2, 
+				 int thresh, 
+				out int pdelx, 
+				out int pdely, 
+				out Single pscore, 
+				 int debugflag){
 
 	int _Result = Natives.pixCompareWithTranslation(pix1.Pointer, pix2.Pointer,   thresh, out  pdelx, out  pdely, out  pscore,   debugflag);
 	
 
-pdelx = 0;
-pdely = 0;
-pscore = 0f;
 
 
 	return _Result;
@@ -1546,28 +1500,26 @@ pscore = 0f;
 ///  <param name="debugflag">[in] - smaller or equal 0 to skip positive to generate output. The integer is used to label the debug image.</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixBestCorrelation(
-				  Pix pix1, 
-				  Pix pix2, 
-				  int area1, 
-				  int area2, 
-				  int etransx, 
-				  int etransy, 
-				  int maxshift, 
-				  int[] tab8, 
-				 out int pdelx, 
-				 out int pdely, 
-				 out Single pscore, 
-				  int debugflag){
+				 Pix pix1, 
+				 Pix pix2, 
+				 int area1, 
+				 int area2, 
+				 int etransx, 
+				 int etransy, 
+				 int maxshift, 
+				 int[] tab8, 
+				out int pdelx, 
+				out int pdely, 
+				out Single pscore, 
+				 int debugflag){
 
 	int _Result = Natives.pixBestCorrelation(pix1.Pointer, pix2.Pointer,   area1,   area2,   etransx,   etransy,   maxshift,   tab8, out  pdelx, out  pdely, out  pscore,   debugflag);
 	
 
-pdelx = 0;
-pdely = 0;
-pscore = 0f;
 
 
 	return _Result;
 }
 
+}
 }

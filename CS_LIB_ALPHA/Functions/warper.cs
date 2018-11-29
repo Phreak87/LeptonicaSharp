@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // warper.c (107, 1)
 // pixSimpleCaptcha(pixs, border, nterms, seed, color, cmapflag) as Pix
@@ -25,12 +26,12 @@ public class _All {
 ///  <param name="cmapflag">[in] - 1 for colormap output 0 for rgb</param>
 ///   <returns>pixd 8 bpp cmap or 32 bpp rgb, or NULL on error</returns>
 public static Pix pixSimpleCaptcha(
-				  Pix pixs, 
-				  int border, 
-				  int nterms, 
-				  uint seed, 
-				  uint color, 
-				  int cmapflag){
+				 Pix pixs, 
+				 int border, 
+				 int nterms, 
+				 uint seed, 
+				 uint color, 
+				 int cmapflag){
 
 	IntPtr _Result = Natives.pixSimpleCaptcha(pixs.Pointer,   border,   nterms,   seed,   color,   cmapflag);
 	
@@ -80,15 +81,15 @@ public static Pix pixSimpleCaptcha(
 ///  <param name="grayval">[in] - color brought in from the outside 0 for black, 255 for white</param>
 ///   <returns>pixd 8 bpp no colormap, or NULL on error</returns>
 public static Pix pixRandomHarmonicWarp(
-				  Pix pixs, 
-				  Single xmag, 
-				  Single ymag, 
-				  Single xfreq, 
-				  Single yfreq, 
-				  int nx, 
-				  int ny, 
-				  uint seed, 
-				  int grayval){
+				 Pix pixs, 
+				 Single xmag, 
+				 Single ymag, 
+				 Single xfreq, 
+				 Single yfreq, 
+				 int nx, 
+				 int ny, 
+				 uint seed, 
+				 int grayval){
 
 	IntPtr _Result = Natives.pixRandomHarmonicWarp(pixs.Pointer,   xmag,   ymag,   xfreq,   yfreq,   nx,   ny,   seed,   grayval);
 	
@@ -184,13 +185,13 @@ public static Pix pixRandomHarmonicWarp(
 ///  <param name="redleft">[in] - 1 if the red filter is on the left 0 otherwise</param>
 ///   <returns>pixd 32 bpp, or NULL on error</returns>
 public static Pix pixWarpStereoscopic(
-				  Pix pixs, 
-				  int zbend, 
-				  int zshiftt, 
-				  int zshiftb, 
-				  int ybendt, 
-				  int ybendb, 
-				  int redleft){
+				 Pix pixs, 
+				 int zbend, 
+				 int zshiftt, 
+				 int zshiftb, 
+				 int ybendt, 
+				 int ybendb, 
+				 int redleft){
 
 	IntPtr _Result = Natives.pixWarpStereoscopic(pixs.Pointer,   zbend,   zshiftt,   zshiftb,   ybendt,   ybendb,   redleft);
 	
@@ -233,12 +234,12 @@ public static Pix pixWarpStereoscopic(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE or L_BRING_IN_BLACK</param>
 ///   <returns>pixd stretched/compressed, or NULL on error</returns>
 public static Pix pixStretchHorizontal(
-				  Pix pixs, 
-				  int dir, 
-				  int type, 
-				  int hmax, 
-				  int operation, 
-				  int incolor){
+				 Pix pixs, 
+				 int dir, 
+				 int type, 
+				 int hmax, 
+				 int operation, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixStretchHorizontal(pixs.Pointer,   dir,   type,   hmax,   operation,   incolor);
 	
@@ -265,11 +266,11 @@ public static Pix pixStretchHorizontal(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE or L_BRING_IN_BLACK</param>
 ///   <returns>pixd stretched/compressed, or NULL on error</returns>
 public static Pix pixStretchHorizontalSampled(
-				  Pix pixs, 
-				  int dir, 
-				  int type, 
-				  int hmax, 
-				  int incolor){
+				 Pix pixs, 
+				 int dir, 
+				 int type, 
+				 int hmax, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixStretchHorizontalSampled(pixs.Pointer,   dir,   type,   hmax,   incolor);
 	
@@ -296,11 +297,11 @@ public static Pix pixStretchHorizontalSampled(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE or L_BRING_IN_BLACK</param>
 ///   <returns>pixd stretched/compressed, or NULL on error</returns>
 public static Pix pixStretchHorizontalLI(
-				  Pix pixs, 
-				  int dir, 
-				  int type, 
-				  int hmax, 
-				  int incolor){
+				 Pix pixs, 
+				 int dir, 
+				 int type, 
+				 int hmax, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixStretchHorizontalLI(pixs.Pointer,   dir,   type,   hmax,   incolor);
 	
@@ -345,12 +346,12 @@ public static Pix pixStretchHorizontalLI(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE or L_BRING_IN_BLACK</param>
 ///   <returns>pixd stretched, or NULL on error</returns>
 public static Pix pixQuadraticVShear(
-				  Pix pixs, 
-				  int dir, 
-				  int vmaxt, 
-				  int vmaxb, 
-				  int operation, 
-				  int incolor){
+				 Pix pixs, 
+				 int dir, 
+				 int vmaxt, 
+				 int vmaxb, 
+				 int operation, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixQuadraticVShear(pixs.Pointer,   dir,   vmaxt,   vmaxb,   operation,   incolor);
 	
@@ -377,11 +378,11 @@ public static Pix pixQuadraticVShear(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE or L_BRING_IN_BLACK</param>
 ///   <returns>pixd stretched, or NULL on error</returns>
 public static Pix pixQuadraticVShearSampled(
-				  Pix pixs, 
-				  int dir, 
-				  int vmaxt, 
-				  int vmaxb, 
-				  int incolor){
+				 Pix pixs, 
+				 int dir, 
+				 int vmaxt, 
+				 int vmaxb, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixQuadraticVShearSampled(pixs.Pointer,   dir,   vmaxt,   vmaxb,   incolor);
 	
@@ -408,11 +409,11 @@ public static Pix pixQuadraticVShearSampled(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE or L_BRING_IN_BLACK</param>
 ///   <returns>pixd stretched, or NULL on error</returns>
 public static Pix pixQuadraticVShearLI(
-				  Pix pixs, 
-				  int dir, 
-				  int vmaxt, 
-				  int vmaxb, 
-				  int incolor){
+				 Pix pixs, 
+				 int dir, 
+				 int vmaxt, 
+				 int vmaxb, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixQuadraticVShearLI(pixs.Pointer,   dir,   vmaxt,   vmaxb,   incolor);
 	
@@ -459,11 +460,11 @@ public static Pix pixQuadraticVShearLI(
 ///  <param name="bwt">[in] - weighting factors used for each component in                                pix1 to determine the output red channel</param>
 ///   <returns>pixd stereo enhanced, or NULL on error</returns>
 public static Pix pixStereoFromPair(
-				  Pix pix1, 
-				  Pix pix2, 
-				  Single rwt, 
-				  Single gwt, 
-				  Single bwt){
+				 Pix pix1, 
+				 Pix pix2, 
+				 Single rwt, 
+				 Single gwt, 
+				 Single bwt){
 
 	IntPtr _Result = Natives.pixStereoFromPair(pix1.Pointer, pix2.Pointer,   rwt,   gwt,   bwt);
 	
@@ -474,4 +475,5 @@ public static Pix pixStereoFromPair(
 	return  new Pix(_Result);
 }
 
+}
 }

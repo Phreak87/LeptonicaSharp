@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // queue.c (90, 1)
 // lqueueCreate(nalloc) as L_Queue
@@ -17,7 +18,7 @@ public class _All {
 ///  <param name="nalloc">[in] - size of ptr array to be alloc'd 0 for default</param>
 ///   <returns>lqueue, or NULL on error</returns>
 public static L_Queue lqueueCreate(
-				  int nalloc){
+				 int nalloc){
 
 	IntPtr _Result = Natives.lqueueCreate(  nalloc);
 	
@@ -50,16 +51,15 @@ public static L_Queue lqueueCreate(
 ///  <param name="plq">[in,out] - to be nulled</param>
 ///  <param name="freeflag">[in] - TRUE to free each remaining struct in the array</param>
 public static void lqueueDestroy(
-				 ref L_Queue plq, 
-				  int freeflag){
+				ref L_Queue plq, 
+				 int freeflag){
 
 	IntPtr plqPtr = IntPtr.Zero; 	if (plq != null) {plqPtr = plq.Pointer;}
 
 	Natives.lqueueDestroy(ref plqPtr,   freeflag);
 	
 
-plq = null;
-	; if (plqPtr != IntPtr.Zero){plq = new L_Queue(plqPtr);}
+	if (plqPtr == null) {plq = null;} else { plq = new L_Queue(plqPtr); };
 
 
 }
@@ -82,8 +82,8 @@ plq = null;
 ///  <param name="item">[in] - to be added to the tail of the queue</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int lqueueAdd(
-				  L_Queue lq, 
-				  Object item){
+				 L_Queue lq, 
+				 Object item){
 
 		IntPtr itemPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -110,7 +110,7 @@ public static int lqueueAdd(
 ///  <param name="lq">[in] - lqueue</param>
 ///   <returns>ptr to item popped from the head of the queue, or NULL if the queue is empty or on error</returns>
 public static Object lqueueRemove(
-				  L_Queue lq){
+				 L_Queue lq){
 
 	IntPtr _Result = Natives.lqueueRemove(lq.Pointer);
 	
@@ -130,7 +130,7 @@ public static Object lqueueRemove(
 ///  <param name="lq">[in] - lqueue</param>
 ///   <returns>count, or 0 on error</returns>
 public static int lqueueGetCount(
-				  L_Queue lq){
+				 L_Queue lq){
 
 	int _Result = Natives.lqueueGetCount(lq.Pointer);
 	
@@ -150,8 +150,8 @@ public static int lqueueGetCount(
 ///  <param name="lq">[in] - lqueue</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int lqueuePrint(
-				  FILE fp, 
-				  L_Queue lq){
+				 FILE fp, 
+				 L_Queue lq){
 
 	int _Result = Natives.lqueuePrint(fp.Pointer, lq.Pointer);
 	
@@ -161,4 +161,5 @@ public static int lqueuePrint(
 	return _Result;
 }
 
+}
 }

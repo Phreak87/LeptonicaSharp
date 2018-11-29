@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // recogdid.c (215, 1)
 // recogDecode(recog, pixs, nlevels, ppixdb) as Boxa
@@ -34,9 +35,9 @@ public class _All {
 ///  <param name="ppixdb">[out][optional] - debug result can be null</param>
 ///   <returns>boxa  segmentation of pixs into characters, or NULL on error</returns>
 public static Boxa recogDecode(
-				  L_Recog recog, 
-				  Pix pixs, 
-				  int nlevels, 
+				 L_Recog recog, 
+				 Pix pixs, 
+				 int nlevels, 
 				out Pix ppixdb){
 
 	IntPtr ppixdbPtr = IntPtr.Zero;
@@ -44,8 +45,7 @@ public static Boxa recogDecode(
 	IntPtr _Result = Natives.recogDecode(recog.Pointer, pixs.Pointer,   nlevels, out ppixdbPtr);
 	
 
-ppixdb = null;
-	; if (ppixdbPtr != IntPtr.Zero){ppixdb = new Pix(ppixdbPtr);}
+	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -62,8 +62,8 @@ ppixdb = null;
 ///  <param name="pixs">[in] - of 1 bpp image to match</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int recogCreateDid(
-				  L_Recog recog, 
-				  Pix pixs){
+				 L_Recog recog, 
+				 Pix pixs){
 
 	int _Result = Natives.recogCreateDid(recog.Pointer, pixs.Pointer);
 	
@@ -86,7 +86,7 @@ public static int recogCreateDid(
 ///  <param name="recog">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int recogDestroyDid(
-				  L_Recog recog){
+				 L_Recog recog){
 
 	int _Result = Natives.recogDestroyDid(recog.Pointer);
 	
@@ -105,7 +105,7 @@ public static int recogDestroyDid(
 ///  <param name="recog">[in] - </param>
 ///   <returns>1 if recogtodid exists 0 if not or on error.</returns>
 public static int recogDidExists(
-				  L_Recog recog){
+				 L_Recog recog){
 
 	int _Result = Natives.recogDidExists(recog.Pointer);
 	
@@ -127,7 +127,7 @@ public static int recogDidExists(
 ///  <param name="recog">[in] - </param>
 ///   <returns>did still owned by the recog, or NULL on error</returns>
 public static L_Rdid recogGetDid(
-				  L_Recog recog){
+				 L_Recog recog){
 
 	IntPtr _Result = Natives.recogGetDid(recog.Pointer);
 	
@@ -156,8 +156,8 @@ public static L_Rdid recogGetDid(
 ///  <param name="nlevels">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int recogSetChannelParams(
-				  L_Recog recog, 
-				  int nlevels){
+				 L_Recog recog, 
+				 int nlevels){
 
 	int _Result = Natives.recogSetChannelParams(recog.Pointer,   nlevels);
 	
@@ -167,4 +167,5 @@ public static int recogSetChannelParams(
 	return _Result;
 }
 
+}
 }

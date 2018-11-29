@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // ccthin.c (68, 1)
 // pixaThinConnected(pixas, type, connectivity, maxiters) as Pixa
@@ -20,10 +21,10 @@ public class _All {
 ///  <param name="maxiters">[in] - max number of iters allowed use 0 to iterate until completion</param>
 ///   <returns>pixds, or NULL on error</returns>
 public static Pixa pixaThinConnected(
-				  Pixa pixas, 
-				  int type, 
-				  int connectivity, 
-				  int maxiters){
+				 Pixa pixas, 
+				 int type, 
+				 int connectivity, 
+				 int maxiters){
 
 	IntPtr _Result = Natives.pixaThinConnected(pixas.Pointer,   type,   connectivity,   maxiters);
 	
@@ -84,10 +85,10 @@ public static Pixa pixaThinConnected(
 ///  <param name="maxiters">[in] - max number of iters allowed use 0 to iterate until completion</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixThinConnected(
-				  Pix pixs, 
-				  int type, 
-				  int connectivity, 
-				  int maxiters){
+				 Pix pixs, 
+				 int type, 
+				 int connectivity, 
+				 int maxiters){
 
 	IntPtr _Result = Natives.pixThinConnected(pixs.Pointer,   type,   connectivity,   maxiters);
 	
@@ -129,10 +130,10 @@ public static Pix pixThinConnected(
 ///  <param name="maxiters">[in] - max number of iters allowed use 0 to iterate until completion</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixThinConnectedBySet(
-				  Pix pixs, 
-				  int type, 
-				  Sela sela, 
-				  int maxiters){
+				 Pix pixs, 
+				 int type, 
+				 Sela sela, 
+				 int maxiters){
 
 	IntPtr _Result = Natives.pixThinConnectedBySet(pixs.Pointer,   type, sela.Pointer,   maxiters);
 	
@@ -175,7 +176,7 @@ public static Pix pixThinConnectedBySet(
 ///  <param name="debug">[in] - 1 to output display of sela</param>
 ///   <returns>sela, or NULL on error</returns>
 public static Sela selaMakeThinSets(
-				  int index, 
+				 int index, 
 				 DebugOnOff debug){
 
 	IntPtr _Result = Natives.selaMakeThinSets(  index,  (int) debug);
@@ -187,4 +188,5 @@ public static Sela selaMakeThinSets(
 	return  new Sela(_Result);
 }
 
+}
 }

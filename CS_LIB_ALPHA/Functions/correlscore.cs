@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // correlscore.c (125, 1)
 // pixCorrelationScore(pix1, pix2, area1, area2, delx, dely, maxdiffw, maxdiffh, tab, pscore) as int
@@ -66,21 +67,20 @@ public class _All {
 ///  <param name="pscore">[out] - correlation score</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixCorrelationScore(
-				  Pix pix1, 
-				  Pix pix2, 
-				  int area1, 
-				  int area2, 
-				  Single delx, 
-				  Single dely, 
-				  int maxdiffw, 
-				  int maxdiffh, 
-				  int[] tab, 
-				 out Single pscore){
+				 Pix pix1, 
+				 Pix pix2, 
+				 int area1, 
+				 int area2, 
+				 Single delx, 
+				 Single dely, 
+				 int maxdiffw, 
+				 int maxdiffh, 
+				 int[] tab, 
+				out Single pscore){
 
 	int _Result = Natives.pixCorrelationScore(pix1.Pointer, pix2.Pointer,   area1,   area2,   delx,   dely,   maxdiffw,   maxdiffh,   tab, out  pscore);
 	
 
-pscore = 0f;
 
 
 	return _Result;
@@ -135,17 +135,17 @@ pscore = 0f;
 ///  <param name="score_threshold">[in] - </param>
 ///   <returns>whether the correlation score is greater or equal score_threshold</returns>
 public static int pixCorrelationScoreThresholded(
-				  Pix pix1, 
-				  Pix pix2, 
-				  int area1, 
-				  int area2, 
-				  Single delx, 
-				  Single dely, 
-				  int maxdiffw, 
-				  int maxdiffh, 
-				  int[] tab, 
-				  int[] downcount, 
-				  Single score_threshold){
+				 Pix pix1, 
+				 Pix pix2, 
+				 int area1, 
+				 int area2, 
+				 Single delx, 
+				 Single dely, 
+				 int maxdiffw, 
+				 int maxdiffh, 
+				 int[] tab, 
+				 int[] downcount, 
+				 Single score_threshold){
 
 	int _Result = Natives.pixCorrelationScoreThresholded(pix1.Pointer, pix2.Pointer,   area1,   area2,   delx,   dely,   maxdiffw,   maxdiffh,   tab,   downcount,   score_threshold);
 	
@@ -180,21 +180,20 @@ public static int pixCorrelationScoreThresholded(
 ///  <param name="pscore">[out] - correlation score, in range [0.0 ... 1.0]</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixCorrelationScoreSimple(
-				  Pix pix1, 
-				  Pix pix2, 
-				  int area1, 
-				  int area2, 
-				  Single delx, 
-				  Single dely, 
-				  int maxdiffw, 
-				  int maxdiffh, 
-				  int[] tab, 
-				 out Single pscore){
+				 Pix pix1, 
+				 Pix pix2, 
+				 int area1, 
+				 int area2, 
+				 Single delx, 
+				 Single dely, 
+				 int maxdiffw, 
+				 int maxdiffh, 
+				 int[] tab, 
+				out Single pscore){
 
 	int _Result = Natives.pixCorrelationScoreSimple(pix1.Pointer, pix2.Pointer,   area1,   area2,   delx,   dely,   maxdiffw,   maxdiffh,   tab, out  pscore);
 	
 
-pscore = 0f;
 
 
 	return _Result;
@@ -238,22 +237,22 @@ pscore = 0f;
 ///  <param name="pscore">[out] - correlation score</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixCorrelationScoreShifted(
-				  Pix pix1, 
-				  Pix pix2, 
-				  int area1, 
-				  int area2, 
-				  int delx, 
-				  int dely, 
-				  int[] tab, 
-				 out Single pscore){
+				 Pix pix1, 
+				 Pix pix2, 
+				 int area1, 
+				 int area2, 
+				 int delx, 
+				 int dely, 
+				 int[] tab, 
+				out Single pscore){
 
 	int _Result = Natives.pixCorrelationScoreShifted(pix1.Pointer, pix2.Pointer,   area1,   area2,   delx,   dely,   tab, out  pscore);
 	
 
-pscore = 0f;
 
 
 	return _Result;
 }
 
+}
 }

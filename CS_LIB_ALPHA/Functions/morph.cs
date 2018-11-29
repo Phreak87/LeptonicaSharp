@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // morph.c (209, 1)
 // pixDilate(pixd, pixs, sel) as Pix
@@ -31,9 +32,9 @@ public class _All {
 ///  <param name="sel">[in] - </param>
 ///   <returns>pixd</returns>
 public static Pix pixDilate(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Sel sel){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Sel sel){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -72,9 +73,9 @@ public static Pix pixDilate(
 ///  <param name="sel">[in] - </param>
 ///   <returns>pixd</returns>
 public static Pix pixErode(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Sel sel){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Sel sel){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -115,9 +116,9 @@ public static Pix pixErode(
 ///  <param name="sel">[in] - </param>
 ///   <returns>pixd</returns>
 public static Pix pixHMT(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Sel sel){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Sel sel){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -156,9 +157,9 @@ public static Pix pixHMT(
 ///  <param name="sel">[in] - </param>
 ///   <returns>pixd</returns>
 public static Pix pixOpen(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Sel sel){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Sel sel){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -201,9 +202,9 @@ public static Pix pixOpen(
 ///  <param name="sel">[in] - </param>
 ///   <returns>pixd</returns>
 public static Pix pixClose(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Sel sel){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Sel sel){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -251,9 +252,9 @@ public static Pix pixClose(
 ///  <param name="sel">[in] - </param>
 ///   <returns>pixd</returns>
 public static Pix pixCloseSafe(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Sel sel){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Sel sel){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -296,9 +297,9 @@ public static Pix pixCloseSafe(
 ///  <param name="sel">[in] - </param>
 ///   <returns>pixd</returns>
 public static Pix pixOpenGeneralized(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Sel sel){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Sel sel){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -343,9 +344,9 @@ public static Pix pixOpenGeneralized(
 ///  <param name="sel">[in] - </param>
 ///   <returns>pixd</returns>
 public static Pix pixCloseGeneralized(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Sel sel){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Sel sel){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -389,10 +390,10 @@ public static Pix pixCloseGeneralized(
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
 public static Pix pixDilateBrick(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -436,10 +437,10 @@ public static Pix pixDilateBrick(
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd</returns>
 public static Pix pixErodeBrick(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -483,10 +484,10 @@ public static Pix pixErodeBrick(
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixOpenBrick(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -530,10 +531,10 @@ public static Pix pixOpenBrick(
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixCloseBrick(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -583,10 +584,10 @@ public static Pix pixCloseBrick(
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixCloseSafeBrick(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -607,10 +608,10 @@ public static Pix pixCloseSafeBrick(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/selectComposableSels/*"/>
 ///   <returns></returns>
 public static int selectComposableSels(
-				  int size, 
-				  int direction, 
-				  Sel psel1, 
-				  Sel psel2){
+				 int size, 
+				 int direction, 
+				 Sel psel1, 
+				 Sel psel2){
 
 	IntPtr psel1Ptr = IntPtr.Zero; 	if (psel1 != null) {psel1Ptr = psel1.Pointer;}
 	IntPtr psel2Ptr = IntPtr.Zero; 	if (psel2 != null) {psel2Ptr = psel2.Pointer;}
@@ -648,15 +649,13 @@ public static int selectComposableSels(
 ///  <param name="pfactor2">[out] - smaller factor</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int selectComposableSizes(
-				  int size, 
-				 out int pfactor1, 
-				 out int pfactor2){
+				 int size, 
+				out int pfactor1, 
+				out int pfactor2){
 
 	int _Result = Natives.selectComposableSizes(  size, out  pfactor1, out  pfactor2);
 	
 
-pfactor1 = 0;
-pfactor2 = 0;
 
 
 	return _Result;
@@ -709,10 +708,10 @@ pfactor2 = 0;
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixDilateCompBrick(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -772,10 +771,10 @@ public static Pix pixDilateCompBrick(
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixErodeCompBrick(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -835,10 +834,10 @@ public static Pix pixErodeCompBrick(
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixOpenCompBrick(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -898,10 +897,10 @@ public static Pix pixOpenCompBrick(
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixCloseCompBrick(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -967,10 +966,10 @@ public static Pix pixCloseCompBrick(
 ///  <param name="vsize">[in] - height of brick Sel</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixCloseSafeCompBrick(
-				  Pix pixd, 
-				  Pix pixs, 
-				  int hsize, 
-				  int vsize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 int hsize, 
+				 int vsize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -991,7 +990,7 @@ public static Pix pixCloseSafeCompBrick(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/resetMorphBoundaryCondition/*"/>
 ///  <param name="bc">[in] - SYMMETRIC_MORPH_BC, ASYMMETRIC_MORPH_BC</param>
 public static void resetMorphBoundaryCondition(
-				  int bc){
+				 int bc){
 
 	Natives.resetMorphBoundaryCondition(  bc);
 	
@@ -1010,8 +1009,8 @@ public static void resetMorphBoundaryCondition(
 ///  <param name="depth">[in] - of pix</param>
 ///   <returns>color of border pixels for this operation</returns>
 public static uint getMorphBorderPixelColor(
-				  int type, 
-				  int depth){
+				 int type, 
+				 int depth){
 
 	uint _Result = Natives.getMorphBorderPixelColor(  type,   depth);
 	
@@ -1021,4 +1020,5 @@ public static uint getMorphBorderPixelColor(
 	return _Result;
 }
 
+}
 }

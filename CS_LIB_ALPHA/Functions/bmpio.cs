@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // bmpio.c (89, 1)
 // pixReadStreamBmp(fp) as Pix
@@ -19,7 +20,7 @@ public class _All {
 ///  <param name="fp">[in] - file stream opened for read</param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixReadStreamBmp(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.pixReadStreamBmp(fp.Pointer);
 	
@@ -40,8 +41,8 @@ public static Pix pixReadStreamBmp(
 ///  <param name="size">[in] - number of bytes of bmp-formatted data</param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixReadMemBmp(
-				  Byte[] cdata, 
-				  uint size){
+				 Byte[] cdata, 
+				 uint size){
 
 	IntPtr _Result = Natives.pixReadMemBmp(  cdata,   size);
 	
@@ -62,8 +63,8 @@ public static Pix pixReadMemBmp(
 ///  <param name="pix">[in] - all depths</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixWriteStreamBmp(
-				  FILE fp, 
-				  Pix pix){
+				 FILE fp, 
+				 Pix pix){
 
 	int _Result = Natives.pixWriteStreamBmp(fp.Pointer, pix.Pointer);
 	
@@ -98,20 +99,20 @@ public static int pixWriteStreamBmp(
 ///  <param name="pixs">[in] - 1, 2, 4, 8, 16, 32 bpp</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixWriteMemBmp(
-				 out Byte[] pfdata, 
-				 out uint pfsize, 
-				  Pix pixs){
+				out Byte[] pfdata, 
+				out uint pfsize, 
+				 Pix pixs){
 
 	IntPtr pfdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixWriteMemBmp(out  pfdataPtr, out  pfsize, pixs.Pointer);
 	
 
-pfdata = null;
-pfsize = 0;
+	if (pfdataPtr == null) {pfdata = null;} else { pfdata = null; };
 
 
 	return _Result;
 }
 
+}
 }

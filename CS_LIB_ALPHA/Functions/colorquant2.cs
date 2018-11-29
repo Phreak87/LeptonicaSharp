@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // colorquant2.c (257, 1)
 // pixMedianCutQuant(pixs, ditherflag) as Pix
@@ -19,8 +20,8 @@ public class _All {
 ///  <param name="ditherflag">[in] - 1 for dither 0 for no dither</param>
 ///   <returns>pixd 8 bit with colormap, or NULL on error</returns>
 public static Pix pixMedianCutQuant(
-				  Pix pixs, 
-				  int ditherflag){
+				 Pix pixs, 
+				 int ditherflag){
 
 	IntPtr _Result = Natives.pixMedianCutQuant(pixs.Pointer,   ditherflag);
 	
@@ -77,13 +78,13 @@ public static Pix pixMedianCutQuant(
 ///  <param name="checkbw">[in] - 1 to check if color content is very small, 0 to assume there is sufficient color</param>
 ///   <returns>pixd 8 bit with colormap, or NULL on error</returns>
 public static Pix pixMedianCutQuantGeneral(
-				  Pix pixs, 
-				  int ditherflag, 
-				  int outdepth, 
-				  int maxcolors, 
-				  int sigbits, 
-				  int maxsub, 
-				  int checkbw){
+				 Pix pixs, 
+				 int ditherflag, 
+				 int outdepth, 
+				 int maxcolors, 
+				 int sigbits, 
+				 int maxsub, 
+				 int checkbw){
 
 	IntPtr _Result = Natives.pixMedianCutQuantGeneral(pixs.Pointer,   ditherflag,   outdepth,   maxcolors,   sigbits,   maxsub,   checkbw);
 	
@@ -134,12 +135,12 @@ public static Pix pixMedianCutQuantGeneral(
 ///  <param name="diffthresh">[in] - thresh for the max difference between component values for differences below this, the pixel is considered to be gray use 0 for default</param>
 ///   <returns>pixd 8 bpp cmapped, or NULL on error</returns>
 public static Pix pixMedianCutQuantMixed(
-				  Pix pixs, 
-				  int ncolor, 
-				  int ngray, 
-				  int darkthresh, 
-				  int lightthresh, 
-				  int diffthresh){
+				 Pix pixs, 
+				 int ncolor, 
+				 int ngray, 
+				 int darkthresh, 
+				 int lightthresh, 
+				 int diffthresh){
 
 	IntPtr _Result = Natives.pixMedianCutQuantMixed(pixs.Pointer,   ncolor,   ngray,   darkthresh,   lightthresh,   diffthresh);
 	
@@ -196,13 +197,13 @@ public static Pix pixMedianCutQuantMixed(
 ///  <param name="diffthresh">[in] - thresh for the max difference between component values for differences below this, the pixel is considered to be gray use 0 for default</param>
 ///   <returns>pixd 8 bpp, median cut quantized for pixels that are not gray gray pixels are quantized separately over the full gray range null if too many colors or on error</returns>
 public static Pix pixFewColorsMedianCutQuantMixed(
-				  Pix pixs, 
-				  int ncolor, 
-				  int ngray, 
-				  int maxncolors, 
-				  int darkthresh, 
-				  int lightthresh, 
-				  int diffthresh){
+				 Pix pixs, 
+				 int ncolor, 
+				 int ngray, 
+				 int maxncolors, 
+				 int darkthresh, 
+				 int lightthresh, 
+				 int diffthresh){
 
 	IntPtr _Result = Natives.pixFewColorsMedianCutQuantMixed(pixs.Pointer,   ncolor,   ngray,   maxncolors,   darkthresh,   lightthresh,   diffthresh);
 	
@@ -231,9 +232,9 @@ public static Pix pixFewColorsMedianCutQuantMixed(
 ///  <param name="subsample">[in] - integer  is greater  0</param>
 ///   <returns>histo 1-d array, giving the number of pixels in each quantized region of color space, or NULL on error</returns>
 public static int[] pixMedianCutHisto(
-				  Pix pixs, 
-				  int sigbits, 
-				  int subsample){
+				 Pix pixs, 
+				 int sigbits, 
+				 int subsample){
 
 	int[] _Result = Natives.pixMedianCutHisto(pixs.Pointer,   sigbits,   subsample);
 	
@@ -243,4 +244,5 @@ public static int[] pixMedianCutHisto(
 	return _Result;
 }
 
+}
 }

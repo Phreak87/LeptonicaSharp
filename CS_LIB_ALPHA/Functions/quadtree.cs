@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // quadtree.c (92, 1)
 // pixQuadtreeMean(pixs, nlevels, pix_ma, pfpixa) as int
@@ -22,18 +23,17 @@ public class _All {
 ///  <param name="pfpixa">[out] - mean values in quadtree</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixQuadtreeMean(
-				  Pix pixs, 
-				  int nlevels, 
-				  Pix pix_ma, 
-				 out FPixa pfpixa){
+				 Pix pixs, 
+				 int nlevels, 
+				 Pix pix_ma, 
+				out FPixa pfpixa){
 
 	IntPtr pfpixaPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixQuadtreeMean(pixs.Pointer,   nlevels, pix_ma.Pointer, out pfpixaPtr);
 	
 
-pfpixa = null;
-	; if (pfpixaPtr != IntPtr.Zero){pfpixa = new FPixa(pfpixaPtr);}
+	if (pfpixaPtr == null) {pfpixa = null;} else { pfpixa = new FPixa(pfpixaPtr); };
 
 
 	return _Result;
@@ -58,10 +58,10 @@ pfpixa = null;
 ///  <param name="pfpixa_rv">[out][optional] - root variance values in quadtree</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixQuadtreeVariance(
-				  Pix pixs, 
-				  int nlevels, 
-				  Pix pix_ma, 
-				  DPix dpix_msa, 
+				 Pix pixs, 
+				 int nlevels, 
+				 Pix pix_ma, 
+				 DPix dpix_msa, 
 				out FPixa pfpixa_v, 
 				out FPixa pfpixa_rv){
 
@@ -71,10 +71,8 @@ public static int pixQuadtreeVariance(
 	int _Result = Natives.pixQuadtreeVariance(pixs.Pointer,   nlevels, pix_ma.Pointer, dpix_msa.Pointer, out pfpixa_vPtr, out pfpixa_rvPtr);
 	
 
-pfpixa_v = null;
-	; if (pfpixa_vPtr != IntPtr.Zero){pfpixa_v = new FPixa(pfpixa_vPtr);}
-pfpixa_rv = null;
-	; if (pfpixa_rvPtr != IntPtr.Zero){pfpixa_rv = new FPixa(pfpixa_rvPtr);}
+	if (pfpixa_vPtr == null) {pfpixa_v = null;} else { pfpixa_v = new FPixa(pfpixa_vPtr); };
+	if (pfpixa_rvPtr == null) {pfpixa_rv = null;} else { pfpixa_rv = new FPixa(pfpixa_rvPtr); };
 
 
 	return _Result;
@@ -97,15 +95,14 @@ pfpixa_rv = null;
 ///  <param name="pval">[out] - mean value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixMeanInRectangle(
-				  Pix pixs, 
-				  Box box, 
-				  Pix pixma, 
-				 out Single pval){
+				 Pix pixs, 
+				 Box box, 
+				 Pix pixma, 
+				out Single pval){
 
 	int _Result = Natives.pixMeanInRectangle(pixs.Pointer, box.Pointer, pixma.Pointer, out  pval);
 	
 
-pval = 0f;
 
 
 	return _Result;
@@ -131,18 +128,16 @@ pval = 0f;
 ///  <param name="prvar">[out][optional] - root variance</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixVarianceInRectangle(
-				  Pix pixs, 
-				  Box box, 
-				  Pix pix_ma, 
-				  DPix dpix_msa, 
+				 Pix pixs, 
+				 Box box, 
+				 Pix pix_ma, 
+				 DPix dpix_msa, 
 				out Single pvar, 
 				out Single prvar){
 
 	int _Result = Natives.pixVarianceInRectangle(pixs.Pointer, box.Pointer, pix_ma.Pointer, dpix_msa.Pointer, out  pvar, out  prvar);
 	
 
-pvar = 0f;
-prvar = 0f;
 
 
 	return _Result;
@@ -169,9 +164,9 @@ prvar = 0f;
 ///  <param name="nlevels">[in] - number of levels in quadtree</param>
 ///   <returns>baa for quadtree regions at each level, or NULL on error</returns>
 public static Boxaa boxaaQuadtreeRegions(
-				  int w, 
-				  int h, 
-				  int nlevels){
+				 int w, 
+				 int h, 
+				 int nlevels){
 
 	IntPtr _Result = Natives.boxaaQuadtreeRegions(  w,   h,   nlevels);
 	
@@ -200,16 +195,15 @@ public static Boxaa boxaaQuadtreeRegions(
 ///  <param name="pval">[out] - parent pixel value, or 0.0 on error</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int quadtreeGetParent(
-				  FPixa fpixa, 
-				  int level, 
-				  int x, 
-				  int y, 
-				 out Single pval){
+				 FPixa fpixa, 
+				 int level, 
+				 int x, 
+				 int y, 
+				out Single pval){
 
 	int _Result = Natives.quadtreeGetParent(fpixa.Pointer,   level,   x,   y, out  pval);
 	
 
-pval = 0f;
 
 
 	return _Result;
@@ -236,22 +230,18 @@ pval = 0f;
 ///  <param name="pval11">[out] - four child pixel values</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int quadtreeGetChildren(
-				  FPixa fpixa, 
-				  int level, 
-				  int x, 
-				  int y, 
-				 out Single pval00, 
-				 out Single pval10, 
-				 out Single pval01, 
-				 out Single pval11){
+				 FPixa fpixa, 
+				 int level, 
+				 int x, 
+				 int y, 
+				out Single pval00, 
+				out Single pval10, 
+				out Single pval01, 
+				out Single pval11){
 
 	int _Result = Natives.quadtreeGetChildren(fpixa.Pointer,   level,   x,   y, out  pval00, out  pval10, out  pval01, out  pval11);
 	
 
-pval00 = 0f;
-pval10 = 0f;
-pval01 = 0f;
-pval11 = 0f;
 
 
 	return _Result;
@@ -273,8 +263,8 @@ pval11 = 0f;
 ///  <param name="h">[in] - dimensions of image</param>
 ///   <returns>maxlevels maximum number of levels allowed, or -1 on error</returns>
 public static int quadtreeMaxLevels(
-				  int w, 
-				  int h){
+				 int w, 
+				 int h){
 
 	int _Result = Natives.quadtreeMaxLevels(  w,   h);
 	
@@ -301,9 +291,9 @@ public static int quadtreeMaxLevels(
 ///  <param name="fontsize">[in] - 4, ... 20</param>
 ///   <returns>pixd 8 bpp, mosaic of quadtree images, or NULL on error</returns>
 public static Pix fpixaDisplayQuadtree(
-				  FPixa fpixa, 
-				  int factor, 
-				  int fontsize){
+				 FPixa fpixa, 
+				 int factor, 
+				 int fontsize){
 
 	IntPtr _Result = Natives.fpixaDisplayQuadtree(fpixa.Pointer,   factor,   fontsize);
 	
@@ -314,4 +304,5 @@ public static Pix fpixaDisplayQuadtree(
 	return  new Pix(_Result);
 }
 
+}
 }

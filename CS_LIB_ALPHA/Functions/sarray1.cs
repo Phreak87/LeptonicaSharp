@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // sarray1.c (163, 1)
 // sarrayCreate(n) as Sarray
@@ -14,7 +15,7 @@ public class _All {
 ///  <param name="n">[in] - size of string ptr array to be alloc'd use 0 for default</param>
 ///   <returns>sarray, or NULL on error</returns>
 public static Sarray sarrayCreate(
-				  int n){
+				 int n){
 
 	IntPtr _Result = Natives.sarrayCreate(  n);
 	
@@ -35,8 +36,8 @@ public static Sarray sarrayCreate(
 ///  <param name="initstr">[in] - string to be initialized on the full array</param>
 ///   <returns>sarray, or NULL on error</returns>
 public static Sarray sarrayCreateInitialized(
-				  int n, 
-				  String initstr){
+				 int n, 
+				 String initstr){
 
 	IntPtr _Result = Natives.sarrayCreateInitialized(  n,   initstr);
 	
@@ -59,7 +60,7 @@ public static Sarray sarrayCreateInitialized(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayCreateWordsFromString/*"/>
 ///   <returns>sarray, or NULL on error</returns>
 public static Sarray sarrayCreateWordsFromString(
-				  String _string_){
+				 String _string_){
 
 	IntPtr _Result = Natives.sarrayCreateWordsFromString(  _string_);
 	
@@ -86,8 +87,8 @@ public static Sarray sarrayCreateWordsFromString(
 ///  <param name="blankflag">[in] - 0 to exclude blank lines 1 to include</param>
 ///   <returns>sarray, or NULL on error</returns>
 public static Sarray sarrayCreateLinesFromString(
-				  String _string_, 
-				  int blankflag){
+				 String _string_, 
+				 int blankflag){
 
 	IntPtr _Result = Natives.sarrayCreateLinesFromString(  _string_,   blankflag);
 	
@@ -111,15 +112,14 @@ public static Sarray sarrayCreateLinesFromString(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarrayDestroy/*"/>
 ///  <param name="psa">[in,out] - to be nulled</param>
 public static void sarrayDestroy(
-				 ref Sarray psa){
+				ref Sarray psa){
 
 	IntPtr psaPtr = IntPtr.Zero; 	if (psa != null) {psaPtr = psa.Pointer;}
 
 	Natives.sarrayDestroy(ref psaPtr);
 	
 
-psa = null;
-	; if (psaPtr != IntPtr.Zero){psa = new Sarray(psaPtr);}
+	if (psaPtr == null) {psa = null;} else { psa = new Sarray(psaPtr); };
 
 
 }
@@ -133,7 +133,7 @@ psa = null;
 ///  <param name="sa">[in] - string array</param>
 ///   <returns>copy of sarray, or NULL on error</returns>
 public static Sarray sarrayCopy(
-				  Sarray sa){
+				 Sarray sa){
 
 	IntPtr _Result = Natives.sarrayCopy(sa.Pointer);
 	
@@ -153,7 +153,7 @@ public static Sarray sarrayCopy(
 ///  <param name="sa">[in] - string array</param>
 ///   <returns>ptr to same sarray, or NULL on error</returns>
 public static Sarray sarrayClone(
-				  Sarray sa){
+				 Sarray sa){
 
 	IntPtr _Result = Natives.sarrayClone(sa.Pointer);
 	
@@ -178,9 +178,9 @@ public static Sarray sarrayClone(
 ///  <param name="copyflag">[in] - L_INSERT, L_NOCOPY or L_COPY</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int sarrayAddString(
-				  Sarray sa, 
-				  String _string_, 
-				  int copyflag){
+				 Sarray sa, 
+				 String _string_, 
+				 int copyflag){
 
 	int _Result = Natives.sarrayAddString(sa.Pointer,   _string_,   copyflag);
 	
@@ -200,8 +200,8 @@ public static int sarrayAddString(
 ///  <param name="index">[in] - of string within sarray</param>
 ///   <returns>removed string, or NULL on error</returns>
 public static String sarrayRemoveString(
-				  Sarray sa, 
-				  int index){
+				 Sarray sa, 
+				 int index){
 
 	String _Result = Natives.sarrayRemoveString(sa.Pointer,   index);
 	
@@ -231,10 +231,10 @@ public static String sarrayRemoveString(
 ///  <param name="copyflag">[in] - L_INSERT, L_COPY</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int sarrayReplaceString(
-				  Sarray sa, 
-				  int index, 
-				  String newstr, 
-				  int copyflag){
+				 Sarray sa, 
+				 int index, 
+				 String newstr, 
+				 int copyflag){
 
 	int _Result = Natives.sarrayReplaceString(sa.Pointer,   index,   newstr,   copyflag);
 	
@@ -253,7 +253,7 @@ public static int sarrayReplaceString(
 ///  <param name="sa">[in] - string array</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int sarrayClear(
-				  Sarray sa){
+				 Sarray sa){
 
 	int _Result = Natives.sarrayClear(sa.Pointer);
 	
@@ -272,7 +272,7 @@ public static int sarrayClear(
 ///  <param name="sa">[in] - string array</param>
 ///   <returns>count, or 0 if no strings or on error</returns>
 public static int sarrayGetCount(
-				  Sarray sa){
+				 Sarray sa){
 
 	int _Result = Natives.sarrayGetCount(sa.Pointer);
 	
@@ -297,19 +297,17 @@ public static int sarrayGetCount(
 ///  <param name="pn">[out][optional] - number allocated strings</param>
 ///   <returns>ptr to string array, or NULL on error</returns>
 public static String[] sarrayGetArray(
-				  Sarray sa, 
+				 Sarray sa, 
 				out int pnalloc, 
 				out int pn){
 
 	IntPtr _Result = Natives.sarrayGetArray(sa.Pointer, out  pnalloc, out  pn);
 	
 
-pnalloc = 0;
-pn = 0;
 
 	String[] B = null; // Todo
 
-	return _Result;
+	return B;
 }
 
 // sarray1.c (681, 1)
@@ -329,9 +327,9 @@ pn = 0;
 ///  <param name="copyflag">[in] - L_NOCOPY or L_COPY</param>
 ///   <returns>string, or NULL on error</returns>
 public static String sarrayGetString(
-				  Sarray sa, 
-				  int index, 
-				  int copyflag){
+				 Sarray sa, 
+				 int index, 
+				 int copyflag){
 
 	String _Result = Natives.sarrayGetString(sa.Pointer,   index,   copyflag);
 	
@@ -350,7 +348,7 @@ public static String sarrayGetString(
 ///  <param name="sa">[in] - string array</param>
 ///   <returns>refcount, or UNDEF on error</returns>
 public static int sarrayGetRefcount(
-				  Sarray sa){
+				 Sarray sa){
 
 	int _Result = Natives.sarrayGetRefcount(sa.Pointer);
 	
@@ -370,8 +368,8 @@ public static int sarrayGetRefcount(
 ///  <param name="delta">[in] - change to be applied</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int sarrayChangeRefcount(
-				  Sarray sa, 
-				  int delta){
+				 Sarray sa, 
+				 int delta){
 
 	int _Result = Natives.sarrayChangeRefcount(sa.Pointer,   delta);
 	
@@ -403,8 +401,8 @@ public static int sarrayChangeRefcount(
 ///  <param name="addnlflag">[in] - flag: 0 adds nothing to each substring 1 adds '\n' to each substring 2 adds ' ' to each substring</param>
 ///   <returns>dest string, or NULL on error</returns>
 public static String sarrayToString(
-				  Sarray sa, 
-				  int addnlflag){
+				 Sarray sa, 
+				 int addnlflag){
 
 	String _Result = Natives.sarrayToString(sa.Pointer,   addnlflag);
 	
@@ -436,10 +434,10 @@ public static String sarrayToString(
 ///  <param name="addnlflag">[in] - flag: 0 adds nothing to each substring 1 adds '\n' to each substring 2 adds ' ' to each substring</param>
 ///   <returns>dest string, or NULL on error</returns>
 public static String sarrayToStringRange(
-				  Sarray sa, 
-				  int first, 
-				  int nstrings, 
-				  int addnlflag){
+				 Sarray sa, 
+				 int first, 
+				 int nstrings, 
+				 int addnlflag){
 
 	String _Result = Natives.sarrayToStringRange(sa.Pointer,   first,   nstrings,   addnlflag);
 	
@@ -462,8 +460,8 @@ public static String sarrayToStringRange(
 ///  <param name="sa2">[in] - append to sa1</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int sarrayJoin(
-				  Sarray sa1, 
-				  Sarray sa2){
+				 Sarray sa1, 
+				 Sarray sa2){
 
 	int _Result = Natives.sarrayJoin(sa1.Pointer, sa2.Pointer);
 	
@@ -491,10 +489,10 @@ public static int sarrayJoin(
 ///  <param name="start">[in] - index of first string of sa2 to append</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int sarrayAppendRange(
-				  Sarray sa1, 
-				  Sarray sa2, 
-				  int start, 
-				  int _end_){
+				 Sarray sa1, 
+				 Sarray sa2, 
+				 int start, 
+				 int _end_){
 
 	int _Result = Natives.sarrayAppendRange(sa1.Pointer, sa2.Pointer,   start,   _end_);
 	
@@ -522,9 +520,9 @@ public static int sarrayAppendRange(
 ///  <param name="padstring">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int sarrayPadToSameSize(
-				  Sarray sa1, 
-				  Sarray sa2, 
-				  String padstring){
+				 Sarray sa1, 
+				 Sarray sa2, 
+				 String padstring){
 
 	int _Result = Natives.sarrayPadToSameSize(sa1.Pointer, sa2.Pointer,   padstring);
 	
@@ -544,8 +542,8 @@ public static int sarrayPadToSameSize(
 ///  <param name="linesize">[in] - max num of chars in each line</param>
 ///   <returns>saout sa of formatted lines, or NULL on error This is useful for re-typesetting text to a specific maximum line length.  The individual words in the input sarray are concatenated into textlines.  An input word string of zero length is taken to be a paragraph separator.  Each time such a string is found, the current line is ended and a new line is also produced that contains just the string of zero length "".  When the output sarray of lines is eventually converted to a string with newlines typically appended to each line string, the empty strings are just converted to newlines, producing the visible paragraph separation. What happens when a word is larger than linesize? We write it out as a single line anyway!  Words preceding or following this long word are placed on lines preceding or following the line with the long word.  Why this choice? Long "words" found in text documents are typically URLs, and it's often desirable not to put newlines in the middle of a URL. The text display program e.g., text editor will typically wrap the long "word" to fit in the window.</returns>
 public static Sarray sarrayConvertWordsToLines(
-				  Sarray sa, 
-				  int linesize){
+				 Sarray sa, 
+				 int linesize){
 
 	IntPtr _Result = Natives.sarrayConvertWordsToLines(sa.Pointer,   linesize);
 	
@@ -564,9 +562,9 @@ public static Sarray sarrayConvertWordsToLines(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/sarraySplitString/*"/>
 ///   <returns></returns>
 public static int sarraySplitString(
-				  Sarray sa, 
-				  String str, 
-				  String separators){
+				 Sarray sa, 
+				 String str, 
+				 String separators){
 
 	IntPtr saPtr = IntPtr.Zero; if (sa != null) {saPtr = sa.Pointer;}
 
@@ -595,7 +593,7 @@ public static int sarraySplitString(
 ///  <param name="substr">[in][optional] - substring for matching can be NULL</param>
 ///   <returns>saout output sarray, filtered with substring or NULL on error</returns>
 public static Sarray sarraySelectBySubstring(
-				  Sarray sain, 
+				 Sarray sain, 
 				 String substr){
 
 	IntPtr _Result = Natives.sarraySelectBySubstring(sain.Pointer,   substr);
@@ -623,9 +621,9 @@ public static Sarray sarraySelectBySubstring(
 ///  <param name="last">[in] - index of last string to be selected use 0 to go to the end of the sarray</param>
 ///   <returns>saout output sarray, or NULL on error</returns>
 public static Sarray sarraySelectByRange(
-				  Sarray sain, 
-				  int first, 
-				  int last){
+				 Sarray sain, 
+				 int first, 
+				 int last){
 
 	IntPtr _Result = Natives.sarraySelectByRange(sain.Pointer,   first,   last);
 	
@@ -676,20 +674,17 @@ public static Sarray sarraySelectByRange(
 ///  <param name="loc">[in] - byte offset within the string for the pattern use -1 if the location does not matter</param>
 ///   <returns>0 if valid range found 1 otherwise</returns>
 public static int sarrayParseRange(
-				  Sarray sa, 
-				  int start, 
-				 out int pactualstart, 
-				 out int pend, 
-				 out int pnewstart, 
-				  String substr, 
-				  int loc){
+				 Sarray sa, 
+				 int start, 
+				out int pactualstart, 
+				out int pend, 
+				out int pnewstart, 
+				 String substr, 
+				 int loc){
 
 	int _Result = Natives.sarrayParseRange(sa.Pointer,   start, out  pactualstart, out  pend, out  pnewstart,   substr,   loc);
 	
 
-pactualstart = 0;
-pend = 0;
-pnewstart = 0;
 
 
 	return _Result;
@@ -704,7 +699,7 @@ pnewstart = 0;
 ///  <param name="filename">[in] - </param>
 ///   <returns>sarray, or NULL on error</returns>
 public static Sarray sarrayRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.sarrayRead(  filename);
 	
@@ -733,7 +728,7 @@ public static Sarray sarrayRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>sarray, or NULL on error</returns>
 public static Sarray sarrayReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.sarrayReadStream(fp.Pointer);
 	
@@ -754,8 +749,8 @@ public static Sarray sarrayReadStream(
 ///  <param name="size">[in] - of data can use strlen to get it</param>
 ///   <returns>sarray, or NULL on error</returns>
 public static Sarray sarrayReadMem(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.sarrayReadMem(  data,   size);
 	
@@ -776,8 +771,8 @@ public static Sarray sarrayReadMem(
 ///  <param name="sa">[in] - string array</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int sarrayWrite(
-				  String filename, 
-				  Sarray sa){
+				 String filename, 
+				 Sarray sa){
 
 	int _Result = Natives.sarrayWrite(  filename, sa.Pointer);
 	
@@ -801,8 +796,8 @@ public static int sarrayWrite(
 ///  <param name="sa">[in] - string array</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int sarrayWriteStream(
-				  FILE fp, 
-				  Sarray sa){
+				 FILE fp, 
+				 Sarray sa){
 
 	int _Result = Natives.sarrayWriteStream(fp.Pointer, sa.Pointer);
 	
@@ -826,17 +821,16 @@ public static int sarrayWriteStream(
 ///  <param name="sa">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int sarrayWriteMem(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  Sarray sa){
+				out Byte[] pdata, 
+				out uint psize, 
+				 Sarray sa){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.sarrayWriteMem(out  pdataPtr, out  psize, sa.Pointer);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -852,8 +846,8 @@ psize = 0;
 ///  <param name="sa">[in] - </param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int sarrayAppend(
-				  String filename, 
-				  Sarray sa){
+				 String filename, 
+				 Sarray sa){
 
 	int _Result = Natives.sarrayAppend(  filename, sa.Pointer);
 	
@@ -908,11 +902,11 @@ public static int sarrayAppend(
 ///  <param name="maxnum">[in] - only consider page numbers up to this value</param>
 ///   <returns>sarray of numbered pathnames, or NULL on error</returns>
 public static Sarray getNumberedPathnamesInDirectory(
-				  String dirname, 
-				  String substr, 
-				  int numpre, 
-				  int numpost, 
-				  int maxnum){
+				 String dirname, 
+				 String substr, 
+				 int numpre, 
+				 int numpost, 
+				 int maxnum){
 
 	IntPtr _Result = Natives.getNumberedPathnamesInDirectory(  dirname,   substr,   numpre,   numpost,   maxnum);
 	
@@ -946,10 +940,10 @@ public static Sarray getNumberedPathnamesInDirectory(
 ///  <param name="nfiles">[in] - use 0 for all to the end</param>
 ///   <returns>sarray of sorted pathnames, or NULL on error</returns>
 public static Sarray getSortedPathnamesInDirectory(
-				  String dirname, 
-				  String substr, 
-				  int first, 
-				  int nfiles){
+				 String dirname, 
+				 String substr, 
+				 int first, 
+				 int nfiles){
 
 	IntPtr _Result = Natives.getSortedPathnamesInDirectory(  dirname,   substr,   first,   nfiles);
 	
@@ -976,10 +970,10 @@ public static Sarray getSortedPathnamesInDirectory(
 ///  <param name="maxnum">[in] - only consider page numbers up to this value</param>
 ///   <returns>sarray of numbered pathnames, or NULL on error</returns>
 public static Sarray convertSortedToNumberedPathnames(
-				  Sarray sa, 
-				  int numpre, 
-				  int numpost, 
-				  int maxnum){
+				 Sarray sa, 
+				 int numpre, 
+				 int numpost, 
+				 int maxnum){
 
 	IntPtr _Result = Natives.convertSortedToNumberedPathnames(sa.Pointer,   numpre,   numpost,   maxnum);
 	
@@ -998,7 +992,7 @@ public static Sarray convertSortedToNumberedPathnames(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/getFilenamesInDirectory/*"/>
 ///   <returns></returns>
 public static Sarray getFilenamesInDirectory(
-				  String dirname){
+				 String dirname){
 
 	IntPtr _Result = Natives.getFilenamesInDirectory(  dirname);
 	
@@ -1009,4 +1003,5 @@ public static Sarray getFilenamesInDirectory(
 	return  new Sarray(_Result);
 }
 
+}
 }

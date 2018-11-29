@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // bilinear.c (143, 1)
 // pixBilinearSampledPta(pixs, ptad, ptas, incolor) as Pix
@@ -28,10 +29,10 @@ public class _All {
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixBilinearSampledPta(
-				  Pix pixs, 
-				  Pta ptad, 
-				  Pta ptas, 
-				  int incolor){
+				 Pix pixs, 
+				 Pta ptad, 
+				 Pta ptas, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixBilinearSampledPta(pixs.Pointer, ptad.Pointer, ptas.Pointer,   incolor);
 	
@@ -62,9 +63,9 @@ public static Pix pixBilinearSampledPta(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixBilinearSampled(
-				  Pix pixs, 
-				  Single[] vc, 
-				  int incolor){
+				 Pix pixs, 
+				 Single[] vc, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixBilinearSampled(pixs.Pointer,   vc,   incolor);
 	
@@ -92,10 +93,10 @@ public static Pix pixBilinearSampled(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixBilinearPta(
-				  Pix pixs, 
-				  Pta ptad, 
-				  Pta ptas, 
-				  int incolor){
+				 Pix pixs, 
+				 Pta ptad, 
+				 Pta ptas, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixBilinearPta(pixs.Pointer, ptad.Pointer, ptas.Pointer,   incolor);
 	
@@ -122,9 +123,9 @@ public static Pix pixBilinearPta(
 ///  <param name="incolor">[in] - L_BRING_IN_WHITE, L_BRING_IN_BLACK</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixBilinear(
-				  Pix pixs, 
-				  Single[] vc, 
-				  int incolor){
+				 Pix pixs, 
+				 Single[] vc, 
+				 int incolor){
 
 	IntPtr _Result = Natives.pixBilinear(pixs.Pointer,   vc,   incolor);
 	
@@ -147,10 +148,10 @@ public static Pix pixBilinear(
 ///  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixBilinearPtaColor(
-				  Pix pixs, 
-				  Pta ptad, 
-				  Pta ptas, 
-				  uint colorval){
+				 Pix pixs, 
+				 Pta ptad, 
+				 Pta ptas, 
+				 uint colorval){
 
 	IntPtr _Result = Natives.pixBilinearPtaColor(pixs.Pointer, ptad.Pointer, ptas.Pointer,   colorval);
 	
@@ -172,9 +173,9 @@ public static Pix pixBilinearPtaColor(
 ///  <param name="colorval">[in] - e.g., 0 to bring in BLACK, 0xffffff00 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixBilinearColor(
-				  Pix pixs, 
-				  Single[] vc, 
-				  uint colorval){
+				 Pix pixs, 
+				 Single[] vc, 
+				 uint colorval){
 
 	IntPtr _Result = Natives.pixBilinearColor(pixs.Pointer,   vc,   colorval);
 	
@@ -197,10 +198,10 @@ public static Pix pixBilinearColor(
 ///  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixBilinearPtaGray(
-				  Pix pixs, 
-				  Pta ptad, 
-				  Pta ptas, 
-				  byte grayval){
+				 Pix pixs, 
+				 Pta ptad, 
+				 Pta ptas, 
+				 byte grayval){
 
 	IntPtr _Result = Natives.pixBilinearPtaGray(pixs.Pointer, ptad.Pointer, ptas.Pointer,   grayval);
 	
@@ -222,9 +223,9 @@ public static Pix pixBilinearPtaGray(
 ///  <param name="grayval">[in] - 0 to bring in BLACK, 255 for WHITE</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixBilinearGray(
-				  Pix pixs, 
-				  Single[] vc, 
-				  byte grayval){
+				 Pix pixs, 
+				 Single[] vc, 
+				 byte grayval){
 
 	IntPtr _Result = Natives.pixBilinearGray(pixs.Pointer,   vc,   grayval);
 	
@@ -284,12 +285,12 @@ public static Pix pixBilinearGray(
 ///  <param name="border">[in] - of pixels added to capture transformed source pixels</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixBilinearPtaWithAlpha(
-				  Pix pixs, 
-				  Pta ptad, 
-				  Pta ptas, 
-				  Pix pixg, 
-				  Single fract, 
-				  int border){
+				 Pix pixs, 
+				 Pta ptad, 
+				 Pta ptas, 
+				 Pix pixg, 
+				 Single fract, 
+				 int border){
 
 	IntPtr pixgPtr = IntPtr.Zero; 	if (pixg != null) {pixgPtr = pixg.Pointer;}
 
@@ -347,16 +348,16 @@ public static Pix pixBilinearPtaWithAlpha(
 ///  <param name="pvc">[out] - vector of coefficients of transform</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int getBilinearXformCoeffs(
-				  Pta ptas, 
-				  Pta ptad, 
-				 out List<Single[]> pvc){
+				 Pta ptas, 
+				 Pta ptad, 
+				out List<Single[]> pvc){
 
 	IntPtr pvcPtr = IntPtr.Zero;
 
 	int _Result = Natives.getBilinearXformCoeffs(ptas.Pointer, ptad.Pointer, out  pvcPtr);
 	
 
-pvc = null;
+	if (pvcPtr == null) {pvc = null;} else { pvc = null; };
 
 
 	return _Result;
@@ -380,17 +381,15 @@ pvc = null;
 ///  <param name="pyp">[out] - transformed point</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int bilinearXformSampledPt(
-				  Single[] vc, 
-				  int x, 
-				  int y, 
-				 out int pxp, 
-				 out int pyp){
+				 Single[] vc, 
+				 int x, 
+				 int y, 
+				out int pxp, 
+				out int pyp){
 
 	int _Result = Natives.bilinearXformSampledPt(  vc,   x,   y, out  pxp, out  pyp);
 	
 
-pxp = 0;
-pyp = 0;
 
 
 	return _Result;
@@ -414,20 +413,19 @@ pyp = 0;
 ///  <param name="pyp">[out] - transformed point</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int bilinearXformPt(
-				  Single[] vc, 
-				  int x, 
-				  int y, 
-				 out Single pxp, 
-				 out Single pyp){
+				 Single[] vc, 
+				 int x, 
+				 int y, 
+				out Single pxp, 
+				out Single pyp){
 
 	int _Result = Natives.bilinearXformPt(  vc,   x,   y, out  pxp, out  pyp);
 	
 
-pxp = 0f;
-pyp = 0f;
 
 
 	return _Result;
 }
 
+}
 }

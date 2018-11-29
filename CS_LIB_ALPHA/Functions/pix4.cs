@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // pix4.c (109, 1)
 // pixGetGrayHistogram(pixs, factor) as Numa
@@ -25,8 +26,8 @@ public class _All {
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///   <returns>na histogram, or NULL on error</returns>
 public static Numa pixGetGrayHistogram(
-				  Pix pixs, 
-				  int factor){
+				 Pix pixs, 
+				 int factor){
 
 	IntPtr _Result = Natives.pixGetGrayHistogram(pixs.Pointer,   factor);
 	
@@ -63,11 +64,11 @@ public static Numa pixGetGrayHistogram(
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///   <returns>na histogram, or NULL on error</returns>
 public static Numa pixGetGrayHistogramMasked(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int x, 
-				  int y, 
-				  int factor){
+				 Pix pixs, 
+				 Pix pixm, 
+				 int x, 
+				 int y, 
+				 int factor){
 
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
@@ -100,9 +101,9 @@ public static Numa pixGetGrayHistogramMasked(
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///   <returns>na histogram, or NULL on error</returns>
 public static Numa pixGetGrayHistogramInRect(
-				  Pix pixs, 
-				  Box box, 
-				  int factor){
+				 Pix pixs, 
+				 Box box, 
+				 int factor){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
@@ -134,10 +135,10 @@ public static Numa pixGetGrayHistogramInRect(
 ///  <param name="ny">[in] - tiling greater or equal 1 typically small</param>
 ///   <returns>naa set of histograms, or NULL on error</returns>
 public static Numaa pixGetGrayHistogramTiled(
-				  Pix pixs, 
-				  int factor, 
-				  int nx, 
-				  int ny){
+				 Pix pixs, 
+				 int factor, 
+				 int nx, 
+				 int ny){
 
 	IntPtr _Result = Natives.pixGetGrayHistogramTiled(pixs.Pointer,   factor,   nx,   ny);
 	
@@ -167,11 +168,11 @@ public static Numaa pixGetGrayHistogramTiled(
 ///  <param name="pnab">[out] - blue histogram</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetColorHistogram(
-				  Pix pixs, 
-				  int factor, 
-				 out Numa pnar, 
-				 out Numa pnag, 
-				 out Numa pnab){
+				 Pix pixs, 
+				 int factor, 
+				out Numa pnar, 
+				out Numa pnag, 
+				out Numa pnab){
 
 	IntPtr pnarPtr = IntPtr.Zero;
 	IntPtr pnagPtr = IntPtr.Zero;
@@ -180,12 +181,9 @@ public static int pixGetColorHistogram(
 	int _Result = Natives.pixGetColorHistogram(pixs.Pointer,   factor, out pnarPtr, out pnagPtr, out pnabPtr);
 	
 
-pnar = null;
-	; if (pnarPtr != IntPtr.Zero){pnar = new Numa(pnarPtr);}
-pnag = null;
-	; if (pnagPtr != IntPtr.Zero){pnag = new Numa(pnagPtr);}
-pnab = null;
-	; if (pnabPtr != IntPtr.Zero){pnab = new Numa(pnabPtr);}
+	if (pnarPtr == null) {pnar = null;} else { pnar = new Numa(pnarPtr); };
+	if (pnagPtr == null) {pnag = null;} else { pnag = new Numa(pnagPtr); };
+	if (pnabPtr == null) {pnab = null;} else { pnab = new Numa(pnabPtr); };
 
 
 	return _Result;
@@ -216,14 +214,14 @@ pnab = null;
 ///  <param name="pnab">[out] - blue histogram</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetColorHistogramMasked(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int x, 
-				  int y, 
-				  int factor, 
-				 out Numa pnar, 
-				 out Numa pnag, 
-				 out Numa pnab){
+				 Pix pixs, 
+				 Pix pixm, 
+				 int x, 
+				 int y, 
+				 int factor, 
+				out Numa pnar, 
+				out Numa pnag, 
+				out Numa pnab){
 
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 	IntPtr pnarPtr = IntPtr.Zero;
@@ -233,12 +231,9 @@ public static int pixGetColorHistogramMasked(
 	int _Result = Natives.pixGetColorHistogramMasked(pixs.Pointer, pixmPtr,   x,   y,   factor, out pnarPtr, out pnagPtr, out pnabPtr);
 	
 
-pnar = null;
-	; if (pnarPtr != IntPtr.Zero){pnar = new Numa(pnarPtr);}
-pnag = null;
-	; if (pnagPtr != IntPtr.Zero){pnag = new Numa(pnagPtr);}
-pnab = null;
-	; if (pnabPtr != IntPtr.Zero){pnab = new Numa(pnabPtr);}
+	if (pnarPtr == null) {pnar = null;} else { pnar = new Numa(pnarPtr); };
+	if (pnagPtr == null) {pnag = null;} else { pnag = new Numa(pnagPtr); };
+	if (pnabPtr == null) {pnab = null;} else { pnab = new Numa(pnabPtr); };
 
 
 	return _Result;
@@ -260,8 +255,8 @@ pnab = null;
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///   <returns>na histogram of cmap indices, or NULL on error</returns>
 public static Numa pixGetCmapHistogram(
-				  Pix pixs, 
-				  int factor){
+				 Pix pixs, 
+				 int factor){
 
 	IntPtr _Result = Natives.pixGetCmapHistogram(pixs.Pointer,   factor);
 	
@@ -293,11 +288,11 @@ public static Numa pixGetCmapHistogram(
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///   <returns>na histogram, or NULL on error</returns>
 public static Numa pixGetCmapHistogramMasked(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int x, 
-				  int y, 
-				  int factor){
+				 Pix pixs, 
+				 Pix pixm, 
+				 int x, 
+				 int y, 
+				 int factor){
 
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
@@ -329,9 +324,9 @@ public static Numa pixGetCmapHistogramMasked(
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///   <returns>na histogram, or NULL on error</returns>
 public static Numa pixGetCmapHistogramInRect(
-				  Pix pixs, 
-				  Box box, 
-				  int factor){
+				 Pix pixs, 
+				 Box box, 
+				 int factor){
 
 	IntPtr boxPtr = IntPtr.Zero; 	if (box != null) {boxPtr = box.Pointer;}
 
@@ -353,7 +348,7 @@ public static Numa pixGetCmapHistogramInRect(
 ///  <param name="pixs">[in] - rgb or rgba</param>
 ///   <returns>ncolors, or -1 on error</returns>
 public static int pixCountRGBColors(
-				  Pix pixs){
+				 Pix pixs){
 
 	int _Result = Natives.pixCountRGBColors(pixs.Pointer);
 	
@@ -378,8 +373,8 @@ public static int pixCountRGBColors(
 ///  <param name="factor">[in] - subsampling factor integer greater or equal 1</param>
 ///   <returns>amap, or NULL on error</returns>
 public static L_Rbtree pixGetColorAmapHistogram(
-				  Pix pixs, 
-				  int factor){
+				 Pix pixs, 
+				 int factor){
 
 	IntPtr _Result = Natives.pixGetColorAmapHistogram(pixs.Pointer,   factor);
 	
@@ -403,8 +398,8 @@ public static L_Rbtree pixGetColorAmapHistogram(
 ///  <param name="val">[in] - rgb or rgba pixel value</param>
 ///   <returns>count, or -1 on error</returns>
 public static int amapGetCountForColor(
-				  L_Rbtree amap, 
-				  uint val){
+				 L_Rbtree amap, 
+				 uint val){
 
 	int _Result = Natives.amapGetCountForColor(amap.Pointer,   val);
 	
@@ -432,15 +427,14 @@ public static int amapGetCountForColor(
 ///  <param name="pvalue">[out] - pixel value corresponding to input rank</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetRankValue(
-				  Pix pixs, 
-				  int factor, 
-				  Single rank, 
-				 out uint pvalue){
+				 Pix pixs, 
+				 int factor, 
+				 Single rank, 
+				out uint pvalue){
 
 	int _Result = Natives.pixGetRankValue(pixs.Pointer,   factor,   rank, out  pvalue);
 	
 
-pvalue = 0;
 
 
 	return _Result;
@@ -476,12 +470,12 @@ pvalue = 0;
 ///  <param name="pbval">[out][optional] - blue component val for input rank</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetRankValueMaskedRGB(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int x, 
-				  int y, 
-				  int factor, 
-				  Single rank, 
+				 Pix pixs, 
+				 Pix pixm, 
+				 int x, 
+				 int y, 
+				 int factor, 
+				 Single rank, 
 				out Single prval, 
 				out Single pgval, 
 				out Single pbval){
@@ -491,9 +485,6 @@ public static int pixGetRankValueMaskedRGB(
 	int _Result = Natives.pixGetRankValueMaskedRGB(pixs.Pointer, pixmPtr,   x,   y,   factor,   rank, out  prval, out  pgval, out  pbval);
 	
 
-prval = 0f;
-pgval = 0f;
-pbval = 0f;
 
 
 	return _Result;
@@ -536,13 +527,13 @@ pbval = 0f;
 ///  <param name="pna">[out][optional] - of histogram</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetRankValueMasked(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int x, 
-				  int y, 
-				  int factor, 
-				  Single rank, 
-				 out Single pval, 
+				 Pix pixs, 
+				 Pix pixm, 
+				 int x, 
+				 int y, 
+				 int factor, 
+				 Single rank, 
+				out Single pval, 
 				out Numa pna){
 
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
@@ -551,9 +542,7 @@ public static int pixGetRankValueMasked(
 	int _Result = Natives.pixGetRankValueMasked(pixs.Pointer, pixmPtr,   x,   y,   factor,   rank, out  pval, out pnaPtr);
 	
 
-pval = 0f;
-pna = null;
-	; if (pnaPtr != IntPtr.Zero){pna = new Numa(pnaPtr);}
+	if (pnaPtr == null) {pna = null;} else { pna = new Numa(pnaPtr); };
 
 
 	return _Result;
@@ -591,19 +580,18 @@ pna = null;
 ///  <param name="pval">[out] - average pixel value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetPixelAverage(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int x, 
-				  int y, 
-				  int factor, 
-				 out uint pval){
+				 Pix pixs, 
+				 Pix pixm, 
+				 int x, 
+				 int y, 
+				 int factor, 
+				out uint pval){
 
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	int _Result = Natives.pixGetPixelAverage(pixs.Pointer, pixmPtr,   x,   y,   factor, out  pval);
 	
 
-pval = 0;
 
 
 	return _Result;
@@ -629,15 +617,14 @@ pval = 0;
 ///  <param name="pvalue">[out] - pixel value corresponding to input type</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetPixelStats(
-				  Pix pixs, 
-				  int factor, 
-				  int type, 
-				 out uint pvalue){
+				 Pix pixs, 
+				 int factor, 
+				 int type, 
+				out uint pvalue){
 
 	int _Result = Natives.pixGetPixelStats(pixs.Pointer,   factor,   type, out  pvalue);
 	
 
-pvalue = 0;
 
 
 	return _Result;
@@ -668,12 +655,12 @@ pvalue = 0;
 ///  <param name="pbval">[out][optional] - measured blue value of given 'type'</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetAverageMaskedRGB(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int x, 
-				  int y, 
-				  int factor, 
-				  int type, 
+				 Pix pixs, 
+				 Pix pixm, 
+				 int x, 
+				 int y, 
+				 int factor, 
+				 int type, 
 				out Single prval, 
 				out Single pgval, 
 				out Single pbval){
@@ -683,9 +670,6 @@ public static int pixGetAverageMaskedRGB(
 	int _Result = Natives.pixGetAverageMaskedRGB(pixs.Pointer, pixmPtr,   x,   y,   factor,   type, out  prval, out  pgval, out  pbval);
 	
 
-prval = 0f;
-pgval = 0f;
-pbval = 0f;
 
 
 	return _Result;
@@ -728,20 +712,19 @@ pbval = 0f;
 ///  <param name="pval">[out] - measured value of given 'type'</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetAverageMasked(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int x, 
-				  int y, 
-				  int factor, 
-				  int type, 
-				 out Single pval){
+				 Pix pixs, 
+				 Pix pixm, 
+				 int x, 
+				 int y, 
+				 int factor, 
+				 int type, 
+				out Single pval){
 
 	IntPtr pixmPtr = IntPtr.Zero; 	if (pixm != null) {pixmPtr = pixm.Pointer;}
 
 	int _Result = Natives.pixGetAverageMasked(pixs.Pointer, pixmPtr,   x,   y,   factor,   type, out  pval);
 	
 
-pval = 0f;
 
 
 	return _Result;
@@ -768,10 +751,10 @@ pval = 0f;
 ///  <param name="ppixb">[out][optional] - tiled 'average' of blue component</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetAverageTiledRGB(
-				  Pix pixs, 
-				  int sx, 
-				  int sy, 
-				  int type, 
+				 Pix pixs, 
+				 int sx, 
+				 int sy, 
+				 int type, 
 				out Pix ppixr, 
 				out Pix ppixg, 
 				out Pix ppixb){
@@ -783,12 +766,9 @@ public static int pixGetAverageTiledRGB(
 	int _Result = Natives.pixGetAverageTiledRGB(pixs.Pointer,   sx,   sy,   type, out ppixrPtr, out ppixgPtr, out ppixbPtr);
 	
 
-ppixr = null;
-	; if (ppixrPtr != IntPtr.Zero){ppixr = new Pix(ppixrPtr);}
-ppixg = null;
-	; if (ppixgPtr != IntPtr.Zero){ppixg = new Pix(ppixgPtr);}
-ppixb = null;
-	; if (ppixbPtr != IntPtr.Zero){ppixb = new Pix(ppixbPtr);}
+	if (ppixrPtr == null) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
+	if (ppixgPtr == null) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
+	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
 
 
 	return _Result;
@@ -816,10 +796,10 @@ ppixb = null;
 ///  <param name="type">[in] - L_MEAN_ABSVAL, L_ROOT_MEAN_SQUARE, L_STANDARD_DEVIATION</param>
 ///   <returns>pixd average values in each tile, or NULL on error</returns>
 public static Pix pixGetAverageTiled(
-				  Pix pixs, 
-				  int sx, 
-				  int sy, 
-				  int type){
+				 Pix pixs, 
+				 int sx, 
+				 int sy, 
+				 int type){
 
 	IntPtr _Result = Natives.pixGetAverageTiled(pixs.Pointer,   sx,   sy,   type);
 	
@@ -858,7 +838,7 @@ public static Pix pixGetAverageTiled(
 ///  <param name="pnarootvar">[out][optional] - numa of square root of variance</param>
 ///   <returns>na numa of requested statistic for each row, or NULL on error</returns>
 public static int pixRowStats(
-				  Pix pixs, 
+				 Pix pixs, 
 				 Box box, 
 				out Numa pnamean, 
 				out Numa pnamedian, 
@@ -878,18 +858,12 @@ public static int pixRowStats(
 	int _Result = Natives.pixRowStats(pixs.Pointer, boxPtr, out pnameanPtr, out pnamedianPtr, out pnamodePtr, out pnamodecountPtr, out pnavarPtr, out pnarootvarPtr);
 	
 
-pnamean = null;
-	; if (pnameanPtr != IntPtr.Zero){pnamean = new Numa(pnameanPtr);}
-pnamedian = null;
-	; if (pnamedianPtr != IntPtr.Zero){pnamedian = new Numa(pnamedianPtr);}
-pnamode = null;
-	; if (pnamodePtr != IntPtr.Zero){pnamode = new Numa(pnamodePtr);}
-pnamodecount = null;
-	; if (pnamodecountPtr != IntPtr.Zero){pnamodecount = new Numa(pnamodecountPtr);}
-pnavar = null;
-	; if (pnavarPtr != IntPtr.Zero){pnavar = new Numa(pnavarPtr);}
-pnarootvar = null;
-	; if (pnarootvarPtr != IntPtr.Zero){pnarootvar = new Numa(pnarootvarPtr);}
+	if (pnameanPtr == null) {pnamean = null;} else { pnamean = new Numa(pnameanPtr); };
+	if (pnamedianPtr == null) {pnamedian = null;} else { pnamedian = new Numa(pnamedianPtr); };
+	if (pnamodePtr == null) {pnamode = null;} else { pnamode = new Numa(pnamodePtr); };
+	if (pnamodecountPtr == null) {pnamodecount = null;} else { pnamodecount = new Numa(pnamodecountPtr); };
+	if (pnavarPtr == null) {pnavar = null;} else { pnavar = new Numa(pnavarPtr); };
+	if (pnarootvarPtr == null) {pnarootvar = null;} else { pnarootvar = new Numa(pnarootvarPtr); };
 
 
 	return _Result;
@@ -923,7 +897,7 @@ pnarootvar = null;
 ///  <param name="pnarootvar">[out][optional] - numa of square root of variance</param>
 ///   <returns>na numa of requested statistic for each column, or NULL on error</returns>
 public static int pixColumnStats(
-				  Pix pixs, 
+				 Pix pixs, 
 				 Box box, 
 				out Numa pnamean, 
 				out Numa pnamedian, 
@@ -943,18 +917,12 @@ public static int pixColumnStats(
 	int _Result = Natives.pixColumnStats(pixs.Pointer, boxPtr, out pnameanPtr, out pnamedianPtr, out pnamodePtr, out pnamodecountPtr, out pnavarPtr, out pnarootvarPtr);
 	
 
-pnamean = null;
-	; if (pnameanPtr != IntPtr.Zero){pnamean = new Numa(pnameanPtr);}
-pnamedian = null;
-	; if (pnamedianPtr != IntPtr.Zero){pnamedian = new Numa(pnamedianPtr);}
-pnamode = null;
-	; if (pnamodePtr != IntPtr.Zero){pnamode = new Numa(pnamodePtr);}
-pnamodecount = null;
-	; if (pnamodecountPtr != IntPtr.Zero){pnamodecount = new Numa(pnamodecountPtr);}
-pnavar = null;
-	; if (pnavarPtr != IntPtr.Zero){pnavar = new Numa(pnavarPtr);}
-pnarootvar = null;
-	; if (pnarootvarPtr != IntPtr.Zero){pnarootvar = new Numa(pnarootvarPtr);}
+	if (pnameanPtr == null) {pnamean = null;} else { pnamean = new Numa(pnameanPtr); };
+	if (pnamedianPtr == null) {pnamedian = null;} else { pnamedian = new Numa(pnamedianPtr); };
+	if (pnamodePtr == null) {pnamode = null;} else { pnamode = new Numa(pnamodePtr); };
+	if (pnamodecountPtr == null) {pnamodecount = null;} else { pnamodecount = new Numa(pnamodecountPtr); };
+	if (pnavarPtr == null) {pnavar = null;} else { pnavar = new Numa(pnavarPtr); };
+	if (pnarootvarPtr == null) {pnarootvar = null;} else { pnarootvar = new Numa(pnarootvarPtr); };
 
 
 	return _Result;
@@ -976,17 +944,15 @@ pnarootvar = null;
 ///  <param name="pmaxval">[out][optional] - maximum value of component</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetRangeValues(
-				  Pix pixs, 
-				  int factor, 
-				  int color, 
+				 Pix pixs, 
+				 int factor, 
+				 int color, 
 				out int pminval, 
 				out int pmaxval){
 
 	int _Result = Natives.pixGetRangeValues(pixs.Pointer,   factor,   color, out  pminval, out  pmaxval);
 	
 
-pminval = 0;
-pmaxval = 0;
 
 
 	return _Result;
@@ -1013,9 +979,9 @@ pmaxval = 0;
 ///  <param name="pgrayval">[out][optional] - min or max gray value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetExtremeValue(
-				  Pix pixs, 
-				  int factor, 
-				  int type, 
+				 Pix pixs, 
+				 int factor, 
+				 int type, 
 				out int prval, 
 				out int pgval, 
 				out int pbval, 
@@ -1024,10 +990,6 @@ public static int pixGetExtremeValue(
 	int _Result = Natives.pixGetExtremeValue(pixs.Pointer,   factor,   type, out  prval, out  pgval, out  pbval, out  pgrayval);
 	
 
-prval = 0;
-pgval = 0;
-pbval = 0;
-pgrayval = 0;
 
 
 	return _Result;
@@ -1054,7 +1016,7 @@ pgrayval = 0;
 ///  <param name="pymax">[out][optional] - y location of max value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetMaxValueInRect(
-				  Pix pixs, 
+				 Pix pixs, 
 				 Box box, 
 				out uint pmaxval, 
 				out int pxmax, 
@@ -1065,9 +1027,6 @@ public static int pixGetMaxValueInRect(
 	int _Result = Natives.pixGetMaxValueInRect(pixs.Pointer, boxPtr, out  pmaxval, out  pxmax, out  pymax);
 	
 
-pmaxval = 0;
-pxmax = 0;
-pymax = 0;
 
 
 	return _Result;
@@ -1094,10 +1053,10 @@ pymax = 0;
 ///  <param name="fontsize">[in][optional] - 0 for no debug for debug, valid set is {4,6,8,10,12,14,16,18,20}.</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetBinnedComponentRange(
-				  Pix pixs, 
-				  int nbins, 
-				  int factor, 
-				  int color, 
+				 Pix pixs, 
+				 int nbins, 
+				 int factor, 
+				 int color, 
 				out int pminval, 
 				out int pmaxval, 
 				out Byte[] pcarray, 
@@ -1108,9 +1067,7 @@ public static int pixGetBinnedComponentRange(
 	int _Result = Natives.pixGetBinnedComponentRange(pixs.Pointer,   nbins,   factor,   color, out  pminval, out  pmaxval, out  pcarrayPtr,   fontsize);
 	
 
-pminval = 0;
-pmaxval = 0;
-pcarray = null;
+	if (pcarrayPtr == null) {pcarray = null;} else { pcarray = null; };
 
 
 	return _Result;
@@ -1155,12 +1112,12 @@ pcarray = null;
 ///  <param name="fontsize">[in][optional] - 0 for no debug for debug, valid set is {4,6,8,10,12,14,16,18,20}.  Ignored if debugflag == 0.  fontsize == 6 is typical.</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetRankColorArray(
-				  Pix pixs, 
-				  int nbins, 
-				  int type, 
-				  int factor, 
-				 out Byte[] pcarray, 
-				  int debugflag, 
+				 Pix pixs, 
+				 int nbins, 
+				 int type, 
+				 int factor, 
+				out Byte[] pcarray, 
+				 int debugflag, 
 				 int fontsize){
 
 	IntPtr pcarrayPtr = IntPtr.Zero;
@@ -1168,7 +1125,7 @@ public static int pixGetRankColorArray(
 	int _Result = Natives.pixGetRankColorArray(pixs.Pointer,   nbins,   type,   factor, out  pcarrayPtr,   debugflag,   fontsize);
 	
 
-pcarray = null;
+	if (pcarrayPtr == null) {pcarray = null;} else { pcarray = null; };
 
 
 	return _Result;
@@ -1203,20 +1160,20 @@ pcarray = null;
 ///  <param name="debugflag">[in] - 1 to display output debug plots of color components 2 to write them as png to file</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixGetBinnedColor(
-				  Pix pixs, 
-				  Pix pixg, 
-				  int factor, 
-				  int nbins, 
-				  Numa nalut, 
-				 out Byte[] pcarray, 
-				  int debugflag){
+				 Pix pixs, 
+				 Pix pixg, 
+				 int factor, 
+				 int nbins, 
+				 Numa nalut, 
+				out Byte[] pcarray, 
+				 int debugflag){
 
 	IntPtr pcarrayPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixGetBinnedColor(pixs.Pointer, pixg.Pointer,   factor,   nbins, nalut.Pointer, out  pcarrayPtr,   debugflag);
 	
 
-pcarray = null;
+	if (pcarrayPtr == null) {pcarray = null;} else { pcarray = null; };
 
 
 	return _Result;
@@ -1235,11 +1192,11 @@ pcarray = null;
 ///  <param name="fontsize">[in] - to label each square with text.  Valid set is {4,6,8,10,12,14,16,18,20}.  Use 0 to disable.</param>
 ///   <returns>pixd color array, or NULL on error</returns>
 public static Pix pixDisplayColorArray(
-				  Byte[] carray, 
-				  int ncolors, 
-				  int side, 
-				  int ncols, 
-				  int fontsize){
+				 Byte[] carray, 
+				 int ncolors, 
+				 int side, 
+				 int ncols, 
+				 int fontsize){
 
 		IntPtr carrayPtr = 	Marshal.AllocHGlobal(carray.Length);
 		Marshal.Copy(carray, 0, carrayPtr, carray.Length);
@@ -1286,11 +1243,11 @@ public static Pix pixDisplayColorArray(
 ///  <param name="type">[in] - color selection flag</param>
 ///   <returns>pixd result, or NULL on error</returns>
 public static Pix pixRankBinByStrip(
-				  Pix pixs, 
-				  int direction, 
-				  int size, 
-				  int nbins, 
-				  int type){
+				 Pix pixs, 
+				 int direction, 
+				 int size, 
+				 int nbins, 
+				 int type){
 
 	IntPtr _Result = Natives.pixRankBinByStrip(pixs.Pointer,   direction,   size,   nbins,   type);
 	
@@ -1324,10 +1281,10 @@ public static Pix pixRankBinByStrip(
 ///  <param name="thresh">[in] - on histogram for mode val ignored for all other types</param>
 ///   <returns>pix with pixelwise aligned stats, or NULL on error.</returns>
 public static Pix pixaGetAlignedStats(
-				  Pixa pixa, 
-				  int type, 
-				  int nbins, 
-				  int thresh){
+				 Pixa pixa, 
+				 int type, 
+				 int nbins, 
+				 int thresh){
 
 	IntPtr _Result = Natives.pixaGetAlignedStats(pixa.Pointer,   type,   nbins,   thresh);
 	
@@ -1349,9 +1306,9 @@ public static Pix pixaGetAlignedStats(
 ///  <param name="pixd">[in] - pix into which each column is inserted</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaExtractColumnFromEachPix(
-				  Pixa pixa, 
-				  int col, 
-				  Pix pixd){
+				 Pixa pixa, 
+				 int col, 
+				 Pix pixd){
 
 	int _Result = Natives.pixaExtractColumnFromEachPix(pixa.Pointer,   col, pixd.Pointer);
 	
@@ -1397,11 +1354,11 @@ public static int pixaExtractColumnFromEachPix(
 ///  <param name="colvect">[in] - vector of results gathered across the rows of pixs</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetRowStats(
-				  Pix pixs, 
-				  int type, 
-				  int nbins, 
-				  int thresh, 
-				  Single[] colvect){
+				 Pix pixs, 
+				 int type, 
+				 int nbins, 
+				 int thresh, 
+				 Single[] colvect){
 
 	int _Result = Natives.pixGetRowStats(pixs.Pointer,   type,   nbins,   thresh,   colvect);
 	
@@ -1441,11 +1398,11 @@ public static int pixGetRowStats(
 ///  <param name="rowvect">[in] - vector of results gathered down the columns of pixs</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixGetColumnStats(
-				  Pix pixs, 
-				  int type, 
-				  int nbins, 
-				  int thresh, 
-				  Single[] rowvect){
+				 Pix pixs, 
+				 int type, 
+				 int nbins, 
+				 int thresh, 
+				 Single[] rowvect){
 
 	int _Result = Natives.pixGetColumnStats(pixs.Pointer,   type,   nbins,   thresh,   rowvect);
 	
@@ -1466,9 +1423,9 @@ public static int pixGetColumnStats(
 ///  <param name="colvect">[in] - vector of floats</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSetPixelColumn(
-				  Pix pix, 
-				  int col, 
-				  Single[] colvect){
+				 Pix pix, 
+				 int col, 
+				 Single[] colvect){
 
 	int _Result = Natives.pixSetPixelColumn(pix.Pointer,   col,   colvect);
 	
@@ -1491,17 +1448,15 @@ public static int pixSetPixelColumn(
 ///  <param name="pbgval">[out][optional] - average background value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixThresholdForFgBg(
-				  Pix pixs, 
-				  int factor, 
-				  int thresh, 
+				 Pix pixs, 
+				 int factor, 
+				 int thresh, 
 				out int pfgval, 
 				out int pbgval){
 
 	int _Result = Natives.pixThresholdForFgBg(pixs.Pointer,   factor,   thresh, out  pfgval, out  pbgval);
 	
 
-pfgval = 0;
-pbgval = 0;
 
 
 	return _Result;
@@ -1526,9 +1481,9 @@ pbgval = 0;
 ///  <param name="ppixdb">[out][optional] - plot of distribution and split point</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSplitDistributionFgBg(
-				  Pix pixs, 
-				  Single scorefract, 
-				  int factor, 
+				 Pix pixs, 
+				 Single scorefract, 
+				 int factor, 
 				out int pthresh, 
 				out int pfgval, 
 				out int pbgval, 
@@ -1539,14 +1494,11 @@ public static int pixSplitDistributionFgBg(
 	int _Result = Natives.pixSplitDistributionFgBg(pixs.Pointer,   scorefract,   factor, out  pthresh, out  pfgval, out  pbgval, out ppixdbPtr);
 	
 
-pthresh = 0;
-pfgval = 0;
-pbgval = 0;
-ppixdb = null;
-	; if (ppixdbPtr != IntPtr.Zero){ppixdb = new Pix(ppixdbPtr);}
+	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
 }
 
+}
 }

@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // parseprotos.c (142, 1)
 // parseForProtos(filein, prestring) as String
@@ -13,8 +14,8 @@ public class _All {
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/parseForProtos/*"/>
 ///   <returns></returns>
 public static String parseForProtos(
-				  String filein, 
-				  String prestring){
+				 String filein, 
+				 String prestring){
 
 	String _Result = Natives.parseForProtos(  filein,   prestring);
 	
@@ -24,4 +25,5 @@ public static String parseForProtos(
 	return _Result;
 }
 
+}
 }

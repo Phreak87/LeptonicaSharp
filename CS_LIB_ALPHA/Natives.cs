@@ -53179,7 +53179,7 @@ internal static extern int lept_roundftoi (	 Single fval);
 ///  <param name="phash">[out] - hash vale</param>
 ///   <returns>0 if OK, 1 on error</returns>
 [DllImport(DllPath, CallingConvention = CConv, EntryPoint="l_hashStringToUint64")]
-internal static extern int l_hashStringToUint64 (	 String str, 	out IntPtr phash);
+internal static extern int l_hashStringToUint64 (	 String str, 	out ulong phash);
 // utils1.c (614, 1)
 // l_hashPtToUint64(x, y, phash) as int
 // l_hashPtToUint64(l_int32, l_int32, l_uint64 *) as l_ok
@@ -53205,7 +53205,7 @@ internal static extern int l_hashStringToUint64 (	 String str, 	out IntPtr phash
 ///  <param name="phash">[out] - hash value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 [DllImport(DllPath, CallingConvention = CConv, EntryPoint="l_hashPtToUint64")]
-internal static extern int l_hashPtToUint64 (	 int x, 	 int y, 	out IntPtr phash);
+internal static extern int l_hashPtToUint64 (	 int x, 	 int y, 	out ulong phash);
 // utils1.c (654, 1)
 // l_hashFloat64ToUint64(nbuckets, val, phash) as int
 // l_hashFloat64ToUint64(l_int32, l_float64, l_uint64 *) as l_ok
@@ -53234,7 +53234,7 @@ internal static extern int l_hashPtToUint64 (	 int x, 	 int y, 	out IntPtr phash
 ///  <param name="phash">[out] - hash value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 [DllImport(DllPath, CallingConvention = CConv, EntryPoint="l_hashFloat64ToUint64")]
-internal static extern int l_hashFloat64ToUint64 (	 int nbuckets, 	 double val, 	out IntPtr phash);
+internal static extern int l_hashFloat64ToUint64 (	 int nbuckets, 	 double val, 	out ulong phash);
 // utils1.c (678, 1)
 // findNextLargerPrime(start, pprime) as int
 // findNextLargerPrime(l_int32, l_uint32 *) as l_ok

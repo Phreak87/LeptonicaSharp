@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // fpix2.c (124, 1)
 // pixConvertToFPix(pixs, ncomps) as FPix
@@ -22,8 +23,8 @@ public class _All {
 ///  <param name="ncomps">[in] - number of components: 3 for RGB, 1 otherwise</param>
 ///   <returns>fpix, or NULL on error</returns>
 public static FPix pixConvertToFPix(
-				  Pix pixs, 
-				  int ncomps){
+				 Pix pixs, 
+				 int ncomps){
 
 	IntPtr _Result = Natives.pixConvertToFPix(pixs.Pointer,   ncomps);
 	
@@ -51,8 +52,8 @@ public static FPix pixConvertToFPix(
 ///  <param name="ncomps">[in] - number of components: 3 for RGB, 1 otherwise</param>
 ///   <returns>dpix, or NULL on error</returns>
 public static DPix pixConvertToDPix(
-				  Pix pixs, 
-				  int ncomps){
+				 Pix pixs, 
+				 int ncomps){
 
 	IntPtr _Result = Natives.pixConvertToDPix(pixs.Pointer,   ncomps);
 	
@@ -89,10 +90,10 @@ public static DPix pixConvertToDPix(
 ///  <param name="errorflag">[in] - 1 to output error stats 0 otherwise</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix fpixConvertToPix(
-				  FPix fpixs, 
-				  int outdepth, 
-				  int negvals, 
-				  int errorflag){
+				 FPix fpixs, 
+				 int outdepth, 
+				 int negvals, 
+				 int errorflag){
 
 	IntPtr _Result = Natives.fpixConvertToPix(fpixs.Pointer,   outdepth,   negvals,   errorflag);
 	
@@ -112,7 +113,7 @@ public static Pix fpixConvertToPix(
 ///  <param name="fpixs">[in] - </param>
 ///   <returns>pixd 8 bpp, or NULL on error</returns>
 public static Pix fpixDisplayMaxDynamicRange(
-				  FPix fpixs){
+				 FPix fpixs){
 
 	IntPtr _Result = Natives.fpixDisplayMaxDynamicRange(fpixs.Pointer);
 	
@@ -132,7 +133,7 @@ public static Pix fpixDisplayMaxDynamicRange(
 ///  <param name="fpix">[in] - </param>
 ///   <returns>dpix, or NULL on error</returns>
 public static DPix fpixConvertToDPix(
-				  FPix fpix){
+				 FPix fpix){
 
 	IntPtr _Result = Natives.fpixConvertToDPix(fpix.Pointer);
 	
@@ -169,10 +170,10 @@ public static DPix fpixConvertToDPix(
 ///  <param name="errorflag">[in] - 1 to output error stats 0 otherwise</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix dpixConvertToPix(
-				  DPix dpixs, 
-				  int outdepth, 
-				  int negvals, 
-				  int errorflag){
+				 DPix dpixs, 
+				 int outdepth, 
+				 int negvals, 
+				 int errorflag){
 
 	IntPtr _Result = Natives.dpixConvertToPix(dpixs.Pointer,   outdepth,   negvals,   errorflag);
 	
@@ -192,7 +193,7 @@ public static Pix dpixConvertToPix(
 ///  <param name="dpix">[in] - </param>
 ///   <returns>fpix, or NULL on error</returns>
 public static FPix dpixConvertToFPix(
-				  DPix dpix){
+				 DPix dpix){
 
 	IntPtr _Result = Natives.dpixConvertToFPix(dpix.Pointer);
 	
@@ -215,7 +216,7 @@ public static FPix dpixConvertToFPix(
 ///  <param name="pyminloc">[out][optional] - y location of min</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int fpixGetMin(
-				  FPix fpix, 
+				 FPix fpix, 
 				out Single pminval, 
 				out int pxminloc, 
 				out int pyminloc){
@@ -223,9 +224,6 @@ public static int fpixGetMin(
 	int _Result = Natives.fpixGetMin(fpix.Pointer, out  pminval, out  pxminloc, out  pyminloc);
 	
 
-pminval = 0f;
-pxminloc = 0;
-pyminloc = 0;
 
 
 	return _Result;
@@ -243,7 +241,7 @@ pyminloc = 0;
 ///  <param name="pymaxloc">[out][optional] - y location of max</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int fpixGetMax(
-				  FPix fpix, 
+				 FPix fpix, 
 				out Single pmaxval, 
 				out int pxmaxloc, 
 				out int pymaxloc){
@@ -251,9 +249,6 @@ public static int fpixGetMax(
 	int _Result = Natives.fpixGetMax(fpix.Pointer, out  pmaxval, out  pxmaxloc, out  pymaxloc);
 	
 
-pmaxval = 0f;
-pxmaxloc = 0;
-pymaxloc = 0;
 
 
 	return _Result;
@@ -271,7 +266,7 @@ pymaxloc = 0;
 ///  <param name="pyminloc">[out][optional] - y location of min</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int dpixGetMin(
-				  DPix dpix, 
+				 DPix dpix, 
 				out Double[] pminval, 
 				out int pxminloc, 
 				out int pyminloc){
@@ -279,9 +274,6 @@ public static int dpixGetMin(
 	int _Result = Natives.dpixGetMin(dpix.Pointer, out  pminval, out  pxminloc, out  pyminloc);
 	
 
-pminval = null;
-pxminloc = 0;
-pyminloc = 0;
 
 
 	return _Result;
@@ -299,7 +291,7 @@ pyminloc = 0;
 ///  <param name="pymaxloc">[out][optional] - y location of max</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int dpixGetMax(
-				  DPix dpix, 
+				 DPix dpix, 
 				out Double[] pmaxval, 
 				out int pxmaxloc, 
 				out int pymaxloc){
@@ -307,9 +299,6 @@ public static int dpixGetMax(
 	int _Result = Natives.dpixGetMax(dpix.Pointer, out  pmaxval, out  pxmaxloc, out  pymaxloc);
 	
 
-pmaxval = null;
-pxmaxloc = 0;
-pymaxloc = 0;
 
 
 	return _Result;
@@ -336,8 +325,8 @@ pymaxloc = 0;
 ///  <param name="factor">[in] - scaling factor</param>
 ///   <returns>fpixd interpolated result, or NULL on error</returns>
 public static FPix fpixScaleByInteger(
-				  FPix fpixs, 
-				  int factor){
+				 FPix fpixs, 
+				 int factor){
 
 	IntPtr _Result = Natives.fpixScaleByInteger(fpixs.Pointer,   factor);
 	
@@ -369,8 +358,8 @@ public static FPix fpixScaleByInteger(
 ///  <param name="factor">[in] - scaling factor</param>
 ///   <returns>dpixd interpolated result, or NULL on error</returns>
 public static DPix dpixScaleByInteger(
-				  DPix dpixs, 
-				  int factor){
+				 DPix dpixs, 
+				 int factor){
 
 	IntPtr _Result = Natives.dpixScaleByInteger(dpixs.Pointer,   factor);
 	
@@ -407,11 +396,11 @@ public static DPix dpixScaleByInteger(
 ///  <param name="b">[in] - multiplication factors on fpixs1 and fpixs2, rsp.</param>
 ///   <returns>fpixd always</returns>
 public static FPix fpixLinearCombination(
-				  FPix fpixd, 
-				  FPix fpixs1, 
-				  FPix fpixs2, 
-				  Single a, 
-				  Single b){
+				 FPix fpixd, 
+				 FPix fpixs1, 
+				 FPix fpixs2, 
+				 Single a, 
+				 Single b){
 
 	IntPtr fpixdPtr = IntPtr.Zero; 	if (fpixd != null) {fpixdPtr = fpixd.Pointer;}
 
@@ -442,9 +431,9 @@ public static FPix fpixLinearCombination(
 ///  <param name="multc">[in] - use 1.0 to skip the operation</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fpixAddMultConstant(
-				  FPix fpix, 
-				  Single addc, 
-				  Single multc){
+				 FPix fpix, 
+				 Single addc, 
+				 Single multc){
 
 	int _Result = Natives.fpixAddMultConstant(fpix.Pointer,   addc,   multc);
 	
@@ -480,11 +469,11 @@ public static int fpixAddMultConstant(
 ///  <param name="b">[in] - multiplication factors on dpixs1 and dpixs2, rsp.</param>
 ///   <returns>dpixd always</returns>
 public static DPix dpixLinearCombination(
-				  DPix dpixd, 
-				  DPix dpixs1, 
-				  DPix dpixs2, 
-				  Single a, 
-				  Single b){
+				 DPix dpixd, 
+				 DPix dpixs1, 
+				 DPix dpixs2, 
+				 Single a, 
+				 Single b){
 
 	IntPtr dpixdPtr = IntPtr.Zero; 	if (dpixd != null) {dpixdPtr = dpixd.Pointer;}
 
@@ -515,9 +504,9 @@ public static DPix dpixLinearCombination(
 ///  <param name="multc">[in] - use 1.0 to skip the operation</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dpixAddMultConstant(
-				  DPix dpix, 
-				  double addc, 
-				  double multc){
+				 DPix dpix, 
+				 double addc, 
+				 double multc){
 
 	int _Result = Natives.dpixAddMultConstant(dpix.Pointer,   addc,   multc);
 	
@@ -537,8 +526,8 @@ public static int dpixAddMultConstant(
 ///  <param name="inval">[in] - to set at each pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fpixSetAllArbitrary(
-				  FPix fpix, 
-				  Single inval){
+				 FPix fpix, 
+				 Single inval){
 
 	int _Result = Natives.fpixSetAllArbitrary(fpix.Pointer,   inval);
 	
@@ -558,8 +547,8 @@ public static int fpixSetAllArbitrary(
 ///  <param name="inval">[in] - to set at each pixel</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int dpixSetAllArbitrary(
-				  DPix dpix, 
-				  double inval){
+				 DPix dpix, 
+				 double inval){
 
 	int _Result = Natives.dpixSetAllArbitrary(dpix.Pointer,   inval);
 	
@@ -585,11 +574,11 @@ public static int dpixSetAllArbitrary(
 ///  <param name="bot">[in] - pixels on each side to be added</param>
 ///   <returns>fpixd, or NULL on error</returns>
 public static FPix fpixAddBorder(
-				  FPix fpixs, 
-				  int left, 
-				  int right, 
-				  int top, 
-				  int bot){
+				 FPix fpixs, 
+				 int left, 
+				 int right, 
+				 int top, 
+				 int bot){
 
 	IntPtr _Result = Natives.fpixAddBorder(fpixs.Pointer,   left,   right,   top,   bot);
 	
@@ -613,11 +602,11 @@ public static FPix fpixAddBorder(
 ///  <param name="bot">[in] - pixels on each side to be removed</param>
 ///   <returns>fpixd, or NULL on error</returns>
 public static FPix fpixRemoveBorder(
-				  FPix fpixs, 
-				  int left, 
-				  int right, 
-				  int top, 
-				  int bot){
+				 FPix fpixs, 
+				 int left, 
+				 int right, 
+				 int top, 
+				 int bot){
 
 	IntPtr _Result = Natives.fpixRemoveBorder(fpixs.Pointer,   left,   right,   top,   bot);
 	
@@ -644,11 +633,11 @@ public static FPix fpixRemoveBorder(
 ///  <param name="bot">[in] - pixels on each side to be added</param>
 ///   <returns>fpixd, or NULL on error</returns>
 public static FPix fpixAddMirroredBorder(
-				  FPix fpixs, 
-				  int left, 
-				  int right, 
-				  int top, 
-				  int bot){
+				 FPix fpixs, 
+				 int left, 
+				 int right, 
+				 int top, 
+				 int bot){
 
 	IntPtr _Result = Natives.fpixAddMirroredBorder(fpixs.Pointer,   left,   right,   top,   bot);
 	
@@ -676,11 +665,11 @@ public static FPix fpixAddMirroredBorder(
 ///  <param name="bot">[in] - pixels on each side to be added</param>
 ///   <returns>fpixd, or NULL on error</returns>
 public static FPix fpixAddContinuedBorder(
-				  FPix fpixs, 
-				  int left, 
-				  int right, 
-				  int top, 
-				  int bot){
+				 FPix fpixs, 
+				 int left, 
+				 int right, 
+				 int top, 
+				 int bot){
 
 	IntPtr _Result = Natives.fpixAddContinuedBorder(fpixs.Pointer,   left,   right,   top,   bot);
 	
@@ -709,11 +698,11 @@ public static FPix fpixAddContinuedBorder(
 ///  <param name="bot">[in] - pixels on each side to be added</param>
 ///   <returns>fpixd, or NULL on error</returns>
 public static FPix fpixAddSlopeBorder(
-				  FPix fpixs, 
-				  int left, 
-				  int right, 
-				  int top, 
-				  int bot){
+				 FPix fpixs, 
+				 int left, 
+				 int right, 
+				 int top, 
+				 int bot){
 
 	IntPtr _Result = Natives.fpixAddSlopeBorder(fpixs.Pointer,   left,   right,   top,   bot);
 	
@@ -752,14 +741,14 @@ public static FPix fpixAddSlopeBorder(
 ///  <param name="sy">[in] - y val of UL corner of src rectangle</param>
 ///   <returns>0 if OK 1 on error.</returns>
 public static int fpixRasterop(
-				  FPix fpixd, 
-				  int dx, 
-				  int dy, 
-				  int dw, 
-				  int dh, 
-				  FPix fpixs, 
-				  int sx, 
-				  int sy){
+				 FPix fpixd, 
+				 int dx, 
+				 int dy, 
+				 int dw, 
+				 int dh, 
+				 FPix fpixs, 
+				 int sx, 
+				 int sy){
 
 	int _Result = Natives.fpixRasterop(fpixd.Pointer,   dx,   dy,   dw,   dh, fpixs.Pointer,   sx,   sy);
 	
@@ -779,8 +768,8 @@ public static int fpixRasterop(
 ///  <param name="quads">[in] - 0-3 number of 90 degree cw rotations</param>
 ///   <returns>fpixd, or NULL on error</returns>
 public static FPix fpixRotateOrth(
-				  FPix fpixs, 
-				  int quads){
+				 FPix fpixs, 
+				 int quads){
 
 	IntPtr _Result = Natives.fpixRotateOrth(fpixs.Pointer,   quads);
 	
@@ -817,8 +806,8 @@ public static FPix fpixRotateOrth(
 ///  <param name="fpixs">[in] - </param>
 ///   <returns>fpixd, or NULL on error</returns>
 public static FPix fpixRotate180(
-				  FPix fpixd, 
-				  FPix fpixs){
+				 FPix fpixd, 
+				 FPix fpixs){
 
 	IntPtr fpixdPtr = IntPtr.Zero; 	if (fpixd != null) {fpixdPtr = fpixd.Pointer;}
 
@@ -847,8 +836,8 @@ public static FPix fpixRotate180(
 ///  <param name="direction">[in] - 1 = clockwise,  -1 = counter-clockwise</param>
 ///   <returns>fpixd, or NULL on error</returns>
 public static FPix fpixRotate90(
-				  FPix fpixs, 
-				  int direction){
+				 FPix fpixs, 
+				 int direction){
 
 	IntPtr _Result = Natives.fpixRotate90(fpixs.Pointer,   direction);
 	
@@ -887,8 +876,8 @@ public static FPix fpixRotate90(
 ///  <param name="fpixs">[in] - </param>
 ///   <returns>fpixd, or NULL on error</returns>
 public static FPix fpixFlipLR(
-				  FPix fpixd, 
-				  FPix fpixs){
+				 FPix fpixd, 
+				 FPix fpixs){
 
 	IntPtr fpixdPtr = IntPtr.Zero; 	if (fpixd != null) {fpixdPtr = fpixd.Pointer;}
 
@@ -929,8 +918,8 @@ public static FPix fpixFlipLR(
 ///  <param name="fpixs">[in] - </param>
 ///   <returns>fpixd, or NULL on error</returns>
 public static FPix fpixFlipTB(
-				  FPix fpixd, 
-				  FPix fpixs){
+				 FPix fpixd, 
+				 FPix fpixs){
 
 	IntPtr fpixdPtr = IntPtr.Zero; 	if (fpixd != null) {fpixdPtr = fpixd.Pointer;}
 
@@ -967,11 +956,11 @@ public static FPix fpixFlipTB(
 ///  <param name="inval">[in] - value brought in typ. 0</param>
 ///   <returns>fpixd, or NULL on error</returns>
 public static FPix fpixAffinePta(
-				  FPix fpixs, 
-				  Pta ptad, 
-				  Pta ptas, 
-				  int border, 
-				  Single inval){
+				 FPix fpixs, 
+				 Pta ptad, 
+				 Pta ptas, 
+				 int border, 
+				 Single inval){
 
 	IntPtr _Result = Natives.fpixAffinePta(fpixs.Pointer, ptad.Pointer, ptas.Pointer,   border,   inval);
 	
@@ -993,9 +982,9 @@ public static FPix fpixAffinePta(
 ///  <param name="inval">[in] - value brought in typ. 0</param>
 ///   <returns>fpixd, or NULL on error</returns>
 public static FPix fpixAffine(
-				  FPix fpixs, 
-				  Single[] vc, 
-				  Single inval){
+				 FPix fpixs, 
+				 Single[] vc, 
+				 Single inval){
 
 	IntPtr _Result = Natives.fpixAffine(fpixs.Pointer,   vc,   inval);
 	
@@ -1030,11 +1019,11 @@ public static FPix fpixAffine(
 ///  <param name="inval">[in] - value brought in typ. 0</param>
 ///   <returns>fpixd, or NULL on error</returns>
 public static FPix fpixProjectivePta(
-				  FPix fpixs, 
-				  Pta ptad, 
-				  Pta ptas, 
-				  int border, 
-				  Single inval){
+				 FPix fpixs, 
+				 Pta ptad, 
+				 Pta ptas, 
+				 int border, 
+				 Single inval){
 
 	IntPtr _Result = Natives.fpixProjectivePta(fpixs.Pointer, ptad.Pointer, ptas.Pointer,   border,   inval);
 	
@@ -1056,9 +1045,9 @@ public static FPix fpixProjectivePta(
 ///  <param name="inval">[in] - value brought in typ. 0</param>
 ///   <returns>fpixd, or NULL on error</returns>
 public static FPix fpixProjective(
-				  FPix fpixs, 
-				  Single[] vc, 
-				  Single inval){
+				 FPix fpixs, 
+				 Single[] vc, 
+				 Single inval){
 
 	IntPtr _Result = Natives.fpixProjective(fpixs.Pointer,   vc,   inval);
 	
@@ -1089,18 +1078,17 @@ public static FPix fpixProjective(
 ///  <param name="pval">[out] - interpolated float value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int linearInterpolatePixelFloat(
-				  Single[] datas, 
-				  int w, 
-				  int h, 
-				  Single x, 
-				  Single y, 
-				  Single inval, 
-				 out Single pval){
+				 Single[] datas, 
+				 int w, 
+				 int h, 
+				 Single x, 
+				 Single y, 
+				 Single inval, 
+				out Single pval){
 
 	int _Result = Natives.linearInterpolatePixelFloat(  datas,   w,   h,   x,   y,   inval, out  pval);
 	
 
-pval = 0f;
 
 
 	return _Result;
@@ -1120,8 +1108,8 @@ pval = 0f;
 ///  <param name="thresh">[in] - </param>
 ///   <returns>pixd 1 bpp, or NULL on error</returns>
 public static Pix fpixThresholdToPix(
-				  FPix fpix, 
-				  Single thresh){
+				 FPix fpix, 
+				 Single thresh){
 
 	IntPtr _Result = Natives.fpixThresholdToPix(fpix.Pointer,   thresh);
 	
@@ -1160,13 +1148,13 @@ public static Pix fpixThresholdToPix(
 ///  <param name="bdenom">[in] - coefficients for denominator</param>
 ///   <returns>fpixd, or NULL on error</returns>
 public static FPix pixComponentFunction(
-				  Pix pix, 
-				  Single rnum, 
-				  Single gnum, 
-				  Single bnum, 
-				  Single rdenom, 
-				  Single gdenom, 
-				  Single bdenom){
+				 Pix pix, 
+				 Single rnum, 
+				 Single gnum, 
+				 Single bnum, 
+				 Single rdenom, 
+				 Single gdenom, 
+				 Single bdenom){
 
 	IntPtr _Result = Natives.pixComponentFunction(pix.Pointer,   rnum,   gnum,   bnum,   rdenom,   gdenom,   bdenom);
 	
@@ -1177,4 +1165,5 @@ public static FPix pixComponentFunction(
 	return  new FPix(_Result);
 }
 
+}
 }

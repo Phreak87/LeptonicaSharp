@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // fhmtauto.c (207, 1)
 // fhmtautogen(sela, fileindex, filename) as int
@@ -22,8 +23,8 @@ public class _All {
 ///  <param name="filename">[in][optional] - can be null</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int fhmtautogen(
-				  Sela sela, 
-				  int fileindex, 
+				 Sela sela, 
+				 int fileindex, 
 				 String filename){
 
 	int _Result = Natives.fhmtautogen(sela.Pointer,   fileindex,   filename);
@@ -62,8 +63,8 @@ public static int fhmtautogen(
 ///  <param name="filename">[in][optional] - can be null</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int fhmtautogen1(
-				  Sela sela, 
-				  int fileindex, 
+				 Sela sela, 
+				 int fileindex, 
 				 String filename){
 
 	int _Result = Natives.fhmtautogen1(sela.Pointer,   fileindex,   filename);
@@ -99,8 +100,8 @@ public static int fhmtautogen1(
 ///  <param name="filename">[in][optional] - can be null</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int fhmtautogen2(
-				  Sela sela, 
-				  int fileindex, 
+				 Sela sela, 
+				 int fileindex, 
 				 String filename){
 
 	int _Result = Natives.fhmtautogen2(sela.Pointer,   fileindex,   filename);
@@ -111,4 +112,5 @@ public static int fhmtautogen2(
 	return _Result;
 }
 
+}
 }

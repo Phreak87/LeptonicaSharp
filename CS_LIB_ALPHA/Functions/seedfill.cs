@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // seedfill.c (243, 1)
 // pixSeedfillBinary(pixd, pixs, pixm, connectivity) as Pix
@@ -40,10 +41,10 @@ public class _All {
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>pixd always</returns>
 public static Pix pixSeedfillBinary(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Pix pixm, 
-				  int connectivity){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Pix pixm, 
+				 int connectivity){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -92,12 +93,12 @@ public static Pix pixSeedfillBinary(
 ///  <param name="ymax">[in] - max distance in y direction of fill into the mask</param>
 ///   <returns>pixd always</returns>
 public static Pix pixSeedfillBinaryRestricted(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Pix pixm, 
-				  int connectivity, 
-				  int xmax, 
-				  int ymax){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Pix pixm, 
+				 int connectivity, 
+				 int xmax, 
+				 int ymax){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -125,8 +126,8 @@ public static Pix pixSeedfillBinaryRestricted(
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>pixd  inverted image of all holes, or NULL on error Action: 1 Start with 1-pixel black border on otherwise white pixd 2 Use the inverted pixs as the filling mask to fill in all the pixels from the border to the pixs foreground 3 OR the result with pixs to have an image with all ON pixels except for the holes. 4 Invert the result to get the holes as foreground</returns>
 public static Pix pixHolesByFilling(
-				  Pix pixs, 
-				  int connectivity){
+				 Pix pixs, 
+				 int connectivity){
 
 	IntPtr _Result = Natives.pixHolesByFilling(pixs.Pointer,   connectivity);
 	
@@ -164,8 +165,8 @@ public static Pix pixHolesByFilling(
 ///  <param name="connectivity">[in] - filling connectivity 4 or 8</param>
 ///   <returns>pixd  all topologically outer closed borders are filled as connected comonents, or NULL on error</returns>
 public static Pix pixFillClosedBorders(
-				  Pix pixs, 
-				  int connectivity){
+				 Pix pixs, 
+				 int connectivity){
 
 	IntPtr _Result = Natives.pixFillClosedBorders(pixs.Pointer,   connectivity);
 	
@@ -186,8 +187,8 @@ public static Pix pixFillClosedBorders(
 ///  <param name="connectivity">[in] - filling connectivity 4 or 8</param>
 ///   <returns>pixd  all pixels in the src that are in connected components touching the border, or NULL on error</returns>
 public static Pix pixExtractBorderConnComps(
-				  Pix pixs, 
-				  int connectivity){
+				 Pix pixs, 
+				 int connectivity){
 
 	IntPtr _Result = Natives.pixExtractBorderConnComps(pixs.Pointer,   connectivity);
 	
@@ -211,8 +212,8 @@ public static Pix pixExtractBorderConnComps(
 ///  <param name="connectivity">[in] - filling connectivity 4 or 8</param>
 ///   <returns>pixd  all pixels in the src that are not touching the border or NULL on error</returns>
 public static Pix pixRemoveBorderConnComps(
-				  Pix pixs, 
-				  int connectivity){
+				 Pix pixs, 
+				 int connectivity){
 
 	IntPtr _Result = Natives.pixRemoveBorderConnComps(pixs.Pointer,   connectivity);
 	
@@ -251,8 +252,8 @@ public static Pix pixRemoveBorderConnComps(
 ///  <param name="connectivity">[in] - filling connectivity 4 or 8</param>
 ///   <returns>pixd with the background c.c. touching the border filled to foreground, or NULL on error</returns>
 public static Pix pixFillBgFromBorder(
-				  Pix pixs, 
-				  int connectivity){
+				 Pix pixs, 
+				 int connectivity){
 
 	IntPtr _Result = Natives.pixFillBgFromBorder(pixs.Pointer,   connectivity);
 	
@@ -298,10 +299,10 @@ public static Pix pixFillBgFromBorder(
 ///  <param name="minfgfract">[in] - min fg area as fraction of bounding rectangle</param>
 ///   <returns>pixd pixs, with some holes possibly filled and some c.c. possibly expanded to their bounding rects, or NULL on error</returns>
 public static Pix pixFillHolesToBoundingRect(
-				  Pix pixs, 
-				  int minsize, 
-				  Single maxhfract, 
-				  Single minfgfract){
+				 Pix pixs, 
+				 int minsize, 
+				 Single maxhfract, 
+				 Single minfgfract){
 
 	IntPtr _Result = Natives.pixFillHolesToBoundingRect(pixs.Pointer,   minsize,   maxhfract,   minfgfract);
 	
@@ -340,9 +341,9 @@ public static Pix pixFillHolesToBoundingRect(
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSeedfillGray(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int connectivity){
+				 Pix pixs, 
+				 Pix pixm, 
+				 int connectivity){
 
 	int _Result = Natives.pixSeedfillGray(pixs.Pointer, pixm.Pointer,   connectivity);
 	
@@ -382,9 +383,9 @@ public static int pixSeedfillGray(
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSeedfillGrayInv(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int connectivity){
+				 Pix pixs, 
+				 Pix pixm, 
+				 int connectivity){
 
 	int _Result = Natives.pixSeedfillGrayInv(pixs.Pointer, pixm.Pointer,   connectivity);
 	
@@ -422,9 +423,9 @@ public static int pixSeedfillGrayInv(
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSeedfillGraySimple(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int connectivity){
+				 Pix pixs, 
+				 Pix pixm, 
+				 int connectivity){
 
 	int _Result = Natives.pixSeedfillGraySimple(pixs.Pointer, pixm.Pointer,   connectivity);
 	
@@ -459,9 +460,9 @@ public static int pixSeedfillGraySimple(
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSeedfillGrayInvSimple(
-				  Pix pixs, 
-				  Pix pixm, 
-				  int connectivity){
+				 Pix pixs, 
+				 Pix pixm, 
+				 int connectivity){
 
 	int _Result = Natives.pixSeedfillGrayInvSimple(pixs.Pointer, pixm.Pointer,   connectivity);
 	
@@ -506,10 +507,10 @@ public static int pixSeedfillGrayInvSimple(
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>pixd filled seed if OK, NULL on error</returns>
 public static Pix pixSeedfillGrayBasin(
-				  Pix pixb, 
-				  Pix pixm, 
-				  int delta, 
-				  int connectivity){
+				 Pix pixb, 
+				 Pix pixm, 
+				 int delta, 
+				 int connectivity){
 
 	IntPtr _Result = Natives.pixSeedfillGrayBasin(pixb.Pointer, pixm.Pointer,   delta,   connectivity);
 	
@@ -567,10 +568,10 @@ public static Pix pixSeedfillGrayBasin(
 ///  <param name="boundcond">[in] - L_BOUNDARY_BG, L_BOUNDARY_FG</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixDistanceFunction(
-				  Pix pixs, 
-				  int connectivity, 
-				  int outdepth, 
-				  int boundcond){
+				 Pix pixs, 
+				 int connectivity, 
+				 int outdepth, 
+				 int boundcond){
 
 	IntPtr _Result = Natives.pixDistanceFunction(pixs.Pointer,   connectivity,   outdepth,   boundcond);
 	
@@ -625,8 +626,8 @@ public static Pix pixDistanceFunction(
 ///  <param name="connectivity">[in] - 4 or 8</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixSeedspread(
-				  Pix pixs, 
-				  int connectivity){
+				 Pix pixs, 
+				 int connectivity){
 
 	IntPtr _Result = Natives.pixSeedspread(pixs.Pointer,   connectivity);
 	
@@ -676,9 +677,9 @@ public static Pix pixSeedspread(
 ///  <param name="ppixmax">[out][optional] - mask of local maxima</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixLocalExtrema(
-				  Pix pixs, 
-				  int maxmin, 
-				  int minmax, 
+				 Pix pixs, 
+				 int maxmin, 
+				 int minmax, 
 				out Pix ppixmin, 
 				out Pix ppixmax){
 
@@ -688,10 +689,8 @@ public static int pixLocalExtrema(
 	int _Result = Natives.pixLocalExtrema(pixs.Pointer,   maxmin,   minmax, out ppixminPtr, out ppixmaxPtr);
 	
 
-ppixmin = null;
-	; if (ppixminPtr != IntPtr.Zero){ppixmin = new Pix(ppixminPtr);}
-ppixmax = null;
-	; if (ppixmaxPtr != IntPtr.Zero){ppixmax = new Pix(ppixmaxPtr);}
+	if (ppixminPtr == null) {ppixmin = null;} else { ppixmin = new Pix(ppixminPtr); };
+	if (ppixmaxPtr == null) {ppixmax = null;} else { ppixmax = new Pix(ppixmaxPtr); };
 
 
 	return _Result;
@@ -732,10 +731,10 @@ ppixmax = null;
 ///  <param name="ppixmax">[out] - mask of local maxima</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixSelectedLocalExtrema(
-				  Pix pixs, 
-				  int mindist, 
-				 out Pix ppixmin, 
-				 out Pix ppixmax){
+				 Pix pixs, 
+				 int mindist, 
+				out Pix ppixmin, 
+				out Pix ppixmax){
 
 	IntPtr ppixminPtr = IntPtr.Zero;
 	IntPtr ppixmaxPtr = IntPtr.Zero;
@@ -743,10 +742,8 @@ public static int pixSelectedLocalExtrema(
 	int _Result = Natives.pixSelectedLocalExtrema(pixs.Pointer,   mindist, out ppixminPtr, out ppixmaxPtr);
 	
 
-ppixmin = null;
-	; if (ppixminPtr != IntPtr.Zero){ppixmin = new Pix(ppixminPtr);}
-ppixmax = null;
-	; if (ppixmaxPtr != IntPtr.Zero){ppixmax = new Pix(ppixmaxPtr);}
+	if (ppixminPtr == null) {ppixmin = null;} else { ppixmin = new Pix(ppixminPtr); };
+	if (ppixmaxPtr == null) {ppixmax = null;} else { ppixmax = new Pix(ppixmaxPtr); };
 
 
 	return _Result;
@@ -767,8 +764,8 @@ ppixmax = null;
 ///  <param name="pixs2">[in] - 8 bpp</param>
 ///   <returns>pixd 1 bpp mask, or NULL on error</returns>
 public static Pix pixFindEqualValues(
-				  Pix pixs1, 
-				  Pix pixs2){
+				 Pix pixs1, 
+				 Pix pixs2){
 
 	IntPtr _Result = Natives.pixFindEqualValues(pixs1.Pointer, pixs2.Pointer);
 	
@@ -802,9 +799,9 @@ public static Pix pixFindEqualValues(
 ///  <param name="pnav">[out][optional] - numa of minima values</param>
 ///   <returns>0 if OK, 1 on error.</returns>
 public static int pixSelectMinInConnComp(
-				  Pix pixs, 
-				  Pix pixm, 
-				 out Pta ppta, 
+				 Pix pixs, 
+				 Pix pixm, 
+				out Pta ppta, 
 				out Numa pnav){
 
 	IntPtr pptaPtr = IntPtr.Zero;
@@ -813,10 +810,8 @@ public static int pixSelectMinInConnComp(
 	int _Result = Natives.pixSelectMinInConnComp(pixs.Pointer, pixm.Pointer, out pptaPtr, out pnavPtr);
 	
 
-ppta = null;
-	; if (pptaPtr != IntPtr.Zero){ppta = new Pta(pptaPtr);}
-pnav = null;
-	; if (pnavPtr != IntPtr.Zero){pnav = new Numa(pnavPtr);}
+	if (pptaPtr == null) {ppta = null;} else { ppta = new Pta(pptaPtr); };
+	if (pnavPtr == null) {pnav = null;} else { pnav = new Numa(pnavPtr); };
 
 
 	return _Result;
@@ -847,11 +842,11 @@ pnav = null;
 ///  <param name="bordersize">[in] - amount of border clearing</param>
 ///   <returns>pixd, or NULL on error</returns>
 public static Pix pixRemoveSeededComponents(
-				  Pix pixd, 
-				  Pix pixs, 
-				  Pix pixm, 
-				  int connectivity, 
-				  int bordersize){
+				 Pix pixd, 
+				 Pix pixs, 
+				 Pix pixm, 
+				 int connectivity, 
+				 int bordersize){
 
 	IntPtr pixdPtr = IntPtr.Zero; 	if (pixd != null) {pixdPtr = pixd.Pointer;}
 
@@ -864,4 +859,5 @@ public static Pix pixRemoveSeededComponents(
 	return  new Pix(_Result);
 }
 
+}
 }

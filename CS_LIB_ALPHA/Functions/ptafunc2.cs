@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // ptafunc2.c (89, 1)
 // ptaSort(ptas, sorttype, sortorder, pnaindex) as Pta
@@ -17,9 +18,9 @@ public class _All {
 ///  <param name="pnaindex">[out][optional] - index of sorted order into original array</param>
 ///   <returns>ptad sorted version of ptas, or NULL on error</returns>
 public static Pta ptaSort(
-				  Pta ptas, 
-				  int sorttype, 
-				  int sortorder, 
+				 Pta ptas, 
+				 int sorttype, 
+				 int sortorder, 
 				out Numa pnaindex){
 
 	IntPtr pnaindexPtr = IntPtr.Zero;
@@ -27,8 +28,7 @@ public static Pta ptaSort(
 	IntPtr _Result = Natives.ptaSort(ptas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
 	
 
-pnaindex = null;
-	; if (pnaindexPtr != IntPtr.Zero){pnaindex = new Numa(pnaindexPtr);}
+	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -47,18 +47,17 @@ pnaindex = null;
 ///  <param name="pnaindex">[out] - index of sorted order into original array</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaGetSortIndex(
-				  Pta ptas, 
-				  int sorttype, 
-				  int sortorder, 
-				 out Numa pnaindex){
+				 Pta ptas, 
+				 int sorttype, 
+				 int sortorder, 
+				out Numa pnaindex){
 
 	IntPtr pnaindexPtr = IntPtr.Zero;
 
 	int _Result = Natives.ptaGetSortIndex(ptas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
 	
 
-pnaindex = null;
-	; if (pnaindexPtr != IntPtr.Zero){pnaindex = new Numa(pnaindexPtr);}
+	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 
 	return _Result;
@@ -74,8 +73,8 @@ pnaindex = null;
 ///  <param name="naindex">[in] - na that maps from the new pta to the input pta</param>
 ///   <returns>ptad sorted, or NULL on  error</returns>
 public static Pta ptaSortByIndex(
-				  Pta ptas, 
-				  Numa naindex){
+				 Pta ptas, 
+				 Numa naindex){
 
 	IntPtr _Result = Natives.ptaSortByIndex(ptas.Pointer, naindex.Pointer);
 	
@@ -96,8 +95,8 @@ public static Pta ptaSortByIndex(
 ///  <param name="naindex">[in] - na that maps from the new ptaa to the input ptaa</param>
 ///   <returns>ptaad sorted, or NULL on error</returns>
 public static Ptaa ptaaSortByIndex(
-				  Ptaa ptaas, 
-				  Numa naindex){
+				 Ptaa ptaas, 
+				 Numa naindex){
 
 	IntPtr _Result = Natives.ptaaSortByIndex(ptaas.Pointer, naindex.Pointer);
 	
@@ -121,18 +120,17 @@ public static Ptaa ptaaSortByIndex(
 ///  <param name="pval">[out] - [and]rankval: the x or y value at %fract</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaGetRankValue(
-				  Pta pta, 
-				  Single fract, 
-				  Pta ptasort, 
-				  int sorttype, 
-				 out Single pval){
+				 Pta pta, 
+				 Single fract, 
+				 Pta ptasort, 
+				 int sorttype, 
+				out Single pval){
 
 	IntPtr ptasortPtr = IntPtr.Zero; 	if (ptasort != null) {ptasortPtr = ptasort.Pointer;}
 
 	int _Result = Natives.ptaGetRankValue(pta.Pointer,   fract, ptasortPtr,   sorttype, out  pval);
 	
 
-pval = 0f;
 
 
 	return _Result;
@@ -160,8 +158,8 @@ pval = 0f;
 ///  <param name="pta2">[in] - </param>
 ///   <returns>ptad with the union of the set of points, or NULL on error</returns>
 public static Pta ptaUnionByAset(
-				  Pta pta1, 
-				  Pta pta2){
+				 Pta pta1, 
+				 Pta pta2){
 
 	IntPtr _Result = Natives.ptaUnionByAset(pta1.Pointer, pta2.Pointer);
 	
@@ -186,7 +184,7 @@ public static Pta ptaUnionByAset(
 ///  <param name="ptas">[in] - assumed to be integer values</param>
 ///   <returns>ptad with duplicates removed, or NULL on error</returns>
 public static Pta ptaRemoveDupsByAset(
-				  Pta ptas){
+				 Pta ptas){
 
 	IntPtr _Result = Natives.ptaRemoveDupsByAset(ptas.Pointer);
 	
@@ -216,8 +214,8 @@ public static Pta ptaRemoveDupsByAset(
 ///  <param name="pta2">[in] - </param>
 ///   <returns>ptad intersection of the point sets, or NULL on error</returns>
 public static Pta ptaIntersectionByAset(
-				  Pta pta1, 
-				  Pta pta2){
+				 Pta pta1, 
+				 Pta pta2){
 
 	IntPtr _Result = Natives.ptaIntersectionByAset(pta1.Pointer, pta2.Pointer);
 	
@@ -237,7 +235,7 @@ public static Pta ptaIntersectionByAset(
 ///  <param name="pta">[in] - </param>
 ///   <returns>set using a 64-bit hash of (x,y) as the key</returns>
 public static L_Rbtree l_asetCreateFromPta(
-				  Pta pta){
+				 Pta pta){
 
 	IntPtr _Result = Natives.l_asetCreateFromPta(pta.Pointer);
 	
@@ -263,8 +261,8 @@ public static L_Rbtree l_asetCreateFromPta(
 ///  <param name="pta2">[in] - </param>
 ///   <returns>ptad with the union of the set of points, or NULL on error</returns>
 public static Pta ptaUnionByHash(
-				  Pta pta1, 
-				  Pta pta2){
+				 Pta pta1, 
+				 Pta pta2){
 
 	IntPtr _Result = Natives.ptaUnionByHash(pta1.Pointer, pta2.Pointer);
 	
@@ -306,8 +304,8 @@ public static Pta ptaUnionByHash(
 ///  <param name="pdahash">[out][optional] - dnahash used for lookup</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaRemoveDupsByHash(
-				  Pta ptas, 
-				 out Pta pptad, 
+				 Pta ptas, 
+				out Pta pptad, 
 				out L_DnaHash pdahash){
 
 	IntPtr pptadPtr = IntPtr.Zero;
@@ -316,10 +314,8 @@ public static int ptaRemoveDupsByHash(
 	int _Result = Natives.ptaRemoveDupsByHash(ptas.Pointer, out pptadPtr, out pdahashPtr);
 	
 
-pptad = null;
-	; if (pptadPtr != IntPtr.Zero){pptad = new Pta(pptadPtr);}
-pdahash = null;
-	; if (pdahashPtr != IntPtr.Zero){pdahash = new L_DnaHash(pdahashPtr);}
+	if (pptadPtr == null) {pptad = null;} else { pptad = new Pta(pptadPtr); };
+	if (pdahashPtr == null) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
 
 
 	return _Result;
@@ -340,8 +336,8 @@ pdahash = null;
 ///  <param name="pta2">[in] - </param>
 ///   <returns>ptad intersection of the point sets, or NULL on error</returns>
 public static Pta ptaIntersectionByHash(
-				  Pta pta1, 
-				  Pta pta2){
+				 Pta pta1, 
+				 Pta pta2){
 
 	IntPtr _Result = Natives.ptaIntersectionByHash(pta1.Pointer, pta2.Pointer);
 	
@@ -379,16 +375,15 @@ public static Pta ptaIntersectionByHash(
 ///  <param name="pindex">[out] - index into pta if (x,y) is in pta -1 otherwise</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptaFindPtByHash(
-				  Pta pta, 
-				  L_DnaHash dahash, 
-				  int x, 
-				  int y, 
-				 out int pindex){
+				 Pta pta, 
+				 L_DnaHash dahash, 
+				 int x, 
+				 int y, 
+				out int pindex){
 
 	int _Result = Natives.ptaFindPtByHash(pta.Pointer, dahash.Pointer,   x,   y, out  pindex);
 	
 
-pindex = 0;
 
 
 	return _Result;
@@ -403,7 +398,7 @@ pindex = 0;
 ///  <param name="pta">[in] - </param>
 ///   <returns>dahash, or NULL on error</returns>
 public static L_DnaHash l_dnaHashCreateFromPta(
-				  Pta pta){
+				 Pta pta){
 
 	IntPtr _Result = Natives.l_dnaHashCreateFromPta(pta.Pointer);
 	
@@ -414,4 +409,5 @@ public static L_DnaHash l_dnaHashCreateFromPta(
 	return  new L_DnaHash(_Result);
 }
 
+}
 }

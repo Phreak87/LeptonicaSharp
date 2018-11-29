@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // recogbasic.c (232, 1)
 // recogCreateFromRecog(recs, scalew, scaleh, linew, threshold, maxyshift) as L_Recog
@@ -27,12 +28,12 @@ public class _All {
 ///  <param name="maxyshift">[in] - from nominal centroid alignment default is 1</param>
 ///   <returns>recd, or NULL on error</returns>
 public static L_Recog recogCreateFromRecog(
-				  L_Recog recs, 
-				  int scalew, 
-				  int scaleh, 
-				  int linew, 
-				  int threshold, 
-				  int maxyshift){
+				 L_Recog recs, 
+				 int scalew, 
+				 int scaleh, 
+				 int linew, 
+				 int threshold, 
+				 int maxyshift){
 
 	IntPtr _Result = Natives.recogCreateFromRecog(recs.Pointer,   scalew,   scaleh,   linew,   threshold,   maxyshift);
 	
@@ -71,12 +72,12 @@ public static L_Recog recogCreateFromRecog(
 ///  <param name="maxyshift">[in] - from nominal centroid alignment default is 1</param>
 ///   <returns>recog, or NULL on error</returns>
 public static L_Recog recogCreateFromPixa(
-				  Pixa pixa, 
-				  int scalew, 
-				  int scaleh, 
-				  int linew, 
-				  int threshold, 
-				  int maxyshift){
+				 Pixa pixa, 
+				 int scalew, 
+				 int scaleh, 
+				 int linew, 
+				 int threshold, 
+				 int maxyshift){
 
 	IntPtr _Result = Natives.recogCreateFromPixa(pixa.Pointer,   scalew,   scaleh,   linew,   threshold,   maxyshift);
 	
@@ -108,12 +109,12 @@ public static L_Recog recogCreateFromPixa(
 ///  <param name="maxyshift">[in] - from nominal centroid alignment default is 1</param>
 ///   <returns>recog, or NULL on error</returns>
 public static L_Recog recogCreateFromPixaNoFinish(
-				  Pixa pixa, 
-				  int scalew, 
-				  int scaleh, 
-				  int linew, 
-				  int threshold, 
-				  int maxyshift){
+				 Pixa pixa, 
+				 int scalew, 
+				 int scaleh, 
+				 int linew, 
+				 int threshold, 
+				 int maxyshift){
 
 	IntPtr _Result = Natives.recogCreateFromPixaNoFinish(pixa.Pointer,   scalew,   scaleh,   linew,   threshold,   maxyshift);
 	
@@ -159,11 +160,11 @@ public static L_Recog recogCreateFromPixaNoFinish(
 ///  <param name="maxyshift">[in] - from nominal centroid alignment default is 1</param>
 ///   <returns>recog, or NULL on error</returns>
 public static L_Recog recogCreate(
-				  int scalew, 
-				  int scaleh, 
-				  int linew, 
-				  int threshold, 
-				  int maxyshift){
+				 int scalew, 
+				 int scaleh, 
+				 int linew, 
+				 int threshold, 
+				 int maxyshift){
 
 	IntPtr _Result = Natives.recogCreate(  scalew,   scaleh,   linew,   threshold,   maxyshift);
 	
@@ -182,15 +183,14 @@ public static L_Recog recogCreate(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/recogDestroy/*"/>
 ///  <param name="precog">[in,out] - will be set to null before returning</param>
 public static void recogDestroy(
-				 ref L_Recog precog){
+				ref L_Recog precog){
 
 	IntPtr precogPtr = IntPtr.Zero; 	if (precog != null) {precogPtr = precog.Pointer;}
 
 	Natives.recogDestroy(ref precogPtr);
 	
 
-precog = null;
-	; if (precogPtr != IntPtr.Zero){precog = new L_Recog(precogPtr);}
+	if (precogPtr == null) {precog = null;} else { precog = new L_Recog(precogPtr); };
 
 
 }
@@ -204,7 +204,7 @@ precog = null;
 ///  <param name="recog">[in] - </param>
 ///   <returns>count of classes in recog 0 if no recog or on error</returns>
 public static int recogGetCount(
-				  L_Recog recog){
+				 L_Recog recog){
 
 	int _Result = Natives.recogGetCount(recog.Pointer);
 	
@@ -241,11 +241,11 @@ public static int recogGetCount(
 ///  <param name="max_ht_ratio">[in] - max of max/min averaged template height ratio use -1.0 for default</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int recogSetParams(
-				  L_Recog recog, 
-				  int type, 
-				  int min_nopad, 
-				  Single max_wh_ratio, 
-				  Single max_ht_ratio){
+				 L_Recog recog, 
+				 int type, 
+				 int min_nopad, 
+				 Single max_wh_ratio, 
+				 Single max_ht_ratio){
 
 	int _Result = Natives.recogSetParams(recog.Pointer,   type,   min_nopad,   max_wh_ratio,   max_ht_ratio);
 	
@@ -283,15 +283,14 @@ public static int recogSetParams(
 ///  <param name="pindex">[out] - index into dna_tochar</param>
 ///   <returns>0 if found 1 if not found and added 2 on error.</returns>
 public static int recogGetClassIndex(
-				  L_Recog recog, 
-				  int val, 
-				  String text, 
-				 out int pindex){
+				 L_Recog recog, 
+				 int val, 
+				 String text, 
+				out int pindex){
 
 	int _Result = Natives.recogGetClassIndex(recog.Pointer,   val,   text, out  pindex);
 	
 
-pindex = 0;
 
 
 	return _Result;
@@ -308,14 +307,13 @@ pindex = 0;
 ///  <param name="pindex">[out] - index for that class -1 if not found</param>
 ///   <returns>0 if OK, 1 on error not finding the string is an error</returns>
 public static int recogStringToIndex(
-				  L_Recog recog, 
-				  String text, 
-				 out int pindex){
+				 L_Recog recog, 
+				 String text, 
+				out int pindex){
 
 	int _Result = Natives.recogStringToIndex(recog.Pointer,   text, out  pindex);
 	
 
-pindex = 0;
 
 
 	return _Result;
@@ -338,16 +336,16 @@ pindex = 0;
 ///  <param name="pcharstr">[out] - string representation returns an empty string on error</param>
 ///   <returns>0 if found, 1 on error</returns>
 public static int recogGetClassString(
-				  L_Recog recog, 
-				  int index, 
-				 out String[] pcharstr){
+				 L_Recog recog, 
+				 int index, 
+				out String[] pcharstr){
 
 	IntPtr pcharstrPtr = IntPtr.Zero;
 
 	int _Result = Natives.recogGetClassString(recog.Pointer,   index, out  pcharstrPtr);
 	
 
-pcharstr = null;
+	if (pcharstrPtr == null) {pcharstr = null;} else { pcharstr = null; };
 
 
 	return _Result;
@@ -363,13 +361,12 @@ pcharstr = null;
 ///  <param name="pval">[out] - integer value for the input.  Think of it as a 1-to-1 hash code.</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_convertCharstrToInt(
-				  String str, 
-				 out int pval){
+				 String str, 
+				out int pval){
 
 	int _Result = Natives.l_convertCharstrToInt(  str, out  pval);
 	
 
-pval = 0;
 
 
 	return _Result;
@@ -401,7 +398,7 @@ pval = 0;
 ///  <param name="filename">[in] - </param>
 ///   <returns>recog, or NULL on error</returns>
 public static L_Recog recogRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.recogRead(  filename);
 	
@@ -421,7 +418,7 @@ public static L_Recog recogRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>recog, or NULL on error</returns>
 public static L_Recog recogReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.recogReadStream(fp.Pointer);
 	
@@ -442,8 +439,8 @@ public static L_Recog recogReadStream(
 ///  <param name="size">[in] - of data in bytes</param>
 ///   <returns>recog, or NULL on error</returns>
 public static L_Recog recogReadMem(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.recogReadMem(  data,   size);
 	
@@ -471,8 +468,8 @@ public static L_Recog recogReadMem(
 ///  <param name="recog">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int recogWrite(
-				  String filename, 
-				  L_Recog recog){
+				 String filename, 
+				 L_Recog recog){
 
 	int _Result = Natives.recogWrite(  filename, recog.Pointer);
 	
@@ -492,8 +489,8 @@ public static int recogWrite(
 ///  <param name="recog">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int recogWriteStream(
-				  FILE fp, 
-				  L_Recog recog){
+				 FILE fp, 
+				 L_Recog recog){
 
 	int _Result = Natives.recogWriteStream(fp.Pointer, recog.Pointer);
 	
@@ -517,17 +514,16 @@ public static int recogWriteStream(
 ///  <param name="recog">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int recogWriteMem(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  L_Recog recog){
+				out Byte[] pdata, 
+				out uint psize, 
+				 L_Recog recog){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.recogWriteMem(out  pdataPtr, out  psize, recog.Pointer);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -547,7 +543,7 @@ psize = 0;
 ///  <param name="recog">[in] - </param>
 ///   <returns>pixa if OK, NULL on error</returns>
 public static Pixa recogExtractPixa(
-				  L_Recog recog){
+				 L_Recog recog){
 
 	IntPtr _Result = Natives.recogExtractPixa(recog.Pointer);
 	
@@ -558,4 +554,5 @@ public static Pixa recogExtractPixa(
 	return  new Pixa(_Result);
 }
 
+}
 }

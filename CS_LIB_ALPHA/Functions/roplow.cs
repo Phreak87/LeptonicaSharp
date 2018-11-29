@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // roplow.c (124, 1)
 // rasteropUniLow(datad, dpixw, dpixh, depth, dwpl, dx, dy, dw, dh, op) as Object
@@ -22,16 +23,16 @@ public class _All {
 ///  <param name="dh">[in] - height of dest rectangle</param>
 ///  <param name="op">[in] - op code</param>
 public static void rasteropUniLow(
-				  Byte[] datad, 
-				  int dpixw, 
-				  int dpixh, 
-				  int depth, 
-				  int dwpl, 
-				  int dx, 
-				  int dy, 
-				  int dw, 
-				  int dh, 
-				  int op){
+				 Byte[] datad, 
+				 int dpixw, 
+				 int dpixh, 
+				 int depth, 
+				 int dwpl, 
+				 int dx, 
+				 int dy, 
+				 int dw, 
+				 int dh, 
+				 int op){
 
 		IntPtr datadPtr = 	Marshal.AllocHGlobal(datad.Length);
 		Marshal.Copy(datad, 0, datadPtr, datad.Length);
@@ -67,22 +68,22 @@ public static void rasteropUniLow(
 ///  <param name="sx">[in] - x val of UL corner of src rectangle</param>
 ///  <param name="sy">[in] - y val of UL corner of src rectangle</param>
 public static void rasteropLow(
-				  Byte[] datad, 
-				  int dpixw, 
-				  int dpixh, 
-				  int depth, 
-				  int dwpl, 
-				  int dx, 
-				  int dy, 
-				  int dw, 
-				  int dh, 
-				  int op, 
-				  Byte[] datas, 
-				  int spixw, 
-				  int spixh, 
-				  int swpl, 
-				  int sx, 
-				  int sy){
+				 Byte[] datad, 
+				 int dpixw, 
+				 int dpixh, 
+				 int depth, 
+				 int dwpl, 
+				 int dx, 
+				 int dy, 
+				 int dw, 
+				 int dh, 
+				 int op, 
+				 Byte[] datas, 
+				 int spixw, 
+				 int spixh, 
+				 int swpl, 
+				 int sx, 
+				 int sy){
 
 		IntPtr datadPtr = 	Marshal.AllocHGlobal(datad.Length);
 		Marshal.Copy(datad, 0, datadPtr, datad.Length);
@@ -125,14 +126,14 @@ public static void rasteropLow(
 ///  <param name="w">[in] - width of rectangle</param>
 ///  <param name="shift">[in] - + shifts data downward in vertical column</param>
 public static void rasteropVipLow(
-				  Byte[] data, 
-				  int pixw, 
-				  int pixh, 
-				  int depth, 
-				  int wpl, 
-				  int x, 
-				  int w, 
-				  int shift){
+				 Byte[] data, 
+				 int pixw, 
+				 int pixh, 
+				 int depth, 
+				 int wpl, 
+				 int x, 
+				 int w, 
+				 int shift){
 
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(data.Length);
 		Marshal.Copy(data, 0, dataPtr, data.Length);
@@ -168,13 +169,13 @@ public static void rasteropVipLow(
 ///  <param name="h">[in] - height of rectangle</param>
 ///  <param name="shift">[in] - + shifts data to the left in a horizontal column</param>
 public static void rasteropHipLow(
-				  Byte[] data, 
-				  int pixh, 
-				  int depth, 
-				  int wpl, 
-				  int y, 
-				  int h, 
-				  int shift){
+				 Byte[] data, 
+				 int pixh, 
+				 int depth, 
+				 int wpl, 
+				 int y, 
+				 int h, 
+				 int shift){
 
 		IntPtr dataPtr = 	Marshal.AllocHGlobal(data.Length);
 		Marshal.Copy(data, 0, dataPtr, data.Length);
@@ -187,4 +188,5 @@ public static void rasteropHipLow(
 
 }
 
+}
 }

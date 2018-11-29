@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // utils1.c (125, 1)
 // setMsgSeverity(newsev) as int
@@ -23,7 +24,7 @@ public class _All {
 ///  <param name="newsev">[in] - </param>
 ///   <returns>oldsev</returns>
 public static int setMsgSeverity(
-				  int newsev){
+				 int newsev){
 
 	int _Result = Natives.setMsgSeverity(  newsev);
 	
@@ -44,9 +45,9 @@ public static int setMsgSeverity(
 ///  <param name="ival">[in] - return val</param>
 ///   <returns>ival typically 1 for an error return</returns>
 public static int returnErrorInt(
-				  String msg, 
-				  String procname, 
-				  int ival){
+				 String msg, 
+				 String procname, 
+				 int ival){
 
 	int _Result = Natives.returnErrorInt(  msg,   procname,   ival);
 	
@@ -67,9 +68,9 @@ public static int returnErrorInt(
 ///  <param name="fval">[in] - return val</param>
 ///   <returns>fval</returns>
 public static Single returnErrorFloat(
-				  String msg, 
-				  String procname, 
-				  Single fval){
+				 String msg, 
+				 String procname, 
+				 Single fval){
 
 	Single _Result = Natives.returnErrorFloat(  msg,   procname,   fval);
 	
@@ -90,9 +91,9 @@ public static Single returnErrorFloat(
 ///  <param name="pval">[in] - return val</param>
 ///   <returns>pval typically null</returns>
 public static Object returnErrorPtr(
-				  String msg, 
-				  String procname, 
-				  Object pval){
+				 String msg, 
+				 String procname, 
+				 Object pval){
 
 		IntPtr pvalPtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -118,14 +119,13 @@ public static Object returnErrorPtr(
 ///  <param name="psame">[out] - 1 if identical 0 if different</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int filesAreIdentical(
-				  String fname1, 
-				  String fname2, 
-				 out int psame){
+				 String fname1, 
+				 String fname2, 
+				out int psame){
 
 	int _Result = Natives.filesAreIdentical(  fname1,   fname2, out  psame);
 	
 
-psame = 0;
 
 
 	return _Result;
@@ -139,7 +139,7 @@ psame = 0;
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertOnLittleEnd16/*"/>
 ///   <returns></returns>
 public static ushort convertOnLittleEnd16(
-				  ushort shortin){
+				 ushort shortin){
 
 	ushort _Result = Natives.convertOnLittleEnd16(  shortin);
 	
@@ -157,7 +157,7 @@ public static ushort convertOnLittleEnd16(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertOnBigEnd16/*"/>
 ///   <returns></returns>
 public static ushort convertOnBigEnd16(
-				  ushort shortin){
+				 ushort shortin){
 
 	ushort _Result = Natives.convertOnBigEnd16(  shortin);
 	
@@ -175,7 +175,7 @@ public static ushort convertOnBigEnd16(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertOnLittleEnd32/*"/>
 ///   <returns></returns>
 public static uint convertOnLittleEnd32(
-				  uint wordin){
+				 uint wordin){
 
 	uint _Result = Natives.convertOnLittleEnd32(  wordin);
 	
@@ -193,7 +193,7 @@ public static uint convertOnLittleEnd32(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/convertOnBigEnd32/*"/>
 ///   <returns></returns>
 public static uint convertOnBigEnd32(
-				  uint wordin){
+				 uint wordin){
 
 	uint _Result = Natives.convertOnBigEnd32(  wordin);
 	
@@ -227,10 +227,10 @@ public static uint convertOnBigEnd32(
 ///  <param name="fileout">[in] - corrupted file</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fileCorruptByDeletion(
-				  String filein, 
-				  Single loc, 
-				  Single size, 
-				  String fileout){
+				 String filein, 
+				 Single loc, 
+				 Single size, 
+				 String fileout){
 
 	int _Result = Natives.fileCorruptByDeletion(  filein,   loc,   size,   fileout);
 	
@@ -264,10 +264,10 @@ public static int fileCorruptByDeletion(
 ///  <param name="fileout">[in] - corrupted file</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int fileCorruptByMutation(
-				  String filein, 
-				  Single loc, 
-				  Single size, 
-				  String fileout){
+				 String filein, 
+				 Single loc, 
+				 Single size, 
+				 String fileout){
 
 	int _Result = Natives.fileCorruptByMutation(  filein,   loc,   size,   fileout);
 	
@@ -292,14 +292,13 @@ public static int fileCorruptByMutation(
 ///  <param name="pval">[out] - random integer in range {0 ... range-1}</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int genRandomIntegerInRange(
-				  int range, 
-				  int seed, 
-				 out int pval){
+				 int range, 
+				 int seed, 
+				out int pval){
 
 	int _Result = Natives.genRandomIntegerInRange(  range,   seed, out  pval);
 	
 
-pval = 0;
 
 
 	return _Result;
@@ -320,7 +319,7 @@ pval = 0;
 ///  <param name="fval">[in] - </param>
 ///   <returns>value rounded to int</returns>
 public static int lept_roundftoi(
-				  Single fval){
+				 Single fval){
 
 	int _Result = Natives.lept_roundftoi(  fval);
 	
@@ -355,15 +354,12 @@ public static int lept_roundftoi(
 ///  <param name="phash">[out] - hash vale</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_hashStringToUint64(
-				  String str, 
-				 out ulong phash){
+				 String str, 
+				out ulong phash){
 
-	IntPtr phashPtr = IntPtr.Zero;
-
-	int _Result = Natives.l_hashStringToUint64(  str, out  phashPtr);
+	int _Result = Natives.l_hashStringToUint64(  str, out  phash);
 	
 
-phash = 0;
 
 
 	return _Result;
@@ -394,16 +390,13 @@ phash = 0;
 ///  <param name="phash">[out] - hash value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_hashPtToUint64(
-				  int x, 
-				  int y, 
-				 out ulong phash){
+				 int x, 
+				 int y, 
+				out ulong phash){
 
-	IntPtr phashPtr = IntPtr.Zero;
-
-	int _Result = Natives.l_hashPtToUint64(  x,   y, out  phashPtr);
+	int _Result = Natives.l_hashPtToUint64(  x,   y, out  phash);
 	
 
-phash = 0;
 
 
 	return _Result;
@@ -437,16 +430,13 @@ phash = 0;
 ///  <param name="phash">[out] - hash value</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int l_hashFloat64ToUint64(
-				  int nbuckets, 
-				  double val, 
-				 out ulong phash){
+				 int nbuckets, 
+				 double val, 
+				out ulong phash){
 
-	IntPtr phashPtr = IntPtr.Zero;
-
-	int _Result = Natives.l_hashFloat64ToUint64(  nbuckets,   val, out  phashPtr);
+	int _Result = Natives.l_hashFloat64ToUint64(  nbuckets,   val, out  phash);
 	
 
-phash = 0;
 
 
 	return _Result;
@@ -462,13 +452,12 @@ phash = 0;
 ///  <param name="pprime">[out] - first prime larger than %start</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int findNextLargerPrime(
-				  int start, 
-				 out uint pprime){
+				 int start, 
+				out uint pprime){
 
 	int _Result = Natives.findNextLargerPrime(  start, out  pprime);
 	
 
-pprime = 0;
 
 
 	return _Result;
@@ -485,15 +474,13 @@ pprime = 0;
 ///  <param name="pfactor">[out][optional] - smallest divisor, or 0 on error or if prime</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int lept_isPrime(
-				  ulong n, 
-				 out int pis_prime, 
+				 ulong n, 
+				out int pis_prime, 
 				out uint pfactor){
 
 	int _Result = Natives.lept_isPrime(  n, out  pis_prime, out  pfactor);
 	
 
-pis_prime = 0;
-pfactor = 0;
 
 
 	return _Result;
@@ -512,7 +499,7 @@ pfactor = 0;
 ///  <param name="val">[in] - integer value</param>
 ///   <returns>corresponding gray code value</returns>
 public static uint convertIntToGrayCode(
-				  uint val){
+				 uint val){
 
 	uint _Result = Natives.convertIntToGrayCode(  val);
 	
@@ -531,7 +518,7 @@ public static uint convertIntToGrayCode(
 ///  <param name="val">[in] - gray code value</param>
 ///   <returns>corresponding integer value</returns>
 public static uint convertGrayCodeToInt(
-				  uint val){
+				 uint val){
 
 	uint _Result = Natives.convertGrayCodeToInt(  val);
 	
@@ -615,7 +602,7 @@ public static IntPtr startTimerNested(){
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/stopTimerNested/*"/>
 ///   <returns></returns>
 public static Single stopTimerNested(
-				  IntPtr utime_start){
+				 IntPtr utime_start){
 
 	Single _Result = Natives.stopTimerNested(  utime_start);
 	
@@ -632,8 +619,8 @@ public static Single stopTimerNested(
 ///  </remarks>
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/l_getCurrentTime/*"/>
 public static void l_getCurrentTime(
-				  object sec, 
-				  object usec){
+				 object sec, 
+				 object usec){
 
 	Natives.l_getCurrentTime(  sec,   usec);
 	
@@ -677,15 +664,14 @@ public static L_WallTimer startWallTimer(){
 ///  <param name="ptimer">[in,out] - walltimer-ptr</param>
 ///   <returns>time wall time elapsed in seconds</returns>
 public static Single stopWallTimer(
-				 ref L_WallTimer ptimer){
+				ref L_WallTimer ptimer){
 
 	IntPtr ptimerPtr = IntPtr.Zero; 	if (ptimer != null) {ptimerPtr = ptimer.Pointer;}
 
 	Single _Result = Natives.stopWallTimer(ref ptimerPtr);
 	
 
-ptimer = null;
-	; if (ptimerPtr != IntPtr.Zero){ptimer = new L_WallTimer(ptimerPtr);}
+	if (ptimerPtr == null) {ptimer = null;} else { ptimer = new L_WallTimer(ptimerPtr); };
 
 
 	return _Result;
@@ -714,4 +700,5 @@ public static String l_getFormattedDate(){
 	return _Result;
 }
 
+}
 }

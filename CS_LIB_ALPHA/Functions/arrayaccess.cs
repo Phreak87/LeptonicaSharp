@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // arrayaccess.c (74, 1)
 // l_getDataBit(line, n) as int
@@ -15,8 +16,8 @@ public class _All {
 ///  <param name="n">[in] - pixel index</param>
 ///   <returns>val of the nth 1-bit pixel.</returns>
 public static int l_getDataBit(
-				  Object line, 
-				  int n){
+				 Object line, 
+				 int n){
 
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -39,8 +40,8 @@ public static int l_getDataBit(
 ///  <param name="line">[in] - ptr to beginning of data line</param>
 ///  <param name="n">[in] - pixel index</param>
 public static void l_setDataBit(
-				  Object line, 
-				  int n){
+				 Object line, 
+				 int n){
 
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -62,8 +63,8 @@ public static void l_setDataBit(
 ///  <param name="line">[in] - ptr to beginning of data line</param>
 ///  <param name="n">[in] - pixel index</param>
 public static void l_clearDataBit(
-				  Object line, 
-				  int n){
+				 Object line, 
+				 int n){
 
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -95,9 +96,9 @@ public static void l_clearDataBit(
 ///  <param name="n">[in] - pixel index</param>
 ///  <param name="val">[in] - val to be inserted: 0 or 1</param>
 public static void l_setDataBitVal(
-				  Object line, 
-				  int n, 
-				  int val){
+				 Object line, 
+				 int n, 
+				 int val){
 
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -120,8 +121,8 @@ public static void l_setDataBitVal(
 ///  <param name="n">[in] - pixel index</param>
 ///   <returns>val of the nth 2-bit pixel.</returns>
 public static int l_getDataDibit(
-				  Object line, 
-				  int n){
+				 Object line, 
+				 int n){
 
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -145,9 +146,9 @@ public static int l_getDataDibit(
 ///  <param name="n">[in] - pixel index</param>
 ///  <param name="val">[in] - val to be inserted: 0 - 3</param>
 public static void l_setDataDibit(
-				  Object line, 
-				  int n, 
-				  int val){
+				 Object line, 
+				 int n, 
+				 int val){
 
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -169,8 +170,8 @@ public static void l_setDataDibit(
 ///  <param name="line">[in] - ptr to beginning of data line</param>
 ///  <param name="n">[in] - pixel index</param>
 public static void l_clearDataDibit(
-				  Object line, 
-				  int n){
+				 Object line, 
+				 int n){
 
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -193,8 +194,8 @@ public static void l_clearDataDibit(
 ///  <param name="n">[in] - pixel index</param>
 ///   <returns>val of the nth 4-bit pixel.</returns>
 public static int l_getDataQbit(
-				  Object line, 
-				  int n){
+				 Object line, 
+				 int n){
 
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -218,9 +219,9 @@ public static int l_getDataQbit(
 ///  <param name="n">[in] - pixel index</param>
 ///  <param name="val">[in] - val to be inserted: 0 - 0xf</param>
 public static void l_setDataQbit(
-				  Object line, 
-				  int n, 
-				  int val){
+				 Object line, 
+				 int n, 
+				 int val){
 
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -242,8 +243,8 @@ public static void l_setDataQbit(
 ///  <param name="line">[in] - ptr to beginning of data line</param>
 ///  <param name="n">[in] - pixel index</param>
 public static void l_clearDataQbit(
-				  Object line, 
-				  int n){
+				 Object line, 
+				 int n){
 
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -266,8 +267,8 @@ public static void l_clearDataQbit(
 ///  <param name="n">[in] - pixel index</param>
 ///   <returns>value of the n-th byte pixel</returns>
 public static int l_getDataByte(
-				  Object line, 
-				  int n){
+				 Object line, 
+				 int n){
 
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -291,9 +292,9 @@ public static int l_getDataByte(
 ///  <param name="n">[in] - pixel index</param>
 ///  <param name="val">[in] - val to be inserted: 0 - 0xff</param>
 public static void l_setDataByte(
-				  Object line, 
-				  int n, 
-				  int val){
+				 Object line, 
+				 int n, 
+				 int val){
 
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -316,8 +317,8 @@ public static void l_setDataByte(
 ///  <param name="n">[in] - pixel index</param>
 ///   <returns>value of the n-th 2-byte pixel</returns>
 public static int l_getDataTwoBytes(
-				  Object line, 
-				  int n){
+				 Object line, 
+				 int n){
 
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -341,9 +342,9 @@ public static int l_getDataTwoBytes(
 ///  <param name="n">[in] - pixel index</param>
 ///  <param name="val">[in] - val to be inserted: 0 - 0xffff</param>
 public static void l_setDataTwoBytes(
-				  Object line, 
-				  int n, 
-				  int val){
+				 Object line, 
+				 int n, 
+				 int val){
 
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -366,8 +367,8 @@ public static void l_setDataTwoBytes(
 ///  <param name="n">[in] - pixel index</param>
 ///   <returns>value of the n-th 4-byte pixel</returns>
 public static int l_getDataFourBytes(
-				  Object line, 
-				  int n){
+				 Object line, 
+				 int n){
 
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -391,9 +392,9 @@ public static int l_getDataFourBytes(
 ///  <param name="n">[in] - pixel index</param>
 ///  <param name="val">[in] - val to be inserted: 0 - 0xffffffff</param>
 public static void l_setDataFourBytes(
-				  Object line, 
-				  int n, 
-				  int val){
+				 Object line, 
+				 int n, 
+				 int val){
 
 		IntPtr linePtr = 	Marshal.AllocHGlobal(0);
 	// Todo: Define coversation for object type
@@ -406,4 +407,5 @@ public static void l_setDataFourBytes(
 
 }
 
+}
 }

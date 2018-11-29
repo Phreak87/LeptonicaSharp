@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // pixcomp.c (185, 1)
 // pixcompCreateFromPix(pix, comptype) as PixComp
@@ -22,8 +23,8 @@ public class _All {
 ///  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 ///   <returns>pixc, or NULL on error</returns>
 public static PixComp pixcompCreateFromPix(
-				  Pix pix, 
-				  int comptype){
+				 Pix pix, 
+				 int comptype){
 
 	IntPtr _Result = Natives.pixcompCreateFromPix(pix.Pointer,   comptype);
 	
@@ -51,9 +52,9 @@ public static PixComp pixcompCreateFromPix(
 ///  <param name="copyflag">[in] - L_INSERT or L_COPY</param>
 ///   <returns>pixc, or NULL on error</returns>
 public static PixComp pixcompCreateFromString(
-				  Byte[] data, 
-				  uint size, 
-				  int copyflag){
+				 Byte[] data, 
+				 uint size, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.pixcompCreateFromString(  data,   size,   copyflag);
 	
@@ -81,8 +82,8 @@ public static PixComp pixcompCreateFromString(
 ///  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 ///   <returns>pixc, or NULL on error</returns>
 public static PixComp pixcompCreateFromFile(
-				  String filename, 
-				  int comptype){
+				 String filename, 
+				 int comptype){
 
 	IntPtr _Result = Natives.pixcompCreateFromFile(  filename,   comptype);
 	
@@ -104,15 +105,14 @@ public static PixComp pixcompCreateFromFile(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixcompDestroy/*"/>
 ///  <param name="ppixc">[in,out] - will be nulled</param>
 public static void pixcompDestroy(
-				 ref PixComp ppixc){
+				ref PixComp ppixc){
 
 	IntPtr ppixcPtr = IntPtr.Zero; 	if (ppixc != null) {ppixcPtr = ppixc.Pointer;}
 
 	Natives.pixcompDestroy(ref ppixcPtr);
 	
 
-ppixc = null;
-	; if (ppixcPtr != IntPtr.Zero){ppixc = new PixComp(ppixcPtr);}
+	if (ppixcPtr == null) {ppixc = null;} else { ppixc = new PixComp(ppixcPtr); };
 
 
 }
@@ -126,7 +126,7 @@ ppixc = null;
 ///  <param name="pixcs">[in] - </param>
 ///   <returns>pixcd, or NULL on error</returns>
 public static PixComp pixcompCopy(
-				  PixComp pixcs){
+				 PixComp pixcs){
 
 	IntPtr _Result = Natives.pixcompCopy(pixcs.Pointer);
 	
@@ -149,7 +149,7 @@ public static PixComp pixcompCopy(
 ///  <param name="pd">[out][optional] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcompGetDimensions(
-				  PixComp pixc, 
+				 PixComp pixc, 
 				out int pw, 
 				out int ph, 
 				out int pd){
@@ -157,9 +157,6 @@ public static int pixcompGetDimensions(
 	int _Result = Natives.pixcompGetDimensions(pixc.Pointer, out  pw, out  ph, out  pd);
 	
 
-pw = 0;
-ph = 0;
-pd = 0;
 
 
 	return _Result;
@@ -178,7 +175,7 @@ pd = 0;
 ///  <param name="pcmapflag">[out][all optional] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcompGetParameters(
-				  PixComp pixc, 
+				 PixComp pixc, 
 				out int pxres, 
 				out int pyres, 
 				out int pcomptype, 
@@ -187,10 +184,6 @@ public static int pixcompGetParameters(
 	int _Result = Natives.pixcompGetParameters(pixc.Pointer, out  pxres, out  pyres, out  pcomptype, out  pcmapflag);
 	
 
-pxres = 0;
-pyres = 0;
-pcomptype = 0;
-pcmapflag = 0;
 
 
 	return _Result;
@@ -219,15 +212,14 @@ pcmapflag = 0;
 ///  <param name="pformat">[out] - return IFF_TIFF, IFF_PNG or IFF_JFIF_JPEG</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixcompDetermineFormat(
-				  int comptype, 
-				  int d, 
-				  int cmapflag, 
-				 out int pformat){
+				 int comptype, 
+				 int d, 
+				 int cmapflag, 
+				out int pformat){
 
 	int _Result = Natives.pixcompDetermineFormat(  comptype,   d,   cmapflag, out  pformat);
 	
 
-pformat = 0;
 
 
 	return _Result;
@@ -242,7 +234,7 @@ pformat = 0;
 ///  <param name="pixc">[in] - </param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixCreateFromPixcomp(
-				  PixComp pixc){
+				 PixComp pixc){
 
 	IntPtr _Result = Natives.pixCreateFromPixcomp(pixc.Pointer);
 	
@@ -262,7 +254,7 @@ public static Pix pixCreateFromPixcomp(
 ///  <param name="n">[in] - initial number of ptrs</param>
 ///   <returns>pixac, or NULL on error</returns>
 public static PixaComp pixacompCreate(
-				  int n){
+				 int n){
 
 	IntPtr _Result = Natives.pixacompCreate(  n);
 	
@@ -313,10 +305,10 @@ public static PixaComp pixacompCreate(
 ///  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 ///   <returns>pixac, or NULL on error</returns>
 public static PixaComp pixacompCreateWithInit(
-				  int n, 
-				  int offset, 
-				  Pix pix, 
-				  int comptype){
+				 int n, 
+				 int offset, 
+				 Pix pix, 
+				 int comptype){
 
 	IntPtr pixPtr = IntPtr.Zero; 	if (pix != null) {pixPtr = pix.Pointer;}
 
@@ -352,9 +344,9 @@ public static PixaComp pixacompCreateWithInit(
 ///  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static PixaComp pixacompCreateFromPixa(
-				  Pixa pixa, 
-				  int comptype, 
-				  int accesstype){
+				 Pixa pixa, 
+				 int comptype, 
+				 int accesstype){
 
 	IntPtr _Result = Natives.pixacompCreateFromPixa(pixa.Pointer,   comptype,   accesstype);
 	
@@ -390,9 +382,9 @@ public static PixaComp pixacompCreateFromPixa(
 ///  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 ///   <returns>pixac, or NULL on error</returns>
 public static PixaComp pixacompCreateFromFiles(
-				  String dirname, 
-				  String substr, 
-				  int comptype){
+				 String dirname, 
+				 String substr, 
+				 int comptype){
 
 	IntPtr _Result = Natives.pixacompCreateFromFiles(  dirname,   substr,   comptype);
 	
@@ -420,8 +412,8 @@ public static PixaComp pixacompCreateFromFiles(
 ///  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 ///   <returns>pixac, or NULL on error</returns>
 public static PixaComp pixacompCreateFromSA(
-				  Sarray sa, 
-				  int comptype){
+				 Sarray sa, 
+				 int comptype){
 
 	IntPtr _Result = Natives.pixacompCreateFromSA(sa.Pointer,   comptype);
 	
@@ -443,15 +435,14 @@ public static PixaComp pixacompCreateFromSA(
 ///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixacompDestroy/*"/>
 ///  <param name="ppixac">[in,out] - to be nulled</param>
 public static void pixacompDestroy(
-				 ref PixaComp ppixac){
+				ref PixaComp ppixac){
 
 	IntPtr ppixacPtr = IntPtr.Zero; 	if (ppixac != null) {ppixacPtr = ppixac.Pointer;}
 
 	Natives.pixacompDestroy(ref ppixacPtr);
 	
 
-ppixac = null;
-	; if (ppixacPtr != IntPtr.Zero){ppixac = new PixaComp(ppixacPtr);}
+	if (ppixacPtr == null) {ppixac = null;} else { ppixac = new PixaComp(ppixacPtr); };
 
 
 }
@@ -475,9 +466,9 @@ ppixac = null;
 ///  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixacompAddPix(
-				  PixaComp pixac, 
-				  Pix pix, 
-				  int comptype){
+				 PixaComp pixac, 
+				 Pix pix, 
+				 int comptype){
 
 	int _Result = Natives.pixacompAddPix(pixac.Pointer, pix.Pointer,   comptype);
 	
@@ -503,9 +494,9 @@ public static int pixacompAddPix(
 ///  <param name="copyflag">[in] - L_INSERT, L_COPY</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixacompAddPixcomp(
-				  PixaComp pixac, 
-				  PixComp pixc, 
-				  int copyflag){
+				 PixaComp pixac, 
+				 PixComp pixc, 
+				 int copyflag){
 
 	int _Result = Natives.pixacompAddPixcomp(pixac.Pointer, pixc.Pointer,   copyflag);
 	
@@ -534,10 +525,10 @@ public static int pixacompAddPixcomp(
 ///  <param name="comptype">[in] - IFF_DEFAULT, IFF_TIFF_G4, IFF_PNG, IFF_JFIF_JPEG</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixacompReplacePix(
-				  PixaComp pixac, 
-				  int index, 
-				  Pix pix, 
-				  int comptype){
+				 PixaComp pixac, 
+				 int index, 
+				 Pix pix, 
+				 int comptype){
 
 	int _Result = Natives.pixacompReplacePix(pixac.Pointer,   index, pix.Pointer,   comptype);
 	
@@ -565,9 +556,9 @@ public static int pixacompReplacePix(
 ///  <param name="pixc">[in] - to replace existing one, which is destroyed</param>
 ///   <returns>0 if OK 1 on error</returns>
 public static int pixacompReplacePixcomp(
-				  PixaComp pixac, 
-				  int index, 
-				  PixComp pixc){
+				 PixaComp pixac, 
+				 int index, 
+				 PixComp pixc){
 
 	int _Result = Natives.pixacompReplacePixcomp(pixac.Pointer,   index, pixc.Pointer);
 	
@@ -588,9 +579,9 @@ public static int pixacompReplacePixcomp(
 ///  <param name="copyflag">[in] - L_INSERT, L_COPY</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixacompAddBox(
-				  PixaComp pixac, 
-				  Box box, 
-				  int copyflag){
+				 PixaComp pixac, 
+				 Box box, 
+				 int copyflag){
 
 	int _Result = Natives.pixacompAddBox(pixac.Pointer, box.Pointer,   copyflag);
 	
@@ -609,7 +600,7 @@ public static int pixacompAddBox(
 ///  <param name="pixac">[in] - </param>
 ///   <returns>count, or 0 if no pixa</returns>
 public static int pixacompGetCount(
-				  PixaComp pixac){
+				 PixaComp pixac){
 
 	int _Result = Natives.pixacompGetCount(pixac.Pointer);
 	
@@ -637,9 +628,9 @@ public static int pixacompGetCount(
 ///  <param name="copyflag">[in] - L_NOCOPY, L_COPY</param>
 ///   <returns>pixc, or NULL on error</returns>
 public static PixComp pixacompGetPixcomp(
-				  PixaComp pixac, 
-				  int index, 
-				  int copyflag){
+				 PixaComp pixac, 
+				 int index, 
+				 int copyflag){
 
 	IntPtr _Result = Natives.pixacompGetPixcomp(pixac.Pointer,   index,   copyflag);
 	
@@ -664,8 +655,8 @@ public static PixComp pixacompGetPixcomp(
 ///  <param name="index">[in] - caller's view of index within pixac includes offset</param>
 ///   <returns>pix, or NULL on error</returns>
 public static Pix pixacompGetPix(
-				  PixaComp pixac, 
-				  int index){
+				 PixaComp pixac, 
+				 int index){
 
 	IntPtr _Result = Natives.pixacompGetPix(pixac.Pointer,   index);
 	
@@ -693,8 +684,8 @@ public static Pix pixacompGetPix(
 ///  <param name="pd">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixacompGetPixDimensions(
-				  PixaComp pixac, 
-				  int index, 
+				 PixaComp pixac, 
+				 int index, 
 				out int pw, 
 				out int ph, 
 				out int pd){
@@ -702,9 +693,6 @@ public static int pixacompGetPixDimensions(
 	int _Result = Natives.pixacompGetPixDimensions(pixac.Pointer,   index, out  pw, out  ph, out  pd);
 	
 
-pw = 0;
-ph = 0;
-pd = 0;
 
 
 	return _Result;
@@ -720,8 +708,8 @@ pd = 0;
 ///  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE</param>
 ///   <returns>boxa, or NULL on error</returns>
 public static Boxa pixacompGetBoxa(
-				  PixaComp pixac, 
-				  int accesstype){
+				 PixaComp pixac, 
+				 int accesstype){
 
 	IntPtr _Result = Natives.pixacompGetBoxa(pixac.Pointer,   accesstype);
 	
@@ -741,7 +729,7 @@ public static Boxa pixacompGetBoxa(
 ///  <param name="pixac">[in] - </param>
 ///   <returns>count, or 0 on error</returns>
 public static int pixacompGetBoxaCount(
-				  PixaComp pixac){
+				 PixaComp pixac){
 
 	int _Result = Natives.pixacompGetBoxaCount(pixac.Pointer);
 	
@@ -777,9 +765,9 @@ public static int pixacompGetBoxaCount(
 ///  <param name="accesstype">[in] - L_COPY or L_CLONE</param>
 ///   <returns>box if null, not automatically an error, or NULL on error</returns>
 public static Box pixacompGetBox(
-				  PixaComp pixac, 
-				  int index, 
-				  int accesstype){
+				 PixaComp pixac, 
+				 int index, 
+				 int accesstype){
 
 	IntPtr _Result = Natives.pixacompGetBox(pixac.Pointer,   index,   accesstype);
 	
@@ -808,8 +796,8 @@ public static Box pixacompGetBox(
 ///  <param name="ph">[out][optional] - each can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixacompGetBoxGeometry(
-				  PixaComp pixac, 
-				  int index, 
+				 PixaComp pixac, 
+				 int index, 
 				out int px, 
 				out int py, 
 				out int pw, 
@@ -818,10 +806,6 @@ public static int pixacompGetBoxGeometry(
 	int _Result = Natives.pixacompGetBoxGeometry(pixac.Pointer,   index, out  px, out  py, out  pw, out  ph);
 	
 
-px = 0;
-py = 0;
-pw = 0;
-ph = 0;
 
 
 	return _Result;
@@ -841,7 +825,7 @@ ph = 0;
 ///  <param name="pixac">[in] - </param>
 ///   <returns>offset, or 0 on error</returns>
 public static int pixacompGetOffset(
-				  PixaComp pixac){
+				 PixaComp pixac){
 
 	int _Result = Natives.pixacompGetOffset(pixac.Pointer);
 	
@@ -866,8 +850,8 @@ public static int pixacompGetOffset(
 ///  <param name="offset">[in] - non-negative</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixacompSetOffset(
-				  PixaComp pixac, 
-				  int offset){
+				 PixaComp pixac, 
+				 int offset){
 
 	int _Result = Natives.pixacompSetOffset(pixac.Pointer,   offset);
 	
@@ -892,8 +876,8 @@ public static int pixacompSetOffset(
 ///  <param name="accesstype">[in] - L_COPY, L_CLONE, L_COPY_CLONE for boxa</param>
 ///   <returns>pixa if OK, or NULL on error</returns>
 public static Pixa pixaCreateFromPixacomp(
-				  PixaComp pixac, 
-				  int accesstype){
+				 PixaComp pixac, 
+				 int accesstype){
 
 	IntPtr _Result = Natives.pixaCreateFromPixacomp(pixac.Pointer,   accesstype);
 	
@@ -925,10 +909,10 @@ public static Pixa pixaCreateFromPixacomp(
 ///  <param name="iend">[in] - ending index in pixacs use -1 to cat all</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixacompJoin(
-				  PixaComp pixacd, 
-				  PixaComp pixacs, 
-				  int istart, 
-				  int iend){
+				 PixaComp pixacd, 
+				 PixaComp pixacs, 
+				 int istart, 
+				 int iend){
 
 	IntPtr pixacsPtr = IntPtr.Zero; 	if (pixacs != null) {pixacsPtr = pixacs.Pointer;}
 
@@ -954,8 +938,8 @@ public static int pixacompJoin(
 ///  <param name="pixac2">[in] - second src pixac</param>
 ///   <returns>pixacd  interleaved from sources, or NULL on error.</returns>
 public static PixaComp pixacompInterleave(
-				  PixaComp pixac1, 
-				  PixaComp pixac2){
+				 PixaComp pixac1, 
+				 PixaComp pixac2){
 
 	IntPtr _Result = Natives.pixacompInterleave(pixac1.Pointer, pixac2.Pointer);
 	
@@ -980,7 +964,7 @@ public static PixaComp pixacompInterleave(
 ///  <param name="filename">[in] - </param>
 ///   <returns>pixac, or NULL on error</returns>
 public static PixaComp pixacompRead(
-				  String filename){
+				 String filename){
 
 	IntPtr _Result = Natives.pixacompRead(  filename);
 	
@@ -1000,7 +984,7 @@ public static PixaComp pixacompRead(
 ///  <param name="fp">[in] - file stream</param>
 ///   <returns>pixac, or NULL on error</returns>
 public static PixaComp pixacompReadStream(
-				  FILE fp){
+				 FILE fp){
 
 	IntPtr _Result = Natives.pixacompReadStream(fp.Pointer);
 	
@@ -1024,8 +1008,8 @@ public static PixaComp pixacompReadStream(
 ///  <param name="size">[in] - of data</param>
 ///   <returns>pixac, or NULL on error</returns>
 public static PixaComp pixacompReadMem(
-				  Byte[] data, 
-				  uint size){
+				 Byte[] data, 
+				 uint size){
 
 	IntPtr _Result = Natives.pixacompReadMem(  data,   size);
 	
@@ -1051,8 +1035,8 @@ public static PixaComp pixacompReadMem(
 ///  <param name="pixac">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixacompWrite(
-				  String filename, 
-				  PixaComp pixac){
+				 String filename, 
+				 PixaComp pixac){
 
 	int _Result = Natives.pixacompWrite(  filename, pixac.Pointer);
 	
@@ -1072,8 +1056,8 @@ public static int pixacompWrite(
 ///  <param name="pixac">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixacompWriteStream(
-				  FILE fp, 
-				  PixaComp pixac){
+				 FILE fp, 
+				 PixaComp pixac){
 
 	int _Result = Natives.pixacompWriteStream(fp.Pointer, pixac.Pointer);
 	
@@ -1097,17 +1081,16 @@ public static int pixacompWriteStream(
 ///  <param name="pixac">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixacompWriteMem(
-				 out Byte[] pdata, 
-				 out uint psize, 
-				  PixaComp pixac){
+				out Byte[] pdata, 
+				out uint psize, 
+				 PixaComp pixac){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixacompWriteMem(out  pdataPtr, out  psize, pixac.Pointer);
 	
 
-pdata = null;
-psize = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -1146,13 +1129,13 @@ psize = 0;
 ///  <param name="fileout">[in] - pdf file of all images</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixacompConvertToPdf(
-				  PixaComp pixac, 
-				  int res, 
-				  Single scalefactor, 
-				  int type, 
-				  int quality, 
-				  String title, 
-				  String fileout){
+				 PixaComp pixac, 
+				 int res, 
+				 Single scalefactor, 
+				 int type, 
+				 int quality, 
+				 String title, 
+				 String fileout){
 
 	int _Result = Natives.pixacompConvertToPdf(pixac.Pointer,   res,   scalefactor,   type,   quality,   title,   fileout);
 	
@@ -1181,22 +1164,21 @@ public static int pixacompConvertToPdf(
 ///  <param name="pnbytes">[out] - size of output pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixacompConvertToPdfData(
-				  PixaComp pixac, 
-				  int res, 
-				  Single scalefactor, 
-				  int type, 
-				  int quality, 
-				  String title, 
-				 out Byte[] pdata, 
-				 out uint pnbytes){
+				 PixaComp pixac, 
+				 int res, 
+				 Single scalefactor, 
+				 int type, 
+				 int quality, 
+				 String title, 
+				out Byte[] pdata, 
+				out uint pnbytes){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixacompConvertToPdfData(pixac.Pointer,   res,   scalefactor,   type,   quality,   title, out  pdataPtr, out  pnbytes);
 	
 
-pdata = null;
-pnbytes = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -1222,18 +1204,17 @@ pnbytes = 0;
 ///  <param name="pnbytes">[out] - size of output pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixacompFastConvertToPdfData(
-				  PixaComp pixac, 
-				  String title, 
-				 out Byte[] pdata, 
-				 out uint pnbytes){
+				 PixaComp pixac, 
+				 String title, 
+				out Byte[] pdata, 
+				out uint pnbytes){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixacompFastConvertToPdfData(pixac.Pointer,   title, out  pdataPtr, out  pnbytes);
 	
 
-pdata = null;
-pnbytes = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -1250,8 +1231,8 @@ pnbytes = 0;
 ///  <param name="text">[in][optional] - identifying string can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixacompWriteStreamInfo(
-				  FILE fp, 
-				  PixaComp pixac, 
+				 FILE fp, 
+				 PixaComp pixac, 
 				 String text){
 
 	int _Result = Natives.pixacompWriteStreamInfo(fp.Pointer, pixac.Pointer,   text);
@@ -1273,8 +1254,8 @@ public static int pixacompWriteStreamInfo(
 ///  <param name="text">[in][optional] - identifying string can be null</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcompWriteStreamInfo(
-				  FILE fp, 
-				  PixComp pixc, 
+				 FILE fp, 
+				 PixComp pixc, 
 				 String text){
 
 	int _Result = Natives.pixcompWriteStreamInfo(fp.Pointer, pixc.Pointer,   text);
@@ -1307,13 +1288,13 @@ public static int pixcompWriteStreamInfo(
 ///  <param name="border">[in] - width of additional black border on each image use 0 for no border</param>
 ///   <returns>pix of tiled images, or NULL on error</returns>
 public static Pix pixacompDisplayTiledAndScaled(
-				  PixaComp pixac, 
-				  int outdepth, 
-				  int tilewidth, 
-				  int ncols, 
-				  int background, 
-				  int spacing, 
-				  int border){
+				 PixaComp pixac, 
+				 int outdepth, 
+				 int tilewidth, 
+				 int ncols, 
+				 int background, 
+				 int spacing, 
+				 int border){
 
 	IntPtr _Result = Natives.pixacompDisplayTiledAndScaled(pixac.Pointer,   outdepth,   tilewidth,   ncols,   background,   spacing,   border);
 	
@@ -1334,8 +1315,8 @@ public static Pix pixacompDisplayTiledAndScaled(
 ///  <param name="subdir">[in] - (subdirectory of /tmp)</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixacompWriteFiles(
-				  PixaComp pixac, 
-				  String subdir){
+				 PixaComp pixac, 
+				 String subdir){
 
 	int _Result = Natives.pixacompWriteFiles(pixac.Pointer,   subdir);
 	
@@ -1359,8 +1340,8 @@ public static int pixacompWriteFiles(
 ///  <param name="pixc">[in] - </param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixcompWriteFile(
-				  String rootname, 
-				  PixComp pixc){
+				 String rootname, 
+				 PixComp pixc){
 
 	int _Result = Natives.pixcompWriteFile(  rootname, pixc.Pointer);
 	
@@ -1370,4 +1351,5 @@ public static int pixcompWriteFile(
 	return _Result;
 }
 
+}
 }

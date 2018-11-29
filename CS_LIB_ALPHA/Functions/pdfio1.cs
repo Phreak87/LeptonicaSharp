@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-public class _All {
+namespace LeptonicaSharp{
+public partial class _All {
 
 // pdfio1.c (239, 1)
 // convertFilesToPdf(dirname, substr, res, scalefactor, type, quality, title, fileout) as int
@@ -38,14 +39,14 @@ public class _All {
 ///  <param name="fileout">[in] - pdf file of all images</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertFilesToPdf(
-				  String dirname, 
-				  String substr, 
-				  int res, 
-				  Single scalefactor, 
-				  int type, 
-				  int quality, 
-				  String title, 
-				  String fileout){
+				 String dirname, 
+				 String substr, 
+				 int res, 
+				 Single scalefactor, 
+				 int type, 
+				 int quality, 
+				 String title, 
+				 String fileout){
 
 	int _Result = Natives.convertFilesToPdf(  dirname,   substr,   res,   scalefactor,   type,   quality,   title,   fileout);
 	
@@ -73,13 +74,13 @@ public static int convertFilesToPdf(
 ///  <param name="fileout">[in] - pdf file of all images</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int saConvertFilesToPdf(
-				  Sarray sa, 
-				  int res, 
-				  Single scalefactor, 
-				  int type, 
-				  int quality, 
-				  String title, 
-				  String fileout){
+				 Sarray sa, 
+				 int res, 
+				 Single scalefactor, 
+				 int type, 
+				 int quality, 
+				 String title, 
+				 String fileout){
 
 	int _Result = Natives.saConvertFilesToPdf(sa.Pointer,   res,   scalefactor,   type,   quality,   title,   fileout);
 	
@@ -108,22 +109,21 @@ public static int saConvertFilesToPdf(
 ///  <param name="pnbytes">[out] - size of output pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int saConvertFilesToPdfData(
-				  Sarray sa, 
-				  int res, 
-				  Single scalefactor, 
-				  int type, 
-				  int quality, 
-				  String title, 
-				 out Byte[] pdata, 
-				 out uint pnbytes){
+				 Sarray sa, 
+				 int res, 
+				 Single scalefactor, 
+				 int type, 
+				 int quality, 
+				 String title, 
+				out Byte[] pdata, 
+				out uint pnbytes){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.saConvertFilesToPdfData(sa.Pointer,   res,   scalefactor,   type,   quality,   title, out  pdataPtr, out  pnbytes);
 	
 
-pdata = null;
-pnbytes = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -150,13 +150,12 @@ pnbytes = 0;
 ///  <param name="ptype">[out] - L_G4_ENCODE, L_JPEG_ENCODE, L_FLATE_ENCODE</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int selectDefaultPdfEncoding(
-				  Pix pix, 
-				 out int ptype){
+				 Pix pix, 
+				out int ptype){
 
 	int _Result = Natives.selectDefaultPdfEncoding(pix.Pointer, out  ptype);
 	
 
-ptype = 0;
 
 
 	return _Result;
@@ -187,10 +186,10 @@ ptype = 0;
 ///  <param name="fileout">[in] - pdf file of all images</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertUnscaledFilesToPdf(
-				  String dirname, 
-				  String substr, 
-				  String title, 
-				  String fileout){
+				 String dirname, 
+				 String substr, 
+				 String title, 
+				 String fileout){
 
 	int _Result = Natives.convertUnscaledFilesToPdf(  dirname,   substr,   title,   fileout);
 	
@@ -214,9 +213,9 @@ public static int convertUnscaledFilesToPdf(
 ///  <param name="fileout">[in] - pdf file of all images</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int saConvertUnscaledFilesToPdf(
-				  Sarray sa, 
-				  String title, 
-				  String fileout){
+				 Sarray sa, 
+				 String title, 
+				 String fileout){
 
 	int _Result = Natives.saConvertUnscaledFilesToPdf(sa.Pointer,   title,   fileout);
 	
@@ -238,18 +237,17 @@ public static int saConvertUnscaledFilesToPdf(
 ///  <param name="pnbytes">[out] - size of output pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int saConvertUnscaledFilesToPdfData(
-				  Sarray sa, 
-				  String title, 
-				 out Byte[] pdata, 
-				 out uint pnbytes){
+				 Sarray sa, 
+				 String title, 
+				out Byte[] pdata, 
+				out uint pnbytes){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.saConvertUnscaledFilesToPdfData(sa.Pointer,   title, out  pdataPtr, out  pnbytes);
 	
 
-pdata = null;
-pnbytes = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -267,18 +265,17 @@ pnbytes = 0;
 ///  <param name="pnbytes">[out] - size of output pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertUnscaledToPdfData(
-				  String fname, 
-				  String title, 
-				 out Byte[] pdata, 
-				 out uint pnbytes){
+				 String fname, 
+				 String title, 
+				out Byte[] pdata, 
+				out uint pnbytes){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.convertUnscaledToPdfData(  fname,   title, out  pdataPtr, out  pnbytes);
 	
 
-pdata = null;
-pnbytes = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -310,13 +307,13 @@ pnbytes = 0;
 ///  <param name="fileout">[in] - pdf file of all images</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaConvertToPdf(
-				  Pixa pixa, 
-				  int res, 
-				  Single scalefactor, 
-				  int type, 
-				  int quality, 
-				  String title, 
-				  String fileout){
+				 Pixa pixa, 
+				 int res, 
+				 Single scalefactor, 
+				 int type, 
+				 int quality, 
+				 String title, 
+				 String fileout){
 
 	int _Result = Natives.pixaConvertToPdf(pixa.Pointer,   res,   scalefactor,   type,   quality,   title,   fileout);
 	
@@ -345,22 +342,21 @@ public static int pixaConvertToPdf(
 ///  <param name="pnbytes">[out] - size of output pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixaConvertToPdfData(
-				  Pixa pixa, 
-				  int res, 
-				  Single scalefactor, 
-				  int type, 
-				  int quality, 
-				  String title, 
-				 out Byte[] pdata, 
-				 out uint pnbytes){
+				 Pixa pixa, 
+				 int res, 
+				 Single scalefactor, 
+				 int type, 
+				 int quality, 
+				 String title, 
+				out Byte[] pdata, 
+				out uint pnbytes){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.pixaConvertToPdfData(pixa.Pointer,   res,   scalefactor,   type,   quality,   title, out  pdataPtr, out  pnbytes);
 	
 
-pdata = null;
-pnbytes = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -420,24 +416,23 @@ pnbytes = 0;
 ///  <param name="position">[in] - in image sequence: L_FIRST_IMAGE, L_NEXT_IMAGE, L_LAST_IMAGE</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertToPdf(
-				  String filein, 
-				  int type, 
-				  int quality, 
-				  String fileout, 
-				  int x, 
-				  int y, 
-				  int res, 
-				  String title, 
-				 ref L_Pdf_Data plpd, 
-				  int position){
+				 String filein, 
+				 int type, 
+				 int quality, 
+				 String fileout, 
+				 int x, 
+				 int y, 
+				 int res, 
+				 String title, 
+				ref L_Pdf_Data plpd, 
+				 int position){
 
 	IntPtr plpdPtr = IntPtr.Zero; 	if (plpd != null) {plpdPtr = plpd.Pointer;}
 
 	int _Result = Natives.convertToPdf(  filein,   type,   quality,   fileout,   x,   y,   res,   title, ref plpdPtr,   position);
 	
 
-plpd = null;
-	; if (plpdPtr != IntPtr.Zero){plpd = new L_Pdf_Data(plpdPtr);}
+	if (plpdPtr == null) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
 
 
 	return _Result;
@@ -468,25 +463,24 @@ plpd = null;
 ///  <param name="position">[in] - in image sequence: L_FIRST_IMAGE, L_NEXT_IMAGE, L_LAST_IMAGE</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertImageDataToPdf(
-				  Byte[] imdata, 
-				  uint size, 
-				  int type, 
-				  int quality, 
-				  String fileout, 
-				  int x, 
-				  int y, 
-				  int res, 
-				  String title, 
-				 ref L_Pdf_Data plpd, 
-				  int position){
+				 Byte[] imdata, 
+				 uint size, 
+				 int type, 
+				 int quality, 
+				 String fileout, 
+				 int x, 
+				 int y, 
+				 int res, 
+				 String title, 
+				ref L_Pdf_Data plpd, 
+				 int position){
 
 	IntPtr plpdPtr = IntPtr.Zero; 	if (plpd != null) {plpdPtr = plpd.Pointer;}
 
 	int _Result = Natives.convertImageDataToPdf(  imdata,   size,   type,   quality,   fileout,   x,   y,   res,   title, ref plpdPtr,   position);
 	
 
-plpd = null;
-	; if (plpdPtr != IntPtr.Zero){plpd = new L_Pdf_Data(plpdPtr);}
+	if (plpdPtr == null) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
 
 
 	return _Result;
@@ -517,17 +511,17 @@ plpd = null;
 ///  <param name="position">[in] - in image sequence: L_FIRST_IMAGE, L_NEXT_IMAGE, L_LAST_IMAGE</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertToPdfData(
-				  String filein, 
-				  int type, 
-				  int quality, 
-				 out Byte[] pdata, 
-				 out uint pnbytes, 
-				  int x, 
-				  int y, 
-				  int res, 
-				  String title, 
-				 ref L_Pdf_Data plpd, 
-				  int position){
+				 String filein, 
+				 int type, 
+				 int quality, 
+				out Byte[] pdata, 
+				out uint pnbytes, 
+				 int x, 
+				 int y, 
+				 int res, 
+				 String title, 
+				ref L_Pdf_Data plpd, 
+				 int position){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 	IntPtr plpdPtr = IntPtr.Zero; 	if (plpd != null) {plpdPtr = plpd.Pointer;}
@@ -535,10 +529,8 @@ public static int convertToPdfData(
 	int _Result = Natives.convertToPdfData(  filein,   type,   quality, out  pdataPtr, out  pnbytes,   x,   y,   res,   title, ref plpdPtr,   position);
 	
 
-pdata = null;
-pnbytes = 0;
-plpd = null;
-	; if (plpdPtr != IntPtr.Zero){plpd = new L_Pdf_Data(plpdPtr);}
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
+	if (plpdPtr == null) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
 
 
 	return _Result;
@@ -570,18 +562,18 @@ plpd = null;
 ///  <param name="position">[in] - in image sequence: L_FIRST_IMAGE, L_NEXT_IMAGE, L_LAST_IMAGE</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertImageDataToPdfData(
-				  Byte[] imdata, 
-				  uint size, 
-				  int type, 
-				  int quality, 
-				 out Byte[] pdata, 
-				 out uint pnbytes, 
-				  int x, 
-				  int y, 
-				  int res, 
-				  String title, 
-				 out L_Pdf_Data plpd, 
-				  int position){
+				 Byte[] imdata, 
+				 uint size, 
+				 int type, 
+				 int quality, 
+				out Byte[] pdata, 
+				out uint pnbytes, 
+				 int x, 
+				 int y, 
+				 int res, 
+				 String title, 
+				out L_Pdf_Data plpd, 
+				 int position){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 	IntPtr plpdPtr = IntPtr.Zero;
@@ -589,10 +581,8 @@ public static int convertImageDataToPdfData(
 	int _Result = Natives.convertImageDataToPdfData(  imdata,   size,   type,   quality, out  pdataPtr, out  pnbytes,   x,   y,   res,   title, out plpdPtr,   position);
 	
 
-pdata = null;
-pnbytes = 0;
-plpd = null;
-	; if (plpdPtr != IntPtr.Zero){plpd = new L_Pdf_Data(plpdPtr);}
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
+	if (plpdPtr == null) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
 
 
 	return _Result;
@@ -625,24 +615,23 @@ plpd = null;
 ///  <param name="position">[in] - in image sequence: L_FIRST_IMAGE, L_NEXT_IMAGE, L_LAST_IMAGE</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixConvertToPdf(
-				  Pix pix, 
-				  int type, 
-				  int quality, 
-				  String fileout, 
-				  int x, 
-				  int y, 
-				  int res, 
-				  String title, 
-				 ref L_Pdf_Data plpd, 
-				  int position){
+				 Pix pix, 
+				 int type, 
+				 int quality, 
+				 String fileout, 
+				 int x, 
+				 int y, 
+				 int res, 
+				 String title, 
+				ref L_Pdf_Data plpd, 
+				 int position){
 
 	IntPtr plpdPtr = IntPtr.Zero; 	if (plpd != null) {plpdPtr = plpd.Pointer;}
 
 	int _Result = Natives.pixConvertToPdf(pix.Pointer,   type,   quality,   fileout,   x,   y,   res,   title, ref plpdPtr,   position);
 	
 
-plpd = null;
-	; if (plpdPtr != IntPtr.Zero){plpd = new L_Pdf_Data(plpdPtr);}
+	if (plpdPtr == null) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
 
 
 	return _Result;
@@ -666,9 +655,9 @@ plpd = null;
 ///  <param name="title">[in][optional] - pdf title taken from the first image placed on a page e.g., an input image filename</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixWriteStreamPdf(
-				  FILE fp, 
-				  Pix pix, 
-				  int res, 
+				 FILE fp, 
+				 Pix pix, 
+				 int res, 
 				 String title){
 
 	int _Result = Natives.pixWriteStreamPdf(fp.Pointer, pix.Pointer,   res,   title);
@@ -698,10 +687,10 @@ public static int pixWriteStreamPdf(
 ///  <param name="title">[in][optional] - pdf title taken from the first image placed on a page e.g., an input image filename</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixWriteMemPdf(
-				 out Byte[] pdata, 
-				 out uint pnbytes, 
-				  Pix pix, 
-				  int res, 
+				out Byte[] pdata, 
+				out uint pnbytes, 
+				 Pix pix, 
+				 int res, 
 				 String title){
 
 	IntPtr pdataPtr = IntPtr.Zero;
@@ -709,8 +698,7 @@ public static int pixWriteMemPdf(
 	int _Result = Natives.pixWriteMemPdf(out  pdataPtr, out  pnbytes, pix.Pointer,   res,   title);
 	
 
-pdata = null;
-pnbytes = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -762,16 +750,16 @@ pnbytes = 0;
 ///  <param name="fileout">[in] - pdf file of all images</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertSegmentedFilesToPdf(
-				  String dirname, 
-				  String substr, 
-				  int res, 
-				  int type, 
-				  int thresh, 
-				  Boxaa baa, 
-				  int quality, 
-				  Single scalefactor, 
-				  String title, 
-				  String fileout){
+				 String dirname, 
+				 String substr, 
+				 int res, 
+				 int type, 
+				 int thresh, 
+				 Boxaa baa, 
+				 int quality, 
+				 Single scalefactor, 
+				 String title, 
+				 String fileout){
 
 	IntPtr baaPtr = IntPtr.Zero; 	if (baa != null) {baaPtr = baa.Pointer;}
 
@@ -801,10 +789,10 @@ public static int convertSegmentedFilesToPdf(
 ///  <param name="numpost">[in] - number of characters in name after number, up to a dot before an extension including an extension and the dot separator</param>
 ///   <returns>boxaa of mask regions, or NULL on error</returns>
 public static Boxaa convertNumberedMasksToBoxaa(
-				  String dirname, 
-				  String substr, 
-				  int numpre, 
-				  int numpost){
+				 String dirname, 
+				 String substr, 
+				 int numpre, 
+				 int numpost){
 
 	IntPtr _Result = Natives.convertNumberedMasksToBoxaa(  dirname,   substr,   numpre,   numpost);
 	
@@ -878,15 +866,15 @@ public static Boxaa convertNumberedMasksToBoxaa(
 ///  <param name="fileout">[in] - output pdf file</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertToPdfSegmented(
-				  String filein, 
-				  int res, 
-				  int type, 
-				  int thresh, 
-				  Boxa boxa, 
-				  int quality, 
-				  Single scalefactor, 
-				  String title, 
-				  String fileout){
+				 String filein, 
+				 int res, 
+				 int type, 
+				 int thresh, 
+				 Boxa boxa, 
+				 int quality, 
+				 Single scalefactor, 
+				 String title, 
+				 String fileout){
 
 	IntPtr boxaPtr = IntPtr.Zero; 	if (boxa != null) {boxaPtr = boxa.Pointer;}
 
@@ -918,15 +906,15 @@ public static int convertToPdfSegmented(
 ///  <param name="fileout">[in] - output pdf file</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixConvertToPdfSegmented(
-				  Pix pixs, 
-				  int res, 
-				  int type, 
-				  int thresh, 
-				  Boxa boxa, 
-				  int quality, 
-				  Single scalefactor, 
-				  String title, 
-				  String fileout){
+				 Pix pixs, 
+				 int res, 
+				 int type, 
+				 int thresh, 
+				 Boxa boxa, 
+				 int quality, 
+				 Single scalefactor, 
+				 String title, 
+				 String fileout){
 
 	IntPtr boxaPtr = IntPtr.Zero; 	if (boxa != null) {boxaPtr = boxa.Pointer;}
 
@@ -962,16 +950,16 @@ public static int pixConvertToPdfSegmented(
 ///  <param name="pnbytes">[out] - number of bytes in pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int convertToPdfDataSegmented(
-				  String filein, 
-				  int res, 
-				  int type, 
-				  int thresh, 
-				  Boxa boxa, 
-				  int quality, 
-				  Single scalefactor, 
-				  String title, 
-				 out Byte[] pdata, 
-				 out uint pnbytes){
+				 String filein, 
+				 int res, 
+				 int type, 
+				 int thresh, 
+				 Boxa boxa, 
+				 int quality, 
+				 Single scalefactor, 
+				 String title, 
+				out Byte[] pdata, 
+				out uint pnbytes){
 
 	IntPtr boxaPtr = IntPtr.Zero; 	if (boxa != null) {boxaPtr = boxa.Pointer;}
 	IntPtr pdataPtr = IntPtr.Zero;
@@ -979,8 +967,7 @@ public static int convertToPdfDataSegmented(
 	int _Result = Natives.convertToPdfDataSegmented(  filein,   res,   type,   thresh, boxaPtr,   quality,   scalefactor,   title, out  pdataPtr, out  pnbytes);
 	
 
-pdata = null;
-pnbytes = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -1007,16 +994,16 @@ pnbytes = 0;
 ///  <param name="pnbytes">[out] - number of bytes in pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int pixConvertToPdfDataSegmented(
-				  Pix pixs, 
-				  int res, 
-				  int type, 
-				  int thresh, 
-				  Boxa boxa, 
-				  int quality, 
-				  Single scalefactor, 
-				  String title, 
-				 out Byte[] pdata, 
-				 out uint pnbytes){
+				 Pix pixs, 
+				 int res, 
+				 int type, 
+				 int thresh, 
+				 Boxa boxa, 
+				 int quality, 
+				 Single scalefactor, 
+				 String title, 
+				out Byte[] pdata, 
+				out uint pnbytes){
 
 	IntPtr boxaPtr = IntPtr.Zero; 	if (boxa != null) {boxaPtr = boxa.Pointer;}
 	IntPtr pdataPtr = IntPtr.Zero;
@@ -1024,8 +1011,7 @@ public static int pixConvertToPdfDataSegmented(
 	int _Result = Natives.pixConvertToPdfDataSegmented(pixs.Pointer,   res,   type,   thresh, boxaPtr,   quality,   scalefactor,   title, out  pdataPtr, out  pnbytes);
 	
 
-pdata = null;
-pnbytes = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -1053,9 +1039,9 @@ pnbytes = 0;
 ///  <param name="fileout">[in] - concatenated pdf file</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int concatenatePdf(
-				  String dirname, 
-				  String substr, 
-				  String fileout){
+				 String dirname, 
+				 String substr, 
+				 String fileout){
 
 	int _Result = Natives.concatenatePdf(  dirname,   substr,   fileout);
 	
@@ -1078,8 +1064,8 @@ public static int concatenatePdf(
 ///  <param name="fileout">[in] - concatenated pdf file</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int saConcatenatePdf(
-				  Sarray sa, 
-				  String fileout){
+				 Sarray sa, 
+				 String fileout){
 
 	int _Result = Natives.saConcatenatePdf(sa.Pointer,   fileout);
 	
@@ -1102,8 +1088,8 @@ public static int saConcatenatePdf(
 ///  <param name="fileout">[in] - concatenated pdf file</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int ptraConcatenatePdf(
-				  L_Ptra pa, 
-				  String fileout){
+				 L_Ptra pa, 
+				 String fileout){
 
 	int _Result = Natives.ptraConcatenatePdf(pa.Pointer,   fileout);
 	
@@ -1136,18 +1122,17 @@ public static int ptraConcatenatePdf(
 ///  <param name="pnbytes">[out] - number of bytes in pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int concatenatePdfToData(
-				  String dirname, 
-				  String substr, 
-				 out Byte[] pdata, 
-				 out uint pnbytes){
+				 String dirname, 
+				 String substr, 
+				out Byte[] pdata, 
+				out uint pnbytes){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.concatenatePdfToData(  dirname,   substr, out  pdataPtr, out  pnbytes);
 	
 
-pdata = null;
-pnbytes = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
@@ -1167,20 +1152,20 @@ pnbytes = 0;
 ///  <param name="pnbytes">[out] - number of bytes in pdf data</param>
 ///   <returns>0 if OK, 1 on error</returns>
 public static int saConcatenatePdfToData(
-				  Sarray sa, 
-				 out Byte[] pdata, 
-				 out uint pnbytes){
+				 Sarray sa, 
+				out Byte[] pdata, 
+				out uint pnbytes){
 
 	IntPtr pdataPtr = IntPtr.Zero;
 
 	int _Result = Natives.saConcatenatePdfToData(sa.Pointer, out  pdataPtr, out  pnbytes);
 	
 
-pdata = null;
-pnbytes = 0;
+	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
 
 
 	return _Result;
 }
 
+}
 }

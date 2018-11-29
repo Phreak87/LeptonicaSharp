@@ -3,7 +3,8 @@ using Enumerations;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
-namespace LeptonicaSharp{
+namespace LeptonicaSharp
+{
     public partial class _All
     {
 
@@ -68,5 +69,6 @@ namespace LeptonicaSharp{
 
             return _Result;
         }
+
     }
 }

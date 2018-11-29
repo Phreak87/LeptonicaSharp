@@ -1,7 +1,11 @@
 using System.Runtime.InteropServices;
 using System;
 public class Natives {
-const string DllPath = "leptonica-1.77.0.dll";
+#if DEBUG
+   const string DllPath = "leptonica-1.77.0d.dll";
+#else
+   const string DllPath = "leptonica-1.77.0.dll";
+#endif
 const CallingConvention CConv = CallingConvention.Cdecl;
 #region"adaptmap.c"
 // adaptmap.c (185, 1)
@@ -29,6 +33,7 @@ const CallingConvention CConv = CallingConvention.Cdecl;
 ///   <returns>pixd 8 bpp or 32 bpp rgb, or NULL on error</returns>
 [DllImport(DllPath, CallingConvention = CConv, EntryPoint="pixCleanBackgroundToWhite")]
 internal static extern IntPtr pixCleanBackgroundToWhite (	 IntPtr pixs, 	 IntPtr pixim, 	 IntPtr pixg, 	 Single gamma, 	 int blackval, 	 int whiteval);
+
 // adaptmap.c (231, 1)
 // pixBackgroundNormSimple(pixs, pixim, pixg) as Pix
 // pixBackgroundNormSimple(PIX *, PIX *, PIX *) as PIX *
@@ -49,6 +54,7 @@ internal static extern IntPtr pixCleanBackgroundToWhite (	 IntPtr pixs, 	 IntPtr
 ///   <returns>pixd 8 bpp or 32 bpp rgb, or NULL on error</returns>
 [DllImport(DllPath, CallingConvention = CConv, EntryPoint="pixBackgroundNormSimple")]
 internal static extern IntPtr pixBackgroundNormSimple (	 IntPtr pixs, 	 IntPtr pixim, 	 IntPtr pixg);
+
 // adaptmap.c (302, 1)
 // pixBackgroundNorm(pixs, pixim, pixg, sx, sy, thresh, mincount, bgval, smoothx, smoothy) as Pix
 // pixBackgroundNorm(PIX *, PIX *, PIX *, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32, l_int32) as PIX *

@@ -14,11 +14,11 @@ using System;
 /// </example>
 public partial class L_WallTimer : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_WallTimer Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_WallTimer Values = new Marshal_L_WallTimer();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_WallTimer(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -98,11 +98,11 @@ public partial class L_WallTimer : IDisposable {
 /// </example>
 public partial class Numa : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Numa Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Numa Values = new Marshal_Numa();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public Numa(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -228,11 +228,11 @@ public partial class Numa : IDisposable {
 /// </example>
 public partial class Numaa : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Numaa Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Numaa Values = new Marshal_Numaa();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public Numaa(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -304,11 +304,11 @@ public partial class Numaa : IDisposable {
 /// </example>
 public partial class L_Dna : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Dna Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Dna Values = new Marshal_L_Dna();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Dna(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -434,11 +434,11 @@ public partial class L_Dna : IDisposable {
 /// </example>
 public partial class L_Dnaa : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Dnaa Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Dnaa Values = new Marshal_L_Dnaa();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Dnaa(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -510,11 +510,11 @@ public partial class L_Dnaa : IDisposable {
 /// </example>
 public partial class L_DnaHash : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_DnaHash Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_DnaHash Values = new Marshal_L_DnaHash();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_DnaHash(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -583,11 +583,11 @@ public partial class L_DnaHash : IDisposable {
 /// </example>
 public partial class Sarray : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Sarray Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Sarray Values = new Marshal_Sarray();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public Sarray(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -677,11 +677,11 @@ public partial class Sarray : IDisposable {
 /// </example>
 public partial class L_Bytea : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Bytea Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Bytea Values = new Marshal_L_Bytea();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Bytea(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -773,11 +773,11 @@ public partial class L_Bytea : IDisposable {
 /// </example>
 public partial class L_ByteBuffer : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_ByteBuffer Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_ByteBuffer Values = new Marshal_L_ByteBuffer();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_ByteBuffer(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -869,11 +869,11 @@ public partial class L_ByteBuffer : IDisposable {
 /// </example>
 public partial class L_Heap : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Heap Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Heap Values = new Marshal_L_Heap();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Heap(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -965,11 +965,11 @@ public partial class L_Heap : IDisposable {
 /// </example>
 public partial class DoubleLinkedList : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_DoubleLinkedList Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_DoubleLinkedList Values = new Marshal_DoubleLinkedList();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public DoubleLinkedList(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -1034,11 +1034,11 @@ public partial class DoubleLinkedList : IDisposable {
 /// </example>
 public partial class L_Ptra : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Ptra Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Ptra Values = new Marshal_L_Ptra();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Ptra(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -1128,11 +1128,11 @@ public partial class L_Ptra : IDisposable {
 /// </example>
 public partial class L_Ptraa : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Ptraa Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Ptraa Values = new Marshal_L_Ptraa();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Ptraa(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -1188,11 +1188,11 @@ public partial class L_Ptraa : IDisposable {
 /// </example>
 public partial class L_Queue : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Queue Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Queue Values = new Marshal_L_Queue();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Queue(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -1302,11 +1302,11 @@ public partial class L_Queue : IDisposable {
 /// </example>
 public partial class Rb_Type : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Rb_Type Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Rb_Type Values = new Marshal_Rb_Type();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public Rb_Type(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -1384,11 +1384,11 @@ public partial class Rb_Type : IDisposable {
 /// </example>
 public partial class L_Rbtree : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Rbtree Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Rbtree Values = new Marshal_L_Rbtree();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Rbtree(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -1436,11 +1436,11 @@ public partial class L_Rbtree : IDisposable {
 /// </example>
 public partial class L_Rbtree_Node : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Rbtree_Node Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Rbtree_Node Values = new Marshal_L_Rbtree_Node();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Rbtree_Node(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -1550,11 +1550,11 @@ public partial class L_Rbtree_Node : IDisposable {
 /// </example>
 public partial class L_Stack : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Stack Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Stack Values = new Marshal_L_Stack();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Stack(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -1646,11 +1646,11 @@ public partial class L_Stack : IDisposable {
 /// </example>
 public partial class L_Bmf : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Bmf Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Bmf Values = new Marshal_L_Bmf();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Bmf(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -1904,11 +1904,11 @@ public partial class L_Bmf : IDisposable {
 /// </example>
 public partial class CCBord : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_CCBord Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_CCBord Values = new Marshal_CCBord();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public CCBord(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -2088,11 +2088,11 @@ public partial class CCBord : IDisposable {
 /// </example>
 public partial class CCBorda : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_CCBorda Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_CCBorda Values = new Marshal_CCBorda();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public CCBorda(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -2220,11 +2220,11 @@ public partial class CCBorda : IDisposable {
 /// </example>
 public partial class L_Dewarpa : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Dewarpa Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Dewarpa Values = new Marshal_L_Dewarpa();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Dewarpa(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -2584,11 +2584,11 @@ public partial class L_Dewarpa : IDisposable {
 /// </example>
 public partial class L_Dewarp : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Dewarp Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Dewarp Values = new Marshal_L_Dewarp();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Dewarp(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -3220,11 +3220,11 @@ public partial class L_Dewarp : IDisposable {
 /// </example>
 public partial class GPlot : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_GPlot Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_GPlot Values = new Marshal_GPlot();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public GPlot(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -3496,11 +3496,11 @@ public partial class GPlot : IDisposable {
 /// </example>
 public partial class L_Compressed_Data : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Compressed_Data Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Compressed_Data Values = new Marshal_L_Compressed_Data();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Compressed_Data(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -3806,11 +3806,11 @@ public partial class L_Compressed_Data : IDisposable {
 /// </example>
 public partial class L_Pdf_Data : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Pdf_Data Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Pdf_Data Values = new Marshal_L_Pdf_Data();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Pdf_Data(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -4190,11 +4190,11 @@ public partial class L_Pdf_Data : IDisposable {
 /// </example>
 public partial class JbClasser : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_JbClasser Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_JbClasser Values = new Marshal_JbClasser();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public JbClasser(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -4716,11 +4716,11 @@ public partial class JbClasser : IDisposable {
 /// </example>
 public partial class JbData : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_JbData Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_JbData Values = new Marshal_JbData();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public JbData(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -4920,11 +4920,11 @@ public partial class JbData : IDisposable {
 /// </example>
 public partial class Sel : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Sel Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Sel Values = new Marshal_Sel();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public Sel(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -5050,11 +5050,11 @@ public partial class Sel : IDisposable {
 /// </example>
 public partial class Sela : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Sela Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Sela Values = new Marshal_Sela();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public Sela(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -5126,11 +5126,11 @@ public partial class Sela : IDisposable {
 /// </example>
 public partial class L_Kernel : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Kernel Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Kernel Values = new Marshal_L_Kernel();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Kernel(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -5240,11 +5240,11 @@ public partial class L_Kernel : IDisposable {
 /// </example>
 public partial class Pix : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Pix Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Pix Values = new Marshal_Pix();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public Pix(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -5496,11 +5496,11 @@ public partial class Pix : IDisposable {
 /// </example>
 public partial class PixColormap : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_PixColormap Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_PixColormap Values = new Marshal_PixColormap();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public PixColormap(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -5590,11 +5590,11 @@ public partial class PixColormap : IDisposable {
 /// </example>
 public partial class RGBA_Quad : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_RGBA_Quad Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_RGBA_Quad Values = new Marshal_RGBA_Quad();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public RGBA_Quad(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -5684,11 +5684,11 @@ public partial class RGBA_Quad : IDisposable {
 /// </example>
 public partial class Pixa : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Pixa Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Pixa Values = new Marshal_Pixa();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public Pixa(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -5796,11 +5796,11 @@ public partial class Pixa : IDisposable {
 /// </example>
 public partial class Pixaa : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Pixaa Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Pixaa Values = new Marshal_Pixaa();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public Pixaa(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -5890,11 +5890,11 @@ public partial class Pixaa : IDisposable {
 /// </example>
 public partial class Box : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Box Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Box Values = new Marshal_Box();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public Box(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -6002,11 +6002,11 @@ public partial class Box : IDisposable {
 /// </example>
 public partial class Boxa : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Boxa Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Boxa Values = new Marshal_Boxa();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public Boxa(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -6096,11 +6096,11 @@ public partial class Boxa : IDisposable {
 /// </example>
 public partial class Boxaa : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Boxaa Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Boxaa Values = new Marshal_Boxaa();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public Boxaa(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -6172,11 +6172,11 @@ public partial class Boxaa : IDisposable {
 /// </example>
 public partial class Pta : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Pta Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Pta Values = new Marshal_Pta();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public Pta(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -6284,11 +6284,11 @@ public partial class Pta : IDisposable {
 /// </example>
 public partial class Ptaa : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Ptaa Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Ptaa Values = new Marshal_Ptaa();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public Ptaa(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -6360,11 +6360,11 @@ public partial class Ptaa : IDisposable {
 /// </example>
 public partial class Pixacc : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Pixacc Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_Pixacc Values = new Marshal_Pixacc();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public Pixacc(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -6454,11 +6454,11 @@ public partial class Pixacc : IDisposable {
 /// </example>
 public partial class PixTiling : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_PixTiling Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_PixTiling Values = new Marshal_PixTiling();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public PixTiling(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -6620,11 +6620,11 @@ public partial class PixTiling : IDisposable {
 /// </example>
 public partial class FPix : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_FPix Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_FPix Values = new Marshal_FPix();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public FPix(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -6768,11 +6768,11 @@ public partial class FPix : IDisposable {
 /// </example>
 public partial class FPixa : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_FPixa Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_FPixa Values = new Marshal_FPixa();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public FPixa(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -6862,11 +6862,11 @@ public partial class FPixa : IDisposable {
 /// </example>
 public partial class DPix : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_DPix Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_DPix Values = new Marshal_DPix();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public DPix(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -7010,11 +7010,11 @@ public partial class DPix : IDisposable {
 /// </example>
 public partial class PixComp : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_PixComp Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_PixComp Values = new Marshal_PixComp();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public PixComp(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -7212,11 +7212,11 @@ public partial class PixComp : IDisposable {
 /// </example>
 public partial class PixaComp : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_PixaComp Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_PixaComp Values = new Marshal_PixaComp();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public PixaComp(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -7326,11 +7326,11 @@ public partial class PixaComp : IDisposable {
 /// </example>
 public partial class L_Recog : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Recog Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Recog Values = new Marshal_L_Recog();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Recog(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -8284,11 +8284,11 @@ public partial class L_Recog : IDisposable {
 /// </example>
 public partial class L_Rch : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Rch Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Rch Values = new Marshal_L_Rch();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Rch(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -8432,11 +8432,11 @@ public partial class L_Rch : IDisposable {
 /// </example>
 public partial class L_Rcha : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Rcha Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Rcha Values = new Marshal_L_Rcha();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Rcha(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -8580,11 +8580,11 @@ public partial class L_Rcha : IDisposable {
 /// </example>
 public partial class L_Rdid : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Rdid Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Rdid Values = new Marshal_L_Rdid();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Rdid(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -9054,11 +9054,11 @@ public partial class L_Rdid : IDisposable {
 /// </example>
 public partial class L_RegParams : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_RegParams Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_RegParams Values = new Marshal_L_RegParams();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_RegParams(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -9222,11 +9222,11 @@ public partial class L_RegParams : IDisposable {
 /// </example>
 public partial class L_StrCode : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_StrCode Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_StrCode Values = new Marshal_L_StrCode();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_StrCode(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -9354,11 +9354,11 @@ public partial class L_StrCode : IDisposable {
 /// </example>
 public partial class L_Sudoku : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Sudoku Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Sudoku Values = new Marshal_L_Sudoku();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Sudoku(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -9522,11 +9522,11 @@ public partial class L_Sudoku : IDisposable {
 /// </example>
 public partial class L_WShed : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_WShed Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_WShed Values = new Marshal_L_WShed();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_WShed(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -9924,11 +9924,11 @@ public partial class L_WShed : IDisposable {
 /// </example>
 public partial class L_Bilateral : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Bilateral Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Bilateral Values = new Marshal_L_Bilateral();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Bilateral(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -10219,11 +10219,11 @@ public partial class L_Bilateral : IDisposable {
 /// </example>
 public partial class BMP_FileHeader : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_BMP_FileHeader Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_BMP_FileHeader Values = new Marshal_BMP_FileHeader();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public BMP_FileHeader(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -10367,11 +10367,11 @@ public partial class BMP_FileHeader : IDisposable {
 /// </example>
 public partial class BMP_InfoHeader : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_BMP_InfoHeader Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_BMP_InfoHeader Values = new Marshal_BMP_InfoHeader();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public BMP_InfoHeader(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -10589,11 +10589,11 @@ public partial class BMP_InfoHeader : IDisposable {
 /// </example>
 public partial class ColorQuantCell : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_ColorQuantCell Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_ColorQuantCell Values = new Marshal_ColorQuantCell();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public ColorQuantCell(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -10716,11 +10716,11 @@ public partial class ColorQuantCell : IDisposable {
 /// </example>
 public partial class OctcubeQuantCell : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_OctcubeQuantCell Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_OctcubeQuantCell Values = new Marshal_OctcubeQuantCell();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public OctcubeQuantCell(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -10858,11 +10858,11 @@ public partial class OctcubeQuantCell : IDisposable {
 /// </example>
 public partial class L_OctcubePop : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_OctcubePop Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_OctcubePop Values = new Marshal_L_OctcubePop();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_OctcubePop(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -10957,11 +10957,11 @@ public partial class L_OctcubePop : IDisposable {
 /// </example>
 public partial class L_Box3d : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Box3d Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Box3d Values = new Marshal_L_Box3d();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Box3d(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -11116,11 +11116,11 @@ public partial class L_Box3d : IDisposable {
 /// </example>
 public partial class FillSeg : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_FillSeg Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_FillSeg Values = new Marshal_FillSeg();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public FillSeg(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -11212,11 +11212,11 @@ public partial class FillSeg : IDisposable {
 /// </example>
 public partial class JbFindTemplatesState : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_JbFindTemplatesState Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_JbFindTemplatesState Values = new Marshal_JbFindTemplatesState();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public JbFindTemplatesState(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -11326,11 +11326,11 @@ public partial class JbFindTemplatesState : IDisposable {
 /// </example>
 public partial class callback_data : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_callback_data Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_callback_data Values = new Marshal_callback_data();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public callback_data(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -11380,11 +11380,11 @@ public partial class callback_data : IDisposable {
 /// </example>
 public partial class MazeElement : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_MazeElement Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_MazeElement Values = new Marshal_MazeElement();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public MazeElement(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -11479,11 +11479,11 @@ public partial class MazeElement : IDisposable {
 /// </example>
 public partial class PartitionElement : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_PartitionElement Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_PartitionElement Values = new Marshal_PartitionElement();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public PartitionElement(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -11548,11 +11548,11 @@ public partial class PartitionElement : IDisposable {
 /// </example>
 public partial class PixMemoryManager : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_PixMemoryManager Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_PixMemoryManager Values = new Marshal_PixMemoryManager();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public PixMemoryManager(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -11602,11 +11602,11 @@ public partial class PixMemoryManager : IDisposable {
 /// </example>
 public partial class PixMemoryStore : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_PixMemoryStore Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_PixMemoryStore Values = new Marshal_PixMemoryStore();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public PixMemoryStore(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -11915,11 +11915,11 @@ public partial class PixMemoryStore : IDisposable {
 /// </example>
 public partial class MemIOData : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_MemIOData Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_MemIOData Values = new Marshal_MemIOData();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public MemIOData(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -12029,11 +12029,11 @@ public partial class MemIOData : IDisposable {
 /// </example>
 public partial class L_Pixel : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Pixel Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Pixel Values = new Marshal_L_Pixel();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Pixel(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -12083,11 +12083,11 @@ public partial class L_Pixel : IDisposable {
 /// </example>
 public partial class CompParameterMap : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_CompParameterMap Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_CompParameterMap Values = new Marshal_CompParameterMap();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public CompParameterMap(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -12216,11 +12216,11 @@ public partial class CompParameterMap : IDisposable {
 /// </example>
 public partial class L_GenAssoc : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_GenAssoc Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_GenAssoc Values = new Marshal_L_GenAssoc();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_GenAssoc(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -12319,11 +12319,11 @@ public partial class L_GenAssoc : IDisposable {
 /// </example>
 public partial class tiff_transform : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_tiff_transform Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_tiff_transform Values = new Marshal_tiff_transform();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public tiff_transform(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -12386,11 +12386,11 @@ public partial class tiff_transform : IDisposable {
 /// </example>
 public partial class L_Memstream : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Memstream Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_Memstream Values = new Marshal_L_Memstream();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_Memstream(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -12500,11 +12500,11 @@ public partial class L_Memstream : IDisposable {
 /// </example>
 public partial class L_NewPixel : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_NewPixel Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_NewPixel Values = new Marshal_L_NewPixel();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_NewPixel(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -12558,11 +12558,11 @@ public partial class L_NewPixel : IDisposable {
 /// </example>
 public partial class L_WSPixel : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_WSPixel Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_L_WSPixel Values = new Marshal_L_WSPixel();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public L_WSPixel(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);
@@ -12654,11 +12654,11 @@ public partial class L_WSPixel : IDisposable {
 /// </example>
 public partial class ExtensionMap : IDisposable {
    [DebuggerBrowsable(DebuggerBrowsableState.Never)] public IntPtr Pointer;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_ExtensionMap Values;
-   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching;
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Marshal_ExtensionMap Values = new Marshal_ExtensionMap();
+   [DebuggerBrowsable(DebuggerBrowsableState.Never)] private Dictionary <String, Object> Caching  = new Dictionary<String, Object>();
 
-	public void Dispose()
-	{ throw new NotImplementedException(); }
+	public void Dispose() { throw new NotImplementedException(); }
+	
 	public ExtensionMap(IntPtr PTR){
 	  if (PTR != IntPtr.Zero) {Pointer = PTR;}
 	  Pointer = PTR; Marshal.PtrToStructure(Pointer, Values);

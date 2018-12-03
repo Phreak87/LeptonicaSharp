@@ -30,18 +30,15 @@ namespace TestAppCSharp
             //app.OtsuTest2(carplate);
             //app.TestProjectionsOnImage(carplate);
             //app.TestArrayFunctions();
-            //app.TestCCBorder(img1bpp);
+            app.TestCCBorder(img1bpp);
         }
 
         private void TestCCBorder(string pixfn)
         {
-            var p = new Pix(pixfn);
-            var pixs = pixRead(pixfn);
-            pixDestroy(ref pixs);
-            var data = pixs.data;
-            var cm = pixs.colormap;
-            var tx = pixs.text;
-            //var pixs = new Pix(pixfn);
+            var pixs = new Pix(pixfn);
+            //var data = pixs.data;
+            //var cm = pixs.colormap;
+            //var tx = pixs.text;
             var ccba = pixGetAllCCBorders(pixs);
         }
 

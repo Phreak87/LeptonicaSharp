@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EEBCEE15-FBBD-46FA-AAB8-2B7502451B68}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LeptonicaSharp</RootNamespace>
+    <AssemblyName>LeptonicaSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enumerations.cs" />
+    <Compile Include="Functions\adaptmap.cs" />
+    <Compile Include="Functions\affine.cs" />
+    <Compile Include="Functions\affinecompose.cs" />
+    <Compile Include="Functions\arrayaccess.cs" />
+    <Compile Include="Functions\bardecode.cs" />
+    <Compile Include="Functions\baseline.cs" />
+    <Compile Include="Functions\bbuffer.cs" />
+    <Compile Include="Functions\bilateral.cs" />
+    <Compile Include="Functions\bilinear.cs" />
+    <Compile Include="Functions\binarize.cs" />
+    <Compile Include="Functions\binexpand.cs" />
+    <Compile Include="Functions\binreduce.cs" />
+    <Compile Include="Functions\blend.cs" />
+    <Compile Include="Functions\bmf.cs" />
+    <Compile Include="Functions\bmpio.cs" />
+    <Compile Include="Functions\bootnumgen1.cs" />
+    <Compile Include="Functions\bootnumgen2.cs" />
+    <Compile Include="Functions\bootnumgen3.cs" />
+    <Compile Include="Functions\boxbasic.cs" />
+    <Compile Include="Functions\boxfunc1.cs" />
+    <Compile Include="Functions\boxfunc2.cs" />
+    <Compile Include="Functions\boxfunc3.cs" />
+    <Compile Include="Functions\boxfunc4.cs" />
+    <Compile Include="Functions\bytearray.cs" />
+    <Compile Include="Functions\ccbord.cs" />
+    <Compile Include="Functions\ccthin.cs" />
+    <Compile Include="Functions\classapp.cs" />
+    <Compile Include="Functions\colorcontent.cs" />
+    <Compile Include="Functions\coloring.cs" />
+    <Compile Include="Functions\colormap.cs" />
+    <Compile Include="Functions\colormorph.cs" />
+    <Compile Include="Functions\colorquant1.cs" />
+    <Compile Include="Functions\colorquant2.cs" />
+    <Compile Include="Functions\colorseg.cs" />
+    <Compile Include="Functions\colorspace.cs" />
+    <Compile Include="Functions\compare.cs" />
+    <Compile Include="Functions\conncomp.cs" />
+    <Compile Include="Functions\convertfiles.cs" />
+    <Compile Include="Functions\convolve.cs" />
+    <Compile Include="Functions\correlscore.cs" />
+    <Compile Include="Functions\dewarp1.cs" />
+    <Compile Include="Functions\dewarp2.cs" />
+    <Compile Include="Functions\dewarp3.cs" />
+    <Compile Include="Functions\dewarp4.cs" />
+    <Compile Include="Functions\dnabasic.cs" />
+    <Compile Include="Functions\dnafunc1.cs" />
+    <Compile Include="Functions\dnahash.cs" />
+    <Compile Include="Functions\dwacomb.2.cs" />
+    <Compile Include="Functions\edge.cs" />
+    <Compile Include="Functions\encoding.cs" />
+    <Compile Include="Functions\enhance.cs" />
+    <Compile Include="Functions\fhmtauto.cs" />
+    <Compile Include="Functions\fhmtgen.1.cs" />
+    <Compile Include="Functions\finditalic.cs" />
+    <Compile Include="Functions\flipdetect.cs" />
+    <Compile Include="Functions\fliphmtgen.cs" />
+    <Compile Include="Functions\fmorphauto.cs" />
+    <Compile Include="Functions\fmorphgen.1.cs" />
+    <Compile Include="Functions\fpix1.cs" />
+    <Compile Include="Functions\fpix2.cs" />
+    <Compile Include="Functions\gifiostub.cs" />
+    <Compile Include="Functions\gplot.cs" />
+    <Compile Include="Functions\graphics.cs" />
+    <Compile Include="Functions\graymorph.cs" />
+    <Compile Include="Functions\grayquant.cs" />
+    <Compile Include="Functions\heap.cs" />
+    <Compile Include="Functions\jbclass.cs" />
+    <Compile Include="Functions\jp2kheader.cs" />
+    <Compile Include="Functions\jp2kiostub.cs" />
+    <Compile Include="Functions\jpegio.cs" />
+    <Compile Include="Functions\kernel.cs" />
+    <Compile Include="Functions\leptwin.cs" />
+    <Compile Include="Functions\libversions.cs" />
+    <Compile Include="Functions\list.cs" />
+    <Compile Include="Functions\map.cs" />
+    <Compile Include="Functions\maze.cs" />
+    <Compile Include="Functions\morph.cs" />
+    <Compile Include="Functions\morphapp.cs" />
+    <Compile Include="Functions\morphdwa.cs" />
+    <Compile Include="Functions\morphseq.cs" />
+    <Compile Include="Functions\numabasic.cs" />
+    <Compile Include="Functions\numafunc1.cs" />
+    <Compile Include="Functions\numafunc2.cs" />
+    <Compile Include="Functions\pageseg.cs" />
+    <Compile Include="Functions\paintcmap.cs" />
+    <Compile Include="Functions\parseprotos.cs" />
+    <Compile Include="Functions\partition.cs" />
+    <Compile Include="Functions\pdfio1.cs" />
+    <Compile Include="Functions\pdfio2.cs" />
+    <Compile Include="Functions\pix1.cs" />
+    <Compile Include="Functions\pix2.cs" />
+    <Compile Include="Functions\pix3.cs" />
+    <Compile Include="Functions\pix4.cs" />
+    <Compile Include="Functions\pix5.cs" />
+    <Compile Include="Functions\pixabasic.cs" />
+    <Compile Include="Functions\pixacc.cs" />
+    <Compile Include="Functions\pixafunc1.cs" />
+    <Compile Include="Functions\pixafunc2.cs" />
+    <Compile Include="Functions\pixalloc.cs" />
+    <Compile Include="Functions\pixarith.cs" />
+    <Compile Include="Functions\pixcomp.cs" />
+    <Compile Include="Functions\pixconv.cs" />
+    <Compile Include="Functions\pixlabel.cs" />
+    <Compile Include="Functions\pixtiling.cs" />
+    <Compile Include="Functions\pngio.cs" />
+    <Compile Include="Functions\pnmio.cs" />
+    <Compile Include="Functions\projective.cs" />
+    <Compile Include="Functions\psio1.cs" />
+    <Compile Include="Functions\psio2.cs" />
+    <Compile Include="Functions\ptabasic.cs" />
+    <Compile Include="Functions\ptafunc1.cs" />
+    <Compile Include="Functions\ptafunc2.cs" />
+    <Compile Include="Functions\ptra.cs" />
+    <Compile Include="Functions\quadtree.cs" />
+    <Compile Include="Functions\queue.cs" />
+    <Compile Include="Functions\rank.cs" />
+    <Compile Include="Functions\rbtree.cs" />
+    <Compile Include="Functions\readbarcode.cs" />
+    <Compile Include="Functions\readfile.cs" />
+    <Compile Include="Functions\recogbasic.cs" />
+    <Compile Include="Functions\recogdid.cs" />
+    <Compile Include="Functions\recogident.cs" />
+    <Compile Include="Functions\recogtrain.cs" />
+    <Compile Include="Functions\regutils.cs" />
+    <Compile Include="Functions\rop.cs" />
+    <Compile Include="Functions\roplow.cs" />
+    <Compile Include="Functions\rotate.cs" />
+    <Compile Include="Functions\rotateam.cs" />
+    <Compile Include="Functions\rotateorth.cs" />
+    <Compile Include="Functions\rotateshear.cs" />
+    <Compile Include="Functions\runlength.cs" />
+    <Compile Include="Functions\sarray1.cs" />
+    <Compile Include="Functions\sarray2.cs" />
+    <Compile Include="Functions\scale1.cs" />
+    <Compile Include="Functions\scale2.cs" />
+    <Compile Include="Functions\seedfill.cs" />
+    <Compile Include="Functions\sel1.cs" />
+    <Compile Include="Functions\sel2.cs" />
+    <Compile Include="Functions\selgen.cs" />
+    <Compile Include="Functions\shear.cs" />
+    <Compile Include="Functions\skew.cs" />
+    <Compile Include="Functions\spixio.cs" />
+    <Compile Include="Functions\stack.cs" />
+    <Compile Include="Functions\stringcode.cs" />
+    <Compile Include="Functions\strokes.cs" />
+    <Compile Include="Functions\sudoku.cs" />
+    <Compile Include="Functions\textops.cs" />
+    <Compile Include="Functions\tiffio.cs" />
+    <Compile Include="Functions\utils1.cs" />
+    <Compile Include="Functions\utils2.cs" />
+    <Compile Include="Functions\warper.cs" />
+    <Compile Include="Functions\watershed.cs" />
+    <Compile Include="Functions\webpiostub.cs" />
+    <Compile Include="Functions\writefile.cs" />
+    <Compile Include="Functions\zlibmem.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="Natives.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Structures.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

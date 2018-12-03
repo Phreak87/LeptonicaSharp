@@ -281,7 +281,7 @@ public static int pixBackgroundNormGrayArray(
 	int _Result = Natives.pixBackgroundNormGrayArray(pixs.Pointer, piximPtr,   sx,   sy,   thresh,   mincount,   bgval,   smoothx,   smoothy, out ppixdPtr);
 	
 
-	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -338,9 +338,9 @@ public static int pixBackgroundNormRGBArrays(
 	int _Result = Natives.pixBackgroundNormRGBArrays(pixs.Pointer, piximPtr, pixgPtr,   sx,   sy,   thresh,   mincount,   bgval,   smoothx,   smoothy, out ppixrPtr, out ppixgPtr, out ppixbPtr);
 	
 
-	if (ppixrPtr == IntPtr.Zero) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
-	if (ppixgPtr == IntPtr.Zero) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
-	if (ppixbPtr == IntPtr.Zero) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+	if (ppixrPtr == null) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
+	if (ppixgPtr == null) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
+	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
 
 
 	return _Result;
@@ -380,7 +380,7 @@ public static int pixBackgroundNormGrayArrayMorph(
 	int _Result = Natives.pixBackgroundNormGrayArrayMorph(pixs.Pointer, piximPtr,   reduction,   size,   bgval, out ppixdPtr);
 	
 
-	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -426,9 +426,9 @@ public static int pixBackgroundNormRGBArraysMorph(
 	int _Result = Natives.pixBackgroundNormRGBArraysMorph(pixs.Pointer, piximPtr,   reduction,   size,   bgval, out ppixrPtr, out ppixgPtr, out ppixbPtr);
 	
 
-	if (ppixrPtr == IntPtr.Zero) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
-	if (ppixgPtr == IntPtr.Zero) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
-	if (ppixbPtr == IntPtr.Zero) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+	if (ppixrPtr == null) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
+	if (ppixgPtr == null) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
+	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
 
 
 	return _Result;
@@ -468,7 +468,7 @@ public static int pixGetBackgroundGrayMap(
 	int _Result = Natives.pixGetBackgroundGrayMap(pixs.Pointer, piximPtr,   sx,   sy,   thresh,   mincount, out ppixdPtr);
 	
 
-	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -518,9 +518,9 @@ public static int pixGetBackgroundRGBMap(
 	int _Result = Natives.pixGetBackgroundRGBMap(pixs.Pointer, piximPtr, pixgPtr,   sx,   sy,   thresh,   mincount, out ppixmrPtr, out ppixmgPtr, out ppixmbPtr);
 	
 
-	if (ppixmrPtr == IntPtr.Zero) {ppixmr = null;} else { ppixmr = new Pix(ppixmrPtr); };
-	if (ppixmgPtr == IntPtr.Zero) {ppixmg = null;} else { ppixmg = new Pix(ppixmgPtr); };
-	if (ppixmbPtr == IntPtr.Zero) {ppixmb = null;} else { ppixmb = new Pix(ppixmbPtr); };
+	if (ppixmrPtr == null) {ppixmr = null;} else { ppixmr = new Pix(ppixmrPtr); };
+	if (ppixmgPtr == null) {ppixmg = null;} else { ppixmg = new Pix(ppixmgPtr); };
+	if (ppixmbPtr == null) {ppixmb = null;} else { ppixmb = new Pix(ppixmbPtr); };
 
 
 	return _Result;
@@ -551,7 +551,7 @@ public static int pixGetBackgroundGrayMapMorph(
 	int _Result = Natives.pixGetBackgroundGrayMapMorph(pixs.Pointer, piximPtr,   reduction,   size, out ppixmPtr);
 	
 
-	if (ppixmPtr == IntPtr.Zero) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
+	if (ppixmPtr == null) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
 
 
 	return _Result;
@@ -588,9 +588,9 @@ public static int pixGetBackgroundRGBMapMorph(
 	int _Result = Natives.pixGetBackgroundRGBMapMorph(pixs.Pointer, piximPtr,   reduction,   size, out ppixmrPtr, out ppixmgPtr, out ppixmbPtr);
 	
 
-	if (ppixmrPtr == IntPtr.Zero) {ppixmr = null;} else { ppixmr = new Pix(ppixmrPtr); };
-	if (ppixmgPtr == IntPtr.Zero) {ppixmg = null;} else { ppixmg = new Pix(ppixmgPtr); };
-	if (ppixmbPtr == IntPtr.Zero) {ppixmb = null;} else { ppixmb = new Pix(ppixmbPtr); };
+	if (ppixmrPtr == null) {ppixmr = null;} else { ppixmr = new Pix(ppixmrPtr); };
+	if (ppixmgPtr == null) {ppixmg = null;} else { ppixmg = new Pix(ppixmgPtr); };
+	if (ppixmbPtr == null) {ppixmb = null;} else { ppixmb = new Pix(ppixmbPtr); };
 
 
 	return _Result;
@@ -1024,9 +1024,9 @@ public static int pixThresholdSpreadNorm(
 	int _Result = Natives.pixThresholdSpreadNorm(pixs.Pointer,   filtertype,   edgethresh,   smoothx,   smoothy,   gamma,   minval,   maxval,   targetthresh, out ppixthPtr, out ppixbPtr, out ppixdPtr);
 	
 
-	if (ppixthPtr == IntPtr.Zero) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
-	if (ppixbPtr == IntPtr.Zero) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
-	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixthPtr == null) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
+	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -1182,8 +1182,8 @@ public static int pixMinMaxTiles(
 	int _Result = Natives.pixMinMaxTiles(pixs.Pointer,   sx,   sy,   mindiff,   smoothx,   smoothy, out ppixminPtr, out ppixmaxPtr);
 	
 
-	if (ppixminPtr == IntPtr.Zero) {ppixmin = null;} else { ppixmin = new Pix(ppixminPtr); };
-	if (ppixmaxPtr == IntPtr.Zero) {ppixmax = null;} else { ppixmax = new Pix(ppixmaxPtr); };
+	if (ppixminPtr == null) {ppixmin = null;} else { ppixmin = new Pix(ppixminPtr); };
+	if (ppixmaxPtr == null) {ppixmax = null;} else { ppixmax = new Pix(ppixmaxPtr); };
 
 
 	return _Result;
@@ -1269,7 +1269,6 @@ public static Pix pixLinearTRCTiled(
 
 	return  new Pix(_Result);
 }
-
 
 }
 }

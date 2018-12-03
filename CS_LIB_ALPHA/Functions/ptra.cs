@@ -62,7 +62,7 @@ public static void ptraDestroy(
 	Natives.ptraDestroy(ref ppaPtr,   freeflag,   warnflag);
 	
 
-	if (ppaPtr == null) {ppa = null;} else { ppa = new L_Ptra(ppaPtr); };
+	if (ppaPtr == IntPtr.Zero) {ppa = null;} else { ppa = new L_Ptra(ppaPtr); };
 
 
 }
@@ -481,7 +481,7 @@ public static void ptraaDestroy(
 	Natives.ptraaDestroy(ref ppaaPtr,   freeflag,   warnflag);
 	
 
-	if (ppaaPtr == null) {ppaa = null;} else { ppaa = new L_Ptraa(ppaaPtr); };
+	if (ppaaPtr == IntPtr.Zero) {ppaa = null;} else { ppaa = new L_Ptraa(ppaaPtr); };
 
 
 }
@@ -594,6 +594,7 @@ public static L_Ptra ptraaFlattenToPtra(
 
 	return  new L_Ptra(_Result);
 }
+
 
 }
 }

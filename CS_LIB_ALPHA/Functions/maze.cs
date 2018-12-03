@@ -124,7 +124,7 @@ public static Pta pixSearchBinaryMaze(
 	IntPtr _Result = Natives.pixSearchBinaryMaze(pixs.Pointer,   xi,   yi,   xf,   yf, out ppixdPtr);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -157,12 +157,13 @@ public static Pta pixSearchGrayMaze(
 	IntPtr _Result = Natives.pixSearchGrayMaze(pixs.Pointer,   xi,   yi,   xf,   yf, out ppixdPtr);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
 	return  new Pta(_Result);
 }
+
 
 }
 }

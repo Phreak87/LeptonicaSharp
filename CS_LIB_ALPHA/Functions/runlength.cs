@@ -194,7 +194,7 @@ public static Numa pixFindMaxRuns(
 	IntPtr _Result = Natives.pixFindMaxRuns(pix.Pointer,   direction, out pnastartPtr);
 	
 
-	if (pnastartPtr == null) {pnastart = null;} else { pnastart = new Numa(pnastartPtr); };
+	if (pnastartPtr == IntPtr.Zero) {pnastart = null;} else { pnastart = new Numa(pnastartPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -323,6 +323,7 @@ public static int[] makeMSBitLocTab(
 
 	return _Result;
 }
+
 
 }
 }

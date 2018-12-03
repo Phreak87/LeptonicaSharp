@@ -22,13 +22,14 @@ public partial class _All {
 public static IntPtr pixGetWindowsHBITMAP(
 				 Pix pix){
 
-	IntPtr _Result = Natives.pixGetWindowsHBITMAP(pix.Pointer);
+	IntPtr _Result = _All.pixGetWindowsHBITMAP(pix);
 	
 
 
 
 	return _Result;
 }
+
 
 }
 }

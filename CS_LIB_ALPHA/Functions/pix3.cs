@@ -597,7 +597,7 @@ public static Pix pixMakeAlphaFromMask(
 	IntPtr _Result = Natives.pixMakeAlphaFromMask(pixs.Pointer,   dist, out pboxPtr);
 	
 
-	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
+	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -1651,11 +1651,12 @@ public static int pixFindRepCloseTile(
 	int _Result = Natives.pixFindRepCloseTile(pixs.Pointer, box.Pointer,   searchdir,   mindist,   tsize,   ntiles, out pboxtilePtr,  (int) debug);
 	
 
-	if (pboxtilePtr == null) {pboxtile = null;} else { pboxtile = new Box(pboxtilePtr); };
+	if (pboxtilePtr == IntPtr.Zero) {pboxtile = null;} else { pboxtile = new Box(pboxtilePtr); };
 
 
 	return _Result;
 }
+
 
 }
 }

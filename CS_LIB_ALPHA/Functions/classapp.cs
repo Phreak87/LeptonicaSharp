@@ -121,7 +121,7 @@ public static JbClasser jbWordsInTextlines(
 	IntPtr _Result = Natives.jbWordsInTextlines(  dirin,   reduction,   maxwidth,   maxheight,   thresh,   weight, out pnatlPtr,   firstpage,   npages);
 	
 
-	if (pnatlPtr == null) {pnatl = null;} else { pnatl = new Numa(pnatlPtr); };
+	if (pnatlPtr == IntPtr.Zero) {pnatl = null;} else { pnatl = new Numa(pnatlPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -195,9 +195,9 @@ public static int pixGetWordsInTextlines(
 	int _Result = Natives.pixGetWordsInTextlines(pixs.Pointer,   minwidth,   minheight,   maxwidth,   maxheight, out pboxadPtr, out ppixadPtr, out pnaiPtr);
 	
 
-	if (pboxadPtr == null) {pboxad = null;} else { pboxad = new Boxa(pboxadPtr); };
-	if (ppixadPtr == null) {ppixad = null;} else { ppixad = new Pixa(ppixadPtr); };
-	if (pnaiPtr == null) {pnai = null;} else { pnai = new Numa(pnaiPtr); };
+	if (pboxadPtr == IntPtr.Zero) {pboxad = null;} else { pboxad = new Boxa(pboxadPtr); };
+	if (ppixadPtr == IntPtr.Zero) {ppixad = null;} else { ppixad = new Pixa(ppixadPtr); };
+	if (pnaiPtr == IntPtr.Zero) {pnai = null;} else { pnai = new Numa(pnaiPtr); };
 
 
 	return _Result;
@@ -240,8 +240,8 @@ public static int pixGetWordBoxesInTextlines(
 	int _Result = Natives.pixGetWordBoxesInTextlines(pixs.Pointer,   minwidth,   minheight,   maxwidth,   maxheight, out pboxadPtr, out pnaiPtr);
 	
 
-	if (pboxadPtr == null) {pboxad = null;} else { pboxad = new Boxa(pboxadPtr); };
-	if (pnaiPtr == null) {pnai = null;} else { pnai = new Numa(pnaiPtr); };
+	if (pboxadPtr == IntPtr.Zero) {pboxad = null;} else { pboxad = new Boxa(pboxadPtr); };
+	if (pnaiPtr == IntPtr.Zero) {pnai = null;} else { pnai = new Numa(pnaiPtr); };
 
 
 	return _Result;
@@ -342,6 +342,7 @@ public static int numaaCompareImagesByBoxes(
 
 	return _Result;
 }
+
 
 }
 }

@@ -53,7 +53,7 @@ public static void bmfDestroy(
 	Natives.bmfDestroy(ref pbmfPtr);
 	
 
-	if (pbmfPtr == null) {pbmf = null;} else { pbmf = new L_Bmf(pbmfPtr); };
+	if (pbmfPtr == IntPtr.Zero) {pbmf = null;} else { pbmf = new L_Bmf(pbmfPtr); };
 
 
 }
@@ -188,6 +188,7 @@ public static int pixaSaveFont(
 
 	return _Result;
 }
+
 
 }
 }

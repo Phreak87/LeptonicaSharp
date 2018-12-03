@@ -51,7 +51,7 @@ public static void kernelDestroy(
 	Natives.kernelDestroy(ref pkelPtr);
 	
 
-	if (pkelPtr == null) {pkel = null;} else { pkel = new L_Kernel(pkelPtr); };
+	if (pkelPtr == IntPtr.Zero) {pkel = null;} else { pkel = new L_Kernel(pkelPtr); };
 
 
 }
@@ -680,8 +680,8 @@ public static int makeGaussianKernelSep(
 	int _Result = Natives.makeGaussianKernelSep(  halfheight,   halfwidth,   stdev,   max, out pkelxPtr, out pkelyPtr);
 	
 
-	if (pkelxPtr == null) {pkelx = null;} else { pkelx = new L_Kernel(pkelxPtr); };
-	if (pkelyPtr == null) {pkely = null;} else { pkely = new L_Kernel(pkelyPtr); };
+	if (pkelxPtr == IntPtr.Zero) {pkelx = null;} else { pkelx = new L_Kernel(pkelxPtr); };
+	if (pkelyPtr == IntPtr.Zero) {pkely = null;} else { pkely = new L_Kernel(pkelyPtr); };
 
 
 	return _Result;
@@ -733,6 +733,7 @@ public static L_Kernel makeDoGKernel(
 
 	return  new L_Kernel(_Result);
 }
+
 
 }
 }

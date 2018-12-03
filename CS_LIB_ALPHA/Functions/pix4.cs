@@ -181,9 +181,9 @@ public static int pixGetColorHistogram(
 	int _Result = Natives.pixGetColorHistogram(pixs.Pointer,   factor, out pnarPtr, out pnagPtr, out pnabPtr);
 	
 
-	if (pnarPtr == null) {pnar = null;} else { pnar = new Numa(pnarPtr); };
-	if (pnagPtr == null) {pnag = null;} else { pnag = new Numa(pnagPtr); };
-	if (pnabPtr == null) {pnab = null;} else { pnab = new Numa(pnabPtr); };
+	if (pnarPtr == IntPtr.Zero) {pnar = null;} else { pnar = new Numa(pnarPtr); };
+	if (pnagPtr == IntPtr.Zero) {pnag = null;} else { pnag = new Numa(pnagPtr); };
+	if (pnabPtr == IntPtr.Zero) {pnab = null;} else { pnab = new Numa(pnabPtr); };
 
 
 	return _Result;
@@ -231,9 +231,9 @@ public static int pixGetColorHistogramMasked(
 	int _Result = Natives.pixGetColorHistogramMasked(pixs.Pointer, pixmPtr,   x,   y,   factor, out pnarPtr, out pnagPtr, out pnabPtr);
 	
 
-	if (pnarPtr == null) {pnar = null;} else { pnar = new Numa(pnarPtr); };
-	if (pnagPtr == null) {pnag = null;} else { pnag = new Numa(pnagPtr); };
-	if (pnabPtr == null) {pnab = null;} else { pnab = new Numa(pnabPtr); };
+	if (pnarPtr == IntPtr.Zero) {pnar = null;} else { pnar = new Numa(pnarPtr); };
+	if (pnagPtr == IntPtr.Zero) {pnag = null;} else { pnag = new Numa(pnagPtr); };
+	if (pnabPtr == IntPtr.Zero) {pnab = null;} else { pnab = new Numa(pnabPtr); };
 
 
 	return _Result;
@@ -542,7 +542,7 @@ public static int pixGetRankValueMasked(
 	int _Result = Natives.pixGetRankValueMasked(pixs.Pointer, pixmPtr,   x,   y,   factor,   rank, out  pval, out pnaPtr);
 	
 
-	if (pnaPtr == null) {pna = null;} else { pna = new Numa(pnaPtr); };
+	if (pnaPtr == IntPtr.Zero) {pna = null;} else { pna = new Numa(pnaPtr); };
 
 
 	return _Result;
@@ -766,9 +766,9 @@ public static int pixGetAverageTiledRGB(
 	int _Result = Natives.pixGetAverageTiledRGB(pixs.Pointer,   sx,   sy,   type, out ppixrPtr, out ppixgPtr, out ppixbPtr);
 	
 
-	if (ppixrPtr == null) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
-	if (ppixgPtr == null) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
-	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+	if (ppixrPtr == IntPtr.Zero) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
+	if (ppixgPtr == IntPtr.Zero) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
+	if (ppixbPtr == IntPtr.Zero) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
 
 
 	return _Result;
@@ -858,12 +858,12 @@ public static int pixRowStats(
 	int _Result = Natives.pixRowStats(pixs.Pointer, boxPtr, out pnameanPtr, out pnamedianPtr, out pnamodePtr, out pnamodecountPtr, out pnavarPtr, out pnarootvarPtr);
 	
 
-	if (pnameanPtr == null) {pnamean = null;} else { pnamean = new Numa(pnameanPtr); };
-	if (pnamedianPtr == null) {pnamedian = null;} else { pnamedian = new Numa(pnamedianPtr); };
-	if (pnamodePtr == null) {pnamode = null;} else { pnamode = new Numa(pnamodePtr); };
-	if (pnamodecountPtr == null) {pnamodecount = null;} else { pnamodecount = new Numa(pnamodecountPtr); };
-	if (pnavarPtr == null) {pnavar = null;} else { pnavar = new Numa(pnavarPtr); };
-	if (pnarootvarPtr == null) {pnarootvar = null;} else { pnarootvar = new Numa(pnarootvarPtr); };
+	if (pnameanPtr == IntPtr.Zero) {pnamean = null;} else { pnamean = new Numa(pnameanPtr); };
+	if (pnamedianPtr == IntPtr.Zero) {pnamedian = null;} else { pnamedian = new Numa(pnamedianPtr); };
+	if (pnamodePtr == IntPtr.Zero) {pnamode = null;} else { pnamode = new Numa(pnamodePtr); };
+	if (pnamodecountPtr == IntPtr.Zero) {pnamodecount = null;} else { pnamodecount = new Numa(pnamodecountPtr); };
+	if (pnavarPtr == IntPtr.Zero) {pnavar = null;} else { pnavar = new Numa(pnavarPtr); };
+	if (pnarootvarPtr == IntPtr.Zero) {pnarootvar = null;} else { pnarootvar = new Numa(pnarootvarPtr); };
 
 
 	return _Result;
@@ -917,12 +917,12 @@ public static int pixColumnStats(
 	int _Result = Natives.pixColumnStats(pixs.Pointer, boxPtr, out pnameanPtr, out pnamedianPtr, out pnamodePtr, out pnamodecountPtr, out pnavarPtr, out pnarootvarPtr);
 	
 
-	if (pnameanPtr == null) {pnamean = null;} else { pnamean = new Numa(pnameanPtr); };
-	if (pnamedianPtr == null) {pnamedian = null;} else { pnamedian = new Numa(pnamedianPtr); };
-	if (pnamodePtr == null) {pnamode = null;} else { pnamode = new Numa(pnamodePtr); };
-	if (pnamodecountPtr == null) {pnamodecount = null;} else { pnamodecount = new Numa(pnamodecountPtr); };
-	if (pnavarPtr == null) {pnavar = null;} else { pnavar = new Numa(pnavarPtr); };
-	if (pnarootvarPtr == null) {pnarootvar = null;} else { pnarootvar = new Numa(pnarootvarPtr); };
+	if (pnameanPtr == IntPtr.Zero) {pnamean = null;} else { pnamean = new Numa(pnameanPtr); };
+	if (pnamedianPtr == IntPtr.Zero) {pnamedian = null;} else { pnamedian = new Numa(pnamedianPtr); };
+	if (pnamodePtr == IntPtr.Zero) {pnamode = null;} else { pnamode = new Numa(pnamodePtr); };
+	if (pnamodecountPtr == IntPtr.Zero) {pnamodecount = null;} else { pnamodecount = new Numa(pnamodecountPtr); };
+	if (pnavarPtr == IntPtr.Zero) {pnavar = null;} else { pnavar = new Numa(pnavarPtr); };
+	if (pnarootvarPtr == IntPtr.Zero) {pnarootvar = null;} else { pnarootvar = new Numa(pnarootvarPtr); };
 
 
 	return _Result;
@@ -1494,11 +1494,12 @@ public static int pixSplitDistributionFgBg(
 	int _Result = Natives.pixSplitDistributionFgBg(pixs.Pointer,   scorefract,   factor, out  pthresh, out  pfgval, out  pbgval, out ppixdbPtr);
 	
 
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
 }
+
 
 }
 }

@@ -319,5 +319,6 @@ public static int pixRasteropFullImage(
 	return _Result;
 }
 
+
 }
 }

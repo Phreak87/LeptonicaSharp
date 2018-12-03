@@ -71,7 +71,7 @@ public static void pixTilingDestroy(
 	Natives.pixTilingDestroy(ref pptPtr);
 	
 
-	if (pptPtr == null) {ppt = null;} else { ppt = new PixTiling(pptPtr); };
+	if (pptPtr == IntPtr.Zero) {ppt = null;} else { ppt = new PixTiling(pptPtr); };
 
 
 }
@@ -198,6 +198,7 @@ public static int pixTilingPaintTile(
 
 	return _Result;
 }
+
 
 }
 }

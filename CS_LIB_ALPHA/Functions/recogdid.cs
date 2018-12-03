@@ -45,7 +45,7 @@ public static Boxa recogDecode(
 	IntPtr _Result = Natives.recogDecode(recog.Pointer, pixs.Pointer,   nlevels, out ppixdbPtr);
 	
 
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -166,6 +166,7 @@ public static int recogSetChannelParams(
 
 	return _Result;
 }
+
 
 }
 }

@@ -27,8 +27,8 @@ public static int pixaFindDimensions(
 	int _Result = Natives.pixaFindDimensions(pixa.Pointer, out pnawPtr, out pnahPtr);
 	
 
-	if (pnawPtr == null) {pnaw = null;} else { pnaw = new Numa(pnawPtr); };
-	if (pnahPtr == null) {pnah = null;} else { pnah = new Numa(pnahPtr); };
+	if (pnawPtr == IntPtr.Zero) {pnaw = null;} else { pnaw = new Numa(pnawPtr); };
+	if (pnahPtr == IntPtr.Zero) {pnah = null;} else { pnah = new Numa(pnahPtr); };
 
 
 	return _Result;
@@ -557,7 +557,7 @@ public static Pix pixClipRectangle(
 	IntPtr _Result = Natives.pixClipRectangle(pixs.Pointer, box.Pointer, out pboxcPtr);
 	
 
-	if (pboxcPtr == null) {pboxc = null;} else { pboxc = new Box(pboxcPtr); };
+	if (pboxcPtr == IntPtr.Zero) {pboxc = null;} else { pboxc = new Box(pboxcPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -644,8 +644,8 @@ public static int pixCropToMatch(
 	int _Result = Natives.pixCropToMatch(pixs1.Pointer, pixs2.Pointer, out ppixd1Ptr, out ppixd2Ptr);
 	
 
-	if (ppixd1Ptr == null) {ppixd1 = null;} else { ppixd1 = new Pix(ppixd1Ptr); };
-	if (ppixd2Ptr == null) {ppixd2 = null;} else { ppixd2 = new Pix(ppixd2Ptr); };
+	if (ppixd1Ptr == IntPtr.Zero) {ppixd1 = null;} else { ppixd1 = new Pix(ppixd1Ptr); };
+	if (ppixd2Ptr == IntPtr.Zero) {ppixd2 = null;} else { ppixd2 = new Pix(ppixd2Ptr); };
 
 
 	return _Result;
@@ -876,8 +876,8 @@ public static int pixClipToForeground(
 	int _Result = Natives.pixClipToForeground(pixs.Pointer, out ppixdPtr, out pboxPtr);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
-	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
 
 
 	return _Result;
@@ -945,8 +945,8 @@ public static int pixClipBoxToForeground(
 	int _Result = Natives.pixClipBoxToForeground(pixs.Pointer, boxsPtr, out ppixdPtr, out pboxdPtr);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
-	if (pboxdPtr == null) {pboxd = null;} else { pboxd = new Box(pboxdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (pboxdPtr == IntPtr.Zero) {pboxd = null;} else { pboxd = new Box(pboxdPtr); };
 
 
 	return _Result;
@@ -1040,8 +1040,8 @@ public static int pixClipBoxToEdges(
 	int _Result = Natives.pixClipBoxToEdges(pixs.Pointer, boxsPtr,   lowthresh,   highthresh,   maxwidth,   factor, out ppixdPtr, out pboxdPtr);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
-	if (pboxdPtr == null) {pboxd = null;} else { pboxd = new Box(pboxdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (pboxdPtr == IntPtr.Zero) {pboxd = null;} else { pboxd = new Box(pboxdPtr); };
 
 
 	return _Result;
@@ -1333,7 +1333,7 @@ public static int pixWindowedVarianceOnLine(
 	int _Result = Natives.pixWindowedVarianceOnLine(pixs.Pointer,   dir,   loc,   c1,   c2,   size, out pnadPtr);
 	
 
-	if (pnadPtr == null) {pnad = null;} else { pnad = new Numa(pnadPtr); };
+	if (pnadPtr == IntPtr.Zero) {pnad = null;} else { pnad = new Numa(pnadPtr); };
 
 
 	return _Result;
@@ -1392,8 +1392,8 @@ public static int pixMinMaxNearLine(
 	int _Result = Natives.pixMinMaxNearLine(pixs.Pointer,   x1,   y1,   x2,   y2,   dist,   direction, out pnaminPtr, out pnamaxPtr, out  pminave, out  pmaxave);
 	
 
-	if (pnaminPtr == null) {pnamin = null;} else { pnamin = new Numa(pnaminPtr); };
-	if (pnamaxPtr == null) {pnamax = null;} else { pnamax = new Numa(pnamaxPtr); };
+	if (pnaminPtr == IntPtr.Zero) {pnamin = null;} else { pnamin = new Numa(pnaminPtr); };
+	if (pnamaxPtr == IntPtr.Zero) {pnamax = null;} else { pnamax = new Numa(pnamaxPtr); };
 
 
 	return _Result;
@@ -1446,6 +1446,7 @@ public static Pix pixRankColumnTransform(
 
 	return  new Pix(_Result);
 }
+
 
 }
 }

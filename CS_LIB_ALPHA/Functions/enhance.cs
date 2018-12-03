@@ -1062,5 +1062,6 @@ public static Pix pixHalfEdgeByBandpass(
 	return  new Pix(_Result);
 }
 
+
 }
 }

@@ -669,5 +669,6 @@ public static Pix pixAffineSequential(
 	return  new Pix(_Result);
 }
 
+
 }
 }

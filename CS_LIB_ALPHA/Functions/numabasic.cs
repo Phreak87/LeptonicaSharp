@@ -128,7 +128,7 @@ public static void numaDestroy(
 	Natives.numaDestroy(ref pnaPtr);
 	
 
-	if (pnaPtr == null) {pna = null;} else { pna = new Numa(pnaPtr); };
+	if (pnaPtr == IntPtr.Zero) {pna = null;} else { pna = new Numa(pnaPtr); };
 
 
 }
@@ -901,7 +901,7 @@ public static void numaaDestroy(
 	Natives.numaaDestroy(ref pnaaPtr);
 	
 
-	if (pnaaPtr == null) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
+	if (pnaaPtr == IntPtr.Zero) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
 
 
 }
@@ -1268,6 +1268,7 @@ public static int numaaWriteMem(
 
 	return _Result;
 }
+
 
 }
 }

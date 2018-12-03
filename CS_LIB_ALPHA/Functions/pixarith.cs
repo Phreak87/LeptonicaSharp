@@ -618,5 +618,6 @@ public static Single getLogBase2(
 	return _Result;
 }
 
+
 }
 }

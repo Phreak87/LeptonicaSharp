@@ -236,7 +236,7 @@ public static Boxa boxaCombineOverlaps(
 	IntPtr _Result = Natives.boxaCombineOverlaps(boxas.Pointer, ref pixadbPtr);
 	
 
-	if (pixadbPtr == null) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
+	if (pixadbPtr == IntPtr.Zero) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -286,9 +286,9 @@ public static int boxaCombineOverlapsInPair(
 	int _Result = Natives.boxaCombineOverlapsInPair(boxas1.Pointer, boxas2.Pointer, out pboxad1Ptr, out pboxad2Ptr, ref pixadbPtr);
 	
 
-	if (pboxad1Ptr == null) {pboxad1 = null;} else { pboxad1 = new Boxa(pboxad1Ptr); };
-	if (pboxad2Ptr == null) {pboxad2 = null;} else { pboxad2 = new Boxa(pboxad2Ptr); };
-	if (pixadbPtr == null) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
+	if (pboxad1Ptr == IntPtr.Zero) {pboxad1 = null;} else { pboxad1 = new Boxa(pboxad1Ptr); };
+	if (pboxad2Ptr == IntPtr.Zero) {pboxad2 = null;} else { pboxad2 = new Boxa(pboxad2Ptr); };
+	if (pixadbPtr == IntPtr.Zero) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
 
 
 	return _Result;
@@ -441,7 +441,7 @@ public static Boxa boxaHandleOverlaps(
 	IntPtr _Result = Natives.boxaHandleOverlaps(boxas.Pointer,   op,   range,   min_overlap,   max_ratio, out pnamapPtr);
 	
 
-	if (pnamapPtr == null) {pnamap = null;} else { pnamap = new Numa(pnamapPtr); };
+	if (pnamapPtr == IntPtr.Zero) {pnamap = null;} else { pnamap = new Numa(pnamapPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -620,8 +620,8 @@ public static int boxaFindNearestBoxes(
 	int _Result = Natives.boxaFindNearestBoxes(boxa.Pointer,   dist_select,   range, out pnaaindexPtr, out pnaadistPtr);
 	
 
-	if (pnaaindexPtr == null) {pnaaindex = null;} else { pnaaindex = new Numaa(pnaaindexPtr); };
-	if (pnaadistPtr == null) {pnaadist = null;} else { pnaadist = new Numaa(pnaadistPtr); };
+	if (pnaaindexPtr == IntPtr.Zero) {pnaaindex = null;} else { pnaaindex = new Numaa(pnaaindexPtr); };
+	if (pnaadistPtr == IntPtr.Zero) {pnaadist = null;} else { pnaadist = new Numaa(pnaadistPtr); };
 
 
 	return _Result;
@@ -1106,7 +1106,7 @@ public static int boxaEqual(
 	int _Result = Natives.boxaEqual(boxa1.Pointer, boxa2.Pointer,   maxdist, out pnaindexPtr, out  psame);
 	
 
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 
 	return _Result;
@@ -1190,7 +1190,7 @@ public static int boxaSimilar(
 	int _Result = Natives.boxaSimilar(boxa1.Pointer, boxa2.Pointer,   leftdiff,   rightdiff,   topdiff,   botdiff,  (int) debug, out  psimilar, out pnasimPtr);
 	
 
-	if (pnasimPtr == null) {pnasim = null;} else { pnasim = new Numa(pnasimPtr); };
+	if (pnasimPtr == IntPtr.Zero) {pnasim = null;} else { pnasim = new Numa(pnasimPtr); };
 
 
 	return _Result;
@@ -1294,8 +1294,8 @@ public static int boxaSplitEvenOdd(
 	int _Result = Natives.boxaSplitEvenOdd(boxa.Pointer,   fillflag, out pboxaePtr, out pboxaoPtr);
 	
 
-	if (pboxaePtr == null) {pboxae = null;} else { pboxae = new Boxa(pboxaePtr); };
-	if (pboxaoPtr == null) {pboxao = null;} else { pboxao = new Boxa(pboxaoPtr); };
+	if (pboxaePtr == IntPtr.Zero) {pboxae = null;} else { pboxae = new Boxa(pboxaePtr); };
+	if (pboxaoPtr == IntPtr.Zero) {pboxao = null;} else { pboxao = new Boxa(pboxaoPtr); };
 
 
 	return _Result;
@@ -1332,6 +1332,7 @@ public static Boxa boxaMergeEvenOdd(
 
 	return  new Boxa(_Result);
 }
+
 
 }
 }

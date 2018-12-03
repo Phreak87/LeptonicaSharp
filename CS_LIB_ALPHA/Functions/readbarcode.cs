@@ -30,7 +30,7 @@ public static Sarray pixProcessBarcodes(
 	IntPtr _Result = Natives.pixProcessBarcodes(pixs.Pointer,  (int) format,   method, out psawPtr,   debugflag);
 	
 
-	if (psawPtr == null) {psaw = null;} else { psaw = new Sarray(psawPtr); };
+	if (psawPtr == IntPtr.Zero) {psaw = null;} else { psaw = new Sarray(psawPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -83,7 +83,7 @@ public static Sarray pixReadBarcodes(
 	IntPtr _Result = Natives.pixReadBarcodes(pixa.Pointer,  (int) format,   method, out psawPtr,   debugflag);
 	
 
-	if (psawPtr == null) {psaw = null;} else { psaw = new Sarray(psawPtr); };
+	if (psawPtr == IntPtr.Zero) {psaw = null;} else { psaw = new Sarray(psawPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -137,8 +137,8 @@ public static Boxa pixLocateBarcodes(
 	IntPtr _Result = Natives.pixLocateBarcodes(pixs.Pointer,   thresh, out ppixbPtr, out ppixmPtr);
 	
 
-	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
-	if (ppixmPtr == null) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
+	if (ppixbPtr == IntPtr.Zero) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+	if (ppixmPtr == IntPtr.Zero) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -217,8 +217,8 @@ public static Numa pixExtractBarcodeWidths1(
 	IntPtr _Result = Natives.pixExtractBarcodeWidths1(pixs.Pointer,   thresh,   binfract, out pnaehistPtr, out pnaohistPtr,   debugflag);
 	
 
-	if (pnaehistPtr == null) {pnaehist = null;} else { pnaehist = new Numa(pnaehistPtr); };
-	if (pnaohistPtr == null) {pnaohist = null;} else { pnaohist = new Numa(pnaohistPtr); };
+	if (pnaehistPtr == IntPtr.Zero) {pnaehist = null;} else { pnaehist = new Numa(pnaehistPtr); };
+	if (pnaohistPtr == IntPtr.Zero) {pnaohist = null;} else { pnaohist = new Numa(pnaohistPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -263,7 +263,7 @@ public static Numa pixExtractBarcodeWidths2(
 	IntPtr _Result = Natives.pixExtractBarcodeWidths2(pixs.Pointer,   thresh, out  pwidth, out pnacPtr,   debugflag);
 	
 
-	if (pnacPtr == null) {pnac = null;} else { pnac = new Numa(pnacPtr); };
+	if (pnacPtr == IntPtr.Zero) {pnac = null;} else { pnac = new Numa(pnacPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -331,8 +331,8 @@ public static Numa numaQuantizeCrossingsByWidth(
 	IntPtr _Result = Natives.numaQuantizeCrossingsByWidth(nas.Pointer,   binfract, out pnaehistPtr, out pnaohistPtr,   debugflag);
 	
 
-	if (pnaehistPtr == null) {pnaehist = null;} else { pnaehist = new Numa(pnaehistPtr); };
-	if (pnaohistPtr == null) {pnaohist = null;} else { pnaohist = new Numa(pnaohistPtr); };
+	if (pnaehistPtr == IntPtr.Zero) {pnaehist = null;} else { pnaehist = new Numa(pnaehistPtr); };
+	if (pnaohistPtr == IntPtr.Zero) {pnaohist = null;} else { pnaohist = new Numa(pnaohistPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -374,12 +374,13 @@ public static Numa numaQuantizeCrossingsByWindow(
 	IntPtr _Result = Natives.numaQuantizeCrossingsByWindow(nas.Pointer,   ratio, out  pwidth, out  pfirstloc, out pnacPtr,   debugflag);
 	
 
-	if (pnacPtr == null) {pnac = null;} else { pnac = new Numa(pnacPtr); };
+	if (pnacPtr == IntPtr.Zero) {pnac = null;} else { pnac = new Numa(pnacPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
 	return  new Numa(_Result);
 }
+
 
 }
 }

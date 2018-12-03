@@ -432,7 +432,7 @@ public static int convertToPdf(
 	int _Result = Natives.convertToPdf(  filein,   type,   quality,   fileout,   x,   y,   res,   title, ref plpdPtr,   position);
 	
 
-	if (plpdPtr == null) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
+	if (plpdPtr == IntPtr.Zero) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
 
 
 	return _Result;
@@ -480,7 +480,7 @@ public static int convertImageDataToPdf(
 	int _Result = Natives.convertImageDataToPdf(  imdata,   size,   type,   quality,   fileout,   x,   y,   res,   title, ref plpdPtr,   position);
 	
 
-	if (plpdPtr == null) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
+	if (plpdPtr == IntPtr.Zero) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
 
 
 	return _Result;
@@ -530,7 +530,7 @@ public static int convertToPdfData(
 	
 
 	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
-	if (plpdPtr == null) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
+	if (plpdPtr == IntPtr.Zero) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
 
 
 	return _Result;
@@ -582,7 +582,7 @@ public static int convertImageDataToPdfData(
 	
 
 	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
-	if (plpdPtr == null) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
+	if (plpdPtr == IntPtr.Zero) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
 
 
 	return _Result;
@@ -631,7 +631,7 @@ public static int pixConvertToPdf(
 	int _Result = Natives.pixConvertToPdf(pix.Pointer,   type,   quality,   fileout,   x,   y,   res,   title, ref plpdPtr,   position);
 	
 
-	if (plpdPtr == null) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
+	if (plpdPtr == IntPtr.Zero) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
 
 
 	return _Result;
@@ -1166,6 +1166,7 @@ public static int saConcatenatePdfToData(
 
 	return _Result;
 }
+
 
 }
 }

@@ -131,7 +131,7 @@ public static void pixcmapDestroy(
 	Natives.pixcmapDestroy(ref pcmapPtr);
 	
 
-	if (pcmapPtr == null) {pcmap = null;} else { pcmap = new PixColormap(pcmapPtr); };
+	if (pcmapPtr == IntPtr.Zero) {pcmap = null;} else { pcmap = new PixColormap(pcmapPtr); };
 
 
 }
@@ -1406,6 +1406,7 @@ public static int pixcmapShiftByComponent(
 
 	return _Result;
 }
+
 
 }
 }

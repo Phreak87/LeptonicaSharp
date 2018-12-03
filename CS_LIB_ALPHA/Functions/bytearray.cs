@@ -140,7 +140,7 @@ public static void l_byteaDestroy(
 	Natives.l_byteaDestroy(ref pbaPtr);
 	
 
-	if (pbaPtr == null) {pba = null;} else { pba = new L_Bytea(pbaPtr); };
+	if (pbaPtr == IntPtr.Zero) {pba = null;} else { pba = new L_Bytea(pbaPtr); };
 
 
 }
@@ -278,7 +278,7 @@ public static int l_byteaJoin(
 	int _Result = Natives.l_byteaJoin(ba1.Pointer, ref pba2Ptr);
 	
 
-	if (pba2Ptr == null) {pba2 = null;} else { pba2 = new L_Bytea(pba2Ptr); };
+	if (pba2Ptr == IntPtr.Zero) {pba2 = null;} else { pba2 = new L_Bytea(pba2Ptr); };
 
 
 	return _Result;
@@ -304,7 +304,7 @@ public static int l_byteaSplit(
 	int _Result = Natives.l_byteaSplit(ba1.Pointer,   splitloc, out pba2Ptr);
 	
 
-	if (pba2Ptr == null) {pba2 = null;} else { pba2 = new L_Bytea(pba2Ptr); };
+	if (pba2Ptr == IntPtr.Zero) {pba2 = null;} else { pba2 = new L_Bytea(pba2Ptr); };
 
 
 	return _Result;
@@ -332,7 +332,7 @@ public static int l_byteaFindEachSequence(
 	int _Result = Natives.l_byteaFindEachSequence(ba.Pointer,   sequence,   seqlen, out pdaPtr);
 	
 
-	if (pdaPtr == null) {pda = null;} else { pda = new L_Dna(pdaPtr); };
+	if (pdaPtr == IntPtr.Zero) {pda = null;} else { pda = new L_Dna(pdaPtr); };
 
 
 	return _Result;
@@ -387,6 +387,7 @@ public static int l_byteaWriteStream(
 
 	return _Result;
 }
+
 
 }
 }

@@ -190,7 +190,7 @@ public static void recogDestroy(
 	Natives.recogDestroy(ref precogPtr);
 	
 
-	if (precogPtr == null) {precog = null;} else { precog = new L_Recog(precogPtr); };
+	if (precogPtr == IntPtr.Zero) {precog = null;} else { precog = new L_Recog(precogPtr); };
 
 
 }
@@ -553,6 +553,7 @@ public static Pixa recogExtractPixa(
 
 	return  new Pixa(_Result);
 }
+
 
 }
 }

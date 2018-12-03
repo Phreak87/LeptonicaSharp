@@ -46,8 +46,8 @@ public static int dewarpSinglePage(
 	int _Result = Natives.dewarpSinglePage(pixs.Pointer,   thresh,   adaptive,   useboth,   check_columns, out ppixdPtr, out pdewaPtr,  (int) debug);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
-	if (pdewaPtr == null) {pdewa = null;} else { pdewa = new L_Dewarpa(pdewaPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (pdewaPtr == IntPtr.Zero) {pdewa = null;} else { pdewa = new L_Dewarpa(pdewaPtr); };
 
 
 	return _Result;
@@ -97,8 +97,8 @@ public static int dewarpSinglePageInit(
 	int _Result = Natives.dewarpSinglePageInit(pixs.Pointer,   thresh,   adaptive,   useboth,   check_columns, out ppixbPtr, out pdewaPtr);
 	
 
-	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
-	if (pdewaPtr == null) {pdewa = null;} else { pdewa = new L_Dewarpa(pdewaPtr); };
+	if (ppixbPtr == IntPtr.Zero) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+	if (pdewaPtr == IntPtr.Zero) {pdewa = null;} else { pdewa = new L_Dewarpa(pdewaPtr); };
 
 
 	return _Result;
@@ -138,7 +138,7 @@ public static int dewarpSinglePageRun(
 	int _Result = Natives.dewarpSinglePageRun(pixs.Pointer, pixb.Pointer, dewa.Pointer, out ppixdPtr,  (int) debug);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -497,6 +497,7 @@ public static int dewarpShowResults(
 
 	return _Result;
 }
+
 
 }
 }

@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -92,9 +93,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VB_Lib\VB_LIB.vbproj">
-      <Project>{5141b932-2d30-47a6-87a6-557fa5f4e6a7}</Project>
-      <Name>VB_LIB</Name>
+    <ProjectReference Include="..\CS_LIB_ALPHA\CS_LIB.csproj">
+      <Project>{eebcee15-fbbd-46fa-aab8-2b7502451b68}</Project>
+      <Name>CS_LIB</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

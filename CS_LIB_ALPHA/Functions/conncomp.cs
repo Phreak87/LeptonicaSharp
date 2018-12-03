@@ -31,7 +31,7 @@ public static Boxa pixConnComp(
 	IntPtr _Result = Natives.pixConnComp(pixs.Pointer, out ppixaPtr,   connectivity);
 	
 
-	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -74,7 +74,7 @@ public static Boxa pixConnCompPixa(
 	IntPtr _Result = Natives.pixConnCompPixa(pixs.Pointer, out ppixaPtr,   connectivity);
 	
 
-	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -416,6 +416,7 @@ public static int pixSeedfill8(
 
 	return _Result;
 }
+
 
 }
 }

@@ -137,7 +137,7 @@ public static void boxDestroy(
 	Natives.boxDestroy(ref pboxPtr);
 	
 
-	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
+	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
 
 
 }
@@ -381,7 +381,7 @@ public static void boxaDestroy(
 	Natives.boxaDestroy(ref pboxaPtr);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 
 }
@@ -737,7 +737,7 @@ public static int boxaRemoveBoxAndSave(
 	int _Result = Natives.boxaRemoveBoxAndSave(boxa.Pointer,   index, out pboxPtr);
 	
 
-	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
+	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
 
 
 	return _Result;
@@ -906,7 +906,7 @@ public static void boxaaDestroy(
 	Natives.boxaaDestroy(ref pbaaPtr);
 	
 
-	if (pbaaPtr == null) {pbaa = null;} else { pbaa = new Boxaa(pbaaPtr); };
+	if (pbaaPtr == IntPtr.Zero) {pbaa = null;} else { pbaa = new Boxaa(pbaaPtr); };
 
 
 }
@@ -1614,6 +1614,7 @@ public static int boxPrintStreamInfo(
 
 	return _Result;
 }
+
 
 }
 }

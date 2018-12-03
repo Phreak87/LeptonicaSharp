@@ -671,7 +671,7 @@ public static Single stopWallTimer(
 	Single _Result = Natives.stopWallTimer(ref ptimerPtr);
 	
 
-	if (ptimerPtr == null) {ptimer = null;} else { ptimer = new L_WallTimer(ptimerPtr); };
+	if (ptimerPtr == IntPtr.Zero) {ptimer = null;} else { ptimer = new L_WallTimer(ptimerPtr); };
 
 
 	return _Result;
@@ -699,6 +699,7 @@ public static String l_getFormattedDate(){
 
 	return _Result;
 }
+
 
 }
 }

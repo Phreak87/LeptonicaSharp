@@ -314,10 +314,10 @@ public static int pixWindowedStats(
 	int _Result = Natives.pixWindowedStats(pixs.Pointer,   wc,   hc,   hasborder, out ppixmPtr, out ppixmsPtr, out pfpixvPtr, out pfpixrvPtr);
 	
 
-	if (ppixmPtr == null) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
-	if (ppixmsPtr == null) {ppixms = null;} else { ppixms = new Pix(ppixmsPtr); };
-	if (pfpixvPtr == null) {pfpixv = null;} else { pfpixv = new FPix(pfpixvPtr); };
-	if (pfpixrvPtr == null) {pfpixrv = null;} else { pfpixrv = new FPix(pfpixrvPtr); };
+	if (ppixmPtr == IntPtr.Zero) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
+	if (ppixmsPtr == IntPtr.Zero) {ppixms = null;} else { ppixms = new Pix(ppixmsPtr); };
+	if (pfpixvPtr == IntPtr.Zero) {pfpixv = null;} else { pfpixv = new FPix(pfpixvPtr); };
+	if (pfpixrvPtr == IntPtr.Zero) {pfpixrv = null;} else { pfpixrv = new FPix(pfpixrvPtr); };
 
 
 	return _Result;
@@ -459,8 +459,8 @@ public static int pixWindowedVariance(
 	int _Result = Natives.pixWindowedVariance(pixm.Pointer, pixms.Pointer, out pfpixvPtr, out pfpixrvPtr);
 	
 
-	if (pfpixvPtr == null) {pfpixv = null;} else { pfpixv = new FPix(pfpixvPtr); };
-	if (pfpixrvPtr == null) {pfpixrv = null;} else { pfpixrv = new FPix(pfpixrvPtr); };
+	if (pfpixvPtr == IntPtr.Zero) {pfpixv = null;} else { pfpixv = new FPix(pfpixvPtr); };
+	if (pfpixrvPtr == IntPtr.Zero) {pfpixrv = null;} else { pfpixrv = new FPix(pfpixrvPtr); };
 
 
 	return _Result;
@@ -1069,6 +1069,7 @@ public static Single gaussDistribSampling(){
 
 	return _Result;
 }
+
 
 }
 }

@@ -689,8 +689,8 @@ public static int pixLocalExtrema(
 	int _Result = Natives.pixLocalExtrema(pixs.Pointer,   maxmin,   minmax, out ppixminPtr, out ppixmaxPtr);
 	
 
-	if (ppixminPtr == null) {ppixmin = null;} else { ppixmin = new Pix(ppixminPtr); };
-	if (ppixmaxPtr == null) {ppixmax = null;} else { ppixmax = new Pix(ppixmaxPtr); };
+	if (ppixminPtr == IntPtr.Zero) {ppixmin = null;} else { ppixmin = new Pix(ppixminPtr); };
+	if (ppixmaxPtr == IntPtr.Zero) {ppixmax = null;} else { ppixmax = new Pix(ppixmaxPtr); };
 
 
 	return _Result;
@@ -742,8 +742,8 @@ public static int pixSelectedLocalExtrema(
 	int _Result = Natives.pixSelectedLocalExtrema(pixs.Pointer,   mindist, out ppixminPtr, out ppixmaxPtr);
 	
 
-	if (ppixminPtr == null) {ppixmin = null;} else { ppixmin = new Pix(ppixminPtr); };
-	if (ppixmaxPtr == null) {ppixmax = null;} else { ppixmax = new Pix(ppixmaxPtr); };
+	if (ppixminPtr == IntPtr.Zero) {ppixmin = null;} else { ppixmin = new Pix(ppixminPtr); };
+	if (ppixmaxPtr == IntPtr.Zero) {ppixmax = null;} else { ppixmax = new Pix(ppixmaxPtr); };
 
 
 	return _Result;
@@ -810,8 +810,8 @@ public static int pixSelectMinInConnComp(
 	int _Result = Natives.pixSelectMinInConnComp(pixs.Pointer, pixm.Pointer, out pptaPtr, out pnavPtr);
 	
 
-	if (pptaPtr == null) {ppta = null;} else { ppta = new Pta(pptaPtr); };
-	if (pnavPtr == null) {pnav = null;} else { pnav = new Numa(pnavPtr); };
+	if (pptaPtr == IntPtr.Zero) {ppta = null;} else { ppta = new Pta(pptaPtr); };
+	if (pnavPtr == IntPtr.Zero) {pnav = null;} else { pnav = new Numa(pnavPtr); };
 
 
 	return _Result;
@@ -858,6 +858,7 @@ public static Pix pixRemoveSeededComponents(
 
 	return  new Pix(_Result);
 }
+
 
 }
 }

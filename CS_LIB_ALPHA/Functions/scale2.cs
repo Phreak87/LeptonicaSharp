@@ -599,5 +599,6 @@ public static Pix pixScaleWithAlpha(
 	return  new Pix(_Result);
 }
 
+
 }
 }

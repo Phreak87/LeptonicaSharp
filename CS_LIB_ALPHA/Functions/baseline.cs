@@ -53,7 +53,7 @@ public static Numa pixFindBaselines(
 	IntPtr _Result = Natives.pixFindBaselines(pixs.Pointer, out pptaPtr, pixadb.Pointer);
 	
 
-	if (pptaPtr == null) {ppta = null;} else { ppta = new Pta(pptaPtr); };
+	if (pptaPtr == IntPtr.Zero) {ppta = null;} else { ppta = new Pta(pptaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -154,8 +154,8 @@ public static int pixGetLocalSkewTransform(
 	int _Result = Natives.pixGetLocalSkewTransform(pixs.Pointer,   nslices,   redsweep,   redsearch,   sweeprange,   sweepdelta,   minbsdelta, out pptasPtr, out pptadPtr);
 	
 
-	if (pptasPtr == null) {pptas = null;} else { pptas = new Pta(pptasPtr); };
-	if (pptadPtr == null) {pptad = null;} else { pptad = new Pta(pptadPtr); };
+	if (pptasPtr == IntPtr.Zero) {pptas = null;} else { pptas = new Pta(pptasPtr); };
+	if (pptadPtr == IntPtr.Zero) {pptad = null;} else { pptad = new Pta(pptadPtr); };
 
 
 	return _Result;
@@ -213,6 +213,7 @@ public static Numa pixGetLocalSkewAngles(
 
 	return  new Numa(_Result);
 }
+
 
 }
 }

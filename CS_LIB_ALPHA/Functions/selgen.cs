@@ -76,7 +76,7 @@ public static Sel pixGenerateSelWithRuns(
 	IntPtr _Result = Natives.pixGenerateSelWithRuns(pixs.Pointer,   nhlines,   nvlines,   distance,   minlength,   toppix,   botpix,   leftpix,   rightpix, out ppixePtr);
 	
 
-	if (ppixePtr == null) {ppixe = null;} else { ppixe = new Pix(ppixePtr); };
+	if (ppixePtr == IntPtr.Zero) {ppixe = null;} else { ppixe = new Pix(ppixePtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -135,7 +135,7 @@ public static Sel pixGenerateSelRandom(
 	IntPtr _Result = Natives.pixGenerateSelRandom(pixs.Pointer,   hitfract,   missfract,   distance,   toppix,   botpix,   leftpix,   rightpix, out ppixePtr);
 	
 
-	if (ppixePtr == null) {ppixe = null;} else { ppixe = new Pix(ppixePtr); };
+	if (ppixePtr == IntPtr.Zero) {ppixe = null;} else { ppixe = new Pix(ppixePtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -204,7 +204,7 @@ public static Sel pixGenerateSelBoundary(
 	IntPtr _Result = Natives.pixGenerateSelBoundary(pixs.Pointer,   hitdist,   missdist,   hitskip,   missskip,   topflag,   botflag,   leftflag,   rightflag, out ppixePtr);
 	
 
-	if (ppixePtr == null) {ppixe = null;} else { ppixe = new Pix(ppixePtr); };
+	if (ppixePtr == IntPtr.Zero) {ppixe = null;} else { ppixe = new Pix(ppixePtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -399,6 +399,7 @@ public static Pix pixDisplayHitMissSel(
 
 	return  new Pix(_Result);
 }
+
 
 }
 }

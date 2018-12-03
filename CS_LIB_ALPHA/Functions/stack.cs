@@ -55,7 +55,7 @@ public static void lstackDestroy(
 	Natives.lstackDestroy(ref plstackPtr,   freeflag);
 	
 
-	if (plstackPtr == null) {plstack = null;} else { plstack = new L_Stack(plstackPtr); };
+	if (plstackPtr == IntPtr.Zero) {plstack = null;} else { plstack = new L_Stack(plstackPtr); };
 
 
 }
@@ -144,6 +144,7 @@ public static int lstackPrint(
 
 	return _Result;
 }
+
 
 }
 }

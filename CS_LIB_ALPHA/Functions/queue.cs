@@ -59,7 +59,7 @@ public static void lqueueDestroy(
 	Natives.lqueueDestroy(ref plqPtr,   freeflag);
 	
 
-	if (plqPtr == null) {plq = null;} else { plq = new L_Queue(plqPtr); };
+	if (plqPtr == IntPtr.Zero) {plq = null;} else { plq = new L_Queue(plqPtr); };
 
 
 }
@@ -160,6 +160,7 @@ public static int lqueuePrint(
 
 	return _Result;
 }
+
 
 }
 }

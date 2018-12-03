@@ -621,7 +621,7 @@ public static int pixQuantizeIfFewColors(
 	int _Result = Natives.pixQuantizeIfFewColors(pixs.Pointer,   maxcolors,   mingraycolors,   octlevel, out ppixdPtr);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -1852,6 +1852,7 @@ public static void l_setNeutralBoostVal(
 
 
 }
+
 
 }
 }

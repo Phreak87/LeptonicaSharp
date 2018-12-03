@@ -43,7 +43,7 @@ public static void ccbaDestroy(
 	Natives.ccbaDestroy(ref pccbaPtr);
 	
 
-	if (pccbaPtr == null) {pccba = null;} else { pccba = new CCBorda(pccbaPtr); };
+	if (pccbaPtr == IntPtr.Zero) {pccba = null;} else { pccba = new CCBorda(pccbaPtr); };
 
 
 }
@@ -85,7 +85,7 @@ public static void ccbDestroy(
 	Natives.ccbDestroy(ref pccbPtr);
 	
 
-	if (pccbPtr == null) {pccb = null;} else { pccb = new CCBord(pccbPtr); };
+	if (pccbPtr == IntPtr.Zero) {pccb = null;} else { pccb = new CCBord(pccbPtr); };
 
 
 }
@@ -899,6 +899,7 @@ public static String ccbaWriteSVGString(
 
 	return _Result;
 }
+
 
 }
 }

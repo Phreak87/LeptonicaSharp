@@ -487,5 +487,6 @@ public static int pixelFractionalShift(
 	return _Result;
 }
 
+
 }
 }

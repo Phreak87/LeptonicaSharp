@@ -95,7 +95,7 @@ public static void sudokuDestroy(
 	Natives.sudokuDestroy(ref psudPtr);
 	
 
-	if (psudPtr == null) {psud = null;} else { psud = new L_Sudoku(psudPtr); };
+	if (psudPtr == IntPtr.Zero) {psud = null;} else { psud = new L_Sudoku(psudPtr); };
 
 
 }
@@ -208,6 +208,7 @@ public static int sudokuOutput(
 
 	return _Result;
 }
+
 
 }
 }

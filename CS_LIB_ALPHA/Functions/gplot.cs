@@ -55,7 +55,7 @@ public static void gplotDestroy(
 	Natives.gplotDestroy(ref pgplotPtr);
 	
 
-	if (pgplotPtr == null) {pgplot = null;} else { pgplot = new GPlot(pgplotPtr); };
+	if (pgplotPtr == IntPtr.Zero) {pgplot = null;} else { pgplot = new GPlot(pgplotPtr); };
 
 
 }
@@ -480,6 +480,7 @@ public static int gplotWrite(
 
 	return _Result;
 }
+
 
 }
 }

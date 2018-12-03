@@ -235,10 +235,10 @@ public static int numaWindowedStats(
 	int _Result = Natives.numaWindowedStats(nas.Pointer,   wc, out pnamPtr, out pnamsPtr, out pnavPtr, out pnarvPtr);
 	
 
-	if (pnamPtr == null) {pnam = null;} else { pnam = new Numa(pnamPtr); };
-	if (pnamsPtr == null) {pnams = null;} else { pnams = new Numa(pnamsPtr); };
-	if (pnavPtr == null) {pnav = null;} else { pnav = new Numa(pnavPtr); };
-	if (pnarvPtr == null) {pnarv = null;} else { pnarv = new Numa(pnarvPtr); };
+	if (pnamPtr == IntPtr.Zero) {pnam = null;} else { pnam = new Numa(pnamPtr); };
+	if (pnamsPtr == IntPtr.Zero) {pnams = null;} else { pnams = new Numa(pnamsPtr); };
+	if (pnavPtr == IntPtr.Zero) {pnav = null;} else { pnav = new Numa(pnavPtr); };
+	if (pnarvPtr == IntPtr.Zero) {pnarv = null;} else { pnarv = new Numa(pnarvPtr); };
 
 
 	return _Result;
@@ -331,8 +331,8 @@ public static int numaWindowedVariance(
 	int _Result = Natives.numaWindowedVariance(nam.Pointer, nams.Pointer, out pnavPtr, out pnarvPtr);
 	
 
-	if (pnavPtr == null) {pnav = null;} else { pnav = new Numa(pnavPtr); };
-	if (pnarvPtr == null) {pnarv = null;} else { pnarv = new Numa(pnarvPtr); };
+	if (pnavPtr == IntPtr.Zero) {pnav = null;} else { pnav = new Numa(pnavPtr); };
+	if (pnarvPtr == IntPtr.Zero) {pnarv = null;} else { pnarv = new Numa(pnarvPtr); };
 
 
 	return _Result;
@@ -612,7 +612,7 @@ public static int numaGetStatsUsingHistogram(
 	int _Result = Natives.numaGetStatsUsingHistogram(na.Pointer,   maxbins, out  pmin, out  pmax, out  pmean, out  pvariance, out  pmedian,   rank, out  prval, out phistoPtr);
 	
 
-	if (phistoPtr == null) {phisto = null;} else { phisto = new Numa(phistoPtr); };
+	if (phistoPtr == IntPtr.Zero) {phisto = null;} else { phisto = new Numa(phistoPtr); };
 
 
 	return _Result;
@@ -725,8 +725,8 @@ public static int numaMakeRankFromHistogram(
 	int _Result = Natives.numaMakeRankFromHistogram(  startx,   deltax, nasy.Pointer,   npts, out pnaxPtr, out pnayPtr);
 	
 
-	if (pnaxPtr == null) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
-	if (pnayPtr == null) {pnay = null;} else { pnay = new Numa(pnayPtr); };
+	if (pnaxPtr == IntPtr.Zero) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
+	if (pnayPtr == IntPtr.Zero) {pnay = null;} else { pnay = new Numa(pnayPtr); };
 
 
 	return _Result;
@@ -851,10 +851,10 @@ public static int numaDiscretizeRankAndIntensity(
 	int _Result = Natives.numaDiscretizeRankAndIntensity(na.Pointer,   nbins, out pnarbinPtr, out pnamPtr, out pnarPtr, out pnabbPtr);
 	
 
-	if (pnarbinPtr == null) {pnarbin = null;} else { pnarbin = new Numa(pnarbinPtr); };
-	if (pnamPtr == null) {pnam = null;} else { pnam = new Numa(pnamPtr); };
-	if (pnarPtr == null) {pnar = null;} else { pnar = new Numa(pnarPtr); };
-	if (pnabbPtr == null) {pnabb = null;} else { pnabb = new Numa(pnabbPtr); };
+	if (pnarbinPtr == IntPtr.Zero) {pnarbin = null;} else { pnarbin = new Numa(pnarbinPtr); };
+	if (pnamPtr == IntPtr.Zero) {pnam = null;} else { pnam = new Numa(pnamPtr); };
+	if (pnarPtr == IntPtr.Zero) {pnar = null;} else { pnar = new Numa(pnarPtr); };
+	if (pnabbPtr == IntPtr.Zero) {pnabb = null;} else { pnabb = new Numa(pnabbPtr); };
 
 
 	return _Result;
@@ -889,8 +889,8 @@ public static int numaGetRankBinValues(
 	int _Result = Natives.numaGetRankBinValues(na.Pointer,   nbins, out pnarbinPtr, out pnamPtr);
 	
 
-	if (pnarbinPtr == null) {pnarbin = null;} else { pnarbin = new Numa(pnarbinPtr); };
-	if (pnamPtr == null) {pnam = null;} else { pnam = new Numa(pnamPtr); };
+	if (pnarbinPtr == IntPtr.Zero) {pnarbin = null;} else { pnarbin = new Numa(pnarbinPtr); };
+	if (pnamPtr == IntPtr.Zero) {pnam = null;} else { pnam = new Numa(pnamPtr); };
 
 
 	return _Result;
@@ -962,7 +962,7 @@ public static int numaSplitDistribution(
 	int _Result = Natives.numaSplitDistribution(na.Pointer,   scorefract, out  psplitindex, out  pave1, out  pave2, out  pnum1, out  pnum2, out pnascorePtr);
 	
 
-	if (pnascorePtr == null) {pnascore = null;} else { pnascore = new Numa(pnascorePtr); };
+	if (pnascorePtr == IntPtr.Zero) {pnascore = null;} else { pnascore = new Numa(pnascorePtr); };
 
 
 	return _Result;
@@ -1003,7 +1003,7 @@ public static int grayHistogramsToEMD(
 	int _Result = Natives.grayHistogramsToEMD(naa1.Pointer, naa2.Pointer, out pnadPtr);
 	
 
-	if (pnadPtr == null) {pnad = null;} else { pnad = new Numa(pnadPtr); };
+	if (pnadPtr == IntPtr.Zero) {pnad = null;} else { pnad = new Numa(pnadPtr); };
 
 
 	return _Result;
@@ -1118,10 +1118,10 @@ public static int grayInterHistogramStats(
 	int _Result = Natives.grayInterHistogramStats(naa.Pointer,   wc, out pnamPtr, out pnamsPtr, out pnavPtr, out pnarvPtr);
 	
 
-	if (pnamPtr == null) {pnam = null;} else { pnam = new Numa(pnamPtr); };
-	if (pnamsPtr == null) {pnams = null;} else { pnams = new Numa(pnamsPtr); };
-	if (pnavPtr == null) {pnav = null;} else { pnav = new Numa(pnavPtr); };
-	if (pnarvPtr == null) {pnarv = null;} else { pnarv = new Numa(pnarvPtr); };
+	if (pnamPtr == IntPtr.Zero) {pnam = null;} else { pnam = new Numa(pnamPtr); };
+	if (pnamsPtr == IntPtr.Zero) {pnams = null;} else { pnams = new Numa(pnamsPtr); };
+	if (pnavPtr == IntPtr.Zero) {pnav = null;} else { pnav = new Numa(pnavPtr); };
+	if (pnarvPtr == IntPtr.Zero) {pnarv = null;} else { pnarv = new Numa(pnarvPtr); };
 
 
 	return _Result;
@@ -1196,7 +1196,7 @@ public static Numa numaFindExtrema(
 	IntPtr _Result = Natives.numaFindExtrema(nas.Pointer,   delta, out pnavPtr);
 	
 
-	if (pnavPtr == null) {pnav = null;} else { pnav = new Numa(pnavPtr); };
+	if (pnavPtr == IntPtr.Zero) {pnav = null;} else { pnav = new Numa(pnavPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -1471,6 +1471,7 @@ public static Numa genConstrainedNumaInRange(
 
 	return  new Numa(_Result);
 }
+
 
 }
 }

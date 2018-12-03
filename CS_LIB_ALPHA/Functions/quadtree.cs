@@ -33,7 +33,7 @@ public static int pixQuadtreeMean(
 	int _Result = Natives.pixQuadtreeMean(pixs.Pointer,   nlevels, pix_ma.Pointer, out pfpixaPtr);
 	
 
-	if (pfpixaPtr == null) {pfpixa = null;} else { pfpixa = new FPixa(pfpixaPtr); };
+	if (pfpixaPtr == IntPtr.Zero) {pfpixa = null;} else { pfpixa = new FPixa(pfpixaPtr); };
 
 
 	return _Result;
@@ -71,8 +71,8 @@ public static int pixQuadtreeVariance(
 	int _Result = Natives.pixQuadtreeVariance(pixs.Pointer,   nlevels, pix_ma.Pointer, dpix_msa.Pointer, out pfpixa_vPtr, out pfpixa_rvPtr);
 	
 
-	if (pfpixa_vPtr == null) {pfpixa_v = null;} else { pfpixa_v = new FPixa(pfpixa_vPtr); };
-	if (pfpixa_rvPtr == null) {pfpixa_rv = null;} else { pfpixa_rv = new FPixa(pfpixa_rvPtr); };
+	if (pfpixa_vPtr == IntPtr.Zero) {pfpixa_v = null;} else { pfpixa_v = new FPixa(pfpixa_vPtr); };
+	if (pfpixa_rvPtr == IntPtr.Zero) {pfpixa_rv = null;} else { pfpixa_rv = new FPixa(pfpixa_rvPtr); };
 
 
 	return _Result;
@@ -303,6 +303,7 @@ public static Pix fpixaDisplayQuadtree(
 
 	return  new Pix(_Result);
 }
+
 
 }
 }

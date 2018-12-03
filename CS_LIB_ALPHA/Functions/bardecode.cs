@@ -48,5 +48,6 @@ public static int barcodeFormatIsSupported(
 	return _Result;
 }
 
+
 }
 }

@@ -156,7 +156,7 @@ public static void pixaDestroy(
 	Natives.pixaDestroy(ref ppixaPtr);
 	
 
-	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 
 
 }
@@ -829,8 +829,8 @@ public static int pixaRemovePixAndSave(
 	int _Result = Natives.pixaRemovePixAndSave(pixa.Pointer,   index, out ppixPtr, out pboxPtr);
 	
 
-	if (ppixPtr == null) {ppix = null;} else { ppix = new Pix(ppixPtr); };
-	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
+	if (ppixPtr == IntPtr.Zero) {ppix = null;} else { ppix = new Pix(ppixPtr); };
+	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
 
 
 	return _Result;
@@ -1102,7 +1102,7 @@ public static void pixaaDestroy(
 	Natives.pixaaDestroy(ref ppaaPtr);
 	
 
-	if (ppaaPtr == null) {ppaa = null;} else { ppaa = new Pixaa(ppaaPtr); };
+	if (ppaaPtr == IntPtr.Zero) {ppaa = null;} else { ppaa = new Pixaa(ppaaPtr); };
 
 
 }
@@ -1226,7 +1226,7 @@ public static int pixaaGetCount(
 	int _Result = Natives.pixaaGetCount(paa.Pointer, out pnaPtr);
 	
 
-	if (pnaPtr == null) {pna = null;} else { pna = new Numa(pnaPtr); };
+	if (pnaPtr == IntPtr.Zero) {pna = null;} else { pna = new Numa(pnaPtr); };
 
 
 	return _Result;
@@ -1900,6 +1900,7 @@ public static int pixaaWriteMem(
 
 	return _Result;
 }
+
 
 }
 }

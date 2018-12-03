@@ -445,5 +445,6 @@ public static int pixFindNormalizedSquareSum(
 	return _Result;
 }
 
+
 }
 }

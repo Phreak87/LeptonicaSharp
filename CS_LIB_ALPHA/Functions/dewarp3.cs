@@ -71,7 +71,7 @@ public static int dewarpaApplyDisparity(
 	int _Result = Natives.dewarpaApplyDisparity(dewa.Pointer,   pageno, pixs.Pointer,   grayin,   x,   y, out ppixdPtr,   debugfile);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -123,7 +123,7 @@ public static int dewarpaApplyDisparityBoxa(
 	int _Result = Natives.dewarpaApplyDisparityBoxa(dewa.Pointer,   pageno, pixs.Pointer, boxas.Pointer,   mapdir,   x,   y, out pboxadPtr,   debugfile);
 	
 
-	if (pboxadPtr == null) {pboxad = null;} else { pboxad = new Boxa(pboxadPtr); };
+	if (pboxadPtr == IntPtr.Zero) {pboxad = null;} else { pboxad = new Boxa(pboxadPtr); };
 
 
 	return _Result;
@@ -200,6 +200,7 @@ public static int dewarpPopulateFullRes(
 
 	return _Result;
 }
+
 
 }
 }

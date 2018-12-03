@@ -52,5 +52,6 @@ public static Pix pixExpandBinaryPower2(
 	return  new Pix(_Result);
 }
 
+
 }
 }

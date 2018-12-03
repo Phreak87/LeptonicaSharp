@@ -404,7 +404,7 @@ public static int pixWordMaskByDilation(
 	int _Result = Natives.pixWordMaskByDilation(pixs.Pointer, ppixmPtr, out  psize, out pixadbPtr);
 	
 
-	if (pixadbPtr == null) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
+	if (pixadbPtr == IntPtr.Zero) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
 
 
 	return _Result;
@@ -446,8 +446,8 @@ public static int pixWordBoxesByDilation(
 	int _Result = Natives.pixWordBoxesByDilation(pixs.Pointer,   minwidth,   minheight,   maxwidth,   maxheight, out pboxaPtr, out  psize, out pixadbPtr);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
-	if (pixadbPtr == null) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (pixadbPtr == IntPtr.Zero) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
 
 
 	return _Result;
@@ -473,7 +473,7 @@ public static Pixa jbAccumulateComposites(
 	IntPtr _Result = Natives.jbAccumulateComposites(pixaa.Pointer, pnaPtr, out pptatPtr);
 	
 
-	if (pptatPtr == null) {pptat = null;} else { pptat = new Pta(pptatPtr); };
+	if (pptatPtr == IntPtr.Zero) {pptat = null;} else { pptat = new Pta(pptatPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -740,6 +740,7 @@ public static int jbGetLLCorners(
 
 	return _Result;
 }
+
 
 }
 }

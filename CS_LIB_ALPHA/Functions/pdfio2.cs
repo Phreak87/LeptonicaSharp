@@ -53,7 +53,7 @@ public static int pixConvertToPdfData(
 	
 
 	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
-	if (plpdPtr == null) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
+	if (plpdPtr == IntPtr.Zero) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
 
 
 	return _Result;
@@ -175,7 +175,7 @@ public static int l_generateCIDataForPdf(
 	int _Result = Natives.l_generateCIDataForPdf(  fname, pixPtr,   quality, out pcidPtr);
 	
 
-	if (pcidPtr == null) {pcid = null;} else { pcid = new L_Compressed_Data(pcidPtr); };
+	if (pcidPtr == IntPtr.Zero) {pcid = null;} else { pcid = new L_Compressed_Data(pcidPtr); };
 
 
 	return _Result;
@@ -311,7 +311,7 @@ public static int l_generateCIData(
 	int _Result = Natives.l_generateCIData(  fname,   type,   quality,   ascii85, out pcidPtr);
 	
 
-	if (pcidPtr == null) {pcid = null;} else { pcid = new L_Compressed_Data(pcidPtr); };
+	if (pcidPtr == IntPtr.Zero) {pcid = null;} else { pcid = new L_Compressed_Data(pcidPtr); };
 
 
 	return _Result;
@@ -346,7 +346,7 @@ public static int pixGenerateCIData(
 	int _Result = Natives.pixGenerateCIData(pixs.Pointer,   type,   quality,   ascii85, out pcidPtr);
 	
 
-	if (pcidPtr == null) {pcid = null;} else { pcid = new L_Compressed_Data(pcidPtr); };
+	if (pcidPtr == IntPtr.Zero) {pcid = null;} else { pcid = new L_Compressed_Data(pcidPtr); };
 
 
 	return _Result;
@@ -460,7 +460,7 @@ public static void l_CIDataDestroy(
 	Natives.l_CIDataDestroy(ref pcidPtr);
 	
 
-	if (pcidPtr == null) {pcid = null;} else { pcid = new L_Compressed_Data(pcidPtr); };
+	if (pcidPtr == IntPtr.Zero) {pcid = null;} else { pcid = new L_Compressed_Data(pcidPtr); };
 
 
 }
@@ -507,6 +507,7 @@ public static void l_pdfSetDateAndVersion(
 
 
 }
+
 
 }
 }

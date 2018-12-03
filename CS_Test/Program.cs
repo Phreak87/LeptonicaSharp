@@ -20,8 +20,8 @@ namespace TestAppCSharp
 
         static void Main(string[] args)
         {
-            Natives.Initialize();
-            _All.setLeptDebugOK(1);
+            //Natives.Initialize();
+            setLeptDebugOK(1);
 
             var app = new Program();
             //app.TestBitmapAccess(img1bpp);
@@ -30,19 +30,25 @@ namespace TestAppCSharp
             //app.OtsuTest2(carplate);
             //app.TestProjectionsOnImage(carplate);
             //app.TestArrayFunctions();
-            app.TestCCBorder(img1bpp);
+            //app.TestCCBorder(img1bpp);
         }
 
         private void TestCCBorder(string pixfn)
         {
-            var pixs = new Pix(pixfn);
-            var cbba = pixGetAllCCBorders(pixs);
+            var p = new Pix(pixfn);
+            var pixs = pixRead(pixfn);
+            pixDestroy(ref pixs);
+            var data = pixs.data;
+            var cm = pixs.colormap;
+            var tx = pixs.text;
+            //var pixs = new Pix(pixfn);
+            var ccba = pixGetAllCCBorders(pixs);
         }
 
         private void TestArrayFunctions()
         {
-            var feyn = Path.GetFullPath(@"..\..\..\..\ALL_Images\Leptonica\feyn.tif");
-            var test24 = Path.GetFullPath(@"..\..\..\..\ALL_Images\Leptonica\test24.jpg");
+            var feyn = Path.GetFullPath(@"..\..\..\..\CHM_Help\ExampleImages\Leptonica\feyn.tif");
+            var test24 = Path.GetFullPath(@"..\..\..\..\CHM_Help\ExampleImages\Leptonica\test24.jpg");
 
             var lba1 = l_byteaInitFromFile(feyn);
             var lba2 = l_byteaInitFromFile(test24);
@@ -64,8 +70,10 @@ namespace TestAppCSharp
             var pixs = new Pix(pixfn);
             Pix pixBinary = default;
             if (pixs.d > 1)
+            {
                 //pixBinary = BinarizeWithSauvola(pixs);
                 pixBinary = BinarizeWithModifiedOtsu(pixs);
+            }
             else
                 pixBinary = pixs;
 
@@ -73,14 +81,14 @@ namespace TestAppCSharp
             int[] colProjections = null;
             if (pixBinary != null)
             {
-                var pxByCol = _All.pixCountPixelsByColumn(pixBinary);
-                var pxByRow = _All.pixCountPixelsByRow(pixBinary, null);
+                var pxByCol = pixCountPixelsByColumn(pixBinary);
+                var pxByRow = pixCountPixelsByRow(pixBinary, null);
                 colProjections = Array.ConvertAll(pxByCol.array, x => (int)x);
                 rowProjections = Array.ConvertAll(pxByRow.array, x => (int)x);
             }
 
-            var wRatio = 1 / 5f;
-            var hRatio = 1 / 5f;
+            const float wRatio = 1 / 5f;
+            const float hRatio = 1 / 5f;
             var width = (int)pixs.w;
             var height = (int)pixs.h;
             var widthR = (int)(width * wRatio);
@@ -121,42 +129,47 @@ namespace TestAppCSharp
             {
                 g.Clear(System.Drawing.Color.White);
                 g.DrawImage(vBmp, 0, 0);
-                g.DrawImage(pixs.BitmapStatic, vBmp.Width, 0);
+                //g.DrawImage(pixs.BitmapStatic, vBmp.Width, 0);
+                g.DrawImage(System.Drawing.Image.FromFile(pixfn), vBmp.Width, 0);
                 g.DrawImage(hBmp, vBmp.Width, height);
             }
         }
 
-        private void TestBitmapAccess(string pixfn)
-        {
-            var pixs = new Pix(pixfn);
-            var bmp = pixs.ToBitmap();
-            var bmp2 = pixs.BitmapStatic;
-        }
+        //private void TestBitmapAccess(string pixfn)
+        //{
+        //    var pixs = new Pix(pixfn);
+        //    var bmp = pixs.ToBitmap();
+        //    var bmp2 = pixs.BitmapStatic;
+        //}
 
         private void TestpixGetRegionsBinary(string pixfn)
         {
-            var pixa = _All.pixaCreate(0);
+            var pixa = pixaCreate(0);
             var pixs = new Pix(pixfn);
-            _All.pixGetRegionsBinary(pixs, out Pix ppixhm, out Pix ppixtm, out Pix ppixtb, pixa);
+            pixGetRegionsBinary(pixs, out Pix ppixhm, out Pix ppixtm, out Pix ppixtb, pixa);
             WriteAllPixaImages(ref pixa, "regions");
+            pixDestroy(ref ppixhm);
+            pixDestroy(ref ppixtm);
+            pixDestroy(ref ppixtb);
+            pixaDestroy(ref pixa);
         }
 
         private Pix BinarizeWithModifiedOtsu(Pix pixs)
         {
-            var pixg = _All.pixConvertTo8(pixs, 0);
+            var pixg = pixConvertTo8(pixs, 0);
             var scorefract = 0.1f;
-            _All.pixOtsuAdaptiveThreshold(pixg, 2000, 2000, 0, 0, scorefract, out Pix ppixth, out Pix pixb);
-            _All.pixDestroy(ref ppixth);
+            pixOtsuAdaptiveThreshold(pixg, 2000, 2000, 0, 0, scorefract, out Pix ppixth, out Pix pixb);
+            pixDestroy(ref ppixth);
             return pixb;
         }
 
         private Pix BinarizeWithModifiedOtsu(string pixfn)
         {
             var pixs = new Pix(pixfn);
-            var pixg = _All.pixConvertTo8(pixs, 0);
+            var pixg = pixConvertTo8(pixs, 0);
             var scorefract = 0.1f;
-            _All.pixOtsuAdaptiveThreshold(pixg, 2000, 2000, 0, 0, scorefract, out Pix ppixth, out Pix pixb);
-            _All.pixDestroy(ref ppixth);
+            pixOtsuAdaptiveThreshold(pixg, 2000, 2000, 0, 0, scorefract, out Pix ppixth, out Pix pixb);
+            pixDestroy(ref ppixth);
             return pixb;
         }
 
@@ -165,61 +178,61 @@ namespace TestAppCSharp
             // Test ported from prog/otsutest2.c
 
             var pixs = new Pix(pixfn);
-            var pixg = _All.pixConvertTo8(pixs, 0);
-            var bmf = _All.bmfCreate(null, 8);
-            var pixad = _All.pixaCreate(0);
+            var pixg = pixConvertTo8(pixs, 0);
+            var bmf = bmfCreate(null, 8);
+            var pixad = pixaCreate(0);
             for (int i = 0; i < 3; i++)
             {
-                var pixa1 = _All.pixaCreate(2);
+                var pixa1 = pixaCreate(2);
                 var scorefract = 0.1f * i;
-                _All.pixOtsuAdaptiveThreshold(pixg, 2000, 2000, 0, 0, scorefract, out Pix ppixth, out Pix pixb);
-                _All.pixDestroy(ref ppixth);
-                _All.pixSaveTiledOutline(pixb, pixa1, 0.5f, 1, 20, 2, 32);
-                _All.pixSplitDistributionFgBg(pixg, scorefract, 1, out int thresh, out int fgval, out int bgval, out Pix pixp);
+                pixOtsuAdaptiveThreshold(pixg, 2000, 2000, 0, 0, scorefract, out Pix ppixth, out Pix pixb);
+                pixDestroy(ref ppixth);
+                pixSaveTiledOutline(pixb, pixa1, 0.5f, 1, 20, 2, 32);
+                pixSplitDistributionFgBg(pixg, scorefract, 1, out int thresh, out int fgval, out int bgval, out Pix pixp);
                 Console.WriteLine($"Thresh = {thresh} fgval = {fgval} bgval = {bgval}");
-                _All.pixSaveTiled(pixp, pixa1, 1.0f, 0, 20, 1);
-                var pix1 = _All.pixaDisplay(pixa1, 0, 0);
+                pixSaveTiled(pixp, pixa1, 1.0f, 0, 20, 1);
+                var pix1 = pixaDisplay(pixa1, 0, 0);
                 var textstr = $"Scorefract = {scorefract} Thresh = {thresh}";
-                var pix2 = _All.pixAddSingleTextblock(pix1, bmf, textstr, 0x00ff0000, LeptonicaSharp.Enumerations.L_ADD.L_ADD_BELOW, out int poverflow);
-                _All.pixaAddPix(pixad, pix2, LeptonicaSharp.Enumerations.L_access_storage.L_INSERT);
+                var pix2 = pixAddSingleTextblock(pix1, bmf, textstr, 0x00ff0000, (int)Enumerations.L_ADD.L_ADD_BELOW, out int poverflow);
+                pixaAddPix(pixad, pix2, (int)Enumerations.L_access_storage.L_INSERT);
                 textstr = $"otsu-{i.ToString().PadLeft(3, '0')}.png";
-                _All.pixWrite(textstr, pix2, LeptonicaSharp.Enumerations.IFF.IFF_PNG);
-                _All.pixDisplay(pix2, 100, 100);
-                _All.pixDestroy(ref pixb);
-                _All.pixDestroy(ref pixp);
-                _All.pixDestroy(ref pix1);
-                _All.pixaDestroy(ref pixa1);
+                pixWrite(textstr, pix2, Enumerations.IFF.IFF_PNG);
+                pixDisplay(pix2, 100, 100);
+                pixDestroy(ref pixb);
+                pixDestroy(ref pixp);
+                pixDestroy(ref pix1);
+                pixaDestroy(ref pixa1);
             }
 
             for (int i = 0; i < 2; i++)
             {
                 var scorefract = 0.1f * i;
-                _All.pixOtsuAdaptiveThreshold(pixg, 300, 300, 0, 0, scorefract, out Pix ppixth, out Pix pixb);
-                var pix1 = _All.pixAddBlackOrWhiteBorder(pixb, 2, 2, 2, 2, LeptonicaSharp.Enumerations.L_GET_VAL.L_GET_BLACK_VAL);
-                _All.pixDestroy(ref ppixth);
-                var pix2 = _All.pixScale(pix1, 0.5f, 0.5f);
+                pixOtsuAdaptiveThreshold(pixg, 300, 300, 0, 0, scorefract, out Pix ppixth, out Pix pixb);
+                var pix1 = pixAddBlackOrWhiteBorder(pixb, 2, 2, 2, 2, (int)Enumerations.L_GET_VAL.L_GET_BLACK_VAL);
+                pixDestroy(ref ppixth);
+                var pix2 = pixScale(pix1, 0.5f, 0.5f);
                 var textstr = $"Scorefract = {scorefract}";
-                var pix3 = _All.pixAddSingleTextblock(pix2, bmf, textstr, 1, LeptonicaSharp.Enumerations.L_ADD.L_ADD_BELOW, out int poverflow);
-                _All.pixaAddPix(pixad, pix3, LeptonicaSharp.Enumerations.L_access_storage.L_INSERT);
-                _All.pixDestroy(ref pixb);
-                _All.pixDestroy(ref pix1);
-                _All.pixDestroy(ref pix2);
+                var pix3 = pixAddSingleTextblock(pix2, bmf, textstr, 1, (int)Enumerations.L_ADD.L_ADD_BELOW, out int poverflow);
+                pixaAddPix(pixad, pix3, (int)Enumerations.L_access_storage.L_INSERT);
+                pixDestroy(ref pixb);
+                pixDestroy(ref pix1);
+                pixDestroy(ref pix2);
             }
 
-            _All.pixaConvertToPdf(pixad, 75, 1.0f, LeptonicaSharp.Enumerations.L_ENCODE.L_DEFAULT_ENCODE, 100, string.Empty, "result1.pdf");
-            _All.bmfDestroy(ref bmf);
-            _All.pixDestroy(ref pixs);
-            _All.pixDestroy(ref pixg);
-            _All.pixaDestroy(ref pixad);
+            pixaConvertToPdf(pixad, 75, 1.0f, (int)Enumerations.L_ENCODE.L_DEFAULT_ENCODE, 100, string.Empty, "result1.pdf");
+            bmfDestroy(ref bmf);
+            pixDestroy(ref pixs);
+            pixDestroy(ref pixg);
+            pixaDestroy(ref pixad);
         }
 
         private Pix BinarizeWithSauvola(Pix pixs)
         {
-            var pixGray = _All.pixConvertTo8(pixs, 0);
-            var retVal = _All.pixSauvolaBinarize(pixGray, 7, 0.25f, 0, out Pix ppixm, out Pix ppixsd, out Pix ppixth, out Pix pixBinary);
-            _All.pixDestroy(ref ppixm);
-            _All.pixDestroy(ref ppixsd);
-            _All.pixDestroy(ref ppixth);
+            var pixGray = pixConvertTo8(pixs, 0);
+            var retVal = pixSauvolaBinarize(pixGray, 7, 0.25f, 0, out Pix ppixm, out Pix ppixsd, out Pix ppixth, out Pix pixBinary);
+            pixDestroy(ref ppixm);
+            pixDestroy(ref ppixsd);
+            pixDestroy(ref ppixth);
             if (retVal == 0)
                 return pixBinary;
             else
@@ -240,8 +253,8 @@ namespace TestAppCSharp
 
             if (pixBinary != null)
             {
-                var pxByCol = _All.pixCountPixelsByColumn(pixBinary);
-                var pxByRow = _All.pixCountPixelsByRow(pixBinary, null);
+                var pxByCol = pixCountPixelsByColumn(pixBinary);
+                var pxByRow = pixCountPixelsByRow(pixBinary, null);
                 var colProjections = pxByCol.array;
                 var rowProjections = pxByRow.array;
             }
@@ -250,15 +263,24 @@ namespace TestAppCSharp
         #region [ Helper Methods ]
         private void WriteAllPixaImages(ref Pixa pixa, string prefix)
         {
-            var n = _All.pixaGetCount(pixa);
+            var n = pixaGetCount(pixa);
             for (int i = 0; i < n; i++)
             {
-                var pix1 = _All.pixaGetPix(pixa, i, LeptonicaSharp.Enumerations.L_access_storage.L_CLONE);
+                var pix1 = pixaGetPix(pixa, i, (int)Enumerations.L_access_storage.L_CLONE);
                 var fn = $"{prefix}-{i.ToString().PadLeft(2, '0')}.png";
-                pix1.save_format(fn, LeptonicaSharp.Enumerations.IFF.IFF_PNG);
-                _All.pixDestroy(ref pix1);
+                pix1.save_format(fn, Enumerations.IFF.IFF_PNG);
+                pixDestroy(ref pix1);
             }
         }
         #endregion
+    }
+
+    public static class Extensions
+    {
+        public static int save_format(this Pix pixs, string filename, Enumerations.IFF format)
+        {
+            return pixWrite(filename, pixs, format);
+        }
+
     }
 }

@@ -462,8 +462,8 @@ public static Pix pixMakeHistoHS(
 	IntPtr _Result = Natives.pixMakeHistoHS(pixs.Pointer,   factor, out pnahuePtr, out pnasatPtr);
 	
 
-	if (pnahuePtr == null) {pnahue = null;} else { pnahue = new Numa(pnahuePtr); };
-	if (pnasatPtr == null) {pnasat = null;} else { pnasat = new Numa(pnasatPtr); };
+	if (pnahuePtr == IntPtr.Zero) {pnahue = null;} else { pnahue = new Numa(pnahuePtr); };
+	if (pnasatPtr == IntPtr.Zero) {pnasat = null;} else { pnasat = new Numa(pnasatPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -502,8 +502,8 @@ public static Pix pixMakeHistoHV(
 	IntPtr _Result = Natives.pixMakeHistoHV(pixs.Pointer,   factor, out pnahuePtr, out pnavalPtr);
 	
 
-	if (pnahuePtr == null) {pnahue = null;} else { pnahue = new Numa(pnahuePtr); };
-	if (pnavalPtr == null) {pnaval = null;} else { pnaval = new Numa(pnavalPtr); };
+	if (pnahuePtr == IntPtr.Zero) {pnahue = null;} else { pnahue = new Numa(pnahuePtr); };
+	if (pnavalPtr == IntPtr.Zero) {pnaval = null;} else { pnaval = new Numa(pnavalPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -542,8 +542,8 @@ public static Pix pixMakeHistoSV(
 	IntPtr _Result = Natives.pixMakeHistoSV(pixs.Pointer,   factor, out pnasatPtr, out pnavalPtr);
 	
 
-	if (pnasatPtr == null) {pnasat = null;} else { pnasat = new Numa(pnasatPtr); };
-	if (pnavalPtr == null) {pnaval = null;} else { pnaval = new Numa(pnavalPtr); };
+	if (pnasatPtr == IntPtr.Zero) {pnasat = null;} else { pnasat = new Numa(pnasatPtr); };
+	if (pnavalPtr == IntPtr.Zero) {pnaval = null;} else { pnaval = new Numa(pnavalPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -598,9 +598,9 @@ public static int pixFindHistoPeaksHSV(
 	int _Result = Natives.pixFindHistoPeaksHSV(pixs.Pointer,   type,   width,   height,   npeaks,   erasefactor, out pptaPtr, out pnatotPtr, out ppixaPtr);
 	
 
-	if (pptaPtr == null) {ppta = null;} else { ppta = new Pta(pptaPtr); };
-	if (pnatotPtr == null) {pnatot = null;} else { pnatot = new Numa(pnatotPtr); };
-	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+	if (pptaPtr == IntPtr.Zero) {ppta = null;} else { ppta = new Pta(pptaPtr); };
+	if (pnatotPtr == IntPtr.Zero) {pnatot = null;} else { pnatot = new Numa(pnatotPtr); };
+	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 
 
 	return _Result;
@@ -1212,6 +1212,7 @@ public static int convertLABToRGB(
 
 	return _Result;
 }
+
 
 }
 }

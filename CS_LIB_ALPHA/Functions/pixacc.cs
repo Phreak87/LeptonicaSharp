@@ -82,7 +82,7 @@ public static void pixaccDestroy(
 	Natives.pixaccDestroy(ref ppixaccPtr);
 	
 
-	if (ppixaccPtr == null) {ppixacc = null;} else { ppixacc = new Pixacc(ppixaccPtr); };
+	if (ppixaccPtr == IntPtr.Zero) {ppixacc = null;} else { ppixacc = new Pixacc(ppixaccPtr); };
 
 
 }
@@ -237,6 +237,7 @@ public static int pixaccMultConstAccumulate(
 
 	return _Result;
 }
+
 
 }
 }

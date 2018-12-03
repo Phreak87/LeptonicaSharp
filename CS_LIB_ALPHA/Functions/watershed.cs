@@ -60,7 +60,7 @@ public static void wshedDestroy(
 	Natives.wshedDestroy(ref pwshedPtr);
 	
 
-	if (pwshedPtr == null) {pwshed = null;} else { pwshed = new L_WShed(pwshedPtr); };
+	if (pwshedPtr == IntPtr.Zero) {pwshed = null;} else { pwshed = new L_WShed(pwshedPtr); };
 
 
 }
@@ -105,8 +105,8 @@ public static int wshedBasins(
 	int _Result = Natives.wshedBasins(wshed.Pointer, out ppixaPtr, out pnalevelsPtr);
 	
 
-	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
-	if (pnalevelsPtr == null) {pnalevels = null;} else { pnalevels = new Numa(pnalevelsPtr); };
+	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+	if (pnalevelsPtr == IntPtr.Zero) {pnalevels = null;} else { pnalevels = new Numa(pnalevelsPtr); };
 
 
 	return _Result;
@@ -151,6 +151,7 @@ public static Pix wshedRenderColors(
 
 	return  new Pix(_Result);
 }
+
 
 }
 }

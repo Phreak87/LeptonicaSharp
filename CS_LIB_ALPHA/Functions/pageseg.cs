@@ -37,9 +37,9 @@ public static int pixGetRegionsBinary(
 	int _Result = Natives.pixGetRegionsBinary(pixs.Pointer, out ppixhmPtr, out ppixtmPtr, out ppixtbPtr, pixadb.Pointer);
 	
 
-	if (ppixhmPtr == null) {ppixhm = null;} else { ppixhm = new Pix(ppixhmPtr); };
-	if (ppixtmPtr == null) {ppixtm = null;} else { ppixtm = new Pix(ppixtmPtr); };
-	if (ppixtbPtr == null) {ppixtb = null;} else { ppixtb = new Pix(ppixtbPtr); };
+	if (ppixhmPtr == IntPtr.Zero) {ppixhm = null;} else { ppixhm = new Pix(ppixhmPtr); };
+	if (ppixtmPtr == IntPtr.Zero) {ppixtm = null;} else { ppixtm = new Pix(ppixtmPtr); };
+	if (ppixtbPtr == IntPtr.Zero) {ppixtb = null;} else { ppixtb = new Pix(ppixtbPtr); };
 
 
 	return _Result;
@@ -102,7 +102,7 @@ public static Pix pixGenerateHalftoneMask(
 	IntPtr _Result = Natives.pixGenerateHalftoneMask(pixs.Pointer, out ppixtextPtr, out  phtfound, pixadb.Pointer);
 	
 
-	if (ppixtextPtr == null) {ppixtext = null;} else { ppixtext = new Pix(ppixtextPtr); };
+	if (ppixtextPtr == IntPtr.Zero) {ppixtext = null;} else { ppixtext = new Pix(ppixtextPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -142,7 +142,7 @@ public static Pix pixGenTextlineMask(
 	IntPtr _Result = Natives.pixGenTextlineMask(pixs.Pointer, out ppixvwsPtr, out  ptlfound, pixadb.Pointer);
 	
 
-	if (ppixvwsPtr == null) {ppixvws = null;} else { ppixvws = new Pix(ppixvwsPtr); };
+	if (ppixvwsPtr == IntPtr.Zero) {ppixvws = null;} else { ppixvws = new Pix(ppixvwsPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -270,9 +270,9 @@ public static int pixSplitIntoCharacters(
 	int _Result = Natives.pixSplitIntoCharacters(pixs.Pointer,   minw,   minh, out pboxaPtr, out ppixaPtr, out ppixdebugPtr);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
-	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
-	if (ppixdebugPtr == null) {ppixdebug = null;} else { ppixdebug = new Pix(ppixdebugPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+	if (ppixdebugPtr == IntPtr.Zero) {ppixdebug = null;} else { ppixdebug = new Pix(ppixdebugPtr); };
 
 
 	return _Result;
@@ -306,7 +306,7 @@ public static Boxa pixSplitComponentWithProfile(
 	IntPtr _Result = Natives.pixSplitComponentWithProfile(pixs.Pointer,   delta,   mindel, out ppixdebugPtr);
 	
 
-	if (ppixdebugPtr == null) {ppixdebug = null;} else { ppixdebug = new Pix(ppixdebugPtr); };
+	if (ppixdebugPtr == IntPtr.Zero) {ppixdebug = null;} else { ppixdebug = new Pix(ppixdebugPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -724,8 +724,8 @@ public static int pixFindLargeRectangles(
 	int _Result = Natives.pixFindLargeRectangles(pixs.Pointer,   polarity,   nrect, out pboxaPtr, ref ppixdbPtr);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
@@ -795,12 +795,13 @@ public static int pixFindLargestRectangle(
 	int _Result = Natives.pixFindLargestRectangle(pixs.Pointer,   polarity, out pboxPtr, ref ppixdbPtr);
 	
 
-	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
 }
+
 
 }
 }

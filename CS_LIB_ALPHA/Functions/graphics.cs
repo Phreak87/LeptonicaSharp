@@ -489,7 +489,7 @@ public static int pixRenderPlotFromNuma(
 	int _Result = Natives.pixRenderPlotFromNuma(ref ppixPtr, na.Pointer,   plotloc,   linewidth,   max,   color);
 	
 
-	if (ppixPtr == null) {ppix = null;} else { ppix = new Pix(ppixPtr); };
+	if (ppixPtr == IntPtr.Zero) {ppix = null;} else { ppix = new Pix(ppixPtr); };
 
 
 	return _Result;
@@ -571,7 +571,7 @@ public static int pixRenderPlotFromNumaGen(
 	int _Result = Natives.pixRenderPlotFromNumaGen(ref ppixPtr, na.Pointer,   orient,   linewidth,   refpos,   max,   drawref,   color);
 	
 
-	if (ppixPtr == null) {ppix = null;} else { ppix = new Pix(ppixPtr); };
+	if (ppixPtr == IntPtr.Zero) {ppix = null;} else { ppix = new Pix(ppixPtr); };
 
 
 	return _Result;
@@ -1628,6 +1628,7 @@ public static Pta pixGeneratePtaBoundary(
 
 	return  new Pta(_Result);
 }
+
 
 }
 }

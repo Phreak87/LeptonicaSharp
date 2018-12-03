@@ -70,7 +70,7 @@ public static void ptaDestroy(
 	Natives.ptaDestroy(ref pptaPtr);
 	
 
-	if (pptaPtr == null) {ppta = null;} else { ppta = new Pta(pptaPtr); };
+	if (pptaPtr == IntPtr.Zero) {ppta = null;} else { ppta = new Pta(pptaPtr); };
 
 
 }
@@ -395,8 +395,8 @@ public static int ptaGetArrays(
 	int _Result = Natives.ptaGetArrays(pta.Pointer, out pnaxPtr, out pnayPtr);
 	
 
-	if (pnaxPtr == null) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
-	if (pnayPtr == null) {pnay = null;} else { pnay = new Numa(pnayPtr); };
+	if (pnaxPtr == IntPtr.Zero) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
+	if (pnayPtr == IntPtr.Zero) {pnay = null;} else { pnay = new Numa(pnayPtr); };
 
 
 	return _Result;
@@ -607,7 +607,7 @@ public static void ptaaDestroy(
 	Natives.ptaaDestroy(ref pptaaPtr);
 	
 
-	if (pptaaPtr == null) {pptaa = null;} else { pptaa = new Ptaa(pptaaPtr); };
+	if (pptaaPtr == IntPtr.Zero) {pptaa = null;} else { pptaa = new Ptaa(pptaaPtr); };
 
 
 }
@@ -972,6 +972,7 @@ public static int ptaaWriteMem(
 
 	return _Result;
 }
+
 
 }
 }

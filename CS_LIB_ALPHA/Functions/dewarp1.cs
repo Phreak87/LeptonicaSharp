@@ -81,7 +81,7 @@ public static void dewarpDestroy(
 	Natives.dewarpDestroy(ref pdewPtr);
 	
 
-	if (pdewPtr == null) {pdew = null;} else { pdew = new L_Dewarp(pdewPtr); };
+	if (pdewPtr == IntPtr.Zero) {pdew = null;} else { pdew = new L_Dewarp(pdewPtr); };
 
 
 }
@@ -204,7 +204,7 @@ public static void dewarpaDestroy(
 	Natives.dewarpaDestroy(ref pdewaPtr);
 	
 
-	if (pdewaPtr == null) {pdewa = null;} else { pdewa = new L_Dewarpa(pdewaPtr); };
+	if (pdewaPtr == IntPtr.Zero) {pdewa = null;} else { pdewa = new L_Dewarpa(pdewaPtr); };
 
 
 }
@@ -722,6 +722,7 @@ public static int dewarpaWriteMem(
 
 	return _Result;
 }
+
 
 }
 }

@@ -114,8 +114,8 @@ public static int pixConnCompIncrInit(
 	int _Result = Natives.pixConnCompIncrInit(pixs.Pointer,   conn, out ppixdPtr, out pptaaPtr, out  pncc);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
-	if (pptaaPtr == null) {pptaa = null;} else { pptaa = new Ptaa(pptaaPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (pptaaPtr == IntPtr.Zero) {pptaa = null;} else { pptaa = new Ptaa(pptaaPtr); };
 
 
 	return _Result;
@@ -249,6 +249,7 @@ public static Pix pixLocToColorTransform(
 
 	return  new Pix(_Result);
 }
+
 
 }
 }

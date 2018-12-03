@@ -55,11 +55,12 @@ public static int pixItalicWords(
 	int _Result = Natives.pixItalicWords(pixs.Pointer, boxawPtr, pixwPtr, out pboxaPtr,   debugflag);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 
 	return _Result;
 }
+
 
 }
 }

@@ -46,7 +46,7 @@ public static void l_dnaHashDestroy(
 	Natives.l_dnaHashDestroy(ref pdahashPtr);
 	
 
-	if (pdahashPtr == null) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
+	if (pdahashPtr == IntPtr.Zero) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
 
 
 }
@@ -188,8 +188,8 @@ public static int l_dnaRemoveDupsByHash(
 	int _Result = Natives.l_dnaRemoveDupsByHash(das.Pointer, out pdadPtr, out pdahashPtr);
 	
 
-	if (pdadPtr == null) {pdad = null;} else { pdad = new L_Dna(pdadPtr); };
-	if (pdahashPtr == null) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
+	if (pdadPtr == IntPtr.Zero) {pdad = null;} else { pdad = new L_Dna(pdadPtr); };
+	if (pdahashPtr == IntPtr.Zero) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
 
 
 	return _Result;
@@ -236,9 +236,9 @@ public static int l_dnaMakeHistoByHash(
 	int _Result = Natives.l_dnaMakeHistoByHash(das.Pointer, out pdahashPtr, out pdavPtr, out pdacPtr);
 	
 
-	if (pdahashPtr == null) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
-	if (pdavPtr == null) {pdav = null;} else { pdav = new L_Dna(pdavPtr); };
-	if (pdacPtr == null) {pdac = null;} else { pdac = new L_Dna(pdacPtr); };
+	if (pdahashPtr == IntPtr.Zero) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
+	if (pdavPtr == IntPtr.Zero) {pdav = null;} else { pdav = new L_Dna(pdavPtr); };
+	if (pdacPtr == IntPtr.Zero) {pdac = null;} else { pdac = new L_Dna(pdacPtr); };
 
 
 	return _Result;
@@ -299,6 +299,7 @@ public static int l_dnaFindValByHash(
 
 	return _Result;
 }
+
 
 }
 }

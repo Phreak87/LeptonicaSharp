@@ -177,7 +177,7 @@ public static void fpixDestroy(
 	Natives.fpixDestroy(ref pfpixPtr);
 	
 
-	if (pfpixPtr == null) {pfpix = null;} else { pfpix = new FPix(pfpixPtr); };
+	if (pfpixPtr == IntPtr.Zero) {pfpix = null;} else { pfpix = new FPix(pfpixPtr); };
 
 
 }
@@ -531,7 +531,7 @@ public static void fpixaDestroy(
 	Natives.fpixaDestroy(ref pfpixaPtr);
 	
 
-	if (pfpixaPtr == null) {pfpixa = null;} else { pfpixa = new FPixa(pfpixaPtr); };
+	if (pfpixaPtr == IntPtr.Zero) {pfpixa = null;} else { pfpixa = new FPixa(pfpixaPtr); };
 
 
 }
@@ -886,7 +886,7 @@ public static void dpixDestroy(
 	Natives.dpixDestroy(ref pdpixPtr);
 	
 
-	if (pdpixPtr == null) {pdpix = null;} else { pdpix = new DPix(pdpixPtr); };
+	if (pdpixPtr == IntPtr.Zero) {pdpix = null;} else { pdpix = new DPix(pdpixPtr); };
 
 
 }
@@ -1529,6 +1529,7 @@ public static int fpixPrintStream(
 
 	return _Result;
 }
+
 
 }
 }

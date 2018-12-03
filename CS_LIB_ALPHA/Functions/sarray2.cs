@@ -233,8 +233,8 @@ public static int sarrayRemoveDupsByHash(
 	int _Result = Natives.sarrayRemoveDupsByHash(sas.Pointer, out psadPtr, out pdahashPtr);
 	
 
-	if (psadPtr == null) {psad = null;} else { psad = new Sarray(psadPtr); };
-	if (pdahashPtr == null) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
+	if (psadPtr == IntPtr.Zero) {psad = null;} else { psad = new Sarray(psadPtr); };
+	if (pdahashPtr == IntPtr.Zero) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
 
 
 	return _Result;
@@ -381,6 +381,7 @@ public static int sarrayLookupCSKV(
 
 	return _Result;
 }
+
 
 }
 }

@@ -60,9 +60,9 @@ public static int pixColorContent(
 	int _Result = Natives.pixColorContent(pixs.Pointer,   rwhite,   gwhite,   bwhite,   mingray, out ppixrPtr, out ppixgPtr, out ppixbPtr);
 	
 
-	if (ppixrPtr == null) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
-	if (ppixgPtr == null) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
-	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+	if (ppixrPtr == IntPtr.Zero) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
+	if (ppixgPtr == IntPtr.Zero) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
+	if (ppixbPtr == IntPtr.Zero) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
 
 
 	return _Result;
@@ -367,9 +367,9 @@ public static int pixFindColorRegions(
 	int _Result = Natives.pixFindColorRegions(pixs.Pointer, pixmPtr,   factor,   lightthresh,   darkthresh,   mindiff,   colordiff,   edgefract, out  pcolorfract, out pcolormask1Ptr, out pcolormask2Ptr, out pixadbPtr);
 	
 
-	if (pcolormask1Ptr == null) {pcolormask1 = null;} else { pcolormask1 = new Pix(pcolormask1Ptr); };
-	if (pcolormask2Ptr == null) {pcolormask2 = null;} else { pcolormask2 = new Pix(pcolormask2Ptr); };
-	if (pixadbPtr == null) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
+	if (pcolormask1Ptr == IntPtr.Zero) {pcolormask1 = null;} else { pcolormask1 = new Pix(pcolormask1Ptr); };
+	if (pcolormask2Ptr == IntPtr.Zero) {pcolormask2 = null;} else { pcolormask2 = new Pix(pcolormask2Ptr); };
+	if (pixadbPtr == IntPtr.Zero) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
 
 
 	return _Result;
@@ -591,7 +591,7 @@ public static int pixGetMostPopulatedColors(
 	
 
 	if (parrayPtr == null) {parray = null;} else { parray = null; };
-	if (pcmapPtr == null) {pcmap = null;} else { pcmap = new PixColormap(pcmapPtr); };
+	if (pcmapPtr == IntPtr.Zero) {pcmap = null;} else { pcmap = new PixColormap(pcmapPtr); };
 
 
 	return _Result;
@@ -790,11 +790,12 @@ public static int pixHasHighlightRed(
 	int _Result = Natives.pixHasHighlightRed(pixs.Pointer,   factor,   fract,   fthresh, out  phasred, out  pratio, out ppixdbPtr);
 	
 
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
 }
+
 
 }
 }

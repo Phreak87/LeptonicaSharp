@@ -247,5 +247,6 @@ public static Pix pixCloseGray3(
 	return  new Pix(_Result);
 }
 
+
 }
 }

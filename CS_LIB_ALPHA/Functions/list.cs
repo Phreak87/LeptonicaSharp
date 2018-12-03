@@ -29,7 +29,7 @@ public static void listDestroy(
 	Natives.listDestroy(ref pheadPtr);
 	
 
-	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 
 }
@@ -62,7 +62,7 @@ public static int listAddToHead(
 	
 	Marshal.FreeHGlobal(dataPtr);
 
-	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 
 	return _Result;
@@ -108,8 +108,8 @@ public static int listAddToTail(
 	
 	Marshal.FreeHGlobal(dataPtr);
 
-	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
-	if (ptailPtr == null) {ptail = null;} else { ptail = new DoubleLinkedList(ptailPtr); };
+	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+	if (ptailPtr == IntPtr.Zero) {ptail = null;} else { ptail = new DoubleLinkedList(ptailPtr); };
 
 
 	return _Result;
@@ -151,7 +151,7 @@ public static int listInsertBefore(
 	
 	Marshal.FreeHGlobal(dataPtr);
 
-	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 
 	return _Result;
@@ -194,7 +194,7 @@ public static int listInsertAfter(
 	
 	Marshal.FreeHGlobal(dataPtr);
 
-	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 
 	return _Result;
@@ -224,7 +224,7 @@ public static Object listRemoveElement(
 	IntPtr _Result = Natives.listRemoveElement(ref pheadPtr, elem.Pointer);
 	
 
-	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
 
@@ -253,7 +253,7 @@ public static Object listRemoveFromHead(
 	IntPtr _Result = Natives.listRemoveFromHead(ref pheadPtr);
 	
 
-	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
 
@@ -294,8 +294,8 @@ public static Object listRemoveFromTail(
 	IntPtr _Result = Natives.listRemoveFromTail(ref pheadPtr, ref ptailPtr);
 	
 
-	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
-	if (ptailPtr == null) {ptail = null;} else { ptail = new DoubleLinkedList(ptailPtr); };
+	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+	if (ptailPtr == IntPtr.Zero) {ptail = null;} else { ptail = new DoubleLinkedList(ptailPtr); };
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
 
@@ -396,7 +396,7 @@ public static int listReverse(
 	int _Result = Natives.listReverse(ref pheadPtr);
 	
 
-	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 
 	return _Result;
@@ -426,12 +426,13 @@ public static int listJoin(
 	int _Result = Natives.listJoin(ref phead1Ptr, ref phead2Ptr);
 	
 
-	if (phead1Ptr == null) {phead1 = null;} else { phead1 = new DoubleLinkedList(phead1Ptr); };
-	if (phead2Ptr == null) {phead2 = null;} else { phead2 = new DoubleLinkedList(phead2Ptr); };
+	if (phead1Ptr == IntPtr.Zero) {phead1 = null;} else { phead1 = new DoubleLinkedList(phead1Ptr); };
+	if (phead2Ptr == IntPtr.Zero) {phead2 = null;} else { phead2 = new DoubleLinkedList(phead2Ptr); };
 
 
 	return _Result;
 }
+
 
 }
 }

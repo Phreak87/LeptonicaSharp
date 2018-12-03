@@ -130,5 +130,6 @@ public static Byte[] makeSubsampleTab2x(){
 	return _Result;
 }
 
+
 }
 }

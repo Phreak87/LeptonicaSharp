@@ -124,5 +124,6 @@ public static int fgetJp2kResolution(
 	return _Result;
 }
 
+
 }
 }

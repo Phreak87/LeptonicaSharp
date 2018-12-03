@@ -50,9 +50,9 @@ public static int recogIdentifyMultiple(
 	int _Result = Natives.recogIdentifyMultiple(recog.Pointer, pixs.Pointer,   minh,   skipsplit, out pboxaPtr, out ppixaPtr, out ppixdbPtr,   debugsplit);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
-	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
@@ -103,8 +103,8 @@ public static int recogSplitIntoCharacters(
 	int _Result = Natives.recogSplitIntoCharacters(recog.Pointer, pixs.Pointer,   minh,   skipsplit, out pboxaPtr, out ppixaPtr,  (int) debug);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
-	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 
 
 	return _Result;
@@ -148,10 +148,10 @@ public static int recogCorrelationBestRow(
 	int _Result = Natives.recogCorrelationBestRow(recog.Pointer, pixs.Pointer, out pboxaPtr, out pnascorePtr, out pnaindexPtr, out psacharPtr,  (int) debug);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
-	if (pnascorePtr == null) {pnascore = null;} else { pnascore = new Numa(pnascorePtr); };
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
-	if (psacharPtr == null) {psachar = null;} else { psachar = new Sarray(psacharPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (pnascorePtr == IntPtr.Zero) {pnascore = null;} else { pnascore = new Numa(pnascorePtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (psacharPtr == IntPtr.Zero) {psachar = null;} else { psachar = new Sarray(psacharPtr); };
 
 
 	return _Result;
@@ -196,9 +196,9 @@ public static int recogCorrelationBestChar(
 	int _Result = Natives.recogCorrelationBestChar(recog.Pointer, pixs.Pointer, out pboxPtr, out  pscore, out  pindex, out  pcharstrPtr, out ppixdbPtr);
 	
 
-	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
+	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
 	if (pcharstrPtr == null) {pcharstr = null;} else { pcharstr = null; };
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
@@ -233,7 +233,7 @@ public static int recogIdentifyPixa(
 	int _Result = Natives.recogIdentifyPixa(recog.Pointer, pixa.Pointer, out ppixdbPtr);
 	
 
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
@@ -278,7 +278,7 @@ public static int recogIdentifyPix(
 	int _Result = Natives.recogIdentifyPix(recog.Pointer, pixs.Pointer, out ppixdbPtr);
 	
 
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
@@ -322,7 +322,7 @@ public static void rchaDestroy(
 	Natives.rchaDestroy(ref prchaPtr);
 	
 
-	if (prchaPtr == null) {prcha = null;} else { prcha = new L_Rcha(prchaPtr); };
+	if (prchaPtr == IntPtr.Zero) {prcha = null;} else { prcha = new L_Rcha(prchaPtr); };
 
 
 }
@@ -342,7 +342,7 @@ public static void rchDestroy(
 	Natives.rchDestroy(ref prchPtr);
 	
 
-	if (prchPtr == null) {prch = null;} else { prch = new L_Rch(prchPtr); };
+	if (prchPtr == IntPtr.Zero) {prch = null;} else { prch = new L_Rch(prchPtr); };
 
 
 }
@@ -387,13 +387,13 @@ public static int rchaExtract(
 	int _Result = Natives.rchaExtract(rcha.Pointer, out pnaindexPtr, out pnascorePtr, out psatextPtr, out pnasamplePtr, out pnaxlocPtr, out pnaylocPtr, out pnawidthPtr);
 	
 
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
-	if (pnascorePtr == null) {pnascore = null;} else { pnascore = new Numa(pnascorePtr); };
-	if (psatextPtr == null) {psatext = null;} else { psatext = new Sarray(psatextPtr); };
-	if (pnasamplePtr == null) {pnasample = null;} else { pnasample = new Numa(pnasamplePtr); };
-	if (pnaxlocPtr == null) {pnaxloc = null;} else { pnaxloc = new Numa(pnaxlocPtr); };
-	if (pnaylocPtr == null) {pnayloc = null;} else { pnayloc = new Numa(pnaylocPtr); };
-	if (pnawidthPtr == null) {pnawidth = null;} else { pnawidth = new Numa(pnawidthPtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnascorePtr == IntPtr.Zero) {pnascore = null;} else { pnascore = new Numa(pnascorePtr); };
+	if (psatextPtr == IntPtr.Zero) {psatext = null;} else { psatext = new Sarray(psatextPtr); };
+	if (pnasamplePtr == IntPtr.Zero) {pnasample = null;} else { pnasample = new Numa(pnasamplePtr); };
+	if (pnaxlocPtr == IntPtr.Zero) {pnaxloc = null;} else { pnaxloc = new Numa(pnaxlocPtr); };
+	if (pnaylocPtr == IntPtr.Zero) {pnayloc = null;} else { pnayloc = new Numa(pnaylocPtr); };
+	if (pnawidthPtr == IntPtr.Zero) {pnawidth = null;} else { pnawidth = new Numa(pnawidthPtr); };
 
 
 	return _Result;
@@ -516,8 +516,8 @@ public static Sarray recogExtractNumbers(
 	IntPtr _Result = Natives.recogExtractNumbers(recog.Pointer, boxas.Pointer,   scorethresh,   spacethresh, out pbaaPtr, out pnaaPtr);
 	
 
-	if (pbaaPtr == null) {pbaa = null;} else { pbaa = new Boxaa(pbaaPtr); };
-	if (pnaaPtr == null) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
+	if (pbaaPtr == IntPtr.Zero) {pbaa = null;} else { pbaa = new Boxaa(pbaaPtr); };
+	if (pnaaPtr == IntPtr.Zero) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -554,12 +554,13 @@ public static Pixa showExtractNumbers(
 	IntPtr _Result = Natives.showExtractNumbers(pixs.Pointer, sa.Pointer, baa.Pointer, naa.Pointer, out ppixdbPtr);
 	
 
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
 	return  new Pixa(_Result);
 }
+
 
 }
 }

@@ -55,7 +55,7 @@ public static void lheapDestroy(
 	Natives.lheapDestroy(ref plhPtr,   freeflag);
 	
 
-	if (plhPtr == null) {plh = null;} else { plh = new L_Heap(plhPtr); };
+	if (plhPtr == IntPtr.Zero) {plh = null;} else { plh = new L_Heap(plhPtr); };
 
 
 }
@@ -259,6 +259,7 @@ public static int lheapPrint(
 
 	return _Result;
 }
+
 
 }
 }

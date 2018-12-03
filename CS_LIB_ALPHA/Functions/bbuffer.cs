@@ -54,7 +54,7 @@ public static void bbufferDestroy(
 	Natives.bbufferDestroy(ref pbbPtr);
 	
 
-	if (pbbPtr == null) {pbb = null;} else { pbb = new L_ByteBuffer(pbbPtr); };
+	if (pbbPtr == IntPtr.Zero) {pbb = null;} else { pbb = new L_ByteBuffer(pbbPtr); };
 
 
 }
@@ -80,7 +80,7 @@ public static Byte[] bbufferDestroyAndSaveData(
 	Byte[] _Result = Natives.bbufferDestroyAndSaveData(ref pbbPtr, out  pnbytes);
 	
 
-	if (pbbPtr == null) {pbb = null;} else { pbb = new L_ByteBuffer(pbbPtr); };
+	if (pbbPtr == IntPtr.Zero) {pbb = null;} else { pbb = new L_ByteBuffer(pbbPtr); };
 
 
 	return _Result;
@@ -215,6 +215,7 @@ public static int bbufferWriteStream(
 
 	return _Result;
 }
+
 
 }
 }

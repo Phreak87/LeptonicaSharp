@@ -267,5 +267,6 @@ public static Pix pixRotateWithAlpha(
 	return  new Pix(_Result);
 }
 
+
 }
 }

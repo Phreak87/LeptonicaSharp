@@ -761,5 +761,6 @@ public static int pixLinearEdgeFade(
 	return _Result;
 }
 
+
 }
 }

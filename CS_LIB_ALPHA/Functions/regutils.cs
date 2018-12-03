@@ -55,7 +55,7 @@ public static int regTestSetup(
 	int _Result = Natives.regTestSetup(  argc,   argvPtr, out prpPtr);
 	
 
-	if (prpPtr == null) {prp = null;} else { prp = new L_RegParams(prpPtr); };
+	if (prpPtr == IntPtr.Zero) {prp = null;} else { prp = new L_RegParams(prpPtr); };
 
 
 	return _Result;
@@ -397,6 +397,7 @@ public static String regTestGenLocalFilename(
 
 	return _Result;
 }
+
 
 }
 }

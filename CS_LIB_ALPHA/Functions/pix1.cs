@@ -239,7 +239,7 @@ public static void pixDestroy(
 	Natives.pixDestroy(ref ppixPtr);
 	
 
-	if (ppixPtr == null) {ppix = null;} else { ppix = new Pix(ppixPtr); };
+	if (ppixPtr == IntPtr.Zero) {ppix = null;} else { ppix = new Pix(ppixPtr); };
 
 
 }
@@ -434,7 +434,7 @@ public static int pixTransferAllData(
 	int _Result = Natives.pixTransferAllData(pixd.Pointer, ref ppixsPtr,   copytext,   copyformat);
 	
 
-	if (ppixsPtr == null) {ppixs = null;} else { ppixs = new Pix(ppixsPtr); };
+	if (ppixsPtr == IntPtr.Zero) {ppixs = null;} else { ppixs = new Pix(ppixsPtr); };
 
 
 	return _Result;
@@ -489,8 +489,8 @@ public static int pixSwapAndDestroy(
 	int _Result = Natives.pixSwapAndDestroy(out ppixdPtr, ref ppixsPtr);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
-	if (ppixsPtr == null) {ppixs = null;} else { ppixs = new Pix(ppixsPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixsPtr == IntPtr.Zero) {ppixs = null;} else { ppixs = new Pix(ppixsPtr); };
 
 
 	return _Result;
@@ -1472,6 +1472,7 @@ public static int pixPrintStreamInfo(
 
 	return _Result;
 }
+
 
 }
 }

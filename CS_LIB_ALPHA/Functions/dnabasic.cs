@@ -127,7 +127,7 @@ public static void l_dnaDestroy(
 	Natives.l_dnaDestroy(ref pdaPtr);
 	
 
-	if (pdaPtr == null) {pda = null;} else { pda = new L_Dna(pdaPtr); };
+	if (pdaPtr == IntPtr.Zero) {pda = null;} else { pda = new L_Dna(pdaPtr); };
 
 
 }
@@ -794,7 +794,7 @@ public static void l_dnaaDestroy(
 	Natives.l_dnaaDestroy(ref pdaaPtr);
 	
 
-	if (pdaaPtr == null) {pdaa = null;} else { pdaa = new L_Dnaa(pdaaPtr); };
+	if (pdaaPtr == IntPtr.Zero) {pdaa = null;} else { pdaa = new L_Dnaa(pdaaPtr); };
 
 
 }
@@ -1066,6 +1066,7 @@ public static int l_dnaaWriteStream(
 
 	return _Result;
 }
+
 
 }
 }

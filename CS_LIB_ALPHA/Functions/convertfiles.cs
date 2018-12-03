@@ -43,5 +43,6 @@ public static int convertFilesTo1bpp(
 	return _Result;
 }
 
+
 }
 }

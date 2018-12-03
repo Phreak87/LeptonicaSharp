@@ -16,6 +16,12 @@ Module Module1
 
         Dim x1 As New L_Bytea(New Byte() {4, 5, 6}, 3)
         Dim x2 As New L_Bytea(New Byte() {1, 2, 3}, 3)
+
+        Dim x3 As L_Bytea = l_byteaCreate(3)
+        l_byteaAppendData(x3, New Byte() {4, 5, 6}, 3)
+        Dim x4 As L_Bytea = l_byteaCreate(3)
+        l_byteaAppendData(x4, New Byte() {1, 2, 3}, 3)
+        l_byteaJoin(x3, x4)
         l_byteaJoin(x1, x2)
 
         x.l_byteaAppendString("Hallo")
@@ -152,7 +158,7 @@ Module Module1
         If LeptonicaSharp._All.pixGetData(PIX32).Count < 3 Then Throw New Exception ' = OK
 
         ' ------------------------------------------------------------------------------
-        ' Teste Dateiprüfung per Config                                         => OK                                    
+        ' Teste Dateiprüfung per Config                                         => OK
         ' ------------------------------------------------------------------------------
         Dim PIXER As New Pix("MissingFile.jpg")                 ' Muss fehler ausgeben
 
@@ -190,7 +196,7 @@ Module Module1
         ' Teste CheckArray
         ' Teste explizite Defaults für Parameternamen für jede Funktion
         ' ------------------------------------------------------------------------------
-        '<Parameter Name="redsearch"> 		
+        '<Parameter Name="redsearch">
         '	<Default>0</Default>
         '	<CheckArray>{0,1,2,4,8}</CheckArray>
         '</Parameter>

@@ -261,7 +261,7 @@ public static int addColorizedGrayToCmap(
 	int _Result = Natives.addColorizedGrayToCmap(cmap.Pointer,   type,   rval,   gval,   bval, out pnaPtr);
 	
 
-	if (pnaPtr == null) {pna = null;} else { pna = new Numa(pnaPtr); };
+	if (pnaPtr == IntPtr.Zero) {pna = null;} else { pna = new Numa(pnaPtr); };
 
 
 	return _Result;
@@ -366,6 +366,7 @@ public static int pixSetMaskedCmap(
 
 	return _Result;
 }
+
 
 }
 }

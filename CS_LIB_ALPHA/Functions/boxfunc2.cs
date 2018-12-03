@@ -293,7 +293,7 @@ public static Boxa boxaSort(
 	IntPtr _Result = Natives.boxaSort(boxas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
 	
 
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -330,7 +330,7 @@ public static Boxa boxaBinSort(
 	IntPtr _Result = Natives.boxaBinSort(boxas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
 	
 
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -419,7 +419,7 @@ public static Boxaa boxaSort2d(
 	IntPtr _Result = Natives.boxaSort2d(boxas.Pointer, out pnaadPtr,   delta1,   delta2,   minh1);
 	
 
-	if (pnaadPtr == null) {pnaad = null;} else { pnaad = new Numaa(pnaadPtr); };
+	if (pnaadPtr == IntPtr.Zero) {pnaad = null;} else { pnaad = new Numaa(pnaadPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -492,12 +492,12 @@ public static int boxaExtractAsNuma(
 	int _Result = Natives.boxaExtractAsNuma(boxa.Pointer, out pnalPtr, out pnatPtr, out pnarPtr, out pnabPtr, out pnawPtr, out pnahPtr,   keepinvalid);
 	
 
-	if (pnalPtr == null) {pnal = null;} else { pnal = new Numa(pnalPtr); };
-	if (pnatPtr == null) {pnat = null;} else { pnat = new Numa(pnatPtr); };
-	if (pnarPtr == null) {pnar = null;} else { pnar = new Numa(pnarPtr); };
-	if (pnabPtr == null) {pnab = null;} else { pnab = new Numa(pnabPtr); };
-	if (pnawPtr == null) {pnaw = null;} else { pnaw = new Numa(pnawPtr); };
-	if (pnahPtr == null) {pnah = null;} else { pnah = new Numa(pnahPtr); };
+	if (pnalPtr == IntPtr.Zero) {pnal = null;} else { pnal = new Numa(pnalPtr); };
+	if (pnatPtr == IntPtr.Zero) {pnat = null;} else { pnat = new Numa(pnatPtr); };
+	if (pnarPtr == IntPtr.Zero) {pnar = null;} else { pnar = new Numa(pnarPtr); };
+	if (pnabPtr == IntPtr.Zero) {pnab = null;} else { pnab = new Numa(pnabPtr); };
+	if (pnawPtr == IntPtr.Zero) {pnaw = null;} else { pnaw = new Numa(pnawPtr); };
+	if (pnahPtr == IntPtr.Zero) {pnah = null;} else { pnah = new Numa(pnahPtr); };
 
 
 	return _Result;
@@ -549,12 +549,12 @@ public static int boxaExtractAsPta(
 	int _Result = Natives.boxaExtractAsPta(boxa.Pointer, out pptalPtr, out pptatPtr, out pptarPtr, out pptabPtr, out pptawPtr, out pptahPtr,   keepinvalid);
 	
 
-	if (pptalPtr == null) {pptal = null;} else { pptal = new Pta(pptalPtr); };
-	if (pptatPtr == null) {pptat = null;} else { pptat = new Pta(pptatPtr); };
-	if (pptarPtr == null) {pptar = null;} else { pptar = new Pta(pptarPtr); };
-	if (pptabPtr == null) {pptab = null;} else { pptab = new Pta(pptabPtr); };
-	if (pptawPtr == null) {pptaw = null;} else { pptaw = new Pta(pptawPtr); };
-	if (pptahPtr == null) {pptah = null;} else { pptah = new Pta(pptahPtr); };
+	if (pptalPtr == IntPtr.Zero) {pptal = null;} else { pptal = new Pta(pptalPtr); };
+	if (pptatPtr == IntPtr.Zero) {pptat = null;} else { pptat = new Pta(pptatPtr); };
+	if (pptarPtr == IntPtr.Zero) {pptar = null;} else { pptar = new Pta(pptarPtr); };
+	if (pptabPtr == IntPtr.Zero) {pptab = null;} else { pptab = new Pta(pptabPtr); };
+	if (pptawPtr == IntPtr.Zero) {pptaw = null;} else { pptaw = new Pta(pptawPtr); };
+	if (pptahPtr == IntPtr.Zero) {pptah = null;} else { pptah = new Pta(pptahPtr); };
 
 
 	return _Result;
@@ -691,8 +691,8 @@ public static int boxaaGetExtent(
 	int _Result = Natives.boxaaGetExtent(baa.Pointer, out  pw, out  ph, out pboxPtr, out pboxaPtr);
 	
 
-	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 
 	return _Result;
@@ -731,7 +731,7 @@ public static Boxa boxaaFlattenToBoxa(
 	IntPtr _Result = Natives.boxaaFlattenToBoxa(baa.Pointer, out pnaindexPtr,   copyflag);
 	
 
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -866,6 +866,7 @@ public static int boxaaAlignBox(
 
 	return _Result;
 }
+
 
 }
 }

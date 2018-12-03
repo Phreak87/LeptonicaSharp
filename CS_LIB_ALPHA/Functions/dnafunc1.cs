@@ -226,5 +226,6 @@ public static L_Dna l_dnaDiffAdjValues(
 	return  new L_Dna(_Result);
 }
 
+
 }
 }

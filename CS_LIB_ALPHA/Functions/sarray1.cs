@@ -119,7 +119,7 @@ public static void sarrayDestroy(
 	Natives.sarrayDestroy(ref psaPtr);
 	
 
-	if (psaPtr == null) {psa = null;} else { psa = new Sarray(psaPtr); };
+	if (psaPtr == IntPtr.Zero) {psa = null;} else { psa = new Sarray(psaPtr); };
 
 
 }
@@ -1002,6 +1002,7 @@ public static Sarray getFilenamesInDirectory(
 
 	return  new Sarray(_Result);
 }
+
 
 }
 }

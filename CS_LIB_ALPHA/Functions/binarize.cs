@@ -82,8 +82,8 @@ public static int pixOtsuAdaptiveThreshold(
 	int _Result = Natives.pixOtsuAdaptiveThreshold(pixs.Pointer,   sx,   sy,   smoothx,   smoothy,   scorefract, out ppixthPtr, out ppixdPtr);
 	
 
-	if (ppixthPtr == null) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixthPtr == IntPtr.Zero) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -261,8 +261,8 @@ public static int pixSauvolaBinarizeTiled(
 	int _Result = Natives.pixSauvolaBinarizeTiled(pixs.Pointer,   whsize,   factor,   nx,   ny, out ppixthPtr, out ppixdPtr);
 	
 
-	if (ppixthPtr == null) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixthPtr == IntPtr.Zero) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -328,10 +328,10 @@ public static int pixSauvolaBinarize(
 	int _Result = Natives.pixSauvolaBinarize(pixs.Pointer,   whsize,   factor,   addborder, out ppixmPtr, out ppixsdPtr, out ppixthPtr, out ppixdPtr);
 	
 
-	if (ppixmPtr == null) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
-	if (ppixsdPtr == null) {ppixsd = null;} else { ppixsd = new Pix(ppixsdPtr); };
-	if (ppixthPtr == null) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixmPtr == IntPtr.Zero) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
+	if (ppixsdPtr == IntPtr.Zero) {ppixsd = null;} else { ppixsd = new Pix(ppixsdPtr); };
+	if (ppixthPtr == IntPtr.Zero) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -387,7 +387,7 @@ public static Pix pixSauvolaGetThreshold(
 	IntPtr _Result = Natives.pixSauvolaGetThreshold(pixm.Pointer, pixms.Pointer,   factor, out ppixsdPtr);
 	
 
-	if (ppixsdPtr == null) {ppixsd = null;} else { ppixsd = new Pix(ppixsdPtr); };
+	if (ppixsdPtr == IntPtr.Zero) {ppixsd = null;} else { ppixsd = new Pix(ppixsdPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -490,11 +490,12 @@ public static int pixThresholdByConnComp(
 	int _Result = Natives.pixThresholdByConnComp(pixs.Pointer, pixmPtr,   start,   _end_,   incr,   thresh48,   threshdiff, out  pglobthresh, out ppixdPtr,   debugflag);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
 }
+
 
 }
 }

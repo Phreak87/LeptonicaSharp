@@ -942,5 +942,6 @@ public static Pix pixScaleBinary(
 	return  new Pix(_Result);
 }
 
+
 }
 }

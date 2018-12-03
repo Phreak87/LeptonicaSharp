@@ -41,7 +41,7 @@ public static void selaDestroy(
 	Natives.selaDestroy(ref pselaPtr);
 	
 
-	if (pselaPtr == null) {psela = null;} else { psela = new Sela(pselaPtr); };
+	if (pselaPtr == IntPtr.Zero) {psela = null;} else { psela = new Sela(pselaPtr); };
 
 
 }
@@ -92,7 +92,7 @@ public static void selDestroy(
 	Natives.selDestroy(ref pselPtr);
 	
 
-	if (pselPtr == null) {psel = null;} else { psel = new Sel(pselPtr); };
+	if (pselPtr == IntPtr.Zero) {psel = null;} else { psel = new Sel(pselPtr); };
 
 
 }
@@ -1129,6 +1129,7 @@ public static Pix selaDisplayInPix(
 
 	return  new Pix(_Result);
 }
+
 
 }
 }

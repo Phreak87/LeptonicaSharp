@@ -231,5 +231,6 @@ public static Pix pixRotateAMColorFast(
 	return  new Pix(_Result);
 }
 
+
 }
 }

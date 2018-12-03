@@ -286,7 +286,7 @@ public static int pixCompareBinary(
 	int _Result = Natives.pixCompareBinary(pix1.Pointer, pix2.Pointer,   comptype, out  pfract, out ppixdiffPtr);
 	
 
-	if (ppixdiffPtr == null) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
+	if (ppixdiffPtr == IntPtr.Zero) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
 
 
 	return _Result;
@@ -352,7 +352,7 @@ public static int pixCompareGrayOrRGB(
 	int _Result = Natives.pixCompareGrayOrRGB(pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out  prmsdiff, out ppixdiffPtr);
 	
 
-	if (ppixdiffPtr == null) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
+	if (ppixdiffPtr == IntPtr.Zero) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
 
 
 	return _Result;
@@ -396,7 +396,7 @@ public static int pixCompareGray(
 	int _Result = Natives.pixCompareGray(pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out  prmsdiff, out ppixdiffPtr);
 	
 
-	if (ppixdiffPtr == null) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
+	if (ppixdiffPtr == IntPtr.Zero) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
 
 
 	return _Result;
@@ -438,7 +438,7 @@ public static int pixCompareRGB(
 	int _Result = Natives.pixCompareRGB(pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out  prmsdiff, out ppixdiffPtr);
 	
 
-	if (ppixdiffPtr == null) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
+	if (ppixdiffPtr == IntPtr.Zero) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
 
 
 	return _Result;
@@ -485,7 +485,7 @@ public static int pixCompareTiled(
 	int _Result = Natives.pixCompareTiled(pix1.Pointer, pix2.Pointer,   sx,   sy,   type, out ppixdiffPtr);
 	
 
-	if (ppixdiffPtr == null) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
+	if (ppixdiffPtr == IntPtr.Zero) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
 
 
 	return _Result;
@@ -766,8 +766,8 @@ public static int pixGetPerceptualDiff(
 	int _Result = Natives.pixGetPerceptualDiff(pixs1.Pointer, pixs2.Pointer,   sampling,   dilation,   mindiff, out  pfract, out ppixdiff1Ptr, out ppixdiff2Ptr);
 	
 
-	if (ppixdiff1Ptr == null) {ppixdiff1 = null;} else { ppixdiff1 = new Pix(ppixdiff1Ptr); };
-	if (ppixdiff2Ptr == null) {ppixdiff2 = null;} else { ppixdiff2 = new Pix(ppixdiff2Ptr); };
+	if (ppixdiff1Ptr == IntPtr.Zero) {ppixdiff1 = null;} else { ppixdiff1 = new Pix(ppixdiff1Ptr); };
+	if (ppixdiff2Ptr == IntPtr.Zero) {ppixdiff2 = null;} else { ppixdiff2 = new Pix(ppixdiff2Ptr); };
 
 
 	return _Result;
@@ -888,9 +888,9 @@ public static int pixaComparePhotoRegionsByHisto(
 	int _Result = Natives.pixaComparePhotoRegionsByHisto(pixa.Pointer,   minratio,   textthresh,   factor,   nx,   ny,   simthresh, out pnaiPtr, out  pscoresPtr, out ppixdPtr,  (int) debug);
 	
 
-	if (pnaiPtr == null) {pnai = null;} else { pnai = new Numa(pnaiPtr); };
+	if (pnaiPtr == IntPtr.Zero) {pnai = null;} else { pnai = new Numa(pnaiPtr); };
 	if (pscoresPtr == null) {pscores = null;} else { pscores = null; };
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -1033,7 +1033,7 @@ public static int pixGenPhotoHistos(
 	int _Result = Natives.pixGenPhotoHistos(pixs.Pointer, boxPtr,   factor,   thresh,   nx,   ny, out pnaaPtr, out  pw, out  ph,   debugindex);
 	
 
-	if (pnaaPtr == null) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
+	if (pnaaPtr == IntPtr.Zero) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
 
 
 	return _Result;
@@ -1146,7 +1146,7 @@ public static int pixDecideIfPhotoImage(
 	int _Result = Natives.pixDecideIfPhotoImage(pix.Pointer,   factor,   nx,   ny,   thresh, out pnaaPtr, pixadebugPtr);
 	
 
-	if (pnaaPtr == null) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
+	if (pnaaPtr == IntPtr.Zero) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
 
 
 	return _Result;
@@ -1328,8 +1328,8 @@ public static int pixCropAlignedToCentroid(
 	int _Result = Natives.pixCropAlignedToCentroid(pix1.Pointer, pix2.Pointer,   factor, out pbox1Ptr, out pbox2Ptr);
 	
 
-	if (pbox1Ptr == null) {pbox1 = null;} else { pbox1 = new Box(pbox1Ptr); };
-	if (pbox2Ptr == null) {pbox2 = null;} else { pbox2 = new Box(pbox2Ptr); };
+	if (pbox1Ptr == IntPtr.Zero) {pbox1 = null;} else { pbox1 = new Box(pbox1Ptr); };
+	if (pbox2Ptr == IntPtr.Zero) {pbox2 = null;} else { pbox2 = new Box(pbox2Ptr); };
 
 
 	return _Result;
@@ -1520,6 +1520,7 @@ public static int pixBestCorrelation(
 
 	return _Result;
 }
+
 
 }
 }

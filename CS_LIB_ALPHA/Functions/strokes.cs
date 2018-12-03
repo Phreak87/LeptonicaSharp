@@ -67,7 +67,7 @@ public static int pixFindStrokeWidth(
 	int _Result = Natives.pixFindStrokeWidth(pixs.Pointer,   thresh,   tab8, out  pwidth, out pnahistoPtr);
 	
 
-	if (pnahistoPtr == null) {pnahisto = null;} else { pnahisto = new Numa(pnahistoPtr); };
+	if (pnahistoPtr == IntPtr.Zero) {pnahisto = null;} else { pnahisto = new Numa(pnahistoPtr); };
 
 
 	return _Result;
@@ -217,6 +217,7 @@ public static Pix pixSetStrokeWidth(
 
 	return  new Pix(_Result);
 }
+
 
 }
 }

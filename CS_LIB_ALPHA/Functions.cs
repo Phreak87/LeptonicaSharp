@@ -282,7 +282,7 @@ public static int pixBackgroundNormGrayArray(
 	int _Result = Natives.pixBackgroundNormGrayArray(pixs.Pointer, piximPtr,   sx,   sy,   thresh,   mincount,   bgval,   smoothx,   smoothy, out ppixdPtr);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -339,9 +339,9 @@ public static int pixBackgroundNormRGBArrays(
 	int _Result = Natives.pixBackgroundNormRGBArrays(pixs.Pointer, piximPtr, pixgPtr,   sx,   sy,   thresh,   mincount,   bgval,   smoothx,   smoothy, out ppixrPtr, out ppixgPtr, out ppixbPtr);
 	
 
-	if (ppixrPtr == null) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
-	if (ppixgPtr == null) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
-	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+	if (ppixrPtr == IntPtr.Zero) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
+	if (ppixgPtr == IntPtr.Zero) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
+	if (ppixbPtr == IntPtr.Zero) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
 
 
 	return _Result;
@@ -381,7 +381,7 @@ public static int pixBackgroundNormGrayArrayMorph(
 	int _Result = Natives.pixBackgroundNormGrayArrayMorph(pixs.Pointer, piximPtr,   reduction,   size,   bgval, out ppixdPtr);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -427,9 +427,9 @@ public static int pixBackgroundNormRGBArraysMorph(
 	int _Result = Natives.pixBackgroundNormRGBArraysMorph(pixs.Pointer, piximPtr,   reduction,   size,   bgval, out ppixrPtr, out ppixgPtr, out ppixbPtr);
 	
 
-	if (ppixrPtr == null) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
-	if (ppixgPtr == null) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
-	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+	if (ppixrPtr == IntPtr.Zero) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
+	if (ppixgPtr == IntPtr.Zero) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
+	if (ppixbPtr == IntPtr.Zero) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
 
 
 	return _Result;
@@ -469,7 +469,7 @@ public static int pixGetBackgroundGrayMap(
 	int _Result = Natives.pixGetBackgroundGrayMap(pixs.Pointer, piximPtr,   sx,   sy,   thresh,   mincount, out ppixdPtr);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -519,9 +519,9 @@ public static int pixGetBackgroundRGBMap(
 	int _Result = Natives.pixGetBackgroundRGBMap(pixs.Pointer, piximPtr, pixgPtr,   sx,   sy,   thresh,   mincount, out ppixmrPtr, out ppixmgPtr, out ppixmbPtr);
 	
 
-	if (ppixmrPtr == null) {ppixmr = null;} else { ppixmr = new Pix(ppixmrPtr); };
-	if (ppixmgPtr == null) {ppixmg = null;} else { ppixmg = new Pix(ppixmgPtr); };
-	if (ppixmbPtr == null) {ppixmb = null;} else { ppixmb = new Pix(ppixmbPtr); };
+	if (ppixmrPtr == IntPtr.Zero) {ppixmr = null;} else { ppixmr = new Pix(ppixmrPtr); };
+	if (ppixmgPtr == IntPtr.Zero) {ppixmg = null;} else { ppixmg = new Pix(ppixmgPtr); };
+	if (ppixmbPtr == IntPtr.Zero) {ppixmb = null;} else { ppixmb = new Pix(ppixmbPtr); };
 
 
 	return _Result;
@@ -552,7 +552,7 @@ public static int pixGetBackgroundGrayMapMorph(
 	int _Result = Natives.pixGetBackgroundGrayMapMorph(pixs.Pointer, piximPtr,   reduction,   size, out ppixmPtr);
 	
 
-	if (ppixmPtr == null) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
+	if (ppixmPtr == IntPtr.Zero) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
 
 
 	return _Result;
@@ -589,9 +589,9 @@ public static int pixGetBackgroundRGBMapMorph(
 	int _Result = Natives.pixGetBackgroundRGBMapMorph(pixs.Pointer, piximPtr,   reduction,   size, out ppixmrPtr, out ppixmgPtr, out ppixmbPtr);
 	
 
-	if (ppixmrPtr == null) {ppixmr = null;} else { ppixmr = new Pix(ppixmrPtr); };
-	if (ppixmgPtr == null) {ppixmg = null;} else { ppixmg = new Pix(ppixmgPtr); };
-	if (ppixmbPtr == null) {ppixmb = null;} else { ppixmb = new Pix(ppixmbPtr); };
+	if (ppixmrPtr == IntPtr.Zero) {ppixmr = null;} else { ppixmr = new Pix(ppixmrPtr); };
+	if (ppixmgPtr == IntPtr.Zero) {ppixmg = null;} else { ppixmg = new Pix(ppixmgPtr); };
+	if (ppixmbPtr == IntPtr.Zero) {ppixmb = null;} else { ppixmb = new Pix(ppixmbPtr); };
 
 
 	return _Result;
@@ -1025,9 +1025,9 @@ public static int pixThresholdSpreadNorm(
 	int _Result = Natives.pixThresholdSpreadNorm(pixs.Pointer,   filtertype,   edgethresh,   smoothx,   smoothy,   gamma,   minval,   maxval,   targetthresh, out ppixthPtr, out ppixbPtr, out ppixdPtr);
 	
 
-	if (ppixthPtr == null) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
-	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixthPtr == IntPtr.Zero) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
+	if (ppixbPtr == IntPtr.Zero) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -1183,8 +1183,8 @@ public static int pixMinMaxTiles(
 	int _Result = Natives.pixMinMaxTiles(pixs.Pointer,   sx,   sy,   mindiff,   smoothx,   smoothy, out ppixminPtr, out ppixmaxPtr);
 	
 
-	if (ppixminPtr == null) {ppixmin = null;} else { ppixmin = new Pix(ppixminPtr); };
-	if (ppixmaxPtr == null) {ppixmax = null;} else { ppixmax = new Pix(ppixmaxPtr); };
+	if (ppixminPtr == IntPtr.Zero) {ppixmin = null;} else { ppixmin = new Pix(ppixminPtr); };
+	if (ppixmaxPtr == IntPtr.Zero) {ppixmax = null;} else { ppixmax = new Pix(ppixmaxPtr); };
 
 
 	return _Result;
@@ -2873,7 +2873,7 @@ public static Numa pixFindBaselines(
 	IntPtr _Result = Natives.pixFindBaselines(pixs.Pointer, out pptaPtr, pixadb.Pointer);
 	
 
-	if (pptaPtr == null) {ppta = null;} else { ppta = new Pta(pptaPtr); };
+	if (pptaPtr == IntPtr.Zero) {ppta = null;} else { ppta = new Pta(pptaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -2974,8 +2974,8 @@ public static int pixGetLocalSkewTransform(
 	int _Result = Natives.pixGetLocalSkewTransform(pixs.Pointer,   nslices,   redsweep,   redsearch,   sweeprange,   sweepdelta,   minbsdelta, out pptasPtr, out pptadPtr);
 	
 
-	if (pptasPtr == null) {pptas = null;} else { pptas = new Pta(pptasPtr); };
-	if (pptadPtr == null) {pptad = null;} else { pptad = new Pta(pptadPtr); };
+	if (pptasPtr == IntPtr.Zero) {pptas = null;} else { pptas = new Pta(pptasPtr); };
+	if (pptadPtr == IntPtr.Zero) {pptad = null;} else { pptad = new Pta(pptadPtr); };
 
 
 	return _Result;
@@ -3084,7 +3084,7 @@ public static void bbufferDestroy(
 	Natives.bbufferDestroy(ref pbbPtr);
 	
 
-	if (pbbPtr == null) {pbb = null;} else { pbb = new L_ByteBuffer(pbbPtr); };
+	if (pbbPtr == IntPtr.Zero) {pbb = null;} else { pbb = new L_ByteBuffer(pbbPtr); };
 
 
 }
@@ -3110,7 +3110,7 @@ public static Byte[] bbufferDestroyAndSaveData(
 	Byte[] _Result = Natives.bbufferDestroyAndSaveData(ref pbbPtr, out  pnbytes);
 	
 
-	if (pbbPtr == null) {pbb = null;} else { pbb = new L_ByteBuffer(pbbPtr); };
+	if (pbbPtr == IntPtr.Zero) {pbb = null;} else { pbb = new L_ByteBuffer(pbbPtr); };
 
 
 	return _Result;
@@ -4011,8 +4011,8 @@ public static int pixOtsuAdaptiveThreshold(
 	int _Result = Natives.pixOtsuAdaptiveThreshold(pixs.Pointer,   sx,   sy,   smoothx,   smoothy,   scorefract, out ppixthPtr, out ppixdPtr);
 	
 
-	if (ppixthPtr == null) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixthPtr == IntPtr.Zero) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -4190,8 +4190,8 @@ public static int pixSauvolaBinarizeTiled(
 	int _Result = Natives.pixSauvolaBinarizeTiled(pixs.Pointer,   whsize,   factor,   nx,   ny, out ppixthPtr, out ppixdPtr);
 	
 
-	if (ppixthPtr == null) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixthPtr == IntPtr.Zero) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -4257,10 +4257,10 @@ public static int pixSauvolaBinarize(
 	int _Result = Natives.pixSauvolaBinarize(pixs.Pointer,   whsize,   factor,   addborder, out ppixmPtr, out ppixsdPtr, out ppixthPtr, out ppixdPtr);
 	
 
-	if (ppixmPtr == null) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
-	if (ppixsdPtr == null) {ppixsd = null;} else { ppixsd = new Pix(ppixsdPtr); };
-	if (ppixthPtr == null) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixmPtr == IntPtr.Zero) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
+	if (ppixsdPtr == IntPtr.Zero) {ppixsd = null;} else { ppixsd = new Pix(ppixsdPtr); };
+	if (ppixthPtr == IntPtr.Zero) {ppixth = null;} else { ppixth = new Pix(ppixthPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -4316,7 +4316,7 @@ public static Pix pixSauvolaGetThreshold(
 	IntPtr _Result = Natives.pixSauvolaGetThreshold(pixm.Pointer, pixms.Pointer,   factor, out ppixsdPtr);
 	
 
-	if (ppixsdPtr == null) {ppixsd = null;} else { ppixsd = new Pix(ppixsdPtr); };
+	if (ppixsdPtr == IntPtr.Zero) {ppixsd = null;} else { ppixsd = new Pix(ppixsdPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -4419,7 +4419,7 @@ public static int pixThresholdByConnComp(
 	int _Result = Natives.pixThresholdByConnComp(pixs.Pointer, pixmPtr,   start,   _end_,   incr,   thresh48,   threshdiff, out  pglobthresh, out ppixdPtr,   debugflag);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -5405,7 +5405,7 @@ public static void bmfDestroy(
 	Natives.bmfDestroy(ref pbmfPtr);
 	
 
-	if (pbmfPtr == null) {pbmf = null;} else { pbmf = new L_Bmf(pbmfPtr); };
+	if (pbmfPtr == IntPtr.Zero) {pbmf = null;} else { pbmf = new L_Bmf(pbmfPtr); };
 
 
 }
@@ -5859,7 +5859,7 @@ public static void boxDestroy(
 	Natives.boxDestroy(ref pboxPtr);
 	
 
-	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
+	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
 
 
 }
@@ -6103,7 +6103,7 @@ public static void boxaDestroy(
 	Natives.boxaDestroy(ref pboxaPtr);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 
 }
@@ -6459,7 +6459,7 @@ public static int boxaRemoveBoxAndSave(
 	int _Result = Natives.boxaRemoveBoxAndSave(boxa.Pointer,   index, out pboxPtr);
 	
 
-	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
+	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
 
 
 	return _Result;
@@ -6628,7 +6628,7 @@ public static void boxaaDestroy(
 	Natives.boxaaDestroy(ref pbaaPtr);
 	
 
-	if (pbaaPtr == null) {pbaa = null;} else { pbaa = new Boxaa(pbaaPtr); };
+	if (pbaaPtr == IntPtr.Zero) {pbaa = null;} else { pbaa = new Boxaa(pbaaPtr); };
 
 
 }
@@ -7569,7 +7569,7 @@ public static Boxa boxaCombineOverlaps(
 	IntPtr _Result = Natives.boxaCombineOverlaps(boxas.Pointer, ref pixadbPtr);
 	
 
-	if (pixadbPtr == null) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
+	if (pixadbPtr == IntPtr.Zero) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -7619,9 +7619,9 @@ public static int boxaCombineOverlapsInPair(
 	int _Result = Natives.boxaCombineOverlapsInPair(boxas1.Pointer, boxas2.Pointer, out pboxad1Ptr, out pboxad2Ptr, ref pixadbPtr);
 	
 
-	if (pboxad1Ptr == null) {pboxad1 = null;} else { pboxad1 = new Boxa(pboxad1Ptr); };
-	if (pboxad2Ptr == null) {pboxad2 = null;} else { pboxad2 = new Boxa(pboxad2Ptr); };
-	if (pixadbPtr == null) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
+	if (pboxad1Ptr == IntPtr.Zero) {pboxad1 = null;} else { pboxad1 = new Boxa(pboxad1Ptr); };
+	if (pboxad2Ptr == IntPtr.Zero) {pboxad2 = null;} else { pboxad2 = new Boxa(pboxad2Ptr); };
+	if (pixadbPtr == IntPtr.Zero) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
 
 
 	return _Result;
@@ -7774,7 +7774,7 @@ public static Boxa boxaHandleOverlaps(
 	IntPtr _Result = Natives.boxaHandleOverlaps(boxas.Pointer,   op,   range,   min_overlap,   max_ratio, out pnamapPtr);
 	
 
-	if (pnamapPtr == null) {pnamap = null;} else { pnamap = new Numa(pnamapPtr); };
+	if (pnamapPtr == IntPtr.Zero) {pnamap = null;} else { pnamap = new Numa(pnamapPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -7953,8 +7953,8 @@ public static int boxaFindNearestBoxes(
 	int _Result = Natives.boxaFindNearestBoxes(boxa.Pointer,   dist_select,   range, out pnaaindexPtr, out pnaadistPtr);
 	
 
-	if (pnaaindexPtr == null) {pnaaindex = null;} else { pnaaindex = new Numaa(pnaaindexPtr); };
-	if (pnaadistPtr == null) {pnaadist = null;} else { pnaadist = new Numaa(pnaadistPtr); };
+	if (pnaaindexPtr == IntPtr.Zero) {pnaaindex = null;} else { pnaaindex = new Numaa(pnaaindexPtr); };
+	if (pnaadistPtr == IntPtr.Zero) {pnaadist = null;} else { pnaadist = new Numaa(pnaadistPtr); };
 
 
 	return _Result;
@@ -8439,7 +8439,7 @@ public static int boxaEqual(
 	int _Result = Natives.boxaEqual(boxa1.Pointer, boxa2.Pointer,   maxdist, out pnaindexPtr, out  psame);
 	
 
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 
 	return _Result;
@@ -8523,7 +8523,7 @@ public static int boxaSimilar(
 	int _Result = Natives.boxaSimilar(boxa1.Pointer, boxa2.Pointer,   leftdiff,   rightdiff,   topdiff,   botdiff,  (int) debug, out  psimilar, out pnasimPtr);
 	
 
-	if (pnasimPtr == null) {pnasim = null;} else { pnasim = new Numa(pnasimPtr); };
+	if (pnasimPtr == IntPtr.Zero) {pnasim = null;} else { pnasim = new Numa(pnasimPtr); };
 
 
 	return _Result;
@@ -8627,8 +8627,8 @@ public static int boxaSplitEvenOdd(
 	int _Result = Natives.boxaSplitEvenOdd(boxa.Pointer,   fillflag, out pboxaePtr, out pboxaoPtr);
 	
 
-	if (pboxaePtr == null) {pboxae = null;} else { pboxae = new Boxa(pboxaePtr); };
-	if (pboxaoPtr == null) {pboxao = null;} else { pboxao = new Boxa(pboxaoPtr); };
+	if (pboxaePtr == IntPtr.Zero) {pboxae = null;} else { pboxae = new Boxa(pboxaePtr); };
+	if (pboxaoPtr == IntPtr.Zero) {pboxao = null;} else { pboxao = new Boxa(pboxaoPtr); };
 
 
 	return _Result;
@@ -8955,7 +8955,7 @@ public static Boxa boxaSort(
 	IntPtr _Result = Natives.boxaSort(boxas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
 	
 
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -8992,7 +8992,7 @@ public static Boxa boxaBinSort(
 	IntPtr _Result = Natives.boxaBinSort(boxas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
 	
 
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -9081,7 +9081,7 @@ public static Boxaa boxaSort2d(
 	IntPtr _Result = Natives.boxaSort2d(boxas.Pointer, out pnaadPtr,   delta1,   delta2,   minh1);
 	
 
-	if (pnaadPtr == null) {pnaad = null;} else { pnaad = new Numaa(pnaadPtr); };
+	if (pnaadPtr == IntPtr.Zero) {pnaad = null;} else { pnaad = new Numaa(pnaadPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -9154,12 +9154,12 @@ public static int boxaExtractAsNuma(
 	int _Result = Natives.boxaExtractAsNuma(boxa.Pointer, out pnalPtr, out pnatPtr, out pnarPtr, out pnabPtr, out pnawPtr, out pnahPtr,   keepinvalid);
 	
 
-	if (pnalPtr == null) {pnal = null;} else { pnal = new Numa(pnalPtr); };
-	if (pnatPtr == null) {pnat = null;} else { pnat = new Numa(pnatPtr); };
-	if (pnarPtr == null) {pnar = null;} else { pnar = new Numa(pnarPtr); };
-	if (pnabPtr == null) {pnab = null;} else { pnab = new Numa(pnabPtr); };
-	if (pnawPtr == null) {pnaw = null;} else { pnaw = new Numa(pnawPtr); };
-	if (pnahPtr == null) {pnah = null;} else { pnah = new Numa(pnahPtr); };
+	if (pnalPtr == IntPtr.Zero) {pnal = null;} else { pnal = new Numa(pnalPtr); };
+	if (pnatPtr == IntPtr.Zero) {pnat = null;} else { pnat = new Numa(pnatPtr); };
+	if (pnarPtr == IntPtr.Zero) {pnar = null;} else { pnar = new Numa(pnarPtr); };
+	if (pnabPtr == IntPtr.Zero) {pnab = null;} else { pnab = new Numa(pnabPtr); };
+	if (pnawPtr == IntPtr.Zero) {pnaw = null;} else { pnaw = new Numa(pnawPtr); };
+	if (pnahPtr == IntPtr.Zero) {pnah = null;} else { pnah = new Numa(pnahPtr); };
 
 
 	return _Result;
@@ -9211,12 +9211,12 @@ public static int boxaExtractAsPta(
 	int _Result = Natives.boxaExtractAsPta(boxa.Pointer, out pptalPtr, out pptatPtr, out pptarPtr, out pptabPtr, out pptawPtr, out pptahPtr,   keepinvalid);
 	
 
-	if (pptalPtr == null) {pptal = null;} else { pptal = new Pta(pptalPtr); };
-	if (pptatPtr == null) {pptat = null;} else { pptat = new Pta(pptatPtr); };
-	if (pptarPtr == null) {pptar = null;} else { pptar = new Pta(pptarPtr); };
-	if (pptabPtr == null) {pptab = null;} else { pptab = new Pta(pptabPtr); };
-	if (pptawPtr == null) {pptaw = null;} else { pptaw = new Pta(pptawPtr); };
-	if (pptahPtr == null) {pptah = null;} else { pptah = new Pta(pptahPtr); };
+	if (pptalPtr == IntPtr.Zero) {pptal = null;} else { pptal = new Pta(pptalPtr); };
+	if (pptatPtr == IntPtr.Zero) {pptat = null;} else { pptat = new Pta(pptatPtr); };
+	if (pptarPtr == IntPtr.Zero) {pptar = null;} else { pptar = new Pta(pptarPtr); };
+	if (pptabPtr == IntPtr.Zero) {pptab = null;} else { pptab = new Pta(pptabPtr); };
+	if (pptawPtr == IntPtr.Zero) {pptaw = null;} else { pptaw = new Pta(pptawPtr); };
+	if (pptahPtr == IntPtr.Zero) {pptah = null;} else { pptah = new Pta(pptahPtr); };
 
 
 	return _Result;
@@ -9353,8 +9353,8 @@ public static int boxaaGetExtent(
 	int _Result = Natives.boxaaGetExtent(baa.Pointer, out  pw, out  ph, out pboxPtr, out pboxaPtr);
 	
 
-	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 
 	return _Result;
@@ -9393,7 +9393,7 @@ public static Boxa boxaaFlattenToBoxa(
 	IntPtr _Result = Natives.boxaaFlattenToBoxa(baa.Pointer, out pnaindexPtr,   copyflag);
 	
 
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -9556,7 +9556,7 @@ public static Pix pixMaskConnComp(
 	IntPtr _Result = Natives.pixMaskConnComp(pixs.Pointer,   connectivity, out pboxaPtr);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -10127,7 +10127,7 @@ public static int boxaCompareRegions(
 	int _Result = Natives.boxaCompareRegions(boxa1.Pointer, boxa2.Pointer,   areathresh, out  pnsame, out  pdiffarea, out  pdiffxor, out ppixdbPtr);
 	
 
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
@@ -11174,11 +11174,11 @@ public static int boxaPlotSides(
 	int _Result = Natives.boxaPlotSides(boxa.Pointer,   plotname, out pnalPtr, out pnatPtr, out pnarPtr, out pnabPtr, out ppixdPtr);
 	
 
-	if (pnalPtr == null) {pnal = null;} else { pnal = new Numa(pnalPtr); };
-	if (pnatPtr == null) {pnat = null;} else { pnat = new Numa(pnatPtr); };
-	if (pnarPtr == null) {pnar = null;} else { pnar = new Numa(pnarPtr); };
-	if (pnabPtr == null) {pnab = null;} else { pnab = new Numa(pnabPtr); };
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (pnalPtr == IntPtr.Zero) {pnal = null;} else { pnal = new Numa(pnalPtr); };
+	if (pnatPtr == IntPtr.Zero) {pnat = null;} else { pnat = new Numa(pnatPtr); };
+	if (pnarPtr == IntPtr.Zero) {pnar = null;} else { pnar = new Numa(pnarPtr); };
+	if (pnabPtr == IntPtr.Zero) {pnab = null;} else { pnab = new Numa(pnabPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -11222,9 +11222,9 @@ public static int boxaPlotSizes(
 	int _Result = Natives.boxaPlotSizes(boxa.Pointer,   plotname, out pnawPtr, out pnahPtr, out ppixdPtr);
 	
 
-	if (pnawPtr == null) {pnaw = null;} else { pnaw = new Numa(pnawPtr); };
-	if (pnahPtr == null) {pnah = null;} else { pnah = new Numa(pnahPtr); };
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (pnawPtr == IntPtr.Zero) {pnaw = null;} else { pnaw = new Numa(pnawPtr); };
+	if (pnahPtr == IntPtr.Zero) {pnah = null;} else { pnah = new Numa(pnahPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -11334,7 +11334,7 @@ public static int boxaGetExtent(
 	int _Result = Natives.boxaGetExtent(boxa.Pointer, out  pw, out  ph, out pboxPtr);
 	
 
-	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
+	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
 
 
 	return _Result;
@@ -11480,8 +11480,8 @@ public static int boxaGetSizes(
 	int _Result = Natives.boxaGetSizes(boxa.Pointer, out pnawPtr, out pnahPtr);
 	
 
-	if (pnawPtr == null) {pnaw = null;} else { pnaw = new Numa(pnawPtr); };
-	if (pnahPtr == null) {pnah = null;} else { pnah = new Numa(pnahPtr); };
+	if (pnawPtr == IntPtr.Zero) {pnaw = null;} else { pnaw = new Numa(pnawPtr); };
+	if (pnahPtr == IntPtr.Zero) {pnah = null;} else { pnah = new Numa(pnahPtr); };
 
 
 	return _Result;
@@ -11693,7 +11693,7 @@ public static void l_byteaDestroy(
 	Natives.l_byteaDestroy(ref pbaPtr);
 	
 
-	if (pbaPtr == null) {pba = null;} else { pba = new L_Bytea(pbaPtr); };
+	if (pbaPtr == IntPtr.Zero) {pba = null;} else { pba = new L_Bytea(pbaPtr); };
 
 
 }
@@ -11831,7 +11831,7 @@ public static int l_byteaJoin(
 	int _Result = Natives.l_byteaJoin(ba1.Pointer, ref pba2Ptr);
 	
 
-	if (pba2Ptr == null) {pba2 = null;} else { pba2 = new L_Bytea(pba2Ptr); };
+	if (pba2Ptr == IntPtr.Zero) {pba2 = null;} else { pba2 = new L_Bytea(pba2Ptr); };
 
 
 	return _Result;
@@ -11857,7 +11857,7 @@ public static int l_byteaSplit(
 	int _Result = Natives.l_byteaSplit(ba1.Pointer,   splitloc, out pba2Ptr);
 	
 
-	if (pba2Ptr == null) {pba2 = null;} else { pba2 = new L_Bytea(pba2Ptr); };
+	if (pba2Ptr == IntPtr.Zero) {pba2 = null;} else { pba2 = new L_Bytea(pba2Ptr); };
 
 
 	return _Result;
@@ -11885,7 +11885,7 @@ public static int l_byteaFindEachSequence(
 	int _Result = Natives.l_byteaFindEachSequence(ba.Pointer,   sequence,   seqlen, out pdaPtr);
 	
 
-	if (pdaPtr == null) {pda = null;} else { pda = new L_Dna(pdaPtr); };
+	if (pdaPtr == IntPtr.Zero) {pda = null;} else { pda = new L_Dna(pdaPtr); };
 
 
 	return _Result;
@@ -11980,7 +11980,7 @@ public static void ccbaDestroy(
 	Natives.ccbaDestroy(ref pccbaPtr);
 	
 
-	if (pccbaPtr == null) {pccba = null;} else { pccba = new CCBorda(pccbaPtr); };
+	if (pccbaPtr == IntPtr.Zero) {pccba = null;} else { pccba = new CCBorda(pccbaPtr); };
 
 
 }
@@ -12022,7 +12022,7 @@ public static void ccbDestroy(
 	Natives.ccbDestroy(ref pccbPtr);
 	
 
-	if (pccbPtr == null) {pccb = null;} else { pccb = new CCBord(pccbPtr); };
+	if (pccbPtr == IntPtr.Zero) {pccb = null;} else { pccb = new CCBord(pccbPtr); };
 
 
 }
@@ -13138,7 +13138,7 @@ public static JbClasser jbWordsInTextlines(
 	IntPtr _Result = Natives.jbWordsInTextlines(  dirin,   reduction,   maxwidth,   maxheight,   thresh,   weight, out pnatlPtr,   firstpage,   npages);
 	
 
-	if (pnatlPtr == null) {pnatl = null;} else { pnatl = new Numa(pnatlPtr); };
+	if (pnatlPtr == IntPtr.Zero) {pnatl = null;} else { pnatl = new Numa(pnatlPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -13212,9 +13212,9 @@ public static int pixGetWordsInTextlines(
 	int _Result = Natives.pixGetWordsInTextlines(pixs.Pointer,   minwidth,   minheight,   maxwidth,   maxheight, out pboxadPtr, out ppixadPtr, out pnaiPtr);
 	
 
-	if (pboxadPtr == null) {pboxad = null;} else { pboxad = new Boxa(pboxadPtr); };
-	if (ppixadPtr == null) {ppixad = null;} else { ppixad = new Pixa(ppixadPtr); };
-	if (pnaiPtr == null) {pnai = null;} else { pnai = new Numa(pnaiPtr); };
+	if (pboxadPtr == IntPtr.Zero) {pboxad = null;} else { pboxad = new Boxa(pboxadPtr); };
+	if (ppixadPtr == IntPtr.Zero) {ppixad = null;} else { ppixad = new Pixa(ppixadPtr); };
+	if (pnaiPtr == IntPtr.Zero) {pnai = null;} else { pnai = new Numa(pnaiPtr); };
 
 
 	return _Result;
@@ -13257,8 +13257,8 @@ public static int pixGetWordBoxesInTextlines(
 	int _Result = Natives.pixGetWordBoxesInTextlines(pixs.Pointer,   minwidth,   minheight,   maxwidth,   maxheight, out pboxadPtr, out pnaiPtr);
 	
 
-	if (pboxadPtr == null) {pboxad = null;} else { pboxad = new Boxa(pboxadPtr); };
-	if (pnaiPtr == null) {pnai = null;} else { pnai = new Numa(pnaiPtr); };
+	if (pboxadPtr == IntPtr.Zero) {pboxad = null;} else { pboxad = new Boxa(pboxadPtr); };
+	if (pnaiPtr == IntPtr.Zero) {pnai = null;} else { pnai = new Numa(pnaiPtr); };
 
 
 	return _Result;
@@ -13416,9 +13416,9 @@ public static int pixColorContent(
 	int _Result = Natives.pixColorContent(pixs.Pointer,   rwhite,   gwhite,   bwhite,   mingray, out ppixrPtr, out ppixgPtr, out ppixbPtr);
 	
 
-	if (ppixrPtr == null) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
-	if (ppixgPtr == null) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
-	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+	if (ppixrPtr == IntPtr.Zero) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
+	if (ppixgPtr == IntPtr.Zero) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
+	if (ppixbPtr == IntPtr.Zero) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
 
 
 	return _Result;
@@ -13723,9 +13723,9 @@ public static int pixFindColorRegions(
 	int _Result = Natives.pixFindColorRegions(pixs.Pointer, pixmPtr,   factor,   lightthresh,   darkthresh,   mindiff,   colordiff,   edgefract, out  pcolorfract, out pcolormask1Ptr, out pcolormask2Ptr, out pixadbPtr);
 	
 
-	if (pcolormask1Ptr == null) {pcolormask1 = null;} else { pcolormask1 = new Pix(pcolormask1Ptr); };
-	if (pcolormask2Ptr == null) {pcolormask2 = null;} else { pcolormask2 = new Pix(pcolormask2Ptr); };
-	if (pixadbPtr == null) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
+	if (pcolormask1Ptr == IntPtr.Zero) {pcolormask1 = null;} else { pcolormask1 = new Pix(pcolormask1Ptr); };
+	if (pcolormask2Ptr == IntPtr.Zero) {pcolormask2 = null;} else { pcolormask2 = new Pix(pcolormask2Ptr); };
+	if (pixadbPtr == IntPtr.Zero) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
 
 
 	return _Result;
@@ -13947,7 +13947,7 @@ public static int pixGetMostPopulatedColors(
 	
 
 	if (parrayPtr == null) {parray = null;} else { parray = null; };
-	if (pcmapPtr == null) {pcmap = null;} else { pcmap = new PixColormap(pcmapPtr); };
+	if (pcmapPtr == IntPtr.Zero) {pcmap = null;} else { pcmap = new PixColormap(pcmapPtr); };
 
 
 	return _Result;
@@ -14146,7 +14146,7 @@ public static int pixHasHighlightRed(
 	int _Result = Natives.pixHasHighlightRed(pixs.Pointer,   factor,   fract,   fthresh, out  phasred, out  pratio, out ppixdbPtr);
 	
 
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
@@ -14762,7 +14762,7 @@ public static void pixcmapDestroy(
 	Natives.pixcmapDestroy(ref pcmapPtr);
 	
 
-	if (pcmapPtr == null) {pcmap = null;} else { pcmap = new PixColormap(pcmapPtr); };
+	if (pcmapPtr == IntPtr.Zero) {pcmap = null;} else { pcmap = new PixColormap(pcmapPtr); };
 
 
 }
@@ -18193,8 +18193,8 @@ public static Pix pixMakeHistoHS(
 	IntPtr _Result = Natives.pixMakeHistoHS(pixs.Pointer,   factor, out pnahuePtr, out pnasatPtr);
 	
 
-	if (pnahuePtr == null) {pnahue = null;} else { pnahue = new Numa(pnahuePtr); };
-	if (pnasatPtr == null) {pnasat = null;} else { pnasat = new Numa(pnasatPtr); };
+	if (pnahuePtr == IntPtr.Zero) {pnahue = null;} else { pnahue = new Numa(pnahuePtr); };
+	if (pnasatPtr == IntPtr.Zero) {pnasat = null;} else { pnasat = new Numa(pnasatPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -18233,8 +18233,8 @@ public static Pix pixMakeHistoHV(
 	IntPtr _Result = Natives.pixMakeHistoHV(pixs.Pointer,   factor, out pnahuePtr, out pnavalPtr);
 	
 
-	if (pnahuePtr == null) {pnahue = null;} else { pnahue = new Numa(pnahuePtr); };
-	if (pnavalPtr == null) {pnaval = null;} else { pnaval = new Numa(pnavalPtr); };
+	if (pnahuePtr == IntPtr.Zero) {pnahue = null;} else { pnahue = new Numa(pnahuePtr); };
+	if (pnavalPtr == IntPtr.Zero) {pnaval = null;} else { pnaval = new Numa(pnavalPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -18273,8 +18273,8 @@ public static Pix pixMakeHistoSV(
 	IntPtr _Result = Natives.pixMakeHistoSV(pixs.Pointer,   factor, out pnasatPtr, out pnavalPtr);
 	
 
-	if (pnasatPtr == null) {pnasat = null;} else { pnasat = new Numa(pnasatPtr); };
-	if (pnavalPtr == null) {pnaval = null;} else { pnaval = new Numa(pnavalPtr); };
+	if (pnasatPtr == IntPtr.Zero) {pnasat = null;} else { pnasat = new Numa(pnasatPtr); };
+	if (pnavalPtr == IntPtr.Zero) {pnaval = null;} else { pnaval = new Numa(pnavalPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -18329,9 +18329,9 @@ public static int pixFindHistoPeaksHSV(
 	int _Result = Natives.pixFindHistoPeaksHSV(pixs.Pointer,   type,   width,   height,   npeaks,   erasefactor, out pptaPtr, out pnatotPtr, out ppixaPtr);
 	
 
-	if (pptaPtr == null) {ppta = null;} else { ppta = new Pta(pptaPtr); };
-	if (pnatotPtr == null) {pnatot = null;} else { pnatot = new Numa(pnatotPtr); };
-	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+	if (pptaPtr == IntPtr.Zero) {ppta = null;} else { ppta = new Pta(pptaPtr); };
+	if (pnatotPtr == IntPtr.Zero) {pnatot = null;} else { pnatot = new Numa(pnatotPtr); };
+	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 
 
 	return _Result;
@@ -19226,7 +19226,7 @@ public static int pixCompareBinary(
 	int _Result = Natives.pixCompareBinary(pix1.Pointer, pix2.Pointer,   comptype, out  pfract, out ppixdiffPtr);
 	
 
-	if (ppixdiffPtr == null) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
+	if (ppixdiffPtr == IntPtr.Zero) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
 
 
 	return _Result;
@@ -19292,7 +19292,7 @@ public static int pixCompareGrayOrRGB(
 	int _Result = Natives.pixCompareGrayOrRGB(pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out  prmsdiff, out ppixdiffPtr);
 	
 
-	if (ppixdiffPtr == null) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
+	if (ppixdiffPtr == IntPtr.Zero) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
 
 
 	return _Result;
@@ -19336,7 +19336,7 @@ public static int pixCompareGray(
 	int _Result = Natives.pixCompareGray(pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out  prmsdiff, out ppixdiffPtr);
 	
 
-	if (ppixdiffPtr == null) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
+	if (ppixdiffPtr == IntPtr.Zero) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
 
 
 	return _Result;
@@ -19378,7 +19378,7 @@ public static int pixCompareRGB(
 	int _Result = Natives.pixCompareRGB(pix1.Pointer, pix2.Pointer,   comptype,   plottype, out  psame, out  pdiff, out  prmsdiff, out ppixdiffPtr);
 	
 
-	if (ppixdiffPtr == null) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
+	if (ppixdiffPtr == IntPtr.Zero) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
 
 
 	return _Result;
@@ -19425,7 +19425,7 @@ public static int pixCompareTiled(
 	int _Result = Natives.pixCompareTiled(pix1.Pointer, pix2.Pointer,   sx,   sy,   type, out ppixdiffPtr);
 	
 
-	if (ppixdiffPtr == null) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
+	if (ppixdiffPtr == IntPtr.Zero) {ppixdiff = null;} else { ppixdiff = new Pix(ppixdiffPtr); };
 
 
 	return _Result;
@@ -19706,8 +19706,8 @@ public static int pixGetPerceptualDiff(
 	int _Result = Natives.pixGetPerceptualDiff(pixs1.Pointer, pixs2.Pointer,   sampling,   dilation,   mindiff, out  pfract, out ppixdiff1Ptr, out ppixdiff2Ptr);
 	
 
-	if (ppixdiff1Ptr == null) {ppixdiff1 = null;} else { ppixdiff1 = new Pix(ppixdiff1Ptr); };
-	if (ppixdiff2Ptr == null) {ppixdiff2 = null;} else { ppixdiff2 = new Pix(ppixdiff2Ptr); };
+	if (ppixdiff1Ptr == IntPtr.Zero) {ppixdiff1 = null;} else { ppixdiff1 = new Pix(ppixdiff1Ptr); };
+	if (ppixdiff2Ptr == IntPtr.Zero) {ppixdiff2 = null;} else { ppixdiff2 = new Pix(ppixdiff2Ptr); };
 
 
 	return _Result;
@@ -19828,9 +19828,9 @@ public static int pixaComparePhotoRegionsByHisto(
 	int _Result = Natives.pixaComparePhotoRegionsByHisto(pixa.Pointer,   minratio,   textthresh,   factor,   nx,   ny,   simthresh, out pnaiPtr, out  pscoresPtr, out ppixdPtr,  (int) debug);
 	
 
-	if (pnaiPtr == null) {pnai = null;} else { pnai = new Numa(pnaiPtr); };
+	if (pnaiPtr == IntPtr.Zero) {pnai = null;} else { pnai = new Numa(pnaiPtr); };
 	if (pscoresPtr == null) {pscores = null;} else { pscores = null; };
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -19973,7 +19973,7 @@ public static int pixGenPhotoHistos(
 	int _Result = Natives.pixGenPhotoHistos(pixs.Pointer, boxPtr,   factor,   thresh,   nx,   ny, out pnaaPtr, out  pw, out  ph,   debugindex);
 	
 
-	if (pnaaPtr == null) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
+	if (pnaaPtr == IntPtr.Zero) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
 
 
 	return _Result;
@@ -20086,7 +20086,7 @@ public static int pixDecideIfPhotoImage(
 	int _Result = Natives.pixDecideIfPhotoImage(pix.Pointer,   factor,   nx,   ny,   thresh, out pnaaPtr, pixadebugPtr);
 	
 
-	if (pnaaPtr == null) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
+	if (pnaaPtr == IntPtr.Zero) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
 
 
 	return _Result;
@@ -20268,8 +20268,8 @@ public static int pixCropAlignedToCentroid(
 	int _Result = Natives.pixCropAlignedToCentroid(pix1.Pointer, pix2.Pointer,   factor, out pbox1Ptr, out pbox2Ptr);
 	
 
-	if (pbox1Ptr == null) {pbox1 = null;} else { pbox1 = new Box(pbox1Ptr); };
-	if (pbox2Ptr == null) {pbox2 = null;} else { pbox2 = new Box(pbox2Ptr); };
+	if (pbox1Ptr == IntPtr.Zero) {pbox1 = null;} else { pbox1 = new Box(pbox1Ptr); };
+	if (pbox2Ptr == IntPtr.Zero) {pbox2 = null;} else { pbox2 = new Box(pbox2Ptr); };
 
 
 	return _Result;
@@ -20488,7 +20488,7 @@ public static Boxa pixConnComp(
 	IntPtr _Result = Natives.pixConnComp(pixs.Pointer, out ppixaPtr,   connectivity);
 	
 
-	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -20531,7 +20531,7 @@ public static Boxa pixConnCompPixa(
 	IntPtr _Result = Natives.pixConnCompPixa(pixs.Pointer, out ppixaPtr,   connectivity);
 	
 
-	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -21223,10 +21223,10 @@ public static int pixWindowedStats(
 	int _Result = Natives.pixWindowedStats(pixs.Pointer,   wc,   hc,   hasborder, out ppixmPtr, out ppixmsPtr, out pfpixvPtr, out pfpixrvPtr);
 	
 
-	if (ppixmPtr == null) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
-	if (ppixmsPtr == null) {ppixms = null;} else { ppixms = new Pix(ppixmsPtr); };
-	if (pfpixvPtr == null) {pfpixv = null;} else { pfpixv = new FPix(pfpixvPtr); };
-	if (pfpixrvPtr == null) {pfpixrv = null;} else { pfpixrv = new FPix(pfpixrvPtr); };
+	if (ppixmPtr == IntPtr.Zero) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
+	if (ppixmsPtr == IntPtr.Zero) {ppixms = null;} else { ppixms = new Pix(ppixmsPtr); };
+	if (pfpixvPtr == IntPtr.Zero) {pfpixv = null;} else { pfpixv = new FPix(pfpixvPtr); };
+	if (pfpixrvPtr == IntPtr.Zero) {pfpixrv = null;} else { pfpixrv = new FPix(pfpixrvPtr); };
 
 
 	return _Result;
@@ -21368,8 +21368,8 @@ public static int pixWindowedVariance(
 	int _Result = Natives.pixWindowedVariance(pixm.Pointer, pixms.Pointer, out pfpixvPtr, out pfpixrvPtr);
 	
 
-	if (pfpixvPtr == null) {pfpixv = null;} else { pfpixv = new FPix(pfpixvPtr); };
-	if (pfpixrvPtr == null) {pfpixrv = null;} else { pfpixrv = new FPix(pfpixrvPtr); };
+	if (pfpixvPtr == IntPtr.Zero) {pfpixv = null;} else { pfpixv = new FPix(pfpixvPtr); };
+	if (pfpixrvPtr == IntPtr.Zero) {pfpixrv = null;} else { pfpixrv = new FPix(pfpixrvPtr); };
 
 
 	return _Result;
@@ -22306,7 +22306,7 @@ public static void dewarpDestroy(
 	Natives.dewarpDestroy(ref pdewPtr);
 	
 
-	if (pdewPtr == null) {pdew = null;} else { pdew = new L_Dewarp(pdewPtr); };
+	if (pdewPtr == IntPtr.Zero) {pdew = null;} else { pdew = new L_Dewarp(pdewPtr); };
 
 
 }
@@ -22429,7 +22429,7 @@ public static void dewarpaDestroy(
 	Natives.dewarpaDestroy(ref pdewaPtr);
 	
 
-	if (pdewaPtr == null) {pdewa = null;} else { pdewa = new L_Dewarpa(pdewaPtr); };
+	if (pdewaPtr == IntPtr.Zero) {pdewa = null;} else { pdewa = new L_Dewarpa(pdewaPtr); };
 
 
 }
@@ -23349,7 +23349,7 @@ public static int dewarpaApplyDisparity(
 	int _Result = Natives.dewarpaApplyDisparity(dewa.Pointer,   pageno, pixs.Pointer,   grayin,   x,   y, out ppixdPtr,   debugfile);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -23401,7 +23401,7 @@ public static int dewarpaApplyDisparityBoxa(
 	int _Result = Natives.dewarpaApplyDisparityBoxa(dewa.Pointer,   pageno, pixs.Pointer, boxas.Pointer,   mapdir,   x,   y, out pboxadPtr,   debugfile);
 	
 
-	if (pboxadPtr == null) {pboxad = null;} else { pboxad = new Boxa(pboxadPtr); };
+	if (pboxadPtr == IntPtr.Zero) {pboxad = null;} else { pboxad = new Boxa(pboxadPtr); };
 
 
 	return _Result;
@@ -23521,8 +23521,8 @@ public static int dewarpSinglePage(
 	int _Result = Natives.dewarpSinglePage(pixs.Pointer,   thresh,   adaptive,   useboth,   check_columns, out ppixdPtr, out pdewaPtr,  (int) debug);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
-	if (pdewaPtr == null) {pdewa = null;} else { pdewa = new L_Dewarpa(pdewaPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (pdewaPtr == IntPtr.Zero) {pdewa = null;} else { pdewa = new L_Dewarpa(pdewaPtr); };
 
 
 	return _Result;
@@ -23572,8 +23572,8 @@ public static int dewarpSinglePageInit(
 	int _Result = Natives.dewarpSinglePageInit(pixs.Pointer,   thresh,   adaptive,   useboth,   check_columns, out ppixbPtr, out pdewaPtr);
 	
 
-	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
-	if (pdewaPtr == null) {pdewa = null;} else { pdewa = new L_Dewarpa(pdewaPtr); };
+	if (ppixbPtr == IntPtr.Zero) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+	if (pdewaPtr == IntPtr.Zero) {pdewa = null;} else { pdewa = new L_Dewarpa(pdewaPtr); };
 
 
 	return _Result;
@@ -23613,7 +23613,7 @@ public static int dewarpSinglePageRun(
 	int _Result = Natives.dewarpSinglePageRun(pixs.Pointer, pixb.Pointer, dewa.Pointer, out ppixdPtr,  (int) debug);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -24096,7 +24096,7 @@ public static void l_dnaDestroy(
 	Natives.l_dnaDestroy(ref pdaPtr);
 	
 
-	if (pdaPtr == null) {pda = null;} else { pda = new L_Dna(pdaPtr); };
+	if (pdaPtr == IntPtr.Zero) {pda = null;} else { pda = new L_Dna(pdaPtr); };
 
 
 }
@@ -24763,7 +24763,7 @@ public static void l_dnaaDestroy(
 	Natives.l_dnaaDestroy(ref pdaaPtr);
 	
 
-	if (pdaaPtr == null) {pdaa = null;} else { pdaa = new L_Dnaa(pdaaPtr); };
+	if (pdaaPtr == IntPtr.Zero) {pdaa = null;} else { pdaa = new L_Dnaa(pdaaPtr); };
 
 
 }
@@ -25300,7 +25300,7 @@ public static void l_dnaHashDestroy(
 	Natives.l_dnaHashDestroy(ref pdahashPtr);
 	
 
-	if (pdahashPtr == null) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
+	if (pdahashPtr == IntPtr.Zero) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
 
 
 }
@@ -25442,8 +25442,8 @@ public static int l_dnaRemoveDupsByHash(
 	int _Result = Natives.l_dnaRemoveDupsByHash(das.Pointer, out pdadPtr, out pdahashPtr);
 	
 
-	if (pdadPtr == null) {pdad = null;} else { pdad = new L_Dna(pdadPtr); };
-	if (pdahashPtr == null) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
+	if (pdadPtr == IntPtr.Zero) {pdad = null;} else { pdad = new L_Dna(pdadPtr); };
+	if (pdahashPtr == IntPtr.Zero) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
 
 
 	return _Result;
@@ -25490,9 +25490,9 @@ public static int l_dnaMakeHistoByHash(
 	int _Result = Natives.l_dnaMakeHistoByHash(das.Pointer, out pdahashPtr, out pdavPtr, out pdacPtr);
 	
 
-	if (pdahashPtr == null) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
-	if (pdavPtr == null) {pdav = null;} else { pdav = new L_Dna(pdavPtr); };
-	if (pdacPtr == null) {pdac = null;} else { pdac = new L_Dna(pdacPtr); };
+	if (pdahashPtr == IntPtr.Zero) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
+	if (pdavPtr == IntPtr.Zero) {pdav = null;} else { pdav = new L_Dna(pdavPtr); };
+	if (pdacPtr == IntPtr.Zero) {pdac = null;} else { pdac = new L_Dna(pdacPtr); };
 
 
 	return _Result;
@@ -27320,7 +27320,7 @@ public static int pixItalicWords(
 	int _Result = Natives.pixItalicWords(pixs.Pointer, boxawPtr, pixwPtr, out pboxaPtr,   debugflag);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 
 	return _Result;
@@ -28174,7 +28174,7 @@ public static void fpixDestroy(
 	Natives.fpixDestroy(ref pfpixPtr);
 	
 
-	if (pfpixPtr == null) {pfpix = null;} else { pfpix = new FPix(pfpixPtr); };
+	if (pfpixPtr == IntPtr.Zero) {pfpix = null;} else { pfpix = new FPix(pfpixPtr); };
 
 
 }
@@ -28528,7 +28528,7 @@ public static void fpixaDestroy(
 	Natives.fpixaDestroy(ref pfpixaPtr);
 	
 
-	if (pfpixaPtr == null) {pfpixa = null;} else { pfpixa = new FPixa(pfpixaPtr); };
+	if (pfpixaPtr == IntPtr.Zero) {pfpixa = null;} else { pfpixa = new FPixa(pfpixaPtr); };
 
 
 }
@@ -28883,7 +28883,7 @@ public static void dpixDestroy(
 	Natives.dpixDestroy(ref pdpixPtr);
 	
 
-	if (pdpixPtr == null) {pdpix = null;} else { pdpix = new DPix(pdpixPtr); };
+	if (pdpixPtr == IntPtr.Zero) {pdpix = null;} else { pdpix = new DPix(pdpixPtr); };
 
 
 }
@@ -30826,7 +30826,7 @@ public static void gplotDestroy(
 	Natives.gplotDestroy(ref pgplotPtr);
 	
 
-	if (pgplotPtr == null) {pgplot = null;} else { pgplot = new GPlot(pgplotPtr); };
+	if (pgplotPtr == IntPtr.Zero) {pgplot = null;} else { pgplot = new GPlot(pgplotPtr); };
 
 
 }
@@ -31737,7 +31737,7 @@ public static int pixRenderPlotFromNuma(
 	int _Result = Natives.pixRenderPlotFromNuma(ref ppixPtr, na.Pointer,   plotloc,   linewidth,   max,   color);
 	
 
-	if (ppixPtr == null) {ppix = null;} else { ppix = new Pix(ppixPtr); };
+	if (ppixPtr == IntPtr.Zero) {ppix = null;} else { ppix = new Pix(ppixPtr); };
 
 
 	return _Result;
@@ -31819,7 +31819,7 @@ public static int pixRenderPlotFromNumaGen(
 	int _Result = Natives.pixRenderPlotFromNumaGen(ref ppixPtr, na.Pointer,   orient,   linewidth,   refpos,   max,   drawref,   color);
 	
 
-	if (ppixPtr == null) {ppix = null;} else { ppix = new Pix(ppixPtr); };
+	if (ppixPtr == IntPtr.Zero) {ppix = null;} else { ppix = new Pix(ppixPtr); };
 
 
 	return _Result;
@@ -33810,7 +33810,7 @@ public static int makeGrayQuantTableArb(
 	
 
 	if (ptabPtr == null) {ptab = null;} else { ptab = null; };
-	if (pcmapPtr == null) {pcmap = null;} else { pcmap = new PixColormap(pcmapPtr); };
+	if (pcmapPtr == IntPtr.Zero) {pcmap = null;} else { pcmap = new PixColormap(pcmapPtr); };
 
 
 	return _Result;
@@ -34045,7 +34045,7 @@ public static void lheapDestroy(
 	Natives.lheapDestroy(ref plhPtr,   freeflag);
 	
 
-	if (plhPtr == null) {plh = null;} else { plh = new L_Heap(plhPtr); };
+	if (plhPtr == IntPtr.Zero) {plh = null;} else { plh = new L_Heap(plhPtr); };
 
 
 }
@@ -34650,7 +34650,7 @@ public static int pixWordMaskByDilation(
 	int _Result = Natives.pixWordMaskByDilation(pixs.Pointer, ppixmPtr, out  psize, out pixadbPtr);
 	
 
-	if (pixadbPtr == null) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
+	if (pixadbPtr == IntPtr.Zero) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
 
 
 	return _Result;
@@ -34692,8 +34692,8 @@ public static int pixWordBoxesByDilation(
 	int _Result = Natives.pixWordBoxesByDilation(pixs.Pointer,   minwidth,   minheight,   maxwidth,   maxheight, out pboxaPtr, out  psize, out pixadbPtr);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
-	if (pixadbPtr == null) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (pixadbPtr == IntPtr.Zero) {pixadb = null;} else { pixadb = new Pixa(pixadbPtr); };
 
 
 	return _Result;
@@ -34719,7 +34719,7 @@ public static Pixa jbAccumulateComposites(
 	IntPtr _Result = Natives.jbAccumulateComposites(pixaa.Pointer, pnaPtr, out pptatPtr);
 	
 
-	if (pptatPtr == null) {pptat = null;} else { pptat = new Pta(pptatPtr); };
+	if (pptatPtr == IntPtr.Zero) {pptat = null;} else { pptat = new Pta(pptatPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -35729,7 +35729,7 @@ public static void kernelDestroy(
 	Natives.kernelDestroy(ref pkelPtr);
 	
 
-	if (pkelPtr == null) {pkel = null;} else { pkel = new L_Kernel(pkelPtr); };
+	if (pkelPtr == IntPtr.Zero) {pkel = null;} else { pkel = new L_Kernel(pkelPtr); };
 
 
 }
@@ -36358,8 +36358,8 @@ public static int makeGaussianKernelSep(
 	int _Result = Natives.makeGaussianKernelSep(  halfheight,   halfwidth,   stdev,   max, out pkelxPtr, out pkelyPtr);
 	
 
-	if (pkelxPtr == null) {pkelx = null;} else { pkelx = new L_Kernel(pkelxPtr); };
-	if (pkelyPtr == null) {pkely = null;} else { pkely = new L_Kernel(pkelyPtr); };
+	if (pkelxPtr == IntPtr.Zero) {pkelx = null;} else { pkelx = new L_Kernel(pkelxPtr); };
+	if (pkelyPtr == IntPtr.Zero) {pkely = null;} else { pkely = new L_Kernel(pkelyPtr); };
 
 
 	return _Result;
@@ -36413,32 +36413,6 @@ public static L_Kernel makeDoGKernel(
 }
 
 #endregion
-#region"leptwin.c"
-// leptwin.c (303, 1)
-// pixGetWindowsHBITMAP(pix) as IntPtr
-// pixGetWindowsHBITMAP(PIX *) as HBITMAP
-///  <summary>
-/// (1) It's the responsibility of the caller to destroy the
-/// returned hBitmap with a call to DeleteObject (or with
-/// something that eventually calls DeleteObject).
-///  </summary>
-///  <remarks>
-///  </remarks>
-///  <include file="..\CHM_Help\IncludeComments.xml" path="Comments/pixGetWindowsHBITMAP/*"/>
-///  <param name="pix">[in] - </param>
-///   <returns>Windows hBitmap, or NULL on error</returns>
-public static IntPtr pixGetWindowsHBITMAP(
-				 Pix pix){
-
-	IntPtr _Result = Natives.pixGetWindowsHBITMAP(pix.Pointer);
-	
-
-
-
-	return _Result;
-}
-
-#endregion
 #region"libversions.c"
 // libversions.c (101, 1)
 // getImagelibVersions() as String
@@ -36482,7 +36456,7 @@ public static void listDestroy(
 	Natives.listDestroy(ref pheadPtr);
 	
 
-	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 
 }
@@ -36515,7 +36489,7 @@ public static int listAddToHead(
 	
 	Marshal.FreeHGlobal(dataPtr);
 
-	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 
 	return _Result;
@@ -36561,8 +36535,8 @@ public static int listAddToTail(
 	
 	Marshal.FreeHGlobal(dataPtr);
 
-	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
-	if (ptailPtr == null) {ptail = null;} else { ptail = new DoubleLinkedList(ptailPtr); };
+	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+	if (ptailPtr == IntPtr.Zero) {ptail = null;} else { ptail = new DoubleLinkedList(ptailPtr); };
 
 
 	return _Result;
@@ -36604,7 +36578,7 @@ public static int listInsertBefore(
 	
 	Marshal.FreeHGlobal(dataPtr);
 
-	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 
 	return _Result;
@@ -36647,7 +36621,7 @@ public static int listInsertAfter(
 	
 	Marshal.FreeHGlobal(dataPtr);
 
-	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 
 	return _Result;
@@ -36677,7 +36651,7 @@ public static Object listRemoveElement(
 	IntPtr _Result = Natives.listRemoveElement(ref pheadPtr, elem.Pointer);
 	
 
-	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
 
@@ -36706,7 +36680,7 @@ public static Object listRemoveFromHead(
 	IntPtr _Result = Natives.listRemoveFromHead(ref pheadPtr);
 	
 
-	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
 
@@ -36747,8 +36721,8 @@ public static Object listRemoveFromTail(
 	IntPtr _Result = Natives.listRemoveFromTail(ref pheadPtr, ref ptailPtr);
 	
 
-	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
-	if (ptailPtr == null) {ptail = null;} else { ptail = new DoubleLinkedList(ptailPtr); };
+	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+	if (ptailPtr == IntPtr.Zero) {ptail = null;} else { ptail = new DoubleLinkedList(ptailPtr); };
 
 	Byte[] B = new Byte[1] ; Marshal.Copy(_Result, B, 0, B.Length);
 
@@ -36849,7 +36823,7 @@ public static int listReverse(
 	int _Result = Natives.listReverse(ref pheadPtr);
 	
 
-	if (pheadPtr == null) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
+	if (pheadPtr == IntPtr.Zero) {phead = null;} else { phead = new DoubleLinkedList(pheadPtr); };
 
 
 	return _Result;
@@ -36879,8 +36853,8 @@ public static int listJoin(
 	int _Result = Natives.listJoin(ref phead1Ptr, ref phead2Ptr);
 	
 
-	if (phead1Ptr == null) {phead1 = null;} else { phead1 = new DoubleLinkedList(phead1Ptr); };
-	if (phead2Ptr == null) {phead2 = null;} else { phead2 = new DoubleLinkedList(phead2Ptr); };
+	if (phead1Ptr == IntPtr.Zero) {phead1 = null;} else { phead1 = new DoubleLinkedList(phead1Ptr); };
+	if (phead2Ptr == IntPtr.Zero) {phead2 = null;} else { phead2 = new DoubleLinkedList(phead2Ptr); };
 
 
 	return _Result;
@@ -37418,7 +37392,7 @@ public static Pta pixSearchBinaryMaze(
 	IntPtr _Result = Natives.pixSearchBinaryMaze(pixs.Pointer,   xi,   yi,   xf,   yf, out ppixdPtr);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -37451,7 +37425,7 @@ public static Pta pixSearchGrayMaze(
 	IntPtr _Result = Natives.pixSearchGrayMaze(pixs.Pointer,   xi,   yi,   xf,   yf, out ppixdPtr);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -38576,7 +38550,7 @@ public static Pix pixMorphSequenceByComponent(
 	IntPtr _Result = Natives.pixMorphSequenceByComponent(pixs.Pointer,   sequence,   connectivity,   minw,   minh, out pboxaPtr);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -38666,7 +38640,7 @@ public static Pix pixMorphSequenceByRegion(
 	IntPtr _Result = Natives.pixMorphSequenceByRegion(pixs.Pointer, pixm.Pointer,   sequence,   connectivity,   minw,   minh, out pboxaPtr);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -40460,7 +40434,7 @@ public static void numaDestroy(
 	Natives.numaDestroy(ref pnaPtr);
 	
 
-	if (pnaPtr == null) {pna = null;} else { pna = new Numa(pnaPtr); };
+	if (pnaPtr == IntPtr.Zero) {pna = null;} else { pna = new Numa(pnaPtr); };
 
 
 }
@@ -41233,7 +41207,7 @@ public static void numaaDestroy(
 	Natives.numaaDestroy(ref pnaaPtr);
 	
 
-	if (pnaaPtr == null) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
+	if (pnaaPtr == IntPtr.Zero) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
 
 
 }
@@ -42537,8 +42511,8 @@ public static int numaInterpolateEqxInterval(
 	int _Result = Natives.numaInterpolateEqxInterval(  startx,   deltax, nasy.Pointer,   type,   x0,   x1,   npts, out pnaxPtr, out pnayPtr);
 	
 
-	if (pnaxPtr == null) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
-	if (pnayPtr == null) {pnay = null;} else { pnay = new Numa(pnayPtr); };
+	if (pnaxPtr == IntPtr.Zero) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
+	if (pnayPtr == IntPtr.Zero) {pnay = null;} else { pnay = new Numa(pnayPtr); };
 
 
 	return _Result;
@@ -42592,8 +42566,8 @@ public static int numaInterpolateArbxInterval(
 	int _Result = Natives.numaInterpolateArbxInterval(nax.Pointer, nay.Pointer,   type,   x0,   x1,   npts, out pnadxPtr, out pnadyPtr);
 	
 
-	if (pnadxPtr == null) {pnadx = null;} else { pnadx = new Numa(pnadxPtr); };
-	if (pnadyPtr == null) {pnady = null;} else { pnady = new Numa(pnadyPtr); };
+	if (pnadxPtr == IntPtr.Zero) {pnadx = null;} else { pnadx = new Numa(pnadxPtr); };
+	if (pnadyPtr == IntPtr.Zero) {pnady = null;} else { pnady = new Numa(pnadyPtr); };
 
 
 	return _Result;
@@ -42679,8 +42653,8 @@ public static int numaDifferentiateInterval(
 	int _Result = Natives.numaDifferentiateInterval(nax.Pointer, nay.Pointer,   x0,   x1,   npts, out pnadxPtr, out pnadyPtr);
 	
 
-	if (pnadxPtr == null) {pnadx = null;} else { pnadx = new Numa(pnadxPtr); };
-	if (pnadyPtr == null) {pnady = null;} else { pnady = new Numa(pnadyPtr); };
+	if (pnadxPtr == IntPtr.Zero) {pnadx = null;} else { pnadx = new Numa(pnadxPtr); };
+	if (pnadyPtr == IntPtr.Zero) {pnady = null;} else { pnady = new Numa(pnadyPtr); };
 
 
 	return _Result;
@@ -42778,9 +42752,9 @@ public static int numaSortGeneral(
 	int _Result = Natives.numaSortGeneral(na.Pointer, out pnasortPtr, out pnaindexPtr, out pnainvertPtr,   sortorder,   sorttype);
 	
 
-	if (pnasortPtr == null) {pnasort = null;} else { pnasort = new Numa(pnasortPtr); };
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
-	if (pnainvertPtr == null) {pnainvert = null;} else { pnainvert = new Numa(pnainvertPtr); };
+	if (pnasortPtr == IntPtr.Zero) {pnasort = null;} else { pnasort = new Numa(pnasortPtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnainvertPtr == IntPtr.Zero) {pnainvert = null;} else { pnainvert = new Numa(pnainvertPtr); };
 
 
 	return _Result;
@@ -43055,8 +43029,8 @@ public static int numaSortPair(
 	int _Result = Natives.numaSortPair(nax.Pointer, nay.Pointer,   sortorder, out pnasxPtr, out pnasyPtr);
 	
 
-	if (pnasxPtr == null) {pnasx = null;} else { pnasx = new Numa(pnasxPtr); };
-	if (pnasyPtr == null) {pnasy = null;} else { pnasy = new Numa(pnasyPtr); };
+	if (pnasxPtr == IntPtr.Zero) {pnasx = null;} else { pnasx = new Numa(pnasxPtr); };
+	if (pnasyPtr == IntPtr.Zero) {pnasy = null;} else { pnasy = new Numa(pnasyPtr); };
 
 
 	return _Result;
@@ -43626,10 +43600,10 @@ public static int numaWindowedStats(
 	int _Result = Natives.numaWindowedStats(nas.Pointer,   wc, out pnamPtr, out pnamsPtr, out pnavPtr, out pnarvPtr);
 	
 
-	if (pnamPtr == null) {pnam = null;} else { pnam = new Numa(pnamPtr); };
-	if (pnamsPtr == null) {pnams = null;} else { pnams = new Numa(pnamsPtr); };
-	if (pnavPtr == null) {pnav = null;} else { pnav = new Numa(pnavPtr); };
-	if (pnarvPtr == null) {pnarv = null;} else { pnarv = new Numa(pnarvPtr); };
+	if (pnamPtr == IntPtr.Zero) {pnam = null;} else { pnam = new Numa(pnamPtr); };
+	if (pnamsPtr == IntPtr.Zero) {pnams = null;} else { pnams = new Numa(pnamsPtr); };
+	if (pnavPtr == IntPtr.Zero) {pnav = null;} else { pnav = new Numa(pnavPtr); };
+	if (pnarvPtr == IntPtr.Zero) {pnarv = null;} else { pnarv = new Numa(pnarvPtr); };
 
 
 	return _Result;
@@ -43722,8 +43696,8 @@ public static int numaWindowedVariance(
 	int _Result = Natives.numaWindowedVariance(nam.Pointer, nams.Pointer, out pnavPtr, out pnarvPtr);
 	
 
-	if (pnavPtr == null) {pnav = null;} else { pnav = new Numa(pnavPtr); };
-	if (pnarvPtr == null) {pnarv = null;} else { pnarv = new Numa(pnarvPtr); };
+	if (pnavPtr == IntPtr.Zero) {pnav = null;} else { pnav = new Numa(pnavPtr); };
+	if (pnarvPtr == IntPtr.Zero) {pnarv = null;} else { pnarv = new Numa(pnarvPtr); };
 
 
 	return _Result;
@@ -44003,7 +43977,7 @@ public static int numaGetStatsUsingHistogram(
 	int _Result = Natives.numaGetStatsUsingHistogram(na.Pointer,   maxbins, out  pmin, out  pmax, out  pmean, out  pvariance, out  pmedian,   rank, out  prval, out phistoPtr);
 	
 
-	if (phistoPtr == null) {phisto = null;} else { phisto = new Numa(phistoPtr); };
+	if (phistoPtr == IntPtr.Zero) {phisto = null;} else { phisto = new Numa(phistoPtr); };
 
 
 	return _Result;
@@ -44116,8 +44090,8 @@ public static int numaMakeRankFromHistogram(
 	int _Result = Natives.numaMakeRankFromHistogram(  startx,   deltax, nasy.Pointer,   npts, out pnaxPtr, out pnayPtr);
 	
 
-	if (pnaxPtr == null) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
-	if (pnayPtr == null) {pnay = null;} else { pnay = new Numa(pnayPtr); };
+	if (pnaxPtr == IntPtr.Zero) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
+	if (pnayPtr == IntPtr.Zero) {pnay = null;} else { pnay = new Numa(pnayPtr); };
 
 
 	return _Result;
@@ -44242,10 +44216,10 @@ public static int numaDiscretizeRankAndIntensity(
 	int _Result = Natives.numaDiscretizeRankAndIntensity(na.Pointer,   nbins, out pnarbinPtr, out pnamPtr, out pnarPtr, out pnabbPtr);
 	
 
-	if (pnarbinPtr == null) {pnarbin = null;} else { pnarbin = new Numa(pnarbinPtr); };
-	if (pnamPtr == null) {pnam = null;} else { pnam = new Numa(pnamPtr); };
-	if (pnarPtr == null) {pnar = null;} else { pnar = new Numa(pnarPtr); };
-	if (pnabbPtr == null) {pnabb = null;} else { pnabb = new Numa(pnabbPtr); };
+	if (pnarbinPtr == IntPtr.Zero) {pnarbin = null;} else { pnarbin = new Numa(pnarbinPtr); };
+	if (pnamPtr == IntPtr.Zero) {pnam = null;} else { pnam = new Numa(pnamPtr); };
+	if (pnarPtr == IntPtr.Zero) {pnar = null;} else { pnar = new Numa(pnarPtr); };
+	if (pnabbPtr == IntPtr.Zero) {pnabb = null;} else { pnabb = new Numa(pnabbPtr); };
 
 
 	return _Result;
@@ -44280,8 +44254,8 @@ public static int numaGetRankBinValues(
 	int _Result = Natives.numaGetRankBinValues(na.Pointer,   nbins, out pnarbinPtr, out pnamPtr);
 	
 
-	if (pnarbinPtr == null) {pnarbin = null;} else { pnarbin = new Numa(pnarbinPtr); };
-	if (pnamPtr == null) {pnam = null;} else { pnam = new Numa(pnamPtr); };
+	if (pnarbinPtr == IntPtr.Zero) {pnarbin = null;} else { pnarbin = new Numa(pnarbinPtr); };
+	if (pnamPtr == IntPtr.Zero) {pnam = null;} else { pnam = new Numa(pnamPtr); };
 
 
 	return _Result;
@@ -44353,7 +44327,7 @@ public static int numaSplitDistribution(
 	int _Result = Natives.numaSplitDistribution(na.Pointer,   scorefract, out  psplitindex, out  pave1, out  pave2, out  pnum1, out  pnum2, out pnascorePtr);
 	
 
-	if (pnascorePtr == null) {pnascore = null;} else { pnascore = new Numa(pnascorePtr); };
+	if (pnascorePtr == IntPtr.Zero) {pnascore = null;} else { pnascore = new Numa(pnascorePtr); };
 
 
 	return _Result;
@@ -44394,7 +44368,7 @@ public static int grayHistogramsToEMD(
 	int _Result = Natives.grayHistogramsToEMD(naa1.Pointer, naa2.Pointer, out pnadPtr);
 	
 
-	if (pnadPtr == null) {pnad = null;} else { pnad = new Numa(pnadPtr); };
+	if (pnadPtr == IntPtr.Zero) {pnad = null;} else { pnad = new Numa(pnadPtr); };
 
 
 	return _Result;
@@ -44509,10 +44483,10 @@ public static int grayInterHistogramStats(
 	int _Result = Natives.grayInterHistogramStats(naa.Pointer,   wc, out pnamPtr, out pnamsPtr, out pnavPtr, out pnarvPtr);
 	
 
-	if (pnamPtr == null) {pnam = null;} else { pnam = new Numa(pnamPtr); };
-	if (pnamsPtr == null) {pnams = null;} else { pnams = new Numa(pnamsPtr); };
-	if (pnavPtr == null) {pnav = null;} else { pnav = new Numa(pnavPtr); };
-	if (pnarvPtr == null) {pnarv = null;} else { pnarv = new Numa(pnarvPtr); };
+	if (pnamPtr == IntPtr.Zero) {pnam = null;} else { pnam = new Numa(pnamPtr); };
+	if (pnamsPtr == IntPtr.Zero) {pnams = null;} else { pnams = new Numa(pnamsPtr); };
+	if (pnavPtr == IntPtr.Zero) {pnav = null;} else { pnav = new Numa(pnavPtr); };
+	if (pnarvPtr == IntPtr.Zero) {pnarv = null;} else { pnarv = new Numa(pnarvPtr); };
 
 
 	return _Result;
@@ -44587,7 +44561,7 @@ public static Numa numaFindExtrema(
 	IntPtr _Result = Natives.numaFindExtrema(nas.Pointer,   delta, out pnavPtr);
 	
 
-	if (pnavPtr == null) {pnav = null;} else { pnav = new Numa(pnavPtr); };
+	if (pnavPtr == IntPtr.Zero) {pnav = null;} else { pnav = new Numa(pnavPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -44896,9 +44870,9 @@ public static int pixGetRegionsBinary(
 	int _Result = Natives.pixGetRegionsBinary(pixs.Pointer, out ppixhmPtr, out ppixtmPtr, out ppixtbPtr, pixadb.Pointer);
 	
 
-	if (ppixhmPtr == null) {ppixhm = null;} else { ppixhm = new Pix(ppixhmPtr); };
-	if (ppixtmPtr == null) {ppixtm = null;} else { ppixtm = new Pix(ppixtmPtr); };
-	if (ppixtbPtr == null) {ppixtb = null;} else { ppixtb = new Pix(ppixtbPtr); };
+	if (ppixhmPtr == IntPtr.Zero) {ppixhm = null;} else { ppixhm = new Pix(ppixhmPtr); };
+	if (ppixtmPtr == IntPtr.Zero) {ppixtm = null;} else { ppixtm = new Pix(ppixtmPtr); };
+	if (ppixtbPtr == IntPtr.Zero) {ppixtb = null;} else { ppixtb = new Pix(ppixtbPtr); };
 
 
 	return _Result;
@@ -44961,7 +44935,7 @@ public static Pix pixGenerateHalftoneMask(
 	IntPtr _Result = Natives.pixGenerateHalftoneMask(pixs.Pointer, out ppixtextPtr, out  phtfound, pixadb.Pointer);
 	
 
-	if (ppixtextPtr == null) {ppixtext = null;} else { ppixtext = new Pix(ppixtextPtr); };
+	if (ppixtextPtr == IntPtr.Zero) {ppixtext = null;} else { ppixtext = new Pix(ppixtextPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -45001,7 +44975,7 @@ public static Pix pixGenTextlineMask(
 	IntPtr _Result = Natives.pixGenTextlineMask(pixs.Pointer, out ppixvwsPtr, out  ptlfound, pixadb.Pointer);
 	
 
-	if (ppixvwsPtr == null) {ppixvws = null;} else { ppixvws = new Pix(ppixvwsPtr); };
+	if (ppixvwsPtr == IntPtr.Zero) {ppixvws = null;} else { ppixvws = new Pix(ppixvwsPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -45129,9 +45103,9 @@ public static int pixSplitIntoCharacters(
 	int _Result = Natives.pixSplitIntoCharacters(pixs.Pointer,   minw,   minh, out pboxaPtr, out ppixaPtr, out ppixdebugPtr);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
-	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
-	if (ppixdebugPtr == null) {ppixdebug = null;} else { ppixdebug = new Pix(ppixdebugPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+	if (ppixdebugPtr == IntPtr.Zero) {ppixdebug = null;} else { ppixdebug = new Pix(ppixdebugPtr); };
 
 
 	return _Result;
@@ -45165,7 +45139,7 @@ public static Boxa pixSplitComponentWithProfile(
 	IntPtr _Result = Natives.pixSplitComponentWithProfile(pixs.Pointer,   delta,   mindel, out ppixdebugPtr);
 	
 
-	if (ppixdebugPtr == null) {ppixdebug = null;} else { ppixdebug = new Pix(ppixdebugPtr); };
+	if (ppixdebugPtr == IntPtr.Zero) {ppixdebug = null;} else { ppixdebug = new Pix(ppixdebugPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -45583,8 +45557,8 @@ public static int pixFindLargeRectangles(
 	int _Result = Natives.pixFindLargeRectangles(pixs.Pointer,   polarity,   nrect, out pboxaPtr, ref ppixdbPtr);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
@@ -45654,8 +45628,8 @@ public static int pixFindLargestRectangle(
 	int _Result = Natives.pixFindLargestRectangle(pixs.Pointer,   polarity, out pboxPtr, ref ppixdbPtr);
 	
 
-	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
@@ -45918,7 +45892,7 @@ public static int addColorizedGrayToCmap(
 	int _Result = Natives.addColorizedGrayToCmap(cmap.Pointer,   type,   rval,   gval,   bval, out pnaPtr);
 	
 
-	if (pnaPtr == null) {pna = null;} else { pna = new Numa(pnaPtr); };
+	if (pnaPtr == IntPtr.Zero) {pna = null;} else { pna = new Numa(pnaPtr); };
 
 
 	return _Result;
@@ -46634,7 +46608,7 @@ public static int convertToPdf(
 	int _Result = Natives.convertToPdf(  filein,   type,   quality,   fileout,   x,   y,   res,   title, ref plpdPtr,   position);
 	
 
-	if (plpdPtr == null) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
+	if (plpdPtr == IntPtr.Zero) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
 
 
 	return _Result;
@@ -46682,7 +46656,7 @@ public static int convertImageDataToPdf(
 	int _Result = Natives.convertImageDataToPdf(  imdata,   size,   type,   quality,   fileout,   x,   y,   res,   title, ref plpdPtr,   position);
 	
 
-	if (plpdPtr == null) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
+	if (plpdPtr == IntPtr.Zero) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
 
 
 	return _Result;
@@ -46732,7 +46706,7 @@ public static int convertToPdfData(
 	
 
 	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
-	if (plpdPtr == null) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
+	if (plpdPtr == IntPtr.Zero) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
 
 
 	return _Result;
@@ -46784,7 +46758,7 @@ public static int convertImageDataToPdfData(
 	
 
 	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
-	if (plpdPtr == null) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
+	if (plpdPtr == IntPtr.Zero) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
 
 
 	return _Result;
@@ -46833,7 +46807,7 @@ public static int pixConvertToPdf(
 	int _Result = Natives.pixConvertToPdf(pix.Pointer,   type,   quality,   fileout,   x,   y,   res,   title, ref plpdPtr,   position);
 	
 
-	if (plpdPtr == null) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
+	if (plpdPtr == IntPtr.Zero) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
 
 
 	return _Result;
@@ -47418,7 +47392,7 @@ public static int pixConvertToPdfData(
 	
 
 	if (pdataPtr == null) {pdata = null;} else { pdata = null; };
-	if (plpdPtr == null) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
+	if (plpdPtr == IntPtr.Zero) {plpd = null;} else { plpd = new L_Pdf_Data(plpdPtr); };
 
 
 	return _Result;
@@ -47540,7 +47514,7 @@ public static int l_generateCIDataForPdf(
 	int _Result = Natives.l_generateCIDataForPdf(  fname, pixPtr,   quality, out pcidPtr);
 	
 
-	if (pcidPtr == null) {pcid = null;} else { pcid = new L_Compressed_Data(pcidPtr); };
+	if (pcidPtr == IntPtr.Zero) {pcid = null;} else { pcid = new L_Compressed_Data(pcidPtr); };
 
 
 	return _Result;
@@ -47676,7 +47650,7 @@ public static int l_generateCIData(
 	int _Result = Natives.l_generateCIData(  fname,   type,   quality,   ascii85, out pcidPtr);
 	
 
-	if (pcidPtr == null) {pcid = null;} else { pcid = new L_Compressed_Data(pcidPtr); };
+	if (pcidPtr == IntPtr.Zero) {pcid = null;} else { pcid = new L_Compressed_Data(pcidPtr); };
 
 
 	return _Result;
@@ -47711,7 +47685,7 @@ public static int pixGenerateCIData(
 	int _Result = Natives.pixGenerateCIData(pixs.Pointer,   type,   quality,   ascii85, out pcidPtr);
 	
 
-	if (pcidPtr == null) {pcid = null;} else { pcid = new L_Compressed_Data(pcidPtr); };
+	if (pcidPtr == IntPtr.Zero) {pcid = null;} else { pcid = new L_Compressed_Data(pcidPtr); };
 
 
 	return _Result;
@@ -47825,7 +47799,7 @@ public static void l_CIDataDestroy(
 	Natives.l_CIDataDestroy(ref pcidPtr);
 	
 
-	if (pcidPtr == null) {pcid = null;} else { pcid = new L_Compressed_Data(pcidPtr); };
+	if (pcidPtr == IntPtr.Zero) {pcid = null;} else { pcid = new L_Compressed_Data(pcidPtr); };
 
 
 }
@@ -48108,7 +48082,7 @@ public static void pixDestroy(
 	Natives.pixDestroy(ref ppixPtr);
 	
 
-	if (ppixPtr == null) {ppix = null;} else { ppix = new Pix(ppixPtr); };
+	if (ppixPtr == IntPtr.Zero) {ppix = null;} else { ppix = new Pix(ppixPtr); };
 
 
 }
@@ -48303,7 +48277,7 @@ public static int pixTransferAllData(
 	int _Result = Natives.pixTransferAllData(pixd.Pointer, ref ppixsPtr,   copytext,   copyformat);
 	
 
-	if (ppixsPtr == null) {ppixs = null;} else { ppixs = new Pix(ppixsPtr); };
+	if (ppixsPtr == IntPtr.Zero) {ppixs = null;} else { ppixs = new Pix(ppixsPtr); };
 
 
 	return _Result;
@@ -48358,8 +48332,8 @@ public static int pixSwapAndDestroy(
 	int _Result = Natives.pixSwapAndDestroy(out ppixdPtr, ref ppixsPtr);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
-	if (ppixsPtr == null) {ppixs = null;} else { ppixs = new Pix(ppixsPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixsPtr == IntPtr.Zero) {ppixs = null;} else { ppixs = new Pix(ppixsPtr); };
 
 
 	return _Result;
@@ -51848,7 +51822,7 @@ public static Pix pixMakeAlphaFromMask(
 	IntPtr _Result = Natives.pixMakeAlphaFromMask(pixs.Pointer,   dist, out pboxPtr);
 	
 
-	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
+	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -52902,7 +52876,7 @@ public static int pixFindRepCloseTile(
 	int _Result = Natives.pixFindRepCloseTile(pixs.Pointer, box.Pointer,   searchdir,   mindist,   tsize,   ntiles, out pboxtilePtr,  (int) debug);
 	
 
-	if (pboxtilePtr == null) {pboxtile = null;} else { pboxtile = new Box(pboxtilePtr); };
+	if (pboxtilePtr == IntPtr.Zero) {pboxtile = null;} else { pboxtile = new Box(pboxtilePtr); };
 
 
 	return _Result;
@@ -53085,9 +53059,9 @@ public static int pixGetColorHistogram(
 	int _Result = Natives.pixGetColorHistogram(pixs.Pointer,   factor, out pnarPtr, out pnagPtr, out pnabPtr);
 	
 
-	if (pnarPtr == null) {pnar = null;} else { pnar = new Numa(pnarPtr); };
-	if (pnagPtr == null) {pnag = null;} else { pnag = new Numa(pnagPtr); };
-	if (pnabPtr == null) {pnab = null;} else { pnab = new Numa(pnabPtr); };
+	if (pnarPtr == IntPtr.Zero) {pnar = null;} else { pnar = new Numa(pnarPtr); };
+	if (pnagPtr == IntPtr.Zero) {pnag = null;} else { pnag = new Numa(pnagPtr); };
+	if (pnabPtr == IntPtr.Zero) {pnab = null;} else { pnab = new Numa(pnabPtr); };
 
 
 	return _Result;
@@ -53135,9 +53109,9 @@ public static int pixGetColorHistogramMasked(
 	int _Result = Natives.pixGetColorHistogramMasked(pixs.Pointer, pixmPtr,   x,   y,   factor, out pnarPtr, out pnagPtr, out pnabPtr);
 	
 
-	if (pnarPtr == null) {pnar = null;} else { pnar = new Numa(pnarPtr); };
-	if (pnagPtr == null) {pnag = null;} else { pnag = new Numa(pnagPtr); };
-	if (pnabPtr == null) {pnab = null;} else { pnab = new Numa(pnabPtr); };
+	if (pnarPtr == IntPtr.Zero) {pnar = null;} else { pnar = new Numa(pnarPtr); };
+	if (pnagPtr == IntPtr.Zero) {pnag = null;} else { pnag = new Numa(pnagPtr); };
+	if (pnabPtr == IntPtr.Zero) {pnab = null;} else { pnab = new Numa(pnabPtr); };
 
 
 	return _Result;
@@ -53446,7 +53420,7 @@ public static int pixGetRankValueMasked(
 	int _Result = Natives.pixGetRankValueMasked(pixs.Pointer, pixmPtr,   x,   y,   factor,   rank, out  pval, out pnaPtr);
 	
 
-	if (pnaPtr == null) {pna = null;} else { pna = new Numa(pnaPtr); };
+	if (pnaPtr == IntPtr.Zero) {pna = null;} else { pna = new Numa(pnaPtr); };
 
 
 	return _Result;
@@ -53670,9 +53644,9 @@ public static int pixGetAverageTiledRGB(
 	int _Result = Natives.pixGetAverageTiledRGB(pixs.Pointer,   sx,   sy,   type, out ppixrPtr, out ppixgPtr, out ppixbPtr);
 	
 
-	if (ppixrPtr == null) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
-	if (ppixgPtr == null) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
-	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+	if (ppixrPtr == IntPtr.Zero) {ppixr = null;} else { ppixr = new Pix(ppixrPtr); };
+	if (ppixgPtr == IntPtr.Zero) {ppixg = null;} else { ppixg = new Pix(ppixgPtr); };
+	if (ppixbPtr == IntPtr.Zero) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
 
 
 	return _Result;
@@ -53762,12 +53736,12 @@ public static int pixRowStats(
 	int _Result = Natives.pixRowStats(pixs.Pointer, boxPtr, out pnameanPtr, out pnamedianPtr, out pnamodePtr, out pnamodecountPtr, out pnavarPtr, out pnarootvarPtr);
 	
 
-	if (pnameanPtr == null) {pnamean = null;} else { pnamean = new Numa(pnameanPtr); };
-	if (pnamedianPtr == null) {pnamedian = null;} else { pnamedian = new Numa(pnamedianPtr); };
-	if (pnamodePtr == null) {pnamode = null;} else { pnamode = new Numa(pnamodePtr); };
-	if (pnamodecountPtr == null) {pnamodecount = null;} else { pnamodecount = new Numa(pnamodecountPtr); };
-	if (pnavarPtr == null) {pnavar = null;} else { pnavar = new Numa(pnavarPtr); };
-	if (pnarootvarPtr == null) {pnarootvar = null;} else { pnarootvar = new Numa(pnarootvarPtr); };
+	if (pnameanPtr == IntPtr.Zero) {pnamean = null;} else { pnamean = new Numa(pnameanPtr); };
+	if (pnamedianPtr == IntPtr.Zero) {pnamedian = null;} else { pnamedian = new Numa(pnamedianPtr); };
+	if (pnamodePtr == IntPtr.Zero) {pnamode = null;} else { pnamode = new Numa(pnamodePtr); };
+	if (pnamodecountPtr == IntPtr.Zero) {pnamodecount = null;} else { pnamodecount = new Numa(pnamodecountPtr); };
+	if (pnavarPtr == IntPtr.Zero) {pnavar = null;} else { pnavar = new Numa(pnavarPtr); };
+	if (pnarootvarPtr == IntPtr.Zero) {pnarootvar = null;} else { pnarootvar = new Numa(pnarootvarPtr); };
 
 
 	return _Result;
@@ -53821,12 +53795,12 @@ public static int pixColumnStats(
 	int _Result = Natives.pixColumnStats(pixs.Pointer, boxPtr, out pnameanPtr, out pnamedianPtr, out pnamodePtr, out pnamodecountPtr, out pnavarPtr, out pnarootvarPtr);
 	
 
-	if (pnameanPtr == null) {pnamean = null;} else { pnamean = new Numa(pnameanPtr); };
-	if (pnamedianPtr == null) {pnamedian = null;} else { pnamedian = new Numa(pnamedianPtr); };
-	if (pnamodePtr == null) {pnamode = null;} else { pnamode = new Numa(pnamodePtr); };
-	if (pnamodecountPtr == null) {pnamodecount = null;} else { pnamodecount = new Numa(pnamodecountPtr); };
-	if (pnavarPtr == null) {pnavar = null;} else { pnavar = new Numa(pnavarPtr); };
-	if (pnarootvarPtr == null) {pnarootvar = null;} else { pnarootvar = new Numa(pnarootvarPtr); };
+	if (pnameanPtr == IntPtr.Zero) {pnamean = null;} else { pnamean = new Numa(pnameanPtr); };
+	if (pnamedianPtr == IntPtr.Zero) {pnamedian = null;} else { pnamedian = new Numa(pnamedianPtr); };
+	if (pnamodePtr == IntPtr.Zero) {pnamode = null;} else { pnamode = new Numa(pnamodePtr); };
+	if (pnamodecountPtr == IntPtr.Zero) {pnamodecount = null;} else { pnamodecount = new Numa(pnamodecountPtr); };
+	if (pnavarPtr == IntPtr.Zero) {pnavar = null;} else { pnavar = new Numa(pnavarPtr); };
+	if (pnarootvarPtr == IntPtr.Zero) {pnarootvar = null;} else { pnarootvar = new Numa(pnarootvarPtr); };
 
 
 	return _Result;
@@ -54398,7 +54372,7 @@ public static int pixSplitDistributionFgBg(
 	int _Result = Natives.pixSplitDistributionFgBg(pixs.Pointer,   scorefract,   factor, out  pthresh, out  pfgval, out  pbgval, out ppixdbPtr);
 	
 
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
@@ -54427,8 +54401,8 @@ public static int pixaFindDimensions(
 	int _Result = Natives.pixaFindDimensions(pixa.Pointer, out pnawPtr, out pnahPtr);
 	
 
-	if (pnawPtr == null) {pnaw = null;} else { pnaw = new Numa(pnawPtr); };
-	if (pnahPtr == null) {pnah = null;} else { pnah = new Numa(pnahPtr); };
+	if (pnawPtr == IntPtr.Zero) {pnaw = null;} else { pnaw = new Numa(pnawPtr); };
+	if (pnahPtr == IntPtr.Zero) {pnah = null;} else { pnah = new Numa(pnahPtr); };
 
 
 	return _Result;
@@ -54957,7 +54931,7 @@ public static Pix pixClipRectangle(
 	IntPtr _Result = Natives.pixClipRectangle(pixs.Pointer, box.Pointer, out pboxcPtr);
 	
 
-	if (pboxcPtr == null) {pboxc = null;} else { pboxc = new Box(pboxcPtr); };
+	if (pboxcPtr == IntPtr.Zero) {pboxc = null;} else { pboxc = new Box(pboxcPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -55044,8 +55018,8 @@ public static int pixCropToMatch(
 	int _Result = Natives.pixCropToMatch(pixs1.Pointer, pixs2.Pointer, out ppixd1Ptr, out ppixd2Ptr);
 	
 
-	if (ppixd1Ptr == null) {ppixd1 = null;} else { ppixd1 = new Pix(ppixd1Ptr); };
-	if (ppixd2Ptr == null) {ppixd2 = null;} else { ppixd2 = new Pix(ppixd2Ptr); };
+	if (ppixd1Ptr == IntPtr.Zero) {ppixd1 = null;} else { ppixd1 = new Pix(ppixd1Ptr); };
+	if (ppixd2Ptr == IntPtr.Zero) {ppixd2 = null;} else { ppixd2 = new Pix(ppixd2Ptr); };
 
 
 	return _Result;
@@ -55276,8 +55250,8 @@ public static int pixClipToForeground(
 	int _Result = Natives.pixClipToForeground(pixs.Pointer, out ppixdPtr, out pboxPtr);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
-	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
 
 
 	return _Result;
@@ -55345,8 +55319,8 @@ public static int pixClipBoxToForeground(
 	int _Result = Natives.pixClipBoxToForeground(pixs.Pointer, boxsPtr, out ppixdPtr, out pboxdPtr);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
-	if (pboxdPtr == null) {pboxd = null;} else { pboxd = new Box(pboxdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (pboxdPtr == IntPtr.Zero) {pboxd = null;} else { pboxd = new Box(pboxdPtr); };
 
 
 	return _Result;
@@ -55440,8 +55414,8 @@ public static int pixClipBoxToEdges(
 	int _Result = Natives.pixClipBoxToEdges(pixs.Pointer, boxsPtr,   lowthresh,   highthresh,   maxwidth,   factor, out ppixdPtr, out pboxdPtr);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
-	if (pboxdPtr == null) {pboxd = null;} else { pboxd = new Box(pboxdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (pboxdPtr == IntPtr.Zero) {pboxd = null;} else { pboxd = new Box(pboxdPtr); };
 
 
 	return _Result;
@@ -55733,7 +55707,7 @@ public static int pixWindowedVarianceOnLine(
 	int _Result = Natives.pixWindowedVarianceOnLine(pixs.Pointer,   dir,   loc,   c1,   c2,   size, out pnadPtr);
 	
 
-	if (pnadPtr == null) {pnad = null;} else { pnad = new Numa(pnadPtr); };
+	if (pnadPtr == IntPtr.Zero) {pnad = null;} else { pnad = new Numa(pnadPtr); };
 
 
 	return _Result;
@@ -55792,8 +55766,8 @@ public static int pixMinMaxNearLine(
 	int _Result = Natives.pixMinMaxNearLine(pixs.Pointer,   x1,   y1,   x2,   y2,   dist,   direction, out pnaminPtr, out pnamaxPtr, out  pminave, out  pmaxave);
 	
 
-	if (pnaminPtr == null) {pnamin = null;} else { pnamin = new Numa(pnaminPtr); };
-	if (pnamaxPtr == null) {pnamax = null;} else { pnamax = new Numa(pnamaxPtr); };
+	if (pnaminPtr == IntPtr.Zero) {pnamin = null;} else { pnamin = new Numa(pnaminPtr); };
+	if (pnamaxPtr == IntPtr.Zero) {pnamax = null;} else { pnamax = new Numa(pnamaxPtr); };
 
 
 	return _Result;
@@ -55999,7 +55973,7 @@ public static void pixaDestroy(
 	Natives.pixaDestroy(ref ppixaPtr);
 	
 
-	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 
 
 }
@@ -56672,8 +56646,8 @@ public static int pixaRemovePixAndSave(
 	int _Result = Natives.pixaRemovePixAndSave(pixa.Pointer,   index, out ppixPtr, out pboxPtr);
 	
 
-	if (ppixPtr == null) {ppix = null;} else { ppix = new Pix(ppixPtr); };
-	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
+	if (ppixPtr == IntPtr.Zero) {ppix = null;} else { ppix = new Pix(ppixPtr); };
+	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
 
 
 	return _Result;
@@ -56945,7 +56919,7 @@ public static void pixaaDestroy(
 	Natives.pixaaDestroy(ref ppaaPtr);
 	
 
-	if (ppaaPtr == null) {ppaa = null;} else { ppaa = new Pixaa(ppaaPtr); };
+	if (ppaaPtr == IntPtr.Zero) {ppaa = null;} else { ppaa = new Pixaa(ppaaPtr); };
 
 
 }
@@ -57069,7 +57043,7 @@ public static int pixaaGetCount(
 	int _Result = Natives.pixaaGetCount(paa.Pointer, out pnaPtr);
 	
 
-	if (pnaPtr == null) {pna = null;} else { pna = new Numa(pnaPtr); };
+	if (pnaPtr == IntPtr.Zero) {pna = null;} else { pna = new Numa(pnaPtr); };
 
 
 	return _Result;
@@ -57822,7 +57796,7 @@ public static void pixaccDestroy(
 	Natives.pixaccDestroy(ref ppixaccPtr);
 	
 
-	if (ppixaccPtr == null) {ppixacc = null;} else { ppixacc = new Pixacc(ppixaccPtr); };
+	if (ppixaccPtr == IntPtr.Zero) {ppixacc = null;} else { ppixacc = new Pixacc(ppixaccPtr); };
 
 
 }
@@ -58642,7 +58616,7 @@ public static Pixa pixaSort(
 	IntPtr _Result = Natives.pixaSort(pixas.Pointer,   sorttype,   sortorder, out pnaindexPtr,   copyflag);
 	
 
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -58688,7 +58662,7 @@ public static Pixa pixaBinSort(
 	IntPtr _Result = Natives.pixaBinSort(pixas.Pointer,   sorttype,   sortorder, out pnaindexPtr,   copyflag);
 	
 
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -59162,7 +59136,7 @@ public static Pixa pixaaFlattenToPixa(
 	IntPtr _Result = Natives.pixaaFlattenToPixa(paa.Pointer, out pnaindexPtr,   copyflag);
 	
 
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -59288,8 +59262,8 @@ public static int pixaClipToForeground(
 	int _Result = Natives.pixaClipToForeground(pixas.Pointer, out ppixadPtr, out pboxaPtr);
 	
 
-	if (ppixadPtr == null) {ppixad = null;} else { ppixad = new Pixa(ppixadPtr); };
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (ppixadPtr == IntPtr.Zero) {ppixad = null;} else { ppixad = new Pixa(ppixadPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 
 	return _Result;
@@ -59451,7 +59425,7 @@ public static int pixaEqual(
 	int _Result = Natives.pixaEqual(pixa1.Pointer, pixa2.Pointer,   maxdist, out pnaindexPtr, out  psame);
 	
 
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 
 	return _Result;
@@ -59627,7 +59601,7 @@ public static Pix pixaDisplayLinearly(
 	IntPtr _Result = Natives.pixaDisplayLinearly(pixas.Pointer,   direction,   scalefactor,   background,   spacing,   border, out pboxaPtr);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -59672,7 +59646,7 @@ public static Pix pixaDisplayOnLattice(
 	IntPtr _Result = Natives.pixaDisplayOnLattice(pixa.Pointer,   cellw,   cellh, out  pncols, out pboxaPtr);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -61497,7 +61471,7 @@ public static void pixcompDestroy(
 	Natives.pixcompDestroy(ref ppixcPtr);
 	
 
-	if (ppixcPtr == null) {ppixc = null;} else { ppixc = new PixComp(ppixcPtr); };
+	if (ppixcPtr == IntPtr.Zero) {ppixc = null;} else { ppixc = new PixComp(ppixcPtr); };
 
 
 }
@@ -61827,7 +61801,7 @@ public static void pixacompDestroy(
 	Natives.pixacompDestroy(ref ppixacPtr);
 	
 
-	if (ppixacPtr == null) {ppixac = null;} else { ppixac = new PixaComp(ppixacPtr); };
+	if (ppixacPtr == IntPtr.Zero) {ppixac = null;} else { ppixac = new PixaComp(ppixacPtr); };
 
 
 }
@@ -63353,7 +63327,7 @@ public static int pixQuantizeIfFewColors(
 	int _Result = Natives.pixQuantizeIfFewColors(pixs.Pointer,   maxcolors,   mingraycolors,   octlevel, out ppixdPtr);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -64695,8 +64669,8 @@ public static int pixConnCompIncrInit(
 	int _Result = Natives.pixConnCompIncrInit(pixs.Pointer,   conn, out ppixdPtr, out pptaaPtr, out  pncc);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
-	if (pptaaPtr == null) {pptaa = null;} else { pptaa = new Ptaa(pptaaPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (pptaaPtr == IntPtr.Zero) {pptaa = null;} else { pptaa = new Ptaa(pptaaPtr); };
 
 
 	return _Result;
@@ -64898,7 +64872,7 @@ public static void pixTilingDestroy(
 	Natives.pixTilingDestroy(ref pptPtr);
 	
 
-	if (pptPtr == null) {ppt = null;} else { ppt = new PixTiling(pptPtr); };
+	if (pptPtr == IntPtr.Zero) {ppt = null;} else { ppt = new PixTiling(pptPtr); };
 
 
 }
@@ -67427,7 +67401,7 @@ public static void ptaDestroy(
 	Natives.ptaDestroy(ref pptaPtr);
 	
 
-	if (pptaPtr == null) {ppta = null;} else { ppta = new Pta(pptaPtr); };
+	if (pptaPtr == IntPtr.Zero) {ppta = null;} else { ppta = new Pta(pptaPtr); };
 
 
 }
@@ -67752,8 +67726,8 @@ public static int ptaGetArrays(
 	int _Result = Natives.ptaGetArrays(pta.Pointer, out pnaxPtr, out pnayPtr);
 	
 
-	if (pnaxPtr == null) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
-	if (pnayPtr == null) {pnay = null;} else { pnay = new Numa(pnayPtr); };
+	if (pnaxPtr == IntPtr.Zero) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
+	if (pnayPtr == IntPtr.Zero) {pnay = null;} else { pnay = new Numa(pnayPtr); };
 
 
 	return _Result;
@@ -67964,7 +67938,7 @@ public static void ptaaDestroy(
 	Natives.ptaaDestroy(ref pptaaPtr);
 	
 
-	if (pptaaPtr == null) {pptaa = null;} else { pptaa = new Ptaa(pptaaPtr); };
+	if (pptaaPtr == IntPtr.Zero) {pptaa = null;} else { pptaa = new Ptaa(pptaaPtr); };
 
 
 }
@@ -68870,7 +68844,7 @@ public static int ptaGetLinearLSF(
 	int _Result = Natives.ptaGetLinearLSF(pta.Pointer, out  pa, out  pb, out pnafitPtr);
 	
 
-	if (pnafitPtr == null) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
+	if (pnafitPtr == IntPtr.Zero) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
 
 
 	return _Result;
@@ -68919,7 +68893,7 @@ public static int ptaGetQuadraticLSF(
 	int _Result = Natives.ptaGetQuadraticLSF(pta.Pointer, out  pa, out  pb, out  pc, out pnafitPtr);
 	
 
-	if (pnafitPtr == null) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
+	if (pnafitPtr == IntPtr.Zero) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
 
 
 	return _Result;
@@ -68972,7 +68946,7 @@ public static int ptaGetCubicLSF(
 	int _Result = Natives.ptaGetCubicLSF(pta.Pointer, out  pa, out  pb, out  pc, out  pd, out pnafitPtr);
 	
 
-	if (pnafitPtr == null) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
+	if (pnafitPtr == IntPtr.Zero) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
 
 
 	return _Result;
@@ -69028,7 +69002,7 @@ public static int ptaGetQuarticLSF(
 	int _Result = Natives.ptaGetQuarticLSF(pta.Pointer, out  pa, out  pb, out  pc, out  pd, out  pe, out pnafitPtr);
 	
 
-	if (pnafitPtr == null) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
+	if (pnafitPtr == IntPtr.Zero) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
 
 
 	return _Result;
@@ -69075,8 +69049,8 @@ public static int ptaNoisyLinearLSF(
 	int _Result = Natives.ptaNoisyLinearLSF(pta.Pointer,   factor, out pptadPtr, out  pa, out  pb, out  pmederr, out pnafitPtr);
 	
 
-	if (pptadPtr == null) {pptad = null;} else { pptad = new Pta(pptadPtr); };
-	if (pnafitPtr == null) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
+	if (pptadPtr == IntPtr.Zero) {pptad = null;} else { pptad = new Pta(pptadPtr); };
+	if (pnafitPtr == IntPtr.Zero) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
 
 
 	return _Result;
@@ -69119,8 +69093,8 @@ public static int ptaNoisyQuadraticLSF(
 	int _Result = Natives.ptaNoisyQuadraticLSF(pta.Pointer,   factor, out pptadPtr, out  pa, out  pb, out  pc, out  pmederr, out pnafitPtr);
 	
 
-	if (pptadPtr == null) {pptad = null;} else { pptad = new Pta(pptadPtr); };
-	if (pnafitPtr == null) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
+	if (pptadPtr == IntPtr.Zero) {pptad = null;} else { pptad = new Pta(pptadPtr); };
+	if (pnafitPtr == IntPtr.Zero) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
 
 
 	return _Result;
@@ -69394,8 +69368,8 @@ public static Ptaa ptaaGetBoundaryPixels(
 	IntPtr _Result = Natives.ptaaGetBoundaryPixels(pixs.Pointer,   type,   connectivity, out pboxaPtr, out ppixaPtr);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
-	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -69531,8 +69505,8 @@ public static int ptaConvertToNuma(
 	int _Result = Natives.ptaConvertToNuma(pta.Pointer, out pnaxPtr, out pnayPtr);
 	
 
-	if (pnaxPtr == null) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
-	if (pnayPtr == null) {pnay = null;} else { pnay = new Numa(pnayPtr); };
+	if (pnaxPtr == IntPtr.Zero) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
+	if (pnayPtr == IntPtr.Zero) {pnay = null;} else { pnay = new Numa(pnayPtr); };
 
 
 	return _Result;
@@ -69751,7 +69725,7 @@ public static Pta ptaSort(
 	IntPtr _Result = Natives.ptaSort(ptas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
 	
 
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -69780,7 +69754,7 @@ public static int ptaGetSortIndex(
 	int _Result = Natives.ptaGetSortIndex(ptas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
 	
 
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 
 	return _Result;
@@ -70037,8 +70011,8 @@ public static int ptaRemoveDupsByHash(
 	int _Result = Natives.ptaRemoveDupsByHash(ptas.Pointer, out pptadPtr, out pdahashPtr);
 	
 
-	if (pptadPtr == null) {pptad = null;} else { pptad = new Pta(pptadPtr); };
-	if (pdahashPtr == null) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
+	if (pptadPtr == IntPtr.Zero) {pptad = null;} else { pptad = new Pta(pptadPtr); };
+	if (pdahashPtr == IntPtr.Zero) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
 
 
 	return _Result;
@@ -70190,7 +70164,7 @@ public static void ptraDestroy(
 	Natives.ptraDestroy(ref ppaPtr,   freeflag,   warnflag);
 	
 
-	if (ppaPtr == null) {ppa = null;} else { ppa = new L_Ptra(ppaPtr); };
+	if (ppaPtr == IntPtr.Zero) {ppa = null;} else { ppa = new L_Ptra(ppaPtr); };
 
 
 }
@@ -70609,7 +70583,7 @@ public static void ptraaDestroy(
 	Natives.ptraaDestroy(ref ppaaPtr,   freeflag,   warnflag);
 	
 
-	if (ppaaPtr == null) {ppaa = null;} else { ppaa = new L_Ptraa(ppaaPtr); };
+	if (ppaaPtr == IntPtr.Zero) {ppaa = null;} else { ppaa = new L_Ptraa(ppaaPtr); };
 
 
 }
@@ -70752,7 +70726,7 @@ public static int pixQuadtreeMean(
 	int _Result = Natives.pixQuadtreeMean(pixs.Pointer,   nlevels, pix_ma.Pointer, out pfpixaPtr);
 	
 
-	if (pfpixaPtr == null) {pfpixa = null;} else { pfpixa = new FPixa(pfpixaPtr); };
+	if (pfpixaPtr == IntPtr.Zero) {pfpixa = null;} else { pfpixa = new FPixa(pfpixaPtr); };
 
 
 	return _Result;
@@ -70790,8 +70764,8 @@ public static int pixQuadtreeVariance(
 	int _Result = Natives.pixQuadtreeVariance(pixs.Pointer,   nlevels, pix_ma.Pointer, dpix_msa.Pointer, out pfpixa_vPtr, out pfpixa_rvPtr);
 	
 
-	if (pfpixa_vPtr == null) {pfpixa_v = null;} else { pfpixa_v = new FPixa(pfpixa_vPtr); };
-	if (pfpixa_rvPtr == null) {pfpixa_rv = null;} else { pfpixa_rv = new FPixa(pfpixa_rvPtr); };
+	if (pfpixa_vPtr == IntPtr.Zero) {pfpixa_v = null;} else { pfpixa_v = new FPixa(pfpixa_vPtr); };
+	if (pfpixa_rvPtr == IntPtr.Zero) {pfpixa_rv = null;} else { pfpixa_rv = new FPixa(pfpixa_rvPtr); };
 
 
 	return _Result;
@@ -71078,7 +71052,7 @@ public static void lqueueDestroy(
 	Natives.lqueueDestroy(ref plqPtr,   freeflag);
 	
 
-	if (plqPtr == null) {plq = null;} else { plq = new L_Queue(plqPtr); };
+	if (plqPtr == IntPtr.Zero) {plq = null;} else { plq = new L_Queue(plqPtr); };
 
 
 }
@@ -71642,7 +71616,7 @@ public static Sarray pixProcessBarcodes(
 	IntPtr _Result = Natives.pixProcessBarcodes(pixs.Pointer,  (int) format,   method, out psawPtr,   debugflag);
 	
 
-	if (psawPtr == null) {psaw = null;} else { psaw = new Sarray(psawPtr); };
+	if (psawPtr == IntPtr.Zero) {psaw = null;} else { psaw = new Sarray(psawPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -71695,7 +71669,7 @@ public static Sarray pixReadBarcodes(
 	IntPtr _Result = Natives.pixReadBarcodes(pixa.Pointer,  (int) format,   method, out psawPtr,   debugflag);
 	
 
-	if (psawPtr == null) {psaw = null;} else { psaw = new Sarray(psawPtr); };
+	if (psawPtr == IntPtr.Zero) {psaw = null;} else { psaw = new Sarray(psawPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -71749,8 +71723,8 @@ public static Boxa pixLocateBarcodes(
 	IntPtr _Result = Natives.pixLocateBarcodes(pixs.Pointer,   thresh, out ppixbPtr, out ppixmPtr);
 	
 
-	if (ppixbPtr == null) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
-	if (ppixmPtr == null) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
+	if (ppixbPtr == IntPtr.Zero) {ppixb = null;} else { ppixb = new Pix(ppixbPtr); };
+	if (ppixmPtr == IntPtr.Zero) {ppixm = null;} else { ppixm = new Pix(ppixmPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -71829,8 +71803,8 @@ public static Numa pixExtractBarcodeWidths1(
 	IntPtr _Result = Natives.pixExtractBarcodeWidths1(pixs.Pointer,   thresh,   binfract, out pnaehistPtr, out pnaohistPtr,   debugflag);
 	
 
-	if (pnaehistPtr == null) {pnaehist = null;} else { pnaehist = new Numa(pnaehistPtr); };
-	if (pnaohistPtr == null) {pnaohist = null;} else { pnaohist = new Numa(pnaohistPtr); };
+	if (pnaehistPtr == IntPtr.Zero) {pnaehist = null;} else { pnaehist = new Numa(pnaehistPtr); };
+	if (pnaohistPtr == IntPtr.Zero) {pnaohist = null;} else { pnaohist = new Numa(pnaohistPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -71875,7 +71849,7 @@ public static Numa pixExtractBarcodeWidths2(
 	IntPtr _Result = Natives.pixExtractBarcodeWidths2(pixs.Pointer,   thresh, out  pwidth, out pnacPtr,   debugflag);
 	
 
-	if (pnacPtr == null) {pnac = null;} else { pnac = new Numa(pnacPtr); };
+	if (pnacPtr == IntPtr.Zero) {pnac = null;} else { pnac = new Numa(pnacPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -71943,8 +71917,8 @@ public static Numa numaQuantizeCrossingsByWidth(
 	IntPtr _Result = Natives.numaQuantizeCrossingsByWidth(nas.Pointer,   binfract, out pnaehistPtr, out pnaohistPtr,   debugflag);
 	
 
-	if (pnaehistPtr == null) {pnaehist = null;} else { pnaehist = new Numa(pnaehistPtr); };
-	if (pnaohistPtr == null) {pnaohist = null;} else { pnaohist = new Numa(pnaohistPtr); };
+	if (pnaehistPtr == IntPtr.Zero) {pnaehist = null;} else { pnaehist = new Numa(pnaehistPtr); };
+	if (pnaohistPtr == IntPtr.Zero) {pnaohist = null;} else { pnaohist = new Numa(pnaohistPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -71986,7 +71960,7 @@ public static Numa numaQuantizeCrossingsByWindow(
 	IntPtr _Result = Natives.numaQuantizeCrossingsByWindow(nas.Pointer,   ratio, out  pwidth, out  pfirstloc, out pnacPtr,   debugflag);
 	
 
-	if (pnacPtr == null) {pnac = null;} else { pnac = new Numa(pnacPtr); };
+	if (pnacPtr == IntPtr.Zero) {pnac = null;} else { pnac = new Numa(pnacPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -72625,7 +72599,7 @@ public static void recogDestroy(
 	Natives.recogDestroy(ref precogPtr);
 	
 
-	if (precogPtr == null) {precog = null;} else { precog = new L_Recog(precogPtr); };
+	if (precogPtr == IntPtr.Zero) {precog = null;} else { precog = new L_Recog(precogPtr); };
 
 
 }
@@ -73030,7 +73004,7 @@ public static Boxa recogDecode(
 	IntPtr _Result = Natives.recogDecode(recog.Pointer, pixs.Pointer,   nlevels, out ppixdbPtr);
 	
 
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -73198,9 +73172,9 @@ public static int recogIdentifyMultiple(
 	int _Result = Natives.recogIdentifyMultiple(recog.Pointer, pixs.Pointer,   minh,   skipsplit, out pboxaPtr, out ppixaPtr, out ppixdbPtr,   debugsplit);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
-	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
@@ -73251,8 +73225,8 @@ public static int recogSplitIntoCharacters(
 	int _Result = Natives.recogSplitIntoCharacters(recog.Pointer, pixs.Pointer,   minh,   skipsplit, out pboxaPtr, out ppixaPtr,  (int) debug);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
-	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 
 
 	return _Result;
@@ -73296,10 +73270,10 @@ public static int recogCorrelationBestRow(
 	int _Result = Natives.recogCorrelationBestRow(recog.Pointer, pixs.Pointer, out pboxaPtr, out pnascorePtr, out pnaindexPtr, out psacharPtr,  (int) debug);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
-	if (pnascorePtr == null) {pnascore = null;} else { pnascore = new Numa(pnascorePtr); };
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
-	if (psacharPtr == null) {psachar = null;} else { psachar = new Sarray(psacharPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (pnascorePtr == IntPtr.Zero) {pnascore = null;} else { pnascore = new Numa(pnascorePtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (psacharPtr == IntPtr.Zero) {psachar = null;} else { psachar = new Sarray(psacharPtr); };
 
 
 	return _Result;
@@ -73344,9 +73318,9 @@ public static int recogCorrelationBestChar(
 	int _Result = Natives.recogCorrelationBestChar(recog.Pointer, pixs.Pointer, out pboxPtr, out  pscore, out  pindex, out  pcharstrPtr, out ppixdbPtr);
 	
 
-	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
+	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
 	if (pcharstrPtr == null) {pcharstr = null;} else { pcharstr = null; };
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
@@ -73381,7 +73355,7 @@ public static int recogIdentifyPixa(
 	int _Result = Natives.recogIdentifyPixa(recog.Pointer, pixa.Pointer, out ppixdbPtr);
 	
 
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
@@ -73426,7 +73400,7 @@ public static int recogIdentifyPix(
 	int _Result = Natives.recogIdentifyPix(recog.Pointer, pixs.Pointer, out ppixdbPtr);
 	
 
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 
 	return _Result;
@@ -73470,7 +73444,7 @@ public static void rchaDestroy(
 	Natives.rchaDestroy(ref prchaPtr);
 	
 
-	if (prchaPtr == null) {prcha = null;} else { prcha = new L_Rcha(prchaPtr); };
+	if (prchaPtr == IntPtr.Zero) {prcha = null;} else { prcha = new L_Rcha(prchaPtr); };
 
 
 }
@@ -73490,7 +73464,7 @@ public static void rchDestroy(
 	Natives.rchDestroy(ref prchPtr);
 	
 
-	if (prchPtr == null) {prch = null;} else { prch = new L_Rch(prchPtr); };
+	if (prchPtr == IntPtr.Zero) {prch = null;} else { prch = new L_Rch(prchPtr); };
 
 
 }
@@ -73535,13 +73509,13 @@ public static int rchaExtract(
 	int _Result = Natives.rchaExtract(rcha.Pointer, out pnaindexPtr, out pnascorePtr, out psatextPtr, out pnasamplePtr, out pnaxlocPtr, out pnaylocPtr, out pnawidthPtr);
 	
 
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
-	if (pnascorePtr == null) {pnascore = null;} else { pnascore = new Numa(pnascorePtr); };
-	if (psatextPtr == null) {psatext = null;} else { psatext = new Sarray(psatextPtr); };
-	if (pnasamplePtr == null) {pnasample = null;} else { pnasample = new Numa(pnasamplePtr); };
-	if (pnaxlocPtr == null) {pnaxloc = null;} else { pnaxloc = new Numa(pnaxlocPtr); };
-	if (pnaylocPtr == null) {pnayloc = null;} else { pnayloc = new Numa(pnaylocPtr); };
-	if (pnawidthPtr == null) {pnawidth = null;} else { pnawidth = new Numa(pnawidthPtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnascorePtr == IntPtr.Zero) {pnascore = null;} else { pnascore = new Numa(pnascorePtr); };
+	if (psatextPtr == IntPtr.Zero) {psatext = null;} else { psatext = new Sarray(psatextPtr); };
+	if (pnasamplePtr == IntPtr.Zero) {pnasample = null;} else { pnasample = new Numa(pnasamplePtr); };
+	if (pnaxlocPtr == IntPtr.Zero) {pnaxloc = null;} else { pnaxloc = new Numa(pnaxlocPtr); };
+	if (pnaylocPtr == IntPtr.Zero) {pnayloc = null;} else { pnayloc = new Numa(pnaylocPtr); };
+	if (pnawidthPtr == IntPtr.Zero) {pnawidth = null;} else { pnawidth = new Numa(pnawidthPtr); };
 
 
 	return _Result;
@@ -73664,8 +73638,8 @@ public static Sarray recogExtractNumbers(
 	IntPtr _Result = Natives.recogExtractNumbers(recog.Pointer, boxas.Pointer,   scorethresh,   spacethresh, out pbaaPtr, out pnaaPtr);
 	
 
-	if (pbaaPtr == null) {pbaa = null;} else { pbaa = new Boxaa(pbaaPtr); };
-	if (pnaaPtr == null) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
+	if (pbaaPtr == IntPtr.Zero) {pbaa = null;} else { pbaa = new Boxaa(pbaaPtr); };
+	if (pnaaPtr == IntPtr.Zero) {pnaa = null;} else { pnaa = new Numaa(pnaaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -73702,7 +73676,7 @@ public static Pixa showExtractNumbers(
 	IntPtr _Result = Natives.showExtractNumbers(pixs.Pointer, sa.Pointer, baa.Pointer, naa.Pointer, out ppixdbPtr);
 	
 
-	if (ppixdbPtr == null) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
+	if (ppixdbPtr == IntPtr.Zero) {ppixdb = null;} else { ppixdb = new Pix(ppixdbPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -73776,7 +73750,7 @@ public static int recogProcessLabeled(
 	int _Result = Natives.recogProcessLabeled(recog.Pointer, pixs.Pointer, boxPtr,   text, out ppixPtr);
 	
 
-	if (ppixPtr == null) {ppix = null;} else { ppix = new Pix(ppixPtr); };
+	if (ppixPtr == IntPtr.Zero) {ppix = null;} else { ppix = new Pix(ppixPtr); };
 
 
 	return _Result;
@@ -73910,7 +73884,7 @@ public static int pixaAccumulateSamples(
 	int _Result = Natives.pixaAccumulateSamples(pixa.Pointer, ptaPtr, out ppixdPtr, out  px, out  py);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -74012,7 +73986,7 @@ public static Pixa recogFilterPixaBySize(
 	IntPtr _Result = Natives.recogFilterPixaBySize(pixas.Pointer,   setsize,   maxkeep,   max_ht_ratio, out pnaPtr);
 	
 
-	if (pnaPtr == null) {pna = null;} else { pna = new Numa(pnaPtr); };
+	if (pnaPtr == IntPtr.Zero) {pna = null;} else { pna = new Numa(pnaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -74076,8 +74050,8 @@ public static int recogRemoveOutliers1(
 	int _Result = Natives.recogRemoveOutliers1(precogPtr,   minscore,   mintarget,   minsize, out ppixsavePtr, out ppixremPtr);
 	
 
-	if (ppixsavePtr == null) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
-	if (ppixremPtr == null) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
+	if (ppixsavePtr == IntPtr.Zero) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
+	if (ppixremPtr == IntPtr.Zero) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
 
 
 	return _Result;
@@ -74136,8 +74110,8 @@ public static Pixa pixaRemoveOutliers1(
 	IntPtr _Result = Natives.pixaRemoveOutliers1(pixas.Pointer,   minscore,   mintarget,   minsize, out ppixsavePtr, out ppixremPtr);
 	
 
-	if (ppixsavePtr == null) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
-	if (ppixremPtr == null) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
+	if (ppixsavePtr == IntPtr.Zero) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
+	if (ppixremPtr == IntPtr.Zero) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -74177,8 +74151,8 @@ public static int recogRemoveOutliers2(
 	int _Result = Natives.recogRemoveOutliers2(precogPtr,   minscore,   minsize, out ppixsavePtr, out ppixremPtr);
 	
 
-	if (ppixsavePtr == null) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
-	if (ppixremPtr == null) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
+	if (ppixsavePtr == IntPtr.Zero) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
+	if (ppixremPtr == IntPtr.Zero) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
 
 
 	return _Result;
@@ -74224,8 +74198,8 @@ public static Pixa pixaRemoveOutliers2(
 	IntPtr _Result = Natives.pixaRemoveOutliers2(pixas.Pointer,   minscore,   minsize, out ppixsavePtr, out ppixremPtr);
 	
 
-	if (ppixsavePtr == null) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
-	if (ppixremPtr == null) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
+	if (ppixsavePtr == IntPtr.Zero) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
+	if (ppixremPtr == IntPtr.Zero) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -74304,7 +74278,7 @@ public static int recogPadDigitTrainingSet(
 	int _Result = Natives.recogPadDigitTrainingSet(ref precogPtr,   scaleh,   linew);
 	
 
-	if (precogPtr == null) {precog = null;} else { precog = new L_Recog(precogPtr); };
+	if (precogPtr == IntPtr.Zero) {precog = null;} else { precog = new L_Recog(precogPtr); };
 
 
 	return _Result;
@@ -74334,7 +74308,7 @@ public static int recogIsPaddingNeeded(
 	int _Result = Natives.recogIsPaddingNeeded(recog.Pointer, out psaPtr);
 	
 
-	if (psaPtr == null) {psa = null;} else { psa = new Sarray(psaPtr); };
+	if (psaPtr == IntPtr.Zero) {psa = null;} else { psa = new Sarray(psaPtr); };
 
 
 	return _Result;
@@ -74646,7 +74620,7 @@ public static int regTestSetup(
 	int _Result = Natives.regTestSetup(  argc,   argvPtr, out prpPtr);
 	
 
-	if (prpPtr == null) {prp = null;} else { prp = new L_RegParams(prpPtr); };
+	if (prpPtr == IntPtr.Zero) {prp = null;} else { prp = new L_RegParams(prpPtr); };
 
 
 	return _Result;
@@ -76605,7 +76579,7 @@ public static Numa pixFindMaxRuns(
 	IntPtr _Result = Natives.pixFindMaxRuns(pix.Pointer,   direction, out pnastartPtr);
 	
 
-	if (pnastartPtr == null) {pnastart = null;} else { pnastart = new Numa(pnastartPtr); };
+	if (pnastartPtr == IntPtr.Zero) {pnastart = null;} else { pnastart = new Numa(pnastartPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -76850,7 +76824,7 @@ public static void sarrayDestroy(
 	Natives.sarrayDestroy(ref psaPtr);
 	
 
-	if (psaPtr == null) {psa = null;} else { psa = new Sarray(psaPtr); };
+	if (psaPtr == IntPtr.Zero) {psa = null;} else { psa = new Sarray(psaPtr); };
 
 
 }
@@ -77963,8 +77937,8 @@ public static int sarrayRemoveDupsByHash(
 	int _Result = Natives.sarrayRemoveDupsByHash(sas.Pointer, out psadPtr, out pdahashPtr);
 	
 
-	if (psadPtr == null) {psad = null;} else { psad = new Sarray(psadPtr); };
-	if (pdahashPtr == null) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
+	if (psadPtr == IntPtr.Zero) {psad = null;} else { psad = new Sarray(psadPtr); };
+	if (pdahashPtr == IntPtr.Zero) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
 
 
 	return _Result;
@@ -80330,8 +80304,8 @@ public static int pixLocalExtrema(
 	int _Result = Natives.pixLocalExtrema(pixs.Pointer,   maxmin,   minmax, out ppixminPtr, out ppixmaxPtr);
 	
 
-	if (ppixminPtr == null) {ppixmin = null;} else { ppixmin = new Pix(ppixminPtr); };
-	if (ppixmaxPtr == null) {ppixmax = null;} else { ppixmax = new Pix(ppixmaxPtr); };
+	if (ppixminPtr == IntPtr.Zero) {ppixmin = null;} else { ppixmin = new Pix(ppixminPtr); };
+	if (ppixmaxPtr == IntPtr.Zero) {ppixmax = null;} else { ppixmax = new Pix(ppixmaxPtr); };
 
 
 	return _Result;
@@ -80383,8 +80357,8 @@ public static int pixSelectedLocalExtrema(
 	int _Result = Natives.pixSelectedLocalExtrema(pixs.Pointer,   mindist, out ppixminPtr, out ppixmaxPtr);
 	
 
-	if (ppixminPtr == null) {ppixmin = null;} else { ppixmin = new Pix(ppixminPtr); };
-	if (ppixmaxPtr == null) {ppixmax = null;} else { ppixmax = new Pix(ppixmaxPtr); };
+	if (ppixminPtr == IntPtr.Zero) {ppixmin = null;} else { ppixmin = new Pix(ppixminPtr); };
+	if (ppixmaxPtr == IntPtr.Zero) {ppixmax = null;} else { ppixmax = new Pix(ppixmaxPtr); };
 
 
 	return _Result;
@@ -80451,8 +80425,8 @@ public static int pixSelectMinInConnComp(
 	int _Result = Natives.pixSelectMinInConnComp(pixs.Pointer, pixm.Pointer, out pptaPtr, out pnavPtr);
 	
 
-	if (pptaPtr == null) {ppta = null;} else { ppta = new Pta(pptaPtr); };
-	if (pnavPtr == null) {pnav = null;} else { pnav = new Numa(pnavPtr); };
+	if (pptaPtr == IntPtr.Zero) {ppta = null;} else { ppta = new Pta(pptaPtr); };
+	if (pnavPtr == IntPtr.Zero) {pnav = null;} else { pnav = new Numa(pnavPtr); };
 
 
 	return _Result;
@@ -80537,7 +80511,7 @@ public static void selaDestroy(
 	Natives.selaDestroy(ref pselaPtr);
 	
 
-	if (pselaPtr == null) {psela = null;} else { psela = new Sela(pselaPtr); };
+	if (pselaPtr == IntPtr.Zero) {psela = null;} else { psela = new Sela(pselaPtr); };
 
 
 }
@@ -80588,7 +80562,7 @@ public static void selDestroy(
 	Natives.selDestroy(ref pselPtr);
 	
 
-	if (pselPtr == null) {psel = null;} else { psel = new Sel(pselPtr); };
+	if (pselPtr == IntPtr.Zero) {psel = null;} else { psel = new Sel(pselPtr); };
 
 
 }
@@ -81969,7 +81943,7 @@ public static Sel pixGenerateSelWithRuns(
 	IntPtr _Result = Natives.pixGenerateSelWithRuns(pixs.Pointer,   nhlines,   nvlines,   distance,   minlength,   toppix,   botpix,   leftpix,   rightpix, out ppixePtr);
 	
 
-	if (ppixePtr == null) {ppixe = null;} else { ppixe = new Pix(ppixePtr); };
+	if (ppixePtr == IntPtr.Zero) {ppixe = null;} else { ppixe = new Pix(ppixePtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -82028,7 +82002,7 @@ public static Sel pixGenerateSelRandom(
 	IntPtr _Result = Natives.pixGenerateSelRandom(pixs.Pointer,   hitfract,   missfract,   distance,   toppix,   botpix,   leftpix,   rightpix, out ppixePtr);
 	
 
-	if (ppixePtr == null) {ppixe = null;} else { ppixe = new Pix(ppixePtr); };
+	if (ppixePtr == IntPtr.Zero) {ppixe = null;} else { ppixe = new Pix(ppixePtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -82097,7 +82071,7 @@ public static Sel pixGenerateSelBoundary(
 	IntPtr _Result = Natives.pixGenerateSelBoundary(pixs.Pointer,   hitdist,   missdist,   hitskip,   missskip,   topflag,   botflag,   leftflag,   rightflag, out ppixePtr);
 	
 
-	if (ppixePtr == null) {ppixe = null;} else { ppixe = new Pix(ppixePtr); };
+	if (ppixePtr == IntPtr.Zero) {ppixe = null;} else { ppixe = new Pix(ppixePtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -83471,7 +83445,7 @@ public static void lstackDestroy(
 	Natives.lstackDestroy(ref plstackPtr,   freeflag);
 	
 
-	if (plstackPtr == null) {plstack = null;} else { plstack = new L_Stack(plstackPtr); };
+	if (plstackPtr == IntPtr.Zero) {plstack = null;} else { plstack = new L_Stack(plstackPtr); };
 
 
 }
@@ -83670,7 +83644,7 @@ public static int strcodeFinalize(
 	int _Result = Natives.strcodeFinalize(ref pstrcodePtr,   outdir);
 	
 
-	if (pstrcodePtr == null) {pstrcode = null;} else { pstrcode = new L_StrCode(pstrcodePtr); };
+	if (pstrcodePtr == IntPtr.Zero) {pstrcode = null;} else { pstrcode = new L_StrCode(pstrcodePtr); };
 
 
 	return _Result;
@@ -83771,7 +83745,7 @@ public static int pixFindStrokeWidth(
 	int _Result = Natives.pixFindStrokeWidth(pixs.Pointer,   thresh,   tab8, out  pwidth, out pnahistoPtr);
 	
 
-	if (pnahistoPtr == null) {pnahisto = null;} else { pnahisto = new Numa(pnahistoPtr); };
+	if (pnahistoPtr == IntPtr.Zero) {pnahisto = null;} else { pnahisto = new Numa(pnahistoPtr); };
 
 
 	return _Result;
@@ -84013,7 +83987,7 @@ public static void sudokuDestroy(
 	Natives.sudokuDestroy(ref psudPtr);
 	
 
-	if (psudPtr == null) {psud = null;} else { psud = new L_Sudoku(psudPtr); };
+	if (psudPtr == IntPtr.Zero) {psud = null;} else { psud = new L_Sudoku(psudPtr); };
 
 
 }
@@ -86068,7 +86042,7 @@ public static Single stopWallTimer(
 	Single _Result = Natives.stopWallTimer(ref ptimerPtr);
 	
 
-	if (ptimerPtr == null) {ptimer = null;} else { ptimer = new L_WallTimer(ptimerPtr); };
+	if (ptimerPtr == IntPtr.Zero) {ptimer = null;} else { ptimer = new L_WallTimer(ptimerPtr); };
 
 
 	return _Result;
@@ -88456,7 +88430,7 @@ public static void wshedDestroy(
 	Natives.wshedDestroy(ref pwshedPtr);
 	
 
-	if (pwshedPtr == null) {pwshed = null;} else { pwshed = new L_WShed(pwshedPtr); };
+	if (pwshedPtr == IntPtr.Zero) {pwshed = null;} else { pwshed = new L_WShed(pwshedPtr); };
 
 
 }
@@ -88501,8 +88475,8 @@ public static int wshedBasins(
 	int _Result = Natives.wshedBasins(wshed.Pointer, out ppixaPtr, out pnalevelsPtr);
 	
 
-	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
-	if (pnalevelsPtr == null) {pnalevels = null;} else { pnalevels = new Numa(pnalevelsPtr); };
+	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+	if (pnalevelsPtr == IntPtr.Zero) {pnalevels = null;} else { pnalevels = new Numa(pnalevelsPtr); };
 
 
 	return _Result;
@@ -89477,4 +89451,5 @@ public static Byte[] zlibUncompress(
 
 #endregion
 
+}
 }

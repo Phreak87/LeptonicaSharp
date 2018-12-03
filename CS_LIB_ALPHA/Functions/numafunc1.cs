@@ -940,8 +940,8 @@ public static int numaInterpolateEqxInterval(
 	int _Result = Natives.numaInterpolateEqxInterval(  startx,   deltax, nasy.Pointer,   type,   x0,   x1,   npts, out pnaxPtr, out pnayPtr);
 	
 
-	if (pnaxPtr == null) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
-	if (pnayPtr == null) {pnay = null;} else { pnay = new Numa(pnayPtr); };
+	if (pnaxPtr == IntPtr.Zero) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
+	if (pnayPtr == IntPtr.Zero) {pnay = null;} else { pnay = new Numa(pnayPtr); };
 
 
 	return _Result;
@@ -995,8 +995,8 @@ public static int numaInterpolateArbxInterval(
 	int _Result = Natives.numaInterpolateArbxInterval(nax.Pointer, nay.Pointer,   type,   x0,   x1,   npts, out pnadxPtr, out pnadyPtr);
 	
 
-	if (pnadxPtr == null) {pnadx = null;} else { pnadx = new Numa(pnadxPtr); };
-	if (pnadyPtr == null) {pnady = null;} else { pnady = new Numa(pnadyPtr); };
+	if (pnadxPtr == IntPtr.Zero) {pnadx = null;} else { pnadx = new Numa(pnadxPtr); };
+	if (pnadyPtr == IntPtr.Zero) {pnady = null;} else { pnady = new Numa(pnadyPtr); };
 
 
 	return _Result;
@@ -1082,8 +1082,8 @@ public static int numaDifferentiateInterval(
 	int _Result = Natives.numaDifferentiateInterval(nax.Pointer, nay.Pointer,   x0,   x1,   npts, out pnadxPtr, out pnadyPtr);
 	
 
-	if (pnadxPtr == null) {pnadx = null;} else { pnadx = new Numa(pnadxPtr); };
-	if (pnadyPtr == null) {pnady = null;} else { pnady = new Numa(pnadyPtr); };
+	if (pnadxPtr == IntPtr.Zero) {pnadx = null;} else { pnadx = new Numa(pnadxPtr); };
+	if (pnadyPtr == IntPtr.Zero) {pnady = null;} else { pnady = new Numa(pnadyPtr); };
 
 
 	return _Result;
@@ -1181,9 +1181,9 @@ public static int numaSortGeneral(
 	int _Result = Natives.numaSortGeneral(na.Pointer, out pnasortPtr, out pnaindexPtr, out pnainvertPtr,   sortorder,   sorttype);
 	
 
-	if (pnasortPtr == null) {pnasort = null;} else { pnasort = new Numa(pnasortPtr); };
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
-	if (pnainvertPtr == null) {pnainvert = null;} else { pnainvert = new Numa(pnainvertPtr); };
+	if (pnasortPtr == IntPtr.Zero) {pnasort = null;} else { pnasort = new Numa(pnasortPtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnainvertPtr == IntPtr.Zero) {pnainvert = null;} else { pnainvert = new Numa(pnainvertPtr); };
 
 
 	return _Result;
@@ -1458,8 +1458,8 @@ public static int numaSortPair(
 	int _Result = Natives.numaSortPair(nax.Pointer, nay.Pointer,   sortorder, out pnasxPtr, out pnasyPtr);
 	
 
-	if (pnasxPtr == null) {pnasx = null;} else { pnasx = new Numa(pnasxPtr); };
-	if (pnasyPtr == null) {pnasy = null;} else { pnasy = new Numa(pnasyPtr); };
+	if (pnasxPtr == IntPtr.Zero) {pnasx = null;} else { pnasx = new Numa(pnasxPtr); };
+	if (pnasyPtr == IntPtr.Zero) {pnasy = null;} else { pnasy = new Numa(pnasyPtr); };
 
 
 	return _Result;
@@ -1797,6 +1797,7 @@ public static Numa numaaFlattenToNuma(
 
 	return  new Numa(_Result);
 }
+
 
 }
 }

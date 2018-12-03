@@ -113,7 +113,7 @@ public static int strcodeFinalize(
 	int _Result = Natives.strcodeFinalize(ref pstrcodePtr,   outdir);
 	
 
-	if (pstrcodePtr == null) {pstrcode = null;} else { pstrcode = new L_StrCode(pstrcodePtr); };
+	if (pstrcodePtr == IntPtr.Zero) {pstrcode = null;} else { pstrcode = new L_StrCode(pstrcodePtr); };
 
 
 	return _Result;
@@ -150,6 +150,7 @@ public static int l_getStructStrFromFile(
 
 	return _Result;
 }
+
 
 }
 }

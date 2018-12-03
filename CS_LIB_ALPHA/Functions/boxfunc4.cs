@@ -975,11 +975,11 @@ public static int boxaPlotSides(
 	int _Result = Natives.boxaPlotSides(boxa.Pointer,   plotname, out pnalPtr, out pnatPtr, out pnarPtr, out pnabPtr, out ppixdPtr);
 	
 
-	if (pnalPtr == null) {pnal = null;} else { pnal = new Numa(pnalPtr); };
-	if (pnatPtr == null) {pnat = null;} else { pnat = new Numa(pnatPtr); };
-	if (pnarPtr == null) {pnar = null;} else { pnar = new Numa(pnarPtr); };
-	if (pnabPtr == null) {pnab = null;} else { pnab = new Numa(pnabPtr); };
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (pnalPtr == IntPtr.Zero) {pnal = null;} else { pnal = new Numa(pnalPtr); };
+	if (pnatPtr == IntPtr.Zero) {pnat = null;} else { pnat = new Numa(pnatPtr); };
+	if (pnarPtr == IntPtr.Zero) {pnar = null;} else { pnar = new Numa(pnarPtr); };
+	if (pnabPtr == IntPtr.Zero) {pnab = null;} else { pnab = new Numa(pnabPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -1023,9 +1023,9 @@ public static int boxaPlotSizes(
 	int _Result = Natives.boxaPlotSizes(boxa.Pointer,   plotname, out pnawPtr, out pnahPtr, out ppixdPtr);
 	
 
-	if (pnawPtr == null) {pnaw = null;} else { pnaw = new Numa(pnawPtr); };
-	if (pnahPtr == null) {pnah = null;} else { pnah = new Numa(pnahPtr); };
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (pnawPtr == IntPtr.Zero) {pnaw = null;} else { pnaw = new Numa(pnawPtr); };
+	if (pnahPtr == IntPtr.Zero) {pnah = null;} else { pnah = new Numa(pnahPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -1135,7 +1135,7 @@ public static int boxaGetExtent(
 	int _Result = Natives.boxaGetExtent(boxa.Pointer, out  pw, out  ph, out pboxPtr);
 	
 
-	if (pboxPtr == null) {pbox = null;} else { pbox = new Box(pboxPtr); };
+	if (pboxPtr == IntPtr.Zero) {pbox = null;} else { pbox = new Box(pboxPtr); };
 
 
 	return _Result;
@@ -1281,8 +1281,8 @@ public static int boxaGetSizes(
 	int _Result = Natives.boxaGetSizes(boxa.Pointer, out pnawPtr, out pnahPtr);
 	
 
-	if (pnawPtr == null) {pnaw = null;} else { pnaw = new Numa(pnawPtr); };
-	if (pnahPtr == null) {pnah = null;} else { pnah = new Numa(pnahPtr); };
+	if (pnawPtr == IntPtr.Zero) {pnaw = null;} else { pnaw = new Numa(pnawPtr); };
+	if (pnahPtr == IntPtr.Zero) {pnah = null;} else { pnah = new Numa(pnahPtr); };
 
 
 	return _Result;
@@ -1357,6 +1357,7 @@ public static Pix boxaDisplayTiled(
 
 	return  new Pix(_Result);
 }
+
 
 }
 }

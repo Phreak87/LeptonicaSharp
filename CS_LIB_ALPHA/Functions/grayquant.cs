@@ -694,7 +694,7 @@ public static int makeGrayQuantTableArb(
 	
 
 	if (ptabPtr == null) {ptab = null;} else { ptab = null; };
-	if (pcmapPtr == null) {pcmap = null;} else { pcmap = new PixColormap(pcmapPtr); };
+	if (pcmapPtr == IntPtr.Zero) {pcmap = null;} else { pcmap = new PixColormap(pcmapPtr); };
 
 
 	return _Result;
@@ -877,6 +877,7 @@ public static Pix pixGrayQuantFromCmap(
 
 	return  new Pix(_Result);
 }
+
 
 }
 }

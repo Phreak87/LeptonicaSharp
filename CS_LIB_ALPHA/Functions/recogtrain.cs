@@ -71,7 +71,7 @@ public static int recogProcessLabeled(
 	int _Result = Natives.recogProcessLabeled(recog.Pointer, pixs.Pointer, boxPtr,   text, out ppixPtr);
 	
 
-	if (ppixPtr == null) {ppix = null;} else { ppix = new Pix(ppixPtr); };
+	if (ppixPtr == IntPtr.Zero) {ppix = null;} else { ppix = new Pix(ppixPtr); };
 
 
 	return _Result;
@@ -205,7 +205,7 @@ public static int pixaAccumulateSamples(
 	int _Result = Natives.pixaAccumulateSamples(pixa.Pointer, ptaPtr, out ppixdPtr, out  px, out  py);
 	
 
-	if (ppixdPtr == null) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
+	if (ppixdPtr == IntPtr.Zero) {ppixd = null;} else { ppixd = new Pix(ppixdPtr); };
 
 
 	return _Result;
@@ -307,7 +307,7 @@ public static Pixa recogFilterPixaBySize(
 	IntPtr _Result = Natives.recogFilterPixaBySize(pixas.Pointer,   setsize,   maxkeep,   max_ht_ratio, out pnaPtr);
 	
 
-	if (pnaPtr == null) {pna = null;} else { pna = new Numa(pnaPtr); };
+	if (pnaPtr == IntPtr.Zero) {pna = null;} else { pna = new Numa(pnaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -371,8 +371,8 @@ public static int recogRemoveOutliers1(
 	int _Result = Natives.recogRemoveOutliers1(precogPtr,   minscore,   mintarget,   minsize, out ppixsavePtr, out ppixremPtr);
 	
 
-	if (ppixsavePtr == null) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
-	if (ppixremPtr == null) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
+	if (ppixsavePtr == IntPtr.Zero) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
+	if (ppixremPtr == IntPtr.Zero) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
 
 
 	return _Result;
@@ -431,8 +431,8 @@ public static Pixa pixaRemoveOutliers1(
 	IntPtr _Result = Natives.pixaRemoveOutliers1(pixas.Pointer,   minscore,   mintarget,   minsize, out ppixsavePtr, out ppixremPtr);
 	
 
-	if (ppixsavePtr == null) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
-	if (ppixremPtr == null) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
+	if (ppixsavePtr == IntPtr.Zero) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
+	if (ppixremPtr == IntPtr.Zero) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -472,8 +472,8 @@ public static int recogRemoveOutliers2(
 	int _Result = Natives.recogRemoveOutliers2(precogPtr,   minscore,   minsize, out ppixsavePtr, out ppixremPtr);
 	
 
-	if (ppixsavePtr == null) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
-	if (ppixremPtr == null) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
+	if (ppixsavePtr == IntPtr.Zero) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
+	if (ppixremPtr == IntPtr.Zero) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
 
 
 	return _Result;
@@ -519,8 +519,8 @@ public static Pixa pixaRemoveOutliers2(
 	IntPtr _Result = Natives.pixaRemoveOutliers2(pixas.Pointer,   minscore,   minsize, out ppixsavePtr, out ppixremPtr);
 	
 
-	if (ppixsavePtr == null) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
-	if (ppixremPtr == null) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
+	if (ppixsavePtr == IntPtr.Zero) {ppixsave = null;} else { ppixsave = new Pix(ppixsavePtr); };
+	if (ppixremPtr == IntPtr.Zero) {ppixrem = null;} else { ppixrem = new Pix(ppixremPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -599,7 +599,7 @@ public static int recogPadDigitTrainingSet(
 	int _Result = Natives.recogPadDigitTrainingSet(ref precogPtr,   scaleh,   linew);
 	
 
-	if (precogPtr == null) {precog = null;} else { precog = new L_Recog(precogPtr); };
+	if (precogPtr == IntPtr.Zero) {precog = null;} else { precog = new L_Recog(precogPtr); };
 
 
 	return _Result;
@@ -629,7 +629,7 @@ public static int recogIsPaddingNeeded(
 	int _Result = Natives.recogIsPaddingNeeded(recog.Pointer, out psaPtr);
 	
 
-	if (psaPtr == null) {psa = null;} else { psa = new Sarray(psaPtr); };
+	if (psaPtr == IntPtr.Zero) {psa = null;} else { psa = new Sarray(psaPtr); };
 
 
 	return _Result;
@@ -889,6 +889,7 @@ public static Pix recogShowMatch(
 
 	return  new Pix(_Result);
 }
+
 
 }
 }

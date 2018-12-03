@@ -112,7 +112,7 @@ public static void pixcompDestroy(
 	Natives.pixcompDestroy(ref ppixcPtr);
 	
 
-	if (ppixcPtr == null) {ppixc = null;} else { ppixc = new PixComp(ppixcPtr); };
+	if (ppixcPtr == IntPtr.Zero) {ppixc = null;} else { ppixc = new PixComp(ppixcPtr); };
 
 
 }
@@ -442,7 +442,7 @@ public static void pixacompDestroy(
 	Natives.pixacompDestroy(ref ppixacPtr);
 	
 
-	if (ppixacPtr == null) {ppixac = null;} else { ppixac = new PixaComp(ppixacPtr); };
+	if (ppixacPtr == IntPtr.Zero) {ppixac = null;} else { ppixac = new PixaComp(ppixacPtr); };
 
 
 }
@@ -1350,6 +1350,7 @@ public static int pixcompWriteFile(
 
 	return _Result;
 }
+
 
 }
 }

@@ -28,7 +28,7 @@ public static Pta ptaSort(
 	IntPtr _Result = Natives.ptaSort(ptas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
 	
 
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -57,7 +57,7 @@ public static int ptaGetSortIndex(
 	int _Result = Natives.ptaGetSortIndex(ptas.Pointer,   sorttype,   sortorder, out pnaindexPtr);
 	
 
-	if (pnaindexPtr == null) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
+	if (pnaindexPtr == IntPtr.Zero) {pnaindex = null;} else { pnaindex = new Numa(pnaindexPtr); };
 
 
 	return _Result;
@@ -314,8 +314,8 @@ public static int ptaRemoveDupsByHash(
 	int _Result = Natives.ptaRemoveDupsByHash(ptas.Pointer, out pptadPtr, out pdahashPtr);
 	
 
-	if (pptadPtr == null) {pptad = null;} else { pptad = new Pta(pptadPtr); };
-	if (pdahashPtr == null) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
+	if (pptadPtr == IntPtr.Zero) {pptad = null;} else { pptad = new Pta(pptadPtr); };
+	if (pdahashPtr == IntPtr.Zero) {pdahash = null;} else { pdahash = new L_DnaHash(pdahashPtr); };
 
 
 	return _Result;
@@ -408,6 +408,7 @@ public static L_DnaHash l_dnaHashCreateFromPta(
 
 	return  new L_DnaHash(_Result);
 }
+
 
 }
 }

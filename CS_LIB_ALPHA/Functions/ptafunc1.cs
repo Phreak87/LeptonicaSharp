@@ -544,7 +544,7 @@ public static int ptaGetLinearLSF(
 	int _Result = Natives.ptaGetLinearLSF(pta.Pointer, out  pa, out  pb, out pnafitPtr);
 	
 
-	if (pnafitPtr == null) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
+	if (pnafitPtr == IntPtr.Zero) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
 
 
 	return _Result;
@@ -593,7 +593,7 @@ public static int ptaGetQuadraticLSF(
 	int _Result = Natives.ptaGetQuadraticLSF(pta.Pointer, out  pa, out  pb, out  pc, out pnafitPtr);
 	
 
-	if (pnafitPtr == null) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
+	if (pnafitPtr == IntPtr.Zero) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
 
 
 	return _Result;
@@ -646,7 +646,7 @@ public static int ptaGetCubicLSF(
 	int _Result = Natives.ptaGetCubicLSF(pta.Pointer, out  pa, out  pb, out  pc, out  pd, out pnafitPtr);
 	
 
-	if (pnafitPtr == null) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
+	if (pnafitPtr == IntPtr.Zero) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
 
 
 	return _Result;
@@ -702,7 +702,7 @@ public static int ptaGetQuarticLSF(
 	int _Result = Natives.ptaGetQuarticLSF(pta.Pointer, out  pa, out  pb, out  pc, out  pd, out  pe, out pnafitPtr);
 	
 
-	if (pnafitPtr == null) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
+	if (pnafitPtr == IntPtr.Zero) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
 
 
 	return _Result;
@@ -749,8 +749,8 @@ public static int ptaNoisyLinearLSF(
 	int _Result = Natives.ptaNoisyLinearLSF(pta.Pointer,   factor, out pptadPtr, out  pa, out  pb, out  pmederr, out pnafitPtr);
 	
 
-	if (pptadPtr == null) {pptad = null;} else { pptad = new Pta(pptadPtr); };
-	if (pnafitPtr == null) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
+	if (pptadPtr == IntPtr.Zero) {pptad = null;} else { pptad = new Pta(pptadPtr); };
+	if (pnafitPtr == IntPtr.Zero) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
 
 
 	return _Result;
@@ -793,8 +793,8 @@ public static int ptaNoisyQuadraticLSF(
 	int _Result = Natives.ptaNoisyQuadraticLSF(pta.Pointer,   factor, out pptadPtr, out  pa, out  pb, out  pc, out  pmederr, out pnafitPtr);
 	
 
-	if (pptadPtr == null) {pptad = null;} else { pptad = new Pta(pptadPtr); };
-	if (pnafitPtr == null) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
+	if (pptadPtr == IntPtr.Zero) {pptad = null;} else { pptad = new Pta(pptadPtr); };
+	if (pnafitPtr == IntPtr.Zero) {pnafit = null;} else { pnafit = new Numa(pnafitPtr); };
 
 
 	return _Result;
@@ -1068,8 +1068,8 @@ public static Ptaa ptaaGetBoundaryPixels(
 	IntPtr _Result = Natives.ptaaGetBoundaryPixels(pixs.Pointer,   type,   connectivity, out pboxaPtr, out ppixaPtr);
 	
 
-	if (pboxaPtr == null) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
-	if (ppixaPtr == null) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
+	if (pboxaPtr == IntPtr.Zero) {pboxa = null;} else { pboxa = new Boxa(pboxaPtr); };
+	if (ppixaPtr == IntPtr.Zero) {ppixa = null;} else { ppixa = new Pixa(ppixaPtr); };
 
 	if (_Result == IntPtr.Zero) {return null;}
 
@@ -1205,8 +1205,8 @@ public static int ptaConvertToNuma(
 	int _Result = Natives.ptaConvertToNuma(pta.Pointer, out pnaxPtr, out pnayPtr);
 	
 
-	if (pnaxPtr == null) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
-	if (pnayPtr == null) {pnay = null;} else { pnay = new Numa(pnayPtr); };
+	if (pnaxPtr == IntPtr.Zero) {pnax = null;} else { pnax = new Numa(pnaxPtr); };
+	if (pnayPtr == IntPtr.Zero) {pnay = null;} else { pnay = new Numa(pnayPtr); };
 
 
 	return _Result;
@@ -1400,6 +1400,7 @@ public static Pix pixDisplayPtaa(
 
 	return  new Pix(_Result);
 }
+
 
 }
 }

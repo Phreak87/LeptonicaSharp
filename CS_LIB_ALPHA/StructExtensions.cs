@@ -1,9 +1,13 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Runtime.InteropServices;
 using Enumerations;
 using LeptonicaSharp;
+using static LeptonicaSharp._All;
+using System.Drawing.Imaging;
+
 public partial class L_Bytea
 {
 	// bytearray.c (93, 1)
@@ -262,18 +266,18 @@ public partial class Pix
 	///  <summary>
 	/// (1) This is a top-level function, with simple default values
 	/// for unpacking.<para/>
-	/// 
+	///
 	/// (2) The result, pixd, is made with a colormap if specified.
 	/// It is always a new image -- never a clone.  For example,
 	/// if d == 8, and cmapflag matches the existence of a cmap
 	/// in pixs, the operation is lossless and it returns a copy.<para/>
-	/// 
+	///
 	/// (3) The default values used are:
 	/// ~ 1 bpp: val0 = 255, val1 = 0
 	/// ~ 2 bpp: 4 bpp:  even increments over dynamic range
 	/// ~ 8 bpp: lossless if cmap matches cmapflag
 	/// ~ 16 bpp: use most significant byte<para/>
-	/// 
+	///
 	/// (4) If 32 bpp RGB, this is converted to gray.  If you want
 	/// to do color quantization, you must specify the type
 	/// explicitly, using the color quantization code.
@@ -295,9 +299,9 @@ public partial class Pix
 	///  <summary>
 	/// (1) This is a top-level function, with simple default values
 	/// used in pixConvertTo8() if unpacking is necessary.<para/>
-	/// 
+	///
 	/// (2) Any existing colormap is removed the result is always gray.<para/>
-	/// 
+	///
 	/// (3) If the input image has 4 bpp and no colormap, the operation is
 	/// lossless and a copy is returned.
 	///  </summary>
@@ -317,9 +321,9 @@ public partial class Pix
 	///  <summary>
 	/// (1) This is a top-level function, with simple default values
 	/// used in pixConvertTo8() if unpacking is necessary.<para/>
-	/// 
+	///
 	/// (2) Any existing colormap is removed the result is always gray.<para/>
-	/// 
+	///
 	/// (3) If the input image has 2 bpp and no colormap, the operation is
 	/// lossless and a copy is returned.
 	///  </summary>
@@ -339,9 +343,9 @@ public partial class Pix
 	///  <summary>
 	/// (1) This is a top-level function, with simple default values
 	/// used in pixConvertTo8() if unpacking is necessary.<para/>
-	/// 
+	///
 	/// (2) Any existing colormap is removed.<para/>
-	/// 
+	///
 	/// (3) If the input image has 1 bpp and no colormap, the operation is
 	/// lossless and a copy is returned.
 	///  </summary>
@@ -366,19 +370,19 @@ public partial class Pix
 	/// (c) pixd != pixs  (data copy no change in refcount)
 	/// If the refcount of pixd  is greater  1, case (c) will side-effect
 	/// these handles.<para/>
-	/// 
+	///
 	/// (2) The general pattern of use is:
 	/// pixd = pixCopy(pixd, pixs)
 	/// This will work for all three cases.
 	/// For clarity when the case is known, you can use:
 	/// (a) pixd = pixCopy(NULL, pixs)
 	/// (c) pixCopy(pixd, pixs)<para/>
-	/// 
+	///
 	/// (3) For case (c), we check if pixs and pixd are the same
 	/// size (w,h,d).  If so, the data is copied directly.
 	/// Otherwise, the data is reallocated to the correct size
 	/// and the copy proceeds.  The refcount of pixd is unchanged.<para/>
-	/// 
+	///
 	/// (4) This operation, like all others that may involve a pre-existing
 	/// pixd, will side-effect any existing clones of pixd.
 	///  </summary>
@@ -400,7 +404,7 @@ public partial class Pix
 	/// (1) This binarizes if necessary and finds the skew angle.  If the
 	/// angle is large enough and there is sufficient confidence,
 	/// it returns a deskewed image otherwise, it returns a clone.<para/>
-	/// 
+	///
 	/// (2) Typical values at 300 ppi for %redsearch are 2 and 4.
 	/// At 75 ppi, one should use %redsearch = 1.
 	///  </summary>
@@ -420,12 +424,12 @@ public partial class Pix
 	// pixInvert(PIX *, PIX *) as PIX *
 	///  <summary>
 	/// (1) This inverts pixs, for all pixel depths.<para/>
-	/// 
+	///
 	/// (2) There are 3 cases:
 	/// (a) pixd == null, ~src to new pixd
 	/// (b) pixd == pixs, ~src to src  (in-place)
 	/// (c) pixd != pixs, ~src to input pixd<para/>
-	/// 
+	///
 	/// (3) For clarity, if the case is known, use these patterns:
 	/// (a) pixd = pixInvert(NULL, pixs)
 	/// (b) pixInvert(pixs, pixs)
@@ -448,12 +452,12 @@ public partial class Pix
 	///  <summary>
 	/// (1) Simple top-level function to detect if Roman text is in
 	/// reading orientation, and to rotate the image accordingly if not.<para/>
-	/// 
+	///
 	/// (2) Returns a copy if no rotation is needed.<para/>
-	/// 
+	///
 	/// (3) See notes for pixOrientDetect() and pixOrientDecision().
 	/// Use 0.0 for default values for %minupconf and %minratio<para/>
-	/// 
+	///
 	/// (4) Optional output of intermediate confidence results and
 	/// the rotation performed on pixs.
 	///  </summary>
@@ -484,9 +488,9 @@ public partial class Pix
 	///  <summary>
 	/// (1) This is a simplified interface to pixBackgroundNorm(),
 	/// where seven parameters are defaulted.<para/>
-	/// 
+	///
 	/// (2) The input image is either grayscale or rgb.<para/>
-	/// 
+	///
 	/// (3) See pixBackgroundNorm() for usage and function.
 	///  </summary>
 	///  <remarks>
@@ -508,7 +512,7 @@ public partial class Pix
 	///  <summary>
 	/// (1) This is a simplified interface for cleaning an image.
 	/// For comparison, see pixAdaptThresholdToBinaryGen().<para/>
-	/// 
+	///
 	/// (2) The suggested default values for the input parameters are:
 	/// gamma:  1.0  (reduce this to increase the contrast e.g.,
 	/// for light text)
@@ -539,7 +543,7 @@ public partial class Pix
 	// pixGetRegionsBinary(PIX *, PIX **, PIX **, PIX **, PIXA *) as l_ok
 	///  <summary>
 	/// (1) It is best to deskew the image before segmenting.<para/>
-	/// 
+	///
 	/// (2) Passing in %pixadb enables debug output.
 	///  </summary>
 	///  <remarks>
@@ -587,21 +591,21 @@ public partial class Pix
 	/// (1) Generates a colormapped image, where the colormap table values
 	/// have two components: octcube values representing pixels with
 	/// color content, and grayscale values for the rest.<para/>
-	/// 
+	///
 	/// (2) The threshold (delta) is the maximum allowable difference of
 	/// the max abs value of | r - g |, | r - b | and | g - b |.<para/>
-	/// 
+	///
 	/// (3) The octcube values are the averages of all pixels that are
 	/// found in the octcube, and that are far enough from gray to
 	/// be considered color.  This can roughly be visualized as all
 	/// the points in the rgb color cube that are not within a "cylinder"
 	/// of diameter approximately 'delta' along the main diagonal.<para/>
-	/// 
+	///
 	/// (4) We want to guarantee full coverage of the rgb color space thus,
 	/// if the output depth is 4, the octlevel is 1 (2 x 2 x 2 = 8 cubes)
 	/// and if the output depth is 8, the octlevel is 2 (4 x 4 x 4
 	/// = 64 cubes).<para/>
-	/// 
+	///
 	/// (5) Consequently, we have the following constraint on the number
 	/// of allowed gray levels: for 4 bpp, 8 for 8 bpp, 192.
 	///  </summary>
@@ -658,11 +662,11 @@ public partial class Pix
 	// dewarpSinglePage(PIX *, l_int32, l_int32, l_int32, l_int32, PIX **, L_DEWARPA **, l_int32) as l_ok
 	///  <summary>
 	/// (1) Dewarps pixs and returns the result in [and]pixd.<para/>
-	/// 
+	///
 	/// (2) This uses default values for all model parameters.<para/>
-	/// 
+	///
 	/// (3) If pixs is 1 bpp, the parameters %adaptive and %thresh are ignored.<para/>
-	/// 
+	///
 	/// (4) If it can't build a model, returns a copy of pixs in [and]pixd.
 	///  </summary>
 	///  <remarks>
@@ -693,10 +697,10 @@ public partial class Pix
 	///  <summary>
 	/// (1) If %res == 0 and the input resolution field is 0,
 	/// this will use DEFAULT_INPUT_RES.<para/>
-	/// 
+	///
 	/// (2) This only writes data to fileout if it is the last
 	/// image to be written on the page.<para/>
-	/// 
+	///
 	/// (3) See comments in convertToPdf().
 	///  </summary>
 	///  <remarks>
@@ -725,7 +729,473 @@ public partial class Pix
 		int RetObj = _All.pixConvertToPdf (this, type, quality, fileout, x, y, res, title, ref plpd, position);
 		return RetObj;
 	}
+
+    /// <summary>
+    /// Convert Pix to dotnet Bitmap
+    /// </summary>
+    /// <param name="pixs"></param>
+    /// <param name="includeAlpha"></param>
+    /// <returns></returns>
+    public static Bitmap Convert(Pix pixs, bool includeAlpha = false)
+    {
+        var pixelFormat = GetPixelFormat(pixs);
+        var depth = pixs.d;
+        var img = new Bitmap((int)pixs.w, (int)pixs.h, pixelFormat);
+
+        BitmapData imgData = null;
+        try
+        {
+            // transfer pixel data
+            if ((pixelFormat & PixelFormat.Indexed) == PixelFormat.Indexed)
+            {
+                TransferPalette(pixs, img);
+            }
+
+            // transfer data
+            imgData = img.LockBits(new Rectangle(0, 0, img.Width, img.Height), ImageLockMode.WriteOnly, pixelFormat);
+
+            if (depth == 32)
+                TransferData32(pixs, imgData, includeAlpha ? 0 : 255);
+            else if (depth == 16)
+                TransferData16(pixs, imgData);
+            else if (depth == 8)
+                TransferData8(pixs, imgData);
+            else if (depth == 4)
+                TransferData4(pixs, imgData);
+            else if (depth == 1)
+                TransferData1(pixs, imgData);
+
+            if (pixs.xres > 0 && pixs.yres > 0)
+                img.SetResolution(pixs.xres, pixs.yres);
+
+            return img;
+        }
+        catch (Exception)
+        {
+            img.Dispose();
+            throw;
+        }
+        finally
+        {
+            if (imgData != null)
+            {
+                img.UnlockBits(imgData);
+            }
+        }
+    }
+
+    #region [ TransferData ]
+    private unsafe static void TransferData32(Pix pixs, BitmapData imgData, int alphaMask = 0)
+    {
+        var imgFormat = imgData.PixelFormat;
+        var height = imgData.Height;
+        var width = imgData.Width;
+        var pixData = Natives.pixGetData(pixs.Pointer);
+        var wpl = pixs.wpl;
+
+        for (int y = 0; y < height; y++)
+        {
+            byte* imgLine = (byte*)imgData.Scan0 + (y * imgData.Stride);
+            uint* pixLine = (uint*)pixData + (y * wpl);
+
+            for (int x = 0; x < width; x++)
+            {
+                //var pixVal = PixColor.FromRgba(pixLine[x]);
+                var value = pixLine[x];
+                //byte* pixelPtr = imgLine + (x << 2);
+                //pixelPtr[0] = pixVal.Blue;
+                //pixelPtr[1] = pixVal.Green;
+                //pixelPtr[2] = pixVal.Red;
+                //pixelPtr[3] = (byte)(alphaMask | pixVal.Alpha); // Allow user to include alpha or not
+                byte* pixelPtr = imgLine + (x << 2);
+                // First Way
+                pixelPtr[0] = (byte)((value >> 8) & 0xFF); //B
+                pixelPtr[1] = (byte)((value >> 16) & 0xFF); //G
+                pixelPtr[2] = (byte)((value >> 24) & 0xFF); //R
+                pixelPtr[3] = (byte)((byte)(value & 0xFF) | alphaMask); //A
+
+                //// Second Way
+                //var col = ToArgb(value);
+                //pixelPtr[0] = col.B;
+                //pixelPtr[1] = col.G;
+                //pixelPtr[2] = col.R;
+                //pixelPtr[3] = (byte)(col.A | alphaMask);
+
+                //// Third Way
+                //var a = (value & 0xFF000000) >> 24;
+                //var r = (value & 0x00FF0000) >> 16;
+                //var g = (value & 0x0000FF00) >> 8;
+                //var b = (value & 0x000000FF);
+
+                //pixelPtr[0] = (byte)b;
+                //pixelPtr[1] = (byte)g;
+                //pixelPtr[2] = (byte)r;
+                //pixelPtr[3] = (byte)((byte)a | alphaMask);
+
+                //// First Way but clearer
+                //var a = (byte)((byte)(value & 0xFF) | alphaMask); //A
+                //var b = (byte)((value >> 8) & 0xFF); //B
+                //var g = (byte)((value >> 16) & 0xFF); //G
+                //var r = (byte)((value >> 24) & 0xFF); //R
+                //pixelPtr[0] = b;
+                //pixelPtr[1] = g;
+                //pixelPtr[2] = r;
+                //pixelPtr[3] = a;
+            }
+        }
+    }
+
+    private unsafe static void TransferData16(Pix pixs, BitmapData imgData)
+    {
+        var imgFormat = imgData.PixelFormat;
+        var height = imgData.Height;
+        var width = imgData.Width;
+        var pixData = Natives.pixGetData(pixs.Pointer);
+        var wpl = pixs.wpl;
+
+        for (int y = 0; y < height; y++)
+        {
+            uint* pixLine = (uint*)pixData + (y * wpl);
+            ushort* imgLine = (ushort*)imgData.Scan0 + (y * imgData.Stride);
+
+            for (int x = 0; x < width; x++)
+            {
+                var pixVal = (ushort)GetDataTwoByte(pixLine, x);
+                imgLine[x] = pixVal;
+            }
+        }
+    }
+
+    private unsafe static void TransferData8(Pix pixs, BitmapData imgData)
+    {
+        var imgFormat = imgData.PixelFormat;
+        var height = imgData.Height;
+        var width = imgData.Width;
+        var pixData = Natives.pixGetData(pixs.Pointer);
+        var wpl = pixs.wpl;
+
+        for (int y = 0; y < height; y++)
+        {
+            uint* pixLine = (uint*)pixData + (y * wpl);
+            byte* imgLine = (byte*)imgData.Scan0 + (y * imgData.Stride);
+
+            for (int x = 0; x < width; x++)
+            {
+                var pixVal = (byte)GetDataByte(pixLine, x);
+                imgLine[x] = pixVal;
+            }
+        }
+    }
+
+    private unsafe static void TransferData4(Pix pixs, BitmapData imgData)
+    {
+        var imgFormat = imgData.PixelFormat;
+        var height = imgData.Height;
+        var width = imgData.Width;
+        var pixData = Natives.pixGetData(pixs.Pointer);
+        var wpl = pixs.wpl;
+
+        for (int y = 0; y < height; y++)
+        {
+            uint* pixLine = (uint*)pixData + (y * wpl);
+            byte* imgLine = (byte*)imgData.Scan0.ToPointer();
+
+            for (int x = 0; x < width; x++)
+            {
+                var pixVal = (byte)GetDataQBit(pixLine, x);
+
+                var index = (y * imgData.Stride) + (x >> 1);
+                var curBy = ((byte*)imgData.Scan0)[index];
+                if ((x & 1) == 1)
+                {
+                    curBy &= 0xf0;
+                    curBy |= (byte)(pixVal & 0x0f);
+                }
+                else
+                {
+                    curBy &= 0x0f;
+                    curBy |= (byte)(pixVal << 4);
+                }
+
+                imgLine[index] = curBy;
+            }
+        }
+    }
+
+    private unsafe static void TransferData1(Pix pixs, BitmapData imgData)
+    {
+        var imgFormat = imgData.PixelFormat;
+        var height = imgData.Height;
+        var width = imgData.Width;
+        var pixData = Natives.pixGetData(pixs.Pointer);
+        var wpl = pixs.wpl;
+
+        for (int y = 0; y < height; y++)
+        {
+            uint* pixLine = (uint*)pixData + (y * wpl);
+            byte* imgLine = (byte*)imgData.Scan0.ToPointer();
+
+            for (int x = 0; x < width; x++)
+            {
+                var pixVal = (byte)~GetDataBit(pixLine, x);
+                var index = y * imgData.Stride + (x >> 3);
+                var mask = (byte)(0x80 >> (x & 0x7));
+                if (pixVal != 255)
+                    imgLine[index] &= (byte)(mask ^ 0xff);
+                else
+                    imgLine[index] |= mask;
+            }
+        }
+    }
+
+    private static void TransferPalette(Pix pixs, Bitmap img)
+    {
+        var palette = img.Palette;
+        var maxColors = palette.Entries.Length;
+        var lastColor = maxColors - 1;
+        var colormap = pixs.pixGetColormap();// pix.Colormap;
+        if (colormap != null && colormap.pixcmapGetCount() <= maxColors)
+        {
+            var colormapCount = colormap.pixcmapGetCount();
+            for (int i = 0; i < colormapCount; i++)
+                palette.Entries[i] = Color.FromArgb(colormap.array[i].alpha, colormap.array[i].red, colormap.array[i].green, colormap.array[i].blue);
+        }
+        else
+        {
+            for (int i = 0; i < maxColors; i++)
+            {
+                var value = (byte)(i * 255 / lastColor);
+                palette.Entries[i] = Color.FromArgb(value, value, value);
+            }
+        }
+
+        // This is required to force the palette to update!
+        img.Palette = palette;
+    }
+    #endregion
+
+    private static PixelFormat GetPixelFormat(Pix pix)
+    {
+        switch (pix.d)
+        {
+            case 1: return PixelFormat.Format1bppIndexed;
+            case 2: return PixelFormat.Format4bppIndexed;
+            case 4: return PixelFormat.Format4bppIndexed;
+            case 8: return PixelFormat.Format8bppIndexed;
+            case 16: return PixelFormat.Format16bppGrayScale;
+            case 32: return PixelFormat.Format32bppArgb;
+            default: throw new InvalidOperationException(String.Format("Pix depth {0} is not supported.", pix.d));
+        }
+    }
+
+    private static Color ToArgb(uint value)
+    {
+        //return new PixColor(
+        //   (byte)((value >> 24) & 0xFF),
+        //   (byte)((value >> 16) & 0xFF),
+        //   (byte)((value >> 8) & 0xFF),
+        //   (byte)(value & 0xFF));
+
+        return Color.FromArgb(
+           (byte)(value & 0xFF), //A
+           (byte)((value >> 24) & 0xFF), //R
+           (byte)((value >> 16) & 0xFF), //G
+           (byte)((value >> 8) & 0xFF)); //B
+    }
+
+    #region [ PixData ]
+#if Net45
+       	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static unsafe uint EncodeAsRGBA(byte red, byte green, byte blue, byte alpha)
+    {
+        return (uint)((red << 24) |
+            (green << 16) |
+            (blue << 8) |
+            alpha);
+    }
+
+    /// <summary>
+    /// Gets the pixel value for a 1bpp image.
+    /// </summary>
+#if Net45
+      	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static unsafe uint GetDataBit(uint* data, int index)
+    {
+        return (*(data + ((index) >> 5)) >> (31 - ((index) & 31))) & 1;
+    }
+
+    /// <summary>
+    /// Sets the pixel value for a 1bpp image.
+    /// </summary>
+#if Net45
+      	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static unsafe void SetDataBit(uint* data, int index, uint value)
+    {
+        uint* wordPtr = data + ((index) >> 5);
+        *wordPtr &= ~(0x80000000 >> ((index) & 31));
+        *wordPtr |= (value << (31 - ((index) & 31)));
+    }
+
+    /// <summary>
+    /// Gets the pixel value for a 2bpp image.
+    /// </summary>
+#if Net45
+      	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static unsafe uint GetDataDIBit(uint* data, int index)
+    {
+        return (*(data + ((index) >> 4)) >> (2 * (15 - ((index) & 15)))) & 3;
+    }
+
+    /// <summary>
+    /// Sets the pixel value for a 2bpp image.
+    /// </summary>
+#if Net45
+      	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static unsafe void SetDataDIBit(uint* data, int index, uint value)
+    {
+        uint* wordPtr = data + ((index) >> 4);
+        *wordPtr &= ~(0xc0000000 >> (2 * ((index) & 15)));
+        *wordPtr |= (((value) & 3) << (30 - 2 * ((index) & 15)));
+    }
+
+    /// <summary>
+    /// Gets the pixel value for a 4bpp image.
+    /// </summary>
+#if Net45
+      	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static unsafe uint GetDataQBit(uint* data, int index)
+    {
+        return (*(data + ((index) >> 3)) >> (4 * (7 - ((index) & 7)))) & 0xf;
+    }
+
+    /// <summary>
+    /// Sets the pixel value for a 4bpp image.
+    /// </summary>
+#if Net45
+      	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static unsafe void SetDataQBit(uint* data, int index, uint value)
+    {
+        uint* wordPtr = data + ((index) >> 3);
+        *wordPtr &= ~(0xf0000000 >> (4 * ((index) & 7)));
+        *wordPtr |= (((value) & 15) << (28 - 4 * ((index) & 7)));
+    }
+
+    /// <summary>
+    /// Gets the pixel value for a 8bpp image.
+    /// </summary>
+#if Net45
+      	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static unsafe uint GetDataByte(uint* data, int index)
+    {
+        // Must do direct size comparison to detect x64 process, since in this will be jited out and results in a lot faster code (e.g. 6x faster for image conversion)
+        if (IntPtr.Size == 8)
+        {
+            return *((byte*)((ulong)((byte*)data + index) ^ 3));
+        }
+        else
+        {
+            return *((byte*)((uint)((byte*)data + index) ^ 3));
+        }
+        // Architecture types that are NOT little edian are not currently supported
+        //return *((byte*)data + index);
+    }
+
+    /// <summary>
+    /// Sets the pixel value for a 8bpp image.
+    /// </summary>
+#if Net45
+      	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static unsafe void SetDataByte(uint* data, int index, uint value)
+    {
+        // Must do direct size comparison to detect x64 process, since in this will be jited out and results in a lot faster code (e.g. 6x faster for image conversion)
+        if (IntPtr.Size == 8)
+        {
+            *(byte*)((ulong)((byte*)data + index) ^ 3) = (byte)value;
+        }
+        else
+        {
+            *(byte*)((uint)((byte*)data + index) ^ 3) = (byte)value;
+        }
+
+        // Architecture types that are NOT little edian are not currently supported
+        // *((byte*)data + index) =  (byte)value;
+    }
+
+    /// <summary>
+    /// Gets the pixel value for a 16bpp image.
+    /// </summary>
+#if Net45
+      	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static unsafe uint GetDataTwoByte(uint* data, int index)
+    {
+        // Must do direct size comparison to detect x64 process, since in this will be jited out and results in a lot faster code (e.g. 6x faster for image conversion)
+        if (IntPtr.Size == 8)
+        {
+            return *(ushort*)((ulong)((ushort*)data + index) ^ 2);
+        }
+        else
+        {
+            return *(ushort*)((uint)((ushort*)data + index) ^ 2);
+        }
+        // Architecture types that are NOT little edian are not currently supported
+        // return *((ushort*)data + index);
+    }
+
+    /// <summary>
+    /// Sets the pixel value for a 16bpp image.
+    /// </summary>
+#if Net45
+      	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static unsafe void SetDataTwoByte(uint* data, int index, uint value)
+    {
+        // Must do direct size comparison to detect x64 process, since in this will be jited out and results in a lot faster code (e.g. 6x faster for image conversion)
+        if (IntPtr.Size == 8)
+        {
+            *(ushort*)((ulong)((ushort*)data + index) ^ 2) = (ushort)value;
+        }
+        else
+        {
+            *(ushort*)((uint)((ushort*)data + index) ^ 2) = (ushort)value;
+        }
+        // Architecture types that are NOT little edian are not currently supported
+        //*((ushort*)data + index) = (ushort)value;
+    }
+
+    /// <summary>
+    /// Gets the pixel value for a 32bpp image.
+    /// </summary>
+#if Net45
+      	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static unsafe uint GetDataFourByte(uint* data, int index)
+    {
+        return *(data + index);
+    }
+
+    /// <summary>
+    /// Sets the pixel value for a 32bpp image.
+    /// </summary>
+#if Net45
+      	[MethodImpl(MethodImplOptions.AggressiveInlining)]
+#endif
+    public static unsafe void SetDataFourByte(uint* data, int index, uint value)
+    {
+        *(data + index) = value;
+    }
+    #endregion
 }
+
 public partial class PixColormap
 {
 	// colormap.c (110, 1)
@@ -779,7 +1249,7 @@ public partial class PixColormap
 	// pixcmapAddColor(PIXCMAP *, l_int32, l_int32, l_int32) as l_ok
 	///  <summary>
 	/// (1) This always adds the color if there is room.<para/>
-	/// 
+	///
 	/// (2) The alpha component is 255 (opaque)
 	///  </summary>
 	///  <remarks>

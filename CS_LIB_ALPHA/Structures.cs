@@ -8124,22 +8124,44 @@ public partial class PixColormap : IDisposable
     ///  Org: [void * array]
     ///  Msh: void * | 2:Void | Object -  - IntPtr
     ///  </remarks>
-    public IntPtr array
+    //public IntPtr array
+    public RGBA_Quad[] array
     {
         get
         {
             if (Pointer == IntPtr.Zero)
             {
-                return IntPtr.Zero;
+                //return IntPtr.Zero;
+                return null;
             }
             else
             {
                 Marshal.PtrToStructure (Pointer, Values);
                 if (Values.array != IntPtr.Zero)
                 {
-                    return Values.array;
+                    //int byteLength = Marshal.SizeOf(typeof(RGBA_Quad)) * Values.n;
+                    int byteLength = Marshal.SizeOf(typeof(byte)) * 4 * Values.n;
+                    var tmp = new byte[byteLength];
+                    Marshal.Copy(Values.array, tmp, 0, tmp.Length);
+                    var arr = new RGBA_Quad[n];
+                    var quadCnt = 0;
+                    for (int i = 0; i < arr.Length; i++)
+                    {
+                        arr[i] = new RGBA_Quad();
+                        arr[i].blue = tmp[quadCnt];
+                        arr[i].green = tmp[quadCnt + 1];
+                        arr[i].red = tmp[quadCnt + 2];
+                        arr[i].alpha = tmp[quadCnt + 3];
+                        quadCnt += 4;
+                    }
+
+                    return arr;
                 }
-                else { return IntPtr.Zero; };
+                else
+                {
+                    //return IntPtr.Zero;
+                    return null;
+                };
             }
         }
     }
@@ -8246,6 +8268,9 @@ public partial class RGBA_Quad : IDisposable
         Pointer = PTR;
         Marshal.PtrToStructure (Pointer, Values);
     }
+    public RGBA_Quad() { }
+
+    private byte _blue;
     ///  <summary>
     ///  blue value
     ///  </summary>
@@ -8260,15 +8285,19 @@ public partial class RGBA_Quad : IDisposable
         {
             if (Pointer == IntPtr.Zero)
             {
-                return 0;
+                //return 0;
+                return _blue;
             }
             else
             {
-                Marshal.PtrToStructure (Pointer, Values);
+                Marshal.PtrToStructure(Pointer, Values);
                 return Values.blue;
             }
         }
+        set { _blue = value; }
     }
+
+    private byte _green;
     ///  <summary>
     ///  green value
     ///  </summary>
@@ -8283,7 +8312,8 @@ public partial class RGBA_Quad : IDisposable
         {
             if (Pointer == IntPtr.Zero)
             {
-                return 0;
+                //return 0;
+                return _green;
             }
             else
             {
@@ -8291,7 +8321,9 @@ public partial class RGBA_Quad : IDisposable
                 return Values.green;
             }
         }
+        set { _green = value; }
     }
+    private byte _red;
     ///  <summary>
     ///  red value
     ///  </summary>
@@ -8306,7 +8338,8 @@ public partial class RGBA_Quad : IDisposable
         {
             if (Pointer == IntPtr.Zero)
             {
-                return 0;
+                //return 0;
+                return _red;
             }
             else
             {
@@ -8314,7 +8347,9 @@ public partial class RGBA_Quad : IDisposable
                 return Values.red;
             }
         }
+        set { _red = value; }
     }
+    private byte _alpha;
     ///  <summary>
     ///  alpha value
     ///  </summary>
@@ -8329,7 +8364,8 @@ public partial class RGBA_Quad : IDisposable
         {
             if (Pointer == IntPtr.Zero)
             {
-                return 0;
+                //return 0;
+                return _alpha;
             }
             else
             {
@@ -8337,6 +8373,7 @@ public partial class RGBA_Quad : IDisposable
                 return Values.alpha;
             }
         }
+        set { _alpha = value; }
     }
     [StructLayout (LayoutKind.Sequential)]
     private class Marshal_RGBA_Quad

@@ -1,22 +1,22 @@
 ﻿Imports LeptonicaSharp
 
 Public Class NoteShrink
-    Sub CleanUp2(Pix As LeptonicaSharp.Pix)
-        Pix.Display()
-        Dim px = Pix.pixOctcubeQuantMixedWithGray(8, 2, 36)
+    Sub CleanUp2(ByVal Pix As Pix)
+        'Pix.Display()
+        'Dim px = Pix.pixOctcubeQuantMixedWithGray(8, 2, 36)
 
-        Dim palette = ProcessColorMap(px)
-        SaturatePalette(palette)
-        Dim cm = CreateNewColorMap(px, palette)
-        px.pixSetColormap(cm)
-        px.Display()
+        'Dim palette = ProcessColorMap(px)
+        'SaturatePalette(palette)
+        'Dim cm = CreateNewColorMap(px, palette)
+        'px.pixSetColormap(cm)
+        'px.Display()
     End Sub
     Private Function CreateNewColorMap(px As Pix, ByRef aPalette As Byte()()) As PixColormap
-        Dim newCmap = LeptonicaSharp._All.pixcmapCreate(px.d)
-        For i As Integer = 0 To aPalette.Length - 1
-            newCmap.pixcmapAddColor(aPalette(i)(0), aPalette(i)(1), aPalette(i)(2))
-        Next
-        Return newCmap
+        'Dim newCmap = LeptonicaSharp._All.pixcmapCreate(px.d)
+        'For i As Integer = 0 To aPalette.Length - 1
+        '    newCmap.pixcmapAddColor(aPalette(i)(0), aPalette(i)(1), aPalette(i)(2))
+        'Next
+        'Return newCmap
     End Function
 
     Private Sub SaturatePalette(ByRef pal As Byte()())
@@ -54,18 +54,18 @@ Public Class NoteShrink
     End Sub
 
     Function ProcessColorMap(px As Pix) As Byte()()
-        Dim cmap = px.pixGetColormap()
-        Dim cmapCnt = cmap.pixcmapGetCount()
+        'Dim cmap = px.pixGetColormap()
+        'Dim cmapCnt = cmap.pixcmapGetCount()
 
-        Dim pal(cmapCnt - 1)() As Byte
-        Dim b(cmapCnt - 1)() As Byte
-        For i As Integer = 0 To cmapCnt - 1
-            Dim RVal As Integer = 0
-            Dim GVal As Integer = 0
-            Dim BVal As Integer = 0
-            cmap.pixcmapGetColor(i, RVal, GVal, BVal)
-            pal(i) = New Byte() {RVal, GVal, BVal}
-        Next
-        Return pal
+        'Dim pal(cmapCnt - 1)() As Byte
+        'Dim b(cmapCnt - 1)() As Byte
+        'For i As Integer = 0 To cmapCnt - 1
+        '    Dim RVal As Integer = 0
+        '    Dim GVal As Integer = 0
+        '    Dim BVal As Integer = 0
+        '    cmap.pixcmapGetColor(i, RVal, GVal, BVal)
+        '    pal(i) = New Byte() {RVal, GVal, BVal}
+        'Next
+        'Return pal
     End Function
 End Class

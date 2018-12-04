@@ -128,6 +128,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Release.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -173,9 +174,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VB_Lib\VB_LIB.vbproj">
-      <Project>{5141B932-2D30-47A6-87A6-557FA5F4E6A7}</Project>
-      <Name>VB_LIB</Name>
+    <ProjectReference Include="..\CS_LIB\CS_LIB.csproj">
+      <Project>{EEBCEE15-FBBD-46FA-AAB8-2B7502451B68}</Project>
+      <Name>CS_LIB</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
